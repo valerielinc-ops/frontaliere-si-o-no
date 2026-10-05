@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-10-04T21:44:59.793Z",
+  "generatedAt": "2026-10-05T09:38:52.966Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3559,
-  "avgDurationMs": 3559,
+  "durationMs": 2975,
+  "avgDurationMs": 2975,
   "durationHistory": [
-    3559
+    2975
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:51.803Z",
+      "crawledAt": "2026-10-05T09:38:45.455Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -48,7 +50,9 @@
       "sector": "Tecnologia / Software",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
+      "datePosted": "2026-07-16T14:43:00+02:00",
+      "postedDate": "2026-07-16T14:43:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "jobReqId": "8bfece5f-35a3-4792-801e-9b9d07ea15e6",
       "firstSeenAt": "2026-07-24T11:19:18.193Z",
@@ -76,7 +80,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:51.802Z",
+      "crawledAt": "2026-10-05T09:38:45.452Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -90,7 +94,9 @@
       "sector": "Tecnologia / Software",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "2026-10-01T08:53:49+02:00",
+      "postedDate": "2026-10-01T08:53:49+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "jobReqId": "5fc108a3-d274-433d-9a59-17a2f335b244",
       "firstSeenAt": "2026-10-01T09:35:16.217Z",
@@ -108,5 +114,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

@@ -1,7 +1,7 @@
 {
   "key": "apply",
   "label": "LEITpuls AG",
-  "generatedAt": "2026-10-05T08:12:13.590Z",
+  "generatedAt": "2026-10-05T10:35:16.352Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3011,
-  "avgDurationMs": 3011,
+  "durationMs": 3223,
+  "avgDurationMs": 3223,
   "durationHistory": [
-    3011
+    3223
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:12:06.022Z",
+      "crawledAt": "2026-10-05T10:35:09.991Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "21813a55c13b693c6bc3b96ebf7755119b32c8ef"
+  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
 }

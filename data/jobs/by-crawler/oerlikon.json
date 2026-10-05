@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-10-04T21:36:54.382Z",
+  "assembledAt": "2026-10-05T09:34:23.947Z",
   "jobs": [
     {
       "id": "oerlikon-f2690531813f",
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Sr_-Manager-Strategic-HR-&-Digital-Projects/105071-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:48.621Z",
+      "crawledAt": "2026-10-05T09:34:18.756Z",
       "addressLocality": "Pfäffikon, SZ",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:36:48.011Z",
+      "crawledAt": "2026-10-05T09:34:18.176Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -119,7 +119,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-09T14:04:23.192Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -141,7 +140,7 @@
         "it": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
         "en": "team-leader-electrical-manufacturing-gn-oerlikon-wohlen",
         "de": "teamleiter-elektrofertigung-gn-oerlikon-ch",
-        "fr": "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+        "fr": "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -165,7 +164,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:47.358Z",
+      "crawledAt": "2026-10-05T09:34:17.592Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -186,18 +185,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-elektrofertigung-gn-oerlikon-ch",
-        "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen",
+        "teamleiter-elektrofertigung-gn-oerlikon-wohlen",
         "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
-        "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+        "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-elektrofertigung-gn-oerlikon-ch",
-          "team-leader-electric-manufacturing-gn-oerlikon-wohlen"
+          "teamleiter-elektrofertigung-gn-oerlikon-ch"
         ],
         "fr": [
-          "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen",
-          "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+          "teamleiter-elektrofertigung-gn-oerlikon-wohlen",
+          "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
         ]
       },
       "needsRetranslation": true,
@@ -247,7 +245,7 @@
       "url": "https://careers.oerlikon.com/job/Quality-Engineer-Equipment-%28gn%29/104951-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:46.712Z",
+      "crawledAt": "2026-10-05T09:34:16.987Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -267,20 +265,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-engineer-equipment-gn-oerlikon-ch",
-        "quality-ingegnere-equipment-gn-oerlikon-wohlen"
+        "quality-engineer-equipment-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-engineer-equipment-gn-oerlikon-ch",
-          "quality-ingegnere-equipment-gn-oerlikon-wohlen"
+          "quality-engineer-equipment-gn-oerlikon-ch"
         ],
         "fr": [
           "quality-engineer-equipment-gn-oerlikon-ch"
         ]
       },
       "firstSeenAt": "2026-09-24T00:08:39.951Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -326,7 +321,7 @@
       "url": "https://careers.oerlikon.com/job/Senior-Project-Engineer-Coating-Solution-Center-Europe-%28gn%29/104932-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:46.069Z",
+      "crawledAt": "2026-10-05T09:34:15.819Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -347,14 +342,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch",
-        "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen",
-        "centro-soluzioni-di-rivestimento-dell-ingegnere-senior-europe-gn-oerlikon-wohlen"
+        "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch",
-          "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen",
-          "centro-soluzioni-di-rivestimento-dell-ingegnere-senior-europe-gn-oerlikon-wohlen"
+          "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen"
         ],
         "de": [
           "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch"
@@ -410,7 +403,7 @@
       "url": "https://careers.oerlikon.com/job/Industrial-Software-&-Automation-Engineer-%28gn%29/104476-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:45.465Z",
+      "crawledAt": "2026-10-05T09:34:15.241Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -492,7 +485,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:44.801Z",
+      "crawledAt": "2026-10-05T09:34:14.663Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -568,7 +561,7 @@
       "url": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:44.180Z",
+      "crawledAt": "2026-10-05T09:34:14.031Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -588,13 +581,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-        "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
+        "sales-engineer-fur-upgrades-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-          "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
+          "sales-engineer-fur-upgrades-gn-oerlikon-ch"
         ]
       },
       "needsRetranslation": true,
@@ -644,7 +635,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:43.547Z",
+      "crawledAt": "2026-10-05T09:34:16.419Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -665,18 +656,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
-          "inbetriebnahme-gn-ingenieur-oerlikon-wohlen"
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
         ],
         "it": [
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
-          "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
         ]
       },
       "previousSlugs": [
-        "inbetriebnahme-gn-engineer-oerlikon-ch",
-        "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-        "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+        "inbetriebnahme-gn-engineer-oerlikon-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:36:31.399Z",
@@ -725,7 +712,7 @@
       "url": "https://careers.oerlikon.com/job/Global-Head-Procurement-Equipment-%28gn%29/104949-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:42.938Z",
+      "crawledAt": "2026-10-05T09:34:13.433Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -745,13 +732,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-procurement-equipment-gn-oerlikon-ch",
-        "apparecchiature-globali-di-approvvigionamento-della-testa-gn-oerlikon-wohlen"
+        "global-head-procurement-equipment-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-procurement-equipment-gn-oerlikon-ch",
-          "apparecchiature-globali-di-approvvigionamento-della-testa-gn-oerlikon-wohlen"
+          "global-head-procurement-equipment-gn-oerlikon-ch"
         ],
         "de": [
           "global-head-procurement-equipment-gn-oerlikon-ch"
@@ -761,7 +746,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:09:33.851Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -807,7 +791,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:42.299Z",
+      "crawledAt": "2026-10-05T09:34:11.673Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -829,14 +813,12 @@
       "previousSlugs": [
         "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
         "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-wohlen",
-        "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-          "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
         ],
         "en": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-wohlen"
@@ -892,7 +874,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:41.673Z",
+      "crawledAt": "2026-10-05T09:34:12.258Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -913,13 +895,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-gn-im-anlagenbau-oerlikon-ch",
-        "automatiker-gn-im-anlagenbau-oerlikon-wohlen",
-        "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-gn-im-anlagenbau-oerlikon-ch",
-          "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+          "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ],
         "en": [
           "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
@@ -929,7 +909,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T05:14:42.064Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -975,7 +954,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:41.057Z",
+      "crawledAt": "2026-10-05T09:34:12.847Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -996,14 +975,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "export-verpacker-gn-oerlikon-ch",
-        "export-verpacker-gn-oerlikon-wohlen",
-        "esportatore-gn-oerlikon-wohlen"
+        "export-verpacker-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "export-verpacker-gn-oerlikon-ch",
-          "export-verpacker-gn-oerlikon-wohlen",
-          "esportatore-gn-oerlikon-wohlen"
+          "export-verpacker-gn-oerlikon-wohlen"
         ],
         "fr": [
           "export-verpacker-gn-oerlikon-wohlen"
@@ -1055,7 +1032,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:40.407Z",
+      "crawledAt": "2026-10-05T09:34:11.079Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1075,13 +1052,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-gn-pruffeld-oerlikon-ch",
-        "campo-di-prova-tecnico-gn-oerlikon-wohlen"
+        "techniker-gn-pruffeld-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-gn-pruffeld-oerlikon-ch",
-          "campo-di-prova-tecnico-gn-oerlikon-wohlen"
+          "techniker-gn-pruffeld-oerlikon-ch"
         ],
         "en": [
           "techniker-gn-pruffeld-oerlikon-ch"
@@ -1136,7 +1111,7 @@
       "url": "https://careers.oerlikon.com/job/Operateur-100-%28gn%29/104924-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:39.761Z",
+      "crawledAt": "2026-10-05T09:34:10.441Z",
       "addressLocality": "Brügg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1156,20 +1131,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-100-gn-oerlikon-ch",
-        "operatore-100-gn-oerlikon-brugg"
+        "operateur-100-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-100-gn-oerlikon-ch",
-          "operatore-100-gn-oerlikon-brugg"
+          "operateur-100-gn-oerlikon-ch"
         ],
         "en": [
           "operateur-100-gn-oerlikon-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T23:25:18.479Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1215,7 +1187,7 @@
       "url": "https://careers.oerlikon.com/job/Elektrotechniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:39.151Z",
+      "crawledAt": "2026-10-05T09:34:09.851Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1236,13 +1208,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "it": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "en": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
@@ -1253,8 +1223,7 @@
       },
       "previousSlugs": [
         "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
       ],
       "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "salaryMin": 72500,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-04T21:34:21.436Z",
+  "assembledAt": "2026-10-05T09:36:25.435Z",
   "jobs": [
     {
       "id": "company-l4ti3x",
@@ -33,7 +33,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Assistente Risorse umane",
@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
-        "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "en": "human-resources-assistant-supsi-dti-manno",
+        "de": "personalassistent-supsi-dti-manno",
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,22 +112,12 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resources-assistant-supsi-dti-manno",
           "human-resource-assistant-supsi-dti-manno"
-        ],
-        "de": [
-          "personalassistent-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistente-risorse-umane-supsi-manno",
-        "human-resources-assistant-supsi-dti-manno",
-        "personalassistent-supsi-dti-manno",
-        "human-resource-assistant-supsi-dti-manno",
-        "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -164,7 +154,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Generalista Risorse umane",
@@ -180,9 +170,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
+        "en": "generalist-human-resources-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
+        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -243,18 +233,10 @@
       "previousSlugsByLocale": {
         "it": [
           "generalista-risorse-umane-supsi-lugano"
-        ],
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
-        "generalista-risorse-umane-supsi-lugano",
-        "generalist-human-resources-supsi-dti-lugano",
-        "generaliste-ressources-humaines-supsi-dti-lugano"
+        "generalista-risorse-umane-supsi-lugano"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -289,7 +271,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "fr": "Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici",
@@ -425,7 +407,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
@@ -443,7 +425,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
+        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -535,14 +517,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -584,7 +562,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
@@ -692,6 +670,351 @@
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
+    },
+    {
+      "id": "company-l4s84w",
+      "slug": "docente-professionista-in-ergoterapia-supsi-dti-manno",
+      "company": "SUPSI / DTI",
+      "title": "Docente professionista in Ergoterapia",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "# Docente professionista in Ergoterapia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso alcune posizioni di\nper la Formazione di base presso il Dipartimento economia aziendale, sanità e sociale (DEASS), con sede a Manno. Grado di occupazione: 40% Entrata in funzione: 1° gennaio 2027 o da convenire.\n\n## Responsabilità e attività\nLa persona selezionata svolge attività di insegnamento principalmente nell’ambito della riabilitazione neurologica e/o geriatrica e fornisce supporto agli studenti, contribuendo allo sviluppo della formazione e alla collaborazione con il territorio. In particolare:\n- Gestisce le attività di insegnamento nei corsi previsti dal piano di studi del Bachelor in Ergoterapia.\n- Partecipa alla pianificazione dei moduli formativi, garantendo l'attualizzazione degli obiettivi e dei contenuti e il riferimento ai principi e ai valori del Dipartimento.\n- Gestisce le attività di insegnamento e di apprendimento e sceglie metodologie diversificate e adeguate agli scopi, alla tipologia del corso e al contesto formativo.\n- Cura la relazione pedagogica e sviluppa risorse didattiche.\n- Si mantiene aggiornata ed è aperta alle innovazioni professionali e pedagogiche.\n- Contribuisce alle attività generali del Dipartimento, partecipa alle attività promozionali, collabora alla gestione delle infrastrutture e cura il clima istituzionale.\n\n## Requisiti\nLa persona selezionata possiede un solido background accademico e professionale nell’ambito della riabilitazione neurologica e/o geriatrica, con esperienza nell’insegnamento.\nSono richiesti:\n- Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.\n- Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.\n- Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.\n- Competenze digitali: padronanza degli strumenti informatici di base.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in costante evoluzione.\n- Inserimento in un team di lavoro partecipativo.\n- Una rete di collaborazioni locali e nazionali.\n- Un contesto che valorizza l’innovazione e la qualità delle relazioni professionali.\n- Promozione della diversità e delle pari opportunità in materia di occupazione.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nRuth Hersche-Cupelli\n.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+      "requirements": [
+        "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
+        "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
+        "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
+        "Competenze digitali: padronanza degli strumenti informatici di base.",
+        "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
+      ],
+      "featured": false,
+      "postedDate": "",
+      "url": "https://www.supsi.ch/bando26_2015",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Manno",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
+      "firstSeenAt": "2026-09-04T23:12:08.169Z",
+      "titleByLocale": {
+        "it": "Docente professionista in Ergoterapia",
+        "en": "Professional teacher in Ergotherapy",
+        "de": "Professioneller Lehrer in Ergotherapie",
+        "fr": "Professeur professionnel en Ergothérapie"
+      },
+      "descriptionByLocale": {
+        "it": "# Docente professionista in Ergoterapia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso alcune posizioni di\nper la Formazione di base presso il Dipartimento economia aziendale, sanità e sociale (DEASS), con sede a Manno. Grado di occupazione: 40% Entrata in funzione: 1° gennaio 2027 o da convenire.\n\n## Responsabilità e attività\nLa persona selezionata svolge attività di insegnamento principalmente nell’ambito della riabilitazione neurologica e/o geriatrica e fornisce supporto agli studenti, contribuendo allo sviluppo della formazione e alla collaborazione con il territorio. In particolare:\n- Gestisce le attività di insegnamento nei corsi previsti dal piano di studi del Bachelor in Ergoterapia.\n- Partecipa alla pianificazione dei moduli formativi, garantendo l'attualizzazione degli obiettivi e dei contenuti e il riferimento ai principi e ai valori del Dipartimento.\n- Gestisce le attività di insegnamento e di apprendimento e sceglie metodologie diversificate e adeguate agli scopi, alla tipologia del corso e al contesto formativo.\n- Cura la relazione pedagogica e sviluppa risorse didattiche.\n- Si mantiene aggiornata ed è aperta alle innovazioni professionali e pedagogiche.\n- Contribuisce alle attività generali del Dipartimento, partecipa alle attività promozionali, collabora alla gestione delle infrastrutture e cura il clima istituzionale.\n\n## Requisiti\nLa persona selezionata possiede un solido background accademico e professionale nell’ambito della riabilitazione neurologica e/o geriatrica, con esperienza nell’insegnamento.\nSono richiesti:\n- Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.\n- Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.\n- Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.\n- Competenze digitali: padronanza degli strumenti informatici di base.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in costante evoluzione.\n- Inserimento in un team di lavoro partecipativo.\n- Una rete di collaborazioni locali e nazionali.\n- Un contesto che valorizza l’innovazione e la qualità delle relazioni professionali.\n- Promozione della diversità e delle pari opportunità in materia di occupazione.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nRuth Hersche-Cupelli\n.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+        "en": "# Professional teacher in Ergotherapy\n\nThe Professional University School of Italian Switzerland (SUPSI) puts in competition some positions of\nfor basic training at the Department of Business, Health and Social Economy (DEASS), based in Manno. Degree of employment: 40% Entry into operation: 1 January 2027 or convent.\n\n## Responsibility and activity\nThe selected person carries out teaching activities mainly in neurological and/or geriatric rehabilitation and provides support to students, contributing to the development of training and collaboration with the territory. In particular:\n- It manages teaching activities in the courses provided by the Bachelor's degree plan in Ergotherapy.\n- It participates in the planning of the training modules, ensuring the actualization of the objectives and contents and the reference to the principles and values of the Department.\n- It manages teaching and learning activities and chooses diverse and appropriate methods for the purposes, type of course and training context.\n- He cares for the pedagogical relationship and develops educational resources.\n- It maintains updated and is open to professional and pedagogical innovations.\n- It contributes to the general activities of the Department, participates in promotional activities, collaborates in the management of infrastructure and cares the institutional climate.\n\n## Requirements\nThe selected person has a solid academic and professional background in neurological and/or geriatric rehabilitation, with experience in teaching.\nThey are required:\n- Title of study: Bachelor in Ergotherapy and post-training titles, preferably a Master of Science or equivalent titles.\n- Experience: significant experience in the rehabilitation of people with neurological and geriatric pathologies and in teaching, preferably at a tertiary level.\n- Transversal skills: strong communication, relational and social skills, with predisposition to teamwork and collaboration.\n- Digital skills: mastery of basic IT tools.\n- Language skills: excellent knowledge of the Italian language, good knowledge of written and spoken English and a second national language.\n\n## SUPSI offers\n- A dynamic and constantly changing working environment.\n- Insertion into a participatory team.\n- A network of local and national collaborations.\n- A context that enhances innovation and the quality of professional relationships.\n- Promoting diversity and equal employment opportunities.\n\n## Application\nOnly applications submitted by the Commission will be considered\n\n## 5 October 2026\nthrough the application form. Incomplete applications, sent to other addresses or beyond the agreed deadline, will not be considered. At the time of the online application is required the sending of letter of presentation/motivation, Curriculum Vitae, diplomas, certificates and certificates of employment. Additional documentation (judicial casebook, copy of an identity document) may be requested later.\nAdditional job information may be required\nRuth Hersche-Cupelli\n.\n\n## Our commitment\nSUPSI believes that the future stems from the valorisation of different perspectives, unique experiences and from a fair, inclusive and respectful culture of diversity.",
+        "de": "# Professioneller Lehrer in Ergotherapie\n\nDie Professional University School of Italian Switzerland (SUPSI) stellt einige Positionen von\nfür die Grundausbildung beim Department of Business, Health and Social Economy (DEASS) mit Sitz in Manno. Beschäftigungsgrad: 40% Inbetriebnahme: 1. Januar 2027 oder Kloster.\n\n## Verantwortung und Tätigkeit\nDie ausgewählte Person führt Lehraktivitäten hauptsächlich in der neurologischen und / oder geriatrischen Rehabilitation durch und unterstützt die Studierenden, indem sie zur Entwicklung der Ausbildung und Zusammenarbeit mit dem Gebiet beiträgt. Insbesondere:\n- Es verwaltet Lehraktivitäten in den vom Bachelor-Studienplan in Ergotherapie angebotenen Studiengängen.\n- Es beteiligt sich an der Planung der Schulungsmodule und stellt die Aktualisierung der Ziele und Inhalte sowie den Bezug zu den Prinzipien und Werten der Abteilung sicher.\n- Es verwaltet Lehr- und Lernaktivitäten und wählt verschiedene und geeignete Methoden für die Zwecke, die Art des Kurses und den Trainingskontext.\n- Er kümmert sich um die pädagogische Beziehung und entwickelt Bildungsressourcen.\n- Es wird aktualisiert und ist offen für professionelle und pädagogische Innovationen.\n- Es trägt zu den allgemeinen Aktivitäten der Abteilung bei, beteiligt sich an Werbeaktivitäten, arbeitet an der Verwaltung der Infrastruktur mit und kümmert sich um das institutionelle Klima.\n\n## Anforderungen\nDie ausgewählte Person hat einen soliden akademischen und beruflichen Hintergrund in der neurologischen und / oder geriatrischen Rehabilitation, mit Erfahrung in der Lehre.\nSie sind erforderlich:\n- Titel des Studiums: Bachelor in Ergotherapie und Post-Training Titel, vorzugsweise ein Master of Science oder gleichwertige Titel.\n- Erfahrung: bedeutende Erfahrung in der Rehabilitation von Menschen mit neurologischen und geriatrischen Pathologien und in der Lehre, vorzugsweise auf tertiärer Ebene.\n- Transversale Fähigkeiten: starke Kommunikation, relationale und soziale Fähigkeiten, mit Veranlagung für Teamarbeit und Zusammenarbeit.\n- Digitale Fähigkeiten: Beherrschung der grundlegenden IT-Tools.\n- Sprachkenntnisse: hervorragende Kenntnisse der italienischen Sprache, gute Kenntnisse des geschriebenen und gesprochenen Englisch und eine zweite Landessprache.\n\n## SUPSI Angebote\n- Ein dynamisches und sich ständig veränderndes Arbeitsumfeld.\n- Aufnahme in ein partizipatives Team.\n- Ein Netzwerk lokaler und nationaler Kooperationen.\n- Ein Kontext, der Innovation und die Qualität professioneller Beziehungen verbessert.\n- Förderung von Vielfalt und Chancengleichheit.\n\n## Antragstellung\nNur Anträge der Kommission werden berücksichtigt\n\n## 5. Oktober 2026\ndurch das Antragsformular. Unvollständige Anträge, die an andere Adressen oder über die vereinbarte Frist hinaus gesendet werden, werden nicht berücksichtigt. Zum Zeitpunkt der Online-Bewerbung ist die Zusendung von Präsentationsschreiben / Motivation, Lebenslauf, Diplome, Zertifikate und Arbeitsbescheinigungen erforderlich. Zusätzliche Unterlagen (gerichtliches Fallbuch, Kopie eines Ausweisdokuments) können später angefordert werden.\nZusätzliche Jobinformationen können erforderlich sein\nRuth Hersche-Cupelli\n.\n\n## Unser Engagement\nSUPSI glaubt, dass die Zukunft aus der Aufwertung verschiedener Perspektiven, einzigartiger Erfahrungen und einer fairen, integrativen und respektvollen Kultur der Vielfalt resultiert.",
+        "fr": "# Professeur professionnel en Ergothérapie\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) met en concurrence certains postes de\npour la formation de base au Département des affaires, de la santé et de l'économie sociale (DEASS), basé à Manno. Degré d'emploi: 40% Entrée en service: 1er janvier 2027 ou couvent.\n\n## Responsabilité et activité\nLa personne choisie mène des activités d'enseignement principalement dans le domaine de la réadaptation neurologique et/ou gériatrique et fournit un soutien aux étudiants, contribuant au développement de la formation et de la collaboration avec le territoire. En particulier:\n- Il gère les activités d'enseignement dans les cours fournis par le plan de baccalauréat en ergothérapie.\n- Il participe à la planification des modules de formation, en veillant à la réalisation des objectifs et du contenu et à la référence aux principes et valeurs du Ministère.\n- Il gère les activités d'enseignement et d'apprentissage et choisit des méthodes diverses et appropriées pour les buts, le type de cours et le contexte de formation.\n- Il s'occupe de la relation pédagogique et développe des ressources pédagogiques.\n- Il est à jour et ouvert aux innovations professionnelles et pédagogiques.\n- Il contribue aux activités générales du Département, participe à des activités de promotion, collabore à la gestion des infrastructures et s'occupe du climat institutionnel.\n\n## Exigences\nLa personne sélectionnée possède une solide expérience universitaire et professionnelle en réadaptation neurologique et/ou gériatrique, avec une expérience de l'enseignement.\nIls sont requis:\n- Titre de l'étude: Baccalauréat en ergothérapie et titres post-formation, de préférence une maîtrise en sciences ou des titres équivalents.\n- Expérience: expérience significative dans la réadaptation des personnes atteintes de pathologies neurologiques et gériatriques et dans l'enseignement, de préférence au niveau tertiaire.\n- Compétences transversales : communication forte, aptitudes relationnelles et sociales, avec prédisposition au travail d'équipe et à la collaboration.\n- Compétences numériques : maîtrise des outils informatiques de base.\n- Compétences linguistiques : excellente connaissance de la langue italienne, bonne connaissance de l'anglais écrit et parlé et d'une deuxième langue nationale.\n\n## Offres SUPSI\n- Un environnement de travail dynamique et en constante évolution.\n- Insertion dans une équipe participative.\n- Un réseau de collaborations locales et nationales.\n- Un contexte qui améliore l'innovation et la qualité des relations professionnelles.\n- Promouvoir la diversité et l'égalité des chances en matière d'emploi.\n\n## Demande\nSeules les demandes présentées par la Commission seront examinées.\n\n## 5 octobre 2026\npar le formulaire de demande. Les demandes incomplètes, envoyées à d'autres adresses ou au-delà de la date limite convenue, ne seront pas prises en considération. Au moment de la demande en ligne, il faut envoyer une lettre de présentation/motivation, un curriculum vitae, des diplômes, des certificats et des certificats d'emploi. Des documents supplémentaires (dossier judiciaire, copie d'un document d'identité) peuvent être demandés ultérieurement.\nDes informations supplémentaires sur l'emploi peuvent être requises\nRuth Hersche-Cupelli\n.\n\n## Notre engagement\nSUPSI estime que l'avenir découle de la valorisation de différentes perspectives, d'expériences uniques et d'une culture de diversité équitable, inclusive et respectueuse."
+      },
+      "slugByLocale": {
+        "it": "docente-professionista-in-ergoterapia-supsi-dti-manno",
+        "en": "professional-teacher-in-ergotherapy-supsi-dti-manno",
+        "de": "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
+        "fr": "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
+      },
+      "requirementsByLocale": {
+        "it": [
+          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
+          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
+          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
+          "Competenze digitali: padronanza degli strumenti informatici di base.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
+        ],
+        "en": [
+          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
+          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
+          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
+          "Competenze digitali: padronanza degli strumenti informatici di base.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
+        ],
+        "de": [
+          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
+          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
+          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
+          "Competenze digitali: padronanza degli strumenti informatici di base.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
+        ],
+        "fr": [
+          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
+          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
+          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
+          "Competenze digitali: padronanza degli strumenti informatici di base.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
+        ]
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "docente-professionista-in-ergoterapia-supsi-manno",
+          "professional-teacher-in-ergotherapy-supsi-dti-manno",
+          "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
+          "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "docente-professionista-in-ergoterapia-supsi-manno"
+      ],
+      "applyUrl": "https://www.supsi.ch/bando26_2015",
+      "datePosted": "",
+      "postingDateSource": "unknown"
+    },
+    {
+      "id": "company-l4ti2z",
+      "slug": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
+      "company": "SUPSI / DTI",
+      "title": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "description": "# Concorso generale / Personale educativo Servizio prima infanzia 2026\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il\n\n## Servizio prima infanzia\n, la selezione di personale educativo da poter inserire all’interno delle équipe educative.\nIl concorso è annuale con la possibilità di essere assunti nel corso del 2026, a dipendenza delle necessità del Servizio e con possibilità di mobilità tra le sedi.\n\n## Ambito e scopo della posizione\nIl servizio prima infanzia è promosso dalla Direzione SUPSI per permettere una migliore conciliabilità tra gli impegni familiari, professionali e/o di studio e coordina in particolare le sedi di nidi dell’infanzia SUPSI (SUPSInido Manno, USI SUPSInido Viganello e SUPSInido Locarno). Esse sono progettate per bambini dai 4 mesi ai 3-4 anni, rivolte prioritariamente alle famiglie SUPSI e USI-SUPSI ma a disposizione anche delle famiglie esterne residenti nel territorio.\n\n## Responsabilità e attività\nL'educatrice/educatore selezionata/o opererà all'interno di un team educativo, con l’obiettivo di favorire lo sviluppo fisico, cognitivo, emotivo e sociale dei bambini. La figura professionale sarà responsabile delle seguenti attività:\n- Progettazione educativa: elaborazione di spazi e ambienti finalizzati al benessere e alla crescita dei bambini accolti, in linea con le linee guida del Servizio, assicurando un approccio inclusivo e personalizzato.\n- Gestione autonoma di un gruppo: favorire l'interazione tra i bambini, stimolando la collaborazione, la comunicazione e il rispetto reciproco, contribuendo a creare un contesto sereno e accogliente.\n- Osservazione e documentazione: monitoraggio dei progressi di crescita e apprendimento dei bambini, redazione di documenti e report di valutazione e mantenimento di una comunicazione continua con le famiglie.\n- Collaborazione con l’équipe educativa: lavoro in sinergia con le altre figure professionali del Servizio, per garantire un approccio co-partecipativo e coeso.\n- Attività di cura e assistenza: supporto nelle attività quotidiane di cura dei bambini, quali alimentazione, igiene e riposo, assicurando un ambiente sicuro e protetto.\n\n## Requisiti\n- Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.\n- Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.\n- Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.\n- Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.\n- Capacità relazionale e comunicativa con i bambini e le famiglie.\n- Attitudine al lavoro di gruppo e alla collaborazione.\n- Approccio partecipativo rivolto all’implementazione del progetto pedagogico.\n- Flessibilità rivolta al buon funzionamento del Servizio.\n\n## Offriamo\n- Contratto a tempo determinato o indeterminato (a dipendenza del bisogno del Servizio) con inquadramento secondo il CCLATAN situato in fascia 4 della Scala Cantonale, con beneficio di ulteriori condizioni migliorative derivanti dal CCLSUPSI.\n- Supporto, lavoro in team e riunioni: un ambiente collaborativo all’interno di équipe formate da professionisti qualificati dove la condivisione e la cooperazione sono elementi fondamentali.\n- Sicurezza e benessere: condizioni di lavoro che pongono al centro la sicurezza e il benessere del personale e dei bambini.\n- Formazione continua: opportunità di partecipare a corsi di aggiornamento professionale (individuali e d’équipe) all’interno del proprio tempo di lavoro.\n- Sostegno al percorso professionale: approccio improntato alla valorizzazione del collaboratore.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a\nVisar Sejdiu\n, Referente direzione amministrativa. Documenti da allegare alla candidatura:\n- Lettera di motivazione\n- Curriculum vitae\n- Diplomi\n- Eventuale riconoscimento SEFRI\n- Certificati di lavoro\n\nOltre ai documenti da inviare al momento della candidatura on-line, in un secondo momento potrà essere richiesta ulteriore documentazione (questionario sullo stato di salute, copia di un documento di identità).\nSi attira l’attenzione dei candidati, selezionati per un colloquio, che per verificare la loro buona reputazione, i dati personali verranno trasmessi all’autorità cantonale di vigilanza (UFaG) che a sua volta richiederà l’estratto del casellario giudiziario direttamente al Servizio di coordinamento cantonale dei casellari giudiziali (conformemente all’art. 18 cpv. 4 dell’Ordinanza sull’accoglimento di minori a scopo di affiliazione).\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 31 dicembre 2026 tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito.",
+      "requirements": [
+        "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
+        "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+        "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+        "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+        "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+        "Attitudine al lavoro di gruppo e alla collaborazione.",
+        "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+        "Flessibilità rivolta al buon funzionamento del Servizio."
+      ],
+      "featured": false,
+      "postedDate": "",
+      "url": "https://www.supsi.ch/bando26_4001",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
+      "firstSeenAt": "2026-09-01T07:37:53.290Z",
+      "slugByLocale": {
+        "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
+        "en": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
+        "de": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
+        "fr": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z"
+      },
+      "titleByLocale": {
+        "it": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
+        "en": "General Competition / Educational staff Childcare 2026",
+        "de": "Allgemeiner Wettbewerb / Bildungspersonal Kinderbetreuung 2026",
+        "fr": "Concours général / Personnel éducatif Garde d'enfants 2026"
+      },
+      "descriptionByLocale": {
+        "it": "# Concorso generale / Personale educativo Servizio prima infanzia 2026\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il\n\n## Servizio prima infanzia\n, la selezione di personale educativo da poter inserire all’interno delle équipe educative.\nIl concorso è annuale con la possibilità di essere assunti nel corso del 2026, a dipendenza delle necessità del Servizio e con possibilità di mobilità tra le sedi.\n\n## Ambito e scopo della posizione\nIl servizio prima infanzia è promosso dalla Direzione SUPSI per permettere una migliore conciliabilità tra gli impegni familiari, professionali e/o di studio e coordina in particolare le sedi di nidi dell’infanzia SUPSI (SUPSInido Manno, USI SUPSInido Viganello e SUPSInido Locarno). Esse sono progettate per bambini dai 4 mesi ai 3-4 anni, rivolte prioritariamente alle famiglie SUPSI e USI-SUPSI ma a disposizione anche delle famiglie esterne residenti nel territorio.\n\n## Responsabilità e attività\nL'educatrice/educatore selezionata/o opererà all'interno di un team educativo, con l’obiettivo di favorire lo sviluppo fisico, cognitivo, emotivo e sociale dei bambini. La figura professionale sarà responsabile delle seguenti attività:\n- Progettazione educativa: elaborazione di spazi e ambienti finalizzati al benessere e alla crescita dei bambini accolti, in linea con le linee guida del Servizio, assicurando un approccio inclusivo e personalizzato.\n- Gestione autonoma di un gruppo: favorire l'interazione tra i bambini, stimolando la collaborazione, la comunicazione e il rispetto reciproco, contribuendo a creare un contesto sereno e accogliente.\n- Osservazione e documentazione: monitoraggio dei progressi di crescita e apprendimento dei bambini, redazione di documenti e report di valutazione e mantenimento di una comunicazione continua con le famiglie.\n- Collaborazione con l’équipe educativa: lavoro in sinergia con le altre figure professionali del Servizio, per garantire un approccio co-partecipativo e coeso.\n- Attività di cura e assistenza: supporto nelle attività quotidiane di cura dei bambini, quali alimentazione, igiene e riposo, assicurando un ambiente sicuro e protetto.\n\n## Requisiti\n- Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.\n- Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.\n- Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.\n- Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.\n- Capacità relazionale e comunicativa con i bambini e le famiglie.\n- Attitudine al lavoro di gruppo e alla collaborazione.\n- Approccio partecipativo rivolto all’implementazione del progetto pedagogico.\n- Flessibilità rivolta al buon funzionamento del Servizio.\n\n## Offriamo\n- Contratto a tempo determinato o indeterminato (a dipendenza del bisogno del Servizio) con inquadramento secondo il CCLATAN situato in fascia 4 della Scala Cantonale, con beneficio di ulteriori condizioni migliorative derivanti dal CCLSUPSI.\n- Supporto, lavoro in team e riunioni: un ambiente collaborativo all’interno di équipe formate da professionisti qualificati dove la condivisione e la cooperazione sono elementi fondamentali.\n- Sicurezza e benessere: condizioni di lavoro che pongono al centro la sicurezza e il benessere del personale e dei bambini.\n- Formazione continua: opportunità di partecipare a corsi di aggiornamento professionale (individuali e d’équipe) all’interno del proprio tempo di lavoro.\n- Sostegno al percorso professionale: approccio improntato alla valorizzazione del collaboratore.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a\nVisar Sejdiu\n, Referente direzione amministrativa. Documenti da allegare alla candidatura:\n- Lettera di motivazione\n- Curriculum vitae\n- Diplomi\n- Eventuale riconoscimento SEFRI\n- Certificati di lavoro\n\nOltre ai documenti da inviare al momento della candidatura on-line, in un secondo momento potrà essere richiesta ulteriore documentazione (questionario sullo stato di salute, copia di un documento di identità).\nSi attira l’attenzione dei candidati, selezionati per un colloquio, che per verificare la loro buona reputazione, i dati personali verranno trasmessi all’autorità cantonale di vigilanza (UFaG) che a sua volta richiederà l’estratto del casellario giudiziario direttamente al Servizio di coordinamento cantonale dei casellari giudiziali (conformemente all’art. 18 cpv. 4 dell’Ordinanza sull’accoglimento di minori a scopo di affiliazione).\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 31 dicembre 2026 tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito.",
+        "en": "# General Competition / Educational staff Childcare 2026\n\nThe Professional University School of Italian Switzerland (SUPSI) competes at\n\n## Childhood Service\n, the selection of educational staff to be included in the educational teams.\nThe competition is annual with the possibility of being hired during 2026, depending on the needs of the Service and with the possibility of mobility between the premises.\n\n## Scope and purpose of position\nThe early childhood service is promoted by the SUPSI Directorate to allow better reconciliation between family, professional and/or study commitments and in particular coordinates SUPSI childhood nest sites (SUPSInido Manno, USI SUPSInido Viganello and SUPSInido Locarno). They are designed for children from 4 months to 3-4 years, aimed primarily at SUPSI and USI-SUPSI families but also at the disposal of external families resident in the territory.\n\n## Responsibility and activity\nThe selected educator/educator/educator will work within an educational team, with the aim of promoting the physical, cognitive, emotional and social development of children. The professional figure will be responsible for the following activities:\n- Educational design: development of spaces and environments aimed at the well-being and growth of children welcomed, in line with the guidelines of the Service, ensuring an inclusive and personalized approach.\n- Autonomous management of a group: promoting the interaction between children, stimulating collaboration, communication and mutual respect, helping to create a serene and welcoming environment.\n- Observation and documentation: monitoring of child growth and learning progress, drafting documents and evaluation reports and maintaining continuous communication with families.\n- Collaboration with the educational team: work in synergy with the other professionals of the Service, to ensure a co-participative and cohesive approach.\n- Care and assistance: support in the daily care activities of children, such as nutrition, hygiene and rest, ensuring a safe and protected environment.\n\n## Requirements\n- Diploma SUP or university degree in the educational sector (Bachelor in social work with curriculum Educator, Degree in Educational Sciences or similar), or diploma of a Higher School of Tertiary Grade (SSS Diploma of Educational/Childhood) or Federal Certificate of Capacity as OSA Infancy.\n- SEFRI recognition required in the event that the qualification was obtained abroad.\n- Experience in a childhood nest and/or in a similar context is a preferential requirement.\n- Knowledge of pedagogical principles and educational methods applicable to the context of early childhood.\n- Relationship and communication skills with children and families.\n- Group work and collaboration.\n- Participative approach to the implementation of the pedagogical project.\n- Flexibility for the smooth operation of the Service.\n\n## We offer\n- Contract fixed or indefinitely (depends on the need of the Service) with frame according to the CCLATAN located in the Cantonal Scale 4, with the benefit of further improved conditions deriving from the CCLSUPSI.\n- Support, teamwork and meetings: a collaborative environment within teams formed by qualified professionals where sharing and cooperation are key elements.\n- Safety and well-being: working conditions that place the safety and well-being of the staff and children at the centre.\n- Continuous training: opportunity to participate in courses of professional updating (individuals and team) within your working time.\n- Support for the professional path: approach based on the valorisation of the collaborator.\n\n## Application Information\nAdditional information may be requested\nVisar Sejdiu\n, Administrative management. Documents to be attached to the application:\n- Letter of motivation\n- Life Curriculum\n- Diplomas\n- SEFRI recognition event\n- Working certificates\n\nIn addition to the documents to be sent at the time of the online application, further documentation may be required at a later time (this is the health state, copy of an identity document).\nIt attracts the attention of the candidates, selected for an interview, who in order to verify their good reputation, personal data will be transmitted to the cantonal supervisory authority (UFaG) which in turn will require the extract of the judicial box directly to the cantonal coordination service of the judicial box (according to article 18 para. 4 of the Ordinance on the acceptance of minors for the purpose of affiliation).\nOnly applications submitted by 31 December 2026 will be considered through the application form. Incomplete applications are not accepted, sent to other addresses or beyond the agreed deadline.",
+        "de": "# Allgemeiner Wettbewerb / Bildungspersonal Kinderbetreuung 2026\n\nDie Professional University School of Italian Switzerland (SUPSI) tritt im\n\n## Kinderbetreuung\n, die Auswahl des in die Bildungsteams aufzunehmenden Bildungspersonals.\nDer Wettbewerb ist jährlich mit der Möglichkeit, im Jahr 2026 eingestellt zu werden, abhängig von den Bedürfnissen des Dienstes und mit der Möglichkeit der Mobilität zwischen den Räumlichkeiten.\n\n## Anwendungsbereich und Zweck der Position\nDer frühkindliche Dienst wird von der Direktion SUPSI gefördert, um eine bessere Vereinbarkeit zwischen familiären, beruflichen und/oder Studienverpflichtungen zu ermöglichen und insbesondere die Nistplätze der SUPSI-Kinderschaft (SUPSInido Manno, USI SUPSInido Viganello und SUPSInido Locarno) zu koordinieren. Sie sind für Kinder von 4 Monaten bis 3-4 Jahren konzipiert und richten sich in erster Linie an SUPSI- und USI-SUPSI-Familien, aber auch an externe Familien, die in dem Gebiet leben.\n\n## Verantwortung und Tätigkeit\nDer ausgewählte Erzieher / Erzieher / Erzieher wird in einem Bildungsteam arbeiten, mit dem Ziel, die körperliche, kognitive, emotionale und soziale Entwicklung von Kindern zu fördern. Die professionelle Figur wird für die folgenden Aktivitäten verantwortlich sein:\n- Pädagogisches Design: Entwicklung von Räumen und Umgebungen, die auf das Wohlbefinden und Wachstum von Kindern ausgerichtet sind, im Einklang mit den Richtlinien des Dienstes, um einen integrativen und personalisierten Ansatz zu gewährleisten.\n- Autonomes Management einer Gruppe: Förderung der Interaktion zwischen Kindern, Förderung der Zusammenarbeit, der Kommunikation und des gegenseitigen Respekts, Unterstützung der Schaffung einer ruhigen und einladenden Umgebung.\n- Beobachtung und Dokumentation: Überwachung des Kindeswachstums und des Lernfortschritts, Erstellung von Dokumenten und Bewertungsberichten und Aufrechterhaltung der kontinuierlichen Kommunikation mit Familien.\n- Zusammenarbeit mit dem Bildungsteam: Arbeiten Sie in Synergie mit den anderen Fachleuten des Dienstes, um einen partizipativen und zusammenhängenden Ansatz zu gewährleisten.\n- Betreuung und Betreuung: Unterstützung bei der täglichen Betreuung von Kindern wie Ernährung, Hygiene und Ruhe, um eine sichere und geschützte Umgebung zu gewährleisten.\n\n## Anforderungen\n- Diplom SUP oder Universitätsabschluss im Bildungssektor (Bachelor in Sozialarbeit mit Lehrplanpädagoge, Abschluss in Erziehungswissenschaften oder ähnliches) oder Diplom einer Higher School of Tertiary Grade (SSS Diploma of Educational / Childhood) oder Bundeszertifikat der Kapazität als OSA Kindheit.\n- SEFRI-Anerkennung erforderlich, wenn die Qualifikation im Ausland erworben wurde.\n- Erfahrung in einem Kindheitsnest und / oder in einem ähnlichen Kontext ist eine bevorzugte Voraussetzung.\n- Kenntnis der pädagogischen Prinzipien und Bildungsmethoden, die auf den Kontext der frühen Kindheit anwendbar sind.\n- Beziehungs- und Kommunikationsfähigkeiten mit Kindern und Familien.\n- Gruppenarbeit und Zusammenarbeit.\n- Partizipativer Ansatz zur Umsetzung des pädagogischen Projekts.\n- Flexibilität für den reibungslosen Betrieb des Dienstes.\n\n## Wir bieten\n- Vertrag fest oder auf unbestimmte Zeit (abhängig von der Notwendigkeit des Dienstes) mit Rahmen nach dem CCLATAN in der kantonalen Skala 4, mit dem Vorteil der weiter verbesserten Bedingungen, die sich aus dem CCLSUPSI.\n- Support, Teamwork und Meetings: eine kollaborative Umgebung in Teams, die von qualifizierten Fachleuten gebildet werden, in denen Austausch und Zusammenarbeit Schlüsselelemente sind.\n- Sicherheit und Wohlbefinden: Arbeitsbedingungen, die die Sicherheit und das Wohlbefinden von Mitarbeitern und Kindern in den Mittelpunkt stellen.\n- Kontinuierliche Schulung: Möglichkeit, an Kursen zur beruflichen Aktualisierung (Einzelpersonen und Team) innerhalb Ihrer Arbeitszeit teilzunehmen.\n- Unterstützung für den beruflichen Weg: Ansatz basierend auf der Valorisierung des Mitarbeiters.\n\n## Anwendungsinformationen\nZusätzliche Informationen können angefordert werden\nVisar Sejdiu\n, Verwaltungsmanagement. Dem Antrag beizufügende Unterlagen:\n- Motivationsschreiben\n- Lebenslehrplan\n- Diplome\n- SEFRI-Anerkennungsereignis\n- Arbeitsbescheinigungen\n\nZusätzlich zu den Dokumenten, die zum Zeitpunkt der Online-Bewerbung gesendet werden müssen, können zu einem späteren Zeitpunkt weitere Unterlagen erforderlich sein (dies ist der Gesundheitszustand, Kopie eines Ausweises).\nEs zieht die Aufmerksamkeit der für ein Interview ausgewählten Kandidaten auf sich, die zur Überprüfung ihres guten Rufs personenbezogene Daten an die kantonale Aufsichtsbehörde (UFaG) übermitteln, die ihrerseits den Auszug der Gerichtsbox direkt an den kantonalen Koordinierungsdienst der Gerichtsbox (gemäß Art. 18 Abs. 4 der Verordnung über die Aufnahme von Minderjährigen zum Zwecke der Zugehörigkeit.\nNur bis zum 31. Dezember 2026 eingereichte Anträge werden über das Antragsformular berücksichtigt. Unvollständige Anträge werden nicht angenommen, an andere Adressen oder über die vereinbarte Frist hinaus gesendet.",
+        "fr": "# Concours général / Personnel éducatif Garde d'enfants 2026\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) se présente à\n\n## Service de l ' enfance\n, la sélection du personnel éducatif à inclure dans les équipes éducatives.\nLe concours est annuel avec la possibilité d'être embauché en 2026, en fonction des besoins du Service et avec la possibilité de mobilité entre les locaux.\n\n## Portée et objet de la position\nLe service de la petite enfance est promu par la Direction SUPSI pour permettre une meilleure réconciliation entre les engagements familiaux, professionnels et/ou d'étude et en particulier coordonne les sites de nids d'enfants SUPSI (SUPSInido Manno, USI SUPSInido Viganello et SUPSInido Locarno). Ils sont conçus pour les enfants de 4 mois à 3-4 ans, destinés principalement aux familles SUPSI et USI-SUPSI mais également à la disposition des familles extérieures résidant sur le territoire.\n\n## Responsabilité et activité\nL'éducateur/éducateur/éducateur sélectionné travaillera au sein d'une équipe éducative, dans le but de promouvoir le développement physique, cognitif, émotionnel et social des enfants. La figure professionnelle sera responsable des activités suivantes:\n- Conception éducative : développement d'espaces et d'environnements destinés au bien-être et à la croissance des enfants accueillis, conformément aux directives du Service, en assurant une approche inclusive et personnalisée.\n- Gestion autonome d'un groupe : promouvoir l'interaction entre les enfants, stimuler la collaboration, la communication et le respect mutuel, contribuer à créer un environnement serein et accueillant.\n- Observation et documentation: suivi de la croissance des enfants et des progrès de l'apprentissage, rédaction de documents et de rapports d'évaluation et maintien d'une communication continue avec les familles.\n- Collaboration avec l'équipe éducative : travailler en synergie avec les autres professionnels du Service, afin d'assurer une approche participative et cohérente.\n- Soins et assistance: soutien aux activités quotidiennes de soins des enfants, telles que la nutrition, l'hygiène et le repos, assurant un environnement sûr et protégé.\n\n## Exigences\n- Diplôme SUP ou diplôme universitaire dans le secteur de l'éducation (Bachelor en travail social avec programme d'études Éducateur, diplôme en sciences de l'éducation ou similaire), ou diplôme d'une école supérieure de niveau tertiaire (SSS Diplôme d'éducation/enfance) ou certificat fédéral de capacité comme OSA Infancy.\n- La reconnaissance du SEFRI est exigée si la qualification est obtenue à l'étranger.\n- L'expérience dans un nid d'enfance et/ou dans un contexte semblable est une exigence préférentielle.\n- Connaissance des principes pédagogiques et des méthodes éducatives applicables au contexte de la petite enfance.\n- Compétences en relation et en communication avec les enfants et les familles.\n- Travail de groupe et collaboration.\n- Approche participative de la mise en œuvre du projet pédagogique.\n- Flexibilité pour le bon fonctionnement du Service.\n\n## Nous offrons\n- Contrat fixe ou indéfini (dépend des besoins du Service) avec cadre selon le CCLATAN situé dans l'échelle cantonale 4, avec le bénéfice d'une amélioration supplémentaire des conditions découlant du CCLSUPSI.\n- Soutien, travail d'équipe et réunions : un environnement de collaboration au sein d'équipes formées de professionnels qualifiés où le partage et la coopération sont des éléments clés.\n- Sécurité et bien-être : conditions de travail qui placent la sécurité et le bien-être du personnel et des enfants au centre.\n- Formation continue : possibilité de participer à des cours de mise à jour professionnelle (personnes et équipes) dans votre temps de travail.\n- Soutien au parcours professionnel : approche basée sur la valorisation du collaborateur.\n\n## Renseignements sur la demande\nDes renseignements supplémentaires peuvent être demandés\nVisar Sejdiu\n, Gestion administrative. Documents à joindre à la demande:\n- Lettre de motivation\n- Programme de vie\n- Diplômes\n- Manifestation de reconnaissance du SEFRI\n- Certificats de travail\n\nEn plus des documents qui seront envoyés au moment de la demande en ligne, d'autres documents peuvent être requis ultérieurement (c'est l'état de santé, copie d'un document d'identité).\nIl attire l'attention des candidats, sélectionnés pour un entretien, qui, afin de vérifier leur bonne réputation, les données personnelles seront transmises à l'autorité de contrôle cantonale (UFaG) qui, à son tour, exigera l'extrait de la boîte judiciaire directement au service cantonal de coordination de la boîte judiciaire (conformément à l'article 18, par. 4 de l ' ordonnance sur l ' acceptation des mineurs aux fins d ' affiliation).\nSeules les demandes soumises avant le 31 décembre 2026 seront examinées au moyen du formulaire de demande. Les demandes incomplètes ne sont pas acceptées, envoyées à d'autres adresses ou au-delà de la date limite convenue."
+      },
+      "requirementsByLocale": {
+        "it": [
+          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ],
+        "en": [
+          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ],
+        "de": [
+          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ],
+        "fr": [
+          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ]
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "previousSlugsByLocale": {
+        "it": [
+          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno",
+          "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino"
+        ],
+        "en": [
+          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
+        ],
+        "de": [
+          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
+        ],
+        "fr": [
+          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno",
+        "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://www.supsi.ch/bando26_4001",
+      "datePosted": "",
+      "postingDateSource": "unknown"
+    },
+    {
+      "id": "company-59ix8c",
+      "slug": "stagista-52-settimane-supsi-dti-manno",
+      "company": "SUPSI / DTI",
+      "title": "Stagista 52 settimane",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+      "requirements": [
+        "Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.",
+        "Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.",
+        "Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese."
+      ],
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
+      "applyUrl": "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Manno",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-05T09:36:12.464Z",
+      "firstSeenAt": "2026-10-05T09:36:12.464Z",
+      "titleByLocale": {
+        "it": "Stagista 52 settimane",
+        "en": "Stagista 52 settimane",
+        "de": "Stagista 52 settimane",
+        "fr": "Stagista 52 settimane"
+      },
+      "descriptionByLocale": {
+        "it": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+        "en": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+        "de": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
+        "fr": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità."
+      },
+      "needsRetranslation": true,
+      "slugByLocale": {
+        "it": "stagista-52-settimane-supsi-dti-manno",
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
+      },
+      "requirementsByLocale": {
+        "it": [
+          "Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.",
+          "Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese."
+        ],
+        "en": [
+          "Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.",
+          "Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese."
+        ],
+        "de": [
+          "Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.",
+          "Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese."
+        ],
+        "fr": [
+          "Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.",
+          "Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.",
+          "Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese."
+        ]
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4u55y",
@@ -815,267 +1138,8 @@
         "assistenti-bachelor-in-formazione-master-mse-per-l-istituto-isteps-supsi-lugano"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "company-l4s84w",
-      "slug": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Docente professionista in Ergoterapia",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "# Docente professionista in Ergoterapia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso alcune posizioni di\nper la Formazione di base presso il Dipartimento economia aziendale, sanità e sociale (DEASS), con sede a Manno. Grado di occupazione: 40% Entrata in funzione: 1° gennaio 2027 o da convenire.\n\n## Responsabilità e attività\nLa persona selezionata svolge attività di insegnamento principalmente nell’ambito della riabilitazione neurologica e/o geriatrica e fornisce supporto agli studenti, contribuendo allo sviluppo della formazione e alla collaborazione con il territorio. In particolare:\n- Gestisce le attività di insegnamento nei corsi previsti dal piano di studi del Bachelor in Ergoterapia.\n- Partecipa alla pianificazione dei moduli formativi, garantendo l'attualizzazione degli obiettivi e dei contenuti e il riferimento ai principi e ai valori del Dipartimento.\n- Gestisce le attività di insegnamento e di apprendimento e sceglie metodologie diversificate e adeguate agli scopi, alla tipologia del corso e al contesto formativo.\n- Cura la relazione pedagogica e sviluppa risorse didattiche.\n- Si mantiene aggiornata ed è aperta alle innovazioni professionali e pedagogiche.\n- Contribuisce alle attività generali del Dipartimento, partecipa alle attività promozionali, collabora alla gestione delle infrastrutture e cura il clima istituzionale.\n\n## Requisiti\nLa persona selezionata possiede un solido background accademico e professionale nell’ambito della riabilitazione neurologica e/o geriatrica, con esperienza nell’insegnamento.\nSono richiesti:\n- Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.\n- Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.\n- Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.\n- Competenze digitali: padronanza degli strumenti informatici di base.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in costante evoluzione.\n- Inserimento in un team di lavoro partecipativo.\n- Una rete di collaborazioni locali e nazionali.\n- Un contesto che valorizza l’innovazione e la qualità delle relazioni professionali.\n- Promozione della diversità e delle pari opportunità in materia di occupazione.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nRuth Hersche-Cupelli\n.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
-      "requirements": [
-        "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
-        "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
-        "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
-        "Competenze digitali: padronanza degli strumenti informatici di base.",
-        "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://www.supsi.ch/bando26_2015",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Manno",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
-      "firstSeenAt": "2026-09-04T23:12:08.169Z",
-      "titleByLocale": {
-        "it": "Docente professionista in Ergoterapia",
-        "en": "Professional teacher in Ergotherapy",
-        "de": "Professioneller Lehrer in Ergotherapie",
-        "fr": "Professeur professionnel en Ergothérapie"
-      },
-      "descriptionByLocale": {
-        "it": "# Docente professionista in Ergoterapia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso alcune posizioni di\nper la Formazione di base presso il Dipartimento economia aziendale, sanità e sociale (DEASS), con sede a Manno. Grado di occupazione: 40% Entrata in funzione: 1° gennaio 2027 o da convenire.\n\n## Responsabilità e attività\nLa persona selezionata svolge attività di insegnamento principalmente nell’ambito della riabilitazione neurologica e/o geriatrica e fornisce supporto agli studenti, contribuendo allo sviluppo della formazione e alla collaborazione con il territorio. In particolare:\n- Gestisce le attività di insegnamento nei corsi previsti dal piano di studi del Bachelor in Ergoterapia.\n- Partecipa alla pianificazione dei moduli formativi, garantendo l'attualizzazione degli obiettivi e dei contenuti e il riferimento ai principi e ai valori del Dipartimento.\n- Gestisce le attività di insegnamento e di apprendimento e sceglie metodologie diversificate e adeguate agli scopi, alla tipologia del corso e al contesto formativo.\n- Cura la relazione pedagogica e sviluppa risorse didattiche.\n- Si mantiene aggiornata ed è aperta alle innovazioni professionali e pedagogiche.\n- Contribuisce alle attività generali del Dipartimento, partecipa alle attività promozionali, collabora alla gestione delle infrastrutture e cura il clima istituzionale.\n\n## Requisiti\nLa persona selezionata possiede un solido background accademico e professionale nell’ambito della riabilitazione neurologica e/o geriatrica, con esperienza nell’insegnamento.\nSono richiesti:\n- Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.\n- Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.\n- Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.\n- Competenze digitali: padronanza degli strumenti informatici di base.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in costante evoluzione.\n- Inserimento in un team di lavoro partecipativo.\n- Una rete di collaborazioni locali e nazionali.\n- Un contesto che valorizza l’innovazione e la qualità delle relazioni professionali.\n- Promozione della diversità e delle pari opportunità in materia di occupazione.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nRuth Hersche-Cupelli\n.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
-        "en": "# Professional teacher in Ergotherapy\n\nThe Professional University School of Italian Switzerland (SUPSI) puts in competition some positions of\nfor basic training at the Department of Business, Health and Social Economy (DEASS), based in Manno. Degree of employment: 40% Entry into operation: 1 January 2027 or convent.\n\n## Responsibility and activity\nThe selected person carries out teaching activities mainly in neurological and/or geriatric rehabilitation and provides support to students, contributing to the development of training and collaboration with the territory. In particular:\n- It manages teaching activities in the courses provided by the Bachelor's degree plan in Ergotherapy.\n- It participates in the planning of the training modules, ensuring the actualization of the objectives and contents and the reference to the principles and values of the Department.\n- It manages teaching and learning activities and chooses diverse and appropriate methods for the purposes, type of course and training context.\n- He cares for the pedagogical relationship and develops educational resources.\n- It maintains updated and is open to professional and pedagogical innovations.\n- It contributes to the general activities of the Department, participates in promotional activities, collaborates in the management of infrastructure and cares the institutional climate.\n\n## Requirements\nThe selected person has a solid academic and professional background in neurological and/or geriatric rehabilitation, with experience in teaching.\nThey are required:\n- Title of study: Bachelor in Ergotherapy and post-training titles, preferably a Master of Science or equivalent titles.\n- Experience: significant experience in the rehabilitation of people with neurological and geriatric pathologies and in teaching, preferably at a tertiary level.\n- Transversal skills: strong communication, relational and social skills, with predisposition to teamwork and collaboration.\n- Digital skills: mastery of basic IT tools.\n- Language skills: excellent knowledge of the Italian language, good knowledge of written and spoken English and a second national language.\n\n## SUPSI offers\n- A dynamic and constantly changing working environment.\n- Insertion into a participatory team.\n- A network of local and national collaborations.\n- A context that enhances innovation and the quality of professional relationships.\n- Promoting diversity and equal employment opportunities.\n\n## Application\nOnly applications submitted by the Commission will be considered\n\n## 5 October 2026\nthrough the application form. Incomplete applications, sent to other addresses or beyond the agreed deadline, will not be considered. At the time of the online application is required the sending of letter of presentation/motivation, Curriculum Vitae, diplomas, certificates and certificates of employment. Additional documentation (judicial casebook, copy of an identity document) may be requested later.\nAdditional job information may be required\nRuth Hersche-Cupelli\n.\n\n## Our commitment\nSUPSI believes that the future stems from the valorisation of different perspectives, unique experiences and from a fair, inclusive and respectful culture of diversity.",
-        "de": "# Professioneller Lehrer in Ergotherapie\n\nDie Professional University School of Italian Switzerland (SUPSI) stellt einige Positionen von\nfür die Grundausbildung beim Department of Business, Health and Social Economy (DEASS) mit Sitz in Manno. Beschäftigungsgrad: 40% Inbetriebnahme: 1. Januar 2027 oder Kloster.\n\n## Verantwortung und Tätigkeit\nDie ausgewählte Person führt Lehraktivitäten hauptsächlich in der neurologischen und / oder geriatrischen Rehabilitation durch und unterstützt die Studierenden, indem sie zur Entwicklung der Ausbildung und Zusammenarbeit mit dem Gebiet beiträgt. Insbesondere:\n- Es verwaltet Lehraktivitäten in den vom Bachelor-Studienplan in Ergotherapie angebotenen Studiengängen.\n- Es beteiligt sich an der Planung der Schulungsmodule und stellt die Aktualisierung der Ziele und Inhalte sowie den Bezug zu den Prinzipien und Werten der Abteilung sicher.\n- Es verwaltet Lehr- und Lernaktivitäten und wählt verschiedene und geeignete Methoden für die Zwecke, die Art des Kurses und den Trainingskontext.\n- Er kümmert sich um die pädagogische Beziehung und entwickelt Bildungsressourcen.\n- Es wird aktualisiert und ist offen für professionelle und pädagogische Innovationen.\n- Es trägt zu den allgemeinen Aktivitäten der Abteilung bei, beteiligt sich an Werbeaktivitäten, arbeitet an der Verwaltung der Infrastruktur mit und kümmert sich um das institutionelle Klima.\n\n## Anforderungen\nDie ausgewählte Person hat einen soliden akademischen und beruflichen Hintergrund in der neurologischen und / oder geriatrischen Rehabilitation, mit Erfahrung in der Lehre.\nSie sind erforderlich:\n- Titel des Studiums: Bachelor in Ergotherapie und Post-Training Titel, vorzugsweise ein Master of Science oder gleichwertige Titel.\n- Erfahrung: bedeutende Erfahrung in der Rehabilitation von Menschen mit neurologischen und geriatrischen Pathologien und in der Lehre, vorzugsweise auf tertiärer Ebene.\n- Transversale Fähigkeiten: starke Kommunikation, relationale und soziale Fähigkeiten, mit Veranlagung für Teamarbeit und Zusammenarbeit.\n- Digitale Fähigkeiten: Beherrschung der grundlegenden IT-Tools.\n- Sprachkenntnisse: hervorragende Kenntnisse der italienischen Sprache, gute Kenntnisse des geschriebenen und gesprochenen Englisch und eine zweite Landessprache.\n\n## SUPSI Angebote\n- Ein dynamisches und sich ständig veränderndes Arbeitsumfeld.\n- Aufnahme in ein partizipatives Team.\n- Ein Netzwerk lokaler und nationaler Kooperationen.\n- Ein Kontext, der Innovation und die Qualität professioneller Beziehungen verbessert.\n- Förderung von Vielfalt und Chancengleichheit.\n\n## Antragstellung\nNur Anträge der Kommission werden berücksichtigt\n\n## 5. Oktober 2026\ndurch das Antragsformular. Unvollständige Anträge, die an andere Adressen oder über die vereinbarte Frist hinaus gesendet werden, werden nicht berücksichtigt. Zum Zeitpunkt der Online-Bewerbung ist die Zusendung von Präsentationsschreiben / Motivation, Lebenslauf, Diplome, Zertifikate und Arbeitsbescheinigungen erforderlich. Zusätzliche Unterlagen (gerichtliches Fallbuch, Kopie eines Ausweisdokuments) können später angefordert werden.\nZusätzliche Jobinformationen können erforderlich sein\nRuth Hersche-Cupelli\n.\n\n## Unser Engagement\nSUPSI glaubt, dass die Zukunft aus der Aufwertung verschiedener Perspektiven, einzigartiger Erfahrungen und einer fairen, integrativen und respektvollen Kultur der Vielfalt resultiert.",
-        "fr": "# Professeur professionnel en Ergothérapie\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) met en concurrence certains postes de\npour la formation de base au Département des affaires, de la santé et de l'économie sociale (DEASS), basé à Manno. Degré d'emploi: 40% Entrée en service: 1er janvier 2027 ou couvent.\n\n## Responsabilité et activité\nLa personne choisie mène des activités d'enseignement principalement dans le domaine de la réadaptation neurologique et/ou gériatrique et fournit un soutien aux étudiants, contribuant au développement de la formation et de la collaboration avec le territoire. En particulier:\n- Il gère les activités d'enseignement dans les cours fournis par le plan de baccalauréat en ergothérapie.\n- Il participe à la planification des modules de formation, en veillant à la réalisation des objectifs et du contenu et à la référence aux principes et valeurs du Ministère.\n- Il gère les activités d'enseignement et d'apprentissage et choisit des méthodes diverses et appropriées pour les buts, le type de cours et le contexte de formation.\n- Il s'occupe de la relation pédagogique et développe des ressources pédagogiques.\n- Il est à jour et ouvert aux innovations professionnelles et pédagogiques.\n- Il contribue aux activités générales du Département, participe à des activités de promotion, collabore à la gestion des infrastructures et s'occupe du climat institutionnel.\n\n## Exigences\nLa personne sélectionnée possède une solide expérience universitaire et professionnelle en réadaptation neurologique et/ou gériatrique, avec une expérience de l'enseignement.\nIls sont requis:\n- Titre de l'étude: Baccalauréat en ergothérapie et titres post-formation, de préférence une maîtrise en sciences ou des titres équivalents.\n- Expérience: expérience significative dans la réadaptation des personnes atteintes de pathologies neurologiques et gériatriques et dans l'enseignement, de préférence au niveau tertiaire.\n- Compétences transversales : communication forte, aptitudes relationnelles et sociales, avec prédisposition au travail d'équipe et à la collaboration.\n- Compétences numériques : maîtrise des outils informatiques de base.\n- Compétences linguistiques : excellente connaissance de la langue italienne, bonne connaissance de l'anglais écrit et parlé et d'une deuxième langue nationale.\n\n## Offres SUPSI\n- Un environnement de travail dynamique et en constante évolution.\n- Insertion dans une équipe participative.\n- Un réseau de collaborations locales et nationales.\n- Un contexte qui améliore l'innovation et la qualité des relations professionnelles.\n- Promouvoir la diversité et l'égalité des chances en matière d'emploi.\n\n## Demande\nSeules les demandes présentées par la Commission seront examinées.\n\n## 5 octobre 2026\npar le formulaire de demande. Les demandes incomplètes, envoyées à d'autres adresses ou au-delà de la date limite convenue, ne seront pas prises en considération. Au moment de la demande en ligne, il faut envoyer une lettre de présentation/motivation, un curriculum vitae, des diplômes, des certificats et des certificats d'emploi. Des documents supplémentaires (dossier judiciaire, copie d'un document d'identité) peuvent être demandés ultérieurement.\nDes informations supplémentaires sur l'emploi peuvent être requises\nRuth Hersche-Cupelli\n.\n\n## Notre engagement\nSUPSI estime que l'avenir découle de la valorisation de différentes perspectives, d'expériences uniques et d'une culture de diversité équitable, inclusive et respectueuse."
-      },
-      "slugByLocale": {
-        "it": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "en": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "de": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "fr": "docente-professionista-in-ergoterapia-supsi-dti-manno"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
-          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
-          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
-          "Competenze digitali: padronanza degli strumenti informatici di base.",
-          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
-        ],
-        "en": [
-          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
-          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
-          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
-          "Competenze digitali: padronanza degli strumenti informatici di base.",
-          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
-        ],
-        "de": [
-          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
-          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
-          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
-          "Competenze digitali: padronanza degli strumenti informatici di base.",
-          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
-        ],
-        "fr": [
-          "Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.",
-          "Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.",
-          "Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.",
-          "Competenze digitali: padronanza degli strumenti informatici di base.",
-          "Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale."
-        ]
-      },
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "docente-professionista-in-ergoterapia-supsi-manno"
-        ],
-        "en": [
-          "professional-teacher-in-ergotherapy-supsi-dti-manno"
-        ],
-        "de": [
-          "professioneller-lehrer-in-ergotherapie-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "docente-professionista-in-ergoterapia-supsi-manno",
-        "professional-teacher-in-ergotherapy-supsi-dti-manno",
-        "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
-        "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
-      ],
-      "applyUrl": "https://www.supsi.ch/bando26_2015",
-      "datePosted": "",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "company-l4ti2z",
-      "slug": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
-      "company": "SUPSI / DTI",
-      "title": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "# Concorso generale / Personale educativo Servizio prima infanzia 2026\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il\n\n## Servizio prima infanzia\n, la selezione di personale educativo da poter inserire all’interno delle équipe educative.\nIl concorso è annuale con la possibilità di essere assunti nel corso del 2026, a dipendenza delle necessità del Servizio e con possibilità di mobilità tra le sedi.\n\n## Ambito e scopo della posizione\nIl servizio prima infanzia è promosso dalla Direzione SUPSI per permettere una migliore conciliabilità tra gli impegni familiari, professionali e/o di studio e coordina in particolare le sedi di nidi dell’infanzia SUPSI (SUPSInido Manno, USI SUPSInido Viganello e SUPSInido Locarno). Esse sono progettate per bambini dai 4 mesi ai 3-4 anni, rivolte prioritariamente alle famiglie SUPSI e USI-SUPSI ma a disposizione anche delle famiglie esterne residenti nel territorio.\n\n## Responsabilità e attività\nL'educatrice/educatore selezionata/o opererà all'interno di un team educativo, con l’obiettivo di favorire lo sviluppo fisico, cognitivo, emotivo e sociale dei bambini. La figura professionale sarà responsabile delle seguenti attività:\n- Progettazione educativa: elaborazione di spazi e ambienti finalizzati al benessere e alla crescita dei bambini accolti, in linea con le linee guida del Servizio, assicurando un approccio inclusivo e personalizzato.\n- Gestione autonoma di un gruppo: favorire l'interazione tra i bambini, stimolando la collaborazione, la comunicazione e il rispetto reciproco, contribuendo a creare un contesto sereno e accogliente.\n- Osservazione e documentazione: monitoraggio dei progressi di crescita e apprendimento dei bambini, redazione di documenti e report di valutazione e mantenimento di una comunicazione continua con le famiglie.\n- Collaborazione con l’équipe educativa: lavoro in sinergia con le altre figure professionali del Servizio, per garantire un approccio co-partecipativo e coeso.\n- Attività di cura e assistenza: supporto nelle attività quotidiane di cura dei bambini, quali alimentazione, igiene e riposo, assicurando un ambiente sicuro e protetto.\n\n## Requisiti\n- Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.\n- Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.\n- Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.\n- Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.\n- Capacità relazionale e comunicativa con i bambini e le famiglie.\n- Attitudine al lavoro di gruppo e alla collaborazione.\n- Approccio partecipativo rivolto all’implementazione del progetto pedagogico.\n- Flessibilità rivolta al buon funzionamento del Servizio.\n\n## Offriamo\n- Contratto a tempo determinato o indeterminato (a dipendenza del bisogno del Servizio) con inquadramento secondo il CCLATAN situato in fascia 4 della Scala Cantonale, con beneficio di ulteriori condizioni migliorative derivanti dal CCLSUPSI.\n- Supporto, lavoro in team e riunioni: un ambiente collaborativo all’interno di équipe formate da professionisti qualificati dove la condivisione e la cooperazione sono elementi fondamentali.\n- Sicurezza e benessere: condizioni di lavoro che pongono al centro la sicurezza e il benessere del personale e dei bambini.\n- Formazione continua: opportunità di partecipare a corsi di aggiornamento professionale (individuali e d’équipe) all’interno del proprio tempo di lavoro.\n- Sostegno al percorso professionale: approccio improntato alla valorizzazione del collaboratore.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a\nVisar Sejdiu\n, Referente direzione amministrativa. Documenti da allegare alla candidatura:\n- Lettera di motivazione\n- Curriculum vitae\n- Diplomi\n- Eventuale riconoscimento SEFRI\n- Certificati di lavoro\n\nOltre ai documenti da inviare al momento della candidatura on-line, in un secondo momento potrà essere richiesta ulteriore documentazione (questionario sullo stato di salute, copia di un documento di identità).\nSi attira l’attenzione dei candidati, selezionati per un colloquio, che per verificare la loro buona reputazione, i dati personali verranno trasmessi all’autorità cantonale di vigilanza (UFaG) che a sua volta richiederà l’estratto del casellario giudiziario direttamente al Servizio di coordinamento cantonale dei casellari giudiziali (conformemente all’art. 18 cpv. 4 dell’Ordinanza sull’accoglimento di minori a scopo di affiliazione).\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 31 dicembre 2026 tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito.",
-      "requirements": [
-        "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-        "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-        "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-        "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-        "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-        "Attitudine al lavoro di gruppo e alla collaborazione.",
-        "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-        "Flessibilità rivolta al buon funzionamento del Servizio."
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://www.supsi.ch/bando26_4001",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T21:34:08.991Z",
-      "firstSeenAt": "2026-09-01T07:37:53.290Z",
-      "slugByLocale": {
-        "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
-        "en": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
-        "de": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
-        "fr": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z"
-      },
-      "titleByLocale": {
-        "it": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
-        "en": "General Competition / Educational staff Childcare 2026",
-        "de": "Allgemeiner Wettbewerb / Bildungspersonal Kinderbetreuung 2026",
-        "fr": "Concours général / Personnel éducatif Garde d'enfants 2026"
-      },
-      "descriptionByLocale": {
-        "it": "# Concorso generale / Personale educativo Servizio prima infanzia 2026\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il\n\n## Servizio prima infanzia\n, la selezione di personale educativo da poter inserire all’interno delle équipe educative.\nIl concorso è annuale con la possibilità di essere assunti nel corso del 2026, a dipendenza delle necessità del Servizio e con possibilità di mobilità tra le sedi.\n\n## Ambito e scopo della posizione\nIl servizio prima infanzia è promosso dalla Direzione SUPSI per permettere una migliore conciliabilità tra gli impegni familiari, professionali e/o di studio e coordina in particolare le sedi di nidi dell’infanzia SUPSI (SUPSInido Manno, USI SUPSInido Viganello e SUPSInido Locarno). Esse sono progettate per bambini dai 4 mesi ai 3-4 anni, rivolte prioritariamente alle famiglie SUPSI e USI-SUPSI ma a disposizione anche delle famiglie esterne residenti nel territorio.\n\n## Responsabilità e attività\nL'educatrice/educatore selezionata/o opererà all'interno di un team educativo, con l’obiettivo di favorire lo sviluppo fisico, cognitivo, emotivo e sociale dei bambini. La figura professionale sarà responsabile delle seguenti attività:\n- Progettazione educativa: elaborazione di spazi e ambienti finalizzati al benessere e alla crescita dei bambini accolti, in linea con le linee guida del Servizio, assicurando un approccio inclusivo e personalizzato.\n- Gestione autonoma di un gruppo: favorire l'interazione tra i bambini, stimolando la collaborazione, la comunicazione e il rispetto reciproco, contribuendo a creare un contesto sereno e accogliente.\n- Osservazione e documentazione: monitoraggio dei progressi di crescita e apprendimento dei bambini, redazione di documenti e report di valutazione e mantenimento di una comunicazione continua con le famiglie.\n- Collaborazione con l’équipe educativa: lavoro in sinergia con le altre figure professionali del Servizio, per garantire un approccio co-partecipativo e coeso.\n- Attività di cura e assistenza: supporto nelle attività quotidiane di cura dei bambini, quali alimentazione, igiene e riposo, assicurando un ambiente sicuro e protetto.\n\n## Requisiti\n- Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.\n- Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.\n- Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.\n- Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.\n- Capacità relazionale e comunicativa con i bambini e le famiglie.\n- Attitudine al lavoro di gruppo e alla collaborazione.\n- Approccio partecipativo rivolto all’implementazione del progetto pedagogico.\n- Flessibilità rivolta al buon funzionamento del Servizio.\n\n## Offriamo\n- Contratto a tempo determinato o indeterminato (a dipendenza del bisogno del Servizio) con inquadramento secondo il CCLATAN situato in fascia 4 della Scala Cantonale, con beneficio di ulteriori condizioni migliorative derivanti dal CCLSUPSI.\n- Supporto, lavoro in team e riunioni: un ambiente collaborativo all’interno di équipe formate da professionisti qualificati dove la condivisione e la cooperazione sono elementi fondamentali.\n- Sicurezza e benessere: condizioni di lavoro che pongono al centro la sicurezza e il benessere del personale e dei bambini.\n- Formazione continua: opportunità di partecipare a corsi di aggiornamento professionale (individuali e d’équipe) all’interno del proprio tempo di lavoro.\n- Sostegno al percorso professionale: approccio improntato alla valorizzazione del collaboratore.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a\nVisar Sejdiu\n, Referente direzione amministrativa. Documenti da allegare alla candidatura:\n- Lettera di motivazione\n- Curriculum vitae\n- Diplomi\n- Eventuale riconoscimento SEFRI\n- Certificati di lavoro\n\nOltre ai documenti da inviare al momento della candidatura on-line, in un secondo momento potrà essere richiesta ulteriore documentazione (questionario sullo stato di salute, copia di un documento di identità).\nSi attira l’attenzione dei candidati, selezionati per un colloquio, che per verificare la loro buona reputazione, i dati personali verranno trasmessi all’autorità cantonale di vigilanza (UFaG) che a sua volta richiederà l’estratto del casellario giudiziario direttamente al Servizio di coordinamento cantonale dei casellari giudiziali (conformemente all’art. 18 cpv. 4 dell’Ordinanza sull’accoglimento di minori a scopo di affiliazione).\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 31 dicembre 2026 tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito.",
-        "en": "# General Competition / Educational staff Childcare 2026\n\nThe Professional University School of Italian Switzerland (SUPSI) competes at\n\n## Childhood Service\n, the selection of educational staff to be included in the educational teams.\nThe competition is annual with the possibility of being hired during 2026, depending on the needs of the Service and with the possibility of mobility between the premises.\n\n## Scope and purpose of position\nThe early childhood service is promoted by the SUPSI Directorate to allow better reconciliation between family, professional and/or study commitments and in particular coordinates SUPSI childhood nest sites (SUPSInido Manno, USI SUPSInido Viganello and SUPSInido Locarno). They are designed for children from 4 months to 3-4 years, aimed primarily at SUPSI and USI-SUPSI families but also at the disposal of external families resident in the territory.\n\n## Responsibility and activity\nThe selected educator/educator/educator will work within an educational team, with the aim of promoting the physical, cognitive, emotional and social development of children. The professional figure will be responsible for the following activities:\n- Educational design: development of spaces and environments aimed at the well-being and growth of children welcomed, in line with the guidelines of the Service, ensuring an inclusive and personalized approach.\n- Autonomous management of a group: promoting the interaction between children, stimulating collaboration, communication and mutual respect, helping to create a serene and welcoming environment.\n- Observation and documentation: monitoring of child growth and learning progress, drafting documents and evaluation reports and maintaining continuous communication with families.\n- Collaboration with the educational team: work in synergy with the other professionals of the Service, to ensure a co-participative and cohesive approach.\n- Care and assistance: support in the daily care activities of children, such as nutrition, hygiene and rest, ensuring a safe and protected environment.\n\n## Requirements\n- Diploma SUP or university degree in the educational sector (Bachelor in social work with curriculum Educator, Degree in Educational Sciences or similar), or diploma of a Higher School of Tertiary Grade (SSS Diploma of Educational/Childhood) or Federal Certificate of Capacity as OSA Infancy.\n- SEFRI recognition required in the event that the qualification was obtained abroad.\n- Experience in a childhood nest and/or in a similar context is a preferential requirement.\n- Knowledge of pedagogical principles and educational methods applicable to the context of early childhood.\n- Relationship and communication skills with children and families.\n- Group work and collaboration.\n- Participative approach to the implementation of the pedagogical project.\n- Flexibility for the smooth operation of the Service.\n\n## We offer\n- Contract fixed or indefinitely (depends on the need of the Service) with frame according to the CCLATAN located in the Cantonal Scale 4, with the benefit of further improved conditions deriving from the CCLSUPSI.\n- Support, teamwork and meetings: a collaborative environment within teams formed by qualified professionals where sharing and cooperation are key elements.\n- Safety and well-being: working conditions that place the safety and well-being of the staff and children at the centre.\n- Continuous training: opportunity to participate in courses of professional updating (individuals and team) within your working time.\n- Support for the professional path: approach based on the valorisation of the collaborator.\n\n## Application Information\nAdditional information may be requested\nVisar Sejdiu\n, Administrative management. Documents to be attached to the application:\n- Letter of motivation\n- Life Curriculum\n- Diplomas\n- SEFRI recognition event\n- Working certificates\n\nIn addition to the documents to be sent at the time of the online application, further documentation may be required at a later time (this is the health state, copy of an identity document).\nIt attracts the attention of the candidates, selected for an interview, who in order to verify their good reputation, personal data will be transmitted to the cantonal supervisory authority (UFaG) which in turn will require the extract of the judicial box directly to the cantonal coordination service of the judicial box (according to article 18 para. 4 of the Ordinance on the acceptance of minors for the purpose of affiliation).\nOnly applications submitted by 31 December 2026 will be considered through the application form. Incomplete applications are not accepted, sent to other addresses or beyond the agreed deadline.",
-        "de": "# Allgemeiner Wettbewerb / Bildungspersonal Kinderbetreuung 2026\n\nDie Professional University School of Italian Switzerland (SUPSI) tritt im\n\n## Kinderbetreuung\n, die Auswahl des in die Bildungsteams aufzunehmenden Bildungspersonals.\nDer Wettbewerb ist jährlich mit der Möglichkeit, im Jahr 2026 eingestellt zu werden, abhängig von den Bedürfnissen des Dienstes und mit der Möglichkeit der Mobilität zwischen den Räumlichkeiten.\n\n## Anwendungsbereich und Zweck der Position\nDer frühkindliche Dienst wird von der Direktion SUPSI gefördert, um eine bessere Vereinbarkeit zwischen familiären, beruflichen und/oder Studienverpflichtungen zu ermöglichen und insbesondere die Nistplätze der SUPSI-Kinderschaft (SUPSInido Manno, USI SUPSInido Viganello und SUPSInido Locarno) zu koordinieren. Sie sind für Kinder von 4 Monaten bis 3-4 Jahren konzipiert und richten sich in erster Linie an SUPSI- und USI-SUPSI-Familien, aber auch an externe Familien, die in dem Gebiet leben.\n\n## Verantwortung und Tätigkeit\nDer ausgewählte Erzieher / Erzieher / Erzieher wird in einem Bildungsteam arbeiten, mit dem Ziel, die körperliche, kognitive, emotionale und soziale Entwicklung von Kindern zu fördern. Die professionelle Figur wird für die folgenden Aktivitäten verantwortlich sein:\n- Pädagogisches Design: Entwicklung von Räumen und Umgebungen, die auf das Wohlbefinden und Wachstum von Kindern ausgerichtet sind, im Einklang mit den Richtlinien des Dienstes, um einen integrativen und personalisierten Ansatz zu gewährleisten.\n- Autonomes Management einer Gruppe: Förderung der Interaktion zwischen Kindern, Förderung der Zusammenarbeit, der Kommunikation und des gegenseitigen Respekts, Unterstützung der Schaffung einer ruhigen und einladenden Umgebung.\n- Beobachtung und Dokumentation: Überwachung des Kindeswachstums und des Lernfortschritts, Erstellung von Dokumenten und Bewertungsberichten und Aufrechterhaltung der kontinuierlichen Kommunikation mit Familien.\n- Zusammenarbeit mit dem Bildungsteam: Arbeiten Sie in Synergie mit den anderen Fachleuten des Dienstes, um einen partizipativen und zusammenhängenden Ansatz zu gewährleisten.\n- Betreuung und Betreuung: Unterstützung bei der täglichen Betreuung von Kindern wie Ernährung, Hygiene und Ruhe, um eine sichere und geschützte Umgebung zu gewährleisten.\n\n## Anforderungen\n- Diplom SUP oder Universitätsabschluss im Bildungssektor (Bachelor in Sozialarbeit mit Lehrplanpädagoge, Abschluss in Erziehungswissenschaften oder ähnliches) oder Diplom einer Higher School of Tertiary Grade (SSS Diploma of Educational / Childhood) oder Bundeszertifikat der Kapazität als OSA Kindheit.\n- SEFRI-Anerkennung erforderlich, wenn die Qualifikation im Ausland erworben wurde.\n- Erfahrung in einem Kindheitsnest und / oder in einem ähnlichen Kontext ist eine bevorzugte Voraussetzung.\n- Kenntnis der pädagogischen Prinzipien und Bildungsmethoden, die auf den Kontext der frühen Kindheit anwendbar sind.\n- Beziehungs- und Kommunikationsfähigkeiten mit Kindern und Familien.\n- Gruppenarbeit und Zusammenarbeit.\n- Partizipativer Ansatz zur Umsetzung des pädagogischen Projekts.\n- Flexibilität für den reibungslosen Betrieb des Dienstes.\n\n## Wir bieten\n- Vertrag fest oder auf unbestimmte Zeit (abhängig von der Notwendigkeit des Dienstes) mit Rahmen nach dem CCLATAN in der kantonalen Skala 4, mit dem Vorteil der weiter verbesserten Bedingungen, die sich aus dem CCLSUPSI.\n- Support, Teamwork und Meetings: eine kollaborative Umgebung in Teams, die von qualifizierten Fachleuten gebildet werden, in denen Austausch und Zusammenarbeit Schlüsselelemente sind.\n- Sicherheit und Wohlbefinden: Arbeitsbedingungen, die die Sicherheit und das Wohlbefinden von Mitarbeitern und Kindern in den Mittelpunkt stellen.\n- Kontinuierliche Schulung: Möglichkeit, an Kursen zur beruflichen Aktualisierung (Einzelpersonen und Team) innerhalb Ihrer Arbeitszeit teilzunehmen.\n- Unterstützung für den beruflichen Weg: Ansatz basierend auf der Valorisierung des Mitarbeiters.\n\n## Anwendungsinformationen\nZusätzliche Informationen können angefordert werden\nVisar Sejdiu\n, Verwaltungsmanagement. Dem Antrag beizufügende Unterlagen:\n- Motivationsschreiben\n- Lebenslehrplan\n- Diplome\n- SEFRI-Anerkennungsereignis\n- Arbeitsbescheinigungen\n\nZusätzlich zu den Dokumenten, die zum Zeitpunkt der Online-Bewerbung gesendet werden müssen, können zu einem späteren Zeitpunkt weitere Unterlagen erforderlich sein (dies ist der Gesundheitszustand, Kopie eines Ausweises).\nEs zieht die Aufmerksamkeit der für ein Interview ausgewählten Kandidaten auf sich, die zur Überprüfung ihres guten Rufs personenbezogene Daten an die kantonale Aufsichtsbehörde (UFaG) übermitteln, die ihrerseits den Auszug der Gerichtsbox direkt an den kantonalen Koordinierungsdienst der Gerichtsbox (gemäß Art. 18 Abs. 4 der Verordnung über die Aufnahme von Minderjährigen zum Zwecke der Zugehörigkeit.\nNur bis zum 31. Dezember 2026 eingereichte Anträge werden über das Antragsformular berücksichtigt. Unvollständige Anträge werden nicht angenommen, an andere Adressen oder über die vereinbarte Frist hinaus gesendet.",
-        "fr": "# Concours général / Personnel éducatif Garde d'enfants 2026\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) se présente à\n\n## Service de l ' enfance\n, la sélection du personnel éducatif à inclure dans les équipes éducatives.\nLe concours est annuel avec la possibilité d'être embauché en 2026, en fonction des besoins du Service et avec la possibilité de mobilité entre les locaux.\n\n## Portée et objet de la position\nLe service de la petite enfance est promu par la Direction SUPSI pour permettre une meilleure réconciliation entre les engagements familiaux, professionnels et/ou d'étude et en particulier coordonne les sites de nids d'enfants SUPSI (SUPSInido Manno, USI SUPSInido Viganello et SUPSInido Locarno). Ils sont conçus pour les enfants de 4 mois à 3-4 ans, destinés principalement aux familles SUPSI et USI-SUPSI mais également à la disposition des familles extérieures résidant sur le territoire.\n\n## Responsabilité et activité\nL'éducateur/éducateur/éducateur sélectionné travaillera au sein d'une équipe éducative, dans le but de promouvoir le développement physique, cognitif, émotionnel et social des enfants. La figure professionnelle sera responsable des activités suivantes:\n- Conception éducative : développement d'espaces et d'environnements destinés au bien-être et à la croissance des enfants accueillis, conformément aux directives du Service, en assurant une approche inclusive et personnalisée.\n- Gestion autonome d'un groupe : promouvoir l'interaction entre les enfants, stimuler la collaboration, la communication et le respect mutuel, contribuer à créer un environnement serein et accueillant.\n- Observation et documentation: suivi de la croissance des enfants et des progrès de l'apprentissage, rédaction de documents et de rapports d'évaluation et maintien d'une communication continue avec les familles.\n- Collaboration avec l'équipe éducative : travailler en synergie avec les autres professionnels du Service, afin d'assurer une approche participative et cohérente.\n- Soins et assistance: soutien aux activités quotidiennes de soins des enfants, telles que la nutrition, l'hygiène et le repos, assurant un environnement sûr et protégé.\n\n## Exigences\n- Diplôme SUP ou diplôme universitaire dans le secteur de l'éducation (Bachelor en travail social avec programme d'études Éducateur, diplôme en sciences de l'éducation ou similaire), ou diplôme d'une école supérieure de niveau tertiaire (SSS Diplôme d'éducation/enfance) ou certificat fédéral de capacité comme OSA Infancy.\n- La reconnaissance du SEFRI est exigée si la qualification est obtenue à l'étranger.\n- L'expérience dans un nid d'enfance et/ou dans un contexte semblable est une exigence préférentielle.\n- Connaissance des principes pédagogiques et des méthodes éducatives applicables au contexte de la petite enfance.\n- Compétences en relation et en communication avec les enfants et les familles.\n- Travail de groupe et collaboration.\n- Approche participative de la mise en œuvre du projet pédagogique.\n- Flexibilité pour le bon fonctionnement du Service.\n\n## Nous offrons\n- Contrat fixe ou indéfini (dépend des besoins du Service) avec cadre selon le CCLATAN situé dans l'échelle cantonale 4, avec le bénéfice d'une amélioration supplémentaire des conditions découlant du CCLSUPSI.\n- Soutien, travail d'équipe et réunions : un environnement de collaboration au sein d'équipes formées de professionnels qualifiés où le partage et la coopération sont des éléments clés.\n- Sécurité et bien-être : conditions de travail qui placent la sécurité et le bien-être du personnel et des enfants au centre.\n- Formation continue : possibilité de participer à des cours de mise à jour professionnelle (personnes et équipes) dans votre temps de travail.\n- Soutien au parcours professionnel : approche basée sur la valorisation du collaborateur.\n\n## Renseignements sur la demande\nDes renseignements supplémentaires peuvent être demandés\nVisar Sejdiu\n, Gestion administrative. Documents à joindre à la demande:\n- Lettre de motivation\n- Programme de vie\n- Diplômes\n- Manifestation de reconnaissance du SEFRI\n- Certificats de travail\n\nEn plus des documents qui seront envoyés au moment de la demande en ligne, d'autres documents peuvent être requis ultérieurement (c'est l'état de santé, copie d'un document d'identité).\nIl attire l'attention des candidats, sélectionnés pour un entretien, qui, afin de vérifier leur bonne réputation, les données personnelles seront transmises à l'autorité de contrôle cantonale (UFaG) qui, à son tour, exigera l'extrait de la boîte judiciaire directement au service cantonal de coordination de la boîte judiciaire (conformément à l'article 18, par. 4 de l ' ordonnance sur l ' acceptation des mineurs aux fins d ' affiliation).\nSeules les demandes soumises avant le 31 décembre 2026 seront examinées au moyen du formulaire de demande. Les demandes incomplètes ne sont pas acceptées, envoyées à d'autres adresses ou au-delà de la date limite convenue."
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "en": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "de": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "fr": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ]
-      },
-      "country": "CH",
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno",
-          "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino"
-        ],
-        "en": [
-          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
-        ],
-        "de": [
-          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
-        ],
-        "fr": [
-          "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno",
-        "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.supsi.ch/bando26_4001",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     }
   ]
 }

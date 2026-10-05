@@ -1,19 +1,21 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-10-05T06:25:44.161Z",
+  "generatedAt": "2026-10-05T09:17:51.034Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7493,
-  "avgDurationMs": 7493,
+  "unchangedCount": 8,
+  "durationMs": 12413,
+  "avgDurationMs": 12413,
   "durationHistory": [
-    7493
+    12413
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
       "company": "Città di Lugano",
@@ -359,7 +361,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

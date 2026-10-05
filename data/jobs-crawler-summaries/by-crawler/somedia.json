@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-04T21:19:45.010Z",
+  "generatedAt": "2026-10-05T09:27:34.215Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6392,
-  "avgDurationMs": 6392,
+  "unchangedCount": 2,
+  "durationMs": 5743,
+  "avgDurationMs": 5743,
   "durationHistory": [
-    6392
+    5743
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "somedia-ab12f68befed",
       "slug": "video-editoriale-40-somedia-ag-glarus",
@@ -33,7 +37,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:37.370Z",
+      "crawledAt": "2026-10-05T09:27:25.993Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,7 +50,9 @@
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "validThrough": "2027-04-01",
       "applyUrl": "https://jobs.somedia.ch/Redaktorin-Video-40-de-f415.html",
       "_somediaMeta": {
@@ -54,8 +60,8 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz TV AG"
       },
-      "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "salaryMin": 26000,
       "salaryMax": 39400,
       "salarySource": "estimated",
@@ -80,7 +86,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:36.309Z",
+      "crawledAt": "2026-10-05T09:27:24.884Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -93,7 +99,9 @@
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "validThrough": "2027-04-01",
       "applyUrl": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-f416.html",
       "_somediaMeta": {
@@ -101,8 +109,8 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
-      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",
@@ -116,7 +124,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

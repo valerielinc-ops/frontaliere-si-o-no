@@ -1,4 +1,5 @@
 import { getSiteShell } from './siteShell';
+import { articleSectionKind } from './shared/articleSectionCore.mjs';
 import {
  markdownFenceCloses,
  markdownFenceFor,
@@ -8,7 +9,7 @@ import {
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
-type ArticleSection = 'frontaliere' | 'svizzera';
+type ArticleSection = 'frontaliere' | 'svizzera' | `canton-${string}`;
 
 type SeoSection = {
  heading: string;
@@ -61,16 +62,23 @@ const SECTION_LABELS: Record<Locale, { intro: string; why: string; checks: strin
  },
 };
 
-// Switzerland-resident framing overrides for the "svizzera" section. Only the
-// `impact` heading label and the intro-paragraph residence clause differ from
-// the default (frontaliere) copy; everything else is shared. Frontaliere output
-// stays byte-identical because these are applied only when section==='svizzera'.
+// Switzerland-resident framing overrides for the national ("svizzera")
+// section. Only the `impact` heading label and the intro-paragraph residence
+// clause differ from the default (frontaliere) copy; everything else is
+// shared. Frontaliere output stays byte-identical because these are applied
+// only to the kinds in SWISS_RESIDENT_FRAMING_KINDS.
 const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  it: 'Impatto pratico per chi vive in Svizzera',
  en: 'Practical impact for people living in Switzerland',
  de: 'Praktische Folgen fur Menschen mit Wohnsitz in der Schweiz',
  fr: 'Impact concret pour les residents en Suisse',
 };
+
+// Section kinds whose readers live in Switzerland, looked up from the section
+// core instead of comparing the name (`section === 'svizzera'`). A canton
+// section addresses residents of that canton, so it takes the Swiss-resident
+// framing rather than the frontaliere one (Italy-resident, Ticino-employed).
+const SWISS_RESIDENT_FRAMING_KINDS: ReadonlySet<string> = new Set(['national', 'canton']);
 
 const LEGACY_HTML_ANCHOR_RX = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
 const HTML_HREF_ATTR_RX = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
@@ -351,7 +359,10 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
  // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
  const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
- out.push(`<h${level}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
+ const sourceLevelAttr = heading[1].length >= 3
+  ? ` data-source-heading-level="${heading[1].length}"`
+  : '';
+ out.push(`<h${level}${sourceLevelAttr}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
  i++;
  continue;
  }
@@ -448,7 +459,7 @@ const formatTopicList = (locale: Locale, topics: string[]): string => {
 };
 
 export function buildArticleSeoSections(locale: Locale, title: string, desc: string, keywords: string, section: ArticleSection = 'frontaliere'): SeoSection[] {
- const isSvizzera = section === 'svizzera';
+ const isSvizzera = SWISS_RESIDENT_FRAMING_KINDS.has(articleSectionKind(section));
  const labels = isSvizzera
    ? { ...SECTION_LABELS[locale], impact: SVIZZERA_IMPACT_LABEL[locale] }
    : SECTION_LABELS[locale];
@@ -651,6 +662,22 @@ export function articleBodySectionLabel(locale: string, n: number): string {
 export type ArticleDerivedSection = { heading: string; html: string };
 
 /**
+ * Body markdown headings are rendered one level below their section wrapper.
+ * A body can still start at `###`, though, which otherwise produces `<h4>`
+ * immediately after the wrapper's `<h2>`. Clamp skipped levels in the final
+ * static markup while keeping the section content and styling unchanged.
+ */
+function normalizeHeadingOrder(html: string): string {
+ let previousLevel = 1;
+ return html.replace(/<h([2-6])([^>]*)>([\s\S]*?)<\/h\1>/g, (_match, rawLevel, attrs, body) => {
+ const requestedLevel = Number(rawLevel);
+ const level = Math.min(requestedLevel, previousLevel + 1);
+ previousLevel = level;
+ return `<h${level}${attrs}>${body}</h${level}>`;
+ });
+}
+
+/**
  * Renders derived article sections, emitting each distinct heading as an <h2>
  * only on its FIRST occurrence. bodyN sections with n >= 3 all share the same
  * generic positional label, so long articles repeated `<h2>Punti chiave</h2>`
@@ -668,7 +695,7 @@ export function renderArticleDerivedSectionsHtml(
  const sectionCls = opts.sectionClass ? ` class="${opts.sectionClass}"` : '';
  const headingCls = opts.headingClass ? ` class="${opts.headingClass}"` : '';
  const seen = new Set<string>();
- return sections
+ const html = sections
  .map((section) => {
  if (seen.has(section.heading)) {
  return `<section${sectionCls} aria-label="${esc(section.heading)}">${section.html}</section>`;
@@ -677,4 +704,5 @@ export function renderArticleDerivedSectionsHtml(
  return `<section${sectionCls}><h2${headingCls}>${esc(section.heading)}</h2>${section.html}</section>`;
  })
  .join('');
+ return normalizeHeadingOrder(html);
 }
