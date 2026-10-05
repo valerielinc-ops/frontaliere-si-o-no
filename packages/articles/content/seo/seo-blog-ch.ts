@@ -98003,6 +98003,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bern-risanamento-energia': {
+    title: 'Incentivi energetici Canton Berna: requisiti e domanda',
+    description: 'Guida agli incentivi energetici nel Cantone di Berna: risanamento di edifici e impianti, requisiti tecnici, domanda prima dei lavori e ufficio cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivi, energetici, canton, berna',
+    ogTitle: 'Incentivi energetici Canton Berna: requisiti e domanda',
+    ogDescription: 'Nel Cantone di Berna la domanda per gli incentivi energetici va presentata prima dei lavori. La verifica riguarda programmi di risanamento per edifici e impianti, requisiti tecnici, termini, importi e ufficio cantonale competente.',
+    canonicalPath: '/articoli-svizzera/bern-risanamento-energia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivi energetici Canton Berna: requisiti e domanda",
+      "description": "Guida agli incentivi energetici nel Cantone di Berna: risanamento di edifici e impianti, requisiti tecnici, domanda prima dei lavori e ufficio cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bern-risanamento-energia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio svizzero in fase di risanamento energetico"
+      },
+      "datePublished": "2026-10-05T14:08:53+00:00",
+      "dateModified": "2026-10-05T14:08:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bern-risanamento-energia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
