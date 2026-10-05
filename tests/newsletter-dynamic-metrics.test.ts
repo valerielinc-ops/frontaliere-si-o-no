@@ -85,7 +85,7 @@ describe('newsletter article header images', () => {
 });
 
 describe('newsletter job selection defaults', () => {
-  it('keeps four rendered jobs while treatment inspects a wider candidate pool', async () => {
+  it('keeps four rendered jobs while the affinity variant chooses among twelve candidates', async () => {
     // Keep send-newsletter.mjs behind this single behavior case: its top-level
     // readJobEmailRankingConfig() and getCascadeDailyCapacity() imports are
     // irrelevant to the metric tests above and should not load their graph.
@@ -94,19 +94,28 @@ describe('newsletter job selection defaults', () => {
       getNewsletterCandidateLimit,
       rankNewsletterJobs,
     } = await import('../scripts/send-newsletter.mjs');
-    const candidates = Array.from({ length: getNewsletterCandidateLimit('treatment') }, (_, index) => ({
+    const candidates = Array.from({ length: getNewsletterCandidateLimit('affinity') }, (_, index) => ({
       slug: `job-${index}`,
+      category: index === 11 ? 'Informatica' : 'Edilizia',
       relevanceScore: 1,
     }));
 
     expect(getNewsletterCandidateLimit('control')).toBe(NEWSLETTER_JOB_LIMIT);
-    expect(getNewsletterCandidateLimit('treatment')).toBeGreaterThan(NEWSLETTER_JOB_LIMIT);
-    expect(rankNewsletterJobs(candidates, {
-      variant: 'treatment',
-      // The treatment branch requires both the variant and config.enabled.
+    // The same twelve relevant candidates the CTR treatment had.
+    expect(getNewsletterCandidateLimit('affinity')).toBe(12);
+    // The retired label gets no special pool.
+    expect(getNewsletterCandidateLimit('treatment')).toBe(NEWSLETTER_JOB_LIMIT);
+    // A scorer that only likes the last candidate: it reaches the four cards.
+    const affinityScorer = (attrs: { category: string | null }) => (attrs.category === 'Informatica' ? 1 : 0);
+    const ranked = rankNewsletterJobs(candidates, {
+      variant: 'affinity',
+      affinityScorer,
+      // The affinity branch requires both the variant and config.enabled.
       // Pin it explicitly so the test cannot silently exercise control.
       config: { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true },
-    })).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    });
+    expect(ranked).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    expect(ranked[0].slug).toBe('job-11');
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {

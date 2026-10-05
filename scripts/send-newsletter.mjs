@@ -48,6 +48,7 @@ import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resum
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
+  JOB_EMAIL_RANKING_VARIANTS,
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
   rankEmailJobs,
@@ -57,9 +58,10 @@ import {
 import { appendJobRankingParams, NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
   buildRankingJobsManifest,
-  loadNewsletterRankingStats,
   recordJobEmailImpressions,
 } from '../functions/src/lib/jobEmailRankingStore.js';
+import { affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
+import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
@@ -142,8 +144,14 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
 
 export { NEWSLETTER_JOB_LIMIT };
 
+// The affinity variant picks its four cards among the same twelve relevant
+// candidates the CTR treatment had; control keeps the historical top four.
+export const NEWSLETTER_AFFINITY_CANDIDATE_LIMIT = 12;
+
 export function getNewsletterCandidateLimit(rankingVariant) {
-  return rankingVariant === 'treatment' ? 12 : NEWSLETTER_JOB_LIMIT;
+  return rankingVariant === JOB_EMAIL_RANKING_VARIANTS.affinity
+    ? NEWSLETTER_AFFINITY_CANDIDATE_LIMIT
+    : NEWSLETTER_JOB_LIMIT;
 }
 
 export function rankNewsletterJobs(jobs, options = {}) {
@@ -889,8 +897,6 @@ function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = n
           newsletterId: rankingContext.newsletterId,
           rankingScore: job.ranking?.rankingScore,
           relevanceScore: job.ranking?.relevanceScore,
-          ctrShrink: job.ranking?.ctrShrink,
-          randomBoost: job.ranking?.randomBoost,
         });
       }
     }
@@ -2485,12 +2491,19 @@ async function main() {
   // displace a real job from the top-4). The owner still sees them.
   const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
   const publicNewsletterJobContext = prepareNewsletterJobContext(jobsNoCanary, recentlyFeaturedJobs);
-  let newsletterRankingStats = new Map();
-  if (db && JOB_EMAIL_RANKING_CONFIG.enabled) {
-    const since = new Date(Date.now() - JOB_EMAIL_RANKING_CONFIG.windowDays * 86_400_000)
-      .toISOString().slice(0, 10);
-    newsletterRankingStats = await loadNewsletterRankingStats(db, { sinceDay: since });
-  }
+  // Affinity profiles: one read per recipient, batched, for both ranking
+  // variants (the measurement compares them among people with a profile). The
+  // opposition flag comes from the subscriber document already loaded; an
+  // opted-out person is not read. Without Firestore (preview) or on a failed
+  // read everybody gets the standard order — never a blocked send.
+  const affinityNow = new Date();
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = await loadJobEmailAffinityProfiles(
+    db,
+    subscribers.map((subscriber) => ({
+      email: normalizeEmail(subscriber.email),
+      optOut: subscriber.rankingPersonalizationOptOut === true,
+    })),
+  );
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
@@ -2499,12 +2512,14 @@ async function main() {
       : publicNewsletterJobContext;
     const rankingVariant = assignJobRankingVariant({
       subjectId: subscriber.email,
-      surface: 'newsletter',
-      campaignId,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
-    // Treatment gets a wider candidate pool so exploration can surface a
-    // relevant low-impression job; control keeps the historical top-four pool.
+    const { affinityProfile, affinityScorer } = affinityRankingContext(
+      affinityProfiles.get(normalizeEmail(subscriber.email)) ?? null,
+      affinityNow,
+    );
+    // The affinity variant chooses among a wider relevant pool (the same
+    // twelve the CTR treatment had); control keeps the historical top four.
     const candidateLimit = getNewsletterCandidateLimit(rankingVariant);
     const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, candidateLimit, locale);
     const validatedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
@@ -2512,17 +2527,22 @@ async function main() {
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),
     }));
     const matchedJobs = rankNewsletterJobs(validatedJobs, {
-      statsByJob: newsletterRankingStats,
       variant: rankingVariant,
-      surface: 'newsletter',
-      surfaceId: 'newsletter_weekly',
-      campaignId,
-      randomSeed: subscriber.email,
+      affinityScorer,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
-    return { subscriber, locale, matchedJobs, cohortKey, rankingVariant };
+    return { subscriber, locale, matchedJobs, cohortKey, rankingVariant, rankingAffinityProfile: affinityProfile };
   });
+  {
+    const variantCounts = {};
+    let withProfile = 0;
+    for (const entry of subscriberData) {
+      variantCounts[entry.rankingVariant] = (variantCounts[entry.rankingVariant] || 0) + 1;
+      if (entry.rankingAffinityProfile) withProfile++;
+    }
+    console.log(`  🎯 Job-email ranking: ${JSON.stringify(variantCounts)} subscribers; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  }
 
   // Group by cohort (same locale + same job set = same AI briefing)
   const cohorts = new Map();
@@ -2632,7 +2652,7 @@ async function main() {
   // post-send log can report immediate vs scheduled, broken down by source.
   const scheduleTally = { immediate: 0, personal: 0, global: 0 };
 
-  for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant } of subscriberData) {
+  for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant, rankingAffinityProfile } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
     // A/B test: deterministic per-subscriber variant (stable for this campaign),
     // epsilon-greedy when a winner is promoted. Fall back to the first variant's
@@ -2766,6 +2786,7 @@ async function main() {
         isOperatorVerification: mode === 'test',
         rankingDeliveryId,
         rankingVariant: rankingVariant || 'control',
+        rankingAffinityProfile: rankingAffinityProfile === true,
         rankingJobs: matchedJobs,
       },
       payload: {
@@ -2896,6 +2917,7 @@ async function main() {
         newsletterId: item.meta.campaignId,
         email: item.recipient?.email,
         variant: item.meta.rankingVariant || 'control',
+        affinityProfile: item.meta.rankingAffinityProfile === true,
         jobs: item.meta.rankingJobs,
         sentAt: new Date(),
       }));
