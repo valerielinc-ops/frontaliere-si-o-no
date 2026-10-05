@@ -893,7 +893,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern-a5xwgv",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -940,8 +940,7 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "assegnista-di-ricerca-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -951,8 +950,7 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -3542,9 +3540,9 @@
       "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-system-administrator-universitat-bern-bern",
+        "en": "it-systemadministrator-in-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
+        "fr": "it-systemadministrator-in-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3588,11 +3586,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systemadministrator-in-unibe-bern"
+        "it-systemadministrator-in-unibe-bern",
+        "it-system-administrator-universitat-bern-bern",
+        "administrateur-systeme-informatique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern"
+        ],
+        "en": [
+          "it-system-administrator-universitat-bern-bern"
+        ],
+        "fr": [
+          "administrateur-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",

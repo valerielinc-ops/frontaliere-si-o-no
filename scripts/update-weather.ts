@@ -20,6 +20,7 @@ import {
 } from '../services/weatherService';
 import type { MetNoCacheEntry } from '../services/weather/metNoFetcher';
 import { WEATHER_CITIES } from '../data/weatherCities';
+import { WEATHER_CANTON_CAPITALS } from '../data/weatherCantonCapitals';
 import type { MeteoSwissAlertType } from '../services/weather/meteoSwissFetcher';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -71,14 +72,34 @@ async function gather(): Promise<WeatherSnapshot> {
 
   // Sequential city loop with 1.5s gap to honor Met.no fair-use rate limit
   // even though Promise.allSettled fans out the 3 sources within each city.
-  for (const c of WEATHER_CITIES) {
+  // Le citta' con pagina (cluster di confine) e i capoluoghi cantonali senza
+  // pagina (data/weatherCantonCapitals.ts, P9f): stesso consiglio di fonti;
+  // per i capoluoghi niente orario, cosi' il file servito resta leggero.
+  const targets = [
+    ...WEATHER_CITIES.map((c) => ({ id: c.id, name: c.name, canton: c.canton, lat: c.lat, lng: c.lng, hourly: true })),
+    ...WEATHER_CANTON_CAPITALS.map((c) => ({ id: c.id, name: c.name, canton: c.canton, lat: c.lat, lng: c.lng, hourly: false })),
+  ];
+  // Un id ripetuto fra le due liste sovrascriverebbe in silenzio la citta'
+  // con pagina: meglio fermare il giro (il test lo vincola gia' a monte).
+  const seen = new Set<string>();
+  for (const t of targets) {
+    if (seen.has(t.id)) throw new Error(`weather target id duplicato: ${t.id}`);
+    seen.add(t.id);
+  }
+  for (const c of targets) {
     try {
-      const cw = await fetchCouncilCity({
+      const council = await fetchCouncilCity({
         cityId: c.id,
         lat: c.lat,
         lng: c.lng,
         metNoCache: { read: readMetNoCache, write: writeMetNoCache },
       });
+      const cw: CityWeather = {
+        ...council,
+        ...(c.canton ? { canton: c.canton } : {}),
+        name: c.name,
+        hourly24: c.hourly ? council.hourly24 : [],
+      };
       cities[c.id] = cw;
       console.error(`[ok] ${c.id}: ${cw.current.temperature}°C confidence=${cw.confidence} sources=${cw.sources.join('+')}`);
     } catch (err) {

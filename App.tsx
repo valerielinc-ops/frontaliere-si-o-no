@@ -285,6 +285,7 @@ import {
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 import { isSiteAdminUid } from '@/services/adminIdentity';
+import { FOOTER_LINK_GROUP_CLASS } from '@/components/footer/footerLinkGroup';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -3784,7 +3785,7 @@ const App: React.FC = () => {
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
  <section aria-labelledby="footer-project-links" className="rounded-md border border-edge/70 bg-surface p-4">
  <h3 id="footer-project-links" className="text-sm font-semibold text-strong mb-3">{t('footer.projectLinks')}</h3>
- <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'chi-siamo' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
@@ -3860,7 +3861,7 @@ const App: React.FC = () => {
  </section>
  <section aria-labelledby="footer-services-links" className="rounded-md border border-edge/70 bg-surface p-4">
  <h3 id="footer-services-links" className="text-sm font-semibold text-strong mb-3">{t('footer.servicesLinks')}</h3>
- <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'partners' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
@@ -3916,7 +3917,7 @@ const App: React.FC = () => {
  </section>
  <section aria-labelledby="footer-guides-links" className="rounded-md border border-edge/70 bg-surface p-4">
  <h3 id="footer-guides-links" className="text-sm font-semibold text-strong mb-3">{t('footer.guidesLinks')}</h3>
- <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'faq' })}
  onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}

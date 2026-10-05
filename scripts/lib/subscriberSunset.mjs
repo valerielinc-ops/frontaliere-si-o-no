@@ -196,8 +196,8 @@ export function classifySunset(sub, nowMs) {
 
   // Explicit re-consent: the win-back CTA hits ?action=resubscribe, whose handler
   // stamps `resubscribed_at` (status → 'confirmed'). A click is NOT necessarily
-  // recorded as an ESP `click_count` (the win-back is sent click-tracking-free),
-  // so honor the resubscribe timestamp directly — otherwise a user who clicked
+  // recorded as an ESP `click_count` (win-backs sent before 2026-10 were
+  // click-tracking-free, and a webhook can be lost), so honor the resubscribe timestamp directly — otherwise a user who clicked
   // "yes, keep me" would still be sunset at grace expiry. Provider-independent.
   const reengagedAt = toMillis(
     sub?.resubscribed_at ?? sub?.resubscribedAt ?? sub?.reactivated_at ?? sub?.reactivatedAt,
