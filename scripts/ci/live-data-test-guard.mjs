@@ -420,6 +420,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'all data/jobs paths belong to temporary bare repositories created under os.tmpdir(); the checkout read is limited to the script under test',
   },
   {
+    file: 'tests/git-commit-data-skip-identical.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'every data/jobs/by-crawler slice is written and committed inside bare and cloned repositories created with mkdtemp under os.tmpdir(); the checkout read is limited to the script under test (PR 11758)',
+  },
+  {
     file: 'tests/git-commit-data-legacy-staging.test.ts',
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'every data/jobs path is created or asserted inside mkdtemp git repositories under os.tmpdir(); the checkout read is limited to the script under test',
