@@ -4683,8 +4683,8 @@
       "slugByLocale": {
         "de": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
         "it": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "en": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "fr": "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+        "en": "certified-emergency-care-expert-spital-bulach-bulach",
+        "fr": "expert-diplome-en-soins-d-urgence-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4752,8 +4752,8 @@
       "slugByLocale": {
         "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
         "it": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
-        "en": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
-        "fr": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        "en": "private-department-nursing-intern-spital-bulach-bulach",
+        "fr": "stagiaire-en-soins-infirmiers-en-division-privee-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4817,12 +4817,12 @@
     },
     {
       "id": "spital-buelach-954c6e1509c2",
-      "slug": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
+      "slug": "dipl-cura-professionale-piscina-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "en": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        "it": "dipl-cura-professionale-piscina-spital-bulach-bulach",
+        "en": "dipl-care-professional-care-pool-spital-bulach-bulach",
+        "fr": "dipl-pool-de-soins-professionnels-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4882,7 +4882,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T13:49:11.430Z"
+      "firstSeenAt": "2026-09-03T13:49:11.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-6086ba4df072",
@@ -4890,8 +4904,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach",
         "it": "dipl-pflegefachperson-come-dauernachtwache-spital-bulach",
-        "en": "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach"
+        "en": "dipl-care-professional-as-a-permanent-night-watch-spital-bulach-bulach",
+        "fr": "dipl-professionnel-de-soins-comme-une-veille-de-nuit-permanente-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4940,6 +4954,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach"
+        ],
+        "fr": [
           "dipl-pflegefachperson-als-dauernachtwache-spital-buelach-bulach"
         ]
       },

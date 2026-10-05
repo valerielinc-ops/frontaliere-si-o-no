@@ -67,6 +67,11 @@ jobs:
   crawler_group_08:
     runs-on: ubuntu-latest
     timeout-minutes: 340
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+      id-token: write
     env:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
@@ -217,6 +222,19 @@ jobs:
       - name: Confirm crawler shared setup succeeded
         id: crawler_group_setup
         run: "true"
+      - name: Authenticate the jobs source relay (has-healthcare)
+        id: source_relay_auth
+        if: steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed
+        with:
+          workload_identity_provider: projects/957502085858/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com
+          token_format: id_token
+          id_token_audience: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          id_token_include_email: true
+          create_credentials_file: false
+          export_environment_variables: false
       - name: Report shared setup failure to GitHub Issues
         if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         uses: ./.github/actions/report-failure
@@ -4567,6 +4585,9 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: has-healthcare
           JOBS_SLICE_FILE: data/jobs/by-crawler/has-healthcare.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
+          JOBS_SOURCE_RELAY_REQUIRED: "1"
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-08"
@@ -4671,7 +4692,7 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel=1
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             printf '\''1\n'\'' > "$status_tmp"
@@ -4701,7 +4722,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$state_dir/slots/relay-has-healthcare.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
