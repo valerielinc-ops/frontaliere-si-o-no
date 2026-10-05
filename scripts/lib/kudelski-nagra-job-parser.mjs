@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
@@ -141,7 +142,7 @@ async function tryGreenhouseApi() {
       });
       if (items.length > 0) {
         console.log(`   Greenhouse API (board: ${board}) returned ${items.length} jobs`);
-        return { items, board };
+        return { items: items.map((item) => ({ ...item, ...sourcePostingDateFields(item.first_published) })), board };
       }
     } catch (err) {
       console.log(`   Greenhouse board '${board}' failed: ${err.message}`);
@@ -175,13 +176,11 @@ function parseNagraAdvertisementTable(html = '') {
     const cells = [...rowMatch[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((c) => c[1]);
     if (cells.length < 6) continue;
 
-    const [, dateRaw, titleCell, contractTypeRaw, locationRaw, entityRaw] = cells;
+    const [, , titleCell, contractTypeRaw, locationRaw, entityRaw] = cells;
     const idMatch = titleCell.match(/id=(\d+)/);
     const title = normalizeSpace(stripHtml(titleCell)).replace(/\.$/, '');
     if (!title || !idMatch) continue;
 
-    const [, d, m, y] = dateRaw.match(/(\d{2})-(\d{2})-(\d{4})/) || [];
-    const postedDate = d ? `${y}-${m}-${d}` : '';
     const contractType = normalizeSpace(stripHtml(contractTypeRaw));
     const entity = normalizeSpace(stripHtml(entityRaw));
     // The listing table has no free-text description (only Kudelski/id/date/
@@ -197,7 +196,7 @@ function parseNagraAdvertisementTable(html = '') {
       url: `${BASE_URL}/?page=advertisement_display&id=${idMatch[1]}`,
       location: normalizeSpace(stripHtml(locationRaw)),
       description,
-      postedDate,
+      ...sourcePostingDateFields(''),
     });
   }
   return jobs;
@@ -422,7 +421,7 @@ export async function fetchAllKudelskiNagraJobs() {
       sector: 'Sicurezza digitale / Media technology',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.updated_at?.slice(0, 10) || listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: listing.absolute_url || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

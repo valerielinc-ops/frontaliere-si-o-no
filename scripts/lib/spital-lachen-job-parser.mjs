@@ -16,6 +16,8 @@
  * Zurich (canton SZ, postal 8853). ~27 open positions at parser creation,
  * majority nursing/medical, all German-language.
  */
+import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
@@ -33,7 +35,7 @@ export const SPITAL_LACHEN_COMPANY_NAME = 'Spital Lachen';
 export const SPITAL_LACHEN_COMPANY_DOMAIN = 'spital-lachen.ch';
 
 const LISTING_PAGE_CAP = 100;
-const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,modified,unternehmensbereich`;
+const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,date_gmt,unternehmensbereich`;
 const PUBLIC_CAREER_URL = 'https://spital-lachen.ch/jobs-karriere/offene-stellen/';
 
 // Listing fetch uses the shared fetchJson() (crawler-template.mjs): retries
@@ -148,7 +150,6 @@ export async function fetchAllSpitalLachenJobs() {
   warnIfListingAtCap({ label: 'Spital Lachen WP REST listing', count: data.length, cap: LISTING_PAGE_CAP });
   if (!data.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
@@ -169,11 +170,7 @@ export async function fetchAllSpitalLachenJobs() {
     const jobSlug = slugify(`${title} ${SPITAL_LACHEN_KEY} lachen`);
     const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = item?.date || item?.modified || '';
-      const d = new Date(String(raw));
-      return Number.isFinite(d.getTime()) ? d.toISOString().slice(0, 10) : todayIso;
-    })();
+    const publication = wordpressPublicationDateFields(item);
 
     jobs.push({
       id: `${SPITAL_LACHEN_KEY}-${urlHash}`,
@@ -211,7 +208,7 @@ export async function fetchAllSpitalLachenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: link,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

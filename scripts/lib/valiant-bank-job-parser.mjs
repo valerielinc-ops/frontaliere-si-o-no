@@ -50,6 +50,8 @@
  *   - isValiantBankJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()         — Validate URLs belong to this company
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
@@ -179,7 +181,7 @@ function parseListingHtml(html) {
  * (`<<ccr:...>>`) instead of real content (observed live on a cold cache
  * hit — see module docblock). Never returns/propagates placeholder text.
  */
-async function fetchDetailLdSafe(url, { attempts = 3, delayMs = 1200 } = {}) {
+async function fetchDetailLdSafe(url, { attempts = 3, delayMs = 1200, expectedTitle = '' } = {}) {
   let lastHtml = '';
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const html = await fetchHtml(url, { label: 'Valiant Career Center detail page' });
@@ -187,7 +189,7 @@ async function fetchDetailLdSafe(url, { attempts = 3, delayMs = 1200 } = {}) {
     const ld = extractJobPostingLd(html);
     const raw = JSON.stringify(ld || '');
     if (ld && !CCR_PLACEHOLDER_RE.test(raw)) {
-      return ld;
+      return { ...ld, ...identifiedPostingPublication(html, url, expectedTitle) };
     }
     if (attempt < attempts) {
       await new Promise((resolve) => setTimeout(resolve, delayMs));
@@ -230,7 +232,7 @@ export async function fetchAllValiantBankJobs() {
 
     let ld = null;
     try {
-      ld = await fetchDetailLdSafe(listing.url);
+      ld = await fetchDetailLdSafe(listing.url, { expectedTitle: title });
     } catch (err) {
       console.warn(`⚠️ Failed to fetch detail for ${listing.url}: ${err?.message || err}`);
     }
@@ -264,8 +266,7 @@ export async function fetchAllValiantBankJobs() {
     seenSlugs.add(jobSlug);
 
     const employmentType = resolveEmploymentType(ld.employmentType);
-    const postedDate = (ld.datePosted && String(ld.datePosted).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const publication = mergeSourcePostingDates({}, ld);
 
     const hiringOrganizationName = ld.hiringOrganization?.name || VALIANT_BANK_COMPANY_NAME;
 
@@ -302,7 +303,7 @@ export async function fetchAllValiantBankJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: listing.url,
       hiringOrganizationName,
       needsRetranslation: true,
