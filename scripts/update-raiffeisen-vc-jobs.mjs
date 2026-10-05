@@ -249,7 +249,9 @@ async function fetchRaiffeisenProspectivePage(lang, offset, options = {}) {
       { cause: err },
     );
   }
-  const total = Number(data?.total);
+  // Keep the API schema fail-closed: Number(null), Number(false), and
+  // Number('') all become zero and could authorize an empty snapshot.
+  const total = data?.total;
   if (!Number.isSafeInteger(total) || total < 0 || !Array.isArray(data?.jobs)) {
     throw new Error(`Raiffeisen VC discovery failed: Prospective API ${lang} returned an invalid jobs payload.`);
   }

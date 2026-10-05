@@ -363,4 +363,22 @@ describe('fetchJobUrls — Prospective API fallback', () => {
     expect(result).toMatchObject({ urls: [], sourceZero: true, apiQueried: true });
     expect(fetchImpl).toHaveBeenCalledTimes(4);
   });
+
+  it('rejects malformed API totals instead of treating them as authoritative zero', async () => {
+    for (const total of [null, false, '']) {
+      const fetchImpl = vi.fn(async (input: string) => {
+        const url = new URL(input);
+        if (url.hostname === 'www.raiffeisen.ch') {
+          return new Response(CAREERS_SHELL, { status: 200 });
+        }
+        return new Response(JSON.stringify({ total, jobs: [] }), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        });
+      });
+
+      await expect(fetchJobUrls({ fetchImpl, retries: 0, timeoutMs: 1000 }))
+        .rejects.toThrow(/invalid jobs payload/);
+    }
+  });
 });
