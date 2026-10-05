@@ -276,7 +276,8 @@ function postingKey(record = {}) {
 }
 
 /**
- * Source identities that name MORE THAN ONE posting inside a single list.
+ * Source identities that name MORE THAN ONE posting across the populations
+ * being compared.
  *
  * `buildStableJobIdentity` strips the URL fragment and keeps whatever URL the
  * crawler wrote, so a crawler whose only URL is the listing page gives every
@@ -296,8 +297,8 @@ function postingKey(record = {}) {
  */
 export function ambiguousJobIdentities(...lists) {
   const ambiguous = new Set();
+  const postingsByIdentity = new Map();
   for (const list of lists) {
-    const postingsByIdentity = new Map();
     for (const record of Array.isArray(list) ? list : []) {
       if (!record || typeof record !== 'object') continue;
       const posting = postingKey(record);

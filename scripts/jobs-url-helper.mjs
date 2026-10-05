@@ -22,6 +22,7 @@ import {
   buildStableJobIdentity,
   jobsDiffer,
 } from './lib/job-identity.mjs';
+import { ambiguousJobIdentities } from './lib/first-seen-history.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -263,11 +264,16 @@ export function computeCrawlDiff(beforeMap, afterMap) {
   const removedJobs = [];
   const unchangedJobs = [];
 
-  // Identities that name several postings on either side are compared
-  // posting by posting (see snapshotJobSlugs); the rest keep the 1:1 lookup.
+  // Identities that name several postings in the UNION of both snapshots are
+  // compared posting by posting (see snapshotJobSlugs); the rest keep the 1:1
+  // lookup. This also catches a one-to-one replacement where the old snapshot
+  // has only the departing posting and the new snapshot only the arrival.
+  const jobsInSnapshot = (snapshot) => [...(snapshot?.keys?.() || [])]
+    .flatMap((identity) => snapshotGroup(snapshot, identity));
   const collided = new Set([
     ...(beforeMap?.collided?.keys() || []),
     ...(afterMap?.collided?.keys() || []),
+    ...ambiguousJobIdentities(jobsInSnapshot(beforeMap), jobsInSnapshot(afterMap)),
   ]);
   for (const identity of collided) {
     const beforeByPosting = new Map(snapshotGroup(beforeMap, identity).map((job) => [snapshotPostingKey(job), job]));

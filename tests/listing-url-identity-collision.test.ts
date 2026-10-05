@@ -23,6 +23,24 @@ function galenica(n: number, overrides: Record<string, unknown> = {}) {
 }
 
 describe('computeCrawlDiff — postings that share the listing URL', () => {
+  it('uses the union of snapshots when each side has only one different posting', () => {
+    const before = snapshotJobSlugs([{
+      id: 'old',
+      slug: 'old',
+      url: 'https://example.test/jobs#old',
+    }]);
+    const after = snapshotJobSlugs([{
+      id: 'new',
+      slug: 'new',
+      url: 'https://example.test/jobs#new',
+    }]);
+    const diff = computeCrawlDiff(before, after);
+
+    expect(diff.newJobs.map((job) => job.id)).toEqual(['new']);
+    expect(diff.removedJobs.map((job) => job.id)).toEqual(['old']);
+    expect(diff.updatedJobs).toEqual([]);
+  });
+
   it('reports the posting that left the source as removed and the arrival as new', () => {
     const before = snapshotJobSlugs([galenica(1), galenica(2), galenica(3)]);
     const after = snapshotJobSlugs([galenica(1), galenica(3), galenica(4)]);
@@ -52,6 +70,17 @@ describe('computeCrawlDiff — postings that share the listing URL', () => {
 });
 
 describe('computeSlicePartition — postings that share the listing URL', () => {
+  it('uses the union of slices when each side has only one different posting', () => {
+    const partition = computeSlicePartition(
+      [{ id: 'old', slug: 'old', url: 'https://example.test/jobs#old' }],
+      [{ id: 'new', slug: 'new', url: 'https://example.test/jobs#new' }],
+    );
+
+    expect(partition.newJobs.map((job) => job.id)).toEqual(['new']);
+    expect(partition.removedJobs.map((job) => job.id)).toEqual(['old']);
+    expect(partition.updatedJobs).toEqual([]);
+  });
+
   it('counts the arrival as new and the departure as removed', () => {
     const partition = computeSlicePartition(
       [galenica(1), galenica(2)],
