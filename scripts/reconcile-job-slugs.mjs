@@ -35,6 +35,7 @@ import {
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { archiveRecordNamesPosting } from './lib/job-identity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
@@ -1061,6 +1062,16 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     }
 
     const { job, score, method } = match;
+
+    // Same contract as assemble-jobs-dataset.reconcileGhostExpired (#11596): a
+    // fuzzy title/company match is not the same posting when the archive
+    // record names a different source posting. Merging it would hand `job`
+    // another posting's routes, hash-tailed slug included.
+    if (!archiveRecordNamesPosting(ej, job)) {
+      skippedCount++;
+      if (verbose) console.log('  ⏭️ Best match is a different source posting — not merging');
+      continue;
+    }
 
     // Collect all slugs from the expired entry to merge
     const existingSlugs = new Set([

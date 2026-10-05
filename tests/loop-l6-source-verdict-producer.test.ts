@@ -114,6 +114,15 @@ describe('selection from RAW_ARTICLES', () => {
     expect(selected.map((entry) => entry.id)).toEqual(['notizia-recente', 'notizia-vecchia-aggiornata', 'notizia-intermedia']);
   });
 
+  it('reads an unknown publication date as an empty string and ranks it after every dated article', () => {
+    const withUnknown = DATA_FIXTURE.replace("id: 'notizia-antica',\n category: 'novita',\n date: '2025-12-01',", "id: 'notizia-antica',\n category: 'novita',\n date: '',");
+    expect(withUnknown).not.toBe(DATA_FIXTURE);
+    const entries = parseRawArticles(withUnknown);
+    expect(entries.find((entry) => entry.id === 'notizia-antica')?.date).toBe('');
+    const selected = selectArticles(entries, { limit: entries.length });
+    expect(selected.at(-1)?.id).toBe('notizia-antica');
+  });
+
   it('--select prints the four body paths of each selected article, one per line', async () => {
     const root = tempRoot([]);
     let printed = '';
@@ -139,7 +148,11 @@ describe('selection from RAW_ARTICLES', () => {
     expect(independentCount).toBeGreaterThan(0);
     expect(entries.length).toBe(independentCount);
     expect(entries.length).toBe(fileWideCount);
-    expect(entries.every((entry) => entry.category && entry.date)).toBe(true);
+    // `date: ''` = publication date unknown (corpus PR 2082): the producer
+    // must still READ the field (a missing match is null), and a present
+    // date must parse. selectArticles ranks the unknown ones last.
+    expect(entries.filter((entry) => !entry.category || typeof entry.date !== 'string')).toEqual([]);
+    expect(entries.filter((entry) => entry.date !== '' && !Number.isFinite(Date.parse(entry.date!)))).toEqual([]);
     expect(entries.filter((entry) => entry.category === 'novita').length).toBeGreaterThan(0);
   });
 });

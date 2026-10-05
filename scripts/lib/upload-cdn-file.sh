@@ -82,6 +82,25 @@ if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
   exit 0
 fi
 
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
+
 # Extension → Content-Type. Explicit table, not auto-detection — see header
 # comment for why (.webp specifically is unreliable via rclone/Go mime sniff
 # on some runners).
@@ -186,9 +205,10 @@ bkt=":s3:$R2_BUCKET"
 # run-28599750786): a single-shot upload with no fallback previously failed
 # the whole deploy prep step on a bare connection reset even though nothing
 # else was wrong. Still never fatal — see header "Failure posture".
+r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 attempt_ok=0
 for try in 1 2; do
-  if timeout -k 10 "${R2_TIMEOUT_OBJECT_S:-120}" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
+  if timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
        --header-upload "Content-Type: $content_type" \
        --header-upload "Cache-Control: $cache_control" \
        --stats=0; then

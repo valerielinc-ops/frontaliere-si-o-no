@@ -291,7 +291,8 @@ describe('orphanQueryData — job matching', () => {
       activeJob({
         title: 'Chauffeur Kat. C',
         addressLocality: 'Brunegg',
-        postedDate: `2026-04-${String(i + 1).padStart(2, '0')}`,
+        postingDateSource: 'reported',
+        postedDate: new Date(Date.now() - (10 - i) * 86400000).toISOString(),
       }),
     );
     const out = filterMatchingJobs(jobs, cluster, 5);
@@ -452,7 +453,6 @@ function activeJob(partial: Partial<OrphanCountableJob>): OrphanCountableJob {
     company: 'Acme AG',
     location: 'Lugano',
     addressLocality: 'Lugano',
-    postingDateSource: 'reported',
     postedDate: '2026-04-18',
     description: longDescription,
     descriptionByLocale: {

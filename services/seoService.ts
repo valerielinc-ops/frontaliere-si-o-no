@@ -39,6 +39,7 @@ import { resolveGuideLocaleSeo } from '../build-plugins/shared/guideLocaleSeo';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
+import { buildOggiPath, type BorderCrossingSlug } from '../build-plugins/borderWaitData';
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
 
 /**
@@ -895,8 +896,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
 function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
  return Object.fromEntries(
  ALL_BORDER_CROSSING_IDS.map((crossingId) => {
- const route = { activeTab: 'guida' as const, guidaSubTab: 'border' as const, borderCrossing: crossingId as any };
- const canonicalPath = buildPath(route, 'it');
+  const canonicalPath = buildOggiPath('it', crossingId as BorderCrossingSlug);
  // Label + <title> both come from the shared leaf module (#4828). This file
  // used to carry its own `titleizeBorderCrossingId` plus a literal copy of
  // the `Traffico dogana ${label} | Tempi attesa valico` template — the same
@@ -947,12 +947,12 @@ const BORDER_CROSSING_SEO_OVERRIDES: Record<string, SEOMetadata> = {
    keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, dogana chiasso centro, valico brogeda tempi, frontaliere ticino, code dogana chiasso',
    ogTitle: 'Traffico Dogana Chiasso Centro e Brogeda | Tempi di Attesa',
    ogDescription: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
-   canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/',
+   canonicalPath: '/traffico-dogane/chiasso-centro/oggi/',
    structuredData: {
      '@context': 'https://schema.org',
      '@type': 'WebPage',
      name: 'Traffico dogana Chiasso Centro e Brogeda',
-     url: `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/`,
+     url: `${BASE_URL}/traffico-dogane/chiasso-centro/oggi/`,
      description: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
    },
  },
@@ -1510,7 +1510,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'comparatori-trasporti': { name: 'Calcolo Trasporti', path: '/vivere-in-ticino/trasporti-frontalieri', parent: 'vita' },
  'comparatori-operatori': { name: 'Operatori Mobili', path: '/compara-servizi/confronta-operatori-mobili', parent: 'comparatori' },
  'comparatori-banche': { name: 'Confronto Banche', path: '/compara-servizi/confronta-banche', parent: 'comparatori' },
- 'comparatori-traffico': { name: 'Traffico Valichi', path: '/statistiche/traffico-dogane', parent: 'comparatori' },
+ 'comparatori-traffico': { name: 'Traffico Valichi', path: '/traffico-dogane', parent: 'comparatori' },
  'comparatori-costo-vita': { name: 'Costo della Vita', path: '/compara-servizi/costo-della-vita', parent: 'comparatori' },
  'comparatori-lavoro': { name: 'Comparatore Lavoro', path: '/compara-servizi/confronta-offerte-lavoro', parent: 'comparatori' },
  'comparatori-spesa': { name: 'Calcolatore Spesa', path: '/compara-servizi/confronta-prezzi-spesa', parent: 'comparatori' },
@@ -1520,7 +1520,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  health: { name: 'Assicurazioni Sanitarie', path: '/compara-servizi/confronta-casse-malati', parent: 'comparatori' },
  banks: { name: 'Banche', path: '/compara-servizi/confronta-banche', parent: 'comparatori' },
  calcolatore: { name: 'Calcolatore', path: '/calcola-stipendio' },
- traffic: { name: 'Traffico Valichi', path: '/statistiche/traffico-dogane', parent: 'stats' },
+ traffic: { name: 'Traffico Valichi', path: '/traffico-dogane', parent: 'stats' },
  jobs: { name: 'Offerte Lavoro', path: '/compara-servizi/confronta-offerte-lavoro', parent: 'comparatori' },
  shopping: { name: 'Spesa Transfrontaliera', path: '/compara-servizi/confronta-prezzi-spesa', parent: 'comparatori' },
  'cost-of-living': { name: 'Costo della Vita', path: '/compara-servizi/costo-della-vita', parent: 'comparatori' },
@@ -1541,7 +1541,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  vita: { name: 'Vita in Ticino', path: '/vivere-in-ticino' },
  livingCH: { name: 'Vivere in Svizzera', path: '/vivere-in-ticino/vivere-in-svizzera', parent: 'vita' },
  livingIT: { name: 'Vivere in Italia', path: '/vivere-in-ticino/vivere-in-italia', parent: 'vita' },
- border: { name: 'Valichi Frontiera', path: '/guida-frontaliere/tempi-attesa-dogana', parent: 'guide' },
+ border: { name: 'Valichi Frontiera', path: '/traffico-dogane', parent: 'guide' },
  calendar: { name: 'Calendario Fiscale', path: '/tasse-e-pensione/scadenze-fiscali', parent: 'fisco' },
  holidays: { name: 'Festività Ticino', path: '/tasse-e-pensione/festivita-ticino', parent: 'fisco' },
  permits: { name: 'Permessi Lavoro', path: '/guida-frontaliere/permessi-di-lavoro', parent: 'guide' },
