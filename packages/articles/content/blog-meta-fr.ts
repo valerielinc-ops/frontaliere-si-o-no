@@ -12563,6 +12563,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.novantaquattro-scatti-varese.title': 'Varese, 94 photos entre cyclisme et StraWoman',
     'blog.article.novantaquattro-scatti-varese.excerpt': 'À Varese, environ 5.000 cyclistes venus de plus de 40 pays et plus de 3.000 femmes pour un dimanche entre Gran Fondo Tre Valli Varesine et StraWoman.',
     'blog.article.novantaquattro-scatti-varese.imageAlt': 'Cyclistes et participantes de la StraWoman dans le centre de Varèse (Varese)',
+    'blog.article.openjobmetis-scafati-vittoria-basket.title': 'Openjobmetis s\'impose à Scafati : premier succès officiel',
+    'blog.article.openjobmetis-scafati-vittoria-basket.excerpt': 'L\'Openjobmetis s\'impose 78-85 à Scafati, décrochant la première victoire officielle de la saison et la deuxième de son histoire sur le parquet campanien.',
+    'blog.article.openjobmetis-scafati-vittoria-basket.imageAlt': 'Match de basket de l\'Openjobmetis à Scafati',
 };
 
 export default blogMetaFr;
