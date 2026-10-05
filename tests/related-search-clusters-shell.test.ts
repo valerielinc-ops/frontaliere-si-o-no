@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
+import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 import { AD_SLOTS } from '../services/adsenseSlots';
@@ -271,6 +272,47 @@ describe('related search cluster SEO shell', () => {
     expect(page.html).toContain('Rel 5');
   });
 
+  it('restores the full prose context when the stripped shell would be thin', () => {
+    const page = renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-10-05',
+      ctx: {
+        candidate: {
+          slug: 'ricerca-sparse-indexable',
+          locale: 'en',
+          jobCount: 3,
+          sampleTerms: ['sparse indexable'],
+          editorialCollision: null,
+        },
+        keyword: 'sparse indexable',
+        city: null,
+        matchingJobs: [
+          { id: 'a', title: 'Job A', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-a' },
+          { id: 'b', title: 'Job B', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-b' },
+          { id: 'c', title: 'Job C', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-c' },
+        ],
+        topCompanies: [],
+      } as any,
+      enriched: {
+        slug: 'ricerca-sparse-indexable',
+        locale: 'en',
+        keyword: 'sparse indexable',
+        city: null,
+        intro: 'Short intro.',
+        faqs: [],
+      },
+      hreflang: [],
+      related: [],
+    });
+    const mainStart = page.html.indexOf('<main');
+    const mainEnd = page.html.indexOf('</main>', mainStart) + '</main>'.length;
+    const main = page.html.slice(mainStart, mainEnd);
+
+    expect(page.html).not.toContain('<!--EJP_STRIPPED-->');
+    expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(main).toContain('job-board-commuter-context');
+  });
+
   it('does not put the manual multiplex slot on an AdSense-thin enriched cluster (#9244)', () => {
     const render = (intro: string) => renderClusterPage({
       distDir: makeDist(),
@@ -350,9 +392,38 @@ describe('below-floor bridge floor decision (issue #4303 item 4 / run 2963670705
     expect(isClusterBelowFloor(aboveFloorCtx, undefined)).toBe(false);
   });
 
-  it('is false below floor when an AI-enriched intro exempts the cluster', () => {
-    const enriched = { slug: 'ricerca-floor-test', locale: 'it', keyword: 'floor test', city: null, intro: 'Non-empty AI intro.', faqs: [] } as any;
+  it('is false below floor when a substantive AI-enriched intro exempts the cluster', () => {
+    const enriched = {
+      slug: 'ricerca-floor-test',
+      locale: 'it',
+      keyword: 'floor test',
+      city: null,
+      intro: Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' '),
+      faqs: [],
+    } as any;
     expect(isClusterBelowFloor(belowFloorCtx, enriched)).toBe(false);
+  });
+
+  it('keeps a below-floor cluster bridged when its enriched intro is short', () => {
+    const enriched = {
+      slug: 'ricerca-floor-test',
+      locale: 'it',
+      keyword: 'floor test',
+      city: null,
+      intro: 'Non-empty AI intro.',
+      faqs: [],
+    } as any;
+    const page = renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-07-18',
+      ctx: belowFloorCtx,
+      enriched,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toMatch(/<meta name="?robots"? content="?noindex,follow"?/);
+    expect(page.html).not.toContain('ricerca-floor-test');
   });
 
   it('is true below floor when the enriched intro is present but blank', () => {

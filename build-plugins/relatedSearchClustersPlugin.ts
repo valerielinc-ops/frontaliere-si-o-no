@@ -51,7 +51,13 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, buildCanonicalBridgePage, countHtmlBodyWords, replaceRobotsMeta } from './constants';
+import {
+  BASE_URL,
+  buildCanonicalBridgePage,
+  countHtmlBodyWords,
+  MIN_INDEXABLE_WORDS,
+  replaceRobotsMeta,
+} from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
@@ -1686,8 +1692,9 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 }
 
 /**
- * True when an AI-enriched entry carries a real intro — i.e. one that can stand
- * in for matching jobs as the cluster's claim to being worth indexing.
+ * True when an AI-enriched entry carries a substantive intro — i.e. one that
+ * can stand in for matching jobs as the cluster's claim to being worth
+ * indexing and clears the shared content-quality floor.
  *
  * Why this is not just `Boolean(intro.trim())`
  * --------------------------------------------
@@ -1712,10 +1719,11 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
  * 31 words, live, listed in `sitemap-search-clusters-001.xml`, and the single
  * `thin content (<50 words)` BLOCKING error on run 31077435060.
  *
- * Scope is deliberately narrow: this rejects values that are provably fill-in
- * slots, NOT short-but-real prose. "This intro is too short to be good" is a
- * quality judgement for the enrichment pipeline; "this intro is the prompt" is
- * a defect, and only the defect is decided here.
+ * A short-but-real intro is still useful enrichment, but it cannot by itself
+ * turn a below-floor cluster into an indexable page. The same 50-word floor
+ * used by the dist validator must apply at this exemption boundary too;
+ * otherwise the renderer can emit an indexable page whose stripped body is
+ * thin while the sitemap decision still treats the intro as sufficient.
  *
  * The placeholder shape itself is defined once, in
  * `scripts/lib/prompt-placeholder.mjs`, and shared with the generator that
@@ -1725,7 +1733,7 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 export function hasUsableEnrichedIntro(enriched: EnrichedEntry | undefined): boolean {
   const intro = enriched?.intro?.trim();
   if (!intro) return false;
-  return !isPromptPlaceholder(intro);
+  return !isPromptPlaceholder(intro) && countHtmlBodyWords(intro) >= MIN_INDEXABLE_WORDS;
 }
 
 /** Minimal structural view of TrafficEvidenceFilter — keeps this decidable in tests. */
@@ -2894,8 +2902,17 @@ function buildJsonLd(opts: {
   locale: Locale;
   commuterLocation: string;
   sectorLabel: string | null;
+  stripSeoProse: boolean;
 }): string[] {
-  const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
+  const {
+    ctx,
+    canonicalUrl,
+    enriched,
+    locale,
+    commuterLocation,
+    sectorLabel,
+    stripSeoProse,
+  } = opts;
   const headline = buildHeadline(ctx.keyword, ctx.city, locale);
 
   // ItemList JSON-LD intentionally NOT emitted: the static body no longer
@@ -2922,7 +2939,7 @@ function buildJsonLd(opts: {
     location: commuterLocation,
     sectorOrType: sectorLabel,
   });
-  // When STRIP_CLUSTER_SEO_PROSE is ON, the commuter-context block in the
+  // When the stripped body is selected, the commuter-context block in the
   // <body> is dropped — so its FAQPage JSON-LD must go too (otherwise
   // Google reports "Field 'mainEntity' references missing content" for
   // questions whose visible answers no longer exist on the page). The AI
@@ -2930,7 +2947,7 @@ function buildJsonLd(opts: {
   // dropped). Net per cluster: -~1.5 KB raw JSON-LD on top of the
   // ~5 KB raw HTML strip, for ~6.5 KB raw total = ~150 MB gzip on the
   // github-pages artifact across the 102,827-page cluster surface.
-  const faqMainEntity = STRIP_CLUSTER_SEO_PROSE
+  const faqMainEntity = stripSeoProse
     ? []
     : [...aiFaqItems, ...commuterFaqItems];
   if (faqMainEntity.length > 0) {
@@ -3004,16 +3021,13 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // the rich-content build below — see MIN_JOBS_FOR_INDEXABLE_CLUSTER
   // docstring for why this is distinct from MIN_MATCHING_JOBS=0.
   //
-  // Exempt AI-enriched clusters (`enriched.intro` present) from the floor:
-  // a past reviewer explicitly rejected suppressing n=0 clusters that carry
-  // unique AI-authored content ("flagged 🔴 in PR review... those pages no
-  // longer list off-topic jobs, not that they vanish from the index" — see
-  // buildDescription's n=0 handling below and
-  // tests/related-search-clusters-shell.test.ts's "keeps the full SEO
-  // shell" test). Only 6,538 of 349,579 unique cluster slugs have an
-  // enriched entry (data/related-search-enriched.json), so this exemption
-  // is narrow — it doesn't blunt the consolidation for the bulk of
-  // generic, non-enriched below-floor clusters the issue targets.
+  // Exempt only substantive AI-enriched clusters from the floor: a past
+  // reviewer explicitly rejected suppressing n=0 clusters that carry unique
+  // AI-authored content, but the exemption must still clear the shared
+  // MIN_INDEXABLE_WORDS floor or it would turn a short intro into an
+  // indexability bypass. Only 6,538 of 349,579 unique cluster slugs have an
+  // enriched entry (data/related-search-enriched.json), so this remains narrow
+  // and does not blunt consolidation for generic clusters.
   if (isClusterBelowFloor(ctx, enriched)) {
     return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword, hreflang);
   }
@@ -3029,7 +3043,6 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const commuterLocation = ctx.city || chrome.regionFallback;
   const sectorLabel = detectSectorLabel(ctx.keyword, locale);
 
-  const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel });
   const hreflangHtml = renderHreflang(hreflang, canonicalUrl);
 
   // ── Strategy: SPA renders the interactive UI for users; static page
@@ -3143,15 +3156,12 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // cluster page regardless of locale) is dropped entirely — per user
   // review the IT-only text on EN/DE/FR pages was both a wire-bloat
   // (~250 B × 180k pages × 4 locales = ~45 MB) and a "mixed-language
-  // content" SEO smell. The audit:content-quality 50-word floor stays
-  // covered by the cluster's own `aiIntroHtml` (per-cluster unique prose,
-  // typically 30-60 words) plus the `relatedHtml` cross-link list and
-  // the visible job count in the H1; any cluster that falls under the
-  // floor would have failed before this commit too. Re-enable by
-  // restoring this paragraph if validate-dist starts blocking
-  // sparse-aiIntro clusters at the 50-word mark.
-  const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
-    ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
+  // content" SEO smell. The stripped shell is retained only while it clears
+  // the shared 50-word floor. Sparse indexable clusters keep the existing
+  // localized commuter/query prose instead of shipping a thin body; this
+  // bounds the heavier payload to pages that need it and keeps the producer's
+  // output aligned with validate:content-quality.
+  const strippedSeoContextBlock = `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
@@ -3159,8 +3169,8 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
       </section>
       ${relatedHtml}
     </div>
-  </details>`
-    : `<details class="cluster-seo-context s-mxdIN0">
+  </details>`;
+  const fullSeoContextBlock = `<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
@@ -3214,13 +3224,32 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
   // already imports — no extra request.
-  const bodyContentHtml = `<div class="related-search-cluster">
+  const renderBodyContent = (seoContextBlock: string): string => `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${salaryAnswerHtml}
     <p><a href="${CALC_HREF[locale]}">${esc(copy.ctaCalculator)}</a></p>
     ${jobLinksHtml}
     ${seoContextBlock}
   `;
+  const strippedBodyContentHtml = renderBodyContent(strippedSeoContextBlock);
+  const useStrippedSeoProse = STRIP_CLUSTER_SEO_PROSE
+    && countHtmlBodyWords(strippedBodyContentHtml) >= MIN_INDEXABLE_WORDS;
+  const bodyContentHtml = useStrippedSeoProse
+    ? strippedBodyContentHtml
+    : renderBodyContent(fullSeoContextBlock);
+
+  // Keep FAQ structured data aligned with the prose actually present in the
+  // body. Sparse pages fall back to the full context above, so their existing
+  // commuter/AI FAQ markup is visible again and can be represented honestly.
+  const jsonLdScripts = buildJsonLd({
+    ctx,
+    canonicalUrl,
+    enriched,
+    locale,
+    commuterLocation,
+    sectorLabel,
+    stripSeoProse: useStrippedSeoProse,
+  });
   // The live AdSense audit classifies pages below ADSENSE_THIN_WORDS as thin.
   // Do not add the manual multiplex slot to that class: Auto Ads still load
   // through the shared page shell, while the static slot is the policy failure
