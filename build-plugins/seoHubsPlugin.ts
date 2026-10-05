@@ -61,6 +61,7 @@ import {
 } from '../packages/articles/engine/articleHubPagesPlugin';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleExcerpts, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { parseArticleRegistryEntries } from './shared/articleRegistryEntries';
 import { WriteCollector } from './batchWrite';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -2454,9 +2455,12 @@ function readArticleDates(
   const out = new Map<string, string>();
   try {
     const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
+    // Same field-order-independent parser as the package's reader: the regex
+    // here required `category` right after `id`, so an entry with `updatedAt`
+    // first had no date. `date: ''` (unknown) stays out of the map.
+    for (const entry of parseArticleRegistryEntries(src)) {
+      if (entry.date) out.set(entry.id, entry.date);
+    }
   } catch { /* registry absent — keep insertion order */ }
   return out;
 }
