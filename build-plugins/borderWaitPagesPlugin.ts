@@ -1736,7 +1736,7 @@ interface LeafInputs {
   /**
    * Absolute URL for the per-crossing OG image (webcam snapshot). When
    * provided and the snapshot exists on disk, the page emits it as
-   * `og:image` at 640×360 — a live preview of the crossing traffic
+   * `og:image` at 1200×675 — a live preview of the crossing traffic
    * state that drives viral social sharing. When omitted, the page
    * falls back to the site default OG image (`/og-image.png`).
    */
@@ -2269,12 +2269,13 @@ function renderLeafPage(inp: LeafInputs): string {
 </article>${webcamRefreshScript}${hydrationScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
-  // the 640×360 JPEG so social shares show the REAL traffic state at the
-  // crossing. Fallback to the generic site OG image (1200×630) otherwise.
+  // the 1200×675 JPEG so social shares show the REAL traffic state at the
+  // crossing without falling below the minimum preview dimensions. Fallback
+  // to the generic site OG image (1200×630) otherwise.
   const hasWebcamOg = typeof ogImageUrl === 'string' && ogImageUrl.length > 0;
   const ogImageTag = hasWebcamOg ? ogImageUrl! : `${BASE_URL}/og-image.png`;
-  const ogImageWidth = hasWebcamOg ? '640' : '1200';
-  const ogImageHeight = hasWebcamOg ? '360' : '630';
+  const ogImageWidth = '1200';
+  const ogImageHeight = hasWebcamOg ? '675' : '630';
   const ogImageAlt = hasWebcamOg
     ? (locale === 'it'
         ? `Webcam live — ${crossingDisplay}`

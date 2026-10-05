@@ -2,7 +2,7 @@
  * Tests for F8 webcam → og:image build-time pipeline (C-cont-5).
  *
  * Covers:
- *  - Successful fetch + resize writes a 640×360 JPEG + meta JSON to the
+ *  - Successful fetch + resize writes a 1200×675 JPEG + meta JSON to the
  *    expected location.
  *  - 404 / timeout / invalid bytes are SKIPPED — never throws, never blocks
  *    the build, falls back to site default OG image.
@@ -128,7 +128,7 @@ describe('slugifyName (CLI script mirror of plugin helper)', () => {
 // ── resize ────────────────────────────────────────────────────────
 
 describe('resizeToOgJpeg', () => {
-  it('resizes to exactly 640×360 regardless of input aspect ratio', async () => {
+  it('resizes to exactly 1200×675 regardless of input aspect ratio', async () => {
     const src = await sharp({
       create: { width: 1920, height: 1080, channels: 3, background: '#00ff00' },
     })
@@ -136,8 +136,8 @@ describe('resizeToOgJpeg', () => {
       .toBuffer();
     const out = await resizeToOgJpeg(src);
     const meta = await sharp(out).metadata();
-    expect(meta.width).toBe(640);
-    expect(meta.height).toBe(360);
+    expect(meta.width).toBe(1200);
+    expect(meta.height).toBe(675);
     expect(meta.format).toBe('jpeg');
   });
 
@@ -211,8 +211,8 @@ describe('snapshotWebcamsForOg', () => {
     const meta = JSON.parse(readFileSync(metaPath, 'utf-8'));
     expect(meta.slug).toBe('chiasso-brogeda');
     expect(meta.sourceUrl).toBe('https://www4.ti.ch/fake/brogeda.gif');
-    expect(meta.width).toBe(640);
-    expect(meta.height).toBe(360);
+    expect(meta.width).toBe(1200);
+    expect(meta.height).toBe(675);
     expect(meta.userAgent).toBe('FrontaliereTicino-OGBot');
     expect(meta.fetchedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
@@ -316,7 +316,7 @@ describe('getWebcamOgImageUrl', () => {
 // ── end-to-end: page generation uses per-page og:image ────────────
 
 describe('generateBorderWaitPages — per-page og:image from webcam snapshot', () => {
-  it('uses the snapshot URL + 640×360 when resolver returns one', () => {
+  it('uses the snapshot URL + 1200×675 when resolver returns one', () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -330,8 +330,8 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
       property: 'og:image',
       content: 'https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg',
     }));
-    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:width', content: '640' }));
-    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '360' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:width', content: '1200' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '675' }));
     expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:alt', content: 'Webcam live — Chiasso Brogeda' }));
   });
 
