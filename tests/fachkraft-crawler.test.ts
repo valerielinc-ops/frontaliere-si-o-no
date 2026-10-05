@@ -12,7 +12,11 @@ import {
   parseFachkraftListingPage,
   validateFachkraftAuthoritativeSnapshot,
 } from '../scripts/lib/fachkraft-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  slugify,
+  SNAPSHOT_VALIDATED_PARTIAL,
+} from '../scripts/lib/crawler-template.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 
@@ -405,7 +409,91 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         discovered: 2,
         detailCompleted: 2,
       });
-      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+      // Published, but not proof that a stored job is gone (issue 6109).
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(SNAPSHOT_VALIDATED_PARTIAL);
+    });
+
+    it('does not retire stored jobs that a drifting max-observed listing skipped (issue 6109)', async () => {
+      // Anonymised shape of group-23 run 01-10: the declared total moves while
+      // the listing is paged (3842/3804/3797/…), cards shift between requests,
+      // 394 URLs repeat on a later page and as many are never served. Here:
+      // 3 pages × 4 cards, page 2 repeats two cards of page 1, so the two
+      // cards that shifted past the page boundary are never seen.
+      const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
+      const stored = Array.from({ length: 12 }, (_, index) => ({
+        title: `Fachkraft Rolle ${index + 1}`,
+        path: `fachkraft-rolle-${index + 1}-in-luzern-temporaer-${300100 + index}`,
+      }));
+      const existingJobs = stored.map(({ title, path }) => ({
+        id: `fachkraft-${path}`,
+        slug: slugify(`${title} luzern fachkraft ch`),
+        url: `https://www.fachkraft.ch/stellen/${path}/`,
+        title,
+        sourceLang: 'de',
+        description: words(60, 'stored'),
+        location: 'Luzern',
+        canton: 'LU',
+        companyKey: 'fachkraft',
+        crawledAt: daysAgo(1),
+      }));
+      const card = (index: number) => listingCard(stored[index]);
+      const pages: Record<string, string> = {
+        'https://www.fachkraft.ch/stellen/': paginatedListingHtml(12, '/stellen/page/2/', card(0), card(1), card(2), card(3)),
+        // The order shifted between requests: 2-3 are served again, 4-5 never.
+        'https://www.fachkraft.ch/stellen/page/2/': paginatedListingHtml(13, '/stellen/page/3/', card(2), card(3), card(6), card(7)),
+        'https://www.fachkraft.ch/stellen/page/3/': paginatedListingHtml(12, null, card(8), card(9), card(10), card(11)),
+      };
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (pages[target]) return new Response(pages[target], { status: 200 });
+        throw new Error(`cached description should not require a detail request: ${target}`);
+      };
+
+      const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs });
+      expect(jobs).toHaveLength(10);
+      expect(jobs.fachkraftSnapshot).toMatchObject({
+        coverage: 'max-observed',
+        duplicateListingUrls: 2,
+        listingDeclaredCountMax: 13,
+        discovered: 10,
+      });
+
+      const { authoritativeSnapshotVerified } = evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: validateFachkraftAuthoritativeSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        companyLabel: 'fachkraft.ch GmbH',
+      });
+      // Same merge options the standard pipeline derives from the verdict.
+      const merged = mergePreserveLocaleData(
+        existingJobs,
+        jobs,
+        authoritativeSnapshotVerified ? { retainMissingJobs: false } : {},
+      );
+      const mergedUrls = new Set(merged.map((job: { url: string }) => job.url));
+      const expired = existingJobs.filter((job) => !mergedUrls.has(job.url));
+      expect(expired).toEqual([]);
+      const skipped = merged.filter((job: { crawlerMissStreak?: number }) => job.crawlerMissStreak === 1);
+      expect(skipped.map((job: { url: string }) => job.url).sort()).toEqual(
+        [existingJobs[4].url, existingJobs[5].url].sort(),
+      );
+    });
+
+    it('keeps a stable, fully paged listing authoritative', () => {
+      const jobs = Object.assign([{}], {
+        fachkraftSnapshot: {
+          complete: true,
+          coverage: 'complete',
+          listingDeclaredCount: 1,
+          listingCountDrift: false,
+          discovered: 1,
+          fetchFailures: 0,
+          detailCompleted: 0,
+          detailRequested: 0,
+          accounted: 1,
+          published: 1,
+        },
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
     });
 
     it('fails closed when the initial listing omits the source-declared total', async () => {
