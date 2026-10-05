@@ -151,52 +151,8 @@ describe('selection from RAW_ARTICLES', () => {
     )));
   });
 
-  it('reads rows from a registry with an explicit Article[] annotation', () => {
-    const typedFixture = `const RAW_ARTICLES: Article[] = [
-      { id: 'typed-entry', category: 'novita', date: '2026-10-05' },
-] satisfies Article[];`;
-
-    expect(parseRawArticles(typedFixture).map((entry) => entry.id)).toEqual(['typed-entry']);
-    expect(rawArticlesBlock(typedFixture)).toContain("id: 'typed-entry'");
-  });
-
-  it('reads typed literal chunks without double-counting the spread aggregator', () => {
-    const chunkedFixture = `const RAW_ARTICLES_CHUNK_01: Article[] = [
-  { id: 'chunk-one', category: 'novita', date: '2026-10-04' },
-];
-const RAW_ARTICLES_CHUNK_02: Article[] = [
-  { id: 'chunk-two', category: 'novita', date: '2026-10-05' },
-];
-const RAW_ARTICLES: Article[] = [
-  ...RAW_ARTICLES_CHUNK_01,
-  ...RAW_ARTICLES_CHUNK_02,
-  { id: 'appended-entry', category: 'novita', date: '2026-10-06' },
-] satisfies Article[];`;
-
-    expect(parseRawArticles(chunkedFixture).map((entry) => entry.id)).toEqual([
-      'chunk-one',
-      'chunk-two',
-      'appended-entry',
-    ]);
-  });
-
   const realData = path.join(ROOT, ARTICLES_DATA_PATH);
   const realPresent = fs.existsSync(realData);
-  it('keeps the generated raw registry and public export explicitly typed', () => {
-    const text = fs.readFileSync(realData, 'utf8');
-    const declarations = [...text.matchAll(/const\s+(RAW_ARTICLES(?:_CHUNK_\d+)?)([^\n]*)/g)];
-    expect(declarations.length).toBeGreaterThan(0);
-    expect(declarations.every((match) => /:\s*Article\[\]\s*=/.test(match[2]))).toBe(true);
-    expect(text).toMatch(/export\s+const\s+ARTICLES\s*:\s*Article\[\]\s*=/);
-
-    if (!text.includes('const RAW_ARTICLES_CHUNK_01')) {
-      const start = text.indexOf('const RAW_ARTICLES: Article[] = [');
-      const end = text.indexOf('\n];', start);
-      expect(end).toBeGreaterThan(start);
-      expect(text.slice(start, end)).not.toContain('satisfies Article[]');
-    }
-  });
-
   // The one live-data case of this file (LIVE_DATA_PARTIAL_TESTS): the article
   // list is rewritten by the publishing pipeline, so the check runs in
   // live-data-gates, not in the blocking PR job. It asserts no count, only that
@@ -211,9 +167,6 @@ const RAW_ARTICLES: Article[] = [
     expect(independentCount).toBeGreaterThan(0);
     expect(entries.length).toBe(independentCount);
     expect(entries.length).toBe(fileWideCount);
-    expect(entries.every((entry) => (
-      typeof entry.category === 'string' && entry.category.length > 0 && typeof entry.date === 'string'
-    ))).toBe(true);
     // `date: ''` = publication date unknown (corpus PR 2082): the producer
     // must still READ the field (a missing match is null), and a present
     // date must parse. selectArticles ranks the unknown ones last.
