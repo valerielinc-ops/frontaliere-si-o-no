@@ -87,3 +87,29 @@ export function loadKnownCompanySlugs(rootDir: string): Set<string> {
     return slugs;
   } catch { return new Set(); }
 }
+
+/**
+ * Load the canonical slugs for the evergreen `/aziende/<slug>/` surface.
+ *
+ * `known-company-slugs.json` belongs to the legacy company-hub surface and
+ * therefore cannot prove that an evergreen employer profile was emitted. The
+ * employer-profile dataset is the source of truth for that route: both its
+ * full profiles and its below-floor records receive a real bridge page.
+ */
+export function loadKnownEmployerProfileSlugs(rootDir: string): Set<string> {
+  const datasetPath = np.resolve(rootDir, 'data/employer-profiles.json');
+  try {
+    const dataset = JSON.parse(fs.readFileSync(datasetPath, 'utf-8')) as {
+      profiles?: Array<{ slug?: unknown }>;
+      belowFloor?: Array<{ slug?: unknown }>;
+    };
+    const slugs = new Set<string>();
+    for (const record of [...(dataset.profiles || []), ...(dataset.belowFloor || [])]) {
+      const slug = String(record?.slug || '').trim();
+      if (slug) slugs.add(slug);
+    }
+    return slugs;
+  } catch {
+    return new Set();
+  }
+}
