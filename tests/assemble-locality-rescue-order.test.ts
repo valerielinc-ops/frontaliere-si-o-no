@@ -45,16 +45,8 @@ describe('assemble locality rescue order (#5136)', () => {
     }
   });
 
-  it('documents the English-exonym gap that this fix does NOT close', () => {
-    // "Geneva" is not registered as a BFS alias for Genève, so a locality of
-    // "Geneva, Switzerland" still yields no city and falls through to the
-    // description. Before this fix those postings shipped as Root (LU) / Alle
-    // (JU); the token blocklist now stops that, but they are rescued by
-    // whatever city the description names rather than by Genève. Registering
-    // English exonyms is a separate change with a much wider blast radius
-    // (isKnownSwissCity is consumed by every crawler validator), so it is
-    // tracked here rather than smuggled into this one.
-    expect(resolveLocality('Geneva, Switzerland', '')).toBe('');
+  it('recovers the English exonym Geneva from the locality field', () => {
+    expect(resolveLocality('Geneva, Switzerland', '')).toBe('Geneva');
   });
 
   it('manufactures nothing for a foreign locality whose description is boilerplate', () => {

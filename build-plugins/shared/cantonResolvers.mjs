@@ -91,8 +91,20 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
     const out = {};
     const cantonsData = municipalitiesFile.cantons;
     for (const [canton, info] of Object.entries(cantonsData)) {
-      for (const city of info.municipalities) {
-        out[normalizeCityKey(city).split(' (')[0].trim()] = canton;
+      const places = [
+        ...(info.municipalities || []),
+        ...(info.aliases || []),
+      ];
+      for (const city of places) {
+        const normalized = normalizeCityKey(city);
+        if (!normalized) continue;
+        // Keep both the exact disambiguated form ("Rotkreuz (ZG)") and its
+        // bare form. Manual aliases carry the same locality knowledge as BFS
+        // municipalities; omitting them made exonyms such as Bienne/Geneva
+        // fall back to TI whenever the job arrived without a structured
+        // canton.
+        out[normalized] = canton;
+        out[normalized.split(' (')[0].trim()] = canton;
       }
     }
     return out;
