@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { checkPrBodySections } from '../scripts/lib/pr-body-sections-check.mjs';
+import { checkPrBodySections, unvalidatedPerfClaims } from '../scripts/lib/pr-body-sections-check.mjs';
 
 function body(impl: string, nonImpl = 'Nessuno.') {
   return `## Implementato\n\n${impl}\n\n## Non implementato (ancora)\n\n${nonImpl}\n`;
@@ -56,12 +56,12 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   const claim = BLOCKING_EXAMPLES['10292'];
 
   it('link a una run Actions', () => {
-    const res = strict(body(`${claim}\n- Misurato su https://github.com/o/r/actions/runs/36385271711.`));
+    const res = strict(body(`${claim} Misurato su https://github.com/o/r/actions/runs/36385271711.`));
     expect(res.violations.some(isClaimViolation)).toBe(false);
   });
 
   it('riga «Misura:» con l\'output', () => {
-    const res = strict(body(`${claim}\n- Misura: \`node scripts/measure.mjs --lanes 3\` → 64 s prima, 34 s dopo.`));
+    const res = strict(body(`${claim} Misura: \`node scripts/measure.mjs --lanes 3\` → 64 s prima, 34 s dopo.`));
     expect(res.violations.some(isClaimViolation)).toBe(false);
   });
 
@@ -101,5 +101,32 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     const res = checkPrBodySections(body(claim));
     expect(res.violations.some(isClaimViolation)).toBe(false);
     expect(res.ok).toBe(true);
+  });
+});
+
+describe('unvalidated-perf-claim: l\'evidenza è sostanziale e locale al bullet', () => {
+  it('non accetta una riga Misura vuota', () => {
+    const res = unvalidatedPerfClaims(body('- Riduce la memoria del build.\n- Misura:'));
+    expect(res.blocking).toContain('Riduce la memoria del build.');
+  });
+
+  it('non accetta una baseline senza valore', () => {
+    const res = unvalidatedPerfClaims(body('- Riduce la memoria del build.\n- baseline'));
+    expect(res.blocking).toContain('Riduce la memoria del build.');
+  });
+
+  it('non lascia che la misura di un bullet autorizzi un claim indipendente', () => {
+    const res = unvalidatedPerfClaims(body(
+      '- Riduce la memoria del build.\n- Accelera la pipeline. Misura: 120 s prima, 90 s dopo.',
+    ));
+    expect(res.blocking).toContain('Riduce la memoria del build.');
+    expect(res.blocking).not.toContain('Accelera la pipeline.');
+  });
+
+  it('tratta CI, build e pipeline come risorse di prestazione', () => {
+    for (const resource of ['CI', 'build', 'pipeline']) {
+      const res = unvalidatedPerfClaims(body(`- Accelera la ${resource}.`));
+      expect(res.blocking, resource).toContain(`Accelera la ${resource}.`);
+    }
   });
 });

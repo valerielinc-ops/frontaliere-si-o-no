@@ -456,11 +456,15 @@ export function filesUncitedInBody(diffPaths, body) {
  *     #10272, #10430): sopra la tolleranza di un falso positivo su 50, quindi
  *     resta advisory.
  *
- * Prova = una qualunque delle forme che il reviewer accetta, ovunque nel body:
- * link a una run `/actions/runs/<id>`, una riga `Misura:` / `Comando:`, una
- * «misura pre/post» o «prima/dopo», una coppia di quantità confrontate
- * («308 MB contro 203 MB», «da 216 s a 9 s»), «non validato pre-merge», un
- * trigger o un rischio di revert, `blocked: misura post-merge`, una baseline.
+ * Prova = una qualunque delle forme che il reviewer accetta, associata allo
+ * stesso bullet del claim (oppure alla sezione dei residui per il rimedio
+ * `blocked: misura post-merge`): link a una run `/actions/runs/<id>`, una riga
+ * `Misura:` / `Comando:` con un valore, risultato o comando sostanziale, una
+ * «misura pre/post» o «prima/dopo» con il risultato, una coppia di quantità
+ * confrontate («308 MB contro 203 MB», «da 216 s a 9 s»), «non validato
+ * pre-merge», un trigger o un rischio di revert con i suoi dettagli,
+ * `blocked: misura post-merge` con un contesto concreto, una baseline con un
+ * valore. Una prova in un bullet diverso non autorizza un claim indipendente.
  */
 const PERF_QTY = String.raw`\d+(?:[.,']\d+)*\s*(?:ms|s|sec|secondi|minut[oi]|min|ore|h|MB|GB|KB|MiB|GiB|%)(?!\w)`;
 const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
@@ -468,7 +472,7 @@ const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimez
 // prospector che descrive il gate di qualita' («85% delle pagine di dettaglio»)
 // diventava un claim di prestazione.
 const PERF_BENEFIT = `\\b(?:${PERF_BENEFIT_ALT})`;
-const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|minuti|secondi|quota|latenza|throughput)\b`;
+const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|minuti|secondi|quota|latenza|throughput|ci(?:/cd)?|build|pipeline)\b`;
 const PERF_CLAIM_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,120}${PERF_BENEFIT}|${PERF_BENEFIT}[^.\n]{0,120}${PERF_QTY}`
   + String.raw`|${PERF_BENEFIT}[^.\n]{0,100}${PERF_RESOURCE}|${PERF_RESOURCE}[^.\n]{0,100}${PERF_BENEFIT}`,
@@ -480,12 +484,55 @@ const IO_BOUND_CLAIM_RE = new RegExp(
   String.raw`${IO_BENEFIT}[^.\n]{0,100}${IO_RESOURCE}|${IO_RESOURCE}[^.\n]{0,100}${IO_BENEFIT}`,
   'i',
 );
-const PERF_EVIDENCE_RE = /\/actions\/runs\/\d+|^\s*(?:[-*]\s*)?(?:\*\*)?(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:|\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)|\bnon\s+validat[oaie]\s+pre-?merge|\btrigger\s+di\s+revert|\brevert[- ]trigger|\brischio\s+di\s+revert|\bblocked\s*:\s*misura\s+post-?merge|\bbaseline\b/im;
+const PERF_EVIDENCE_LABEL_RE = /\b(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:\s*(.*)$/i;
+const PERF_EVIDENCE_RUN_RE = /\/actions\/runs\/\d+/i;
+const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)\b([^\n.;]*)/i;
+const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*misura\s+post-?merge\b([^\n.;]*)/i;
+const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_NON_VALIDATED_RE = /\bnon\s+validat[oaie]\s+pre-?merge\b/i;
 const PERF_PAIR_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
   + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
   'i',
 );
+
+const PERF_EMPTY_EVIDENCE_RE = /^(?:[-–—_.…]+|tbd|n\/?a|na|nessun[oa]?|non\s+disponibil[ei]|senza\s+(?:dati|misura|valore)|no\s+(?:data|measurement|value))\.?$/i;
+
+function hasSubstantialEvidenceValue(value) {
+  const clean = String(value ?? '')
+    .replace(/[`*_~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return clean.length >= 2
+    && /[\p{L}\p{N}]/u.test(clean)
+    && !PERF_EMPTY_EVIDENCE_RE.test(clean);
+}
+
+function hasSubstantialEvidenceTail(match) {
+  return match ? hasSubstantialEvidenceValue(match[1]) : false;
+}
+
+/**
+ * True when `text` contains evidence with a real value/result/command. Empty
+ * labels and a bare `baseline` are deliberately not evidence. This is kept as
+ * a predicate instead of one broad regex so each alternative can enforce the
+ * same non-empty contract.
+ */
+function hasSubstantialPerfEvidence(text) {
+  const clean = stripNonContent(text);
+  if (PERF_EVIDENCE_RUN_RE.test(clean) || PERF_PAIR_RE.test(stripCode(clean))) return true;
+
+  return clean.split('\n').some((line) => {
+    const label = PERF_EVIDENCE_LABEL_RE.exec(line);
+    if (label && hasSubstantialEvidenceValue(label[1])) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_MEASURE_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_REVERT_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BLOCKED_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BASELINE_RE.exec(line))) return true;
+    return PERF_EVIDENCE_NON_VALIDATED_RE.test(line);
+  });
+}
 
 function stripCode(text) {
   return stripNonContent(text).replace(/`[^`\n]*`/g, ' ');
@@ -504,17 +551,39 @@ export function unvalidatedPerfClaims(body = '') {
   const empty = { blocking: [], advisory: [] };
   const impl = extractSection(s, IMPL_RE);
   if (!impl) return empty;
-  if (PERF_EVIDENCE_RE.test(stripNonContent(s)) || PERF_PAIR_RE.test(stripCode(s))) return empty;
+
+  // Group claims by the top-level Implementato bullet. Evidence is local to
+  // that group, so a measured second bullet cannot silence an independent
+  // first bullet. A single claim may also be discharged by the prescribed
+  // post-merge/revert evidence in Non implementato (ancora).
+  const units = topLevelBullets(impl, { includePreamble: true });
+  const claimUnits = units.length > 0
+    ? units.map((unit) => unit.text)
+    : [impl];
   const blocking = [];
   const advisory = [];
-  for (const line of stripCode(impl).split('\n')) {
-    for (const sentence of line.split(/(?<=[.;])\s+/)) {
-      const text = sentence.replace(/^[ \t]*[-*+][ \t]*/, '').trim();
-      if (!text) continue;
-      if (PERF_CLAIM_RE.test(text)) blocking.push(text);
-      else if (IO_BOUND_CLAIM_RE.test(text)) advisory.push(text);
+  const claims = [];
+
+  for (const unit of claimUnits) {
+    const textWithEvidence = stripNonContent(unit);
+    const text = stripCode(textWithEvidence);
+    const localEvidence = hasSubstantialPerfEvidence(textWithEvidence);
+    for (const sentence of text.split(/(?<=[.;])\s+/)) {
+      const claim = sentence.replace(/^[ \t]*[-*+][ \t]*/, '').trim();
+      if (!claim) continue;
+      if (PERF_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence });
+      else if (IO_BOUND_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence, io: true });
     }
   }
+
+  const residualEvidence = hasSubstantialPerfEvidence(extractSection(s, NON_IMPL_ANCORA_RE) ?? '');
+  const singleClaimHasResidualEvidence = claims.length === 1 && residualEvidence;
+  for (const claim of claims) {
+    if (claim.localEvidence || singleClaimHasResidualEvidence) continue;
+    if (claim.io) advisory.push(claim.text);
+    else blocking.push(claim.text);
+  }
+
   return { blocking, advisory };
 }
 
