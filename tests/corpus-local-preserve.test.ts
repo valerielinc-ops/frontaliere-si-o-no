@@ -102,6 +102,24 @@ describe('collectPreserveSnapshots (the srcFiles/dstFiles crash site)', () => {
     }
   });
 
+  it('snapshots a destination-only SEO file that the mirror would delete', () => {
+    const preserveIds = new Set(['blog-retired']);
+    const src = makeTree({ 'seo/seo-blog-2.ts': 'upstream SEO shard' });
+    const dest = makeTree({
+      'seo/seo-blog.ts': "export const seoBlog = { 'blog-retired': { title: 'Keep me' } };",
+    });
+
+    try {
+      const snapshots = collectPreserveSnapshots({ src, dest, preserveIds });
+      expect(snapshots).toHaveLength(1);
+      expect(snapshots[0].rel).toBe('seo/seo-blog.ts');
+      expect(snapshots[0].ids).toEqual(['blog-retired']);
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+      rmSync(dest, { recursive: true, force: true });
+    }
+  });
+
   it('skips a shared file that mentions no locally-only id', () => {
     const preserveIds = new Set(['locally-only-article']);
     const src = makeTree({ 'routerBlogData.ts': "export const BLOG_SLUGS = { 'a': {} };" });

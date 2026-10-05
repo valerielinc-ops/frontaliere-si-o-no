@@ -74,7 +74,6 @@ describe('build-evidence-index.mjs fatality policy', () => {
     const results = [
       { queries: { 'ticino lavoro': { imp: 80 } }, pages: {}, error: 'pagination incomplete' },
       { pages: { '/observed/': { sessions: 12 } }, error: 'GA4 response truncated' },
-      { pages: {}, error: 'posthog non misurabile' },
     ];
 
     expect(hasObservedEvidence(results[0])).toBe(true);
@@ -86,7 +85,6 @@ describe('build-evidence-index.mjs fatality policy', () => {
     const results = [
       { queries: {}, pages: {}, error: 'gsc unavailable' },
       { pages: {}, error: 'ga4 unavailable' },
-      { pages: {}, error: 'posthog unavailable' },
     ];
 
     expect(results.every((result) => !hasObservedEvidence(result))).toBe(true);
@@ -98,5 +96,14 @@ describe('build-evidence-index.mjs file shape (integration smoke)', () => {
   it('--check reports no syntax errors', () => {
     // Already exercised above — additional sanity that the file exists.
     expect(existsSync(SCRIPT_PATH)).toBe(true);
+  });
+
+  it('reads GSC + GA4 only, never PostHog (decisione H9 2026-10-05)', () => {
+    // PostHog is under quota by choice: a PostHog fetch here only ever added a
+    // permanent `posthog.error` to the index and a P2 alert (B.4) per run.
+    const source = readFileSync(SCRIPT_PATH, 'utf8');
+    expect(source).not.toMatch(/posthog-client\.mjs|evidence\/posthogFetcher\.mjs|checkPostHogLiveness|HogQLQuery/);
+    expect(source).toMatch(/fetchGa4Pages\(/);
+    expect(source).toMatch(/fetchGscQueries\(/);
   });
 });

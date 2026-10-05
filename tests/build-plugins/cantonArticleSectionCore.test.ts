@@ -171,8 +171,23 @@ describe('sezioni cantonali: collisioni con le route note', () => {
   });
 
   it('nessun indexSlug compare come segmento di path nel router della SPA o nel Worker', () => {
+    // The Worker carries the closed set ON PURPOSE in CORPUS_CANTON_SECTION_SLUGS
+    // (it cannot import; parity with this core is pinned by
+    // tests/locale-router-corpus-sections.test.ts). That one table is the
+    // owner, not a collision: it is cut out, and every other line of the file
+    // must still be free of these slugs.
+    const withoutCorpusTable = (src: string) => {
+      const start = src.indexOf('export const CORPUS_CANTON_SECTION_SLUGS = {');
+      const end = src.indexOf('\n};\n', start);
+      expect(start, 'CORPUS_CANTON_SECTION_SLUGS not found in the Worker').toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      return src.slice(0, start) + src.slice(end + 4);
+    };
     const sources = ['services/router.ts', 'infra/cloudflare-worker/locale-router.js']
-      .map((rel) => [rel, readFileSync(path.join(rootDir, rel), 'utf-8')] as const);
+      .map((rel) => {
+        const src = readFileSync(path.join(rootDir, rel), 'utf-8');
+        return [rel, rel.endsWith('locale-router.js') ? withoutCorpusTable(src) : src] as const;
+      });
     for (const slug of cantonIndexSlugs) {
       const rx = new RegExp(`(?:^|[^a-z0-9-])${slug}(?:[^a-z0-9-]|$)`);
       for (const [rel, src] of sources) expect(rx.test(src), `${slug} in ${rel}`).toBe(false);

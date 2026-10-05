@@ -86,6 +86,21 @@ const LEGIT_DESCRIPTION_OPENERS = [
   // richiesta del modello finche' non parla di tradurlo.
   'Please provide the actual job title you are applying for.',
   'Can you provide the text of your cover letter in German or Italian?',
+  // Review della PR corpus 2166: «we need to …» apre annunci e articoli veri.
+  'We need to produce high-quality components for the automotive industry.',
+  'We need to translate our software into German and French.',
+  'We need to keep our customers at the centre of everything we do.',
+  // Un apostrofo in un'apertura legittima non la rende una meta-risposta.
+  "We need to translate our clients' ideas into working products.",
+  // Review della PR corpus 2166 su 144b89b227: prosa in prima persona che non
+  // parla dell'input («Non vedo alcun motivo…» → «I don't see any reason…»).
+  "I don't see any reason why you should not apply.",
+  'I cannot find a better job in Ticino than this one.',
+  "I can't see myself working anywhere else.",
+  'I need to understand the needs of our customers.',
+  'I need more information about your experience in the interview.',
+  'Ho bisogno di più tempo per decidere.',
+  "J'ai besoin de plus de temps.",
 ];
 
 const DE_DESC = 'Als Detailhandelsfachfrau oder Detailhandelsfachmann beraten Sie unsere Kundinnen und Kunden kompetent und freundlich. '
@@ -127,8 +142,48 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     expect(detectAiMetaResponse(refusal)?.kind).toBe('refusal');
   });
 
+  it.each([
+    'I need to see the job data to provide an accurate translation.',
+    'I need to check the existing translations in the repository.',
+    'I need to see the context of where this job title is used.',
+    'I need to see the actual job file to identify which title needs translation.',
+    'I need to see the phrase to translate.',
+    'Non vedo alcun titolo nel messaggio.',
+    'Ich sehe keinen Stellentitel in Ihrer Nachricht.',
+    'Je ne vois pas de titre à traduire.',
+  ])('una richiesta che parla dell\'input resta una meta-risposta: %s', (text) => {
+    expect(detectAiMetaResponse(text)?.kind).toBe('clarification');
+  });
+
   it('riconosce il dump di tool-use di un agente', () => {
     expect(detectAiMetaResponse(REAL_AGENT_DUMP)).not.toBeNull();
+  });
+
+  it.each([
+    'We need to translate the job title "GL & VAT Accountant" from German to English.',
+    'We need to translate "GL & VAT Accountant" in English.',
+    "We need to translate 'Chef d'équipe' to English.",
+    'We need to translate the phrase "GL & VAT Accountant" to English.',
+  ])('riconosce la narrazione con input citato e lingua target: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
+  });
+
+  it.each([
+    'The user has provided the job title Buyer for translation.',
+    'The user provided the job title Buyer for translation.',
+    'The user gave the title Buyer to translate.',
+    'The user provided "Buyer" for translation.',
+    'The user has given the job title Buyer to translate.',
+  ])('riconosce la narrazione che esplicita l input fornito dall utente: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
+  });
+
+  it.each([
+    'The user provided feedback on the new translation process.',
+    'The user gave the title Buyer to the hiring manager.',
+    'The user provided "Buyer" for the hiring manager.',
+  ])('non tratta come narrazione una frase senza intento di traduzione: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toBeNull();
   });
 
   it('riconosce la descrizione che si chiude con l\'etichetta del template', () => {
@@ -156,6 +211,25 @@ describe('detectAiMetaResponse — testi legittimi che condividono le parole', (
       source: 'Indicare il titolo della posizione a cui ti candidi.',
     })).toBeNull();
     expect(detectAiMetaResponse('I need to see the actual job title you want translated.')?.kind).toBe('clarification');
+  });
+
+  it.each([
+    `We need to translate "Chef d'équipe" into English.`,
+    'We need to translate “Chef d’équipe” to English.',
+    "We need to translate «Chef d'équipe» into French.",
+  ])('riconosce «we need to translate» con un apostrofo dentro le virgolette: %s', (text) => {
+    // Review della PR corpus 2166 su 14928ccf35: la classe negata vietava
+    // l'apostrofo dentro qualunque virgoletta, e questi passavano.
+    expect(detectAiMetaResponse(text)?.kind).toBe('agent-narration');
+  });
+
+  it('una citazione nella sorgente non esenta una traduzione che APRE con il rifiuto', () => {
+    // Review della PR corpus 2166: l'esenzione valeva per un `includes()` su
+    // tutta la sorgente, quindi bastava che la sorgente citasse il rifiuto.
+    const source = "Il chatbot risponde «Sorry, I can't help with that.» alle domande fuori tema.";
+    expect(detectAiMetaResponse("Sorry, I can't help with that.", { source })?.kind).toBe('refusal');
+    // Ma una sorgente che si apre con lo stesso marcatore resta esente.
+    expect(detectAiMetaResponse("Sorry, I can't help with that.", { source: "Sorry, I can't help with that." })).toBeNull();
   });
 
   it('non conta un marcatore che la sorgente stessa contiene', () => {

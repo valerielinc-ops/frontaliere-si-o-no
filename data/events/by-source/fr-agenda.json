@@ -1,0 +1,2840 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "fr-agenda",
+  "sourceName": "Etat de Fribourg — Evénements",
+  "canton": "FR",
+  "assembledAt": "2026-10-05T13:24:59.811Z",
+  "events": [
+    {
+      "id": "fr-agenda:bis-bald-baleine-120-baleines-miniatures",
+      "title": "Bis bald Baleine ! – 120 Baleines miniatures",
+      "startDate": "2026-06-13",
+      "endDate": "2026-10-25",
+      "startTime": "14:00",
+      "category": "Exposition",
+      "description": "Cet été, la célèbre baleine du Musée d’histoire naturelle de Fribourg sera la toute première à rejoindre le futur site du musée. Pour marquer ce départ, le Musée a lancé le concours \"Notre baleine en miniature\" invitant les participant·e·s à la représenter librement en 3D. Cette exposition présente près de 120 œuvres originales.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/bis-bald-baleine-120-baleines-miniatures",
+      "imageUrl": "/images/events/fr-agenda-bis-bald-baleine-120-baleines-miniatures.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79309061686264,
+        "lng": 7.157125499201201
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/bis-bald-baleine-120-baleines-miniatures"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:mise-au-concours-dune-bourse-de-mobilite-pour-la-creation-artistique",
+      "title": "Mise au concours d'une bourse de mobilité pour la création artistique",
+      "startDate": "2026-08-01",
+      "endDate": "2026-10-31",
+      "startTime": "08:00",
+      "category": "Mise au concours",
+      "description": "Le Service de la culture met au concours une bourse de mobilité pour la création artistique. Les dossiers de candidature doivent être déposés sur le portail en ligne www.myfribourg-culture.ch entre le 1er août et le 31 octobre 2026.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dfac/secu/evenements/mise-au-concours-dune-bourse-de-mobilite-pour-la-creation-artistique",
+      "imageUrl": "/images/events/fr-agenda-mise-au-concours-dune-bourse-de-mobilite-pour-la-creation-artistique.webp",
+      "address": {
+        "street": "Rue Frédéric Chaillet 11",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7983741,
+        "lng": 7.1502277
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Service de la culture",
+        "url": "https://www.fr.ch/dfac/secu/evenements/mise-au-concours-dune-bourse-de-mobilite-pour-la-creation-artistique"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:en-chantier-lexposition",
+      "title": "« En chantier » : l'exposition",
+      "startDate": "2026-09-01",
+      "endDate": "2026-12-31",
+      "startTime": "08:00",
+      "category": "Exposition",
+      "description": "Exposition des photos d'Yves Eigenmann et de Francesco Ragusa",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/en-chantier-lexposition",
+      "imageUrl": "/images/events/fr-agenda-en-chantier-lexposition.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/en-chantier-lexposition"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:paul-wiedmer-splendore-di-fuoco",
+      "title": "Paul Wiedmer - Splendore di fuoco",
+      "startDate": "2026-09-17",
+      "endDate": "2027-06-24",
+      "startTime": "11:00",
+      "category": "Exposition",
+      "description": "Paul Wiedmer Splendore di fuoco 17.09.2026 – 24.06.2027",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/paul-wiedmer-splendore-di-fuoco",
+      "imageUrl": "/images/events/fr-agenda-paul-wiedmer-splendore-di-fuoco.webp",
+      "address": {
+        "street": "2 Rue de Morat",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/paul-wiedmer-splendore-di-fuoco"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:museoscope-abraham-poincheval",
+      "title": "Museoscope - Abraham Poincheval",
+      "startDate": "2026-10-02",
+      "endDate": "2027-02-14",
+      "startTime": "11:00",
+      "category": "Exposition",
+      "description": "Le chevalier errant : de la prairie du Grütli à Fribourg",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval",
+      "imageUrl": "/images/events/fr-agenda-museoscope-abraham-poincheval.webp",
+      "address": {
+        "street": "Rue de Morat 12",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-pour-lecole-de-police-05102026",
+      "title": "Séance d'information pour l'école de Police - 05.10.2026",
+      "startDate": "2026-10-05",
+      "startTime": "18:00",
+      "category": "Séance d'information",
+      "description": "Vous souhaitez une carrière stimulante et remplie de défis ? Policier-ère est un métier passionnant, exigeant et varié au service de la population ! Nous recrutons une fois par année des gendarmes et des inspecteur-trice-s. Découvrez le métier, les opportunités de carrière, les critères de sélection et le processus de recrutement.",
+      "venue": "Granges-Paccot",
+      "comune": "Granges-Paccot",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-05102026",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-pour-lecole-de-police-05102026.webp",
+      "address": {
+        "street": "Chemin de la Madeleine 3, salle Louis-d'Affry",
+        "postalCode": "1763",
+        "locality": "Granges-Paccot"
+      },
+      "geo": {
+        "lat": 46.827933,
+        "lng": 7.148468
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Police cantonale",
+        "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-05102026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Granges-Paccot"
+      }
+    },
+    {
+      "id": "fr-agenda:primes-dassurance-maladie-2027-comment-economiser",
+      "title": "Primes d’assurance-maladie 2027 : comment économiser ?",
+      "startDate": "2026-10-05",
+      "startTime": "09:00",
+      "category": "Séance d'information",
+      "description": "L'Organisation Suisse des Patients répond à toutes vos questions. Consultations individuelles, gratuites et sans rendez-vous.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/sasoc/fpt/evenements/primes-dassurance-maladie-2027-comment-economiser",
+      "imageUrl": "/images/events/fr-agenda-primes-dassurance-maladie-2027-comment-economiser.webp",
+      "address": {
+        "street": "Rue du Criblet 13",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8050546,
+        "lng": 7.1543344
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Fribourg pour tous",
+        "url": "https://www.fr.ch/dsas/sasoc/fpt/evenements/primes-dassurance-maladie-2027-comment-economiser"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:complet-cafe-visite-notre-baleine-en-miniature",
+      "title": "COMPLET Café-visite : Notre baleine en miniature",
+      "startDate": "2026-10-06",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Vous n'avez pas d'obligation le mardi matin ? Profitez de visiter le musée ! Les café-visites se déroulent en deux parties : une visite guidée d'environ 40 minutes, puis, un moment d'échange autour d'un café-croissant. L'occasion de rencontrer les spécialistes du musée ou d'ailleurs, en toute simplicité !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/complet-cafe-visite-notre-baleine-en-miniature",
+      "imageUrl": "/images/events/fr-agenda-complet-cafe-visite-notre-baleine-en-miniature.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79326703980214,
+        "lng": 7.157301085970033
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/complet-cafe-visite-notre-baleine-en-miniature"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-moi-206-os",
+      "title": "Kiwi Club – Moi : 206 os",
+      "startDate": "2026-10-07",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Activités pour percer les mystères du squelette humain",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-moi-206-os",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-moi-206-os.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-moi-206-os"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:lunch-concert-valentine-berne-noemie-delcroix",
+      "title": "Lunch-concert : Valentine Berne | Noémie Delcroix",
+      "startDate": "2026-10-07",
+      "startTime": "12:15",
+      "category": "Spectacle - concert",
+      "description": "Lunch-concert X HEMU",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/lunch-concert-valentine-berne-noemie-delcroix",
+      "imageUrl": "/images/events/fr-agenda-lunch-concert-valentine-berne-noemie-delcroix.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/lunch-concert-valentine-berne-noemie-delcroix"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:museoscope-abraham-poincheval-visite-guidee-publique",
+      "title": "Museoscope - Abraham Poincheval: Visite guidée publique",
+      "startDate": "2026-10-08",
+      "startTime": "18:30",
+      "category": "Exposition",
+      "description": "Visite guidée publique avec Ivan Mariano",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval-visite-guidee-publique",
+      "imageUrl": "/images/events/fr-agenda-museoscope-abraham-poincheval-visite-guidee-publique.webp",
+      "address": {
+        "street": "Rue de Morat 12",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval-visite-guidee-publique"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:bouger-decouvrir-partager-un-apres-midi-pour-les-60",
+      "title": "Bouger, découvrir, partager : un après-midi pour les 60+",
+      "startDate": "2026-10-10",
+      "startTime": "13:30",
+      "category": "Manifestation",
+      "description": "Le samedi 10 octobre 2026, Pro Senectute Fribourg organise à Morat un après-midi de découverte sportive destiné aux personnes de 60 ans et plus, avec le concours de plusieurs partenaires. Une occasion de tester gratuitement différentes activités, de bouger et de découvrir comment entretenir sa force, son équilibre et sa mobilité au quotidien.",
+      "venue": "Murten",
+      "comune": "Murten",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/ssp/evenements/bouger-decouvrir-partager-un-apres-midi-pour-les-60",
+      "imageUrl": "/images/events/fr-agenda-bouger-decouvrir-partager-un-apres-midi-pour-les-60.webp",
+      "address": {
+        "street": "Wilerweg 53",
+        "postalCode": "3280",
+        "locality": "Murten"
+      },
+      "geo": {
+        "lat": 46.9232041,
+        "lng": 7.1240511
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Service de la santé publique",
+        "url": "https://www.fr.ch/dsas/ssp/evenements/bouger-decouvrir-partager-un-apres-midi-pour-les-60"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Murten"
+      }
+    },
+    {
+      "id": "fr-agenda:lunch-concert-valentine-berne-noemie-delcroix-0",
+      "title": "Lunch-concert : Valentine Berne | Noémie Delcroix",
+      "startDate": "2026-10-10",
+      "startTime": "11:00",
+      "category": "Spectacle - concert",
+      "description": "Lunch-concert x HEMU Pour les familles",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/lunch-concert-valentine-berne-noemie-delcroix-0",
+      "imageUrl": "/images/events/fr-agenda-lunch-concert-valentine-berne-noemie-delcroix-0.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/lunch-concert-valentine-berne-noemie-delcroix-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:fete-du-jardin",
+      "title": "Fête du Jardin",
+      "startDate": "2026-10-10",
+      "startTime": "10:00",
+      "category": "Manifestation",
+      "description": "Le Musée d'histoire naturelle s'invite au Jardin des Capucins pour une journée sous le signe de la biodiversité.",
+      "venue": "Bulle",
+      "comune": "Bulle",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/fete-du-jardin",
+      "imageUrl": "/images/events/fr-agenda-fete-du-jardin.jpg",
+      "address": {
+        "street": "Place du Marché 2",
+        "postalCode": "1630",
+        "locality": "Bulle"
+      },
+      "geo": {
+        "lat": 46.619364,
+        "lng": 7.0584868
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/fete-du-jardin"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Bulle"
+      }
+    },
+    {
+      "id": "fr-agenda:lannee-du-livre-suisse-pascale-kramer",
+      "title": "L'année du livre suisse : Pascale Kramer",
+      "startDate": "2026-10-12",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "CYCLE DE RENCONTRE / ACCUEIL",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-pascale-kramer",
+      "imageUrl": "/images/events/fr-agenda-lannee-du-livre-suisse-pascale-kramer.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-pascale-kramer"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:le-herisson-un-ami-qui-pique-un-peu",
+      "title": "Le hérisson, un ami qui pique un peu",
+      "startDate": "2026-10-13",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier autour du hérisson dans le cadre des journées découverte \"À vos loupes, prêts, partez !\"",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/le-herisson-un-ami-qui-pique-un-peu",
+      "imageUrl": "/images/events/fr-agenda-le-herisson-un-ami-qui-pique-un-peu.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79309061686264,
+        "lng": 7.157125499201201
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/le-herisson-un-ami-qui-pique-un-peu"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:chevreuil-renard-hibou-et-cie",
+      "title": "Chevreuil, renard, hibou et Cie",
+      "startDate": "2026-10-14",
+      "startTime": "10:00",
+      "category": "Manifestation",
+      "description": "Six activités sur les animaux de la faune fribourgeoise dans le cadre des journées découverte \"À vos loupes, prêts, partez !\"",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/chevreuil-renard-hibou-et-cie",
+      "imageUrl": "/images/events/fr-agenda-chevreuil-renard-hibou-et-cie.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79309061686264,
+        "lng": 7.157125499201201
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/chevreuil-renard-hibou-et-cie"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:des-vides-a-remplir-atelier-creatif-avec-caroline-bourrit-et-denis-roueche",
+      "title": "Des vides à remplir : Atelier créatif avec Caroline Bourrit et Denis Roueche",
+      "startDate": "2026-10-14",
+      "startTime": "10:00",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "ANIMATION ARTISTIQUE",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-caroline-bourrit-et-denis-roueche",
+      "imageUrl": "/images/events/fr-agenda-des-vides-a-remplir-atelier-creatif-avec-caroline-bourrit-et-denis-roueche.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-caroline-bourrit-et-denis-roueche"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:lia-au-quotidien",
+      "title": "L’IA au quotidien",
+      "startDate": "2026-10-15",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Atelier de l'Espace d'apprentissage",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/lia-au-quotidien",
+      "imageUrl": "/images/events/fr-agenda-lia-au-quotidien.webp",
+      "address": {
+        "street": "Rte des Arsenaux 41, 2e étage",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7962237,
+        "lng": 7.1523223
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Service de l'orientation professionnelle et de la formation des adultes - Centre de carrières",
+        "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/lia-au-quotidien"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:sortie-au-tierpark",
+      "title": "Sortie au Tierpark",
+      "startDate": "2026-10-15",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Une journée pour mieux connaître les animaux vivant au Parc animalier de Berne dans le cadre des journées découverte \"À vos loupes, prêts, partez !\"",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/sortie-au-tierpark",
+      "imageUrl": "/images/events/fr-agenda-sortie-au-tierpark.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79309061686264,
+        "lng": 7.157125499201201
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/sortie-au-tierpark"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:les-animaux-de-la-foret",
+      "title": "Les animaux de la forêt",
+      "startDate": "2026-10-16",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier et bricolage sur les animaux de la forêt dans le cadre des journées découverte \"À vos loupes, prêts, partez !\"",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/les-animaux-de-la-foret",
+      "imageUrl": "/images/events/fr-agenda-les-animaux-de-la-foret.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79309061686264,
+        "lng": 7.157125499201201
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/les-animaux-de-la-foret"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:des-vides-a-remplir-atelier-creatif-avec-marinka-limat-et-denis-roueche",
+      "title": "Des vides à remplir : atelier créatif avec Marinka Limat et Denis Roueche",
+      "startDate": "2026-10-16",
+      "startTime": "10:00",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "ANIMATION ARTISTIQUE (FR/DE)",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-marinka-limat-et-denis-roueche",
+      "imageUrl": "/images/events/fr-agenda-des-vides-a-remplir-atelier-creatif-avec-marinka-limat-et-denis-roueche.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-marinka-limat-et-denis-roueche"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:des-vides-a-remplir-atelier-creatif-avec-michal-steinemann-et-denis-roueche",
+      "title": "Des vides à remplir : atelier créatif avec Michal Steinemann et Denis Roueche",
+      "startDate": "2026-10-21",
+      "startTime": "10:00",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "ANIMATION ARTISTIQUE (FR/DE)",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-michal-steinemann-et-denis-roueche",
+      "imageUrl": "/images/events/fr-agenda-des-vides-a-remplir-atelier-creatif-avec-michal-steinemann-et-denis-roueche.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/des-vides-a-remplir-atelier-creatif-avec-michal-steinemann-et-denis-roueche"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:interaction-wurzeln-und-mykorrhizen-das-unsichtbare-netz-im-wald",
+      "title": "Inter’action ! – Wurzeln und Mykorrhizen: Das unsichtbare Netz im Wald",
+      "startDate": "2026-10-24",
+      "startTime": "13:00",
+      "category": "Manifestation",
+      "description": "Excursion et action en faveur de la nature dans la forêt de Galm (en allemand)",
+      "venue": "Jeuss",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/interaction-wurzeln-und-mykorrhizen-das-unsichtbare-netz-im-wald",
+      "imageUrl": "/images/events/fr-agenda-interaction-wurzeln-und-mykorrhizen-das-unsichtbare-netz-im-wald.webp",
+      "address": {
+        "street": "Galmguetweg 11D",
+        "postalCode": "1793",
+        "locality": "Jeuss"
+      },
+      "geo": {
+        "lat": 46.910908069546316,
+        "lng": 7.168447627648894
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/interaction-wurzeln-und-mykorrhizen-das-unsichtbare-netz-im-wald"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Jeuss"
+      }
+    },
+    {
+      "id": "fr-agenda:la-chaumiere-sanime-1",
+      "title": "La Chaumière s'anime",
+      "startDate": "2026-10-25",
+      "startTime": "11:00",
+      "category": "Manifestation",
+      "description": "Viens visiter la Chaumière de la chauve-souris dans la forêt de Moncor ! Tu pourras découvrir la diversité de la forêt et tous ses habitants. Chaque dernier dimanche du mois, l’équipe de Musée d’histoire naturelle propose de nombreuses activités.",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-1",
+      "imageUrl": "/images/events/fr-agenda-la-chaumiere-sanime-1.webp",
+      "address": {
+        "street": "Route de Payerne",
+        "postalCode": "1752",
+        "locality": "Villars-sur-Glâne"
+      },
+      "geo": {
+        "lat": 46.79978247595356,
+        "lng": 7.113544611465862
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-1"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-pour-lecole-de-police-26102026-en-allemand",
+      "title": "Séance d'information pour l'école de Police - 26.10.2026 (en allemand)",
+      "startDate": "2026-10-26",
+      "startTime": "18:00",
+      "category": "Séance d'information",
+      "description": "Vous souhaitez une carrière stimulante et remplie de défis ? Policier-ère est un métier passionnant, exigeant et varié au service de la population ! Nous recrutons une fois par année des gendarmes et des inspecteur-trice-s. Découvrez le métier, les opportunités de carrière, les critères de sélection et le processus de recrutement.",
+      "venue": "Granges-Paccot",
+      "comune": "Granges-Paccot",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-26102026-en-allemand",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-pour-lecole-de-police-26102026-en-allemand.webp",
+      "address": {
+        "street": "Chemin de la Madeleine 3, salle Louis-d'Affry",
+        "postalCode": "1763",
+        "locality": "Granges-Paccot"
+      },
+      "geo": {
+        "lat": 46.827933,
+        "lng": 7.148468
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Police cantonale",
+        "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-26102026-en-allemand"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Granges-Paccot"
+      }
+    },
+    {
+      "id": "fr-agenda:montee-du-masculinisme-dans-la-gen-z-un-defi-pour-legalite",
+      "title": "Montée du masculinisme dans la Gen Z : un défi pour l'égalité",
+      "startDate": "2026-10-27",
+      "startTime": "17:15",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Une soirée de réflexion et d'échange pour explorer et mieux comprendre les idées masculinistes au sein de la jeune génération et dégager des pistes d’intervention et de sensibilisation pour contrer ce type de discours et d’attitudes.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/bef/evenements/montee-du-masculinisme-dans-la-gen-z-un-defi-pour-legalite",
+      "imageUrl": "/images/events/fr-agenda-montee-du-masculinisme-dans-la-gen-z-un-defi-pour-legalite.webp",
+      "address": {
+        "street": "Esplanade de l'Ancienne Gare 3",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.802141,
+        "lng": 7.15036
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bureau de l'égalité hommes-femmes et de la famille",
+        "url": "https://www.fr.ch/dsas/bef/evenements/montee-du-masculinisme-dans-la-gen-z-un-defi-pour-legalite"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-pour-lecole-de-police-27102026",
+      "title": "Séance d'information pour l'école de Police - 27.10.2026",
+      "startDate": "2026-10-27",
+      "startTime": "18:00",
+      "category": "Séance d'information",
+      "description": "Vous souhaitez une carrière stimulante et remplie de défis ? Policier-ère est un métier passionnant, exigeant et varié au service de la population ! Nous recrutons une fois par année des gendarmes et des inspecteur-trice-s. Découvrez le métier, les opportunités de carrière, les critères de sélection et le processus de recrutement.",
+      "venue": "Granges-Paccot",
+      "comune": "Granges-Paccot",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-27102026",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-pour-lecole-de-police-27102026.webp",
+      "address": {
+        "street": "Chemin de la Madeleine 3, salle Louis-d'Affry",
+        "postalCode": "1763",
+        "locality": "Granges-Paccot"
+      },
+      "geo": {
+        "lat": 46.827933,
+        "lng": 7.148468
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Police cantonale",
+        "url": "https://www.fr.ch/dsjs/pol/evenements/seance-dinformation-pour-lecole-de-police-27102026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Granges-Paccot"
+      }
+    },
+    {
+      "id": "fr-agenda:primes-dassurance-maladie-2027-comment-economiser-0",
+      "title": "Primes d’assurance-maladie 2027 : comment économiser ?",
+      "startDate": "2026-10-28",
+      "startTime": "09:00",
+      "category": "Séance d'information",
+      "description": "L'Organisation Suisse des Patients répond à toutes vos questions. Consultations individuelles, gratuites et sans rendez-vous.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/sasoc/fpt/evenements/primes-dassurance-maladie-2027-comment-economiser-0",
+      "imageUrl": "/images/events/fr-agenda-primes-dassurance-maladie-2027-comment-economiser-0.webp",
+      "address": {
+        "street": "Rue du Criblet 13",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8050546,
+        "lng": 7.1543344
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Fribourg pour tous",
+        "url": "https://www.fr.ch/dsas/sasoc/fpt/evenements/primes-dassurance-maladie-2027-comment-economiser-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-apprentis-taxidermistes",
+      "title": "Kiwi Club – Apprentis taxidermistes",
+      "startDate": "2026-10-28",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Découverte de la taxidermie et des secrets de la naturalisation des animaux",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-apprentis-taxidermistes",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-apprentis-taxidermistes.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-apprentis-taxidermistes"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:histoires-naturelles-du-mercredi-0",
+      "title": "Histoires naturelles du mercredi",
+      "startDate": "2026-10-28",
+      "startTime": "14:15",
+      "category": "Manifestation",
+      "description": "Les petites et grandes oreilles seront comblées grâce aux « Histoires naturelles du mercredi ». Un mercredi par mois, la conteuse Michèle Widmer ravira le public francophone à 15h00. Les alémaniques pourront quant à eux écouter la conteuse Corinne Junod à 14h15.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-0",
+      "imageUrl": "/images/events/fr-agenda-histoires-naturelles-du-mercredi-0.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79312594342698,
+        "lng": 7.157067648527346
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:le-sort-des-bibliotheques-dans-le-contexte-de-la-reforme-et-des-guerres-en-europe-du-nord",
+      "title": "Le sort des bibliothèques dans le contexte de la Réforme et des guerres en Europe du Nord ...",
+      "startDate": "2026-10-29",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Conférence de Janika Päll, professeure de philologie classique à l’Université de Tartu (Estonie)",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/le-sort-des-bibliotheques-dans-le-contexte-de-la-reforme-et-des-guerres-en-europe-du-nord",
+      "imageUrl": "/images/events/fr-agenda-le-sort-des-bibliotheques-dans-le-contexte-de-la-reforme-et-des-guerres-en-europe-du-nord.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/le-sort-des-bibliotheques-dans-le-contexte-de-la-reforme-et-des-guerres-en-europe-du-nord"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:journee-cantonale-du-developpement-durable",
+      "title": "Journée cantonale du développement durable",
+      "startDate": "2026-10-29",
+      "startTime": "13:00",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "La durabilité, une question de religions ?",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dime/developpement-durable/evenements/journee-cantonale-du-developpement-durable",
+      "imageUrl": "/images/events/fr-agenda-journee-cantonale-du-developpement-durable.webp",
+      "address": {
+        "street": "Place de Notre-Dame 16",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8073283,
+        "lng": 7.1617244
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Développement durable",
+        "url": "https://www.fr.ch/dime/developpement-durable/evenements/journee-cantonale-du-developpement-durable"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:journee-intercantonale-des-proches-aidants-1",
+      "title": "Journée intercantonale des proches aidants",
+      "startDate": "2026-10-30",
+      "startTime": "13:30",
+      "category": "Manifestation",
+      "description": "La Journée intercantonale des personnes proches aidantes a lieu chaque année le 30 octobre. Elle constitue un acte symbolique fort à travers lequel les cantons reconnaissent leur contribution et leur engagement en faveur du maintien à domicile des personnes de leur entourage atteintes dans leur santé ou leur autonomie.",
+      "venue": "Grolley",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/evenements/journee-intercantonale-des-proches-aidants-1",
+      "imageUrl": "/images/events/fr-agenda-journee-intercantonale-des-proches-aidants-1.webp",
+      "address": {
+        "street": "Route de la Gare 2",
+        "postalCode": "1772",
+        "locality": "Grolley"
+      },
+      "geo": {
+        "lat": 46.77009827845084,
+        "lng": 7.1144225168140744
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Direction de la santé et des affaires sociales",
+        "url": "https://www.fr.ch/dsas/evenements/journee-intercantonale-des-proches-aidants-1"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Grolley"
+      }
+    },
+    {
+      "id": "fr-agenda:leonard-cohen-dix-ans-plus-tard-toujours-vivant",
+      "title": "Leonard Cohen : dix ans plus tard, toujours vivant",
+      "startDate": "2026-10-30",
+      "startTime": "18:30",
+      "category": "Spectacle - concert",
+      "description": "Soirée d'hommage",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/leonard-cohen-dix-ans-plus-tard-toujours-vivant",
+      "imageUrl": "/images/events/fr-agenda-leonard-cohen-dix-ans-plus-tard-toujours-vivant.webp",
+      "address": {
+        "street": "Rue de la Sarine 4",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/leonard-cohen-dix-ans-plus-tard-toujours-vivant"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:les-rendez-vous-nature-du-bois-de-mon-coeur-arbres",
+      "title": "Les Rendez-vous nature du Bois de mon Coeur : Arbres",
+      "startDate": "2026-10-31",
+      "startTime": "13:30",
+      "category": "Manifestation",
+      "description": "Excursion pour adultes et familles dans la forêt de Moncor",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/les-rendez-vous-nature-du-bois-de-mon-coeur-arbres",
+      "imageUrl": "/images/events/fr-agenda-les-rendez-vous-nature-du-bois-de-mon-coeur-arbres.webp",
+      "address": {
+        "street": "Route de Payerne",
+        "postalCode": "1752",
+        "locality": "Villars-sur-Glâne"
+      },
+      "geo": {
+        "lat": 46.79978247595356,
+        "lng": 7.113544611465862
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/les-rendez-vous-nature-du-bois-de-mon-coeur-arbres"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-admissions-2027-28-en-presentiel",
+      "title": "Séance d'information \"Admissions 2027-28\" - en présentiel",
+      "startDate": "2026-11-03",
+      "startTime": "20:00",
+      "category": "Séance d'information",
+      "description": "eikon, école professionnelle en arts appliqués, a le plaisir de vous inviter à sa séance d'information relative aux admissions pour l'année scolaire 2027-28 (en présentiel).",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/eikon/evenements/seance-dinformation-admissions-2027-28-en-presentiel",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-admissions-2027-28-en-presentiel.webp",
+      "address": {
+        "street": "Rte Wilhelm Kaiser 13",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7946041,
+        "lng": 7.156064
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle en arts appliqués | eikon",
+        "url": "https://www.fr.ch/eikon/evenements/seance-dinformation-admissions-2027-28-en-presentiel"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-admissions-2027-28-en-visio",
+      "title": "Séance d'information \"Admissions 2027-28\" - en visio",
+      "startDate": "2026-11-05",
+      "startTime": "19:00",
+      "category": "Séance d'information",
+      "description": "eikon, école professionnelle en arts appliqués, a le plaisir de vous inviter à sa séance d'information relatives aux admissions pour l'année scolaire 2027-28 (en visio).",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/eikon/evenements/seance-dinformation-admissions-2027-28-en-visio",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-admissions-2027-28-en-visio.webp",
+      "address": {
+        "street": "Rte Wilhelm Kaiser 13",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7946041,
+        "lng": 7.156064
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle en arts appliqués | eikon",
+        "url": "https://www.fr.ch/eikon/evenements/seance-dinformation-admissions-2027-28-en-visio"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:poils-et-mamelles",
+      "title": "Poils et mamelles",
+      "startDate": "2026-11-07",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier parents-enfants (de 0 à 7 ans) pour mieux connaître les mammifères, en partenariat avec l'Association pour l'Éducation Familiale",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/poils-et-mamelles",
+      "imageUrl": "/images/events/fr-agenda-poils-et-mamelles.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7932627,
+        "lng": 7.1563073
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/poils-et-mamelles"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:lannee-du-livre-suisse-thierry-raboud",
+      "title": "L'année du livre suisse : Thierry Raboud",
+      "startDate": "2026-11-09",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "CYCLE DE RENCONTRE /ACCUEIL",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-thierry-raboud",
+      "imageUrl": "/images/events/fr-agenda-lannee-du-livre-suisse-thierry-raboud.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-thierry-raboud"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:cafe-visite-fascinants-chiropteres",
+      "title": "Café-visite : Fascinants chiroptères",
+      "startDate": "2026-11-10",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Vous n'avez pas d'obligation le mardi matin ? Profitez de visiter le musée ! Les café-visites se déroulent en deux parties : une visite guidée d'environ 40 minutes, puis, un moment d'échange autour d'un café-croissant. L'occasion de rencontrer les spécialistes du musée ou d'ailleurs, en toute simplicité !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-fascinants-chiropteres",
+      "imageUrl": "/images/events/fr-agenda-cafe-visite-fascinants-chiropteres.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79326703980214,
+        "lng": 7.157301085970033
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-fascinants-chiropteres"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-apprentis-taxidermistes-0",
+      "title": "Kiwi Club – Apprentis taxidermistes",
+      "startDate": "2026-11-11",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Découverte de la taxidermie et des secrets de la naturalisation des animaux",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-apprentis-taxidermistes-0",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-apprentis-taxidermistes-0.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-apprentis-taxidermistes-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:les-voix-darmand-niquille",
+      "title": "Les voix d’Armand Niquille",
+      "startDate": "2026-11-12",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "HOMMAGE / ACCUEIL",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/les-voix-darmand-niquille",
+      "imageUrl": "/images/events/fr-agenda-les-voix-darmand-niquille.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/les-voix-darmand-niquille"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:journee-portes-ouvertes-2026",
+      "title": "Journée Portes Ouvertes 2026",
+      "startDate": "2026-11-14",
+      "startTime": "09:00",
+      "category": "Portes ouvertes",
+      "description": "eikon, école professionnelle en arts appliqués, a le plaisir de vous inviter à sa traditionnelle Journée Portes Ouvertes.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/eikon/evenements/journee-portes-ouvertes-2026",
+      "imageUrl": "/images/events/fr-agenda-journee-portes-ouvertes-2026.webp",
+      "address": {
+        "street": "Rte Wilhelm Kaiser 13",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7946041,
+        "lng": 7.156064
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle en arts appliqués | eikon",
+        "url": "https://www.fr.ch/eikon/evenements/journee-portes-ouvertes-2026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:fresede-seance-dinformation-en-presentiel",
+      "title": "FRESEdE – Séance d'information en présentiel",
+      "startDate": "2026-11-16",
+      "startTime": "19:00",
+      "category": "Séance d'information",
+      "description": "Vous envisagez de vous inscrire à la FRESEdE pour la rentrée 2027-2028? Nous organisons 3 séances d'information pour vous présenter en détail le dispositif de formation. La participation à l'une de ces séances est obligatoire si vous souhaitez soumettre votre dossier d'inscription. Merci de vous inscrire en cliquant sur le lien ci-dessous.",
+      "venue": "Posieux",
+      "canton": "FR",
+      "url": "https://www.fr.ch/essg/evenements/fresede-seance-dinformation-en-presentiel",
+      "imageUrl": "/images/events/fr-agenda-fresede-seance-dinformation-en-presentiel.webp",
+      "address": {
+        "street": "Rte de Grangeneuve 4",
+        "postalCode": "1725",
+        "locality": "Posieux"
+      },
+      "geo": {
+        "lat": 46.7710412,
+        "lng": 7.1106809
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle santé-social",
+        "url": "https://www.fr.ch/essg/evenements/fresede-seance-dinformation-en-presentiel"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Posieux"
+      }
+    },
+    {
+      "id": "fr-agenda:cfc-assc-avec-maturite-integree-presentation-online-via-teams-17-novembre-2026",
+      "title": "CFC ASSC avec maturité intégrée - Présentation Online via Teams - 17 novembre 2026",
+      "startDate": "2026-11-17",
+      "startTime": "18:00",
+      "category": "Séance d'information",
+      "description": "Tu arrives au terme de ta scolarité obligatoire et envisages de t'orienter vers une profession de la santé? En 3 ans, le cursus CFC ASSC avec maturité intégrée t'ouvre les portes aux Hautes Ecoles en Suisse.",
+      "venue": "Teams",
+      "canton": "FR",
+      "url": "https://www.fr.ch/essg/evenements/cfc-assc-avec-maturite-integree-presentation-online-via-teams-17-novembre-2026",
+      "imageUrl": "/images/events/fr-agenda-cfc-assc-avec-maturite-integree-presentation-online-via-teams-17-novembre-2026.webp",
+      "address": {
+        "street": "Teams",
+        "locality": "Teams"
+      },
+      "geo": {
+        "lat": 38.9072228,
+        "lng": -94.3664524
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle santé-social",
+        "url": "https://www.fr.ch/essg/evenements/cfc-assc-avec-maturite-integree-presentation-online-via-teams-17-novembre-2026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Teams"
+      }
+    },
+    {
+      "id": "fr-agenda:the-librarians-projection",
+      "title": "The Librarians : projection",
+      "startDate": "2026-11-17",
+      "startTime": "19:00",
+      "category": "Spectacle - concert",
+      "description": "Film de Kim A. Snyder (2025) Dans le cadre du festival Let's Doc",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/the-librarians-projection",
+      "imageUrl": "/images/events/fr-agenda-the-librarians-projection.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/the-librarians-projection"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:festival-des-droits-de-lenfant-les-droits-de-lenfant-cest-aussi-ton-histoire",
+      "title": "Festival des droits de l’enfant : Les droits de l’enfant, c’est aussi ton histoire !",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-27",
+      "startTime": "08:00",
+      "category": "Manifestation",
+      "description": "Soutenu par l’Etat de Fribourg, le festival des droits de l’enfant propose une série d’activités, de lectures et d’animations dans les bibliothèques du canton. Pour les enfants comme pour les parents, c’est une opportunité d’en apprendre plus sur les droits de l’enfant !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsas/sej/bpej/evenements/festival-des-droits-de-lenfant-les-droits-de-lenfant-cest-aussi-ton-histoire",
+      "imageUrl": "/images/events/fr-agenda-festival-des-droits-de-lenfant-les-droits-de-lenfant-cest-aussi-ton-histoire.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8061609,
+        "lng": 7.1561809
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bureau de promotion des enfants et des jeunes",
+        "url": "https://www.fr.ch/dsas/sej/bpej/evenements/festival-des-droits-de-lenfant-les-droits-de-lenfant-cest-aussi-ton-histoire"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-21-novembre-2026",
+      "title": "Stage découverte à la Police cantonale - Deviens policier·ère le temps d’une matinée ! - 21 novembre 2026",
+      "startDate": "2026-11-21",
+      "startTime": "08:00",
+      "category": "Manifestation",
+      "description": "Une transaction illégale est sur le point d’avoir lieu… La Police cantonale Fribourg a besoin de toi pour l’empêcher. Tu as toujours rêvé d’enquêter comme un·e vrai·e inspecteur·rice, d'interpeller un suspect et de vivre une aventure palpitante au cœur de la police ? Cette matinée est faite pour toi !",
+      "venue": "Granges-Paccot",
+      "comune": "Granges-Paccot",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsjs/pol/evenements/stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-21-novembre-2026",
+      "imageUrl": "/images/events/fr-agenda-stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-21-novembre-2026.webp",
+      "address": {
+        "street": "Chemin de la Madeleine 3",
+        "postalCode": "1763",
+        "locality": "Granges-Paccot"
+      },
+      "geo": {
+        "lat": 46.82785373450075,
+        "lng": 7.148346472582087
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Police cantonale",
+        "url": "https://www.fr.ch/dsjs/pol/evenements/stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-21-novembre-2026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Granges-Paccot"
+      }
+    },
+    {
+      "id": "fr-agenda:seance-dinformation-art-32-assc-ase",
+      "title": "Séance d'information art. 32 ASSC & ASE",
+      "startDate": "2026-11-23",
+      "startTime": "15:00",
+      "category": "Séance d'information",
+      "description": "Une séance d'information est organisée le lundi 23 novembre 2026 à Grangeneuve, à l'Aula Paul Bourqui (Bâtiment R), Route de Grangeneuve 31, 1725 Posieux. La séance d'information se tiendra de 15h00 à 17h00.",
+      "venue": "Posieux",
+      "canton": "FR",
+      "url": "https://www.fr.ch/essg/evenements/seance-dinformation-art-32-assc-ase",
+      "imageUrl": "/images/events/fr-agenda-seance-dinformation-art-32-assc-ase.webp",
+      "address": {
+        "street": "Aula Paul Bourqui",
+        "postalCode": "1725",
+        "locality": "Posieux"
+      },
+      "geo": {
+        "lat": 46.7679616,
+        "lng": 7.1151997
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle santé-social",
+        "url": "https://www.fr.ch/essg/evenements/seance-dinformation-art-32-assc-ase"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Posieux"
+      }
+    },
+    {
+      "id": "fr-agenda:ecrire-cest-possible-1",
+      "title": "Écrire, c'est possible ! (1)",
+      "startDate": "2026-11-26",
+      "startTime": "13:30",
+      "category": "Manifestation",
+      "description": "Atelier de l'Espace d'apprentissage",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/ecrire-cest-possible-1",
+      "imageUrl": "/images/events/fr-agenda-ecrire-cest-possible-1.webp",
+      "address": {
+        "street": "Rte des Arsenaux 41, 2e étage",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7962237,
+        "lng": 7.1523223
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Service de l'orientation professionnelle et de la formation des adultes - Centre de carrières",
+        "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/ecrire-cest-possible-1"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:la-mauvaise-foi-des-apprehensions-ordinaires-aux-definitions-academiques-conference",
+      "title": "La mauvaise foi ? Des appréhensions ordinaires aux définitions académiques : conférence",
+      "startDate": "2026-11-26",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Diane Liberatore, docteure en sciences humaines et sociales, autrice d’une thèse sur la mauvaise foi",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/la-mauvaise-foi-des-apprehensions-ordinaires-aux-definitions-academiques-conference",
+      "imageUrl": "/images/events/fr-agenda-la-mauvaise-foi-des-apprehensions-ordinaires-aux-definitions-academiques-conference.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/la-mauvaise-foi-des-apprehensions-ordinaires-aux-definitions-academiques-conference"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:corpus-v-le-corps-liquide",
+      "title": "Corpus V - Le corps liquide",
+      "startDate": "2026-11-27",
+      "endDate": "2027-02-28",
+      "startTime": "11:00",
+      "category": "Exposition",
+      "description": "Corpus V Le corps liquide",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/corpus-v-le-corps-liquide",
+      "imageUrl": "/images/events/fr-agenda-corpus-v-le-corps-liquide.webp",
+      "address": {
+        "street": "Rue de Morat 2",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/corpus-v-le-corps-liquide"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-28-novembre-2026",
+      "title": "Stage découverte à la Police cantonale - Deviens policier·ère le temps d’une matinée ! - 28 novembre 2026",
+      "startDate": "2026-11-28",
+      "startTime": "08:00",
+      "category": "Manifestation",
+      "description": "Une transaction illégale est sur le point d’avoir lieu… La Police cantonale Fribourg a besoin de toi pour l’empêcher. Tu as toujours rêvé d’enquêter comme un·e vrai·e inspecteur·rice, d'interpeller un suspect et de vivre une aventure palpitante au cœur de la police ? Cette matinée est faite pour toi !",
+      "venue": "Granges-Paccot",
+      "comune": "Granges-Paccot",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/dsjs/pol/evenements/stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-28-novembre-2026",
+      "imageUrl": "/images/events/fr-agenda-stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-28-novembre-2026.webp",
+      "address": {
+        "street": "Chemin de la Madeleine 3",
+        "postalCode": "1763",
+        "locality": "Granges-Paccot"
+      },
+      "geo": {
+        "lat": 46.82785373450075,
+        "lng": 7.148346472582087
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Police cantonale",
+        "url": "https://www.fr.ch/dsjs/pol/evenements/stage-decouverte-a-la-police-cantonale-deviens-policierere-le-temps-dune-matinee-28-novembre-2026"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Granges-Paccot"
+      }
+    },
+    {
+      "id": "fr-agenda:la-chaumiere-sanime-2",
+      "title": "La Chaumière s'anime",
+      "startDate": "2026-11-29",
+      "startTime": "11:00",
+      "category": "Manifestation",
+      "description": "Viens visiter la Chaumière de la chauve-souris dans la forêt de Moncor ! Tu pourras découvrir la diversité de la forêt et tous ses habitants. Chaque dernier dimanche du mois, l’équipe de Musée d’histoire naturelle propose de nombreuses activités.",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-2",
+      "imageUrl": "/images/events/fr-agenda-la-chaumiere-sanime-2.webp",
+      "address": {
+        "street": "Route de Payerne",
+        "postalCode": "1752",
+        "locality": "Villars-sur-Glâne"
+      },
+      "geo": {
+        "lat": 46.79978247595356,
+        "lng": 7.113544611465862
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-2"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      }
+    },
+    {
+      "id": "fr-agenda:cafe-visite-comment-faire-une-expo",
+      "title": "Café-visite : Comment faire une expo ?",
+      "startDate": "2026-12-01",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Vous n'avez pas d'obligation le mardi matin ? Profitez de visiter le musée ! Les café-visites se déroulent en deux parties : une visite guidée d'environ 40 minutes, puis, un moment d'échange autour d'un café-croissant. L'occasion de rencontrer les spécialistes du musée ou d'ailleurs, en toute simplicité !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-comment-faire-une-expo",
+      "imageUrl": "/images/events/fr-agenda-cafe-visite-comment-faire-une-expo.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79326703980214,
+        "lng": 7.157301085970033
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-comment-faire-une-expo"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-latelier-des-lutins",
+      "title": "Kiwi Club – L'atelier des lutins",
+      "startDate": "2026-12-02",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Activités créatives pour préparer Noël",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-latelier-des-lutins",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-latelier-des-lutins.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-latelier-des-lutins"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:histoires-naturelles-du-mercredi-1",
+      "title": "Histoires naturelles du mercredi",
+      "startDate": "2026-12-02",
+      "startTime": "14:15",
+      "category": "Manifestation",
+      "description": "Les petites et grandes oreilles seront comblées grâce aux « Histoires naturelles du mercredi ». Un mercredi par mois, la conteuse Michèle Widmer ravira le public francophone à 15h00. Les alémaniques pourront quant à eux écouter la conteuse Corinne Junod à 14h15.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-1",
+      "imageUrl": "/images/events/fr-agenda-histoires-naturelles-du-mercredi-1.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79312594342698,
+        "lng": 7.157067648527346
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-1"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:paul-wiedmer-splendore-di-fuoco-visite-guidee-publique",
+      "title": "Paul Wiedmer - Splendore di fuoco : Visite guidée publique",
+      "startDate": "2026-12-03",
+      "startTime": "18:30",
+      "category": "Exposition",
+      "description": "Visite guidée publique avec Ivan Mariano & Stephan Gasser en présence de l’artiste",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/paul-wiedmer-splendore-di-fuoco-visite-guidee-publique",
+      "imageUrl": "/images/events/fr-agenda-paul-wiedmer-splendore-di-fuoco-visite-guidee-publique.webp",
+      "address": {
+        "street": "2 Rue de Morat",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/paul-wiedmer-splendore-di-fuoco-visite-guidee-publique"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:albanien-wir-uberlebten-dank-deiner-menschlichkeit",
+      "title": "Albanien, wir überlebten dank deiner Menschlichkeit",
+      "startDate": "2026-12-03",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Franziska Zaugg, Lektorin am Departement für Zeitgeschichte der Universität Freiburg",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/albanien-wir-uberlebten-dank-deiner-menschlichkeit",
+      "imageUrl": "/images/events/fr-agenda-albanien-wir-uberlebten-dank-deiner-menschlichkeit.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/albanien-wir-uberlebten-dank-deiner-menschlichkeit"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:les-70-ans-de-la-sfe",
+      "title": "Les 70 ans de la SFE",
+      "startDate": "2026-12-04",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Ça se fête !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/les-70-ans-de-la-sfe",
+      "imageUrl": "/images/events/fr-agenda-les-70-ans-de-la-sfe.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/les-70-ans-de-la-sfe"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:ecrire-cest-possible-2",
+      "title": "Écrire, c'est possible ! (2)",
+      "startDate": "2026-12-10",
+      "startTime": "13:30",
+      "category": "Manifestation",
+      "description": "Atelier de l'Espace d'apprentissage",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/ecrire-cest-possible-2",
+      "imageUrl": "/images/events/fr-agenda-ecrire-cest-possible-2.webp",
+      "address": {
+        "street": "Rte des Arsenaux 41, 2e étage",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7962237,
+        "lng": 7.1523223
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Service de l'orientation professionnelle et de la formation des adultes - Centre de carrières",
+        "url": "https://www.fr.ch/formation-et-ecoles/formation-pour-adultes-et-formation-continue/evenements/ecrire-cest-possible-2"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:la-romance-comprendre-le-succes-dun-genre-litteraire-malmene-conference",
+      "title": "La romance, comprendre le succès d’un genre littéraire malmené : conférence",
+      "startDate": "2026-12-10",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "Magali Bigey, Dre en sciences du langage et maîtresse de conférences à l’Université de Franche-Comté Besançon-Vesoul",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/la-romance-comprendre-le-succes-dun-genre-litteraire-malmene-conference",
+      "imageUrl": "/images/events/fr-agenda-la-romance-comprendre-le-succes-dun-genre-litteraire-malmene-conference.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/la-romance-comprendre-le-succes-dun-genre-litteraire-malmene-conference"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:boules-de-feu",
+      "title": "Boules de feu",
+      "startDate": "2026-12-12",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier parents-enfants (de 0 à 7 ans) : activités sur le monde fascinant des météorites, en partenariat avec l'Association pour l'Éducation Familiale",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/boules-de-feu",
+      "imageUrl": "/images/events/fr-agenda-boules-de-feu.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7932627,
+        "lng": 7.1563073
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/boules-de-feu"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:lannee-du-livre-suisse-elisa-shua-dusapin",
+      "title": "L'année du livre suisse : Elisa Shua Dusapin",
+      "startDate": "2026-12-14",
+      "startTime": "18:30",
+      "category": "Conférence (yc. Workshop, séminaire, forum, colloque...)",
+      "description": "CYCLE DE RENCONTRE / ACCUEIL",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-elisa-shua-dusapin",
+      "imageUrl": "/images/events/fr-agenda-lannee-du-livre-suisse-elisa-shua-dusapin.webp",
+      "address": {
+        "street": "Rue Saint-Michel 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/lannee-du-livre-suisse-elisa-shua-dusapin"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-latelier-des-lutins-0",
+      "title": "Kiwi Club – L'atelier des lutins",
+      "startDate": "2026-12-16",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Activités créatives pour préparer Noël",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-latelier-des-lutins-0",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-latelier-des-lutins-0.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-latelier-des-lutins-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:fenetre-de-lavent-du-quartier-dalt",
+      "title": "Fenêtre de l’avent du quartier d’Alt",
+      "startDate": "2026-12-17",
+      "startTime": "18:30",
+      "category": "Manifestation",
+      "description": "Organisé par l'association des Amis de la BCU",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/bcu/evenements/fenetre-de-lavent-du-quartier-dalt",
+      "imageUrl": "/images/events/fr-agenda-fenetre-de-lavent-du-quartier-dalt.webp",
+      "address": {
+        "street": "Rue de la Sarine 4",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.806152,
+        "lng": 7.156226
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire",
+        "url": "https://www.fr.ch/bcu/evenements/fenetre-de-lavent-du-quartier-dalt"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:museoscope-abraham-poincheval-offentliche-fuhrung",
+      "title": "Museoscope - Abraham Poincheval: Öffentliche Führung",
+      "startDate": "2027-01-07",
+      "startTime": "18:30",
+      "category": "Exposition",
+      "description": "Öffentliche Führung mit Stephan Gasser, Konservator am MAHF-Espace",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval-offentliche-fuhrung",
+      "imageUrl": "/images/events/fr-agenda-museoscope-abraham-poincheval-offentliche-fuhrung.webp",
+      "address": {
+        "street": "Rue de Morat 12",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.8077425,
+        "lng": 7.1596313
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle",
+        "url": "https://www.fr.ch/mahf/evenements/museoscope-abraham-poincheval-offentliche-fuhrung"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:cafe-visite-la-migration-des-oiseaux",
+      "title": "Café-visite : La migration des oiseaux",
+      "startDate": "2027-01-12",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Vous n'avez pas d'obligation le mardi matin ? Profitez de visiter le musée ! Les café-visites se déroulent en deux parties : une visite guidée d'environ 40 minutes, puis, un moment d'échange autour d'un café-croissant. L'occasion de rencontrer les spécialistes du musée ou d'ailleurs, en toute simplicité !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-la-migration-des-oiseaux",
+      "imageUrl": "/images/events/fr-agenda-cafe-visite-la-migration-des-oiseaux.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79326703980214,
+        "lng": 7.157301085970033
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-la-migration-des-oiseaux"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:complet-kiwi-club-ca-chauffe-sous-la-terre",
+      "title": "COMPLET | Kiwi Club – Ça chauffe sous la Terre !",
+      "startDate": "2027-01-13",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Exploration des volcans, des éruptions et des forces cachées au cœur de notre planète",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/complet-kiwi-club-ca-chauffe-sous-la-terre",
+      "imageUrl": "/images/events/fr-agenda-complet-kiwi-club-ca-chauffe-sous-la-terre.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/complet-kiwi-club-ca-chauffe-sous-la-terre"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:histoires-naturelles-du-mercredi-2",
+      "title": "Histoires naturelles du mercredi",
+      "startDate": "2027-01-13",
+      "startTime": "14:15",
+      "category": "Manifestation",
+      "description": "Les petites et grandes oreilles seront comblées grâce aux « Histoires naturelles du mercredi ». Un mercredi par mois, la conteuse Michèle Widmer ravira le public francophone à 15h00. Les alémaniques pourront quant à eux écouter la conteuse Corinne Junod à 14h15.",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-2",
+      "imageUrl": "/images/events/fr-agenda-histoires-naturelles-du-mercredi-2.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79312594342698,
+        "lng": 7.157067648527346
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/histoires-naturelles-du-mercredi-2"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-ca-chauffe-sous-la-terre-0",
+      "title": "Kiwi Club – Ça chauffe sous la Terre !",
+      "startDate": "2027-01-20",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Exploration des volcans, des éruptions et des forces cachées au cœur de notre planète",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-ca-chauffe-sous-la-terre-0",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-ca-chauffe-sous-la-terre-0.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-ca-chauffe-sous-la-terre-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:lievre-ou-lapin",
+      "title": "Lièvre ou lapin ?",
+      "startDate": "2027-01-23",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier parents-enfants (de 0 à 7 ans) pour apprendre à distinguer et mieux connaître ces animaux, en partenariat avec l'Association pour l'Éducation Familiale",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/lievre-ou-lapin",
+      "imageUrl": "/images/events/fr-agenda-lievre-ou-lapin.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7932627,
+        "lng": 7.1563073
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/lievre-ou-lapin"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:interaction-oiseaux-et-insectes-adaptations-et-timing-parfait",
+      "title": "Inter’action ! – Oiseaux et insectes : adaptations et timing parfait !",
+      "startDate": "2027-01-30",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Excursion et pose de nichoirs à Villarsiviriaux",
+      "venue": "Villorsonnens",
+      "comune": "Villorsonnens",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/interaction-oiseaux-et-insectes-adaptations-et-timing-parfait",
+      "imageUrl": "/images/events/fr-agenda-interaction-oiseaux-et-insectes-adaptations-et-timing-parfait.webp",
+      "address": {
+        "street": "Au Village",
+        "postalCode": "1694",
+        "locality": "Villorsonnens"
+      },
+      "geo": {
+        "lat": 46.69976609271368,
+        "lng": 7.010588200668842
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/interaction-oiseaux-et-insectes-adaptations-et-timing-parfait"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villorsonnens"
+      }
+    },
+    {
+      "id": "fr-agenda:la-chaumiere-sanime-5",
+      "title": "La Chaumière s'anime",
+      "startDate": "2027-01-31",
+      "startTime": "11:00",
+      "category": "Manifestation",
+      "description": "Viens visiter la Chaumière de la chauve-souris dans la forêt de Moncor ! Tu pourras découvrir la diversité de la forêt et tous ses habitants. Chaque dernier dimanche du mois, l’équipe de Musée d’histoire naturelle propose de nombreuses activités.",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-5",
+      "imageUrl": "/images/events/fr-agenda-la-chaumiere-sanime-5.webp",
+      "address": {
+        "street": "Route de Payerne",
+        "postalCode": "1752",
+        "locality": "Villars-sur-Glâne"
+      },
+      "geo": {
+        "lat": 46.79978247595356,
+        "lng": 7.113544611465862
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-5"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      }
+    },
+    {
+      "id": "fr-agenda:cafe-visite-attention-fragile",
+      "title": "Café-visite : Attention, fragile !",
+      "startDate": "2027-02-02",
+      "startTime": "09:00",
+      "category": "Manifestation",
+      "description": "Vous n'avez pas d'obligation le mardi matin ? Profitez de visiter le musée ! Les café-visites se déroulent en deux parties : une visite guidée d'environ 40 minutes, puis, un moment d'échange autour d'un café-croissant. L'occasion de rencontrer les spécialistes du musée ou d'ailleurs, en toute simplicité !",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-attention-fragile",
+      "imageUrl": "/images/events/fr-agenda-cafe-visite-attention-fragile.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79326703980214,
+        "lng": 7.157301085970033
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/cafe-visite-attention-fragile"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:soiree-des-parents-1ere-annee-dapprentissage-a-lepac-0",
+      "title": "Soirée des parents 1ère année d'apprentissage à l'EPAC",
+      "startDate": "2027-02-16",
+      "startTime": "18:00",
+      "category": "Portes ouvertes",
+      "description": "Soirée des parents",
+      "venue": "Bulle",
+      "comune": "Bulle",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/epac/evenements/soiree-des-parents-1ere-annee-dapprentissage-a-lepac-0",
+      "imageUrl": "/images/events/fr-agenda-soiree-des-parents-1ere-annee-dapprentissage-a-lepac-0.webp",
+      "address": {
+        "street": "Dardens 80",
+        "postalCode": "1630",
+        "locality": "Bulle"
+      },
+      "geo": {
+        "lat": 46.6257536,
+        "lng": 7.052306
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ecole professionnelle artisanale et commerciale de Bulle",
+        "url": "https://www.fr.ch/epac/evenements/soiree-des-parents-1ere-annee-dapprentissage-a-lepac-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Bulle"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-un-air-de-famille",
+      "title": "Kiwi Club – Un air de famille",
+      "startDate": "2027-02-24",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Découverte de l’évolution et des transformations du vivant au fil du temps",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-un-air-de-famille",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-un-air-de-famille.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-un-air-de-famille"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:a-qui-est-ce-cri",
+      "title": "À qui est ce cri ?",
+      "startDate": "2027-02-27",
+      "startTime": "09:30",
+      "category": "Manifestation",
+      "description": "Atelier parents-enfants (de 0 à 7 ans) pour apprendre à reconnaître les chants et les cris d’animaux, en partenariat avec l'Association pour l'Éducation Familiale",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/a-qui-est-ce-cri",
+      "imageUrl": "/images/events/fr-agenda-a-qui-est-ce-cri.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.7932627,
+        "lng": 7.1563073
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/a-qui-est-ce-cri"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    },
+    {
+      "id": "fr-agenda:la-chaumiere-sanime-6",
+      "title": "La Chaumière s'anime",
+      "startDate": "2027-02-28",
+      "startTime": "11:00",
+      "category": "Manifestation",
+      "description": "Viens visiter la Chaumière de la chauve-souris dans la forêt de Moncor ! Tu pourras découvrir la diversité de la forêt et tous ses habitants. Chaque dernier dimanche du mois, l’équipe de Musée d’histoire naturelle propose de nombreuses activités.",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-6",
+      "imageUrl": "/images/events/fr-agenda-la-chaumiere-sanime-6.webp",
+      "address": {
+        "street": "Route de Payerne",
+        "postalCode": "1752",
+        "locality": "Villars-sur-Glâne"
+      },
+      "geo": {
+        "lat": 46.79978247595356,
+        "lng": 7.113544611465862
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/la-chaumiere-sanime-6"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      }
+    },
+    {
+      "id": "fr-agenda:kiwi-club-un-air-de-famille-0",
+      "title": "Kiwi Club – Un air de famille",
+      "startDate": "2027-03-03",
+      "startTime": "14:00",
+      "category": "Manifestation",
+      "description": "Découverte de l’évolution et des transformations du vivant au fil du temps",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "comuneMatch": "exact",
+      "canton": "FR",
+      "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-un-air-de-famille-0",
+      "imageUrl": "/images/events/fr-agenda-kiwi-club-un-air-de-famille-0.webp",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700",
+        "locality": "Fribourg"
+      },
+      "geo": {
+        "lat": 46.79310140893993,
+        "lng": 7.157080685699095
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Musée d'histoire naturelle Fribourg",
+        "url": "https://www.fr.ch/mhnf/evenements/kiwi-club-un-air-de-famille-0"
+      },
+      "sourceKey": "fr-agenda",
+      "sourceName": "Etat de Fribourg — Evénements",
+      "crawledAt": "2026-10-05T13:24:59.811Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      }
+    }
+  ]
+}
