@@ -145,6 +145,11 @@ describe('resume marker', () => {
     });
   });
 
+  it('carries the free choice taken before the reload', () => {
+    markOfferwallResume('job-1', { reason: 'already_released', gate_status: 'released', consent_state: 'granted', choice: 'free' });
+    expect(takeOfferwallResume('job-1')).toMatchObject({ choice: 'free' });
+  });
+
   it('ignores and clears a marker for another job', () => {
     markOfferwallResume('job-1');
     expect(takeOfferwallResume('job-2')).toBeNull();
