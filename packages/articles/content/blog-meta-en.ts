@@ -12567,6 +12567,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.storia-restauro-torre-velasca.title': 'Torre Velasca: history and restoration at Villa Recalcati',
     'blog.article.storia-restauro-torre-velasca.excerpt': 'The Order of Architects of Varese recounts the 2021–2025 restoration and the history of Torre Velasca through architecture, design, and redevelopment.',
     'blog.article.storia-restauro-torre-velasca.imageAlt': 'The Torre Velasca in Milan, an example of modern architecture and restoration.',
+    'blog.article.bellucci-finale-jingshan-2026.title': 'Mattia Bellucci falls one title short in Jingshan',
+    'blog.article.bellucci-finale-jingshan-2026.excerpt': 'Bellucci loses the Jingshan Open final to Harris in the decisive tie-break after failing to convert two match points. The Varese native rises to No. 86 in the ATP rankings.',
+    'blog.article.bellucci-finale-jingshan-2026.imageAlt': 'Mattia Bellucci in action during a Challenger hard court tournament',
 };
 
 export default blogMetaEn;

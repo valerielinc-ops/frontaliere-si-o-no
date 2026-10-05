@@ -98857,6 +98857,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellucci-finale-jingshan-2026': {
+    title: 'Mattia Bellucci si ferma a un titolo da Jingshan',
+    description: 'Mattia Bellucci perde la finale Challenger di Jingshan contro Harris al tie-break. Guadagnati 50 punti ATP e risalita al numero 86 del ranking. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mattia, bellucci, ferma, titolo',
+    ogTitle: 'Mattia Bellucci si ferma in finale a Jingshan contro Harris',
+    ogDescription: 'La finale dell\'Open di Jingshan sfugge a Mattia Bellucci, battuto da Lloyd Harris al tie-break del terzo set dopo due match point mancati. Per il varesotto arrivano comunque 50 punti ATP e il salto al numero 86 del ranking da lunedì.',
+    canonicalPath: '/articoli-frontaliere/bellucci-finale-jingshan-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mattia Bellucci si ferma a un titolo da Jingshan",
+      "description": "Mattia Bellucci perde la finale Challenger di Jingshan contro Harris al tie-break. Guadagnati 50 punti ATP e risalita al numero 86 del ranking. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellucci-finale-jingshan-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mattia Bellucci in azione durante un torneo Challenger su cemento"
+      },
+      "datePublished": "2026-10-05T03:15:22+00:00",
+      "dateModified": "2026-10-05T03:15:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellucci-finale-jingshan-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
