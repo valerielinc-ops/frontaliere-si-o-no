@@ -36796,6 +36796,1055 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+  'blog-tre-valli-corti': {
+    title: 'Tre Valli Varesine, la storia in mostra alle Corti',
+    description: 'Venti tavole ripercorrono alle Corti di Varese la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. Mostra fino al 20 ottobre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tre, valli, corti',
+    ogTitle: 'Tre Valli Varesine, la storia in mostra alle Corti',
+    ogDescription: 'Venti tavole ripercorrono alle Corti di Varese la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. Mostra fino al 20 ottobre.',
+    canonicalPath: '/articoli-frontaliere/tre-valli-corti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre Valli Varesine, la storia in mostra alle Corti",
+      "description": "Venti tavole ripercorrono alle Corti di Varese la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. Mostra fino al 20 ottobre.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tre-valli-corti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Venti tavole sulla storia delle Tre Valli Varesine esposte alle Corti di Varese."
+      },
+      "datePublished": "2026-10-04T08:44:45Z",
+      "dateModified": "2026-10-04T08:44:45Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tre-valli-corti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-04': {
+    title: 'Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda',
+    description: 'Bollettino frontalieri del 4 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollettino, frontaliere, 2026',
+    ogTitle: 'Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda',
+    ogDescription: 'I numeri del 4 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-04/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda",
+      "description": "Bollettino frontalieri del 4 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-04.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 4 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-04T11:02:04Z",
+      "dateModified": "2026-10-04T11:02:04Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-04/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-sindacati-miazzina-diritti-9-ottobre': {
+    title: 'Miazzina, sindacati il 9 ottobre: \'Chiediamo rispetto\'',
+    description: 'Mobilitazione sindacale il 9 ottobre alle 14 all\'Eremo di Miazzina, promossa da Cgil Novara Vco, Cisl Piemonte Orientale e Uil Novara Vco su lavoro, assistenza e sostegno alle famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, miazzina, diritti, ottobre',
+    ogTitle: 'Miazzina, sindacati il 9 ottobre: \'Chiediamo rispetto\'',
+    ogDescription: 'Mobilitazione sindacale il 9 ottobre alle 14 all\'Eremo di Miazzina, promossa da Cgil Novara Vco, Cisl Piemonte Orientale e Uil Novara Vco su lavoro, assistenza e sostegno alle famiglie.',
+    canonicalPath: '/articoli-frontaliere/sindacati-miazzina-diritti-9-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Miazzina, sindacati il 9 ottobre: 'Chiediamo rispetto'",
+      "description": "Mobilitazione sindacale il 9 ottobre alle 14 all'Eremo di Miazzina, promossa da Cgil Novara Vco, Cisl Piemonte Orientale e Uil Novara Vco su lavoro, assistenza e sostegno alle famiglie.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sindacati-miazzina-diritti-9-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione sindacale all'Eremo di Miazzina con striscioni che chiedono rispetto per lavoratori, persone in cura e famiglie."
+      },
+      "datePublished": "2026-10-04T11:20:31Z",
+      "dateModified": "2026-10-04T11:20:31Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-miazzina-diritti-9-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-italia-mondiale-baseball-ciechi-varese': {
+    title: 'Italia campione del mondo di baseball per ciechi',
+    description: 'Trionfo azzurro a Castiglione della Pescaia: battuta Cuba 10-4. Protagonisti i varesini Oliveri (MVP) e Trombini (miglior giovane).',
+    keywords: 'frontalieri, ticino, svizzera, italia, mondiale, baseball, ciechi, varese',
+    ogTitle: 'Italia campione del mondo di baseball per ciechi',
+    ogDescription: 'Trionfo azzurro a Castiglione della Pescaia: battuta Cuba 10-4. Protagonisti i varesini Oliveri (MVP) e Trombini (miglior giovane).',
+    canonicalPath: '/articoli-frontaliere/italia-mondiale-baseball-ciechi-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia campione del mondo di baseball per ciechi",
+      "description": "Trionfo azzurro a Castiglione della Pescaia: battuta Cuba 10-4. Protagonisti i varesini Oliveri (MVP) e Trombini (miglior giovane).",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/italia-mondiale-baseball-ciechi-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Italia vince il mondiale di baseball per ciechi a Castiglione della Pescaia"
+      },
+      "datePublished": "2026-10-04T11:54:50Z",
+      "dateModified": "2026-10-04T11:54:50Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-mondiale-baseball-ciechi-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-urto-spartitraffico-camorino': {
+    title: 'Incidente a Camorino, donna ferita verso l\'A2',
+    description: 'Dopo aver perso il controllo in curva, l\'auto ha urtato uno spartitraffico e si è rovesciata. L\'entrata verso sud dell\'A2 è rimasta chiusa per oltre un\'ora.',
+    keywords: 'frontalieri, ticino, svizzera, italia, urto, spartitraffico, camorino',
+    ogTitle: 'Incidente a Camorino, donna ferita verso l\'A2',
+    ogDescription: 'Dopo aver perso il controllo in curva, l\'auto ha urtato uno spartitraffico e si è rovesciata. L\'entrata verso sud dell\'A2 è rimasta chiusa per oltre un\'ora.',
+    canonicalPath: '/articoli-frontaliere/urto-spartitraffico-camorino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Camorino, donna ferita verso l'A2",
+      "description": "Dopo aver perso il controllo in curva, l'auto ha urtato uno spartitraffico e si è rovesciata. L'entrata verso sud dell'A2 è rimasta chiusa per oltre un'ora.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/urto-spartitraffico-camorino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svincolo di Camorino verso l'A2 con uno spartitraffico, luogo dell'incidente."
+      },
+      "datePublished": "2026-10-04T15:30:36Z",
+      "dateModified": "2026-10-04T15:30:36Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/urto-spartitraffico-camorino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-tassa-salute-frontalieri-ticino-settembre': {
+    title: 'Tassa salute frontalieri Ticino: via a settembre?',
+    description: 'Nuova tassa sanitaria per frontalieri: avvio previsto entro settembre, ma mancano decreti attuativi e pagamenti non ancora riscossi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, settembre',
+    ogTitle: 'Tassa salute frontalieri Ticino: via a settembre?',
+    ogDescription: 'Nuova tassa sanitaria per frontalieri: avvio previsto entro settembre, ma mancano decreti attuativi e pagamenti non ancora riscossi.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri Ticino: via a settembre?",
+      "description": "Nuova tassa sanitaria per frontalieri: avvio previsto entro settembre, ma mancano decreti attuativi e pagamenti non ancora riscossi.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ticino-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori frontalieri in transito tra Italia e Svizzera nel Canton Ticino"
+      },
+      "datePublished": "2026-10-04T18:17:43Z",
+      "dateModified": "2026-10-04T18:17:43Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-stra-woman-varese-2026': {
+    title: 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
+    description: 'Quasi 4mila partecipanti hanno corso o camminato 5 km nei Giardini Estensi per la sedicesima StraWoman Varese, parte delle 21 tappe da marzo a novembre, promuovendo sport, prevenzione senologica e solidarietà.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stra, woman, varese, 2026',
+    ogTitle: 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
+    ogDescription: 'Quasi 4mila partecipanti hanno corso o camminato 5 km nei Giardini Estensi per la sedicesima StraWoman Varese, parte delle 21 tappe da marzo a novembre, promuovendo sport, prevenzione senologica e solidarietà.',
+    canonicalPath: '/articoli-frontaliere/stra-woman-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "StraWoman Varese 2026: quasi 4mila ai Giardini Estensi",
+      "description": "Quasi 4mila partecipanti hanno corso o camminato 5 km nei Giardini Estensi per la sedicesima StraWoman Varese, parte delle 21 tappe da marzo a novembre, promuovendo sport, prevenzione senologica e solidarietà.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/stra-woman-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Donne partecipanti alla StraWoman Varese 2026 nei Giardini Estensi, corsa non competitiva di 5 km per prevenzione e solidarietà."
+      },
+      "datePublished": "2026-10-04T19:00:12Z",
+      "dateModified": "2026-10-04T19:00:12Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stra-woman-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-lido-san-domenico-lugano-concorsi': {
+    title: 'Lido San Domenico: Lugano pubblica due concorsi',
+    description: 'Il Municipio ha avviato i bandi per la gestione della buvette e la ristrutturazione degli spazi tramite partenariato pubblico-privato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lido, san, domenico, lugano, concorsi',
+    ogTitle: 'Lido San Domenico: Lugano pubblica due concorsi',
+    ogDescription: 'Il Municipio ha avviato i bandi per la gestione della buvette e la ristrutturazione degli spazi tramite partenariato pubblico-privato.',
+    canonicalPath: '/articoli-frontaliere/lido-san-domenico-lugano-concorsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lido San Domenico: Lugano pubblica due concorsi",
+      "description": "Il Municipio ha avviato i bandi per la gestione della buvette e la ristrutturazione degli spazi tramite partenariato pubblico-privato.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lido-san-domenico-lugano-concorsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del lungolago di Lugano con il Lido San Domenico sullo sfondo"
+      },
+      "datePublished": "2026-10-04T20:03:35Z",
+      "dateModified": "2026-10-04T20:03:35Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lido-san-domenico-lugano-concorsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-gordola-avviso-scomparsa-revocato': {
+    title: 'Gordola: revocato l\'avviso di scomparsa',
+    description: 'La Polizia cantonale ticinese ha revocato l\'avviso per una 41enne di Gordola, data per scomparsa dal 2 ottobre. L\'annuncio era stato diramato sabato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gordola, avviso, scomparsa, revocato',
+    ogTitle: 'Gordola: revocato l\'avviso di scomparsa',
+    ogDescription: 'La Polizia cantonale ticinese ha revocato l\'avviso per una 41enne di Gordola, data per scomparsa dal 2 ottobre. L\'annuncio era stato diramato sabato.',
+    canonicalPath: '/articoli-frontaliere/gordola-avviso-scomparsa-revocato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gordola: revocato l'avviso di scomparsa",
+      "description": "La Polizia cantonale ticinese ha revocato l'avviso per una 41enne di Gordola, data per scomparsa dal 2 ottobre. L'annuncio era stato diramato sabato.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gordola-avviso-scomparsa-revocato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gordola in Ticino, dove è stato revocato un avviso di scomparsa"
+      },
+      "datePublished": "2026-10-04T21:37:47Z",
+      "dateModified": "2026-10-04T21:37:47Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gordola-avviso-scomparsa-revocato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-uyba-esordio-pari-novara': {
+    title: 'Uyba esordisce alla pari con Novara: Igor vince al tie-break',
+    description: 'La Laica Busto Arsizio perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer chiude con 26 punti e l\'Uyba conquista un punto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, uyba, esordio, pari, novara',
+    ogTitle: 'Uyba esordisce alla pari con Novara: Igor vince al tie-break',
+    ogDescription: 'La Laica Busto Arsizio perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer chiude con 26 punti e l\'Uyba conquista un punto.',
+    canonicalPath: '/articoli-frontaliere/uyba-esordio-pari-novara/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uyba esordisce alla pari con Novara: Igor vince al tie-break",
+      "description": "La Laica Busto Arsizio perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer chiude con 26 punti e l'Uyba conquista un punto.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/uyba-esordio-pari-novara.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uyba e Novara in azione al Biella Forum durante il primo set, con il pubblico sugli spalti"
+      },
+      "datePublished": "2026-10-05T00:09:59Z",
+      "dateModified": "2026-10-05T00:09:59Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uyba-esordio-pari-novara/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-gran-fondo-varese-2025': {
+    title: 'Varese: Gran Fondo da record con 5.000 iscritti',
+    description: 'Decima edizione chiusa il 4 ottobre: 2.000 stranieri e vittorie di Ferraro Morey e Rumasaite.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gran, fondo, varese, 2025',
+    ogTitle: 'Varese: Gran Fondo da record con 5.000 iscritti',
+    ogDescription: 'Decima edizione chiusa il 4 ottobre: 2.000 stranieri e vittorie di Ferraro Morey e Rumasaite.',
+    canonicalPath: '/articoli-frontaliere/gran-fondo-varese-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Gran Fondo da record con 5.000 iscritti",
+      "description": "Decima edizione chiusa il 4 ottobre: 2.000 stranieri e vittorie di Ferraro Morey e Rumasaite.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gran-fondo-varese-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti in gara sulla strada di Varese durante la Gran Fondo Tre Valli Varesine"
+      },
+      "datePublished": "2026-10-05T00:34:01Z",
+      "dateModified": "2026-10-05T00:34:01Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gran-fondo-varese-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-chef-nazionale-ristoratori-de-filippi': {
+    title: 'Sport e legalità al De Filippi con la Nazionale Ristoratori',
+    description: 'Giornata tra formazione, calcio e alta cucina all\'Istituto alberghiero De Filippi di Varese con gli chef della Nazionale Italiana Ristoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chef, nazionale, ristoratori, filippi',
+    ogTitle: 'Sport e legalità al De Filippi con la Nazionale Ristoratori',
+    ogDescription: 'Giornata tra formazione, calcio e alta cucina all\'Istituto alberghiero De Filippi di Varese con gli chef della Nazionale Italiana Ristoratori.',
+    canonicalPath: '/articoli-frontaliere/chef-nazionale-ristoratori-de-filippi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sport e legalità al De Filippi con la Nazionale Ristoratori",
+      "description": "Giornata tra formazione, calcio e alta cucina all'Istituto alberghiero De Filippi di Varese con gli chef della Nazionale Italiana Ristoratori.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/chef-nazionale-ristoratori-de-filippi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra gli chef della Nazionale Ristoratori e gli studenti del De Filippi"
+      },
+      "datePublished": "2026-10-05T00:59:39Z",
+      "dateModified": "2026-10-05T00:59:39Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chef-nazionale-ristoratori-de-filippi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-novantaquattro-scatti-varese': {
+    title: 'Varese, 94 foto tra ciclismo e StraWoman',
+    description: 'A Varese circa 5.000 ciclisti da oltre 40 Paesi e più di 3.000 donne per una domenica tra Gran Fondo Tre Valli Varesine e StraWoman.',
+    keywords: 'frontalieri, ticino, svizzera, italia, novantaquattro, scatti, varese',
+    ogTitle: 'Varese, 94 foto tra ciclismo e StraWoman',
+    ogDescription: 'A Varese circa 5.000 ciclisti da oltre 40 Paesi e più di 3.000 donne per una domenica tra Gran Fondo Tre Valli Varesine e StraWoman.',
+    canonicalPath: '/articoli-frontaliere/novantaquattro-scatti-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, 94 foto tra ciclismo e StraWoman",
+      "description": "A Varese circa 5.000 ciclisti da oltre 40 Paesi e più di 3.000 donne per una domenica tra Gran Fondo Tre Valli Varesine e StraWoman.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/novantaquattro-scatti-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti e partecipanti alla StraWoman nel centro di Varese"
+      },
+      "datePublished": "2026-10-05T01:31:00Z",
+      "dateModified": "2026-10-05T01:31:00Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/novantaquattro-scatti-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-openjobmetis-scafati-vittoria-basket': {
+    title: 'Openjobmetis vince a Scafati: primo successo ufficiale',
+    description: 'La Openjobmetis vince 78-85 a Scafati conquistando la prima vittoria ufficiale della stagione e la seconda di sempre sul parquet campano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, openjobmetis, scafati, vittoria, basket',
+    ogTitle: 'Openjobmetis vince a Scafati: primo successo ufficiale',
+    ogDescription: 'La Openjobmetis vince 78-85 a Scafati conquistando la prima vittoria ufficiale della stagione e la seconda di sempre sul parquet campano.',
+    canonicalPath: '/articoli-frontaliere/openjobmetis-scafati-vittoria-basket/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Openjobmetis vince a Scafati: primo successo ufficiale",
+      "description": "La Openjobmetis vince 78-85 a Scafati conquistando la prima vittoria ufficiale della stagione e la seconda di sempre sul parquet campano.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/openjobmetis-scafati-vittoria-basket.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di basket della Openjobmetis a Scafati"
+      },
+      "datePublished": "2026-10-05T02:06:47Z",
+      "dateModified": "2026-10-05T02:06:47Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/openjobmetis-scafati-vittoria-basket/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-storia-restauro-torre-velasca': {
+    title: 'Torre Velasca: storia e restauro a Villa Recalcati',
+    description: 'L\'Ordine degli Architetti di Varese racconta il restauro del 2021-2025 e la storia della Torre Velasca tra architettura, design e riqualificazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, storia, restauro, torre, velasca',
+    ogTitle: 'Torre Velasca: storia e restauro a Villa Recalcati',
+    ogDescription: 'L\'Ordine degli Architetti di Varese racconta il restauro del 2021-2025 e la storia della Torre Velasca tra architettura, design e riqualificazione.',
+    canonicalPath: '/articoli-frontaliere/storia-restauro-torre-velasca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Torre Velasca: storia e restauro a Villa Recalcati",
+      "description": "L'Ordine degli Architetti di Varese racconta il restauro del 2021-2025 e la storia della Torre Velasca tra architettura, design e riqualificazione.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/storia-restauro-torre-velasca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Torre Velasca di Milano, esempio di architettura moderna e restauro."
+      },
+      "datePublished": "2026-10-05T02:50:56Z",
+      "dateModified": "2026-10-05T02:50:56Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/storia-restauro-torre-velasca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-bellucci-finale-jingshan-2026': {
+    title: 'Mattia Bellucci si ferma a un titolo da Jingshan',
+    description: 'Bellucci perde la finale dell\'Open di Jingshan contro Harris al tie-break decisivo dopo due match point non sfruttati. Il varesotto sale al numero 86 ATP.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellucci, finale, jingshan, 2026',
+    ogTitle: 'Mattia Bellucci si ferma a un titolo da Jingshan',
+    ogDescription: 'Bellucci perde la finale dell\'Open di Jingshan contro Harris al tie-break decisivo dopo due match point non sfruttati. Il varesotto sale al numero 86 ATP.',
+    canonicalPath: '/articoli-frontaliere/bellucci-finale-jingshan-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mattia Bellucci si ferma a un titolo da Jingshan",
+      "description": "Bellucci perde la finale dell'Open di Jingshan contro Harris al tie-break decisivo dopo due match point non sfruttati. Il varesotto sale al numero 86 ATP.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bellucci-finale-jingshan-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mattia Bellucci in azione durante un torneo Challenger su cemento"
+      },
+      "datePublished": "2026-10-05T03:15:22Z",
+      "dateModified": "2026-10-05T03:15:22Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellucci-finale-jingshan-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-a2-rumore-galbisio': {
+    title: 'A2 e rumore: Città pianifica la terrazza di Galbisio',
+    description: 'La Città ribadisce la protezione di Galbisio dall’impatto fonico e paesaggistico dell’A2. Per Lepori è il primo passo formale dopo l’avallo del Pab5.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rumore, galbisio',
+    ogTitle: 'A2 e rumore: Città pianifica la terrazza di Galbisio',
+    ogDescription: 'La Città ribadisce la protezione di Galbisio dall’impatto fonico e paesaggistico dell’A2. Per Lepori è il primo passo formale dopo l’avallo del Pab5.',
+    canonicalPath: '/articoli-frontaliere/a2-rumore-galbisio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 e rumore: Città pianifica la terrazza di Galbisio",
+      "description": "La Città ribadisce la protezione di Galbisio dall’impatto fonico e paesaggistico dell’A2. Per Lepori è il primo passo formale dopo l’avallo del Pab5.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/a2-rumore-galbisio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "A2 e paesaggio della frazione di Galbisio nel Bellinzonese"
+      },
+      "datePublished": "2026-10-05T03:49:10Z",
+      "dateModified": "2026-10-05T03:49:10Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-rumore-galbisio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-magrini-cultura-provincia-varese': {
+    title: 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
+    description: 'Il presidente Magrini risponde alla Regione: stanziato un fondo da 100 mila euro per la candidatura a Capitale italiana della cultura e progetti sul territorio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, magrini, cultura, provincia, varese',
+    ogTitle: 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
+    ogDescription: 'Il presidente Magrini risponde alla Regione: stanziato un fondo da 100 mila euro per la candidatura a Capitale italiana della cultura e progetti sul territorio.',
+    canonicalPath: '/articoli-frontaliere/magrini-cultura-provincia-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, Magrini: 'La Provincia investe già sulla cultura'",
+      "description": "Il presidente Magrini risponde alla Regione: stanziato un fondo da 100 mila euro per la candidatura a Capitale italiana della cultura e progetti sul territorio.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/magrini-cultura-provincia-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il presidente della Provincia di Varese Marco Magrini durante una conferenza stampa"
+      },
+      "datePublished": "2026-10-05T04:21:20Z",
+      "dateModified": "2026-10-05T04:21:20Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/magrini-cultura-provincia-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-castellanzese-vittoria-santangelo': {
+    title: 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
+    description: 'Terzo successo consecutivo per la formazione di Bolzoni, che espugna lo stadio Chiesa grazie alle reti di Chessa e Valmori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, castellanzese, vittoria, santangelo',
+    ogTitle: 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
+    ogDescription: 'Terzo successo consecutivo per la formazione di Bolzoni, che espugna lo stadio Chiesa grazie alle reti di Chessa e Valmori.',
+    canonicalPath: '/articoli-frontaliere/castellanzese-vittoria-santangelo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serie D: la Castellanzese vince 2-1 contro il Sant'Angelo",
+      "description": "Terzo successo consecutivo per la formazione di Bolzoni, che espugna lo stadio Chiesa grazie alle reti di Chessa e Valmori.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/castellanzese-vittoria-santangelo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di calcio della Castellanzese allo stadio Chiesa"
+      },
+      "datePublished": "2026-10-05T05:29:27Z",
+      "dateModified": "2026-10-05T05:29:27Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castellanzese-vittoria-santangelo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-gianpaolo-calzi-solbiatese': {
+    title: 'Solbiatese calcio: gianpaolo calzi nuovo area tecnica',
+    description: 'La Solbiatese Calcio annuncia l\'ingresso di Gianpaolo Calzi come nuovo Responsabile dell\'Area Tecnica, puntando a rafforzare la struttura societaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gianpaolo, calzi, solbiatese',
+    ogTitle: 'Solbiatese calcio: gianpaolo calzi nuovo area tecnica',
+    ogDescription: 'La Solbiatese Calcio annuncia l\'ingresso di Gianpaolo Calzi come nuovo Responsabile dell\'Area Tecnica, puntando a rafforzare la struttura societaria.',
+    canonicalPath: '/articoli-frontaliere/gianpaolo-calzi-solbiatese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Solbiatese calcio: gianpaolo calzi nuovo area tecnica",
+      "description": "La Solbiatese Calcio annuncia l'ingresso di Gianpaolo Calzi come nuovo Responsabile dell'Area Tecnica, puntando a rafforzare la struttura societaria.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gianpaolo-calzi-solbiatese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio moderno in un contesto paesaggistico del Ticino."
+      },
+      "datePublished": "2026-10-05T06:00:13Z",
+      "dateModified": "2026-10-05T06:00:13Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gianpaolo-calzi-solbiatese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-sequestro-contanti-como-brogeda': {
+    title: 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
+    description: 'Oltre 240.000 euro in contanti sequestrati al valico di Como-Brogeda da ADM e Guardia di Finanza in due distinti interventi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sequestro, contanti, como, brogeda',
+    ogTitle: 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
+    ogDescription: 'Oltre 240.000 euro in contanti sequestrati al valico di Como-Brogeda da ADM e Guardia di Finanza in due distinti interventi.',
+    canonicalPath: '/articoli-frontaliere/sequestro-contanti-como-brogeda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sequestro di contanti a Como-Brogeda: oltre 240 mila euro",
+      "description": "Oltre 240.000 euro in contanti sequestrati al valico di Como-Brogeda da ADM e Guardia di Finanza in due distinti interventi.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sequestro-contanti-como-brogeda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli doganali e sequestro di denaro al valico di Como-Brogeda"
+      },
+      "datePublished": "2026-10-05T06:29:04Z",
+      "dateModified": "2026-10-05T06:29:04Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-contanti-como-brogeda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-raduno-auto-moto-cocquio': {
+    title: 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
+    description: 'Domenica 4 ottobre, una ventina di moto e tre auto hanno occupato via Appennini per gare di velocità e impennate. Intervenuti i carabinieri di Besozzo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, raduno, auto, moto, cocquio',
+    ogTitle: 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
+    ogDescription: 'Domenica 4 ottobre, una ventina di moto e tre auto hanno occupato via Appennini per gare di velocità e impennate. Intervenuti i carabinieri di Besozzo.',
+    canonicalPath: '/articoli-frontaliere/raduno-auto-moto-cocquio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cocquio Trevisago: raduno non autorizzato in via Appennini",
+      "description": "Domenica 4 ottobre, una ventina di moto e tre auto hanno occupato via Appennini per gare di velocità e impennate. Intervenuti i carabinieri di Besozzo.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/raduno-auto-moto-cocquio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Intervento dei carabinieri in via Appennini a Cocquio Trevisago"
+      },
+      "datePublished": "2026-10-05T06:57:36Z",
+      "dateModified": "2026-10-05T06:57:36Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raduno-auto-moto-cocquio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-camion-avaria-san-nicolao': {
+    title: 'Camion in avaria nella galleria San Nicolao',
+    description: 'Un camion in avaria nella galleria San Nicolao crea disagi sull\'A2: corsia sinistra percorribile verso sud e ritardi fino a 20 minuti verso nord.',
+    keywords: 'frontalieri, ticino, svizzera, italia, camion, avaria, san, nicolao',
+    ogTitle: 'Camion in avaria nella galleria San Nicolao',
+    ogDescription: 'Un camion in avaria nella galleria San Nicolao crea disagi sull\'A2: corsia sinistra percorribile verso sud e ritardi fino a 20 minuti verso nord.',
+    canonicalPath: '/articoli-frontaliere/camion-avaria-san-nicolao/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camion in avaria nella galleria San Nicolao",
+      "description": "Un camion in avaria nella galleria San Nicolao crea disagi sull'A2: corsia sinistra percorribile verso sud e ritardi fino a 20 minuti verso nord.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/camion-avaria-san-nicolao.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion in avaria nella galleria San Nicolao e disagi sull'A2"
+      },
+      "datePublished": "2026-10-05T07:32:18Z",
+      "dateModified": "2026-10-05T07:32:18Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camion-avaria-san-nicolao/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-sequestri-contanti-brogeda': {
+    title: 'Contanti non dichiarati: sequestri a Brogeda',
+    description: 'Due controlli al valico autostradale di Como-Brogeda hanno portato al sequestro di 128.500 e 113.450 euro, eccedenze oltre la soglia di 10.000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sequestri, contanti, brogeda',
+    ogTitle: 'Contanti non dichiarati: sequestri a Brogeda',
+    ogDescription: 'Due controlli al valico autostradale di Como-Brogeda hanno portato al sequestro di 128.500 e 113.450 euro, eccedenze oltre la soglia di 10.000 euro.',
+    canonicalPath: '/articoli-frontaliere/sequestri-contanti-brogeda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contanti non dichiarati: sequestri a Brogeda",
+      "description": "Due controlli al valico autostradale di Como-Brogeda hanno portato al sequestro di 128.500 e 113.450 euro, eccedenze oltre la soglia di 10.000 euro.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sequestri-contanti-brogeda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veicoli al valico autostradale di Como-Brogeda"
+      },
+      "datePublished": "2026-10-05T08:04:32Z",
+      "dateModified": "2026-10-05T08:04:32Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestri-contanti-brogeda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-prevenzione-salute-aziende-ticinesi': {
+    title: 'Salute mentale: il DSS porta la prevenzione nelle aziende',
+    description: 'Il DSS e il Forum GSA Ticino promuovono la salute mentale sul lavoro. Dati: il 32,3% dei giovani ticinesi si sente svuotato, il 61% degli apprendisti soffre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prevenzione, salute, aziende, ticinesi',
+    ogTitle: 'Salute mentale: il DSS porta la prevenzione nelle aziende',
+    ogDescription: 'Il DSS e il Forum GSA Ticino promuovono la salute mentale sul lavoro. Dati: il 32,3% dei giovani ticinesi si sente svuotato, il 61% degli apprendisti soffre.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-salute-aziende-ticinesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute mentale: il DSS porta la prevenzione nelle aziende",
+      "description": "Il DSS e il Forum GSA Ticino promuovono la salute mentale sul lavoro. Dati: il 32,3% dei giovani ticinesi si sente svuotato, il 61% degli apprendisti soffre.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/prevenzione-salute-aziende-ticinesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro professionale in un ufficio ticinese."
+      },
+      "datePublished": "2026-10-05T08:37:00Z",
+      "dateModified": "2026-10-05T08:37:00Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-salute-aziende-ticinesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-osservatorio-varese-spettacolo-galileo': {
+    title: 'Osservatorio di Varese: arriva lo spettacolo Galileo',
+    description: 'Sabato 17 ottobre l\'Osservatorio G.V. Schiaparelli ospita la pièce teatrale di Corrado D\'Elia seguita dall\'osservazione di Luna e Saturno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, osservatorio, varese, spettacolo, galileo',
+    ogTitle: 'Osservatorio di Varese: arriva lo spettacolo Galileo',
+    ogDescription: 'Sabato 17 ottobre l\'Osservatorio G.V. Schiaparelli ospita la pièce teatrale di Corrado D\'Elia seguita dall\'osservazione di Luna e Saturno.',
+    canonicalPath: '/articoli-frontaliere/osservatorio-varese-spettacolo-galileo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Osservatorio di Varese: arriva lo spettacolo Galileo",
+      "description": "Sabato 17 ottobre l'Osservatorio G.V. Schiaparelli ospita la pièce teatrale di Corrado D'Elia seguita dall'osservazione di Luna e Saturno.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/osservatorio-varese-spettacolo-galileo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Osservatorio astronomico a Varese"
+      },
+      "datePublished": "2026-10-05T09:15:25Z",
+      "dateModified": "2026-10-05T09:15:25Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/osservatorio-varese-spettacolo-galileo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-valuta-intercettata-brogeda': {
+    title: 'Doppio sequestro di valuta al valico di Brogeda',
+    description: 'Al valico di Brogeda, in due operazioni distinte, doganieri e finanzieri di Ponte Chiasso hanno intercettato oltre 240mila euro nei giorni scorsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, valuta, intercettata, brogeda',
+    ogTitle: 'Doppio sequestro di valuta al valico di Brogeda',
+    ogDescription: 'Al valico di Brogeda, in due operazioni distinte, doganieri e finanzieri di Ponte Chiasso hanno intercettato oltre 240mila euro nei giorni scorsi.',
+    canonicalPath: '/articoli-frontaliere/valuta-intercettata-brogeda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Doppio sequestro di valuta al valico di Brogeda",
+      "description": "Al valico di Brogeda, in due operazioni distinte, doganieri e finanzieri di Ponte Chiasso hanno intercettato oltre 240mila euro nei giorni scorsi.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/valuta-intercettata-brogeda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Brogeda, teatro di due operazioni con oltre 240mila euro intercettati"
+      },
+      "datePublished": "2026-10-05T10:10:43Z",
+      "dateModified": "2026-10-05T10:10:43Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valuta-intercettata-brogeda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-unione-confronto-pilastro-ch-it': {
+    title: 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
+    description: 'L\'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro, tema centrale per la previdenza dei frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, unione, confronto, pilastro',
+    ogTitle: 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
+    ogDescription: 'L\'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro, tema centrale per la previdenza dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/unione-confronto-pilastro-ch-it/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro: l'Unione chiede confronto CH-IT",
+      "description": "L'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro, tema centrale per la previdenza dei frontalieri.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/unione-confronto-pilastro-ch-it.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sul secondo pilastro e una borsa da pendolare in Ticino"
+      },
+      "datePublished": "2026-10-05T10:48:06Z",
+      "dateModified": "2026-10-05T10:48:06Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unione-confronto-pilastro-ch-it/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-avs-13a-rendita-iva-aumento': {
+    title: '13a rendita AVS: il Consiglio federale: «Ecco perché aumenteremo l’IVA»',
+    description: 'A dicembre arriva la prima 13a rendita AVS per 2,6 milioni di pensionati. Il Parlamento ha deciso un aumento dell\'IVA per finanziare la misura, con un voto popolare il 29 novembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avs, 13a, rendita, iva, aumento',
+    ogTitle: '13a rendita AVS: il Consiglio federale: «Ecco perché aumenteremo l’IVA»',
+    ogDescription: 'A dicembre arriva la prima 13a rendita AVS per 2,6 milioni di pensionati. Il Parlamento ha deciso un aumento dell\'IVA per finanziare la misura, con un voto popolare il 29 novembre.',
+    canonicalPath: '/articoli-frontaliere/avs-13a-rendita-iva-aumento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "13a rendita AVS: il Consiglio federale: «Ecco perché aumenteremo l’IVA»",
+      "description": "A dicembre arriva la prima 13a rendita AVS per 2,6 milioni di pensionati. Il Parlamento ha deciso un aumento dell'IVA per finanziare la misura, con un voto popolare il 29 novembre.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/avs-13a-rendita-iva-aumento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castel Grande di Bellinzona, simbolo della Svizzera, sotto un cielo sereno."
+      },
+      "datePublished": "2026-10-05T11:25:01Z",
+      "dateModified": "2026-10-05T11:25:01Z",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-13a-rendita-iva-aumento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-05': {
+    title: 'Bollettino del frontaliere – 5 ottobre 2026: 1336 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 5 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollettino, frontaliere, 2026',
+    ogTitle: 'Bollettino del frontaliere – 5 ottobre 2026: 1336 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 5 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-05/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 5 ottobre 2026: 1336 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 5 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-05.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 5 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-05T12:09:11Z",
+      "dateModified": "2026-10-05T12:09:11Z",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-05/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA;
