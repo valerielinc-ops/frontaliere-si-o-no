@@ -95,14 +95,27 @@ jobs:
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check
+      # Riassunto per gruppo cantonale dei turni appena validati, pubblico sul
+      # CDN per il corpus (refresh-canton-services-data.mjs, P9f). Non e' un
+      # gate dei turni: se fallisce, il rilascio delle farmacie parte lo stesso
+      # e l'artefatto resta quello del giro precedente.
+      - name: Publish per-canton duty summary for the corpus
+        id: duty_cantons
+        continue-on-error: true
+        run: node scripts/publish-pharmacy-duty-cantons.mjs
       - name: Open PR with atomic catalogue-duty-status snapshots
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json; then
+          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json public/data/pharmacy-duty-cantons.json \
+            && [ -z "$(git status --porcelain -- public/data/pharmacy-duty-cantons.json)" ]; then
             echo "No cross-border pharmacy data changes."
             exit 0
+          fi
+          duty_cantons=()
+          if [ -f public/data/pharmacy-duty-cantons.json ]; then
+            duty_cantons=(--path public/data/pharmacy-duty-cantons.json)
           fi
           body="$RUNNER_TEMP/pharmacy-border-refresh-pr-body.md"
           cat > "$body" <<EOF
@@ -125,6 +138,7 @@ jobs:
             --path data/pharmacy-duties-geneva-status.json \
             --path data/pharmacy-duties-swiss-cantons.json \
             --path data/pharmacy-sources-registry.json \
+            "${duty_cantons[@]}" \
             --branch chore/refresh-pharmacies-border \
             --commit-message "chore(data): refresh atomic cross-border pharmacy release" \
             --title "chore(data): refresh atomic cross-border pharmacy release" \
