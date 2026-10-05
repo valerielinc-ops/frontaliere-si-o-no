@@ -211,6 +211,14 @@ describe('carryForwardFirstSeenAt — identity shared by several postings', () =
     );
   });
 
+  it('flags a bare listing URL replacement when only the posting keys differ', () => {
+    const oldPosting = galenica(1, { url: 'https://example.test/jobs' });
+    const newPosting = galenica(2, { url: 'https://example.test/jobs' });
+    expect(ambiguousJobIdentities([oldPosting], [newPosting])).toEqual(
+      new Set(['url:https://example.test/jobs']),
+    );
+  });
+
   it('leaves a NEW posting with the same title and listing URL without an inherited firstSeenAt', () => {
     const firstRun = daysAgo(170);
     const existingJobs = [galenica(1, { firstSeenAt: firstRun }), galenica(2, { firstSeenAt: firstRun })];

@@ -87,6 +87,20 @@ describe('one posting on each side of the comparison (review #11732)', () => {
     expect(partition.updatedJobs).toEqual([]);
   });
 
+  it('handles a bare listing URL replacement as a departure and an arrival', () => {
+    const before = [{ id: 'old', slug: 'old', url: 'https://example.test/jobs', title: 'Old' }];
+    const after = [{ id: 'new', slug: 'new', url: 'https://example.test/jobs', title: 'New' }];
+    const diff = computeCrawlDiff(snapshotJobSlugs(before), snapshotJobSlugs(after));
+    const partition = computeSlicePartition(before, after);
+
+    expect(diff.newJobs.map((job) => job.id)).toEqual(['new']);
+    expect(diff.removedJobs.map((job) => job.id)).toEqual(['old']);
+    expect(diff.updatedJobs).toEqual([]);
+    expect(partition.newJobs.map((job) => job.id)).toEqual(['new']);
+    expect(partition.removedJobs.map((job) => job.id)).toEqual(['old']);
+    expect(partition.updatedJobs).toEqual([]);
+  });
+
   it('keeps absorbing a crawler id change when the URL is identical', () => {
     const url = 'https://example.test/jobs/4711';
     const diff = computeCrawlDiff(
