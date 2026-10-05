@@ -238,6 +238,33 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(missing).toEqual({ status: 404, body: { ok: false, error: 'order_not_found' } });
   });
 
+  it('keeps the candidate page precedence when the order is queued for submission', async () => {
+    const database = makeDb({
+      received: {
+        paymentStatus: 'paid',
+        submissionStatus: 'ready_for_manual_submission',
+        updatedAt: '2026-09-15T10:05:00.000Z',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'received' },
+    }));
+
+    expect(result).toMatchObject({
+      status: 200,
+      body: {
+        candidateView: {
+          pageState: 'submitted',
+          submissionStatus: 'ready_for_manual_submission',
+          updatedAt: '2026-09-15T10:05:00.000Z',
+        },
+      },
+    });
+  });
+
   it('never hides a paid order and withholds only CV links with a bad or pending verdict', async () => {
     const database = makeDb({
       clean: {
