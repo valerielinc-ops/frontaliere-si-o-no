@@ -403,13 +403,31 @@ export function planPurge({ logKeys, current, ledger }) {
 }
 
 /**
- * Purge `keys` in batches through an injected `purgeBatch(urls)` (throws on a
- * failed batch) and report which KEYS made it — per batch, because that is the
- * granularity at which Cloudflare accepts or rejects a purge.
+ * The wall-clock deadline of a purge, or Infinity. A budget only applies in
+ * `ledger` mode: there, keys it leaves untried stay dirty in the ledger and
+ * the next deploy purges them. In `log-only` mode nothing would remember them
+ * (review of #11641), so every batch is attempted, as before the budget.
+ *
+ * @param {'ledger'|'log-only'} mode
+ * @param {number} budgetMs  CDN_PURGE_BUDGET_MS (0 or less = no budget)
+ * @param {number} nowMs
+ */
+export function purgeDeadline(mode, budgetMs, nowMs) {
+  return mode === 'ledger' && budgetMs > 0 ? nowMs + budgetMs : Infinity;
+}
+
+/**
+ * Purge `keys` in batches through an injected `purgeBatch(urls, { remainingMs })`
+ * (throws on a failed batch) and report which KEYS made it — per batch, because
+ * that is the granularity at which Cloudflare accepts or rejects a purge. Past
+ * `deadline` (see purgeDeadline) no batch starts: those keys come back in
+ * `notAttempted`, neither purged nor failed.
  *
  * @param {string[]} keys
- * @param {{ purgeBatch: (urls: string[]) => void, base?: string, size?: number }} opts
- * @returns {{ purgedKeys: string[], failed: { index: number, keys: string[], error: string }[], batches: number }}
+ * @param {{ purgeBatch: (urls: string[], ctx: { remainingMs: number }) => void, base?: string,
+ *           size?: number, deadline?: number, now?: () => number }} opts
+ * @returns {{ purgedKeys: string[], failed: { index: number, keys: string[], error: string }[],
+ *             notAttempted: string[], batches: number }}
  */
 export function purgeInBatches(keys, {
   purgeBatch,
@@ -581,7 +599,7 @@ function main(argv) {
   // ledger (37271618085, 27,177 keys) purged 12,570 in 300 s, was killed, wrote
   // no ledger, and the next deploy would have started from zero again.
   const budgetMs = Number(process.env.CDN_PURGE_BUDGET_MS) || 0;
-  const deadline = budgetMs > 0 ? Date.now() + budgetMs : Infinity;
+  const deadline = purgeDeadline(mode, budgetMs, Date.now());
   const { purgedKeys, failed, notAttempted, batches } = purgeInBatches(keys, {
     base,
     deadline,
@@ -593,9 +611,8 @@ function main(argv) {
       }),
   });
   if (notAttempted.length > 0) {
-    const where = mode === 'ledger' ? 'left dirty in the ledger; the next deploy continues from here' : 'not tracked (log-only run)';
     console.log(
-      `::warning::${TAG} purge budget of ${Math.round(budgetMs / 1000)}s reached — ${notAttempted.length} ${keyPrefix}/ key(s) not attempted, ${where}`,
+      `::warning::${TAG} purge budget of ${Math.round(budgetMs / 1000)}s reached — ${notAttempted.length} ${keyPrefix}/ key(s) not attempted, left dirty in the ledger; the next deploy continues from here`,
     );
   }
   for (const f of failed) {

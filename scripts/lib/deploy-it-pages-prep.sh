@@ -424,9 +424,10 @@ _publish_cdn_r2() {
           || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      # Fallback (stage unavailable): this run's uploads only.
-      CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
-        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+      # Fallback (stage unavailable): this run's uploads only. No budget here:
+      # without a ledger, a key the budget left untried would be forgotten
+      # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
+      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
     elif [ "$assets_sync_ok" != 1 ]; then
       echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
