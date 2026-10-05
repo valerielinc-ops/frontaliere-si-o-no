@@ -380,7 +380,13 @@ async function main() {
       belowCurvePages = agg.belowCurvePages;
       target = effectiveTargetCtr(family, position);
       console.log(`   CTR (${WINDOW_DAYS}gg, query di lavoro): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
-      console.log(`   CTR su tutte le query (misura precedente): ${pct(segmentation.allQueries.ctr)} | impressioni ${segmentation.allQueries.impressions}`);
+      // La misura precedente, rifatta sulle stesse righe: CTR, target e click
+      // persi stimati (impressioni × (target − CTR)) con e senza segmentazione.
+      const lost = (a, t) => (a.avgCtr === null || t === null ? 0 : Math.max(0, a.totalImpressions * (t - a.avgCtr)));
+      const allAgg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
+      const allTarget = effectiveTargetCtr(family, allAgg.avgPosition);
+      console.log(`   misura precedente (tutte le query): CTR ${pct(allAgg.avgCtr)} | target ${pct(allTarget)} | pos ${allAgg.avgPosition === null ? 'n/a' : allAgg.avgPosition.toFixed(2)} | click persi ${lost(allAgg, allTarget).toFixed(0)}`);
+      console.log(`   misura attuale (query di lavoro):   CTR ${pct(agg.avgCtr)} | target ${pct(target)} | pos ${position === null ? 'n/a' : position.toFixed(2)} | click persi ${lost(agg, target).toFixed(0)}`);
       for (const [name, s] of Object.entries(segmentation.segments)) {
         const top = s.topQueries.map((q) => `«${q.query}» ${q.impressions}`).join(', ');
         console.log(`   escluse (${name}): ${s.impressions} impressioni, ${s.clicks} click${top ? ` — ${top}` : ''}`);
