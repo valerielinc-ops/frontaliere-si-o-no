@@ -167,6 +167,7 @@ jobs:
           sparse-checkout: |
             scripts/ci/mint-app-token.mjs
             scripts/lib/githubApiHeaders.mjs
+            functions/src/githubApiHeaders.js
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
