@@ -104,6 +104,7 @@ describe('A++ page fetcher', () => {
     expect(seen[1].url).toContain('module=newcareer');
     expect(seen[1].url).toContain('IdAzienda=34990');
     expect(seen[1].url).toContain('CSRFToken=token-123');
+    expect(seen[1].url).toContain('CSRFHash=hash-456');
     expect((seen[1].init.headers as Record<string, string>).Cookie).toContain('intervieweb_session=session-1');
     expect(new URLSearchParams(String(seen[1].init.body)).get('act1')).toBe('vacancyListCareer');
   });
