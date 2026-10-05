@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-10-05T09:27:13.298Z",
+  "generatedAt": "2026-10-05T21:43:45.034Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1870,
-  "avgDurationMs": 1870,
+  "durationMs": 1859,
+  "avgDurationMs": 1859,
   "durationHistory": [
-    1870
+    1859
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,7 +46,6 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +55,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

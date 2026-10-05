@@ -13,9 +13,11 @@
  * per-channel).
  *
  * ── TikTok Content Posting API — what's DIFFERENT from Instagram ──────────
- * 1. Photo/carousel posts use a dedicated JSON endpoint (not the same media
- *    endpoint as video), and only accept JPEG/WEBP — never PNG. See
- *    scripts/lib/social-carousel-image.mjs (already renders JPEG).
+ * 1. Photo/carousel posts on the existing API path use a dedicated JSON
+ *    endpoint (not the same media endpoint as video), and only accept
+ *    JPEG/WEBP — never PNG. See scripts/lib/social-carousel-image.mjs.
+ *    The Playwright queue path additionally prepares an MP4 from those same
+ *    JPEG slides because TikTok's web upload accepts video only.
  * 2. The image URLs' DOMAIN must be verified in the TikTok developer console
  *    (DNS or .well-known file) before PULL_FROM_URL works at all — a
  *    one-time setup step, not something this script can do.
@@ -83,7 +85,7 @@ import {
   loadJobSections,
   loadJobIndex,
   formatDayIt,
-  buildCarouselCaption,
+  buildTikTokCaption,
 } from './lib/social-post-utils.mjs';
 import {
   tiktokUrl,
@@ -98,7 +100,8 @@ import {
 } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
-import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
+import { renderCarouselVideo } from './lib/social-carousel-video.mjs';
 import {
   buildQueueEntry,
   deliverSocialPost,
@@ -175,7 +178,7 @@ async function getAccessToken() {
 // written here only for an API publish; a queued post reaches the ledger once
 // the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
 
-async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish }) {
+async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, publish }) {
   await deliverSocialPost({
     route,
     label: 'TikTok',
@@ -192,12 +195,24 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
     enqueue: () => {
       enqueuePost(
         QUEUE_PATH,
-        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, ledgerEntries }),
+        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries }),
       );
     },
     // The API covered this kind: an older queued post of it must not reach the robot.
     dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'tiktok', kind }),
   });
+}
+
+function prepareTikTokVideo(slides, keyPrefix) {
+  try {
+    const rendered = renderCarouselVideo(slides);
+    const url = uploadCarouselVideo(rendered.buffer, { channel: 'tiktok', keyPrefix });
+    if (!url) return null;
+    return { url, bytes: rendered.bytes, sha256: rendered.sha256, durationMs: rendered.durationMs, width: rendered.width, height: rendered.height };
+  } catch (err) {
+    console.warn(`⚠️  TikTok video unavailable: ${err.message}`);
+    return null;
+  }
 }
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
@@ -250,7 +265,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     return { title, statLabel: 'Visualizzazioni', statValue: String(p.views), footerNote: job?.location || '' };
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
-  const caption = buildCarouselCaption({ kind, dayLabel: formatDayIt(day), picks: captionPicks });
+  const caption = buildTikTokCaption({ kind, dayLabel: formatDayIt(day), picks: captionPicks });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
   console.log(caption);
@@ -278,6 +293,14 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
+  const video = route.enqueue ? prepareTikTokVideo(slides, `${kind}-${day}`) : null;
+  if (route.enqueue && !video) {
+    if (!route.api) {
+      console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
+      return;
+    }
+    console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
+  }
 
   const ledgerEntries = picks.map((p) => ({
     id: p.slug,
@@ -286,7 +309,16 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     day,
     views: p.views,
   }));
-  await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }) });
+  await deliver({
+    route: video ? route : { ...route, enqueue: false },
+    kind,
+    day,
+    caption,
+    urls,
+    video,
+    ledgerEntries,
+    publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }),
+  });
 }
 
 // ─────────────────────────── border (weekly) ───────────────────────────
@@ -323,7 +355,7 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     statValue: fmtMinutes(r.avgMinutes),
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
-  const caption = buildCarouselCaption({
+  const caption = buildTikTokCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
@@ -355,6 +387,14 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
+  const video = route.enqueue ? prepareTikTokVideo(slides, `border-${weekStart}`) : null;
+  if (route.enqueue && !video) {
+    if (!route.api) {
+      console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
+      return;
+    }
+    console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
+  }
 
   const ledgerEntries = [
     {
@@ -364,7 +404,16 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
       day: weekStart,
     },
   ];
-  await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }) });
+  await deliver({
+    route: video ? route : { ...route, enqueue: false },
+    kind: 'border',
+    day: weekStart,
+    caption,
+    urls,
+    video,
+    ledgerEntries,
+    publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }),
+  });
 }
 
 // ─────────────────────────── main ───────────────────────────
