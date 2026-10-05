@@ -22,12 +22,16 @@
  * second checkout never reads another directory's record.
  *
  * A missing slice is recorded as empty: the previous run had published
- * nothing for that key. An unreadable slice is NOT recorded, so readers fall
- * back to the file on disk as before; treating it as empty would hold back
- * jobs that are already online.
+ * nothing for that key. An unreadable slice is NOT recorded, and a recorded
+ * file that does not parse as a slice (invalid JSON, or JSON without a `jobs`
+ * array) reads as no record: readers fall back to the file on disk as before.
+ * Treating either as empty would hold back jobs that are already online.
  *
- * The raw text is kept, not parsed records: later pipeline steps mutate the
- * objects they were read into, and every reader gets its own parse.
+ * The raw bytes are kept, not parsed records: later pipeline steps mutate the
+ * objects they were read into, and every reader gets its own parse (one parse
+ * of the largest slice, fachkraft at 24 MB, takes ~0.2 s). A Buffer, not a
+ * string: it stays outside the V8 heap and at its file size (24 MB), where
+ * the same text as a string takes 48 MB of heap.
  *
  * Dependency-free (node:fs/node:path only) so dedicated-crawler-common, the
  * assembler and translation-publication-hold can all import it without an
@@ -36,7 +40,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-/** @type {Map<string, string|null>} resolved slice path → raw text (null = no slice) */
+/** @type {Map<string, Buffer|null>} resolved slice path → raw bytes (null = no slice) */
 const records = new Map();
 
 function recordKey(slicePath) {
@@ -56,7 +60,7 @@ export function recordPreviousRunSlice(slicePath) {
   if (!key || records.has(key)) return false;
   let raw = null;
   try {
-    if (fs.existsSync(key)) raw = fs.readFileSync(key, 'utf8');
+    if (fs.existsSync(key)) raw = fs.readFileSync(key);
   } catch {
     return false;
   }
@@ -66,7 +70,8 @@ export function recordPreviousRunSlice(slicePath) {
 
 /**
  * Jobs of the previous run's slice at `slicePath`, freshly parsed, or null
- * when this process recorded nothing for it (the caller then reads the file).
+ * when this process recorded nothing usable for it (the caller then reads the
+ * file).
  *
  * @param {string} slicePath
  * @returns {object[]|null}
@@ -76,13 +81,17 @@ export function previousRunSliceJobs(slicePath) {
   if (!key || !records.has(key)) return null;
   const raw = records.get(key);
   if (raw == null) return [];
+  let data;
   try {
-    const data = JSON.parse(raw);
-    if (Array.isArray(data)) return data;
-    return Array.isArray(data?.jobs) ? data.jobs : [];
+    data = JSON.parse(raw.toString('utf8'));
   } catch {
     return null;
   }
+  if (Array.isArray(data)) return data;
+  if (data && typeof data === 'object' && Array.isArray(data.jobs)) return data.jobs;
+  // Valid JSON in another shape (`{"jobs":"bad"}`, `{}`, `null`) is not a
+  // slice: the same fallback as an unparsable one, never an empty prior.
+  return null;
 }
 
 /** Test seam: the registry is process-wide by design. */

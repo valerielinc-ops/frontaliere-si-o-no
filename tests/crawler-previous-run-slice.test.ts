@@ -62,6 +62,29 @@ describe('crawler-previous-run-slice', () => {
     expect(previousRunSliceJobs(file)).toBeNull();
   });
 
+  it('falls back to the file when the recorded JSON is not a slice, never to an empty prior', () => {
+    // Acceptance input of the review on #11582: `{"jobs":"bad"}` would
+    // otherwise read as "the previous run published nothing" and hold back
+    // jobs that are already online.
+    for (const [name, text] of [
+      ['bad-jobs.json', '{"jobs":"bad"}'],
+      ['no-jobs.json', '{"crawlerKey":"sta"}'],
+      ['null.json', 'null'],
+      ['number.json', '42'],
+    ]) {
+      const file = path.join(dir, name);
+      fs.writeFileSync(file, text);
+      expect(recordPreviousRunSlice(file)).toBe(true);
+      expect(previousRunSliceJobs(file)).toBeNull();
+    }
+  });
+
+  it('keeps an empty jobs array as an empty prior: that slice really had no jobs', () => {
+    const file = writeSlice('empty.json', []);
+    recordPreviousRunSlice(file);
+    expect(previousRunSliceJobs(file)).toEqual([]);
+  });
+
   it('accepts a bare array slice', () => {
     const file = path.join(dir, 'legacy.json');
     fs.writeFileSync(file, JSON.stringify([{ id: 'online' }]));
