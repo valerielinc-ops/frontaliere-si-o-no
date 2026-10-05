@@ -144,10 +144,12 @@ if (targetFiles) {
       `::warning title=Apex-blind purge check skipped::could not read the Worker routes (${err.message}) — this purge may or may not reach the copy visitors get.`,
     );
   }
-  for (const { url, pattern, expectedOrigin } of blindSpots) {
+  for (const { url, pattern, expectedOrigin, expectedCompanion } of blindSpots) {
     const fix = expectedOrigin
       ? `add https://${expectedOrigin}${new URL(url).pathname} to the SAME --files list`
-      : 'add the URL on the host that actually serves it (shard origin, or the cdn.frontaliereticino.ch key for an EDGE_PUSHED_FILES path)';
+      : expectedCompanion
+        ? `add ${expectedCompanion} (the R2 key the Worker serves it from) to the SAME --files list`
+        : 'add the URL on the host that actually serves it (shard origin, or the cdn.frontaliereticino.ch key for an EDGE_PUSHED_FILES path)';
     console.log(
       `::warning title=Apex purge does not move the served copy::${url} matches the Cloudflare Worker route \`${pattern}\`, so the entry visitors read is keyed on the shard ORIGIN host, not on this apex URL. This URL will still report ✅ and change nothing — ${fix}. See scripts/lib/cf-worker-routes.mjs (#5483).`,
     );
