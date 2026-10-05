@@ -1,7 +1,7 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-05T09:22:45.844Z",
+  "generatedAt": "2026-10-05T10:32:40.007Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5602,
-  "avgDurationMs": 5602,
+  "durationMs": 5916,
+  "avgDurationMs": 5916,
   "durationHistory": [
-    5602
+    5916
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152146630-care-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:22:36.715Z",
+      "crawledAt": "2026-10-05T10:32:30.857Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152629300-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:22:36.714Z",
+      "crawledAt": "2026-10-05T10:32:30.856Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
 }
