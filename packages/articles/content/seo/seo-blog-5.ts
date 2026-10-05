@@ -99405,6 +99405,41 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-ticinoskills-2026-gordola-event': {
+    title: 'TicinoSkills 2026: gare, orientamento e 50 anni SSIC TI',
+    description: 'Dal 1° al 3 ottobre 2026 a Gordola, TicinoSkills 2026 ha visto 44 apprendisti gareggiare, oltre 600 studenti in orientamento partecipare e quasi 400 famiglie',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinoskills, gare, orientamento, anni',
+    ogTitle: 'TicinoSkills 2026: gare, orientamento e 50 anni SSIC TI',
+    ogDescription: 'Scopri tutti i dettagli di TicinoSkills 2026: le gare dei 44 apprendisti, le visite di oltre 600 studenti in orientamento, la partecipazione di quasi 400 famiglie al sabato e i festeggiamenti per il cinquantesimo anniversario del Centro SSIC TI',
+    canonicalPath: '/articoli-frontaliere/ticinoskills-2026-gordola-event/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TicinoSkills 2026: gare, orientamento e 50 anni SSIC TI",
+      "description": "Dal 1° al 3 ottobre 2026 a Gordola, TicinoSkills 2026 ha visto 44 apprendisti gareggiare, oltre 600 studenti in orientamento partecipare e quasi 400 famiglie",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticinoskills-2026-gordola-event.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendisti impegnati in una prova pratica durante TicinoSkills 2026 a Gordola, con lo sfondo del centro SSIC TI e bandiere svizzere."
+      },
+      "datePublished": "2026-10-05T13:08:37+00:00",
+      "dateModified": "2026-10-05T13:08:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinoskills-2026-gordola-event/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

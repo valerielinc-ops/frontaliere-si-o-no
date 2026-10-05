@@ -12617,6 +12617,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pedemontana-avviso-truffa.title': 'Pedemontana scam: fake notice for 6,95 euro',
     'blog.article.pedemontana-avviso-truffa.excerpt': 'An SMS about an alleged unpaid toll is circulating: the link leads to a clone site and targets banking or card details.',
     'blog.article.pedemontana-avviso-truffa.imageAlt': 'Fake Pedemontana payment notice displayed on a smartphone',
+    'blog.article.ticinoskills-2026-gordola-event.title': 'TicinoSkills 2026: competitions, career guidance and 50 years of SSIC TI',
+    'blog.article.ticinoskills-2026-gordola-event.excerpt': 'From October 1 to 3, 2026, in Gordola, 44 apprentices competed in the regional championships, more than 600 students receiving career guidance visited the event, and almost 400 families attended on Saturday, on the occasion of the 50th anniversary of the SSIC TI.',
+    'blog.article.ticinoskills-2026-gordola-event.imageAlt': 'Young apprentices carrying out a practical task at TicinoSkills 2026 in Gordola, with the SSIC TI centre and Swiss flags in the background.',
 };
 
 export default blogMetaEn;

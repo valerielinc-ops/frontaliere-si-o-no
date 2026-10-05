@@ -12618,6 +12618,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pedemontana-avviso-truffa.title': 'Truffa Pedemontana: falso avviso da 6,95 euro',
     'blog.article.pedemontana-avviso-truffa.excerpt': 'Circola un SMS su un presunto pedaggio non pagato: il link porta a un sito clone e punta ai dati bancari o della carta.',
     'blog.article.pedemontana-avviso-truffa.imageAlt': 'Avviso falso di pagamento Pedemontana visualizzato su uno smartphone',
+    'blog.article.ticinoskills-2026-gordola-event.title': 'TicinoSkills 2026: gare, orientamento e 50 anni SSIC TI',
+    'blog.article.ticinoskills-2026-gordola-event.excerpt': 'Dal 1° al 3 ottobre 2026 a Gordola, 44 apprendisti hanno gareggiato nei campionati regionali, oltre 600 studenti in orientamento hanno visitato l\'evento e quasi 400 famiglie hanno partecipato al sabato, in occasione dei 50 anni del SSIC TI.',
+    'blog.article.ticinoskills-2026-gordola-event.imageAlt': 'Apprendisti impegnati in una prova pratica durante TicinoSkills 2026 a Gordola, con lo sfondo del centro SSIC TI e bandiere svizzere.',
 };
 
 export default blogMetaIt;
