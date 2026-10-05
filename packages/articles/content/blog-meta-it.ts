@@ -12565,6 +12565,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.openjobmetis-scafati-vittoria-basket.title': 'Openjobmetis vince a Scafati: primo successo ufficiale',
     'blog.article.openjobmetis-scafati-vittoria-basket.excerpt': 'La Openjobmetis vince 78-85 a Scafati conquistando la prima vittoria ufficiale della stagione e la seconda di sempre sul parquet campano.',
     'blog.article.openjobmetis-scafati-vittoria-basket.imageAlt': 'Partita di basket della Openjobmetis a Scafati',
+    'blog.article.storia-restauro-torre-velasca.title': 'Torre Velasca: storia e restauro a Villa Recalcati',
+    'blog.article.storia-restauro-torre-velasca.excerpt': 'L\'Ordine degli Architetti di Varese racconta il restauro del 2021-2025 e la storia della Torre Velasca tra architettura, design e riqualificazione.',
+    'blog.article.storia-restauro-torre-velasca.imageAlt': 'La Torre Velasca di Milano, esempio di architettura moderna e restauro.',
 };
 
 export default blogMetaIt;

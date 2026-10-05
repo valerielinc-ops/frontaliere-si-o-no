@@ -98823,6 +98823,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-storia-restauro-torre-velasca': {
+    title: 'Torre Velasca: storia e restauro a Villa Recalcati',
+    description: 'Approfondimento sul restauro della Torre Velasca (2021-2025) presentato a Villa Recalcati: architettura, design e la storia della celebre maniglia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, torre, velasca, storia, restauro',
+    ogTitle: 'Torre Velasca: storia e restauro a Villa Recalcati',
+    ogDescription: 'L\'Ordine degli Architetti di Varese ha analizzato il restauro della Torre Velasca, un\'opera tra cantiere storico e conservazione, protagonista a Villa Recalcati.',
+    canonicalPath: '/articoli-frontaliere/storia-restauro-torre-velasca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Torre Velasca: storia e restauro a Villa Recalcati",
+      "description": "Approfondimento sul restauro della Torre Velasca (2021-2025) presentato a Villa Recalcati: architettura, design e la storia della celebre maniglia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/storia-restauro-torre-velasca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Torre Velasca di Milano, esempio di architettura moderna e restauro."
+      },
+      "datePublished": "2026-10-05T02:50:57+00:00",
+      "dateModified": "2026-10-05T02:50:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/storia-restauro-torre-velasca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
