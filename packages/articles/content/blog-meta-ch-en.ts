@@ -7718,6 +7718,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-minimo-berna-guida.title': 'Minimum wage in the Canton of Bern: requirements and application',
     'blog.article.salario-minimo-berna-guida.excerpt': 'In Switzerland there is no federal minimum: in Bern, any applicable cantonal rules, collective agreements and official checks are what matter.',
     'blog.article.salario-minimo-berna-guida.imageAlt': 'Salary documents and a calculator on a desk in a Swiss office',
+    'blog.article.sostegno-sociale-berna-procedura.title': 'Social assistance in Bern: requirements and application',
+    'blog.article.sostegno-sociale-berna-procedura.excerpt': 'In the Canton of Bern, social assistance is based on need: application to the competent office, documents, and deadlines to be verified with the Canton.',
+    'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Swiss public service desk for a cantonal social assistance application',
 };
 
 export default blogMetaChEn;

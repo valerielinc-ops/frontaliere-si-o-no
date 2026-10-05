@@ -2595,6 +2595,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assicurazione-immobili-zurigo': { it: 'assicurazione-immobili-zurigo', en: 'zurich-building-insurance-guide', de: 'gebaeudeversicherung-zuerich-ratgeber', fr: 'assurance-immobilier-zurich-guide' },
  'formazione-continua-zurigo-contributi': { it: 'formazione-continua-zurigo-contributi', en: 'zurich-continuing-education-grants', de: 'weiterbildung-zuerich-beitraege', fr: 'formation-continue-zurich-subventions' },
  'salario-minimo-berna-guida': { it: 'salario-minimo-berna-guida', en: 'bern-minimum-wage-rules', de: 'mindestlohn-bern-anwendung', fr: 'salaire-minimum-berne-application' },
+ 'sostegno-sociale-berna-procedura': { it: 'sostegno-sociale-berna-procedura', en: 'social-assistance-bern-application', de: 'sozialhilfe-bern-antrag', fr: 'aide-sociale-berne-demande' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
