@@ -69,8 +69,9 @@ jobs:
       - name: Collect road events
         run: node scripts/collect-road-events.mjs
 
-      # Same gate as a PR touching the dataset: the parsers' fixtures and the
-      # structural check of the file this run is about to commit.
+      # The structural gate on the file itself runs inside the collector
+      # (validateRoadEventsPayload: nothing is written if it fails). This step
+      # re-runs the parsers' fixtures, so a run on a broken parser cannot commit.
       - name: Gate — road events contract
         run: npx vitest run tests/road-events.test.ts
 

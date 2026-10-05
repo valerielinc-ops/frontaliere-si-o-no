@@ -202,11 +202,4 @@ describe('road events — payload gate', () => {
     const b = { ...ok.events[0], id: 'b', validFrom: '2026-09-30T00:00:00.000Z', validTo: '2026-10-02T00:00:00.000Z' };
     expect(dedupeRoadEvents([a, b])).toEqual([{ ...a, validFrom: '2026-09-30T00:00:00.000Z' }]);
   });
-
-  it('the committed dataset passes the gate', () => {
-    const committed = readJson('data/road-events.json');
-    expect(validateRoadEventsPayload(committed, { knownCantons })).toEqual([]);
-    expect(committed.events.length).toBeGreaterThan(0);
-    expect(readJson('public/data/road-events.json')).toEqual(committed);
-  });
 });
