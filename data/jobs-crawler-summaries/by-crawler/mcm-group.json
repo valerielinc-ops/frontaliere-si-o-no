@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-05T06:27:10.923Z",
+  "generatedAt": "2026-10-05T08:33:00.443Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7086,
-  "avgDurationMs": 7086,
+  "unchangedCount": 3,
+  "durationMs": 8215,
+  "avgDurationMs": 8215,
   "durationHistory": [
-    7086
+    8215
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "mcm-group-b46a4aa6f0c2",
       "slug": "assistente-di-pratica-mpa-al-100-malans-gr-medizinisches-center-bonaduz-malans",
@@ -33,7 +37,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T06:27:02.516Z",
+      "crawledAt": "2026-10-05T08:32:49.078Z",
       "addressLocality": "Malans",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -76,7 +80,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T06:27:02.514Z",
+      "crawledAt": "2026-10-05T08:32:49.074Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +122,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T06:27:02.508Z",
+      "crawledAt": "2026-10-05T08:32:49.064Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -147,7 +151,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "131f8bc1b80cde75f604ccd4dd8964fc1ef88621"
 }

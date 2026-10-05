@@ -1,7 +1,7 @@
 {
   "key": "prosenectute-ti",
   "label": "Pro Senectute Ticino e Moesano",
-  "generatedAt": "2026-10-05T06:27:58.702Z",
+  "generatedAt": "2026-10-05T08:30:33.645Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4461,
-  "avgDurationMs": 4461,
+  "unchangedCount": 4,
+  "durationMs": 5464,
+  "avgDurationMs": 5464,
   "durationHistory": [
-    4461
+    5464
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "prosenectute-ti-d979e745fd71",
       "slug": "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano",
@@ -34,7 +38,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:27:51.559Z",
+      "crawledAt": "2026-10-05T08:30:25.651Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -76,7 +80,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:27:51.368Z",
+      "crawledAt": "2026-10-05T08:30:25.453Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -118,7 +122,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:27:51.104Z",
+      "crawledAt": "2026-10-05T08:30:25.106Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -160,7 +164,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:27:50.749Z",
+      "crawledAt": "2026-10-05T08:30:24.749Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -190,7 +194,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "131f8bc1b80cde75f604ccd4dd8964fc1ef88621"
 }
