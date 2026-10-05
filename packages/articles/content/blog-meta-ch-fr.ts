@@ -125,7 +125,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': 'La 13e AVS en conférence de conciliation',
     'blog.article.avs-finanziamento-13esima.excerpt': 'Pas d\'accord entre le Conseil national et les États sur le financement de la 13e AVS',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Bâtiment du Parlement suisse à Berne avec logo AVS',
-    'blog.article.givaudan-licenziamenti.title': 'Givaudan à Vernier (Genève) : licenciements',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan licencie des employés',
     'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, leader mondial des arômes et parfums, licencie des employés pour vol d\'essences.',
     'blog.article.givaudan-licenziamenti.imageAlt': 'Industrie chimique en Suisse',
     'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi change de tête et cherche de nouveaux associés',
@@ -7748,6 +7748,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.porte-aperte-login-ticino.title': 'Portes ouvertes login Ticino : chemin de fer, commerce et bâtiments',
     'blog.article.porte-aperte-login-ticino.excerpt': 'Samedi 10 octobre, 09.00-13.00 à Bellinzona, Portes ouvertes login Ticino présentent le chemin de fer, le commerce et la nouvelle formation CFC d\'informaticien/ne des bâtiments et des infrastructures, lancée en août 2027.',
     'blog.article.porte-aperte-login-ticino.imageAlt': 'Visiteurs aux portes ouvertes login Ticino observent un électrotrain et des outils d\'automatisation du bâtiment à Bellinzona',
+    'blog.article.rischi-cyber-pmi-svizzere.title': 'Risques informatiques : les PME suisses sous-estiment les dangers',
+    'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'Une analyse VZ-HSLU signale que les incidents informatiques constituent le premier risque mondial : en Suisse, en 2025, près de 58\'000 délits numériques.',
+    'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Une PME suisse analyse les risques informatiques au bureau',
 };
 
 export default blogMetaChFr;
