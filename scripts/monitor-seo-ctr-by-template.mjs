@@ -22,6 +22,15 @@
  * State persisted in data/seo-ctr-monitor-state.json so consecutive-check
  * counting survives across scheduled workflow invocations.
  *
+ * The CTR is measured on queries with a plausible job intent only (owner
+ * decision I5, 2026-10-05; guiding case issue 11198): queries with search
+ * operators (`-site:`, `inurl:`…) and promotional/shop queries without job
+ * words («fielmann offerta») are subtracted from the page totals and reported
+ * as separate segments — in the log, in the state file and in the issue body —
+ * by scripts/lib/seo-ctr-query-segments.mjs. The threshold is unchanged. Every
+ * family entry carries `measureVersion`, so a jump caused by the change of
+ * measure is never read as a real SERP improvement.
+ *
  * Also runs a family-discovery pass each week: pulls site-wide GSC pages
  * over a trailing 90-day window and flags any path segment carrying
  * MIN_IMPRESSIONS_TO_MONITOR+ impressions that isn't in the registry yet
@@ -49,7 +58,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
-import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
+import { fetchGscByPage, fetchGscPageQueryRows } from './lib/perf-sources/gsc.mjs';
 import {
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
@@ -68,6 +77,14 @@ import {
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  CTR_MEASURE_VERSION,
+  segmentPrefilterRegex,
+  segmentFamilyRows,
+  excludedSegmentsForState,
+  renderExcludedSegmentsSection,
+  describeMeasureChange,
+} from './lib/seo-ctr-query-segments.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -136,7 +153,7 @@ function loadState() {
   }
 }
 
-async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages }) {
+async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages, segmentation, measureChange }) {
   if (dryRun) {
     console.log(`   [dry-run] avrei aperto/commentato issue per ${family.label}`);
     return;
@@ -151,7 +168,8 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
       description: `## CTR sotto target — ${family.label}
 
 **Path family:** \`${family.pathContains}\`
-**CTR attuale (14gg):** ${pct(ctr)}
+**CTR attuale (14gg, query con intento di lavoro):** ${pct(ctr)}
+**CTR su tutte le query (misura precedente):** ${pct(segmentation?.allQueries?.ctr)}
 **Target:** ${pct(target)} (${targetBasis})
 **Posizione media ponderata (14gg):** ${position === null ? 'n/a' : Number(position).toFixed(2)}
 **Check consecutivi sotto soglia:** ${run}
@@ -159,8 +177,10 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
 Il monitor CTR-per-template (issue #4300, scripts/monitor-seo-ctr-by-template.mjs)
 ha rilevato che questa famiglia di pagine resta sotto la soglia CTR attesa per
 ${run} controlli settimanali consecutivi (~${run} settimane).
-
+${measureChange ? `\n> ${measureChange}\n` : ''}
 ${renderBelowCurvePagesSection(belowCurvePages)}
+
+${renderExcludedSegmentsSection({ segments: segmentation?.segments, allQueries: segmentation?.allQueries })}
 
 Prossimi passi suggeriti: rivedere title/description generator per questa
 famiglia (services/seo/seo-pages.ts per guida/tasse, build-plugins/ogPagesPlugin.ts
@@ -340,15 +360,31 @@ async function main() {
     // the measured position instead of being frozen in the registry.
     let target = effectiveTargetCtr(family, null);
     let belowCurvePages = [];
+    let segmentation = null;
     try {
-      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
+      const pathContains = familyPathPrefixes(family);
+      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
-      const agg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
+      // Segmentazione per query (decisione I5 del 2026-10-05): un errore qui
+      // ricade nel ramo di errore sotto, come un errore GSC — un controllo
+      // misurato con la misura vecchia non va conteggiato con quella nuova.
+      const { rows: queryRows } = await fetchGscPageQueryRows({
+        windowDays: WINDOW_DAYS,
+        pathContains,
+        queryRegex: segmentPrefilterRegex(),
+      });
+      segmentation = segmentFamilyRows(pageRows, queryRows);
+      const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: 5 });
       ctr = agg.avgCtr;
       position = agg.avgPosition;
       belowCurvePages = agg.belowCurvePages;
       target = effectiveTargetCtr(family, position);
-      console.log(`   CTR (${WINDOW_DAYS}gg): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
+      console.log(`   CTR (${WINDOW_DAYS}gg, query di lavoro): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
+      console.log(`   CTR su tutte le query (misura precedente): ${pct(segmentation.allQueries.ctr)} | impressioni ${segmentation.allQueries.impressions}`);
+      for (const [name, s] of Object.entries(segmentation.segments)) {
+        const top = s.topQueries.map((q) => `«${q.query}» ${q.impressions}`).join(', ');
+        console.log(`   escluse (${name}): ${s.impressions} impressioni, ${s.clicks} click${top ? ` — ${top}` : ''}`);
+      }
     } catch (e) {
       console.warn(`   ⚠️ errore GSC, salto questo giro: ${e.message}`);
       // Don't touch the counter on a fetch failure — avoid false escalation
@@ -364,6 +400,9 @@ async function main() {
       continue;
     }
 
+    const measureChange = describeMeasureChange(prior, { allQueriesCtr: segmentation?.allQueries?.ctr ?? null });
+    if (measureChange) console.log(`   ℹ️ ${measureChange}`);
+
     const belowTarget = ctr !== null && target !== null && ctr < target;
     const { counted, consecutiveBelowRuns, lastCountedIso } = nextCtrMonitorCounter(prior, { belowTarget, nowIso });
     const offCadence = `controllo fuori cadenza, non conteggiato (ultimo conteggiato: ${lastCountedIso}; contatore fermo a ${consecutiveBelowRuns})`;
@@ -376,7 +415,7 @@ async function main() {
       // Escalation only on a counted check: the issue text says "N controlli
       // settimanali consecutivi" and an off-cadence run is not one of them.
       if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
-        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages });
+        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages, segmentation, measureChange });
       }
     } else {
       console.log(counted ? '   ✅ CTR nella norma' : `   ✅ CTR nella norma — ${offCadence}`);
@@ -384,7 +423,10 @@ async function main() {
 
     state.families[family.id] = {
       consecutiveBelowRuns,
+      measureVersion: CTR_MEASURE_VERSION,
       lastCtr: ctr,
+      lastCtrAllQueries: segmentation.allQueries.ctr,
+      lastExcludedSegments: excludedSegmentsForState(segmentation.segments),
       lastPosition: position,
       lastTargetCtr: target,
       lastBelowCurvePages: belowCurvePagesForState(belowCurvePages),
@@ -394,6 +436,7 @@ async function main() {
     };
   }
 
+  state.measureVersion = CTR_MEASURE_VERSION;
   if (!dryRun) {
     writeJsonAtomic(STATE_PATH, state);
     console.log(`\n💾 Stato monitor salvato: ${STATE_PATH}`);

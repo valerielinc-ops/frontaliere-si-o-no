@@ -160,3 +160,73 @@ export async function fetchGscByPage({
   }
   return { rows: totalRows, perPath, coverage: { complete: true, returnedRows: totalRows } };
 }
+
+/**
+ * Righe pagina×query per le pagine che contengono `pathContains` (stringa o
+ * array, una richiesta per alias come in `fetchGscByPage`), limitate alle
+ * query che soddisfano `queryRegex` (RE2, operatore `includingRegex` della
+ * Search Console). I due filtri sono su dimensioni diverse e stanno nello
+ * stesso gruppo, quindi in AND: e' proprio cio' che serve.
+ *
+ * Usata dal monitor CTR per template per segmentare le query escluse dalla
+ * metrica principale (scripts/lib/seo-ctr-query-segments.mjs): il prefiltro
+ * tiene il volume a poche righe invece dell'intero prodotto pagina×query.
+ *
+ * Le query anonimizzate non compaiono mai in queste righe. Returns
+ * { rows: Array<{path, query, clicks, impressions, ctr, position}> }.
+ */
+export async function fetchGscPageQueryRows({
+  windowDays = 14,
+  pathContains,
+  queryRegex,
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  if (!queryRegex) throw new Error('fetchGscPageQueryRows: queryRegex obbligatoria');
+  const token = await getTokenImpl({ fetchImpl });
+  if (!token) throw new Error('no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)');
+  const { start, end } = windowDates(windowDays);
+  const expressions = Array.isArray(pathContains) ? pathContains : [pathContains];
+  const rows = [];
+  for (const expression of expressions) {
+    let startRow = 0;
+    let exhausted = false;
+    for (let page = 0; page < MAX_PAGES; page++) {
+      const filters = [{ dimension: 'query', operator: 'includingRegex', expression: queryRegex }];
+      if (expression) filters.unshift({ dimension: 'page', operator: 'contains', expression });
+      const data = await gscQuery(
+        token,
+        {
+          startDate: start,
+          endDate: end,
+          dimensions: ['page', 'query'],
+          dimensionFilterGroups: [{ filters }],
+          rowLimit: ROW_LIMIT,
+          startRow,
+        },
+        fetchImpl,
+      );
+      const pageRows = data.rows || [];
+      for (const r of pageRows) {
+        let pathname;
+        try {
+          pathname = new URL(r.keys?.[0] || '').pathname;
+        } catch {
+          continue;
+        }
+        rows.push({
+          path: pathname,
+          query: r.keys?.[1] || '',
+          clicks: r.clicks || 0,
+          impressions: r.impressions || 0,
+          ctr: r.ctr ?? null,
+          position: r.position ?? null,
+        });
+      }
+      if (pageRows.length < ROW_LIMIT) { exhausted = true; break; }
+      startRow += pageRows.length;
+    }
+    if (!exhausted) throw new Error(`gsc response incomplete: cap of ${MAX_PAGES * ROW_LIMIT} page×query rows reached for ${expression}`);
+  }
+  return { rows };
+}
