@@ -16,9 +16,11 @@ import {
 import { useAuth } from '@/services/authService';
 import {
   ASSISTED_APPLICATION_ADMIN_STATUSES,
+  fetchAssistedApplicationCandidateView,
   fetchAssistedApplicationAdminData,
   refundAssistedApplication,
   updateAssistedApplicationStatus,
+  type AssistedApplicationCandidateView,
   type AssistedApplicationAdminOrder,
   type AssistedApplicationAdminStatus,
   type AssistedApplicationCandidateEmail,
@@ -93,6 +95,81 @@ const PDF_RENDERER_STYLES: Record<PdfRendererTone, string> = {
   legacy: 'bg-warning-subtle text-warning border-warning-border',
   unknown: 'bg-surface-alt text-subtle border-edge',
 };
+
+const CANDIDATE_PAGE_STATE_LABELS: Record<AssistedApplicationCandidateView['pageState'], string> = {
+  pending: 'Pagamento in attesa',
+  paid: 'Pagamento confermato',
+  submitted: 'Candidatura presa in carico',
+  error: 'Pagamento non confermato',
+};
+
+const CANDIDATE_PAGE_STATE_STYLES: Record<AssistedApplicationCandidateView['pageState'], string> = {
+  pending: 'border-warning-border bg-warning-subtle/60 text-warning',
+  paid: 'border-success-border bg-success-subtle text-success',
+  submitted: 'border-success-border bg-success-subtle text-success',
+  error: 'border-danger-border bg-danger-subtle text-danger',
+};
+
+function CandidatePageStateIcon({ state }: { state: AssistedApplicationCandidateView['pageState'] }) {
+  if (state === 'error') return <AlertTriangle size={15} aria-hidden="true" />;
+  if (state === 'pending') return <Clock3 size={15} aria-hidden="true" />;
+  return <CheckCircle2 size={15} aria-hidden="true" />;
+}
+
+function candidatePageMessage(view: AssistedApplicationCandidateView): string {
+  if (view.pageState === 'pending') {
+    return 'La pagina dell’utente mostra che il pagamento è ancora in attesa di conferma.';
+  }
+  if (view.pageState === 'paid') {
+    return 'La pagina dell’utente mostra il modulo per inviare il CV e i dati necessari per l’annuncio.';
+  }
+  if (view.pageState === 'submitted') {
+    return 'La pagina dell’utente mostra che la candidatura è stata presa in carico.';
+  }
+  return 'La pagina dell’utente mostra che il pagamento non è stato confermato e invita a riprovare dal link dell’annuncio.';
+}
+
+function CandidateStatusPreview({ view }: { view: AssistedApplicationCandidateView }) {
+  const missing = view.pageState === 'paid'
+    ? [!view.hasConsent ? 'mandato specifico' : null, !view.hasCv ? 'CV' : null].filter(Boolean).join(' e ')
+    : '';
+  return (
+    <section
+      className="mt-4 rounded-xl border border-accent-border bg-accent-subtle/30 p-4"
+      aria-label="Stato visto dal candidato"
+      data-testid="assisted-application-candidate-preview"
+    >
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-accent">Vista candidato</p>
+          <p className="mt-1 text-sm font-semibold text-strong">Stato attuale della pagina ordine</p>
+          <p className="mt-0.5 text-xs text-subtle">{view.jobTitle || 'Annuncio non indicato'}{view.companyName ? ` — ${view.companyName}` : ''}</p>
+        </div>
+        <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${CANDIDATE_PAGE_STATE_STYLES[view.pageState]}`}>
+          <CandidatePageStateIcon state={view.pageState} />
+          {CANDIDATE_PAGE_STATE_LABELS[view.pageState]}
+        </span>
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-body">{candidatePageMessage(view)}</p>
+      {missing && <p className="mt-2 text-xs text-subtle">Nel modulo risultano ancora da completare: {missing}.</p>}
+      <dl className="mt-3 grid gap-3 border-t border-accent-border pt-3 text-xs sm:grid-cols-3">
+        <div>
+          <dt className="font-semibold uppercase tracking-wide text-muted">Pagamento</dt>
+          <dd className="mt-1 text-body">{view.paymentStatus || '—'}</dd>
+        </div>
+        <div>
+          <dt className="font-semibold uppercase tracking-wide text-muted">Stato operativo</dt>
+          <dd className="mt-1 text-body">{STATUS_LABELS[view.submissionStatus as QueueFilter] || view.submissionStatus || '—'}</dd>
+        </div>
+        <div>
+          <dt className="font-semibold uppercase tracking-wide text-muted">Ultimo aggiornamento</dt>
+          <dd className="mt-1 text-body">{formatDate(view.updatedAt)}</dd>
+        </div>
+      </dl>
+      <p className="mt-3 text-[11px] leading-relaxed text-muted">Lettura generata dal backend in sola lettura; non apre né modifica il CV o la candidatura.</p>
+    </section>
+  );
+}
 
 function NextStepIcon({ group }: { group: NextStepGroup }) {
   if (group === 'done') return <CheckCircle2 size={13} aria-hidden="true" />;
@@ -254,12 +331,15 @@ export default function AssistedApplicationAdmin() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [pendingAction, setPendingAction] = useState<string | null>(null);
+  const [candidatePreview, setCandidatePreview] = useState<AssistedApplicationCandidateView | null>(null);
+  const [candidatePreviewLoading, setCandidatePreviewLoading] = useState<string | null>(null);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
   const loadOrders = async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);
     else setLoading(true);
     setMessage(null);
+    setCandidatePreview(null);
     try {
       const data = await fetchAssistedApplicationAdminData(user);
       setOrders(data.orders);
@@ -269,6 +349,24 @@ export default function AssistedApplicationAdmin() {
     } finally {
       setLoading(false);
       setRefreshing(false);
+    }
+  };
+
+  const toggleCandidatePreview = async (order: AssistedApplicationAdminOrder) => {
+    if (candidatePreview?.orderId === order.orderId) {
+      setCandidatePreview(null);
+      return;
+    }
+    if (candidatePreviewLoading || pendingAction) return;
+    setCandidatePreview(null);
+    setCandidatePreviewLoading(order.orderId);
+    setMessage(null);
+    try {
+      setCandidatePreview(await fetchAssistedApplicationCandidateView(user, order.orderId));
+    } catch (error) {
+      setMessage({ ok: false, text: error instanceof Error ? error.message : 'Impossibile leggere lo stato visto dal candidato.' });
+    } finally {
+      setCandidatePreviewLoading(null);
     }
   };
 
@@ -479,7 +577,20 @@ export default function AssistedApplicationAdmin() {
                     {order.applicantPhone && <span className="mt-0.5 block text-subtle">{order.applicantPhone}</span>}
                   </DataRow>
                   <DataRow label="Annuncio">
-                    {order.jobUrl ? <a className="inline-flex items-center gap-1 text-link hover:underline" href={order.jobUrl} target="_blank" rel="noreferrer">Apri annuncio <ExternalLink size={12} aria-hidden="true" /></a> : order.jobId || '—'}
+                    <div className="flex flex-col items-start gap-1">
+                      {order.jobUrl ? <a className="inline-flex items-center gap-1 text-link hover:underline" href={order.jobUrl} target="_blank" rel="noreferrer">Apri annuncio <ExternalLink size={12} aria-hidden="true" /></a> : order.jobId || '—'}
+                      <button
+                        type="button"
+                        onClick={() => { void toggleCandidatePreview(order); }}
+                        disabled={Boolean(pendingAction) || Boolean(candidatePreviewLoading)}
+                        aria-expanded={candidatePreview?.orderId === order.orderId}
+                        className="inline-flex items-center gap-1 text-left text-link hover:underline disabled:cursor-not-allowed disabled:opacity-60"
+                        data-testid={`assisted-application-candidate-preview-link-${order.orderId}`}
+                      >
+                        {candidatePreviewLoading === order.orderId && <Loader2 size={12} className="animate-spin" aria-hidden="true" />}
+                        {candidatePreview?.orderId === order.orderId ? 'Nascondi stato candidato' : 'Vedi stato candidato'}
+                      </button>
+                    </div>
                   </DataRow>
                   <DataRow label="Pagamento">
                     <span className="font-semibold text-strong">{paymentLabel(order)}</span>
@@ -501,6 +612,8 @@ export default function AssistedApplicationAdmin() {
                     <span className="mt-1 block text-[11px] text-muted">Le aperture sono indicative: alcuni client aprono ogni email alla consegna.</span>
                   </DataRow>
                 </dl>
+
+                {candidatePreview?.orderId === order.orderId && <CandidateStatusPreview view={candidatePreview} />}
 
                 {order.submissionStatus !== 'refunded' && (
                   <AssistedApplicationAutomationPanel
