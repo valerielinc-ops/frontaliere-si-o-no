@@ -22,6 +22,7 @@ import {
   ITEM_BLOCKED_MARKER,
   ITEM_BLOCKED_REASONS,
   ITEM_BORN_SATISFIED_MARKER,
+  ITEM_CI_SUITE_MARKER,
   ITEM_EVIDENCE_MARKER,
   ITEM_UNBLOCKED_MARKER,
 } from '../scripts/ci/lib/followup-item-evidence.mjs';
@@ -88,6 +89,7 @@ describe('FOLLOWUP.md nomina ciò che il codice usa', () => {
       ITEM_BLOCKED_MARKER,
       ITEM_BORN_SATISFIED_MARKER,
       ITEM_UNBLOCKED_MARKER,
+      ITEM_CI_SUITE_MARKER,
       BUCKET_VERIFY_REQUEST_MARKER,
     ];
     for (const marker of markers) expect(rows.has(marker), `marker: ${marker}`).toBe(true);

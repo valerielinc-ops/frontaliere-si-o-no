@@ -1,6 +1,7 @@
 name: Refresh indexed cluster URLs
-# Weekly: union of GSC + GA4 + PostHog trafficked related-search cluster URLs
-# under non-aggregator sections. The cluster build plugin reads
+# Weekly: union of GSC + GA4 trafficked related-search cluster URLs
+# under non-aggregator sections (PostHog retired as a source by decisione H9
+# del 2026-10-05). The cluster build plugin reads
 # `data/indexed-cluster-urls.json` and emits byte-identical mirrors at every
 # listed path (in addition to the default TI + legacyCantonGroup mirrors), so
 # every Google-indexed cluster URL stays 200 OK and consolidates into the
@@ -69,7 +70,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        # Maps SERVER_GA4_PROPERTY_ID / SERVER_POSTHOG_* (set in Firebase RC)
+        # Maps SERVER_GA4_PROPERTY_ID (set in Firebase RC)
         # to their unprefixed names in $GITHUB_ENV so the script can read them.
         run: node scripts/load-rc-env.mjs
 
@@ -86,7 +87,7 @@ jobs:
             echo "No change to indexed-cluster-urls.json"
             exit 0
           fi
-          git commit -m "chore(seo): refresh indexed cluster URLs (GSC+GA4+PostHog union)"
+          git commit -m "chore(seo): refresh indexed cluster URLs (GSC+GA4 union)"
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/refresh-indexed-cluster-urls.mjs --days $DAYS --min-impressions $MIN_IMP && git add data/indexed-cluster-urls.json"
 
