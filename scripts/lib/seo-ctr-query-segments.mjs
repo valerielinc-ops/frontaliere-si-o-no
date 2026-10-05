@@ -371,9 +371,9 @@ export function renderExcludedSegmentsSection({ segments, allQueries, measureVer
   const lines = [
     '### Query escluse dalla metrica principale',
     '',
-    `Misura \`${measureVersion}\` (decisione I5 del 2026-10-05): la CTR qui sopra conta solo le query`,
-    'con intento plausibile di lavoro; la soglia e\' la stessa di prima. Le query anonimizzate',
-    'della Search Console restano dentro la metrica principale.',
+    `Misura \`${measureVersion}\` (decisione I5 del 2026-10-05): la CTR qui sopra non conta i`,
+    'segmenti elencati sotto; la soglia e\' la stessa di prima. Le query anonimizzate della',
+    'Search Console e quelle non classificate restano dentro la metrica principale.',
     '',
     '| Segmento | Impressioni | Click | CTR | Query principali |',
     '|---|---:|---:|---:|---|',
