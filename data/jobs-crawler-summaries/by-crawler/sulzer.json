@@ -1,7 +1,7 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-10-05T09:23:38.895Z",
+  "generatedAt": "2026-10-05T21:42:44.751Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4777,
-  "avgDurationMs": 4777,
+  "durationMs": 6419,
+  "avgDurationMs": 6419,
   "durationHistory": [
-    4777
+    6419
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -32,13 +32,12 @@
       "companyKey": "sulzer",
       "companyDomain": "sulzer.com",
       "title": "Head of Product, Solution & Segment Marketing",
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:23:29.411Z",
+      "crawledAt": "2026-10-05T21:42:32.077Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -74,13 +73,12 @@
       "companyKey": "sulzer",
       "companyDomain": "sulzer.com",
       "title": "HR Administration & Payroll Manager",
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:23:28.539Z",
+      "crawledAt": "2026-10-05T21:42:31.303Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

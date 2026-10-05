@@ -106,6 +106,10 @@ import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
 import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-issue-already-resolved.mjs';
 import {
+  GENERATED_FILE_REGISTRY,
+  generatedConflictPlan,
+} from './generated-files-registry.mjs';
+import {
   duplicateOldEnough,
   electHandoffKeeper,
   handoffBusy,
@@ -431,6 +435,162 @@ function git(args, { allowFail = false } = {}) {
     if (allowFail) return null;
     throw e;
   }
+}
+
+function gitAt(cwd, args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('git', args, {
+      cwd,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  } catch (error) {
+    if (allowFail) return null;
+    throw error;
+  }
+}
+
+function runGeneratedCommand(command, { cwd, env }) {
+  try {
+    const stdout = execFileSync(command.argv[0], command.argv.slice(1), {
+      cwd,
+      env,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return { ok: true, stdout, stderr: '' };
+  } catch (error) {
+    return {
+      ok: false,
+      stdout: error?.stdout || '',
+      stderr: error?.stderr || String(error),
+      status: error?.status ?? null,
+    };
+  }
+}
+
+function unmergedPaths(runGit) {
+  const raw = runGit(['diff', '--name-only', '--diff-filter=U'], { allowFail: true });
+  if (raw === null) return null;
+  return raw.split(/\r?\n/u).map((path) => path.trim()).filter(Boolean);
+}
+
+function generatedPathCandidates(runGit, conflictPaths, registry) {
+  const raw = runGit(['ls-files', '-co', '--exclude-standard', '-z'], { allowFail: true });
+  if (raw === null) return null;
+  const candidates = [...new Set([
+    ...conflictPaths,
+    ...raw.split('\0').filter(Boolean),
+  ])];
+  return candidates.filter((path) => generatedConflictPlan([path], registry).eligible);
+}
+
+function commandFailureReason(stage, rule, result) {
+  const detail = String(result?.stderr || result?.stdout || '').trim().split(/\r?\n/u)[0];
+  return `${stage} ${rule.id}${detail ? `: ${detail.slice(0, 240)}` : ''}`;
+}
+
+export const GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE = 'Merge origin/main (regenerate generated files)';
+
+/**
+ * Risolve un merge fallito soltanto quando ogni path non risolto e' nel
+ * registro degli artefatti generati. Prima sceglie il lato main come input
+ * leggibile per i generatori, poi esegue generazione e --check, stage mirato e
+ * commit del merge. Un fallimento lascia al chiamante l'abort esistente.
+ *
+ * `commandRunner` e' iniettabile per provare la transazione in un repository
+ * git temporaneo senza eseguire il generatore reale; il registro di produzione
+ * conserva comunque i comandi reali.
+ */
+export function resolveGeneratedConflictMerge({
+  cwd = process.cwd(),
+  registry = GENERATED_FILE_REGISTRY,
+  gitRunner,
+  commandRunner = runGeneratedCommand,
+} = {}) {
+  const runGit = gitRunner || ((args, options) => gitAt(cwd, args, options));
+  const conflictPaths = unmergedPaths(runGit);
+  if (conflictPaths === null) {
+    return { status: 'failed', reason: 'cannot read unmerged paths' };
+  }
+  if (conflictPaths.length === 0) return { status: 'not-applicable', conflictPaths };
+
+  const plan = generatedConflictPlan(conflictPaths, registry);
+  if (!plan.eligible) {
+    return {
+      status: 'ineligible',
+      conflictPaths,
+      unregistered: plan.unregistered,
+    };
+  }
+
+  const sourceCommit = (runGit(['merge-base', 'origin/main', 'HEAD'], { allowFail: true }) || '').trim();
+  if (!/^[0-9a-f]{40}$/iu.test(sourceCommit)) {
+    return { status: 'failed', conflictPaths, reason: 'cannot resolve origin/main merge-base' };
+  }
+
+  for (const path of conflictPaths) {
+    if (runGit(['checkout', '--theirs', '--', path], { allowFail: true }) === null) {
+      return { status: 'failed', conflictPaths, reason: `cannot seed generated path ${path} from main` };
+    }
+  }
+
+  for (const rule of plan.rules) {
+    const generatorEnv = {
+      ...process.env,
+      ...rule.generator.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let generated;
+    try {
+      generated = commandRunner(rule.generator, { cwd, env: generatorEnv });
+    } catch (error) {
+      generated = { ok: false, stderr: String(error) };
+    }
+    if (!generated?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('generator failed', rule, generated) };
+    }
+
+    const verifierEnv = {
+      ...process.env,
+      ...rule.verifier.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let verified;
+    try {
+      verified = commandRunner(rule.verifier, { cwd, env: verifierEnv });
+    } catch (error) {
+      verified = { ok: false, stderr: String(error) };
+    }
+    if (!verified?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('verification failed', rule, verified) };
+    }
+  }
+
+  const pathsToStage = generatedPathCandidates(runGit, conflictPaths, registry);
+  if (pathsToStage === null || pathsToStage.length === 0) {
+    return { status: 'failed', conflictPaths, reason: 'cannot enumerate generated paths to stage' };
+  }
+  if (runGit(['add', '--all', '--', ...pathsToStage], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot stage regenerated paths' };
+  }
+
+  const remaining = unmergedPaths(runGit);
+  if (remaining === null || remaining.length > 0) {
+    return {
+      status: 'failed',
+      conflictPaths,
+      reason: `generated resolution left unmerged paths: ${(remaining || []).join(', ')}`,
+    };
+  }
+  if (runGit(['commit', '-m', GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot commit regenerated merge' };
+  }
+  return {
+    status: 'resolved',
+    conflictPaths,
+    rules: plan.rules.map((rule) => rule.id),
+  };
 }
 
 /**
@@ -2137,6 +2297,22 @@ function resolveImportUnionConflicts() {
   return true;
 }
 
+/** Risolve il merge in corso, mantenendo il percorso import-union precedente. */
+function resolveMergeConflict() {
+  const generated = resolveGeneratedConflictMerge();
+  if (generated.status === 'resolved') {
+    return { resolved: true, mode: 'generated', generated };
+  }
+  if (generated.status === 'failed') {
+    console.log(`  rigenerazione dei conflitti generati fallita → abort: ${generated.reason}`);
+    return { resolved: false, mode: 'generated-failed', generated };
+  }
+  if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+    return { resolved: true, mode: 'import-union', generated };
+  }
+  return { resolved: false, mode: 'none', generated };
+}
+
 async function processPR(pr) {
   const num = pr.number;
   const branch = pr.headRefName;
@@ -2314,10 +2490,11 @@ async function processPR(pr) {
         git(['config', 'user.name', 'Valerie Linc']);
         git(['config', 'user.email', 'valerielinc@gmail.com']);
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
-        if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+        const resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none' };
+        if (resolution.resolved) {
           const reviewerBeforePush = readReviewerSnapshot(num, head);
           if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
-            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge import-union → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge ${resolution.mode} → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
             git(['reset', '--hard', head], { allowFail: true });
             done = true;
           } else {
@@ -2326,7 +2503,7 @@ async function processPR(pr) {
               if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
               // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
               // nuova HEAD: il vecchio LGTM non viene riusato.
-              console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
+              console.log(`✅ PR #${num}: conflitto ${resolution.mode} AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
               if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
               done = true;
             }
@@ -2529,10 +2706,11 @@ async function processPR(pr) {
   const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
   if (merged === null) {
     // Conflitto a runtime (mergeable era ottimista o è cambiato tra check e
-    // merge). Tenta l'auto-resolve import-union come nel path CONFLICTING; se
-    // non import-only → abort + stale-review.
-    if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (import-union) → proseguo col push.`);
+    // merge). I soli artefatti registrati vengono rigenerati; per gli altri
+    // resta l'auto-resolve import-union e poi l'abort esistente.
+    const resolution = resolveMergeConflict();
+    if (resolution.resolved) {
+      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (${resolution.mode}) → proseguo col push.`);
     } else {
       console.log(`PR #${num}: merge origin/main ha conflitto non auto-risolvibile → abort + stale-review + comment.`);
       git(['merge', '--abort'], { allowFail: true });

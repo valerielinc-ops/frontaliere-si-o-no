@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { ORGANIZATION_ID } from '@/services/seo/organizationLd';
+import { ORGANIZATION_ID, WEBSITE_ID } from '@/services/seo/organizationLd';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '@/services/seo/schema-normalizers';
 
 describe('static Article JSON-LD safety net', () => {
@@ -60,5 +60,38 @@ describe('static Article JSON-LD safety net', () => {
   it('does not invent Article fields on unrelated schema types', () => {
     const normalized = normalizeArticleStructuredData({ '@type': 'FAQPage' }) as Record<string, any>;
     expect(normalized).toEqual({ '@type': 'FAQPage' });
+  });
+
+  it('stabilizes the shared WebSite and customs-department identities', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'WebPage',
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'Frontaliere Ticino',
+        url: 'https://frontaliereticino.ch/',
+      },
+      image: {
+        '@type': 'ImageObject',
+        creator: {
+          '@type': 'Organization',
+          name: 'Dipartimento del territorio – Canton Ticino',
+        },
+      },
+    }) as Record<string, any>;
+
+    expect(normalized.isPartOf['@id']).toBe(WEBSITE_ID);
+    expect(normalized.image.creator).toMatchObject({
+      '@id': 'https://www.ti.ch/webcam',
+      url: 'https://www.ti.ch/webcam',
+    });
+  });
+
+  it('does not assign site identities to an external WebSite', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'WebPage',
+      isPartOf: { '@type': 'WebSite', name: 'Partner site', url: 'https://example.com/' },
+    }) as Record<string, any>;
+
+    expect(normalized.isPartOf).not.toHaveProperty('@id', WEBSITE_ID);
   });
 });

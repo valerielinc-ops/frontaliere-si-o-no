@@ -123,7 +123,7 @@ export function resolveAddress(raw = {}, canton = '') {
   const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
     ? cantonHint.toUpperCase()
     : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
-  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton)
+  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton, sourceCity)
     || getDefaultCantonLocationFallback().postalCode;
   return {
     city: sourceCity,

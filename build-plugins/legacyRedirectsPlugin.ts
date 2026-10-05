@@ -8,6 +8,7 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import {
  resolveSearchConsoleCompatTarget,
  JOB_BOARD_PAGINATION_PATTERN,
@@ -654,7 +655,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '@type': 'WebPage',
  name: `Redirect ${from} → ${to}`,
  url: fromUrl,
- isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+ isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  mainEntityOfPage: toUrl,
  description: `Pagina legacy reindirizzata verso ${to}`,
  inLanguage: 'it',

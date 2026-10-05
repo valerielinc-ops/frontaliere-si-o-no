@@ -378,6 +378,64 @@ export function buildCarouselCaption({ kind, dayLabel, picks }) {
   ].join('\n');
 }
 
+export const TIKTOK_CAPTION_MAX_CHARS = 2_200;
+
+const TIKTOK_HASHTAGS = Object.freeze({
+  job: Object.freeze(['#frontalieri', '#ticino', '#svizzera', '#lavoroinsvizzera', '#offertedilavoro', '#cercalavoro']),
+  article: Object.freeze(['#frontalieri', '#ticino', '#svizzera', '#lavoroinsvizzera', '#notizie', '#informazione']),
+  border: Object.freeze(['#frontalieri', '#ticino', '#dogane', '#confine', '#svizzera', '#traffico']),
+});
+
+function normalizeTikTokHashtag(value) {
+  const clean = String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/^#+/, '')
+    .replace(/[^\p{L}\p{N}_]/gu, '');
+  return clean ? `#${clean}` : null;
+}
+
+function tiktokHashtags(kind, hashtags) {
+  const source = Array.isArray(hashtags) ? hashtags : TIKTOK_HASHTAGS[kind] || TIKTOK_HASHTAGS.article;
+  return [...new Set(source.map(normalizeTikTokHashtag).filter(Boolean))].slice(0, 6);
+}
+
+function tiktokLead(kind) {
+  if (kind === 'job') return '💼 Lavoro in Svizzera: offerte per frontalieri Ticino';
+  if (kind === 'border') return '🛂 Dogane Ticino: attese e traffico al confine';
+  return '📰 Frontalieri Ticino: notizie e lavoro in Svizzera';
+}
+
+function tiktokSummary(kind, dayLabel) {
+  if (kind === 'job') return `Le offerte di lavoro piu cliccate dai frontalieri il ${dayLabel}, in una classifica rapida.`;
+  if (kind === 'border') return `La classifica delle dogane piu veloci del Ticino nella settimana ${dayLabel}.`;
+  return `Gli articoli e gli aggiornamenti piu letti dai frontalieri il ${dayLabel}, in sintesi.`;
+}
+
+/**
+ * TikTok-specific discovery copy. Instagram keeps buildCarouselCaption's
+ * established format; only the video transport uses this keyword-first copy.
+ *
+ * @param {{ kind: 'job'|'article'|'border', dayLabel: string, picks: Array<{title:string, statValue: string|number}>, hashtags?: string[] }} params
+ */
+export function buildTikTokCaption({ kind, dayLabel, picks, hashtags }) {
+  const lead = tiktokLead(kind);
+  const summary = tiktokSummary(kind, dayLabel);
+  const itemLines = (picks || []).map((p, i) => `${i + 1}. ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
+  const footer = [
+    '👉 Link in bio: frontaliereticino.ch',
+    '',
+    tiktokHashtags(kind, hashtags).join(' '),
+  ].join('\n');
+  const prefix = `${lead}\n\n${summary}\n\n`;
+  const available = TIKTOK_CAPTION_MAX_CHARS - prefix.length - footer.length - 1;
+  let items = itemLines.join('\n');
+  if (items.length > available) {
+    items = `${items.slice(0, Math.max(0, available - 1)).trimEnd()}…`;
+  }
+  return `${prefix}${items}\n\n${footer}`.slice(0, TIKTOK_CAPTION_MAX_CHARS);
+}
+
 // ── URL building ────────────────────────────────────────────
 
 /**

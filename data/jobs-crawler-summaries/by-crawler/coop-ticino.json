@@ -1,10 +1,10 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-10-05T09:35:03.111Z",
+  "generatedAt": "2026-10-05T21:49:15.864Z",
   "total": 0,
-  "discovered": 2049,
-  "parsed": 2031,
+  "discovered": 2058,
+  "parsed": 2039,
   "lastFetchOutcome": "ok",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

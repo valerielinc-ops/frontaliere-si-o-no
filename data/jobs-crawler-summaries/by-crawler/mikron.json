@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-05T09:23:49.560Z",
+  "generatedAt": "2026-10-05T21:42:51.142Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 16443,
-  "avgDurationMs": 16443,
+  "durationMs": 15354,
+  "avgDurationMs": 15354,
   "durationHistory": [
-    16443
+    15354
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -33,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:29.104Z",
+      "crawledAt": "2026-10-05T21:42:31.441Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -75,7 +75,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:32.761Z",
+      "crawledAt": "2026-10-05T21:42:34.872Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -117,7 +117,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:33.995Z",
+      "crawledAt": "2026-10-05T21:42:35.966Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -159,7 +159,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:37.726Z",
+      "crawledAt": "2026-10-05T21:42:39.400Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -201,7 +201,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:38.908Z",
+      "crawledAt": "2026-10-05T21:42:40.473Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -243,7 +243,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:23:40.127Z",
+      "crawledAt": "2026-10-05T21:42:41.626Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -269,5 +269,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
