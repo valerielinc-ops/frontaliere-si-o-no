@@ -301,6 +301,36 @@ jobs:
         if: needs.probe.outputs.run_audit == 'true' && steps.runner-class.outcome == 'failure'
         run: echo "::warning title=Lighthouse runner class::the observer could not read .lighthouseci/ after the first attempt; the regression issue will not say which runner class measured it."
 
+      # First-paint order on /cerca-lavoro-ticino/ (ADVISORY until the
+      # paint-gated handoff is live, issue 11666). index.tsx marks
+      # `ft:static-handoff-hide` right before it fades the static HTML out; the
+      # observed first contentful paint must come before that mark on EVERY
+      # run, which the best-of-3 budget assertions cannot see. Same placement
+      # constraint as the runner-class step: before a retry empties
+      # .lighthouseci/. Before the deploy it fails by construction (no mark).
+      - name: Check first-paint order (advisory)
+        id: first-paint-order
+        if: needs.probe.outputs.run_audit == 'true'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          out="$RUNNER_TEMP/first-paint-order.txt"
+          node scripts/ci/lighthouse-first-paint-order.mjs --dir .lighthouseci > "$out" 2>&1
+          status=$?
+          cat "$out"
+          {
+            echo "### First-paint order on /cerca-lavoro-ticino/ (${{ matrix.form_factor }}, first attempt)"
+            echo
+            echo '```'
+            cat "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Surface a first-paint order failure
+        if: needs.probe.outputs.run_audit == 'true' && steps.first-paint-order.outcome == 'failure'
+        run: echo "::warning title=First-paint order::on /cerca-lavoro-ticino/ the static HTML was hidden before it painted (or the ft:static-handoff-hide mark is missing). Advisory until the paint-gated handoff is in production; see the step summary."
+
       # One retry when the FIRST attempt fails — not a genuine-vs-crash
       # distinction (the action gives us no way to tell them apart from YAML),
       # but a legitimate flaky-collection mitigation: the thresholds evaluated
