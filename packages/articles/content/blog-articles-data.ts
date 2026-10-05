@@ -37818,6 +37818,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'osservatorio-varese-spettacolo-galileo',
+ category: 'novita',
+ date: '2026-10-05T09:15:25.539Z',
+ image: '/images/blog/osservatorio-varese-spettacolo-galileo.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
