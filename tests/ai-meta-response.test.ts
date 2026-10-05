@@ -7,7 +7,10 @@ import {
   isLowQualityLocalizedTitle,
 } from '@/scripts/lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from '@/scripts/lib/free-translate.mjs';
-import { sanitizeAssembledLocaleValue } from '@/scripts/relocalize-pending-jobs.mjs';
+import {
+  sanitizeAssembledLocaleMap,
+  sanitizeAssembledLocaleValue,
+} from '@/scripts/relocalize-pending-jobs.mjs';
 
 vi.mock('@/scripts/lib/free-translate.mjs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/scripts/lib/free-translate.mjs')>();
@@ -202,6 +205,17 @@ describe('sync di relocalize — un valore assemblato che e\' una meta-risposta 
 
   it('un titolo-meta diventa il titolo canonico del crawler, mai la meta-risposta', () => {
     expect(sanitizeAssembledLocaleValue('titleByLocale', meta, crawlerJob)).toBe('Operaio specializzato');
+  });
+
+  it('sanitizza prima di adottare una mappa locale mancante', () => {
+    const persisted = sanitizeAssembledLocaleMap(
+      'titleByLocale',
+      { en: meta },
+      { ...crawlerJob, titleByLocale: undefined },
+    );
+
+    expect(persisted).toEqual({ en: 'Operaio specializzato' });
+    expect(persisted.en).not.toBe(meta);
   });
 
   it('una descrizione-meta non viene scritta', () => {

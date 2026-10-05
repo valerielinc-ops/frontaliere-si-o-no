@@ -1220,6 +1220,20 @@ export function sanitizeAssembledLocaleValue(field, value, crawlerJob = {}) {
   return value;
 }
 
+/**
+ * Sanitize a complete assembled locale map before adopting it into a crawler
+ * job. This path is distinct from the per-locale merge below because the
+ * crawler may not have the map at all; it must still never persist a model
+ * meta-answer.
+ */
+export function sanitizeAssembledLocaleMap(field, values, crawlerJob = {}) {
+  return Object.fromEntries(
+    Object.entries(values || {})
+      .map(([locale, value]) => [locale, sanitizeAssembledLocaleValue(field, value, crawlerJob)])
+      .filter(([, value]) => String(value || '').trim())
+  );
+}
+
 function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs) {
   const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
 
@@ -1262,10 +1276,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
     for (const field of ['titleByLocale', 'descriptionByLocale', 'slugByLocale']) {
       if (!assembled[field] || Object.keys(assembled[field]).length === 0) continue;
       if (!crawlerJob[field]) {
-        // Only adopt assembled data that has non-empty values
-        const nonEmpty = Object.fromEntries(
-          Object.entries(assembled[field]).filter(([, v]) => String(v || '').trim())
-        );
+        // Sanitize before adopting assembled data: this branch must not bypass
+        // the model-meta guard merely because the crawler has no locale map.
+        const nonEmpty = sanitizeAssembledLocaleMap(field, assembled[field], crawlerJob);
         if (Object.keys(nonEmpty).length > 0) {
           crawlerJob[field] = nonEmpty;
           changed = true;
