@@ -12575,6 +12575,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.magrini-cultura-provincia-varese.title': 'Varese, Magrini: \'Die Provinz investiert bereits in die Kultur\'',
     'blog.article.magrini-cultura-provincia-varese.excerpt': 'Präsident Magrini antwortet der Region: Ein Fonds von 100 mila euro für die Bewerbung um den Titel Italienische Kulturhauptstadt und für Projekte vor Ort wurde bereitgestellt.',
     'blog.article.magrini-cultura-provincia-varese.imageAlt': 'Präsident der Provinz Varese Marco Magrini während einer Pressekonferenz',
+    'blog.article.castellanzese-vittoria-santangelo.title': 'Serie D: Castellanzese gewinnt 2: 1 gegen Sant \'Angelo',
+    'blog.article.castellanzese-vittoria-santangelo.excerpt': 'Dritter Erfolg in Folge für die Gründung von Bolzoni, der dank der Netze von Chessa und Valmori das Stadion Chiesa erobert.',
+    'blog.article.castellanzese-vittoria-santangelo.imageAlt': 'Fußballspiel von Castellanzese im Stadion Chiesa',
 };
 
 export default blogMetaDe;
