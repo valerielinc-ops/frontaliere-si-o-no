@@ -20,10 +20,14 @@ import { mkdtempSync, readFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  EVENT_PRICE_FIELD_RULES,
   EVENT_PRICE_SOURCES,
   STRUCTURED_EVENT_PRICE_FIELDS,
+  eventfrogLowestTicketPrice,
   hasConfidentPrice,
   hasParsedPrice,
+  isFromEventPrice,
+  openAgendaGratuitPrice,
 } from '../scripts/lib/events-utils.mjs';
 import {
   applyKnownPriceBackfills,
@@ -74,10 +78,49 @@ function publishedPrice(price: Record<string, unknown> | undefined) {
   return { offers: ld.offers, isAccessibleForFree: ld.isAccessibleForFree, priceLine: /Prezzo/.test(page.html) };
 }
 
+/** The visible price metric value of the detail page in `locale`, or undefined. */
+function visiblePrice(price: Record<string, unknown> | undefined, locale: 'it' | 'en' | 'de' | 'fr' = 'it') {
+  const page = renderEventDetailPage({
+    locale,
+    event: { ...BASE_EVENT, price } as never,
+    comune: 'Davos',
+    eventSlug: slugifyEvent(BASE_EVENT),
+    sameComuneEvents: [{ ...BASE_EVENT, price }] as never,
+    dateStamp: '2026-10-04',
+    distDir: mkdtempSync(path.join(os.tmpdir(), 'event-price-sources-')),
+    detailHref: (() => null) as never,
+  });
+  const label = { it: 'Prezzo', en: 'Price', de: 'Preis', fr: 'Prix' }[locale];
+  return new RegExp(`<dt class="?ev-metric-t"?>${label}</dt>\\s*<dd class="?ev-metric-v"?>([^<]*)</dd>`).exec(page.html)?.[1];
+}
+
 describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte strutturata', () => {
-  it('admits exactly the owner-approved sources, in precedence order, and only JSON-LD fields', () => {
-    expect(EVENT_PRICE_SOURCES).toEqual(['myswitzerland', 'guidle']);
-    expect(STRUCTURED_EVENT_PRICE_FIELDS).toEqual(['offers.price', 'isAccessibleForFree']);
+  it('admits exactly the owner-approved (source, field) pairs, in precedence order (2026-10-04 + D4 2026-10-05)', () => {
+    expect(EVENT_PRICE_SOURCES).toEqual(['myswitzerland', 'guidle', 'classicascona', 'eventfrog', 'openagenda']);
+    expect(Object.fromEntries(Object.entries(EVENT_PRICE_FIELD_RULES).map(([source, fields]) => [source, Object.keys(fields)]))).toEqual({
+      myswitzerland: ['offers.price', 'isAccessibleForFree'],
+      guidle: ['offers.price', 'isAccessibleForFree'],
+      classicascona: ['offers.price', 'offers.lowPrice'],
+      eventfrog: ['lowestTicketPrice'],
+      openagenda: ['gratuit'],
+    });
+    expect(STRUCTURED_EVENT_PRICE_FIELDS).toEqual(['offers.price', 'isAccessibleForFree', 'offers.lowPrice', 'lowestTicketPrice', 'gratuit']);
+    expect(Object.isFrozen(EVENT_PRICE_FIELD_RULES.eventfrog.lowestTicketPrice)).toBe(true);
+  });
+
+  it.each([
+    ['an Eventfrog record with a JSON-LD field', { amount: 20, currency: 'CHF', isFree: false, priceSource: 'eventfrog', priceField: 'offers.price' }],
+    ['a classicAscona record asserting free admission', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'classicascona', priceField: 'offers.price' }],
+    ['a classicAscona record with an OpenAgenda field', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'classicascona', priceField: 'gratuit' }],
+    ['an OpenAgenda «gratuit» carrying an amount', { amount: 15, currency: 'CHF', isFree: false, priceSource: 'openagenda', priceField: 'gratuit' }],
+    ['OpenAgenda conditions (free text)', { amount: 10, currency: 'CHF', isFree: false, priceSource: 'openagenda', priceField: 'conditions' }],
+    ['an Eventfrog amount without the country-derived currency', { amount: 30, currency: 'CHF', isFree: false, priceSource: 'eventfrog', priceField: 'lowestTicketPrice' }],
+    ['an Eventfrog amount in EUR', { amount: 30, currency: 'EUR', isFree: false, priceSource: 'eventfrog', priceField: 'lowestTicketPrice', currencySource: 'location.country' }],
+    ['an Eventfrog zero', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'eventfrog', priceField: 'lowestTicketPrice', currencySource: 'location.country' }],
+    ['a classicAscona lowPrice of zero', { amount: 0, currency: 'CHF', isFree: false, priceSource: 'classicascona', priceField: 'offers.lowPrice' }],
+  ])('%s → not admitted by the per-source registry', (_label, price) => {
+    expect(hasConfidentPrice(price)).toBe(false);
+    expect(publishedPrice(price)).toEqual({ offers: undefined, isAccessibleForFree: undefined, priceLine: false });
   });
 
   it('structured MySwitzerland field → reliable, published as an Offer', () => {
@@ -226,5 +269,81 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     const merged = pickRichestEvent([winner, accordion]);
     expect(merged.price).toEqual({ amount: 18, currency: 'CHF', isFree: false, priceSource: 'guidle', priceField: 'price-accordion' });
     expect(hasConfidentPrice(merged.price)).toBe(false);
+  });
+});
+
+describe('Prezzi H5 delle fonti ammesse il 2026-10-05 (D4)', () => {
+  describe('OpenAgenda `gratuit`: solo «gratuito», mai un importo', () => {
+    it('gratuit: true → free, published as isAccessibleForFree with price 0', () => {
+      const price = openAgendaGratuitPrice({ gratuit: true, conditions: 'Entrée libre, plateau à la sortie' });
+      expect(price).toEqual({ amount: 0, currency: 'CHF', isFree: true, priceSource: 'openagenda', priceField: 'gratuit' });
+      expect(hasConfidentPrice(price)).toBe(true);
+      expect(isFromEventPrice(price)).toBe(false);
+      const published = publishedPrice(price);
+      expect(published.isAccessibleForFree).toBe(true);
+      expect(published.offers).toMatchObject({ '@type': 'Offer', price: 0 });
+      expect(visiblePrice(price)).toBe('Gratis');
+    });
+
+    it.each([
+      ['gratuit: false', { gratuit: false, conditions: 'CHF 15.-' }],
+      ['gratuit missing', { conditions: 'Gratuit' }],
+      ['gratuit as a string', { gratuit: 'true' }],
+      ['conditions only, with an amount', { conditions: 'Plein tarif CHF 25, réduit CHF 15' }],
+    ])('%s → no price (conditions stays hidden)', (_label, event) => {
+      expect(openAgendaGratuitPrice(event)).toBeUndefined();
+    });
+  });
+
+  describe('Eventfrog `lowestTicketPrice`: «da CHF X», valuta da location.country, solo CH', () => {
+    const ticketed = { lowestTicketPrice: 28, agendaEntryOnly: false, cancelled: false };
+
+    it('Swiss location → from CHF 28, AggregateOffer.lowPrice, provenance of the currency kept', () => {
+      const price = eventfrogLowestTicketPrice(ticketed, { country: 'CH' });
+      expect(price).toEqual({
+        amount: 28, currency: 'CHF', isFree: false, currencySource: 'location.country',
+        priceSource: 'eventfrog', priceField: 'lowestTicketPrice',
+      });
+      expect(hasConfidentPrice(price)).toBe(true);
+      expect(isFromEventPrice(price)).toBe(true);
+      expect(publishedPrice(price).offers).toMatchObject({ '@type': 'AggregateOffer', lowPrice: 28, priceCurrency: 'CHF' });
+      expect(publishedPrice(price).offers).not.toHaveProperty('price');
+      expect(visiblePrice(price)).toBe('da CHF 28');
+    });
+
+    it.each([
+      ['field missing', { agendaEntryOnly: false, cancelled: false }, { country: 'CH' }],
+      ['field null', { ...ticketed, lowestTicketPrice: null }, { country: 'CH' }],
+      ['zero amount', { ...ticketed, lowestTicketPrice: 0 }, { country: 'CH' }],
+      ['currency unknown: no location', ticketed, undefined],
+      ['currency unknown: location without country', ticketed, {}],
+      ['country not CH (DE)', ticketed, { country: 'DE' }],
+      ['country not CH (IT)', ticketed, { country: 'IT' }],
+      ['agenda entry without ticketing', { ...ticketed, agendaEntryOnly: true }, { country: 'CH' }],
+      ['agendaEntryOnly missing', { lowestTicketPrice: 28, cancelled: false }, { country: 'CH' }],
+      ['cancelled event', { ...ticketed, cancelled: true }, { country: 'CH' }],
+    ])('%s → no price', (_label, event, location) => {
+      expect(eventfrogLowestTicketPrice(event as never, location as never)).toBeUndefined();
+    });
+  });
+
+  describe('classicAscona `offers`: «da CHF X» per AggregateOffer, prezzo singolo per Offer', () => {
+    it('AggregateOffer.lowPrice → from CHF 40 in the four locales, AggregateOffer with highPrice', () => {
+      const price = { amount: 40, highPrice: 85, currency: 'CHF', isFree: false, priceSource: 'classicascona', priceField: 'offers.lowPrice' };
+      expect(hasConfidentPrice(price)).toBe(true);
+      expect(publishedPrice(price).offers).toMatchObject({ '@type': 'AggregateOffer', lowPrice: 40, highPrice: 85, priceCurrency: 'CHF' });
+      expect(visiblePrice(price, 'it')).toBe('da CHF 40');
+      expect(visiblePrice(price, 'en')).toBe('from CHF 40');
+      expect(visiblePrice(price, 'de')).toBe('ab CHF 40');
+      expect(visiblePrice(price, 'fr')).toBe('dès CHF 40');
+    });
+
+    it('Offer.price → a single price, rendered without «da»', () => {
+      const price = { amount: 25, currency: 'CHF', isFree: false, priceSource: 'classicascona', priceField: 'offers.price' };
+      expect(hasConfidentPrice(price)).toBe(true);
+      expect(isFromEventPrice(price)).toBe(false);
+      expect(publishedPrice(price).offers).toMatchObject({ '@type': 'Offer', price: 25 });
+      expect(visiblePrice(price)).toBe('CHF 25');
+    });
   });
 });
