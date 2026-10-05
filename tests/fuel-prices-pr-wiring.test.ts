@@ -36,13 +36,17 @@ describe('fuel price refresh publication', () => {
     // Its failure is still surfaced, under a title of its own.
     expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'failure'");
     expect(workflow).toContain('--title "Dataset carburanti per cantone rifiutato (update-fuel-prices)"');
+    // ...and closed by the next accepted build (custom title: no generic closer).
+    expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'success'");
+    expect(workflow).toMatch(/github-issue-creator\.mjs --resolve \\\n\s+--title "Dataset carburanti per cantone rifiutato \(update-fuel-prices\)"/);
     // Joins the same refresh PR only once the file exists (untracked before
     // its first successful build), with the same ignored-cache contract.
     expect(workflow).toContain('if [ -f data/fuel-prices-cantons.json ] && [ -f public/data/fuel-prices-cantons.json ]; then');
     expect(workflow).toContain('"${cantons_paths[@]}"');
     expect(workflow.indexOf('Build cantonal fuel dataset (P9b)')).toBeLessThan(workflow.indexOf('Open PR with fuel price cache'));
-    expect(gitignore).toContain('data/fuel-prices-cantons.json');
-    expect(gitignore).toContain('public/data/fuel-prices-cantons.json');
+    // Line-anchored: the ignore entries, not a mention in a comment.
+    expect(gitignore).toMatch(/^data\/fuel-prices-cantons\.json$/m);
+    expect(gitignore).toMatch(/^public\/data\/fuel-prices-cantons\.json$/m);
   });
 
   it('supports force-staging only when a refresh explicitly opts in', () => {
