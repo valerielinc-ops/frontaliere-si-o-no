@@ -9,7 +9,5 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-08-14 → superseded 2026-09-24 | Congelamento job-alert revocato: vedi riga 2026-09-24 | sessione 14-08 |
 | 2026-08-13 | Publisher doppio sulla stessa coda: spento lo schedule del sito | #5794 → PR #5822 — issue chiusa, riga spostata il 2026-10-05 |
 | 2026-08-13 | Quattro scelte LPD registrate | #5764 (commenti 13-08) — issue chiusa, riga spostata il 2026-10-05 |
-| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
 | 2026-08-24 | #6173 (verticale farmacie svizzere): **SÌ, procedi** | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
-| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
 | 2026-08-24 | #6227 (bande salariali stimate): **opzione A** — scrivere `salarySource`, far comparire l'etichetta "(stima)" dove il codice già la prevede, dato sempre incluso in `baseSalary` per Google — **+ fix del mapping settore IT→EN** (bug indipendente dalla decisione: 70,1% degli annunci ripiega su Logistics per mancata traduzione delle categorie) | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
