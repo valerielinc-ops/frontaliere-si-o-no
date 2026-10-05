@@ -1,7 +1,7 @@
 {
   "key": "ipw",
   "label": "Integrierte Psychiatrie Winterthur (ipw)",
-  "generatedAt": "2026-10-04T21:21:52.510Z",
+  "generatedAt": "2026-10-05T09:17:32.957Z",
   "total": 23,
   "discovered": null,
   "parsed": 26,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 23,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 23,
-  "removedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17620,
-  "avgDurationMs": 17620,
+  "durationMs": 24426,
+  "avgDurationMs": 24426,
   "durationHistory": [
-    17620
+    24426
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Hauswirtschaft--4077416",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:44.574Z",
+      "crawledAt": "2026-10-05T09:17:25.895Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,7 +49,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Hauswirtschaft--4077416",
       "externalId": "4077416",
       "pensumMin": 100,
@@ -57,12 +61,12 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-BM--4074050",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:44.039Z",
+      "crawledAt": "2026-10-05T09:17:24.518Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -91,7 +95,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-BM--4074050",
       "externalId": "4074050",
       "pensumMin": 100,
@@ -101,12 +107,12 @@
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -122,7 +128,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4064521",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:43.478Z",
+      "crawledAt": "2026-10-05T09:17:23.734Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +141,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4064521",
       "externalId": "4064521",
       "pensumMin": 100,
@@ -145,12 +153,12 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -166,7 +174,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Leitende-Ärztin---Leitender-Arzt--4069468",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:42.942Z",
+      "crawledAt": "2026-10-05T09:17:23.038Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +187,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Leitende-Ärztin---Leitender-Arzt--4069468",
       "externalId": "4069468",
       "pensumMin": 80,
@@ -189,12 +199,12 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -210,7 +220,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-Berufsmatur--4070658",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:41.866Z",
+      "crawledAt": "2026-10-05T09:17:21.714Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -223,7 +233,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-Berufsmatur--4070658",
       "externalId": "4070658",
       "pensumMin": 100,
@@ -233,12 +245,12 @@
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -254,7 +266,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe---Mutterschaftsvertretung--4070417",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:41.333Z",
+      "crawledAt": "2026-10-05T09:17:20.996Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,7 +279,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe---Mutterschaftsvertretung--4070417",
       "externalId": "4070417",
       "pensumMin": 60,
@@ -277,12 +291,12 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -298,7 +312,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073412",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:40.773Z",
+      "crawledAt": "2026-10-05T09:17:20.010Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -311,7 +325,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073412",
       "externalId": "4073412",
       "pensumMin": 50,
@@ -321,12 +337,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -342,7 +358,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4069758",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:40.235Z",
+      "crawledAt": "2026-10-05T09:17:19.328Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,7 +371,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4069758",
       "externalId": "4069758",
       "pensumMin": 80,
@@ -365,12 +383,12 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -386,7 +404,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4073336",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:39.627Z",
+      "crawledAt": "2026-10-05T09:17:18.056Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -399,7 +417,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4073336",
       "externalId": "4073336",
       "pensumMin": 50,
@@ -409,12 +429,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -430,7 +450,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4074811",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:39.017Z",
+      "crawledAt": "2026-10-05T09:17:17.219Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,7 +463,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4074811",
       "externalId": "4074811",
       "pensumMin": 100,
@@ -453,12 +475,12 @@
       "salaryMin": 58000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -474,7 +496,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4076961",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:38.445Z",
+      "crawledAt": "2026-10-05T09:17:16.562Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,7 +509,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4076961",
       "externalId": "4076961",
       "pensumMin": 60,
@@ -497,12 +521,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -518,7 +542,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS---HMS-mit-BM--4075584",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:37.897Z",
+      "crawledAt": "2026-10-05T09:17:15.930Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,7 +555,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS---HMS-mit-BM--4075584",
       "externalId": "4075584",
       "pensumMin": 100,
@@ -541,12 +567,12 @@
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -562,7 +588,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Ausbildungsverantwortliche--Ausbildungsverantwortlicher--4069432",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:36.814Z",
+      "crawledAt": "2026-10-05T09:17:14.447Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -575,7 +601,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Ausbildungsverantwortliche--Ausbildungsverantwortlicher--4069432",
       "externalId": "4069432",
       "pensumMin": 70,
@@ -585,12 +613,12 @@
       "salaryMin": 95000,
       "salaryMax": 175500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -606,7 +634,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Leiterin---Leiter-Controlling--4070538",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:36.265Z",
+      "crawledAt": "2026-10-05T09:17:13.783Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -619,7 +647,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Leiterin---Leiter-Controlling--4070538",
       "externalId": "4070538",
       "pensumMin": 100,
@@ -629,12 +659,12 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -650,7 +680,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-HMS--4070753",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:35.713Z",
+      "crawledAt": "2026-10-05T09:17:13.063Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -663,7 +693,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-HMS--4070753",
       "externalId": "4070753",
       "pensumMin": 100,
@@ -673,12 +705,12 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -694,7 +726,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4064434",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:35.176Z",
+      "crawledAt": "2026-10-05T09:17:12.337Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -707,7 +739,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4064434",
       "externalId": "4064434",
       "pensumMin": 80,
@@ -717,12 +751,12 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -738,7 +772,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Betreuung---Springer---Ferien--und-Krankheitsablösung--4057781",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:34.616Z",
+      "crawledAt": "2026-10-05T09:17:11.473Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -751,7 +785,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Betreuung---Springer---Ferien--und-Krankheitsablösung--4057781",
       "externalId": "4057781",
       "pensumMin": 20,
@@ -761,12 +797,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -782,7 +818,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-FH-HF--4070887",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:34.078Z",
+      "crawledAt": "2026-10-05T09:17:10.752Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -795,7 +831,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-FH-HF--4070887",
       "externalId": "4070887",
       "pensumMin": 70,
@@ -805,12 +843,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -826,7 +864,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Stv.-Stationsleiterin---Stationsleiter--4066023",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:33.531Z",
+      "crawledAt": "2026-10-05T09:17:10.069Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -839,7 +877,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Stv.-Stationsleiterin---Stationsleiter--4066023",
       "externalId": "4066023",
       "pensumMin": 80,
@@ -849,12 +889,12 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -870,7 +910,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4074964",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:32.948Z",
+      "crawledAt": "2026-10-05T09:17:09.358Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -883,7 +923,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4074964",
       "externalId": "4074964",
       "pensumMin": 70,
@@ -893,12 +935,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -914,7 +956,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4070479",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:32.405Z",
+      "crawledAt": "2026-10-05T09:17:08.669Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -927,7 +969,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4070479",
       "externalId": "4070479",
       "pensumMin": 80,
@@ -937,12 +981,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -958,7 +1002,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4074253",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:31.313Z",
+      "crawledAt": "2026-10-05T09:17:06.959Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -971,7 +1015,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4074253",
       "externalId": "4074253",
       "pensumMin": 80,
@@ -981,12 +1027,12 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1002,7 +1048,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Sozialpädagogin---Sozialpädagoge-HF-FH--4070880",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:30.776Z",
+      "crawledAt": "2026-10-05T09:17:06.319Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1015,7 +1061,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Sozialpädagogin---Sozialpädagoge-HF-FH--4070880",
       "externalId": "4070880",
       "pensumMin": 70,
@@ -1025,137 +1073,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ipw-26075e34c5b3",
-      "slug": "pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Pflegefachfrau / Pflegefachmann HF oder FH",
-      "needsRetranslation": true,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4074312",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:31.846Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8408",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4074312",
-      "externalId": "4074312",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "ipw-0e4f35fdfac2",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Assistenzärztin / Assistenzarzt",
-      "needsRetranslation": true,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073598",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:37.357Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8408",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073598",
-      "externalId": "4073598",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "ipw-4bb8dbcb05bb",
-      "slug": "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Praktikantin / Praktikant Kindertagesstätte",
-      "needsRetranslation": true,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4077553",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:42.400Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8408",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4077553",
-      "externalId": "4077553",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
