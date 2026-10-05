@@ -619,6 +619,28 @@ describe('RSS — credit of a Commons cover (P14)', () => {
     expect(feeds['rss.xml']).toBe(feeds['rss-it.xml']);
   });
 
+  it('public domain and CC0: no credit line in content:encoded, Media RSS credit kept (owner decision 2026-10-05)', () => {
+    const cases = [
+      { licence: { name: 'Public domain', url: null, family: 'pd', attributionRequired: false }, href: ALPHA_CREDIT.commons.pageUrl, label: 'pubblico dominio' },
+      { licence: { name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/', family: 'cc0', attributionRequired: false }, href: 'https://creativecommons.org/publicdomain/zero/1.0/', label: 'CC0' },
+    ];
+    for (const { licence, href, label } of cases) {
+      const root = makeFixture();
+      writeCredit(root, 'content', 'alpha', { ...ALPHA_CREDIT, licence });
+      const item = itemOf(feedsOf(root)['rss-it.xml'], 'Alpha it');
+      const encoded = item.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)![1];
+      expect(encoded, licence.family).toMatch(/^Alpha body text in /);
+      expect(encoded, licence.family).not.toContain('ft-image-credit');
+      expect(encoded, licence.family).not.toContain('<footer');
+      expect(item, licence.family).toContain(
+        '<media:content url="https://cdn.frontaliereticino.ch/images/blog/alpha.webp" medium="image">'
+        + '<media:credit role="author" scheme="urn:ebu">Riessdo</media:credit>'
+        + `<media:license type="text/html" href="${href}">${label}</media:license>`
+        + '</media:content>',
+      );
+    }
+  });
+
   it('reads the site layout too (packages/articles/content/image-credits)', () => {
     const root = makeFixture();
     writeCredit(root, 'packages/articles/content', 'alpha', ALPHA_CREDIT);
