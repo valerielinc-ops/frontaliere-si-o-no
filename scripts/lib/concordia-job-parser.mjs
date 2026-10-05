@@ -31,6 +31,7 @@
  * subset. `addressRegion` and the locality are resolved with the shared
  * all-canton inference helper, regardless of the vacancy's source language.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -235,7 +236,6 @@ export async function fetchAllConcordiaJobs({
   console.log(`  ✓ ${detailUrls.length} jobs from board listing`);
   if (!detailUrls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailFetchFailures = 0;
   let missingPostingData = 0;
@@ -284,8 +284,7 @@ export async function fetchAllConcordiaJobs({
     const { postalCode, streetAddress } = resolveConcordiaAddress(addr, location, canton);
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
-    const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))
-      ? String(ld.datePosted).slice(0, 10) : todayIso;
+    const publication = sourcePostingDateFields(ld.datePosted);
 
     const hiringOrgName = normalizeSpace(ld?.hiringOrganization?.name || '') || CONCORDIA_COMPANY_NAME;
     // Language of the vacancy body (JSON-LD), not of the page template.
@@ -325,7 +324,7 @@ export async function fetchAllConcordiaJobs({
       sector: 'Assicurazioni',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

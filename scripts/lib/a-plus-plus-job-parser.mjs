@@ -110,20 +110,75 @@ export function parseAplusListings(html = '') {
 }
 
 /**
+ * Prove that the A++ InRecruiting page explicitly reports a company-wide
+ * empty board. An empty card selection alone is intentionally not enough:
+ * the same result is produced by selector/markup drift or an interstitial.
+ *
+ * The English tenant currently renders the exact message below in a visible
+ * element when there are no vacancies. Require the message to be a standalone
+ * visible element and require no parsed vacancy rows, so a hidden/template
+ * copy cannot retire the stored slice while live cards are present.
+ */
+export function isAplusEmptyListingPage(html = '', listings = parseAplusListings(html)) {
+  if (!Array.isArray(listings) || listings.length > 0) return false;
+
+  const document = new JSDOM(html).window.document;
+  // The tenant can serve the same source board through the English or Italian
+  // locale (including after a locale redirect). Keep the allowlist exact:
+  // generic zero text is still selector drift, not proof of an empty board.
+  const emptyStateRe = /^(?:no vacancies available|nessun annuncio disponibile)[.!]?$/i;
+  const isHidden = (element) => {
+    if (!element || element.closest('script, style, noscript, template')) return true;
+    for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
+      if (ancestor.classList.contains('hidden')) return true;
+      const inlineStyle = ancestor.getAttribute('style') || '';
+      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return true;
+    }
+    return false;
+  };
+  const hasVisibleMarker = (value, element) => !isHidden(element) && emptyStateRe.test(normalizeSpace(value));
+
+  // Aggregate only visible text nodes for each ancestor. Using an ancestor's
+  // textContent would include hidden/template copies and could retire valid
+  // source jobs when the live board is not actually empty.
+  const visibleTextByElement = new Map();
+  const walker = document.body
+    ? document.createTreeWalker(document.body, 4 /* NodeFilter.SHOW_TEXT */)
+    : null;
+  for (let node = walker?.nextNode(); node; node = walker.nextNode()) {
+    const parent = node.parentElement;
+    if (!parent || isHidden(parent)) continue;
+    for (let element = parent; element; element = element.parentElement) {
+      visibleTextByElement.set(
+        element,
+        `${visibleTextByElement.get(element) || ''}${node.nodeValue || ''}`
+      );
+    }
+  }
+  for (const [element, value] of visibleTextByElement) {
+    if (hasVisibleMarker(value, element)) return true;
+  }
+  return false;
+}
+
+/**
  * Classify a parsed listing snapshot before the Swiss-location filter.
  *
  * Zero cards is not evidence that the source is empty: it can also indicate
  * that the InRecruiting markup drifted. A non-empty card set filtered to zero
  * Swiss rows is a valid empty result that can be published and monitored.
  */
-export function classifyAplusListings(listings = []) {
+export function classifyAplusListings(listings = [], { sourceEmpty = false } = {}) {
   const rows = Array.isArray(listings) ? listings : [];
   const swissListings = rows.filter((row) => !row.location || isAplusSwissLocation(row.location));
+  const authoritativeEmptySnapshot = rows.length === 0 && sourceEmpty === true;
   return {
     listings: swissListings,
     discovered: rows.length,
+    authoritativeEmptySnapshot,
     lastFetchOutcome:
-      rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+      authoritativeEmptySnapshot ? 'ok' : rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
   };
 }
 

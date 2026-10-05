@@ -1,23 +1,27 @@
 {
   "key": "temenos",
   "label": "Temenos",
-  "generatedAt": "2026-10-03T09:10:17.286Z",
+  "generatedAt": "2026-10-05T06:23:00.219Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 8621,
+  "avgDurationMs": 8621,
+  "durationHistory": [
+    8621
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

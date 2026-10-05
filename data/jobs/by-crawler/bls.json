@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-10-04T09:16:38.067Z",
+  "assembledAt": "2026-10-05T08:11:35.965Z",
   "jobs": [
     {
       "id": "bls-7afab74d709b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:31.527Z",
+      "crawledAt": "2026-10-05T08:11:31.169Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,7 +46,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-12",
       "pensum": "80-100%",
       "salary": "88418",
@@ -66,12 +68,14 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -128,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:30.832Z",
+      "crawledAt": "2026-10-05T08:11:30.408Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,7 +145,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-12",
       "pensum": "60-100%",
       "salary": "88418",
@@ -162,11 +168,13 @@
         ]
       },
       "previousSlugs": [
-        "instandhalter-in-lokomotiven-bls-ch"
+        "instandhalter-in-lokomotiven-bls-ch",
+        "tecnico-di-manutenzione-locomotive-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhalter-in-lokomotiven-bls-ch"
+          "instandhalter-in-lokomotiven-bls-ch",
+          "tecnico-di-manutenzione-locomotive-bls-ag-spiez"
         ],
         "en": [
           "instandhalter-in-lokomotiven-bls-ch"
@@ -223,7 +231,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:30.149Z",
+      "crawledAt": "2026-10-05T08:11:29.637Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,7 +244,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
       "validThrough": "2026-11-24",
       "pensum": "80-100%",
       "salary": "76200",
@@ -259,13 +269,15 @@
         "fahrzeugbereitsteller-in-bls-ch",
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
-        "vehicle-supplier-in-bls-ag-spiez"
+        "vehicle-supplier-in-bls-ag-spiez",
+        "fornitori-di-veicoli-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugbereitsteller-in-bls-ch",
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fornitore-del-veicolo-in-bls-ag-spiez"
+          "fornitore-del-veicolo-in-bls-ag-spiez",
+          "fornitori-di-veicoli-bls-ag-spiez"
         ],
         "en": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
@@ -323,7 +335,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:29.439Z",
+      "crawledAt": "2026-10-05T08:11:28.855Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -336,7 +348,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-09",
       "postedDate": "2026-09-09",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-07",
       "pensum": "50-100%",
       "salary": "98179",
@@ -361,7 +375,8 @@
         "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-        "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf"
+        "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
+        "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -369,7 +384,8 @@
           "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-          "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+          "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+          "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
@@ -431,7 +447,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:28.739Z",
+      "crawledAt": "2026-10-05T08:11:28.091Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -444,7 +460,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-08",
       "postedDate": "2026-09-08",
+      "postingDateSource": "reported",
       "validThrough": "2026-10-07",
       "pensum": "70-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
@@ -462,11 +480,13 @@
         ]
       },
       "previousSlugs": [
-        "devops-engineer-bls-ch"
+        "devops-engineer-bls-ch",
+        "devops-ingegnere-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-bls-ch"
+          "devops-engineer-bls-ch",
+          "devops-ingegnere-bls-ag-bern"
         ],
         "fr": [
           "devops-engineer-bls-ch"
@@ -520,7 +540,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:28.055Z",
+      "crawledAt": "2026-10-05T08:11:27.337Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,7 +553,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-28",
       "postedDate": "2026-08-28",
+      "postingDateSource": "reported",
       "validThrough": "2026-11-25",
       "pensum": "80-100%",
       "salary": "88418",
@@ -555,14 +577,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
@@ -623,7 +647,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:27.428Z",
+      "crawledAt": "2026-10-05T08:11:26.687Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -636,7 +660,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-28",
       "postedDate": "2026-08-28",
+      "postingDateSource": "reported",
       "validThrough": "2026-11-25",
       "pensum": "80-100%",
       "salary": "88418",
@@ -661,7 +687,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -671,7 +698,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -728,7 +756,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:26.739Z",
+      "crawledAt": "2026-10-05T08:11:25.896Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -741,7 +769,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "validThrough": "2026-10-13",
       "pensum": "80-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
@@ -763,12 +793,14 @@
       },
       "previousSlugs": [
         "fachverantwortliche-r-iam-bls-ch",
-        "fachverantwortliche-r-iam-bls-ag-bern"
+        "fachverantwortliche-r-iam-bls-ag-bern",
+        "specialista-responsabile-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-iam-bls-ch",
-          "fachverantwortliche-r-iam-bls-ag-bern"
+          "fachverantwortliche-r-iam-bls-ag-bern",
+          "specialista-responsabile-bls-ag-bern"
         ],
         "en": [
           "fachverantwortliche-r-iam-bls-ag-bern"
@@ -825,7 +857,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:26.060Z",
+      "crawledAt": "2026-10-05T08:11:25.128Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -838,7 +870,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-20",
       "pensum": "50-100%",
       "salary": "74332",
@@ -923,7 +957,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:25.446Z",
+      "crawledAt": "2026-10-05T08:11:24.406Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -936,7 +970,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-23",
       "pensum": "60-100%",
       "salary": "101898",
@@ -958,11 +994,13 @@
         ]
       },
       "previousSlugs": [
-        "diagnostiker-in-bls-ch"
+        "diagnostiker-in-bls-ch",
+        "diagnostico-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-bls-ch"
+          "diagnostiker-in-bls-ch",
+          "diagnostico-bls-ag-spiez"
         ],
         "en": [
           "diagnostiker-in-bls-ch"
@@ -1019,7 +1057,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:24.835Z",
+      "crawledAt": "2026-10-05T08:11:23.740Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1032,7 +1070,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-23",
       "pensum": "60-100%",
       "salary": "88418",
@@ -1053,12 +1093,14 @@
       },
       "previousSlugs": [
         "mechaniker-in-schienenfahrzeuge-bls-ch",
-        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+        "meccanico-per-veicoli-ferroviari-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-in-schienenfahrzeuge-bls-ch",
-          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+          "meccanico-per-veicoli-ferroviari-bls-ag-bonigen"
         ],
         "en": [
           "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
@@ -1115,7 +1157,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/24e78809-44d5-4b7f-a597-b68042dea70f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:24.142Z",
+      "crawledAt": "2026-10-05T08:11:22.952Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1128,7 +1170,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-15",
       "postedDate": "2026-09-15",
+      "postingDateSource": "reported",
       "validThrough": "2026-10-14",
       "pensum": "70-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/24e78809-44d5-4b7f-a597-b68042dea70f",
@@ -1146,11 +1190,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-sap-technologie-bls-ch"
+        "leiter-in-sap-technologie-bls-ch",
+        "responsabile-sap-technologie-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-sap-technologie-bls-ch"
+          "leiter-in-sap-technologie-bls-ch",
+          "responsabile-sap-technologie-bls-ag-bern"
         ],
         "en": [
           "leiter-in-sap-technologie-bls-ch"
@@ -1204,7 +1250,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/pruefungsexpert-in-lokpersonal/0fc2069f-6477-44ad-bb7b-bde8f3e8ec83",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:23.442Z",
+      "crawledAt": "2026-10-05T08:11:22.180Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1217,7 +1263,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-27",
       "pensum": "80-100%",
       "salary": "118241",
@@ -1237,11 +1285,13 @@
         ]
       },
       "previousSlugs": [
-        "prufungsexpert-in-lokpersonal-bls-ch"
+        "prufungsexpert-in-lokpersonal-bls-ch",
+        "personale-esperto-di-esame-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prufungsexpert-in-lokpersonal-bls-ch"
+          "prufungsexpert-in-lokpersonal-bls-ch",
+          "personale-esperto-di-esame-bls-ag-bern"
         ],
         "en": [
           "prufungsexpert-in-lokpersonal-bls-ch"
@@ -1298,7 +1348,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/expert-in-testfahrten/ba933d5a-1e6d-4f5b-af6f-3d82e5d3199b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:22.747Z",
+      "crawledAt": "2026-10-05T08:11:21.411Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1311,7 +1361,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "validThrough": "2026-10-18",
       "pensum": "50-80%",
       "salary": "118241",
@@ -1333,11 +1385,13 @@
         ]
       },
       "previousSlugs": [
-        "expert-in-testfahrten-bls-ch"
+        "expert-in-testfahrten-bls-ch",
+        "test-drive-esperti-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-testfahrten-bls-ch"
+          "expert-in-testfahrten-bls-ch",
+          "test-drive-esperti-bls-ag-spiez"
         ],
         "en": [
           "expert-in-testfahrten-bls-ch"
@@ -1394,7 +1448,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/disponent-in-leitstelle/bcd75593-bb72-4dcb-a737-645e151018f6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:22.049Z",
+      "crawledAt": "2026-10-05T08:11:20.623Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1407,7 +1461,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-27",
       "pensum": "60-100%",
       "salary": "109765",
@@ -1430,12 +1486,14 @@
       },
       "previousSlugs": [
         "disponent-in-leitstelle-bls-ch",
-        "disponent-in-leitstelle-bls-ag-bern"
+        "disponent-in-leitstelle-bls-ag-bern",
+        "centro-di-controllo-centrali-centrali-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-leitstelle-bls-ch",
-          "disponent-in-leitstelle-bls-ag-bern"
+          "disponent-in-leitstelle-bls-ag-bern",
+          "centro-di-controllo-centrali-centrali-bls-ag-bern"
         ],
         "en": [
           "disponent-in-leitstelle-bls-ch"
@@ -1492,7 +1550,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-produktmanagement-vertrieb/44ebf6c5-6272-4b61-a700-179715d9cb19",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:21.365Z",
+      "crawledAt": "2026-10-05T08:11:19.792Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1505,7 +1563,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "2026-10-16",
       "pensum": "60-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/44ebf6c5-6272-4b61-a700-179715d9cb19",
@@ -1529,11 +1589,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-produktmanagement-amp-vertrieb-bls-ch"
+        "leiter-in-produktmanagement-amp-vertrieb-bls-ch",
+        "responsabile-produktmanagement-vertrieb-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-produktmanagement-amp-vertrieb-bls-ch"
+          "leiter-in-produktmanagement-amp-vertrieb-bls-ch",
+          "responsabile-produktmanagement-vertrieb-bls-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1584,7 +1646,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/wagenmeister-in-tkc-muttenz/82af7fe7-c1a5-4cef-9ab8-5aa8f4c777e3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:20.672Z",
+      "crawledAt": "2026-10-05T08:11:18.994Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1597,7 +1659,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "validThrough": "2026-10-18",
       "pensum": "80-100%",
       "salary": "95247",
@@ -1619,11 +1683,13 @@
         ]
       },
       "previousSlugs": [
-        "wagenmeister-in-tkc-muttenz-bls-ch"
+        "wagenmeister-in-tkc-muttenz-bls-ch",
+        "maestro-del-carro-tkc-muttenz-bls-ag-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wagenmeister-in-tkc-muttenz-bls-ch"
+          "wagenmeister-in-tkc-muttenz-bls-ch",
+          "maestro-del-carro-tkc-muttenz-bls-ag-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -1674,7 +1740,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/dispatcher-in-betriebszentrale-spiez/63dd0fa6-5c46-4de4-b299-ddee2591397f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:19.975Z",
+      "crawledAt": "2026-10-05T08:11:18.234Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1687,7 +1753,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-29",
       "pensum": "50-100%",
       "salary": "109765",
@@ -1756,7 +1824,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automatiker-in-stv-berufsbildner-in/11a39962-bc21-4f6a-baf9-9aac970393f0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:19.290Z",
+      "crawledAt": "2026-10-05T08:11:17.464Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1769,7 +1837,9 @@
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-30",
       "pensum": "60-100%",
       "salary": "88418",

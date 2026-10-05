@@ -434,11 +434,21 @@ describe('Bobst crawler parser', () => {
       expect(job.employmentType).toBe('FULL_TIME');
       expect(job.experienceLevel).toBe('senior');
       expect(job.category).toBe('Ingegneria');
-      expect(job.postedDate).toBe('05.05.2026');
+      expect(job).toMatchObject({ datePosted: '2026-05-05', postedDate: '2026-05-05', postingDateSource: 'reported' });
       expect(job.slug).toMatch(/^senior-mechanical-engineer/);
       expect(job.slugByLocale).toHaveProperty(job.sourceLang);
       expect(job.sourceLang).toBe('en');
       expect(job.description).toContain('die-cutting and folder-gluing machines');
+    });
+
+    it.each(['', '30.02.2026', '05.10.2099', '05.05.20260', '05.05.2026junk'])('does not attest an invalid Online since date %s', async raw => {
+      const previous = row.cellText;
+      row.cellText = previous.replace('05.05.2026', raw);
+      try {
+        const jobs = await crawlWith(detailOf(SOURCE_WORDS.length));
+        expect(jobs).toHaveLength(1);
+        expect(jobs[0]).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      } finally { row.cellText = previous; }
     });
 
     // Issue 5253: an unread detail page used to become "<title> at Bobst …

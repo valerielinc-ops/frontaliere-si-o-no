@@ -182,7 +182,8 @@ import {
   sourceBodyForJob,
 } from './stored-source-body.mjs';
 import { hasSourceBodyFailure, sourceBodyFailureRecord } from './source-body-failure.mjs';
-import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, readExpiredSlice } from './expired-jobs-archive.mjs';
+import { countResurrectedJobs, flapSummaryFields } from './crawler-flap.mjs';
 import { publishedOnNextDeploy } from './translation-publication-hold.mjs';
 import {
   RETRYABLE_STATUS,
@@ -855,6 +856,13 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  */
 
 /**
+ * Validator verdict: accounting proven, coverage NOT complete. See
+ * `evaluateAuthoritativeSnapshot`. A string, not a boolean, so a validator that
+ * returns `false` on failure keeps failing closed.
+ */
+export const SNAPSHOT_VALIDATED_PARTIAL = 'validated-partial-snapshot';
+
+/**
  * Evaluate the authoritative-snapshot contract. A zero may be published on
  * exactly two kinds of evidence:
  *
@@ -876,15 +884,22 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * (`anti_bot_block`, `selector_miss`, …) is never default-proof either: the two
  * claims contradict each other, and the failure is the safe one to believe.
  *
+ * A validator may also return `SNAPSHOT_VALIDATED_PARTIAL`: its accounting
+ * checks held (it still throws when they do not), but the batch is by its own
+ * admission not the whole source — e.g. fachkraft's `max-observed` listing,
+ * whose pagination repeats and therefore skips cards. Such a batch is
+ * published, and every stored job it does not contain keeps the ordinary miss
+ * grace (277-538 live jobs retired per run, back 1-2 runs later).
+ *
  * @param {object[]|undefined|null} parsedJobs
  * @param {{
- *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean,
+ *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean|typeof SNAPSHOT_VALIDATED_PARTIAL,
  *   allowAuthoritativeEmptySnapshot?: boolean,
  *   authoritativeSnapshotScope?: 'all'|'empty-only',
  *   companyLabel?: string,
  *   fetchOutcome?: string|null,
  * }} [options]
- * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
+ * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean, partialSnapshotValidated?: true }}
  */
 export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   const {
@@ -898,13 +913,18 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
     throw new Error(`${companyLabel}: invalid authoritative snapshot scope`);
   }
   let authoritativeSnapshotVerified = false;
+  let partialSnapshotValidated = false;
   const snapshotIsWithinAuthorityScope = authoritativeSnapshotScope === 'all'
     || (Array.isArray(parsedJobs) && parsedJobs.length === 0);
   if (validateAuthoritativeSnapshot && snapshotIsWithinAuthorityScope) {
-    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
+    const verdict = validateAuthoritativeSnapshot(parsedJobs);
+    if (verdict === SNAPSHOT_VALIDATED_PARTIAL) {
+      partialSnapshotValidated = true;
+    } else if (verdict !== true) {
       throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
+    } else {
+      authoritativeSnapshotVerified = true;
     }
-    authoritativeSnapshotVerified = true;
   }
   const stampedProofHonoured = !validateAuthoritativeSnapshot
     && allowAuthoritativeEmptySnapshot !== false
@@ -913,6 +933,9 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   if (stampedProofHonoured) authoritativeSnapshotVerified = true;
   return {
     authoritativeSnapshotVerified,
+    // Only present when the validator said so: the two-field shape stays the
+    // contract for every validator that never returns the partial verdict.
+    ...(partialSnapshotValidated ? { partialSnapshotValidated: true } : {}),
     authoritativeEmptySnapshot: Boolean(
       authoritativeSnapshotVerified
       && (stampedProofHonoured || allowAuthoritativeEmptySnapshot)
@@ -1207,7 +1230,11 @@ export async function runStandardCrawlerPipeline(config) {
   // batch the parser stamped as a source-proven zero. Validation runs before
   // the zero-job soft exit and before any scratch/archive write, so a partial
   // or degraded crawl fails closed with the existing slice untouched.
-  const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
+  const {
+    authoritativeSnapshotVerified,
+    authoritativeEmptySnapshot,
+    partialSnapshotValidated = false,
+  } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
       validateAuthoritativeSnapshot,
@@ -1228,6 +1255,11 @@ export async function runStandardCrawlerPipeline(config) {
 
   if (authoritativeEmptySnapshot) {
     console.log(`\n🧩 ${companyLabel}: authoritative empty snapshot verified. Retiring stale jobs...\n`);
+  } else if (partialSnapshotValidated) {
+    console.log(
+      `\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed from a validated PARTIAL snapshot; `
+      + 'stored jobs it does not contain keep the miss grace instead of being retired.\n',
+    );
   } else {
     console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed, preparing source bodies.\n`);
   }
@@ -1348,6 +1380,18 @@ export async function runStandardCrawlerPipeline(config) {
   // `diff.removedJobs` (full job objects, with slug + locale data) into
   // `data/jobs/expired/by-crawler/<companyKey>.json` so the build plugin
   // can emit the soft-landing page.
+  // Oscillation observer: jobs that are new in this run but were
+  // retired into the expired slice within the last few days. Read BEFORE this
+  // run archives, so only earlier retirements count.
+  const flap = countResurrectedJobs(diff.newJobs, readExpiredSlice(companyKey));
+  if (flap.resurrected > 0) {
+    console.warn(
+      `  🔁 ${companyLabel}: ${flap.resurrected} new job(s) were expired within the last `
+      + `${flap.windowDays} day(s) — the source still had them (crawler flap). `
+      + `Sample: ${flap.sample.slice(0, 3).join(' ')}`,
+    );
+  }
+
   // Invoke the helper even when no job disappeared: it also persists repairs
   // to legacy entries already present in the expired slice.
   const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey);
@@ -1470,6 +1514,8 @@ export async function runStandardCrawlerPipeline(config) {
     sourceBodyFailures: counts.sourceBodyFailures,
     written: sliceJobs.length,
     ...detailDropSummaryFields(counts.detailDrop),
+    ...flapSummaryFields(flap),
+    ...(partialSnapshotValidated ? { snapshotCoverage: 'partial' } : {}),
     // Per-run proof, not a per-slug guess: true only when this run's parser
     // returned zero jobs AND the proof held — the runner's own
     // `validateAuthoritativeSnapshot`, or the parser's

@@ -32,6 +32,7 @@ import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts }
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
+import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
@@ -85,7 +86,21 @@ async function authorize(token, deps) {
   const secret = await (deps.getSecret || getReviewTokenSecret)();
   const verified = verifyReviewToken({ secret, token, nowMs: deps.nowMs });
   if (!verified.ok) throw new ReviewError(verified.error === 'expired' ? 'link_expired' : 'invalid_link', 403);
+  if (verified.consentBound) await requireConsentStillGiven(deps.db, verified);
   return verified;
+}
+
+/**
+ * The «inviata» link of a talent-pool order lasts as long as the consent (owner decision 2026-10-05,
+ * «Fino a fine consenso»), read at every access: once the consent is withdrawn, the purge has run, or the
+ * order and its sent flow are no longer there, it answers as an expired link.
+ */
+async function requireConsentStillGiven(db, { orderId, kind }) {
+  if (kind !== 'review') throw new ReviewError('invalid_link', 403);
+  const [orderSnapshot, flowSnapshot] = await Promise.all([orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get()]);
+  const kept = orderSnapshot.exists && talentPoolConsentActive(orderSnapshot.data())
+    && flowSnapshot.exists && flowSnapshot.data()?.state === 'submitted';
+  if (!kept) throw new ReviewError('link_expired', 403);
 }
 
 // A start date (availability, "inizio", "Eintritt", "début") is never in the past.

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-10-04T09:20:42.150Z",
+  "assembledAt": "2026-10-04T21:19:55.193Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:36.157Z",
+      "crawledAt": "2026-10-04T21:19:49.271Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -66,7 +66,8 @@
         "driver-m-w-d-kulm-hotel-st-moritz",
         "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
         "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
-        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -79,7 +80,8 @@
           "driver-m-w-d-kulm-hotel-st-moritz",
           "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
           "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
-          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "driver-m-w-d-kulm-hotel-st-moritz"
@@ -124,7 +126,7 @@
       "companyDomain": "kulm.com",
       "title": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
       "titleByLocale": {
-        "it": "Cucina Principale Sous Chef | 16 Punti GaultMillau (m/f/d)",
+        "it": "Sous Chef Main Kitchen | 16 GaultMillau Punti (m/f/d)",
         "en": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
         "de": "Sous Chef (muss haben: fließend Italienisch) - starten Sie sofort (m/w/d)",
         "fr": "Sous Chef (doit avoir: couramment en italien) - commencer immédiatement (h/f/d)"
@@ -141,7 +143,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:36.007Z",
+      "crawledAt": "2026-10-04T21:19:49.125Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -155,7 +157,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-02-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/723",
       "requirements": [],
       "requirementsByLocale": {},
@@ -163,11 +168,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "en": [
-          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
+          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
+          "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
+          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
+          "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz"
@@ -178,7 +185,8 @@
       },
       "previousSlugs": [
         "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
+        "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:10:40.981Z",
@@ -194,19 +202,16 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-02-01T00:00:00.000000Z"
+      }
     },
     {
       "id": "kulm-hotel-f99c2b318f49",
       "slug": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
       "slugByLocale": {
-        "it": "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "it": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
         "en": "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "veranstaltungsplanung-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-2f5977",
-        "fr": "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        "fr": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -230,7 +235,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:35.052Z",
+      "crawledAt": "2026-10-04T21:19:48.180Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -255,6 +260,18 @@
       "pensum": "100%",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:44.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ],
+        "fr": [
+          "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ]
+      },
+      "previousSlugs": [
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -286,7 +303,7 @@
         "it": "Room Waiting / Zimmerdame / Roomboy - inizia ora (m/f/d)",
         "en": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
         "de": "Room Waiting / Zimmerdame / Roomboy - starten Sie jetzt (m/w/d)",
-        "fr": "Salle d'assistance / Zimmerdame / Roomboy - commencez maintenant (h/f/d)"
+        "fr": "Room Attendant / Zimmerdame / Roomboy - commencez maintenant (h/f/d)"
       },
       "description": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts.",
       "descriptionByLocale": {
@@ -300,7 +317,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:34.095Z",
+      "crawledAt": "2026-10-04T21:19:47.232Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -324,11 +341,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
+        "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz",
+        "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
+          "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz",
+          "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "fr": [
           "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
@@ -380,7 +399,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:33.144Z",
+      "crawledAt": "2026-10-04T21:19:46.275Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -394,7 +413,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-08-15T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/720",
       "requirements": [],
       "requirementsByLocale": {},
@@ -402,11 +424,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz",
-        "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "office-employee-steward-avvio-immediato-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz"
+          "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz",
+          "office-employee-steward-avvio-immediato-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz"
@@ -427,10 +451,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-08-15T00:00:00.000000Z"
+      }
     },
     {
       "id": "kulm-hotel-0d43a765b99f",
@@ -463,7 +484,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:32.194Z",
+      "crawledAt": "2026-10-04T21:19:45.294Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -488,14 +509,18 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "en": [
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+          "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+        "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
+        "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "firstSeenAt": "2026-09-29T21:18:40.951Z",
       "salaryMin": 62000,
@@ -510,7 +535,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -543,7 +569,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:31.246Z",
+      "crawledAt": "2026-10-04T21:19:44.339Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -567,11 +593,13 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+          "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
         ],
         "de": [
           "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
@@ -623,7 +651,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:30.298Z",
+      "crawledAt": "2026-10-04T21:19:43.365Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -647,11 +675,13 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
+        "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
+          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
+          "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
         ]
       },
       "firstSeenAt": "2026-09-29T21:18:38.984Z",
@@ -700,7 +730,7 @@
       "url": "https://careers.kulm.com/en/vacancies/729",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:29.336Z",
+      "crawledAt": "2026-10-04T21:19:42.397Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -724,11 +754,13 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
+        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
+        "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
+          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
+          "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
         ]
       },
       "needsRetranslation": true,
@@ -751,7 +783,7 @@
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -778,7 +810,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:28.388Z",
+      "crawledAt": "2026-10-04T21:19:41.446Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -820,7 +852,9 @@
         "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
+        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
+        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -841,7 +875,9 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+          "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -902,7 +938,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:27.425Z",
+      "crawledAt": "2026-10-04T21:19:40.493Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -926,11 +962,13 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+        "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+          "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "needsRetranslation": true,
@@ -980,7 +1018,7 @@
       "url": "https://careers.kulm.com/en/vacancies/731",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:26.471Z",
+      "crawledAt": "2026-10-04T21:19:39.532Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1004,11 +1042,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz"
+        "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz",
+        "demi-chef-de-partie-avviare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz"
+          "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz",
+          "demi-chef-de-partie-avviare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz"
@@ -1062,7 +1102,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:25.525Z",
+      "crawledAt": "2026-10-04T21:19:38.584Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1076,7 +1116,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/717",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1095,10 +1138,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-12-01T00:00:00.000000Z"
+      }
     },
     {
       "id": "kulm-hotel-ed7c80582448",
@@ -1114,10 +1154,10 @@
       "companyDomain": "kulm.com",
       "title": "Chef de Partie - Gardemanger (m/w/d)",
       "titleByLocale": {
-        "it": "Chef de Partie - Gardemanger (m/w/d)",
+        "it": "Chef di partito-Gardemanger (m/f/d)",
         "en": "Chef de Partie - Gardemanger (m/w/d)",
         "de": "Chef de Partie - Gardemanger (m/w/d)",
-        "fr": "Chef de Partie - Gardemanger (m/w/d)"
+        "fr": "Chef de Partie-Garde-Manger (h/f/d)"
       },
       "description": "Chef de Partie - Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
       "descriptionByLocale": {
@@ -1131,7 +1171,7 @@
       "url": "https://careers.kulm.com/en/vacancies/732",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:24.567Z",
+      "crawledAt": "2026-10-04T21:19:37.624Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1157,11 +1197,13 @@
       "previousSlugsByLocale": {
         "en": [
           "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
-          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+          "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "it": [
           "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
-          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+          "capo-del-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
@@ -1169,7 +1211,9 @@
       },
       "previousSlugs": [
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
-        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "capo-del-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:46:07.964Z",

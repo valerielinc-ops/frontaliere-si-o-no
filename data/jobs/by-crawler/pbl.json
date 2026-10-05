@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pbl",
-  "assembledAt": "2026-10-04T09:21:11.993Z",
+  "assembledAt": "2026-10-05T06:25:01.203Z",
   "jobs": [
     {
       "id": "pbl-b04c4ec04e4b",
@@ -34,7 +34,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-in-der-pflege-w-m-d/fb49e8b2-2d89-4173-8e87-26286075b0b2",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:06.628Z",
+      "crawledAt": "2026-10-05T06:24:55.757Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2025-10-09",
+      "postedDate": "2025-10-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/fb49e8b2-2d89-4173-8e87-26286075b0b2",
       "requirements": [],
       "requirementsByLocale": {
@@ -72,14 +74,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal"
+          "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal",
+          "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal"
+          "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal",
+          "praticante-in-infermieristica-w-m-d-80-100-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal"
+        "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-pbl-liestal",
+        "praktikantin-praktikant-in-der-pflege-w-m-d-80-100-psychiatrie-baselland-liestal",
+        "praticante-in-infermieristica-w-m-d-80-100-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:23.055Z",
       "salaryMin": 79000,
@@ -128,7 +134,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/unterassistentin-unterassistent-m-w-d/27ca469b-2aca-4731-98fd-5b47df11e60b",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:04.018Z",
+      "crawledAt": "2026-10-05T06:24:50.230Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -141,7 +147,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2025-11-05",
+      "postedDate": "2025-11-05",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/27ca469b-2aca-4731-98fd-5b47df11e60b",
       "requirements": [],
       "requirementsByLocale": {
@@ -160,14 +168,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "unterassistentin-unterassistent-m-w-d-100-pbl-liestal"
+          "unterassistentin-unterassistent-m-w-d-100-pbl-liestal",
+          "unterassistentin-unterassistent-m-w-d-100-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "unterassistentin-unterassistent-m-w-d-100-pbl-liestal"
+          "unterassistentin-unterassistent-m-w-d-100-pbl-liestal",
+          "sottodottore-sottodottoressa-m-f-d-100-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-m-w-d-100-pbl-liestal"
+        "unterassistentin-unterassistent-m-w-d-100-pbl-liestal",
+        "unterassistentin-unterassistent-m-w-d-100-psychiatrie-baselland-liestal",
+        "sottodottore-sottodottoressa-m-f-d-100-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:22.284Z",
       "salaryMin": 88000,
@@ -216,7 +228,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d/65d72647-324e-4236-9258-2277b1acd865",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:03.558Z",
+      "crawledAt": "2026-10-05T06:24:44.752Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -229,20 +241,26 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2025-11-05",
+      "postedDate": "2025-11-05",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/65d72647-324e-4236-9258-2277b1acd865",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal",
+          "assistenzarzt-assistenzarztin-m-w-d-60-100-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal",
+          "assistente-medico-assistente-medico-m-w-d-60-100-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal"
+        "assistenzarzt-assistenzarztin-m-w-d-60-100-pbl-liestal",
+        "assistenzarzt-assistenzarztin-m-w-d-60-100-psychiatrie-baselland-liestal",
+        "assistente-medico-assistente-medico-m-w-d-60-100-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:21.715Z",
       "salaryMin": 88000,
@@ -291,7 +309,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d-ep-stationaer/e8fcb650-7ace-4c1e-8a40-bbcfee50f2ef",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:03.101Z",
+      "crawledAt": "2026-10-05T06:24:42.612Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -304,7 +322,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-02-12",
+      "postedDate": "2026-02-12",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/e8fcb650-7ace-4c1e-8a40-bbcfee50f2ef",
       "requirements": [],
       "requirementsByLocale": {
@@ -341,14 +361,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal",
+          "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal",
+          "assistente-medico-ep-stazionario-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal"
+        "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-pbl-liestal",
+        "assistenzarzt-assistenzarztin-m-w-d-ep-stationar-psychiatrie-baselland-liestal",
+        "assistente-medico-ep-stazionario-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:15.990Z",
       "salaryMin": 88000,
@@ -397,7 +421,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d-kinder-und-jugendpsychiatrie/1c222887-fdf7-4471-91ca-5649004fad2d",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:02.680Z",
+      "crawledAt": "2026-10-05T06:24:42.158Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -410,14 +434,17 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-02-18",
+      "postedDate": "2026-02-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/1c222887-fdf7-4471-91ca-5649004fad2d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
           "oberarzt-oberarztin-m-w-d-60-100-kinder-und-jugendpsychiatrie-pbl-liestal",
-          "psychologe-psychologin-m-w-d-60-stationar-in-der-kinder-und-jugendpsychiatrie-pbl-liestal"
+          "psychologe-psychologin-m-w-d-60-stationar-in-der-kinder-und-jugendpsychiatrie-pbl-liestal",
+          "oberarzt-oberarztin-m-w-d-60-100-kinder-und-jugendpsychiatrie-psychiatrie-baselland-liestal"
         ],
         "it": [
           "oberarzt-oberarztin-m-w-d-60-100-kinder-und-jugendpsychiatrie-pbl-liestal",
@@ -432,7 +459,8 @@
           "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-und-jugendpsychiatrie-psychiatrie-baselland-liestal",
           "psychologue-principal-h-f-50-80-psychiatrie-enfant-et-adolescent-psychiatrie-baselland-liestal",
           "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-und-jugendpsychiatrie-pbl",
-          "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-e-jugendpsychiatrie-psychiatrie-baselland-liestal"
+          "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-e-jugendpsychiatrie-psychiatrie-baselland-liestal",
+          "oberarzt-oberarztin-m-w-d-60-100-psicologia-infantile-e-adolescenti-psychiatrie-baselland-liestal"
         ],
         "en": [
           "psychologist-m-f-d-60-inpatient-in-child-and-adolescent-psychiatry-psychiatrie-baselland-liestal"
@@ -454,7 +482,9 @@
         "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-und-jugendpsychiatrie-psychiatrie-baselland-liestal",
         "psychologue-principal-h-f-50-80-psychiatrie-enfant-et-adolescent-psychiatrie-baselland-liestal",
         "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-und-jugendpsychiatrie-pbl",
-        "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-e-jugendpsychiatrie-psychiatrie-baselland-liestal"
+        "leitende-psychologin-leitender-psychologe-m-w-d-50-80-kinder-e-jugendpsychiatrie-psychiatrie-baselland-liestal",
+        "oberarzt-oberarztin-m-w-d-60-100-kinder-und-jugendpsychiatrie-psychiatrie-baselland-liestal",
+        "oberarzt-oberarztin-m-w-d-60-100-psicologia-infantile-e-adolescenti-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:14.136Z",
       "salaryMin": 119000,
@@ -503,7 +533,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/d8f2ca09-7fb8-495e-affa-29a9de5e857c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:02.103Z",
+      "crawledAt": "2026-10-05T06:24:41.665Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -516,7 +546,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-02-24",
+      "postedDate": "2026-02-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/d8f2ca09-7fb8-495e-affa-29a9de5e857c",
       "requirements": [],
       "requirementsByLocale": {
@@ -547,14 +579,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal"
+          "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal",
+          "oberarzt-oberarztin-m-w-d-60-80-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal"
+          "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal",
+          "medico-psichiatra-e-psicosomatico-m-f-d-60-80-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal"
+        "oberarzt-oberarztin-m-w-d-60-80-pbl-liestal",
+        "oberarzt-oberarztin-m-w-d-60-80-psychiatrie-baselland-liestal",
+        "medico-psichiatra-e-psicosomatico-m-f-d-60-80-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:12.738Z",
       "salaryMin": 95200,
@@ -585,7 +621,7 @@
       "companyDomain": "pbl.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF (m/w/d) 80-100 %",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Professionista HF (m/f/d) 80-100 %",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF (m/w/d) 80-100 %",
         "en": "Dipl. Nurse HF (m/f/d) 80-100 %",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF (m/w/d) 80-100 %",
         "fr": "Infirmier diplômé / Infirmière diplômée HF (h/f/d) 80-100 %"
@@ -603,7 +639,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d/85883177-8419-41e0-aa95-5143d050d3e2",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:01.512Z",
+      "crawledAt": "2026-10-05T06:24:41.063Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -616,7 +652,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-03-09",
+      "postedDate": "2026-03-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/85883177-8419-41e0-aa95-5143d050d3e2",
       "requirements": [],
       "requirementsByLocale": {
@@ -642,11 +680,13 @@
         "dipl-nurse-m-f-d-100-psychiatrie-baselland-liestal",
         "dipl-pflegefachfrau-dipl-pflegefachmann-m-w-d-100-pbl-liestal",
         "infirmier-infirmiere-dipl-m-f-d-100-psychiatrie-baselland-liestal",
-        "dipl-ing-pflegefachfrau-dipl-pflegefachmann-m-w-d-100-psychiatrie-baselland-liestal"
+        "dipl-ing-pflegefachfrau-dipl-pflegefachmann-m-w-d-100-psychiatrie-baselland-liestal",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-pbl-liestal"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-pbl-liestal",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-psychiatrie-baselland-liestal"
         ],
         "de": [
           "dipl-ing-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-psychiatrie-baselland-liestal"
@@ -699,7 +739,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d-ep-ambulant/7b7ed523-c00a-42e3-8bac-55c1c05eda55",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:01.057Z",
+      "crawledAt": "2026-10-05T06:24:40.567Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -712,7 +752,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-04-15",
+      "postedDate": "2026-04-15",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/7b7ed523-c00a-42e3-8bac-55c1c05eda55",
       "requirements": [],
       "requirementsByLocale": {
@@ -749,14 +791,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal",
+          "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-psychiatrie-baselland-liestal"
         ],
         "it": [
-          "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal"
+          "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal",
+          "medico-assistente-m-f-d-ep-ambulatoriale-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal"
+        "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-pbl-liestal",
+        "assistenzarzt-assistenzarztin-m-w-d-ep-ambulant-psychiatrie-baselland-liestal",
+        "medico-assistente-m-f-d-ep-ambulatoriale-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-19T20:46:06.389Z",
       "salaryMin": 88000,
@@ -805,7 +851,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fh-hf-m-w-d/b99bd01f-2338-4d98-9a38-44b0c4256fae",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:00.559Z",
+      "crawledAt": "2026-10-05T06:24:40.093Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -818,7 +864,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-22",
+      "datePosted": "2026-05-23",
+      "postedDate": "2026-05-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/b99bd01f-2338-4d98-9a38-44b0c4256fae",
       "requirements": [],
       "requirementsByLocale": {},
@@ -826,14 +874,16 @@
         "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal",
         "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-pbl-liestal",
         "sozialpadagoge-sozialpadagogin-hf-fh-fur-die-tagesstruktur-m-w-d-50-80-pbl-liestal",
-        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-60-80-pbl-liestal"
+        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-60-80-pbl-liestal",
+        "social-pedagogue-social-pedagogue-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal",
           "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-pbl-liestal",
           "sozialpadagoge-sozialpadagogin-hf-fh-fur-die-tagesstruktur-m-w-d-50-80-pbl-liestal",
-          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-60-80-pbl-liestal"
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-60-80-pbl-liestal",
+          "social-pedagogue-social-pedagogue-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal"
@@ -892,7 +942,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-nachtdienst-m-w-d-80/80c07f87-4e58-4f7c-af0b-a3481fb4308f",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:21:00.118Z",
+      "crawledAt": "2026-10-05T06:24:39.632Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -905,17 +955,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-02",
       "postedDate": "2026-06-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/80c07f87-4e58-4f7c-af0b-a3481fb4308f",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal",
-        "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-psychiatrie-baselland-liestal"
+        "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-psychiatrie-baselland-liestal",
+        "consulente-senior-m-w-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal"
+          "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal",
+          "consulente-senior-m-w-d-80-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal"
@@ -973,7 +1027,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-m-w-d/42b7dd42-0639-453d-bd9b-899489b0ab67",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:59.536Z",
+      "crawledAt": "2026-10-05T06:24:39.017Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -986,7 +1040,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-05",
       "postedDate": "2026-06-05",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/42b7dd42-0639-453d-bd9b-899489b0ab67",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1020,7 +1076,8 @@
         "consultant-principal-m-m-j-fonction-80-psychiatrie-baselland-liestal",
         "fachfrau-fachmann-gesundheit-cfc-m-w-d-90-100-psychiatrie-baselland-liestal",
         "fachfrau-fachmann-gesundheit-m-w-d-70-100-pbl-liestal",
-        "senior-consultant-m-w-d-function-80-psychiatrie-baselland-liestal"
+        "senior-consultant-m-w-d-function-80-psychiatrie-baselland-liestal",
+        "fachfrau-fachmann-gesundheit-cfc-m-w-d-60-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1041,7 +1098,8 @@
           "consultant-principal-m-m-j-fonction-80-psychiatrie-baselland-liestal",
           "fachfrau-fachmann-gesundheit-cfc-m-w-d-90-100-psychiatrie-baselland-liestal",
           "fachfrau-fachmann-gesundheit-m-w-d-70-100-pbl-liestal",
-          "senior-consultant-m-w-d-function-80-psychiatrie-baselland-liestal"
+          "senior-consultant-m-w-d-function-80-psychiatrie-baselland-liestal",
+          "fachfrau-fachmann-gesundheit-cfc-m-w-d-60-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-m-w-d-60-100-pbl-liestal",
@@ -1082,9 +1140,9 @@
       "slug": "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "it": "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal",
-        "en": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
+        "en": "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal",
         "de": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-pbl-liestal",
-        "fr": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
+        "fr": "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -1108,7 +1166,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-m-w-d-stationaer/1c2e0fd8-d85b-4ab5-90b6-cea7b2eeaf34",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:59.039Z",
+      "crawledAt": "2026-10-05T06:24:38.519Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1121,7 +1179,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-11",
       "postedDate": "2026-06-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/1c2e0fd8-d85b-4ab5-90b6-cea7b2eeaf34",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1130,16 +1190,19 @@
         "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
         "assistant-psychologist-assistant-psychologist-m-f-d-90-stationary-psychiatrie-baselland-liestal",
         "psychologue-adjoint-psychologue-adjoint-m-f-d-90-stationnaire-psychiatrie-baselland-liestal",
+        "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal",
         "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal",
         "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-pbl-liestal",
-          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
+          "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal"
         ],
         "en": [
           "assistant-psychologist-assistant-psychologist-m-f-d-90-stationary-psychiatrie-baselland-liestal",
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
           "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal"
         ],
         "de": [
@@ -1147,6 +1210,7 @@
         ],
         "fr": [
           "psychologue-adjoint-psychologue-adjoint-m-f-d-90-stationnaire-psychiatrie-baselland-liestal",
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
           "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
         ]
       },
@@ -1170,9 +1234,9 @@
       "slug": "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "it": "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal",
-        "en": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
+        "en": "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
         "de": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-pbl-liestal",
-        "fr": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal"
+        "fr": "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -1196,7 +1260,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-m-w-d-teilstationaer-ambulant/8cf12c23-92ba-4ebb-976f-de4ff923749f",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:58.525Z",
+      "crawledAt": "2026-10-05T06:24:38.044Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1209,7 +1273,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-11",
       "postedDate": "2026-06-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/8cf12c23-92ba-4ebb-976f-de4ff923749f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1219,6 +1285,7 @@
         "assistente-psicologo-lun-f-d-90-semi-ricovero-ambulatoriale-psychiatrie-baselland-liestal",
         "assistant-psychologist-assistant-psychologist-m-f-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
         "psychologue-adjoint-psychologue-adjoint-m-f-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal",
+        "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal",
         "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
         "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
       ],
@@ -1226,10 +1293,12 @@
         "it": [
           "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-pbl-liestal",
           "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
-          "assistente-psicologo-lun-f-d-90-semi-ricovero-ambulatoriale-psychiatrie-baselland-liestal"
+          "assistente-psicologo-lun-f-d-90-semi-ricovero-ambulatoriale-psychiatrie-baselland-liestal",
+          "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal"
         ],
         "en": [
           "assistant-psychologist-assistant-psychologist-m-f-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
           "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal"
         ],
         "de": [
@@ -1237,6 +1306,7 @@
         ],
         "fr": [
           "psychologue-adjoint-psychologue-adjoint-m-f-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal",
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
           "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
         ]
       },
@@ -1287,7 +1357,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/db5022db-73ba-4ef5-b0b0-e9ae72ab710e",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:58.076Z",
+      "crawledAt": "2026-10-05T06:24:37.570Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1300,7 +1370,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-15",
       "postedDate": "2026-06-15",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/db5022db-73ba-4ef5-b0b0-e9ae72ab710e",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1313,14 +1385,16 @@
         "medecin-principal-m-f-j-80-100-psychiatrie-baselland-liestal",
         "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal-2",
         "oberarzt-oberarztin-m-w-d-80-100-psychiatrie-baselland-liestal",
-        "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal-aaytx7"
+        "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal-aaytx7",
+        "medico-senior-l-f-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capoclinica-m-f-d-80-100-psychiatrie-baselland-liestal",
           "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
           "medico-senior-m-f-d-80-100-psychiatrie-baselland-liestal",
-          "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal-2"
+          "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal-2",
+          "medico-senior-l-f-d-80-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "senior-physician-m-f-d-80-100-psychiatrie-baselland-liestal",
@@ -1382,7 +1456,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d-erwachsenenpsychiatrie-ambulant-standort-liestal/f7ccc782-f10e-451b-ab3f-8da3e9af0eaa",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:57.675Z",
+      "crawledAt": "2026-10-05T06:24:37.110Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1395,18 +1469,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-17",
       "postedDate": "2026-06-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/f7ccc782-f10e-451b-ab3f-8da3e9af0eaa",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-pbl",
-        "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-psychiatrie-baselland-liestal"
+        "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-psychiatrie-baselland-liestal",
+        "medico-senior-lun-f-d-80-100-psichiatria-adulti-ambulatoriale-localita-liestal-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-pbl",
-          "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-psychiatrie-baselland-liestal"
+          "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-psychiatrie-baselland-liestal",
+          "medico-senior-lun-f-d-80-100-psichiatria-adulti-ambulatoriale-localita-liestal-psychiatrie-baselland-liestal"
         ],
         "en": [
           "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-psychiatrie-baselland-liestal"
@@ -1465,7 +1543,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d/7e2a5900-e4d3-46ec-9127-58e1b199b90c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:57.152Z",
+      "crawledAt": "2026-10-05T06:24:36.513Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1478,17 +1556,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-05",
+      "datePosted": "2026-07-06",
+      "postedDate": "2026-07-06",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/7e2a5900-e4d3-46ec-9127-58e1b199b90c",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl",
-        "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl"
+          "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl",
+          "dipl-pflegefachfrau-pflegefachmann-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
@@ -1547,7 +1629,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/psychologin-psychologe-m-w-d-schwerpunkt-sucht-und-abhaengigkeitserkrankungen/8188ef64-72a5-4f68-9caf-a8c79ec53397",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:56.639Z",
+      "crawledAt": "2026-10-05T06:24:35.889Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1560,17 +1642,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-06",
       "postedDate": "2026-07-06",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/8188ef64-72a5-4f68-9caf-a8c79ec53397",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-pbl",
-        "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-psychiatrie-baselland-liestal"
+        "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-psychiatrie-baselland-liestal",
+        "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-e-abhangigkeitserkrankungen-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-pbl"
+          "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-pbl",
+          "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-e-abhangigkeitserkrankungen-psychiatrie-baselland-liestal"
         ],
         "en": [
           "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-psychiatrie-baselland-liestal"
@@ -1629,7 +1715,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikum-kunst-und-ausdruckstherapie-m-w-d/d8e87047-5f17-45b5-a62b-631b45344058",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:56.139Z",
+      "crawledAt": "2026-10-05T06:24:35.258Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1642,18 +1728,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-12",
+      "datePosted": "2026-07-13",
+      "postedDate": "2026-07-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/d8e87047-5f17-45b5-a62b-631b45344058",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-pbl-liestal",
         "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal",
-        "therapie-de-l-art-et-de-l-expression-m-f-d-50-psychiatrie-baselland-liestal"
+        "therapie-de-l-art-et-de-l-expression-m-f-d-50-psychiatrie-baselland-liestal",
+        "praktikum-kunst-e-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-pbl-liestal"
+          "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-pbl-liestal",
+          "praktikum-kunst-e-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal"
@@ -1710,7 +1800,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/koechin-koch-efz-in-ausbildung-2027-m-w-d/eea7d932-8960-4f21-9a0e-9363e09048df",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:55.524Z",
+      "crawledAt": "2026-10-05T06:24:34.649Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1723,16 +1813,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-13",
       "postedDate": "2026-07-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/eea7d932-8960-4f21-9a0e-9363e09048df",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "kochin-koch-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "kochin-koch-efz-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "kochin-koch-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "kochin-koch-efz-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-07-13T12:56:24.711Z",
@@ -1781,7 +1875,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/leitende-psychologin-leitender-psychologe-m-w-d/c486f642-9268-450c-8474-084316913c1d",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:55.056Z",
+      "crawledAt": "2026-10-05T06:24:34.184Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1794,16 +1888,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-12",
+      "datePosted": "2026-07-13",
+      "postedDate": "2026-07-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/c486f642-9268-450c-8474-084316913c1d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal"
+        "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal",
+        "psicologo-senior-m-f-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal"
+          "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal",
+          "psicologo-senior-m-f-d-80-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal"
@@ -1859,7 +1957,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-den-pflegepool-m-w-d/7059afed-a29b-4d3e-b11b-c39ba2f78de6",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:54.630Z",
+      "crawledAt": "2026-10-05T06:24:33.720Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1872,16 +1970,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-16",
       "postedDate": "2026-07-16",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/7059afed-a29b-4d3e-b11b-c39ba2f78de6",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-den-pflegepool-m-w-d-50-100-pbl-liestal"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-den-pflegepool-m-w-d-50-100-pbl-liestal",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-den-pflegepool-m-w-d-50-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-den-pflegepool-m-w-d-50-100-pbl-liestal"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-den-pflegepool-m-w-d-50-100-pbl-liestal",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-den-pflegepool-m-w-d-50-100-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-07-16T23:26:00.719Z",
@@ -1931,7 +2033,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-betreuung-efz-in-ausbildung-2027-m-w-d/bbe76eee-1157-4e91-9653-42bf321c7c78",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:53.017Z",
+      "crawledAt": "2026-10-05T06:24:33.086Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1944,7 +2046,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/bbe76eee-1157-4e91-9653-42bf321c7c78",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1955,7 +2059,8 @@
         "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
         "personne-qualifiee-soins-specialises-efz-ou-dipl-carriere-dipl-infirmiere-pour-veille-de-nuit-m-w-d-60-80-psychiatrie",
         "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
-        "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-la-guardia-notturna-m-w-d-60-80-psychiatrie"
+        "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-la-guardia-notturna-m-w-d-60-80-psychiatrie",
+        "fachfrau-fachmann-betreuung-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1965,7 +2070,8 @@
           "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
           "personne-qualifiee-soins-specialises-efz-ou-dipl-carriere-dipl-infirmiere-pour-veille-de-nuit-m-w-d-60-80-psychiatrie",
           "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
-          "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-la-guardia-notturna-m-w-d-60-80-psychiatrie"
+          "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-la-guardia-notturna-m-w-d-60-80-psychiatrie",
+          "fachfrau-fachmann-betreuung-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "person-skilled-specialist-care-efz-or-dipl-career-dipl-nurse-for-night-watch-m-w-d-60-80-psychiatrie-baselland-liestal"
@@ -2024,7 +2130,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d/97428fe8-1cd6-4718-acb8-b8409583a980",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:51.504Z",
+      "crawledAt": "2026-10-05T06:24:32.583Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2037,16 +2143,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/97428fe8-1cd6-4718-acb8-b8409583a980",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "fachfrau-fachmann-gesundheit-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "fachfrau-fachmann-gesundheit-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-07-19T22:41:22.308Z",
@@ -2096,7 +2206,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d/59eeb81c-e415-4dc0-8e08-1119054c4931",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:50.011Z",
+      "crawledAt": "2026-10-05T06:24:31.100Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2109,16 +2219,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/59eeb81c-e415-4dc0-8e08-1119054c4931",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "fachmann-fachfrau-reinigungstechnik-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "fachmann-fachfrau-reinigungstechnik-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-07-19T22:41:21.838Z",
@@ -2168,7 +2282,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d/022f0b21-d21b-4c52-aed8-c0487d909666",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:49.010Z",
+      "crawledAt": "2026-10-05T06:24:29.596Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2181,16 +2295,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/022f0b21-d21b-4c52-aed8-c0487d909666",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-07-19T22:41:21.363Z",
@@ -2240,7 +2358,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/gaertnerin-gaertner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d/2d5552f8-a85e-47e5-828b-1fb0ed6767f0",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:47.032Z",
+      "crawledAt": "2026-10-05T06:24:28.093Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2253,16 +2371,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/2d5552f8-a85e-47e5-828b-1fb0ed6767f0",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "gartnerin-gartner-specializzazione-pflanzenproduktion-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "gartnerin-gartner-specializzazione-pflanzenproduktion-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal"
@@ -2318,7 +2440,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d/1d707ce1-18c9-4882-807e-180463e4a9c1",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:45.518Z",
+      "crawledAt": "2026-10-05T06:24:27.204Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2331,16 +2453,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "2026-07-20",
+      "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/1d707ce1-18c9-4882-807e-180463e4a9c1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal"
+        "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal",
+        "kauffrau-kaufmann-cfc-gesundheit-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal"
+          "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal",
+          "kauffrau-kaufmann-cfc-gesundheit-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal"
@@ -2396,7 +2522,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-m-w-d/5ea24a05-7e92-406f-87f4-dc43f44eb9b1",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:44.108Z",
+      "crawledAt": "2026-10-05T06:24:25.236Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2409,17 +2535,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-17",
       "postedDate": "2026-08-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/5ea24a05-7e92-406f-87f4-dc43f44eb9b1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal",
-        "fachfrau-fachmann-gesundheit-m-w-d-80-100-psychiatrie-baselland-liestal"
+        "fachfrau-fachmann-gesundheit-m-w-d-80-100-psychiatrie-baselland-liestal",
+        "specialista-sanitario-m-f-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal"
+          "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal",
+          "specialista-sanitario-m-f-d-80-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal"
@@ -2460,7 +2590,7 @@
       "companyDomain": "pbl.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH (m/w/d) 70-100 %",
       "titleByLocale": {
-        "it": "Infermiere diplomato/Infermiere diplomato HF/FH (m/f/d) 70-100%",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH (m/w/d) 70-100 %",
         "en": "Dipl. Care professional (m/f/d) 70-100 %",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH (m/w/d) 70-100 %",
         "fr": "Dipl. Professionnel de soins (h/f/d) 70-100 %"
@@ -2478,7 +2608,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d/3ca66d1d-5493-4d40-a35a-5be325a906f7",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:42.133Z",
+      "crawledAt": "2026-10-05T06:24:23.758Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2491,20 +2621,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-21",
       "postedDate": "2026-08-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/3ca66d1d-5493-4d40-a35a-5be325a906f7",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-m-w-d-70-100-pbl-liestal",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d-70-100-pbl-liestal",
-        "dipl-pflegefachperson-m-w-d-70-100-psychiatrie-baselland-liestal"
+        "dipl-pflegefachperson-m-w-d-70-100-psychiatrie-baselland-liestal",
+        "dipl-infermieristica-professionale-dipl-specialista-hf-fh-m-f-d-70-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-m-w-d-70-100-pbl-liestal",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d-70-100-pbl-liestal",
-          "dipl-pflegefachperson-m-w-d-70-100-psychiatrie-baselland-liestal"
+          "dipl-pflegefachperson-m-w-d-70-100-psychiatrie-baselland-liestal",
+          "dipl-infermieristica-professionale-dipl-specialista-hf-fh-m-f-d-70-100-psychiatrie-baselland-liestal"
         ],
         "de": [
           "dipl-pflegefachperson-m-w-d-70-100-pbl-liestal"
@@ -2557,7 +2691,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikum-arbeitsagogik-sozialpaedagogik/c637c811-b105-4eb9-9466-b98af08d1a61",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:40.591Z",
+      "crawledAt": "2026-10-05T06:24:22.223Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2570,18 +2704,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-24",
       "postedDate": "2026-08-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/c637c811-b105-4eb9-9466-b98af08d1a61",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-arbeitsagogik-sozialpadagogik-80-100-pbl-liestal",
-        "praktikum-arbeitsagogik-sozialpadagogik-80-100-psychiatrie-baselland-liestal"
+        "praktikum-arbeitsagogik-sozialpadagogik-80-100-psychiatrie-baselland-liestal",
+        "istruzione-del-lavoro-istruzione-sociale-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-arbeitsagogik-sozialpadagogik-80-100-pbl-liestal",
-          "praktikum-arbeitsagogik-sozialpadagogik-80-100-psychiatrie-baselland-liestal"
+          "praktikum-arbeitsagogik-sozialpadagogik-80-100-psychiatrie-baselland-liestal",
+          "istruzione-del-lavoro-istruzione-sociale-80-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikum-arbeitsagogik-sozialpadagogik-80-100-psychiatrie-baselland-liestal"
@@ -2639,7 +2777,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-sozialpaedagogik-fh-w-m-d/6ae69558-0dfb-4f3d-b9b7-2920ef0e8fe3",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:39.116Z",
+      "crawledAt": "2026-10-05T06:24:20.240Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2652,18 +2790,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-24",
       "postedDate": "2026-08-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/6ae69558-0dfb-4f3d-b9b7-2920ef0e8fe3",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-pbl-liestal",
-        "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-psychiatrie-baselland-liestal"
+        "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-psychiatrie-baselland-liestal",
+        "internship-internship-social-pedagogy-fh-m-f-d-60-80-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-pbl-liestal",
-          "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-psychiatrie-baselland-liestal"
+          "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-psychiatrie-baselland-liestal",
+          "internship-internship-social-pedagogy-fh-m-f-d-60-80-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikantin-praktikant-sozialpadagogik-fh-w-m-d-60-80-psychiatrie-baselland-liestal"
@@ -2722,7 +2864,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-m-w-d/7d5fd07a-aefa-4daf-9e93-75802d253a3a",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:37.636Z",
+      "crawledAt": "2026-10-05T06:24:18.740Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2735,16 +2877,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/7d5fd07a-aefa-4daf-9e93-75802d253a3a",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal"
+        "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal",
+        "specialista-sanitario-m-f-d-80-100-psychiatrie-baselland-liestal-791f23"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal"
+          "fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal",
+          "specialista-sanitario-m-f-d-80-100-psychiatrie-baselland-liestal-791f23"
         ]
       },
       "firstSeenAt": "2026-08-17T09:59:00.004Z",
@@ -2794,7 +2940,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/landschaftsgaertnerin-landschaftsgaertner-m-w-d/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:36.639Z",
+      "crawledAt": "2026-10-05T06:24:17.241Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2807,18 +2953,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
-        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
+        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal",
+        "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
-          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal",
+          "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
@@ -2873,7 +3023,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/gruppenleiter-gruppenleiterin-manufaktur-m-w-d/b9b328fe-6e80-4b79-a9b3-8d75ebd3a614",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:35.644Z",
+      "crawledAt": "2026-10-05T06:24:15.711Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2886,18 +3036,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-02",
       "postedDate": "2026-09-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/b9b328fe-6e80-4b79-a9b3-8d75ebd3a614",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-pbl-liestal",
-        "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-psychiatrie-baselland-liestal"
+        "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-psychiatrie-baselland-liestal",
+        "manager-gruppo-manufaktur-m-f-d-80-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-pbl-liestal",
-          "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-psychiatrie-baselland-liestal"
+          "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-psychiatrie-baselland-liestal",
+          "manager-gruppo-manufaktur-m-f-d-80-psychiatrie-baselland-liestal"
         ],
         "en": [
           "gruppenleiter-gruppenleiterin-manufaktur-m-w-d-80-psychiatrie-baselland-liestal"
@@ -2928,7 +3082,7 @@
         "it": "assistente-stazione-assistente-stazione-m-f-d-40-giovedi-e-venerdi-psychiatrie-baselland-liestal",
         "en": "station-assistant-station-assistant-m-f-d-40-thursday-and-friday-psychiatrie-baselland-liestal",
         "de": "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-pbl-liestal",
-        "fr": "assistant-de-station-assistant-de-station-h-f-d-40-jeudi-et-vendredi-psychiatrie-baselland-liestal"
+        "fr": "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -2938,7 +3092,7 @@
         "it": "Assistente stazione / Assistente stazione (m/f/d) 40% (giovedì e venerdì)",
         "en": "Station Assistant / Station Assistant (m/f/d) 40% (Thursday and Friday)",
         "de": "Stationsassistentin / Stationsassistent (m/w/d) 40 % (Donnerstag und Freitag)",
-        "fr": "Assistant de station (h/f/d) 40 % (jeudi et vendredi)"
+        "fr": "Stationsassistentin / Stationsassistent (m/w/d) 40 % (Donnerstag und Freitag)"
       },
       "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Schwerpunkt Alterspsychiatrie, Station G2Die Station G2 betreut ältere Patientinnen und Patienten in psychiatrischen Krisensituationen. Eine enge interprofessionelle Zusammenarbeit und ein gut organisierter Stationsalltag sind dabei zentral.Das Milieu der Station ist schwerpunktmässig auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen bei mittelgradigen kognitiven und somatischen Beeinträchtigungen sowie auf die Diagnostik und Behandlung im Rahmen qualifizierter Entzugsbehandlungen ausgerichtet. Wo erforderlich, werden sozialpsychiatrische Interventionen eingeleitet.\nMit Herz und Organisationstalent dabei? Dann freuen wir uns auf Sie!\n\n## Ihre Aufgaben\n• Ansprechperson für Patientinnen und Patienten, Angehörige, externe Stellen und interne Supportbereiche\n• Organisation von Eintritten, Terminen, Patiententransporten und Dolmetscherdiensten\n• Pflege und Aktualisierung von Patientendaten und Stationsübersichten\n• Korrespondenz, Post, Raumreservationen sowie allgemeine administrative und organisatorische Aufgaben\n• Bestellwesen sowie Verwaltung von Büro- und Pflegematerial\n• Koordination mit Hotellerie, technischem Dienst und weiteren internen Bereichen\n• Unterstützung bei Stationsanlässen und Projekten\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ oder Medizinische/r Praxisassistent/in EFZ\n• Interesse an der Psychiatrie; Erfahrung in Psychiatrie oder Altersmedizin von Vorteil\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Organisationstalent, Kommunikationsfreude und Dienstleistungsorientierung\n• Freude an interprofessioneller Zusammenarbeit\n• Sicherer Umgang mit digitalen Anwendungen; Kenntnisse in Microsoft Office und Orbis von Vorteil\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\n\n## Spezielles Angebot\n• Eine vielseitige Funktion mit wichtiger Drehscheibenfunktion auf der Station\n• Sorgfältige Einführung in die Aufgaben\n• Ein engagiertes interprofessionelles Team\n• Attraktive Anstellungsbedingungen nach GAV\n• Fixe Arbeitstage am Donnerstag und Freitag\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
       "descriptionByLocale": {
@@ -2953,7 +3107,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/stationsassistentin-stationsassistent-m-w-d-donnerstag-und-freitag/c849a638-8016-4601-9ada-7c11be6507bd",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:34.128Z",
+      "crawledAt": "2026-10-05T06:24:14.751Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2966,24 +3120,30 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/c849a638-8016-4601-9ada-7c11be6507bd",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-pbl-liestal",
         "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-e-freitag-psychiatrie-baselland-liestal",
-        "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-psychiatrie-baselland-liestal"
+        "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-psychiatrie-baselland-liestal",
+        "assistant-de-station-assistant-de-station-h-f-d-40-jeudi-et-vendredi-psychiatrie-baselland-liestal",
+        "assistente-stazione-assistente-stazione-m-f-d-40-giovedi-e-venerdi-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-pbl-liestal",
-          "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-e-freitag-psychiatrie-baselland-liestal"
+          "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-e-freitag-psychiatrie-baselland-liestal",
+          "assistente-stazione-assistente-stazione-m-f-d-40-giovedi-e-venerdi-psychiatrie-baselland-liestal"
         ],
         "en": [
           "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-psychiatrie-baselland-liestal"
         ],
         "fr": [
+          "assistant-de-station-assistant-de-station-h-f-d-40-jeudi-et-vendredi-psychiatrie-baselland-liestal",
           "stationsassistentin-stationsassistent-m-w-d-40-donnerstag-und-freitag-psychiatrie-baselland-liestal"
         ]
       },
@@ -3034,7 +3194,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/441e67bd-62b4-499f-afd2-71e0b77b99a5",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:32.102Z",
+      "crawledAt": "2026-10-05T06:24:13.786Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3047,16 +3207,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-09",
+      "postedDate": "2026-09-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/441e67bd-62b4-499f-afd2-71e0b77b99a5",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal"
+        "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
+        "medico-senior-m-f-d-80-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal"
+          "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
+          "medico-senior-m-f-d-80-100-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-06-15T15:10:43.723Z",
@@ -3105,7 +3269,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/teamleiterin-teamleiter-wohnheim-windspiel-m-w-d/272b36dd-4302-4b4a-9c08-69ee15388ece",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:30.109Z",
+      "crawledAt": "2026-10-05T06:24:12.231Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3118,16 +3282,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/272b36dd-4302-4b4a-9c08-69ee15388ece",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
+        "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
+          "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
@@ -3183,7 +3351,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikant-praktikantin-m-w-d-im-wohnheim-windspiel/c54b7893-8df6-4ea6-aead-8b641e9731c9",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:28.606Z",
+      "crawledAt": "2026-10-05T06:24:10.210Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3196,16 +3364,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/c54b7893-8df6-4ea6-aead-8b641e9731c9",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
+        "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
+          "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
@@ -3260,7 +3432,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-hf-fh-m-w-d/5a1abd77-d981-4f18-a1ee-3f1c8920a116",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:26.601Z",
+      "crawledAt": "2026-10-05T06:24:08.276Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3273,18 +3445,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/5a1abd77-d981-4f18-a1ee-3f1c8920a116",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal",
-        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
+        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal",
+        "pedagoga-sociale-pedagoga-sociale-hf-fh-m-f-d-50-80-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal",
-          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal",
+          "pedagoga-sociale-pedagoga-sociale-hf-fh-m-f-d-50-80-psychiatrie-baselland-liestal"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
@@ -3340,7 +3516,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-m-w-d/15e4b8eb-911e-4ea3-a12a-9c358399fa48",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:24.615Z",
+      "crawledAt": "2026-10-05T06:24:06.749Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3353,19 +3529,23 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/15e4b8eb-911e-4ea3-a12a-9c358399fa48",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-60-m-w-d-pbl-liestal",
         "praktikantin-praktikant-administration-kinder-e-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal",
-        "praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal"
+        "praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal",
+        "amministrazione-interna-pratica-psichiatria-infantile-e-adolescente-60-m-f-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-60-m-w-d-pbl-liestal",
-          "praktikantin-praktikant-administration-kinder-e-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal"
+          "praktikantin-praktikant-administration-kinder-e-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal",
+          "amministrazione-interna-pratica-psichiatria-infantile-e-adolescente-60-m-f-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-60-m-w-d-psychiatrie-baselland-liestal"
@@ -3421,7 +3601,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d/af4cfdc2-855a-4350-9dfd-6e53ccb4002f",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:22.653Z",
+      "crawledAt": "2026-10-05T06:24:04.744Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3434,20 +3614,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/af4cfdc2-855a-4350-9dfd-6e53ccb4002f",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-70-100-m-w-d-pbl-liestal",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-70-100-m-w-d-psychiatrie-baselland-liestal",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-100-m-w-d-pbl-liestal"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-100-m-w-d-pbl-liestal",
+        "dipl-infermieristica-professionale-dipl-professionista-hf-70-100-m-f-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-70-100-m-w-d-pbl-liestal",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-70-100-m-w-d-psychiatrie-baselland-liestal",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-100-m-w-d-pbl-liestal"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-100-m-w-d-pbl-liestal",
+          "dipl-infermieristica-professionale-dipl-professionista-hf-70-100-m-f-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-70-100-m-w-d-pbl-liestal"
@@ -3503,7 +3687,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/arzt-aerztin-im-nachtdienst-80-m-w-d/b7fbc5d0-1bc4-4696-8e96-26c6a1c390ad",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:21.113Z",
+      "crawledAt": "2026-10-05T06:24:02.767Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3516,16 +3700,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/b7fbc5d0-1bc4-4696-8e96-26c6a1c390ad",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arzt-arztin-im-nachtdienst-80-100-m-w-d-pbl-liestal"
+        "arzt-arztin-im-nachtdienst-80-100-m-w-d-pbl-liestal",
+        "dottore-in-servizio-notturno-80-100-m-f-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arzt-arztin-im-nachtdienst-80-100-m-w-d-pbl-liestal"
+          "arzt-arztin-im-nachtdienst-80-100-m-w-d-pbl-liestal",
+          "dottore-in-servizio-notturno-80-100-m-f-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "arzt-arztin-im-nachtdienst-80-100-m-w-d-pbl-liestal"
@@ -3581,7 +3769,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-betreuung-w-m-d/231e42d7-5649-4856-9771-5ab0b4be030c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:19.250Z",
+      "crawledAt": "2026-10-05T06:24:00.758Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3594,16 +3782,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/231e42d7-5649-4856-9771-5ab0b4be030c",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-w-m-d-50-90-pbl-liestal"
+        "fachfrau-fachmann-betreuung-w-m-d-50-90-pbl-liestal",
+        "specialista-supporto-professionale-m-f-d-50-90-psychiatrie-baselland-liestal-5970f4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-w-m-d-50-90-pbl-liestal"
+          "fachfrau-fachmann-betreuung-w-m-d-50-90-pbl-liestal",
+          "specialista-supporto-professionale-m-f-d-50-90-psychiatrie-baselland-liestal-5970f4"
         ],
         "en": [
           "fachfrau-fachmann-betreuung-w-m-d-50-90-pbl-liestal"
@@ -3659,7 +3851,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-kunsttherapie-m-w-d/eac45772-65e7-4778-a386-5dcb16ea46d7",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:17.125Z",
+      "crawledAt": "2026-10-05T06:23:59.253Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3672,17 +3864,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/eac45772-65e7-4778-a386-5dcb16ea46d7",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-psychiatrie-baselland-liestal",
-        "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-pbl-liestal"
+        "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-pbl-liestal",
+        "terapia-d-arte-di-stage-m-f-d-50-60-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-pbl-liestal"
+          "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-pbl-liestal",
+          "terapia-d-arte-di-stage-m-f-d-50-60-psychiatrie-baselland-liestal"
         ],
         "en": [
           "praktikantin-praktikant-kunsttherapie-m-w-d-50-60-pbl-liestal"
@@ -3741,7 +3937,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/stationsleiterin-pflege-stationsleiter-pflege-m-w-d/fce6d20c-a58a-450b-8b9d-5aa9ae4ec321",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:15.121Z",
+      "crawledAt": "2026-10-05T06:23:57.328Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3754,18 +3950,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/fce6d20c-a58a-450b-8b9d-5aa9ae4ec321",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
           "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-psychiatrie-baselland-liestal",
-          "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal"
+          "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal",
+          "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-pbl-liestal"
         ],
         "it": [
           "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-pbl-liestal",
-          "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal"
+          "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal",
+          "stationsleitung-pflege-per-la-akutstation-80-100-m-w-d-psychiatrie-baselland-liestal"
         ],
         "en": [
           "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-psychiatrie-baselland-liestal"
@@ -3777,7 +3977,8 @@
       "previousSlugs": [
         "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-pbl-liestal",
         "stationsleitung-pflege-fur-die-akutstation-80-100-m-w-d-psychiatrie-baselland-liestal",
-        "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal"
+        "stationsleiterin-pflege-stationsleiter-pflege-m-w-d-80-100-pbl-liestal",
+        "stationsleitung-pflege-per-la-akutstation-80-100-m-w-d-psychiatrie-baselland-liestal"
       ],
       "firstSeenAt": "2026-09-28T03:35:14.098Z",
       "salaryMin": 88000,
@@ -3826,7 +4027,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d/f850f319-3399-4651-b7e8-ef1b6085f3e4",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:13.136Z",
+      "crawledAt": "2026-10-05T06:23:55.254Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3839,16 +4040,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/f850f319-3399-4651-b7e8-ef1b6085f3e4",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl-liestal"
+        "sozialpadagogin-sozialpadagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl-liestal",
+        "sozialpadagogin-sozialpadagoge-fh-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl-liestal"
+          "sozialpadagogin-sozialpadagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl-liestal",
+          "sozialpadagogin-sozialpadagoge-fh-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-09-28T21:18:48.503Z",
@@ -3898,7 +4103,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationaer/3d9b53fe-9449-4571-80e7-cae0615fc8b5",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:11.302Z",
+      "crawledAt": "2026-10-05T06:23:53.251Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3911,16 +4116,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/3d9b53fe-9449-4571-80e7-cae0615fc8b5",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationar-60-100-pbl-liestal"
+        "fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationar-60-100-pbl-liestal",
+        "specialista-sanitario-specialista-sanitario-m-f-d-stazionario-60-100-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationar-60-100-pbl-liestal"
+          "fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationar-60-100-pbl-liestal",
+          "specialista-sanitario-specialista-sanitario-m-f-d-stazionario-60-100-psychiatrie-baselland-liestal"
         ],
         "en": [
           "fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationar-60-100-pbl-liestal"
@@ -3943,6 +4152,82 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "pbl-fbdcbb8ba536",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-psychiatrie-baselland-liestal",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-pbl-liestal",
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-psychiatrie-baselland-liestal",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-pbl-liestal",
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-pbl-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 60-100 % (m/w/d)",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 60-100 % (m/w/d)",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 60-100 % (m/w/d)",
+        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 60-100 % (m/w/d)",
+        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 60-100 % (m/w/d)"
+      },
+      "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Akutstation G1, Schwerpunkt Alterspsychiatrie\nDas Milieu der Station ist auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen sowie auf die Diagnostik und Behandlung schwerer kognitiver und somatischer Beeinträchtigungen ausgerichtet. Dazu gehört auch die intensive psychiatrische Behandlung bei Selbst- und Fremdgefährdung.\n\n## Ihre Aufgaben\n• Ganzheitliche Pflege und Betreuung von Patientinnen und Patienten mit akuten psychischen Erkrankungen sowie schweren kognitiven und somatischen Beeinträchtigungen\n• Unterstützung der Patientinnen und Patienten bei der Übernahme von Aktivitäten des täglichen Lebens, einschliesslich der Körperpflege\n• Umsetzung der im Behandlungsplan festgelegten pflegerischen und milieutherapeutischen Massnahmen unter Anwendung evidenzbasierter Methoden\n• Mitarbeit und Verantwortungsübernahme in interprofessionellen Teams zur Weiterentwicklung von Pflege- und Behandlungskonzepten sowie zur Mitgestaltung neuer stationsspezifischer Konzepte\n\n## Ihr Profil\n• Abgeschlossenes, vom SRK anerkanntes Diplom als Dipl. Pflegefachfrau/Dipl. Pflegefachmann HF oder FH\n• Idealerweise Erfahrung in der psychiatrischen Pflege\n• Interesse und Freude an der Arbeit mit betagten Menschen mit somatischen und psychiatrischen Krankheitsbildern\n• Teamfähigkeit und Bereitschaft zur interprofessionellen Zusammenarbeit\n• Offene und reflektierte Haltung gegenüber neuen Herausforderungen\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+      "descriptionByLocale": {
+        "de": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Akutstation G1, Schwerpunkt Alterspsychiatrie\nDas Milieu der Station ist auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen sowie auf die Diagnostik und Behandlung schwerer kognitiver und somatischer Beeinträchtigungen ausgerichtet. Dazu gehört auch die intensive psychiatrische Behandlung bei Selbst- und Fremdgefährdung.\n\n## Ihre Aufgaben\n• Ganzheitliche Pflege und Betreuung von Patientinnen und Patienten mit akuten psychischen Erkrankungen sowie schweren kognitiven und somatischen Beeinträchtigungen\n• Unterstützung der Patientinnen und Patienten bei der Übernahme von Aktivitäten des täglichen Lebens, einschliesslich der Körperpflege\n• Umsetzung der im Behandlungsplan festgelegten pflegerischen und milieutherapeutischen Massnahmen unter Anwendung evidenzbasierter Methoden\n• Mitarbeit und Verantwortungsübernahme in interprofessionellen Teams zur Weiterentwicklung von Pflege- und Behandlungskonzepten sowie zur Mitgestaltung neuer stationsspezifischer Konzepte\n\n## Ihr Profil\n• Abgeschlossenes, vom SRK anerkanntes Diplom als Dipl. Pflegefachfrau/Dipl. Pflegefachmann HF oder FH\n• Idealerweise Erfahrung in der psychiatrischen Pflege\n• Interesse und Freude an der Arbeit mit betagten Menschen mit somatischen und psychiatrischen Krankheitsbildern\n• Teamfähigkeit und Bereitschaft zur interprofessionellen Zusammenarbeit\n• Offene und reflektierte Haltung gegenüber neuen Herausforderungen\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "it": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Akutstation G1, Schwerpunkt Alterspsychiatrie\nDas Milieu der Station ist auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen sowie auf die Diagnostik und Behandlung schwerer kognitiver und somatischer Beeinträchtigungen ausgerichtet. Dazu gehört auch die intensive psychiatrische Behandlung bei Selbst- und Fremdgefährdung.\n\n## Ihre Aufgaben\n• Ganzheitliche Pflege und Betreuung von Patientinnen und Patienten mit akuten psychischen Erkrankungen sowie schweren kognitiven und somatischen Beeinträchtigungen\n• Unterstützung der Patientinnen und Patienten bei der Übernahme von Aktivitäten des täglichen Lebens, einschliesslich der Körperpflege\n• Umsetzung der im Behandlungsplan festgelegten pflegerischen und milieutherapeutischen Massnahmen unter Anwendung evidenzbasierter Methoden\n• Mitarbeit und Verantwortungsübernahme in interprofessionellen Teams zur Weiterentwicklung von Pflege- und Behandlungskonzepten sowie zur Mitgestaltung neuer stationsspezifischer Konzepte\n\n## Ihr Profil\n• Abgeschlossenes, vom SRK anerkanntes Diplom als Dipl. Pflegefachfrau/Dipl. Pflegefachmann HF oder FH\n• Idealerweise Erfahrung in der psychiatrischen Pflege\n• Interesse und Freude an der Arbeit mit betagten Menschen mit somatischen und psychiatrischen Krankheitsbildern\n• Teamfähigkeit und Bereitschaft zur interprofessionellen Zusammenarbeit\n• Offene und reflektierte Haltung gegenüber neuen Herausforderungen\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "en": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Akutstation G1, Schwerpunkt Alterspsychiatrie\nDas Milieu der Station ist auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen sowie auf die Diagnostik und Behandlung schwerer kognitiver und somatischer Beeinträchtigungen ausgerichtet. Dazu gehört auch die intensive psychiatrische Behandlung bei Selbst- und Fremdgefährdung.\n\n## Ihre Aufgaben\n• Ganzheitliche Pflege und Betreuung von Patientinnen und Patienten mit akuten psychischen Erkrankungen sowie schweren kognitiven und somatischen Beeinträchtigungen\n• Unterstützung der Patientinnen und Patienten bei der Übernahme von Aktivitäten des täglichen Lebens, einschliesslich der Körperpflege\n• Umsetzung der im Behandlungsplan festgelegten pflegerischen und milieutherapeutischen Massnahmen unter Anwendung evidenzbasierter Methoden\n• Mitarbeit und Verantwortungsübernahme in interprofessionellen Teams zur Weiterentwicklung von Pflege- und Behandlungskonzepten sowie zur Mitgestaltung neuer stationsspezifischer Konzepte\n\n## Ihr Profil\n• Abgeschlossenes, vom SRK anerkanntes Diplom als Dipl. Pflegefachfrau/Dipl. Pflegefachmann HF oder FH\n• Idealerweise Erfahrung in der psychiatrischen Pflege\n• Interesse und Freude an der Arbeit mit betagten Menschen mit somatischen und psychiatrischen Krankheitsbildern\n• Teamfähigkeit und Bereitschaft zur interprofessionellen Zusammenarbeit\n• Offene und reflektierte Haltung gegenüber neuen Herausforderungen\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "fr": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\n\n## Akutstation G1, Schwerpunkt Alterspsychiatrie\nDas Milieu der Station ist auf das Auffangen und Kompensieren von Krisen im Rahmen psychiatrischer Erkrankungen sowie auf die Diagnostik und Behandlung schwerer kognitiver und somatischer Beeinträchtigungen ausgerichtet. Dazu gehört auch die intensive psychiatrische Behandlung bei Selbst- und Fremdgefährdung.\n\n## Ihre Aufgaben\n• Ganzheitliche Pflege und Betreuung von Patientinnen und Patienten mit akuten psychischen Erkrankungen sowie schweren kognitiven und somatischen Beeinträchtigungen\n• Unterstützung der Patientinnen und Patienten bei der Übernahme von Aktivitäten des täglichen Lebens, einschliesslich der Körperpflege\n• Umsetzung der im Behandlungsplan festgelegten pflegerischen und milieutherapeutischen Massnahmen unter Anwendung evidenzbasierter Methoden\n• Mitarbeit und Verantwortungsübernahme in interprofessionellen Teams zur Weiterentwicklung von Pflege- und Behandlungskonzepten sowie zur Mitgestaltung neuer stationsspezifischer Konzepte\n\n## Ihr Profil\n• Abgeschlossenes, vom SRK anerkanntes Diplom als Dipl. Pflegefachfrau/Dipl. Pflegefachmann HF oder FH\n• Idealerweise Erfahrung in der psychiatrischen Pflege\n• Interesse und Freude an der Arbeit mit betagten Menschen mit somatischen und psychiatrischen Krankheitsbildern\n• Teamfähigkeit und Bereitschaft zur interprofessionellen Zusammenarbeit\n• Offene und reflektierte Haltung gegenüber neuen Herausforderungen\n\n## Stellenantritt\nDie Stelle ist per sofort oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal"
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d/7438feb8-a41c-4466-be73-ef2ff33bbafd",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:23:51.484Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/7438feb8-a41c-4466-be73-ef2ff33bbafd",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-60-100-m-w-d-pbl-liestal"
+      ],
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T06:23:51.484Z"
     }
   ]
 }

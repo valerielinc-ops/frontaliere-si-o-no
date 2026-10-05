@@ -1,4 +1,4 @@
-import { hasPostingDateProvenance, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
@@ -55,6 +55,7 @@ import {
   hasConcatenatedWords,
   MIN_TITLE_CHARS,
   hasUsableTitle,
+  isModelMetaAnswer,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
@@ -69,6 +70,8 @@ import { buildStableJobIdentity } from './job-identity.mjs';
 import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { getRetranslationBaseline, recordRetranslationBaseline } from './crawler-retranslation-baseline.mjs';
+import { recordPreviousRunSlice } from './crawler-previous-run-slice.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -1404,7 +1407,21 @@ export function resetHardenCache() {
   _hardenResultCache.clear();
 }
 
-export function hardenJobLocaleFields({ dataJobsPath }) {
+/**
+ * @param {object} opts
+ * @param {string} opts.dataJobsPath
+ * @param {boolean} [opts.fillEmptyWithSourceCopy=true] — when false, an empty
+ *   non-source title/description slot stays empty (flagged
+ *   `needsRetranslation`) instead of receiving a copy of the source text.
+ *   The copy only exists to satisfy the publish gate on the BUILD-TIME dataset
+ *   (deploy.yml `prep` re-hardens the assembled data/jobs.json); a caller that
+ *   writes the per-crawler slices back to git must pass false, otherwise the
+ *   committed slot looks filled, the "empty slot = to translate" convention of
+ *   the crawlers is lost and the description audit counts the copy as a
+ *   stale translation (issue 6109: housekeeping commit of 2026-10-04 turned
+ *   161 empty Coop jobs into source copies).
+ */
+export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -1691,8 +1708,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             placeholder,
             ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
           ].find(hasUsableTitle) || placeholder;
-          if (sourceCopy) {
+          if (sourceCopy && fillEmptyWithSourceCopy) {
             job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          } else if (sourceCopy && !job.needsRetranslation) {
             job.needsRetranslation = true;
             jobChanged = true;
           }
@@ -1705,7 +1725,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         if (isPlaceholderDescription(descValue)) {
           delete job.descriptionByLocale[locale];
           if (baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
-            job.descriptionByLocale[locale] = baseDesc;
+            if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
             job.needsRetranslation = true;
           }
           jobChanged = true;
@@ -1735,9 +1755,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           job.needsRetranslation = true;
           jobChanged = true;
         }
-        // Fallback: if description is still empty, copy source description as placeholder.
-        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
-          job.descriptionByLocale[locale] = baseDesc;
+        // Fallback: if description is still empty, copy source description as
+        // placeholder — build-time only. With fillEmptyWithSourceCopy=false the
+        // slot stays empty ("to translate") and only the flag is set.
+        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished
+            && (fillEmptyWithSourceCopy || !job.needsRetranslation)) {
+          if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
           job.needsRetranslation = true;
           jobChanged = true;
         }
@@ -2636,6 +2659,12 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
+  // A model answer ABOUT the request is never a title: «Sorry, I can't help
+  // with that.», «I need to see the actual job title you want translated…»
+  // (the retry prompt below, answered by an agentic transport), «Let me check
+  // the translation cache files…». Rejected on every rung, and on a cache hit
+  // too: `translate-title-v2` stored such answers and replayed them.
+  const isMetaAnswer = (t) => isModelMetaAnswer(t, cleanTitle);
   const deterministicFallback = () => {
     const fallback = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
     if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()
@@ -2656,7 +2685,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     if (cacheKey && getCachedAiResponse) {
       const cached = getCachedAiResponse(cacheKey);
       if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
-          && cached.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(cached);
+          && cached.toLowerCase() !== cleanTitle.toLowerCase() && !isMetaAnswer(cached)) return _rb(cached);
     }
     if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') {
       const fallback = deterministicFallback();
@@ -2674,6 +2703,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
       const translated = _rb((ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, '')));
       if (hasUsableTitle(translated) && translated.toLowerCase() !== cleanTitle.toLowerCase()
+          && !isMetaAnswer(translated)
           && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
         if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
         return translated;
@@ -2688,12 +2718,15 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: MIN_TITLE_CHARS,
   });
-  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
+  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()
+      && !isMetaAnswer(localPipeline)) return _rb(localPipeline);
 
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored meta-answer is a cache MISS, not a sentinel: translate afresh
+    // and let the result overwrite the entry.
+    if (typeof fromCache === 'string' && !isMetaAnswer(fromCache)) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache) &&
           fromCache.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(fromCache);
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanTitle, sourceLang, targetLang: locale });
@@ -2731,6 +2764,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
         let translated = (ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, ''));
+        if (isMetaAnswer(translated)) translated = '';
         // Post-check: if result still has Italian words in a non-IT locale, or
         // still reads as sourceLang for any other locale pair, retry with explicit instruction
         const stillHasItalianWords = titleHasItalianWords(translated, locale);
@@ -2752,6 +2786,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
             const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
             if (hasUsableTitle(retryClean) &&
+                !isMetaAnswer(retryClean) &&
                 !titleHasItalianWords(retryClean, locale) &&
                 !titleLooksUntranslatedFromSource(retryClean, sourceLang, locale) &&
                 retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
@@ -2862,6 +2897,8 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
+      // A stored refusal/clarification as the title busts the entry too.
+      if (isModelMetaAnswer(nsFn(localeData.title || ''), title || '')) return true;
       if (unsupportedSource) {
         const cachedTitle = nsFn(localeData.title || '');
         if (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase()) return true;
@@ -2946,7 +2983,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       const item = parsed?.[locale];
       if (!item || typeof item !== 'object') continue;
-      const localizedTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      // A refusal or a request for the input is not a title: dropped here, the
+      // source title stands in and the repair selector re-queues the slot.
+      const answeredTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      const localizedTitle = isModelMetaAnswer(answeredTitle, title || '') ? '' : answeredTitle;
       const desc = cleanFn(sanitizeAiOutput(item.description || ''));
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
@@ -3074,6 +3114,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         value.toLowerCase() === safeUnsupportedSourceTitle(locale).toLowerCase()) {
       return true;
     }
+    // A refusal or a request for the input reads as a fine English title to
+    // the language verdict below; the repair selector queued it for this.
+    if (isModelMetaAnswer(value, sourceTitle)) return true;
     return titleVerdictFor(locale, value).untranslated;
   };
 
@@ -4577,6 +4620,21 @@ export async function runDedicatedBaseCrawler({
 }
 
 /**
+ * The jobs of a slice file as committed by the previous run, for the
+ * retranslation baseline. A missing or unreadable slice has no baseline: the
+ * crawler's flags on those records are then kept as they are.
+ */
+function readSliceJobsForBaseline(slicePath) {
+  try {
+    if (!fs.existsSync(slicePath)) return [];
+    const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    return Array.isArray(data?.jobs) ? data.jobs : (Array.isArray(data) ? data : []);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Raw-seed the per-crawler slice files from the merged data/jobs.json for the
  * given company keys. Raw write only — the quality/normalization gates run in
  * the per-crawler `writeJobsCrawlerSlice` final write (and the assemble-time
@@ -4605,7 +4663,17 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       byKey.get(key).push(job);
     }
     for (const [key, jobs] of byKey) {
-      writeJson(path.join(sliceDir, `${key}.json`), { jobs });
+      const slicePath = path.join(sliceDir, `${key}.json`);
+      // The slice is about to stop being the previous run's: keep its
+      // translation baseline first (crawler-retranslation-baseline.mjs), or
+      // every source change of this run would compare against itself.
+      if (!getRetranslationBaseline(key)) {
+        recordRetranslationBaseline(key, readSliceJobsForBaseline(slicePath));
+      }
+      // Same for the checks that compare this run with the previous one: the
+      // admission threshold and the summary partition (crawler-previous-run-slice.mjs).
+      recordPreviousRunSlice(slicePath);
+      writeJson(slicePath, { jobs });
     }
     // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
     // reseeded above (it never enters byKey), so its on-disk slice is left
@@ -5971,6 +6039,10 @@ export function isLowQualityLocalizedTitle(value = '') {
   if (t.length < 3) return true;
   if (/^(h|he|her|here|here is|title|job title)\b/i.test(t)) return true;
   if (/^[\W_]+$/.test(t)) return true;
+  // A model's answer about the request («Sorry, I can't help with that.», «I
+  // need to see the actual job title…», «<think>…»): every title writer and
+  // the "already translated?" filters below ask this predicate.
+  if (isModelMetaAnswer(t)) return true;
   return false;
 }
 
@@ -7681,6 +7753,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
+    Object.assign(fresh, mergeSourcePostingDates(old || {}, fresh));
     if (!old) {
       const previous = sourceTitleBridge.get(fresh);
       if (previous) {
@@ -7904,35 +7977,6 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.firstSeenAt = old.firstSeenAt;
     }
 
-    // Preserve postedDate / datePosted — the original posting date is
-    // immutable. ~30 dedicated crawlers set `postedDate: new Date()` on
-    // every run, which used to mark every job in the dataset as "posted
-    // today" after each re-crawl (data audit Apr-2026 found 32 % of all
-    // jobs reporting postedDate within the last 1-3 days while only 4 %
-    // were actually first seen by us in that window — most of the
-    // dataset was 2-4 weeks old). Always keep the OLDER of the two
-    // dates: it's the closest proxy to the true employer posting date
-    // when the crawler can't read it from the page. Only let `fresh`
-    // win when it's actually older (rare; the crawler probably learned
-    // to read the real posting timestamp).
-    const preserveOlder = (key) => {
-      if (!old[key]) return;
-      if (!fresh[key]) { fresh[key] = old[key]; return; }
-      const oldD = new Date(old[key]);
-      const newD = new Date(fresh[key]);
-      if (
-        !Number.isNaN(oldD.getTime())
-        && (Number.isNaN(newD.getTime()) || oldD.getTime() < newD.getTime())
-      ) {
-        fresh[key] = old[key];
-      }
-    };
-    if (hasPostingDateProvenance(old) || hasPostingDateProvenance(fresh)) {
-      Object.assign(fresh, mergeSourcePostingDates(old, fresh));
-    } else {
-      preserveOlder('postedDate');
-      preserveOlder('datePosted');
-    }
 
     return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
@@ -7964,7 +8008,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
     if (missStreak > CRAWLER_GRACE_PERIOD_MAX_MISSES) continue;
-    retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
+    retainedJobs.push({ ...old, ...mergeSourcePostingDates({}, old), crawlerMissStreak: missStreak });
   }
 
   return retainedJobs.length ? [...mergedFresh, ...retainedJobs] : mergedFresh;
@@ -8508,15 +8552,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   else delete chosen.previousSlugs;
   if (mergedPreviousSlugsByLocale) chosen.previousSlugsByLocale = mergedPreviousSlugsByLocale;
   else delete chosen.previousSlugsByLocale;
-  // Posting date is immutable (#3843 item 3): the two colliding records are
-  // the SAME posting, so whichever side loses preferJob() must not take the
-  // older/sourced date down with it — and legacy records may carry it only on
-  // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
-  const mergedPostedDate = pickMergedPostedDate(a, b);
-  if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
-  if (hasPostingDateProvenance(a) || hasPostingDateProvenance(b)) {
-    Object.assign(chosen, mergeSourcePostingDates(a, b));
-  }
+  // A duplicate cannot turn an unverified legacy date into employer evidence.
+  // Keep the oldest validated reported tuple independently of quality scoring.
+  Object.assign(chosen, mergeSourcePostingDates(a, b));
   // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
   // the two colliding records are the SAME posting, so whichever side loses
   // preferJob() must not take the fresher "seen live" proof down with it —
@@ -8604,32 +8642,10 @@ export function isForeignAtsUrlLocation(rawUrl = '') {
   return isLocationExplicitlyForeign(locationPrefix);
 }
 
-// Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
-// ~30 legacy crawlers emit ONLY `datePosted` (never `postedDate`), so a
-// postedDate-only fallback chain never sees the true source posting date and
-// fabricates "today" instead. Each side falls back postedDate → datePosted,
-// then the two sides are combined with the same "posting date is immutable —
-// keep the OLDER" rule as mergePreserveLocaleData's preserveOlder(): a crawler
-// that stamps `new Date()` on every run must not churn the date forward, and
-// `next` only wins when it is actually older (it probably learned to read the
-// real posting timestamp from the page).
+// Only explicitly reported, validated publication evidence survives a merge.
+// A legacy timestamp or a crawl heartbeat does not establish publication.
 export function pickMergedPostedDate(prev = {}, next = {}) {
-  if (hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)) {
-    return mergeSourcePostingDates(prev, next).postedDate;
-  }
-  const prevVal = prev.postedDate || prev.datePosted || '';
-  const nextVal = next.postedDate || next.datePosted || '';
-  if (!prevVal) return nextVal;
-  if (!nextVal) return prevVal;
-  const prevD = new Date(prevVal);
-  const nextD = new Date(nextVal);
-  if (
-    !Number.isNaN(prevD.getTime())
-    && (Number.isNaN(nextD.getTime()) || prevD.getTime() < nextD.getTime())
-  ) {
-    return prevVal;
-  }
-  return nextVal;
+  return mergeSourcePostingDates(prev, next).postedDate;
 }
 
 // Pick the merged crawledAt for a duplicate pair. Semantics contract:
@@ -8659,7 +8675,6 @@ export function pickMergedCrawledAt(prev = {}, next = {}) {
 }
 
 export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
-  const nowIsoDate = dateOnly(Date.now());
   const nowIsoTs = new Date().toISOString();
   const map = new Map();
   const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
@@ -8699,6 +8714,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (!fp) continue;
     const normalized = {
       ...job,
+      ...mergeSourcePostingDates({}, job),
       ...(job?.companyKey ? { companyKey: resolveJobCompanyKey(job) } : {}),
       crawledAt: normalizeSpace(job.crawledAt || ''),
     };
@@ -8759,11 +8775,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (seenIncoming.has(fp)) {
       duplicateIncoming += 1;
       duplicateByCompany[raw.company] = (duplicateByCompany[raw.company] || 0) + 1;
+      const retained = map.get(fp);
+      if (retained) Object.assign(retained, mergeSourcePostingDates(retained, raw));
       continue;
     }
     seenIncoming.add(fp);
     const next = {
       ...raw,
+      ...mergeSourcePostingDates({}, raw),
       ...(raw?.companyKey ? { companyKey: resolveJobCompanyKey(raw) } : {}),
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
@@ -8801,9 +8820,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      ...(hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)
-        ? mergeSourcePostingDates(prev, next)
-        : { postedDate: pickMergedPostedDate(prev, next) || nowIsoDate }),
+      ...mergeSourcePostingDates(prev, next),
       // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
       // `next` was scraped THIS run (stamped nowIsoTs above), which proves
       // the posting is still up. The old `prev.crawledAt || …` order froze
@@ -8928,14 +8945,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     chosen.previousSlugs = mergedPreviousSlugsCapped;
     if (best.previousSlugsByLocale) chosen.previousSlugsByLocale = best.previousSlugsByLocale;
     else delete chosen.previousSlugsByLocale;
-    // Same bare-preferJob() discard pattern for the posting date (#3843
-    // item 3): `best.postedDate` already holds the sourced, older-wins date
-    // (including the legacy `datePosted` fallback ~30 crawlers emit). If
-    // preferJob returned `prev` wholesale, prev's missing/fabricated
-    // postedDate would silently win — force the merged date onto whichever
-    // side was picked.
-    chosen.postedDate = best.postedDate;
-    if (hasPostingDateProvenance(best)) Object.assign(chosen, mergeSourcePostingDates({}, best));
+    // Quality selection must not resurrect a legacy date or split its marker.
+    Object.assign(chosen, mergeSourcePostingDates({}, best));
     // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
     // already holds the newest-wins last-seen-live timestamp; if preferJob
     // returned `prev` wholesale (e.g. higher quality score), prev's stale

@@ -936,6 +936,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
+ // Keep the key trust pages reachable in the static article HTML. The React
+ // footer is portaled into ARTICLE_FOOTER_ROOT after hydration, but crawlers
+ // that inspect the pre-hydration document still need these links to establish
+ // the site's publisher, contact, and privacy evidence.
+ const ARTICLE_LEGAL_NAV: Record<string, { aria: string; about: string; contact: string; privacy: string }> = {
+  it: { aria: 'Informazioni sul sito', about: '<a href="/chi-siamo/">Chi siamo</a>', contact: '<a href="/contattaci/">Contatti</a>', privacy: '<a href="/privacy/">Privacy</a>' },
+  en: { aria: 'Site information', about: '<a href="/en/about-us/">About us</a>', contact: '<a href="/en/contact-us/">Contact</a>', privacy: '<a href="/en/privacy/">Privacy</a>' },
+  de: { aria: 'Website-Informationen', about: '<a href="/de/ueber-uns/">Über uns</a>', contact: '<a href="/de/kontakt/">Kontakt</a>', privacy: '<a href="/de/datenschutz/">Datenschutz</a>' },
+  fr: { aria: 'Informations sur le site', about: '<a href="/fr/a-propos/">À propos</a>', contact: '<a href="/fr/contactez-nous/">Contact</a>', privacy: '<a href="/fr/confidentialite/">Confidentialité</a>' },
+ };
+ const buildArticleLegalNav = (locale: string): string => {
+  const links = ARTICLE_LEGAL_NAV[locale] || ARTICLE_LEGAL_NAV.it;
+  return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${links.contact} | ${links.privacy}</nav>`;
+ };
+
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
  // see build-plugins/spaBundleResolver.ts for the real site-side implementation).
  const spaBundle = resolveSpaBundle(distDir);
@@ -1643,7 +1658,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1667,7 +1682,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

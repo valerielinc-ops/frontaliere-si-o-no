@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Barmelweid job parser.
  *
@@ -181,11 +183,10 @@ export function extractKlinikBarmelweidDetailDescription(html = '') {
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractKlinikBarmelweidDetailDescription(html);
+    return { description: extractKlinikBarmelweidDetailDescription(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Barmelweid detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -198,12 +199,12 @@ export async function fetchAllKlinikBarmelweidJobs() {
   console.log(`  ✓ ${rows.length} jobs from listing page`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const detailDescription = await fetchDetailDescription(r.url);
+    const detail = await fetchDetailDescription(r.url);
+    const detailDescription = detail.description;
     // Only source text (issue 5253): the detail page, else the listing card's
     // own paragraphs — never the clinic line the crawler used to add. A text
     // under the common 50-word floor gives no description (the shared
@@ -255,7 +256,7 @@ export async function fetchAllKlinikBarmelweidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

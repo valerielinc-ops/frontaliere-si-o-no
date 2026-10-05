@@ -87,6 +87,10 @@ scripts/lib/free-translate.mjs
 # top-level import before main().
 scripts/lib/translation-quality.mjs
 scripts/lib/ai-output-fidelity.mjs
+# Added 2026-10-05: free-translate.mjs and translation-quality.mjs import the
+# model meta-response detector (refusals, requests for the input); it has no
+# imports of its own and is `identical` in nanako's loop-sync manifest.
+scripts/lib/ai-meta-response.mjs
 scripts/lib/prospector/entities.mjs
 scripts/lib/haversine.mjs
 scripts/lib/html-attr.mjs

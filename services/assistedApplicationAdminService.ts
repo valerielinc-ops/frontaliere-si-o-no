@@ -232,6 +232,21 @@ export interface AssistedApplicationAdminData {
   pdfRenderer: AssistedApplicationPdfRendererCheck | null;
 }
 
+export type AssistedApplicationCandidatePageState = 'pending' | 'paid' | 'submitted' | 'error';
+
+/** Read-only snapshot of what the order page currently shows to its candidate. */
+export interface AssistedApplicationCandidateView {
+  orderId: string;
+  jobTitle: string;
+  companyName: string;
+  pageState: AssistedApplicationCandidatePageState;
+  paymentStatus: string;
+  submissionStatus: string;
+  hasCv: boolean;
+  hasConsent: boolean;
+  updatedAt: string | null;
+}
+
 /** Minimal Firebase user shape — only getIdToken is needed. */
 interface AuthLike {
   getIdToken: () => Promise<string>;
@@ -314,6 +329,22 @@ export async function fetchAssistedApplicationOrders(
   status?: AssistedApplicationAdminStatus,
 ): Promise<AssistedApplicationAdminOrder[]> {
   return (await fetchAssistedApplicationAdminData(user, status)).orders;
+}
+
+/** Reads the candidate-facing order state without granting candidate actions. */
+export async function fetchAssistedApplicationCandidateView(
+  user: AuthLike | null | undefined,
+  orderId: string,
+): Promise<AssistedApplicationCandidateView> {
+  const data = await requestAdmin(user, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'candidateView', orderId }),
+  });
+  if (!data.candidateView || typeof data.candidateView !== 'object') {
+    throw new Error('Stato candidato non disponibile.');
+  }
+  return data.candidateView as AssistedApplicationCandidateView;
 }
 
 /** Requests a server-validated submission-status transition and audit entry. */

@@ -21,6 +21,8 @@
  *
  * Exports the 4 required functions for the crawler template.
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -267,7 +269,7 @@ export async function fetchAllCaritasSchweizJobs() {
     let detail = { title: '', description: '' };
     try {
       const detailHtml = await fetchPage(listing.url, timeoutMs);
-      detail = parseReflineDetail(detailHtml);
+      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
     }
@@ -320,7 +322,7 @@ export async function fetchAllCaritasSchweizJobs() {
       sector: 'Sociale / NGO',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

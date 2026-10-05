@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Casale SA — Recruitee API parser
@@ -243,9 +244,7 @@ export function buildJobFromApi(offer = {}) {
   if (offer.remote) workModel = 'remote';
   else if (offer.hybrid) workModel = 'hybrid';
 
-  const datePosted = offer.published_at
-    ? String(offer.published_at).slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  const postingDates = sourcePostingDateFields(offer.published_at);
 
   return {
     title,
@@ -261,7 +260,7 @@ export function buildJobFromApi(offer = {}) {
     department: offer.department || '',
     employmentType,
     workModel,
-    datePosted,
+    ...postingDates,
   };
 }
 

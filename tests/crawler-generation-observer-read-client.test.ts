@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { runInNewContext } from 'node:vm';
 import {
   createGitHubActionsReadClient,
   isMissingExactGitHubResource,
@@ -220,6 +221,31 @@ describe.each([
   // client had already read: [1,2][3,4] came back as [3,4,3,4].
   it('copies a bare ArrayBuffer chunk the producer later rewrites', async () => {
     const shared = new ArrayBuffer(2);
+    const parts = [[1, 2], [3, 4]];
+    const reader = {
+      read: async () => {
+        const part = parts.shift();
+        if (!part) return { done: true, value: undefined };
+        new Uint8Array(shared).set(part);
+        return { done: false, value: shared };
+      },
+      cancel: async () => {},
+      releaseLock() {},
+    };
+    const response = {
+      ok: true, status: 200, headers: new Headers(), body: { getReader: () => reader, cancel: async () => {} },
+    };
+    const { result } = await readWith(load, response, 4);
+    const bytes = await result;
+    expect(Array.from(bytes)).toEqual([1, 2, 3, 4]);
+    new Uint8Array(shared).set([9, 9]);
+    expect(Array.from(bytes)).toEqual([1, 2, 3, 4]);
+  });
+
+  // FU-2026-10-05-001: `instanceof ArrayBuffer` is false across realms, but
+  // a polyfilled reader can still hand the observer a real cross-realm buffer.
+  it('copies a cross-realm ArrayBuffer chunk the producer later rewrites', async () => {
+    const shared = runInNewContext('new ArrayBuffer(2)') as ArrayBuffer;
     const parts = [[1, 2], [3, 4]];
     const reader = {
       read: async () => {

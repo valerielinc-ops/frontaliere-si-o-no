@@ -34,6 +34,8 @@
  * The Umantis tenant (`recruitingapp-2748.umantis.com`) only exposes
  * placeholder Initiativbewerbung entries — DO NOT scrape that endpoint.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -271,16 +273,17 @@ export async function fetchAllKsblJobs() {
   console.log(`\n  ✓ ${collected.length} unique KSBL job cards across pages`);
   console.log(`  📄 Fetching detail pages for rich descriptions...\n`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailCount = 0;
   for (const e of collected) {
     const title = e.title;
     // Fetch detail page for rich description
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(e.detailUrl);
       detailContent = extractKsblDetailContent(detailHtml, e);
+      postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       detailCount++;
     } catch (err) {
       console.warn(`  ⚠️  failed detail fetch ${e.detailUrl}: ${err.message}`);
@@ -336,7 +339,7 @@ export async function fetchAllKsblJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...postingDates,
       applyUrl: e.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

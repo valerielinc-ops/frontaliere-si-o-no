@@ -22,6 +22,7 @@
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { JSDOM } from 'jsdom';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -276,6 +277,29 @@ async function fetchPage(url, timeoutMs = 20000) {
  *     </div>
  *   </article>
  */
+function publicationDateFromArticle(html) {
+  const dom = new JSDOM(html);
+  try {
+    const candidates = [...dom.window.document.querySelectorAll('time[datetime]')].filter((time) => {
+      const parent = time.parentElement;
+      const localField = parent && !parent.matches('body, html')
+        && (parent.matches('p, span, li, td, dt, dd, label') || parent.children.length === 1);
+      const parentText = localField ? normalizeSpace(parent.textContent || '') : '';
+      if (time.closest('.note, article') || /scadenza|termine|aggiornat/i.test(parentText)) return false;
+      const property = (time.getAttribute('itemprop') || '').split(/\s+/);
+      return property.some((name) => name === 'datePosted' || name === 'datePublished')
+        || /^(?:Data di pubblicazione|Pubblicat[oa](?: il)?)\s*:?\s+/i.test(parentText);
+    });
+    // The first generic <time> may be a deadline. Only an explicitly labelled
+    // publication field on this vacancy is evidence; preserve its full value.
+    return candidates.length === 1
+      ? sourcePostingDateFields(candidates[0].getAttribute('datetime')).datePosted
+      : '';
+  } finally {
+    dom.window.close();
+  }
+}
+
 function parseAjaxJobs(html) {
   const jobs = [];
   const articleRe = /<article\s+class="document">([\s\S]*?)<\/article>/gi;
@@ -284,9 +308,7 @@ function parseAjaxJobs(html) {
   while ((match = articleRe.exec(html)) !== null) {
     const block = match[1];
 
-    // Extract posted date
-    const dateMatch = block.match(/<time\s+datetime="(\d{4}-\d{2}-\d{2})">/);
-    const datePosted = dateMatch ? dateMatch[1] : '';
+    const datePosted = publicationDateFromArticle(block);
 
     // Extract deadline
     const deadlineMatch = block.match(
@@ -362,11 +384,7 @@ function parseStaticJobs(html) {
   while ((match = articleRe.exec(afterMarker)) !== null) {
     const block = match[1];
 
-    // Extract posted date
-    const dateMatch = block.match(/<time\s+datetime="(\d{4}-\d{2}-\d{2}[^"]*)">/);
-    const datePosted = dateMatch
-      ? dateMatch[1].split(' ')[0]
-      : '';
+    const datePosted = publicationDateFromArticle(block);
 
     // Extract deadline
     const deadlineMatch = block.match(

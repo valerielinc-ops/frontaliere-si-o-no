@@ -58,6 +58,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchJson, slugify, stripHtml } from './crawler-template.mjs';
@@ -493,7 +494,7 @@ export async function fetchAllPostAutoJobs() {
     const jobSlug = slugify(`${title} postauto ${location}`);
     const urlHash = createHash('sha1').update(sourceUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.employmentType || title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(detail.datePosted);
 
     const job = {
       // ── Required fields ──
@@ -528,7 +529,7 @@ export async function fetchAllPostAutoJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       ...(detail.validThrough ? { validThrough: detail.validThrough } : {}),
       ...(detail.workload ? { pensum: detail.workload } : {}),
       applyUrl: sourceUrl,

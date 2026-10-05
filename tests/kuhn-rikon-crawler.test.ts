@@ -63,7 +63,7 @@ function jobPostingJsonLd(overrides: Record<string, unknown> = {}) {
       + 'Kundinnen und Kunden. Wir bieten Ihnen eine vielseitige Tätigkeit in einem '
       + 'traditionsreichen Schweizer Familienunternehmen, attraktive Personalrabatte sowie ein '
       + 'motiviertes Team.</div>',
-    datePosted: '2026-06-15T08:00:00.000000+00:00',
+    datePosted: `${new Date().getUTCFullYear() - 1}-06-15T08:00:00.000000+00:00`,
     validThrough: '2026-12-31',
     hiringOrganization: { '@type': 'Organization', name: 'Kuhn Rikon AG', sameAs: 'https://www.kuhnrikon.com' },
     employmentType: ['FULL_TIME'],
@@ -318,7 +318,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(job.postalCode).toBe('7302');
       expect(job.streetAddress).toBe('Bahnhofstrasse 12');
       expect(job.employmentType).toBe('PART_TIME'); // title carries "(50% - 80%)"
-      expect(job.postedDate).toBe('2026-06-15');
+      expect(job.postedDate).toBe(jsonLd.datePosted);
       expect(job.hiringOrganizationName).toBe(KUHN_RIKON_COMPANY_NAME);
       expect(job.sector).not.toMatch(/sanit|ospedal/i);
     });
@@ -585,4 +585,21 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+describe('Kuhn Rikon fractional publication precision', () => {
+  for (const fraction of ['120000', '120001', '1200001']) {
+    it(`preserves supported publication precision: ${fraction}`, async () => {
+      const year = new Date().getUTCFullYear() - 1;
+      const source = `${year}-06-15T08:00:00.${fraction}+02:00`;
+      const ld = jobPostingJsonLd({ datePosted: source });
+      const tile = jobalinoTile({ id: 'a1b2c3d4e5f6', slug: 'fachperson', title: ld.title as string, city: 'Landquart', zip: '7302' });
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => textResponse(200, url === LISTING_URL ? listingJsonp(tile) : detailHtml(ld))));
+      const jobs = await fetchAllKuhnRikonJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject(fraction.length <= 6
+        ? { datePosted: source, postedDate: source, postingDateSource: 'reported' }
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    });
+  }
 });

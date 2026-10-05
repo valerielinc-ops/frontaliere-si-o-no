@@ -18,13 +18,14 @@
  *     Taux d'activité {…} {DD.MM.YYYY}
  *   </a>
  *
- * The DD.MM.YYYY date is the "online since" date — present only on real
- * job postings, not on the generic intro / "Rejoindre les soins" /
- * "Candidature spontanée" cards. We use that as the filter.
+ * A DD.MM.YYYY date distinguishes dated job cards from generic intro cards.
+ * It is not labelled as publication and may describe the employment start;
+ * retain it only as a discovery filter, never as publication evidence.
  *
  * Polite delay: 250 ms between detail-page fetches.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
@@ -89,8 +90,7 @@ export function parseListing(html) {
     seen.add(url);
     // Take the title up to the first "Entrée" or " Taux d'activité" marker.
     const title = inner.split(/\bEntrée|\bTaux d'activité|\b\d{2}\.\d{2}\.\d{4}/)[0].trim();
-    const postedDate = `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`;
-    out.push({ url, title, postedDate });
+    out.push({ url, title, ...sourcePostingDateFields() });
   }
   return out;
 }
@@ -135,9 +135,6 @@ export async function fetchAllCrrJobs() {
     html = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   const rows = parseListing(html);
@@ -197,7 +194,7 @@ export async function fetchAllCrrJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: r.postedDate,
+      ...sourcePostingDateFields(),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,14 +1,386 @@
 {
   "crawlerKey": "brefispersonal",
-  "assembledAt": "2026-10-04T09:32:51.006Z",
+  "assembledAt": "2026-10-04T21:44:28.137Z",
   "jobs": [
     {
-      "id": "brefispersonal-9cc076f9b09d",
+      "id": "brefispersonal-9e2094d3d481",
+      "slug": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+      "slugByLocale": {
+        "de": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+        "it": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+        "en": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+        "fr": "schreiner-in-gelernt-zurich-brefispersonal-ch"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Schreiner/in gelernt",
+      "titleByLocale": {
+        "de": "Schreiner/in gelernt",
+        "it": "Schreiner/in gelernt",
+        "en": "Schreiner/in gelernt",
+        "fr": "Schreiner/in gelernt"
+      },
+      "description": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "de": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "it": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46128",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.374Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46128",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.044Z"
+    },
+    {
+      "id": "brefispersonal-2fccb6e3f33f",
+      "slug": "metallbauer-in-efz-zurich-brefispersonal-ch",
+      "slugByLocale": {
+        "de": "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "it": "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "en": "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "fr": "metallbauer-in-efz-zurich-brefispersonal-ch"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Metallbauer/in EFZ",
+      "titleByLocale": {
+        "de": "Metallbauer/in EFZ",
+        "it": "Metallbauer/in CFC",
+        "en": "Metallbauer/in EFZ",
+        "fr": "Metallbauer/in EFZ"
+      },
+      "description": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\nIhre Aufgaben umfassen:\n- Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ\n- Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können\n- Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "de": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\nIhre Aufgaben umfassen:\n- Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ\n- Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können\n- Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "it": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\nIhre Aufgaben umfassen:\n- Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ\n- Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können\n- Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\nIhre Aufgaben umfassen:\n- Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ\n- Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können\n- Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\nIhre Aufgaben umfassen:\n- Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ\n- Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können\n- Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46129",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.373Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5000",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46129",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
+        "efz-metalworkers-brefis-personal-ag-zurich",
+        "efz-metaux-brefis-personal-ag-zurich",
+        "metallbauer-in-cfc-brefis-personal-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
+          "metallbauer-in-cfc-brefis-personal-ag-zurich"
+        ],
+        "en": [
+          "efz-metalworkers-brefis-personal-ag-zurich"
+        ],
+        "fr": [
+          "efz-metaux-brefis-personal-ag-zurich"
+        ]
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.043Z"
+    },
+    {
+      "id": "brefispersonal-554e7c9c44e1",
+      "slug": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
+      "slugByLocale": {
+        "de": "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
+        "it": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
+        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
+        "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Sanitärinstallateur/in EFZ",
+      "titleByLocale": {
+        "de": "Sanitärinstallateur/in EFZ",
+        "it": "Sanitärinstallateur/in CFC",
+        "en": "Sanitärinstallateur/in EFZ",
+        "fr": "Sanitärinstallateur/in EFZ"
+      },
+      "description": "Suchen Sie eine passende Stelle? Wir helfen Ihnen dabei! Für unseren Kunden, eine top organisierte Unternehmung im Bereich Bau und Industrie, suchen wir ab sofort eine zuverlässige und arbeitswillige Persönlichkeit als Sanitärinstallateur/in EFZ.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "de": "Suchen Sie eine passende Stelle? Wir helfen Ihnen dabei! Für unseren Kunden, eine top organisierte Unternehmung im Bereich Bau und Industrie, suchen wir ab sofort eine zuverlässige und arbeitswillige Persönlichkeit als Sanitärinstallateur/in EFZ.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "it": "Suchen Sie eine passende Stelle? Wir helfen Ihnen dabei! Für unseren Kunden, eine top organisierte Unternehmung im Bereich Bau und Industrie, suchen wir ab sofort eine zuverlässige und arbeitswillige Persönlichkeit als Sanitärinstallateur/in EFZ.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Suchen Sie eine passende Stelle? Wir helfen Ihnen dabei! Für unseren Kunden, eine top organisierte Unternehmung im Bereich Bau und Industrie, suchen wir ab sofort eine zuverlässige und arbeitswillige Persönlichkeit als Sanitärinstallateur/in EFZ.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Suchen Sie eine passende Stelle? Wir helfen Ihnen dabei! Für unseren Kunden, eine top organisierte Unternehmung im Bereich Bau und Industrie, suchen wir ab sofort eine zuverlässige und arbeitswillige Persönlichkeit als Sanitärinstallateur/in EFZ.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "ZH",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46131",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.371Z",
+      "addressLocality": "ZH",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5405",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46131",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-efz-zh-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-efz-zh-brefispersonal-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.064Z"
+    },
+    {
+      "id": "brefispersonal-c97c198a6dcd",
+      "slug": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
+      "slugByLocale": {
+        "de": "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
+        "it": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
+        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
+        "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Sanitärinstallateur/in EFZ",
+      "titleByLocale": {
+        "de": "Sanitärinstallateur/in EFZ",
+        "it": "Sanitärinstallateur/in CFC",
+        "en": "Sanitärinstallateur/in EFZ",
+        "fr": "Sanitärinstallateur/in EFZ"
+      },
+      "description": "Wir planen und präsentieren, erörtern und umsetzen. Auf eine vertrauensvolle Zusammenarbeit und ein attraktives Arbeitsumfeld für unsere Kandidaten legen wir grossen Wert. Die Bauunternehmung im Raum Zürich möchte sich durch eine fleissige Persönlichkeit verstärken.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "de": "Wir planen und präsentieren, erörtern und umsetzen. Auf eine vertrauensvolle Zusammenarbeit und ein attraktives Arbeitsumfeld für unsere Kandidaten legen wir grossen Wert. Die Bauunternehmung im Raum Zürich möchte sich durch eine fleissige Persönlichkeit verstärken.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "it": "Wir planen und präsentieren, erörtern und umsetzen. Auf eine vertrauensvolle Zusammenarbeit und ein attraktives Arbeitsumfeld für unsere Kandidaten legen wir grossen Wert. Die Bauunternehmung im Raum Zürich möchte sich durch eine fleissige Persönlichkeit verstärken.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Wir planen und präsentieren, erörtern und umsetzen. Auf eine vertrauensvolle Zusammenarbeit und ein attraktives Arbeitsumfeld für unsere Kandidaten legen wir grossen Wert. Die Bauunternehmung im Raum Zürich möchte sich durch eine fleissige Persönlichkeit verstärken.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Wir planen und präsentieren, erörtern und umsetzen. Auf eine vertrauensvolle Zusammenarbeit und ein attraktives Arbeitsumfeld für unsere Kandidaten legen wir grossen Wert. Die Bauunternehmung im Raum Zürich möchte sich durch eine fleissige Persönlichkeit verstärken.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46132",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.371Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5620",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46132",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "installatore-sanitario-edc-brefis-personal-ag-zurich",
+        "edc-sanitary-installer-brefis-personal-ag-zurich",
+        "edc-installateur-sanitaire-brefis-personal-ag-zurich",
+        "sanitarinstallateur-in-efz-zurich-brefispersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "installatore-sanitario-edc-brefis-personal-ag-zurich",
+          "sanitarinstallateur-in-efz-zurich-brefispersonal-ch"
+        ],
+        "en": [
+          "edc-sanitary-installer-brefis-personal-ag-zurich"
+        ],
+        "fr": [
+          "edc-installateur-sanitaire-brefis-personal-ag-zurich"
+        ]
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.051Z"
+    },
+    {
+      "id": "brefispersonal-da7fa6f8b6c7",
+      "slug": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+      "slugByLocale": {
+        "it": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+        "en": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+        "de": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+        "fr": "monteur-electrique-appris-brefis-personal-ag-zh"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Elektromonteur/in gelernt",
+      "titleByLocale": {
+        "it": "Elektromonteur/in gelernt",
+        "en": "Elektromonteur/in gelernt",
+        "de": "Elektromonteur/in gelernt",
+        "fr": "Monteur électrique appris"
+      },
+      "description": "Zur Vergrösserung des verantwortlichen Teams suchen wir ab sofort eine/n erfahrene/n Elektromonteur/in gelernt Temporäranstellung.\nIhre Aufgaben umfassen:\n- Durchführung von Montageeinsätzen\n- Führung von kleinen Montageteams\n- Erstellung von Ausmassen und Zeitwirtschaftsdaten\nEs ist Zeit für eine Veränderung. Wir legen Ihnen mit Sicherheit keine Steine in den Weg. Ganz im Gegenteil. Wir unterstützen Sie dabei, sich beruflich weiterzuentwickeln. Deshalb senden Sie uns so schnell wie möglich Ihre Unterlagen und Zeugnisse zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Per ampliare il team responsabile, cerchiamo un elettricista esperto con un effetto immediato.\n• I tuoi compiti includono: Eseguire compiti di assemblaggio Guidare piccoli team di assemblaggio Creare dati di dimensione e gestione del tempo È tempo di cambiare. Di certo non mettiamo ostacoli sul tuo cammino. Al contrario. Ti supportiamo nel tuo sviluppo professionale. Pertanto, inviaci i tuoi documenti e certificati il prima possibile. Nota: Si prega di notare che le domande vengono elaborate per posta ma non saranno restituite per motivi amministrativi.",
+        "en": "To enlarge the team responsible, we are looking for an experienced electrician with immediate effect.\n• Your tasks include: Carrying out assembly assignments Leading small assembly teams Creating dimensions and time management data It's time for a change. We certainly don't put any obstacles in your way. Quite the opposite. We support you in your professional development. Therefore, send us your documents and certificates as soon as possible. Note: Please note that applications by post are processed, but will not be returned for administrative reasons.",
+        "de": "Zur Vergrösserung des verantwortlichen Teams suchen wir ab sofort eine/n erfahrene/n Elektromonteur/in gelernt Temporäranstellung.\nIhre Aufgaben umfassen:\n- Durchführung von Montageeinsätzen\n- Führung von kleinen Montageteams\n- Erstellung von Ausmassen und Zeitwirtschaftsdaten\nEs ist Zeit für eine Veränderung. Wir legen Ihnen mit Sicherheit keine Steine in den Weg. Ganz im Gegenteil. Wir unterstützen Sie dabei, sich beruflich weiterzuentwickeln. Deshalb senden Sie uns so schnell wie möglich Ihre Unterlagen und Zeugnisse zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Pour renforcer l'équipe responsable, nous recherchons un électricien expérimenté ayant un impact immédiat.\n• Vos tâches incluent : réaliser des missions d'assemblage, diriger de petites équipes d'assemblage, créer des données de gestion des dimensions et du temps. Il est temps de changer. Nous ne mettons certainement aucun obstacle sur votre chemin. Bien au contraire. Nous vous soutenons dans votre développement professionnel. Par conséquent, envoyez-nous vos documents et certificats dès que possible. Remarque : veuillez noter que les candidatures sont traitées par courrier, mais ne seront pas retournées pour des raisons administratives."
+      },
+      "location": "ZH",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46971",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.370Z",
+      "addressLocality": "ZH",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8957",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46971",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:22:20.056Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "brefispersonal-4ed95dee0226",
       "slug": "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich",
       "slugByLocale": {
+        "de": "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
         "it": "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich",
         "en": "heating-installer-efz-brefis-personal-ag-zurich",
-        "de": "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
         "fr": "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
@@ -21,24 +393,24 @@
         "de": "Heizungsinstallateur/in EFZ",
         "fr": "Heizungsinstallateur/in EFZ"
       },
-      "description": "Was Sie sich in den Kopf setzen, das schaffen Sie auch – mit unserer Hilfe! Für ein renommiertes Bauunternehmen im Grossraum Zürich suchen wir Sie, eine/n gelernte/n und flexible/n Heizungsinstallateur/in EFZ für eine Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ihr langjähriges Know-How und die Freude an der Installierung, Reparatur und Montierung von Heizungen garantiert dem Kunden die Qualität, auf die er zählt\n- Diese abwechslungsreiche und vielschichtige Tätigkeit verlangt Ihr ganzes Können\n- Sie führen sämtliche Aufgaben präzise und professionell, von Hand oder maschinell, aus\n- Die sichere und zuverlässige Handhabung sämtlicher Werkzeuge und Maschinen sowie deren Instandhaltung sind für Sie selbstverständlich\nWir freuen uns, Sie professionell und tatkräftig bei Ihrer Stellensuche zu unterstützen. Bitte senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "description": "Als eines der führenden Dienstleistungsunternehmen suchen wir ab sofort für einen kleinen Betrieb im Grossraum Zürich eine/n zuverlässige/n Heizungsinstallateur/in EFZ zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie verlegen das Leitungssystem und installieren die Radiatoren, Regulierventile sowie Temperaturfühler\n- Zudem isolieren Sie das Leitungssystem gegen Wärmeverlust\n- Sie nehmen die Anlage in Betrieb und kontrollieren, ob das System gemäss Anweisungen funktioniert\n- Zu Ihrer Aufgabe gehört es auch, den Kunden die Handhabung der Heizung zu erklären\n- Sie kümmern sich ausserdem um die regelmässige Wartung der Heizsysteme und führen Reparaturen durch\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
       "descriptionByLocale": {
-        "it": "Qualunque cosa tu abbia in mente, puoi realizzarla – con il nostro aiuto! Per una rinomata impresa edile dell'hinterland di Zurigo cerchiamo te, installatore di impianti di riscaldamento qualificato e flessibile EFZ, per un posto temporaneo.\n• I vostri compiti comprendono: Il vostro know-how pluriennale e il vostro piacere nell'installazione, riparazione e montaggio di riscaldatori garantiscono al cliente la qualità su cui conta. Questa attività varia e complessa richiede tutte le tue abilità. Tu conduci tutto\n• Lavori svolti in modo preciso e professionale, a mano o con la macchina, dall'uso sicuro e affidabile di tutti gli strumenti e le macchine, nonché la loro manutenzione sono per voi una cosa ovvia. Saremo lieti di supportarti professionalmente e attivamente nella tua ricerca di lavoro. Vi preghiamo di inviarci i documenti di candidatura completi. Nota: si prega di notare che le domande inviate per posta verranno elaborate ma non verranno restituite per motivi amministrativi.",
-        "en": "Whatever you put your mind to, you can achieve it – with our help! For a renowned construction company in the greater Zurich area, we are looking for you, a trained and flexible heating installer EFZ, for a temporary position.\n• Your tasks include: Your many years of know-how and your enjoyment of installing, repairing and assembling heaters guarantees the customer the quality they count on. This varied and complex activity requires all of your skills. You lead everything\n• Tasks carried out precisely and professionally, by hand or by machine, from The safe and reliable handling of all tools and machines as well as their maintenance are a matter of course for you. We look forward to supporting you professionally and actively in your job search. Please send us your complete application documents. Note: Please note that applications sent by post will be processed but will not be returned for administrative reasons.",
-        "de": "Was Sie sich in den Kopf setzen, das schaffen Sie auch – mit unserer Hilfe! Für ein renommiertes Bauunternehmen im Grossraum Zürich suchen wir Sie, eine/n gelernte/n und flexible/n Heizungsinstallateur/in EFZ für eine Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ihr langjähriges Know-How und die Freude an der Installierung, Reparatur und Montierung von Heizungen garantiert dem Kunden die Qualität, auf die er zählt\n- Diese abwechslungsreiche und vielschichtige Tätigkeit verlangt Ihr ganzes Können\n- Sie führen sämtliche Aufgaben präzise und professionell, von Hand oder maschinell, aus\n- Die sichere und zuverlässige Handhabung sämtlicher Werkzeuge und Maschinen sowie deren Instandhaltung sind für Sie selbstverständlich\nWir freuen uns, Sie professionell und tatkräftig bei Ihrer Stellensuche zu unterstützen. Bitte senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Quoi que vous souhaitiez, vous pouvez y parvenir – avec notre aide ! Pour une entreprise de construction renommée de la grande région de Zurich, nous recherchons vous, un installateur de chauffage EFZ formé et flexible, pour un poste temporaire.\n• Vos tâches comprennent : Votre savoir-faire de plusieurs années et votre plaisir à installer, réparer et assembler des appareils de chauffage garantissent au client la qualité sur laquelle il compte. Cette activité variée et complexe requiert toutes vos compétences. Tu diriges tout\n• Des tâches exécutées avec précision et professionnalisme, à la main ou à la machine, dès La manipulation sûre et fiable de tous les outils et machines ainsi que leur entretien sont pour vous une évidence. Nous sommes impatients de vous soutenir professionnellement et activement dans votre recherche d’emploi. Merci de nous envoyer votre dossier de candidature complet. Attention : Veuillez noter que les candidatures envoyées par courrier seront traitées mais ne seront pas renvoyées pour des raisons administratives."
+        "de": "Als eines der führenden Dienstleistungsunternehmen suchen wir ab sofort für einen kleinen Betrieb im Grossraum Zürich eine/n zuverlässige/n Heizungsinstallateur/in EFZ zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie verlegen das Leitungssystem und installieren die Radiatoren, Regulierventile sowie Temperaturfühler\n- Zudem isolieren Sie das Leitungssystem gegen Wärmeverlust\n- Sie nehmen die Anlage in Betrieb und kontrollieren, ob das System gemäss Anweisungen funktioniert\n- Zu Ihrer Aufgabe gehört es auch, den Kunden die Handhabung der Heizung zu erklären\n- Sie kümmern sich ausserdem um die regelmässige Wartung der Heizsysteme und führen Reparaturen durch\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "it": "Als eines der führenden Dienstleistungsunternehmen suchen wir ab sofort für einen kleinen Betrieb im Grossraum Zürich eine/n zuverlässige/n Heizungsinstallateur/in EFZ zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie verlegen das Leitungssystem und installieren die Radiatoren, Regulierventile sowie Temperaturfühler\n- Zudem isolieren Sie das Leitungssystem gegen Wärmeverlust\n- Sie nehmen die Anlage in Betrieb und kontrollieren, ob das System gemäss Anweisungen funktioniert\n- Zu Ihrer Aufgabe gehört es auch, den Kunden die Handhabung der Heizung zu erklären\n- Sie kümmern sich ausserdem um die regelmässige Wartung der Heizsysteme und führen Reparaturen durch\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Als eines der führenden Dienstleistungsunternehmen suchen wir ab sofort für einen kleinen Betrieb im Grossraum Zürich eine/n zuverlässige/n Heizungsinstallateur/in EFZ zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie verlegen das Leitungssystem und installieren die Radiatoren, Regulierventile sowie Temperaturfühler\n- Zudem isolieren Sie das Leitungssystem gegen Wärmeverlust\n- Sie nehmen die Anlage in Betrieb und kontrollieren, ob das System gemäss Anweisungen funktioniert\n- Zu Ihrer Aufgabe gehört es auch, den Kunden die Handhabung der Heizung zu erklären\n- Sie kümmern sich ausserdem um die regelmässige Wartung der Heizsysteme und führen Reparaturen durch\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Als eines der führenden Dienstleistungsunternehmen suchen wir ab sofort für einen kleinen Betrieb im Grossraum Zürich eine/n zuverlässige/n Heizungsinstallateur/in EFZ zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie verlegen das Leitungssystem und installieren die Radiatoren, Regulierventile sowie Temperaturfühler\n- Zudem isolieren Sie das Leitungssystem gegen Wärmeverlust\n- Sie nehmen die Anlage in Betrieb und kontrollieren, ob das System gemäss Anweisungen funktioniert\n- Zu Ihrer Aufgabe gehört es auch, den Kunden die Handhabung der Heizung zu erklären\n- Sie kümmern sich ausserdem um die regelmässige Wartung der Heizsysteme und führen Reparaturen durch\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46966",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46972",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.380Z",
+      "crawledAt": "2026-10-04T21:44:17.369Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5405",
+      "postalCode": "8902",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -46,25 +418,94 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46966",
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46972",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-in-efz-zurich-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-in-efz-zurich-brefispersonal-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.063Z"
+    },
+    {
+      "id": "brefispersonal-9ba34ddead20",
+      "slug": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
+      "slugByLocale": {
+        "it": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
+        "en": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
+        "de": "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "fr": "ingenieur-de-ventilation-appris-brefis-personal-ag-zurich"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Lüftungsmonteur/in gelernt",
+      "titleByLocale": {
+        "it": "Lüftungsmonteur/in gelernt",
+        "en": "Lüftungsmonteur/in gelernt",
+        "de": "Lüftungsmonteur/in gelernt",
+        "fr": "Ingénieur de ventilation appris"
+      },
+      "description": "Wir bauen auf Sie! Schön, dass Sie dieses Stellenangebot lesen. Denn vielleicht ist dies der Beginn unserer Zusammenarbeit. Unser Kunde aus dem Grossraum Zürich sucht ab sofort eine/n Lüftungsmonteur/in gelernt zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie reglementieren den Luftdruck und die Luftfeuchtigkeit in geschlossenen Räumen\n- Als Lüftungsmonteur/in befassen Sie sich mit der Montage von Anlagen\n- Anhand von Plänen fertigen Sie Bauteile an\n- Sie installieren, reparieren und säubern Motoren und Ventilatoren\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Contiamo su di te! Grazie per aver letto questa offerta di lavoro. Perché forse questo è l'inizio della nostra collaborazione. Il nostro cliente dell'area metropolitana di Zurigo cerca un tecnico di ventilazione formato per un impiego temporaneo con effetto immediato.\n• I tuoi compiti includono: Regolare la pressione dell'aria e l'umidità negli spazi chiusi Come installatore di ventilazione, sarai coinvolto nell'installazione dei sistemi. Produrrai componenti secondo i piani. Installerai, riparerai e pulirai motori e ventole. La nostra esperienza è una garanzia di discrezione al 100%. Attendiamo con interesse di ricevere tue notizie. Nota: Si prega di notare che le domande per posta saranno elaborate, ma non saranno restituite per motivi amministrativi.",
+        "en": "We are counting on you! Thank you for reading this job offer. Because perhaps this is the beginning of our cooperation. Our customer from the greater Zurich area is looking for a ventilation technician trained for temporary employment with immediate effect.\n• Your tasks include: You regulate air pressure and humidity in enclosed spaces As a ventilation fitter, you will be involved in the installation of systems You will manufacture components on the basis of plans You will install, repair and clean motors and fans Our experience is a guarantee of 100% discretion. We look forward to hearing from you. Note: Please note that applications by post will be processed, but will not be returned for administrative reasons.",
+        "de": "Wir bauen auf Sie! Schön, dass Sie dieses Stellenangebot lesen. Denn vielleicht ist dies der Beginn unserer Zusammenarbeit. Unser Kunde aus dem Grossraum Zürich sucht ab sofort eine/n Lüftungsmonteur/in gelernt zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie reglementieren den Luftdruck und die Luftfeuchtigkeit in geschlossenen Räumen\n- Als Lüftungsmonteur/in befassen Sie sich mit der Montage von Anlagen\n- Anhand von Plänen fertigen Sie Bauteile an\n- Sie installieren, reparieren und säubern Motoren und Ventilatoren\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Nous comptons sur vous ! Merci d'avoir lu cette offre d'emploi. Car c'est peut-être le début de notre coopération. Notre client de la grande Zurich recherche un technicien en ventilation formé pour un emploi temporaire immédiatement.\n• Vos tâches incluent : Vous régulez la pression de l'air et l'humidité dans les espaces fermés. En tant qu'installateur de ventilation, vous serez impliqué dans l'installation des systèmes. Vous fabriquerez des composants selon des plans. Vous installerez, réparerez et nettoierez les moteurs et ventilateurs. Notre expérience garantit une grande discrétion. Nous attendons vos nouvelles avec impatience. Remarque : Veuillez noter que les demandes par courrier seront traitées, mais ne seront pas retournées pour des raisons administratives."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46974",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.367Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8048",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46974",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
-        "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
+        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
-          "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
-        ],
-        "en": [
-          "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
+          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
+          "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.063Z",
+      "firstSeenAt": "2026-09-27T05:22:20.049Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -78,6 +519,78 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "brefispersonal-0eaebad873d4",
+      "slug": "installatore-trice-elettrico-a-in-cfc-brefis-personal-ag-zurich",
+      "slugByLocale": {
+        "de": "elektroinstallateur-in-efz-zurich-brefispersonal-ch",
+        "it": "installatore-trice-elettrico-a-in-cfc-brefis-personal-ag-zurich",
+        "en": "electrical-installer-efz-brefis-personal-ag-zurich",
+        "fr": "installateur-trice-electricien-ne-efz-brefis-personal-ag-zurich"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Elektroinstallateur/in EFZ",
+      "titleByLocale": {
+        "it": "Installatore/trice elettrico/a/in CFC",
+        "en": "Electrical Installer EFZ",
+        "de": "Elektroinstallateur/in EFZ",
+        "fr": "Installateur/trice électricien/ne EFZ"
+      },
+      "description": "Aufgaben, die begeistern. Unser Mandant sucht ab sofort im Raum Zürich eine/n interessierte/n Elektroinstallateur/in EFZ.\nIhre Aufgaben umfassen:\n- Ihr Fachwissen über elektrische Anlagen verbinden Sie mit betriebswirtschaftlichem Wissen, und können damit auch die Aufgaben aus den Bereichen Planung, Projektmanagement oder Mitarbeiterführung übernehmen\n- Sie sind für die Montage, Wartung und Reparatur von Anlagen im Betrieb verantwortlich\nBitte legen Sie Ihrer Bewerbung einen kurzen Lebenslauf und Unterlagen Ihrer fachlichen Qualifikationen bei und senden Sie diese an uns zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Compiti che ispirano. Il nostro cliente cerca un elettricista EFZ interessato nell'area di Zurigo con effetto immediato.\n• I tuoi compiti includono: installerai sistemi elettrici in abitazioni, officine e impianti industriali. Dalla pianificazione all'installazione di cavi, interruttori e fusibili, fino alla messa in servizio. Sarai responsabile del lavoro di installazione elettrotecnica. Presterai attenzione alle normative di sicurezza e alla funzionalità dei sistemi. In caso di malfunzionamenti, cercherete guasti e effettuerete riparazioni. Il tempo che impiegiamo è tempo che ci dà qualcosa. Prenditi il tempo di inviarci subito la documentazione completa della tua candidatura. Attendiamo con interesse di ricevere tue notizie! Nota: Si prega di notare che le domande per posta saranno elaborate, ma non saranno restituite per motivi amministrativi.",
+        "en": "Tasks that inspire. Our client is looking for an interested electrician EFZ in the Zurich area with immediate effect.\n• Your tasks include: You will install electrical systems in homes, workshops and industrial plants From planning to the installation of cables, switches and fuses to commissioning You will be responsible for the electrotechnical installation work You will pay attention to the safety regulations and the functionality of the systems In the event of malfunctions, you will look for faults and carry out repairs Time that we take is time that gives us something. Take the time to send us your complete application documents now. We look forward to hearing from you! Note: Please note that applications by post will be processed, but will not be returned for administrative reasons.",
+        "de": "Aufgaben, die begeistern. Unser Mandant sucht ab sofort im Raum Zürich eine/n interessierte/n Elektroinstallateur/in EFZ.\nIhre Aufgaben umfassen:\n- Ihr Fachwissen über elektrische Anlagen verbinden Sie mit betriebswirtschaftlichem Wissen, und können damit auch die Aufgaben aus den Bereichen Planung, Projektmanagement oder Mitarbeiterführung übernehmen\n- Sie sind für die Montage, Wartung und Reparatur von Anlagen im Betrieb verantwortlich\nBitte legen Sie Ihrer Bewerbung einen kurzen Lebenslauf und Unterlagen Ihrer fachlichen Qualifikationen bei und senden Sie diese an uns zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Des tâches qui inspirent. Notre client recherche un électricien EFZ intéressé dans la région de Zurich avec un effet immédiat.\n• Vos tâches incluent : Vous installerez des systèmes électriques dans les habitations, les ateliers et les usines industrielles, de la planification à l'installation des câbles, interrupteurs et fusibles, en passant par la mise en service. Vous serez responsable des travaux d'installation électrotechnique. Vous respecterez les réglementations de sécurité et la fonctionnalité des systèmes. En cas de panne, vous rechercherez les pannes et effectuerez les réparations. Le temps que nous prenons est un temps qui nous apporte quelque chose. Prenez le temps de nous envoyer dès maintenant vos documents complets. Nous attendons vos nouvelles ! Remarque : Veuillez noter que les demandes par courrier seront traitées, mais ne seront pas retournées pour des raisons administratives."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46975",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T21:44:17.365Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7250",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46975",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-in-efz-zurich-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroinstallateur-in-efz-zurich-brefispersonal-ch"
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.058Z"
     },
     {
       "id": "brefispersonal-6e64949c74d5",
@@ -157,7 +670,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "brefispersonal-f64c2fc42acc",
@@ -234,7 +748,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "brefispersonal-c6bc4777f57e",
@@ -298,450 +813,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "brefispersonal-c896f0bc13fe",
-      "slug": "installatore-trice-elettrico-a-in-cfc-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-cfc-brefis-personal-ag-zurich",
-        "en": "electrical-installer-efz-brefis-personal-ag-zurich",
-        "de": "elektroinstallateur-in-efz-zurich-brefispersonal-ch",
-        "fr": "installateur-trice-electricien-ne-efz-brefis-personal-ag-zurich"
       },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Elektroinstallateur/in EFZ",
-      "titleByLocale": {
-        "it": "Installatore/trice elettrico/a/in CFC",
-        "en": "Electrical Installer EFZ",
-        "de": "Elektroinstallateur/in EFZ",
-        "fr": "Installateur/trice électricien/ne EFZ"
-      },
-      "description": "Aufgaben, die begeistern. Unser Mandant sucht ab sofort im Raum Zürich eine/n interessierte/n Elektroinstallateur/in EFZ.\nIhre Aufgaben umfassen:\n- Sie bauen elektrische Anlagen in Wohnhäusern, Werkstätten und Industriebetrieben ein\n- Von der Planung über die Installation von Leitungen, Schaltern und Sicherungen bis zur Inbetriebnahme führen Sie alle Arbeiten durch\n- Sie übernehmen die elektrotechnischen Einbauarbeiten\n- Dabei achten Sie auf die Sicherheitsvorschriften und die Funktionsfähigkeit der Anlagen\n- Bei Störungen suchen Sie Fehler und führen Reparaturen aus\nZeit, die wir uns nehmen, ist Zeit, die uns etwas gibt. Nehmen Sie sich die Zeit und senden Sie uns Ihre kompletten Bewerbungsunterlagen jetzt zu. Wir freuen uns auf Sie!\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Compiti che ispirano. Il nostro cliente cerca un elettricista EFZ interessato nell'area di Zurigo con effetto immediato.\n• I tuoi compiti includono: installerai sistemi elettrici in abitazioni, officine e impianti industriali. Dalla pianificazione all'installazione di cavi, interruttori e fusibili, fino alla messa in servizio. Sarai responsabile del lavoro di installazione elettrotecnica. Presterai attenzione alle normative di sicurezza e alla funzionalità dei sistemi. In caso di malfunzionamenti, cercherete guasti e effettuerete riparazioni. Il tempo che impiegiamo è tempo che ci dà qualcosa. Prenditi il tempo di inviarci subito la documentazione completa della tua candidatura. Attendiamo con interesse di ricevere tue notizie! Nota: Si prega di notare che le domande per posta saranno elaborate, ma non saranno restituite per motivi amministrativi.",
-        "en": "Tasks that inspire. Our client is looking for an interested electrician EFZ in the Zurich area with immediate effect.\n• Your tasks include: You will install electrical systems in homes, workshops and industrial plants From planning to the installation of cables, switches and fuses to commissioning You will be responsible for the electrotechnical installation work You will pay attention to the safety regulations and the functionality of the systems In the event of malfunctions, you will look for faults and carry out repairs Time that we take is time that gives us something. Take the time to send us your complete application documents now. We look forward to hearing from you! Note: Please note that applications by post will be processed, but will not be returned for administrative reasons.",
-        "de": "Aufgaben, die begeistern. Unser Mandant sucht ab sofort im Raum Zürich eine/n interessierte/n Elektroinstallateur/in EFZ.\nIhre Aufgaben umfassen:\n- Sie bauen elektrische Anlagen in Wohnhäusern, Werkstätten und Industriebetrieben ein\n- Von der Planung über die Installation von Leitungen, Schaltern und Sicherungen bis zur Inbetriebnahme führen Sie alle Arbeiten durch\n- Sie übernehmen die elektrotechnischen Einbauarbeiten\n- Dabei achten Sie auf die Sicherheitsvorschriften und die Funktionsfähigkeit der Anlagen\n- Bei Störungen suchen Sie Fehler und führen Reparaturen aus\nZeit, die wir uns nehmen, ist Zeit, die uns etwas gibt. Nehmen Sie sich die Zeit und senden Sie uns Ihre kompletten Bewerbungsunterlagen jetzt zu. Wir freuen uns auf Sie!\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Des tâches qui inspirent. Notre client recherche un électricien EFZ intéressé dans la région de Zurich avec un effet immédiat.\n• Vos tâches incluent : Vous installerez des systèmes électriques dans les habitations, les ateliers et les usines industrielles, de la planification à l'installation des câbles, interrupteurs et fusibles, en passant par la mise en service. Vous serez responsable des travaux d'installation électrotechnique. Vous respecterez les réglementations de sécurité et la fonctionnalité des systèmes. En cas de panne, vous rechercherez les pannes et effectuerez les réparations. Le temps que nous prenons est un temps qui nous apporte quelque chose. Prenez le temps de nous envoyer dès maintenant vos documents complets. Nous attendons vos nouvelles ! Remarque : Veuillez noter que les demandes par courrier seront traitées, mais ne seront pas retournées pour des raisons administratives."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46969",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.377Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7250",
-      "category": "Tecnica",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46969",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-in-efz-zurich-brefispersonal-ch",
-        "elektroinstallateur-in-efz-brefis-personal-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elektroinstallateur-in-efz-zurich-brefispersonal-ch"
-        ],
-        "en": [
-          "elektroinstallateur-in-efz-brefis-personal-ag-zurich"
-        ],
-        "fr": [
-          "elektroinstallateur-in-efz-brefis-personal-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.058Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-da7fa6f8b6c7",
-      "slug": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
-      "slugByLocale": {
-        "it": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
-        "en": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
-        "de": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
-        "fr": "monteur-electrique-appris-brefis-personal-ag-zh"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Elektromonteur/in gelernt",
-      "titleByLocale": {
-        "it": "Elektromonteur/in gelernt",
-        "en": "Elektromonteur/in gelernt",
-        "de": "Elektromonteur/in gelernt",
-        "fr": "Monteur électrique appris"
-      },
-      "description": "Zur Vergrösserung des verantwortlichen Teams suchen wir ab sofort eine/n erfahrene/n Elektromonteur/in gelernt Temporäranstellung.\nIhre Aufgaben umfassen:\n- Durchführung von Montageeinsätzen\n- Führung von kleinen Montageteams\n- Erstellung von Ausmassen und Zeitwirtschaftsdaten\nEs ist Zeit für eine Veränderung. Wir legen Ihnen mit Sicherheit keine Steine in den Weg. Ganz im Gegenteil. Wir unterstützen Sie dabei, sich beruflich weiterzuentwickeln. Deshalb senden Sie uns so schnell wie möglich Ihre Unterlagen und Zeugnisse zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Per ampliare il team responsabile, cerchiamo un elettricista esperto con un effetto immediato.\n• I tuoi compiti includono: Eseguire compiti di assemblaggio Guidare piccoli team di assemblaggio Creare dati di dimensione e gestione del tempo È tempo di cambiare. Di certo non mettiamo ostacoli sul tuo cammino. Al contrario. Ti supportiamo nel tuo sviluppo professionale. Pertanto, inviaci i tuoi documenti e certificati il prima possibile. Nota: Si prega di notare che le domande vengono elaborate per posta ma non saranno restituite per motivi amministrativi.",
-        "en": "To enlarge the team responsible, we are looking for an experienced electrician with immediate effect.\n• Your tasks include: Carrying out assembly assignments Leading small assembly teams Creating dimensions and time management data It's time for a change. We certainly don't put any obstacles in your way. Quite the opposite. We support you in your professional development. Therefore, send us your documents and certificates as soon as possible. Note: Please note that applications by post are processed, but will not be returned for administrative reasons.",
-        "de": "Zur Vergrösserung des verantwortlichen Teams suchen wir ab sofort eine/n erfahrene/n Elektromonteur/in gelernt Temporäranstellung.\nIhre Aufgaben umfassen:\n- Durchführung von Montageeinsätzen\n- Führung von kleinen Montageteams\n- Erstellung von Ausmassen und Zeitwirtschaftsdaten\nEs ist Zeit für eine Veränderung. Wir legen Ihnen mit Sicherheit keine Steine in den Weg. Ganz im Gegenteil. Wir unterstützen Sie dabei, sich beruflich weiterzuentwickeln. Deshalb senden Sie uns so schnell wie möglich Ihre Unterlagen und Zeugnisse zu.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Pour renforcer l'équipe responsable, nous recherchons un électricien expérimenté ayant un impact immédiat.\n• Vos tâches incluent : réaliser des missions d'assemblage, diriger de petites équipes d'assemblage, créer des données de gestion des dimensions et du temps. Il est temps de changer. Nous ne mettons certainement aucun obstacle sur votre chemin. Bien au contraire. Nous vous soutenons dans votre développement professionnel. Par conséquent, envoyez-nous vos documents et certificats dès que possible. Remarque : veuillez noter que les candidatures sont traitées par courrier, mais ne seront pas retournées pour des raisons administratives."
-      },
-      "location": "ZH",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46971",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.376Z",
-      "addressLocality": "ZH",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8957",
-      "category": "Tecnica",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46971",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.056Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-fb53bc75800c",
-      "slug": "installatore-sanitario-edc-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "installatore-sanitario-edc-brefis-personal-ag-zurich",
-        "en": "edc-sanitary-installer-brefis-personal-ag-zurich",
-        "de": "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
-        "fr": "edc-installateur-sanitaire-brefis-personal-ag-zurich"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Sanitärinstallateur/in EFZ",
-      "titleByLocale": {
-        "it": "Installatore sanitario EDC",
-        "en": "EDC sanitary installer",
-        "de": "Sanitärinstallateur/in EFZ",
-        "fr": "EDC installateur sanitaire"
-      },
-      "description": "Wir möchten Ideen umsetzen. Wir möchten unseren Kunden stets zufrieden stellen. Wir sind auf Sie angewiesen! Derzeit sind wir für unseren Auftraggeber im Raum Zürich auf der Suche nach einem/einer zuverlässigen und kreativen Sanitärinstallateur/in EFZ zur Temporäranstellung.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Vogliamo implementare idee. Vogliamo sempre soddisfare i nostri clienti. Dipende da te! Per il nostro cliente nella zona di Zurigo, stiamo attualmente cercando un installatore sanitario affidabile e creativo per un lavoro temporaneo. Che cosa è consentito fare: Lavoro di servizio su impianti sanitari Piccolo, principalmente più semplice lavoro di servizio sugli impianti di riscaldamento Impianti sanitari Self-Performing su conversioni Perceiving funzioni di gestione della costruzione su edifici nuovi più piccoli Pensi di essere la persona giusta per il lavoro? Lo scopriremo per te. Basta inviare i vostri documenti e testimonianze a noi e poi nulla può andare storto. Nota: Si prega di notare che le domande vengono elaborate per posta, ma non vengono restituite per motivi amministrativi.",
-        "en": "We want to implement ideas. We always want to satisfy our customers. We depend on you! For our client in the Zurich area, we are currently looking for a reliable and creative sanitary installer for temporary employment. What you are allowed to do: Service work on sanitary facilities Small, mainly simpler service work on heating installations Self-Performing sanitary installations on conversions Perceiving construction management functions on smaller new buildings Do you think you are the right person for the job? We'll find out for you. Simply send your documents and testimonials to us and then nothing can go wrong. Note: Please note that applications are processed by post, but are not returned for administrative reasons.",
-        "de": "Wir möchten Ideen umsetzen. Wir möchten unseren Kunden stets zufrieden stellen. Wir sind auf Sie angewiesen! Derzeit sind wir für unseren Auftraggeber im Raum Zürich auf der Suche nach einem/einer zuverlässigen und kreativen Sanitärinstallateur/in EFZ zur Temporäranstellung.\nWas Sie tun dürfen:\n- Servicearbeiten an sanitären Anlagen\n- kleine, vorwiegend einfachere Servicearbeiten an Heizungsinstallationen\n- Selbstständiges Durchführen von Sanitärinstallationen auf Umbauten\n- Das Wahrnehmen von bauleitenden Funktionen auf kleineren Neubauten\nDenken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Nous voulons mettre en œuvre des idées. Nous voulons toujours satisfaire nos clients. Nous dépendons de vous ! Pour notre client dans la région de Zurich, nous recherchons actuellement un installateur sanitaire fiable et créatif pour un emploi temporaire. Ce que vous êtes autorisé à faire: Travaux de service sur les installations sanitaires Petits travaux de service principalement plus simples sur les installations de chauffage Installations sanitaires autoperformantes sur les conversions Percevoir les fonctions de gestion de la construction sur les bâtiments neufs plus petits Pensez-vous que vous êtes la bonne personne pour le travail? Nous le découvrirons pour vous. Il suffit de nous envoyer vos documents et témoignages et alors rien ne peut se passer mal. Remarque : Veuillez noter que les demandes sont traitées par la poste, mais ne sont pas retournées pour des raisons administratives."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46973",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.375Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8048",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46973",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
-        "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
-          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
-        ],
-        "en": [
-          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
-        ],
-        "fr": [
-          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.051Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-9ba34ddead20",
-      "slug": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
-        "en": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
-        "de": "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "fr": "ingenieur-de-ventilation-appris-brefis-personal-ag-zurich"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Lüftungsmonteur/in gelernt",
-      "titleByLocale": {
-        "it": "Lüftungsmonteur/in gelernt",
-        "en": "Lüftungsmonteur/in gelernt",
-        "de": "Lüftungsmonteur/in gelernt",
-        "fr": "Ingénieur de ventilation appris"
-      },
-      "description": "Wir bauen auf Sie! Schön, dass Sie dieses Stellenangebot lesen. Denn vielleicht ist dies der Beginn unserer Zusammenarbeit. Unser Kunde aus dem Grossraum Zürich sucht ab sofort eine/n Lüftungsmonteur/in gelernt zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie reglementieren den Luftdruck und die Luftfeuchtigkeit in geschlossenen Räumen\n- Als Lüftungsmonteur/in befassen Sie sich mit der Montage von Anlagen\n- Anhand von Plänen fertigen Sie Bauteile an\n- Sie installieren, reparieren und säubern Motoren und Ventilatoren\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Contiamo su di te! Grazie per aver letto questa offerta di lavoro. Perché forse questo è l'inizio della nostra collaborazione. Il nostro cliente dell'area metropolitana di Zurigo cerca un tecnico di ventilazione formato per un impiego temporaneo con effetto immediato.\n• I tuoi compiti includono: Regolare la pressione dell'aria e l'umidità negli spazi chiusi Come installatore di ventilazione, sarai coinvolto nell'installazione dei sistemi. Produrrai componenti secondo i piani. Installerai, riparerai e pulirai motori e ventole. La nostra esperienza è una garanzia di discrezione al 100%. Attendiamo con interesse di ricevere tue notizie. Nota: Si prega di notare che le domande per posta saranno elaborate, ma non saranno restituite per motivi amministrativi.",
-        "en": "We are counting on you! Thank you for reading this job offer. Because perhaps this is the beginning of our cooperation. Our customer from the greater Zurich area is looking for a ventilation technician trained for temporary employment with immediate effect.\n• Your tasks include: You regulate air pressure and humidity in enclosed spaces As a ventilation fitter, you will be involved in the installation of systems You will manufacture components on the basis of plans You will install, repair and clean motors and fans Our experience is a guarantee of 100% discretion. We look forward to hearing from you. Note: Please note that applications by post will be processed, but will not be returned for administrative reasons.",
-        "de": "Wir bauen auf Sie! Schön, dass Sie dieses Stellenangebot lesen. Denn vielleicht ist dies der Beginn unserer Zusammenarbeit. Unser Kunde aus dem Grossraum Zürich sucht ab sofort eine/n Lüftungsmonteur/in gelernt zur Temporäranstellung.\nIhre Aufgaben umfassen:\n- Sie reglementieren den Luftdruck und die Luftfeuchtigkeit in geschlossenen Räumen\n- Als Lüftungsmonteur/in befassen Sie sich mit der Montage von Anlagen\n- Anhand von Plänen fertigen Sie Bauteile an\n- Sie installieren, reparieren und säubern Motoren und Ventilatoren\nUnsere Erfahrung ist Ihnen Garantie für 100%-ige Diskretion. Wir freuen uns auf Ihre Kontaktnahme.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Nous comptons sur vous ! Merci d'avoir lu cette offre d'emploi. Car c'est peut-être le début de notre coopération. Notre client de la grande Zurich recherche un technicien en ventilation formé pour un emploi temporaire immédiatement.\n• Vos tâches incluent : Vous régulez la pression de l'air et l'humidité dans les espaces fermés. En tant qu'installateur de ventilation, vous serez impliqué dans l'installation des systèmes. Vous fabriquerez des composants selon des plans. Vous installerez, réparerez et nettoierez les moteurs et ventilateurs. Notre expérience garantit une grande discrétion. Nous attendons vos nouvelles avec impatience. Remarque : Veuillez noter que les demandes par courrier seront traitées, mais ne seront pas retournées pour des raisons administratives."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46974",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.374Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8048",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46974",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.049Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-e2fa904e5221",
-      "slug": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-      "slugByLocale": {
-        "it": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-        "en": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-        "de": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-        "fr": "schreiner-in-gelernt-zurich-brefispersonal-ch"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Schreiner/in gelernt",
-      "titleByLocale": {
-        "it": "Schreiner/in gelernt",
-        "en": "Schreiner/in gelernt",
-        "de": "Schreiner/in gelernt",
-        "fr": "Schreiner/in gelernt"
-      },
-      "description": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Per continuare a portare avanti la nostra visione, abbiamo bisogno di voi. Per il nostro cliente dell'area metropolitana di Zurigo, cerchiamo un falegname orientato alle soluzioni, formato in lavori temporanei.\n• I tuoi compiti includono: Cambiamenti costanti\n• Compiti, principalmente produzioni singole Produzione e assemblaggio dei singoli mobili Impiallacciatura e rivestimento Se ora hai la sensazione di aver aspettato questa sfida da molto tempo, non esitare e inviarci i documenti completi della tua candidatura. Nota: Si prega di notare che le domande per posta saranno elaborate, ma non saranno restituite per motivi amministrativi.",
-        "en": "In order for us to continue to advance our vision, we need you. For our client from the greater Zurich area, we are looking for a solution-oriented carpenter trained in temporary employment.\n• Your tasks include: Constantly changing\n• Tasks, mainly one-off productions Production and assembly of the individual furniture Veneer and coating work If you now have the feeling that you have been waiting for this challenge for a long time, then do not hesitate and send us your complete application documents. Note: Please note that applications by post will be processed, but will not be returned for administrative reasons.",
-        "de": "Damit wir unsere Vision weiter vorantreiben können, brauchen wir Sie. Für unseren Mandanten aus dem Grossraum Zürich suchen wir ab sofort eine/n lösungsorientierte/n Schreiner/in gelernt in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Ständig wechselnde Aufgaben, vorwiegend Einzelanfertigungen\n- Herstellung und Montierung der Einzelmöbel\n- Furnier- und Beschichtungsarbeiten\nWenn Sie jetzt das Gefühl haben, auf diese Herausforderung schon lange gewartet zu haben, dann zögern Sie nicht und senden Sie uns Ihre kompletten Bewerbungsunterlagen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Pour continuer à faire avancer notre vision, nous avons besoin de vous. Pour notre client de la grande région de Zurich, nous recherchons un charpentier orienté vers les solutions formé en emploi temporaire.\n• Vos tâches incluent : Changer constamment\n• Tâches, principalement des productions ponctuelles Production et assemblage des meubles individuels Travaux de placage et de revêtement Si vous avez maintenant le sentiment d'attendre ce défi depuis longtemps, n'hésitez pas et envoyez-nous tous vos documents de candidature. Remarque : Veuillez noter que les demandes par courrier seront traitées, mais ne seront pas retournées pour des raisons administratives."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46976",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.373Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46976",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.044Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-9f4ffec6c295",
-      "slug": "metallbauer-in-cfc-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "de": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "it": "metallbauer-in-cfc-brefis-personal-ag-zurich",
-        "en": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "fr": "metallbauer-in-efz-zurich-brefispersonal-ch"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Metallbauer/in EFZ",
-      "titleByLocale": {
-        "de": "Metallbauer/in EFZ",
-        "it": "Metallbauer/in CFC",
-        "en": "Metallbauer/in EFZ",
-        "fr": "Metallbauer/in EFZ"
-      },
-      "description": "Haben Sie sich bereits entschieden? Haben Sie das Ziel schon vor Augen? Unser Kunde hilft Ihnen, die richtige Entscheidung zu treffen, denn er ist ab sofort auf der Suche im Raum Zürich nach einem/einer zuverlässigen und fleissigen Metallbauer/in EFZ in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Als Metallbauer/in EFZ sorgen Sie für die Inbetriebnahme von neuen Anlagen\n- Zudem reparieren Sie zahlreiche Metallgegenstände, wenn es nötig ist\n- Sie unterstützen die Produktion im Werk bei den anfallenden technischen Aufgabenstellungen\n- Ausserdem helfen Sie mit, durch laufende Optimierung zahlreicher Anlagen die Kontinuität und Leistungsfähigkeit unserer Fertigung sicherzustellen\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "de": "Haben Sie sich bereits entschieden? Haben Sie das Ziel schon vor Augen? Unser Kunde hilft Ihnen, die richtige Entscheidung zu treffen, denn er ist ab sofort auf der Suche im Raum Zürich nach einem/einer zuverlässigen und fleissigen Metallbauer/in EFZ in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Als Metallbauer/in EFZ sorgen Sie für die Inbetriebnahme von neuen Anlagen\n- Zudem reparieren Sie zahlreiche Metallgegenstände, wenn es nötig ist\n- Sie unterstützen die Produktion im Werk bei den anfallenden technischen Aufgabenstellungen\n- Ausserdem helfen Sie mit, durch laufende Optimierung zahlreicher Anlagen die Kontinuität und Leistungsfähigkeit unserer Fertigung sicherzustellen\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "it": "Haben Sie sich bereits entschieden? Haben Sie das Ziel schon vor Augen? Unser Kunde hilft Ihnen, die richtige Entscheidung zu treffen, denn er ist ab sofort auf der Suche im Raum Zürich nach einem/einer zuverlässigen und fleissigen Metallbauer/in EFZ in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Als Metallbauer/in EFZ sorgen Sie für die Inbetriebnahme von neuen Anlagen\n- Zudem reparieren Sie zahlreiche Metallgegenstände, wenn es nötig ist\n- Sie unterstützen die Produktion im Werk bei den anfallenden technischen Aufgabenstellungen\n- Ausserdem helfen Sie mit, durch laufende Optimierung zahlreicher Anlagen die Kontinuität und Leistungsfähigkeit unserer Fertigung sicherzustellen\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "en": "Haben Sie sich bereits entschieden? Haben Sie das Ziel schon vor Augen? Unser Kunde hilft Ihnen, die richtige Entscheidung zu treffen, denn er ist ab sofort auf der Suche im Raum Zürich nach einem/einer zuverlässigen und fleissigen Metallbauer/in EFZ in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Als Metallbauer/in EFZ sorgen Sie für die Inbetriebnahme von neuen Anlagen\n- Zudem reparieren Sie zahlreiche Metallgegenstände, wenn es nötig ist\n- Sie unterstützen die Produktion im Werk bei den anfallenden technischen Aufgabenstellungen\n- Ausserdem helfen Sie mit, durch laufende Optimierung zahlreicher Anlagen die Kontinuität und Leistungsfähigkeit unserer Fertigung sicherzustellen\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Haben Sie sich bereits entschieden? Haben Sie das Ziel schon vor Augen? Unser Kunde hilft Ihnen, die richtige Entscheidung zu treffen, denn er ist ab sofort auf der Suche im Raum Zürich nach einem/einer zuverlässigen und fleissigen Metallbauer/in EFZ in Temporäranstellung.\nIhre Aufgaben umfassen:\n- Als Metallbauer/in EFZ sorgen Sie für die Inbetriebnahme von neuen Anlagen\n- Zudem reparieren Sie zahlreiche Metallgegenstände, wenn es nötig ist\n- Sie unterstützen die Produktion im Werk bei den anfallenden technischen Aufgabenstellungen\n- Ausserdem helfen Sie mit, durch laufende Optimierung zahlreicher Anlagen die Kontinuität und Leistungsfähigkeit unserer Fertigung sicherzustellen\nOhne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen.\nHinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46978",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:32:46.372Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46978",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
-        "efz-metalworkers-brefis-personal-ag-zurich",
-        "efz-metaux-brefis-personal-ag-zurich",
-        "metallbauer-in-efz-zurich-brefispersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
-          "metallbauer-in-efz-zurich-brefispersonal-ch"
-        ],
-        "en": [
-          "efz-metalworkers-brefis-personal-ag-zurich"
-        ],
-        "fr": [
-          "efz-metaux-brefis-personal-ag-zurich"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-27T05:22:20.043Z"
+      "crawlerMissStreak": 1
     }
   ]
 }

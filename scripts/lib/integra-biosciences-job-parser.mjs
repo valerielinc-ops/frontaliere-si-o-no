@@ -48,6 +48,7 @@
  *   - detectExperienceLevel()    — Detect experience level from title
  *   - inferEmploymentType()      — Infer FULL_TIME/PART_TIME from title
  */
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -387,15 +388,17 @@ export function parseJobsAllData(html = '') {
     } catch {
       /* no usable vacancy URL */
     }
-    const onlineSince = Number(entry?.onlineSince);
+    const rawOnlineSince = entry?.onlineSince;
+    const onlineSince = typeof rawOnlineSince === 'number' || (typeof rawOnlineSince === 'string' && /^\d+(?:\.\d+)?$/.test(rawOnlineSince))
+      ? Number(rawOnlineSince) : NaN;
+    const onlineSinceDate = new Date(onlineSince * 1000);
     cards.push({
       title,
       detailUrl: trustedUrl,
       businessArea: normalizeSpace(String(entry?.department || '')),
       country: normalizeSpace(String(entry?.country || '')),
-      postedDate: Number.isFinite(onlineSince) && onlineSince > 0
-        ? new Date(onlineSince * 1000).toISOString().slice(0, 10)
-        : '',
+      ...sourcePostingDateFields(Number.isFinite(onlineSinceDate.getTime()) && onlineSince > 0
+        ? onlineSinceDate.toISOString() : ''),
     });
   }
   return cards;
@@ -704,7 +707,7 @@ export async function fetchAllIntegraBiosciencesJobs({
       sector: 'Scienze della Vita / Biotecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.datePosted || card.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateCandidatesFields([detail.datePosted, card.postingDateSource === 'reported' ? card.postedDate : '']),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

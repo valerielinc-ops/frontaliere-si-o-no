@@ -14,6 +14,7 @@ import {
   localeHomeUrl,
   validateLocaleHomes,
 } from '../scripts/ci/validate-locale-publish-live.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
 
 const SOURCE_RUN_ID = '36850086638';
 const SOURCE_SHA = 'a'.repeat(40);
@@ -386,14 +387,16 @@ describe('locale live smoke observer', () => {
 
   it('checks healthy publishes and declared stale fallbacks together', async () => {
     const calls: string[] = [];
+    const requestOptions: Array<{ headers?: Record<string, string>; redirect?: string }> = [];
     const verdict = await validateLocaleHomes({
       baseUrl: 'https://example.test',
       healthyLocales: ['it', 'de'],
       staleLocales: ['en'],
       attempts: 1,
       intervalMs: 0,
-      fetchImpl: async (url) => {
+      fetchImpl: async (url, options) => {
         calls.push(url);
+        requestOptions.push(options);
         return { status: 200 } as Response;
       },
     });
@@ -408,5 +411,9 @@ describe('locale live smoke observer', () => {
       'https://example.test/de/',
       'https://example.test/en/',
     ]);
+    expect(requestOptions).toHaveLength(3);
+    expect(requestOptions.every((options) => options.redirect === 'manual')).toBe(true);
+    expect(requestOptions.every((options) => options.headers?.['User-Agent'] === DEFAULT_LIVE_CHECK_USER_AGENT)).toBe(true);
+    expect(requestOptions.every((options) => options.headers?.['cache-control'] === 'no-cache')).toBe(true);
   });
 });

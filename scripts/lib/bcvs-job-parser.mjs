@@ -10,6 +10,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -197,7 +199,7 @@ function parseListingPage(html) {
 /**
  * Fetch and parse a BCVs job detail page to extract description and requirements.
  */
-async function fetchJobDetail(detailUrl) {
+async function fetchJobDetail(detailUrl, title) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', requirements: [] };
@@ -228,7 +230,9 @@ async function fetchJobDetail(detailUrl) {
       }
     }
 
-    return { description, requirements };
+    const posting = extractJobPostingLd(html);
+    const sameTitle = String(posting?.title || '').trim().toLowerCase() === title.toLowerCase();
+    return { description, requirements, ...sourcePostingDateFields(sameTitle ? posting?.datePosted : '') };
   } catch (err) {
     console.warn(`  ⚠️ Error fetching detail: ${err.message}`);
     return { description: '', requirements: [] };
@@ -288,7 +292,7 @@ export async function fetchAllBcvsJobs() {
 
     // Fetch detail for richer description
     console.log(`  📥 Fetching detail: ${title.substring(0, 50)}...`);
-    const detail = await fetchJobDetail(listing.url);
+    const detail = await fetchJobDetail(listing.url, title);
 
     const descriptionText = detail.description || `${title} — ${BCVS_COMPANY_NAME}, ${city}`;
     const requirements = detail.requirements || [];
@@ -331,7 +335,7 @@ export async function fetchAllBcvsJobs() {
       sector: 'Banca / Finanza',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: listing.url,
 
       // ── Requirements ──

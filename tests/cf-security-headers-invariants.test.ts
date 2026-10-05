@@ -17,7 +17,10 @@ describe('managed apex security headers', () => {
   it('keeps the apex expression and the security contract explicit', () => {
     expect(SETUP).toContain("expression: '(http.host eq \"frontaliereticino.ch\")'");
     expect(SETUP).toContain("'Content-Security-Policy'");
-    expect(SETUP).toContain("base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests");
+    expect(SETUP).toContain('const APEX_CONTENT_SECURITY_POLICY');
+    expect(SETUP).toContain("default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:");
+    expect(SETUP).toContain("connect-src 'self' https: wss:");
+    expect(SETUP).toContain("object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests");
     expect(SETUP).toContain("'Strict-Transport-Security'");
     expect(SETUP).toContain("value: 'max-age=31536000'");
     expect(SETUP).toContain("'X-Frame-Options'");

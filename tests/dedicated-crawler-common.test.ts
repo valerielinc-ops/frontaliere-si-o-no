@@ -1814,7 +1814,7 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
   });
 });
 
-describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted instead of fabricating today (#3843 item 3)', () => {
+describe('mergeAndDeduplicate — publication dates require explicit source evidence', () => {
   const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
   let registryOverridePath;
   let prevOverride;
@@ -1841,9 +1841,9 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
     ...over,
   });
 
-  it('uses next.datePosted when neither side carries postedDate (legacy crawler emits only datePosted)', () => {
+  it('preserves a reported datePosted alias when neither side carries postedDate', () => {
     const prev = baseJob({ datePosted: '2026-06-15', crawledAt: '2026-06-20T00:00:00.000Z' });
-    const next = baseJob({ datePosted: '2026-06-15' });
+    const next = baseJob({ datePosted: '2026-06-15', postingDateSource: 'reported' });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
     // Before the fix this fabricated today's nowIsoDate.
@@ -1852,9 +1852,9 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('keeps the older real source date when prev.postedDate was fabricated by an earlier merge run', () => {
     // prev.postedDate = nowIsoDate stamped by a pre-fix merge; the incoming
-    // legacy job still carries the true (older) source posting date.
+    // refreshed job explicitly carries verified employer publication evidence.
     const prev = baseJob({ postedDate: '2026-07-01', crawledAt: '2026-07-01T00:00:00.000Z' });
-    const next = baseJob({ datePosted: '2026-06-10' });
+    const next = baseJob({ datePosted: '2026-06-10', postingDateSource: 'reported' });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].postedDate).toBe('2026-06-10');
@@ -1862,7 +1862,7 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('does not let a crawler that stamps datePosted=today churn an established older postedDate forward (preserveOlder semantics)', () => {
     const today = new Date().toISOString().split('T')[0];
-    const prev = baseJob({ postedDate: '2026-06-01', crawledAt: '2026-06-01T00:00:00.000Z' });
+    const prev = baseJob({ postedDate: '2026-06-01', postingDateSource: 'reported', crawledAt: '2026-06-01T00:00:00.000Z' });
     const next = baseJob({ datePosted: today });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
@@ -1871,7 +1871,7 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('existing-vs-existing collapse (mergeDuplicateJobPreservingSlugHistory path) keeps the older datePosted-only date instead of the winner\'s fabricated one', () => {
     const winner = baseJob({ postedDate: '2026-07-05', crawledAt: daysAgoIso(3), featured: true });
-    const loser = baseJob({ datePosted: '2026-05-20', crawledAt: daysAgoIso(3), featured: false });
+    const loser = baseJob({ datePosted: '2026-05-20', postingDateSource: 'reported', crawledAt: daysAgoIso(3), featured: false });
     const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].postedDate).toBe('2026-05-20');
@@ -1879,12 +1879,12 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('pickMergedPostedDate: lets next win when it is actually older, prefers real dates over unparseable ones, and returns empty when both sides are blank', () => {
     expect(pickMergedPostedDate(
-      { postedDate: '2026-07-01' },
-      { postedDate: '2026-06-01' },
+      { postedDate: '2026-07-01', postingDateSource: 'reported' },
+      { postedDate: '2026-06-01', postingDateSource: 'reported' },
     )).toBe('2026-06-01');
     expect(pickMergedPostedDate(
       { postedDate: 'not-a-date' },
-      { datePosted: '2026-06-01' },
+      { datePosted: '2026-06-01', postingDateSource: 'reported' },
     )).toBe('2026-06-01');
     expect(pickMergedPostedDate({}, {})).toBe('');
   });
@@ -1934,6 +1934,7 @@ describe('mergeAndDeduplicate — crawledAt is last-seen-live, refreshed on ever
       crawledAt: STALE_CRAWLED_AT,
       firstSeenAt: '2026-05-20T08:00:00.000Z',
       postedDate: '2026-05-18',
+      postingDateSource: 'reported',
     });
     const next = baseJob({}); // incoming re-crawl; merge stamps crawledAt=now
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);

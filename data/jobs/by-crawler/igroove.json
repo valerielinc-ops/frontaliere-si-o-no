@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-10-04T09:29:47.589Z",
+  "assembledAt": "2026-10-04T21:34:46.715Z",
   "jobs": [
     {
       "id": "igroove-c5d93def086a",
@@ -33,7 +33,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:29:40.737Z",
+      "crawledAt": "2026-10-04T21:34:41.791Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -47,7 +47,9 @@
       "sector": "Media / Musica digitale",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-03-31",
       "postedDate": "2026-03-31",
+      "postingDateSource": "reported",
       "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
       "jobReqId": "2588083",
       "requirements": [],

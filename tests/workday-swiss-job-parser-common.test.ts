@@ -761,8 +761,10 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
  * "aborted before looking" — keeping the 3 HQ-stamped records live forever.
  *
  * With `proveForeignOnlyBoardEmpty` the parser stamps that zero as
- * source-proven. Every other empty stays a bare `[]`, which the runner's
- * validator refuses (fail-closed, previous slice kept).
+ * source-proven. The same opt-in also covers a complete unfiltered fallback
+ * after a tenant rejects its country facet. Every other empty stays a bare
+ * `[]`, which the runner's validator refuses (fail-closed, previous slice
+ * kept).
  */
 describe('createWorkdaySwissParser — foreign-only Swiss board is a proven empty (#9651)', () => {
   const ORIGINAL_FETCH = global.fetch;
@@ -1274,8 +1276,9 @@ describe('createWorkdaySwissParser — countryFacetParameter', () => {
  * that calls its country facet `Country` / `Location_Country` answers HTTP 400
  * to the default `locationCountry`, the run fell back to the whole board, and
  * the zero could never be proven (the proof needs an ACCEPTED faceted query).
- * Ferring, KONE, Imerys and Temenos each got a hand-written key. The factory
- * now reads the board's facets after that 400 and picks the key itself.
+ * Ferring, KONE and Imerys each got a hand-written key. The factory now reads
+ * the board's facets after that 400 and picks the key itself; a board such as
+ * Temenos with no usable country facet falls back to its complete-board proof.
  */
 describe('createWorkdaySwissParser — country facet discovery after HTTP 400', () => {
   const ORIGINAL_FETCH = global.fetch;
@@ -1455,6 +1458,24 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
     expect(bodies.map((body) => Object.keys(body.appliedFacets))).toEqual([['locationCountry'], [], []]);
     expect(jobs).toHaveLength(0);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('proves a complete unfiltered fallback board when every primary country is foreign', async () => {
+    const bodies = mockTenant({
+      accepts: {},
+      board: [FOREIGN_POSTING],
+      boardTotal: 1,
+      facets: [
+        { facetParameter: 'jobFamilyGroup', values: [{ id: 'eng', descriptor: 'Engineering', count: 1 }] },
+        { facetParameter: 'locationMainGroup', values: [{ facetParameter: 'locations', descriptor: 'Locations', values: [{ id: 'lyon', descriptor: 'Lyon', count: 1 }] }] },
+      ],
+    });
+
+    const jobs = await makeParser({ proveForeignOnlyBoardEmpty: true }).fetchAllJobs();
+
+    expect(bodies.map((body) => Object.keys(body.appliedFacets))).toEqual([['locationCountry'], [], []]);
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
   it('never second-guesses a key the parser declared', async () => {

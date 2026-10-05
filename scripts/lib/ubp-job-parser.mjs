@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -316,10 +317,7 @@ export async function fetchAllUbpJobs() {
     const jobSlug = slugify(`${title} ubp ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = req.PostedDate
-      ? String(req.PostedDate).split('T')[0]
-      : (detailPayload?.ExternalPostedStartDate || '').split('T')[0]
-        || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateCandidatesFields([req.PostedDate, detailPayload?.ExternalPostedStartDate]);
 
 
     const job = {
@@ -351,7 +349,7 @@ export async function fetchAllUbpJobs() {
       sector: 'Banca / Gestione patrimoniale',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: UBP_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

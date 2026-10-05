@@ -16,10 +16,10 @@
  * 223 vs 269, agie-charmilles 29 vs 26, galenica 352 vs 1).
  *
  * The only set both halves can honestly describe is the slice this process
- * actually published. The slice writer records, per crawler key, the slice it
- * found on disk before its first write and the jobs it finally wrote; the
- * summary writer then derives total, written, the four counts and the four
- * evidence lists from that pair. A summary written without a slice write in
+ * actually published. The slice writer records, per crawler key, the slice the
+ * run started from (the previous run's, crawler-previous-run-slice.mjs) and
+ * the jobs it finally wrote; the summary writer then derives total, written,
+ * the four counts and the four evidence lists from that pair. A summary written without a slice write in
  * the same process (exit guards, soft exits) keeps the values its caller
  * declared.
  */
@@ -35,7 +35,7 @@ export const SUMMARY_LIST_CAP = 30;
  * `newJobs + updatedJobs + unchangedJobs` always has exactly
  * `afterJobs.length` rows, duplicates included.
  *
- * @param {object[]} beforeJobs jobs of the slice on disk before this run wrote it
+ * @param {object[]} beforeJobs jobs of the previous run's slice
  * @param {object[]} afterJobs jobs this run wrote to the slice
  */
 export function computeSlicePartition(beforeJobs, afterJobs) {

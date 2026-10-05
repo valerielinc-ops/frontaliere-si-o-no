@@ -53,6 +53,8 @@ import {
  * (the value is still recorded in history for visibility).
  */
 export const TARGET_PAGES = [
+  // Keep the retired endpoint as a separate compatibility signal; the
+  // canonical page is tracked by the target immediately below.
   { key: 'dogana_chiasso_brogeda', path: '/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/', cls: 0.25 },
   { key: 'traffico_chiasso_brogeda_oggi', path: '/traffico-dogane/chiasso-brogeda/oggi/', cls: 0.25 },
   { key: 'aziende_ticino_settimana', path: '/aziende-che-assumono/ticino/settimana-corrente/', cls: 0.25 },

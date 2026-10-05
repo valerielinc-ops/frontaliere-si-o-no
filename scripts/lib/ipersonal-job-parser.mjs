@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import { stripHtml } from './crawler-template.mjs';
@@ -216,7 +217,7 @@ export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: publicUrl,
     };
 

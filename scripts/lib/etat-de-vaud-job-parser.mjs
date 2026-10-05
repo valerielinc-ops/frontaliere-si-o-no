@@ -37,6 +37,7 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -298,9 +299,6 @@ export async function fetchAllEtatDeVaudJobs() {
     requisitions = await fetchAllRequisitions();
   } catch (err) {
     console.warn(`⚠️ Failed to fetch requisition list: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
 
@@ -344,7 +342,7 @@ export async function fetchAllEtatDeVaudJobs() {
     const sourceLang = detectLang(description || title, 'fr');
     const jobSlug = slugify(`${title} etat de vaud ${address.city}`);
     const publicUrl = `${CAREER_URL}#fr/sites/${SITE_NUMBER}/job/${id}`;
-    const postedDate = req?.PostedDate || detail?.ExternalPostedStartDate?.slice(0, 10) || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateCandidatesFields([req?.PostedDate, detail?.ExternalPostedStartDate]);
 
     const job = {
       // ── Required fields ──
@@ -381,7 +379,7 @@ export async function fetchAllEtatDeVaudJobs() {
       sector: 'Administration publique / Service public',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -87,6 +87,12 @@ describe('stable asset filenames', () => {
     // All stylesheets stable; only non-CSS bundler assets keep the hash.
     expect(src).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
   });
+
+  it('does not publish source maps unless a controlled build opts in', () => {
+    const src = fs.readFileSync(path.join(process.cwd(), 'vite.config.ts'), 'utf-8');
+    expect(src).toContain("sourcemap: process.env.PUBLIC_SOURCEMAPS === '1'");
+    expect(src).not.toContain('sourcemap: true');
+  });
 });
 
 describe('findChunkFile / findChunkFiles', () => {

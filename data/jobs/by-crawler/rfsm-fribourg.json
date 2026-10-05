@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rfsm-fribourg",
-  "assembledAt": "2026-10-04T09:28:15.634Z",
+  "assembledAt": "2026-10-04T21:35:40.116Z",
   "jobs": [
     {
       "id": "rfsm-fribourg-3922d1e34cad",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Erfahrene-Buchhalterin-erfahrener-Buchhalter%2C-FNPG-Marsens-Grey/1373589557/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:09.639Z",
+      "crawledAt": "2026-10-04T21:35:33.944Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -51,6 +51,22 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Erfahrene-Buchhalterin-erfahrener-Buchhalter%2C-FNPG-Marsens-Grey/1373589557/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
+        "contabile-esperto-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
+          "contabile-esperto-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
+        "en": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        ],
+        "fr": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        ]
+      },
       "firstSeenAt": "2026-08-28T05:35:37.294Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -64,21 +80,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-        ],
-        "en": [
-          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-        ],
-        "fr": [
-          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-        ]
-      },
-      "previousSlugs": [
-        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-      ]
+      }
     },
     {
       "id": "rfsm-fribourg-9912457d5c76",
@@ -112,7 +114,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Juristische-Praktikantin-juristischer-Praktikant%2C-FNPG-Marsens-Grey/1373686757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:08.850Z",
+      "crawledAt": "2026-10-04T21:35:33.196Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -131,11 +133,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
+        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
+        "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
+          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
+          "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
@@ -192,7 +196,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:08.059Z",
+      "crawledAt": "2026-10-04T21:35:32.453Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -211,11 +215,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
         ],
         "it": [
           "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch",
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
         ],
         "en": [
           "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
@@ -226,7 +232,8 @@
       },
       "previousSlugs": [
         "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch",
-        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:30.790Z",
       "salaryMin": 115000,
@@ -275,7 +282,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Ober%C3%A4rztinOberarzt%2C-FNPG-Marsens-Station-Thalassa-Grey/1371546057/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:07.270Z",
+      "crawledAt": "2026-10-04T21:35:31.707Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -293,11 +300,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
+        "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens",
+        "medico-senior-fnpg-marsens-stazione-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
+          "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens",
+          "medico-senior-fnpg-marsens-stazione-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
@@ -347,12 +356,13 @@
         "de": "Poste \"Assistenzarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie und -psychotherapie\" au RFSM - Réseau fribourgeois santé mentale, Marsens (FR). Le RFSM est le pôle de santé mentale du canton de Fribourg : psychiatrie adulte, enfants/adolescents, personnes âgées, addictions.\n\nAnstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\n• Betreuung und Behandlung der Ihrer Einheit zugeordneten Patientinnen und Patienten unter der Leitung von Frau Prof. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und der jeweiligen Leiterin oder des jeweiligen Leiters der zugeordneten Behandlungskette\n\n• Koordination und Überwachung der Behandlungsschritte im interdisziplinären Setting\n\n• Aktive Beteiligung an der klinikinternen Notfall- und Nachtdienstorganisation\n\nUnser Angebot:\n\n• Attraktive Weiterbildungsstätte mit verschiedenen Rotationsmöglichkeiten, Möglichkeiten zur Erlangung von:\n\n• Facharzttitel für Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Konsiliar- und Liaisonpsychiatrie FMH\n\n• Schwerpunkttitel für Forensische Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen FMH\n\n• Schwerpunkttitel für Alterspsychiatrie und –psychotherapie FMH\n\n• Attraktive Anstellungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Vergünstigungen für Staatsangestellte)\n\n• Förderung von Weiter- und Fortbildung sowie regelmässigen Supervisionen, Möglichkeit zur Forschungstätigkeit, Angebot von Französisch- oder Deutschsprachkursen\n\nGewünschtes Profil\n\n• Schweizerisches Arztdiplom oder vergleichbarer Titel (MEBEKO-Registrierung)\n\n• Wille, sich positiv in den Betrieb des FNPG einzubringen und dessen Werte zu wahren ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Sehr gute Deutsch- oder Französischkenntnisse (C1), gute Kenntnisse der anderen Kantonssprache erwünscht\n\nAngaben der Kontaktpersonen\n\nProf. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und Dr. Luca Rampa, Stellvertretender Ärztlicher Direktor, luca.rampa@rfsm.ch, T +41 26 308 13 01",
         "fr": "Poste \"Médecin adjoint FNPG - psychiatrie et psychothérapie d'adultes\" au RFSM - Réseau fribourgeois santé mentale, Marsens (FR). Le RFSM est le centre de santé mentale du canton de Fribourg : psychiatrie adulte, enfants/adolescents, personnes âgées, addictions.\n\nAutorité investie du pouvoir de nomination / service / institution\n\nLe Réseau de santé mentale fribourgeois (FNPG) est administrativement rattaché à la Direction de la santé et des affaires sociales. La FNPG est un centre de compétences médicales, infirmières et psychosociales spécialisé en psychiatrie et psychothérapie et plus largement en santé mentale.\nLa FNPG bilingue se développe et se maintient continuellement à jour dans le domaine thérapeutique.\n\nDevenez membre de notre équipe!\n\nL'employeur public favorise la compatibilité entre vie professionnelle et vie privée et offre à ses salariés un environnement de travail moderne et des conditions de travail attractives. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nVos tâches\n\n• Soins et traitement des patients affectés à votre unité sous la direction du Prof. Dr. med. Isabelle Gothuey, Directrice Médicale, et responsable respectif de la chaîne de soins assignée\n\n• Coordination et suivi des étapes de traitement dans un cadre interdisciplinaire\n\n• Participation active à l'organisation interne des urgences et des services de nuit de l'hôpital\n\nNotre offre :\n\n• Centre de formation attractif avec diverses options de rotation, possibilités d'obtenir :\n\n• Titre de spécialiste en psychiatrie et psychothérapie FMH\n\n• Titre de spécialisation pour psychiatrie consultante et de liaison FMH\n\n• Titre de spécialisation en psychiatrie légale et psychothérapie FMH\n\n• Titre focus psychiatrie et psychothérapie des troubles addictifs FMH\n\n• Titre de spécialisation en psychiatrie gériatrique et psychothérapie FMH\n\n• Conditions d'emploi attractives (emploi sûr, fonds de pension, avantages sociaux pour les employés de l'État)\n\n• Promotion de la formation continue ainsi que d'un encadrement régulier, de la possibilité d'effectuer des recherches et de l'offre de cours de langue française ou allemande.\n\nProfil souhaité\n\n• Diplôme de médecine suisse ou titre comparable (inscription MEBEKO)\n\n• Volonté de contribuer positivement au fonctionnement de la FNPG et de préserver ses valeurs ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Très bonne connaissance de l'allemand ou du français (C1), bonne connaissance de l'autre langue cantonale souhaitée\n\nCoordonnées des personnes de contact\n\nProf. Dr méd. Isabelle Gothuey, directrice médicale, et Dr Luca Rampa, directeur médical adjoint, luca.rampa@rfsm.ch, T 41 26 308 13 01"
       },
+      "needsRetranslation": true,
       "location": "Marsens",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:06.479Z",
+      "crawledAt": "2026-10-04T21:35:30.957Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -372,7 +382,8 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de"
         ],
         "it": [
           "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
@@ -380,7 +391,8 @@
           "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
           "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
           "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
         ],
         "en": [
           "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
@@ -397,7 +409,8 @@
         "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
         "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
         "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg",
-        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
+        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
+        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:29.512Z",
       "salaryMin": 85000,
@@ -446,7 +459,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;employ%C3%A9-e-de-cuisine-AFP%2C-RFSM-Marsens-Gruy/1371220657/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:05.693Z",
+      "crawledAt": "2026-10-04T21:35:30.215Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -526,7 +539,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Comptable-confirm%C3%A9-e%2C-RFSM-Marsens-Gruy/1373589457/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:04.908Z",
+      "crawledAt": "2026-10-04T21:35:29.477Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -543,23 +556,14 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Comptable-confirm%C3%A9-e%2C-RFSM-Marsens-Gruy/1373589457/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:31:36.757Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
+        "contabile-senior-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
+          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
+          "contabile-senior-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
@@ -568,9 +572,20 @@
           "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
-      "previousSlugs": [
-        "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
-      ]
+      "firstSeenAt": "2026-08-28T05:31:36.757Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "rfsm-fribourg-b0713a2e8644",
@@ -604,7 +619,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;employ%C3%A9-e-de-commerce-CFC%2C-RFSM-Marsens-Gruy/1373676857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:04.111Z",
+      "crawledAt": "2026-10-04T21:35:28.718Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -681,7 +696,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:28:03.319Z",
+      "crawledAt": "2026-10-04T21:35:27.970Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -700,11 +715,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
         ],
         "it": [
           "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de",
-          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
+          "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens"
         ],
         "en": [
           "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
@@ -715,7 +732,8 @@
       },
       "previousSlugs": [
         "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de",
-        "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
+        "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
+        "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:39.200Z",
       "salaryMin": 85000,
@@ -764,7 +782,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique-%28adjoint-e%29%2C-RFSM-Marsens-Unit%C3%A9-Luna-Gruy/1373588157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:02.517Z",
+      "crawledAt": "2026-10-04T21:35:27.223Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -783,12 +801,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-        "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens"
@@ -844,7 +864,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistant-e-en-pharmacie%2C-RFSM-Marsens-Gruy/1373586557/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:01.692Z",
+      "crawledAt": "2026-10-04T21:35:26.464Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -862,11 +882,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens"
+        "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
+        "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens"
+          "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
+          "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ]
       },
       "firstSeenAt": "2026-10-03T09:29:18.307Z",
@@ -886,11 +908,11 @@
     },
     {
       "id": "rfsm-fribourg-96e698e1a373",
-      "slug": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
+      "slug": "infermiera-rfsm-marsens-unita-biancospino-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
-        "en": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
-        "de": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "it": "infermiera-rfsm-marsens-unita-biancospino-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "nurse-rfsm-marsens-aubepine-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "krankenschwester-rfsm-marsens-abteilung-wei-dorn-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "fr": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -900,7 +922,7 @@
       "titleByLocale": {
         "it": "Infermiera, RFSM Marsens - Unità Biancospino",
         "en": "Nurse, RFSM Marsens - Aubépine Unit",
-        "de": "Krankenschwester, RFSM Marsens - Abteilung Weißdorn",
+        "de": "Infirmier-ère, RFSM Marsens - Unité Aubépine",
         "fr": "Infirmier-ère, RFSM Marsens - Unité Aubépine"
       },
       "description": "Poste \"Infirmier-ère, RFSM Marsens - Unité Aubépine\" au RFSM - Réseau fribourgeois santé mentale, Marsens (FR). Le RFSM est le pôle de santé mentale du canton de Fribourg : psychiatrie adulte, enfants/adolescents, personnes âgées, addictions.\n\nQui sommes-nous?\n\nLe Réseau fribourgeois de santé mentale (RFSM) est rattaché à la Direction de la santé et des affaires sociales (DSAS). Le RFSM est un pôle de compétences médicales, infirmières et psychosociales spécialisé en santé mentale.\n\nL’unité Aubépine est une unité hospitalière sur le site de Marsens. Elle accueille des personnes âgées atteintes dans leur santé mentale, notamment de troubles neurocognitifs majeurs (démences). Les personnes en situation de crise et/ou de SCPD décompensés, y viennent pour un bilan aboutissant à un diagnostic, une adaptation du traitement médicamenteux ou encore une période d’observation en vue une réorientation dans un lieu de vie adapté à leurs besoins.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nAvantages RFSM : Carte Swibeco - Promotion de la santé - Chaperon Rouge - Rabais Nestlé Shop - Cours de langues\n\nLabel Family score 2026-2028 & Entreprise formatrice\n\nVos missions\n\n• Soins de bases/nursing, soins somatiques/soins médico-délégués\n\n• Bonnes connaissances dans le domaine des soins à la personne âgée, atteinte de démence et en situation de SCPD décompensés\n\n• Participation à l’activité clinique du service (suivi des processus de soins visant la qualité de vie de la personne en tenant compte de ses valeurs, ceci en collaboration avec la famille)\n\n• Evaluation clinique de l’état mental-examen physique\n\n• Analyse des pratiques professionnelles, soutien de la qualité et de la continuité de celles-ci\n\nProfil souhaité\n\nExigences métier\n\n• Expérience dans le domaine de la personne âgée (Gériatrie)\n\n• Expérience professionnelle hospitalière de 2 années avec la personne âgée atteinte dans sa santé mentale serait un atout\n\n• Connaissances dans les approches non médicamenteuses\n\n• Connaissances du réseau de santé et social\n\n• Connaissance de l’évaluation clinique infirmière\n\n• Maîtrise des outils informatiques courants\n\n• Adhésion aux principes éthiques du RFSM\n\nExigences personnelles\n\n• Rôle de référent de situation\n\n• Excellente gestion du stress et des conflits\n\n• Aptitude reconnue à travailler en équipe multidisciplinaire\n\n• Autonomie et sens des responsabilités\n\n• Maîtrise de la langue française\n\nCoordonnées des personnes de contact\n\nSidonie Nanzer, ICUS Unité Aubépine, sidonie.nanzer@rfsm.ch, T +41 26 308 04 01",
@@ -916,7 +938,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-Unit%C3%A9-Aub%C3%A9pine-Gruy/1373585657/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:00.891Z",
+      "crawledAt": "2026-10-04T21:35:25.707Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -946,7 +968,22 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
+        ],
+        "de": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
+        "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-54c0206d0664",
@@ -980,7 +1017,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Marsens-Unit%C3%A9-Thalassa-Gruy/1371545957/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:28:00.082Z",
+      "crawledAt": "2026-10-04T21:35:24.942Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -998,11 +1035,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
+        "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens",
+        "capo-della-clinica-rfsm-marsens-unita-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
+          "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens",
+          "capo-della-clinica-rfsm-marsens-unita-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
@@ -1058,7 +1097,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Stagiaire-juriste%2C-RFSM-Marsens-Gruy/1373686657/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:59.276Z",
+      "crawledAt": "2026-10-04T21:35:24.192Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1079,11 +1118,13 @@
         "interno-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
+        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
+        "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
+          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
+          "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
           "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
@@ -1140,7 +1181,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:58.470Z",
+      "crawledAt": "2026-10-04T21:35:23.445Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1160,12 +1201,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "it": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1181,7 +1224,9 @@
         "head-of-clinic-rfsm-psychiatry-and-adult-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "klinikleiter-rfsm-psychiatrie-und-psychotherapie-fur-erwachsene-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-05-21T00:03:00.358Z",
       "salaryMin": 115000,
@@ -1224,12 +1269,13 @@
         "de": "Post \"Assistant Learning in Community Health and Care SWC, RFSM Marsens\" bei RFSM - Freiburg Mental Health Network, Marsens (FR). Die RFSM ist das Zentrum für psychische Gesundheit des Kantons Freiburg: Erwachsenenpsychiatrie, Kinder/Jugendliche, ältere Menschen, Süchte.\n\nWer sind wir?\n\nDas Friburger Netzwerk für psychische Gesundheit (RFSM) ist der Direktion für Gesundheit und Soziales (DSAS) angeschlossen. Die RFSM ist ein Zentrum für medizinische, pflegerische und psychosoziale Fähigkeiten, die auf psychische Gesundheit spezialisiert sind.\n\nWarum mitmachen?\n\nDer staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nRFSM Vorteile : Swibeco Karte - Gesundheitsförderung - Red Hat - Nestlé Shop Rabatt - Sprachkurse\n\nLabel Family Score 2026-2028 & Corporate Trainer\n\nIhre Missionen\n\n• Die Ausbildung findet über 3 Jahre statt, beginnend am 01.08.2027\n\n• Ein Ausbildungsvertrag wird mit der RFSM unterzeichnet\n\n• 3 Ausbildungsplätze: Praxis in Institutionen (RFSM), Berufszweige in ESS Grangeneuve, Inter-Company-Kurse (CIE) in Freiburg\n\nFähigkeiten werden im Schulungsplan definiert. Sie werden während der 3 Jahre praktiziert und sind in folgende Bereiche unterteilt:\n\n• Professionalität und Kundenorientierung\n\n• Betreuung und Unterstützung\n\n• Krisen, Notfälle und anspruchsvolle Situationen\n\n• Medizinische und technische Verfahren\n\n• Gesundheitserhaltung, Gesundheitsförderung und Hygiene\n\n• Organisation des täglichen Lebens\n\n• Stewarding\n\n• Verwaltung und Logistik\n\nProfil gewünscht\n\n100% Rate:\n\n• praktische Ausbildung (3 bis 4 Tage pro Woche) in einem Haus, Krankenhaus oder Klinik\n\n• theoretische Ausbildung (1 bis 2 Tage pro Woche) an der Berufsschule\n\n• Business-Kurse (34 Tage pro 3 Jahr)\n\nAnforderungen:\n\n• Beherrschung der französischen Sprache, Kenntnis der Partnersprache, ein Asset\n\n• Ein Jahr Praxis ist erwünscht\n\nBitte fügen Sie Ihrem Angebot eine Kopie der Schulergebnisse bei.\n\nKontaktdaten\n\nCarmen Ameijeiras, Krankenschwester verantwortlich für die Erstausbildung, carmen.ameijeirasdominguez@rfsm.ch, T +41 26 308 03 06",
         "fr": "Poste \"Apprentissage d'assistant-e en soins et santé communautaire CFC, RFSM Marsens\" au RFSM - Réseau fribourgeois santé mentale, Marsens (FR). Le RFSM est le pôle de santé mentale du canton de Fribourg : psychiatrie adulte, enfants/adolescents, personnes âgées, addictions.\n\nQui sommes-nous?\n\nLe Réseau fribourgeois de santé mentale (RFSM) est rattaché à la Direction de la santé et des affaires sociales (DSAS). Le RFSM est un pôle de compétences médicales, infirmières et psychosociales spécialisé en santé mentale.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nAvantages RFSM : Carte Swibeco - Promotion de la santé - Chaperon Rouge - Rabais Nestlé Shop - Cours de langues\n\nLabel Family score 2026-2028 & Entreprise formatrice\n\nVos missions\n\n• La formation se déroule sur 3 ans, dès le 01.08.2027\n\n• Un contrat d’apprentissage est signé avec le RFSM\n\n• 3 lieux de formation : la pratique en institution (RFSM), les branches professionnelles à ESS Grangeneuve, les cours interentreprises (CIE) à Fribourg\n\nLes compétences sont définies dans le plan de formation. Elles s’exercent tout au long des 3 ans et sont réparties dans différents domaines :\n\n• Professionnalisme et orientation client\n\n• Soins et assistance\n\n• Crises, urgences et situations exigeantes\n\n• Actes médico-techniques\n\n• Maintien de la santé, promotion de la santé et hygiène\n\n• Organisation de la vie quotidienne\n\n• Intendance\n\n• Administration et logistique\n\nProfil souhaité\n\nTaux à 100% :\n\n• formation pratique (3 à 4 jours par semaine) dans un home, un hôpital ou une clinique\n\n• formation théorique (1 à 2 jours par semaine) à l'école professionnelle\n\n• ​​cours interentreprises (34 jours sur 3 ans)\n\nExigences :\n\n• Maîtrise de la langue française, connaissances de la langue partenaire, un atout\n\n• Une année de pratique est souhaitée\n\nMerci de joindre une copie des résultats scolaires à votre offre\n\nCoordonnées des personnes de contact\n\nCarmen Ameijeiras, Infirmière responsable des formations initiales, carmen.ameijeirasdominguez@rfsm.ch, T +41 26 308 03 06"
       },
+      "needsRetranslation": true,
       "location": "Marsens",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;assistant-e-en-soins-et-sant%C3%A9-communautaire-CFC%2C-RFSM-Marsens-Gruy/1371221557/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:57.687Z",
+      "crawledAt": "2026-10-04T21:35:22.694Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1303,12 +1349,13 @@
         "de": "Position \"Assistenter Arzt, RFSM - Psychiatrie und Erwachsenenpsychotherapie\" am RFSM - Freiburger Netzwerk für psychische Gesundheit, Marsens (FR). Die RFSM ist das Zentrum für psychische Gesundheit des Kantons Freiburg: Erwachsenenpsychiatrie, Kinder/Jugendliche, ältere Menschen, Süchte. Wer sind wir? Das Friburger Netzwerk für psychische Gesundheit (RFSM) ist der Direktion für Gesundheit und Soziales (DSAS) angeschlossen. Die RFSM ist ein Zentrum für medizinische, pflegerische und psychosoziale Fähigkeiten, die auf psychische Gesundheit spezialisiert sind. Warum mitmachen? Der staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link. Ihre Missionen Ihr Tätigkeitsbereich:\n• Pflege und Behandlung von Patienten und zugeordnet zu Ihrer Einheit unter der Leitung von Prof. Isabelle Gothuey, Ärztliche Direktorin, und die jeweilige/unabhängige Person, die für die zugewiesene Pflegekette verantwortlich ist\n• Koordination und Überwachung von Behandlungsstufen im interdisziplinären Umfeld\n• Aktive Teilnahme an der Tag- und Nachtbetreuung innerhalb der Einrichtung Unser Angebot:\n• Anerkannte postgraduale Ausbildungseinrichtung mit verschiedenen Rotationsmöglichkeiten, Validierungsmöglichkeiten für:\n• Spezialist für Psychiatrie und Psychotherapie FMH\n• Intensive Ausbildung in Beratungspsychiatrie und FMH-Verbindung\n• Tiefe Ausbildung in Psychiatrie und forensischer Psychotherapie FMH\n• Intensive Ausbildung in Psychiatrie und Psychotherapie bei FMH-Süchten\n• Tiefe Ausbildung in Psychiatrie und Psychotherapie älterer Menschen FMH\n• Attraktive Beschäftigungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Leistungen als Staatsangestellter)\n• Förderung und Unterstützung für postgraduale und Weiterbildung sowie regelmäßige Betreuung, Möglichkeit der wissenschaftlichen Forschung, Angebot von Kursen in Französisch oder Deutsch.\n• Schweizer Arztdiplom oder gleichwertig (Mebeko-Anerkennung)\n• Bereitschaft, sich positiv an der Funktionsweise der RFSM zu beteiligen und ihre Werte zu bewahren ( https://www.rfsm.ch/you-are-patient-e-or-un-close/our-chart-ethics)\n• Sehr gute Französisch- oder Deutschkenntnisse (C1), gute Kenntnisse der anderen kantonalen Sprache gewünscht Kontaktdaten Prof. Isabelle Gothuey, Ärztliche Direktorin und Dr. Luca Rampa, stellvertretende Ärztliche Direktorin, luca.rampa@rfsm.ch, T +41 26 308 13 01",
         "fr": "Poste \"Médecin assistant-e, RFSM - Secteur psychiatrie et psychothérapie adulte\" au RFSM - Réseau fribourgeois santé mentale, Marsens (FR). Le RFSM est le pôle de santé mentale du canton de Fribourg : psychiatrie adulte, enfants/adolescents, personnes âgées, addictions.\n\nQui sommes-nous?\n\nLe Réseau fribourgeois de santé mentale (RFSM) est rattaché à la Direction de la santé et des affaires sociales (DSAS). Le RFSM est un pôle de compétences médicales, infirmières et psychosociales spécialisé en santé mentale.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nVotre domaine d'activité :\n\n• Prise en charge et traitement des patient(e)s et attribué(e)s à votre unité sous la direction de la Prof Isabelle Gothuey, directrice médicale, et de la/du responsable respective/respectif de la chaîne de soins attribuée\n\n• Coordination et surveillance des étapes du traitement dans le setting interdisciplinaire\n\n• Participation active au service de garde et de nuit au sein de l’institution\n\nNotre offre :\n\n• Établissement de formation postgraduée reconnu avec différentes possibilités de rotation, possibilités de validation pour :\n\n• Titre de spécialiste en psychiatrie et psychothérapie FMH\n\n• Formation approfondie en psychiatrie de consultation et liaison FMH\n\n• Formation approfondie en psychiatrie et psychothérapie forensique FMH\n\n• Formation approfondie en psychiatrie et psychothérapie des addictions FMH\n\n• Formation approfondie en psychiatrie et psychothérapie de la personne âgée FMH\n\n• Conditions d'emploi attrayantes (place de travail sûre, caisse de pension, avantages en tant qu'employé(e) de l'Etat)\n\n• Encouragement et soutien à la formation postgraduée et continue ainsi qu'à des supervisions régulières, possibilité de recherche scientifique, offre de cours de français ou d'allemand\n\nProfil souhaité\n\n• Diplôme de médecin suisse ou titre équivalent (reconnaissance MEBEKO)\n\n• Volonté de s'impliquer positivement dans le fonctionnement du RFSM et de préserver ses valeurs ( https://www.rfsm.ch/vous-etes-patient-e-ou-un-proche/notre-charte-ethique )\n\n• Très bonnes connaissances du français ou de l’allemand (C1), bonnes connaissances de l'autre langue cantonale souhaitées\n\nCoordonnées des personnes de contact\n\nProf. Isabelle Gothuey, Directrice médicale et Dr Luca Rampa, Directeur médical adjoint, luca.rampa@rfsm.ch, T +41 26 308 13 01"
       },
+      "needsRetranslation": true,
       "location": "Marsens",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:56.899Z",
+      "crawledAt": "2026-10-04T21:35:21.950Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1329,7 +1376,8 @@
         "fr": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "it": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1342,7 +1390,8 @@
           "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
           "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
           "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
         ],
         "en": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1367,7 +1416,9 @@
         "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
         "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
         "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
-        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-05-21T00:02:58.754Z",
       "salaryMin": 85000,
@@ -1416,7 +1467,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;aide-en-soins-et-accompagnement-AFP%2C-RFSM-Marsens-Gruy/1371192157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:56.106Z",
+      "crawledAt": "2026-10-04T21:35:21.194Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1496,7 +1547,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:27:55.313Z",
+      "crawledAt": "2026-10-04T21:35:20.434Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1518,13 +1569,15 @@
         "nurse-rfsm-marsens-and-villars-sur-glane-for-spontaneous-applications-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "krankenschwester-rfsm-marsens-und-villars-sur-glane-fur-spontane-anwendungen-rfsm-reseau-fribourgeois-sante-mentale",
         "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
+        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
+        "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
           "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
+          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
+          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
         ],
         "en": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",

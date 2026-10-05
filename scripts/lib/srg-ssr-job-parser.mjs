@@ -17,6 +17,8 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -598,8 +600,14 @@ export async function fetchAllSrgSsrJobs() {
         : {};
 
       // Posting date from JSON-LD
-      const datePosted = String(jsonLd?.datePosted || '').trim() ||
-        new Date().toISOString().slice(0, 10);
+      const records = extractPostingRecords(detailHtml, listing.url);
+      const explicitPublicationUrl = jsonLd?.url || jsonLd?.sameAs;
+      let matchingPublication = Boolean(jsonLd) && (Boolean(explicitPublicationUrl) || records.length === 1);
+      if (listing.title && normalizeSpace(jsonLd?.title || '').toLowerCase() !== normalizeSpace(listing.title).toLowerCase()) matchingPublication = false;
+      if (explicitPublicationUrl) {
+        try { matchingPublication &&= new URL(explicitPublicationUrl, listing.url).href === new URL(listing.url).href; } catch { matchingPublication = false; }
+      }
+      const publication = sourcePostingDateFields(matchingPublication ? jsonLd?.datePosted : '');
 
       // Slug and ID
       const jobSlug = slugify(`${title} srg-ssr ${location}`);
@@ -644,7 +652,7 @@ export async function fetchAllSrgSsrJobs() {
         sector: 'Media / Broadcasting',
         currency: 'CHF',
         featured: false,
-        postedDate: datePosted,
+        ...publication,
         applyUrl: listing.url,
         requirements,
         requirementsByLocale: { [sourceLang]: requirements },

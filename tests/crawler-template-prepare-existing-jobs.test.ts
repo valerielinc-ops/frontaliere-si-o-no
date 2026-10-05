@@ -75,6 +75,7 @@ vi.mock('../scripts/lib/dedicated-crawler-common.mjs', () => ({
 
 vi.mock('../scripts/lib/expired-jobs-archive.mjs', () => ({
   archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
+  readExpiredSlice: vi.fn(() => []),
 }));
 
 vi.mock('../scripts/lib/transient-fetch.mjs', async (importOriginal) => {

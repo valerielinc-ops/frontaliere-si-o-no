@@ -82,6 +82,25 @@ if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
   exit 0
 fi
 
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
+
 # Extension → Content-Type. Explicit table, not auto-detection — see header
 # comment for why (.webp specifically is unreliable via rclone/Go mime sniff
 # on some runners).
@@ -125,7 +144,7 @@ if ! command -v rclone >/dev/null 2>&1; then
   # anyway (>= 2 are the real errors), so gating the install on rc == 0 threw
   # away a working binary and skipped the CDN upload. The binary on disk is
   # the contract, not unzip's exit code.
-  if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
+  if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors --connect-timeout 15 --max-time 120 \
        https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
     unzip_rc=0
     unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || unzip_rc=$?
@@ -136,7 +155,7 @@ if ! command -v rclone >/dev/null 2>&1; then
     fi
     if [ "$unzip_rc" -lt 2 ] && [ -s "$rtmp/rclone-bin/rclone" ] \
        && chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null \
-       && "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
+       && timeout -k 5 30 "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
       export PATH="$rtmp/rclone-bin:$PATH"
     fi
   fi
@@ -153,6 +172,10 @@ RC=(rclone
   --s3-endpoint="$R2_S3_ENDPOINT"
   --s3-region=auto
   --s3-no-check-bucket
+  # Connect and IO-idle limits per request; the wall-clock limit is the
+  # `timeout` around the call below (NX-SKEW-2b: no unbounded R2 call on a
+  # deploy path — publish-edge-files.mjs runs this inside deploy.yml).
+  --contimeout=15s --timeout=60s
   # `--ignore-times`, NOT `--checksum` (issue #5497): rclone's `--checksum`
   # skips the PUT whenever it decides src and dst already match, and per
   # rclone's own operations.Equal(), when no common hash type is available
@@ -182,9 +205,10 @@ bkt=":s3:$R2_BUCKET"
 # run-28599750786): a single-shot upload with no fallback previously failed
 # the whole deploy prep step on a bare connection reset even though nothing
 # else was wrong. Still never fatal — see header "Failure posture".
+r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 attempt_ok=0
 for try in 1 2; do
-  if "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
+  if timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
        --header-upload "Content-Type: $content_type" \
        --header-upload "Cache-Control: $cache_control" \
        --stats=0; then

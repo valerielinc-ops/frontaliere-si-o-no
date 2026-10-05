@@ -26,7 +26,8 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractUmantisDetailContent, parseSwissDate } from './umantis-listing-common.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -261,7 +262,7 @@ function parseRowMetadata(cellText, title) {
   }
 
   // Posted date — "Online since: dd.mm.yyyy" appears before the title.
-  const onlineSince = cellText.match(/Online since:\s*(\d{1,2}[./-]\d{1,2}[./-]\d{2,4})/i);
+  const onlineSince = cellText.match(/Online since:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?=\s|\||$)/i);
   if (onlineSince) out.postedDate = onlineSince[1];
 
   const segments = rest
@@ -590,7 +591,7 @@ export async function fetchAllBobstJobs(options = {}) {
       sector: 'Industria', // Industrial packaging machinery / printing equipment
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(parseSwissDate(listing.postedDate)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

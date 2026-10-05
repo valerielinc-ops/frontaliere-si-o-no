@@ -34,6 +34,7 @@
  * (e.g. KSBL → karriere.ksbl.ch on TYPO3). The listing endpoint on the
  * raw umantis.com subdomain always works regardless.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml as fetchHtmlResilient, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -114,7 +115,7 @@ function extractNewerUiRow(rowHtml) {
     ? normalizeSpace(decodeEntities(stripHtml(snippetMatch[1])))
     : '';
 
-  return { id, title, art, befristung, department, snippet, companyValue, datum: '' };
+  return { id, title, art, befristung, department, snippet, companyValue, datum: readOnlineSince(rowHtml) };
 }
 
 /**
@@ -142,6 +143,12 @@ function parseNewerUiListing(html) {
     out.push(entry);
   }
   return out;
+}
+
+// Only the explicitly labelled publication field is accepted.
+function readOnlineSince(rowHtml = '') {
+  const text = normalizeSpace(decodeEntities(stripHtml(rowHtml)));
+  return text.match(/Online seit:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?!\w)/)?.[1] || '';
 }
 
 /* ── Older UI extractor (pipe-separated metadata) ────────── */
@@ -187,8 +194,18 @@ function parseOlderUiListing(html) {
       || pick(after, 'Berufsgruppe')
       || pick(after, 'Funktionsbereich')
       || pick(after, 'Organisationseinheit');
-    const datumMatch = (before + after).match(/Online seit:\s*(\d{1,2}\.\d{1,2}\.\d{4})/);
-    const datum = datumMatch ? datumMatch[1] : '';
+    // Publication belongs to this row, never to a neighbouring anchor's
+    // surrounding metadata. A standalone fragment is safe only for one job.
+    const prefix = html.slice(0, anchorIdx);
+    const rowOpen = [...prefix.matchAll(/<tr\b[^>]*>/gi)].at(-1);
+    const previousRowClose = prefix.toLowerCase().lastIndexOf('</tr>');
+    const rowEnd = html.toLowerCase().indexOf('</tr>', anchorIdx);
+    const rowHtml = rowOpen && rowOpen.index > previousRowClose && rowEnd >= 0
+      ? html.slice(rowOpen.index, rowEnd + 5)
+      : (anchors.length === 1 ? html : '');
+    const rowLinks = [...rowHtml.matchAll(/href="\/Vacancies\/(\d+)\/Description\/\d+"/g)];
+    const sameJobOnly = rowLinks.every((link) => link[1] === id);
+    const datum = sameJobOnly ? readOnlineSince(rowHtml) : '';
 
     // Location heuristic: tableaslist_text element directly before the anchor
     // often contains the city name. Try to extract it.
@@ -821,7 +838,6 @@ export function createUmantisListingParser(config) {
 
     if (!entries.length) return [];
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let quarantinedDeadDetail = 0;
@@ -882,7 +898,7 @@ export function createUmantisListingParser(config) {
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-      const postedDate = parseSwissDate(entry.datum) || todayIso;
+      const publication = sourcePostingDateFields(parseSwissDate(entry.datum));
       const employmentType = detectEmploymentType(entry.art, title);
 
       jobs.push({
@@ -926,7 +942,7 @@ export function createUmantisListingParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

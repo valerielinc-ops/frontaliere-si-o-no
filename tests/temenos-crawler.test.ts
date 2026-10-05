@@ -14,16 +14,34 @@ import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs'
 
 const SWISS_ID = '187134fccb084a0ea9b4b95f23890dbe';
 
-function mockTemenosWorkday({ faceted, unfiltered }: { faceted: unknown; unfiltered: unknown }) {
+function mockTemenosWorkday({
+  faceted,
+  unfiltered,
+  rejectFaceted = false,
+  detailPayload = null,
+}: {
+  faceted: unknown;
+  unfiltered: unknown;
+  rejectFaceted?: boolean;
+  detailPayload?: unknown;
+}) {
   const calls: Array<{ body: any }> = [];
   vi.stubGlobal('fetch', vi.fn(async (input: unknown, init: any = {}) => {
     const url = String(input);
-    if (!url.endsWith('/jobs') || init?.method !== 'POST') {
+    if (!url.endsWith('/jobs')) {
+      return detailPayload === null
+        ? new Response('', { status: 404 })
+        : new Response(JSON.stringify(detailPayload), { status: 200 });
+    }
+    if (init?.method !== 'POST') {
       return new Response('', { status: 404 });
     }
     const body = JSON.parse(init.body);
     calls.push({ body });
     const filtered = Object.keys(body.appliedFacets || {}).length > 0;
+    if (filtered && rejectFaceted) {
+      return new Response(JSON.stringify({ errorCode: 'HTTP_400', httpStatus: 400 }), { status: 400 });
+    }
     return new Response(JSON.stringify(filtered ? faceted : unfiltered), { status: 200 });
   }));
   return calls;
@@ -34,14 +52,14 @@ afterEach(() => {
 });
 
 describe('Temenos crawler parser', () => {
-  it('uses the tenant facet and proves a live board with no Swiss roles', async () => {
+  it('proves a live board with no Swiss roles', async () => {
     const calls = mockTemenosWorkday({
       faceted: { total: 0, jobPostings: [], facets: [] },
       unfiltered: {
         total: 16,
         jobPostings: [],
         facets: [{
-          facetParameter: 'locationMainGroup',
+          facetParameter: 'locationCountry',
           values: [
             { id: 'paris', descriptor: 'Paris', count: 4 },
             { id: 'london', descriptor: 'London', count: 3 },
@@ -54,7 +72,7 @@ describe('Temenos crawler parser', () => {
 
     const jobs = await fetchAllTemenosJobs();
 
-    expect(calls[0].body.appliedFacets).toEqual({ locationMainGroup: [SWISS_ID] });
+    expect(calls[0].body.appliedFacets).toEqual({ locationCountry: [SWISS_ID] });
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     expect(jobs).toEqual([]);
   });
@@ -73,7 +91,7 @@ describe('Temenos crawler parser', () => {
         total: 16,
         jobPostings: [],
         facets: [{
-          facetParameter: 'locationMainGroup',
+          facetParameter: 'locationCountry',
           values: [
             { id: 'paris', descriptor: 'Paris', count: 4 },
             { id: 'london', descriptor: 'London', count: 3 },
@@ -84,7 +102,7 @@ describe('Temenos crawler parser', () => {
 
     const jobs = await fetchAllTemenosJobs();
 
-    expect(calls[0].body.appliedFacets).toEqual({ locationMainGroup: [SWISS_ID] });
+    expect(calls[0].body.appliedFacets).toEqual({ locationCountry: [SWISS_ID] });
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     expect(jobs).toEqual([]);
   });
@@ -111,14 +129,52 @@ describe('Temenos crawler parser', () => {
     expect(jobs).toEqual([]);
   });
 
+  it('proves empty after a rejected facet when the complete fallback board is foreign-only', async () => {
+    const foreignPosting = {
+      title: 'Platform Engineer',
+      locationsText: 'Paris, France',
+      externalPath: '/job/Paris/platform-engineer/123',
+    };
+    const calls = mockTemenosWorkday({
+      rejectFaceted: true,
+      faceted: { total: 0, jobPostings: [] },
+      unfiltered: {
+        total: 1,
+        jobPostings: [foreignPosting],
+        facets: [{
+          facetParameter: 'locationMainGroup',
+          values: [{ descriptor: 'Locations', values: [{ id: 'paris', descriptor: 'Paris', count: 1 }] }],
+        }],
+      },
+      detailPayload: {
+        jobPostingInfo: {
+          location: 'Paris, France',
+          jobRequisitionLocation: { country: { alpha2Code: 'FR', descriptor: 'France' } },
+          jobDescription: `<p>${'A'.repeat(120)}</p>`,
+        },
+      },
+    });
+
+    const jobs = await fetchAllTemenosJobs();
+
+    expect(calls.map(({ body }) => body.appliedFacets)).toEqual([
+      { locationCountry: [SWISS_ID] },
+      {},
+      {},
+    ]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+  });
+
   it('wires the runner to accept only a proven empty snapshot', () => {
     const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-temenos-jobs.mjs'), 'utf8');
     expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(TEMENOS_COMPANY_NAME)');
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
 
     const parser = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'lib', 'temenos-job-parser.mjs'), 'utf8');
-    expect(parser).toContain("countryFacetParameter: 'locationMainGroup'");
     expect(parser).toContain('proveSwissAbsentFromLiveBoard: true');
+    expect(parser).toContain('proveForeignOnlyBoardEmpty: true');
+    expect(parser).not.toContain("countryFacetParameter: 'locationMainGroup'");
 
     expect(EMPTY_OK_CRAWLERS.has('temenos')).toBe(false);
   });

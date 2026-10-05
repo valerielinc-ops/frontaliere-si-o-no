@@ -1,7 +1,7 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-10-04T09:24:58.264Z",
+  "generatedAt": "2026-10-04T21:19:44.215Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,16 +14,16 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4585,
-  "avgDurationMs": 4585,
+  "durationMs": 3370,
+  "avgDurationMs": 3370,
   "durationHistory": [
-    4585
+    3370
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "wuerth-international-bdc84a71a252",
-      "slug": "praktikum-im-bereich-corporate-houskeeping-40-wuerth-international-chur",
+      "slug": "stage-in-corporate-houskeeping-40-wurth-international-chur",
       "company": "Würth International",
       "companyKey": "wuerth-international",
       "companyDomain": "wurth-international.com",
@@ -42,23 +42,29 @@
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "featured": false,
+      "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
       "url": "https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Job-details_17536.php",
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:47.848Z",
+      "crawledAt": "2026-10-04T21:19:37.474Z",
       "firstSeenAt": "2026-09-07T15:13:21.865Z",
-      "_qualityScore": 88,
+      "salaryMin": 21600,
+      "salaryMax": 36600,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
