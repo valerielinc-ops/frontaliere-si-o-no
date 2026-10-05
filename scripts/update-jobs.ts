@@ -50,6 +50,10 @@ function legacyPostingFields(raw?: string): PostingDateFields {
   return withLegacyPostingDay(sourcePostingDateFields(raw)) as PostingDateFields;
 }
 
+function providerErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
 type JobCategory = 'tech' | 'finance' | 'health' | 'engineering' | 'admin' | 'sales' | 'other';
 type ContractType = 'full-time' | 'part-time' | 'contract' | 'internship';
 
@@ -97,7 +101,7 @@ export async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Job-Room.ch fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Job-Room.ch fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -166,6 +170,7 @@ export async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Job-Room.ch error:', error);
+    throw new Error(`Job-Room.ch provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -191,7 +196,7 @@ async function fetchTuttiJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Tutti.ch fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Tutti.ch fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -236,6 +241,7 @@ async function fetchTuttiJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Tutti.ch error:', error);
+    throw new Error(`Tutti.ch provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -261,7 +267,7 @@ async function fetchRemotiveJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Remotive.io fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Remotive.io fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -299,6 +305,7 @@ async function fetchRemotiveJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Remotive.io error:', error);
+    throw new Error(`Remotive.io provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -324,7 +331,7 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ FindWork.dev fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`FindWork.dev fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -353,6 +360,7 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ FindWork.dev error:', error);
+    throw new Error(`FindWork.dev provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -443,7 +451,7 @@ async function fetchUBSJobsFromHTML(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ UBS HTML fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`UBS HTML fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -477,6 +485,7 @@ async function fetchUBSJobsFromHTML(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ UBS HTML parsing error:', error);
+    throw new Error(`UBS provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -546,7 +555,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Migros HTML fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Migros HTML fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -616,6 +625,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Migros error:', error);
+    throw new Error(`Migros provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -810,42 +820,54 @@ export async function main() {
   console.log('========================================\n');
   
   const allJobs: JobListing[] = [];
+  const providerErrors: string[] = [];
+
+  async function collectProvider(name: string, fetcher: () => Promise<JobListing[]>): Promise<JobListing[]> {
+    try {
+      return await fetcher();
+    } catch (error) {
+      const message = `${name}: ${providerErrorMessage(error)}`;
+      providerErrors.push(message);
+      console.warn(`  ⚠️ ${message}`);
+      return [];
+    }
+  }
   
   // Fetch from free public APIs (no scraping blocked sites)
   console.log('🌐 Using public job APIs...\n');
   
   // 1. Swiss government job portal (most reliable)
-  const arbeitSwissJobs = await fetchArbeitSwissJobs();
+  const arbeitSwissJobs = await collectProvider('Job-Room.ch', fetchArbeitSwissJobs);
   allJobs.push(...arbeitSwissJobs);
   
   await sleep(1000);
   
   // 2. UBS Jobs Ticino
-  const ubsJobs = await fetchUBSJobs();
+  const ubsJobs = await collectProvider('UBS Careers', fetchUBSJobs);
   allJobs.push(...ubsJobs);
   
   await sleep(1000);
   
   // 3. Migros/Denner Jobs Ticino
-  const migrosJobs = await fetchMigrosJobs();
+  const migrosJobs = await collectProvider('Migros/Denner', fetchMigrosJobs);
   allJobs.push(...migrosJobs);
   
   await sleep(1000);
   
   // 4. Tutti.ch classifieds (Swiss classified ads with jobs)
-  const tuttiJobs = await fetchTuttiJobs();
+  const tuttiJobs = await collectProvider('Tutti.ch', fetchTuttiJobs);
   allJobs.push(...tuttiJobs);
   
   await sleep(1000);
   
   // 5. Remote jobs (European/worldwide)
-  const remotiveJobs = await fetchRemotiveJobs();
+  const remotiveJobs = await collectProvider('Remotive.io', fetchRemotiveJobs);
   allJobs.push(...remotiveJobs);
   
   await sleep(1000);
   
   // 6. Tech jobs
-  const findworkJobs = await fetchFindWorkJobs();
+  const findworkJobs = await collectProvider('FindWork.dev', fetchFindWorkJobs);
   allJobs.push(...findworkJobs);
   
   console.log(`\n📊 Results:`);
@@ -855,6 +877,13 @@ export async function main() {
   console.log(`   Tutti.ch: ${tuttiJobs.length} jobs`);
   console.log(`   Remotive.io: ${remotiveJobs.length} jobs`);
   console.log(`   FindWork.dev: ${findworkJobs.length} jobs`);
+
+  // A provider error is different from an authoritative empty result. Never
+  // publish a partial aggregate: one failed source can otherwise expire its
+  // still-valid listings while another source keeps the aggregate non-empty.
+  if (providerErrors.length > 0) {
+    throw new Error(`Provider fetch failed (${providerErrors.join('; ')}); preserving existing data/jobs.json`);
+  }
   
   // Deduplicate
   let uniqueJobs = deduplicateJobs(allJobs);

@@ -20,11 +20,23 @@ describe('manual job writer publication', () => {
     vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
       if (init?.method === 'HEAD') return new Response('', { status: 200 });
       if (url.includes('job-room.ch')) return new Response(`<script type="application/ld+json">${JSON.stringify(posting)}</script>`);
-      return new Response('', { status: 503 });
+      return new Response('{}', { status: 200, headers: { 'content-type': 'application/json' } });
     }));
     const task = main(); await vi.runAllTimersAsync(); expect(await task).toBe(1);
     const output = writes.mock.calls.find(([file]) => String(file).endsWith('/jobs.json'));
     expect(JSON.parse(output![1])).toEqual([expect.objectContaining({ title: 'Engineer', datePosted, postedDate: datePosted.slice(0, 10), postingDateSource: 'reported' })]);
+  });
+  it('does not overwrite the previous dataset when one provider fails beside valid results', async () => {
+    const posting = { '@type': 'JobPosting', title: 'Engineer', url: 'https://employer.example/job/1', datePosted: '2026-10-02T10:00:00Z', description: 'Real source role', hiringOrganization: { name: 'Acme' } };
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.includes('job-room.ch')) return new Response(`<script type="application/ld+json">${JSON.stringify(posting)}</script>`);
+      if (url.includes('tutti.ch')) return new Response('', { status: 503 });
+      return new Response('{}', { status: 200, headers: { 'content-type': 'application/json' } });
+    }));
+    const rejection = expect(main()).rejects.toThrow('preserving existing data/jobs.json');
+    await vi.runAllTimersAsync();
+    await rejection;
+    expect(writes).not.toHaveBeenCalled();
   });
   it.each(['2026-10-02T10:00:00.123456+02:00', '', '2026-02-30', '2026-10-05'])('preserves only genuine valid JSONLD publication %s', async (datePosted) => {
     const posting = { '@type': 'JobPosting', title: 'Engineer', url: 'https://employer.example/job/1', datePosted, description: 'Real role', hiringOrganization: { name: 'Acme' } };

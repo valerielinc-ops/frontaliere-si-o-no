@@ -237,9 +237,8 @@ function pickPostalCode(city) {
  * Fetch all Spital STS AG jobs by scraping the SSR career page and (best
  * effort) hydrating each row with the matching detail-page description.
  *
- * Returns an array of ParsedJob objects (source-locale = de). Graceful
- * degradation: if the list fetch fails we return [] instead of throwing,
- * matching the contract that every dedicated crawler asserts.
+ * Returns an array of ParsedJob objects (source-locale = de). A failed list
+ * fetch is rethrown so the caller cannot publish a partial provider snapshot.
  */
 export async function fetchAllSpitalStsJobs() {
   console.log(`🏥 Fetching ${SPITAL_STS_COMPANY_NAME} jobs`);
@@ -250,7 +249,7 @@ export async function fetchAllSpitalStsJobs() {
   try {
     listHtml = await fetchHtml(CAREER_LIST_URL);
   } catch (err) {
-    console.warn(`  ⚠️ STS career list fetch failed: ${err?.message || err}. Returning [].`);
+    console.warn(`  ⚠️ STS career list fetch failed: ${err?.message || err}. Rethrowing error.`);
     throw err;
   }
 

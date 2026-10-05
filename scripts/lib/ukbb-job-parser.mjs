@@ -233,7 +233,7 @@ export async function fetchAllUkbbJobs() {
   try {
     xml = await fetchHtml(SITEMAP_URL);
   } catch (err) {
-    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Returning [].`);
+    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Rethrowing error.`);
     throw err;
   }
 
