@@ -690,7 +690,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "numberOfItems": 9,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Permessi di Lavoro G e B", "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/` },
- { "@type": "ListItem", "position": 2, "name": "Tempi Attesa Dogana", "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/` },
+ { "@type": "ListItem", "position": 2, "name": "Tempi Attesa Dogana", "url": `${BASE_URL}/traffico-dogane/` },
  { "@type": "ListItem", "position": 3, "name": "Primo Giorno di Lavoro", "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/` },
  { "@type": "ListItem", "position": 4, "name": "Tassa Salute Frontalieri 2026", "url": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/` },
  { "@type": "ListItem", "position": 5, "name": "LAMal Frontalieri — Guida Pillar", "url": `${BASE_URL}/guida-frontaliere/lamal-frontalieri/` },
@@ -2151,13 +2151,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
  ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
  ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa live, webcam e valichi alternativi per evitare le code.',
- canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/',
+ canonicalPath: '/traffico-dogane/',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "Valichi di Frontiera Svizzera-Italia: Orari, Traffico e Percorsi",
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/`,
+ "url": `${BASE_URL}/traffico-dogane/`,
  "description": "Guida completa ai valichi doganali CH-IT: Chiasso, Ponte Tresa, Gaggiolo, Brogeda, Stabio con orari e percorsi alternativi",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2783,7 +2783,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.8409, "longitude": 9.0376 },
  "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso/`
+ "url": `${BASE_URL}/traffico-dogane/chiasso-brogeda/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2794,7 +2794,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.8326, "longitude": 9.0340 },
  "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso/`
+ "url": `${BASE_URL}/traffico-dogane/chiasso-centro/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2805,7 +2805,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.8411, "longitude": 8.9134 },
  "address": { "@type": "PostalAddress", "addressLocality": "Stabio", "addressRegion": "TI", "postalCode": "6855", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio/`
+ "url": `${BASE_URL}/traffico-dogane/gaggiolo/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2816,7 +2816,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.9670, "longitude": 8.8589 },
  "address": { "@type": "PostalAddress", "addressLocality": "Ponte Tresa", "addressRegion": "TI", "postalCode": "6988", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/ponte-tresa/`
+ "url": `${BASE_URL}/traffico-dogane/ponte-tresa/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2827,7 +2827,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.8361, "longitude": 9.0300 },
  "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-strada/`
+ "url": `${BASE_URL}/traffico-dogane/chiasso-strada/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2838,7 +2838,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.8523, "longitude": 8.9748 },
  "address": { "@type": "PostalAddress", "addressLocality": "Novazzano", "addressRegion": "TI", "postalCode": "6883", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/bizzarone-novazzano/`
+ "url": `${BASE_URL}/traffico-dogane/bizzarone-novazzano/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2849,7 +2849,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 45.9931, "longitude": 8.7878 },
  "address": { "@type": "PostalAddress", "addressLocality": "Fornasette", "addressRegion": "TI", "postalCode": "6989", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/luino-fornasette/`
+ "url": `${BASE_URL}/traffico-dogane/luino-fornasette/oggi/`
  },
  {
  "@context": "https://schema.org",
@@ -2860,7 +2860,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "geo": { "@type": "GeoCoordinates", "latitude": 46.1040, "longitude": 8.7579 },
  "address": { "@type": "PostalAddress", "addressLocality": "Dirinella", "addressRegion": "TI", "postalCode": "6573", "addressCountry": "CH" },
  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
- "url": `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella/`
+ "url": `${BASE_URL}/traffico-dogane/zenna-dirinella/oggi/`
  }
  ]
  },

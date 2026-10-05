@@ -38,7 +38,7 @@ const VALID_DUTY_STATUSES = new Set(['verified', 'pending_review', 'expired', 'c
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },
   { key: 'fuel', path: '/prezzi-diesel/oggi/', label: 'confronto carburante' },
-  { key: 'border', path: '/guida-frontaliere/tempi-attesa-dogana/', label: 'tempi alle dogane' },
+  { key: 'border', path: '/traffico-dogane/', label: 'tempi alle dogane' },
   { key: 'pharmacy', path: '/farmacie-di-turno/', label: 'farmacie di turno' },
 ];
 

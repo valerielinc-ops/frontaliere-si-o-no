@@ -53,7 +53,7 @@ describe('registry publication provenance', () => {
     // cron-count-ok: authored article publication metadata, not imported corpus counts.
     expect(datedArticles).toHaveLength(65);
     for (const article of datedArticles) expect(article.datePublished).toMatch(/^\d{4}-\d{2}-\d{2}/);
-    const borderArticle = articles.find(article => article.url === 'https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/');
+    const borderArticle = articles.find(article => article.url === 'https://frontaliereticino.ch/traffico-dogane/');
     expect(borderArticle).toBeDefined();
     expect(borderArticle).not.toHaveProperty('datePublished');
     expect(borderArticle?.dateModified).toEqual(expect.any(String));

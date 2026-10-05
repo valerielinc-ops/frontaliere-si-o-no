@@ -97,6 +97,27 @@ describe('deriveAnalyticsPageContext', () => {
     });
   });
 
+  it('classifies published data directories as directory page families', () => {
+    const cases = [
+      ['/aziende/medacta-international/', 'directory_employer_profile'],
+      ['/en/companies-hiring/lugano/current-week/', 'directory_employer_weekly'],
+      ['/farmacie-di-turno/ticino/', 'directory_pharmacy'],
+      ['/de/gesundheitseinrichtungen/ospedale-regionale-lugano/', 'directory_health_facility'],
+      ['/vivere-in-ticino/comuni-di-frontiera/maslianico/', 'directory_border_municipality'],
+      ['/fr/impots-frontaliers-commune/maslianico/', 'directory_fiscal_municipality'],
+      ['/aste-targhe-svizzera/ticino/', 'directory_plate_auction'],
+    ] as const;
+
+    for (const [path, pageTemplate] of cases) {
+      expect(deriveAnalyticsPageContext(path), path).toMatchObject({
+        contentGroup: 'directory',
+        pageTemplate,
+        siteSection: 'directory',
+        routeFamily: pageTemplate,
+      });
+    }
+  });
+
   it('classifies the events section by template and locale', () => {
     expect(deriveAnalyticsPageContext('/eventi/')).toMatchObject({
       contentGroup: 'events',
