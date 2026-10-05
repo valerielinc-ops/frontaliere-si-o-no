@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-10-05T09:24:32.138Z",
+  "generatedAt": "2026-10-05T21:38:00.278Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5175,
-  "avgDurationMs": 5175,
+  "durationMs": 6283,
+  "avgDurationMs": 6283,
   "durationHistory": [
-    5175
+    6283
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:24:23.184Z",
+      "crawledAt": "2026-10-05T21:37:49.256Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Quality-Applications/1410853533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:24:22.616Z",
+      "crawledAt": "2026-10-05T21:37:48.584Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
