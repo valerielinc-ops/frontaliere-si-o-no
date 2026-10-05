@@ -47,9 +47,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -80,7 +78,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:35:54.059Z"
+      "firstSeenAt": "2026-07-04T10:35:54.059Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11162",
@@ -88,7 +88,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "service-technician-m-f-d-dormakaba-st-gallen",
+        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -127,9 +127,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -143,7 +141,6 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "service-technician-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -154,7 +151,6 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen",
           "service-technician-m-f-d-dormakaba-st-gallen"
         ],
         "fr": [
@@ -176,7 +172,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:35:54.067Z"
+      "firstSeenAt": "2026-07-04T10:35:54.067Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11909",
@@ -1147,9 +1145,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -1184,16 +1180,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:51:47.178Z"
+      "firstSeenAt": "2026-09-24T14:51:47.178Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-12356",
       "slug": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
         "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
+        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen",
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",

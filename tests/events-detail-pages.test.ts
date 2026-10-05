@@ -369,7 +369,16 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('"@type":"Event"');
     expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
-    expect(page.html).not.toContain('"offers"');
+    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
+      .find((schema) => schema['@type'] === 'Event');
+    expect(eventSchema?.offers).toEqual({
+      '@type': 'Offer',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-07-04',
+      url: `https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/`,
+    });
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
