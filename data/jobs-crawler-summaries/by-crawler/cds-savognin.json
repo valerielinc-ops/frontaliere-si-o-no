@@ -1,7 +1,7 @@
 {
   "key": "cds-savognin",
   "label": "Center da Sanadad Savognin",
-  "generatedAt": "2026-10-05T17:33:16.474Z",
+  "generatedAt": "2026-10-05T21:32:38.276Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5501,
-  "avgDurationMs": 5501,
+  "durationMs": 3900,
+  "avgDurationMs": 3900,
   "durationHistory": [
-    5501
+    3900
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T17:33:06.344Z",
+      "crawledAt": "2026-10-05T21:32:31.471Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T17:33:06.341Z",
+      "crawledAt": "2026-10-05T21:32:31.469Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T17:33:06.339Z",
+      "crawledAt": "2026-10-05T21:32:31.468Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T17:33:06.335Z",
+      "crawledAt": "2026-10-05T21:32:31.465Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T17:33:06.307Z",
+      "crawledAt": "2026-10-05T21:32:31.447Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "6a7776e042b7cf4e5bd92a7e2acc0adf4248faea"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
