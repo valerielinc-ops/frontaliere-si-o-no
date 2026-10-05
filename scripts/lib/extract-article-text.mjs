@@ -92,7 +92,9 @@ function extractFromJsonLd(document) {
  * Added 2026-07-28: a 25 January 2026 source was republished as fresh news on
  * 28 July 2026, in the future tense, because nothing in the pipeline ever
  * looked at when the source was written. Reads JSON-LD `datePublished` first
- * (the same node the body comes from), then the standard meta tags.
+ * then metadata explicitly labelled as publication. Creation, modification,
+ * generic date metadata and unlabelled time elements do not establish when
+ * the source was published; leave the date unknown instead of making it fresh.
  */
 export function extractPublishedDate(document) {
   const scripts = document.querySelectorAll('script[type="application/ld+json"]');
@@ -109,7 +111,7 @@ export function extractPublishedDate(document) {
       const graph = Array.isArray(obj['@graph']) ? obj['@graph'] : [obj];
       for (const node of graph) {
         if (!node || typeof node !== 'object') continue;
-        const raw = node.datePublished || node.dateCreated || node.dateModified;
+        const raw = node.datePublished;
         if (typeof raw === 'string' && !Number.isNaN(new Date(raw).getTime())) {
           return new Date(raw).toISOString();
         }
@@ -117,14 +119,14 @@ export function extractPublishedDate(document) {
     }
   }
 
-  for (const sel of ['meta[property="article:published_time"]', 'meta[name="date"]',
+  for (const sel of ['meta[property="article:published_time"]',
                      'meta[itemprop="datePublished"]', 'meta[name="pubdate"]']) {
     const el = document.querySelector(sel);
     const raw = el ? (el.getAttribute('content') || '').trim() : '';
     if (raw && !Number.isNaN(new Date(raw).getTime())) return new Date(raw).toISOString();
   }
 
-  const timeEl = document.querySelector('time[datetime]');
+  const timeEl = document.querySelector('time[itemprop~="datePublished"][datetime]');
   const timeRaw = timeEl ? (timeEl.getAttribute('datetime') || '').trim() : '';
   if (timeRaw && !Number.isNaN(new Date(timeRaw).getTime())) return new Date(timeRaw).toISOString();
 

@@ -31,6 +31,9 @@
  * for our IT audience.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { extractJobPostingsLd, jobPostingDescriptionText } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -219,11 +222,6 @@ function pickLocation(jobLocation) {
   };
 }
 
-function pickPostedDate(raw) {
-  const s = typeof raw === 'string' ? raw.slice(0, 10) : '';
-  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
-  return new Date().toISOString().slice(0, 10);
-}
 
 /* ── Main entry ────────────────────────────────────────────── */
 
@@ -235,10 +233,7 @@ export async function fetchAllUkbbJobs() {
   try {
     xml = await fetchHtml(SITEMAP_URL);
   } catch (err) {
-    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}.`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
+    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Rethrowing error.`);
     throw err;
   }
 
@@ -279,6 +274,13 @@ export async function fetchAllUkbbJobs() {
       continue;
     }
     ldHits += 1;
+
+    // The native heading identifies the vacancy independently of JSON-LD.
+    // Multiple postings cannot safely identify the body selected above.
+    const pageTitle = jobPostingDescriptionText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
+    const publication = extractJobPostingsLd(html).length === 1
+      ? identifiedPostingPublication(html, url, pageTitle)
+      : sourcePostingDateFields();
 
     const title = normalizeSpace(decodeEntities(ld.title || ''));
     if (!title || title.length < 3) continue;
@@ -333,7 +335,7 @@ export async function fetchAllUkbbJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: pickPostedDate(ld.datePosted),
+      ...withLegacyPostingDay(publication),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
