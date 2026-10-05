@@ -199,6 +199,20 @@ jobs:
           key: argos-translate-models-v1
           restore-keys: argos-translate-models-
 
+      # The Argos worker appends every translated unit here (LOCAL_MT_UNIT_CACHE)
+      # and compacts the file to the units still queued. A worker killed at its
+      # time budget therefore hands its finished units to Phase 2c and to the
+      # next run instead of losing them. Per-run key, restored by prefix, like
+      # the per-company translation cache; outside data/ so no commit sees it.
+      - name: Restore Argos unit cache
+        id: local_mt_unit_cache_restore
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/local-mt-units
+          key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: local-mt-units-v1-
+
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -313,6 +327,9 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '4500000'  # 75 * 60 * 1000
+          # Units Argos already translated (this run's earlier pass or a
+          # previous run): reused instead of re-translated, see the cache step.
+          LOCAL_MT_UNIT_CACHE: .cache/local-mt-units/units.jsonl
           # Phase budget inside the 210min envelope (minutes from the run clock;
           # the clock starts ~7min after the job, the queue after 210 keeps its
           # 140min). Measured on corpus run 36779310211 (2026-10-01): with 150min
@@ -518,6 +535,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          LOCAL_MT_UNIT_CACHE: .cache/local-mt-units/units.jsonl
           # 170min, not the 210min envelope: the last 40min belong to the
           # commit and the Phase 2d/2e lanes (budget table at Phase 2a).
           LOCAL_MT_MOPUP_DEADLINE_MS: '10200000' # 170 * 60 * 1000
@@ -542,14 +560,11 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
-      # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
-      # the stale assembled file in this direction would erase its new fills.
-      - name: Re-assemble dataset after Phase 2c mop-up
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        env:
-          JOBS_SKIP_RECONCILIATION: '1'
-        run: node scripts/assemble-jobs-dataset.mjs
-
+      # Phase 2c mutates slices only, and every step up to the true-final
+      # re-assemble below reads slices (the repair gate, Phases 2d/2e,
+      # git-commit-data.sh --slice-only), not data/jobs.json: that re-assemble
+      # is the single persistence barrier, under the same always() condition.
+      # Never scatter the assembled file back here, it would erase the fills.
       - name: Commit translations
         id: commit_translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
@@ -861,6 +876,14 @@ jobs:
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Save Argos unit cache
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != ''
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/local-mt-units
+          key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
