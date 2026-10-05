@@ -407,6 +407,7 @@ describe('backfill: the employer is reconstructed only from a page that names it
     ['/en/find-jobs-ticino/', 'Spital Limmattal'],
     ['/', 'Coop'],
     ['/cerca-lavoro-ticino/impiegato-coop-castione/', null],
+    ['/jobs/laboratory-job/', 'AB'],
   ])('%s with job_company %s stays unresolved', (sourcePage, jobCompany) => {
     expect(companyKeyFromFollowPage({ sourcePage, jobCompany })).toBeNull();
   });
