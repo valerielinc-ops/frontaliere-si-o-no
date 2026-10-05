@@ -325,6 +325,33 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('does not make a same-slice owner depend on job order when hashes collide', async () => {
+    const { decontaminateJobs } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const ownerUrl = 'https://owner.example/jobs/same-slice-collision';
+    const ambiguousSlug = `ambiguous-slice-route-${stableSlugHash({ url: ownerUrl })}`;
+
+    const run = (reverse = false) => {
+      const claimant = {
+        id: 'claimant',
+        url: 'https://claimant.example/jobs/same-slice-collision',
+        previousSlugs: [ambiguousSlug],
+      };
+      const owners = [
+        { id: 'owner-a', url: ownerUrl, previousSlugs: [] as string[] },
+        { id: 'owner-b', url: ownerUrl, previousSlugs: [] as string[] },
+      ];
+      const jobs = reverse ? [claimant, owners[1], owners[0]] : [claimant, owners[0], owners[1]];
+      return { jobs, result: decontaminateJobs(jobs) };
+    };
+
+    const normal = run();
+    const reversed = run(true);
+    expect(normal.result).toEqual({ moved: 0, emptyLocaleBucketsPruned: 0 });
+    expect(reversed.result).toEqual({ moved: 0, emptyLocaleBucketsPruned: 0 });
+    expect(normal.jobs[0].previousSlugs).toEqual([ambiguousSlug]);
+    expect(reversed.jobs[0].previousSlugs).toEqual([ambiguousSlug]);
+  });
+
   it('persists removal of an already-empty previousSlugsByLocale container', async () => {
     const { processFile } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpFile = path.join(os.tmpdir(), `decontaminate-empty-container-${Date.now()}.json`);
