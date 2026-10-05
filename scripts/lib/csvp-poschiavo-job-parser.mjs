@@ -211,7 +211,10 @@ export async function fetchAllCsvpPoschiavoJobs() {
     }
     // Keep selector drift and an unrecognised/error page fail-closed. The
     // standard pipeline preserves the previous slice and crawler-health stays
-    // unhealthy until the parser is repaired.
+    // unhealthy until the parser is repaired. Name what was served, so the
+    // failure log tells markup drift from a challenge or error page.
+    const servedTitle = normalizeSpace(decodeEntities((String(html || '').match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || ''));
+    console.warn(`  ⚠️ No offer and no empty-category proof: served "${servedTitle || '(no title)'}", ${String(html || '').length} chars`);
     return [];
   }
 
