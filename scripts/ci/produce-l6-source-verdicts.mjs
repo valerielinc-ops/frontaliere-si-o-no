@@ -39,6 +39,7 @@ import {
   htmlToText,
 } from '../lib/l6-source-check.mjs';
 import { independentSourceUrlIssue } from './export-l6-factuality-outcomes.mjs';
+import { articleRegistryObjectBodies, articleRegistryObjectFields } from '../../packages/articles/engine/shared/articleRegistryObjectBodies.mjs';
 
 export const ARTICLES_DATA_PATH = path.join('packages', 'articles', 'content', 'blog-articles-data.ts');
 export const BODY_ROOT = path.join('packages', 'articles', 'content', 'blog-body');
@@ -55,8 +56,9 @@ const RAW_ARTICLES_START = /const\s+(RAW_ARTICLES(?:_CHUNK_\d+)?)\s*(?:\s*:\s*Ar
 const ARTICLE_OBJECT = /\{([^{}]*)\}/g;
 
 function field(objectText, name) {
-  const match = objectText.match(new RegExp(`(?:^|[\\s,{])${name}\\s*:\\s*(['"])((?:(?!\\1)[^\\\\]|\\\\.)*)\\1`));
-  return match ? match[2] : null;
+  // Top-level members only (shared tokenizer): a field name inside another
+  // quoted value is data, not the field.
+  return articleRegistryObjectFields(objectText).get(name) ?? null;
 }
 
 /** The literal RAW_ARTICLES array (or its generated chunks), as text. */
@@ -83,8 +85,7 @@ export function rawArticlesBlock(dataText) {
 /** `{ id, category, date, updatedAt }` of every RAW_ARTICLES entry, in file order. */
 export function parseRawArticles(dataText) {
   const entries = [];
-  for (const match of rawArticlesBlock(dataText).matchAll(ARTICLE_OBJECT)) {
-    const body = match[1];
+  for (const body of articleRegistryObjectBodies(rawArticlesBlock(dataText))) {
     const id = field(body, 'id');
     if (!id) continue;
     entries.push({

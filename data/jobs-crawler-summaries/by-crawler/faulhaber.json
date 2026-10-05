@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-10-04T21:15:11.098Z",
+  "generatedAt": "2026-10-05T09:15:21.996Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -9,19 +9,21 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14801,
-  "avgDurationMs": 14801,
+  "durationMs": 14409,
+  "avgDurationMs": 14409,
   "durationHistory": [
-    14801
+    14409
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

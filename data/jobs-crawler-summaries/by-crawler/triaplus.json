@@ -1,7 +1,7 @@
 {
   "key": "triaplus",
   "label": "Triaplus AG",
-  "generatedAt": "2026-10-04T21:20:34.968Z",
+  "generatedAt": "2026-10-05T09:18:33.730Z",
   "total": 23,
   "discovered": null,
   "parsed": 23,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 23,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28607,
-  "avgDurationMs": 28607,
+  "durationMs": 25290,
+  "avgDurationMs": 25290,
   "durationHistory": [
-    28607
+    25290
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-koch-koechin-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:26.531Z",
+      "crawledAt": "2026-10-05T09:18:28.159Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -47,18 +49,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/lehrstelle-als-koch-koechin-efz/",
       "firstSeenAt": "2026-05-19T21:17:21.692Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachfrau-mann-hauswirtschaft-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:25.737Z",
+      "crawledAt": "2026-10-05T09:18:27.327Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -87,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachfrau-mann-hauswirtschaft-efz/",
       "firstSeenAt": "2026-05-19T21:17:21.036Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +120,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachfrau-mann-gesundheit-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:24.909Z",
+      "crawledAt": "2026-10-05T09:18:26.447Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -127,18 +133,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachfrau-mann-gesundheit-efz/",
       "firstSeenAt": "2026-05-19T21:17:20.376Z",
       "salaryMin": 67000,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +162,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachmann-frau-betriebsunterhalt-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:24.127Z",
+      "crawledAt": "2026-10-05T09:18:25.602Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -167,18 +175,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachmann-frau-betriebsunterhalt-efz/",
       "firstSeenAt": "2026-05-19T21:17:19.721Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +204,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-kauffrau-kaufmann-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:23.373Z",
+      "crawledAt": "2026-10-05T09:18:24.687Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -207,18 +217,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/lehrstelle-als-kauffrau-kaufmann-efz/",
       "firstSeenAt": "2026-07-27T22:10:08.625Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -234,7 +246,7 @@
       "url": "https://karriere.triaplus.ch/jobs/ausbildung-zur-diplomierten-pflegefachperson-hf-psychiatrie-2/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:22.590Z",
+      "crawledAt": "2026-10-05T09:18:23.848Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -247,18 +259,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/ausbildung-zur-diplomierten-pflegefachperson-hf-psychiatrie-2/",
       "firstSeenAt": "2026-05-19T21:17:19.072Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -274,7 +288,7 @@
       "url": "https://karriere.triaplus.ch/jobs/assistenzaerztin-m-w-d-fuer-kinder-und-jugendpsychiatrie-teilstationaer/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:21.774Z",
+      "crawledAt": "2026-10-05T09:18:22.973Z",
       "addressLocality": "Steinen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -287,18 +301,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/assistenzaerztin-m-w-d-fuer-kinder-und-jugendpsychiatrie-teilstationaer/",
       "firstSeenAt": "2026-05-19T21:17:18.405Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -314,7 +330,7 @@
       "url": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-stationaer-gerontostation-2-lebenshaelfte/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:21.006Z",
+      "crawledAt": "2026-10-05T09:18:22.047Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -327,18 +343,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-stationaer-gerontostation-2-lebenshaelfte/",
       "firstSeenAt": "2026-05-19T21:17:17.082Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -354,7 +372,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant-3/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:20.231Z",
+      "crawledAt": "2026-10-05T09:18:21.215Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -367,18 +385,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant-3/",
       "firstSeenAt": "2026-05-19T21:17:16.436Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -394,7 +414,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:19.437Z",
+      "crawledAt": "2026-10-05T09:18:20.352Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -407,18 +427,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant/",
       "firstSeenAt": "2026-05-19T21:17:15.771Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -434,7 +456,7 @@
       "url": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-akut-und-allgemeinpsychiatrie/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:18.642Z",
+      "crawledAt": "2026-10-05T09:18:19.483Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -447,18 +469,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-akut-und-allgemeinpsychiatrie/",
       "firstSeenAt": "2026-05-19T21:17:15.108Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -474,7 +498,7 @@
       "url": "https://karriere.triaplus.ch/jobs/stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:17.858Z",
+      "crawledAt": "2026-10-05T09:18:18.615Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -487,18 +511,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie/",
       "firstSeenAt": "2026-08-24T10:09:01.574Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -514,7 +540,7 @@
       "url": "https://karriere.triaplus.ch/jobs/ernaehrungsberaterin-w-m-d-im-stundenlohn/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:17.030Z",
+      "crawledAt": "2026-10-05T09:18:17.683Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -527,18 +553,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/ernaehrungsberaterin-w-m-d-im-stundenlohn/",
       "firstSeenAt": "2026-05-19T21:17:13.784Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -554,7 +582,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:16.188Z",
+      "crawledAt": "2026-10-05T09:18:16.814Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -567,18 +595,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant/",
       "firstSeenAt": "2026-07-18T21:53:24.065Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -594,7 +624,7 @@
       "url": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-stationaer-gerontostation-2-lebenshaelfte/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:15.375Z",
+      "crawledAt": "2026-10-05T09:18:15.935Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -607,18 +637,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-stationaer-gerontostation-2-lebenshaelfte/",
       "firstSeenAt": "2026-05-19T21:17:07.795Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -634,7 +666,7 @@
       "url": "https://karriere.triaplus.ch/jobs/sozialarbeiter-in-w-m-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:14.569Z",
+      "crawledAt": "2026-10-05T09:18:15.048Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -647,18 +679,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/sozialarbeiter-in-w-m-d/",
       "firstSeenAt": "2026-07-02T12:34:10.930Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -674,7 +708,7 @@
       "url": "https://karriere.triaplus.ch/jobs/mitarbeiter-ambulante-tarife-fakturierung-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:13.806Z",
+      "crawledAt": "2026-10-05T09:18:14.167Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -687,18 +721,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/mitarbeiter-ambulante-tarife-fakturierung-m-w-d/",
       "firstSeenAt": "2026-07-17T11:19:57.355Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -714,7 +750,7 @@
       "url": "https://karriere.triaplus.ch/jobs/psychologin-oder-psychologe-mit-fachtitel-neuropsychologie-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:13.014Z",
+      "crawledAt": "2026-10-05T09:18:13.307Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -727,18 +763,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/psychologin-oder-psychologe-mit-fachtitel-neuropsychologie-m-w-d/",
       "firstSeenAt": "2026-08-19T09:48:47.412Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -754,7 +792,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:12.182Z",
+      "crawledAt": "2026-10-05T09:18:12.478Z",
       "addressLocality": "Goldau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -767,18 +805,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-ambulant/",
       "firstSeenAt": "2026-08-31T17:07:24.738Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -794,7 +834,7 @@
       "url": "https://karriere.triaplus.ch/jobs/pflegedienstleitung-und-mitglied-der-geschaeftsleitung-m-w-d-100/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:11.348Z",
+      "crawledAt": "2026-10-05T09:18:11.616Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -807,18 +847,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/pflegedienstleitung-und-mitglied-der-geschaeftsleitung-m-w-d-100/",
       "firstSeenAt": "2026-09-03T13:34:32.841Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -834,7 +876,7 @@
       "url": "https://karriere.triaplus.ch/jobs/praktikum-in-sozialarbeit-stationaer-fuer-ein-jahr-oder-ein-semester/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:10.555Z",
+      "crawledAt": "2026-10-05T09:18:10.769Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -847,18 +889,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/praktikum-in-sozialarbeit-stationaer-fuer-ein-jahr-oder-ein-semester/",
       "firstSeenAt": "2026-09-24T14:26:32.244Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -874,7 +918,7 @@
       "url": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-fuer-psychiatrie-und-psychotherapie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:09.769Z",
+      "crawledAt": "2026-10-05T09:18:09.486Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -887,18 +931,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-fuer-psychiatrie-und-psychotherapie-ambulant/",
       "firstSeenAt": "2026-10-03T09:20:02.440Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -914,7 +960,7 @@
       "url": "https://karriere.triaplus.ch/jobs/junior-controller-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:08.918Z",
+      "crawledAt": "2026-10-05T09:18:08.625Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -927,22 +973,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.triaplus.ch/jobs/junior-controller-m-w-d/",
       "firstSeenAt": "2026-10-03T09:20:01.415Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

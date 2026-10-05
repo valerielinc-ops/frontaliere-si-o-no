@@ -38,6 +38,13 @@
  *      only index Swiss-side events; this tags border-zone Swiss events with
  *      the nearby Italian comuni they are relevant to (a frontaliere living
  *      just across the border), it does NOT crawl Italian municipal sites.
+ *   4b. Canton from coordinates (P9a): an event that reaches the assembler
+ *      with an empty `canton` but with `geo` gets the canton whose official
+ *      boundary contains the point (`cantonAtPoint`, offline, swisstopo
+ *      polygons). Points abroad or ambiguous stay unattributed. An existing
+ *      `canton` is never overwritten. The route change that follows (from
+ *      the canton-neutral bucket to the canton hub) is recorded in
+ *      `previousRoutes` by the history pass below, like any other move.
  *   5. Retain past events as an append-only SEO archive. Upcoming/past
  *      indexability is decided by the page builder, never by data deletion.
  *   6. Sort ascending by startDate, then title.
@@ -61,6 +68,7 @@ import {
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
+import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
 import { eventDateIssues } from './lib/events-date-quality.mjs';
 
 function readSlices() {
@@ -373,6 +381,27 @@ export function attachItalianFrontierComuni(events) {
   return attached;
 }
 
+// ── Canton from coordinates ─────────────────────────────────────────────
+/**
+ * Fill an empty `canton` from `geo` with the canton whose official boundary
+ * contains the point. Mutates `events` in place; returns how many events got
+ * a canton. Never touches an event that already has one, and leaves `comune`
+ * alone (a canton polygon says nothing about the municipality). `cantonAt` is
+ * injectable for tests.
+ */
+export function attachCantonFromGeo(events, cantonAt = cantonAtPoint) {
+  let attached = 0;
+  for (const ev of events) {
+    if (typeof ev.canton === 'string' && ev.canton.trim()) continue;
+    if (!ev.geo) continue;
+    const canton = cantonAt(ev.geo);
+    if (!canton) continue;
+    ev.canton = canton;
+    attached += 1;
+  }
+  return attached;
+}
+
 function assemble() {
   const priorDataset = loadEventsDataset(EVENTS_DATASET_PATH);
   const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
@@ -401,6 +430,8 @@ function assemble() {
 
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
   const { events: deduped, mergedAway } = dedupeFuzzy(merged);
+  const cantonlessBefore = deduped.filter((event) => !(typeof event.canton === 'string' && event.canton.trim())).length;
+  const cantonFromGeo = attachCantonFromGeo(deduped);
   const frontierAttached = attachItalianFrontierComuni(deduped);
   const withHistory = deduped.map((event) => {
     const prior = priorById.get(event.id);
@@ -444,10 +475,17 @@ function assemble() {
   mkdirSync(path.dirname(publicPath), { recursive: true });
   writeFileSync(publicPath, json, 'utf-8');
 
-  return { events, slices: slices.length, mergedAway, frontierAttached, invalidRecords };
+  return {
+    events,
+    slices: slices.length,
+    mergedAway,
+    frontierAttached,
+    invalidRecords,
+    cantonless: { before: cantonlessBefore, fromGeo: cantonFromGeo },
+  };
 }
 
-function printStats(events, mergedAway, frontierAttached) {
+function printStats(events, mergedAway, frontierAttached, cantonless) {
   const byComune = new Map();
   const byCategory = new Map();
   let withComune = 0;
@@ -465,6 +503,7 @@ function printStats(events, mergedAway, frontierAttached) {
   console.log(`categories: ${[...byCategory.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`cross-source fuzzy dedup: merged away ${mergedAway} duplicate(s)`);
   console.log(`italian frontier comuni attached: ${frontierAttached} event(s)`);
+  console.log(`canton from coordinates: ${cantonless.fromGeo} of ${cantonless.before} canton-less event(s) attributed — ${cantonless.before - cantonless.fromGeo} still without canton`);
   const priceFields = new Map();
   let reliablePrices = 0;
   let priceConflicts = 0;
@@ -481,12 +520,13 @@ function printStats(events, mergedAway, frontierAttached) {
 
 // Guard the CLI entry point so importing this module for its exported pure
 // functions (dedupeFuzzy / pickRichestEvent / eventRichnessScore /
-// attachItalianFrontierComuni — see tests/assemble-events-dedup.test.ts)
+// attachItalianFrontierComuni / attachCantonFromGeo — see
+// tests/assemble-events-dedup.test.ts)
 // never runs assemble() as an import side effect and overwrites the tracked
 // data/events.json.
 const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) {
-  const { events, slices, mergedAway, frontierAttached, invalidRecords } = assemble();
+  const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless } = assemble();
   console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed; ${invalidRecords} invalid date record(s) skipped) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
-  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached);
+  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached, cantonless);
 }
