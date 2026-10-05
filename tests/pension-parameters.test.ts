@@ -141,7 +141,7 @@ describe('dataset committato', () => {
     for (const code of SWISS_CANTON_CODES) {
       const c = latest.cantons[code as keyof typeof latest.cantons];
       expect(c.compensationFund?.url, code).toMatch(/^https:\/\//);
-      expect(c.capitalWithdrawalTax?.taxCHF, code).toHaveLength(3);
+      expect(c.capitalWithdrawalTax?.taxCHF, code).toHaveLength(latest.capitalWithdrawalTax.amountsCHF.length);
     }
   });
 });
