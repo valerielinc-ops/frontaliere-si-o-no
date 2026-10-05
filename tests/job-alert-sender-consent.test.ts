@@ -129,7 +129,18 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(main).toMatch(/evaluateJobAlertConsent\(\{\s*alert: a,\s*subscriber: subscriberProfiles\.get/);
     const start = source.indexOf('async function processRetryQueue(');
     const retryBody = source.slice(start, source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start));
-    expect(retryBody).toMatch(/evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)\.allowed/);
+    expect(retryBody).toMatch(/const consent = evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)/);
+    expect(retryBody).toMatch(/if \(!consent\.allowed\)/);
+  });
+
+  it('persists send-time consent proof with every job-alert delivery record', () => {
+    const source = read('scripts/send-job-alerts.mjs');
+    expect(source).toMatch(/const consentProof = item\.meta\?\.consentProof \|\| null/);
+    expect(source).toMatch(/consent_checked:\s*consentProof \? true : null/);
+    expect(source).toMatch(/consent_allowed:\s*consentProof \? consentProof\.allowed === true : null/);
+    expect(source).toMatch(/consent_checked_at:\s*consentProof\?\.checkedAt/);
+    expect(source).toMatch(/outcome_contract_version:\s*1/);
+    expect(source).toMatch(/consentProof:\s*e\.consentProof/);
   });
 
   it('still blocks an explicit cross-channel stop', () => {

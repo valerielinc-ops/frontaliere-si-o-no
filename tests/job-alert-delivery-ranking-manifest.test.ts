@@ -81,7 +81,7 @@ function createDeliveryFakeDb() {
   return { db: { collection: (name: string) => collectionNode(name) }, sets };
 }
 
-function deliveryItem(rankingJobs?: unknown) {
+function deliveryItem(rankingJobs?: unknown, consentProof?: Record<string, unknown>) {
   return {
     recipient: { email: 'Seeker@Example.com' },
     meta: {
@@ -90,6 +90,7 @@ function deliveryItem(rankingJobs?: unknown) {
       rankingVariant: 'ctr_v1',
       sendTimeSource: 'personal',
       ...(rankingJobs === undefined ? {} : { rankingJobs }),
+      ...(consentProof ? { consentProof } : {}),
     },
   };
 }
@@ -170,6 +171,45 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
 
     expect(sets).toHaveLength(1);
     expect(sets[0].data.ranking_jobs).toEqual([]);
+  });
+
+  it('writes the consent decision captured before the provider send', async () => {
+    const { db, sets } = createDeliveryFakeDb();
+    __setFirestoreAdminForTest(db);
+    await persistJobAlertDelivery(deliveryItem(undefined, {
+      allowed: true,
+      basis: 'explicit-alert',
+      checkedAt: '2026-10-05T08:59:00.000Z',
+    }), { provider: 'maileroo', messageId: 'ref_consent' });
+
+    expect(sets[0].data).toMatchObject({
+      outcome_contract_version: 1,
+      consent_checked: true,
+      consent_allowed: true,
+      consent_basis: 'explicit-alert',
+      consent_checked_at: '2026-10-05T08:59:00.000Z',
+    });
+  });
+
+  it('retains a successful send without an alert id as an unattributed delivery row', async () => {
+    const { db, sets } = createDeliveryFakeDb();
+    __setFirestoreAdminForTest(db);
+    const item = deliveryItem(undefined, {
+      allowed: true,
+      basis: 'explicit-alert',
+      checkedAt: '2026-10-05T08:59:00.000Z',
+    });
+    delete item.meta.alertId;
+    delete item.meta.rankingDeliveryId;
+    await persistJobAlertDelivery(item, { provider: 'maileroo', messageId: 'ref_missing_alert' });
+
+    expect(sets).toHaveLength(1);
+    expect(sets[0].data).toMatchObject({
+      campaign_id: null,
+      message_id: 'ref_missing_alert',
+      consent_checked: true,
+    });
+    expect(sets[0].path).toMatch(/campaign_deliveries\/unknown-ref_missing_alert__seeker@example\.com$/u);
   });
 
   it('every sender writes ranking_jobs through the manifest projection (job alerts + newsletter)', () => {
