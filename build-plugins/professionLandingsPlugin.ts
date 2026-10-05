@@ -275,7 +275,7 @@ function renderFeaturedJobs(
   return `<section class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.featuredJobsTitle)}</h2>
     ${listHtml}
-    ${visibleJobs.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${visibleJobs.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
