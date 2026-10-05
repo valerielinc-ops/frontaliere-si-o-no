@@ -55,6 +55,7 @@ import {
   hasConcatenatedWords,
   MIN_TITLE_CHARS,
   hasUsableTitle,
+  isModelMetaAnswer,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
@@ -2637,6 +2638,12 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
+  // A model answer ABOUT the request is never a title: «Sorry, I can't help
+  // with that.», «I need to see the actual job title you want translated…»
+  // (the retry prompt below, answered by an agentic transport), «Let me check
+  // the translation cache files…». Rejected on every rung, and on a cache hit
+  // too: `translate-title-v2` stored such answers and replayed them.
+  const isMetaAnswer = (t) => isModelMetaAnswer(t, cleanTitle);
   const deterministicFallback = () => {
     const fallback = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
     if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()
@@ -2657,7 +2664,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     if (cacheKey && getCachedAiResponse) {
       const cached = getCachedAiResponse(cacheKey);
       if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
-          && cached.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(cached);
+          && cached.toLowerCase() !== cleanTitle.toLowerCase() && !isMetaAnswer(cached)) return _rb(cached);
     }
     if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') {
       const fallback = deterministicFallback();
@@ -2675,6 +2682,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
       const translated = _rb((ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, '')));
       if (hasUsableTitle(translated) && translated.toLowerCase() !== cleanTitle.toLowerCase()
+          && !isMetaAnswer(translated)
           && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
         if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
         return translated;
@@ -2689,12 +2697,15 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: MIN_TITLE_CHARS,
   });
-  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
+  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()
+      && !isMetaAnswer(localPipeline)) return _rb(localPipeline);
 
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored meta-answer is a cache MISS, not a sentinel: translate afresh
+    // and let the result overwrite the entry.
+    if (typeof fromCache === 'string' && !isMetaAnswer(fromCache)) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache) &&
           fromCache.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(fromCache);
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanTitle, sourceLang, targetLang: locale });
@@ -2732,6 +2743,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
         let translated = (ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, ''));
+        if (isMetaAnswer(translated)) translated = '';
         // Post-check: if result still has Italian words in a non-IT locale, or
         // still reads as sourceLang for any other locale pair, retry with explicit instruction
         const stillHasItalianWords = titleHasItalianWords(translated, locale);
@@ -2753,6 +2765,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
             const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
             if (hasUsableTitle(retryClean) &&
+                !isMetaAnswer(retryClean) &&
                 !titleHasItalianWords(retryClean, locale) &&
                 !titleLooksUntranslatedFromSource(retryClean, sourceLang, locale) &&
                 retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
@@ -2863,6 +2876,8 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
+      // A stored refusal/clarification as the title busts the entry too.
+      if (isModelMetaAnswer(nsFn(localeData.title || ''), title || '')) return true;
       if (unsupportedSource) {
         const cachedTitle = nsFn(localeData.title || '');
         if (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase()) return true;
@@ -2947,7 +2962,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       const item = parsed?.[locale];
       if (!item || typeof item !== 'object') continue;
-      const localizedTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      // A refusal or a request for the input is not a title: dropped here, the
+      // source title stands in and the repair selector re-queues the slot.
+      const answeredTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      const localizedTitle = isModelMetaAnswer(answeredTitle, title || '') ? '' : answeredTitle;
       const desc = cleanFn(sanitizeAiOutput(item.description || ''));
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
@@ -3075,6 +3093,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         value.toLowerCase() === safeUnsupportedSourceTitle(locale).toLowerCase()) {
       return true;
     }
+    // A refusal or a request for the input reads as a fine English title to
+    // the language verdict below; the repair selector queued it for this.
+    if (isModelMetaAnswer(value, sourceTitle)) return true;
     return titleVerdictFor(locale, value).untranslated;
   };
 
@@ -5994,6 +6015,10 @@ export function isLowQualityLocalizedTitle(value = '') {
   if (t.length < 3) return true;
   if (/^(h|he|her|here|here is|title|job title)\b/i.test(t)) return true;
   if (/^[\W_]+$/.test(t)) return true;
+  // A model's answer about the request («Sorry, I can't help with that.», «I
+  // need to see the actual job title…», «<think>…»): every title writer and
+  // the "already translated?" filters below ask this predicate.
+  if (isModelMetaAnswer(t)) return true;
   return false;
 }
 

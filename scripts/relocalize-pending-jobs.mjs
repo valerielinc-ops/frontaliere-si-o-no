@@ -60,7 +60,7 @@ import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
-import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isModelMetaAnswer, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
 import {
   applyThinkingArm,
@@ -1302,7 +1302,11 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
           const hasSourceWords =
             (sourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
             (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|der|die|fachspezialist)\b/i.test(lc));
-          if (!isSourceCopy && !isWrongLanguage && !hasSourceWords) {
+          // A refusal or a request for the input («I need to see the actual
+          // job title…») is not a translation to keep stable: isIncomplete
+          // queued the job precisely for it.
+          const isMetaAnswer = isModelMetaAnswer(trimmedExisting, crawlerJob.title || '');
+          if (!isSourceCopy && !isWrongLanguage && !hasSourceWords && !isMetaAnswer) {
             // Title is correctly translated — keep it stable
             continue;
           }
@@ -1313,7 +1317,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
           const srcTitle = String(crawlerJob.title || '').trim().toLowerCase();
           const assembledIsCopy = trimmedValue.toLowerCase() === srcTitle;
           const existingIsCopy = trimmedExisting.toLowerCase() === srcTitle;
-          if (assembledIsCopy && !existingIsCopy) {
+          // The source title is still better than a model's refusal.
+          const existingIsMeta = isModelMetaAnswer(trimmedExisting, crawlerJob.title || '');
+          if (assembledIsCopy && !existingIsCopy && !existingIsMeta) {
             // Assembled is WORSE (source copy), existing is better (translated) — skip
             continue;
           }
