@@ -7733,6 +7733,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.autisti-uber-svizzera-condizioni.title': 'Siebzig Franken für neun Arbeitsstunden: der Protest',
     'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'Die Uber-Fahrer in der Schweiz beklagen verschlechterte Bedingungen und fordern mehr Rechte und Schutz. Zwischen niedrigen Tarifen und dem Aufkommen von Bolt.',
     'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Uber-Fahrer in der Schweiz fordern bessere Arbeitsbedingungen',
+    'blog.article.allarme-aumento-affitti-svizzera.title': 'Laut ASI sind die Mieten in der Schweiz in zwanzig Jahren um 32 % gestiegen.',
+    'blog.article.allarme-aumento-affitti-svizzera.excerpt': 'Der Schweizer Mieterverband berichtet von einem Anstieg der Wohnkosten um 32,1 % zwischen 2005 und 2025. Besonders betroffen sind Geringverdiener: Wer weniger als 4.000 Franken verdient, gibt 37,8 % für Wohnen aus.',
+    'blog.article.allarme-aumento-affitti-svizzera.imageAlt': 'Wohngebäude in einer Schweizer Stadt',
 };
 
 export default blogMetaChDe;
