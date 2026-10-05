@@ -708,9 +708,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114416&publication=2639",
       "requirements": [],
       "requirementsByLocale": {},
@@ -744,7 +742,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "canton-valais-8e31db8032f1",

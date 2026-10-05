@@ -711,9 +711,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-12",
       "postedDate": "2026-09-12",
-      "postingDateSource": "reported",
       "applyUrl": "https://endeso.ch/jobs/job-27906-remote-grafiker-in-fuer-webgrafiken-als-freelance/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -729,7 +727,9 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:05:30.592Z"
+      "firstSeenAt": "2026-09-26T14:05:30.592Z",
+      "datePosted": "2026-09-12",
+      "postingDateSource": "reported"
     },
     {
       "id": "endeso-2dc7d53cbe3c",

@@ -311,9 +311,7 @@
       "sector": "retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-04-01",
       "postedDate": "2026-04-01",
-      "postingDateSource": "reported",
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4308577-sportberaterin-decathlon-biel-city-cdd-60-bienne",
       "requirements": [],
       "requirementsByLocale": {},
@@ -339,7 +337,9 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-04-01",
+      "postingDateSource": "reported"
     },
     {
       "id": "decathlon-61d2f550b761",

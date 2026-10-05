@@ -1491,7 +1491,7 @@
       "title": "Doktorandin / Doktorand Psychologie",
       "titleByLocale": {
         "it": "Dottorato studente / Dottorato di psicologia dello studente",
-        "en": "Doktorandin / Doktorand Psychologie",
+        "en": "Doctoral student / Doctoral student Psychology",
         "de": "Doktorandin / Doktorand Psychologie",
         "fr": "Doctorat étudiant / Doctorat étudiant Psychologie"
       },
@@ -1522,9 +1522,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-21",
       "postedDate": "2026-07-21",
-      "postingDateSource": "reported",
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/d94480d0-f9dd-4c60-8bd7-3d04cc363917",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1560,7 +1558,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-21",
+      "postingDateSource": "reported"
     },
     {
       "id": "upd-19c889d9fb2d",

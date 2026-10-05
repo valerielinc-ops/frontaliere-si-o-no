@@ -1020,8 +1020,6 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-10-05T09:32:56.124Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -1060,7 +1058,9 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "aldi-suisse-7b73257d4139",

@@ -5348,9 +5348,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiterin-mitarbeiter-hauswirtschaft-a/68555bfe-7c27-49c8-964b-600a9e1fe56f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5376,7 +5374,8 @@
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5398,7 +5397,8 @@
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-lie-rzfgnb",
           "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
@@ -5429,7 +5429,9 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "ksbl-aec456b6ff95",

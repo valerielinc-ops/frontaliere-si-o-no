@@ -42236,9 +42236,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-08T00:00:00+02:00",
       "postedDate": "2026-09-08T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-schwyz-temporaer-107448/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -42277,7 +42275,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-08T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "stellenpartner-a46b1c05d2f2",
