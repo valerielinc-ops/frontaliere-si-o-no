@@ -25,6 +25,8 @@ vi.mock('node:fs', async (importOriginal) => ({
 }));
 
 beforeEach(() => {
+  // PostHog credentials stay set on purpose: since H9 (2026-10-05) the script
+  // must not poll PostHog even when it could.
   vi.stubEnv('POSTHOG_PROJECT_ID', 'test');
   vi.stubEnv('POSTHOG_PERSONAL_API_KEY', 'test-key');
   vi.stubEnv('GA4_PROPERTY_ID', 'test');
@@ -52,16 +54,24 @@ describe('thin promotions exit contract', () => {
   });
 
   it('returns partial only when at least one feed completed', async () => {
-    vi.mocked(httpFetchWithRetry).mockImplementation(async (url) => {
-      if (String(url).includes('posthog')) throw new Error('unavailable');
-      return { ok: true, status: 200, json: async () => ({ rows: [] }) } as Response;
-    });
+    vi.mocked(httpFetchWithRetry).mockResolvedValue({ ok: true, status: 200, json: async () => ({ rows: [] }) } as Response);
     vi.mocked(fetchGscPageImpressions).mockResolvedValue({ pages: { '/observed/': 6 }, error: 'page: pagination incomplete' });
     expect(await main()).toBe(3);
     expect(writeFile).toHaveBeenCalledOnce();
   });
 
-  it('succeeds only when all three feeds complete', async () => {
+  it('never polls PostHog: GA4 and GSC are the only feeds (decisione H9 2026-10-05)', async () => {
+    vi.mocked(httpFetchWithRetry).mockResolvedValue({ ok: true, status: 200, json: async () => ({ rows: [] }) } as Response);
+    vi.mocked(fetchGscPageImpressions).mockResolvedValue({ pages: {}, error: null });
+    expect(await main()).toBe(0);
+    const urls = vi.mocked(httpFetchWithRetry).mock.calls.map(([url]) => String(url));
+    expect(urls.length).toBeGreaterThan(0);
+    expect(urls.filter((url) => /posthog/i.test(url))).toEqual([]);
+    const history = JSON.parse(String(vi.mocked(appendFileSync).mock.calls[0][1]));
+    expect(history).not.toHaveProperty('posthogHits');
+  });
+
+  it('succeeds only when every feed completes', async () => {
     vi.mocked(httpFetchWithRetry).mockResolvedValue({ ok: true, status: 200, json: async () => ({ rows: [], results: [] }) } as Response);
     vi.mocked(fetchGscPageImpressions).mockResolvedValue({ pages: { '/observed/': 6 }, error: null });
     expect(await main()).toBe(0);

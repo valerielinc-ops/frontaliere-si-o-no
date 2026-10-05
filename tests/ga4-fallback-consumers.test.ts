@@ -14,7 +14,7 @@ const response = (json: unknown) => ({
   text: async () => '',
 });
 
-describe('fallback GA4 dei monitor PostHog (#6948)', () => {
+describe('GA4 come sorgente dei monitor (fallback da #6948, primaria da H9)', () => {
   it('provisiona le dimensioni web_vitals prima di interrogarle', () => {
     const analyticsReport = readFileSync(resolve(import.meta.dirname, '../scripts/analytics-report.mjs'), 'utf8');
     for (const parameter of ['metric_name', 'metric_value', 'metric_rating']) {
@@ -36,7 +36,10 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
 
   it('rende verificabile il percorso auth di ogni consumer migrato', () => {
     const root = resolve(import.meta.dirname, '..');
-    const conditionalFallback = [
+    // Decisione H9 (2026-10-05): GA4 non e' piu' il fallback di PostHog ma la
+    // sorgente primaria. Questi monitor leggono GA4 col proprio token e
+    // consultano la guardia GA4 prima di giudicare.
+    const ga4Primary = [
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/cwv-monitor-check.mjs',
       'scripts/profession-keyword-opportunities.mjs',
@@ -50,11 +53,11 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     ];
     const byConstruction = [
       'scripts/funnel-metrics-snapshot.mjs',
-      'scripts/lib/source-liveness.mjs',
     ];
-    for (const file of conditionalFallback) {
+    for (const file of ga4Primary) {
       const source = readFileSync(resolve(root, file), 'utf8');
-      expect(source, file).toMatch(/checkPostHogLiveness\(|checkLivenessImpl\s*=\s*checkPostHogLiveness/);
+      expect(source, file).toMatch(/checkLivenessImpl\s*=\s*checkGa4Liveness/);
+      expect(source, file).not.toMatch(/checkPostHogLiveness/);
       expect(source, file).toMatch(/getServiceAccountToken\(/);
     }
     for (const file of independentGa4Mirror) {
@@ -63,6 +66,10 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     for (const file of byConstruction) {
       expect(readFileSync(resolve(root, file), 'utf8'), file).not.toMatch(/getServiceAccountToken\(/);
     }
+    // La guardia stessa interroga GA4 (token iniettabile, default il service account).
+    const liveness = readFileSync(resolve(root, 'scripts/lib/source-liveness.mjs'), 'utf8');
+    expect(liveness).toMatch(/export async function checkGa4Liveness/);
+    expect(liveness).toMatch(/getTokenImpl = getServiceAccountToken/);
   });
 
   it('mantiene la firma degli errori e usa totalUsers come distinti', async () => {

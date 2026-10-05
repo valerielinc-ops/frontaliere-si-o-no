@@ -2,7 +2,8 @@ name: CWV Monitor
 
 # Weekly real-user CLS/INP regression watchdog for the #4302 money-page
 # target list (dogana/valichi, mappa confine, job boards, weekly employer
-# hub, tax simulator, homepage). Queries PostHog `$web_vitals` field data,
+# hub, tax simulator, homepage). Queries GA4 `web_vitals` field data (GA4
+# only since decision H9, 2026-10-05: «rimpiazza PostHog con GA4»),
 # persists a weekly snapshot to data/cwv-monitor-history.json (kept
 # unpruned — see project convention on tracking files), and opens/dedupes
 # a GitHub backlog issue via the shared "top-N over threshold" sync
@@ -12,9 +13,9 @@ name: CWV Monitor
 # Zero-Claude by design (pure node + the existing gh issue-creator) per the
 # frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
 #
-# Auth: POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID / POSTHOG_HOST live in
-# Firebase Remote Config, loaded via scripts/load-rc-env.mjs (same mechanism
-# as monitor-cls-posthog.mjs / posthog-error-monitor.yml).
+# Auth: the GA4 Data API (read-only) uses the Firebase service account
+# prepared below (GOOGLE_APPLICATION_CREDENTIALS); the other secrets come
+# from Firebase Remote Config via scripts/load-rc-env.mjs.
 
 on:
   schedule:
@@ -26,7 +27,7 @@ on:
   workflow_dispatch:
     inputs:
       windowDays:
-        description: 'HogQL look-back window in days (per query)'
+        description: 'GA4 look-back window in settled days (lag 2)'
         required: false
         type: string
         default: '7'
@@ -194,7 +195,7 @@ jobs:
 
       # The stable branch is pushed with a lease and reconciled by the helper,
       # so a busy main no longer races this job: the snapshot is measured once
-      # and never re-queried from PostHog on a retry.
+      # and never re-queried from GA4 on a retry.
       - name: Open PR with snapshot
         if: always() && steps.measure.outcome != 'cancelled'
         env:

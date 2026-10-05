@@ -6,7 +6,9 @@
  *
  * It does NOT fetch anything itself: it consumes the JSON already produced by
  * `scripts/revenue-monitor.mjs --json` (which is fail-soft and aggregates
- * AdSense RPM, GSC avg position + CTR-by-bucket, and PostHog CLS p75
+ * AdSense RPM, GSC avg position + CTR-by-bucket, and GA4 `web_vitals` CLS p75
+ * (read by revenue-monitor under the historical payload key `posthog`; GA4
+ * replaced PostHog as the source with decision H9, 2026-10-05)
  * mobile/desktop). This keeps a single source of truth for the field data and
  * zero duplicated API logic — and zero Claude usage. #6948 is therefore
  * satisfied upstream: this sink carries the source state and cannot acquire a
@@ -25,7 +27,7 @@
  *     accumulator stays small — this is a metrics log, not the fat job data).
  *   - Writes a markdown summary (current snapshot + tracker-relevant deltas).
  *   - Always exits 0 unless the input is unreadable: a partial snapshot (e.g.
- *     PostHog down but GSC/AdSense fine) is still committed and surfaced.
+ *     GA4 CLS unmeasurable but GSC/AdSense fine) is still committed and surfaced.
  *
  * Flags:
  *   --in=<path>           revenue-monitor --json output (required)
@@ -169,17 +171,17 @@ function delta(curV, prevV, { higherIsBetter = true } = {}) {
 const lines = [];
 lines.push(`### 📊 Funnel metrics snapshot — ${snapshot.date}`);
 lines.push('');
-lines.push('_Field data auto-collected weekly by `funnel-metrics-snapshot.yml` (revenue-monitor → PostHog/GSC/AdSense). These trackers are now data-backed._');
+lines.push('_Field data auto-collected weekly by `funnel-metrics-snapshot.yml` (revenue-monitor → GA4/GSC/AdSense). These trackers are now data-backed._');
 lines.push('');
 
-lines.push('**CLS p75 (PostHog `$web_vitals`, last 7d)** — #886, #855');
+lines.push('**CLS p75 (GA4 `web_vitals`, last 7d)** — #886, #855');
 if (snapshot.cls) {
   const m = snapshot.cls.p75Mobile;
   const d = snapshot.cls.p75Desktop;
   lines.push(`- Mobile: \`${fmt(m)}\`${delta(m, prev?.cls?.p75Mobile, { higherIsBetter: false })}`);
   lines.push(`- Desktop: \`${fmt(d)}\`${delta(d, prev?.cls?.p75Desktop, { higherIsBetter: false })}`);
 } else {
-  lines.push('- _unavailable this run (PostHog source skipped/errored — see notes)_');
+  lines.push('- _unavailable this run (GA4 CLS source skipped/unmeasurable — see notes)_');
 }
 lines.push('');
 

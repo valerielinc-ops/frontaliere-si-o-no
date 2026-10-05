@@ -4,8 +4,8 @@ import os from 'node:os';
 import path from 'node:path';
 
 // The script is pure ESM (.mjs). Its JSDoc-inferred exported types are too
-// strict for the mock-driven tests below (fetchPostHogCls's options are typed
-// from a positional call that did not include apiKey/projectId), so we coerce
+// strict for the mock-driven tests below (measureCls's injected guard and
+// report are plain async stubs), so we coerce
 // via `as any` at the import boundary. main() is gated on process.argv[1],
 // so importing is side-effect-free.
 import * as revenueMonitorModule from '../../scripts/revenue-monitor.mjs';
@@ -16,7 +16,7 @@ const {
   buildComparisonRows,
   buildHistoryEntry,
   compare,
-  fetchPostHogCls,
+  measureCls,
   loadLatestPosthogBaseline,
   renderMarkdown,
 } = revenueMonitorModule as unknown as {
@@ -26,7 +26,7 @@ const {
   buildComparisonRows: (current: any, baseline?: any) => Array<{ metric: string; verdict: string; baseline: unknown; current: unknown }>;
   buildHistoryEntry: (current: any, rows: Array<{ metric: string; verdict: string }>, dateStr: string) => Record<string, unknown>;
   compare: (current: number | null, baseline: number | null, opts?: { higherIsBetter?: boolean }) => { delta: number | null; deltaPct: number | null; verdict: string };
-  fetchPostHogCls: (opts: { apiKey: string | null; projectId: string | null; host?: string; fetchImpl?: unknown }) => Promise<{ clsP75Mobile: number | null; clsP75Desktop: number | null } | null>;
+  measureCls: (opts: { checkLivenessImpl?: unknown; ga4ClsImpl?: unknown; windowDays?: number; now?: Date }) => Promise<{ cls: any; warnings: string[]; errors: string[] }>;
   loadLatestPosthogBaseline: (file: string, source: string, options?: { now?: Date; maxAgeDays?: number }) => any;
   renderMarkdown: (rows: unknown[], current: any, baseline?: any) => string;
 };
@@ -121,7 +121,7 @@ describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
     ]));
   });
 
-  it('includes PostHog CLS rows when posthog data present', () => {
+  it('includes CLS rows when CLS data is present', () => {
     const current = {
       adsense: null,
       gsc: null,
@@ -153,10 +153,10 @@ describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
     }
   });
 
-  it('emits ⚪ auth missing when PostHog data is null', () => {
+  it('emits ⚪ unmeasurable when the GA4 CLS is null', () => {
     const current = { adsense: null, gsc: null, posthog: null };
     const rows = buildComparisonRows(current);
-    expect(rows.some((r: any) => r.metric === 'PostHog CLS' && r.verdict === '⚪ auth missing')).toBe(true);
+    expect(rows.some((r: any) => r.metric === 'CLS (GA4 web_vitals)' && r.verdict === '⚪ unmeasurable')).toBe(true);
   });
 
   it('reports affiliate rates per denominator without mixing web and email', () => {
@@ -190,58 +190,51 @@ describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
   });
 });
 
-describe('revenue-monitor / fetchPostHogCls()', () => {
-  it('returns null when credentials missing', async () => {
-    const out = await fetchPostHogCls({ apiKey: null, projectId: null });
-    expect(out).toBeNull();
+describe('revenue-monitor / measureCls() — GA4 is the only CLS source (H9)', () => {
+  const alive = { alive: true, reason: 'ga4 alive', windowDays: 7, floor: 500, source: 'ga4', deadDays: [] };
+  const dead = { alive: false, reason: 'ga4 ingested < 500 events/day', windowDays: 7, floor: 500, source: 'ga4', deadDays: [] };
+  const ga4Cls = { window: { start: '2026-09-26', end: '2026-10-02' }, clsP75Mobile: 0.3, clsP75Desktop: 0.1, source: 'ga4-fallback' };
+
+  it('abstains without querying GA4 when the GA4 guard says the source is dead', async () => {
+    const ga4ClsImpl = vi.fn(async () => ga4Cls);
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const out = await measureCls({ checkLivenessImpl: async () => dead, ga4ClsImpl });
+    errorSpy.mockRestore();
+    expect(ga4ClsImpl).not.toHaveBeenCalled();
+    expect(out.cls).toBeNull();
+    expect(out.warnings.join(' ')).toMatch(/CLS non misurabile/);
   });
 
-  it('posts HogQL queries for Mobile and Desktop and parses results', async () => {
-    const fetchImpl = vi.fn(async (url: string, init: any) => {
-      const body = JSON.parse(init.body);
-      // Return different CLS values based on device type in the query.
-      const device = body.query.query.includes("'Mobile'") ? 0.42 : 0.11;
-      return {
-        ok: true,
-        status: 200,
-        async json() {
-          return { results: [[device]] };
-        },
-      };
-    });
-
-    const out = await fetchPostHogCls({
-      apiKey: 'phx_test',
-      projectId: '1234',
-      host: 'https://eu.posthog.com',
-      fetchImpl: fetchImpl as any,
-    });
-
-    expect(out).not.toBeNull();
-    expect(out!.clsP75Mobile).toBe(0.42);
-    expect(out!.clsP75Desktop).toBe(0.11);
-    expect(fetchImpl).toHaveBeenCalledTimes(2);
-    const [firstCallUrl, firstCallInit] = fetchImpl.mock.calls[0];
-    expect(firstCallUrl).toBe('https://eu.posthog.com/api/projects/1234/query/');
-    expect(firstCallInit.headers.Authorization).toBe('Bearer phx_test');
+  it('positive control: with a live GA4 the CLS is measured and keeps the history source tag', async () => {
+    const checkLivenessImpl = vi.fn(async () => alive);
+    const out = await measureCls({ checkLivenessImpl, ga4ClsImpl: async () => ga4Cls });
+    expect(checkLivenessImpl).toHaveBeenCalledWith(expect.objectContaining({ windowDays: 7 }));
+    expect(out.cls).toEqual(ga4Cls);
+    expect(out.cls.source).toBe('ga4-fallback');
+    expect(out.warnings).toEqual([]);
   });
 
-  it('throws on PostHog API error (caught by main() and surfaced as warning)', async () => {
-    const fetchImpl = vi.fn(async () => ({
-      ok: false,
-      status: 401,
-      async text() {
-        return 'unauthorized';
-      },
-    }));
-    await expect(
-      fetchPostHogCls({
-        apiKey: 'bad',
-        projectId: '1',
-        host: 'https://eu.posthog.com',
-        fetchImpl: fetchImpl as any,
-      }),
-    ).rejects.toThrow(/posthog 401/);
+  it('declares not measurable when GA4 is alive but its report is unusable', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const out = await measureCls({ checkLivenessImpl: async () => alive, ga4ClsImpl: async () => null });
+    errorSpy.mockRestore();
+    expect(out.cls).toBeNull();
+    expect(out.warnings.join(' ')).toMatch(/CLS non misurabile/);
+  });
+
+  it('surfaces a GA4 report failure as an error, not as a measurement', async () => {
+    const out = await measureCls({
+      checkLivenessImpl: async () => alive,
+      ga4ClsImpl: async () => { throw new Error('GA4 503'); },
+    });
+    expect(out.cls).toBeNull();
+    expect(out.errors.join(' ')).toMatch(/GA4 503/);
+  });
+
+  it('no longer reaches PostHog at runtime', async () => {
+    const { readFileSync } = await import('node:fs');
+    const src = readFileSync(path.resolve(__dirname, '../../scripts/revenue-monitor.mjs'), 'utf8');
+    expect(src).not.toMatch(/checkPostHogLiveness|HogQLQuery|POSTHOG_PERSONAL_API_KEY/);
   });
 });
 

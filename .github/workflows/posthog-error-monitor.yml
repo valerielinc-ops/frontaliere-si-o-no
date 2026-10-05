@@ -1,18 +1,20 @@
 name: PostHog Error Monitor
 
-# Weekly watchdog for real-user JS errors captured via PostHog `$exception`
-# autocapture. Companion to the GA4 app_error sync inside analytics.yml
-# (scripts/app-error-issue-sync.mjs) — same "top-N over threshold → backlog
-# issue" pattern (scripts/lib/error-issue-sync.mjs), different source, so an
-# error only PostHog captures (or vice versa, e.g. GA4 blocked by a
-# consent/ad-blocker edge case PostHog isn't) doesn't go unnoticed.
+# Weekly watchdog for real-user JS errors. The name is historical: since
+# decision H9 of the owner (2026-10-05, «rimpiazza PostHog con GA4»)
+# scripts/posthog-error-issue-sync.mjs reads GA4 `app_error`/`exception`
+# (production host), guarded by the GA4 vitality probe; PostHog is under quota
+# by choice and is no longer read. Same "top-N over threshold → backlog issue"
+# pattern as the GA4 app_error sync inside analytics.yml
+# (scripts/app-error-issue-sync.mjs, scripts/lib/error-issue-sync.mjs).
 #
 # Zero-Claude by design (pure node + the existing gh issue-creator) per the
 # frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
 #
-# Auth: POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID / POSTHOG_HOST live in
-# Firebase Remote Config, loaded via scripts/load-rc-env.mjs (same mechanism
-# as monitor-cls-posthog.mjs / triage-app-errors.mjs).
+# Auth: the GA4 read-only service account comes from
+# FIREBASE_SERVICE_ACCOUNT_JSON (step "Prepare Firebase credentials");
+# other settings are loaded from Firebase Remote Config via
+# scripts/load-rc-env.mjs.
 
 on:
   schedule:
@@ -94,7 +96,7 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
-      - name: Sync PostHog exception issues to backlog
+      - name: Sync GA4 app_error issues to backlog
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

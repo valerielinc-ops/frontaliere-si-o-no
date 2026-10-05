@@ -1,7 +1,12 @@
 name: Source Liveness
 
-# Daily check that the PostHog ingestion feeding the monitoring fleet is
+# Daily check that the GA4 ingestion feeding the monitoring fleet is
 # actually alive, and the ONE place that reports it when it is not.
+#
+# Source = GA4 since decision H9 (2026-10-05, «rimpiazza PostHog con GA4»):
+# PostHog is under quota by choice (2026-08-25) and probing it reopened the
+# PostHog outage issue (5921) forever. The history below is why the guard
+# exists at all, whatever the source.
 #
 # WHY THIS EXISTS
 # ---------------
@@ -26,13 +31,13 @@ name: Source Liveness
 
 on:
   schedule:
-    # Daily 06:40 UTC — ahead of the weekly PostHog monitors (Tue 07:25,
-    # Wed 07:40) so a dead source is already on record when they run.
+    # Daily 06:40 UTC — ahead of the weekly monitors (Tue 07:25, Wed 07:40)
+    # so a dead source is already on record when they run.
     - cron: '40 6 * * *'
   workflow_dispatch:
     inputs:
       windowDays:
-        description: 'Liveness window in days (complete UTC days, today excluded)'
+        description: 'Liveness window in days (settled GA4 days, today and yesterday excluded)'
         required: false
         type: string
         default: '7'
@@ -92,7 +97,8 @@ jobs:
 
       - name: Install dependencies
         # load-rc-env.mjs needs firebase-admin from node_modules to read
-        # Remote Config; the check itself only uses node built-ins + gh CLI.
+        # Remote Config; the check itself uses google-auth-library for the
+        # read-only GA4 Data API token + the gh CLI.
         run: npm ci
 
       - name: Prepare Firebase credentials
@@ -107,7 +113,7 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
-      - name: Probe PostHog liveness
+      - name: Probe GA4 liveness
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

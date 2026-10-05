@@ -2,7 +2,7 @@
 // fetch-thin-page-promotions.mjs
 //
 // Hourly self-heal feedback loop for tiered emission (artifact-shrink
-// Fase 1). Polls PostHog + GA4 for `thin_page_view` events emitted by
+// Fase 1). Polls GA4 for `thin_page_view` events emitted by
 // App.tsx when window.__THIN_SHELL__ is set on a thinned static page,
 // PLUS GSC page-level impressions (issue #4407). Any URL hit by a
 // JS-enabled client (real user or render-bot), or any URL Google has
@@ -11,7 +11,11 @@
 // trafficEvidenceFilter and serves the FULL bridge HTML instead of the
 // thin shell.
 //
-// Why GSC too: PostHog/GA4 `thin_page_view` only fires once a JS-enabled
+// PostHog is no longer polled (decisione H9 del 2026-10-05, «rimpiazza
+// PostHog con GA4»): the same `thin_page_view` reaches GA4 through
+// Analytics.log(), and PostHog is under quota by choice.
+//
+// Why GSC too: GA4 `thin_page_view` only fires once a JS-enabled
 // client actually lands on the page, but a thin page structurally
 // suppresses the organic click-through needed to trigger that in the
 // first place (chicken-and-egg). GSC records an impression the moment
@@ -21,7 +25,8 @@
 // Output files
 //   data/thin-page-promotions.jsonl
 //     Append-only history. One row per refresh:
-//     { generatedAt, source: 'posthog'|'ga4'|'gsc'|'union', urls: [path,...] }
+//     { generatedAt, windowHours, ga4Hits, gscHits, freshUnion, activeTotal,
+//       complete, errors }  (rows before H9 also carry `posthogHits`)
 //
 //   data/thin-page-promotions-active.json
 //     Compact, read by build:
@@ -30,7 +35,6 @@
 // Auth
 //   FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_APPLICATION_CREDENTIALS) for GA4 + GSC
 //   (the Firebase SA doubles as a GSC credential in this project).
-//   POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID for PostHog HogQL.
 //   GA4_PROPERTY_ID for GA4.
 //
 // Usage
@@ -41,7 +45,7 @@
 //   0  ok, no-op (no hits, files untouched)
 //   0  ok, urls promoted (active.json updated)
 //   3  partial — feeds incomplete (observed promotions still committed)
-//   2  all three feeds errored (any partial observations are saved first)
+//   2  every feed (GA4 + GSC) errored (any partial observations are saved first)
 // Incomplete feeds never expire previously promoted URLs.
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -76,37 +80,6 @@ function normalizePath(p) {
   if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1);
   if (!s.startsWith('/')) s = '/' + s;
   return s;
-}
-
-// ─── PostHog: HogQL count by pathname ────────────────────────────────
-
-async function fetchPosthog(windowHours) {
-  const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
-  const PID = process.env.POSTHOG_PROJECT_ID;
-  const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
-  if (!PID || !KEY) throw new Error('POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing');
-  const query = `
-    SELECT properties.$pathname AS path, count() AS hits
-    FROM events
-    WHERE event = 'thin_page_view'
-      AND timestamp > now() - INTERVAL ${windowHours} HOUR
-      AND properties.$pathname IS NOT NULL
-    GROUP BY path
-    LIMIT 100000
-  `;
-  const r = await httpFetchWithRetry(`${HOST}/api/projects/${PID}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  }, { label: 'posthog thin-page query' });
-  if (!r.ok) throw new Error(`posthog ${r.status}: ${(await r.text()).slice(0, 200)}`);
-  const data = await r.json();
-  const urls = new Set();
-  for (const row of data.results || []) {
-    const path = normalizePath(row[0]);
-    if (path) urls.add(path);
-  }
-  return urls;
 }
 
 // ─── GA4: runReport with eventName=thin_page_view ────────────────────
@@ -232,11 +205,8 @@ export async function main() {
   console.log(`[thin-promotions] window=${args.windowHours}h active=${args.activeWindowDays}d`);
 
   const errors = [];
-  let ph = new Set();
   let ga = new Set();
   let gsc = new Set();
-  try { ph = await fetchPosthog(args.windowHours); console.log(`[thin-promotions] posthog hits: ${ph.size}`); }
-  catch (e) { errors.push(`posthog: ${e.message}`); console.error(`[thin-promotions] posthog error: ${e.message}`); }
   try {
     const result = await fetchGa4(args.windowHours);
     ga = result.urls;
@@ -258,9 +228,10 @@ export async function main() {
   }
   catch (e) { errors.push(`gsc: ${e.message}`); console.error(`[thin-promotions] gsc error: ${e.message}`); }
 
-  const fresh = new Set([...ph, ...ga, ...gsc]);
-  if (errors.length === 3 && fresh.size === 0) {
-    console.error('[thin-promotions] all three feeds errored — leaving active.json unchanged');
+  const FEED_COUNT = 2; // GA4 + GSC
+  const fresh = new Set([...ga, ...gsc]);
+  if (errors.length === FEED_COUNT && fresh.size === 0) {
+    console.error('[thin-promotions] every feed errored — leaving active.json unchanged');
     return 2;
   }
 
@@ -271,7 +242,6 @@ export async function main() {
   const historyRow = {
     generatedAt: new Date().toISOString(),
     windowHours: args.windowHours,
-    posthogHits: ph.size,
     ga4Hits: ga.size,
     gscHits: gsc.size,
     freshUnion: fresh.size,
@@ -311,7 +281,7 @@ export async function main() {
   }
 
   // Saving useful observations does not downgrade an all-feeds failure.
-  if (errors.length === 3) return 2;
+  if (errors.length === FEED_COUNT) return 2;
   return errors.length > 0 ? 3 : 0;
 }
 

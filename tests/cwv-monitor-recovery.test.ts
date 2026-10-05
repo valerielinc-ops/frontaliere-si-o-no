@@ -304,7 +304,8 @@ describe('main(): la riconciliazione gira anche senza regressioni', () => {
 
   const run = (io: ReturnType<typeof fakeIo>['io']) => main({
     now: NOW,
-    checkLivenessImpl: async () => ({ alive: false, reason: 'PostHog senza web_vitals dal 16-09' }),
+    // GA4 e' la sorgente (H9): viva, e il report sotto ogni soglia.
+    checkLivenessImpl: async () => ({ alive: true, reason: 'ga4 viva', source: 'ga4' }),
     ga4FallbackImpl: async () => ga4Rows(),
     reconcileIo: io,
   });
