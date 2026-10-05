@@ -19,6 +19,8 @@
  * `validateDetailHtml()` is also exported as the testable detail-validation
  * boundary; it returns the parsed detail that the caller can reuse.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { JSDOM } from 'jsdom';
@@ -412,6 +414,7 @@ export async function fetchAllFaulhaberJobs({
   let belowFloor = 0;
   for (const listing of listings) {
     let description = '';
+    let publication = sourcePostingDateFields();
     let detailLocation = listing.location;
 
     if (listing.url) {
@@ -419,12 +422,23 @@ export async function fetchAllFaulhaberJobs({
         const detail = await fetchFaulhaberHtml(listing.url, {
           timeoutMs: 15000,
           validateRedirectUrl: detailRedirectValidator(listing.url),
-          parseBody: validateDetailHtml,
+          parseBody: (html) => {
+            const detail = validateDetailHtml(html);
+            const posting = extractJobPostingLd(html);
+            let sameUrl = !posting?.url;
+            if (posting?.url) {
+              try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
+              catch { sameUrl = false; }
+            }
+            const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(listing.title).toLowerCase();
+            return { ...detail, ...sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '') };
+          },
           label: 'job detail',
           fetchHtmlImpl,
           fetchJinaImpl,
         });
         description = detail.description;
+        publication = sourcePostingDateFields(detail.datePosted);
         if (!detailLocation && detail.location) detailLocation = detail.location;
       } catch (err) {
         throw new Error(`Faulhaber: failed to fetch a trusted detail page: ${err.message}`, { cause: err });
@@ -477,7 +491,7 @@ export async function fetchAllFaulhaberJobs({
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Faulhaber Dedicated Parser',
