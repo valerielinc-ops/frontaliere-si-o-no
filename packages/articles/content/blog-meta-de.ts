@@ -12572,6 +12572,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-rumore-galbisio.title': 'A2 und Lärm: Die Stadt plant die Terrasse von Galbisio',
     'blog.article.a2-rumore-galbisio.excerpt': 'Die Stadt bekräftigt den Schutz von Galbisio vor den Lärm- und Landschaftsauswirkungen der A2. Für Lepori ist dies der erste formelle Schritt nach der Zustimmung des Pab5.',
     'blog.article.a2-rumore-galbisio.imageAlt': 'A2 und Landschaft rund um Galbisio im Bellinzonese',
+    'blog.article.magrini-cultura-provincia-varese.title': 'Varese, Magrini: \'Die Provinz investiert bereits in die Kultur\'',
+    'blog.article.magrini-cultura-provincia-varese.excerpt': 'Präsident Magrini antwortet der Region: Ein Fonds von 100 mila euro für die Bewerbung um den Titel Italienische Kulturhauptstadt und für Projekte vor Ort wurde bereitgestellt.',
+    'blog.article.magrini-cultura-provincia-varese.imageAlt': 'Präsident der Provinz Varese Marco Magrini während einer Pressekonferenz',
 };
 
 export default blogMetaDe;
