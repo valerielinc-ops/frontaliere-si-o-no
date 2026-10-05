@@ -12560,6 +12560,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chef-nazionale-ristoratori-de-filippi.title': 'Sport et légalité au De Filippi avec la Nazionale Ristoratori',
     'blog.article.chef-nazionale-ristoratori-de-filippi.excerpt': 'Journée entre formation, football et haute cuisine à l\'Institut hôtelier De Filippi de Varese avec les chefs de la Nazionale Italiana Ristoratori.',
     'blog.article.chef-nazionale-ristoratori-de-filippi.imageAlt': 'Rencontre entre les chefs de l\'Association nationale des restaurateurs et les étudiants',
+    'blog.article.novantaquattro-scatti-varese.title': 'Varese, 94 photos entre cyclisme et StraWoman',
+    'blog.article.novantaquattro-scatti-varese.excerpt': 'À Varese, environ 5.000 cyclistes venus de plus de 40 pays et plus de 3.000 femmes pour un dimanche entre Gran Fondo Tre Valli Varesine et StraWoman.',
+    'blog.article.novantaquattro-scatti-varese.imageAlt': 'Cyclistes et participantes de la StraWoman dans le centre de Varèse (Varese)',
 };
 
 export default blogMetaFr;
