@@ -134,7 +134,8 @@ export function offerLines(
     const locality = clean(job.addressLocality ?? job.city);
     const parts = [title];
     if (company) parts.push(company);
-    if (locality && fold(locality) !== cityFolded) parts.push(locality);
+    // «Basel BS», «Lugano TI»: a locality that names the page's own city adds nothing.
+    if (locality && !fold(locality).includes(cityFolded)) parts.push(locality);
     const line = parts.join(' — ');
     const key = fold(line);
     if (seen.has(key)) continue;
