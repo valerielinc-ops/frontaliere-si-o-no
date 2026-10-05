@@ -87,7 +87,7 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 - Un ordine senza alcuna data da cui contare la cancellazione riceve un link di 30 giorni, non un link senza scadenza.
 - Su WhatsApp il CV adattato è segnalato come «Proposto da noi»; quale CV il candidato manda non viene registrato.
 
-**Attuazione (5 ottobre 2026).** PR #TBD, elencata nel §9 del [report](report-cv-lettera.md).
+**Attuazione (5 ottobre 2026).** PR #11574, elencata nel §9 del [report](report-cv-lettera.md).
 - Il link di un ordine con il consenso al talent pool porta una scadenza tecnica fissa, firmata come le altre, che significa «fino a fine consenso» (31 dicembre 9999): non introduce una durata.
 - A ogni apertura il server rilegge l'ordine e risponde come a un link scaduto quando il consenso non c'è più, la cancellazione automatica è già passata, o la candidatura inviata non c'è più. Un link già emesso con una scadenza non si allunga se il consenso arriva dopo; gli altri ordini restano come sopra.
 - Limite dichiarato: al 5 ottobre 2026 nessun codice scrive `talentPoolConsent`. Il consenso è un solo campo sì/no, letto dalla cancellazione automatica, e non sono modellati né il modo di darlo, né la revoca, né una durata. La regola vale da quando il talent pool esisterà; fino ad allora nessun ordine riceve questo link.
