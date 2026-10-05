@@ -560,11 +560,18 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
-      # Phase 2c mutates slices only, and every step up to the true-final
-      # re-assemble below reads slices (the repair gate, Phases 2d/2e,
-      # git-commit-data.sh --slice-only), not data/jobs.json: that re-assemble
-      # is the single persistence barrier, under the same always() condition.
-      # Never scatter the assembled file back here, it would erase the fills.
+      # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
+      # the stale assembled file in this direction would erase its new fills.
+      # Restored after the corpus review of the transport (PR 2232 there): the
+      # scripts of Phases 2d/2e read slices, but their import closure includes
+      # libraries that can read data/jobs.json, and "never at runtime" was not
+      # proven; the ~5 minutes are not worth a stale dataset.
+      - name: Re-assemble dataset after Phase 2c mop-up
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Commit translations
         id: commit_translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
