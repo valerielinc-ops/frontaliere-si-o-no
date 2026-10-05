@@ -2610,6 +2610,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aumento-iva-finanziamento-13esima-avs': { it: 'aumento-iva-finanziamento-13esima-avs', en: 'vat-increase-13th-pillar-ahv-financing', de: 'mwst-erhoehung-13-ahv-finanzierung', fr: 'hausse-tva-financement-13e-avs' },
  'lugano-trasparenza-partecipate': { it: 'lugano-trasparenza-partecipate', en: 'lugano-transparency-municipal-companies', de: 'lugano-transparenz-beteiligungen', fr: 'lugano-transparence-societes-participations' },
  'tamedia-taglio-posti-lavoro': { it: 'tamedia-taglio-posti-lavoro', en: 'tamedia-job-cuts-announcement', de: 'tamedia-stellenabbau-ankuendigung', fr: 'tamedia-suppression-postes-travail' },
+ 'guy-parmelin-visita-india': { it: 'guy-parmelin-visita-india', en: 'guy-parmelin-india-visit', de: 'guy-parmelin-indien-besuch', fr: 'guy-parmelin-visite-inde' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7763,6 +7763,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tamedia-taglio-posti-lavoro.title': 'Tamedia cuts 34 jobs: reorganization ahead',
     'blog.article.tamedia-taglio-posti-lavoro.excerpt': 'The publishing company announces the elimination of 34 full-time positions, affecting 41 employees across German- and French-speaking Switzerland by the end of October.',
     'blog.article.tamedia-taglio-posti-lavoro.imageAlt': 'Headquarters of a Swiss media company in an urban setting',
+    'blog.article.guy-parmelin-visita-india.title': 'Parmelin in India: focus on the economy and investment',
+    'blog.article.guy-parmelin-visita-india.excerpt': 'Federal Councillor Guy Parmelin in New Delhi to strengthen economic cooperation, intellectual property protection and migration agreements.',
+    'blog.article.guy-parmelin-visita-india.imageAlt': 'Federal Councillor Guy Parmelin on an official visit',
 };
 
 export default blogMetaChEn;

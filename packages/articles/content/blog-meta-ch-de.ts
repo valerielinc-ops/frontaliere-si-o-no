@@ -7763,6 +7763,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tamedia-taglio-posti-lavoro.title': 'Tamedia baut 34 Stellen ab: Reorganisation steht bevor',
     'blog.article.tamedia-taglio-posti-lavoro.excerpt': 'Das Medienunternehmen kündigt den Abbau von 34 Vollzeitstellen an, wobei bis Ende Oktober 41 Mitarbeitende in der Deutsch- und Westschweiz betroffen sind.',
     'blog.article.tamedia-taglio-posti-lavoro.imageAlt': 'Hauptsitz eines Schweizer Medienunternehmens in städtischer Umgebung',
+    'blog.article.guy-parmelin-visita-india.title': 'Parmelin in Indien: Fokus auf Wirtschaft und Investitionen',
+    'blog.article.guy-parmelin-visita-india.excerpt': 'Bundesrat Guy Parmelin in New Delhi zur Stärkung der wirtschaftlichen Zusammenarbeit, des Schutzes des geistigen Eigentums und der Vereinbarungen zur Migration.',
+    'blog.article.guy-parmelin-visita-india.imageAlt': 'Bundesrat Guy Parmelin auf offiziellem Besuch',
 };
 
 export default blogMetaChDe;
