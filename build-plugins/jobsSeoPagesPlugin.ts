@@ -4865,6 +4865,13 @@ ${staticAnalyticsHtml}
  `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p class="s-Yy-luh">${esc(
  brandCopy.tagline,
  )}</p></header>`,
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
+ openRolesListHtml
+ ? `<ul class="s-0WjlyL">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
+ hubLabels.viewAllLabel,
+ )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
+ : `<p>${esc(brandCopy.emptyStateNote)}</p>`
+ }</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.locations)}</h2><p>${esc(
  brandCopy.locationsIntro,
@@ -4878,13 +4885,6 @@ ${staticAnalyticsHtml}
  curatedBrand.website.replace(/^https?:\/\//, ''),
  )} &rarr;</a></p>`
  : ''
- }</section>`,
- `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
- openRolesListHtml
- ? `<ul class="s-0WjlyL">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
- hubLabels.viewAllLabel,
- )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
- : `<p>${esc(brandCopy.emptyStateNote)}</p>`
  }</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
  ].join('\n');

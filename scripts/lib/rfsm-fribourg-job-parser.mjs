@@ -21,6 +21,7 @@
  *   Marsens (1633), Villars-sur-Glâne (1752), Givisiez (1762), Bulle (1630).
  * Canton is always FR.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -225,7 +226,6 @@ export async function fetchAllRfsmFribourgJobs() {
   console.log(`  ✓ ${rows.length} unique RFSM/FNPG postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -284,7 +284,8 @@ export async function fetchAllRfsmFribourgJobs() {
       sector: 'Santé mentale / Psychiatrie',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // This source adapter has no attested publication field.
+      ...sourcePostingDateFields(''),
       applyUrl: row.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

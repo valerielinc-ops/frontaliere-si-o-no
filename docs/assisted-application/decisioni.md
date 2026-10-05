@@ -25,7 +25,7 @@ Due regole reggono tutte le altre:
 | 12 | A/B test dei template | Non ora: il volume non lo consente. |
 | 13 | Interruttori Remote Config | `PDF_RENDERER` = typst, `DOSSIER_MODE` = separate, `DOCX_INPLACE` = off. |
 | 14 | Orario d'invio | Nessuna finestra: una candidatura parte appena approvata. |
-| 15 | Immagini di terzi negli articoli | Autore e licenza recuperati da Commons, dati strutturati corretti, credito in fondo all'articolo. |
+| 15 | Immagini di terzi negli articoli | Autore e licenza recuperati da Commons, dati strutturati corretti, credito in fondo all'articolo (non per pubblico dominio e CC0). |
 
 ---
 
@@ -78,13 +78,19 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 - Dopo l'invio, la pagina di revisione mostra «I tuoi documenti»: i file partiti (o, per WhatsApp, quelli da usare nella chat). L'e-mail «candidatura inviata» porta un pulsante a quella pagina. Nessun allegato nelle e-mail.
 - Il candidato può scaricare una **copia Word da tenere** della lettera e del CV adattato. È costruita al momento dagli stessi dati del PDF, non viene salvata, non può essere scelta come CV da inviare. Non contiene la foto.
 - Il link a quella pagina nell'e-mail «candidatura inviata» vale finché i file dell'ordine esistono, cioè fino alla cancellazione automatica (decisione del proprietario).
+- Per un ordine con il consenso al talent pool il link vale «Fino a fine consenso»: finché dura il consenso; alla revoca o alla cancellazione smette di funzionare (decisione del proprietario, 5 ottobre 2026).
 - Per una candidatura WhatsApp è il candidato a scegliere, tra «I tuoi documenti», quale CV mandare nella chat: il proprio o quello preparato (decisione del proprietario).
 - Limite dichiarato: la copia Word è verificata con LibreOffice e con un lettore di DOCX, non con Microsoft Word.
 
 **Attuazione (4 ottobre 2026).** PR #11539, elencata nel §9 del [report](report-cv-lettera.md).
 - Il link scade quando è prevista la cancellazione: dalla data del rimborso o, se non c'è, dal caricamento del CV, più 90 giorni.
-- Un ordine che la cancellazione non raggiunge (consenso al talent pool, nessuna data) riceve un link di 30 giorni come gli altri, non un link senza scadenza.
+- Un ordine senza alcuna data da cui contare la cancellazione riceve un link di 30 giorni, non un link senza scadenza.
 - Su WhatsApp il CV adattato è segnalato come «Proposto da noi»; quale CV il candidato manda non viene registrato.
+
+**Attuazione (5 ottobre 2026).** PR #11574, elencata nel §9 del [report](report-cv-lettera.md).
+- Il link di un ordine con il consenso al talent pool porta una scadenza tecnica fissa, firmata come le altre, che significa «fino a fine consenso» (31 dicembre 9999): non introduce una durata.
+- A ogni apertura il server rilegge l'ordine e risponde come a un link scaduto quando il consenso non c'è più, la cancellazione automatica è già passata, o la candidatura inviata non c'è più. Un link già emesso con una scadenza non si allunga se il consenso arriva dopo; gli altri ordini restano come sopra.
+- Limite dichiarato: al 5 ottobre 2026 nessun codice scrive `talentPoolConsent`. Il consenso è un solo campo sì/no, letto dalla cancellazione automatica, e non sono modellati né il modo di darlo, né la revoca, né una durata. La regola vale da quando il talent pool esisterà; fino ad allora nessun ordine riceve questo link.
 
 ## 5. Allegati di una candidatura via e-mail
 
@@ -209,9 +215,12 @@ Un parametro assente vale come il valore deciso. I valori di questi tre parametr
 
 - Copertine con persone riconoscibili (restrizione di personalità su Commons), con insegne o con funzionari (licenza GODL-India): sostituite da foto Commons senza persone, ognuna con il suo credito (25 file, 55 articoli).
 - Copertine non prese da Commons (Pixabay, Pexels, generate): restano con la dicitura del sito, perché la loro provenienza non si ricostruisce dal repository.
-- Una rilettura mensile di Commons, in sola lettura, apre una sola issue se un file è stato cancellato o ne sono cambiati licenza, autore o restrizioni.
 - I file delle copertine sostituite restano su disco.
 - Lo stesso file Commons non va su un secondo articolo finché ce n'è uno libero (il controllo è per file, non per indirizzo).
-- Il credito compare anche per le immagini in pubblico dominio o CC0, come cortesia.
 - Le 44 pagine degli articoli scritte a mano mostrano il credito come le altre.
 - La mappa delle copertine del sito resta, perché due script legacy la leggono ancora; la storia completa è nel corpus.
+
+**Decisione del proprietario (5 ottobre 2026).** Due delle scelte applicate il 4 ottobre cambiano:
+
+- Immagini in pubblico dominio o CC0: nessun credito visibile in fondo all'articolo, perché la licenza non lo richiede. Vale per tutte le pagine che mostrano il credito: le pagine statiche degli articoli, le 44 scritte a mano, la SPA e il testo degli articoli nei feed RSS. I dati strutturati restano come sono: autore, licenza e link alla pagina del file (`imageObjectLd`, e `media:credit`/`media:license` nei feed). Il credito resta visibile per tutte le altre licenze, comprese le immagini Flickr «nessuna restrizione di copyright nota», che non sono né pubblico dominio né CC0, e per un file in pubblico dominio o CC0 il cui record dice che l'attribuzione è richiesta.
+- La rilettura mensile di Commons è eliminata. La rimozione è nella PR nanakokyobashi-rgb/frontaliere-articles#2170.

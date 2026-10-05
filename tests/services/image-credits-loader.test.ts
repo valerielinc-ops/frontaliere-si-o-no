@@ -115,9 +115,13 @@ describe('fetchImageCredit — a published credit becomes the record the project
   it('keeps an unknown author on a public-domain file', async () => {
     stubFetch(() => Promise.resolve(okResponse(payload())));
     const record = (await fetchImageCredit('frontaliere', '/images/blog/fixture-map.webp'))!;
-    expect(imageCreditParts(record, 'en')?.text).toBe(
-      'Cover image: “Fixture Archive Map”, author unknown, public domain, via Wikimedia Commons (resized).',
-    );
+    expect(record.author.name).toBeNull();
+    expect(imageObjectCreditFields(record)).toMatchObject({
+      creator: { '@type': 'Organization', name: 'Unknown author' },
+      copyrightNotice: 'Public domain',
+    });
+    // Public domain: no visible line (owner decision 2026-10-05).
+    expect(imageCreditParts(record, 'en')).toBeNull();
   });
 });
 

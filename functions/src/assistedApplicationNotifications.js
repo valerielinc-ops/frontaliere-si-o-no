@@ -30,7 +30,7 @@ import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
-import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import {
   brandButton,
   brandCallout,
@@ -201,8 +201,11 @@ export function buildReviewPageUrl(order, token, locale = resolveOrderLocale(ord
  * The review page of an automated order whose application left (owner decision 2026-10-03): the
  * documents prepared and sent stay there for the candidate. Minted as the automated e-mails mint it
  * (assistedApplicationAutomationEffects.js: the flow's round), and valid until the retention purge
- * deletes those documents (owner decision 2026-10-03, «Fino alla cancellazione»). '' for any other
- * order and whenever the link cannot be made: the «inviata» e-mail always leaves.
+ * deletes those documents (owner decision 2026-10-03, «Fino alla cancellazione»). An order kept for the
+ * talent pool, which the purge never reaches, gets a link that lasts as long as the consent (owner decision
+ * 2026-10-05, «Fino a fine consenso»): the review endpoint refuses it once the consent is withdrawn or the
+ * documents are gone. '' for any other order and whenever the link cannot be made: the «inviata» e-mail
+ * always leaves.
  */
 export async function submittedReviewUrl({ db, orderId, order, nowMs = Date.now(), getSecret = getReviewTokenSecret }) {
   // The flow mirrors its state on the order in the transaction that commits it, before mark_submitted runs.
@@ -211,11 +214,17 @@ export async function submittedReviewUrl({ db, orderId, order, nowMs = Date.now(
     const snapshot = await flowRefFor(db, orderId).get();
     const flow = snapshot.exists ? snapshot.data() || {} : null;
     if (flow?.state !== 'submitted') return '';
-    // An order the purge never reaches keeps the usual lifetime; one already due for it gets no link.
+    // The purge already ran: the documents are gone.
+    if (order.retentionPurgedAt != null) return '';
+    const round = Number(flow.round) || 1;
+    if (talentPoolConsentActive(order)) {
+      return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round, nowMs, untilConsentEnds: true }));
+    }
+    // An order without a date for the purge keeps the usual lifetime; one already due for it gets no link.
     const purgeAt = retentionPurgeDueAt(order);
     const ttlMs = purgeAt === null ? REVIEW_TOKEN_TTL_MS : purgeAt - nowMs;
     if (ttlMs <= 0) return '';
-    return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round: Number(flow.round) || 1, nowMs, ttlMs }));
+    return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round, nowMs, ttlMs }));
   } catch (error) {
     console.warn('[assistedApplicationNotifications] «inviata» e-mail without the review link:', error instanceof Error ? error.message : String(error));
     return '';

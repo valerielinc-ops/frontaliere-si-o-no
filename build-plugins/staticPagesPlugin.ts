@@ -12,7 +12,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
 
 import type { Plugin } from 'vite';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
-import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
+import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT, FAVICON_LINKS } from './constants';
@@ -67,7 +67,6 @@ const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
  de: 'Grenzgänger-Glossar',
  fr: 'Glossaire frontaliers',
 };
-import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // FAQ-hub path builder — the ONE source of the four hub slugs (router-safe
 // module, no 340 KB category corpus pulled in). ORPHAN_PILLAR_LINKS below
@@ -5901,33 +5900,21 @@ ${hrefTags}
  locSeo.ogD = dyn.ogD;
  }
 
- // Localize JSON-LD structured data for non-IT locale variants.
- // Dispatcher in services/seo/schema-translators.ts routes @type to translator.
+ // Localize JSON-LD structured data for non-IT locale variants: the one pass
+ // every deriveLocaleSeo branch's `sd` goes through (type translators, plus the
+ // page identity — url/@id/inLanguage/name/description — of a node still
+ // naming the Italian page). Parity on 4 locales:
+ // tests/static-locale-jsonld-parity.test.ts.
  if (locSeo.sd && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
- const lang: SupportedLocale = hl.lang;
- const sdParts = locSeo.sd.split(JSON_LD_SCRIPT_SEPARATOR);
- const translated = sdParts.map(part => {
- try {
- const obj = normalizeStructuredData(JSON.parse(part));
- translateSchema(obj, lang);
- localizeArticlePageIdentity(obj, {
+ const pageTitle = locSeo.ogT || locSeo.title;
+ locSeo.sd = localizeStaticPageStructuredData(locSeo.sd, {
  sourceUrl: `${BASE_URL}${withTrailingSlash(url.path)}`,
  canonicalUrl: `${BASE_URL}${withTrailingSlash(locPath)}`,
- headline: locSeo.h1 || locSeo.ogT || locSeo.title,
+ headline: locSeo.h1 || pageTitle,
  description: locSeo.desc,
- locale: lang,
- });
- if (typeof obj.inLanguage === 'string') obj.inLanguage = lang;
- // Re-escape `<` (inlineScriptJson, NOT a bare JSON.stringify): the JSON.parse
- // above decodes the IT builder's `<` back to a literal `<`, so a raw
- // re-stringify would DOWNGRADE the escape and let a `</script>` inside a
- // translated string value break out of the inline tag on the EN/DE/FR variants
- // — `locSeo.sd` is emitted RAW via `${seoData.sd}` (#1672 escalation).
- return inlineScriptJson(obj);
- } catch { /* not valid JSON, pass through (already escaped by the IT builder) */ }
- return part;
- });
- locSeo.sd = translated.join(JSON_LD_SCRIPT_SEPARATOR);
+ name: pageTitle.replace(/\s*\|\s*Frontaliere Ticino\s*$/, ''),
+ locale: hl.lang,
+ }, JSON_LD_SCRIPT_SEPARATOR);
  }
 
  const locDir = np.join(distDir, locPath);

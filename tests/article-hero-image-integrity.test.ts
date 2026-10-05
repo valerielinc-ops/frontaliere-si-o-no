@@ -548,4 +548,68 @@ describe('Wikimedia Commons cover credits on the article page (P14)', () => {
       for (const dir of [distDir, plainDist, root, emptyRoot]) fs.rmSync(dir, { recursive: true, force: true });
     }
   }, 300_000);
+
+  /**
+   * Owner decision, 2026-10-05: «Togliere il credito» for public domain and
+   * CC0 covers (the licence does not ask for it). The page shows no line, and
+   * its ImageObject still names the photo's author, licence and file page.
+   */
+  it('public domain and CC0 covers: no visible credit, the same credited ImageObject', async () => {
+    const seoSrc = fs.readFileSync(path.join(rootDir, SECTION.seoFiles[0]), 'utf-8');
+    const idsByKey = new Map<string, string>();
+    for (const { key, start, end } of extractBlogEntryPositions(seoSrc)) {
+      const hero = seoSrc.slice(start, end).match(/\/images\/[^'"`\s,}]+/)?.[0];
+      const cover = hero ? coverKey(hero) : null;
+      if (cover && !idsByKey.has(cover)) idsByKey.set(cover, blogKeyToArticleId(key));
+    }
+    const [pdKey, cc0Key, ccKey] = [...idsByKey.keys()].sort().slice(0, 3);
+    expect(ccKey, 'fewer than three blog covers').toBeDefined();
+    const pdRecord = { ...creditFixture(pdKey), licence: { name: 'Public domain', url: null, family: 'pd', attributionRequired: false } };
+    const cc0Record = { ...creditFixture(cc0Key), licence: { name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/', family: 'cc0', attributionRequired: false } };
+    type Fixture = Omit<ReturnType<typeof creditFixture>, 'licence'> & {
+      licence: { name: string; url: string | null; family: string; attributionRequired: boolean };
+    };
+    const records: Record<string, Fixture> = { [pdKey]: pdRecord, [cc0Key]: cc0Record, [ccKey]: creditFixture(ccKey) };
+
+    const root = shadowRootWithCredits(records);
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-credit-free-'));
+    try {
+      writeFixture(distDir, '/og-image.png', pngBytes(1200, 630));
+      for (const rel of heroCandidatePaths()) writeFixture(distDir, rel, pngBytes(FIXTURE_WIDTH, FIXTURE_HEIGHT));
+      const ids = [pdKey, cc0Key, ccKey].map((k) => idsByKey.get(k)!);
+      const { entries } = await renderArticlePages({ rootDir: root, distDir, section: 'svizzera', onlyArticleIds: ids });
+      const pages = readPages(distDir, entries);
+
+      const seen: Record<string, number> = { pd: 0, cc0: 0, 'cc-by-sa': 0 };
+      const offenders: string[] = [];
+      for (const { rel, html } of pages) {
+        const src = pathOf(attrs(html.match(HERO_IMG_RX)?.[0] ?? '').src ?? '');
+        const rec = records[coverKey(src) ?? ''];
+        if (!rec) continue;
+        const family = rec.licence.family;
+        seen[family]++;
+        const lds = heroImageObjects(html, src);
+        if (lds.length === 0) offenders.push(`${rel}: no hero ImageObject`);
+        for (const ld of lds) {
+          const expected = {
+            creator: { '@type': 'Person', name: rec.author.name, url: rec.author.url },
+            creditText: `${rec.author.name} / Wikimedia Commons`,
+            copyrightNotice: family === 'pd' ? 'Public domain' : family === 'cc0' ? 'CC0' : `© ${rec.author.name}`,
+            license: rec.licence.url ?? rec.commons.pageUrl,
+            acquireLicensePage: rec.commons.pageUrl,
+            isBasedOn: rec.commons.pageUrl,
+          };
+          for (const [field, value] of Object.entries(expected)) {
+            if (JSON.stringify(ld[field]) !== JSON.stringify(value)) offenders.push(`${rel}: ImageObject.${field} = ${JSON.stringify(ld[field])}`);
+          }
+        }
+        const footers = (html.match(/<footer class="ft-image-credit/g) ?? []).length;
+        if (footers !== (family === 'cc-by-sa' ? 1 : 0)) offenders.push(`${rel} (${family}): ${footers} credit footer(s)`);
+      }
+      expect(offenders.slice(0, 10).join('\n'), `${offenders.length} offender(s)`).toBe('');
+      for (const family of Object.keys(seen)) expect(seen[family], `no ${family} page rendered`).toBeGreaterThan(0);
+    } finally {
+      for (const dir of [distDir, root]) fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 300_000);
 });

@@ -16,7 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { blogDetailHeroImageObject } from '../build-plugins/staticPagesPlugin';
-import type { ImageCreditRecord } from '../packages/articles/engine/shared/imageCredits.mjs';
+import { renderImageCreditHtml, type ImageCreditRecord } from '../packages/articles/engine/shared/imageCredits.mjs';
 import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 
 const rootDir = path.resolve(__dirname, '..');
@@ -84,6 +84,29 @@ describe('the hand-written article ImageObject (P14)', () => {
     for (const key of RIGHTS_KEYS) expect(image, key).toHaveProperty(key);
     expect(image).toMatchObject(CREDIT_FIELDS);
     for (const key of ['license', 'acquireLicensePage'] as const) expect(String(image[key])).toMatch(/^https:\/\//);
+  });
+
+  it('public domain and CC0: the same credited ImageObject, and no visible line (owner decision 2026-10-05)', () => {
+    const page = 'https://commons.wikimedia.org/wiki/File:Fixture_Station.jpg';
+    const cases: Array<[ImageCreditRecord['licence'], string, string]> = [
+      [{ name: 'Public domain', url: null, family: 'pd', attributionRequired: false }, 'Public domain', page],
+      [{ name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/', family: 'cc0', attributionRequired: false }, 'CC0', 'https://creativecommons.org/publicdomain/zero/1.0/'],
+    ];
+    for (const [licence, notice, license] of cases) {
+      const free: ImageCreditRecord = { ...record, licence };
+      expect(blogDetailHeroImageObject(strippedLiteral, hero, free), licence.family).toMatchObject({
+        creator: { '@type': 'Organization', name: 'Fixture Archive' },
+        creditText: 'Fixture Archive / Wikimedia Commons',
+        copyrightNotice: notice,
+        license,
+        acquireLicensePage: page,
+        isBasedOn: page,
+      });
+      // `blogDetailCreditHtml` is this call (see below): an empty footer.
+      for (const locale of ['it', 'en', 'de', 'fr']) expect(renderImageCreditHtml(free, locale), `${licence.family} ${locale}`).toBe('');
+    }
+    // CC BY keeps its line.
+    expect(renderImageCreditHtml(record, 'it')).toMatch(/^<footer class="ft-image-credit/);
   });
 
   it('keeps the literal as it is when the cover has no record (today’s output)', () => {
