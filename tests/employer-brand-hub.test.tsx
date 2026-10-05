@@ -267,6 +267,23 @@ describe('EmployerBrandHub component', () => {
     expect(jobAnchors.length).toBeGreaterThanOrEqual(2);
   });
 
+  it('puts open roles before the long-form company context', () => {
+    const { container } = render(
+      <EmployerBrandHub
+        brand={brand}
+        locale="it"
+        jobs={mockJobs}
+        buildJobHref={buildJobHref}
+        canonicalUrl={CANONICAL_URL}
+      />,
+    );
+    const headings = Array.from(container.querySelectorAll('h1, h2')).map((heading) => heading.textContent ?? '');
+    expect(headings.findIndex((heading) => heading.includes(brand.copy.it.sectionHeadings.openRoles))).toBeLessThan(
+      headings.findIndex((heading) => heading.includes(brand.copy.it.sectionHeadings.about)),
+    );
+    expect(container.querySelector('[data-testid="employer-brand-open-roles"]')).toBeTruthy();
+  });
+
   it('shows empty state copy when no jobs match', () => {
     render(
       <EmployerBrandHub

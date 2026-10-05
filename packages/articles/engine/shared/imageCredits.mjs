@@ -29,12 +29,25 @@
  * ── An unknown author ─────────────────────────────────────────────────────
  * `author.name === null`. Allowed only for CC0, public domain and Flickr
  * «no known restrictions», where attribution is not required. The visible line
+ * (shown for Flickr Commons only: public domain and CC0 have none, see below)
  * then says «autore sconosciuto» and the ImageObject creator is
  * `UNKNOWN_AUTHOR_NAME`: `imageObjectLd` falls back to the SITE as creator when
  * no creator is passed, which is the false claim this module removes, and the
  * Commons uploader or Commons itself are never the author. When curation knows
  * the responsible institution it sets it as `author.name` (type Organization)
  * instead, and the line names it.
+ *
+ * ── No visible line for public domain and CC0 ─────────────────────────────
+ * Owner decision, 2026-10-05, on «credito per le immagini in pubblico dominio
+ * o CC0 (la licenza non lo richiede): cosa facciamo?» → «Togliere il credito».
+ * A cover in the `pd` or `cc0` family whose record does not say that
+ * attribution is required gets no visible line on any surface (static article
+ * page, the 44 hand-written pages, RSS `content:encoded`, SPA): they all render
+ * `imageCreditParts`, which returns `null` for it (`hasVisibleImageCredit`).
+ * The structured data stays as it is: `imageObjectCreditFields` and the Media
+ * RSS credit/licence still name the author, the licence and the Commons file
+ * page. Flickr «no known restrictions» is not public domain nor CC0, so its
+ * line stays (the decision named only those two).
  */
 
 export const IMAGE_CREDIT_SCHEMA_VERSION = 1;
@@ -55,6 +68,12 @@ export const IMAGE_CREDIT_LICENCE_FAMILIES = Object.freeze([
 
 /** Families whose licence does not require attribution: the credit is a courtesy. */
 const COURTESY_FAMILIES = new Set(['cc0', 'pd', 'no-known-restrictions']);
+
+/**
+ * Families whose cover gets no visible credit line (owner decision 2026-10-05,
+ * module header) unless the record says the licence requires attribution.
+ */
+const NO_VISIBLE_CREDIT_FAMILIES = new Set(['cc0', 'pd']);
 
 /** Families whose licence must be linked by its own URL (CC 3.0 §4(a), 4.0 §3(a)(1)(C), FAL). */
 const LICENCE_URL_REQUIRED = new Set(['cc-by', 'cc-by-sa', 'fal']);
@@ -796,6 +815,21 @@ function segment(kind, text, extra = {}) {
 }
 
 /**
+ * Whether a cover's credit is shown as a visible line. `false` for public
+ * domain and CC0 when the record does not mark attribution as required (owner
+ * decision 2026-10-05, module header); `true` for every other family. The
+ * ImageObject fields do not depend on it.
+ *
+ * @param {ImageCreditRecord} record
+ * @returns {boolean}
+ */
+export function hasVisibleImageCredit(record) {
+  const licence = record?.licence;
+  if (!licence) return true;
+  return !(NO_VISIBLE_CREDIT_FAMILIES.has(String(licence.family)) && licence.attributionRequired !== true);
+}
+
+/**
  * The visible credit as ordered segments, for any renderer (static HTML, RSS,
  * React). `title` and `author` segments are names in any script and are meant
  * to be isolated (`<bdi>`); every `href` is an https URL.
@@ -810,7 +844,8 @@ function segment(kind, text, extra = {}) {
  * already names Wikimedia Commons («© Yann Forget / Wikimedia Commons»), the
  * «, tramite Wikimedia Commons» phrase is dropped: Commons is named once.
  * `null` when the record lacks what the line needs (title, https file page,
- * licence name).
+ * licence name), and for public domain and CC0, which get no visible line
+ * (`hasVisibleImageCredit`).
  *
  * @param {ImageCreditRecord} record
  * @param {string} locale
@@ -822,6 +857,7 @@ export function imageCreditParts(record, locale) {
   const pageUrl = httpsUrlOrNull(record?.commons?.pageUrl);
   const title = record?.commons?.title;
   if (!pageUrl || !isNonEmptyString(title) || !isNonEmptyString(record?.licence?.name)) return null;
+  if (!hasVisibleImageCredit(record)) return null;
 
   const credited = creditedName(record);
   const authorHref = record.author.name ? httpsUrlOrNull(record.author.url) : null;
@@ -874,7 +910,8 @@ const LINK_ATTRIBUTES = 'target="_blank" rel="noopener" class="underline underli
  * `rel="noopener"` only — never `rel="license"` (it would put the PAGE under
  * the photo's licence) or `rel="author"` (the byline owns it). Names sit in
  * `<bdi>`, every value is escaped. Semantic colour tokens only.
- * Returns `''` when the record cannot produce a line.
+ * Returns `''` when the record cannot produce a line or has none to show
+ * (public domain, CC0).
  *
  * @param {ImageCreditRecord} record
  * @param {string} locale
