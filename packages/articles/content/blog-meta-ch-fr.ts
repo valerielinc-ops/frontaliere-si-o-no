@@ -7745,6 +7745,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.villa-principe-leopoldo-chiude.title': 'Villa Principe Leopoldo ferme pour travaux et licencie',
     'blog.article.villa-principe-leopoldo-chiude.excerpt': 'L\'Hotel Villa Principe Leopoldo di Collina d\'Oro ferme à partir du 30 décembre pour des travaux de 12 millions. 76 licenciements prévus sur 81 employés et réouverture en mai.',
     'blog.article.villa-principe-leopoldo-chiude.imageAlt': 'Hôtel Villa Principe Leopoldo à Collina d\'Oro',
+    'blog.article.porte-aperte-login-ticino.title': 'Portes ouvertes login Ticino : chemin de fer, commerce et bâtiments',
+    'blog.article.porte-aperte-login-ticino.excerpt': 'Samedi 10 octobre, 09.00-13.00 à Bellinzona, Portes ouvertes login Ticino présentent le chemin de fer, le commerce et la nouvelle formation CFC d\'informaticien/ne des bâtiments et des infrastructures, lancée en août 2027.',
+    'blog.article.porte-aperte-login-ticino.imageAlt': 'Visiteurs aux portes ouvertes login Ticino observent un électrotrain et des outils d\'automatisation du bâtiment à Bellinzona',
 };
 
 export default blogMetaChFr;

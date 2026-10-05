@@ -97765,6 +97765,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-porte-aperte-login-ticino': {
+    title: 'Porte Aperte login Ticino: ferrovia, commercio e edifici',
+    description: 'Scopri l\'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici',
+    keywords: 'frontalieri, ticino, svizzera, italia, porte, aperte, login, ferrovia',
+    ogTitle: 'Porte Aperte login Ticino: ferrovia, commercio e AFC 2027',
+    ogDescription: 'L\'evento Porte Aperte login Ticino offre una giornata orientativa a Bellinzona il 10 ottobre dalle 09.00 alle 13.00. I partecipanti possono esplorare le professioni ferroviarie, il commercio al dettaglio e scoprire in anteprima la nuova formazione',
+    canonicalPath: '/articoli-svizzera/porte-aperte-login-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porte Aperte login Ticino: ferrovia, commercio e edifici",
+      "description": "Scopri l'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/porte-aperte-login-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visitatori alle Porte Aperte login Ticino osservano un elettrotreno e strumenti di automazione edilizia a Bellinzona"
+      },
+      "datePublished": "2026-10-05T09:48:17+00:00",
+      "dateModified": "2026-10-05T09:48:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/porte-aperte-login-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
