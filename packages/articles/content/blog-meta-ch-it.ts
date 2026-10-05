@@ -7718,6 +7718,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-berna-guida.title': 'Salario minimo Canton Berna: requisiti e applicazione',
     'blog.article.salario-minimo-berna-guida.excerpt': 'In Svizzera non c\'è un minimo federale: a Berna contano eventuale disciplina cantonale, contratti collettivi e verifiche ufficiali.',
     'blog.article.salario-minimo-berna-guida.imageAlt': 'Documenti salariali e calcolatrice su una scrivania in un ufficio svizzero',
+    'blog.article.sostegno-sociale-berna-procedura.title': 'Assistenza sociale a Berna: requisiti e domanda',
+    'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Nel Cantone di Berna l\'assistenza sociale segue il bisogno: domanda all\'ufficio competente, documenti e termini da verificare presso il Cantone.',
+    'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Sportello svizzero per una domanda di assistenza sociale cantonale',
 };
 
 export default blogMetaChIt;
