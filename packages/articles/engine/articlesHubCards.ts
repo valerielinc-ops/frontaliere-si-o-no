@@ -147,7 +147,11 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
     // fetchpriority="high" (eager load, but flagged to the browser as LCP
     // candidates) so `audit-page-weight` sees the required loading signal.
     const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
-    return `<a href="${artPath}" aria-label="${title}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
+    // The visible label includes category, date, title, and description. A
+    // title-only aria-label would override that text as the accessible name
+    // and fail WCAG 2.5.3 (Label in Name). Let visible descendants provide
+    // the anchor's name instead.
+    return `<a href="${artPath}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
   }).join('');
 }
 

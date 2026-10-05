@@ -594,7 +594,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing
+  // `<main class="seo-static-content">`; keep the layout class on a neutral
+  // wrapper so career landings do not nest a second main landmark.
+  const bodyHtml = `<div class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
