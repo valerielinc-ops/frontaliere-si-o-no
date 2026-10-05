@@ -1,6 +1,6 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-10-04T21:11:38.745Z",
+  "assembledAt": "2026-10-05T09:10:15.397Z",
   "jobs": [
     {
       "id": "felfel-39b57519e420",
@@ -33,7 +33,7 @@
       "url": "https://felfel.jobs.personio.de/job/2342381",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:30.378Z",
+      "crawledAt": "2026-10-05T09:10:07.953Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -117,7 +117,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:30.368Z",
+      "crawledAt": "2026-10-05T09:10:07.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -193,7 +193,7 @@
       "url": "https://felfel.jobs.personio.de/job/2793209",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:30.364Z",
+      "crawledAt": "2026-10-05T09:10:07.939Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -207,7 +207,9 @@
       "sector": "Foodtech / Catering aziendale",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://felfel.jobs.personio.de/job/2793209",
       "jobReqId": "2793209",
       "requirements": [],
@@ -224,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:29.967Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -236,9 +239,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-11",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "felfel-99f717d90b77",
@@ -271,7 +272,7 @@
       "url": "https://felfel.jobs.personio.de/job/2780456",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:30.360Z",
+      "crawledAt": "2026-10-05T09:10:07.936Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -354,7 +355,7 @@
       "url": "https://felfel.jobs.personio.de/job/2687300",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:30.356Z",
+      "crawledAt": "2026-10-05T09:10:07.933Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -435,7 +436,7 @@
       "url": "https://felfel.jobs.personio.de/job/2685922",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:30.351Z",
+      "crawledAt": "2026-10-05T09:10:07.930Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -521,7 +522,7 @@
       "url": "https://felfel.jobs.personio.de/job/2785461",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:30.347Z",
+      "crawledAt": "2026-10-05T09:10:07.926Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -569,7 +570,7 @@
       "id": "felfel-8ec35c5eb387",
       "slug": "tecnico-elettrico-efz-felfel-zurich",
       "slugByLocale": {
-        "it": "elektrotechniker-in-cfc-felfel-zurich",
+        "it": "tecnico-elettrico-efz-felfel-zurich",
         "en": "electrical-technician-in-efz-felfel-zurich",
         "de": "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich",
         "fr": "technicien-electrique-en-efz-felfel-zurich"
@@ -596,7 +597,7 @@
       "url": "https://felfel.jobs.personio.de/job/2697640",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:30.343Z",
+      "crawledAt": "2026-10-05T09:10:07.922Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -628,7 +629,8 @@
           "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich",
           "servicetechniker-kaltetechnik-elektronik-felfel-zurich",
           "servizio-tecnico-refrigerazione-elettronica-felfel-zurich",
-          "elektrotechniker-in-efz-felfel-zurich"
+          "elektrotechniker-in-efz-felfel-zurich",
+          "elektrotechniker-in-cfc-felfel-zurich"
         ],
         "en": [
           "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich",
@@ -650,7 +652,8 @@
         "servizio-tecnico-refrigerazione-elettronica-felfel-zurich",
         "service-technician-refrigeration-electronics-felfel-zurich",
         "technicien-de-service-refrigeration-electronique-felfel-zurich",
-        "elektrotechniker-in-efz-felfel-zurich"
+        "elektrotechniker-in-efz-felfel-zurich",
+        "elektrotechniker-in-cfc-felfel-zurich"
       ],
       "firstSeenAt": "2026-07-06T14:46:18.541Z",
       "salaryMin": 73500,
@@ -698,7 +701,7 @@
       "url": "https://felfel.jobs.personio.de/job/2692840",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:30.338Z",
+      "crawledAt": "2026-10-05T09:10:07.916Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -746,6 +749,76 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "felfel-fd30baf47bb7",
+      "slug": "account-manager-romandie-felfel-lausanne",
+      "slugByLocale": {
+        "en": "account-manager-romandie-felfel-lausanne",
+        "it": "account-manager-romandie-felfel-lausanne",
+        "de": "account-manager-romandie-felfel-lausanne",
+        "fr": "account-manager-romandie-felfel-lausanne"
+      },
+      "company": "FELFEL",
+      "companyKey": "felfel",
+      "companyDomain": "felfel.ch",
+      "title": "Account Manager (Romandie)",
+      "titleByLocale": {
+        "en": "Account Manager (Romandie)",
+        "it": "Account Manager (Romandie)",
+        "de": "Account Manager (Romandie)",
+        "fr": "Account Manager (Romandie)"
+      },
+      "description": "## IN SHORT\n\nAre you a proactive relationship builder who thrives in a dynamic environment? As our Account Manager (100%) in Lausanne, you will be at the heart of our customer journey. You will take full ownership of a diverse portfolio, driving client satisfaction, growth, and retention.\n\n## YOUR RESPONSIBILITIES\n\n• Own and manage a portfolio of 200 clients from post-trial engagement to renewal.\n\n• Build and maintain strong, long-term relationships with key contacts to manage expectations and overall satisfaction and retention.\n\n• Analyze client needs continuously to optimize their experience and pinpoint cross-sell or upsell opportunities.\n\n• Drive organic growth actively within your segment to maximize account potential and business value.\n\n• Engage proactively with clients flagged during health checks and monitor key metrics to prevent churn proactively.\n\n• Contract negotiations, account reviews, and renewal or termination processes.\n\n• Collaborate cross-functionally with our Acquisition, Product, Operations, and Support teams to ensure a consistent client experience.\n\n• Provide valuable feedback to internal teams based on client insights to continuously improve our offerings and processes.\n\n## YOUR PROFILE\n\n• 2+ years of professional experience in client success, account management, or a similar customer-facing role.\n\n• Proven track record of efficiently managing and growing a large, diverse client portfolio.\n\n• Confident use of CRM tools is necessary\n\n• Proactive, solution-oriented mindset with a sense of hospitality\n\n• Excellent interpersonal and communication skills to connect effectively with various stakeholders.\n\n• Ability to thrive in a fast-paced environment while building meaningful, value-driven relationships.\n\n• Fluency in French and English\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\n## YOU WILL BE MEASURED BY\n\n• Net Revenue Retention (NRR)\n\n• Churn Rate\n\n• Portfolio Growth (Cross-sell/Upsell)\n\n• Client Health Score\n\n• Customer Satisfaction (CSAT or NPS)\n\n## OUR BENEFITS\n\n• Lots of delicious food, just a few steps away from your desk - we make your gastronomic dreams come true\n\n• Best barista coffee and tea for the whole team, thanks to our innovative Gavetti coffee machine\n\n• 5 weeks holiday per year, as well as the chance to buy an extra week of vacation\n\n• Two full weeks of ‘work from anywhere’ per year to bring more variety to your work day\n\n• We care about your future with an above-mandatory pension fund\n\n• New parents get 16 or 3 weeks, respectively, of fully paid parental leave. We also support the return to work by making a generous financial contribution to childcare until the child reaches kindergarten age.\n\n• We encourage ou r employees to use public transport by covering your half-fare travelcard\n\n• Great team events, such as our well-known FELFEL Summer Outing\n\n• Stay active and healthy with our weekly sports sessions\n\nReady to apply? If this sounds like the perfect role for you, please submit (English or French):\n\n• Your CV & complete documents (references, diplomas)\n\n• A short video introducing yourself and telling us why you are our next Account Manager (max. 1 minute)\n\n## ABOUT US\n\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\n www.felfel.ch",
+      "descriptionByLocale": {
+        "en": "## IN SHORT\n\nAre you a proactive relationship builder who thrives in a dynamic environment? As our Account Manager (100%) in Lausanne, you will be at the heart of our customer journey. You will take full ownership of a diverse portfolio, driving client satisfaction, growth, and retention.\n\n## YOUR RESPONSIBILITIES\n\n• Own and manage a portfolio of 200 clients from post-trial engagement to renewal.\n\n• Build and maintain strong, long-term relationships with key contacts to manage expectations and overall satisfaction and retention.\n\n• Analyze client needs continuously to optimize their experience and pinpoint cross-sell or upsell opportunities.\n\n• Drive organic growth actively within your segment to maximize account potential and business value.\n\n• Engage proactively with clients flagged during health checks and monitor key metrics to prevent churn proactively.\n\n• Contract negotiations, account reviews, and renewal or termination processes.\n\n• Collaborate cross-functionally with our Acquisition, Product, Operations, and Support teams to ensure a consistent client experience.\n\n• Provide valuable feedback to internal teams based on client insights to continuously improve our offerings and processes.\n\n## YOUR PROFILE\n\n• 2+ years of professional experience in client success, account management, or a similar customer-facing role.\n\n• Proven track record of efficiently managing and growing a large, diverse client portfolio.\n\n• Confident use of CRM tools is necessary\n\n• Proactive, solution-oriented mindset with a sense of hospitality\n\n• Excellent interpersonal and communication skills to connect effectively with various stakeholders.\n\n• Ability to thrive in a fast-paced environment while building meaningful, value-driven relationships.\n\n• Fluency in French and English\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\n## YOU WILL BE MEASURED BY\n\n• Net Revenue Retention (NRR)\n\n• Churn Rate\n\n• Portfolio Growth (Cross-sell/Upsell)\n\n• Client Health Score\n\n• Customer Satisfaction (CSAT or NPS)\n\n## OUR BENEFITS\n\n• Lots of delicious food, just a few steps away from your desk - we make your gastronomic dreams come true\n\n• Best barista coffee and tea for the whole team, thanks to our innovative Gavetti coffee machine\n\n• 5 weeks holiday per year, as well as the chance to buy an extra week of vacation\n\n• Two full weeks of ‘work from anywhere’ per year to bring more variety to your work day\n\n• We care about your future with an above-mandatory pension fund\n\n• New parents get 16 or 3 weeks, respectively, of fully paid parental leave. We also support the return to work by making a generous financial contribution to childcare until the child reaches kindergarten age.\n\n• We encourage ou r employees to use public transport by covering your half-fare travelcard\n\n• Great team events, such as our well-known FELFEL Summer Outing\n\n• Stay active and healthy with our weekly sports sessions\n\nReady to apply? If this sounds like the perfect role for you, please submit (English or French):\n\n• Your CV & complete documents (references, diplomas)\n\n• A short video introducing yourself and telling us why you are our next Account Manager (max. 1 minute)\n\n## ABOUT US\n\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\n www.felfel.ch",
+        "it": "## IN SHORT\n\nAre you a proactive relationship builder who thrives in a dynamic environment? As our Account Manager (100%) in Lausanne, you will be at the heart of our customer journey. You will take full ownership of a diverse portfolio, driving client satisfaction, growth, and retention.\n\n## YOUR RESPONSIBILITIES\n\n• Own and manage a portfolio of 200 clients from post-trial engagement to renewal.\n\n• Build and maintain strong, long-term relationships with key contacts to manage expectations and overall satisfaction and retention.\n\n• Analyze client needs continuously to optimize their experience and pinpoint cross-sell or upsell opportunities.\n\n• Drive organic growth actively within your segment to maximize account potential and business value.\n\n• Engage proactively with clients flagged during health checks and monitor key metrics to prevent churn proactively.\n\n• Contract negotiations, account reviews, and renewal or termination processes.\n\n• Collaborate cross-functionally with our Acquisition, Product, Operations, and Support teams to ensure a consistent client experience.\n\n• Provide valuable feedback to internal teams based on client insights to continuously improve our offerings and processes.\n\n## YOUR PROFILE\n\n• 2+ years of professional experience in client success, account management, or a similar customer-facing role.\n\n• Proven track record of efficiently managing and growing a large, diverse client portfolio.\n\n• Confident use of CRM tools is necessary\n\n• Proactive, solution-oriented mindset with a sense of hospitality\n\n• Excellent interpersonal and communication skills to connect effectively with various stakeholders.\n\n• Ability to thrive in a fast-paced environment while building meaningful, value-driven relationships.\n\n• Fluency in French and English\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\n## YOU WILL BE MEASURED BY\n\n• Net Revenue Retention (NRR)\n\n• Churn Rate\n\n• Portfolio Growth (Cross-sell/Upsell)\n\n• Client Health Score\n\n• Customer Satisfaction (CSAT or NPS)\n\n## OUR BENEFITS\n\n• Lots of delicious food, just a few steps away from your desk - we make your gastronomic dreams come true\n\n• Best barista coffee and tea for the whole team, thanks to our innovative Gavetti coffee machine\n\n• 5 weeks holiday per year, as well as the chance to buy an extra week of vacation\n\n• Two full weeks of ‘work from anywhere’ per year to bring more variety to your work day\n\n• We care about your future with an above-mandatory pension fund\n\n• New parents get 16 or 3 weeks, respectively, of fully paid parental leave. We also support the return to work by making a generous financial contribution to childcare until the child reaches kindergarten age.\n\n• We encourage ou r employees to use public transport by covering your half-fare travelcard\n\n• Great team events, such as our well-known FELFEL Summer Outing\n\n• Stay active and healthy with our weekly sports sessions\n\nReady to apply? If this sounds like the perfect role for you, please submit (English or French):\n\n• Your CV & complete documents (references, diplomas)\n\n• A short video introducing yourself and telling us why you are our next Account Manager (max. 1 minute)\n\n## ABOUT US\n\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\n www.felfel.ch",
+        "de": "## IN SHORT\n\nAre you a proactive relationship builder who thrives in a dynamic environment? As our Account Manager (100%) in Lausanne, you will be at the heart of our customer journey. You will take full ownership of a diverse portfolio, driving client satisfaction, growth, and retention.\n\n## YOUR RESPONSIBILITIES\n\n• Own and manage a portfolio of 200 clients from post-trial engagement to renewal.\n\n• Build and maintain strong, long-term relationships with key contacts to manage expectations and overall satisfaction and retention.\n\n• Analyze client needs continuously to optimize their experience and pinpoint cross-sell or upsell opportunities.\n\n• Drive organic growth actively within your segment to maximize account potential and business value.\n\n• Engage proactively with clients flagged during health checks and monitor key metrics to prevent churn proactively.\n\n• Contract negotiations, account reviews, and renewal or termination processes.\n\n• Collaborate cross-functionally with our Acquisition, Product, Operations, and Support teams to ensure a consistent client experience.\n\n• Provide valuable feedback to internal teams based on client insights to continuously improve our offerings and processes.\n\n## YOUR PROFILE\n\n• 2+ years of professional experience in client success, account management, or a similar customer-facing role.\n\n• Proven track record of efficiently managing and growing a large, diverse client portfolio.\n\n• Confident use of CRM tools is necessary\n\n• Proactive, solution-oriented mindset with a sense of hospitality\n\n• Excellent interpersonal and communication skills to connect effectively with various stakeholders.\n\n• Ability to thrive in a fast-paced environment while building meaningful, value-driven relationships.\n\n• Fluency in French and English\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\n## YOU WILL BE MEASURED BY\n\n• Net Revenue Retention (NRR)\n\n• Churn Rate\n\n• Portfolio Growth (Cross-sell/Upsell)\n\n• Client Health Score\n\n• Customer Satisfaction (CSAT or NPS)\n\n## OUR BENEFITS\n\n• Lots of delicious food, just a few steps away from your desk - we make your gastronomic dreams come true\n\n• Best barista coffee and tea for the whole team, thanks to our innovative Gavetti coffee machine\n\n• 5 weeks holiday per year, as well as the chance to buy an extra week of vacation\n\n• Two full weeks of ‘work from anywhere’ per year to bring more variety to your work day\n\n• We care about your future with an above-mandatory pension fund\n\n• New parents get 16 or 3 weeks, respectively, of fully paid parental leave. We also support the return to work by making a generous financial contribution to childcare until the child reaches kindergarten age.\n\n• We encourage ou r employees to use public transport by covering your half-fare travelcard\n\n• Great team events, such as our well-known FELFEL Summer Outing\n\n• Stay active and healthy with our weekly sports sessions\n\nReady to apply? If this sounds like the perfect role for you, please submit (English or French):\n\n• Your CV & complete documents (references, diplomas)\n\n• A short video introducing yourself and telling us why you are our next Account Manager (max. 1 minute)\n\n## ABOUT US\n\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\n www.felfel.ch",
+        "fr": "## IN SHORT\n\nAre you a proactive relationship builder who thrives in a dynamic environment? As our Account Manager (100%) in Lausanne, you will be at the heart of our customer journey. You will take full ownership of a diverse portfolio, driving client satisfaction, growth, and retention.\n\n## YOUR RESPONSIBILITIES\n\n• Own and manage a portfolio of 200 clients from post-trial engagement to renewal.\n\n• Build and maintain strong, long-term relationships with key contacts to manage expectations and overall satisfaction and retention.\n\n• Analyze client needs continuously to optimize their experience and pinpoint cross-sell or upsell opportunities.\n\n• Drive organic growth actively within your segment to maximize account potential and business value.\n\n• Engage proactively with clients flagged during health checks and monitor key metrics to prevent churn proactively.\n\n• Contract negotiations, account reviews, and renewal or termination processes.\n\n• Collaborate cross-functionally with our Acquisition, Product, Operations, and Support teams to ensure a consistent client experience.\n\n• Provide valuable feedback to internal teams based on client insights to continuously improve our offerings and processes.\n\n## YOUR PROFILE\n\n• 2+ years of professional experience in client success, account management, or a similar customer-facing role.\n\n• Proven track record of efficiently managing and growing a large, diverse client portfolio.\n\n• Confident use of CRM tools is necessary\n\n• Proactive, solution-oriented mindset with a sense of hospitality\n\n• Excellent interpersonal and communication skills to connect effectively with various stakeholders.\n\n• Ability to thrive in a fast-paced environment while building meaningful, value-driven relationships.\n\n• Fluency in French and English\n\n• Non-smoker - we don't want you to smell like cigarettes, neither at work nor at customer meetings. After all, FELFEL is about good food.\n\n• Valid work permit or Swiss passport.\n\n## YOU WILL BE MEASURED BY\n\n• Net Revenue Retention (NRR)\n\n• Churn Rate\n\n• Portfolio Growth (Cross-sell/Upsell)\n\n• Client Health Score\n\n• Customer Satisfaction (CSAT or NPS)\n\n## OUR BENEFITS\n\n• Lots of delicious food, just a few steps away from your desk - we make your gastronomic dreams come true\n\n• Best barista coffee and tea for the whole team, thanks to our innovative Gavetti coffee machine\n\n• 5 weeks holiday per year, as well as the chance to buy an extra week of vacation\n\n• Two full weeks of ‘work from anywhere’ per year to bring more variety to your work day\n\n• We care about your future with an above-mandatory pension fund\n\n• New parents get 16 or 3 weeks, respectively, of fully paid parental leave. We also support the return to work by making a generous financial contribution to childcare until the child reaches kindergarten age.\n\n• We encourage ou r employees to use public transport by covering your half-fare travelcard\n\n• Great team events, such as our well-known FELFEL Summer Outing\n\n• Stay active and healthy with our weekly sports sessions\n\nReady to apply? If this sounds like the perfect role for you, please submit (English or French):\n\n• Your CV & complete documents (references, diplomas)\n\n• A short video introducing yourself and telling us why you are our next Account Manager (max. 1 minute)\n\n## ABOUT US\n\nFELFEL is all about good food and coffee in the workplace: we help Swiss employers become masters of hospitality. With our smart fridge ‘FELFEL’ and delicious barista coffee ‘Gavetti’, we enable companies to provide their employees with first-class, ultra-fresh food and drinks throughout the day. Whether hearty and traditional, modern and vegan or high in protein - our weekly changing menu ensures that all employees always have something to be excited about ;).\nFELFEL is a family business that was founded in 2013. Today, we take care of around 1000 locations in Switzerland, and have 150 employees across our offices in Lausanne, Zurich and New York.\n www.felfel.ch"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://felfel.jobs.personio.de/job/2626851",
+      "source": "FELFEL Dedicated Parser (Personio)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-05T09:10:07.903Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Foodtech / Catering aziendale",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://felfel.jobs.personio.de/job/2626851",
+      "jobReqId": "2626851",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 156000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 156000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T09:10:07.903Z"
     }
   ]
 }

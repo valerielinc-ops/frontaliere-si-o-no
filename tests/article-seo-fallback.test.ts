@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildArticleSeoSections,
   cleanupArticleBodySections,
+  renderArticleDerivedSectionsHtml,
   renderArticleInlineMarkup,
 } from '@/build-plugins/articleSeoFallback';
 import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from './fixtures/flattenedArticleBodies';
@@ -62,6 +63,14 @@ describe('article SEO fallback builder', () => {
       '<h3>Titolo</h3><p><strong>Testo</strong> con <a href="https://example.com">link</a> e <code>code</code></p>',
       '<ul><li>punto uno</li><li>punto due</li></ul>',
     ]);
+  });
+
+  it('clamps a skipped heading level under the article section wrapper', () => {
+    const html = renderArticleDerivedSectionsHtml([
+      { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },
+    ]);
+
+    expect(html).toContain('<h2>Contesto</h2><h3>Analisi</h3>');
   });
 
   it('recovers flattened headings instead of emitting a long heading block', () => {

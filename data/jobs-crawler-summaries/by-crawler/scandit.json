@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-10-04T21:37:11.669Z",
+  "generatedAt": "2026-10-05T09:32:58.508Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3357,
-  "avgDurationMs": 3357,
+  "unchangedCount": 1,
+  "durationMs": 4919,
+  "avgDurationMs": 4919,
   "durationHistory": [
-    3357
+    4919
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "scandit-067a4be54142",
       "slug": "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich",
@@ -33,7 +37,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:58.552Z",
+      "crawledAt": "2026-10-05T09:32:46.584Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,8 +52,8 @@
       "postedDate": "2026-08-20T05:57:57-04:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
-      "firstSeenAt": "2026-09-24T00:08:02.243Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T00:08:02.243Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -63,7 +67,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

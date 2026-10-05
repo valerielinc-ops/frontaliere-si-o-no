@@ -1,19 +1,21 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-04T21:24:38.351Z",
+  "generatedAt": "2026-10-05T09:20:14.229Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1955,
-  "avgDurationMs": 1955,
+  "unchangedCount": 2,
+  "durationMs": 2018,
+  "avgDurationMs": 2018,
   "durationHistory": [
-    1955
+    2018
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Stagiaire",
       "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
@@ -57,10 +59,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
       "slug": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
@@ -105,5 +104,5 @@
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
