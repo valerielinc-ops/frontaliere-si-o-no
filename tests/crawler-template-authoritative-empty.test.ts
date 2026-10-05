@@ -66,6 +66,7 @@ vi.mock('../scripts/lib/dedicated-crawler-common.mjs', () => ({
 
 vi.mock('../scripts/lib/expired-jobs-archive.mjs', () => ({
   archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
+  readExpiredSlice: vi.fn(() => []),
 }));
 
 vi.mock('../scripts/lib/transient-fetch.mjs', async (importOriginal) => {
@@ -97,6 +98,7 @@ import {
   evaluateAuthoritativeSnapshot,
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
+  SNAPSHOT_VALIDATED_PARTIAL,
 } from '../scripts/lib/crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
@@ -758,6 +760,84 @@ describe('standard crawler authoritative-empty policy', () => {
         expect.objectContaining({ id: 'test-old-1' }),
       ]),
       expect.any(Object),
+    );
+  });
+
+  it('classifies a validated partial verdict as neither authoritative nor empty-proof', () => {
+    expect(evaluateAuthoritativeSnapshot([{ id: 'job-1' }], {
+      validateAuthoritativeSnapshot: () => SNAPSHOT_VALIDATED_PARTIAL,
+      allowAuthoritativeEmptySnapshot: true,
+      companyLabel: 'Test',
+    })).toEqual({
+      authoritativeSnapshotVerified: false,
+      partialSnapshotValidated: true,
+      authoritativeEmptySnapshot: false,
+    });
+    // A partial read can never prove a zero.
+    expect(evaluateAuthoritativeSnapshot([], {
+      validateAuthoritativeSnapshot: () => SNAPSHOT_VALIDATED_PARTIAL,
+      allowAuthoritativeEmptySnapshot: true,
+      companyLabel: 'Test',
+    }).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps miss grace when the validator proves accounting but reports a partial snapshot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validated-partial-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
+    const validator = vi.fn(() => SNAPSHOT_VALIDATED_PARTIAL);
+    const freshJob = {
+      id: 'test-fresh-1',
+      slug: 'fresh-job',
+      companyKey: COMPANY_KEY,
+      title: 'Fresh job',
+      description: SOURCE_BODY,
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://example.com/jobs/fresh',
+    };
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Validated Partial Test',
+        root,
+        fetchJobs: async () => [freshJob],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: validator,
+        allowAuthoritativeEmptySnapshot: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    // The validator ran (accounting stays fail-closed) …
+    expect(validator).toHaveBeenCalledTimes(1);
+    // … but the merge keeps the stored job under miss grace instead of
+    // retiring it with `retainMissingJobs: false`.
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalledWith(
+      expect.any(Array),
+      [freshJob],
+      {},
+    );
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'test-fresh-1' }),
+        expect.objectContaining({ id: 'test-old-1' }),
+      ]),
+      expect.objectContaining({ skipShrinkGuard: false }),
+    );
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({
+        snapshotCoverage: 'partial',
+        authoritativeEmptySnapshot: false,
+        resurrectedJobs: 0,
+      }),
     );
   });
 
