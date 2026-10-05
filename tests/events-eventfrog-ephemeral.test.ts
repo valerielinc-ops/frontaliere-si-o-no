@@ -128,6 +128,26 @@ describe('selectEphemeralEvents', () => {
     expect(result.events).toEqual([]);
     expect(result.counts).toMatchObject({ slugCollisions: 1 });
   });
+
+  it('keeps one deterministic event when two private records share a detail slug', () => {
+    const first = frogEvent('slug-b', LONG_TITLE, dayOffset(7));
+    const second = frogEvent('slug-a', LONG_TITLE, dayOffset(7));
+    const forward = selectEphemeralEvents({
+      publicEvents: [],
+      dateStamp: TODAY,
+      snapshotEvents: [first, second],
+    });
+    const reverse = selectEphemeralEvents({
+      publicEvents: [],
+      dateStamp: TODAY,
+      snapshotEvents: [second, first],
+    });
+
+    expect(forward.counts).toMatchObject({ slugCollisions: 1 });
+    expect(forward.events).toHaveLength(1);
+    expect(forward.events[0].id).toBe('eventfrog:slug-a');
+    expect(reverse.events.map((event) => event.id)).toEqual(forward.events.map((event) => event.id));
+  });
 });
 
 describe('partitionEventsForBuild', () => {
