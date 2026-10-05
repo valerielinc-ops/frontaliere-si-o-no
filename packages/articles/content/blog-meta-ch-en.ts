@@ -7736,6 +7736,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.allarme-aumento-affitti-svizzera.title': 'Rents in Switzerland: +32% in twenty years, ASI sounds the alarm',
     'blog.article.allarme-aumento-affitti-svizzera.excerpt': 'The Swiss Tenants\' Association reports a 32,1% increase between 2005 and 2025. Low incomes are under pressure: those earning less than 4\'000 francs spend 37,8% on housing.',
     'blog.article.allarme-aumento-affitti-svizzera.imageAlt': 'Residential building in a Swiss city',
+    'blog.article.affitti-svizzera-aumento-asi.title': 'Rents in Switzerland: 32% increase in twenty years',
+    'blog.article.affitti-svizzera-aumento-asi.excerpt': 'The Swiss Tenants Association reports rent increases of 32,1% between 2005 and 2025. Pressure on low and middle incomes and new political demands.',
+    'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Residential buildings in Switzerland with rising rents',
 };
 
 export default blogMetaChEn;
