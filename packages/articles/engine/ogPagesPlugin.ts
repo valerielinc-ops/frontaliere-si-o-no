@@ -27,6 +27,8 @@ import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
+import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
+import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -1049,6 +1051,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const topic = topicByKey.get(topicAssignment.topicOf.get(currentId) ?? '');
  if (!topic) return '';
  const loc: TopicLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ // A canton section has no `/<section>/argomenti/<topic>/` hubs: its themes
+ // are the 6 direct children of the section (D2). Link the canton hub the
+ // article's topic feeds, or nothing (eventi/servizi have no cluster).
+ if (SECTION.kind === 'canton') {
+ const cantonTopic = cantonHubTopicForCluster(topic.key);
+ if (!cantonTopic) return '';
+ const cantonHref = cantonTopicHubPath(SECTION.name, cantonTopic, loc);
+ const cantonLabel = `${topicHubLinkPrefix[loc] ?? topicHubLinkPrefix.it}${cantonTopicHubLabel(SECTION.name, cantonTopic, loc)}`;
+ return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(cantonHref)}">${esc(cantonLabel)}</a></li>`;
+ }
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[loc] ?? SECTION.indexSlug.it;
  const prefix = locale === 'it' ? '' : `/${locale}`;
  const href = `${prefix}/${indexSlug}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
@@ -1480,14 +1492,23 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const ldJsonStr = inlineScriptJson(ldObj);
 
  // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
- const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
- const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[(locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'];
+ const breadcrumbLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ // A canton section names itself («Articoli Ticino») and points at its
+ // landing in THIS locale (`/en/ticino-articles/`). The two historical
+ // sections keep their generic label and locale-less slug path unchanged.
+ const sectionName = SECTION.kind === 'canton'
+ ? cantonSectionLabel(SECTION.name, breadcrumbLocale)
+ : locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
+ const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[breadcrumbLocale];
+ const sectionCrumbUrl = SECTION.kind === 'canton'
+ ? `${BASE_URL}${cantonSectionLandingPath(SECTION.name, breadcrumbLocale)}`
+ : `${BASE_URL}/${sectionSlug}/`;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
- { '@type': 'ListItem', position: 2, name: sectionName, item: `${BASE_URL}/${sectionSlug}/` },
+ { '@type': 'ListItem', position: 2, name: sectionName, item: sectionCrumbUrl },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],
  });
@@ -1587,7 +1608,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:image:alt" content="${esc(localizedTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
- <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
+ <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
  <meta property="fb:app_id" content="891036063797338">
  ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
  ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
