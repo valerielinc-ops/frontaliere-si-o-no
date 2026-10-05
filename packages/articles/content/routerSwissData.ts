@@ -2598,6 +2598,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sostegno-sociale-berna-procedura': { it: 'sostegno-sociale-berna-procedura', en: 'social-assistance-bern-application', de: 'sozialhilfe-bern-antrag', fr: 'aide-sociale-berne-demande' },
  'veicoli-berna-calcolo-pratico': { it: 'veicoli-berna-calcolo-pratico', en: 'bern-vehicle-tax-calculation-payment', de: 'bern-autosteuer-berechnung-zahlung', fr: 'berne-impot-vehicules-calcul-paiement' },
  'prezzi-pellet-ticino-aumenti': { it: 'prezzi-pellet-ticino-aumenti', en: 'ticino-pellet-prices-increases', de: 'tessin-pelletpreise-eroehungen', fr: 'prix-pellets-tessin-augmentations' },
+ 'startup-ticinesi-top100-2026': { it: 'startup-ticinesi-top100-2026', en: 'ticino-startups-top100-2026', de: 'tessiner-start-ups-top100-2026', fr: 'start-up-tessinoises-top100-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

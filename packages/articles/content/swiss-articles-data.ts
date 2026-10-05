@@ -23226,6 +23226,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'startup-ticinesi-top100-2026',
+    category: 'novita',
+    date: '2026-10-05T06:15:18.734Z',
+    image: '/images/blog/startup-ticinesi-top100-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
