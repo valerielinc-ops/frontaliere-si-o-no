@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-04T21:14:00.936Z",
+  "generatedAt": "2026-10-05T06:27:10.923Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,10 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7266,
-  "avgDurationMs": 7266,
+  "durationMs": 7086,
+  "avgDurationMs": 7086,
   "durationHistory": [
-    7266
+    7086
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:53.074Z",
+      "crawledAt": "2026-10-05T06:27:02.516Z",
       "addressLocality": "Malans",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-08-19T00:00:00.000000Z",
+      "postedDate": "2026-08-19T00:00:00.000000Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:50:18.025Z",
@@ -74,7 +76,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:53.072Z",
+      "crawledAt": "2026-10-05T06:27:02.514Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +90,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-07-27T00:00:00.000000Z",
+      "postedDate": "2026-07-27T00:00:00.000000Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "firstSeenAt": "2026-09-19T22:50:18.023Z",
       "salaryMin": 73500,
@@ -114,7 +118,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:53.067Z",
+      "crawledAt": "2026-10-05T06:27:02.508Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -126,22 +130,24 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "firstSeenAt": "2026-09-19T22:50:18.019Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

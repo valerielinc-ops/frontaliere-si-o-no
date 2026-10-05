@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-10-04T21:11:28.148Z",
+  "assembledAt": "2026-10-05T06:25:17.042Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.210Z",
+      "crawledAt": "2026-10-05T06:24:57.850Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -57,7 +59,8 @@
         "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
         "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
         "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern",
+        "apprendistato-come-motorgeratemechaniker-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,7 +68,8 @@
           "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
           "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
           "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-          "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+          "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern",
+          "apprendistato-come-motorgeratemechaniker-stadt-bern"
         ],
         "en": [
           "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern",
@@ -80,84 +84,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:32:20.658Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-6dee1ce44d86",
-      "slug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
-        "en": "teaching-position-merchant-efz-stadt-bern-bern",
-        "de": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
-        "fr": "position-d-enseignement-merchant-efz-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle Kauffrau / Kaufmann EFZ",
-      "titleByLocale": {
-        "it": "Posizione didattica Merchant EFZ",
-        "en": "Teaching position Merchant EFZ",
-        "de": "Lehrstelle Kauffrau / Kaufmann EFZ",
-        "fr": "Position d'enseignement Merchant EFZ"
-      },
-      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.<br/><br/>Starte deine Ausbildung als Kauffrau / Kaufmann EFZ bei uns – wir besetzen per 1. August 2027 fünf Lehrstellen. Bei uns lernst du in agilen Arbeits- und Organisationsformen zu handeln und mit digitalen Technologien zu arbeiten. Du wirst in einem vernetzten Arbeitsumfeld interagieren, entwickelst deine Sozial- und Selbstkompetenzen weiter und entfaltest deine Kreativität.\n\nAufgaben:\n• Du arbeitest während deiner Ausbildung in fünf verschiedenen Bereichen mit und übernimmst vielfältige und abwechslungsreiche Aufgaben\n\n• Du bringst dich in spannende Projekte ein und erweiterst dein Wissen durch ein vielseitiges internes Kursangebot\n\n• Du entwickelst deine fachlichen und persönlichen Kompetenzen mit der Unterstützung engagierter und qualifizierter Praxisbildender\n\n• Du profitierst von attraktiven Arbeitszeiten und 7 Wochen Ferien\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Motivation neue Herausforderungen anzunehmen\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Utilizzate i vostri talenti e le vostre conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna. Inizia il tuo apprendistato come un commerciante / commerciante EFZ con noi – riempiremo a 1. Agosto 2027 cinque apprendisti. Con noi impari ad agire in forme agili di lavoro e di organizzazione e a lavorare con le tecnologie digitali. Interagirai in un ambiente di lavoro in rete, svilupperai le tue competenze sociali e personali e svilupperai la tua creatività.\n\nCompiti:\n• Durante la vostra formazione, si lavora in cinque diverse aree e si occupa di diversi e diversi compiti\n\n• Sei coinvolto in progetti entusiasmanti e amplia la tua conoscenza attraverso una versatile offerta di corsi interni\n\n• Sviluppi le tue competenze professionali e personali con il supporto di formatori pratici impegnati e qualificati\n\n• Si beneficia di ore di lavoro interessanti e 7 settimane vacanze\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Interessi in politica e attività commerciali\n\n• Motivazione per affrontare nuove sfide\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern. <br/><br/>Start your apprenticeship as a merchant / merchant EFZ with us – we will fill at 1. August 2027 five apprenticeships. With us, you learn to act in agile forms of work and organization and to work with digital technologies. You will interact in a networked working environment, develop your social and self-competences and develop your creativity.\n\nTasks:\n• During your training, you work in five different areas and take on diverse and varied tasks\n\n• You get involved in exciting projects and expand your knowledge through a versatile internal course offer\n\n• You develop your professional and personal skills with the support of committed and qualified practical trainers\n\n• You benefit from attractive working hours and 7 weeks holidays\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Interest in politics and commercial activities\n\n• Motivation to take on new challenges\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.<br/><br/>Starte deine Ausbildung als Kauffrau / Kaufmann EFZ bei uns – wir besetzen per 1. August 2027 fünf Lehrstellen. Bei uns lernst du in agilen Arbeits- und Organisationsformen zu handeln und mit digitalen Technologien zu arbeiten. Du wirst in einem vernetzten Arbeitsumfeld interagieren, entwickelst deine Sozial- und Selbstkompetenzen weiter und entfaltest deine Kreativität.\n\nAufgaben:\n• Du arbeitest während deiner Ausbildung in fünf verschiedenen Bereichen mit und übernimmst vielfältige und abwechslungsreiche Aufgaben\n\n• Du bringst dich in spannende Projekte ein und erweiterst dein Wissen durch ein vielseitiges internes Kursangebot\n\n• Du entwickelst deine fachlichen und persönlichen Kompetenzen mit der Unterstützung engagierter und qualifizierter Praxisbildender\n\n• Du profitierst von attraktiven Arbeitszeiten und 7 Wochen Ferien\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Motivation neue Herausforderungen anzunehmen\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne. <br/><br/> Commencez votre apprentissage en tant que marchand / marchand EFZ avec nous – nous remplirons à 1. Août 2027 cinq apprentissages. Avec nous, vous apprenez à agir dans des formes agiles de travail et d'organisation et à travailler avec les technologies numériques. Vous interagirez dans un environnement de travail en réseau, développerez vos compétences sociales et personnelles et développerez votre créativité.\n\nTâches :\n• Pendant votre formation, vous travaillez dans cinq domaines différents et vous assumez des tâches variées et variées.\n\n• Vous vous engagez dans des projets passionnants et développez vos connaissances grâce à une offre de cours internes polyvalents\n\n• Vous développez vos compétences professionnelles et personnelles avec le soutien de formateurs pratiques engagés et qualifiés\n\n• Vous bénéficiez d'horaires de travail attrayants et de vacances de 7 semaines\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Intérêt pour la politique et les activités commerciales\n\n• Motivation à relever de nouveaux défis\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.209Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Junkerngasse 47",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.102Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -203,7 +129,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.208Z",
+      "crawledAt": "2026-10-05T06:24:57.849Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -217,16 +143,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
+          "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern"
         ],
         "en": [
           "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
@@ -236,6 +166,88 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.100Z",
+      "salaryMin": 76000,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-6dee1ce44d86",
+      "slug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
+        "en": "teaching-position-merchant-efz-stadt-bern-bern",
+        "de": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+        "fr": "position-d-enseignement-merchant-efz-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Kauffrau / Kaufmann EFZ",
+      "titleByLocale": {
+        "it": "Posizione didattica Merchant EFZ",
+        "en": "Teaching position Merchant EFZ",
+        "de": "Lehrstelle Kauffrau / Kaufmann EFZ",
+        "fr": "Position d'enseignement Merchant EFZ"
+      },
+      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.<br/><br/>Starte deine Ausbildung als Kauffrau / Kaufmann EFZ bei uns – wir besetzen per 1. August 2027 fünf Lehrstellen. Bei uns lernst du in agilen Arbeits- und Organisationsformen zu handeln und mit digitalen Technologien zu arbeiten. Du wirst in einem vernetzten Arbeitsumfeld interagieren, entwickelst deine Sozial- und Selbstkompetenzen weiter und entfaltest deine Kreativität.\n\nAufgaben:\n• Du arbeitest während deiner Ausbildung in fünf verschiedenen Bereichen mit und übernimmst vielfältige und abwechslungsreiche Aufgaben\n\n• Du bringst dich in spannende Projekte ein und erweiterst dein Wissen durch ein vielseitiges internes Kursangebot\n\n• Du entwickelst deine fachlichen und persönlichen Kompetenzen mit der Unterstützung engagierter und qualifizierter Praxisbildender\n\n• Du profitierst von attraktiven Arbeitszeiten und 7 Wochen Ferien\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Motivation neue Herausforderungen anzunehmen\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "descriptionByLocale": {
+        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Utilizzate i vostri talenti e le vostre conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna. Inizia il tuo apprendistato come un commerciante / commerciante EFZ con noi – riempiremo a 1. Agosto 2027 cinque apprendisti. Con noi impari ad agire in forme agili di lavoro e di organizzazione e a lavorare con le tecnologie digitali. Interagirai in un ambiente di lavoro in rete, svilupperai le tue competenze sociali e personali e svilupperai la tua creatività.\n\nCompiti:\n• Durante la vostra formazione, si lavora in cinque diverse aree e si occupa di diversi e diversi compiti\n\n• Sei coinvolto in progetti entusiasmanti e amplia la tua conoscenza attraverso una versatile offerta di corsi interni\n\n• Sviluppi le tue competenze professionali e personali con il supporto di formatori pratici impegnati e qualificati\n\n• Si beneficia di ore di lavoro interessanti e 7 settimane vacanze\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Interessi in politica e attività commerciali\n\n• Motivazione per affrontare nuove sfide\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern. <br/><br/>Start your apprenticeship as a merchant / merchant EFZ with us – we will fill at 1. August 2027 five apprenticeships. With us, you learn to act in agile forms of work and organization and to work with digital technologies. You will interact in a networked working environment, develop your social and self-competences and develop your creativity.\n\nTasks:\n• During your training, you work in five different areas and take on diverse and varied tasks\n\n• You get involved in exciting projects and expand your knowledge through a versatile internal course offer\n\n• You develop your professional and personal skills with the support of committed and qualified practical trainers\n\n• You benefit from attractive working hours and 7 weeks holidays\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Interest in politics and commercial activities\n\n• Motivation to take on new challenges\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.<br/><br/>Starte deine Ausbildung als Kauffrau / Kaufmann EFZ bei uns – wir besetzen per 1. August 2027 fünf Lehrstellen. Bei uns lernst du in agilen Arbeits- und Organisationsformen zu handeln und mit digitalen Technologien zu arbeiten. Du wirst in einem vernetzten Arbeitsumfeld interagieren, entwickelst deine Sozial- und Selbstkompetenzen weiter und entfaltest deine Kreativität.\n\nAufgaben:\n• Du arbeitest während deiner Ausbildung in fünf verschiedenen Bereichen mit und übernimmst vielfältige und abwechslungsreiche Aufgaben\n\n• Du bringst dich in spannende Projekte ein und erweiterst dein Wissen durch ein vielseitiges internes Kursangebot\n\n• Du entwickelst deine fachlichen und persönlichen Kompetenzen mit der Unterstützung engagierter und qualifizierter Praxisbildender\n\n• Du profitierst von attraktiven Arbeitszeiten und 7 Wochen Ferien\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Motivation neue Herausforderungen anzunehmen\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne. <br/><br/> Commencez votre apprentissage en tant que marchand / marchand EFZ avec nous – nous remplirons à 1. Août 2027 cinq apprentissages. Avec nous, vous apprenez à agir dans des formes agiles de travail et d'organisation et à travailler avec les technologies numériques. Vous interagirez dans un environnement de travail en réseau, développerez vos compétences sociales et personnelles et développerez votre créativité.\n\nTâches :\n• Pendant votre formation, vous travaillez dans cinq domaines différents et vous assumez des tâches variées et variées.\n\n• Vous vous engagez dans des projets passionnants et développez vos connaissances grâce à une offre de cours internes polyvalents\n\n• Vous développez vos compétences professionnelles et personnelles avec le soutien de formateurs pratiques engagés et qualifiés\n\n• Vous bénéficiez d'horaires de travail attrayants et de vacances de 7 semaines\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Intérêt pour la politique et les activités commerciales\n\n• Motivation à relever de nouveaux défis\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:24:57.849Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Junkerngasse 47",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+          "apprendistato-kauffrau-kaufmann-cfc-stadt-bern"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:53.102Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -282,7 +294,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/5e706206-1d96-4fe2-aa53-260f81234372",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.207Z",
+      "crawledAt": "2026-10-05T06:24:57.848Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -296,7 +308,9 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/5e706206-1d96-4fe2-aa53-260f81234372",
       "requirements": [],
       "requirementsByLocale": {},
@@ -304,14 +318,16 @@
         "vorarbeiter-in-baumpflege-stadt-bern-bern",
         "foreman-stadt-bern-bern",
         "vorarbeiter-in-stadt-bern-bern",
-        "contremaitre-stadt-bern-bern"
+        "contremaitre-stadt-bern-bern",
+        "foreman-nella-cura-degli-alberi-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-baumpflege-stadt-bern-bern",
           "foreman-stadt-bern-bern",
           "vorarbeiter-in-stadt-bern-bern",
-          "contremaitre-stadt-bern-bern"
+          "contremaitre-stadt-bern-bern",
+          "foreman-nella-cura-degli-alberi-stadt-bern-bern"
         ],
         "en": [
           "vorarbeiter-in-baumpflege-stadt-bern-bern",
@@ -371,7 +387,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik/54dba70d-2095-4610-bb9d-3295df4fd306",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.206Z",
+      "crawledAt": "2026-10-05T06:24:57.847Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -385,18 +401,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik/54dba70d-2095-4610-bb9d-3295df4fd306",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern",
-        "apprendistato-come-kauffrau-kaufmann-cfc-auch-sport-musik-stadt-bern"
+        "apprendistato-come-kauffrau-kaufmann-cfc-auch-sport-musik-stadt-bern",
+        "apprendistato-come-commerciante-mercante-efz-anche-sport-musica-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern",
-          "apprendistato-come-kauffrau-kaufmann-cfc-auch-sport-musik-stadt-bern"
+          "apprendistato-come-kauffrau-kaufmann-cfc-auch-sport-musik-stadt-bern",
+          "apprendistato-come-commerciante-mercante-efz-anche-sport-musica-stadt-bern-bern"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern"
@@ -425,7 +445,7 @@
       "slug": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
       "slugByLocale": {
         "it": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
-        "en": "assistant-cook-auxiliary-cook-stadt-bern-bern",
+        "en": "hilfskoch-hilfskochin-stadt-bern",
         "de": "hilfskoch-hilfskochin-stadt-bern-bern",
         "fr": "cuisinier-adjoint-cuisinier-auxiliaire-stadt-bern-bern"
       },
@@ -446,12 +466,13 @@
         "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit bei der Vor- und Zubereitung von ca 120 Mittagessen unter der Anleitung unserer Küchenleitung\n\n• Betreuung des Mittagsbuffets und Schöpfen der Mahlzeiten\n\n• Abwasch- und Reinigungsarbeiten\n\n• Einhalten und Kontrolle des Hygienekonzepts\n\nAnforderungen:\n• Erfahrung in der Küche\n\n• Respektvollen und aufmerksamen Umgang mit Kindern, Freude an Teamarbeit\n\n• Humorvoll und offen gegenüber anderen Kulturen\n\n• Mündliche Deutschkenntnisse (mindestens B1)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets.\n\nTâches :\n• Coopération dans la préparation et la préparation d'environ 120 déjeuners sous la direction de notre direction de cuisine\n\n• Prise en charge du buffet du déjeuner et prise en charge des repas\n\n• Nettoyage et nettoyage\n\n• Respect et contrôle du concept d'hygiène\n\nExigences\n• Expérience dans la cuisine\n\n• Traitement respectueux et attentif des enfants, joie du travail d'équipe\n\n• Humoreux et ouvert aux autres cultures\n\n• Connaissance orale de l'allemand (au moins B1)\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/hilfskoch-hilfskoechin/3207c65d-4a57-4ba6-9f4b-0616123347e3",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.202Z",
+      "crawledAt": "2026-10-05T06:24:57.846Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -465,20 +486,26 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/hilfskoch-hilfskoechin/3207c65d-4a57-4ba6-9f4b-0616123347e3",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "hilfskoch-hilfskochin-stadt-bern-bern",
+        "assistant-cook-auxiliary-cook-stadt-bern-bern",
+        "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
         "hilfskoch-hilfskochin-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-stadt-bern-bern"
+          "hilfskoch-hilfskochin-stadt-bern-bern",
+          "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern"
         ],
         "en": [
           "hilfskoch-hilfskochin-stadt-bern-bern",
+          "assistant-cook-auxiliary-cook-stadt-bern-bern",
           "hilfskoch-hilfskochin-stadt-bern"
         ],
         "fr": [
@@ -531,7 +558,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-stv-vorarbeiter-in/51c9dc83-883f-4b5a-97a7-35ea33e3aeab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.201Z",
+      "crawledAt": "2026-10-05T06:24:57.845Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -545,16 +572,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in-stv-vorarbeiter-in/51c9dc83-883f-4b5a-97a7-35ea33e3aeab",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-stv-vorarbeiter-in-stadt-bern-bern"
+        "gartner-in-stv-vorarbeiter-in-stadt-bern-bern",
+        "giardiniere-stv-foreman-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-stv-vorarbeiter-in-stadt-bern-bern"
+          "gartner-in-stv-vorarbeiter-in-stadt-bern-bern",
+          "giardiniere-stv-foreman-stadt-bern-bern"
         ],
         "en": [
           "gartner-in-stv-vorarbeiter-in-stadt-bern-bern"
@@ -564,85 +595,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:31:15.080Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-429017004519",
-      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-geomatiker-in-stadt-bern",
-        "en": "teaching-as-a-geomatician-stadt-bern-bern",
-        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
-        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Geomatiker*in",
-      "titleByLocale": {
-        "it": "Insegnamento come geomatico",
-        "en": "Teaching as a geomatician",
-        "de": "Lehre als Geomatiker*in",
-        "fr": "Enseignement en tant que géomatique"
-      },
-      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.201Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-geomatiker-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ],
-        "en": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:32:20.634Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -689,7 +641,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.200Z",
+      "crawledAt": "2026-10-05T06:24:57.844Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -703,16 +655,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern",
+        "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern",
+          "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern"
         ],
         "en": [
           "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
@@ -732,6 +688,89 @@
           "@type": "QuantitativeValue",
           "minValue": 76000,
           "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-429017004519",
+      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-geomatiker-in-stadt-bern",
+        "en": "teaching-as-a-geomatician-stadt-bern-bern",
+        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Geomatiker*in",
+      "titleByLocale": {
+        "it": "Insegnamento come geomatico",
+        "en": "Teaching as a geomatician",
+        "de": "Lehre als Geomatiker*in",
+        "fr": "Enseignement en tant que géomatique"
+      },
+      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:24:57.844Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-geomatiker-in-stadt-bern-bern",
+        "apprendistato-come-geomatiker-in-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-geomatiker-in-stadt-bern-bern",
+          "apprendistato-come-geomatiker-in-stadt-bern"
+        ],
+        "en": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.634Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -768,7 +807,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.199Z",
+      "crawledAt": "2026-10-05T06:24:57.843Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -782,16 +821,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
+        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+        "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+          "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern"
         ],
         "en": [
           "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
@@ -846,7 +889,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz/6f66145b-7c27-4a5f-816f-6349614a33fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.198Z",
+      "crawledAt": "2026-10-05T06:24:57.842Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -860,20 +903,24 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz/6f66145b-7c27-4a5f-816f-6349614a33fc",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
         "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1",
-        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-bern"
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-bern",
+        "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
           "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1",
-          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-bern"
+          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-bern",
+          "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1"
@@ -931,7 +978,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.197Z",
+      "crawledAt": "2026-10-05T06:24:57.841Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -945,18 +992,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-        "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern"
+        "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
+        "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-          "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern"
+          "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
+          "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
         ],
         "en": [
           "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
@@ -1012,7 +1063,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.196Z",
+      "crawledAt": "2026-10-05T06:24:57.840Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1026,18 +1077,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern",
-        "apprendistato-motorgeratemechaniker-in-stadt-bern"
+        "apprendistato-motorgeratemechaniker-in-stadt-bern",
+        "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern",
-          "apprendistato-motorgeratemechaniker-in-stadt-bern"
+          "apprendistato-motorgeratemechaniker-in-stadt-bern",
+          "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern"
         ],
         "en": [
           "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern"
@@ -1092,7 +1147,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.195Z",
+      "crawledAt": "2026-10-05T06:24:57.839Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1106,16 +1161,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-recyclist-in-stadt-bern-bern"
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "apprendistato-recyclist-in-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-recyclist-in-stadt-bern-bern"
+          "lehrstelle-recyclist-in-stadt-bern-bern",
+          "apprendistato-recyclist-in-stadt-bern"
         ],
         "en": [
           "lehrstelle-recyclist-in-stadt-bern-bern"
@@ -1171,7 +1230,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/c2aa4f05-6539-4d5b-8f51-5948e8372b24",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.193Z",
+      "crawledAt": "2026-10-05T06:24:57.838Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1185,16 +1244,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/c2aa4f05-6539-4d5b-8f51-5948e8372b24",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+        "bambini-amp-giovani-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+          "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+          "bambini-amp-giovani-stadt-bern-bern"
         ],
         "en": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
@@ -1249,7 +1312,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.191Z",
+      "crawledAt": "2026-10-05T06:24:57.835Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1263,16 +1326,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-stadt-bern-bern"
+        "gartner-in-stadt-bern-bern",
+        "giardinieri-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-stadt-bern-bern"
+          "gartner-in-stadt-bern-bern",
+          "giardinieri-stadt-bern-bern"
         ],
         "en": [
           "gartner-in-stadt-bern-bern"
@@ -1310,7 +1377,7 @@
       "companyDomain": "bern.ch",
       "title": "Strassenbauer*in / Maurer*in",
       "titleByLocale": {
-        "it": "Costruttoredi strade/ muratore",
+        "it": "Strassenbauer*in / Maurer*in",
         "en": "Road builders/Masons",
         "de": "Strassenbauer*in / Maurer*in",
         "fr": "Construction de routes/Maçons"
@@ -1322,12 +1389,13 @@
         "de": "Willst du mit Leidenschaft dazu beitragen, dass Bern – die schöne Hauptstadt mit ihrem einmaligen Stadtbild und UNESCO-Weltkulturerbe – jeden Tag gepflegt, sicher und lebenswert bleibt?<br/>Dann bist du bei uns genau richtig! In der Infra Strasse arbeitest du dort, wo die Stadt lebt: auf Strassen, Plätzen, Wegen und Anlagen. Bei Sonne, Regen oder Schnee sorgst du zusammen mit deinem Team dafür, dass Bern funktioniert – sichtbar, zuverlässig und mit Stolz. Zur Ergänzung unseres Teams suchen wir dich per sofort oder nach Vereinbarung als\n\nAufgaben:\n• Unterhalts- und Bauarbeiten am städtischen Strassen- und Wegnetz ausführen\n\n• Belags- und Betonarbeiten sowie Arbeiten an Pflästerungen, Plätzen und Naturwegen erledigen\n\n• Arbeiten ausserhalb der Infrastrukturanlagen (Veranstaltungen, Anprallschutz) durchführen sowie Unterhaltsarbeiten im Bereich Verkehrsführung und Spezialunterhalt übernehmen\n\n• Einsätze im Winterdienstpikett leisten\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung im Bauhauptgewerbe, idealerweise als, Strassenbauer*in EFZ oder Maurer*in EFZ\n\n• Mehrjährige Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Selbstständige Arbeitsweise, interessiert, initiativ, zuverlässig und teamfähig\n\n• Bereitschaft zum Leisten von Pikett- und Sondereinsätzen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Voulez-vous contribuer avec passion pour faire en sorte que Berne – la belle capitale avec son paysage urbain unique et le patrimoine mondial de l'UNESCO – reste soignée, sûre et habitable chaque jour ? <br/> Alors tu as raison avec nous ! Dans Infra Street, vous travaillez là où la ville vit : dans les rues, les places, les sentiers et les installations. Au soleil, à la pluie ou à la neige, vous et votre équipe vous assurez que Bern fonctionne de manière visible, fiable et fière. Pour compléter notre équipe, nous vous recherchons immédiatement ou d'un commun accord\n\nTâches :\n• Effectuer des travaux d ' entretien et de construction sur le réseau routier urbain\n\n• Travaux complets de revêtement de sol et de béton et travaux sur pavage, carrés et sentiers naturels\n\n• Effectuer des travaux en dehors de l'infrastructure (événements, protection contre les impacts) et effectuer des travaux d'entretien dans le domaine de la gestion du trafic et de l'entretien spécial\n\n• Effectuer des missions dans le service d'hiver pikett\n\nExigences\n• Formation professionnelle complète dans l'industrie du bâtiment, idéalement comme constructeur de routes ou maçon EFZ\n\n• Expérience professionnelle de plusieurs années\n\n• Permis de conduire de catégorie B\n\n• Méthode de travail indépendante, intéressée, proactive, fiable et capable de travailler en équipe\n\n• Prêt à effectuer des piquets et des opérations spéciales\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/strassenbauer-in-maurer-in/fb73a9eb-739d-47c5-aab8-394eb1c7dfcd",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.190Z",
+      "crawledAt": "2026-10-05T06:24:57.833Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1341,18 +1409,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/strassenbauer-in-maurer-in/fb73a9eb-739d-47c5-aab8-394eb1c7dfcd",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "strassenbauer-in-maurer-in-stadt-bern-bern",
-        "strassenbauer-in-maurer-in-stadt-bern"
+        "strassenbauer-in-maurer-in-stadt-bern",
+        "automobilisti-masons-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenbauer-in-maurer-in-stadt-bern-bern",
-          "strassenbauer-in-maurer-in-stadt-bern"
+          "strassenbauer-in-maurer-in-stadt-bern",
+          "automobilisti-masons-stadt-bern-bern"
         ],
         "en": [
           "strassenbauer-in-maurer-in-stadt-bern-bern"
@@ -1408,7 +1480,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.189Z",
+      "crawledAt": "2026-10-05T06:24:57.832Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1422,7 +1494,9 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1473,7 +1547,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/572bb557-48f2-49ca-97fc-7e96e0ef2eed",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.187Z",
+      "crawledAt": "2026-10-05T06:24:57.831Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1487,16 +1561,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/572bb557-48f2-49ca-97fc-7e96e0ef2eed",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betreuungsfachperson-tertiar-stadt-bern-bern"
+        "betreuungsfachperson-tertiar-stadt-bern-bern",
+        "terziario-professionale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuungsfachperson-tertiar-stadt-bern-bern"
+          "betreuungsfachperson-tertiar-stadt-bern-bern",
+          "terziario-professionale-stadt-bern-bern"
         ],
         "en": [
           "betreuungsfachperson-tertiar-stadt-bern-bern"
@@ -1525,7 +1603,7 @@
       "slug": "professionista-stadt-bern-bern",
       "slugByLocale": {
         "it": "professionista-stadt-bern-bern",
-        "en": "care-professional-stadt-bern-bern",
+        "en": "caregiver-stadt-bern",
         "de": "betreuungsfachperson-stadt-bern-bern",
         "fr": "specialiste-des-soins-stadt-bern-bern"
       },
@@ -1552,7 +1630,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/f72b8199-f594-431f-8de5-3f1b3aa640b1",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.186Z",
+      "crawledAt": "2026-10-05T06:24:57.830Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1566,21 +1644,27 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/f72b8199-f594-431f-8de5-3f1b3aa640b1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "betreuungsfachperson-stadt-bern-bern",
         "betreuungsfachperson-stadt-bern",
+        "care-professional-stadt-bern-bern",
+        "professionista-stadt-bern-bern",
         "caregiver-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuungsfachperson-stadt-bern-bern"
+          "betreuungsfachperson-stadt-bern-bern",
+          "professionista-stadt-bern-bern"
         ],
         "en": [
           "betreuungsfachperson-stadt-bern",
+          "care-professional-stadt-bern-bern",
           "caregiver-stadt-bern"
         ],
         "fr": [
@@ -1634,7 +1718,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/1fe26e96-3e90-4e30-9224-bbd6e75acb11",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.185Z",
+      "crawledAt": "2026-10-05T06:24:57.829Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1648,16 +1732,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/1fe26e96-3e90-4e30-9224-bbd6e75acb11",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betreuungsfachperson-tertiar-stadt-bern-bern"
+        "betreuungsfachperson-tertiar-stadt-bern-bern",
+        "terziario-professionale-stadt-bern-bern-1acb7b"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuungsfachperson-tertiar-stadt-bern-bern"
+          "betreuungsfachperson-tertiar-stadt-bern-bern",
+          "terziario-professionale-stadt-bern-bern-1acb7b"
         ],
         "de": [
           "betreuungsfachperson-tertiar-stadt-bern-bern"
@@ -1710,7 +1798,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/tierpfleger-in-fachrichtung-wildtierpflege/522343d3-d883-4617-b9c4-137baa6bd1fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.184Z",
+      "crawledAt": "2026-10-05T06:24:57.828Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1724,18 +1812,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/tierpfleger-in-fachrichtung-wildtierpflege/522343d3-d883-4617-b9c4-137baa6bd1fc",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
-        "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern"
+        "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern",
+        "fornitore-di-assistenza-agli-animali-specialista-della-cura-della-fauna-selvatica-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
-          "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern"
+          "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern",
+          "fornitore-di-assistenza-agli-animali-specialista-della-cura-della-fauna-selvatica-stadt-bern-bern"
         ],
         "en": [
           "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern"
@@ -1755,93 +1847,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-bc830010b6b6",
-      "slug": "gestione-della-qualita-della-sezione-stadt-bern-1",
-      "slugByLocale": {
-        "it": "gestione-della-qualita-della-sezione-stadt-bern-1",
-        "en": "stv-section-head-quality-management-stadt-bern-1",
-        "de": "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1",
-        "fr": "gestion-de-la-qualite-du-chef-de-section-stv-stadt-bern-1"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Stv. Sektionsleitung Qualitätsmanagement",
-      "titleByLocale": {
-        "it": "Vicecapo Sezione Gestione Qualità",
-        "en": "Stv. Head of Quality Management",
-        "de": "Stv. Sektionsleitung Qualitätsmanagement",
-        "fr": "Chef de la gestion de la qualité"
-      },
-      "description": "Als stellvertretende Sektionsleitung Qualitätsmanagement unterstützt du die Weiterentwicklung und Umsetzung des Qualitäts- und integrierten Managementsystems von Schutz und Rettung Bern. Du übernimmst eine zentrale Rolle bei der operativen Umsetzung des Qualitätsmanagements, der Prozessoptimierung sowie der Weiterentwicklung einer nachhaltigen Qualitätskultur.\n\nAufgaben:\n• Du unterstützt die Sektionsleitung QM bei der Entwicklung und Umsetzung der QM-Strategie sowie bei der Organisations- und Ressourcenplanung\n\n• Das Fehler- und Reklamationsmanagement liegt in deiner Verantwortung und du wirkst bei Zertifizierungen mit\n\n• Du wirkst bei der Planung und Koordination von internen Audits mit, führst diese durch und setzt KVP-Aktivitäten sowie QM-Projekte um\n\n• Du analysierst und optimierst QM-Prozesse und bereitest Prozessdaten, Kennzahlen und Qualitätsberichte auf\n\n• Du hast die fachliche Führung und Begleitung der CIRS-Bearbeitenden und Auditor/innen inne und bist Stellvertreter/in der Sektionsleitung QM bei deren Abwesenheit\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische berufliche Grundbildung. Eine Weiterbildung im Qualitätsmanagement (z. B. CAS Qualitätsmanagement, Qualitätsbeauftragte/r oder Auditor/in ISO) ist von Vorteil\n\n• Eine mehrjährige Berufserfahrung im Qualitätsmanagement / IMS sowie Erfahrung in der Weiterentwicklung von Managementsystemen sind von Vorteil\n\n• Praxiserfahrung in der Planung und Durchführung von internen und externen Audits sowie in KVP-Projekten gehört zu deinem Erfahrungsschatz\n\n• Du hast fundierte Kenntnisse in Prozess-, Projekt-, Fehler-, Reklamations- und Risikomanagement sowie gute Kenntnisse der geltenden ISO-Normen\n\n• Du bist kommunikationsstark, hast ausgeprägte Team- und Führungskompetenzen, bist eigenverantwortlich, belastbar und Veränderungsbereitschaft gehört zu deinen Stärken\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Come vice capo sezione della gestione della qualità, voi sostenete l'ulteriore sviluppo e l'implementazione del sistema di gestione della qualità e integrata di protezione e salvataggio Berna. Assumete un ruolo centrale nell'implementazione operativa della gestione della qualità, nell'ottimizzazione dei processi e nell'ulteriore sviluppo di una cultura della qualità sostenibile.\n\nCompiti:\n• Sostieni la gestione delle sezioni QM nello sviluppo e nell'implementazione della strategia QM nonché nell'organizzazione e nella pianificazione delle risorse\n\n• La gestione dei guasti e dei reclami è una tua responsabilità e lavori con certificazioni con\n\n• Contribuire alla pianificazione e al coordinamento degli audit interni, effettuarli e implementare attività KVP e progetti QM\n\n• Analizza e ottimizza i processi QM e prepara dati di processo, cifre chiave e report di qualità\n\n• Lei è il responsabile professionale e supervisore del CIRS-educators e dei revisori dei conti e in loro assenza è il sostituto del capo sezione QM\n\nRequisiti:\n• Hai una formazione professionale di base commerciale completata. La formazione continua in gestione della qualità (ad esempio, la gestione della qualità CAS, rappresentante di qualità o revisore dei conti/in ISO) è di beneficio\n\n• Un'esperienza pluriennale nella gestione della qualità / IMS e l'esperienza nell'ulteriore sviluppo dei sistemi di gestione sono di vantaggio\n\n• L'esperienza pratica nella pianificazione e realizzazione di audit interni ed esterni nonché nei progetti KVP fa parte della vostra esperienza\n\n• Hai una conoscenza corretta del processo, del progetto, dei guasti, dei reclami e della gestione dei rischi nonché una buona conoscenza degli standard ISO applicabili\n\n• Sei altamente comunicativo, hai forti competenze di squadra e leadership, sono autoresponsabili, resilienti e la volontà di cambiare è uno dei tuoi punti di forza\n\nOffriamo: Per la vita di città & senso Con noi si cambia qualcosa. Contribuisci alla vita di città, hai la responsabilità e rendere Berna più degna di vivere.\n\nNella città di Berna, oltre 4.500 persone lavorano insieme in cinque direzioni e più di 80 profili professionali. Siamo impegnati con passione e convinzione verso le persone che vivono qui, che lavorano qui. Insieme, formiamo la comunità e il futuro di questa città. visibile, tangibile, sostenibile. Per la nostra città. Per Berna.",
-        "en": "As deputy section head of quality management, you support the further development and implementation of the quality and integrated management system of protection and rescue Bern. You take a central role in the operational implementation of quality management, process optimization and the further development of a sustainable quality culture.\n\nTasks:\n• You support the sectional management QM in the development and implementation of the QM strategy as well as in the organization and resource planning\n\n• The fault and complaint management is your responsibility and you work with certifications with\n\n• You contribute to the planning and coordination of internal audits, carry out them out and implement KVP activities and QM projects\n\n• You analyze and optimize QM processes and prepare process data, key figures and quality reports\n\n• You are the professional manager and supervisor of CIRS-educators and auditors and are deputy of the section head QM in their absence\n\nRequirements:\n• You have a completed commercial basic vocational training. Continuing training in quality management (e.g., CAS quality management, quality representative or auditor/in ISO) is of benefit\n\n• A multi-year experience in quality management / IMS as well as experience in the further development of management systems are of advantage\n\n• Practical experience in planning and carrying out internal and external audits as well as in KVP projects is part of your experience\n\n• You have a sound knowledge of process, project, fault, complaint and risk management as well as a good knowledge of the applicable ISO standards\n\n• You are highly communicational, have strong team and leadership skills, are self-responsible, resilient and willingness to change is one of your strengths\n\nWe offer: For sense & city life With us you change something. You contribute to the city life, bear responsibility and make Bern more worth living.\n\nIn the city of Bern, over 4,500 people work together in five directorates and more than 80 professional profiles. We are committed with passion and conviction to the people who live here, who work here. Together, we shape the community and the future of this city – visible, tangible, sustainable. For our city. For Bern.",
-        "de": "Als stellvertretende Sektionsleitung Qualitätsmanagement unterstützt du die Weiterentwicklung und Umsetzung des Qualitäts- und integrierten Managementsystems von Schutz und Rettung Bern. Du übernimmst eine zentrale Rolle bei der operativen Umsetzung des Qualitätsmanagements, der Prozessoptimierung sowie der Weiterentwicklung einer nachhaltigen Qualitätskultur.\n\nAufgaben:\n• Du unterstützt die Sektionsleitung QM bei der Entwicklung und Umsetzung der QM-Strategie sowie bei der Organisations- und Ressourcenplanung\n\n• Das Fehler- und Reklamationsmanagement liegt in deiner Verantwortung und du wirkst bei Zertifizierungen mit\n\n• Du wirkst bei der Planung und Koordination von internen Audits mit, führst diese durch und setzt KVP-Aktivitäten sowie QM-Projekte um\n\n• Du analysierst und optimierst QM-Prozesse und bereitest Prozessdaten, Kennzahlen und Qualitätsberichte auf\n\n• Du hast die fachliche Führung und Begleitung der CIRS-Bearbeitenden und Auditor/innen inne und bist Stellvertreter/in der Sektionsleitung QM bei deren Abwesenheit\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene kaufmännische berufliche Grundbildung. Eine Weiterbildung im Qualitätsmanagement (z. B. CAS Qualitätsmanagement, Qualitätsbeauftragte/r oder Auditor/in ISO) ist von Vorteil\n\n• Eine mehrjährige Berufserfahrung im Qualitätsmanagement / IMS sowie Erfahrung in der Weiterentwicklung von Managementsystemen sind von Vorteil\n\n• Praxiserfahrung in der Planung und Durchführung von internen und externen Audits sowie in KVP-Projekten gehört zu deinem Erfahrungsschatz\n\n• Du hast fundierte Kenntnisse in Prozess-, Projekt-, Fehler-, Reklamations- und Risikomanagement sowie gute Kenntnisse der geltenden ISO-Normen\n\n• Du bist kommunikationsstark, hast ausgeprägte Team- und Führungskompetenzen, bist eigenverantwortlich, belastbar und Veränderungsbereitschaft gehört zu deinen Stärken\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "En tant que chef de section adjoint de la gestion de la qualité, vous soutenez le développement et la mise en œuvre du système de gestion de la qualité et intégrée de la protection et du sauvetage Bern. Vous prenez un rôle central dans la mise en œuvre opérationnelle de la gestion de la qualité, l'optimisation des processus et le développement d'une culture de qualité durable.\n\nTâches :\n• Vous soutenez la gestion sectionnelle QM dans l'élaboration et la mise en oeuvre de la stratégie QM ainsi que dans l'organisation et la planification des ressources\n\n• La gestion des fautes et des plaintes est de votre responsabilité et vous travaillez avec des certifications avec\n\n• Vous contribuez à la planification et à la coordination des audits internes, les exécutez et exécutez des activités de la KVP et des projets de gestion des coûts\n\n• Vous analysez et optimisez les processus de gestion de la qualité et préparez les données de processus, les chiffres clés et les rapports de qualité\n\n• Vous êtes le gestionnaire professionnel et le superviseur des éducateurs et des auditeurs CIRS et vous êtes adjoint du chef de section QM en leur absence\n\n• Vous avez une formation professionnelle de base commerciale complète. La formation continue en gestion de la qualité (par exemple, gestion de la qualité CAS, représentant de la qualité ou auditeur/en ISO) est bénéfique\n\n• Une expérience pluriannuelle en gestion de la qualité / SGI ainsi qu'une expérience dans le développement ultérieur des systèmes de gestion sont d'un avantage\n\n• Une expérience pratique dans la planification et la réalisation d'audits internes et externes ainsi que dans les projets KVP fait partie de votre expérience\n\n• Vous avez une bonne connaissance du processus, du projet, de la faute, des plaintes et de la gestion des risques ainsi qu'une bonne connaissance des normes ISO applicables\n\n• Vous êtes très communicatif, avez de solides compétences en équipe et en leadership, êtes auto-réponsable, résilient et la volonté de changer est l'un de vos points forts\n\nNous offrons: Pour la vie de sens & ville Avec nous vous changez quelque chose. Vous contribuez à la vie de ville, portez des responsabilités et faites Berne plus digne de vivre.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils professionnels. Nous sommes engagés avec passion et conviction envers les personnes qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. Pour notre ville. Pour Berne."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/stv-sektionsleitung-qualitaetsmanagement/8b582f66-da2f-48e1-ba05-61ebf296744f",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.183Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Murtenstrasse 98",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-10",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/stv-sektionsleitung-qualitaetsmanagement/8b582f66-da2f-48e1-ba05-61ebf296744f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1",
-        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1",
-          "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern"
-        ],
-        "en": [
-          "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1"
-        ],
-        "de": [
-          "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern"
-        ],
-        "fr": [
-          "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2373,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-11T13:31:34.336Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -1878,7 +1883,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/a3444067-bd28-4778-8f36-51f6f5af4b6a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.181Z",
+      "crawledAt": "2026-10-05T06:24:57.827Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1892,16 +1897,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/a3444067-bd28-4778-8f36-51f6f5af4b6a",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
+        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
+          "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
@@ -1957,7 +1966,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.180Z",
+      "crawledAt": "2026-10-05T06:24:57.825Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1971,7 +1980,9 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2022,7 +2033,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/ffed49b1-1d18-470a-9912-7d59f74e2d9c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.178Z",
+      "crawledAt": "2026-10-05T06:24:57.824Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2036,18 +2047,22 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/projektleiter-in/ffed49b1-1d18-470a-9912-7d59f74e2d9c",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-stadt-bern-bern",
-        "projektleiter-in-stadt-bern"
+        "projektleiter-in-stadt-bern",
+        "responsabile-del-progetto-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-stadt-bern-bern",
-          "projektleiter-in-stadt-bern"
+          "projektleiter-in-stadt-bern",
+          "responsabile-del-progetto-stadt-bern-bern"
         ],
         "en": [
           "projektleiter-in-stadt-bern-bern"
@@ -2103,7 +2118,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/3cfd9219-4568-438a-bb30-e7dda7a96445",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.176Z",
+      "crawledAt": "2026-10-05T06:24:57.823Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2117,7 +2132,9 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/3cfd9219-4568-438a-bb30-e7dda7a96445",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2135,6 +2152,152 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "stadt-bern-22f81e70eca9",
+      "slug": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+        "it": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+        "en": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+        "fr": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Fachmitarbeiter*in Sportanlage Nord",
+      "titleByLocale": {
+        "de": "Fachmitarbeiter*in Sportanlage Nord",
+        "it": "Fachmitarbeiter*in Sportanlage Nord",
+        "en": "Fachmitarbeiter*in Sportanlage Nord",
+        "fr": "Fachmitarbeiter*in Sportanlage Nord"
+      },
+      "description": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:24:57.821Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3018",
+      "streetAddress": "Brünnenstrasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T06:24:57.821Z"
+    },
+    {
+      "id": "stadt-bern-227670d6f5fd",
+      "slug": "projektleiter-in-nutzung-e-betrieb-stadt-bern",
+      "slugByLocale": {
+        "de": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern",
+        "it": "projektleiter-in-nutzung-e-betrieb-stadt-bern",
+        "en": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern",
+        "fr": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Projektleiter*in Nutzung und Betrieb",
+      "titleByLocale": {
+        "de": "Projektleiter*in Nutzung und Betrieb",
+        "it": "Projektleiter*in Nutzung e Betrieb",
+        "en": "Projektleiter*in Nutzung und Betrieb",
+        "fr": "Projektleiter*in Nutzung und Betrieb"
+      },
+      "description": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Themen Nutzung und Betrieb im neuen Stadtquartier im Zuständigkeitsbereich von Immobilien Stadt Bern [z. B. Gewerbe- und Gemeinschaftsflächen, Freiräume, Quartierleben].\n\n• Du entwickelst das Betriebs- und Nutzungskonzept weiter, berücksichtigst dabei wirtschaftliche, gesellschaftliche und ökologische Aspekte und begleitest die Umsetzung.\n\n• Du vertrittst die Interessen der Stadt Bern als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam.\n\n• Du bildest die Schnittstelle zur Infrastrukturgenossenschaft, die das gemeinsame Infrastrukturangebot des Quartiers betreibt, und gestaltest die Zusammenarbeit mit ihr und ihrer Geschäftsführung aktiv mit.\n\n• Du bringst dein Fachwissen ein, damit aus der Planung ein funktionierendes, attraktives und langfristig tragfähiges Quartier entsteht.\n\n• Du erarbeitest Entscheidungsgrundlagen und verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Immobilienökonomie, Bauingenieurwesen) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit.\n\n• Du hast Erfahrung im strategischen oder operativen Facility Management und hast Teilprojekte oder komplexe Projekte geleitet.\n\n• Du arbeitest strukturiert, präzise und lösungsorientiert, verhandelst geschickt und bringst unterschiedliche Interessen zusammen.\n\n• Du kommunizierst sicher in Wort und Schrift und verfasst Anträge und Berichte.\n\n• Du gehst kunden- und dienstleistungsorientiert mit den Anspruchsgruppen um.\n\n• Du verstehst politische Abläufe und öffentliche Entscheidungsstrukturen.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Themen Nutzung und Betrieb im neuen Stadtquartier im Zuständigkeitsbereich von Immobilien Stadt Bern [z. B. Gewerbe- und Gemeinschaftsflächen, Freiräume, Quartierleben].\n\n• Du entwickelst das Betriebs- und Nutzungskonzept weiter, berücksichtigst dabei wirtschaftliche, gesellschaftliche und ökologische Aspekte und begleitest die Umsetzung.\n\n• Du vertrittst die Interessen der Stadt Bern als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam.\n\n• Du bildest die Schnittstelle zur Infrastrukturgenossenschaft, die das gemeinsame Infrastrukturangebot des Quartiers betreibt, und gestaltest die Zusammenarbeit mit ihr und ihrer Geschäftsführung aktiv mit.\n\n• Du bringst dein Fachwissen ein, damit aus der Planung ein funktionierendes, attraktives und langfristig tragfähiges Quartier entsteht.\n\n• Du erarbeitest Entscheidungsgrundlagen und verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Immobilienökonomie, Bauingenieurwesen) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit.\n\n• Du hast Erfahrung im strategischen oder operativen Facility Management und hast Teilprojekte oder komplexe Projekte geleitet.\n\n• Du arbeitest strukturiert, präzise und lösungsorientiert, verhandelst geschickt und bringst unterschiedliche Interessen zusammen.\n\n• Du kommunizierst sicher in Wort und Schrift und verfasst Anträge und Berichte.\n\n• Du gehst kunden- und dienstleistungsorientiert mit den Anspruchsgruppen um.\n\n• Du verstehst politische Abläufe und öffentliche Entscheidungsstrukturen.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Themen Nutzung und Betrieb im neuen Stadtquartier im Zuständigkeitsbereich von Immobilien Stadt Bern [z. B. Gewerbe- und Gemeinschaftsflächen, Freiräume, Quartierleben].\n\n• Du entwickelst das Betriebs- und Nutzungskonzept weiter, berücksichtigst dabei wirtschaftliche, gesellschaftliche und ökologische Aspekte und begleitest die Umsetzung.\n\n• Du vertrittst die Interessen der Stadt Bern als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam.\n\n• Du bildest die Schnittstelle zur Infrastrukturgenossenschaft, die das gemeinsame Infrastrukturangebot des Quartiers betreibt, und gestaltest die Zusammenarbeit mit ihr und ihrer Geschäftsführung aktiv mit.\n\n• Du bringst dein Fachwissen ein, damit aus der Planung ein funktionierendes, attraktives und langfristig tragfähiges Quartier entsteht.\n\n• Du erarbeitest Entscheidungsgrundlagen und verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Immobilienökonomie, Bauingenieurwesen) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit.\n\n• Du hast Erfahrung im strategischen oder operativen Facility Management und hast Teilprojekte oder komplexe Projekte geleitet.\n\n• Du arbeitest strukturiert, präzise und lösungsorientiert, verhandelst geschickt und bringst unterschiedliche Interessen zusammen.\n\n• Du kommunizierst sicher in Wort und Schrift und verfasst Anträge und Berichte.\n\n• Du gehst kunden- und dienstleistungsorientiert mit den Anspruchsgruppen um.\n\n• Du verstehst politische Abläufe und öffentliche Entscheidungsstrukturen.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Themen Nutzung und Betrieb im neuen Stadtquartier im Zuständigkeitsbereich von Immobilien Stadt Bern [z. B. Gewerbe- und Gemeinschaftsflächen, Freiräume, Quartierleben].\n\n• Du entwickelst das Betriebs- und Nutzungskonzept weiter, berücksichtigst dabei wirtschaftliche, gesellschaftliche und ökologische Aspekte und begleitest die Umsetzung.\n\n• Du vertrittst die Interessen der Stadt Bern als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam.\n\n• Du bildest die Schnittstelle zur Infrastrukturgenossenschaft, die das gemeinsame Infrastrukturangebot des Quartiers betreibt, und gestaltest die Zusammenarbeit mit ihr und ihrer Geschäftsführung aktiv mit.\n\n• Du bringst dein Fachwissen ein, damit aus der Planung ein funktionierendes, attraktives und langfristig tragfähiges Quartier entsteht.\n\n• Du erarbeitest Entscheidungsgrundlagen und verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Immobilienökonomie, Bauingenieurwesen) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit.\n\n• Du hast Erfahrung im strategischen oder operativen Facility Management und hast Teilprojekte oder komplexe Projekte geleitet.\n\n• Du arbeitest strukturiert, präzise und lösungsorientiert, verhandelst geschickt und bringst unterschiedliche Interessen zusammen.\n\n• Du kommunizierst sicher in Wort und Schrift und verfasst Anträge und Berichte.\n\n• Du gehst kunden- und dienstleistungsorientiert mit den Anspruchsgruppen um.\n\n• Du verstehst politische Abläufe und öffentliche Entscheidungsstrukturen.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Themen Nutzung und Betrieb im neuen Stadtquartier im Zuständigkeitsbereich von Immobilien Stadt Bern [z. B. Gewerbe- und Gemeinschaftsflächen, Freiräume, Quartierleben].\n\n• Du entwickelst das Betriebs- und Nutzungskonzept weiter, berücksichtigst dabei wirtschaftliche, gesellschaftliche und ökologische Aspekte und begleitest die Umsetzung.\n\n• Du vertrittst die Interessen der Stadt Bern als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam.\n\n• Du bildest die Schnittstelle zur Infrastrukturgenossenschaft, die das gemeinsame Infrastrukturangebot des Quartiers betreibt, und gestaltest die Zusammenarbeit mit ihr und ihrer Geschäftsführung aktiv mit.\n\n• Du bringst dein Fachwissen ein, damit aus der Planung ein funktionierendes, attraktives und langfristig tragfähiges Quartier entsteht.\n\n• Du erarbeitest Entscheidungsgrundlagen und verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Immobilienökonomie, Bauingenieurwesen) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit.\n\n• Du hast Erfahrung im strategischen oder operativen Facility Management und hast Teilprojekte oder komplexe Projekte geleitet.\n\n• Du arbeitest strukturiert, präzise und lösungsorientiert, verhandelst geschickt und bringst unterschiedliche Interessen zusammen.\n\n• Du kommunizierst sicher in Wort und Schrift und verfasst Anträge und Berichte.\n\n• Du gehst kunden- und dienstleistungsorientiert mit den Anspruchsgruppen um.\n\n• Du verstehst politische Abläufe und öffentliche Entscheidungsstrukturen.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-nutzung-und-betrieb/d4117a12-4cbe-48f2-9ade-bd7a207db253",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:24:57.820Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesgasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/projektleiter-in-nutzung-und-betrieb/d4117a12-4cbe-48f2-9ade-bd7a207db253",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T06:24:57.820Z"
     },
     {
       "id": "stadt-bern-a96f72465261",
@@ -2168,7 +2331,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:11:23.164Z",
+      "crawledAt": "2026-10-05T06:24:57.818Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2182,16 +2345,20 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-administration-stadt-bern-bern"
+        "mitarbeiter-in-administration-stadt-bern-bern",
+        "collaboratore-trice-in-administration-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-stadt-bern-bern"
+          "mitarbeiter-in-administration-stadt-bern-bern",
+          "collaboratore-trice-in-administration-stadt-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:14:36.468Z",
@@ -2208,6 +2375,83 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "stadt-bern-fc94e036d0bb",
+      "slug": "senior-projektleiter-in-stadt-bern",
+      "slugByLocale": {
+        "de": "senior-projektleiter-in-stadt-bern-bern",
+        "it": "senior-projektleiter-in-stadt-bern",
+        "en": "senior-projektleiter-in-stadt-bern-bern",
+        "fr": "senior-projektleiter-in-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Senior Projektleiter*in",
+      "titleByLocale": {
+        "de": "Senior Projektleiter*in",
+        "it": "Senior Projektleiter*in",
+        "en": "Senior Projektleiter*in",
+        "fr": "Senior Projektleiter*in"
+      },
+      "description": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Qualitätssicherung und Vermarktung der Baufelder auf dem Viererfeld und Mittelfeld und wickelst alle Landgeschäfte (z. B. Verkäufe und Baurechtsvergaben) samt Budgetbewirtschaftung ab.\n\n• Du koordinierst die Teilprojekte von Immobilien Stadt Bern (Qualitätssicherung, Vermarktung, Landgeschäfte, Nutzung/Betrieb) und bringst sie ins Gesamtprojekt ein.\n\n• Du vertrittst die Interessen der Stadt als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam, von der strategischen Planung bis zur Inbetriebnahme.\n\n• Du unterstützt die Gesamtprojektleitung bei sachenrechtlichen Fragen und übernimmst bei Bedarf ihre Stellvertretung.\n\n• Du verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Bauingenieurwesen, Immobilienökonomie, Raumplanung oder Rechtswissenschaft).\n\n• Idealerweise hast du dich in Immobilienökonomie weitergebildet (CAS/MAS) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit, idealerweise in der Areal- und Projektentwicklung.\n\n• Du verfügst über Praxis in Immobilienvermarktung, Vertragswesen, Liegenschaftsgeschäften und Baurecht (öffentliches Baurecht und Baurechtsverträge).\n\n• Du hast Erfahrung in der Leitung von Projektteams, in der Koordination von Fachplanenden und in der Budgetsteuerung.\n\n• Du verhandelst geschickt und gehst sicher mit unterschiedlichen Anspruchsgruppen um und arbeitest präzise und strukturiert.\n\n• Du kommunizierst stark in Wort und Schrift, verfasst Anträge und Berichte sicher und verstehst politische Prozesse und die Zusammenarbeit mit Behörden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Qualitätssicherung und Vermarktung der Baufelder auf dem Viererfeld und Mittelfeld und wickelst alle Landgeschäfte (z. B. Verkäufe und Baurechtsvergaben) samt Budgetbewirtschaftung ab.\n\n• Du koordinierst die Teilprojekte von Immobilien Stadt Bern (Qualitätssicherung, Vermarktung, Landgeschäfte, Nutzung/Betrieb) und bringst sie ins Gesamtprojekt ein.\n\n• Du vertrittst die Interessen der Stadt als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam, von der strategischen Planung bis zur Inbetriebnahme.\n\n• Du unterstützt die Gesamtprojektleitung bei sachenrechtlichen Fragen und übernimmst bei Bedarf ihre Stellvertretung.\n\n• Du verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Bauingenieurwesen, Immobilienökonomie, Raumplanung oder Rechtswissenschaft).\n\n• Idealerweise hast du dich in Immobilienökonomie weitergebildet (CAS/MAS) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit, idealerweise in der Areal- und Projektentwicklung.\n\n• Du verfügst über Praxis in Immobilienvermarktung, Vertragswesen, Liegenschaftsgeschäften und Baurecht (öffentliches Baurecht und Baurechtsverträge).\n\n• Du hast Erfahrung in der Leitung von Projektteams, in der Koordination von Fachplanenden und in der Budgetsteuerung.\n\n• Du verhandelst geschickt und gehst sicher mit unterschiedlichen Anspruchsgruppen um und arbeitest präzise und strukturiert.\n\n• Du kommunizierst stark in Wort und Schrift, verfasst Anträge und Berichte sicher und verstehst politische Prozesse und die Zusammenarbeit mit Behörden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Qualitätssicherung und Vermarktung der Baufelder auf dem Viererfeld und Mittelfeld und wickelst alle Landgeschäfte (z. B. Verkäufe und Baurechtsvergaben) samt Budgetbewirtschaftung ab.\n\n• Du koordinierst die Teilprojekte von Immobilien Stadt Bern (Qualitätssicherung, Vermarktung, Landgeschäfte, Nutzung/Betrieb) und bringst sie ins Gesamtprojekt ein.\n\n• Du vertrittst die Interessen der Stadt als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam, von der strategischen Planung bis zur Inbetriebnahme.\n\n• Du unterstützt die Gesamtprojektleitung bei sachenrechtlichen Fragen und übernimmst bei Bedarf ihre Stellvertretung.\n\n• Du verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Bauingenieurwesen, Immobilienökonomie, Raumplanung oder Rechtswissenschaft).\n\n• Idealerweise hast du dich in Immobilienökonomie weitergebildet (CAS/MAS) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit, idealerweise in der Areal- und Projektentwicklung.\n\n• Du verfügst über Praxis in Immobilienvermarktung, Vertragswesen, Liegenschaftsgeschäften und Baurecht (öffentliches Baurecht und Baurechtsverträge).\n\n• Du hast Erfahrung in der Leitung von Projektteams, in der Koordination von Fachplanenden und in der Budgetsteuerung.\n\n• Du verhandelst geschickt und gehst sicher mit unterschiedlichen Anspruchsgruppen um und arbeitest präzise und strukturiert.\n\n• Du kommunizierst stark in Wort und Schrift, verfasst Anträge und Berichte sicher und verstehst politische Prozesse und die Zusammenarbeit mit Behörden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Qualitätssicherung und Vermarktung der Baufelder auf dem Viererfeld und Mittelfeld und wickelst alle Landgeschäfte (z. B. Verkäufe und Baurechtsvergaben) samt Budgetbewirtschaftung ab.\n\n• Du koordinierst die Teilprojekte von Immobilien Stadt Bern (Qualitätssicherung, Vermarktung, Landgeschäfte, Nutzung/Betrieb) und bringst sie ins Gesamtprojekt ein.\n\n• Du vertrittst die Interessen der Stadt als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam, von der strategischen Planung bis zur Inbetriebnahme.\n\n• Du unterstützt die Gesamtprojektleitung bei sachenrechtlichen Fragen und übernimmst bei Bedarf ihre Stellvertretung.\n\n• Du verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Bauingenieurwesen, Immobilienökonomie, Raumplanung oder Rechtswissenschaft).\n\n• Idealerweise hast du dich in Immobilienökonomie weitergebildet (CAS/MAS) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit, idealerweise in der Areal- und Projektentwicklung.\n\n• Du verfügst über Praxis in Immobilienvermarktung, Vertragswesen, Liegenschaftsgeschäften und Baurecht (öffentliches Baurecht und Baurechtsverträge).\n\n• Du hast Erfahrung in der Leitung von Projektteams, in der Koordination von Fachplanenden und in der Budgetsteuerung.\n\n• Du verhandelst geschickt und gehst sicher mit unterschiedlichen Anspruchsgruppen um und arbeitest präzise und strukturiert.\n\n• Du kommunizierst stark in Wort und Schrift, verfasst Anträge und Berichte sicher und verstehst politische Prozesse und die Zusammenarbeit mit Behörden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Gestalten Sie mit an einem der grössten Stadtentwicklungsprojekte der Schweiz: Mit der Quartierentwicklung Viererfeld / Mittelfeld realisiert die Stadt Bern ein städtebauliches Leuchtturmprojekt auf eigenem Land – ein neues Stadtquartier, das Wohnen, Arbeiten und Leben in Bern nachhaltig prägen wird.<br/>Für das Team Quartierentwicklung Viererfeld / Mittelfeld bei Immobilien Stadt Bern suchen wir eine engagierte Persönlichkeit, die als Eigentümervertretung Verantwortung übernimmt:\n\nAufgaben:\n• Du verantwortest die Qualitätssicherung und Vermarktung der Baufelder auf dem Viererfeld und Mittelfeld und wickelst alle Landgeschäfte (z. B. Verkäufe und Baurechtsvergaben) samt Budgetbewirtschaftung ab.\n\n• Du koordinierst die Teilprojekte von Immobilien Stadt Bern (Qualitätssicherung, Vermarktung, Landgeschäfte, Nutzung/Betrieb) und bringst sie ins Gesamtprojekt ein.\n\n• Du vertrittst die Interessen der Stadt als Grundeigentümerin gegenüber allen Beteiligten und im Gesamtprojektleitungsteam, von der strategischen Planung bis zur Inbetriebnahme.\n\n• Du unterstützt die Gesamtprojektleitung bei sachenrechtlichen Fragen und übernimmst bei Bedarf ihre Stellvertretung.\n\n• Du verfasst Anträge und Stellungnahmen für Kommissionen, Gemeinderat und Stadtrat.\n\nAnforderungen:\n• Du hast ein Hochschul- oder Fachhochschulstudium in einer relevanten Fachrichtung abgeschlossen (z. B. Architektur, Bauingenieurwesen, Immobilienökonomie, Raumplanung oder Rechtswissenschaft).\n\n• Idealerweise hast du dich in Immobilienökonomie weitergebildet (CAS/MAS) und bringst mehrjährige Berufserfahrung in der Planungs-, Bau- oder Immobilienbranche mit, idealerweise in der Areal- und Projektentwicklung.\n\n• Du verfügst über Praxis in Immobilienvermarktung, Vertragswesen, Liegenschaftsgeschäften und Baurecht (öffentliches Baurecht und Baurechtsverträge).\n\n• Du hast Erfahrung in der Leitung von Projektteams, in der Koordination von Fachplanenden und in der Budgetsteuerung.\n\n• Du verhandelst geschickt und gehst sicher mit unterschiedlichen Anspruchsgruppen um und arbeitest präzise und strukturiert.\n\n• Du kommunizierst stark in Wort und Schrift, verfasst Anträge und Berichte sicher und verstehst politische Prozesse und die Zusammenarbeit mit Behörden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T06:24:57.809Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesgasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-projektleiter-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-projektleiter-in-stadt-bern-bern"
+      ],
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T06:24:57.809Z"
     }
   ]
 }

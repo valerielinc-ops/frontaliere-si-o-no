@@ -1,19 +1,56 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-10-04T21:14:29.871Z",
-  "total": 352,
+  "generatedAt": "2026-10-05T06:27:39.803Z",
+  "total": 354,
   "newCount": 0,
-  "updatedCount": 351,
+  "updatedCount": 354,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 112972,
-  "avgDurationMs": 112972,
+  "unchangedCount": 0,
+  "durationMs": 127384,
+  "avgDurationMs": 127384,
   "durationHistory": [
-    112972
+    127384
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+      "company": "Galenica AG (Galenica)",
+      "companyKey": "galenica",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3137592.4069129",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Ryfflihof, Genfergasse 3",
+      "sourceLocationCanton": "BE",
+      "category": "healthcare",
+      "applyUrl": "",
+      "postedDate": "",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "id": "galenica-d04f52ea0fef",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
       "company": "Galenica AG (Galenica)",
@@ -29,10 +66,12 @@
       "streetAddress": "Seestrasse 2",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-e4f1b657e272",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -40,12 +79,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -64,10 +103,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "apotheker-apothekerin-per-fph-weiterbildung-w-m-d-galenica-ag-galenica-zollikofen",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-988244b5c0dd",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -75,12 +116,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -99,10 +140,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-61f49a84d0ad",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -110,12 +153,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -134,10 +177,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
       "id": "galenica-93a2a4832aac",
       "salaryMin": 85000,
@@ -146,12 +191,12 @@
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -170,10 +215,12 @@
       "sourceLocationCanton": "SG",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "apotheker-apothekerin-come-stellvertretung-w-m-d-galenica-galenica-uznach",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-e15b9362c67b",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
@@ -181,12 +228,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -205,10 +252,12 @@
       "sourceLocationCanton": "LU",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-luzern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-9cf3d1d56750",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -216,12 +265,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -240,10 +289,12 @@
       "sourceLocationCanton": "BL",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-bubendorf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-12feabaf032a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -251,12 +302,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -275,10 +326,12 @@
       "sourceLocationCanton": "ZH",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "apotheker-apothekerin-per-fph-weiterbildung-w-m-d-galenica-galenica-thalwil",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-e9afa2306e33",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -286,12 +339,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -310,10 +363,12 @@
       "sourceLocationCanton": "VS",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "fr",
       "slug": "assistant-en-pharmacie-assistante-en-pharmacie-f-m-d-galenica-galenica-conthey",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-fcc9418197e8",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -321,12 +376,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -344,10 +399,12 @@
       "streetAddress": "Les Entilles Centre, Av. Léopold-Robert 151",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "fr",
       "slug": "assistante-en-pharmacie-assistant-en-pharmacie-f-m-d-galenica-ag-galenica-la-chaux-de-fonds",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-6b8014d0fa0a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
@@ -355,12 +412,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -379,10 +436,12 @@
       "sourceLocationCanton": "VD",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "fr",
       "slug": "pharmacien-pharmacienne-f-m-d-galenica-galenica-oron-la-ville",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-a3a1a9e8155c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -390,12 +449,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -414,10 +473,12 @@
       "sourceLocationCanton": "BS",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-galenica-basel",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-adf7f88ea67d",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -425,12 +486,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -449,10 +510,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
       "id": "galenica-95c4b61e9417",
       "salaryMin": 85000,
@@ -461,12 +524,12 @@
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -485,10 +548,12 @@
       "sourceLocationCanton": "ZH",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-wadenswil",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-13782b639d3e",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -496,12 +561,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -520,10 +585,12 @@
       "sourceLocationCanton": "ZH",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-w-m-d-galenica-galenica-bachenbulach",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-e988c0e50276",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -531,12 +598,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -555,10 +622,12 @@
       "sourceLocationCanton": "LU",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-kriens",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-4efd06c7f87c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -566,12 +635,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -590,10 +659,12 @@
       "sourceLocationCanton": "AG",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-mellingen",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-5c290521f305",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -601,12 +672,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -625,10 +696,12 @@
       "sourceLocationCanton": "VD",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "fr",
       "slug": "pharmacien-pharmacienne-f-m-d-galenica-galenica-blonay",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-036abf965803",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -636,12 +709,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -660,10 +733,12 @@
       "sourceLocationCanton": "AG",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-muri-ag",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-6add5b4c6d83",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -671,12 +746,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -695,24 +770,26 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "galenica-galenica-csv-manager-csv-managerin-w-m-d-niederbipp",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-d88f47bf8951",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "needsRetranslation": true,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -731,10 +808,12 @@
       "sourceLocationCanton": "VD",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "fr",
       "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-signy",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-ae3deb863b48",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -742,12 +821,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -766,10 +845,12 @@
       "sourceLocationCanton": "GR",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-chur",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-533e0d4e344c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
@@ -777,12 +858,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -801,10 +882,12 @@
       "sourceLocationCanton": "AG",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-m-f-d-galenica-ag-galenica-wettingen",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-9f4ad664ab9d",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -812,12 +895,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -836,10 +919,12 @@
       "sourceLocationCanton": "ZH",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-galenica-zurich",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-da419467a8b8",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -847,12 +932,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -871,10 +956,12 @@
       "sourceLocationCanton": "SO",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-a-presso-il-centro-di-assistenza-clienti-m-f-d-galenica-ag-galenica-zuchwil",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-3583ebb6035c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -882,12 +969,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -906,10 +993,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "galenica-galenica-sap-consultant-successfactors-payroll-w-m-d-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-6edf7909759a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -917,12 +1006,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -941,10 +1030,12 @@
       "sourceLocationCanton": "BE",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-fd1ea241b926",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -952,12 +1043,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -976,10 +1067,12 @@
       "sourceLocationCanton": "AG",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-wurenlos",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-267f13c4e451",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -987,12 +1080,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1010,10 +1103,12 @@
       "streetAddress": "Centerpark",
       "category": "healthcare",
       "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "id": "galenica-b8b5d08bf0a8",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
@@ -1021,87 +1116,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Pharmacien / Pharmacienne (f/h/d)",
-      "company": "Galenica (Galenica)",
-      "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3129245.4051698",
-      "location": "Rennaz",
-      "canton": "VD",
-      "country": "CH",
-      "addressLocality": "Rennaz",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "postalCode": "1847",
-      "streetAddress": "Centre commercial Riviera, Route du Pré-de-la-Croix 18",
-      "sourceLocationCanton": "VD",
-      "category": "healthcare",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
-      "source": "company-website",
-      "sourceLang": "fr",
-      "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz",
-      "id": "galenica-13b97def6d4c",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-      "company": "Galenica AG (Galenica)",
-      "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3137592.4069129",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Ryfflihof, Genfergasse 3",
-      "sourceLocationCanton": "BE",
-      "category": "healthcare",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern",
-      "id": "galenica-d04f52ea0fef",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "unchangedJobs": [],
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
