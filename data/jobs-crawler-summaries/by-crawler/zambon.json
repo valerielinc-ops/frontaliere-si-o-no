@@ -1,21 +1,61 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-10-05T09:33:39.615Z",
+  "generatedAt": "2026-10-05T21:48:39.710Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9773,
-  "avgDurationMs": 9773,
+  "durationMs": 10701,
+  "avgDurationMs": 10701,
   "durationHistory": [
-    9773
+    10701
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "zambon-811390",
+      "url": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
+      "title": "Buyer Procurement Indirect",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "slug": "buyer-procurement-indirect-zambon",
+      "category": "general",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "department": "Accounting, Finance & Control",
+      "seniority": "from 5 years to 10 years",
+      "sourceLang": "en",
+      "firstSeenAt": "2026-09-10T23:18:15.295Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "zambon-811389",
       "url": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
@@ -54,46 +94,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 15,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "zambon-811390",
-      "url": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
-      "title": "Buyer Procurement Indirect",
-      "company": "Zambon Svizzera SA",
-      "companyKey": "zambon",
-      "location": "Cadempino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6814",
-      "streetAddress": "Via Industria 13",
-      "slug": "buyer-procurement-indirect-zambon",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported",
-      "source": "zambon-ncoreplat-api",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "department": "Accounting, Finance & Control",
-      "seniority": "from 5 years to 10 years",
-      "sourceLang": "en",
-      "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
         "completeness": 22
       }
     },
@@ -138,5 +138,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
