@@ -213,6 +213,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-26T14:05:46.765Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction"
@@ -226,20 +239,7 @@
       },
       "previousSlugs": [
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction"
-      ],
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "imad-d81dfa1adb8e",
@@ -414,7 +414,7 @@
       "titleByLocale": {
         "it": "Infermierein cure domiciliari /all'80-100% / in contratto a tempo indeterminato",
         "en": "Nurse in home care/ at 80-100% / on permanent contract",
-        "de": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
+        "de": "Pflegefachfrau/Pflegefachmann Spitex / 80-100% /unbefristet",
         "fr": "Infirmier.ère en soins à domicile / à 80-100% / en CDI"
       },
       "description": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo en ville / marche à pied / voiture / TPG).\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes et vos certificats de travail.\n\n• Nous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
@@ -450,17 +450,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-26T14:05:46.789Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
-        ],
-        "en": [
-          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
-      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -473,7 +462,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-14d6c76ad020",

@@ -148,9 +148,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "requirements": [],
       "requirementsByLocale": {},
@@ -175,7 +173,9 @@
         "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
         "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
-        "professionnel-de-soins-viva-luzern"
+        "professionnel-de-soins-viva-luzern",
+        "pflegefachfrau-mann-hf-viva-luzern-1zbr3c",
+        "pflegefachfrau-mann-hf-viva-luzern-feex39"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -195,7 +195,9 @@
           "nursing-professional-hf-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern-luzern",
           "nursing-professional-hf-temporary-viva-luzern-luzern",
-          "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern"
+          "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
+          "pflegefachfrau-mann-hf-viva-luzern-1zbr3c",
+          "pflegefachfrau-mann-hf-viva-luzern-feex39"
         ],
         "en": [
           "care-specialist-hf-palliative-care-viva-luzern-luzern",
@@ -224,7 +226,9 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "viva-luzern-44758d48ba7e",

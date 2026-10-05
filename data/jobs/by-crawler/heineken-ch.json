@@ -632,7 +632,7 @@
       "title": "Technician DBO (m/w/d)",
       "titleByLocale": {
         "it": "Tecnico DBO (m/f/d)",
-        "en": "Technician DBO (m/w/d)",
+        "en": "Technician DBO (m/f/d)",
         "de": "Techniker DBO (m/w/d)",
         "fr": "Technicien DBO (m/w/d)"
       },
@@ -657,9 +657,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
@@ -690,7 +688,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-7a06dccbe47a",
@@ -709,7 +709,7 @@
       "titleByLocale": {
         "it": "Conducente Cat. C/E",
         "en": "Cat. C/E Driver",
-        "de": "Chauffeur Cat. C / E",
+        "de": "Katze C/E Fahrer",
         "fr": "Chauffeur Cat. C / E"
       },
       "description": "Pour notre filiale Stardrinks AG, nous recherchons pour notre site de Denges (VD) un chauffeur motivé, fiable et autonome en qualité de Chauffeur Cat. C / E Tu es responsable de la livraison ponctuelle et fiable de nos bières et autres boissons à nos clients de la restauration, selon le plan de tournée. Si nécessaire, tu apportes également ton soutien à notre équipe de l’entrepôt ainsi que lors de manifestations. Tes tâches : Livraison de bières et autres boissons selon le plan de tournée Soutien à l’entrepôt pour la préparation des commandes et le tri Participation au service des manifestations Utilisation sûre des transpalettes électriques Ton profil : Permis de conduire cat. C, idéalement complété par la cat. E Plusieurs années d’expérience comme chauffeur ou livreur Expérience dans la préparation des commandes et l’utilisation de transpalettes électriques Méthode de travail autonome, fiable et orientée clientèle Bonnes connaissances du français, des connaissances en allemand sont un atout Bonne condition physique et résistance au stress Idéalement domicilié dans la région afin de pouvoir assurer des services de piquet Intéressé(e) ? Nous nous réjouissons de recevoir ton dossier de",
@@ -733,9 +733,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-cat-c-e?jobid=165660",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165660&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
@@ -772,7 +770,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-d7d5efdbb829",

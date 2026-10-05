@@ -47,18 +47,12 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "jobReqId": "1165472855",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "facility-manager-w-m-d-komax-ch",
-        "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "facility-manager-w-m-d-komax-ch",
@@ -69,8 +63,11 @@
           "facility-manager-m-w-d-komax-dierikon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:17:37.993Z",
+      "previousSlugs": [
+        "facility-manager-w-m-d-komax-ch",
+        "facility-manager-w-m-d-komax-ch-ji9uhd",
+        "facility-manager-m-w-d-komax-dierikon"
+      ],
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -83,7 +80,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:17:37.993Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -178,7 +178,7 @@
       "title": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
       "titleByLocale": {
         "it": "Sales Switzerland / Technical Sales Ingegnere (w/m/d)",
-        "en": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
+        "en": "Sales Switzerland / Technical Sales Engineer (m/f/d)",
         "de": "Sales Switzerland / Technical Sales Ingenieur (w/m/d)",
         "fr": "Sales Switzerland / Technical Sales Ingénieur (w/m/d)"
       },
@@ -208,9 +208,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252455/",
       "jobReqId": "1165252455",
       "requirements": [],
@@ -243,7 +241,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-3a29c65992eb",

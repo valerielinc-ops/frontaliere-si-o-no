@@ -17,7 +17,7 @@
       "title": "Des médecins porteurs du titre fédéral postgradué de Médecine Intern...",
       "titleByLocale": {
         "it": "Des médecins porteurs du titre fédéral postgradué de Médecine Tirocinante...",
-        "en": "Des médecins porteurs du titre fédéral postgradué de Médecine Intern...",
+        "en": "Doctors carrying the post-graduate federal title of Internal Medicine...",
         "de": "Des médecins porteurs du titre fédéral postgradué de Médecine Praktikant...",
         "fr": "Des médecins porteurs du titre fédéral postgradué de Médecine Stagiaire..."
       },
@@ -47,9 +47,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "requirements": [],
       "requirementsByLocale": {},
@@ -84,7 +82,9 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "rsbj-eb567f86bbdd",

@@ -1147,9 +1147,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-18",
       "postedDate": "2026-03-18",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr126627/stagiaire-archiviste/",
       "jobReqId": "jr126627",
       "requirements": [],
@@ -1186,7 +1184,9 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-03-18",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-19084f19ef35",
@@ -1204,7 +1204,7 @@
       "titleByLocale": {
         "it": "Bijoutier (M/F)",
         "en": "Bijoutier (M/F)",
-        "de": "Bijoutier (H/F)",
+        "de": "Juwelier (M/W)",
         "fr": "Bijoutier (H/F)"
       },
       "description": "Reference code: JR127117\n\nSince 1833, driven by an unquenchable thirst for innovation and creativity, and inspired by the peaceful natural surroundings of its home in the Vallée de Joux, Jaeger-LeCoultre has been distinguished by its mastery of complications and the precision of its mechanisms. Known as the Watchmaker of Watchmakers, the Manufacture has expressed its relentlessly inventive spirit through the creation of more than 1,400 different calibres and the award of more than 430 patents. Harnessing 190 years of accumulated expertise, La Grande Maison’s watchmakers design, produce, finish and ornament the most advanced and precise mechanisms, blending passion with centuries-old savoir-faire, linking the past to the future, timeless but always up with the times. With 180 skills brought together under one roof, the Manufacture creates fine timepieces that combine technical ingenuity with aesthetic beauty and a distinctively understated sophistication.\n\nVOTRE MISSION :\n\nAu sein de notre Direction Manufacturing et rattaché au département Boîtes, vous serez en charge de conduire, coordonner et contrôler l’atelier des Boîtes Complications afin de respecter les programmes et leur réalisation dans les conditions de quantité, qualité, coût, délai et sécurité prévus.\n\nCOMMENT ALLEZ-VOUS AVOIR UN IMPACT ?\n\nFinition et Polissage des Boîtes de Montres : Réaliser toutes les opérations de finition (polissage, satinage, brossage, etc.) sur les boîtes et composants de montres, en utilisant des machines spécifiques et en assurant la conformité aux spécifications techniques et esthétiques.\nPréparation et Assemblage : Préparer les boîtes pour les étapes ultérieures (galvanoplastie, sertissage) et assembler leurs différents éléments (carrure, lunette, fond, glace, joints) en respectant les tolérances et les procédures d'étanchéité, puis contrôler leur ajustement et fonctionnement.\nCompétences Spécifiques en Bijouterie : Préparer les boîtes pour le sertissage, effectuer la finition de pièces joaillières (y compris les ajustements ou petites réparations) et maîtriser les spécificités des métaux précieux (or, platine).\nContrôle Qualité : Effectuer des contrôles visuels et dimensionnels rigoureux à chaque étape, identifier et signaler les non-conformités, et assurer la traçabilité des pièces et des opérations.\nLA CLÉ DE VOTRE SUCCÈS ? VOS COMPÉTENCES !\nFormation et Expérience :\n•\nCFC Bijoutier ou CFC Termineur Habillage Horloger, complété idéalement par un diplôme ou une expérience significative.\n•\nMinimum entre 5 et 10 ans d'expérience en bijouterie (préparation au sertissage, finition de pièces joaillières) et en terminaison horlogère (produits hauts de gamme).\nCompétences Techniques :\n•\nMaîtrise des techniques de finition horlogère (polissage, satinage, brossage) et des machines associées.\n•\nExcellente dextérité, acuité visuelle, connaissance des métaux (acier, or, platine, titane) et capacité à lire des plans techniques.\nQualités Personnelles :\n•\nMinutie, précision, rigueur, sens de l'organisation, autonomie et esprit d'équipe.\n•\nCapacité à gérer la pression et à respecter les délais, avec une passion pour l'horlogerie et la joaillerie de haute qualité.",
@@ -1844,7 +1844,7 @@
       "companyDomain": "richemont.com",
       "title": "Prototypiste",
       "titleByLocale": {
-        "it": "Prototypiste",
+        "it": "Prototipismo",
         "en": "Prototypist",
         "de": "Prototyp",
         "fr": "Prototypiste"
@@ -1873,9 +1873,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr129325/prototypiste/",
       "jobReqId": "jr129325",
       "requirements": [],
@@ -1906,7 +1904,6 @@
         "prototyp-cartier-manufacture-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-09-26T14:07:23.482Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1919,7 +1916,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-22",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-5e3885630e48",
@@ -4218,15 +4217,28 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-09",
       "postedDate": "2026-07-09",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr131050/responsable-outillage/",
       "jobReqId": "jr131050",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.459Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "2026-07-09",
+      "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "responsable-outillage-richemont-le-cret-du-locle"
@@ -4240,20 +4252,7 @@
       },
       "previousSlugs": [
         "responsable-outillage-richemont-le-cret-du-locle"
-      ],
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "richemont-cc2c05858dcd",
@@ -5139,7 +5138,7 @@
       "companyDomain": "richemont.com",
       "title": "Master Data Administrator – Finance",
       "titleByLocale": {
-        "it": "Master Data Administrator – Finance",
+        "it": "Master Data Administrator – Finanza",
         "en": "Master Data Administrator – Finance",
         "de": "Stammdaten-Administrator – Finanzen",
         "fr": "Administrateur de Données de Référence – Finance"
@@ -5168,9 +5167,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-22",
       "postedDate": "2026-07-22",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr131611/master-data-administrator-finance/",
       "jobReqId": "jr131611",
       "requirements": [],
@@ -5189,7 +5186,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-22",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-583961b8a877",
@@ -5619,7 +5618,7 @@
       "title": "Client Services Intern",
       "titleByLocale": {
         "it": "Client Services Tirocinante",
-        "en": "Client Services Intern",
+        "en": "Client Services Internal",
         "de": "Client Services Praktikant",
         "fr": "Client Services Stagiaire"
       },
@@ -5647,9 +5646,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-30",
       "postedDate": "2026-07-30",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132230/client-services-intern/",
       "jobReqId": "jr132230",
       "requirements": [],
@@ -5679,7 +5676,9 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-30",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-6b2b5b084366",
@@ -5791,7 +5790,7 @@
       "title": "Client Advisor",
       "titleByLocale": {
         "it": "Client Consulente",
-        "en": "Client Advisor",
+        "en": "Client advisors",
         "de": "Client Berater",
         "fr": "Client Conseiller"
       },
@@ -5819,9 +5818,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-04",
       "postedDate": "2026-08-04",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132391/client-advisor/",
       "jobReqId": "jr132391",
       "requirements": [],
@@ -5854,7 +5851,9 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-04",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-eef1984c1358",
@@ -6183,7 +6182,7 @@
       "companyDomain": "richemont.com",
       "title": "Stock Administrator",
       "titleByLocale": {
-        "it": "Stock Administrator",
+        "it": "Amministratore delegato",
         "en": "Stock Administrator",
         "de": "Bestand",
         "fr": "Stock"
@@ -6212,9 +6211,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-07",
       "postedDate": "2026-08-07",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132535/stock-administrator/",
       "jobReqId": "jr132535",
       "requirements": [],
@@ -6256,7 +6253,9 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-07",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-f906aa0839ce",
@@ -6851,9 +6850,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-17",
       "postedDate": "2026-08-17",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132750/gestionnaire-paie-et-assurances-sociales/",
       "jobReqId": "jr132750",
       "requirements": [],
@@ -6883,7 +6880,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-bc349632b3b9",
@@ -7293,7 +7292,7 @@
       "title": "Formateur métiers",
       "titleByLocale": {
         "it": "Formatore Professioni",
-        "en": "Formateur métiers",
+        "en": "Business trainer",
         "de": "Berufsbildner",
         "fr": "Formateur métiers"
       },
@@ -7321,26 +7320,13 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-24",
       "postedDate": "2026-08-24",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132960/formateur-metiers/",
       "jobReqId": "jr132960",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.409Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formateur-metiers-richemont-le-cret-du-locle"
-        ],
-        "de": [
-          "formateur-metiers-richemont-le-cret-du-locle"
-        ]
-      },
-      "previousSlugs": [
-        "formateur-metiers-richemont-le-cret-du-locle"
-      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -7353,7 +7339,20 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-24",
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "formateur-metiers-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "formateur-metiers-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "formateur-metiers-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-f63f56b1c0d2",
@@ -9793,7 +9792,7 @@
       "companyDomain": "richemont.com",
       "title": "Chef de projet qualité",
       "titleByLocale": {
-        "it": "Chef de projet qualité",
+        "it": "Project manager qualità",
         "en": "Quality Project Manager",
         "de": "Projektleiter Qualität",
         "fr": "Chef de projet qualité"
@@ -9822,9 +9821,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-08",
       "postedDate": "2026-09-08",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133547/chef-de-projet-qualite/",
       "jobReqId": "jr133547",
       "requirements": [],
@@ -9843,7 +9840,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-08",
+      "postingDateSource": "reported"
     },
     {
       "id": "richemont-07ccf3d90494",
@@ -9965,26 +9964,13 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-09",
       "postedDate": "2026-09-09",
-      "postingDateSource": "reported",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133224/constructeur-mouvements/",
       "jobReqId": "jr133224",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.365Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "constructeur-mouvements-richemont-le-brassus"
-        ],
-        "de": [
-          "constructeur-mouvements-richemont-le-brassus"
-        ]
-      },
-      "previousSlugs": [
-        "constructeur-mouvements-richemont-le-brassus"
-      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -9997,7 +9983,20 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-09",
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-mouvements-richemont-le-brassus"
+        ],
+        "de": [
+          "constructeur-mouvements-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-mouvements-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-e9f29de77018",

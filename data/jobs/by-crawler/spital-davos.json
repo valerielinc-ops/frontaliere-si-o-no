@@ -1554,9 +1554,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/736/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1580,7 +1578,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-52fac3ee6994",
