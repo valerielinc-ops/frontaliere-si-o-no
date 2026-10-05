@@ -13,6 +13,7 @@
  *   5. Post-processes rows for canonical consistency + dedupe.
  *   6. Enforces Swiss location and locale coverage in strict mode.
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -706,6 +707,13 @@ export function buildLastminuteSlug(title = '', location = '') {
   return slugifyLastminute([title, location].filter(Boolean).join(' '));
 }
 
+export function syncLastminutePublication(existing, detail) {
+  const fields = mergeSourcePostingDates(existing, detail);
+  const changed = Object.entries(fields).some(([key, value]) => existing[key] !== value);
+  Object.assign(existing, fields);
+  return changed;
+}
+
 export function buildLastminuteSourceJob(detail = {}, corpUrl = '') {
   const sourceBody = String(detail.description || '').trim();
   if (!meetsSourceBodyFloor(sourceBody)) return null;
@@ -732,7 +740,7 @@ export function buildLastminuteSourceJob(detail = {}, corpUrl = '') {
     sourceLang,
     category: 'tech',
     sector: 'Tecnologia & IT',
-    postedDate: detail.postedDate,
+    ...mergeSourcePostingDates({}, detail),
     employmentType: 'full-time',
     contractType: 'full-time',
   };
@@ -1008,7 +1016,7 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
       // reproducing the bug this guard exists to fix.
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(sourceBody);
       // Only replace if SR API content is richer, or the source text itself drifted
-      let existingChanged = false;
+      let existingChanged = syncLastminutePublication(existing, detail);
       const locationChanged = syncLastminuteExistingLocation(existing, detail);
       if (locationChanged) {
         existingChanged = true;

@@ -15,6 +15,8 @@
  *
  * Regional hospital in Zofingen, canton Aargau.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -24,7 +26,7 @@ import {
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { extractJobPostingsLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
 
 export const SPITAL_ZOFINGEN_KEY = 'spital-zofingen';
 export const SPITAL_ZOFINGEN_COMPANY_NAME = 'Spital Zofingen';
@@ -90,22 +92,27 @@ export async function fetchAllSpitalZofingenJobs() {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Spital Zofingen listing fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   const detailUrls = parseSpitalZofingenListing(listingHtml);
   console.log(`  ✓ ${detailUrls.length} jobs from board listing`);
   if (!detailUrls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const url of detailUrls) {
     let ld;
+    let publication = sourcePostingDateFields();
     try {
       const detailHtml = await fetchHtml(url);
-      ld = extractJobPostingLd(detailHtml);
+      const postings = extractJobPostingsLd(detailHtml);
+      ld = postings[0];
+      // The native detail's first heading identifies the vacancy independently
+      // of its JSON-LD (later headings belong to contact/related-job widgets).
+      const heading = detailHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
+      const pageTitle = jobPostingDescriptionText(heading);
+      if (postings.length === 1) {
+        publication = identifiedPostingPublication(detailHtml, url, pageTitle);
+      }
     } catch (err) {
       console.warn(`  ⚠️ detail fetch failed: ${err?.message || err}`);
     }
@@ -123,8 +130,6 @@ export async function fetchAllSpitalZofingenJobs() {
     const postalCode = addr.postalCode || DEFAULT_POSTAL;
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
-    const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))
-      ? String(ld.datePosted).slice(0, 10) : todayIso;
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${SPITAL_ZOFINGEN_KEY} ${location}`);
@@ -161,7 +166,7 @@ export async function fetchAllSpitalZofingenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
