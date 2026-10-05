@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-04T21:38:48.106Z",
+  "assembledAt": "2026-10-05T09:36:41.528Z",
   "jobs": [
     {
       "id": "dormakaba-11716",
@@ -9,7 +9,7 @@
         "de": "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch",
         "fr": "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen",
         "it": "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
-        "en": "service-and-assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen"
+        "en": "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.053Z",
+      "crawledAt": "2026-10-05T09:36:35.527Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -47,17 +47,21 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1782909873",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "service-and-assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
         "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
+        ],
+        "en": [
+          "service-and-assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen"
         ]
       },
       "needsRetranslation": true,
@@ -74,7 +78,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:35:54.059Z"
+      "firstSeenAt": "2026-07-04T10:35:54.059Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11162",
@@ -82,7 +88,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "service-technician-m-f-d-dormakaba-st-gallen",
+        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -107,7 +113,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.053Z",
+      "crawledAt": "2026-10-05T09:36:35.528Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -121,7 +127,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1773668798",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -135,7 +141,6 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "service-technician-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -146,7 +151,6 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen",
           "service-technician-m-f-d-dormakaba-st-gallen"
         ],
         "fr": [
@@ -168,7 +172,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:35:54.067Z"
+      "firstSeenAt": "2026-07-04T10:35:54.067Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11909",
@@ -185,7 +191,7 @@
       "title": "Informatiker im Aussendienst 80 - 100% (m/w/d)",
       "titleByLocale": {
         "it": "Gli scienziati del computer nel campo 80 - 100% (m/f/d)",
-        "en": "Informatiker im Aussendienst 80 - 100% (m/w/d)",
+        "en": "Computer Scientists in the field 80 - 100% (m/f/d)",
         "de": "Informatiker im Aussendienst 80 - 100% (m/w/d)",
         "fr": "Computer Scientists dans le domaine 80 - 100% (h/f/d)"
       },
@@ -201,7 +207,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.052Z",
+      "crawledAt": "2026-10-05T09:36:35.526Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -215,7 +221,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1784548961",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -242,7 +248,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T12:47:03.270Z"
+      "firstSeenAt": "2026-07-20T12:47:03.270Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11919",
@@ -275,7 +283,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11919/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.052Z",
+      "crawledAt": "2026-10-05T09:36:35.527Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -289,7 +297,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1784357229",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11919/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -302,7 +310,6 @@
           "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -316,7 +323,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T11:21:17.626Z"
+      "firstSeenAt": "2026-07-18T11:21:17.626Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-11900",
@@ -349,7 +358,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:38:41.052Z",
+      "crawledAt": "2026-10-05T09:36:35.527Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -363,7 +372,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1784214127",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "legalEntity": "dormakaba International Holding AG",
       "requirements": [],
@@ -445,7 +456,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1786017030",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11892/?locale=fr_FR",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -488,7 +499,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T01:22:32.066Z"
+      "firstSeenAt": "2026-08-07T01:22:32.066Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "dormakaba-11917",
@@ -521,7 +535,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:38:41.051Z",
+      "crawledAt": "2026-10-05T09:36:35.526Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -535,7 +549,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1785914970",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -621,7 +637,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:38:41.051Z",
+      "crawledAt": "2026-10-05T09:36:35.526Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -635,7 +651,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1785244177",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -714,7 +732,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12228/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.048Z",
+      "crawledAt": "2026-10-05T09:36:35.522Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -728,7 +746,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1788414406",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12228/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -790,7 +810,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11851/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.048Z",
+      "crawledAt": "2026-10-05T09:36:35.523Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -804,7 +824,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1786458936",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11851/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -874,7 +896,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:38:41.047Z",
+      "crawledAt": "2026-10-05T09:36:35.521Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -888,7 +910,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1789640273",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -917,8 +941,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:25.676Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-19T23:11:25.676Z"
     },
     {
       "id": "dormakaba-12274",
@@ -951,7 +974,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.047Z",
+      "crawledAt": "2026-10-05T09:36:35.522Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -965,7 +988,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1789548630",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -1011,7 +1036,7 @@
         "it": "Tecnologia della porta assistita 100% (m/f/d) East Region",
         "en": "Partner Assisted Door Technology 100% (m/f/d) East Region",
         "de": "Partnerbetreuer Türtechnik 100% (w/m/d) Region Ost",
-        "fr": "Partnerbetreuer Türtechnik 100% (w/m/d) Region Ost"
+        "fr": "Partner Assistanced Door Technology 100% (h/f/d) East Region"
       },
       "description": "Als Partnerbetreuer:in Distribution Türtechnik begleiten Sie die zertifizierten Vertriebspartner, Architekten, Planer und Verarbeiter (Schreiner/Metallbauer) beim Technologietransfer in Richtung Türtechnik. Er/sie sorgt dafür, dass dormakaba-Produkte ihren Weg in die Vertriebskanäle finden und die notwendigen Prozesse und Strukturen – intern wie extern – aufgebaut werden. Dabei bildet die Rolle die technische und fachliche Brücke zwischen dormakaba und unseren Partnern.\n\nEine Aufgabe, die zählt: Deine Tätigkeiten\n\n- Betreuung der dormakaba Zielgruppen in technischen und fachlichen Belangen für Türtechnik (z. B. gesicherte Fluchtweglösungen, Türschliesser, Panikschlösser, AHS/DHW).\n\n- Aufbau und Weiterentwicklung eines leistungsfähigen Vertriebsnetzes im Bereich Türtechnik, abgestimmt auf die Anforderungen der Vertriebssparte.\n\n- Technische Unterstützung des Verkaufs bei Marktbearbeitung und Angebotserstellung; Unterstützung bei kundenspezifischen technischen Fragestellungen.\n\n- Begleitung von Partnern während Projektphase bis zur erfolgreichen Einführung in den operativen Betrieb (Umsetzungsbegleitung).\n\n- Marktbeobachtung und -analyse: Erkennen von Markttrends, Bewertung von Chancen und Risiken im Bereich Türtechnik.\n\n- Pflege und Ausbau langfristiger, vertrauensvoller Partnerbeziehungen; Detailkenntnisse über Partner und deren Geschäftsmodelle.\n\nEine Erfahrung, die zählt: Dein Profil\n\n- Ca. 3 Jahre Erfahrung in Bauhaupt- oder Nebengewerbe (z. B. Türtechnik, Gebäudeautomation) oder bei Fachpartnern (AD-/Aussendienst-Erfahrung sehr wünschenswert) oder ca. 3 Jahre Projektmanagement-Erfahrung\n\n- Technisches Verständnis; Erfahrung in Objektbearbeitung und Betreuung bestehender Kunden im Indirekt-Geschäft; Fähigkeit, technische Themen verständlich an Partner zu vermitteln.\n\n- Kommunikationsstärke, Eigeninitiative und strukturierte Arbeitsweise\n\n- Bereitschaft zu regelmässigen Reisen innerhalb Deutschschweiz – ca. 80%\n\nEin Arbeitsumfeld, das zählt: Unser Angebot\n\n- Beste Karrieremöglichkeiten in einem global agierenden Unternehmen mit familiärer Unternehmenskultur.\n\n- Attraktives Gehaltspaket.\n\n- Weiterentwicklungsmöglichkeiten.\n\n- Mitarbeiterunterstützungsprogramme.\n\n- Monetäre Zusatzleistungen (Online-Rabatte für Shopping, Reisen, Versicherungen etc.).\n\n- Dynamisches, internationales Arbeitsumfeld.\n\n- Flexibles Arbeiten – Kombination aus Büro- und Remote-Arbeit.\n\nDie dormakaba Group ist ein Arbeitgeber, der sich für Chancengleichheit, Vielfalt und Inklusion einsetzt. Wir fördern gleiche Chancen für alle Bewerber unabhängig von Alter, Herkunft, Hautfarbe, Religion, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Behinderung, Veteranenstatus oder anderen gesetzlich geschützten Merkmalen.\n\nWIR AKZEPTIEREN KEINE BEWERBUNGEN VON PERSONALVERMITTLUNGEN FÜR DIESE POSITION.",
       "descriptionByLocale": {
@@ -1025,7 +1050,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.047Z",
+      "crawledAt": "2026-10-05T09:36:35.522Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -1039,7 +1064,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1788935351",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -1071,16 +1096,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:17:33.263Z"
+      "firstSeenAt": "2026-07-16T22:17:33.263Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-12355",
-      "slug": "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
+      "slug": "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
         "fr": "directeur-de-projet-80-100-h-f-d-region-de-berne-basel-dormakaba-st-gallen",
-        "it": "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
-        "en": "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch"
+        "it": "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
+        "en": "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1104,7 +1131,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.038Z",
+      "crawledAt": "2026-10-05T09:36:35.517Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1118,60 +1145,63 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1790257579",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
+        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
         "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
-        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen"
+        "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
+          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
           "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
-          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen"
+          "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
         ],
         "en": [
+          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
           "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
         ]
       },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
+          "minValue": 92000,
+          "maxValue": 140000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:51:47.178Z"
+      "firstSeenAt": "2026-09-24T14:51:47.178Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-12356",
-      "slug": "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+      "slug": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
         "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
         "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen",
-        "it": "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
       "companyDomain": "dormakaba.com",
       "title": "Montagetechniker (m/w/d) - Region Zürich",
       "titleByLocale": {
-        "it": "Montagetechniker (m/w/d) - Region Zürich",
-        "en": "Montagetechniker (m/w/d) - Region Zürich",
+        "it": "Tecnico di montaggio (m/f/d) - Regione Zurigo",
+        "en": "Assembly technician (m/f/d) - Zurich region",
         "de": "Montagetechniker (m/w/d) - Region Zürich",
-        "fr": "Montagetechniker (m/w/d) - Region Zürich"
+        "fr": "Technicien de montage (h/f/d) - Région de Zurich"
       },
       "description": "## Deine Aufgaben\n\n- Montieren und verdrahten von Antriebskomponenten und Sensorik\n- Konfiguration und Inbetriebnahme von automatischen Türen\n- Modernisierung von bestehenden Türanlagen\n- Dokumentieren der erbrachten Leistung (Abnahme und Prüfzeugnisse)\n- Übergeben der Anlagen an die Kunden\n\n## Dein Profil\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n\n## Was wir bieten\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n\n##\n\n## Wer wir sind\n For every place that matters.\n Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können.\n Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können.\n Bei dormakaba wirst Du ermutigt, Eigeninitiative zu zeigen, Deine Fähigkeiten auszubauen und Deine Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Maßstäbe in der Branche setzen.\n Arbeite an einem Ort, an dem Du zählst – bewirb Dich jetzt!",
       "descriptionByLocale": {
@@ -1185,7 +1215,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.037Z",
+      "crawledAt": "2026-10-05T09:36:35.511Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1199,7 +1229,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1790322848",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -1207,13 +1237,15 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+        "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
+        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
+          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
@@ -1232,7 +1264,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:07:54.710Z"
+      "firstSeenAt": "2026-09-25T15:07:54.710Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-12354",
@@ -1248,10 +1282,10 @@
       "companyDomain": "dormakaba.com",
       "title": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
       "titleByLocale": {
-        "it": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
-        "en": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
+        "it": "Addetto tecnico servizi 80% - 100% (m/f/d)",
+        "en": "Technical Clerk Services 80% - 100% (m/f/d)",
         "de": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
-        "fr": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)"
+        "fr": "Responsable technique Services 80 % - 100 % (h/f/d)"
       },
       "description": "Werden Sie Teil unseres Teams\n Als weltweit agierendes Unternehmen, das ganz klare Wachstumsziele verfolgt, benötigen wir Mitarbeitende, die sich und die Firma weiterbringen möchten. Für unseren Standort St. Gallen suchen wir dich per sofort oder nach Vereinbarung als Technischer Sachbearbeiter Modernisierungen (w/m/d) 100%.\n In dieser Funktion bist du für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme verantwortlich und stellst eine termingerechte sowie wirtschaftlich erfolgreiche Auftragsabwicklung sicher.\n Deine Aufgaben\n • Du bist verantwortlich für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme.\n • Ausarbeitung von Offerten und Aufträgen für die Modernisation automatischer Türsysteme.\n • Du stellst sicher, dass die Aufträge wirtschaftlich erfolgreich für das Unternehmen abgeschlossen werden.\n • Kaufmännische und technische Klärung bei allfälligen Abweichungen zum Angebot in Zusammenarbeit mit dem Service Account Manager.\n • Terminverantwortung.\n • Verrechnen von Aufträgen und Zusatzaufträgen.\n • Stellvertretung für die Bearbeitung von Wartungsverträgen. ,\n • Reklamationsmanagement.\n • Stammdatenpflege.\n\nDein Profil\n • Technische Berufsbildung mit Weiterbildung im kaufmännischen Bereich.\n • 3–5 Jahre Erfahrung in einer ähnlichen Position.\n • Flair für Technik.\n • Organisationstalent und gute Kommunikationsfähigkeit.\n • Gute EDV-Kenntnisse (MS Office & SAP-Kenntnisse).\n • Kundenorientierte, selbständige und motivierte Persönlichkeit.\n • Ausgezeichnete Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n • Freundliches Auftreten und lösungsorientierte Arbeitsweise.\n\nWas wir bieten\n • Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens.\n • Mit dem ÖV gut erschlossene Arbeitsstandorte sowie Homeoffice-Möglichkeiten.\n • Attraktives Gehaltspaket.\n • Transparente und klar definierte Weiterentwicklungsmöglichkeiten.\n • Unterstützung von Milizarbeit und gemeinnützigen Projekten auch während der Arbeitszeit.\n\nWer wir sind\n For every place that matters. Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können. Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können. Bei dormakaba werden Sie ermutigt, Eigeninitiative zu zeigen, Ihre Fähigkeiten auszubauen und Ihre Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Massstäbe in der Branche setzen.",
       "descriptionByLocale": {
@@ -1265,7 +1299,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.037Z",
+      "crawledAt": "2026-10-05T09:36:35.517Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1279,7 +1313,7 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1790273737",
+      "postedDate": "",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
@@ -1306,7 +1340,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:07:54.711Z"
+      "firstSeenAt": "2026-09-25T15:07:54.711Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "dormakaba-12019",
@@ -1339,7 +1375,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:41.035Z",
+      "crawledAt": "2026-10-05T09:36:35.509Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -1353,7 +1389,9 @@
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "1790343237",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],

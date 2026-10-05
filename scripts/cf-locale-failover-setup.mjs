@@ -67,6 +67,11 @@
  *       IP-verified exception out of this block — currently Semrush's own
  *       Site Audit crawler range, unblocked by source IP (not by UA removal,
  *       which a spoofed UA from elsewhere would still bypass this block for).
+ *       The same block also rejects public Vite source maps on the CDN asset
+ *       host. Production builds do not emit new maps, but R2 sync is additive
+ *       and old objects can remain until the owner-gated janitor runs; keeping
+ *       this condition in the existing block avoids exceeding the zone's five
+ *       custom-firewall-rule limit when foreign rules are present.
  *    b) unidentified-scripted-traffic-challenge — `managed_challenge` (NOT a
  *       hard block — too uncertain to block outright) for requests with an
  *       empty User-Agent or the literal UA "node": live traffic analysis
@@ -80,9 +85,9 @@
  *       narrow scope, directly contradicting (a)'s policy. VERIFIED_CRAWLER_UAS
  *       is exactly the intended-welcome list; OWNER_IP is never
  *       challenged/rate-limited.
- *    Rules (a) and (b) are PREPENDED ahead of (c) so a bad/ambiguous UA is
- *    blocked or challenged before the skip can short-circuit it (same
- *    reasoning as the original comment below).
+ *    Rules (a) and (b) are PREPENDED ahead of (c) so a bad/ambiguous UA or a
+ *    source-map request is blocked/challenged before the skip can
+ *    short-circuit it (same reasoning as the original comment below).
  *
  * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
@@ -110,7 +115,7 @@
  *
  * 5. RESPONSE HEADERS — the apex-security-headers entry in
  *    MANAGED_RESPONSE_HEADER_RULES. It upgrades the existing zone rule from
- *    180-day HSTS to one year and adds a deliberately narrow CSP, clickjacking
+ *    180-day HSTS to one year and adds a compatibility CSP, clickjacking
  *    protection, and the already-deployed baseline headers. The legacy rule is
  *    matched by description and migrated in place; foreign response-header
  *    rules remain untouched.
@@ -235,16 +240,33 @@ const VERIFIED_CRAWLER_UAS = [
 ];
 const OWNER_IP = '178.197.238.144';
 
+// Cloudflare's custom-firewall phase is capped at five rules on this zone's
+// plan. Keep this as a hard invariant: silently truncating foreign rules would
+// change an owner's policy, while sending an oversized PUT fails the whole
+// deploy after routes/cache work has already run.
+const MAX_CUSTOM_FIREWALL_RULES = 5;
+
+const LEGACY_SOURCE_MAP_RULE_DESCRIPTION =
+  'cdn-source-maps-block (managed by scripts/cf-locale-failover-setup.mjs)';
+const LEGACY_SOURCE_MAP_RULE_ACTION = 'block';
+const LEGACY_SOURCE_MAP_RULE_EXPRESSION =
+  '(http.host eq "cdn.frontaliereticino.ch" and ' +
+  'starts_with(http.request.uri.path, "/assets/") and ' +
+  'ends_with(http.request.uri.path, ".map"))';
+
 const MANAGED_FIREWALL_RULES = [
   {
     description: 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)',
     action: 'block',
     expression:
+      '((http.host eq "cdn.frontaliereticino.ch" and ' +
+      'starts_with(http.request.uri.path, "/assets/") and ' +
+      'ends_with(http.request.uri.path, ".map")) or ' +
       '(http.host eq "frontaliereticino.ch" and not (ip.src in {' +
       TRUSTED_CRAWLER_IP_RANGES.join(' ') +
       '}) and (' +
       BLOCKED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
-      '))',
+      ')))',
   },
   {
     description: 'unidentified-scripted-traffic-challenge (managed by scripts/cf-locale-failover-setup.mjs)',
@@ -563,11 +585,15 @@ const MANAGED_REDIRECT_RULES = [
 const LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION =
   'apex-security-headers: HSTS + nosniff + Referrer-Policy on HTML responses (issue #3507; CSP/XFO deliberately excluded pending AdSense validation)';
 
-// Keep this rule intentionally narrow. `default-src`/`script-src` would turn
-// this into a CSP allowlist for the analytics, consent, AdSense, and CDN
-// surfaces and would be a separate compatibility project. These directives
-// close concrete browser attack classes without changing the resource origins
-// the application is allowed to load.
+// The site has first-party, consent-gated, and dynamically selected third-party
+// resources. The scheme source on resource directives preserves those runtime
+// integrations (including Partnerize's rotating hostnames) while the policy
+// still blocks HTTP subresources, plugins, cross-origin framing, and unlisted
+// data/blob types by default. Tightening the source lists further requires a
+// browser inventory and a nonce/hash migration for the existing inline scripts.
+const APEX_CONTENT_SECURITY_POLICY =
+  "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests";
+
 const MANAGED_RESPONSE_HEADER_RULES = [
   {
     description:
@@ -577,7 +603,7 @@ const MANAGED_RESPONSE_HEADER_RULES = [
     headers: {
       'Content-Security-Policy': {
         operation: 'set',
-        value: "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests",
+        value: APEX_CONTENT_SECURITY_POLICY,
       },
       'Referrer-Policy': {
         operation: 'set',
@@ -770,6 +796,18 @@ function fwShape(r) {
   return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''} ${stableStringify(r.action_parameters || null)}`;
 }
 
+// A source-map rule created by PR #11626 can keep serving the same policy
+// after someone edits its description in the dashboard. Match that legacy
+// entry by action + expression so reconciliation removes it as managed legacy
+// instead of counting it as foreign and creating a duplicate. The exact pair
+// is intentional: a foreign rule with another policy remains untouched.
+function isSourceMapFirewallRule(rule) {
+  return (
+    rule?.action === LEGACY_SOURCE_MAP_RULE_ACTION &&
+    rule?.expression === LEGACY_SOURCE_MAP_RULE_EXPRESSION
+  );
+}
+
 async function assertFirewallRules(zoneId) {
   // The custom-firewall entrypoint may not exist on a zone with no custom rules
   // — GET then answers 404; the PUT below creates it.
@@ -778,7 +816,14 @@ async function assertFirewallRules(zoneId) {
   const existing = status === 404 ? [] : (json.result.rules || []);
   const stripped = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
 
-  const managedDescriptions = new Set(MANAGED_FIREWALL_RULES.map((s) => s.description));
+  const managedDescriptions = new Set([
+    ...MANAGED_FIREWALL_RULES.map((s) => s.description),
+    // The source-map protection was briefly emitted as a separate rule in
+    // PR 11626. Treat that description as managed during reconciliation so a
+    // retry removes the stale rule instead of preserving it as foreign and
+    // hitting Cloudflare's five-rule zone limit again.
+    LEGACY_SOURCE_MAP_RULE_DESCRIPTION,
+  ]);
   const desiredManaged = MANAGED_FIREWALL_RULES.map((spec) => ({
     description: spec.description,
     expression: spec.expression,
@@ -788,12 +833,23 @@ async function assertFirewallRules(zoneId) {
   }));
   // Foreign rules (e.g. the Ghana mitigation) are preserved verbatim, in their
   // existing order. OUR rules are PREPENDED, in MANAGED_FIREWALL_RULES array
-  // order: block, then challenge, then the (now-managed) verified-crawler
-  // allowlist skip — both the block and challenge rules MUST run before the
-  // skip, else it short-circuits a bad/ambiguous UA before our rule fires.
+  // order: combined source-map/crawler block, challenge, then the
+  // verified-crawler allowlist skip — all blocking/challenge rules MUST run
+  // before the skip, else it can short-circuit a request before our rule fires.
   // Order-sensitive — that's why we compare the full list, not per-rule.
-  const foreign = stripped.filter((r) => !managedDescriptions.has(r.description));
+  const staleSourceMapRules = stripped.filter(isSourceMapFirewallRule);
+  const foreign = stripped.filter(
+    (r) => !managedDescriptions.has(r.description) && !isSourceMapFirewallRule(r),
+  );
   const desired = [...desiredManaged, ...foreign];
+
+  if (desired.length > MAX_CUSTOM_FIREWALL_RULES) {
+    bail(
+      `${FIREWALL_PHASE} would contain ${desired.length} rules, but Cloudflare allows at most ` +
+        `${MAX_CUSTOM_FIREWALL_RULES}; preserving ${foreign.length} legitimate foreign rule(s) ` +
+        `requires removing one before applying managed rules`,
+    );
+  }
 
   const same =
     desired.length === stripped.length &&
@@ -801,6 +857,11 @@ async function assertFirewallRules(zoneId) {
   if (same) {
     console.log('firewall rules: all in shape (managed rules prepended)');
     return;
+  }
+  if (staleSourceMapRules.length) {
+    console.log(
+      `firewall rules: removing ${staleSourceMapRules.length} stale source-map rule(s) by action/expression`,
+    );
   }
   console.log(
     `firewall rules: drift — applying ${desiredManaged.length} managed rule(s) ahead of ${foreign.length} foreign rule(s)${DRY_RUN ? ' (dry-run)' : ''}`,

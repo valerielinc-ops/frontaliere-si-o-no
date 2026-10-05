@@ -77,6 +77,25 @@ source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
+
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
 # see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
 # in-process export is essential: the monolith propagated CDN_BASE/TAR_BYTES
@@ -227,7 +246,9 @@ _publish_cdn_r2() {
   # (marker withheld, the full prep retries the push), a ledger read falls back
   # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
   # as the last backstop.
-  local _t_obj="${R2_TIMEOUT_OBJECT_S:-60}" _t_purge="${R2_TIMEOUT_PURGE_S:-300}"
+  local _t_obj _t_purge
+  _t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+  _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
@@ -357,10 +378,12 @@ _publish_cdn_r2() {
     # from R2 — even one listed before the sync — would mark clean a key an
     # earlier run uploaded but never purged: R2 already holds the new bytes,
     # the edge still serves the old ones, and this run's upload log is empty.
-    # The price is one purge of the whole bundle the first time (~2,000 keys in
-    # batches of 30, under the purge time limit; source maps never purged), and
-    # no R2 listing at all on the push path. A run that dies before writing the
-    # ledger simply starts empty again next time.
+    # The price is a purge of the whole bundle the first time, and no R2 listing
+    # at all on the push path. Measured on deploy 37271618085: 27,177 keys, of
+    # which 12,570 fit in the 300 s purge limit (419 batches of 30, ~0.7 s
+    # each). The purge therefore runs under a budget below that limit and
+    # always writes the ledger with the keys it did purge: the bundle converges
+    # over two or three deploys instead of starting from zero on each one.
     printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
     _ledger_state=present
     echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
@@ -381,7 +404,10 @@ _publish_cdn_r2() {
     if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
       # Stateful: --stage-dir is valid R2 state only because the assets sync
       # exited 0 (see the script's header). The log still goes in (union).
-      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+      # The script's own budget ends 45 s before `timeout`, so it stops
+      # starting batches and still writes the ledger; the kill is the backstop.
+      CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
         --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
       if [ "$_prc" -ne 0 ]; then
@@ -398,7 +424,9 @@ _publish_cdn_r2() {
           || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      # Fallback (stage unavailable): this run's uploads only.
+      # Fallback (stage unavailable): this run's uploads only. No budget here:
+      # without a ledger, a key the budget left untried would be forgotten
+      # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
       timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
     elif [ "$assets_sync_ok" != 1 ]; then
@@ -529,7 +557,9 @@ _janitor_cdn_r2() {
   local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
   # Wall-clock limits (NX-SKEW-2b, see _publish_cdn_r2): this scan runs inside
   # the deploy's CDN push step on every deploy. Its listing measured 42-53 s.
-  local t_list="${R2_TIMEOUT_LIST_S:-180}" t_obj="${R2_TIMEOUT_OBJECT_S:-60}"
+  local t_list t_obj
+  t_list="$(_r2_timeout_s R2_TIMEOUT_LIST_S 180)"
+  t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
 
   local active_list; active_list="$(mktemp)"
   ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true

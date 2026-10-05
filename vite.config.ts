@@ -675,14 +675,13 @@ export default defineConfig(({ mode }) => {
  },
  build: {
  emptyOutDir: false,
- // Emitted alongside the bundle in dist/assets so PostHog can resolve
- // minified stack frames (owner decision 2026-08-15, issue #5607: exposing
- // reconstructible source is accepted in exchange for automatic exception
- // diagnosis — PostHog was getting frames=[] on every in-app-webview
- // RangeError because no .map existed to fetch). dist/assets is copied to
- // the CDN as-is (scripts/lib/deploy-it-pages-prep.sh) so no separate
- // upload step is needed — the .map rides along with its .js/.css.
- sourcemap: true,
+ // Public source maps made the complete application source downloadable from
+ // the CDN. Keep them opt-in for a controlled symbolication build instead of
+ // shipping them with the normal production artifact. `dist/assets` is copied
+ // to the CDN as-is, so leaving this enabled would publish every map emitted by
+ // Vite (and would also keep old maps reachable through additive R2 syncs).
+ // Use PUBLIC_SOURCEMAPS=1 only for a deliberately private/short-lived build.
+ sourcemap: process.env.PUBLIC_SOURCEMAPS === '1',
  // Rollup's default reportCompressedSize gzip-compresses EVERY emitted JS/CSS
  // chunk purely to print the "gzip: NN kB" console column. With the many vendor
  // splits + per-locale data chunks that's pure wall-time on the build job for

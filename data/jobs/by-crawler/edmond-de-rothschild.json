@@ -1,6 +1,6 @@
 {
   "crawlerKey": "edmond-de-rothschild",
-  "assembledAt": "2026-10-05T06:25:42.003Z",
+  "assembledAt": "2026-10-05T09:18:09.697Z",
   "jobs": [
     {
       "id": "edmond-de-rothschild-bbfa28a48573",
@@ -34,7 +34,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:36.441Z",
+      "crawledAt": "2026-10-05T09:18:03.456Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -48,21 +48,17 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-30",
       "postedDate": "2026-06-30",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "jobReqId": "2796",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-owner-sirh-h-f-edmond-de-rothschild-ch",
-        "soluzione-proprietaria-sirh-m-f-edmond-de-rothschild-switzerland"
+        "solution-owner-sirh-h-f-edmond-de-rothschild-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-owner-sirh-h-f-edmond-de-rothschild-ch",
-          "soluzione-proprietaria-sirh-m-f-edmond-de-rothschild-switzerland"
+          "solution-owner-sirh-h-f-edmond-de-rothschild-ch"
         ],
         "de": [
           "solution-owner-sirh-h-f-edmond-de-rothschild-ch"
@@ -81,13 +77,15 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-30",
+      "postingDateSource": "reported"
     },
     {
       "id": "edmond-de-rothschild-9df42d163950",
-      "slug": "compliance-project-data-officer-edmond-de-rothschild-ch",
+      "slug": "responsabile-del-progetto-di-conformita-e-dei-dati-edmond-de-rothschild-switzerland",
       "slugByLocale": {
-        "it": "compliance-project-data-officer-edmond-de-rothschild-ch",
+        "it": "responsabile-del-progetto-di-conformita-e-dei-dati-edmond-de-rothschild-switzerland",
         "en": "compliance-project-data-officer-edmond-de-rothschild-ch",
         "de": "compliance-projekt-data-officer-edmond-de-rothschild-switzerland",
         "fr": "compliance-project-data-officer-edmond-de-rothschild-ch"
@@ -97,7 +95,7 @@
       "companyDomain": "edmond-de-rothschild.com",
       "title": "Compliance Project & Data Officer",
       "titleByLocale": {
-        "it": "Compliance Project & Data Officer",
+        "it": "Responsabile del Progetto di Conformità e dei Dati",
         "en": "Compliance Project & Data Officer",
         "de": "Compliance Projekt & Data Officer",
         "fr": "Compliance Project & Data Officer"
@@ -115,7 +113,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:35.893Z",
+      "crawledAt": "2026-10-05T09:18:02.867Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -129,27 +127,35 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-02",
       "postedDate": "2026-07-02",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "jobReqId": "2818",
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-26T14:03:53.504Z",
-      "salaryMin": 69000,
-      "salaryMax": 118000,
+      "salaryMin": 107000,
+      "salaryMax": 183000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69000,
-          "maxValue": 118000,
+          "minValue": 107000,
+          "maxValue": 183000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-02",
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-project-data-officer-edmond-de-rothschild-ch"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-project-data-officer-edmond-de-rothschild-ch"
+      ]
     },
     {
       "id": "edmond-de-rothschild-bbe9897fcbd0",
@@ -182,7 +188,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2911",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:35.285Z",
+      "crawledAt": "2026-10-05T09:18:02.366Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -196,21 +202,17 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-29",
       "postedDate": "2026-07-29",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2911",
       "jobReqId": "2911",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-services-generaux-h-f-edmond-de-rothschild-ch",
-        "collaboratore-servizi-generali-m-f-edmond-de-rothschild-switzerland"
+        "collaborateur-services-generaux-h-f-edmond-de-rothschild-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-services-generaux-h-f-edmond-de-rothschild-ch",
-          "collaboratore-servizi-generali-m-f-edmond-de-rothschild-switzerland"
+          "collaborateur-services-generaux-h-f-edmond-de-rothschild-ch"
         ],
         "en": [
           "collaborateur-services-generaux-h-f-edmond-de-rothschild-ch"
@@ -232,7 +234,9 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-29",
+      "postingDateSource": "reported"
     },
     {
       "id": "edmond-de-rothschild-a2b63821b313",
@@ -266,7 +270,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3006",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:34.741Z",
+      "crawledAt": "2026-10-05T09:18:01.865Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -280,21 +284,17 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-02",
       "postedDate": "2026-09-02",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3006",
       "jobReqId": "3006",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-fichier-central-h-f-edmond-de-rothschild-ch",
-        "file-specialistico-centrale-m-f-edmond-de-rothschild-switzerland"
+        "specialiste-fichier-central-h-f-edmond-de-rothschild-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-fichier-central-h-f-edmond-de-rothschild-ch",
-          "file-specialistico-centrale-m-f-edmond-de-rothschild-switzerland"
+          "specialiste-fichier-central-h-f-edmond-de-rothschild-ch"
         ],
         "en": [
           "specialiste-fichier-central-h-f-edmond-de-rothschild-ch"
@@ -316,7 +316,9 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-02",
+      "postingDateSource": "reported"
     },
     {
       "id": "edmond-de-rothschild-910585ce1cc5",
@@ -350,7 +352,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3039",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:34.201Z",
+      "crawledAt": "2026-10-05T09:18:01.368Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -364,21 +366,17 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-15",
       "postedDate": "2026-09-15",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3039",
       "jobReqId": "3039",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-risks-officer-h-f-edmond-de-rothschild-ch",
-        "responsabile-dei-rischi-finanziari-m-f-edmond-de-rothschild-switzerland"
+        "financial-risks-officer-h-f-edmond-de-rothschild-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-risks-officer-h-f-edmond-de-rothschild-ch",
-          "responsabile-dei-rischi-finanziari-m-f-edmond-de-rothschild-switzerland"
+          "financial-risks-officer-h-f-edmond-de-rothschild-ch"
         ],
         "de": [
           "financial-risks-officer-h-f-edmond-de-rothschild-ch"
@@ -397,7 +395,9 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-15",
+      "postingDateSource": "reported"
     },
     {
       "id": "edmond-de-rothschild-9d675d951fc6",
@@ -431,7 +431,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3056",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:33.629Z",
+      "crawledAt": "2026-10-05T09:18:00.841Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",

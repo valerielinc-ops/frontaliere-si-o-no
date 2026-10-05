@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-04T21:21:04.482Z",
+  "assembledAt": "2026-10-05T09:20:41.405Z",
   "jobs": [
     {
       "id": "coopers-ab1752bb6b8f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:58.342Z",
+      "crawledAt": "2026-10-05T09:20:35.801Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -45,7 +45,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-17",
+      "postedDate": "2026-05-27T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "requirements": [
         "Life Sciences - Engineering",
@@ -80,14 +80,12 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis",
-        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
+        "engineering-planner-m-f-d-coopers-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis",
-          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
+          "engineering-planner-m-f-d-coopers-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -101,7 +99,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -114,7 +111,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-27T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-52cb4b048a24",
@@ -147,7 +146,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:57.409Z",
+      "crawledAt": "2026-10-05T09:20:34.816Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -159,7 +158,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-28",
+      "datePosted": "2026-06-30T00:00:00Z",
+      "postedDate": "2026-06-30T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "requirements": [
         "IT - Software Engineering",
@@ -209,7 +210,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -225,7 +226,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:56.480Z",
+      "crawledAt": "2026-10-05T09:20:33.837Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -237,7 +238,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-28",
+      "postedDate": "2026-03-03T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -272,7 +273,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-03-03T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-e2bf5b2d46bc",
@@ -289,7 +292,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -305,7 +308,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:55.530Z",
+      "crawledAt": "2026-10-05T09:20:32.867Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -317,7 +320,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "postedDate": "2026-08-05T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "requirements": [
         "IT - ERP & Applications",
@@ -340,17 +343,14 @@
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
       "previousSlugsByLocale": {
         "it": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
-          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
         ],
         "de": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
-          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
-        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
-        "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
+        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -364,7 +364,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-05T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-74d1dcd9cf29",
@@ -397,7 +399,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:54.606Z",
+      "crawledAt": "2026-10-05T09:20:31.900Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +411,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-26",
+      "postedDate": "2026-08-04T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "requirements": [
         "IT - Project Management",
@@ -430,13 +432,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
-        "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
+        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
-          "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
+          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
         ],
         "en": [
           "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
@@ -459,7 +459,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-04T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-ba5b830ac60d",
@@ -476,7 +478,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
+        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -492,7 +494,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:53.674Z",
+      "crawledAt": "2026-10-05T09:20:30.928Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -504,7 +506,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-03T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -537,8 +539,7 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
         "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
         "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern",
-        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
+        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -546,8 +547,7 @@
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
+          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -576,7 +576,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-03T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-1f0b26337c57",
@@ -609,7 +611,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:52.754Z",
+      "crawledAt": "2026-10-05T09:20:29.955Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -621,7 +623,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "postedDate": "2026-08-12T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "requirements": [
         "IT - ERP & Applications",
@@ -639,13 +641,11 @@
         ]
       },
       "previousSlugs": [
-        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
-        "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
+        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
-          "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
+          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
         ],
         "en": [
           "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
@@ -668,7 +668,9 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-12T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-d6f3782d4212",
@@ -701,7 +703,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:51.726Z",
+      "crawledAt": "2026-10-05T09:20:28.984Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -713,7 +715,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-11",
+      "datePosted": "2026-08-12T00:00:00Z",
+      "postedDate": "2026-08-12T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "requirements": [
         "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
@@ -782,7 +786,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:50.775Z",
+      "crawledAt": "2026-10-05T09:20:28.016Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -794,7 +798,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "postedDate": "2026-08-20T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "requirements": [
         "IT - Project Management",
@@ -816,15 +820,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
-          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
           "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
           "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
-          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -838,8 +840,7 @@
         "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
         "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-        "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
-        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
+        "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
@@ -855,7 +856,9 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-20T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-e422145c5708",
@@ -888,7 +891,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:49.827Z",
+      "crawledAt": "2026-10-05T09:20:27.042Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -900,7 +903,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-27",
+      "postedDate": "2026-03-09T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "requirements": [
         "IT - ERP & Applications",
@@ -919,13 +922,11 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
-        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
-          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
         ]
       },
       "needsRetranslation": true,
@@ -942,7 +943,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-03-09T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-bb3eb792f1bd",
@@ -975,7 +978,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:48.890Z",
+      "crawledAt": "2026-10-05T09:20:26.041Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -987,7 +990,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "requirements": [
         "Life Sciences - Engineering Plant",
@@ -1008,13 +1011,11 @@
       },
       "previousSlugs": [
         "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis",
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
         ],
         "de": [
           "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
@@ -1038,7 +1039,9 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-ce95eab173e7",
@@ -1083,7 +1086,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "requirements": [
         "IT - Project Management",
@@ -1103,13 +1106,11 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
-        "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
+        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
-          "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
+          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
         ],
         "en": [
           "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
@@ -1132,7 +1133,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "coopers-67b1692b6037",
@@ -1165,7 +1169,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:46.976Z",
+      "crawledAt": "2026-10-05T09:20:25.062Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1177,7 +1181,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-30",
+      "postedDate": "2026-01-12T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "requirements": [
         "Administration - Human Resources",
@@ -1196,13 +1200,11 @@
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
-        "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
+        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
-          "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
+          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
         ],
         "fr": [
           "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
@@ -1222,7 +1224,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-01-12T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-9fad6dc11706",
@@ -1255,7 +1259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:46.027Z",
+      "crawledAt": "2026-10-05T09:20:24.074Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1267,7 +1271,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "postedDate": "2026-09-02T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -1291,13 +1295,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-software-engineer-go-developer-m-w-d-coopers-bern",
-        "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
+        "senior-software-engineer-go-developer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-go-developer-m-w-d-coopers-bern",
-          "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
+          "senior-software-engineer-go-developer-m-w-d-coopers-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1314,7 +1316,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-02T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-172428ad68bb",
@@ -1347,7 +1351,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:45.088Z",
+      "crawledAt": "2026-10-05T09:20:23.107Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1359,7 +1363,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "postedDate": "2026-09-03T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -1380,13 +1384,11 @@
         ]
       },
       "previousSlugs": [
-        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
-        "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
+        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
-          "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
+          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
         ],
         "en": [
           "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
@@ -1409,7 +1411,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-03T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-87d0f1b61457",
@@ -1442,7 +1446,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:44.149Z",
+      "crawledAt": "2026-10-05T09:20:22.116Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1454,7 +1458,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "2026-09-08T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "requirements": [
         "IT - Software Engineering",
@@ -1475,14 +1479,12 @@
       },
       "previousSlugs": [
         "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
-        "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
+        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
-          "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
+          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern"
@@ -1505,7 +1507,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-08T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-0529dc35c9dd",
@@ -1538,7 +1542,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:43.204Z",
+      "crawledAt": "2026-10-05T09:20:21.150Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1550,7 +1554,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "postedDate": "2026-09-10T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "requirements": [
         "Engineering - Health & Safety",
@@ -1568,13 +1572,11 @@
         ]
       },
       "previousSlugs": [
-        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
-        "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
+        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
-          "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
+          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
         ],
         "fr": [
           "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
@@ -1594,7 +1596,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-10T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-0732f02c2230",
@@ -1627,7 +1631,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:42.268Z",
+      "crawledAt": "2026-10-05T09:20:20.186Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1639,7 +1643,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-20T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "requirements": [
         "IT - Software Engineering",
@@ -1662,13 +1666,11 @@
         ]
       },
       "previousSlugs": [
-        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
-        "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
+        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
-          "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
+          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
         ],
         "en": [
           "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
@@ -1688,7 +1690,9 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-20T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-f5ab15f3b14f",
@@ -1721,7 +1725,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:41.321Z",
+      "crawledAt": "2026-10-05T09:20:19.184Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1733,7 +1737,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postedDate": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "requirements": [
         "IT - Software Engineering",
@@ -1770,22 +1776,22 @@
     },
     {
       "id": "coopers-732a9da45a10",
-      "slug": "senior-procurement-professional-automation-industrial-technology-m-f-d-coopers-wallis",
+      "slug": "senior-procurement-professional-automazione-e-tecnologia-industriale-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "it": "senior-procurement-professional-automation-industrial-technology-m-f-d-coopers-wallis",
+        "it": "senior-procurement-professional-automazione-e-tecnologia-industriale-m-f-d-coopers-group-ag-wallis",
         "en": "senior-procurement-professional-automation-industrial-technology-m-f-d-coopers-wallis",
         "de": "senior-procurement-professional-automatisierung-industrietechnik-m-w-d-coopers-group-ag-wallis",
-        "fr": "senior-procurement-professional-automation-industrial-technology-m-w-d-coopers-group-ag-wallis"
+        "fr": "professionnel-principal-de-l-approvisionnement-automatisation-et-technologie-industrielle-h-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)",
       "titleByLocale": {
-        "it": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)",
+        "it": "Senior Procurement Professional – Automazione e tecnologia industriale (m/f/d)",
         "en": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)",
         "de": "Senior Procurement Professional – Automatisierung & Industrietechnik (m/w/d)",
-        "fr": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)"
+        "fr": "Professionnel principal de l'approvisionnement – Automatisation et technologie industrielle (h/f/d)"
       },
       "description": "For our client, we are looking for an experienced Senior Procurement Professional / Category Manager with a strong focus on Automation & Industrial Technology within a pharmaceutical manufacturing environment. The ideal candidate brings extensive experience in strategic procurement, category management, supplier management, and complex commercial negotiations, combined with a solid understanding of industrial automation technologies. The role involves developing and executing the Automation Procurement category strategy, managing key OEMs, technology suppliers, and system integrators, and leading sourcing activities for automation equipment, systems, software, services, and CAPEX projects. The successful candidate will work closely with Engineering, Manufacturing, Automation, IT/OT, Quality, Validation, and Supply Chain teams to optimize costs, manage supplier performance and risks, and ensure effective procurement throughout the automation lifecycle.\n\nStart date: 01.10.26\n\nEnd date : 30.09.27 (Option for extension)\n\nDuration: 1 year (with option to extend)\n\nWorkload: 100%\n\nLocation: Canton Valais\n\nYour Tasks:\n• Own and develop the Automation Procurement category strategy , aligned with business, engineering, manufacturing, and global procurement objectives.\n• Develop and implement sourcing strategies for automation equipment, systems, software, services, spare parts, maintenance, and lifecycle support.\n• Manage strategic relationships with automation OEMs, technology suppliers, system integrators, and service providers .\n• Lead supplier selection, qualification, negotiations, and contract management , including pricing, frameworks, licensing, maintenance, warranties, and commercial terms.\n• Analyze spend, supplier markets, and technology trends to identify cost optimization, standardization, and value-creation opportunities .\n• Partner closely with Engineering, Automation, Manufacturing, IT/OT, Quality, Validation, Supply Chain, and Project teams .\n• Lead procurement activities for CAPEX and manufacturing projects , from early design through sourcing, contracting, delivery, commissioning, and handover.\n• Support technical-commercial evaluations of automation solutions, considering technical requirements, validation, lifecycle costs, and project timelines .\n• Manage supplier performance and mitigate supply, commercial, lifecycle, and single-source risks .\n• Drive strategies for technology upgrades, obsolescence, modernization, and lifecycle management .\n\nYour Profile:\n• 10+ years of experience in Procurement , preferably in strategic procurement or category management.\n• Proven experience in supplier management, strategic sourcing, and commercial negotiations .\n• Experience working with SAP and SAP Ariba .\n• Experience managing stakeholders in a multinational environment .\n• Strong understanding of industrial automation and/or engineering-related procurement .\n• Experience in pharmaceutical/GMP environments is a strong advantage.\n• Educational background in Engineering, Procurement, Supply Chain, or a related field .\n• Fluent English ; German is a plus.\n\nJob profile\n• Life Sciences - Quality Management\n• Wallis\n• Contracting\n• Full Time\n• 01.10.26 - 30.09.27\n• Procurement, Supplier management, SAP, Negotiations, supply chain management, MES, Process control, PLC\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
       "descriptionByLocale": {
@@ -1799,7 +1805,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:40.391Z",
+      "crawledAt": "2026-10-05T09:20:18.211Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1811,7 +1817,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "postedDate": "2026-09-16T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "requirements": [
         "Life Sciences - Quality Management",
@@ -1831,11 +1837,16 @@
         ]
       },
       "previousSlugs": [
-        "professionnel-principal-de-l-approvisionnement-automatisation-et-technologie-industrielle-h-f-d-coopers-group-ag-wallis"
+        "professionnel-principal-de-l-approvisionnement-automatisation-et-technologie-industrielle-h-f-d-coopers-group-ag-wallis",
+        "senior-procurement-professional-automation-industrial-technology-m-f-d-coopers-wallis",
+        "senior-procurement-professional-automation-industrial-technology-m-w-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "professionnel-principal-de-l-approvisionnement-automatisation-et-technologie-industrielle-h-f-d-coopers-group-ag-wallis"
+          "senior-procurement-professional-automation-industrial-technology-m-w-d-coopers-group-ag-wallis"
+        ],
+        "it": [
+          "senior-procurement-professional-automation-industrial-technology-m-f-d-coopers-wallis"
         ]
       },
       "needsRetranslation": true,
@@ -1852,7 +1863,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-d8d4d0e6a1af",
@@ -1885,7 +1898,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SY6F22",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:39.429Z",
+      "crawledAt": "2026-10-05T09:20:17.235Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1897,7 +1910,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "postedDate": "2026-09-16T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=SY6F22",
       "requirements": [
         "Administration - Human Resources",
@@ -1917,13 +1930,11 @@
         ]
       },
       "previousSlugs": [
-        "people-attraction-manager-m-w-d-coopers-bern",
-        "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
+        "people-attraction-manager-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-attraction-manager-m-w-d-coopers-bern",
-          "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
+          "people-attraction-manager-m-w-d-coopers-bern"
         ],
         "fr": [
           "people-attraction-manager-m-w-d-coopers-bern"
@@ -1943,7 +1954,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-61fd12977878",
@@ -1976,7 +1989,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0R36QX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:38.481Z",
+      "crawledAt": "2026-10-05T09:20:16.265Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1988,7 +2001,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "postedDate": "2026-09-16T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=0R36QX",
       "requirements": [
         "Life Sciences - Supply Chain / Operations",
@@ -2008,13 +2021,11 @@
         ]
       },
       "previousSlugs": [
-        "cold-chain-project-coordinator-m-f-d-coopers-wallis",
-        "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
+        "cold-chain-project-coordinator-m-f-d-coopers-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cold-chain-project-coordinator-m-f-d-coopers-wallis",
-          "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
+          "cold-chain-project-coordinator-m-f-d-coopers-wallis"
         ],
         "de": [
           "cold-chain-project-coordinator-m-f-d-coopers-wallis"
@@ -2037,7 +2048,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-70cc68c4eae6",
@@ -2070,7 +2083,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=57J0ZU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:37.529Z",
+      "crawledAt": "2026-10-05T09:20:15.267Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2082,7 +2095,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postedDate": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=57J0ZU",
       "requirements": [
         "IT - Project Management",
@@ -2148,7 +2163,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:36.584Z",
+      "crawledAt": "2026-10-05T09:20:14.291Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2160,7 +2175,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "postedDate": "2026-09-22T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "requirements": [
         "IT - Project Management",
@@ -2181,14 +2196,12 @@
       },
       "previousSlugs": [
         "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-        "ikt-projektleiter-in-m-w-d-coopers-bern",
-        "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
+        "ikt-projektleiter-in-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-          "ikt-projektleiter-in-m-w-d-coopers-bern",
-          "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
+          "ikt-projektleiter-in-m-w-d-coopers-bern"
         ],
         "en": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern"
@@ -2211,7 +2224,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-22T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-086a726f943d",
@@ -2244,7 +2259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:35.608Z",
+      "crawledAt": "2026-10-05T09:20:13.323Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2256,7 +2271,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "requirements": [
         "IT - Network & Security",
@@ -2276,13 +2291,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-security-architect-m-w-d-coopers-bern",
-        "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
+        "senior-ict-security-architect-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-security-architect-m-w-d-coopers-bern",
-          "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
+          "senior-ict-security-architect-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-ict-security-architect-m-w-d-coopers-bern"
@@ -2302,7 +2315,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-c6786e468b15",
@@ -2335,7 +2350,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:34.622Z",
+      "crawledAt": "2026-10-05T09:20:12.351Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2347,7 +2362,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -2369,13 +2384,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
-        "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
+        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
-          "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
+          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
@@ -2395,7 +2408,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-58406a713920",
@@ -2428,7 +2443,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:33.640Z",
+      "crawledAt": "2026-10-05T09:20:11.371Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2440,7 +2455,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "requirements": [
         "IT - Data Science / Digital",
@@ -2460,13 +2475,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-data-integration-architect-m-w-d-coopers-bern",
-        "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
+        "senior-ict-data-integration-architect-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-data-integration-architect-m-w-d-coopers-bern",
-          "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
+          "senior-ict-data-integration-architect-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-ict-data-integration-architect-m-w-d-coopers-bern"
@@ -2486,7 +2499,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-1476dea71b71",
@@ -2519,7 +2534,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:32.675Z",
+      "crawledAt": "2026-10-05T09:20:10.402Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2531,7 +2546,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "requirements": [
         "IT - Project Management",
@@ -2598,7 +2615,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:31.701Z",
+      "crawledAt": "2026-10-05T09:20:09.340Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2610,7 +2627,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -2631,13 +2648,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
-        "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
-          "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
@@ -2657,7 +2672,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-8fbe085e2e3a",
@@ -2690,7 +2707,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:30.730Z",
+      "crawledAt": "2026-10-05T09:20:08.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2702,7 +2719,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -2725,13 +2742,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-security-encryption-engineer-m-w-d-coopers-bern",
-        "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-security-encryption-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-security-encryption-engineer-m-w-d-coopers-bern",
-          "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-security-encryption-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-security-encryption-engineer-m-w-d-coopers-bern"
@@ -2751,7 +2766,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-6d6365cc3de4",
@@ -2784,7 +2801,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:29.744Z",
+      "crawledAt": "2026-10-05T09:20:07.326Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2796,7 +2813,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "requirements": [
         "IT - Project Management",
@@ -2862,7 +2881,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:28.799Z",
+      "crawledAt": "2026-10-05T09:20:06.319Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2874,7 +2893,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -2898,13 +2917,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
-        "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
-          "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
@@ -2924,7 +2941,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-e0cb5e410471",
@@ -2957,7 +2976,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=44RK3F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:27.875Z",
+      "crawledAt": "2026-10-05T09:20:05.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2969,7 +2988,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=44RK3F",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -2993,13 +3012,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
+          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
-          "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
+          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
         ],
         "en": [
           "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
@@ -3007,8 +3024,7 @@
       },
       "previousSlugs": [
         "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
-        "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
+        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:57:58.876Z",
@@ -3024,7 +3040,9 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-7b178dc5917d",
@@ -3057,7 +3075,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OZ1U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:26.928Z",
+      "crawledAt": "2026-10-05T09:20:04.336Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3069,7 +3087,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "2026-09-18T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OZ1U1",
       "requirements": [
         "Life Sciences - R&D Laboratory",
@@ -3088,13 +3106,11 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
-        "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
+        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
-          "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
+          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
         ],
         "de": [
           "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
@@ -3117,7 +3133,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-18T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-39a11432c01a",
@@ -3150,7 +3168,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=39BZE7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:25.990Z",
+      "crawledAt": "2026-10-05T09:20:03.367Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3162,7 +3180,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "2026-09-18T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=39BZE7",
       "requirements": [
         "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
@@ -3185,13 +3203,11 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
-        "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
+        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
-          "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
+          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
         ],
         "de": [
           "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
@@ -3214,7 +3230,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-18T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-4d94e93ca2f3",
@@ -3247,7 +3265,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:25.050Z",
+      "crawledAt": "2026-10-05T09:20:02.392Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3259,7 +3277,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "requirements": [
         "IT - Project Management",
@@ -3333,7 +3353,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:24.099Z",
+      "crawledAt": "2026-10-05T09:20:01.405Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3345,7 +3365,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -3365,13 +3385,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
-        "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
-          "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
@@ -3391,7 +3409,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-999df646fd91",
@@ -3424,7 +3444,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:23.160Z",
+      "crawledAt": "2026-10-05T09:20:00.436Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3436,7 +3456,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "requirements": [
         "IT - ERP & Applications",
@@ -3456,13 +3476,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-api-integration-engineer-m-w-d-coopers-bern",
-        "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-api-integration-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-api-integration-engineer-m-w-d-coopers-bern",
-          "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-api-integration-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-api-integration-engineer-m-w-d-coopers-bern"
@@ -3482,7 +3500,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-bc1bb407811e",
@@ -3515,7 +3535,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:22.225Z",
+      "crawledAt": "2026-10-05T09:19:59.451Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3527,7 +3547,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "requirements": [
         "IT - ERP & Applications",
@@ -3597,7 +3619,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:21.277Z",
+      "crawledAt": "2026-10-05T09:19:58.474Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3609,7 +3631,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -3631,13 +3653,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-test-collaboration-engineer-m-w-d-coopers-bern",
-        "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
+        "senior-test-collaboration-engineer-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-test-collaboration-engineer-m-w-d-coopers-bern",
-          "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-test-collaboration-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-test-collaboration-engineer-m-w-d-coopers-bern"
@@ -3657,7 +3677,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-6612aa0c63bf",
@@ -3690,7 +3712,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:20.344Z",
+      "crawledAt": "2026-10-05T09:19:57.496Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3702,7 +3724,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "requirements": [
         "IT - Project Management",
@@ -3768,7 +3792,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J99KY6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:19.400Z",
+      "crawledAt": "2026-10-05T09:19:56.516Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3780,7 +3804,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "postedDate": "2026-09-21T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=J99KY6",
       "requirements": [
         "Life Sciences - Supply Chain / Operations",
@@ -3800,13 +3824,11 @@
         ]
       },
       "previousSlugs": [
-        "gxp-compliance-expert-m-f-d-coopers-aargau",
-        "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
+        "gxp-compliance-expert-m-f-d-coopers-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gxp-compliance-expert-m-f-d-coopers-aargau",
-          "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
+          "gxp-compliance-expert-m-f-d-coopers-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -3823,7 +3845,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-3d8c7e902f15",
@@ -3856,7 +3880,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:18.467Z",
+      "crawledAt": "2026-10-05T09:19:55.539Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3868,7 +3892,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-20",
+      "postedDate": "2026-09-22T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "requirements": [
         "IT - Software Engineering",
@@ -3888,13 +3912,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
-        "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
+        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
-          "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
+          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
         ],
         "en": [
           "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
@@ -3917,7 +3939,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-22T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-3c7f954dbee3",
@@ -3950,7 +3974,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:17.524Z",
+      "crawledAt": "2026-10-05T09:19:54.575Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3962,7 +3986,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-25T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "requirements": [
         "IT - IT Management",
@@ -3983,13 +4007,11 @@
         ]
       },
       "previousSlugs": [
-        "product-owner-m-w-d-coopers-solothurn",
-        "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
+        "product-owner-m-w-d-coopers-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-m-w-d-coopers-solothurn",
-          "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
+          "product-owner-m-w-d-coopers-solothurn"
         ],
         "fr": [
           "product-owner-m-w-d-coopers-solothurn"
@@ -4009,7 +4031,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-d795315f2b97",
@@ -4042,7 +4066,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:16.584Z",
+      "crawledAt": "2026-10-05T09:19:53.589Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4054,7 +4078,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "requirements": [
         "IT - Network & Security",
@@ -4077,13 +4101,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
-          "ict-teilprojektleiter-in-m-w-d-coopers-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
         ],
         "it": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
-          "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
         ],
         "en": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern"
@@ -4094,8 +4116,7 @@
       },
       "previousSlugs": [
         "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
-        "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
+        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:51:02.495Z",
@@ -4111,7 +4132,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-a19125428a8b",
@@ -4144,7 +4167,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:15.610Z",
+      "crawledAt": "2026-10-05T09:19:52.613Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4156,7 +4179,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "requirements": [
         "Life Sciences - Quality Management",
@@ -4177,13 +4200,11 @@
         ]
       },
       "previousSlugs": [
-        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
-        "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
+        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
-          "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
+          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
         ],
         "fr": [
           "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
@@ -4203,7 +4224,9 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-57b62274cdfc",
@@ -4236,7 +4259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:14.662Z",
+      "crawledAt": "2026-10-05T09:19:51.625Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4248,7 +4271,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postedDate": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "requirements": [
         "IT - Project Management",
@@ -4299,7 +4324,7 @@
       "title": "Power Plattform Developer (m/w/d)",
       "titleByLocale": {
         "it": "Power Plattform Sviluppatore (m/w/d)",
-        "en": "Power Platform Developer (m/f/d)",
+        "en": "Power Plattform Developer (m/w/d)",
         "de": "Power Plattform Entwickler (m/w/d)",
         "fr": "Power Plattform Développeur (m/w/d)"
       },
@@ -4315,7 +4340,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:13.730Z",
+      "crawledAt": "2026-10-05T09:19:50.657Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4327,7 +4352,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "requirements": [
         "IT - Software Engineering",
@@ -4348,13 +4373,11 @@
         ]
       },
       "previousSlugs": [
-        "power-plattform-developer-m-w-d-coopers-schaffhausen",
-        "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
+        "power-plattform-developer-m-w-d-coopers-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-plattform-developer-m-w-d-coopers-schaffhausen",
-          "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
+          "power-plattform-developer-m-w-d-coopers-schaffhausen"
         ],
         "fr": [
           "power-plattform-developer-m-w-d-coopers-schaffhausen"
@@ -4374,7 +4397,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-d868b4d9a105",
@@ -4391,7 +4416,7 @@
       "title": "System Engineer IT-Infrastruktur (m/w/d)",
       "titleByLocale": {
         "it": "System Ingegnere IT-Infrastruktur (m/w/d)",
-        "en": "System Engineer IT-Infrastruktur (m/w/d)",
+        "en": "System Engineer IT Infrastructure (m/f/d)",
         "de": "System Ingenieur IT-Infrastruktur (m/w/d)",
         "fr": "System Ingénieur IT-Infrastruktur (m/w/d)"
       },
@@ -4407,7 +4432,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:12.809Z",
+      "crawledAt": "2026-10-05T09:19:49.658Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4419,7 +4444,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -4439,13 +4464,11 @@
         ]
       },
       "previousSlugs": [
-        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
-        "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
+        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
-          "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
+          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
         ],
         "fr": [
           "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
@@ -4465,7 +4488,9 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-270405872da5",
@@ -4498,7 +4523,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:11.853Z",
+      "crawledAt": "2026-10-05T09:19:48.654Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4510,7 +4535,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "requirements": [
         "IT - IT Management",
@@ -4533,16 +4558,14 @@
         "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
         "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
         "senior-cio-office-manager-m-w-d-coopers-luzern",
-        "leiter-in-cio-office-m-w-d-coopers-luzern",
-        "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
+        "leiter-in-cio-office-m-w-d-coopers-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
           "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
           "senior-cio-office-manager-m-w-d-coopers-luzern",
-          "leiter-in-cio-office-m-w-d-coopers-luzern",
-          "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
+          "leiter-in-cio-office-m-w-d-coopers-luzern"
         ],
         "en": [
           "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern"
@@ -4566,7 +4589,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-f2aac5ed64c2",
@@ -4599,7 +4624,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=56NR3K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:10.902Z",
+      "crawledAt": "2026-10-05T09:19:47.670Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4611,7 +4636,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=56NR3K",
       "requirements": [
         "IT - Software Engineering",
@@ -4632,13 +4657,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
-        "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
+        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
-          "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
+          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
         ],
         "fr": [
           "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
@@ -4658,7 +4681,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-7f2900249653",
@@ -4666,7 +4691,7 @@
       "slugByLocale": {
         "it": "pi-ingegnere-m-w-d-coopers-group-ag-aargau",
         "en": "pi-engineer-m-w-d-coopers-group-ag-aargau",
-        "de": "pi-engineer-m-w-d-coopers-aargau",
+        "de": "pi-ingenieur-m-w-d-coopers-group-ag-aargau",
         "fr": "pi-engineer-m-w-d-coopers-aargau"
       },
       "company": "Coopers Group AG",
@@ -4703,7 +4728,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "postedDate": "",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=X62Z0K",
       "requirements": [
         "IT - Software Engineering",
@@ -4722,13 +4747,14 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "pi-engineer-m-w-d-coopers-aargau",
-        "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
+        "pi-engineer-m-w-d-coopers-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pi-engineer-m-w-d-coopers-aargau",
-          "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
+          "pi-engineer-m-w-d-coopers-aargau"
+        ],
+        "de": [
+          "pi-engineer-m-w-d-coopers-aargau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:21:00.849Z",
@@ -4744,7 +4770,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "coopers-c74853487287",
@@ -4777,7 +4806,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:09.018Z",
+      "crawledAt": "2026-10-05T09:19:46.697Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4789,7 +4818,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "requirements": [
         "IT - Software Engineering",
@@ -4809,13 +4838,11 @@
         ]
       },
       "previousSlugs": [
-        "software-engineer-m-w-d-coopers-wallis",
-        "software-ingegnere-m-w-d-coopers-group-ag-wallis"
+        "software-engineer-m-w-d-coopers-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-m-w-d-coopers-wallis",
-          "software-ingegnere-m-w-d-coopers-group-ag-wallis"
+          "software-engineer-m-w-d-coopers-wallis"
         ],
         "de": [
           "software-engineer-m-w-d-coopers-wallis"
@@ -4835,7 +4862,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-e1d6ac079009",
@@ -4868,7 +4897,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:08.075Z",
+      "crawledAt": "2026-10-05T09:19:45.732Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4880,7 +4909,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "requirements": [
         "IT - Software Engineering",
@@ -4900,13 +4929,11 @@
         ]
       },
       "previousSlugs": [
-        "it-engineer-m-w-d-coopers-wallis",
-        "it-ingegnere-m-w-d-coopers-group-ag-wallis"
+        "it-engineer-m-w-d-coopers-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-engineer-m-w-d-coopers-wallis",
-          "it-ingegnere-m-w-d-coopers-group-ag-wallis"
+          "it-engineer-m-w-d-coopers-wallis"
         ],
         "de": [
           "it-engineer-m-w-d-coopers-wallis"
@@ -4926,7 +4953,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-4fa265cf366d",
@@ -4959,7 +4988,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:07.142Z",
+      "crawledAt": "2026-10-05T09:19:44.766Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4971,7 +5000,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "requirements": [
         "IT - ERP & Applications",
@@ -4993,13 +5022,11 @@
         ]
       },
       "previousSlugs": [
-        "m365-senior-system-administrator-m-w-d-coopers-bern",
-        "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
+        "m365-senior-system-administrator-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "m365-senior-system-administrator-m-w-d-coopers-bern",
-          "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
+          "m365-senior-system-administrator-m-w-d-coopers-bern"
         ],
         "fr": [
           "m365-senior-system-administrator-m-w-d-coopers-bern"
@@ -5019,7 +5046,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-8a8ddcb23c7e",
@@ -5052,7 +5081,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:06.205Z",
+      "crawledAt": "2026-10-05T09:19:43.796Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5064,7 +5093,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "requirements": [
         "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
@@ -5088,18 +5117,15 @@
       },
       "previousSlugs": [
         "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
-        "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
+        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
-          "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
+          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
         ]
       },
       "firstSeenAt": "2026-08-17T22:06:05.062Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5112,7 +5138,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-f88c0f897588",
@@ -5145,7 +5173,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:05.030Z",
+      "crawledAt": "2026-10-05T09:19:42.824Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5157,7 +5185,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "2026-09-18T00:00:00Z",
+      "postedDate": "2026-09-18T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "requirements": [
         "IT - Project Management",
@@ -5223,7 +5253,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:04.103Z",
+      "crawledAt": "2026-10-05T09:19:41.853Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5235,7 +5265,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "2026-09-29T00:00:00Z",
+      "postedDate": "2026-09-29T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "requirements": [
         "IT - IT Infrastructure & Operations",
@@ -5303,7 +5335,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N0P2X0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:03.148Z",
+      "crawledAt": "2026-10-05T09:19:40.879Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5315,7 +5347,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "2026-09-29T00:00:00Z",
+      "postedDate": "2026-09-29T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=N0P2X0",
       "requirements": [
         "Administration - Finance",
@@ -5384,7 +5418,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:02.221Z",
+      "crawledAt": "2026-10-05T09:19:39.914Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5396,7 +5430,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "2026-09-30T00:00:00Z",
+      "postedDate": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "requirements": [
         "Engineering - Construction & Property",
@@ -5460,7 +5496,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:01.230Z",
+      "crawledAt": "2026-10-05T09:19:38.920Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5472,7 +5508,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "requirements": [
         "Life Sciences - Manufactoring / Production (GMP)",
@@ -5492,13 +5528,11 @@
         ]
       },
       "previousSlugs": [
-        "mes-system-engineer-m-f-d-coopers-wallis",
-        "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
+        "mes-system-engineer-m-f-d-coopers-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mes-system-engineer-m-f-d-coopers-wallis",
-          "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
+          "mes-system-engineer-m-f-d-coopers-wallis"
         ],
         "de": [
           "mes-system-engineer-m-f-d-coopers-wallis"
@@ -5508,7 +5542,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:17:22.647Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -5521,7 +5554,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-cc0bbdff0aed",
@@ -5554,7 +5589,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:00.287Z",
+      "crawledAt": "2026-10-05T09:19:37.953Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5566,7 +5601,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-30T00:00:00Z",
+      "postedDate": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "requirements": [
         "Engineering - Construction & Property",
@@ -5630,7 +5667,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:59.244Z",
+      "crawledAt": "2026-10-05T09:19:36.978Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5642,7 +5679,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "requirements": [
         "Life Sciences - Engineering",
@@ -5661,20 +5698,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-mechanical-engineer-m-w-d-coopers-zug",
-        "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
+        "senior-mechanical-engineer-m-w-d-coopers-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-mechanical-engineer-m-w-d-coopers-zug",
-          "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
+          "senior-mechanical-engineer-m-w-d-coopers-zug"
         ],
         "fr": [
           "senior-mechanical-engineer-m-w-d-coopers-zug"
         ]
       },
       "firstSeenAt": "2026-09-30T21:17:20.802Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -5687,7 +5721,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-eeafbae82670",
@@ -5720,7 +5756,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:58.264Z",
+      "crawledAt": "2026-10-05T09:19:35.942Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5732,7 +5768,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postedDate": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "requirements": [
         "IT - Software Engineering",
@@ -5798,7 +5836,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:57.319Z",
+      "crawledAt": "2026-10-05T09:19:34.973Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5810,7 +5848,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "requirements": [
         "Executive Roles",
@@ -5829,18 +5867,14 @@
         ]
       },
       "previousSlugs": [
-        "sales-manager-schweiz-m-w-d-coopers-solothurn",
-        "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn",
-        "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
+        "sales-manager-schweiz-m-w-d-coopers-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-schweiz-m-w-d-coopers-solothurn",
-          "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn"
+          "sales-manager-schweiz-m-w-d-coopers-solothurn"
         ],
         "fr": [
-          "sales-manager-schweiz-m-w-d-coopers-solothurn",
-          "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
+          "sales-manager-schweiz-m-w-d-coopers-solothurn"
         ]
       },
       "needsRetranslation": true,
@@ -5857,7 +5891,9 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-0e5dac2613de",
@@ -5890,7 +5926,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:56.349Z",
+      "crawledAt": "2026-10-05T09:19:33.966Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5902,7 +5938,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "requirements": [
         "IT - Data Science / Digital",
@@ -5924,17 +5960,11 @@
         ]
       },
       "previousSlugs": [
-        "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
-        "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
-        "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
+        "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
-          "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
-        ],
-        "de": [
-          "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
+          "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf"
         ]
       },
       "needsRetranslation": true,
@@ -5951,7 +5981,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-5a6ab26c279e",
@@ -5984,7 +6016,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8Y16NP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:55.388Z",
+      "crawledAt": "2026-10-05T09:19:32.986Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5996,7 +6028,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=8Y16NP",
       "requirements": [
         "Life Sciences - Supply Chain / Operations",
@@ -6017,14 +6049,12 @@
       },
       "previousSlugs": [
         "global-clinical-distribution-lead-m-f-d-coopers-aargau",
-        "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
-        "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau"
+        "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-clinical-distribution-lead-m-f-d-coopers-aargau",
-          "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
-          "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau"
+          "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -6041,7 +6071,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-6472274f1a5d",
@@ -6074,7 +6106,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:54.439Z",
+      "crawledAt": "2026-10-05T09:19:31.002Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -6086,7 +6118,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "requirements": [
         "Engineering - Quality Management",
@@ -6103,17 +6135,14 @@
         ]
       },
       "previousSlugs": [
-        "product-quality-engineer-m-w-d-coopers-zug",
-        "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+        "product-quality-engineer-m-w-d-coopers-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-quality-engineer-m-w-d-coopers-zug",
-          "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+          "product-quality-engineer-m-w-d-coopers-zug"
         ]
       },
       "firstSeenAt": "2026-10-01T09:21:06.768Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6126,7 +6155,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-e4c99ded4d08",
@@ -6159,7 +6190,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:53.398Z",
+      "crawledAt": "2026-10-05T09:19:30.031Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6171,7 +6202,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "2026-10-02T00:00:00Z",
+      "postedDate": "2026-10-02T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "requirements": [
         "Administration - Sales",

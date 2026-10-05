@@ -1,23 +1,25 @@
 {
   "key": "gzo-wetzikon",
   "label": "GZO Spital Wetzikon",
-  "generatedAt": "2026-10-04T21:20:39.386Z",
-  "total": 19,
+  "generatedAt": "2026-10-05T09:24:54.529Z",
+  "total": 17,
   "discovered": null,
   "parsed": 17,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 19,
+  "written": 17,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 17,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12640,
-  "avgDurationMs": 12640,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 13846,
+  "avgDurationMs": 13846,
   "durationHistory": [
-    12640
+    13846
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:31.698Z",
+      "crawledAt": "2026-10-05T09:24:43.982Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -46,19 +48,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext",
       "firstSeenAt": "2026-07-08T22:25:31.258Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job164213?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:31.168Z",
+      "crawledAt": "2026-10-05T09:24:43.436Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -86,7 +90,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job164213?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -96,12 +102,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -117,7 +123,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:30.636Z",
+      "crawledAt": "2026-10-05T09:24:42.889Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -129,7 +135,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext",
       "pensumMin": 10,
       "pensumMax": 20,
@@ -139,12 +147,12 @@
       "salaryMax": 25600,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -160,7 +168,7 @@
       "url": "https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job164152?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:30.109Z",
+      "crawledAt": "2026-10-05T09:24:42.345Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -172,7 +180,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job164152?ext",
       "pensumMin": 80,
       "pensumMax": 80,
@@ -182,12 +192,12 @@
       "salaryMax": 102400,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -203,7 +213,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job164837?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:29.477Z",
+      "crawledAt": "2026-10-05T09:24:41.682Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -215,7 +225,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job164837?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -225,12 +237,12 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -246,7 +258,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:28.936Z",
+      "crawledAt": "2026-10-05T09:24:41.135Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -258,7 +270,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext",
       "pensumMin": 30,
       "pensumMax": 30,
@@ -268,12 +282,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -289,7 +303,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job165062?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:28.313Z",
+      "crawledAt": "2026-10-05T09:24:40.486Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -301,7 +315,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job165062?ext",
       "pensumMin": 60,
       "pensumMax": 100,
@@ -311,12 +327,12 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -332,7 +348,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job165067?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:27.672Z",
+      "crawledAt": "2026-10-05T09:24:39.828Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -344,7 +360,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job165067?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -354,12 +372,12 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -375,7 +393,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job162269?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:27.140Z",
+      "crawledAt": "2026-10-05T09:24:39.282Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -387,7 +405,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job162269?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -397,12 +417,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -418,7 +438,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165200?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:26.495Z",
+      "crawledAt": "2026-10-05T09:24:38.632Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -430,7 +450,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165200?ext",
       "pensumMin": 60,
       "pensumMax": 100,
@@ -440,12 +462,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -461,7 +483,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job132646?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:25.858Z",
+      "crawledAt": "2026-10-05T09:24:37.964Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -473,7 +495,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job132646?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -483,12 +507,12 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -504,7 +528,7 @@
       "url": "https://www.publicjobs.ch/jobs/finanzen-buchhaltung-lohnbuchhaltung/~job162522?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:25.325Z",
+      "crawledAt": "2026-10-05T09:24:37.417Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -516,7 +540,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/finanzen-buchhaltung-lohnbuchhaltung/~job162522?ext",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -526,12 +552,12 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -547,7 +573,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165420?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:24.782Z",
+      "crawledAt": "2026-10-05T09:24:36.864Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -559,7 +585,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165420?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -569,12 +597,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -590,7 +618,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165421?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:24.186Z",
+      "crawledAt": "2026-10-05T09:24:36.322Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -602,7 +630,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165421?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -612,12 +642,12 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -633,7 +663,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job150410?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:23.649Z",
+      "crawledAt": "2026-10-05T09:24:35.777Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -645,7 +675,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job150410?ext",
       "pensumMin": 50,
       "pensumMax": 100,
@@ -655,12 +687,12 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -676,7 +708,7 @@
       "url": "https://www.publicjobs.ch/jobs/logistik-einkauf/~job166336?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:23.115Z",
+      "crawledAt": "2026-10-05T09:24:35.204Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -688,7 +720,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/logistik-einkauf/~job166336?ext",
       "pensumMin": 40,
       "pensumMax": 80,
@@ -698,12 +732,12 @@
       "salaryMax": 89200,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -719,7 +753,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job162810?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:22.578Z",
+      "crawledAt": "2026-10-05T09:24:34.658Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -731,7 +765,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job162810?ext",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -741,17 +777,16 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gzo-wetzikon-fdb9361ca30c",
       "slug": "capo-della-segreteria-medica-pneumologia-somnologia-somnicare-pallcare-con-partecipazione-attiva-al-business-quotidiano",
@@ -841,5 +876,6 @@
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "unchangedJobs": [],
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
