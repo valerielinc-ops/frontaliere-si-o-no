@@ -182,7 +182,7 @@ export const LINK_INHERIT_STYLE =
   'color:inherit;text-decoration:none;display:block';
 
 export const LINK_ACCENT_STYLE =
-  'color:var(--color-link);text-decoration:underline;text-underline-offset:2px';
+  'color:var(--color-link);text-decoration:underline';
 
 // ── Tables ────────────────────────────────────────────────────────────────────
 
