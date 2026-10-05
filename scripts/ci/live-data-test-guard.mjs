@@ -574,6 +574,10 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // nessun conteggio letterale). Tutti gli altri casi usano fixture e restano
   // nel gate delle PR.
   { file: "tests/loop-l6-source-verdict-producer.test.ts", roots: ["packages/articles/content/"], since: "2026-10-04", evidence: "review", runtime: true },
+  // ─── 2026-10-05. Solo il blocco `live registry coverage` legge i due
+  // registri riscritti dalla pipeline; le altre prove del file usano una
+  // sorgente sintetica e devono restare nel gate delle PR.
+  { file: "tests/article-registry-entries.test.ts", roots: ["packages/articles/content/"], since: "2026-10-05", evidence: "review", runtime: true },
 ]);
 
 /**
