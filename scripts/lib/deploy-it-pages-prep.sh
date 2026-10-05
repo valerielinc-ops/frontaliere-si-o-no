@@ -200,14 +200,28 @@ _publish_cdn_r2() {
   # #11318 added an `rclone lsjson -R --hash` of the whole assets/ prefix with no
   # limit of any kind, and runs 37178543559 / 37198287938 sat in this step until
   # the 6 h job timeout while `pages-build-run` (cancel-in-progress: false) held
-  # every later deploy behind them (03-10 16:59Z → 04-10). So every rclone/aws
-  # call in this file runs under coreutils `timeout` (present on the runner);
-  # tests/r2-calls-bounded.test.ts fails on one that does not. Budgets are ~3x
-  # the slowest measured duration (deploys 36088944074 and 37138892066):
+  # every later deploy behind them (03-10 16:59Z → 04-10). The listing was not
+  # the slow part: lsjson prints a MimeType per entry, and on S3/R2 the
+  # Content-Type is not in the LIST page, so rclone sent one HEAD per object,
+  # one after the other. Measured on the production bucket on 05-10 (54,399
+  # objects under assets/, every ETag a plain MD5): without --no-mimetype,
+  # 6 LIST + 5,986 HEAD in 9 min, still running; with --no-mimetype, 26 s,
+  # 55 LIST + 1 HEAD. Any lsjson here needs --no-mimetype (the test checks it).
+  # So every rclone/aws call in this file runs under coreutils `timeout`
+  # (present on the runner); tests/r2-calls-bounded.test.ts fails on one that
+  # does not. Budgets are ~3x the slowest measured duration (deploys
+  # 36088944074 and 37138892066), except data/:
   #   copy assets 66-135 s → 420 · og 61-83 s → 300 · images 16-26 s → 120
-  #   copy data 153-201 s → 600 · job-canon 4-6 s → 120
+  #   copy data 153-201 s, 1,622 s on a backlog → 1800 · job-canon 4-6 s → 120
   #   one object (index.html, marker, ledger) ~1 s → 60
   #   list-objects-v2 of assets/ (54k objects) 42-53 s → 180
+  # data/ is sized on the backlog, not on a routine deploy: run 37237201212,
+  # the first green deploy after 30 h of hung runs, rewrote 31,627 changed
+  # files of data/ (152,729 objects, mostly data/job-detail/) at ~1,250 PUT/min.
+  # With 600 s both this step and the full prep's retry would stop it at
+  # ~12,500 files each: no marker, CDN_BASE unset, and step_drop_assets fails
+  # the deploy, so recovering from an outage would cost one more 3.5 h run per
+  # missing 25k files. The copy is additive, so a cut one still resumes.
   # A call that runs out fails like any other failed call: a sync sets ok=0
   # (marker withheld, the full prep retries the push), a ledger/listing call
   # falls back to the log-only purge. The step itself has `timeout-minutes` in
@@ -341,8 +355,9 @@ _publish_cdn_r2() {
     # this run's upload can change it — a seed taken after the sync would
     # record a partial upload as already purged (review of #11318). One
     # prefix-limited list-objects-v2: the ETag of each object comes in the
-    # listing page itself, so no per-object HEAD and no hashing (#11318's
-    # `lsjson -R --hash` is what wedged). Measured on the production bucket:
+    # listing page itself, so no per-object HEAD (#11318's `lsjson -R --hash`
+    # wedged on the HEAD it sends per object to read the MimeType, not on the
+    # hashes, which come from the ETag too). Measured on the production bucket:
     # 53,945 objects under assets/, 42-53 s on the runner (janitor scan of
     # deploys 36088944074 / 37138892066), 43 s from a laptop (2026-10-04).
     _rrc=0
@@ -380,7 +395,7 @@ _publish_cdn_r2() {
   fi
   _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
   _r2_sync 120 "$stage/images"    images    "public,max-age=86400"
-  _r2_sync 600 "$stage/data"      data      "public,max-age=600"
+  _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0

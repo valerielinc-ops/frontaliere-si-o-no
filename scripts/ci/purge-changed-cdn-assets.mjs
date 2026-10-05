@@ -70,15 +70,17 @@
  * of this ledger (#11318) read it from `rclone lsjson -R --hash` of the whole
  * `assets/` prefix (~54k objects); that call had no time limit and wedged the
  * production deploy for hours (runs 37178543559, 37198287938; reverted by
- * #11489). It is not needed: after `rclone copy --checksum` of the stage exits
+ * #11489). The hours came from the MimeType that lsjson prints: rclone reads it
+ * with one HEAD per object, in series (5,986 HEAD in 9 min on the production
+ * bucket; 26 s for the same listing with --no-mimetype). It is not needed: after `rclone copy --checksum` of the stage exits
  * 0, every stage key holds in R2 exactly the stage file's bytes — that is what
  * the exit code certifies — so the MD5 of the local stage file IS the R2
  * fingerprint of that key (`fingerprintStageDir`, local disk only). Keys
  * outside the stage are not referenced by this build's HTML, and the additive
  * copy never rewrites them, so they need no fingerprint. The only R2 listing
  * left is the one-off SEED below, made before the sync when no ledger exists,
- * prefix-limited, without hashes or per-object HEADs (`list-objects-v2`
- * returns each ETag in the page itself) and under a wall-clock limit.
+ * prefix-limited, without per-object HEADs (`list-objects-v2` returns each
+ * ETag in the page itself) and under a wall-clock limit.
  *
  * FAILURE POSTURE: always exits 0 in purge mode. A missed purge degrades to
  * "the edge serves the previous bytes until the next deploy retries it (ledger)

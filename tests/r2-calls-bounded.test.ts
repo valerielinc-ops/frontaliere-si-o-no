@@ -18,6 +18,9 @@ import { parse } from 'yaml';
  * 37178543559 and 37198287938 sat in "Push generated assets to CDN" until the
  * 6 h job timeout, and `pages-build-run` (cancel-in-progress: false) held every
  * later deploy behind them from 03-10 16:59Z to 04-10 (reverted by #11489).
+ * The duration came from the MimeType lsjson prints, read with one HEAD per
+ * object in series (5,986 HEAD in 9 min on the production bucket; 26 s for the
+ * same listing with --no-mimetype).
  *
  * Two observers:
  *   1. static: every rclone/aws invocation in the deploy scripts runs under
@@ -38,6 +41,23 @@ const DEPLOY_R2_SCRIPTS = ['scripts/lib/deploy-it-pages-prep.sh', 'scripts/lib/u
 
 /** `timeout [-k N] <limit>` immediately before the command. */
 const BOUNDED_PREFIX = /\btimeout\s+(?:-k\s+\S+\s+)?"?\$?\{?[\w:-]+\}?s?"?\s+$/;
+
+/**
+ * Lines (comment-stripped, continuations joined) that run `rclone lsjson`
+ * without `--no-mimetype`. lsjson prints a MimeType per entry and, on S3/R2,
+ * reads it with one HEAD per object in series: that, not the listing or the
+ * hashes, is what kept #11318's lsjson of assets/ running for hours.
+ */
+export function findLsjsonReadingMimeType(source: string): string[] {
+  return source
+    .split('\n')
+    .filter((l) => !l.trim().startsWith('#'))
+    .join('\n')
+    .replace(/\\\r?\n[ \t]*/g, ' ')
+    .split('\n')
+    .filter((l) => /\blsjson\b/.test(l) && !/--no-mimetype\b/.test(l))
+    .map((l) => l.trim());
+}
 
 /**
  * Lines (comment-stripped, continuations joined) that invoke rclone or aws
@@ -124,6 +144,28 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     // Measured 449-531 s; a limit near the 360-min job default is no limit.
     expect(push!['timeout-minutes']).toBeGreaterThanOrEqual(15);
     expect(push!['timeout-minutes']).toBeLessThanOrEqual(45);
+  });
+
+  for (const file of DEPLOY_R2_SCRIPTS) {
+    it(`${file}: no rclone lsjson reads the MimeType (one HEAD per object)`, () => {
+      expect(findLsjsonReadingMimeType(read(file))).toEqual([]);
+    });
+  }
+
+  it('the lsjson scanner goes red without --no-mimetype, also across a continuation', () => {
+    expect(findLsjsonReadingMimeType('timeout 60 "${RC[@]}" lsjson -R --files-only --hash "$bkt/assets"')).toHaveLength(1);
+    expect(findLsjsonReadingMimeType('timeout 60 "${RC[@]}" lsjson -R \\\n  --hash --no-mimetype "$bkt/assets"')).toEqual([]);
+    expect(findLsjsonReadingMimeType('# "${RC[@]}" lsjson -R in a comment')).toEqual([]);
+  });
+
+  it('the data/ sync budget holds a backlog push, not only a routine one', () => {
+    // Run 37237201212, first green deploy after 30 h of hung runs: data/ took
+    // 1,622 s (31,627 changed files). Below that, the early push and the full
+    // prep's retry both stop short, the marker is withheld and
+    // step_drop_assets fails the deploy.
+    const m = read('scripts/lib/deploy-it-pages-prep.sh').match(/^\s*_r2_sync (\d+) "\$stage\/data"/m);
+    expect(m, '_r2_sync <limit> "$stage/data" not found').toBeTruthy();
+    expect(Number(m![1])).toBeGreaterThanOrEqual(1622);
   });
 });
 
