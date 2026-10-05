@@ -184,8 +184,11 @@ const sourceTreeLintTests = new Map([
   // Lo UA da browser dei dettagli MySwitzerland e' un'eccezione del
   // proprietario (D1, 2026-10-05) confinata a quel crawler: il guard legge da
   // disco ogni sorgente di scripts/, e un file nuovo che la copia non importa
-  // niente che il test conosca.
-  ['tests/myswitzerland-browser-ua-confinement.test.ts', /^scripts\//],
+  // niente che il test conosca. Il runner e' infrastruttura di selezione, non
+  // codice crawler, ed e' gia' coperto dalla sua suite di regressione bounded:
+  // escluderlo evita di far crescere quel budget senza restringere il guard per
+  // nessun altro sorgente sotto scripts/.
+  ['tests/myswitzerland-browser-ua-confinement.test.ts', (file) => /^scripts\//.test(file) && file !== runnerPath],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
   // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
   // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
