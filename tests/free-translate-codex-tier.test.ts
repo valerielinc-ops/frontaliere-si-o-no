@@ -42,7 +42,7 @@ fs.writeFileSync(SOCKET, '');
 
 const premium = { deepl: 200, azure: 200 };
 // MyMemory che rimanda la sorgente: eco rifiutato, la cascata prosegue fino in fondo.
-const free = { mymemoryEcho: false, googleEcho: false };
+const free = { mymemoryEcho: false, googleEcho: false, mymemoryDown: false };
 const realFetch = globalThis.fetch;
 let ft: FreeTranslate;
 let codexModel: string;
@@ -71,6 +71,7 @@ beforeAll(async () => {
       const q = new URL(u).searchParams.get('q');
       return { ok: true, status: 200, text: async () => JSON.stringify([[[q, q]]]) };
     }
+    if (free.mymemoryDown && u.includes('api.mymemory.translated.net')) throw new Error('offline nel test');
     if (u.includes('api.mymemory.translated.net')) {
       const translatedText = free.mymemoryEcho ? new URL(u).searchParams.get('q') : `MYMEMORY ${EN}`;
       return { ok: true, json: async () => ({ responseData: { translatedText, match: 1 } }) };
@@ -672,6 +673,25 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     } finally {
       free.mymemoryEcho = false;
       free.googleEcho = false;
+      vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+    }
+  });
+
+  it('FREE_TRANSLATE_CODEX_TIER=last: gli echi di UN solo motore (endpoint e tentativi) non bastano a saltare Codex', async () => {
+    // Google gratuito prova due endpoint e tre tentativi: sono sei echi dello
+    // stesso motore, non due motori che concordano.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', 'last');
+    free.googleEcho = true;
+    free.mymemoryDown = true;
+    try {
+      const calls = stubCodex(`CODEX ${EN}`);
+      const googleEchoesBefore = ft.getCascadeStats().tierPassthroughs.google || 0;
+      expect(await tr()).toBe(`CODEX ${EN}`);
+      expect((ft.getCascadeStats().tierPassthroughs.google || 0) - googleEchoesBefore).toBeGreaterThanOrEqual(2);
+      expect(calls).toHaveLength(1);
+    } finally {
+      free.googleEcho = false;
+      free.mymemoryDown = false;
       vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
     }
   });
