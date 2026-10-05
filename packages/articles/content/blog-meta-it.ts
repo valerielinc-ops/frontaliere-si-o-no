@@ -12586,6 +12586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestro-contanti-como-brogeda.title': 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
     'blog.article.sequestro-contanti-como-brogeda.excerpt': 'Oltre 240.000 euro in contanti sequestrati al valico di Como-Brogeda da ADM e Guardia di Finanza in due distinti interventi.',
     'blog.article.sequestro-contanti-como-brogeda.imageAlt': 'Controlli doganali e sequestro di denaro al valico di Como-Brogeda',
+    'blog.article.raduno-auto-moto-cocquio.title': 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
+    'blog.article.raduno-auto-moto-cocquio.excerpt': 'Domenica 4 ottobre, una ventina di moto e tre auto hanno occupato via Appennini per gare di velocità e impennate. Intervenuti i carabinieri di Besozzo.',
+    'blog.article.raduno-auto-moto-cocquio.imageAlt': 'Intervento dei carabinieri in via Appennini a Cocquio Trevisago',
 };
 
 export default blogMetaIt;
