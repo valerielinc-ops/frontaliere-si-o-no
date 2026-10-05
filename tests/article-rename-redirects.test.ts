@@ -431,8 +431,9 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    // 177 since #8730 added the FR `frais-de-transit-suisse` Bing remediation redirect.
-    expect(Object.keys(HARDCODED).length).toBe(177);
+    // 183 on the current main baseline, including the six redirects added
+    // after the original #8730 canary was recorded.
+    expect(Object.keys(HARDCODED).length).toBe(183);
   });
 });
 
@@ -445,9 +446,9 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
  *
  * Measured live before the fix (2026-08-10):
  *
- *   /comparatori/traffico-valichi/        200 noindex,follow → canonical /statistiche/traffico-dogane/
- *   /statistiche/traffico-dogane/         200 noindex,follow → canonical /guida-frontaliere/tempi-attesa-dogana/
- *   /guida-frontaliere/tempi-attesa-dogana/  200 index,follow  ← the real page
+ *   /comparatori/traffico-valichi/        200 noindex,follow → canonical /traffico-dogane/
+ *   /statistiche/traffico-dogane/         200 noindex,follow → canonical /traffico-dogane/
+ *   /traffico-dogane/  200 index,follow  ← the real page
  *
  * and the FR twin on health-insurance premiums. Same defect this PR describes,
  * already shipped. Disclosing them in the PR body was not repairing them.
@@ -497,7 +498,7 @@ describe('internal redirect chains (PR #5537 review round 3)', () => {
    * shape that happens not to chain.
    */
   it.each([
-    ['/comparatori/traffico-valichi/', '/guida-frontaliere/tempi-attesa-dogana/'],
+    ['/comparatori/traffico-valichi/', '/traffico-dogane/'],
     ['/fr/primes-assurance-maladie/ticino/', '/fr/statistiques/primes-assurance-maladie-communes/'],
   ])('%s points straight at the final page', (from, to) => {
     expect(HARDCODED[from]).toBe(to);

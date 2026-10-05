@@ -1,19 +1,21 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-04T21:13:38.547Z",
+  "generatedAt": "2026-10-05T09:15:33.814Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5492,
-  "avgDurationMs": 5492,
+  "unchangedCount": 3,
+  "durationMs": 4988,
+  "avgDurationMs": 4988,
   "durationHistory": [
-    5492
+    4988
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cedes-38194b91f772",
       "slug": "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart",
@@ -38,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:27.006Z",
+      "crawledAt": "2026-10-05T09:15:26.042Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -76,9 +78,9 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:26.664Z",
-      "firstSeenAt": "2026-10-03T09:12:24.879Z",
+      "crawledAt": "2026-10-05T09:15:25.672Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -115,9 +117,8 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:26.290Z",
+      "crawledAt": "2026-10-05T09:15:25.254Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -131,7 +132,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

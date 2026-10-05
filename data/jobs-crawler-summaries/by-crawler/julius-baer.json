@@ -1,19 +1,106 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-04T21:16:03.623Z",
-  "total": 72,
-  "newCount": 0,
-  "updatedCount": 72,
+  "generatedAt": "2026-10-05T09:14:57.840Z",
+  "total": 73,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 42602,
-  "avgDurationMs": 42602,
+  "unchangedCount": 71,
+  "durationMs": 38554,
+  "avgDurationMs": 38554,
   "durationHistory": [
-    42602
+    38554
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Remote-Access-Engineer--Citrix-NetScaler---Zscaler-Private-Access--100---f-m-d-_r-19599-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Remote-Access-Engineer--Citrix-NetScaler---Zscaler-Private-Access--100---f-m-d-_r-19599-1",
+      "title": "Remote Access Engineer (Citrix NetScaler & Zscaler Private Access) 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 16
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Program-Associate-100---f-m-d-_r-19723-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Program-Associate-100---f-m-d-_r-19723-1",
+      "title": "University Graduate – Program Associate 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "university-graduate-program-associate-100-f-m-d-julius-baer",
+      "category": "general",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-09-09T23:05:36.172Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Quantitative-Analyst--GPS--100---f-m-d-_r-18318-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Quantitative-Analyst--GPS--100---f-m-d-_r-18318-2",
@@ -166,7 +253,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -621,7 +707,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "currency": "CHF",
@@ -1253,7 +1338,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
