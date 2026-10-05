@@ -261,6 +261,7 @@ import {
   sanitizeLocalityForRegion,
   type JobInput,
 } from './shared/jobPostingSchema';
+import { loadKnownEmployerProfileSlugs } from './shared/employerLinks';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
@@ -1043,6 +1044,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const extraGcFreedProbeCandidate = parseJobsSeoGcFreedProbe(process.env[JOBS_SEO_GCFREED_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
+ const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(rootDir);
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
  const jobsSeoEmitterFingerprints = (
   process.env.JOBS_SEO_REUSE === '1' || INCREMENTAL_MANIFEST_ENABLED
@@ -3744,6 +3746,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  locale,
  url: canonicalUrl,
  baseUrl: BASE_URL,
+ knownSlugs: knownEmployerProfileSlugs,
  now: jobsSeoReuseBuildNow,
  });
  // Deterministic per-job FAQ (salary, contract type, work-permit/border-zone,
@@ -3769,7 +3772,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  isTicino: faqResolvedCanton === 'TI',
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalJobInput, locale), faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalJobInput, locale, {
+  baseUrl: BASE_URL,
+  knownSlugs: knownEmployerProfileSlugs,
+ }), faqOpts);
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
@@ -4756,6 +4762,7 @@ ${staticAnalyticsHtml}
  locale,
  baseUrl: BASE_URL,
  fallbackUrl: canonicalUrl,
+ knownSlugs: knownEmployerProfileSlugs,
  });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
@@ -4788,6 +4795,7 @@ ${staticAnalyticsHtml}
  locale,
  baseUrl: BASE_URL,
  fallbackUrl: canonicalUrl,
+ knownSlugs: knownEmployerProfileSlugs,
  });
  const curatedSameAs = [
  curatedIdentity.sameAs,
@@ -9144,6 +9152,7 @@ ${staticAnalyticsHtml}
  locale,
  baseUrl: BASE_URL,
  fallbackUrl: canonicalUrl,
+ knownSlugs: knownEmployerProfileSlugs,
  });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
@@ -9431,6 +9440,7 @@ ${staticAnalyticsHtml}
  locale,
  baseUrl: BASE_URL,
  fallbackUrl: canonicalUrl,
+ knownSlugs: knownEmployerProfileSlugs,
  });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
@@ -13877,6 +13887,7 @@ ${staticAnalyticsHtml}
  locale,
  url: selfUrl,
  baseUrl: BASE_URL,
+ knownSlugs: knownEmployerProfileSlugs,
  });
 
  return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';

@@ -1,18 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-05T09:34:52.034Z",
+  "generatedAt": "2026-10-05T21:49:18.622Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2435,
-  "avgDurationMs": 2435,
+  "unchangedCount": 3,
+  "durationMs": 3201,
+  "avgDurationMs": 3201,
   "durationHistory": [
-    2435
+    3201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,49 +56,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
-      "slug": "psicologo-psicoterapeuta-01-2027-60-09-2026-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
-      },
-      "id": "klinik-wyssholzli-7ae216cba293",
-      "firstSeenAt": "2026-09-25T15:00:02.770Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
         "completeness": 20
       }
     },
@@ -191,6 +148,49 @@
       }
     },
     {
+      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
+      "slug": "psicologo-psicoterapeuta-01-2027-60-09-2026-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
+      },
+      "id": "klinik-wyssholzli-7ae216cba293",
+      "firstSeenAt": "2026-09-25T15:00:02.770Z",
+      "salaryMin": 51000,
+      "salaryMax": 71400,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
       "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
       "slug": "terapeuta-del-movimento-koerper-01-01-2027-60-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
@@ -234,5 +234,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

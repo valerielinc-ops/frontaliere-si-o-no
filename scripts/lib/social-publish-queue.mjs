@@ -2,9 +2,10 @@
  * social-publish-queue.mjs — the ONE queue of ready Instagram/TikTok posts.
  *
  * The daily posters (scripts/post-to-instagram.mjs, scripts/post-to-tiktok.mjs)
- * pick the carousel, render its slides, upload them to the CDN and then either
- * call the platform API or — when the Playwright robot is the transport — put
- * the finished post here. The robot (scripts/social-robot/) reads this queue
+ * pick the carousel, render its slides, upload them to the CDN and, for a
+ * queued TikTok post, attach a video made from those slides; then either call
+ * the platform API or — when the Playwright robot is the transport — put the
+ * finished post here. The robot (scripts/social-robot/) reads this queue
  * from origin/main, publishes from the owner's browser profile on the agents'
  * Mac host, and only after it has SEEN the platform's confirmation does
  * scripts/social-robot/confirm.mjs (run by social-robot-confirm.yml) move the
@@ -31,13 +32,15 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
+import { TIKTOK_VIDEO_HEIGHT, TIKTOK_VIDEO_WIDTH } from './social-carousel-video.mjs';
+
 export const SOCIAL_CHANNELS = Object.freeze(['instagram', 'tiktok']);
 export const SOCIAL_ROBOT_MODES = Object.freeze(['off', 'dry', 'live']);
 export const DEFAULT_SOCIAL_ROBOT_MODE = 'dry';
 export const SOCIAL_ROBOT_MODE_ENV = 'SOCIAL_ROBOT_MODE';
 export const QUEUE_SCHEMA_VERSION = 1;
 
-/** The images the robot downloads come only from the site's own CDN. */
+/** Social assets the robot downloads come only from the site's own CDN. */
 export const SOCIAL_IMAGE_ORIGIN = 'https://cdn.frontaliereticino.ch';
 
 /**
@@ -176,9 +179,9 @@ function toIso(now) {
  * entry instead of adding a twin.
  *
  * @param {{ channel: string, kind: string, day: string, caption: string,
- *   imageUrls: string[], ledgerEntries: object[], now?: number|Date }} opts
+ *   imageUrls: string[], video?: object, ledgerEntries: object[], now?: number|Date }} opts
  */
-export function buildQueueEntry({ channel, kind, day, caption, imageUrls, ledgerEntries, now = Date.now() }) {
+export function buildQueueEntry({ channel, kind, day, caption, imageUrls, video, ledgerEntries, now = Date.now() }) {
   assertChannel(channel);
   const ttlHours = QUEUE_TTL_HOURS[kind];
   if (!ttlHours) throw new Error(`unknown carousel kind: ${kind}`);
@@ -187,6 +190,7 @@ export function buildQueueEntry({ channel, kind, day, caption, imageUrls, ledger
     if (!isAllowedImageUrl(url)) throw new Error(`image outside ${SOCIAL_IMAGE_ORIGIN}: ${url}`);
   }
   if (!String(caption || '').trim()) throw new Error('a queued post needs a caption');
+  const videoMetadata = video === undefined ? null : validateVideoMetadata(video);
   const createdMs = new Date(toIso(now)).getTime();
   return {
     id: `${kind}-${day}`,
@@ -195,6 +199,7 @@ export function buildQueueEntry({ channel, kind, day, caption, imageUrls, ledger
     day,
     caption,
     imageUrls: [...imageUrls],
+    ...(videoMetadata ? { video: videoMetadata } : {}),
     ledgerEntries: (ledgerEntries || []).map((e) => ({ ...e })),
     createdAt: new Date(createdMs).toISOString(),
     expiresAt: new Date(createdMs + ttlHours * 3600_000).toISOString(),
@@ -208,6 +213,36 @@ export function isAllowedImageUrl(url) {
   } catch {
     return false;
   }
+}
+
+export function isAllowedVideoUrl(url) {
+  try {
+    const u = new URL(String(url));
+    return `${u.protocol}//${u.host}` === SOCIAL_IMAGE_ORIGIN
+      && u.pathname.startsWith('/images/social/')
+      && u.pathname.toLowerCase().endsWith('.mp4');
+  } catch {
+    return false;
+  }
+}
+
+function validateVideoMetadata(video) {
+  if (!video || typeof video !== 'object') throw new Error('queued video metadata must be an object');
+  if (!isAllowedVideoUrl(video.url)) throw new Error(`video outside ${SOCIAL_IMAGE_ORIGIN}: ${video.url}`);
+  if (!Number.isSafeInteger(video.bytes) || video.bytes <= 0) throw new Error('queued video bytes must be a positive integer');
+  if (!/^[a-f0-9]{64}$/.test(String(video.sha256))) throw new Error('queued video sha256 must be a lowercase SHA-256 digest');
+  if (!Number.isSafeInteger(video.durationMs) || video.durationMs <= 0) throw new Error('queued video durationMs must be a positive integer');
+  if (video.width !== TIKTOK_VIDEO_WIDTH || video.height !== TIKTOK_VIDEO_HEIGHT) {
+    throw new Error(`queued video must be ${TIKTOK_VIDEO_WIDTH}x${TIKTOK_VIDEO_HEIGHT}`);
+  }
+  return {
+    url: String(video.url),
+    bytes: video.bytes,
+    sha256: String(video.sha256),
+    durationMs: video.durationMs,
+    width: video.width,
+    height: video.height,
+  };
 }
 
 export function isExpired(entry, now = Date.now()) {

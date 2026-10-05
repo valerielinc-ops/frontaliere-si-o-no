@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-05T09:15:33.814Z",
+  "generatedAt": "2026-10-05T21:28:36.049Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4988,
-  "avgDurationMs": 4988,
+  "durationMs": 4640,
+  "avgDurationMs": 4640,
   "durationHistory": [
-    4988
+    4640
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:15:26.042Z",
+      "crawledAt": "2026-10-05T21:28:27.095Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -78,7 +78,7 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:15:25.672Z",
+      "crawledAt": "2026-10-05T21:28:26.614Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "salaryMin": 60000,
@@ -117,7 +117,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:15:25.254Z",
+      "crawledAt": "2026-10-05T21:28:26.276Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -132,5 +132,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
