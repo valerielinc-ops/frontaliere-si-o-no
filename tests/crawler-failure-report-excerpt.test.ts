@@ -120,7 +120,11 @@ describe('generated group workflow — reporter receives the member log', () => 
   // Executes the generated body exactly as the detached worker does: stdout
   // and stderr go to the member log, and the worker exports its path. A stub
   // `node` on PATH records what the reporter was given at the moment it ran.
-  function runAsWorker(body: string) {
+  function runAsWorker(rawBody: string) {
+    // Actions substitutes `${{ … }}` before bash ever sees the script; raw,
+    // bash rejects them as a bad substitution and the reporter never runs.
+    const body = rawBody.replace(/\$\{\{[^}]*\}\}/g, 'actions-expression');
+    expect(body).not.toContain('${{');
     const dir = tmp('member-log-');
     const log = path.join(dir, 'excerpt-crawler.log');
     const seen = path.join(dir, 'reporter-saw.txt');
