@@ -23,8 +23,8 @@
  * A concert already in the slice whose date is past is not fetched again.
  *
  * Price cross-check: the structured amounts must appear in the «Categorie di
- * prezzo» tariffs the page shows (CHF 85 / 70 / 55 / 40); otherwise the price is
- * dropped and a line is logged.
+ * prezzo» tariffs the page shows (CHF 85 / 70 / 55 / 40); otherwise — card
+ * missing included — the price is dropped and a line is logged.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -150,7 +150,8 @@ export function parseConcertPage(html, pageUrl, { log = console.warn, comuni = l
 
   const priced = extractOrganizerOfferPrice(ld, {
     priceSource: SOURCE.key,
-    shownTariffs: shownTariffs(html),
+    // No visible tariff card → nothing to cross-check against → no price.
+    shownTariffs: shownTariffs(html) ?? [],
     baseUrl: pageUrl,
   });
   if (priced?.rejected) log(`[${SOURCE.key}] ${slug}: price dropped — ${priced.rejected}`);
@@ -193,6 +194,24 @@ export function urlsToFetch(sitemapUrls, sliceEvents, today) {
       .map((event) => event.url),
   );
   return sitemapUrls.filter((url) => !past.has(url));
+}
+
+/**
+ * The factory crawler over a list of concert pages: one page per iteration,
+ * ≥ 2 s apart, no image mirroring (D3: organizer images are not reused).
+ * `fetchImpl`, `sliceDir` and `politeDelayMs` are injectable for tests.
+ */
+export function createClassicAsconaCrawler(urls, { fetchImpl, sliceDir, politeDelayMs = POLITE_DELAY_MS } = {}) {
+  return createAgendaCrawler({
+    sourceKey: SOURCE.key,
+    baseUrl: (i) => urls[i],
+    parseDayHtml: (html, i) => parseConcertPage(html, urls[i]),
+    iterations: urls.length,
+    politeDelayMs,
+    mirrorImages: false,
+    ...(fetchImpl ? { fetchImpl } : {}),
+    ...(sliceDir ? { sliceDir } : {}),
+  });
 }
 
 function readSliceEvents(slicePath) {
@@ -238,15 +257,7 @@ async function main() {
   if (!urls.length) return;
   await sleep(POLITE_DELAY_MS);
 
-  const crawler = createAgendaCrawler({
-    sourceKey: SOURCE.key,
-    baseUrl: (i) => urls[i],
-    parseDayHtml: (html, i) => parseConcertPage(html, urls[i]),
-    iterations: urls.length,
-    politeDelayMs: POLITE_DELAY_MS,
-    mirrorImages: false,
-  });
-  const result = await crawler.crawl({ dryRun });
+  const result = await createClassicAsconaCrawler(urls).crawl({ dryRun });
   failIfSourceUnreachable(SOURCE.key, result);
   const withPrice = result.events.filter((event) => hasConfidentPrice(event.price)).length;
   console.log(`[${SOURCE.key}] ${result.events.length} concert(s) read, ${withPrice} with a publishable structured price`);
