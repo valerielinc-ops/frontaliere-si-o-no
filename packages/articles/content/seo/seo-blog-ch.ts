@@ -97527,6 +97527,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-pellet-ticino-aumenti': {
+    title: 'Prezzi pellet in Ticino: rincari e acquisti invernali',
+    description: 'Scopri i rincari del pellet in Ticino tra il 5% e il 10%, l\'impatto dei trasporti e del gasolio, e i consigli per gli acquisti prima dell\'inverno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, pellet, rincari, acquisti',
+    ogTitle: 'Prezzi del pellet in Ticino: aumenti e consigli per l\'acquisto',
+    ogDescription: 'Analisi dei prezzi del pellet in Ticino con rincari stimati tra il 5% e il 10%, l\'impatto del gasolio e dei trasporti, e le indicazioni per rifornirsi prima dell\'inverno.',
+    canonicalPath: '/articoli-svizzera/prezzi-pellet-ticino-aumenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi pellet in Ticino: rincari e acquisti invernali",
+      "description": "Scopri i rincari del pellet in Ticino tra il 5% e il 10%, l'impatto dei trasporti e del gasolio, e i consigli per gli acquisti prima dell'inverno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-pellet-ticino-aumenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Deposito di pellet di legno in Ticino con sacchi e stoccaggio"
+      },
+      "datePublished": "2026-10-05T05:46:26+00:00",
+      "dateModified": "2026-10-05T05:46:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-pellet-ticino-aumenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
