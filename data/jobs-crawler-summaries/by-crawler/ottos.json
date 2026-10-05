@@ -1,25 +1,75 @@
 {
   "key": "ottos",
   "label": "OTTO'S AG",
-  "generatedAt": "2026-10-04T21:34:05.449Z",
-  "total": 153,
+  "generatedAt": "2026-10-05T09:34:19.778Z",
+  "total": 154,
   "discovered": null,
-  "parsed": 153,
+  "parsed": 152,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 153,
+  "written": 154,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 153,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 96797,
-  "avgDurationMs": 96797,
+  "durationMs": 119045,
+  "avgDurationMs": 119045,
   "durationHistory": [
-    96797
+    119045
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "ottos-35d923495a96",
+      "slug": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont",
+      "company": "OTTO'S AG",
+      "companyKey": "ottos",
+      "companyDomain": "ottos.ch",
+      "title": "Vendeur auxiliaire textile/sport (h/f)",
+      "needsRetranslation": true,
+      "location": "Delémont",
+      "canton": "JU",
+      "url": "https://live.solique.ch/ottosag/job/details/4078970",
+      "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:32:29.311Z",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6210",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Commercio al Dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ottosag/job/details/4078970",
+      "externalId": "4078970",
+      "department": "OTTO’S Filialen",
+      "pensumMin": 60,
+      "pensumMax": 80,
+      "pensum": "60 - 80%",
+      "salaryMin": 72000,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-05T09:32:29.311Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "ottos-7dc7c4b544d5",
@@ -34,7 +84,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019128",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:54.522Z",
+      "crawledAt": "2026-10-05T09:34:09.028Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -47,7 +97,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4019128",
       "externalId": "4019128",
       "department": "Büro",
@@ -58,12 +110,12 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -79,7 +131,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923833",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:53.952Z",
+      "crawledAt": "2026-10-05T09:34:08.148Z",
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -92,7 +144,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3923833",
       "externalId": "3923833",
       "department": "OTTO’S Filialen",
@@ -103,12 +157,12 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -124,7 +178,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034430",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:53.371Z",
+      "crawledAt": "2026-10-05T09:34:06.833Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -137,7 +191,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4034430",
       "externalId": "4034430",
       "department": "OTTO’S Filialen",
@@ -148,12 +204,12 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -169,7 +225,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4078680",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:52.798Z",
+      "crawledAt": "2026-10-05T09:34:06.185Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -182,7 +238,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4078680",
       "externalId": "4078680",
       "department": "OTTO’S Filialen",
@@ -192,12 +250,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -213,7 +271,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4024265",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:52.228Z",
+      "crawledAt": "2026-10-05T09:34:05.538Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -226,7 +284,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4024265",
       "externalId": "4024265",
       "department": "OTTO’S Filialen",
@@ -237,12 +297,12 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -258,7 +318,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3986805",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:51.654Z",
+      "crawledAt": "2026-10-05T09:34:04.448Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -271,7 +331,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3986805",
       "externalId": "3986805",
       "department": "OTTO’S Filialen",
@@ -282,12 +344,12 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -303,7 +365,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074218",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:51.077Z",
+      "crawledAt": "2026-10-05T09:34:03.182Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -316,7 +378,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4074218",
       "externalId": "4074218",
       "department": "OTTO’S Filialen",
@@ -327,12 +391,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -348,7 +412,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4025726",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:50.508Z",
+      "crawledAt": "2026-10-05T09:34:02.473Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -361,7 +425,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4025726",
       "externalId": "4025726",
       "department": "Büro",
@@ -372,12 +438,12 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -393,7 +459,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4067952",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:49.939Z",
+      "crawledAt": "2026-10-05T09:34:01.636Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -406,7 +472,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4067952",
       "externalId": "4067952",
       "department": "OTTO’S Filialen",
@@ -417,12 +485,12 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -438,7 +506,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4077912",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:49.367Z",
+      "crawledAt": "2026-10-05T09:34:00.242Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -451,7 +519,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4077912",
       "externalId": "4077912",
       "department": "OTTO’S Filialen",
@@ -462,12 +532,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -483,7 +553,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4066929",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:48.793Z",
+      "crawledAt": "2026-10-05T09:33:58.881Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,7 +566,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4066929",
       "externalId": "4066929",
       "department": "OTTO’S Filialen",
@@ -507,12 +579,12 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -528,7 +600,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019031",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:48.222Z",
+      "crawledAt": "2026-10-05T09:33:56.604Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -541,7 +613,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4019031",
       "externalId": "4019031",
       "department": "OTTO’S Filialen",
@@ -552,12 +626,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -573,7 +647,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4016098",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:47.648Z",
+      "crawledAt": "2026-10-05T09:33:55.556Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -586,7 +660,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4016098",
       "externalId": "4016098",
       "department": "OTTO’S Filialen",
@@ -597,12 +673,12 @@
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -618,7 +694,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065709",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:47.046Z",
+      "crawledAt": "2026-10-05T09:33:54.375Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -631,7 +707,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4065709",
       "externalId": "4065709",
       "department": "OTTO’S Filialen",
@@ -642,12 +720,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -663,7 +741,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4053107",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:33:46.340Z",
+      "crawledAt": "2026-10-05T09:33:53.753Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -676,7 +754,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4053107",
       "externalId": "4053107",
       "department": "OTTO’S Filialen",
@@ -687,12 +767,12 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -708,7 +788,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4064061",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:45.769Z",
+      "crawledAt": "2026-10-05T09:33:52.758Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -721,7 +801,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4064061",
       "externalId": "4064061",
       "department": "OTTO’S Filialen",
@@ -732,12 +814,12 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -753,7 +835,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923245",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:45.195Z",
+      "crawledAt": "2026-10-05T09:33:52.141Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -766,7 +848,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3923245",
       "externalId": "3923245",
       "department": "Sport Outlets",
@@ -777,12 +861,12 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -798,7 +882,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033705",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:44.628Z",
+      "crawledAt": "2026-10-05T09:33:51.419Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -811,7 +895,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4033705",
       "externalId": "4033705",
       "department": "OTTO’S Filialen",
@@ -822,12 +908,12 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -843,7 +929,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3987849",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:44.051Z",
+      "crawledAt": "2026-10-05T09:33:50.781Z",
       "addressLocality": "Bern-Bethlehem",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -856,7 +942,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3987849",
       "externalId": "3987849",
       "department": "OTTO’S Filialen",
@@ -867,12 +955,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -888,7 +976,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4057244",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:43.483Z",
+      "crawledAt": "2026-10-05T09:33:49.646Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -901,7 +989,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4057244",
       "externalId": "4057244",
       "department": "OTTO’S Filialen",
@@ -912,12 +1002,12 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -933,7 +1023,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4067343",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:42.912Z",
+      "crawledAt": "2026-10-05T09:33:48.496Z",
       "addressLocality": "Zwingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -946,7 +1036,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4067343",
       "externalId": "4067343",
       "department": "OTTO’S Filialen",
@@ -957,12 +1049,12 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -978,7 +1070,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3990576",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:42.343Z",
+      "crawledAt": "2026-10-05T09:33:47.882Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -991,7 +1083,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3990576",
       "externalId": "3990576",
       "department": "OTTO’S Filialen",
@@ -1002,12 +1096,12 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1023,7 +1117,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4051473",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:41.776Z",
+      "crawledAt": "2026-10-05T09:33:47.042Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1036,7 +1130,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4051473",
       "externalId": "4051473",
       "department": "OTTO’S Filialen",
@@ -1047,12 +1143,12 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1068,7 +1164,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4046234",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:41.157Z",
+      "crawledAt": "2026-10-05T09:33:45.984Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1081,7 +1177,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4046234",
       "externalId": "4046234",
       "department": "Büro",
@@ -1092,12 +1190,12 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1113,7 +1211,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072546",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:40.575Z",
+      "crawledAt": "2026-10-05T09:33:45.239Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1126,7 +1224,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4072546",
       "externalId": "4072546",
       "department": "OTTO’S Filialen",
@@ -1137,12 +1237,12 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1158,7 +1258,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065691",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:39.991Z",
+      "crawledAt": "2026-10-05T09:33:44.636Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1171,7 +1271,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4065691",
       "externalId": "4065691",
       "department": "OTTO’S Filialen",
@@ -1182,12 +1284,12 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1203,7 +1305,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4051479",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:39.342Z",
+      "crawledAt": "2026-10-05T09:33:43.970Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1216,7 +1318,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4051479",
       "externalId": "4051479",
       "department": "OTTO’S Filialen",
@@ -1227,12 +1331,12 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1248,7 +1352,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923120",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:38.759Z",
+      "crawledAt": "2026-10-05T09:33:43.081Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1261,7 +1365,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/3923120",
       "externalId": "3923120",
       "department": "OTTO’S Filialen",
@@ -1272,12 +1378,12 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1293,7 +1399,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074526",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:38.185Z",
+      "crawledAt": "2026-10-05T09:33:41.810Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1306,7 +1412,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4074526",
       "externalId": "4074526",
       "department": "OTTO’S Filialen",
@@ -1317,12 +1425,12 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1338,7 +1446,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034670",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:33:37.615Z",
+      "crawledAt": "2026-10-05T09:33:40.858Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1351,7 +1459,9 @@
       "sector": "Commercio al Dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4034670",
       "externalId": "4034670",
       "department": "OTTO’S Filialen",
@@ -1362,16 +1472,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

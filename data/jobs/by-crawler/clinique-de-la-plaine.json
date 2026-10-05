@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-la-plaine",
-  "assembledAt": "2026-10-04T21:34:57.886Z",
+  "assembledAt": "2026-10-05T09:33:53.689Z",
   "jobs": [
     {
       "id": "clinique-de-la-plaine-9f68d5dc6b73",
@@ -34,7 +34,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:34:52.833Z",
+      "crawledAt": "2026-10-05T09:33:49.360Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-23",
+      "datePosted": "2026-04-23T10:20:31+02:00",
+      "postedDate": "2026-04-23T10:20:31+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -115,7 +117,7 @@
       "url": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:34:52.347Z",
+      "crawledAt": "2026-10-05T09:33:48.774Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -128,7 +130,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "postedDate": "2026-09-14T08:00:53+02:00",
       "applyUrl": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -161,7 +163,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14T08:00:53+02:00",
+      "postingDateSource": "reported"
     }
   ]
 }
