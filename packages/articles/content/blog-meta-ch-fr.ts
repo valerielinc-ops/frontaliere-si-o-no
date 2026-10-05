@@ -7751,6 +7751,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rischi-cyber-pmi-svizzere.title': 'Risques informatiques : les PME suisses sous-estiment les dangers',
     'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'Une analyse VZ-HSLU signale que les incidents informatiques constituent le premier risque mondial : en Suisse, en 2025, près de 58\'000 délits numériques.',
     'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Une PME suisse analyse les risques informatiques au bureau',
+    'blog.article.india-aels-protezione-capitali.title': 'Parmelin en Inde : accord pour protéger les investissements',
+    'blog.article.india-aels-protezione-capitali.excerpt': 'Depuis New Delhi, Guy Parmelin indique que Berne souhaite un accord sur la protection des investissements et accorde de l\'importance à la propriété intellectuelle.',
+    'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin à New Delhi pour des discussions sur les investissements et l’accord commercial Inde-AELE.',
 };
 
 export default blogMetaChFr;
