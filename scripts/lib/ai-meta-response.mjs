@@ -34,13 +34,14 @@ const A = "['’]"; // apostrophe, ASCII or typographic
 
 /** Openers: how the answer STARTS. Each is a meta-response by construction. */
 const LEADING_PATTERNS = [
-  // ── refusal: an apology or an inability, in the FIRST person. «Sorry, the
+  // ── refusal: an apology or an inability, in the FIRST person, whatever
+  // separates them («Sorry, I…», «Sorry — I…», «Sorry: I…»). «Sorry, the
   // page you requested could not be found» is a scraped 404 page, not a
   // refusal: it has its own guard upstream and no retranslation can fix it.
-  ['refusal', new RegExp(`^(?:(?:sorry|i${A}m sorry|i am sorry|i apologi[sz]e)[,.!]?\\s+(?:but\\s+)?i\\b|unfortunately,? i (?:can|am|${A}m|cannot|do not|don${A}t)\\b|i can(?:not|${A}t) (?:help|assist|translate|provide|comply|do that|fulfil)|i${A}m (?:unable|not able) to|i am (?:unable|not able) to|as an ai(?: (?:language model|assistant|model))?\\s*,)`, 'i')],
-  ['refusal', /^(?:mi dispiace,? (?:ma )?non|purtroppo non (?:posso|riesco)|non posso (?:aiutar|tradurr|fornir|eseguir)|non sono in grado di)/i],
-  ['refusal', /^(?:es tut mir leid,? (?:aber )?ich|leider kann ich (?:nicht|keine|ihnen)|ich kann (?:leider )?(?:nicht|keine) (?:helfen|übersetzen))/i],
-  ['refusal', /^(?:(?:je suis )?désolée?,? (?:mais )?je\b|je ne peux pas (?:vous )?(?:aider|traduire|fournir)|je ne suis pas en mesure de)/i],
+  ['refusal', new RegExp(`^(?:(?:sorry|i${A}m sorry|i am sorry|i apologi[sz]e)[\\s,.!:;—–-]+(?:but\\s+)?i\\b|unfortunately[\\s,—–-]+i (?:can|am|${A}m|cannot|do not|don${A}t)\\b|i can(?:not|${A}t) (?:help|assist|translate|provide|comply|do that|fulfil)|i${A}m (?:unable|not able) to|i am (?:unable|not able) to|as an ai(?: (?:language model|assistant|model))?\\s*,)`, 'i')],
+  ['refusal', /^(?:mi dispiace[\s,.!:;—–-]+(?:ma\s+)?non|purtroppo non (?:posso|riesco)|non posso (?:aiutar|tradurr|fornir|eseguir)|non sono in grado di)/i],
+  ['refusal', /^(?:es tut mir leid[\s,.!:;—–-]+(?:aber\s+)?ich|leider kann ich (?:nicht|keine|ihnen)|ich kann (?:leider )?(?:nicht|keine) (?:helfen|übersetzen))/i],
+  ['refusal', /^(?:(?:je suis )?désolée?[\s,.!:;—–-]+(?:mais\s+)?je\b|je ne peux pas (?:vous )?(?:aider|traduire|fournir)|je ne suis pas en mesure de)/i],
   // ── clarification request: the model asks for the input it was given. Only
   // first-person openers: «Can you provide investment recommendations?» or
   // «Non vedo l'ora» open real ads; a request for the missing title or text

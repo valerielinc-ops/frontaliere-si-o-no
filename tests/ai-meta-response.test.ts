@@ -120,6 +120,13 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     expect(detectAiMetaResponse(title)).not.toBeNull();
   });
 
+  it.each([
+    "Sorry — I can't help with that.", "Sorry – I can't help with that.", "Sorry: I can't help with that.",
+    "Sorry; I can't help with that.", "I'm sorry - I cannot translate this.", 'Désolé — je ne peux pas traduire ce texte.',
+  ])('riconosce il rifiuto con qualunque separatore: %s', (refusal) => {
+    expect(detectAiMetaResponse(refusal)?.kind).toBe('refusal');
+  });
+
   it('riconosce il dump di tool-use di un agente', () => {
     expect(detectAiMetaResponse(REAL_AGENT_DUMP)).not.toBeNull();
   });
