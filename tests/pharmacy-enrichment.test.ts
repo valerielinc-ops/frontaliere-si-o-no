@@ -141,6 +141,29 @@ describe('pharmacy enrichment', () => {
     ))).toEqual([]);
   });
 
+  it('rejects a same-street Google candidate without name and civic-number anchors', async () => {
+    const wrongNumber = pharmacy.address.replace(/\b\d+[a-z]?\b/i, '99');
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({
+      providers: {
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id] },
+        facebook: { enabled: false, pharmacyIds: [] },
+      },
+    }), {
+      checkedAt,
+      googleApiKey: 'test-google-key',
+      fetchJson: async () => ({
+        places: [{
+          id: 'ChIJ-wrong-branch',
+          displayName: { text: 'Farmacia del Borgo' },
+          formattedAddress: `${wrongNumber}, ${pharmacy.city}`,
+        }],
+      }),
+    });
+
+    expect(result.records[pharmacy.id]).toEqual({ checkedAt });
+    expect(result.warnings).toEqual([expect.stringContaining('no sufficiently certain place match')]);
+  });
+
   it('uses Facebook only with an authorised page and publishes reusable facts, not reviews', async () => {
     const result = await enrichPharmacyRecords([pharmacy], localConfig({
       providers: {

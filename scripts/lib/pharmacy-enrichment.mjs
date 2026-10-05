@@ -257,7 +257,11 @@ function scoreGooglePlace(pharmacy, place) {
   const number = (pharmacy.address.match(/\b\d+[a-z]?\b/i) || [])[0];
   const streetMatch = street && haystack.includes(street);
   const numberMatch = number && haystack.includes(number);
-  return nameOverlap * 3 + (cityMatch ? 4 : 0) + (streetMatch ? 4 : 0) + (numberMatch ? 3 : 0);
+  // City + street is not enough to identify a branch: require both a
+  // meaningful name token and the catalogue's civic number before retaining
+  // Google's stable place ID. This fails closed for same-street candidates.
+  if (nameOverlap === 0 || !numberMatch) return 0;
+  return nameOverlap * 3 + (cityMatch ? 4 : 0) + (streetMatch ? 4 : 0) + 3;
 }
 
 function facebookHours(hours) {

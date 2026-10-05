@@ -41,7 +41,15 @@ import {
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
-const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
+// Duty rendering and pharmacy detail rendering must share the same enriched
+// catalogue. The raw JSON is still the release container, but its pharmacy
+// rows are replaced with BORDER_PHARMACIES/TICINO_PHARMACIES from
+// services/pharmacies/data.ts, where the allow-listed enrichment snapshot is
+// merged with field-level provenance.
+const completeTicinoSnapshot = {
+  ...completeTicinoJson,
+  pharmacies: TICINO_PHARMACIES,
+} as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
 
