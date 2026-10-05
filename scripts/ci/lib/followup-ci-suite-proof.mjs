@@ -16,7 +16,9 @@
  * 1. il blocco dichiarato (`Stato dichiarato nella PR`, o `Blocked on` se il
  *    primo manca) nomina la guardia risorse locale e NESSUN altro blocco;
  * 2. la suite dell'item e' la `COMANDO` della scheda, `npx vitest run` seguito
- *    SOLO da file di test (un flag, un glob o un altro comando: niente suite);
+ *    SOLO da file di test (un flag, un glob o un altro comando: niente suite),
+ *    e l'item non chiede la suite intera (titolo o testo: «suite completa»,
+ *    «full suite»), che la selezione della CI non esegue;
  * 3. la PR dell'item e' UNA sola fra le `Sources`, ed e' mergiata;
  * 4. la run piu' recente e completata di `tests.yml` sullo sha di merge o
  *    sull'ultima head della PR ha il job required `vitest (unit + integration)`
@@ -24,7 +26,10 @@
  *    nessun fallito (report JSON di vitest se l'artifact esiste ancora,
  *    altrimenti le righe per file del log del job);
  * 5. nessuna delle due run contraddice: un file della suite fallito, o una run
- *    rossa di cui non si legge l'esito per file, lasciano l'item bloccato.
+ *    rossa di cui non si legge l'esito per file, lasciano l'item bloccato. Una
+ *    run rossa PRIMA di vitest (lo step di vitest `skipped`, per esempio
+ *    `Assemble + migrate` fallito sul push di `main`) non ha eseguito nulla:
+ *    non e' una prova e non contraddice.
  *
  * La prova (PR, sha, run, job) resta nel marker `FU_ITEM_CI_SUITE` del
  * commento e il gate di chiusura del bucket la conta come conferma dell'item.
@@ -45,6 +50,12 @@ import { inertCommentText, itemCiSuiteMarker } from './followup-item-evidence.mj
 export const CI_SUITE_WORKFLOW_FILE = 'tests.yml';
 export const CI_SUITE_REPORT_ARTIFACT = 'shard-timing-related';
 
+/** Lo step che esegue vitest nel job required (`tests.yml`: «vitest related (PR diff)»). */
+export function vitestStepConclusion(steps) {
+  const list = (Array.isArray(steps) ? steps : []).filter((step) => /^vitest\b/iu.test(String(step?.name ?? '')));
+  return list.length === 1 ? (list[0].conclusion ?? null) : null;
+}
+
 /** Stati da cui la prova porta a `done`: `in-progress` ha un fixer al lavoro. */
 const CANDIDATE_STATES = new Set(['open', 'blocked']);
 
@@ -54,6 +65,11 @@ const LOCAL_GUARD_RE = /\b(?:resource[- ]guard|guardia(?:\s+delle?)?\s+risorse|a
 // Qualunque altro blocco nella stessa dichiarazione: un lotto o una PR da
 // attendere, una decisione, una dipendenza, la produzione, un'altra issue.
 const OTHER_BLOCKER_RE = /(?:#\d+|\blott[oi]\b|\bdecision[ei]\b|\bpropriet|\bowner\b|\bdipendenz|\bdeploy|\bproduzion|\bend-to-end\b|\brun naturale\b|\bdati\b|\bsecret\b|\bcredenzial|\bquota\b|\brate[- ]limit)/iu;
+
+// L'item chiede la suite INTERA (dopo un'installazione pulita, per esempio):
+// la selezione `related` della CI non la esegue, e la `COMANDO` con un solo
+// file non la rappresenta. Caso reale: site#10831, FU-2026-10-02-004.
+const FULL_SUITE_RE = /\b(?:full[- ]suite|suite\s+(?:completa|intera)|intera\s+suite|tutta\s+la\s+suite)\b/iu;
 
 const SUITE_FILE_RE = /^tests\/(?:[\w.-]+\/)*[\w.-]+\.(?:test|spec)\.(?:ts|tsx|mts|cts|js|mjs|cjs)$/u;
 const SHA_RE = /^[0-9a-f]{40}$/u;
@@ -123,6 +139,7 @@ export function ciSuiteCandidates(body) {
       }
       continue;
     }
+    if (FULL_SUITE_RE.test(`${item.title ?? ''}\n${item.text ?? ''}`)) { out.push({ id: item.id, item, candidate: false, why: 'full-suite-requested' }); continue; }
     const suite = itemSuiteFiles(item);
     if (!suite) { out.push({ id: item.id, item, candidate: false, why: 'no-vitest-suite' }); continue; }
     const pr = itemSourcePr(item);
@@ -198,7 +215,7 @@ export function suiteFileVerdict(results, file) {
  * Decisione per un item. `candidates` sono le run lette: una per lo sha di
  * merge e una per l'ultima head della PR (stesso sha → una sola).
  * Ogni candidata: `{kind, sha, readError?, run: {id, conclusion}|null,
- * job: {id, conclusion}|null, results: Array|null, source: 'report'|'log'|null}`.
+ * job: {id, conclusion, vitestStep?}|null, results: Array|null, source: 'report'|'log'|null}`.
  *
  * - `done`: una run col job required verde ha eseguito verde ogni file della
  *   suite, e nessuna run contraddice;
@@ -223,8 +240,9 @@ export function decideCiSuiteProof({ suite, candidates }) {
     if (verdicts?.includes('failed')) return { outcome: 'waiting', why: 'suite-failed' };
     const allPassed = Boolean(verdicts && verdicts.every((verdict) => verdict === 'passed'));
     if (candidate.job.conclusion !== 'success') {
-      // Rosso altrove e' tollerato solo se si legge che la suite dell'item e' passata.
-      if (!allPassed) return { outcome: 'waiting', why: 'red-run' };
+      // Rosso altrove e' tollerato solo se si legge che la suite dell'item e'
+      // passata, o se vitest non ha girato affatto (step `skipped`).
+      if (!allPassed && candidate.job.vitestStep !== 'skipped') return { outcome: 'waiting', why: 'red-run' };
       continue;
     }
     sawGreen = true;

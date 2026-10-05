@@ -89,6 +89,7 @@ import {
   planCiSuiteProof,
   suiteResultsFromJobLog,
   suiteResultsFromVitestReport,
+  vitestStepConclusion,
 } from './lib/followup-ci-suite-proof.mjs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 import { issueLabelDeleteArgs, labelDeleteResponseConfirms } from './lib/issue-label-release.mjs';
@@ -1443,7 +1444,10 @@ function ciSuiteProofReaders(repository) {
         const data = parseJsonRead(ghCiRead(['api', `repos/${repo}/actions/runs/${Number(runId)}/jobs?per_page=100`]));
         if (!Array.isArray(data?.jobs)) return fail;
         const job = data.jobs.find((entry) => entry?.name === VITEST_CHECK_NAME);
-        return { status: 'ok', job: job ? { id: Number(job.id), conclusion: job.conclusion ?? null } : null };
+        return {
+          status: 'ok',
+          job: job ? { id: Number(job.id), conclusion: job.conclusion ?? null, vitestStep: vitestStepConclusion(job.steps) } : null,
+        };
       });
     },
     results(runId, jobId) {
