@@ -123,17 +123,36 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
   if (!Array.isArray(listings) || listings.length > 0) return false;
 
   const document = new JSDOM(html).window.document;
-  const emptyStateRe = /^no vacancies available[.!]?$/i;
-  return [...(document.body?.querySelectorAll('*') || [])].some((element) => {
-    if (element.closest('script, style, noscript, template')) return false;
+  // The tenant can serve the same source board through the English or Italian
+  // locale (including after a locale redirect). Keep the allowlist exact:
+  // generic zero text is still selector drift, not proof of an empty board.
+  const emptyStateRe = /^(?:no vacancies available|nessun annuncio disponibile)[.!]?$/i;
+  const isHidden = (element) => {
+    if (!element || element.closest('script, style, noscript, template')) return true;
     for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
-      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return false;
-      if (ancestor.classList.contains('hidden')) return false;
+      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
+      if (ancestor.classList.contains('hidden')) return true;
       const inlineStyle = ancestor.getAttribute('style') || '';
-      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return false;
+      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return true;
     }
-    return emptyStateRe.test(normalizeSpace(element.textContent || ''));
-  });
+    return false;
+  };
+  const hasVisibleMarker = (value, element) => !isHidden(element) && emptyStateRe.test(normalizeSpace(value));
+
+  // Prefer element text so a marker split across nested spans remains
+  // detectable; also inspect bare text nodes because the portal's empty-state
+  // template has shipped as a direct child of its result container.
+  if ([...(document.body?.querySelectorAll('*') || [])].some((element) =>
+    hasVisibleMarker(element.textContent || '', element))) {
+    return true;
+  }
+  const walker = document.body
+    ? document.createTreeWalker(document.body, 4 /* NodeFilter.SHOW_TEXT */)
+    : null;
+  for (let node = walker?.nextNode(); node; node = walker.nextNode()) {
+    if (hasVisibleMarker(node.nodeValue || '', node.parentElement)) return true;
+  }
+  return false;
 }
 
 /**

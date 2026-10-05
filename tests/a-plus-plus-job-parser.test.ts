@@ -113,6 +113,7 @@ describe('parseAplusListings', () => {
     const rows = parseAplusListings(emptyHtml);
 
     expect(isAplusEmptyListingPage(emptyHtml, rows)).toBe(true);
+    expect(isAplusEmptyListingPage('<main>Nessun annuncio disponibile</main>', [])).toBe(true);
     expect(isAplusEmptyListingPage('<main><p>No jobs.</p></main>', [])).toBe(false);
   });
 
