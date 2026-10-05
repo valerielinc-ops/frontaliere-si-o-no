@@ -130,12 +130,12 @@ function main() {
     runs[name] = runWorker(HEAD_WORKER, input, { capSeconds, env });
   });
 
-  const compare = (other) => {
+  const compare = (other, reference = runs.base) => {
     let both = 0;
     let identical = 0;
     const diffs = [];
     for (const r of sample) {
-      const a = runs.base.responses.get(r.id);
+      const a = reference.responses.get(r.id);
       const b = other.responses.get(r.id);
       if (!a?.text || !b?.text) continue;
       both++;
@@ -157,27 +157,30 @@ function main() {
     }
     return { both, identical, diffs };
   };
-  const row = (name, run, same) => {
+  const row = (name, run, same, sameAsHead) => {
     const done = [...run.responses.values()].filter((x) => x.text).length;
-    return `| ${name} | ${run.seconds.toFixed(0)} s${run.timedOut ? ' (cap)' : ''} | ${done}/${sample.length} | ${(done / Math.max(1, run.seconds) * 60).toFixed(1)} | ${same} | ${run.summary.replace(/\|/g, '/')} |`;
+    return `| ${name} | ${run.seconds.toFixed(0)} s${run.timedOut ? ' (cap)' : ''} | ${done}/${sample.length} | ${(done / Math.max(1, run.seconds) * 60).toFixed(1)} | ${same} | ${sameAsHead} | ${run.summary.replace(/\|/g, '/')} |`;
   };
   const lines = [
     '## Argos worker bench',
     '',
     `Queue on this tree: ${queued.titles} title + ${queued.descriptions} description requests. Sample: ${sample.length} (${Object.entries(directions).map(([k, v]) => `${k} ${v}`).join(', ')}), cap ${capSeconds}s per worker, ${os.cpus().length} CPUs.`,
     '',
-    '| worker | wall | requests done | requests/min | identical to base | worker log |',
-    '|---|---|---|---|---|---|',
+    '| worker | wall | requests done | requests/min | identical to base | identical to head | worker log |',
+    '|---|---|---|---|---|---|---|',
   ];
   const comparisons = {};
   for (const [name, run] of Object.entries(runs)) {
     if (name === 'base') {
-      lines.push(row(name, run, '—'));
+      lines.push(row(name, run, '—', '—'));
       continue;
     }
+    const share = (c) => `${c.identical}/${c.both} (${c.both ? ((100 * c.identical) / c.both).toFixed(1) : '0.0'}%)`;
     const c = compare(run);
     comparisons[name] = c;
-    lines.push(row(name, run, `${c.identical}/${c.both} (${c.both ? ((100 * c.identical) / c.both).toFixed(1) : '0.0'}%)`));
+    // Head against a head variant: does the output depend on how the units
+    // were grouped (chunk size, batch mode)?
+    lines.push(row(name, run, share(c), name === 'head' ? '—' : share(compare(run, runs.head))));
   }
   for (const [name, c] of Object.entries(comparisons)) {
     if (!c.diffs.length) continue;

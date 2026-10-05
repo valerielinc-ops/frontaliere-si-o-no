@@ -86,9 +86,10 @@ jobs:
         env:
           BENCH_REQUESTS: ${{ inputs.requests || '400' }}
           BENCH_CAP: ${{ inputs.cap_seconds || '600' }}
-          # Extra head runs, e.g. `--variant legacy:LOCAL_MT_ENGINE=legacy
-          # --variant batch-32:LOCAL_MT_BATCH_TOKENS=32` (run 37354644699).
-          BENCH_VARIANTS: ${{ inputs.variants || '' }}
+          # Extra head runs. Default: the same engine with another chunk size
+          # (its output must equal head's: translations do not depend on how
+          # units are grouped) and with padded batches (the mode that did).
+          BENCH_VARIANTS: ${{ inputs.variants || '--variant chunk-256:LOCAL_MT_BATCH_UNITS=256 --variant padded-batches:LOCAL_MT_BATCH_MODE=tokens' }}
         run: |
           node scripts/research/local-mt-engine-bench.mjs \
             --base "$RUNNER_TEMP/base-worker.py" \

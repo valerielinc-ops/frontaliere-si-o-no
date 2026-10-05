@@ -68,11 +68,14 @@ Env:
                      CTranslate2 whole chunks of units instead of one line per call.
   LOCAL_MT_WORKERS — thread-pool size of the legacy path (default: CPU count,
                      capped to [1, 8]). Set 1 to force the sequential path.
-  LOCAL_MT_BATCH_UNITS  — units per batched chunk (default 256): the emit
+  LOCAL_MT_BATCH_UNITS  — units per batched chunk (default 1024): the emit
                      granularity, so a timeout kill loses at most one chunk.
-  LOCAL_MT_BATCH_TOKENS — CTranslate2 max_batch_size in tokens for the batched
-                     engine (default 4096). Argos' own default is 32 tokens, i.e.
-                     one or two sentences per forward pass.
+  LOCAL_MT_BATCH_MODE — `equal-length` (default): a CTranslate2 batch holds only
+                     sentences with the same number of tokens (no padding, so a
+                     translation does not depend on its batch neighbours), up to
+                     LOCAL_MT_BATCH_EXAMPLES (default 64) per batch. `tokens`:
+                     batches filled up to LOCAL_MT_BATCH_TOKENS (default 4096)
+                     whatever the lengths; kept to reproduce the measurement.
   LOCAL_MT_STANZA_BULK — `0` (default) calls the sentencizer per paragraph, as
                      Argos does; `1` segments a chunk's paragraphs with one
                      Stanza call. Measured (local-mt-bench run 37354644699):
@@ -236,15 +239,9 @@ class _BatchedEngine:
     per (package, text), so the it->en leg of it->de and it->fr is computed
     once. Sentence splitting stays per paragraph.
 
-    Measured on the pipeline's runner, 400 real requests, 600 s cap
-    (local-mt-bench run 37354644699): base 19.1 requests/min, this engine
-    59.6; of the 191 responses both produced, 177 (92.7%) are byte-identical.
-    The legacy path of this same worker is 191/191 identical, so the base is
-    deterministic and the 7.3% comes from batch composition: CTranslate2 pads
-    the sentences of a batch together and the int8 beam search can then pick
-    another hypothesis. 32-token batches narrow it (96.3%) but give the speed
-    back (19.5 requests/min). Every write still passes the mop-up's structural
-    and semantic guards.
+    Batches are equal-length (see _translate_sentences): padded batches made
+    the same sentence translate differently from one batch composition to the
+    next, which no downstream guard could tell from a real change.
 
     Any exception building the chain or running a leg is raised to the caller,
     which falls back to the legacy per-unit path for that chunk."""
@@ -255,6 +252,9 @@ class _BatchedEngine:
         self._chains = {}
         self._memo = {}   # (leg key, text) -> translated text
         self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "0").strip() == "1"
+        mode = os.environ.get("LOCAL_MT_BATCH_MODE", "equal-length").strip().lower()
+        self.batch_mode = "tokens" if mode == "tokens" else "equal-length"
+        self.batch_examples = _env_int("LOCAL_MT_BATCH_EXAMPLES", 64, 1, 1024)
         for name in ("get_translation_from_codes", "CachedTranslation",
                      "CompositeTranslation", "IdentityTranslation", "PackageTranslation"):
             if not hasattr(tr, name):
@@ -337,20 +337,10 @@ class _BatchedEngine:
                 flat_owner.append(p_index)
         tokens_by_paragraph = [[] for _ in paragraphs]
         if flat:
-            target_prefix = [[pkg.target_prefix]] * len(flat) if pkg.target_prefix != "" else None
-            results = self._translator(leg).translate_batch(
-                flat,
-                target_prefix=target_prefix,
-                replace_unknowns=True,
-                max_batch_size=self.batch_tokens,
-                batch_type="tokens",
-                beam_size=max(1, self.settings.beam_size),
-                num_hypotheses=1,
-                length_penalty=0.2,
-                return_scores=True,
-            )
-            for p_index, result in zip(flat_owner, results):
-                tokens_by_paragraph[p_index].extend(result.hypotheses[0])
+            hypotheses = self._translate_sentences(leg, flat)
+            # Sentences keep their order inside a paragraph.
+            for p_index, tokens in zip(flat_owner, hypotheses):
+                tokens_by_paragraph[p_index].extend(tokens)
         values = []
         for tokens in tokens_by_paragraph:
             value = pkg.tokenizer.decode(tokens)
@@ -363,6 +353,51 @@ class _BatchedEngine:
         for t_index, value in zip(owners, values):
             joined[t_index].append(value)
         return ["\n".join(parts).lstrip("\n") for parts in joined]
+
+    def _translate_sentences(self, leg, sentences):
+        """Token lists for tokenized sentences, in input order.
+
+        `equal-length` (default) sends CTranslate2 only batches of sentences
+        with the SAME number of tokens, so nothing is padded and a sentence's
+        translation does not depend on what else is in its batch. `tokens`
+        fills batches up to `batch_tokens` regardless of length: measured on
+        the pipeline's runner (local-mt-bench runs 37354644699 and
+        37362597052) the same title then came back different from one batch
+        composition to the next (92.7% and 61.3% of responses identical to the
+        per-unit path on two samples), e.g. "Tecnico Edificio HLKS …" against
+        "HLKS …"."""
+        pkg = leg.pkg
+        translator = self._translator(leg)
+        options = dict(
+            replace_unknowns=True,
+            beam_size=max(1, self.settings.beam_size),
+            num_hypotheses=1,
+            length_penalty=0.2,
+            return_scores=True,
+        )
+
+        def prefix(count):
+            return [[pkg.target_prefix]] * count if pkg.target_prefix != "" else None
+
+        if self.batch_mode == "tokens":
+            results = translator.translate_batch(
+                sentences, target_prefix=prefix(len(sentences)),
+                max_batch_size=self.batch_tokens, batch_type="tokens", **options)
+            return [result.hypotheses[0] for result in results]
+
+        by_length = {}
+        for index, tokens in enumerate(sentences):
+            by_length.setdefault(len(tokens), []).append(index)
+        out = [None] * len(sentences)
+        for indexes in by_length.values():
+            for start in range(0, len(indexes), self.batch_examples):
+                group = indexes[start:start + self.batch_examples]
+                results = translator.translate_batch(
+                    [sentences[i] for i in group], target_prefix=prefix(len(group)),
+                    max_batch_size=len(group), batch_type="examples", **options)
+                for i, result in zip(group, results):
+                    out[i] = result.hypotheses[0]
+        return out
 
     def translate_keys(self, keys):
         """keys: [(content, from, to)] -> {key: translated text}."""
@@ -661,7 +696,7 @@ def translate_stream():
         _run_legacy(keys)
         translated_units = len(keys)
     else:
-        chunk_units = _env_int("LOCAL_MT_BATCH_UNITS", 256, 1, 100000)
+        chunk_units = _env_int("LOCAL_MT_BATCH_UNITS", 1024, 1, 100000)
         fallback_warmed = False
         last_report = time.time()
         # Units keep request order (titles first, traffic order inside), so the

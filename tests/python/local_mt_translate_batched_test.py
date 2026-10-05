@@ -49,6 +49,7 @@ class _Translator:
 
     def translate_batch(self, batch, **kwargs):
         self.stats["calls"].append((self.tag, len(batch), kwargs.get("max_batch_size")))
+        self.stats["lengths"].append(sorted({len(tokens) for tokens in batch}))
         self.stats["sentences"][self.tag] = self.stats["sentences"].get(self.tag, 0) + len(batch)
         return [_Result([f"{self.tag}:{tok}" for tok in tokens]) for tokens in batch]
 
@@ -69,7 +70,7 @@ class _Sentencizer:
 
 
 def _install_fake_argos(fail_on=None):
-    stats = {"calls": [], "sentences": {}}
+    stats = {"calls": [], "sentences": {}, "lengths": []}
     mod = types.ModuleType("argostranslate.translate")
 
     class PackageTranslation:
@@ -221,9 +222,23 @@ class BatchedEngineMatchesArgosComposition(unittest.TestCase):
         # "Gestire i clienti. Seguire gli ordini" (2 sentences), "Sede: Lugano".
         self.assertEqual(stats["sentences"]["iten"], 5)
 
-    def test_one_translate_batch_call_carries_many_sentences(self):
+    def test_a_batch_holds_only_sentences_of_the_same_length(self):
+        # No padding: a sentence's translation cannot depend on its neighbours.
         stats = _install_fake_argos()
-        _run_stream(self.mod, REQUESTS, {"LOCAL_MT_ENGINE": "batched", "LOCAL_MT_BATCH_TOKENS": "2048"})
+        _run_stream(self.mod, REQUESTS, {"LOCAL_MT_ENGINE": "batched"})
+        self.assertTrue(stats["lengths"])
+        for lengths in stats["lengths"]:
+            self.assertEqual(len(lengths), 1, stats["lengths"])
+        # "Responsabile vendite", "Sede: Lugano" and "Seguire gli ordini"-like
+        # sentences share a batch when their token counts match.
+        iten = [c for c in stats["calls"] if c[0] == "iten"]
+        self.assertLess(len(iten), stats["sentences"]["iten"])
+
+    def test_tokens_mode_fills_one_batch_whatever_the_lengths(self):
+        stats = _install_fake_argos()
+        _run_stream(self.mod, REQUESTS, {
+            "LOCAL_MT_ENGINE": "batched", "LOCAL_MT_BATCH_MODE": "tokens", "LOCAL_MT_BATCH_TOKENS": "2048",
+        })
         iten = [c for c in stats["calls"] if c[0] == "iten"]
         self.assertEqual(len(iten), 1)
         self.assertEqual(iten[0][2], 2048)
