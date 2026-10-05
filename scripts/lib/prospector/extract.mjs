@@ -770,10 +770,11 @@ function isContactChromePanel(opening) {
  * (`gfield--has-description`, `description_below`) were read as the body —
  * 629 of 886 published rows started with «Anrede (erforderlich) Frau Herr»
  * (issue 5253). ASP.NET WebForms, however, wraps the WHOLE page in one
- * `<form>`: that element holds the vacancy's own heading, and cutting it would
- * cut the ad. The heading must match the selected vacancy title; a semantic
- * container or an unrelated form heading is not enough. Decided by structure,
- * never by the wording of the labels.
+ * `<form>`: that element holds the vacancy's own title heading, and cutting
+ * it would cut the ad. Only a heading that reads exactly as the vacancy title
+ * exempts a form: an application form with its own `<h1>Bewerbungsformular`
+ * or its own `<article>` container is still a form on the page. Decided by
+ * structure, never by the wording of the labels.
  *
  * @param {string} html
  * @param {HtmlTagIndex} index
