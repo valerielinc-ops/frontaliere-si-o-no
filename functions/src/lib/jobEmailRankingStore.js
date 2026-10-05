@@ -2,11 +2,15 @@ import { createHash } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { parseJobRankingClick } from './jobEmailRankingLinks.js';
 import {
+  MANIFEST_ATTRIBUTE_MAX_LENGTH,
   buildEmbeddedRankingUpdate,
+  jobRankingAttributes,
   pseudonymousUserId,
   rankingDay,
   stableJobId,
 } from './jobEmailRanking.js';
+
+export { MANIFEST_ATTRIBUTE_MAX_LENGTH };
 
 export const JOB_EMAIL_RANKING_STATS_COLLECTION = 'job_email_ranking_stats';
 export const JOB_EMAIL_RANKING_EVENTS_COLLECTION = 'job_email_ranking_events';
@@ -57,43 +61,28 @@ function incrementField(data, path, amount) {
   if (amount > 0) data[path] = FieldValue.increment(amount);
 }
 
-// Job attributes carried by every manifest entry. A job_id stops resolving once
-// the listing expires (the expired archive has no id, category or canton), so
-// the manifest itself must say which kind of listing a click was about.
-export const MANIFEST_ATTRIBUTE_MAX_LENGTH = 80;
-
-/** Short, whitespace-normalized string, or null when the value is absent. */
-function manifestAttribute(value) {
-  if (typeof value !== 'string' && typeof value !== 'number') return null;
-  const text = String(value).replace(/\s+/g, ' ').trim();
-  if (!text) return null;
-  // Array.from cuts on code points, never inside a surrogate pair.
-  return Array.from(text).slice(0, MANIFEST_ATTRIBUTE_MAX_LENGTH).join('').trim();
+function finiteOrNull(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
 }
 
-/** Two-letter uppercase canton code (`TI`), or null for anything else. */
-function manifestCanton(value) {
-  const code = manifestAttribute(value)?.toUpperCase();
-  return code && /^[A-Z]{2}$/.test(code) ? code : null;
-}
-
+/**
+ * One job of the delivery manifest. The four listing attributes come from
+ * jobRankingAttributes (./jobEmailRanking.js), the same extraction the
+ * affinity ranking scores at send time. `affinity_score` is the recipient's
+ * affinity with the job in [0, 1] when the person had a valid profile at send
+ * time (both variants record it; only `affinity` orders by it), else null.
+ */
 export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
   return {
     job_id: String(job?.jobId || stableJobId(job)),
     position: Math.max(1, Math.trunc(Number(ranking.position || index + 1))),
-    ranking_score: Number.isFinite(Number(ranking.rankingScore)) ? Number(ranking.rankingScore) : null,
-    relevance_score: Number.isFinite(Number(ranking.relevanceScore)) ? Number(ranking.relevanceScore) : null,
-    ctr_shrink: Number.isFinite(Number(ranking.ctrShrink)) ? Number(ranking.ctrShrink) : null,
-    random_boost: Number.isFinite(Number(ranking.randomBoost)) ? Number(ranking.randomBoost) : null,
-    category: manifestAttribute(job?.category),
-    canton: manifestCanton(job?.canton),
-    // companyKey is already the normalized key the crawlers emit
-    // (scripts/lib/company-key.mjs); Cloud Functions cannot import scripts/.
-    company_key: manifestAttribute(job?.companyKey),
-    // A newsletter card's `sector` falls back to the category for display and
-    // alert matching; `rawSector` keeps the listing's own sector key.
-    sector: manifestAttribute(job?.rawSector !== undefined ? job.rawSector : job?.sector),
+    ranking_score: finiteOrNull(ranking.rankingScore),
+    relevance_score: finiteOrNull(ranking.relevanceScore),
+    affinity_score: finiteOrNull(ranking.affinityScore),
+    ...jobRankingAttributes(job),
   };
 }
 
@@ -128,6 +117,11 @@ export async function recordJobEmailImpressions(db, records) {
     const variant = variantKey(record.variant);
     const userId = record.userId || pseudonymousUserId(record.email);
     const manifest = record.jobs.map(jobManifestEntry);
+    // Whether the person had a valid affinity profile when the email was
+    // built, in BOTH variants: the report compares affinity and control among
+    // people with a profile. null only for a record that predates the field
+    // (a job-alert retry queued before it existed).
+    const affinityProfile = typeof record.affinityProfile === 'boolean' ? record.affinityProfile : null;
     deliveries.set(String(record.deliveryId), {
       delivery_id: String(record.deliveryId),
       user_id: userId,
@@ -136,6 +130,7 @@ export async function recordJobEmailImpressions(db, records) {
       alert_id: record.alertId || null,
       newsletter_id: record.newsletterId || null,
       ranking_variant: record.variant || 'unknown',
+      affinity_profile: affinityProfile,
       jobs: manifest,
       sent_at: sentAt,
       expires_at: retentionDate(sentAt),
@@ -178,8 +173,7 @@ export async function recordJobEmailImpressions(db, records) {
         ranking_variant: record.variant || 'unknown',
         ranking_score: manifestJob.ranking_score,
         relevance_score: manifestJob.relevance_score,
-        ctr_shrink: manifestJob.ctr_shrink,
-        random_boost: manifestJob.random_boost,
+        affinity_profile: affinityProfile,
         user_id: userId,
         occurred_at: sentAt,
         expires_at: retentionDate(sentAt),
@@ -295,6 +289,8 @@ export async function recordJobEmailRankingClick(db, {
     ranking_variant: click.variant || 'unknown',
     ranking_score: click.rankingScore,
     relevance_score: click.relevanceScore,
+    // Only links in emails sent during the CTR experiment (until 2026-10)
+    // still carry these two; newer links leave them null.
     ctr_shrink: click.ctrShrink,
     random_boost: click.randomBoost,
     user_id: userId,
@@ -368,34 +364,4 @@ export async function recordJobEmailRankingClick(db, {
     return { skipped: true, reason: 'persist_failed' };
   }
   return { recorded, click };
-}
-
-/** Load global newsletter daily rows for the configured ranking window. */
-export async function loadNewsletterRankingStats(db, { sinceDay = null } = {}) {
-  const result = new Map();
-  if (!db) return result;
-  try {
-    let query = db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION)
-      .where('surface', '==', 'newsletter')
-      .where('surface_id', '==', 'newsletter_weekly');
-    if (sinceDay) query = query.where('date', '>=', String(sinceDay));
-    const snapshot = await query.get();
-    for (const doc of snapshot.docs) {
-      const row = doc.data() || {};
-      const jobId = String(row.job_id || '');
-      if (!jobId) continue;
-      const entry = result.get(jobId) || { days: {} };
-      const day = String(row.date || '');
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) continue;
-      const dayRow = entry.days[day] || { impressions: 0, clicks: 0, position_sum: 0 };
-      dayRow.impressions += Number(row.impressions) || 0;
-      dayRow.clicks += Number(row.clicks) || 0;
-      dayRow.position_sum += Number(row.position_sum) || 0;
-      entry.days[day] = dayRow;
-      result.set(jobId, entry);
-    }
-  } catch (error) {
-    console.warn('⚠️ Newsletter job-ranking stats unavailable:', error?.message || error);
-  }
-  return result;
 }

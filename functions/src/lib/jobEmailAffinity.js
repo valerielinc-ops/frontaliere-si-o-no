@@ -22,7 +22,8 @@
  *    `node scripts/build-job-email-affinity.mjs --forget-email <email>`, che
  *    cancella il profilo. Lo scrittore notturno non ne crea piu' uno per quella
  *    persona e cancella quello esistente al primo clic successivo; chi ordina
- *    (passo 3) deve comunque leggere il flag al momento dell'invio.
+ *    legge comunque il flag al momento dell'invio (loadJobEmailAffinityProfiles
+ *    in jobEmailAffinityStore.js non legge il profilo di chi si e' opposto).
  *
  * FORMA DEL DOCUMENTO `job_email_affinity/{pseudonimo}` (versione 1), scritto
  * per intero (`set`, mai merge) da un solo scrittore,
@@ -64,8 +65,12 @@
  *    (categoria 0,4, cantone/azienda/settore 0,2) rinormalizzata sulle sole
  *    dimensioni presenti nel profilo. 0 senza profilo valido.
  *    `jobAttrs` ha la forma del manifest delle consegne: passa
- *    `jobManifestEntry(job)` (jobEmailRankingStore.js), che porta gia'
- *    `category`, `canton`, `company_key`, `sector` normalizzati.
+ *    `jobManifestEntry(job)` (jobEmailRankingStore.js) o
+ *    `jobRankingAttributes(job)` (jobEmailRanking.js, la stessa estrazione),
+ *    che portano gia' `category`, `canton`, `company_key`, `sector`.
+ *  - `createAffinityScorer(profile, now)`: lo stesso punteggio con il profilo
+ *    decaduto una volta sola, per ordinare molti annunci della stessa persona
+ *    (rankEmailJobs in jobEmailRanking.js, variante `affinity`).
  *
  * PURO: nessun I/O, nessun Date.now() implicito. Importabile da functions/ e
  * da scripts/ (non dal browser: jobEmailRanking.js usa node:crypto).
@@ -246,24 +251,56 @@ export function hasAffinityProfile(profile, now) {
   return expiresMs > nowMs && nowMs - lastMs < AFFINITY_TTL_DAYS * DAY_MS;
 }
 
-/** Punteggio di affinita' in [0, 1] per un annuncio (vedi docblock). */
-export function scoreJobAffinity(profile, jobAttrs, now) {
-  if (!hasAffinityProfile(profile, now)) return 0;
+/**
+ * Scorer di una persona: la funzione `(jobAttrs) => [0, 1]` di
+ * scoreJobAffinity con il profilo gia' decaduto a `now`, o null senza profilo
+ * valido. L'ordinamento valuta centinaia di annunci per destinatario: il
+ * decadimento dei pesi si calcola una volta per persona, non per annuncio.
+ */
+export function createAffinityScorer(profile, now) {
+  if (!hasAffinityProfile(profile, now)) return null;
   const nowMs = toMillis(now);
-  const attrs = affinityAttributes(jobAttrs);
-  let weighted = 0;
+  const dimensions = [];
   let totalWeight = 0;
   for (const dimension of AFFINITY_DIMENSIONS) {
     const entries = decayedEntries(profile.dimensions?.[dimension], nowMs);
     const mass = entries.reduce((sum, entry) => sum + entry.weight, 0);
     if (!(mass > 0)) continue;
-    const value = attrs[dimension];
-    const share = value ? (entries.find((entry) => entry.key === value)?.weight || 0) / mass : 0;
-    weighted += AFFINITY_DIMENSION_WEIGHTS[dimension] * share;
+    const weights = new Map();
+    // Prima occorrenza di una chiave, come il find() di prima: lo scrittore
+    // non ne produce di doppie, un documento malformato non cambia semantica.
+    for (const entry of entries) if (!weights.has(entry.key)) weights.set(entry.key, entry.weight);
+    dimensions.push({ dimension, weights, mass });
     totalWeight += AFFINITY_DIMENSION_WEIGHTS[dimension];
   }
-  if (!(totalWeight > 0)) return 0;
-  return Math.min(1, Math.max(0, weighted / totalWeight));
+  if (!(totalWeight > 0)) return () => 0;
+  return (jobAttrs) => {
+    const attrs = affinityAttributes(jobAttrs);
+    let weighted = 0;
+    for (const { dimension, weights, mass } of dimensions) {
+      const value = attrs[dimension];
+      const share = value ? (weights.get(value) || 0) / mass : 0;
+      weighted += AFFINITY_DIMENSION_WEIGHTS[dimension] * share;
+    }
+    return Math.min(1, Math.max(0, weighted / totalWeight));
+  };
+}
+
+/** Punteggio di affinita' in [0, 1] per un annuncio (vedi docblock). */
+export function scoreJobAffinity(profile, jobAttrs, now) {
+  const scorer = createAffinityScorer(profile, now);
+  return scorer ? scorer(jobAttrs) : 0;
+}
+
+/**
+ * Cio' che serve all'ordinamento per un destinatario: se aveva un profilo
+ * valido all'istante dell'invio (`affinityProfile`, registrato su consegne e
+ * impression di ENTRAMBE le varianti) e il suo scorer, o null. `profile` vale
+ * null per chi si e' opposto: il chiamante non lo legge nemmeno.
+ */
+export function affinityRankingContext(profile, now) {
+  const affinityScorer = createAffinityScorer(profile, now);
+  return { affinityProfile: affinityScorer !== null, affinityScorer };
 }
 
 const norm = (value) => String(value == null ? '' : value).trim().toLowerCase();

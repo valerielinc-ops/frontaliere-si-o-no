@@ -355,17 +355,12 @@ export const RC_TO_ENV = {
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
   // Exact-job application-intent ranking (#9934); absent/false stays control.
   APPLICATION_INTENT_RANKING_ENABLED: ['APPLICATION_INTENT_RANKING_ENABLED'],
-  // Job-email ranking (#7922). Keep the complete tuning surface in Remote
-  // Config so the experiment can be reduced or disabled without a deploy.
+  // Job-email ranking (#7922), affinity variant since 2026-10: kill switch,
+  // share of people in `affinity`, and the weight of the interest profile in
+  // the score (functions/src/lib/jobEmailRanking.js). Absent = code defaults.
   JOB_EMAIL_RANKING_ENABLED:      ['JOB_EMAIL_RANKING_ENABLED'],
   JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
-  JOB_EMAIL_RANKING_ALPHA:        ['JOB_EMAIL_RANKING_ALPHA'],
-  JOB_EMAIL_RANKING_EPSILON:      ['JOB_EMAIL_RANKING_EPSILON'],
-  JOB_EMAIL_RANKING_WINDOW_DAYS:  ['JOB_EMAIL_RANKING_WINDOW_DAYS'],
-  JOB_EMAIL_RANKING_SHRINK_K:     ['JOB_EMAIL_RANKING_SHRINK_K'],
-  JOB_EMAIL_RANKING_MIN_IMPRESSIONS: ['JOB_EMAIL_RANKING_MIN_IMPRESSIONS'],
-  JOB_EMAIL_RANKING_NEW_JOB_BOOST:   ['JOB_EMAIL_RANKING_NEW_JOB_BOOST'],
-  JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES: ['JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES'],
+  JOB_EMAIL_RANKING_AFFINITY_WEIGHT: ['JOB_EMAIL_RANKING_AFFINITY_WEIGHT'],
   // Per-user send-time personalization kill switch (issue #3798). Unset in RC
   // by default — send-schedule.mjs treats absent as 'on'. Set to 'off' in RC
   // to roll back to immediate sends without touching code or workflows (env

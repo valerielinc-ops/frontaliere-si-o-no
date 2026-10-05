@@ -16,12 +16,11 @@ describe('job email ranking link attribution', () => {
         ranking: {
           rankingScore: 0.81,
           relevanceScore: 8,
-          ctrShrink: 0.11,
-          randomBoost: 0.4,
+          affinityScore: 0.62,
         },
       }],
       rankingDeliveryId: 'jer_newsletter_test',
-      rankingVariant: 'treatment',
+      rankingVariant: 'affinity',
       rankingSurfaceId: 'newsletter_weekly',
       newsletterId: 'weekly_2026-09-07',
       totalJobs: 1,
@@ -32,7 +31,10 @@ describe('job email ranking link attribution', () => {
     expect(url.searchParams.get('job_id')).toBe('software-engineer');
     expect(url.searchParams.get('delivery_id')).toBe('jer_newsletter_test');
     expect(url.searchParams.get('position')).toBe('1');
-    expect(url.searchParams.get('variant')).toBe('treatment');
+    expect(url.searchParams.get('variant')).toBe('affinity');
+    // The CTR experiment's per-job fields are no longer put in the link.
+    expect(url.searchParams.has('ctr_shrink')).toBe(false);
+    expect(url.searchParams.has('random_boost')).toBe(false);
   });
 
   it('keeps legacy template calls free of ranking parameters', () => {
