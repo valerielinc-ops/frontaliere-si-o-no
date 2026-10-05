@@ -26,7 +26,8 @@ import { parse } from 'yaml';
  *   1. static: every rclone/aws invocation in the deploy scripts runs under
  *      coreutils `timeout`, and the CDN push step has `timeout-minutes`;
  *   2. behavioural: with a ledger read that never answers, the
- *      push finishes in seconds and purges from this run's upload log.
+ *      push stays bounded and bootstraps an empty ledger so current stage
+ *      keys are retried even when this run's upload log is empty.
  */
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -309,14 +310,16 @@ function runPublish(name: string, env: Record<string, string>) {
 const COPIED_A = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'a.js' });
 
 describe('behaviour: an R2 call that never answers does not hang the CDN push', () => {
-  it('ledger read that never answers → bounded, purge falls back to the upload log', () => {
-    const r = runPublish('ledger-hangs', { STUB_LEDGER: 'hang', STUB_ASSETS_LOG: COPIED_A });
+  it('ledger read that never answers → bounded; empty upload log still leaves every stage key dirty', () => {
+    const r = runPublish('ledger-hangs', { STUB_LEDGER: 'hang', STUB_ASSETS_LOG: '' });
     expect(r.code).toBe(0);
     expect(r.seconds).toBeLessThan(25);
-    expect(r.stdout).toMatch(/::warning::\[r2\] purge ledger read failed or exceeded 2s \(exit 124\)/);
-    expect(r.stdout).toMatch(/log-only: purging the 1 key\(s\) this run uploaded/);
+    expect(r.stdout).toMatch(/::warning::\[r2\] purge ledger read failed or exceeded 2s \(exit 124\) — starting from an empty ledger/);
+    expect(r.stdout).toMatch(/ledger: 0 key\(s\) uploaded by this run, 2 more changed in R2/);
     expect(r.calls.some((c) => / s3api list-objects-v2 .*Key:Key,ETag:ETag/.test(c)), 'no R2 listing after a failed read').toBe(false);
-    expect(r.ledger).toBeNull();
+    // No CF_API_TOKEN in the test: no batch succeeds, so neither fingerprint
+    // may be persisted as clean even though the ledger object is writable.
+    expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
   });
 });
 
@@ -345,7 +348,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(assetsAt).toBeGreaterThan(-1);
     expect(r.calls.slice(0, assetsAt).filter((c) => /^aws /.test(c)), 'no R2 listing before the assets copy').toEqual([]);
     expect(r.calls.some((c) => /Key:Key,ETag:ETag/.test(c)), 'no seed-style listing anywhere').toBe(false);
-    expect(r.stdout).toMatch(/no purge ledger yet — starting from an empty one/);
+    expect(r.stdout).toMatch(/no usable purge ledger — starting from an empty one/);
     expect(r.stdout).toMatch(/ledger: 0 key\(s\) uploaded by this run, 2 more changed in R2/);
     // No CF_API_TOKEN in the test: nothing is purged, so nothing may be marked clean.
     expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
@@ -355,7 +358,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     const r = runPublish('later-prefix-fails', { STUB_LEDGER: 'hang', STUB_ASSETS_LOG: COPIED_A, STUB_FAIL_PREFIX: 'data' });
     expect(r.code).toBe(0);
     expect(r.stdout).toMatch(/NOT writing marker/);
-    expect(r.stdout).toMatch(/log-only: purging the 1 key\(s\) this run uploaded/);
+    expect(r.stdout).toMatch(/ledger: 1 key\(s\) uploaded by this run, 1 more changed in R2/);
     expect(r.calls.some((c) => /cdn-build-id\.txt/.test(c))).toBe(false);
   });
 });

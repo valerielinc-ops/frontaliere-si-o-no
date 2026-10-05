@@ -326,9 +326,9 @@ _publish_cdn_r2() {
   # (per key, the MD5 the edge was last purged for), so a key a dead run
   # uploaded without purging is still purged by the next run even though its
   # rclone log no longer names it. See purge-changed-cdn-assets.mjs's header.
-  # Every step here is fail-open: whatever fails or runs out of time leaves
-  # _ledger_state != present, and the purge falls back to this run's upload
-  # log, i.e. exactly the behaviour before the ledger existed.
+  # Every step here is fail-open: a missing, invalid or unreadable ledger
+  # starts empty, so all current stage keys stay dirty until purged. If the
+  # stage itself is unavailable, the purge falls back to this run's upload log.
   local _pdir _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
   _pdir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/r2-purge.XXXXXX" 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
   mkdir -p "$_pdir"
@@ -339,7 +339,8 @@ _publish_cdn_r2() {
     timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/ledger-in.json" --retries=1 \
       2> "$_pdir/ledger.err" || _rrc=$?
     if [ "$_rrc" -ne 0 ]; then
-      echo "::warning::[r2] purge ledger read failed or exceeded ${_t_obj}s (exit $_rrc) — purge falls back to this run's upload log: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+      echo "::warning::[r2] purge ledger read failed or exceeded ${_t_obj}s (exit $_rrc) — starting from an empty ledger: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+      _ledger_state=absent
     elif [ ! -s "$_pdir/ledger-in.json" ]; then
       _ledger_state=absent
     elif node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in="$_pdir/ledger-in.json"; then
@@ -362,7 +363,7 @@ _publish_cdn_r2() {
     # ledger simply starts empty again next time.
     printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
     _ledger_state=present
-    echo "::notice::[r2] no purge ledger yet — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
+    echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
   fi
   _r2_sync 420 "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
   assets_sync_status=$?
@@ -397,7 +398,7 @@ _publish_cdn_r2() {
           || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      # Fallback (ledger read failed or timed out): this run's uploads only.
+      # Fallback (stage unavailable): this run's uploads only.
       timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
     elif [ "$assets_sync_ok" != 1 ]; then
