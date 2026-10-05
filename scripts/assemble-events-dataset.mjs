@@ -412,10 +412,10 @@ function organizerSlug(event) {
  * URL slug. Matching is one-to-one and only on an unambiguous best score — two
  * concerts of the same evening in the same comune (Evensong and Galliano,
  * 2026-10-07, Ascona) each keep their own tio twin, and a tie merges nothing.
- * The pair goes through `pickRichestEvent`, so identity follows richness and
- * the organizer's structured tariff replaces tio's text price, with the
- * disagreement recorded in `price.priceConflicts` (Galliano: tio 20,
- * classicAscona from 40).
+ * The tio record keeps its identity (it is the one already published); the
+ * price goes through `pickRichestEvent`, so the organizer's structured tariff
+ * replaces tio's text price, with the disagreement recorded in
+ * `price.priceConflicts` (Galliano: tio 20, classicAscona from 40).
  */
 export function dedupeOrganizerAgainstTio(events) {
   const sourceOf = (event) => event.sourceKey || String(event.id || '').split(':')[0];
@@ -449,7 +449,12 @@ export function dedupeOrganizerAgainstTio(events) {
   for (const [tio, candidates] of byTio) {
     candidates.sort((a, b) => b.score - a.score);
     if (candidates[1] && candidates[1].score === candidates[0].score) continue;
-    replaced.set(tio, pickRichestEvent([tio, candidates[0].organizer]));
+    // The tio record keeps its identity (id, title, route) whatever the
+    // richness score says: it is the one already published, and swapping the
+    // id would drop its page. The organizer contributes its structured price
+    // (with tio's disagreeing text price recorded as a conflict).
+    const merged = pickRichestEvent([tio, candidates[0].organizer]);
+    replaced.set(tio, merged.id === tio.id ? merged : { ...tio, ...(merged.price ? { price: merged.price } : {}) });
     replaced.set(candidates[0].organizer, null);
     mergedAway += 1;
   }

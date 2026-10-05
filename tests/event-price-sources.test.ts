@@ -91,7 +91,7 @@ function visiblePrice(price: Record<string, unknown> | undefined, locale: 'it' |
     detailHref: (() => null) as never,
   });
   const label = { it: 'Prezzo', en: 'Price', de: 'Preis', fr: 'Prix' }[locale];
-  return new RegExp(`<dt class="ev-metric-t">${label}</dt>\\s*<dd class="ev-metric-v">([^<]*)</dd>`).exec(page.html)?.[1];
+  return new RegExp(`<dt class="?ev-metric-t"?>${label}</dt>\\s*<dd class="?ev-metric-v"?>([^<]*)</dd>`).exec(page.html)?.[1];
 }
 
 describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte strutturata', () => {
