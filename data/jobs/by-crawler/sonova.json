@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-10-05T09:13:34.685Z",
+  "assembledAt": "2026-10-05T21:24:14.900Z",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.428Z",
+      "crawledAt": "2026-10-05T21:24:09.763Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -44,7 +44,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-13T02:00:00Z",
       "postedDate": "2026-09-13T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1416109733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -61,9 +63,7 @@
       },
       "previousSlugs": [
         "product-cybersecurity-expert-sonova-staefa",
-        "product-cybersecurity-expert-sonova-ch",
-        "prodotto-cybersecurity-expert-sonova-staefa",
-        "product-cybersecurity-manager-sonova-ch"
+        "product-cybersecurity-expert-sonova-ch"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.952Z",
       "salaryMin": 73500,
@@ -78,9 +78,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-13T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-014e943d2e13",
@@ -113,7 +111,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.423Z",
+      "crawledAt": "2026-10-05T21:24:09.760Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -124,7 +122,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14T00:00:00Z",
       "postedDate": "2026-09-14T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1436570633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -155,9 +155,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-14T00:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-befc5732f81c",
@@ -190,7 +188,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:13:29.417Z",
+      "crawledAt": "2026-10-05T21:24:09.757Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -201,7 +199,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-16T02:00:00Z",
       "postedDate": "2026-09-16T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1387283333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -231,9 +231,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-16T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-403b793762fb",
@@ -266,7 +264,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.413Z",
+      "crawledAt": "2026-10-05T21:24:09.754Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -277,7 +275,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-17T00:00:00Z",
       "postedDate": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1437852833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -296,6 +296,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -308,9 +309,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-17T00:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-015d3cf3327f",
@@ -343,7 +342,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.409Z",
+      "crawledAt": "2026-10-05T21:24:09.751Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -354,7 +353,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1413688533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -386,9 +387,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-a77ade8c1fe1",
@@ -421,7 +420,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.406Z",
+      "crawledAt": "2026-10-05T21:24:09.748Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -432,7 +431,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1417571533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -457,9 +458,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-374a65613887",
@@ -492,7 +491,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:13:29.402Z",
+      "crawledAt": "2026-10-05T21:24:09.745Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -503,7 +502,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -527,9 +528,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-65194a0b7ac7",
@@ -548,7 +547,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Stage pratique - Power Management (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -562,7 +561,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.399Z",
+      "crawledAt": "2026-10-05T21:24:09.742Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -573,7 +572,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-20T02:00:00Z",
       "postedDate": "2026-09-20T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1418818733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -599,6 +600,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -611,9 +613,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-20T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-7467e53a621f",
@@ -646,7 +646,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.394Z",
+      "crawledAt": "2026-10-05T21:24:09.739Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -657,7 +657,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21T00:00:00Z",
       "postedDate": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439444733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -694,9 +696,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-21T00:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-ec78c23d0cf7",
@@ -729,7 +729,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.391Z",
+      "crawledAt": "2026-10-05T21:24:09.736Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -805,7 +805,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.387Z",
+      "crawledAt": "2026-10-05T21:24:09.732Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -816,7 +816,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23T02:00:00Z",
       "postedDate": "2026-09-23T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1411716033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -840,9 +842,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-23T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-c8fcf54ac57e",
@@ -875,7 +875,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.383Z",
+      "crawledAt": "2026-10-05T21:24:09.729Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -886,7 +886,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24T00:00:00Z",
       "postedDate": "2026-09-24T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1440786833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -896,12 +898,12 @@
         "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "audiologie-innovationsmanager-m-w-d-sonova-staefa"
-        ],
         "it": [
           "audiology-innovation-manager-m-f-d-sonova-ch",
           "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa"
+        ],
+        "de": [
+          "audiologie-innovationsmanager-m-w-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.872Z",
@@ -917,9 +919,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-24T00:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-8230e78b3493",
@@ -952,7 +952,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.377Z",
+      "crawledAt": "2026-10-05T21:24:09.726Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -963,7 +963,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24T02:00:00Z",
       "postedDate": "2026-09-24T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1409309433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -989,9 +991,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-24T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-a02b2dce588a",
@@ -1024,7 +1024,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:13:29.373Z",
+      "crawledAt": "2026-10-05T21:24:09.721Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1035,7 +1035,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1068,9 +1070,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-088c8bab41fe",
@@ -1103,7 +1103,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:13:29.369Z",
+      "crawledAt": "2026-10-05T21:24:09.719Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1114,7 +1114,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421326833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1147,9 +1149,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-755bb818c5fe",
@@ -1182,7 +1182,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:13:29.364Z",
+      "crawledAt": "2026-10-05T21:24:09.715Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1193,7 +1193,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1224,9 +1226,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "sonova-0e97616fe3f9",
@@ -1259,7 +1259,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.360Z",
+      "crawledAt": "2026-10-05T21:24:09.712Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1269,7 +1269,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28T00:00:00Z",
       "postedDate": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1288,6 +1290,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1301,9 +1304,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "datePosted": "2026-09-28T00:00:00Z",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "id": "sonova-1f854815a19d",
@@ -1336,7 +1337,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.359Z",
+      "crawledAt": "2026-10-05T21:24:09.711Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1346,7 +1347,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-30T00:00:00Z",
       "postedDate": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1372,9 +1375,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "datePosted": "2026-09-30T00:00:00Z",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "id": "sonova-e7305ae7cb14",
@@ -1407,7 +1408,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:13:29.357Z",
+      "crawledAt": "2026-10-05T21:24:09.709Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1418,7 +1419,9 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01T00:00:00Z",
       "postedDate": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1443245033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1451,9 +1454,73 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "sonova-18480b67cece",
+      "slug": "senior-strategic-campaign-lead-sonova-ch",
+      "slugByLocale": {
+        "en": "senior-strategic-campaign-lead-sonova-ch",
+        "it": "senior-strategic-campaign-lead-sonova-ch",
+        "de": "senior-strategic-campaign-lead-sonova-ch",
+        "fr": "senior-strategic-campaign-lead-sonova-ch"
       },
-      "datePosted": "2026-10-01T00:00:00Z",
-      "postingDateSource": "reported"
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Senior Strategic Campaign Lead",
+      "titleByLocale": {
+        "en": "Senior Strategic Campaign Lead",
+        "it": "Senior Strategic Campaign Lead",
+        "de": "Senior Strategic Campaign Lead",
+        "fr": "Senior Strategic Campaign Lead"
+      },
+      "description": "As our Senior Strategic Campaign Lead , you will turn brand strategies and compelling value propositions into integrated global campaigns that drive commercial impact across markets. Taking the strategic lead for major product launches, you will shape campaign concepts and activation frameworks, guide creative development and bring global and regional stakeholders together around a clear campaign vision.\n\nIn return for your strategic mindset, creativity and ability to lead complex initiatives, you will have the opportunity to shape high-visibility global campaigns from early concept through launch and optimization – combining strategic thinking with creative execution and measurable business impact.\n\nMore about the role\n\n• Lead global campaigns end-to-end, translating brand strategies and value propositions into integrated campaign and activation strategies for major product launches and global brand initiatives.\n\n• Own the strategic campaign direction, developing campaign architectures, messaging hierarchies, activation frameworks and scalable launch playbooks across the customer and consumer journey.\n\n• Drive creative campaign development, guiding key visuals, videos and other core assets together with internal teams, agencies and specialist partners.\n\n• Act as the strategic campaign lead across cross-functional launch teams, aligning Brand Management, Commercial Marketing, Campaign Operations and Regional Marketing from concept through market activation.\n\n• Drive campaign readiness and prioritization, ensuring teams focus on the decisions, assets and deliverables that create the greatest commercial impact.\n\n• Enable successful global activation, balancing global consistency with the flexibility required for meaningful local market adaptation.\n\n• Measure and optimize campaign performance, partnering with Commercial Marketing to define success metrics, assess regional adoption and translate learnings into stronger future campaigns.\n\nMore about you\n\n• 6+ years of relevant marketing and campaign experience, with a strong track record in developing and leading integrated campaigns and global product launches.\n\n• Proven experience across both B2B and B2C marketing, with the ability to translate customer and consumer needs into compelling messaging, story telling and activation strategies.\n\n• Strong strategic and project leadership skills, with the ability to lead complex campaign processes, establish structure and keep multiple workstreams moving toward a common goal.\n\n• A creative mindset and strong visual and aesthetic judgment, combined with the commercial thinking required to turn creative ideas into impactful campaigns.\n\n• Excellent stakeholder management skills and confidence leading cross-functional and cross-cultural teams in an international matrix organization.\n\n• Highly independent, organized and proactive, with the ability to prioritize, make decisions and deliver high-quality work in a fast-moving environment.\n\n• Excellent English communication skills and a relevant university degree; agency experience and/or experience within the hearing industry would be an advantage .\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "en": "As our Senior Strategic Campaign Lead , you will turn brand strategies and compelling value propositions into integrated global campaigns that drive commercial impact across markets. Taking the strategic lead for major product launches, you will shape campaign concepts and activation frameworks, guide creative development and bring global and regional stakeholders together around a clear campaign vision.\n\nIn return for your strategic mindset, creativity and ability to lead complex initiatives, you will have the opportunity to shape high-visibility global campaigns from early concept through launch and optimization – combining strategic thinking with creative execution and measurable business impact.\n\nMore about the role\n\n• Lead global campaigns end-to-end, translating brand strategies and value propositions into integrated campaign and activation strategies for major product launches and global brand initiatives.\n\n• Own the strategic campaign direction, developing campaign architectures, messaging hierarchies, activation frameworks and scalable launch playbooks across the customer and consumer journey.\n\n• Drive creative campaign development, guiding key visuals, videos and other core assets together with internal teams, agencies and specialist partners.\n\n• Act as the strategic campaign lead across cross-functional launch teams, aligning Brand Management, Commercial Marketing, Campaign Operations and Regional Marketing from concept through market activation.\n\n• Drive campaign readiness and prioritization, ensuring teams focus on the decisions, assets and deliverables that create the greatest commercial impact.\n\n• Enable successful global activation, balancing global consistency with the flexibility required for meaningful local market adaptation.\n\n• Measure and optimize campaign performance, partnering with Commercial Marketing to define success metrics, assess regional adoption and translate learnings into stronger future campaigns.\n\nMore about you\n\n• 6+ years of relevant marketing and campaign experience, with a strong track record in developing and leading integrated campaigns and global product launches.\n\n• Proven experience across both B2B and B2C marketing, with the ability to translate customer and consumer needs into compelling messaging, story telling and activation strategies.\n\n• Strong strategic and project leadership skills, with the ability to lead complex campaign processes, establish structure and keep multiple workstreams moving toward a common goal.\n\n• A creative mindset and strong visual and aesthetic judgment, combined with the commercial thinking required to turn creative ideas into impactful campaigns.\n\n• Excellent stakeholder management skills and confidence leading cross-functional and cross-cultural teams in an international matrix organization.\n\n• Highly independent, organized and proactive, with the ability to prioritize, make decisions and deliver high-quality work in a fast-moving environment.\n\n• Excellent English communication skills and a relevant university degree; agency experience and/or experience within the hearing industry would be an advantage .\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "it": "As our Senior Strategic Campaign Lead , you will turn brand strategies and compelling value propositions into integrated global campaigns that drive commercial impact across markets. Taking the strategic lead for major product launches, you will shape campaign concepts and activation frameworks, guide creative development and bring global and regional stakeholders together around a clear campaign vision.\n\nIn return for your strategic mindset, creativity and ability to lead complex initiatives, you will have the opportunity to shape high-visibility global campaigns from early concept through launch and optimization – combining strategic thinking with creative execution and measurable business impact.\n\nMore about the role\n\n• Lead global campaigns end-to-end, translating brand strategies and value propositions into integrated campaign and activation strategies for major product launches and global brand initiatives.\n\n• Own the strategic campaign direction, developing campaign architectures, messaging hierarchies, activation frameworks and scalable launch playbooks across the customer and consumer journey.\n\n• Drive creative campaign development, guiding key visuals, videos and other core assets together with internal teams, agencies and specialist partners.\n\n• Act as the strategic campaign lead across cross-functional launch teams, aligning Brand Management, Commercial Marketing, Campaign Operations and Regional Marketing from concept through market activation.\n\n• Drive campaign readiness and prioritization, ensuring teams focus on the decisions, assets and deliverables that create the greatest commercial impact.\n\n• Enable successful global activation, balancing global consistency with the flexibility required for meaningful local market adaptation.\n\n• Measure and optimize campaign performance, partnering with Commercial Marketing to define success metrics, assess regional adoption and translate learnings into stronger future campaigns.\n\nMore about you\n\n• 6+ years of relevant marketing and campaign experience, with a strong track record in developing and leading integrated campaigns and global product launches.\n\n• Proven experience across both B2B and B2C marketing, with the ability to translate customer and consumer needs into compelling messaging, story telling and activation strategies.\n\n• Strong strategic and project leadership skills, with the ability to lead complex campaign processes, establish structure and keep multiple workstreams moving toward a common goal.\n\n• A creative mindset and strong visual and aesthetic judgment, combined with the commercial thinking required to turn creative ideas into impactful campaigns.\n\n• Excellent stakeholder management skills and confidence leading cross-functional and cross-cultural teams in an international matrix organization.\n\n• Highly independent, organized and proactive, with the ability to prioritize, make decisions and deliver high-quality work in a fast-moving environment.\n\n• Excellent English communication skills and a relevant university degree; agency experience and/or experience within the hearing industry would be an advantage .\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "As our Senior Strategic Campaign Lead , you will turn brand strategies and compelling value propositions into integrated global campaigns that drive commercial impact across markets. Taking the strategic lead for major product launches, you will shape campaign concepts and activation frameworks, guide creative development and bring global and regional stakeholders together around a clear campaign vision.\n\nIn return for your strategic mindset, creativity and ability to lead complex initiatives, you will have the opportunity to shape high-visibility global campaigns from early concept through launch and optimization – combining strategic thinking with creative execution and measurable business impact.\n\nMore about the role\n\n• Lead global campaigns end-to-end, translating brand strategies and value propositions into integrated campaign and activation strategies for major product launches and global brand initiatives.\n\n• Own the strategic campaign direction, developing campaign architectures, messaging hierarchies, activation frameworks and scalable launch playbooks across the customer and consumer journey.\n\n• Drive creative campaign development, guiding key visuals, videos and other core assets together with internal teams, agencies and specialist partners.\n\n• Act as the strategic campaign lead across cross-functional launch teams, aligning Brand Management, Commercial Marketing, Campaign Operations and Regional Marketing from concept through market activation.\n\n• Drive campaign readiness and prioritization, ensuring teams focus on the decisions, assets and deliverables that create the greatest commercial impact.\n\n• Enable successful global activation, balancing global consistency with the flexibility required for meaningful local market adaptation.\n\n• Measure and optimize campaign performance, partnering with Commercial Marketing to define success metrics, assess regional adoption and translate learnings into stronger future campaigns.\n\nMore about you\n\n• 6+ years of relevant marketing and campaign experience, with a strong track record in developing and leading integrated campaigns and global product launches.\n\n• Proven experience across both B2B and B2C marketing, with the ability to translate customer and consumer needs into compelling messaging, story telling and activation strategies.\n\n• Strong strategic and project leadership skills, with the ability to lead complex campaign processes, establish structure and keep multiple workstreams moving toward a common goal.\n\n• A creative mindset and strong visual and aesthetic judgment, combined with the commercial thinking required to turn creative ideas into impactful campaigns.\n\n• Excellent stakeholder management skills and confidence leading cross-functional and cross-cultural teams in an international matrix organization.\n\n• Highly independent, organized and proactive, with the ability to prioritize, make decisions and deliver high-quality work in a fast-moving environment.\n\n• Excellent English communication skills and a relevant university degree; agency experience and/or experience within the hearing industry would be an advantage .\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "As our Senior Strategic Campaign Lead , you will turn brand strategies and compelling value propositions into integrated global campaigns that drive commercial impact across markets. Taking the strategic lead for major product launches, you will shape campaign concepts and activation frameworks, guide creative development and bring global and regional stakeholders together around a clear campaign vision.\n\nIn return for your strategic mindset, creativity and ability to lead complex initiatives, you will have the opportunity to shape high-visibility global campaigns from early concept through launch and optimization – combining strategic thinking with creative execution and measurable business impact.\n\nMore about the role\n\n• Lead global campaigns end-to-end, translating brand strategies and value propositions into integrated campaign and activation strategies for major product launches and global brand initiatives.\n\n• Own the strategic campaign direction, developing campaign architectures, messaging hierarchies, activation frameworks and scalable launch playbooks across the customer and consumer journey.\n\n• Drive creative campaign development, guiding key visuals, videos and other core assets together with internal teams, agencies and specialist partners.\n\n• Act as the strategic campaign lead across cross-functional launch teams, aligning Brand Management, Commercial Marketing, Campaign Operations and Regional Marketing from concept through market activation.\n\n• Drive campaign readiness and prioritization, ensuring teams focus on the decisions, assets and deliverables that create the greatest commercial impact.\n\n• Enable successful global activation, balancing global consistency with the flexibility required for meaningful local market adaptation.\n\n• Measure and optimize campaign performance, partnering with Commercial Marketing to define success metrics, assess regional adoption and translate learnings into stronger future campaigns.\n\nMore about you\n\n• 6+ years of relevant marketing and campaign experience, with a strong track record in developing and leading integrated campaigns and global product launches.\n\n• Proven experience across both B2B and B2C marketing, with the ability to translate customer and consumer needs into compelling messaging, story telling and activation strategies.\n\n• Strong strategic and project leadership skills, with the ability to lead complex campaign processes, establish structure and keep multiple workstreams moving toward a common goal.\n\n• A creative mindset and strong visual and aesthetic judgment, combined with the commercial thinking required to turn creative ideas into impactful campaigns.\n\n• Excellent stakeholder management skills and confidence leading cross-functional and cross-cultural teams in an international matrix organization.\n\n• Highly independent, organized and proactive, with the ability to prioritize, make decisions and deliver high-quality work in a fast-moving environment.\n\n• Excellent English communication skills and a relevant university degree; agency experience and/or experience within the hearing industry would be an advantage .\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Senior-Strategic-Campaign-Lead/1444474733/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-05T21:24:09.705Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05T00:00:00Z",
+      "postedDate": "2026-10-05T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1444474733/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T21:24:09.705Z"
     }
   ]
 }
