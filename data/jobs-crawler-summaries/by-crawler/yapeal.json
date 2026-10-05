@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-04T21:11:37.188Z",
+  "generatedAt": "2026-10-05T06:26:03.137Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -11,16 +11,18 @@
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4233,
-  "avgDurationMs": 4233,
+  "unchangedCount": 2,
+  "durationMs": 4412,
+  "avgDurationMs": 4412,
   "durationHistory": [
-    4233
+    4412
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "yapeal-8d58ba85703f",
       "slug": "senior-harness-engineer-with-gcp-experience-80-100-yapeal-zurich-hybrid",
@@ -33,7 +35,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:29.425Z",
+      "crawledAt": "2026-10-05T06:25:54.638Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -76,7 +78,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:11:29.418Z",
+      "crawledAt": "2026-10-05T06:25:54.634Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -109,7 +111,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

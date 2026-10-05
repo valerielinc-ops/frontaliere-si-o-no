@@ -12,6 +12,7 @@
  * Output: Updates data/jobs.json with fresh listings
  */
 
+import { sourcePostingDateFields, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -37,8 +38,20 @@ interface JobListing {
   requirements: string[];
   featured: boolean;
   postedDate: string;
+  datePosted: string;
+  postingDateSource: 'reported' | 'unknown';
   url?: string;
   source?: string;
+}
+
+type PostingDateFields = Pick<JobListing, 'datePosted' | 'postedDate' | 'postingDateSource'>;
+
+function legacyPostingFields(raw?: string): PostingDateFields {
+  return withLegacyPostingDay(sourcePostingDateFields(raw)) as PostingDateFields;
+}
+
+function providerErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
 }
 
 type JobCategory = 'tech' | 'finance' | 'health' | 'engineering' | 'admin' | 'sales' | 'other';
@@ -69,7 +82,7 @@ async function fetchIndeedJobs(): Promise<JobListing[]> {
 
 // ─── Arbeit.swiss / Job-Room (Swiss Government Official Job Portal) ─────
 
-async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
+export async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
   const jobs: JobListing[] = [];
   
   try {
@@ -88,7 +101,7 @@ async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Job-Room.ch fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Job-Room.ch fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -114,7 +127,7 @@ async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              postedDate: formatDate(posting.datePosted || new Date().toISOString()),
+              ...legacyPostingFields(posting.datePosted),
               url: posting.url,
               source: 'Job-Room.ch',
             });
@@ -145,7 +158,7 @@ async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
             description: `Offerta di lavoro: ${cleanHtml(title)}`,
             requirements: [],
             featured: false,
-            postedDate: new Date().toISOString().split('T')[0],
+            ...sourcePostingDateFields(),
             url: url.startsWith('http') ? url : `https://www.job-room.ch${url}`,
             source: 'Job-Room.ch',
           });
@@ -157,6 +170,7 @@ async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Job-Room.ch error:', error);
+    throw new Error(`Job-Room.ch provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -182,7 +196,7 @@ async function fetchTuttiJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Tutti.ch fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Tutti.ch fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -218,7 +232,7 @@ async function fetchTuttiJobs(): Promise<JobListing[]> {
           description: cleanHtml(body as string).substring(0, 500),
           requirements: [],
           featured: false,
-          postedDate: formatDate(item.date as string || new Date().toISOString()),
+          ...sourcePostingDateFields(), // Provider publication semantics not established.
           url: `https://www.tutti.ch${item.link || `/annunci/${item.id}`}`,
           source: 'Tutti.ch',
         });
@@ -227,6 +241,7 @@ async function fetchTuttiJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Tutti.ch error:', error);
+    throw new Error(`Tutti.ch provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -252,7 +267,7 @@ async function fetchRemotiveJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Remotive.io fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Remotive.io fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -282,7 +297,7 @@ async function fetchRemotiveJobs(): Promise<JobListing[]> {
         description: cleanHtml(job.description as string || '').substring(0, 500),
         requirements: job.tags as string[] || [],
         featured: false,
-        postedDate: formatDate(job.publication_date as string || new Date().toISOString()),
+        ...sourcePostingDateFields(), // Provider publication semantics not established.
         url: appendReferral(job.url as string),
         source: 'Remotive.io',
       });
@@ -290,6 +305,7 @@ async function fetchRemotiveJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Remotive.io error:', error);
+    throw new Error(`Remotive.io provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -315,7 +331,7 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ FindWork.dev fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`FindWork.dev fetch failed: ${response.status}`);
     }
     
     const data = await response.json();
@@ -336,7 +352,7 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
         description: cleanHtml(job.text as string || '').substring(0, 500),
         requirements: job.keywords as string[] || [],
         featured: false,
-        postedDate: formatDate(job.date_posted as string || new Date().toISOString()),
+        ...sourcePostingDateFields(), // Provider publication semantics not established.
         url: appendReferral(job.url as string),
         source: 'FindWork.dev',
       });
@@ -344,6 +360,7 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ FindWork.dev error:', error);
+    throw new Error(`FindWork.dev provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -405,7 +422,7 @@ async function fetchUBSJobs(): Promise<JobListing[]> {
         description: cleanHtml(job.JobDescription || job.Description || '').substring(0, 500),
         requirements: [],
         featured: true,
-        postedDate: formatDate(job.PostedDate || new Date().toISOString()),
+        ...sourcePostingDateFields(), // Provider publication semantics not established.
         url: appendReferral(`https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?jobId=${job.JobId}&partnerid=25008&siteid=5012`),
         source: 'UBS Careers',
       });
@@ -434,7 +451,7 @@ async function fetchUBSJobsFromHTML(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ UBS HTML fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`UBS HTML fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -458,7 +475,7 @@ async function fetchUBSJobsFromHTML(): Promise<JobListing[]> {
         description: `Posizione presso UBS in Ticino: ${cleanHtml(title)}`,
         requirements: [],
         featured: true,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...sourcePostingDateFields(),
         url: appendReferral(`https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?jobId=${jobId}&partnerid=25008&siteid=5012`),
         source: 'UBS Careers',
       });
@@ -468,6 +485,7 @@ async function fetchUBSJobsFromHTML(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ UBS HTML parsing error:', error);
+    throw new Error(`UBS provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -514,7 +532,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
             description: cleanHtml(job.description || '').substring(0, 500),
             requirements: [],
             featured: false,
-            postedDate: formatDate(job.publishedAt || job.date || new Date().toISOString()),
+            ...sourcePostingDateFields(), // Provider publication semantics not established.
             url: appendReferral(job.url || `https://jobs.migros.ch/it/job/${job.id}`),
             source: 'Migros/Denner',
           });
@@ -537,7 +555,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
     
     if (!response.ok) {
       console.warn(`  ⚠️ Migros HTML fetch failed: ${response.status}`);
-      return [];
+      throw new Error(`Migros HTML fetch failed: ${response.status}`);
     }
     
     const html = await response.text();
@@ -564,7 +582,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              postedDate: formatDate(posting.datePosted || new Date().toISOString()),
+              ...legacyPostingFields(posting.datePosted),
               url: appendReferral(posting.url),
               source: 'Migros/Denner',
             });
@@ -595,7 +613,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
             description: `Posizione presso Denner: ${cleanHtml(title)}`,
             requirements: [],
             featured: false,
-            postedDate: new Date().toISOString().split('T')[0],
+            ...sourcePostingDateFields(),
             url: appendReferral(url.startsWith('http') ? url : `https://jobs.migros.ch${url}`),
             source: 'Migros/Denner',
           });
@@ -607,6 +625,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
     
   } catch (error) {
     console.warn('  ⚠️ Migros error:', error);
+    throw new Error(`Migros provider failed: ${providerErrorMessage(error)}`);
   }
   
   return jobs;
@@ -689,236 +708,6 @@ async function validateJobUrls(jobs: JobListing[]): Promise<JobListing[]> {
   return validJobs;
 }
 
-// ─── Fallback: Realistic Ticino job listings ─────────────────────
-
-function generatePlaceholderJobs(): JobListing[] {
-  // When APIs are unavailable, provide realistic Ticino job samples
-  // These represent typical positions available for frontalieri
-  const today = new Date().toISOString().split('T')[0];
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-  const twoDaysAgo = new Date(Date.now() - 2 * 86400000).toISOString().split('T')[0];
-  const threeDaysAgo = new Date(Date.now() - 3 * 86400000).toISOString().split('T')[0];
-  
-  return [
-    {
-      id: 'ticino-1',
-      company: 'UBS Switzerland AG',
-      title: 'Software Engineer Java/Spring',
-      location: 'Lugano',
-      canton: 'TI',
-      category: 'tech',
-      contract: 'full-time',
-      salaryMin: 95000,
-      salaryMax: 130000,
-      currency: 'CHF',
-      description: 'Sviluppo applicazioni backend per i servizi bancari digitali. Ambiente agile con team internazionale. Sede in centro Lugano con possibilità di smart working.',
-      requirements: ['Java 17+', 'Spring Boot', 'Microservizi', 'Docker/Kubernetes', '5+ anni esperienza'],
-      featured: true,
-      postedDate: today,
-      url: appendReferral('https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults&SearchType=linkquery&LinkID=15231#keyWordSearch=&locationSearch=Switzerland%20-%20Ticino'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-2',
-      company: 'Banca della Svizzera Italiana',
-      title: 'Analista Finanziario Senior',
-      location: 'Bellinzona',
-      canton: 'TI',
-      category: 'finance',
-      contract: 'full-time',
-      salaryMin: 85000,
-      salaryMax: 110000,
-      currency: 'CHF',
-      description: 'Analisi dei mercati finanziari e gestione portafogli clienti. Richiesta esperienza in risk management e compliance bancaria svizzera.',
-      requirements: ['Laurea Economia/Finanza', 'Italiano/Tedesco/Inglese', 'CFA preferito', '3+ anni esperienza'],
-      featured: true,
-      postedDate: today,
-      url: appendReferral('https://www.bfrbank.ch/lavora-con-noi'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-3',
-      company: 'Clinica Luganese Moncucco',
-      title: 'Infermiere/a Reparto Cure Intensive',
-      location: 'Lugano',
-      canton: 'TI',
-      category: 'health',
-      contract: 'full-time',
-      salaryMin: 70000,
-      salaryMax: 85000,
-      currency: 'CHF',
-      description: 'Ricerchiamo personale infermieristico per il reparto di terapia intensiva. Esperienza in area critica richiesta.',
-      requirements: ['Diploma infermieristico riconosciuto', 'Italiano fluente', 'Esperienza ICU', 'Disponibilità turni'],
-      featured: false,
-      postedDate: yesterday,
-      url: appendReferral('https://www.moncucco.ch/lavora-con-noi'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-4',
-      company: 'Mikron SA',
-      title: 'Ingegnere Meccanico Progettista',
-      location: 'Agno',
-      canton: 'TI',
-      category: 'engineering',
-      contract: 'full-time',
-      salaryMin: 90000,
-      salaryMax: 115000,
-      currency: 'CHF',
-      description: 'Progettazione di sistemi di automazione industriale per la produzione di componenti di precisione. Utilizzo CAD 3D e simulazioni FEM.',
-      requirements: ['Laurea Ing. Meccanica', 'SolidWorks/CATIA', 'Esperienza automazione', 'Tedesco B2'],
-      featured: false,
-      postedDate: yesterday,
-      url: appendReferral('https://www.mikron.com/careers'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-5',
-      company: 'USI - Università della Svizzera italiana',
-      title: 'Research Assistant Informatica',
-      location: 'Lugano',
-      canton: 'TI',
-      category: 'tech',
-      contract: 'contract',
-      salaryMin: 60000,
-      salaryMax: 75000,
-      currency: 'CHF',
-      description: 'Posizione di assistente alla ricerca in computer science. Possibilità di PhD. Focus su AI/ML e software engineering.',
-      requirements: ['Master CS/Informatica', 'Python/PyTorch', 'Pubblicazioni scientifiche', 'Inglese fluente'],
-      featured: false,
-      postedDate: yesterday,
-      url: appendReferral('https://www.usi.ch/en/work-with-us'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-6',
-      company: 'Swisscom',
-      title: 'Network Engineer',
-      location: 'Manno',
-      canton: 'TI',
-      category: 'tech',
-      contract: 'full-time',
-      salaryMin: 85000,
-      salaryMax: 105000,
-      currency: 'CHF',
-      description: 'Gestione infrastruttura di rete enterprise. Implementazione soluzioni SD-WAN e security. Supporto clienti business.',
-      requirements: ['CCNP/CCNA', 'Firewall Fortinet/Palo Alto', '3+ anni esperienza', 'Italiano/Tedesco'],
-      featured: false,
-      postedDate: twoDaysAgo,
-      url: appendReferral('https://www.swisscom.ch/careers'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-7',
-      company: 'FoxTown Factory Stores',
-      title: 'Store Manager Retail',
-      location: 'Mendrisio',
-      canton: 'TI',
-      category: 'sales',
-      contract: 'full-time',
-      salaryMin: 60000,
-      salaryMax: 75000,
-      currency: 'CHF',
-      description: 'Gestione punto vendita nel centro outlet più grande del sud Svizzera. Responsabilità team e obiettivi vendita.',
-      requirements: ['Esperienza retail 3+ anni', 'Italiano/Inglese', 'Leadership', 'Disponibilità weekend'],
-      featured: false,
-      postedDate: twoDaysAgo,
-      url: appendReferral('https://www.foxtown.com/lavora-con-noi'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-8',
-      company: 'Ti-Press',
-      title: 'Giornalista Multimediale',
-      location: 'Lugano',
-      canton: 'TI',
-      category: 'other',
-      contract: 'full-time',
-      salaryMin: 55000,
-      salaryMax: 70000,
-      currency: 'CHF',
-      description: 'Redazione notizie per web e social media. Copertura eventi locali e cronaca ticinese. Video editing base richiesto.',
-      requirements: ['Laurea giornalismo/comunicazione', 'Italiano madrelingua', 'Adobe Premiere', 'Patente B'],
-      featured: false,
-      postedDate: twoDaysAgo,
-      url: appendReferral('https://www.ti-press.ch'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-9',
-      company: 'Bühler AG',
-      title: 'Process Engineer Food Technology',
-      location: 'Stabio',
-      canton: 'TI',
-      category: 'engineering',
-      contract: 'full-time',
-      salaryMin: 95000,
-      salaryMax: 120000,
-      currency: 'CHF',
-      description: 'Ottimizzazione processi produttivi per impianti alimentari. Viaggi internazionali per commissioning. Azienda leader mondiale.',
-      requirements: ['Ing. Chimica/Alimentare', 'Inglese C1', 'Disponibilità viaggiare 30%', '2+ anni esperienza'],
-      featured: false,
-      postedDate: threeDaysAgo,
-      url: appendReferral('https://www.buhlergroup.com/careers'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-10',
-      company: 'RSI Radiotelevisione svizzera',
-      title: 'Tecnico Audio/Video',
-      location: 'Comano',
-      canton: 'TI',
-      category: 'tech',
-      contract: 'full-time',
-      salaryMin: 70000,
-      salaryMax: 85000,
-      currency: 'CHF',
-      description: 'Gestione apparecchiature broadcast per produzione televisiva. Regia, studio e produzioni esterne. Contratto SSR.',
-      requirements: ['Formazione tecnica audiovisivi', 'Italiano madrelingua', 'Flessibilità oraria', 'Patente B'],
-      featured: false,
-      postedDate: threeDaysAgo,
-      url: appendReferral('https://www.rsi.ch/lavora-con-noi'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-11',
-      company: 'Cornèr Banca',
-      title: 'Private Banker',
-      location: 'Lugano',
-      canton: 'TI',
-      category: 'finance',
-      contract: 'full-time',
-      salaryMin: 100000,
-      salaryMax: 150000,
-      currency: 'CHF',
-      description: 'Gestione clientela HNWI italiana e internazionale. Consulenza patrimoniale e wealth management. Base clienti esistente un plus.',
-      requirements: ['5+ anni private banking', 'Italiano/Inglese/Tedesco', 'Certificazione consulente clientela', 'Network clienti'],
-      featured: true,
-      postedDate: threeDaysAgo,
-      url: appendReferral('https://www.corner.ch/it/carriere'),
-      source: 'Direct',
-    },
-    {
-      id: 'ticino-12',
-      company: 'SUPSI',
-      title: 'Docente Informatica Gestionale',
-      location: 'Manno',
-      canton: 'TI',
-      category: 'tech',
-      contract: 'full-time',
-      salaryMin: 80000,
-      salaryMax: 100000,
-      currency: 'CHF',
-      description: 'Insegnamento corsi bachelor in sistemi informativi aziendali. Attività di ricerca applicata con partner industriali.',
-      requirements: ['PhD o Master + esperienza', 'ERP/Business Intelligence', 'Didattica universitaria', 'Italiano'],
-      featured: false,
-      postedDate: threeDaysAgo,
-      url: appendReferral('https://www.supsi.ch/lavora-con-noi'),
-      source: 'Direct',
-    },
-  ];
-}
-
 // ─── Helper Functions ─────────────────────────────────────────
 
 function extractTag(xml: string, tag: string): string {
@@ -994,15 +783,6 @@ function extractRequirements(description: string): string[] {
   return requirements;
 }
 
-function formatDate(dateStr: string): string {
-  try {
-    const date = new Date(dateStr);
-    return date.toISOString().split('T')[0];
-  } catch {
-    return new Date().toISOString().split('T')[0];
-  }
-}
-
 function appendReferral(url: string): string {
   if (!url) return '';
   const separator = url.includes('?') ? '&' : '?';
@@ -1035,47 +815,59 @@ function sleep(ms: number): Promise<void> {
 
 // ─── Main ─────────────────────────────────────────────────────
 
-async function main() {
+export async function main() {
   console.log('🔍 Job Board Scraper (Public APIs Mode)');
   console.log('========================================\n');
   
   const allJobs: JobListing[] = [];
+  const providerErrors: string[] = [];
+
+  async function collectProvider(name: string, fetcher: () => Promise<JobListing[]>): Promise<JobListing[]> {
+    try {
+      return await fetcher();
+    } catch (error) {
+      const message = `${name}: ${providerErrorMessage(error)}`;
+      providerErrors.push(message);
+      console.warn(`  ⚠️ ${message}`);
+      return [];
+    }
+  }
   
   // Fetch from free public APIs (no scraping blocked sites)
   console.log('🌐 Using public job APIs...\n');
   
   // 1. Swiss government job portal (most reliable)
-  const arbeitSwissJobs = await fetchArbeitSwissJobs();
+  const arbeitSwissJobs = await collectProvider('Job-Room.ch', fetchArbeitSwissJobs);
   allJobs.push(...arbeitSwissJobs);
   
   await sleep(1000);
   
   // 2. UBS Jobs Ticino
-  const ubsJobs = await fetchUBSJobs();
+  const ubsJobs = await collectProvider('UBS Careers', fetchUBSJobs);
   allJobs.push(...ubsJobs);
   
   await sleep(1000);
   
   // 3. Migros/Denner Jobs Ticino
-  const migrosJobs = await fetchMigrosJobs();
+  const migrosJobs = await collectProvider('Migros/Denner', fetchMigrosJobs);
   allJobs.push(...migrosJobs);
   
   await sleep(1000);
   
   // 4. Tutti.ch classifieds (Swiss classified ads with jobs)
-  const tuttiJobs = await fetchTuttiJobs();
+  const tuttiJobs = await collectProvider('Tutti.ch', fetchTuttiJobs);
   allJobs.push(...tuttiJobs);
   
   await sleep(1000);
   
   // 5. Remote jobs (European/worldwide)
-  const remotiveJobs = await fetchRemotiveJobs();
+  const remotiveJobs = await collectProvider('Remotive.io', fetchRemotiveJobs);
   allJobs.push(...remotiveJobs);
   
   await sleep(1000);
   
   // 6. Tech jobs
-  const findworkJobs = await fetchFindWorkJobs();
+  const findworkJobs = await collectProvider('FindWork.dev', fetchFindWorkJobs);
   allJobs.push(...findworkJobs);
   
   console.log(`\n📊 Results:`);
@@ -1085,12 +877,13 @@ async function main() {
   console.log(`   Tutti.ch: ${tuttiJobs.length} jobs`);
   console.log(`   Remotive.io: ${remotiveJobs.length} jobs`);
   console.log(`   FindWork.dev: ${findworkJobs.length} jobs`);
-  
-  // Always include curated Ticino-specific jobs to ensure good local coverage
-  // These supplement any jobs found from APIs
-  const ticinoJobs = generatePlaceholderJobs();
-  allJobs.push(...ticinoJobs);
-  console.log(`   Curated Ticino: ${ticinoJobs.length} jobs`);
+
+  // A provider error is different from an authoritative empty result. Never
+  // publish a partial aggregate: one failed source can otherwise expire its
+  // still-valid listings while another source keeps the aggregate non-empty.
+  if (providerErrors.length > 0) {
+    throw new Error(`Provider fetch failed (${providerErrors.join('; ')}); preserving existing data/jobs.json`);
+  }
   
   // Deduplicate
   let uniqueJobs = deduplicateJobs(allJobs);
@@ -1099,6 +892,12 @@ async function main() {
   // Validate URLs (check for 404s)
   uniqueJobs = await validateJobUrls(uniqueJobs);
   
+  // These legacy providers collapse network errors to empty arrays. An empty
+  // result is not authoritative evidence that the existing dataset disappeared.
+  if (uniqueJobs.length === 0) {
+    throw new Error('No verified jobs collected; preserving existing data/jobs.json');
+  }
+
   // Sort by date (newest first)
   uniqueJobs.sort((a, b) => b.postedDate.localeCompare(a.postedDate));
   
@@ -1125,15 +924,16 @@ async function main() {
       tutti: tuttiJobs.length,
       remotive: remotiveJobs.length,
       findwork: findworkJobs.length,
-      curatedTicino: ticinoJobs.length,
     },
   }, null, 2), 'utf-8');
   
   return uniqueJobs.length;
 }
 
-// Run if called directly
-main().catch(error => {
-  console.error('❌ Scraper error:', error);
-  process.exit(1);
-});
+// Importing for verification must not run network requests or write production data.
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main().catch(error => {
+    console.error('❌ Scraper error:', error);
+    process.exit(1);
+  });
+}
