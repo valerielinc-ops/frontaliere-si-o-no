@@ -12559,6 +12559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chef-nazionale-ristoratori-de-filippi.title': 'Sport e legalità al De Filippi con la Nazionale Ristoratori',
     'blog.article.chef-nazionale-ristoratori-de-filippi.excerpt': 'Giornata tra formazione, calcio e alta cucina all\'Istituto alberghiero De Filippi di Varese con gli chef della Nazionale Italiana Ristoratori.',
     'blog.article.chef-nazionale-ristoratori-de-filippi.imageAlt': 'Incontro tra gli chef della Nazionale Ristoratori e gli studenti del De Filippi',
+    'blog.article.novantaquattro-scatti-varese.title': 'Varese, 94 foto tra ciclismo e StraWoman',
+    'blog.article.novantaquattro-scatti-varese.excerpt': 'A Varese circa 5.000 ciclisti da oltre 40 Paesi e più di 3.000 donne per una domenica tra Gran Fondo Tre Valli Varesine e StraWoman.',
+    'blog.article.novantaquattro-scatti-varese.imageAlt': 'Ciclisti e partecipanti alla StraWoman nel centro di Varese',
 };
 
 export default blogMetaIt;
