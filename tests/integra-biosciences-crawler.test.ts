@@ -564,7 +564,9 @@ describe('INTEGRA Biosciences — jobsAllData listing and Umantis detail pages',
       detailUrl: 'https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng',
       businessArea: 'Sales & Customer Support',
       country: 'Switzerland',
-      postedDate: '2026-08-06',
+      postedDate: '2026-08-06T12:42:14.000Z',
+      datePosted: '2026-08-06T12:42:14.000Z',
+      postingDateSource: 'reported',
     });
     for (const card of cards) expect(isTrustedDomain(card.detailUrl)).toBe(true);
   });

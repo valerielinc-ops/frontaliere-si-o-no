@@ -1,20 +1,65 @@
 {
   "key": "caseificio-gottardo",
   "label": "Caseificio del Gottardo",
-  "generatedAt": "2026-10-04T09:13:05.550Z",
+  "generatedAt": "2026-10-04T21:14:32.820Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3492,
-  "avgDurationMs": 3492,
+  "durationMs": 3763,
+  "avgDurationMs": 3763,
   "durationHistory": [
-    3492
+    3763
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
+      "company": "Caseificio dimostrativo del Gottardo SA",
+      "companyKey": "caseificio-gottardo",
+      "location": "Airolo",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.caseificiodelgottardo.ch/ITA/Apprendisti-per-la-formazione-di-Tecnologoa-del-latte-AFC-50359200",
+      "applyUrl": "https://www.caseificiodelgottardo.ch/ITA/Apprendisti-per-la-formazione-di-Tecnologoa-del-latte-AFC-50359200",
+      "category": "apprenticeship",
+      "sector": "Industria lattiero-casearia / Alimentare",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "caseificio-gottardo-crawler",
+      "postedDate": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Airolo"
+      },
+      "crawledAt": "",
+      "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo",
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "streetAddress": "Zona Industriale",
+      "postalCode": "6780",
+      "addressLocality": "Airolo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "id": "caseificio-gottardo-ba119909ff37",
+      "firstSeenAt": "2026-04-13T21:20:19.712Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.caseificiodelgottardo.ch/ita/apprendisti-per-la-formazione-di-tecnologoa-del-latte-afc-50359200",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -21,6 +21,7 @@ const response = (body: string) => ({
   ok: true,
   status: 200,
   text: async () => body,
+  arrayBuffer: async () => Uint8Array.from([...body], (char) => char.charCodeAt(0)).buffer,
 });
 
 describe('clinique CIC crawler', () => {
@@ -57,6 +58,29 @@ describe('clinique CIC crawler', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0].title).toBe('Infirmier diplômé');
     expect(fetchMock.mock.calls.filter(([url]) => url.startsWith('https://r.jina.ai/'))).toHaveLength(1);
+  });
+
+  it('keeps a matching JSON-LD publication when the detail has no body container', async () => {
+    const detailWithoutBody = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Infirmier diplômé',
+      datePosted: '2026-09-01',
+    })}</script>`;
+    const fetchMock = vi.fn(async (url: string) => {
+      if (url === MASK_URL) return response(MASK_HTML);
+      if (url === DETAIL_URL) return response(detailWithoutBody);
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    global.fetch = fetchMock as typeof fetch;
+
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      datePosted: '2026-09-01',
+      postedDate: '2026-09-01',
+      postingDateSource: 'reported',
+    });
   });
 
   it('propagates an exhausted anti-bot fence when the direct mask and every Jina rescue remain challenged', async () => {

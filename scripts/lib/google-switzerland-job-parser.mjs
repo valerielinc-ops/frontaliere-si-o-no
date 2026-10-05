@@ -55,6 +55,8 @@
  *   - isTrustedDomain()               — Validate URLs belong to this company
  *   - slugify() / stripHtml()         — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -530,9 +532,6 @@ async function fetchJobListings() {
       result = await fetchListingPage(pageUrl, page, { allowFallbackOnEmpty: seen.size === 0 });
     } catch (err) {
       console.warn(`   ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
       throw err;
     }
     const { entries } = result;
@@ -560,7 +559,7 @@ async function fetchJobListings() {
 }
 
 /**
- * Fetch a job's detail page and return a cleaned description body
+ * Fetch a job's detail page and return publication fields and a cleaned body
  * (Minimum/Preferred qualifications + About the job + Responsibilities),
  * with the boilerplate EEO/legal footer (identical across every posting)
  * trimmed off.
@@ -568,14 +567,19 @@ async function fetchJobListings() {
  * Direct HTML first, Jina Markdown second — same rule as the listing: fall
  * through when the fetch throws OR when it returns a page we can't find a body
  * in. A missing body is not fatal for a single job (the caller falls back to
- * the listing's Minimum-qualifications block), so both paths failing returns ''
- * rather than throwing.
+ * the listing's Minimum-qualifications block), so both paths failing returns an empty body
+ * rather than throwing; publication stays unknown unless the HTML supplied matching metadata.
  */
-async function fetchJobDescription(canonicalUrl) {
+async function fetchJobDetailFields(canonicalUrl, title) {
+  let publication = mergeSourcePostingDates({}, {});
   try {
     const html = await fetchHtml(canonicalUrl);
+    const records = extractJsonLd(html, canonicalUrl);
+    const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === title.toLowerCase()
+      && (candidate.urlExplicit ? candidate.url === canonicalUrl : records.length === 1));
+    publication = mergeSourcePostingDates({}, record || {});
     const body = extractGoogleDetailDescription(html);
-    if (body) return body;
+    if (body) return { description: body, ...publication };
     console.warn(`   ⚠️ Detail ${canonicalUrl}: direct HTML had no body section — trying Jina.`);
   } catch (err) {
     console.warn(`   ⚠️ Detail direct fetch failed for ${canonicalUrl}: ${err?.message || err}`);
@@ -586,7 +590,7 @@ async function fetchJobDescription(canonicalUrl) {
     markdown = await fetchJinaMarkdown(canonicalUrl);
   } catch (err) {
     console.warn(`   ⚠️ Detail fetch failed for ${canonicalUrl}: ${err?.message || err}`);
-    return '';
+    return { description: '', ...publication };
   }
 
   const bodyStart = markdown.indexOf('Markdown Content:');
@@ -607,7 +611,7 @@ async function fetchJobDescription(canonicalUrl) {
     .replace(/[ \t]{2,}/g, ' ')
     .trim();
 
-  return body;
+  return { description: body, ...publication };
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -685,11 +689,11 @@ export async function fetchAllGoogleSwitzerlandJobs() {
     const location = address.city;
     const descriptionLocation = address.usedFallback ? address.city : address.sourceCity;
 
-    const detailBody = await fetchJobDescription(publicUrl);
+    const detail = await fetchJobDetailFields(publicUrl, title);
     const minQualsText = listing.minQuals.length
       ? `Minimum qualifications:\n${listing.minQuals.map((q) => `• ${q}`).join('\n')}`
       : '';
-    const descriptionRaw = detailBody || minQualsText;
+    const descriptionRaw = detail.description || minQualsText;
     const descriptionText = stripHtml(descriptionRaw)
       || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${descriptionLocation}.`;
 
@@ -699,7 +703,6 @@ export async function fetchAllGoogleSwitzerlandJobs() {
     const jobSlug = slugify(`${title} google-switzerland ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${listing.level} ${title}`);
-    const postedDate = new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -734,7 +737,7 @@ export async function fetchAllGoogleSwitzerlandJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       jobReqId: listing.jobId || null,
       requirements: listing.minQuals || [],

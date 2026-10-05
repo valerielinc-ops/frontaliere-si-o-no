@@ -19,6 +19,7 @@
  * Source language is German. Jobs default to Grenchen (SO) — HQ — but we
  * read _job_location when present to derive city + canton via target config.
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
@@ -108,12 +109,14 @@ export async function fetchAllBachtelenJobs() {
 
   console.log(`  📋 ${records.length} job listings from WP REST\n`);
   warnIfListingAtCap({ label: 'Bachtelen WP REST listing', count: records.length, cap: LISTING_PAGE_CAP });
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const rec of records) {
     try {
       const meta = rec?.meta || {};
+      // WordPress date_gmt is publication in UTC; modified_gmt is unrelated.
+      const publishedGmt = typeof rec?.date_gmt === 'string' ? rec.date_gmt.trim() : '';
+      const publication = sourcePostingDateCandidatesFields([publishedGmt, `${publishedGmt}Z`, rec?.date]);
       if (Number(meta?._filled) === 1) continue; // skip filled jobs
 
       const title = normalizeSpace(decodeEntities(String(rec?.title?.rendered || '').replace(/<[^>]+>/g, '')));
@@ -169,7 +172,7 @@ export async function fetchAllBachtelenJobs() {
         sector: 'Sociale / Educazione',
         currency: 'CHF',
         featured: Number(meta?._featured) === 1,
-        postedDate: rec?.date ? String(rec.date).slice(0, 10) : todayIso,
+        ...publication,
         applyUrl: url,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

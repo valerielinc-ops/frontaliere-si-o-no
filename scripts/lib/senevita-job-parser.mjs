@@ -37,6 +37,7 @@
  *
  * Implements the 4 exports required by the standard crawler template.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -347,12 +348,7 @@ export async function fetchAllSenevitaJobs() {
     const description = descParts.filter(Boolean).join('\n\n').trim();
 
     const sourceLang = detectLang(description || title, 'de');
-    const postedDate = (() => {
-      const raw = posting?.datePosted || '';
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
+
     const validThrough = (() => {
       const raw = posting?.validThrough || '';
       if (!raw) return '';
@@ -402,7 +398,7 @@ export async function fetchAllSenevitaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting?.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: listing.url,
       requirements: [],

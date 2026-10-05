@@ -17,6 +17,8 @@
  *   <a href="https://app.reflinejobs.io/1531/{posId}/pub/{rev}/index.html">TITLE</a>
  *   <div class="item workName">{Arbeitsort}</div>
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -142,13 +144,12 @@ export async function fetchAllPignaJobs() {
   console.log(`  📋 Found ${listings.length} positions on Refline listing\n`);
   if (!listings.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of listings) {
     let detail = { title: '', description: '' };
     try {
       const detailHtml = await fetchHtml(it.url, { timeoutMs });
-      detail = parseReflineDetail(detailHtml);
+      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${it.title}: ${err?.message || err}`);
     }
@@ -195,7 +196,7 @@ export async function fetchAllPignaJobs() {
       sector: 'Sociale / Educazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

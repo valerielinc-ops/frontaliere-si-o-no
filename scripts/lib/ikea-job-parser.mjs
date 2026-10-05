@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import {
@@ -204,9 +205,10 @@ export function parseJobPosting(html) {
 
 /** Normalize the JSON-LD datePosted (e.g. "2026-6-10") to ISO YYYY-MM-DD. */
 function normalizeDate(value) {
-  if (!value) return null;
-  const m = String(value).match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-  if (!m) return null;
+  if (!value) return '';
+  const raw = String(value).trim();
+  const m = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (!m) return raw;
   const [, y, mo, d] = m;
   return `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
@@ -392,7 +394,7 @@ export async function fetchAllIkeaJobs() {
       sector: 'Retail / Furniture',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(listing.postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

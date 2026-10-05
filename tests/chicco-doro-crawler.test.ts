@@ -44,6 +44,41 @@ describe('Chicco d\u2019Oro crawler parser', () => {
     ]);
   });
 
+  it('matches structured publication evidence when the detail URL has a trailing slash', async () => {
+    const listingUrl = 'https://www.chiccodoro.com/jobs/trailing-slash-fixture';
+    const listingHtml = brandedPage(`
+      <main>
+        <div class="job-card">
+          <h2><a href="${listingUrl}">Tecnico manutentore</a></h2>
+          <p>Posizione aperta per la manutenzione degli impianti di produzione.</p>
+        </div>
+      </main>
+    `);
+    const detailHtml = brandedPage(`
+      <main class="job-detail">${'Descrizione autorevole della posizione '.repeat(8)}</main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Tecnico manutentore',
+        url: `${listingUrl}/`,
+        datePosted: '2026-09-01',
+      })}</script>
+    `);
+    const fetchPage = vi.fn(async (url: string) => {
+      if (url === 'https://www.chiccodoro.com/contatti') return listingHtml;
+      if (url === listingUrl) return detailHtml;
+      throw new Error(`HTTP 404 from ${url}`);
+    });
+
+    const jobs = await fetchAllChiccoDoroJobs({ fetchPage, sleep: async () => {} });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      datePosted: '2026-09-01',
+      postedDate: '2026-09-01',
+      postingDateSource: 'reported',
+    });
+  });
+
   it('proves an empty snapshot only after the bounded source inventory resolves', async () => {
     const fetchPage = vi.fn(async (url: string) => {
       if (url.endsWith('/contatti')) {

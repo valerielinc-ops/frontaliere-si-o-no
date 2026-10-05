@@ -8,6 +8,7 @@
  * intro paragraph with employment %/start date + PDF download link.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -205,7 +206,6 @@ export async function fetchAllCsvpPoschiavoJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title;
@@ -268,7 +268,8 @@ export async function fetchAllCsvpPoschiavoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // No verified publication field for this PDF vacancy; ignore page/file edits.
+      ...sourcePostingDateFields(''),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

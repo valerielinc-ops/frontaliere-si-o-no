@@ -1,0 +1,571 @@
+// @vitest-environment node
+import { execFileSync, spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { afterAll, describe, expect, it, vi } from 'vitest';
+import YAML from 'yaml';
+
+import { RC_TO_ENV, isTrivialSecret } from '../scripts/load-rc-env.mjs';
+import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
+import {
+  DEFAULT_SOCIAL_ROBOT_MODE,
+  QUEUE_TTL_HOURS,
+  ROBOT_LEDGER_VIA,
+  SOCIAL_ROBOT_MODES,
+  buildQueueEntry,
+  confirmQueueEntry,
+  deliverSocialPost,
+  dequeuePosts,
+  enqueuePost,
+  ledgerPathFor,
+  loadQueue,
+  queuePathFor,
+  resolveSocialRobotMode,
+  selectNextPending,
+  socialPublishRoute,
+  upsertPending,
+} from '../scripts/lib/social-publish-queue.mjs';
+import {
+  CONFIRM_REDISPATCH_AFTER_HOURS,
+  MAX_POSTS_PER_DAY_PER_PLATFORM,
+  PAUSE_AFTER_BLOCK_HOURS,
+  emptyJournal,
+  localDay,
+  pausedUntil,
+  pressedToday,
+} from '../scripts/social-robot/lib/cadence.mjs';
+import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
+import { displayPath, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
+import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
+import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const tempDirs: string[] = [];
+const tempDir = () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'social-robot-test-'));
+  tempDirs.push(dir);
+  return dir;
+};
+afterAll(() => {
+  for (const dir of tempDirs) fs.rmSync(dir, { recursive: true, force: true });
+});
+
+const NOW = Date.parse('2026-10-04T09:30:00Z');
+const HOUR = 3600_000;
+const cdn = (name: string) => `https://cdn.frontaliereticino.ch/images/social/instagram/${name}`;
+
+function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', now = NOW } = {}) {
+  return buildQueueEntry({
+    channel,
+    kind,
+    day,
+    caption: `${kind} ${day}\n\n#frontalieri`,
+    imageUrls: [cdn(`${kind}-${day}-0.jpg`), cdn(`${kind}-${day}-1.jpg`)],
+    ledgerEntries: [{ id: `${kind}-slug-a`, kind, url: 'https://frontaliereticino.ch/a/', day }],
+    now,
+  });
+}
+
+describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
+  it('reads absent, empty and unknown values as the safe dry run', () => {
+    expect(DEFAULT_SOCIAL_ROBOT_MODE).toBe('dry');
+    for (const value of [undefined, '', '  ', 'publish', 'dry-run', 'LIVE!']) {
+      expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: value }), String(value)).toBe('dry');
+    }
+    expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: ' Live ' })).toBe('live');
+    expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: 'off' })).toBe('off');
+  });
+
+  it('is exported by the loader and never masked in CI logs', () => {
+    expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_MODE).toEqual(['SOCIAL_ROBOT_MODE']);
+    for (const value of SOCIAL_ROBOT_MODES) expect(isTrivialSecret(value), value).toBe(true);
+  });
+
+  it('routes the posters: off = API only, dry = API then queue, live = queue only', () => {
+    expect(socialPublishRoute({ mode: 'off', apiReady: false })).toEqual({ api: false, enqueue: false, render: false });
+    expect(socialPublishRoute({ mode: 'off', apiReady: true })).toEqual({ api: true, enqueue: false, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: false })).toEqual({ api: false, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: true })).toEqual({ api: true, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'live', apiReady: true })).toEqual({ api: false, enqueue: true, render: true });
+  });
+});
+
+describe('deliverSocialPost', () => {
+  const quiet = { log: () => {}, error: () => {} };
+  it('records an API publish and queues nothing', async () => {
+    const recordPublished = vi.fn();
+    const enqueue = vi.fn();
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: true }), recordPublished, enqueue, dequeue, log: quiet });
+    expect(out).toBe('api');
+    expect(recordPublished).toHaveBeenCalledOnce();
+    expect(dequeue).toHaveBeenCalledOnce();
+    expect(enqueue).not.toHaveBeenCalled();
+  });
+
+  it('queues a post the API failed to publish, and never records it', async () => {
+    const recordPublished = vi.fn();
+    const enqueue = vi.fn();
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: false, reason: '400' }), recordPublished, enqueue, dequeue, log: quiet });
+    expect(out).toBe('queued');
+    expect(recordPublished).not.toHaveBeenCalled();
+    expect(dequeue).not.toHaveBeenCalled();
+    expect(enqueue).toHaveBeenCalledOnce();
+  });
+
+  it('never calls the API in live mode', async () => {
+    const publish = vi.fn();
+    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), dequeue: vi.fn(), log: quiet });
+    expect(out).toBe('queued');
+    expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('drops the pending post of that channel and kind once the API published, so the robot never replays it', async () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const queuePath = queuePathFor(root, 'instagram');
+    const ledgerPath = ledgerPathFor(root, 'instagram');
+    // A token-less run of yesterday queued article-2026-10-03 for the robot.
+    const stale = entry('article', '2026-10-03');
+    const job = entry('job', '2026-10-03');
+    const tiktok = entry('article', '2026-10-03', { channel: 'tiktok' });
+    fs.writeFileSync(queuePath, JSON.stringify({ schemaVersion: 1, pending: [stale, job, tiktok] }));
+    const out = await deliverSocialPost({
+      route: socialPublishRoute({ mode: 'dry', apiReady: true }),
+      label: 'Instagram',
+      publish: async () => ({ ok: true }),
+      // Today's API post carries a different article key than the queued one.
+      recordPublished: () => fs.writeFileSync(ledgerPath, JSON.stringify({ schemaVersion: 1, posted: [{ id: 'article-slug-b', kind: 'article', day: '2026-10-04' }] })),
+      enqueue: () => { throw new Error('an API publish must not queue'); },
+      dequeue: () => dequeuePosts(queuePath, { channel: 'instagram', kind: 'article' }),
+      log: quiet,
+    });
+    expect(out).toBe('api');
+    const left = loadQueue(queuePath).pending;
+    expect(left.some((e: { channel: string; kind: string }) => e.channel === 'instagram' && e.kind === 'article')).toBe(false);
+    expect(left.map((e: { id: string; channel: string }) => `${e.channel}/${e.id}`).sort()).toEqual(['instagram/job-2026-10-03', 'tiktok/article-2026-10-03']);
+  });
+
+  it('refuses to run without a dequeue step, before anything is published', async () => {
+    const publish = vi.fn(async () => ({ ok: true }));
+    await expect(deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), log: quiet } as never)).rejects.toThrow(/dequeue/);
+    expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('both posters remove the queued post of the kind they published through the API', () => {
+    for (const [file, channel] of [['scripts/post-to-instagram.mjs', 'instagram'], ['scripts/post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      expect(src).toMatch(new RegExp(`dequeue: \\(\\) => dequeuePosts\\(QUEUE_PATH, \\{ channel: '${channel}', kind \\}\\)`));
+    }
+  });
+});
+
+describe('the queue', () => {
+  it('builds an entry keyed like the CDN slides, expiring with its kind', () => {
+    const e = entry('article');
+    expect(e.id).toBe('article-2026-10-03');
+    expect(Date.parse(e.expiresAt) - Date.parse(e.createdAt)).toBe(QUEUE_TTL_HOURS.article * HOUR);
+    expect(() => buildQueueEntry({ ...e, imageUrls: ['https://evil.example/x.jpg'] })).toThrow(/outside/);
+    expect(() => buildQueueEntry({ ...e, caption: ' ' })).toThrow(/caption/);
+  });
+
+  it('replaces the pending post of the same kind and drops expired ones', () => {
+    const old = entry('article', '2026-10-02', { now: NOW - 24 * HOUR });
+    const stale = entry('job', '2026-09-30', { now: NOW - 72 * HOUR });
+    const border = entry('border', '2026-09-28', { now: NOW - 72 * HOUR });
+    const next = upsertPending({ pending: [old, stale, border] }, entry('article'), NOW);
+    expect(next.pending.map((e: { id: string }) => e.id).sort()).toEqual(['article-2026-10-03', 'border-2026-09-28']);
+  });
+
+  it('writes the queue file the workflow commits', () => {
+    const dir = tempDir();
+    const file = path.join(dir, 'instagram-queue.json');
+    enqueuePost(file, entry('article'), NOW);
+    enqueuePost(file, entry('job'), NOW);
+    expect(loadQueue(file).pending.map((e: { id: string }) => e.id)).toEqual(['article-2026-10-03', 'job-2026-10-03']);
+  });
+
+  it('selects the oldest post the robot may still press', () => {
+    const a = entry('article', '2026-10-03', { now: NOW - 2 * HOUR });
+    const j = entry('job', '2026-10-03', { now: NOW - HOUR });
+    const b = entry('border', '2026-09-28', { now: NOW - 3 * HOUR });
+    const t = entry('article', '2026-10-03', { channel: 'tiktok' });
+    const queue = { pending: [j, a, b, t] };
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW })?.id).toBe(b.id);
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW, blockedIds: new Set([b.id]) })?.id).toBe(a.id);
+    const ledger = { posted: [{ id: 'x', queueId: b.id }, { id: 'y', queueId: a.id }] };
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW, ledger })?.id).toBe(j.id);
+    const replacement = entry('article', '2026-10-04');
+    expect(selectNextPending({ pending: [replacement] }, {
+      channel: 'instagram',
+      now: NOW,
+      ledger: { posted: [{ id: 'article-slug-a', kind: 'article' }] },
+    })).toBeNull();
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW + 40 * HOUR, ledger })).toBeNull();
+    expect(selectNextPending({ pending: [{ ...a, imageUrls: ['https://evil.example/a.jpg'] }] }, { channel: 'instagram', now: NOW })).toBeNull();
+  });
+});
+
+describe('confirmation → ledger', () => {
+  it('moves the entry into the ledger with the robot marker, once', () => {
+    const e = entry('article');
+    const first = confirmQueueEntry({ queue: { pending: [e] }, ledger: { posted: [] }, queueId: e.id, confirmedAt: '2026-10-04T10:00:00Z', evidence: 'Post condiviso' });
+    expect(first.queue.pending).toEqual([]);
+    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, robotEvidence: 'Post condiviso' }]);
+    const again = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: first.ledgerEntries }, queueId: e.id, confirmedAt: '2026-10-04T10:05:00Z' });
+    expect(again.alreadyConfirmed).toBe(true);
+    expect(again.ledgerEntries).toEqual([]);
+  });
+
+  it('uses the entries sent with the confirmation when a newer ranking replaced the queue entry', () => {
+    const res = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: [] }, queueId: 'job-2026-10-03', confirmedAt: '2026-10-04T10:00:00Z', fallbackLedgerEntries: [{ id: 's', kind: 'job' }] });
+    expect(res.source).toBe('confirmation');
+    expect(res.ledgerEntries[0]).toMatchObject({ id: 's', kind: 'job', queueId: 'job-2026-10-03' });
+    expect(() => confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: [] }, queueId: 'job-2026-10-03', confirmedAt: '2026-10-04T10:00:00Z' })).toThrow(/no ledger entries/);
+  });
+
+  it('records the entries the robot actually published even when a same-day re-run replaced the queue entry under the same id', () => {
+    const replacement = { ...entry('article', '2026-10-04'), ledgerEntries: [{ id: 'new', kind: 'article' }] };
+    const res = confirmQueueEntry({
+      queue: { pending: [replacement] },
+      ledger: { posted: [] },
+      queueId: replacement.id,
+      confirmedAt: '2026-10-04T01:00:00Z',
+      fallbackLedgerEntries: [{ id: 'old', kind: 'article' }],
+    });
+    expect(res.source).toBe('confirmation');
+    expect(res.ledgerEntries.map((e: { id: string }) => e.id)).toEqual(['old']);
+    expect(res.queue.pending).toEqual([]);
+  });
+
+  it('confirm.mjs writes queue and ledger files and validates its inputs', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = entry('article');
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const args = parseConfirmArgs(['--channel=instagram', `--queue-id=${e.id}`, '--confirmed-at=2026-10-04T10:00:00Z', '--evidence=ok']);
+    applyConfirmation({ root, ...args });
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-posted.json'), 'utf8'));
+    expect(ledger.posted.map((p: { queueId: string }) => p.queueId)).toEqual([e.id]);
+    expect(JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-queue.json'), 'utf8')).pending).toEqual([]);
+    expect(() => parseConfirmArgs(['--channel=facebook', `--queue-id=${e.id}`, '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/channel/);
+    expect(() => parseConfirmArgs(['--channel=tiktok', '--queue-id=../../etc', '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/queue-id/);
+    expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
+  });
+});
+
+describe('cadence', () => {
+  it('counts only the presses of the local (Zurich) day', () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: '2026-10-04T06:00:00Z', queueId: 'a' },
+      { channel: 'instagram', outcome: 'unconfirmed', at: '2026-10-04T07:00:00Z', queueId: 'b' },
+      { channel: 'instagram', outcome: 'dry-run', at: '2026-10-04T08:00:00Z', queueId: 'c' },
+      { channel: 'instagram', outcome: 'published', at: '2026-10-03T21:59:00Z', queueId: 'd' }, // 23:59 in Zurich
+      { channel: 'tiktok', outcome: 'published', at: '2026-10-04T08:00:00Z', queueId: 'e' },
+    );
+    expect(localDay('2026-10-03T22:30:00Z')).toBe('2026-10-04');
+    expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
+    expect(pressedToday(journal, 'tiktok', NOW)).toBe(1);
+  });
+
+  it('counts a press with an unreadable time as today instead of aborting the robot', () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: 'not-a-date', queueId: 'a' },
+      { channel: 'instagram', outcome: 'unconfirmed', queueId: 'b' } as never,
+      { channel: 'instagram', outcome: 'dry-run', at: 'garbage', queueId: 'c' },
+    );
+    expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
+  });
+});
+
+type Deps = Parameters<typeof runRobot>[0];
+
+function harness({ queue = { pending: [entry('article')] }, journal = emptyJournal(), flow = async (_c: string, _e: unknown, _f: string[], o: { dryRun: boolean }) => ({ status: o.dryRun ? 'dry-run' : 'published', evidence: 'Post condiviso' }) } = {}) {
+  let stored = journal;
+  let clock = NOW;
+  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[] };
+  const deps = (over: Partial<Deps> = {}): Deps => ({
+    cliMode: 'publish',
+    rcMode: 'live',
+    platforms: ['instagram'],
+    now: () => clock,
+    rng: () => 0,
+    sleep: async () => {},
+    reader: { readQueue: () => queue, readLedger: () => ({ posted: [] }) },
+    journalStore: { load: () => JSON.parse(JSON.stringify(stored)), save: (j: typeof stored) => { stored = JSON.parse(JSON.stringify(j)); } },
+    fetchImages: async () => ['/tmp/slide-1.jpg'],
+    diagnosticsFor: () => path.join(os.homedir(), 'Library', 'Application Support', 'frontaliere', 'social-robot', 'diagnostics', 'x'),
+    publishWith: async (c: string, e: { id: string }, f: string[], o: { dryRun: boolean }) => {
+      calls.flow.push({ dryRun: o.dryRun, id: e.id });
+      calls.order.push('flow');
+      return flow(c, e, f, o);
+    },
+    dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
+    reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
+    log: { log: () => {}, warn: () => {}, error: () => {} },
+    ...over,
+  }) as Deps;
+  return { deps, calls, journal: () => stored, advance: (ms: number) => { clock += ms; } };
+}
+
+describe('runRobot', () => {
+  it('stays a dry run unless the command line AND Remote Config allow publishing', async () => {
+    for (const [cliMode, rcMode] of [['dry-run', 'live'], ['publish', 'dry'], ['dry-run', 'dry']] as const) {
+      const h = harness();
+      const out = await runRobot(h.deps({ cliMode, rcMode }));
+      expect(out.dryRun, `${cliMode}/${rcMode}`).toBe(true);
+      expect(h.calls.flow.map((c) => c.dryRun)).toEqual([true]);
+      expect(h.calls.dispatch).toEqual([]);
+      expect(h.journal().attempts.map((a: { outcome: string }) => a.outcome)).toEqual(['dry-run']);
+    }
+  });
+
+  it('does nothing when Remote Config says off', async () => {
+    const h = harness();
+    await runRobot(h.deps({ rcMode: 'off' }));
+    expect(h.calls.flow).toEqual([]);
+  });
+
+  it('dispatches the ledger confirmation only after the flow saw the platform confirm', async () => {
+    const h = harness();
+    const out = await runRobot(h.deps());
+    expect(out.results).toEqual([{ channel: 'instagram', outcome: 'published', queueId: 'article-2026-10-03', confirmDispatched: true }]);
+    expect(h.calls.order).toEqual(['flow', 'dispatch']);
+    expect(h.calls.dispatch[0]).toMatchObject({ channel: 'instagram', queueId: 'article-2026-10-03', evidence: 'Post condiviso' });
+    // never pressed twice, even before the confirm commit reaches origin/main
+    const again = await runRobot(h.deps());
+    expect(again.results[0].outcome).toBe('empty');
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('never marks a post pressed without confirmation: unconfirmed, blocked, issue for a human', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'confirmation-missing' });
+    expect(h.calls.dispatch).toEqual([]);
+    expect(h.calls.issues).toHaveLength(1);
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    await runRobot(h.deps());
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('opens the issue with a stable title on any error, with the home folder hidden', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('selector-missing', 'no control found for step "caption"', { step: 'caption' }); } });
+    await runRobot(h.deps());
+    h.advance(6 * HOUR);
+    await runRobot(h.deps());
+    expect(h.calls.issues.map((i) => i.title)).toEqual([issueTitleFor('instagram'), issueTitleFor('instagram')]);
+    expect(h.calls.issues[0].description).toContain('`selector-missing`');
+    expect(h.calls.issues[0].description).not.toContain(os.homedir());
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+    expect(h.calls.dispatch).toEqual([]);
+  });
+
+  it('pauses a platform after a login wall instead of insisting', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('login-required', 'login page', { step: 'open' }); } });
+    await runRobot(h.deps());
+    expect(pausedUntil(h.journal(), 'instagram', NOW)).toBe(new Date(NOW + PAUSE_AFTER_BLOCK_HOURS * HOUR).toISOString());
+    const second = await runRobot(h.deps());
+    expect(second.results[0].outcome).toBe('paused');
+    expect(h.calls.flow).toHaveLength(1);
+    h.advance(PAUSE_AFTER_BLOCK_HOURS * HOUR + 1);
+    await runRobot(h.deps());
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
+  it('respects the daily cap per platform', async () => {
+    const journal = emptyJournal();
+    for (let i = 0; i < MAX_POSTS_PER_DAY_PER_PLATFORM; i++) {
+      journal.attempts.push({ channel: 'instagram', outcome: 'published', at: new Date(NOW - (i + 1) * HOUR).toISOString(), queueId: `old-${i}`, confirmDispatched: true });
+    }
+    const h = harness({ journal });
+    const out = await runRobot(h.deps());
+    expect(out.results[0].outcome).toBe('cap');
+    expect(h.calls.flow).toEqual([]);
+  });
+
+  it('treats ANY error after the press as a press: unconfirmed, paused, never pressed again', async () => {
+    // A challenge seen while waiting for the confirmation: the flow marks it
+    // pressed (lib/flows.mjs); robot.mjs also treats the step as a press when
+    // the flag is missing, which is the case this test pins.
+    const h = harness({ flow: async () => { throw new RobotError('challenge', 'identity check', { step: 'confirmation' }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'challenge' });
+    expect(pausedUntil(h.journal(), 'instagram', NOW)).not.toBeNull();
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    expect(h.calls.issues[0].description).toContain('**sì**');
+    h.advance(PAUSE_AFTER_BLOCK_HOURS * HOUR + 1);
+    const later = await runRobot(h.deps());
+    expect(later.results[0].outcome).toBe('held');
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('holds the platform after an unconfirmed press, even for the next day\'s post with a new id', async () => {
+    const day1 = entry('article', '2026-10-03');
+    const day2 = entry('article', '2026-10-04', { now: NOW + 20 * HOUR }); // same slug, new id
+    let queue = { pending: [day1] };
+    const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
+    const reader = { readQueue: () => queue, readLedger: () => ({ posted: [] }) };
+    await runRobot(h.deps({ reader }));
+    queue = { pending: [day2] };
+    h.advance(24 * HOUR);
+    const held = await runRobot(h.deps({ reader }));
+    expect(held.results[0]).toMatchObject({ outcome: 'held', queueId: day1.id });
+    expect(h.calls.flow).toHaveLength(1);
+    // A human settles the line as "not online": the hold lifts and the same
+    // articles may go out under the new id; the old id is never pressed again.
+    const settled = h.journal();
+    settled.attempts[0].resolvedAt = new Date(NOW + 25 * HOUR).toISOString();
+    const h2 = harness({ journal: settled, queue: { pending: [day1, day2] } });
+    h2.advance(24 * HOUR);
+    const after = await runRobot(h2.deps());
+    expect(after.results[0]).toMatchObject({ outcome: 'published', queueId: day2.id });
+    expect(h2.calls.flow.map((c) => c.id)).toEqual([day2.id]);
+  });
+
+  it('lifts the hold by itself once the ledger on main holds the unconfirmed post', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'unconfirmed', at: new Date(NOW - 30 * HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'old-slug', kind: 'article' }] });
+    const h = harness({ journal });
+    const reader = { readQueue: () => ({ pending: [entry('article')] }), readLedger: () => ({ posted: [{ id: 'old-slug', kind: 'article', queueId: 'article-2026-10-02' }] }) };
+    const out = await runRobot(h.deps({ reader }));
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: 'article-2026-10-03' });
+  });
+
+  it('does not press a new entry that repeats the articles of a press still missing from the ledger', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'article-slug-a', kind: 'article' }] });
+    const other = buildQueueEntry({ channel: 'instagram', kind: 'job', day: '2026-10-03', caption: 'job', imageUrls: [cdn('job-0.jpg')], ledgerEntries: [{ id: 'job-slug', kind: 'job' }], now: NOW });
+    const h = harness({ journal, queue: { pending: [entry('article'), other] } });
+    const out = await runRobot(h.deps());
+    expect(h.calls.flow.map((c) => c.id)).toEqual([other.id]);
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: other.id });
+  });
+
+  it('re-dispatches a confirm that has not reached the ledger after the grace period', async () => {
+    const sentAt = NOW - (CONFIRM_REDISPATCH_AFTER_HOURS + 1) * HOUR;
+    const pressed = { channel: 'instagram', outcome: 'published', at: new Date(sentAt).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(sentAt).toISOString(), queueId: 'article-2026-10-02', evidence: 'ok', ledgerEntries: [{ id: 'x', kind: 'article' }] };
+    const fresh = { ...pressed, queueId: 'job-2026-10-02', at: new Date(NOW - HOUR).toISOString(), confirmDispatchedAt: new Date(NOW - HOUR).toISOString() };
+    const landed = { ...pressed, queueId: 'border-2026-09-28' };
+    const journal = emptyJournal();
+    journal.attempts.push(pressed, fresh, landed);
+    const h = harness({ journal, queue: { pending: [] } });
+    await runRobot(h.deps({ reader: { readQueue: () => ({ pending: [] }), readLedger: () => ({ posted: [{ id: 'b', queueId: 'border-2026-09-28' }] }) } }));
+    expect(h.calls.dispatch.map((d) => d.queueId)).toEqual(['article-2026-10-02']);
+    expect(h.journal().attempts[0].confirmDispatchedAt).toBe(new Date(NOW).toISOString());
+  });
+
+  it('takes each queue entry to the button once in an unattended dry run, every time by hand', async () => {
+    const h = harness();
+    await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    const second = await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    expect(second.results[0].outcome).toBe('empty');
+    expect(h.calls.flow).toHaveLength(1);
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
+  it('retries a confirm dispatch that failed before doing anything new', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'tiktok', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: false, evidence: 'ok', ledgerEntries: [{ id: 'j', kind: 'job' }] });
+    const h = harness({ journal, queue: { pending: [] } });
+    await runRobot(h.deps());
+    expect(h.calls.dispatch).toEqual([expect.objectContaining({ channel: 'tiktok', queueId: 'job-2026-10-03', ledgerEntries: [{ id: 'j', kind: 'job' }] })]);
+    expect(h.journal().attempts[0].confirmDispatched).toBe(true);
+  });
+});
+
+describe('robot helpers', () => {
+  it('downloads only images from the site CDN', async () => {
+    const dir = tempDir();
+    const ok = async () => new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    const files = await downloadImages(entry('article'), dir, { fetchImpl: ok as typeof fetch });
+    expect(files.map((f: string) => path.basename(f))).toEqual(['slide-1.jpg', 'slide-2.jpg']);
+    const html = async () => new Response('<html>', { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(downloadImages(entry('article'), dir, { fetchImpl: html as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+    await expect(downloadImages({ imageUrls: ['https://evil.example/a.jpg'] }, dir, { fetchImpl: ok as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+  });
+
+  it('hides the home folder in paths it publishes', () => {
+    expect(displayPath('/home/tester/Library/x', '/home/tester')).toBe('~/Library/x');
+  });
+
+  it('prefers real Chrome, then the newest cached Chromium, never a download', () => {
+    const chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    const home = '/home/tester';
+    const cached = `${home}/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`;
+    const base = { env: {}, home, platform: 'darwin', listDir: () => ['chromium-1208', 'chromium-1234', 'ffmpeg-1011'] };
+    expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === chrome || p === cached })).toEqual({ channel: 'chrome', kind: 'chrome' });
+    expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === cached })).toEqual({ executablePath: cached, kind: 'cached-chromium' });
+    expect(resolveBrowserLaunch({ ...base, env: { SOCIAL_ROBOT_BROWSER_PATH: '/x/chrome' }, exists: () => true })).toEqual({ executablePath: '/x/chrome', kind: 'explicit' });
+  });
+});
+
+describe('Mac host launch agent', () => {
+  const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
+
+  it('writes a plist with one calendar entry per window that runs the copy in the state folder', () => {
+    const dir = tempDir();
+    const env = { ...process.env, SR_NO_LAUNCHCTL: '1', SR_LAUNCH_AGENTS_DIR: path.join(dir, 'agents'), SR_LOG_DIR: path.join(dir, 'logs'), SOCIAL_ROBOT_STATE_DIR: path.join(dir, 'state'), SR_WINDOWS: '09:05 17:45' };
+    const plistPath = execFileSync('bash', [script, 'install'], { env, encoding: 'utf8' }).trim();
+    const plist = fs.readFileSync(plistPath, 'utf8');
+    const windows = [...plist.matchAll(/<key>Hour<\/key><integer>(\d+)<\/integer><key>Minute<\/key><integer>(\d+)<\/integer>/g)].map((m) => `${m[1]}:${m[2]}`);
+    expect(windows).toEqual(['9:5', '17:45']);
+    expect(plist).toContain(`<string>${path.join(dir, 'state', 'launchd.sh')}</string>`);
+    expect(fs.existsSync(path.join(dir, 'state', 'launchd.sh'))).toBe(true);
+    const bad = spawnSync('bash', [script, 'install'], { env: { ...env, SR_WINDOWS: '24:61' }, encoding: 'utf8' });
+    expect(bad.status).not.toBe(0);
+  });
+
+  it('extracts every relative import of the robot and of the loader into its snapshot', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    const declared = (source.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
+    const covered = (rel: string) => declared.some((p) => rel === p || rel.startsWith(`${p}/`));
+    const seen = new Set<string>();
+    const walk = (rel: string) => {
+      if (seen.has(rel)) return;
+      seen.add(rel);
+      const abs = path.join(ROOT, rel);
+      for (const spec of importSpecifiers(fs.readFileSync(abs, 'utf8'))) {
+        if (!spec.startsWith('.')) continue;
+        walk(path.relative(ROOT, path.resolve(path.dirname(abs), spec)));
+      }
+    };
+    walk('scripts/social-robot/run.mjs');
+    walk('scripts/load-rc-env.mjs');
+    const missing = [...seen].filter((rel) => !covered(rel));
+    expect(missing).toEqual([]);
+  });
+});
+
+describe('workflows', () => {
+  const wf = (name: string) => YAML.parse(fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf8'));
+
+  it('serialises the confirm job with the daily poster of the same channel', () => {
+    const group = String(wf('social-robot-confirm.yml').concurrency.group);
+    for (const channel of wf('social-robot-confirm.yml').on.workflow_dispatch.inputs.channel.options) {
+      const resolved = group.replace('${{ inputs.channel }}', channel);
+      expect(resolved).toBe(String(wf(`${channel}-daily-broadcast.yml`).concurrency.group));
+    }
+  });
+
+  it('warns on a token-less Instagram run unless the robot is live', () => {
+    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
+    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
+    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
+  });
+
+  it('commits the queue file in the same step that commits the ledger', () => {
+    for (const channel of ['instagram', 'tiktok']) {
+      const steps = wf(`${channel}-daily-broadcast.yml`).jobs.post.steps as Array<{ name?: string; run?: string }>;
+      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+      expect(commit?.run, channel).toContain(`data/${channel}-queue.json`);
+      expect(commit?.run, channel).toContain(`data/${channel}-posted.json`);
+    }
+  });
+});

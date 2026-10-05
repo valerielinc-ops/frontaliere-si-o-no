@@ -5,10 +5,11 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import registry from '../data/plate-auction-sources-registry.json';
-import { parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS, recognizeCatalogueSales } from '../scripts/plate-auctions/ingest.mjs';
 
 const NOW = new Date('2026-09-13T12:00:00.000Z');
+const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(new URL('./fixtures/expanded-card-empty-sample.html', import.meta.url), 'utf8');
 const previousRow = {
   id: 'gr-1', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', plateNumber: '1', normalizedPlate: 'GR1',
   listingType: 'auction', auctionStatus: 'active', currentBidChf: 500, endsAt: '2026-09-12T18:00:00.000Z',
@@ -688,6 +689,35 @@ describe('plate-auction ingest: an eCari page that says no auction is running', 
     const run3 = await run(run2, afterGrace, EMPTY_PAGE);
     expect(run3.sources.nw).toMatchObject({ status: 'active', rowCount: 5 });
     expect(run3.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
+  });
+});
+
+describe('plate-auction ingest: a card catalogue between auction rounds', () => {
+  it('accepts an empty official card page and closes expired rows', async () => {
+    const now = new Date('2026-10-04T21:30:00.000Z');
+    const previousRow = {
+      id: 'vd-1768', sourceKey: 'VD', canton: 'Vaud', platePrefix: 'VD', plateNumber: '691', normalizedPlate: 'VD691',
+      listingType: 'auction', auctionStatus: 'active', currentBidChf: 950, endsAt: '2026-10-04T20:00:00.000Z',
+      officialAuctionUrl: 'https://www.encheres-vd.ch/de/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
+      lastVerifiedAt: '2026-10-04T12:25:00.000Z', dataConfidence: 'partial', rawSnapshotHash: 'old',
+    };
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['vd'],
+      fetchers: { vd: async () => parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: now.toISOString() }) },
+      previous: {
+        generatedAt: '2026-10-04T12:25:00.000Z',
+        sources: { vd: { lastSuccessAt: '2026-10-04T12:25:00.000Z' } },
+        auctions: [previousRow],
+      },
+      now,
+    });
+    expect(snapshot.sources.vd).toMatchObject({
+      status: 'active', rowCount: 1, lastSuccessAt: now.toISOString(),
+    });
+    expect(snapshot.sources.vd.errorCode).toBeUndefined();
+    expect(snapshot.auctions.find((row) => row.id === previousRow.id)).toMatchObject({
+      auctionStatus: 'closed', closedAt: previousRow.endsAt,
+    });
   });
 });
 

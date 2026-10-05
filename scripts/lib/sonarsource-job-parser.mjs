@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * SonarSource (Sonar) job parser — Fetcher and job builder.
  *
@@ -132,7 +133,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...sourcePostingDateFields(j.postedAt),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -211,7 +212,7 @@ export async function fetchAllSonarsourceJobs() {
       sector: 'Software / Dev Tools',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

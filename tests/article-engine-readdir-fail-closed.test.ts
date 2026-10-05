@@ -35,6 +35,7 @@ vi.mock('node:fs', async (importOriginal) => {
 import fs from 'node:fs';
 import {
   ARTICLE_SECTION_DESCRIPTORS,
+  enumerateRenderableSectionArticleIds,
   enumerateSectionArticleIds,
 } from '../build-plugins/shared/articleSectionDescriptors';
 import {
@@ -122,6 +123,26 @@ describe('article engine filesystem operations fail closed', () => {
     });
 
     expect(enumerateSectionArticleIds(section, rootDir)).toEqual(['nominal-article']);
+  });
+
+  it('keeps body-only chunks out of the renderable audit population', () => {
+    const rootDir = temporaryRoot('article-section-renderable-');
+    const section = {
+      ...ARTICLE_SECTION_DESCRIPTORS[0],
+      seoFiles: ['seo-source.ts'],
+      bodyDir: 'test-body',
+    };
+    const seoFile = path.join(rootDir, section.seoFiles[0]);
+    const bodyDir = path.join(rootDir, 'services', 'locales', section.bodyDir, 'it');
+
+    fs.mkdirSync(path.dirname(seoFile), { recursive: true });
+    fs.writeFileSync(seoFile, "export const pages = {\n  'blog-live-article': {\n    title: 'Live',\n  },\n};\n");
+    fs.mkdirSync(bodyDir, { recursive: true });
+    fs.writeFileSync(path.join(bodyDir, 'live-article.ts'), 'export {};\n');
+    fs.writeFileSync(path.join(bodyDir, 'body-only-article.ts'), 'export {};\n');
+
+    expect(enumerateRenderableSectionArticleIds(section, rootDir)).toEqual(['live-article']);
+    expect(enumerateSectionArticleIds(section, rootDir)).toEqual(['live-article', 'body-only-article']);
   });
 
   it.each(['EACCES', 'EIO', 'EMFILE'])('propagates %s from article-id enumeration', (code) => {

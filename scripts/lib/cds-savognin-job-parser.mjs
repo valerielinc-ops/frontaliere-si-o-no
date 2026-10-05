@@ -40,6 +40,8 @@
  * Spontaneous-applications blocks are filtered out (no real vacancy).
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -312,9 +314,11 @@ export async function fetchAllCdsSavogninJobs() {
   const listings = [];
   for (const item of newsItems) {
     let listing = null;
+    let publication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(item.detailUrl, { timeoutMs });
       const blocks = parseCdsSavogninListing(detailHtml);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       // Prefer the block whose CMS id matches; else take the first real block.
       listing = blocks.find((b) => b.id === item.id) || blocks[0] || null;
     } catch (err) {
@@ -323,13 +327,12 @@ export async function fetchAllCdsSavogninJobs() {
 
     if (listing) {
       // Keep the canonical news id (stable jobId) from the listing link.
-      listings.push({ ...listing, id: item.id });
+      listings.push({ ...listing, id: item.id, ...publication });
     } else {
-      listings.push({ id: item.id, title: item.title, body: item.summary || '', pdfUrl: '' });
+      listings.push({ id: item.id, title: item.title, body: item.summary || '', pdfUrl: '', ...publication });
     }
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
@@ -382,7 +385,7 @@ export async function fetchAllCdsSavogninJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: listing.pdfUrl || url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
