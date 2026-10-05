@@ -12610,6 +12610,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-13a-rendita-iva-aumento.title': '13a rendita AVS: il Consiglio federale: «Ecco perché aumenteremo l’IVA»',
     'blog.article.avs-13a-rendita-iva-aumento.excerpt': 'A dicembre arriva la prima 13a rendita AVS per 2,6 milioni di pensionati. Il Parlamento ha deciso un aumento dell\'IVA per finanziare la misura, con un voto popolare il 29 novembre.',
     'blog.article.avs-13a-rendita-iva-aumento.imageAlt': 'Castel Grande di Bellinzona, simbolo della Svizzera, sotto un cielo sereno.',
+    'blog.article.bollettino-frontaliere-2026-10-05.title': 'Bollettino del frontaliere – 5 ottobre 2026: 1336 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-10-05.excerpt': 'I numeri di oggi, 5 ottobre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-05.imageAlt': 'I numeri del giorno per i frontalieri – 5 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-05.seoDescription': 'Bollettino frontalieri del 5 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-05.ogDescription': 'I numeri del 5 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
