@@ -54,6 +54,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL, buildCanonicalBridgePage, countHtmlBodyWords, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { isSafeDistPath } from './shared/distPathSafety';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
@@ -2343,10 +2344,9 @@ function normalizeJunkRetirementPath(retiredPath: string): string | null {
   if (/^[a-z][a-z\d+.-]*:/i.test(raw) || raw.startsWith('//')) return null;
 
   const stem = raw.replace(/^\/+/, '').replace(/\/+$/, '');
-  // A leading dot in the final segment creates a dotfile, including the
+  // A dot-prefixed segment creates a hidden dist path, including the
   // `foo/.bar.html` case the flat bridge must never manufacture.
-  if (stem === '' || path.basename(stem).startsWith('.')) return null;
-  if (stem.split('/').some((segment) => segment === '.' || segment === '..')) return null;
+  if (stem === '' || !isSafeDistPath(stem)) return null;
 
   const normalized = `/${stem}/`.replace(/\/+/g, '/');
   // Keep the write inside the cluster URL namespace and use the same path
