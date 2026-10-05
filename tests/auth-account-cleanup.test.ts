@@ -675,7 +675,7 @@ describe('profile delete path no longer pretends client newsletter delete is the
   });
 
   it('onDelete passes the Auth user email into the shared cleanup', () => {
-    expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}\)/);
+    expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\s*\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}/);
   });
 
   it('configures retries for both tombstone triggers before rethrowing failures', () => {

@@ -10,6 +10,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
@@ -101,6 +102,12 @@ export async function persistMailtrapEvent(db, eventData) {
  occurredAt,
  url: eventData.url,
  });
+ }
+
+ // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+ // annunci va cancellato subito, come promette la privacy policy.
+ if (isAffinityErasingEvent(type)) {
+   await eraseJobEmailAffinityProfile(db, email);
  }
 
  // Route job-alert events to job_alert_subscribers
