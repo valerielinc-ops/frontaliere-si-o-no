@@ -105,7 +105,10 @@ export async function fetchGermanStations({ apiKey = process.env.TANKERKOENIG_AP
   }
   const byCanton = {};
   const failures = [];
-  for (const [canton, points] of Object.entries(DE_POINTS_BY_CANTON)) {
+  // Cantons in parallel: in the worst case (every request timing out through
+  // all retries) the source costs one retry chain, not five in a row, and
+  // stays well inside the job's 20-minute cap.
+  await Promise.all(Object.entries(DE_POINTS_BY_CANTON).map(async ([canton, points]) => {
     const seen = new Map();
     for (const point of points) {
       const qs = new URLSearchParams({
@@ -121,7 +124,7 @@ export async function fetchGermanStations({ apiKey = process.env.TANKERKOENIG_AP
       }
     }
     byCanton[canton] = [...seen.values()];
-  }
+  }));
   const total = Object.values(byCanton).reduce((n, list) => n + list.length, 0);
   if (!total) return { status: 'failed', reason: failures.join('; ') || 'empty response', data: byCanton };
   return {

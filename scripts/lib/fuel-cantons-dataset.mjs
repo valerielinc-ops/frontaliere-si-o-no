@@ -202,18 +202,18 @@ export function createStationCantonResolver({ postalIndex, localityIndex, canton
 
   return function resolveStationCanton(station) {
     const address = String(station?.address || '');
-    // Swiss addresses end with "<NPA> <Ort>"; scan from the end so a house
-    // number of four digits earlier in the street is not mistaken for it.
-    const npaMatches = [...address.matchAll(/\b(\d{4})\b/g)].reverse();
-    for (const m of npaMatches) {
-      const group = unique(groupsByNpa.get(m[1]));
+    // Swiss addresses end with "<NPA> <Ort>": only the LAST four-digit token
+    // is in the postcode position. An earlier one is a street or house number
+    // ("Via 1234, 9999 X") and must never decide the canton.
+    const npaMatches = [...address.matchAll(/\b(\d{4})\b/g)];
+    const npa = npaMatches[npaMatches.length - 1];
+    if (npa) {
+      const group = unique(groupsByNpa.get(npa[1]));
       if (group) return group;
     }
     // NPA unknown or shared across cantons: fall back to the locality name
     // after it (or the last comma-separated segment), when unambiguous.
-    const tail = npaMatches.length
-      ? address.slice(npaMatches[0].index + 4)
-      : address.split(',').pop();
+    const tail = npa ? address.slice(npa.index + 4) : address.split(',').pop();
     return unique(groupsByName.get(normalizeName(tail)));
   };
 }
@@ -235,11 +235,26 @@ export function extractSingleZipEntry(buffer, inflateRawSync) {
   if (eocd < 0) throw new Error('zip: end of central directory not found');
   const entries = buf.readUInt16LE(eocd + 10);
   if (entries < 1) throw new Error('zip: archive is empty');
-  const cd = buf.readUInt32LE(eocd + 16);
-  if (buf.readUInt32LE(cd) !== 0x02014b50) throw new Error('zip: bad central directory header');
+  // Walk the central directory and take the first FILE entry: a directory or
+  // metadata entry ahead of the XML must not be mistaken for it.
+  let cd = buf.readUInt32LE(eocd + 16);
+  if (cd === 0xffffffff) throw new Error('zip: ZIP64 archives are not supported');
+  let found = null;
+  for (let i = 0; i < entries; i++) {
+    if (buf.readUInt32LE(cd) !== 0x02014b50) throw new Error('zip: bad central directory header');
+    const nameLen = buf.readUInt16LE(cd + 28);
+    const name = buf.subarray(cd + 46, cd + 46 + nameLen).toString('utf8');
+    if (!name.endsWith('/')) { found = cd; break; }
+    cd += 46 + nameLen + buf.readUInt16LE(cd + 30) + buf.readUInt16LE(cd + 32);
+  }
+  if (found == null) throw new Error('zip: no file entry');
+  cd = found;
   const method = buf.readUInt16LE(cd + 10);
   const compressedSize = buf.readUInt32LE(cd + 20);
   const localOffset = buf.readUInt32LE(cd + 42);
+  if (compressedSize === 0xffffffff || localOffset === 0xffffffff) {
+    throw new Error('zip: ZIP64 entries are not supported');
+  }
   if (buf.readUInt32LE(localOffset) !== 0x04034b50) throw new Error('zip: bad local file header');
   const nameLen = buf.readUInt16LE(localOffset + 26);
   const extraLen = buf.readUInt16LE(localOffset + 28);

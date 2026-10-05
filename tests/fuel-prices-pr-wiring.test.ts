@@ -37,7 +37,8 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'failure'");
     expect(workflow).toContain('--title "Dataset carburanti per cantone rifiutato (update-fuel-prices)"');
     // ...and closed by the next accepted build (custom title: no generic closer).
-    expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'success'");
+    expect(workflow).toContain("if: steps.fuel_cantons.outputs.built == 'true'");
+    expect(workflow).not.toContain("if: steps.fuel_cantons.outcome == 'success'");
     expect(workflow).toMatch(/github-issue-creator\.mjs --resolve \\\n\s+--title "Dataset carburanti per cantone rifiutato \(update-fuel-prices\)"/);
     // Joins the same refresh PR only once the file exists (untracked before
     // its first successful build), with the same ignored-cache contract.

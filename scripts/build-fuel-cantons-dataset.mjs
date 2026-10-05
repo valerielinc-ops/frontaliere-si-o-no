@@ -156,6 +156,10 @@ async function main() {
   writeJsonAtomic(path.join(outRoot, 'data', OUT_NAME), dataset);
   writeJsonAtomic(path.join(outRoot, 'public', 'data', OUT_NAME), dataset);
   log(`wrote data/${OUT_NAME} and public/data/${OUT_NAME}`);
+  // Explicit "accepted build" signal for the workflow: only this path may
+  // close the rejection issue. A run that exits 0 without writing (generator
+  // skipped, --check) leaves it unset.
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'built=true\n');
 }
 
 const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);

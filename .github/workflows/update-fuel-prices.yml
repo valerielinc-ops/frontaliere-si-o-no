@@ -199,9 +199,11 @@ jobs:
 
       # Recovery mirror: the title above is custom, so neither
       # close-recovered-failure-issues.mjs nor the generic report closes it;
-      # the next accepted canton build does (model: rpm-canary.yml).
-      - name: Resolve cantonal fuel dataset issue on success
-        if: steps.fuel_cantons.outcome == 'success'
+      # the next accepted canton build does (model: rpm-canary.yml). Gated on
+      # the script's own `built` output, not on the step outcome: a run whose
+      # generator hand-off was missing exits 0 without building anything.
+      - name: Resolve cantonal fuel dataset issue on accepted build
+        if: steps.fuel_cantons.outputs.built == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -54,7 +54,7 @@ const romeWallClock = (d: Date) => {
   return `${day}/${m}/${y} ${time}`;
 };
 
-function makeZip(name: string, content: Buffer): Buffer {
+function makeZip(name: string, content: Buffer, { leadingDir }: { leadingDir?: string } = {}): Buffer {
   const data = deflateRawSync(content);
   const nameBuf = Buffer.from(name);
   const local = Buffer.alloc(30);
@@ -71,13 +71,25 @@ function makeZip(name: string, content: Buffer): Buffer {
   cd.writeUInt32LE(content.length, 24);
   cd.writeUInt16LE(nameBuf.length, 28);
   cd.writeUInt32LE(0, 42);
+  const parts = [local, nameBuf, data];
+  const cdParts: Buffer[] = [];
+  if (leadingDir) {
+    // Stored, empty directory entry listed first in the central directory.
+    const dirName = Buffer.from(leadingDir);
+    const dirCd = Buffer.alloc(46);
+    dirCd.writeUInt32LE(0x02014b50, 0);
+    dirCd.writeUInt16LE(dirName.length, 28);
+    cdParts.push(dirCd, dirName);
+  }
+  cdParts.push(cd, nameBuf);
+  const cdBuf = Buffer.concat(cdParts);
   const eocd = Buffer.alloc(22);
   eocd.writeUInt32LE(0x06054b50, 0);
-  eocd.writeUInt16LE(1, 8);
-  eocd.writeUInt16LE(1, 10);
-  eocd.writeUInt32LE(46 + nameBuf.length, 12);
+  eocd.writeUInt16LE(leadingDir ? 2 : 1, 8);
+  eocd.writeUInt16LE(leadingDir ? 2 : 1, 10);
+  eocd.writeUInt32LE(cdBuf.length, 12);
   eocd.writeUInt32LE(30 + nameBuf.length + data.length, 16);
-  return Buffer.concat([local, nameBuf, data, cd, nameBuf, eocd]);
+  return Buffer.concat([...parts, cdBuf, eocd]);
 }
 
 function frenchPdv(id: string, cp: string, prices: Array<[string, number, Date]>) {
@@ -96,6 +108,8 @@ describe('fuel cantons — source parsers', () => {
     const xml = Buffer.from(frenchXml([frenchPdv('25000001', '25000', [['Gazole', 2.1, hoursAgo(1)]])]));
     expect(extractSingleZipEntry(makeZip('PrixCarburants_instantane.xml', xml), inflateRawSync).equals(xml)).toBe(true);
     expect(() => extractSingleZipEntry(Buffer.from('not a zip at all, definitely not'), inflateRawSync)).toThrow(/central directory/);
+    // A directory entry ahead of the XML is skipped.
+    expect(extractSingleZipEntry(makeZip('x.xml', xml, { leadingDir: 'feed/' }), inflateRawSync).equals(xml)).toBe(true);
   });
 
   it('keeps only the configured départements and maps SP95/E10/Gazole', () => {
@@ -151,6 +165,9 @@ describe('fuel cantons — canton resolution of Swiss stations', () => {
     // No NPA at all: the trailing locality name, when unambiguous.
     expect(resolve({ address: 'Bahnhofstrasse 3, Chur' })).toBe('GR');
     expect(resolve({ address: 'Somewhere without postcode' })).toBeNull();
+    // Only the postcode position counts: a known NPA used as a street number
+    // before an unknown postcode and locality must not decide the canton.
+    expect(resolve({ address: 'Via 6830, 9999 Sconosciuta' })).toBeNull();
   });
 });
 
@@ -308,13 +325,17 @@ describe('fuel cantons — producer CLI', () => {
 
   it('exits 0 and writes nothing when the generator skipped its run', () => {
     const outRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'fuel-cantons-'));
+    const githubOutput = path.join(outRoot, 'github-output');
+    fs.writeFileSync(githubOutput, '');
     const res = spawnSync(process.execPath, [
       path.join(ROOT, 'scripts', 'build-fuel-cantons-dataset.mjs'),
       '--input', path.join(outRoot, 'missing.json'),
       '--out-root', outRoot,
-    ], { encoding: 'utf8' });
+    ], { encoding: 'utf8', env: { ...process.env, GITHUB_OUTPUT: githubOutput } });
     expect(res.status).toBe(0);
     expect(res.stdout).toMatch(/not found/);
     expect(fs.existsSync(path.join(outRoot, 'data'))).toBe(false);
+    // No accepted build: the workflow must not see `built=true`.
+    expect(fs.readFileSync(githubOutput, 'utf8')).not.toContain('built=true');
   });
 });
