@@ -17,6 +17,7 @@
  *   - isMistralAiJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()        — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -347,9 +348,7 @@ export async function fetchAllMistralAiJobs() {
       sector: 'Intelligenza Artificiale / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt
-        ? new Date(listing.postedAt).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(listing.postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

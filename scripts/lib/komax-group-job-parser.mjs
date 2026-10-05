@@ -38,6 +38,7 @@
 // 1164641555). We dedup client-side on normalized `title|location`, not on
 // URL/id, since those differ between the duplicate rows.
 
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
@@ -112,7 +113,7 @@ function parseFeedItems(xml = '') {
     const location = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'g:location')));
     const employer = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'g:employer')));
     if (!title || !url) continue;
-    items.push({ title, descriptionHtml, url, jobId, location, employer });
+    items.push({ title, descriptionHtml, url, jobId, location, employer, ...sourceRssPostingDateFields(extractTag(itemXml, 'pubDate')) });
   }
   return items;
 }
@@ -270,7 +271,7 @@ export async function fetchAllKomaxGroupJobs() {
       sector: 'Industria / Automazione', // wire-processing / automation-technology manufacturer
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobId || '',
       requirements: [],

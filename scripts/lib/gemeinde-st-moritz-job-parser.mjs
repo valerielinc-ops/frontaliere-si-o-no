@@ -16,6 +16,8 @@
  *   - isTrustedDomain()               -- Validate URLs belong to this company
  *   - parseListingHtml() / parseDetailHtml() -- Testable pure parsers
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -457,7 +459,15 @@ export async function fetchAllGemeindeStMoritzJobs() {
     const inseratText = await fetchInseratDescription(detail?.pdfUrl);
     const pageText = detail?.description || '';
     const descriptionText = inseratText.length > pageText.length ? inseratText : pageText;
-    const postedDate = detail?.date || listing.date || new Date().toISOString().split('T')[0];
+    // Unlabelled calendar dates may describe employment start, not publication.
+    const posting = extractJobPostingLd(detailHtml || '');
+    let sameUrl = !posting?.url;
+    if (posting?.url) {
+      try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
+      catch { sameUrl = false; }
+    }
+    const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(title).toLowerCase();
+    const publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
     const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -495,7 +505,7 @@ export async function fetchAllGemeindeStMoritzJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
