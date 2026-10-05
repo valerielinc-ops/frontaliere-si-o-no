@@ -23296,6 +23296,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'rischi-cyber-pmi-svizzere',
+    category: 'novita',
+    date: '2026-10-05T10:27:11.452Z',
+    image: '/images/blog/rischi-cyber-pmi-svizzere.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

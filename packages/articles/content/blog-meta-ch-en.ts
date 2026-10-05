@@ -125,7 +125,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': '13th AHV goes to conciliation conference',
     'blog.article.avs-finanziamento-13esima.excerpt': 'No agreement between National Council and States on financing the 13th AHV',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Swiss Parliament building in Bern with AVS logo',
-    'blog.article.givaudan-licenziamenti.title': 'Givaudan in Vernier (Geneva): employee layoffs',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan fires staff',
     'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, global leader in fragrances and flavors, fires employees for stealing essences.',
     'blog.article.givaudan-licenziamenti.imageAlt': 'Chemical industry in Switzerland',
     'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi shakes up leadership and seeks new partners',
@@ -7748,6 +7748,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.porte-aperte-login-ticino.title': 'Ticino Open Doors Login: Railway, Commerce and Buildings',
     'blog.article.porte-aperte-login-ticino.excerpt': 'Saturday 10 October, 09.00-13.00 in Bellinzona, Porte Aperte login Ticino presents rail, commerce and the new AFC Informatico/a training of buildings and infrastructures, launched in August 2027.',
     'blog.article.porte-aperte-login-ticino.imageAlt': 'Visitors at Porte Aperte login Ticino observe an electrotrain and building automation tools in Bellinzona',
+    'blog.article.rischi-cyber-pmi-svizzere.title': 'Cyber risks: Swiss SMEs underestimate the dangers',
+    'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'A VZ-HSLU analysis indicates that cyber incidents are the top global risk: nearly 58\'000 digital crimes in Switzerland in 2025.',
+    'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Swiss SME team reviews cyber risks in an office',
 };
 
 export default blogMetaChEn;
