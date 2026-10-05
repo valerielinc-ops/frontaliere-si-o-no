@@ -12548,6 +12548,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: Vermisstenmeldung widerrufen',
     'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'Die Kantonspolizei Tessin hat die Vermisstenmeldung für eine 41-Jährige aus Gordola widerrufen, die seit dem 2. Oktober als vermisst galt. Die Meldung war am Samstag verbreitet worden.',
     'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola im Tessin, wo eine Vermisstenanzeige aufgehoben wurde',
+    'blog.article.uyba-esordio-pari-novara.title': 'Uyba gibt gegen Novara ein Debüt auf Augenhöhe: Igor gewinnt im Tie-Break',
+    'blog.article.uyba-esordio-pari-novara.excerpt': 'La Laica Busto Arsizio verliert im Tie-Break mit 3-2 gegen Igor Novara im Biella Forum vor 1679 Zuschauern; Grozer beendet das Spiel mit 26 Punkten und Uyba holt einen Punkt.',
+    'blog.article.uyba-esordio-pari-novara.imageAlt': 'Uyba und Novara Spieler im Einsatz im Biella Forum beim ersten Satz, mit Zuschauern auf den Tribünen',
 };
 
 export default blogMetaDe;
