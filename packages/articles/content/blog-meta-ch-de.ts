@@ -7718,6 +7718,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-minimo-berna-guida.title': 'Mindestlohn im Kanton Bern: Voraussetzungen und Anwendung',
     'blog.article.salario-minimo-berna-guida.excerpt': 'In der Schweiz gibt es keinen eidgenössischen Mindestlohn: In Bern sind eine allfällige kantonale Regelung, Gesamtarbeitsverträge und amtliche Kontrollen maßgeblich.',
     'blog.article.salario-minimo-berna-guida.imageAlt': 'Lohnunterlagen und Taschenrechner auf einem Schreibtisch in einem Schweizer Büro',
+    'blog.article.sostegno-sociale-berna-procedura.title': 'Sozialhilfe in Bern: Voraussetzungen und Antrag',
+    'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Im Kanton Bern richtet sich die Sozialhilfe nach dem Bedarf: Antrag bei der zuständigen Stelle, Unterlagen und Fristen sind beim Kanton zu überprüfen.',
+    'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Schweizer Schalter für einen Antrag auf kantonale Sozialhilfe',
 };
 
 export default blogMetaChDe;

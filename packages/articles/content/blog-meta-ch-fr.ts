@@ -7718,6 +7718,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-minimo-berna-guida.title': 'Salaire minimum dans le canton de Berne : conditions et application',
     'blog.article.salario-minimo-berna-guida.excerpt': 'En Suisse, il n\'y a pas de minimum fédéral : à Berne, ce sont l\'éventuelle réglementation cantonale, les conventions collectives et les vérifications officielles qui comptent.',
     'blog.article.salario-minimo-berna-guida.imageAlt': 'Documents salariaux et calculatrice sur un bureau dans un office suisse',
+    'blog.article.sostegno-sociale-berna-procedura.title': 'Assistance sociale à Berne : exigences et demande',
+    'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Dans le canton de Berne, l\'assistance sociale suit le besoin : demande au bureau compétent, documents et délais à vérifier auprès du canton.',
+    'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Guichet suisse pour une demande d\'aide sociale cantonale',
 };
 
 export default blogMetaChFr;
