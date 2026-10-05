@@ -7715,6 +7715,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.formazione-continua-zurigo-contributi.title': 'Formation continue Canton de Zurich : exigences et cotisations',
     'blog.article.formazione-continua-zurigo-contributi.excerpt': 'Dans le canton de Zurich, les programmes reconnus, les exigences, les délais et les contributions doivent être vérifiés auprès de la source cantonale officielle.',
     'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Salle de formation suisse pour la formation continue d\'adultes.',
+    'blog.article.salario-minimo-berna-guida.title': 'Salaire minimum dans le canton de Berne : conditions et application',
+    'blog.article.salario-minimo-berna-guida.excerpt': 'En Suisse, il n\'y a pas de minimum fédéral : à Berne, ce sont l\'éventuelle réglementation cantonale, les conventions collectives et les vérifications officielles qui comptent.',
+    'blog.article.salario-minimo-berna-guida.imageAlt': 'Documents salariaux et calculatrice sur un bureau dans un office suisse',
 };
 
 export default blogMetaChFr;
