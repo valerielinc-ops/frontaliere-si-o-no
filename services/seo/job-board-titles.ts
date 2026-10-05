@@ -18,10 +18,9 @@
  *                            canton-agnostic by construction so every
  *                            caller — TI-only, per-canton, per-canton-city
  *                            (build-plugins/jobsSeoPagesPlugin.ts) — is
- *                            correct without threading a cantonDisplay
- *                            param; per-page uniqueness still comes from
- *                            the (canton)/(city) suffix already embedded
- *                            in the `companyDisplay` arg by the callers.
+ *                            correct. Scoped callers pass the real canton
+ *                            or city through `location`, which the builder
+ *                            preserves before applying its length cap.
  *   - Recency (last N days): "Offerte Lavoro Ticino Ultimi {N} Giorni — {M} Nuove 2026"
  *
  * Each function takes a numeric live-job count read from `data/jobs.json`
@@ -39,7 +38,7 @@
  */
 
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
-import { buildTitleWithBrand } from '../../build-plugins/shared/titleSuffix';
+import { buildTitleWithBrand, stableTitleToken } from '../../build-plugins/shared/titleSuffix';
 
 export type JobPageLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -423,6 +422,34 @@ interface EmployerHubArgs {
   companyDisplay: string;
   count: number;
   year: number;
+  /**
+   * Optional real scope of a per-canton or per-city hub.  The scope belongs
+   * in the title even when the company name is long enough to consume the
+   * whole budget: otherwise two URLs for the same employer collapse to the
+   * same SERP title after `trimToMax`.
+   */
+  location?: string;
+}
+
+/**
+ * Keep the shortest stable company identity when a crawler supplied a legal
+ * name with an editorial suffix (for example `KSML — Kantonaler Stellenmarkt
+ * für Lehrerinnen und Lehrer (Kanton Bern)`).  The complete name remains in
+ * the H1 and body; this compact form only protects the title's location
+ * discriminant from being cut off at the 66-character boundary.
+ */
+function compactEmployerName(companyDisplay: string): string {
+  const raw = String(companyDisplay || '').replace(/\s+/g, ' ').trim();
+  if (!raw) return '';
+  const beforeQualifier = raw.split(/\s+[—–-]\s+/, 1)[0]?.trim() || raw;
+  if (visibleLength(beforeQualifier) <= 32) return beforeQualifier;
+  const chars = [...beforeQualifier];
+  const head = chars.slice(0, 14).join('');
+  const tail = chars.slice(-7).join('');
+  // Keep the familiar prefix and tail, plus a stable identity token. Two
+  // long legal names can share both visible slices while differing in the
+  // middle; the token preserves that distinction without adding a keyword.
+  return `${head}…${tail}·${stableTitleToken(raw)}`;
 }
 
 export function buildEmployerHubTitle({
@@ -430,9 +457,79 @@ export function buildEmployerHubTitle({
   companyDisplay,
   count,
   year,
+  location,
 }: EmployerHubArgs): string {
   const n = safeCount(count);
   const co = companyDisplay;
+  const place = String(location || '').replace(/\s+/g, ' ').trim();
+
+  // Per-canton and per-city hubs share an employer name by design.  Put the
+  // actual place in a candidate that is checked BEFORE trimming; using
+  // `${co} (${place})` as one long companyDisplay looked correct in the H1 but
+  // was cut after the same company prefix in `<title>`, producing duplicate
+  // titles for e.g. the Bern and Zurich KSML routes.
+  if (place) {
+    const shortCo = compactEmployerName(co);
+    const scopedCandidates = (() => {
+      switch (locale) {
+        case 'it':
+          return [
+            n > 0
+              ? `${co}: offerte di lavoro a ${place} — ${n} posizioni aperte`
+              : `${co}: offerte di lavoro a ${place} — Candidature aperte`,
+            n > 0
+              ? `${shortCo}: offerte di lavoro a ${place} — ${n} posizioni aperte`
+              : `${shortCo}: offerte di lavoro a ${place} — Candidature aperte`,
+            `Offerte di lavoro a ${place}: ${shortCo} — Candidati oggi`,
+          ];
+        case 'en':
+          return [
+            n > 0
+              ? `${co}: jobs in ${place} — ${n} open roles`
+              : `${co}: jobs in ${place} — Open roles updated`,
+            n > 0
+              ? `${shortCo}: jobs in ${place} — ${n} open roles`
+              : `${shortCo}: jobs in ${place} — Open roles updated`,
+            `Jobs in ${place}: ${shortCo} — Apply today`,
+          ];
+        case 'de':
+          return [
+            n > 0
+              ? `${co}: offene Stellen in ${place} — ${n} Jobs`
+              : `${co}: offene Stellen in ${place} — Bewerben`,
+            n > 0
+              ? `${shortCo}: offene Stellen in ${place} — ${n} Jobs`
+              : `${shortCo}: offene Stellen in ${place} — Bewerben`,
+            `Jobs in ${place}: ${shortCo} — Jetzt bewerben`,
+          ];
+        case 'fr':
+          return [
+            n > 0
+              ? `${co} : offres d’emploi à ${place} — ${n} postes`
+              : `${co} : offres d’emploi à ${place} — Postuler`,
+            n > 0
+              ? `${shortCo} : offres d’emploi à ${place} — ${n} postes`
+              : `${shortCo} : offres d’emploi à ${place} — Postuler`,
+            `Emplois à ${place} : ${shortCo} — Postulez`,
+          ];
+      }
+    })();
+    const scoped = scopedCandidates.find((candidate) => visibleLength(candidate) <= TITLE_MAX_CHARS)
+      ?? scopedCandidates[scopedCandidates.length - 1];
+    let scopedTitle = trimToMax(withFire(scoped, n));
+    if (visibleLength(scopedTitle) < TITLE_MIN_CHARS) {
+      const padWord = locale === 'it'
+        ? 'in Svizzera'
+        : locale === 'en'
+          ? 'in Switzerland'
+          : locale === 'de'
+            ? 'in der Schweiz'
+            : 'en Suisse';
+      scopedTitle = padToMin(scopedTitle, padWord);
+    }
+    return scopedTitle;
+  }
+
   let base: string;
   switch (locale) {
     case 'it':
