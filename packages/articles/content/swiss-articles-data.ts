@@ -23286,6 +23286,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'porte-aperte-login-ticino',
+    category: 'novita',
+    date: '2026-10-05T09:48:17.309Z',
+    image: '/images/blog/porte-aperte-login-ticino.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
