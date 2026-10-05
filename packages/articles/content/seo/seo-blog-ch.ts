@@ -97595,6 +97595,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autisti-uber-svizzera-condizioni': {
+    title: 'Settanta franchi per nove ore di lavoro: la protesta',
+    description: 'I conducenti di Uber in Svizzera chiedono tutele e condizioni migliori. Tariffe in calo, status dei lavoratori e differenze tra Zurigo e Ginevra.',
+    keywords: 'frontalieri, ticino, svizzera, italia, settanta, franchi, nove, lavoro',
+    ogTitle: 'Settanta franchi per nove ore: la protesta degli autisti Uber in Svizzera',
+    ogDescription: 'I conducenti Uber in Svizzera denunciano guadagni in calo e chiedono tutele. Analisi sulla qualificazione del rapporto di lavoro tra Zurigo, Ginevra e le richieste del sindacato Unia.',
+    canonicalPath: '/articoli-svizzera/autisti-uber-svizzera-condizioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settanta franchi per nove ore di lavoro: la protesta",
+      "description": "I conducenti di Uber in Svizzera chiedono tutele e condizioni migliori. Tariffe in calo, status dei lavoratori e differenze tra Zurigo e Ginevra.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autisti-uber-svizzera-condizioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autisti di Uber in Svizzera chiedono condizioni di lavoro migliori"
+      },
+      "datePublished": "2026-10-05T06:45:07+00:00",
+      "dateModified": "2026-10-05T06:45:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/autisti-uber-svizzera-condizioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
