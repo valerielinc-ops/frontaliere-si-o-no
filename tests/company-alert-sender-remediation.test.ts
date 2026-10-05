@@ -14,6 +14,8 @@ import {
   deliveryOutcomeForEmail,
   finalizeRecipientDelivery,
   hasDeferredCompanyAlertWork,
+  hasRecoverableConsentDeferral,
+  NEWSLETTER_CONSENT_STATUS_UNKNOWN,
   hasExplicitProviderAcceptance,
   isOpenCompanyAlertJob,
   markRecipientDeliveryAttempted,
@@ -210,6 +212,47 @@ describe('B3 — consent and suppression are fail-closed', () => {
     });
   });
 
+  it('lets an explicit company follow through an absent/blank newsletter row, but stops win', () => {
+    const explicit = alert('b3-explicit-follow', 'Acme');
+    expect(classifyRecipientConsent(undefined, knownJobAlert, explicit)).toEqual({
+      action: 'send',
+      reason: 'explicit-company-follow',
+    });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: '', consent_basis: 'companyFollow' } },
+      knownJobAlert,
+      explicit,
+    )).toEqual({ action: 'send', reason: 'explicit-company-follow' });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: 'bounced', consent_basis: 'companyFollow' } },
+      knownJobAlert,
+      explicit,
+    )).toEqual({ action: 'suppress', reason: 'newsletter-cross-channel-stop' });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: 'unsubscribed' } },
+      undefined,
+      explicit,
+    )).toEqual({ action: 'suppress', reason: 'newsletter-cross-channel-stop' });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { consent_basis: 'companyFollow' } },
+      { exists: true, data: { status: 'complained', active: true } },
+      explicit,
+    )).toEqual({ action: 'suppress', reason: 'job-alert-status-excluded' });
+    expect(classifyRecipientConsent(
+      undefined,
+      { exists: true, data: { status: 'complained', active: true } },
+      explicit,
+    )).toEqual({ action: 'suppress', reason: 'job-alert-status-excluded' });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: '' } },
+      knownJobAlert,
+    )).toEqual({ action: 'defer', reason: NEWSLETTER_CONSENT_STATUS_UNKNOWN });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: '', consent_basis: 'newsletterSignup' } },
+      knownJobAlert,
+    )).toEqual({ action: 'send', reason: 'subscription-known-ok' });
+  });
+
   it('makes an unknown lookup recoverable with a durable reason', () => {
     const sourceAlert = alert('b3-recovery', 'Acme');
     const sourceJob = job('b3-job', 'Acme', 'acme');
@@ -229,6 +272,55 @@ describe('B3 — consent and suppression are fail-closed', () => {
       DEDUP_WINDOW_MS,
       [sourceJob],
     )[0].jobs.map((item) => item.id)).toEqual(['b3-job']);
+  });
+
+  it('reopens only legacy consent terminals for an explicit follow', () => {
+    const sourceAlert = alert('b3-terminal-recovery', 'Acme');
+    const sourceJob = job('b3-terminal-job', 'Acme', 'acme');
+    const terminal = {
+      ...sourceAlert,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
+      deliveryLastDeferredReason: NEWSLETTER_CONSENT_STATUS_UNKNOWN,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+          reason: NEWSLETTER_CONSENT_STATUS_UNKNOWN,
+        },
+      },
+    };
+
+    expect(hasRecoverableConsentDeferral(terminal)).toBe(true);
+    expect(hasDeferredCompanyAlertWork([terminal])).toBe(true);
+    expect(buildRecipientSections([terminal], [], NOW, DEDUP_WINDOW_MS, [sourceJob])).toEqual([]);
+    const recovered = buildRecipientSections(
+      [terminal],
+      [],
+      NOW,
+      DEDUP_WINDOW_MS,
+      [sourceJob],
+      { recoverConsentDeferrals: true },
+    );
+    expect(recovered[0].jobs.map((item) => item.id)).toEqual([sourceJob.id]);
+
+    const capDb = serializedDb({ [sourceAlert.ref.path]: { ...terminal, ref: undefined } });
+    const [capWrite] = planDeferredDeliveryWrites(recovered, NOW, 'per-run-cap');
+    return persistDeferredDeliveryWrites(capDb, [capWrite], false).then(() => {
+      expect(capDb.docs.get(sourceAlert.ref.path)?.deliveryLastDeferredReason)
+        .toBe(NEWSLETTER_CONSENT_STATUS_UNKNOWN);
+    }).then(() => {
+      const db = serializedDb({ [sourceAlert.ref.path]: { ...terminal, ref: undefined } });
+      return claimRecipientSections(
+        db,
+        recovered,
+        NOW,
+        'claim-consent-recovery',
+        { recoverConsentDeferrals: true },
+      ).then((claimed) => {
+        expect(claimed[0].jobs.map((item) => item.id)).toEqual([sourceJob.id]);
+      });
+    });
   });
 });
 
@@ -819,6 +911,7 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     const sourceAlert = alert('b6-reset-after-accepted', 'Acme', {
       deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
       deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      deliveryLastDeferredReason: NEWSLETTER_CONSENT_STATUS_UNKNOWN,
     });
     const sourceJob = job('b6-reset-after-accepted-job', 'Acme', 'acme');
     const db = serializedDb({
@@ -834,6 +927,8 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
       deliveryDeferredAttempts: 0,
       deliveryDeferredState: null,
+      deliveryLastDeferredReason: null,
+      deliveryLastDeferredAt: null,
     });
   });
 

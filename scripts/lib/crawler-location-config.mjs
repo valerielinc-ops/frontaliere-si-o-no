@@ -135,7 +135,10 @@ export const COMPANY_HQ = {
   'medacta':                      { city: 'Castel San Pietro',  canton: 'TI', postalCode: '6874', addressRegion: 'TI' },
   'mendrisio':                    { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
   'otis':                         { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
-  'oscam':                        { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
+  // Ospedale Malcantonese: the official OSCAM career notices give Nucleo 30,
+  // CH-6980 Castelrotto. Casa Anziani is a separate Caslano site and must not
+  // be used as the generic hospital crawler default.
+  'oscam':                        { city: 'Castelrotto',         canton: 'TI', postalCode: '6980', addressRegion: 'TI' },
   'prada':                        { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
   'raiffeisen-vc':                { city: 'Cadempino',          canton: 'TI', postalCode: '6814', addressRegion: 'TI' },
   'rapelli':                      { city: 'Stabio',             canton: 'TI', postalCode: '6855', addressRegion: 'TI' },

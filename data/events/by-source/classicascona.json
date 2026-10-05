@@ -1,0 +1,2813 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "classicascona",
+  "sourceName": "classicAscona — Settimane Musicali di Ascona",
+  "canton": "TI",
+  "assembledAt": "2026-10-05T22:32:34.107Z",
+  "events": [
+    {
+      "id": "classicascona:tra-mondi-zwischen-welten",
+      "title": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca",
+      "startDate": "2026-09-02",
+      "startTime": "20:00",
+      "category": "musica",
+      "description": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 2 settembre 2026 alle 20:00, Chiesa San Francesco, Locarno. Interpreti: Alexandra Dovgan, Orchestra Sinfonica di Milano, Emmanuel Tjeknavorian. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 2 settembre 2026 alle 20:00, Chiesa San Francesco, Locarno. Interpreti: Alexandra Dovgan, Orchestra Sinfonica di Milano, Emmanuel Tjeknavorian. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 2 September 2026 at 20:00, Chiesa San Francesco, Locarno. Performers: Alexandra Dovgan, Orchestra Sinfonica di Milano, Emmanuel Tjeknavorian. Programme, tickets and details on the concert page.",
+        "de": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 2. September 2026 um 20:00 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Alexandra Dovgan, Orchestra Sinfonica di Milano, Emmanuel Tjeknavorian. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Festival Warm-Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 2 septembre 2026 à 20:00, Chiesa San Francesco, Locarno. Interprètes : Alexandra Dovgan, Orchestra Sinfonica di Milano, Emmanuel Tjeknavorian. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/tra-mondi-zwischen-welten/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1731",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Alexandra Dovgan"
+        },
+        {
+          "@type": "Person",
+          "name": "Orchestra Sinfonica di Milano"
+        },
+        {
+          "@type": "Person",
+          "name": "Emmanuel Tjeknavorian"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/tra-mondi-zwischen-welten/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:concerto-inaugurale-julia-lezhneva-i-per-constanze-mozart-grosse-messe",
+      "title": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa",
+      "startDate": "2026-09-18",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 18 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Marie Lys, Julia Lezhneva, Matthew Newlin, Nicolas Brooymans, Tölzer Knabenchor, Orchestra da Camera di Basilea, Francesco Corti. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 18 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Marie Lys, Julia Lezhneva, Matthew Newlin, Nicolas Brooymans, Tölzer Knabenchor, Orchestra da Camera di Basilea, Francesco Corti. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa: a concert of the Ascona Music Weeks (classicAscona), on Friday 18 September 2026 at 19:30, Chiesa San Francesco, Locarno. Performers: Marie Lys, Julia Lezhneva, Matthew Newlin, Nicolas Brooymans, Tölzer Knabenchor, Orchestra da Camera di Basilea, Francesco Corti. Programme, tickets and details on the concert page.",
+        "de": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 18. September 2026 um 19:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Marie Lys, Julia Lezhneva, Matthew Newlin, Nicolas Brooymans, Tölzer Knabenchor, Orchestra da Camera di Basilea, Francesco Corti. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Concerto inaugurale | Julia Lezhneva I | Per Constanze: Mozart Grande Messa : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 18 septembre 2026 à 19:30, Chiesa San Francesco, Locarno. Interprètes : Marie Lys, Julia Lezhneva, Matthew Newlin, Nicolas Brooymans, Tölzer Knabenchor, Orchestra da Camera di Basilea, Francesco Corti. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/concerto-inaugurale-julia-lezhneva-i-per-constanze-mozart-grosse-messe/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1733",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Marie Lys"
+        },
+        {
+          "@type": "Person",
+          "name": "Julia Lezhneva"
+        },
+        {
+          "@type": "Person",
+          "name": "Matthew Newlin"
+        },
+        {
+          "@type": "Person",
+          "name": "Nicolas Brooymans"
+        },
+        {
+          "@type": "Person",
+          "name": "Tölzer Knabenchor"
+        },
+        {
+          "@type": "Person",
+          "name": "Orchestra da Camera di Basilea"
+        },
+        {
+          "@type": "Person",
+          "name": "Francesco Corti"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/concerto-inaugurale-julia-lezhneva-i-per-constanze-mozart-grosse-messe/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:introduzione-volodos",
+      "title": "Introduzione – Volodos!",
+      "startDate": "2026-09-19",
+      "startTime": "18:45",
+      "category": "musica",
+      "description": "Introduzione – Volodos!: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Introduzione – Volodos!: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Introduzione – Volodos!: a concert of the Ascona Music Weeks (classicAscona), on Saturday 19 September 2026 at 18:45, Biblioteca Papio. Performers: Davide Fersini. Programme, tickets and details on the concert page.",
+        "de": "Introduzione – Volodos!: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 19. September 2026 um 18:45 Uhr, Biblioteca Papio. Mitwirkende: Davide Fersini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Introduzione – Volodos! : concert des Semaines musicales d’Ascona (classicAscona), le samedi 19 septembre 2026 à 18:45, Biblioteca Papio. Interprètes : Davide Fersini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Biblioteca Papio",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/introduzione-volodos/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Davide Fersini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/introduzione-volodos/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-i-ensemble-di-violoncelli-del-conservatorio-della-svizzera-italiana",
+      "title": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana",
+      "startDate": "2026-09-19",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 17:30, Piazza Lungolago, Ascona. Interpreti: Ensemble di violoncelli del Conservatorio della Svizzera italiana, Claude Hauri. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 17:30, Piazza Lungolago, Ascona. Interpreti: Ensemble di violoncelli del Conservatorio della Svizzera italiana, Claude Hauri. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana: a concert of the Ascona Music Weeks (classicAscona), on Saturday 19 September 2026 at 17:30, Piazza Lungolago, Ascona. Performers: Ensemble di violoncelli del Conservatorio della Svizzera italiana, Claude Hauri. Programme, tickets and details on the concert page.",
+        "de": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 19. September 2026 um 17:30 Uhr, Piazza Lungolago, Ascona. Mitwirkende: Ensemble di violoncelli del Conservatorio della Svizzera italiana, Claude Hauri. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation I | Ensemble di violoncelli del Conservatorio della Svizzera italiana : concert des Semaines musicales d’Ascona (classicAscona), le samedi 19 septembre 2026 à 17:30, Piazza Lungolago, Ascona. Interprètes : Ensemble di violoncelli del Conservatorio della Svizzera italiana, Claude Hauri. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Piazza Lungolago, Ascona",
+      "address": {
+        "street": "Piazza Giuseppe Motta",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-i-ensemble-di-violoncelli-del-conservatorio-della-svizzera-italiana/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ensemble di violoncelli del Conservatorio della Svizzera italiana"
+        },
+        {
+          "@type": "Person",
+          "name": "Claude Hauri"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-i-ensemble-di-violoncelli-del-conservatorio-della-svizzera-italiana/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:bach-feinberg-chopin-schubert",
+      "title": "Volodos!",
+      "startDate": "2026-09-19",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Volodos!: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Arcadi Volodos. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Volodos!: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 19 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Arcadi Volodos. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Volodos!: a concert of the Ascona Music Weeks (classicAscona), on Saturday 19 September 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Arcadi Volodos. Programme, tickets and details on the concert page.",
+        "de": "Volodos!: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 19. September 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Arcadi Volodos. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Volodos! : concert des Semaines musicales d’Ascona (classicAscona), le samedi 19 septembre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Arcadi Volodos. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/bach-feinberg-chopin-schubert/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1735",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Arcadi Volodos"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/bach-feinberg-chopin-schubert/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:monte-verita-musica-e-letteratura-san-gottardo-i",
+      "title": "Monte Verità | Musica e letteratura | San Gottardo I",
+      "startDate": "2026-09-20",
+      "startTime": "15:00",
+      "category": "musica",
+      "description": "Monte Verità | Musica e letteratura | San Gottardo I: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 15:00, Monte Verità Ascona, piscina, Acona. Interpreti: Zora del Buono (Lettura DE & IT), Alain Claude Sulzer, Daria Zappa, Mattia Zappa, Danilo Boggini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Monte Verità | Musica e letteratura | San Gottardo I: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 15:00, Monte Verità Ascona, piscina, Acona. Interpreti: Zora del Buono (Lettura DE & IT), Alain Claude Sulzer, Daria Zappa, Mattia Zappa, Danilo Boggini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Monte Verità | Musica e letteratura | San Gottardo I: a concert of the Ascona Music Weeks (classicAscona), on Sunday 20 September 2026 at 15:00, Monte Verità Ascona, piscina, Acona. Performers: Zora del Buono (Lettura DE & IT), Alain Claude Sulzer, Daria Zappa, Mattia Zappa, Danilo Boggini. Programme, tickets and details on the concert page.",
+        "de": "Monte Verità | Musica e letteratura | San Gottardo I: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 20. September 2026 um 15:00 Uhr, Monte Verità Ascona, piscina, Acona. Mitwirkende: Zora del Buono (Lettura DE & IT), Alain Claude Sulzer, Daria Zappa, Mattia Zappa, Danilo Boggini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Monte Verità | Musica e letteratura | San Gottardo I : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 20 septembre 2026 à 15:00, Monte Verità Ascona, piscina, Acona. Interprètes : Zora del Buono (Lettura DE & IT), Alain Claude Sulzer, Daria Zappa, Mattia Zappa, Danilo Boggini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Monte Verità Ascona, piscina",
+      "address": {
+        "street": "Strada Collina 84",
+        "postalCode": "6612",
+        "locality": "Acona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/monte-verita-musica-e-letteratura-san-gottardo-i/",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1734",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Zora del Buono (Lettura DE & IT)"
+        },
+        {
+          "@type": "Person",
+          "name": "Alain Claude Sulzer"
+        },
+        {
+          "@type": "Person",
+          "name": "Daria Zappa"
+        },
+        {
+          "@type": "Person",
+          "name": "Mattia Zappa"
+        },
+        {
+          "@type": "Person",
+          "name": "Danilo Boggini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/monte-verita-musica-e-letteratura-san-gottardo-i/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:nello-specchio-di-rossini-im-spiegel-rossinis",
+      "title": "Nello specchio di Rossini",
+      "startDate": "2026-09-20",
+      "startTime": "18:30",
+      "category": "musica",
+      "description": "Nello specchio di Rossini: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 18:30, Chiesa San Francesco, Locarno. Interpreti: Finnegan Downie Dear, Camerata Salisburgo, Lucas & Arthur Jussen. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Nello specchio di Rossini: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 18:30, Chiesa San Francesco, Locarno. Interpreti: Finnegan Downie Dear, Camerata Salisburgo, Lucas & Arthur Jussen. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Nello specchio di Rossini: a concert of the Ascona Music Weeks (classicAscona), on Sunday 20 September 2026 at 18:30, Chiesa San Francesco, Locarno. Performers: Finnegan Downie Dear, Camerata Salisburgo, Lucas & Arthur Jussen. Programme, tickets and details on the concert page.",
+        "de": "Nello specchio di Rossini: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 20. September 2026 um 18:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Finnegan Downie Dear, Camerata Salisburgo, Lucas & Arthur Jussen. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Nello specchio di Rossini : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 20 septembre 2026 à 18:30, Chiesa San Francesco, Locarno. Interprètes : Finnegan Downie Dear, Camerata Salisburgo, Lucas & Arthur Jussen. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/nello-specchio-di-rossini-im-spiegel-rossinis/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1756",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Finnegan Downie Dear"
+        },
+        {
+          "@type": "Person",
+          "name": "Camerata Salisburgo"
+        },
+        {
+          "@type": "Person",
+          "name": "Lucas & Arthur Jussen"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/nello-specchio-di-rossini-im-spiegel-rossinis/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-ii-ilya-shmuker",
+      "title": "Costellazione Giovani | Next Generation II | Ilya Shmukler",
+      "startDate": "2026-09-20",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Costellazione Giovani | Next Generation II | Ilya Shmukler: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 17:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Ilya Shmukler. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Costellazione Giovani | Next Generation II | Ilya Shmukler: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 20 settembre 2026 alle 17:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Ilya Shmukler. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Costellazione Giovani | Next Generation II | Ilya Shmukler: a concert of the Ascona Music Weeks (classicAscona), on Sunday 20 September 2026 at 17:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Performers: Ilya Shmukler. Programme, tickets and details on the concert page.",
+        "de": "Costellazione Giovani | Next Generation II | Ilya Shmukler: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 20. September 2026 um 17:00 Uhr, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Mitwirkende: Ilya Shmukler. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Costellazione Giovani | Next Generation II | Ilya Shmukler : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 20 septembre 2026 à 17:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interprètes : Ilya Shmukler. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno",
+      "address": {
+        "street": "Via Cittadella 17",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-ii-ilya-shmuker/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1794",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ilya Shmukler"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-ii-ilya-shmuker/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:affetti-plaisirs-30-anni-dei-barocchisti",
+      "title": "Affetti & Plaisirs | 30 anni de I Barocchisti",
+      "startDate": "2026-09-21",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Affetti & Plaisirs | 30 anni de I Barocchisti: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 21 settembre 2026 alle 19:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: I Barocchisti, Maurice Steger, Diego Fasolis. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Affetti & Plaisirs | 30 anni de I Barocchisti: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 21 settembre 2026 alle 19:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: I Barocchisti, Maurice Steger, Diego Fasolis. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Affetti & Plaisirs | 30 anni de I Barocchisti: a concert of the Ascona Music Weeks (classicAscona), on Monday 21 September 2026 at 19:30, Chiesa dei Santi Pietro e Paolo, Ascona. Performers: I Barocchisti, Maurice Steger, Diego Fasolis. Programme, tickets and details on the concert page.",
+        "de": "Affetti & Plaisirs | 30 anni de I Barocchisti: Konzert der Musikwochen Ascona (classicAscona), am Montag, 21. September 2026 um 19:30 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Mitwirkende: I Barocchisti, Maurice Steger, Diego Fasolis. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Affetti & Plaisirs | 30 anni de I Barocchisti : concert des Semaines musicales d’Ascona (classicAscona), le lundi 21 septembre 2026 à 19:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interprètes : I Barocchisti, Maurice Steger, Diego Fasolis. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/affetti-plaisirs-30-anni-dei-barocchisti/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1816",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "I Barocchisti"
+        },
+        {
+          "@type": "Person",
+          "name": "Maurice Steger"
+        },
+        {
+          "@type": "Person",
+          "name": "Diego Fasolis"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/affetti-plaisirs-30-anni-dei-barocchisti/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:bordei-centovalli-musica-e-piacere-musik-genuss",
+      "title": "Bordei – Centovalli | Musica e piacere",
+      "startDate": "2026-09-22",
+      "startTime": "16:30",
+      "category": "musica",
+      "description": "Bordei – Centovalli | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 22 settembre 2026 alle 16:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interpreti: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Bordei – Centovalli | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 22 settembre 2026 alle 16:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interpreti: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Bordei – Centovalli | Musica e piacere: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 22 September 2026 at 16:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Performers: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programme, tickets and details on the concert page.",
+        "de": "Bordei – Centovalli | Musica e piacere: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 22. September 2026 um 16:30 Uhr, Bordei, Chiesa e Osteria Giardino, Palagnedra. Mitwirkende: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Bordei – Centovalli | Musica e piacere : concert des Semaines musicales d’Ascona (classicAscona), le mardi 22 septembre 2026 à 16:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interprètes : Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Bordei, Chiesa e Osteria Giardino",
+      "address": {
+        "street": "Via Santi Pietro e Paolo 9",
+        "postalCode": "6657",
+        "locality": "Palagnedra"
+      },
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/bordei-centovalli-musica-e-piacere-musik-genuss/",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1758",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Maurice Steger"
+        },
+        {
+          "@type": "Person",
+          "name": "Daniele Caminiti"
+        },
+        {
+          "@type": "Person",
+          "name": "Pietro Leemann: pioniere della cucina gourmet vegetariana"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/bordei-centovalli-musica-e-piacere-musik-genuss/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:bordei-centovalli-musica-e-piacere",
+      "title": "Bordei – Centovalli | Musica e piacere",
+      "startDate": "2026-09-22",
+      "startTime": "11:30",
+      "category": "musica",
+      "description": "Bordei – Centovalli | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 22 settembre 2026 alle 11:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interpreti: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Bordei – Centovalli | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 22 settembre 2026 alle 11:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interpreti: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Bordei – Centovalli | Musica e piacere: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 22 September 2026 at 11:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Performers: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programme, tickets and details on the concert page.",
+        "de": "Bordei – Centovalli | Musica e piacere: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 22. September 2026 um 11:30 Uhr, Bordei, Chiesa e Osteria Giardino, Palagnedra. Mitwirkende: Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Bordei – Centovalli | Musica e piacere : concert des Semaines musicales d’Ascona (classicAscona), le mardi 22 septembre 2026 à 11:30, Bordei, Chiesa e Osteria Giardino, Palagnedra. Interprètes : Maurice Steger, Daniele Caminiti, Pietro Leemann: pioniere della cucina gourmet vegetariana. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Bordei, Chiesa e Osteria Giardino",
+      "address": {
+        "street": "Via Santi Pietro e Paolo 9",
+        "postalCode": "6657",
+        "locality": "Palagnedra"
+      },
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/bordei-centovalli-musica-e-piacere/",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1757",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Maurice Steger"
+        },
+        {
+          "@type": "Person",
+          "name": "Daniele Caminiti"
+        },
+        {
+          "@type": "Person",
+          "name": "Pietro Leemann: pioniere della cucina gourmet vegetariana"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/bordei-centovalli-musica-e-piacere/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-iii-concerto-finale-della-masterclass-di-julia-lezhneva",
+      "title": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva",
+      "startDate": "2026-09-23",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 23 settembre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 23 settembre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 23 September 2026 at 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Performers: Studenti. Programme, tickets and details on the concert page.",
+        "de": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 23. September 2026 um 17:00 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Mitwirkende: Studenti. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation III | Concerto finale – Masterclass Julia Lezhneva : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 23 septembre 2026 à 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interprètes : Studenti. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-iii-concerto-finale-della-masterclass-di-julia-lezhneva/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Studenti"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-iii-concerto-finale-della-masterclass-di-julia-lezhneva/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:golden-age-julia-lezhneva-ii",
+      "title": "Golden Age | Julia Lezhneva II",
+      "startDate": "2026-09-23",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Golden Age | Julia Lezhneva II: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 23 settembre 2026 alle 19:30, Chiesa di San Martino, Ronco sopra Ascona. Interpreti: Julia Lezhneva, Luca Pianca. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Golden Age | Julia Lezhneva II: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 23 settembre 2026 alle 19:30, Chiesa di San Martino, Ronco sopra Ascona. Interpreti: Julia Lezhneva, Luca Pianca. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Golden Age | Julia Lezhneva II: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 23 September 2026 at 19:30, Chiesa di San Martino, Ronco sopra Ascona. Performers: Julia Lezhneva, Luca Pianca. Programme, tickets and details on the concert page.",
+        "de": "Golden Age | Julia Lezhneva II: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 23. September 2026 um 19:30 Uhr, Chiesa di San Martino, Ronco sopra Ascona. Mitwirkende: Julia Lezhneva, Luca Pianca. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Golden Age | Julia Lezhneva II : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 23 septembre 2026 à 19:30, Chiesa di San Martino, Ronco sopra Ascona. Interprètes : Julia Lezhneva, Luca Pianca. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di San Martino, Ronco sopra Ascona",
+      "address": {
+        "street": "Via Ronco 1",
+        "postalCode": "6622",
+        "locality": "Ronco sopra Ascona"
+      },
+      "comune": "Ronco sopra Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/golden-age-julia-lezhneva-ii/",
+      "price": {
+        "amount": 20,
+        "highPrice": 60,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1818",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Julia Lezhneva"
+        },
+        {
+          "@type": "Person",
+          "name": "Luca Pianca"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/golden-age-julia-lezhneva-ii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:introduzione-inspirazione-ungheria",
+      "title": "Introduzione – Inspirazione Ungheria",
+      "startDate": "2026-09-24",
+      "startTime": "18:45",
+      "category": "musica",
+      "description": "Introduzione – Inspirazione Ungheria: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 24 settembre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Introduzione – Inspirazione Ungheria: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 24 settembre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Introduzione – Inspirazione Ungheria: a concert of the Ascona Music Weeks (classicAscona), on Thursday 24 September 2026 at 18:45, Biblioteca Papio. Performers: Davide Fersini. Programme, tickets and details on the concert page.",
+        "de": "Introduzione – Inspirazione Ungheria: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 24. September 2026 um 18:45 Uhr, Biblioteca Papio. Mitwirkende: Davide Fersini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Introduzione – Inspirazione Ungheria : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 24 septembre 2026 à 18:45, Biblioteca Papio. Interprètes : Davide Fersini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Biblioteca Papio",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/introduzione-inspirazione-ungheria/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Davide Fersini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/introduzione-inspirazione-ungheria/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:ispirazione-ungheria-folk-ungherese-vilde-frang-i",
+      "title": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I",
+      "startDate": "2026-09-24",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 24 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Vilde Frang, Martin Helmchen, Salamon Eredics. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 24 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Vilde Frang, Martin Helmchen, Salamon Eredics. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I: a concert of the Ascona Music Weeks (classicAscona), on Thursday 24 September 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Vilde Frang, Martin Helmchen, Salamon Eredics. Programme, tickets and details on the concert page.",
+        "de": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 24. September 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Vilde Frang, Martin Helmchen, Salamon Eredics. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Ispirazione Ungheria – Folk ungherese | Vilde Frang I : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 24 septembre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Vilde Frang, Martin Helmchen, Salamon Eredics. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/ispirazione-ungheria-folk-ungherese-vilde-frang-i/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1760",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Vilde Frang"
+        },
+        {
+          "@type": "Person",
+          "name": "Martin Helmchen"
+        },
+        {
+          "@type": "Person",
+          "name": "Salamon Eredics"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/ispirazione-ungheria-folk-ungherese-vilde-frang-i/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-iv-seohyun-kim",
+      "title": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim",
+      "startDate": "2026-09-25",
+      "startTime": "17:45",
+      "category": "musica",
+      "description": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 25 settembre 2026 alle 17:45, Sala Sopracenerina, Locarno. Interpreti: Sarang Seohyun Kim, Ryan Wang. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 25 settembre 2026 alle 17:45, Sala Sopracenerina, Locarno. Interpreti: Sarang Seohyun Kim, Ryan Wang. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim: a concert of the Ascona Music Weeks (classicAscona), on Friday 25 September 2026 at 17:45, Sala Sopracenerina, Locarno. Performers: Sarang Seohyun Kim, Ryan Wang. Programme, tickets and details on the concert page.",
+        "de": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 25. September 2026 um 17:45 Uhr, Sala Sopracenerina, Locarno. Mitwirkende: Sarang Seohyun Kim, Ryan Wang. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Costellazione Giovani | Next Generation IV | Sarang Seohyun Kim : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 25 septembre 2026 à 17:45, Sala Sopracenerina, Locarno. Interprètes : Sarang Seohyun Kim, Ryan Wang. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Sala Sopracenerina, Locarno",
+      "address": {
+        "street": "Piazza Grande 1",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-iv-seohyun-kim/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1768",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Sarang Seohyun Kim"
+        },
+        {
+          "@type": "Person",
+          "name": "Ryan Wang"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-iv-seohyun-kim/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:pathetique",
+      "title": "Pathétique",
+      "startDate": "2026-09-25",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Pathétique: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 25 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Nemanja Radulović, Krystof Urbański, Orchestra della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Pathétique: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 25 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Nemanja Radulović, Krystof Urbański, Orchestra della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Pathétique: a concert of the Ascona Music Weeks (classicAscona), on Friday 25 September 2026 at 19:30, Chiesa San Francesco, Locarno. Performers: Nemanja Radulović, Krystof Urbański, Orchestra della Svizzera italiana. Programme, tickets and details on the concert page.",
+        "de": "Pathétique: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 25. September 2026 um 19:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Nemanja Radulović, Krystof Urbański, Orchestra della Svizzera italiana. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Pathétique : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 25 septembre 2026 à 19:30, Chiesa San Francesco, Locarno. Interprètes : Nemanja Radulović, Krystof Urbański, Orchestra della Svizzera italiana. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/pathetique/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1769",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Nemanja Radulović"
+        },
+        {
+          "@type": "Person",
+          "name": "Krystof Urbański"
+        },
+        {
+          "@type": "Person",
+          "name": "Orchestra della Svizzera italiana"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/pathetique/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-vi-orchestra-giovanile-della-svizzera-italiana",
+      "title": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana",
+      "startDate": "2026-09-26",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 17:30, Piazza Lungolago, Ascona. Interpreti: Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 17:30, Piazza Lungolago, Ascona. Interpreti: Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana: a concert of the Ascona Music Weeks (classicAscona), on Saturday 26 September 2026 at 17:30, Piazza Lungolago, Ascona. Performers: Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana. Programme, tickets and details on the concert page.",
+        "de": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 26. September 2026 um 17:30 Uhr, Piazza Lungolago, Ascona. Mitwirkende: Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation VI | Orchestra 1 del Conservatorio della Svizzera italiana : concert des Semaines musicales d’Ascona (classicAscona), le samedi 26 septembre 2026 à 17:30, Piazza Lungolago, Ascona. Interprètes : Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Piazza Lungolago, Ascona",
+      "address": {
+        "street": "Piazza Giuseppe Motta",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-vi-orchestra-giovanile-della-svizzera-italiana/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-vi-orchestra-giovanile-della-svizzera-italiana/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-v-ascona-baroque-academy-concerto-finale-i",
+      "title": "Next Generation V | Ascona Baroque Academy – Concerto finale I",
+      "startDate": "2026-09-26",
+      "startTime": "16:00",
+      "category": "musica",
+      "description": "Next Generation V | Ascona Baroque Academy – Concerto finale I: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 16:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation V | Ascona Baroque Academy – Concerto finale I: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 16:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation V | Ascona Baroque Academy – Concerto finale I: a concert of the Ascona Music Weeks (classicAscona), on Saturday 26 September 2026 at 16:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Performers: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programme, tickets and details on the concert page.",
+        "de": "Next Generation V | Ascona Baroque Academy – Concerto finale I: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 26. September 2026 um 16:00 Uhr, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Mitwirkende: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation V | Ascona Baroque Academy – Concerto finale I : concert des Semaines musicales d’Ascona (classicAscona), le samedi 26 septembre 2026 à 16:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interprètes : Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno",
+      "address": {
+        "street": "Via Cittadella 17",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-v-ascona-baroque-academy-concerto-finale-i/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Maurice Steger"
+        },
+        {
+          "@type": "Person",
+          "name": "Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-v-ascona-baroque-academy-concerto-finale-i/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:orfeo-ed-euridice",
+      "title": "Orfeo ed Euridice",
+      "startDate": "2026-09-26",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Orfeo ed Euridice: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Cecilia Bartoli, Mélissa Petit, Il Canto di Orfeo, Les Musiciens du Prince (Monaco), Gianluca Capuano. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Orfeo ed Euridice: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Cecilia Bartoli, Mélissa Petit, Il Canto di Orfeo, Les Musiciens du Prince (Monaco), Gianluca Capuano. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Orfeo ed Euridice: a concert of the Ascona Music Weeks (classicAscona), on Saturday 26 September 2026 at 19:30, Chiesa San Francesco, Locarno. Performers: Cecilia Bartoli, Mélissa Petit, Il Canto di Orfeo, Les Musiciens du Prince (Monaco), Gianluca Capuano. Programme, tickets and details on the concert page.",
+        "de": "Orfeo ed Euridice: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 26. September 2026 um 19:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Cecilia Bartoli, Mélissa Petit, Il Canto di Orfeo, Les Musiciens du Prince (Monaco), Gianluca Capuano. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Orfeo ed Euridice : concert des Semaines musicales d’Ascona (classicAscona), le samedi 26 septembre 2026 à 19:30, Chiesa San Francesco, Locarno. Interprètes : Cecilia Bartoli, Mélissa Petit, Il Canto di Orfeo, Les Musiciens du Prince (Monaco), Gianluca Capuano. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/orfeo-ed-euridice/",
+      "price": {
+        "amount": 95,
+        "highPrice": 275,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1771",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Cecilia Bartoli"
+        },
+        {
+          "@type": "Person",
+          "name": "Mélissa Petit"
+        },
+        {
+          "@type": "Person",
+          "name": "Il Canto di Orfeo"
+        },
+        {
+          "@type": "Person",
+          "name": "Les Musiciens du Prince (Monaco)"
+        },
+        {
+          "@type": "Person",
+          "name": "Gianluca Capuano"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/orfeo-ed-euridice/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:spiaggia-castello-del-sole-musica-e-piacere",
+      "title": "Spiaggia Castello del Sole | Musica e piacere",
+      "startDate": "2026-09-26",
+      "startTime": "12:00",
+      "category": "musica",
+      "description": "Spiaggia Castello del Sole | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 12:00, Spiaggia Castello del Sole, Padiglione, Ascona. Interpreti: Nini Nutsubidze, Giorgi Gigashvili. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Spiaggia Castello del Sole | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 26 settembre 2026 alle 12:00, Spiaggia Castello del Sole, Padiglione, Ascona. Interpreti: Nini Nutsubidze, Giorgi Gigashvili. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Spiaggia Castello del Sole | Musica e piacere: a concert of the Ascona Music Weeks (classicAscona), on Saturday 26 September 2026 at 12:00, Spiaggia Castello del Sole, Padiglione, Ascona. Performers: Nini Nutsubidze, Giorgi Gigashvili. Programme, tickets and details on the concert page.",
+        "de": "Spiaggia Castello del Sole | Musica e piacere: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 26. September 2026 um 12:00 Uhr, Spiaggia Castello del Sole, Padiglione, Ascona. Mitwirkende: Nini Nutsubidze, Giorgi Gigashvili. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Spiaggia Castello del Sole | Musica e piacere : concert des Semaines musicales d’Ascona (classicAscona), le samedi 26 septembre 2026 à 12:00, Spiaggia Castello del Sole, Padiglione, Ascona. Interprètes : Nini Nutsubidze, Giorgi Gigashvili. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Spiaggia Castello del Sole, Padiglione",
+      "address": {
+        "street": "Via Muraccio 142",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/spiaggia-castello-del-sole-musica-e-piacere/",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1770",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Nini Nutsubidze"
+        },
+        {
+          "@type": "Person",
+          "name": "Giorgi Gigashvili"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/spiaggia-castello-del-sole-musica-e-piacere/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:castello-visconteo-musica-e-letteratura-san-gottardo-ii",
+      "title": "Castello Visconteo | Musica e letteratura | San Gottardo II",
+      "startDate": "2026-09-27",
+      "startTime": "15:00",
+      "category": "musica",
+      "description": "Castello Visconteo | Musica e letteratura | San Gottardo II: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 15:00, Castello Visconteo, Locarno. Interpreti: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Solisti di fiati del Conservatorio della Svizzera Italiana, Alain Claude Sulzer. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Castello Visconteo | Musica e letteratura | San Gottardo II: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 15:00, Castello Visconteo, Locarno. Interpreti: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Solisti di fiati del Conservatorio della Svizzera Italiana, Alain Claude Sulzer. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Castello Visconteo | Musica e letteratura | San Gottardo II: a concert of the Ascona Music Weeks (classicAscona), on Sunday 27 September 2026 at 15:00, Castello Visconteo, Locarno. Performers: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Solisti di fiati del Conservatorio della Svizzera Italiana, Alain Claude Sulzer. Programme, tickets and details on the concert page.",
+        "de": "Castello Visconteo | Musica e letteratura | San Gottardo II: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 27. September 2026 um 15:00 Uhr, Castello Visconteo, Locarno. Mitwirkende: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Solisti di fiati del Conservatorio della Svizzera Italiana, Alain Claude Sulzer. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Castello Visconteo | Musica e letteratura | San Gottardo II : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 27 septembre 2026 à 15:00, Castello Visconteo, Locarno. Interprètes : Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Solisti di fiati del Conservatorio della Svizzera Italiana, Alain Claude Sulzer. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Castello Visconteo, Locarno",
+      "address": {
+        "street": "Via al Castello 2",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/castello-visconteo-musica-e-letteratura-san-gottardo-ii/",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1775",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ariela Sarbacher"
+        },
+        {
+          "@type": "Person",
+          "name": "Zora del Buono (Lettura DE & IT)"
+        },
+        {
+          "@type": "Person",
+          "name": "Solisti di fiati del Conservatorio della Svizzera Italiana"
+        },
+        {
+          "@type": "Person",
+          "name": "Alain Claude Sulzer"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/castello-visconteo-musica-e-letteratura-san-gottardo-ii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:tempesta-e-nostalgia-sol-gabetta-i",
+      "title": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I",
+      "startDate": "2026-09-27",
+      "startTime": "18:30",
+      "category": "musica",
+      "description": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 18:30, Chiesa San Francesco, Locarno. Interpreti: Sol Gabetta, Aurel Dawidiuk, La Deutsche Kammerphilharmonie Bremen. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 18:30, Chiesa San Francesco, Locarno. Interpreti: Sol Gabetta, Aurel Dawidiuk, La Deutsche Kammerphilharmonie Bremen. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I: a concert of the Ascona Music Weeks (classicAscona), on Sunday 27 September 2026 at 18:30, Chiesa San Francesco, Locarno. Performers: Sol Gabetta, Aurel Dawidiuk, La Deutsche Kammerphilharmonie Bremen. Programme, tickets and details on the concert page.",
+        "de": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 27. September 2026 um 18:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Sol Gabetta, Aurel Dawidiuk, La Deutsche Kammerphilharmonie Bremen. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Tempeste e ardenti nostalgie – Sturm und Sehnsucht | Sol Gabetta I : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 27 septembre 2026 à 18:30, Chiesa San Francesco, Locarno. Interprètes : Sol Gabetta, Aurel Dawidiuk, La Deutsche Kammerphilharmonie Bremen. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/tempesta-e-nostalgia-sol-gabetta-i/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1772",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Sol Gabetta"
+        },
+        {
+          "@type": "Person",
+          "name": "Aurel Dawidiuk"
+        },
+        {
+          "@type": "Person",
+          "name": "La Deutsche Kammerphilharmonie Bremen"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/tempesta-e-nostalgia-sol-gabetta-i/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:introduzione-tempest-e-ardenti-nostalgie",
+      "title": "Introduzione – Tempest e ardenti Nostalgie",
+      "startDate": "2026-09-27",
+      "startTime": "17:45",
+      "category": "musica",
+      "description": "Introduzione – Tempest e ardenti Nostalgie: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 17:45, Aula SUPSI, Locarno. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Introduzione – Tempest e ardenti Nostalgie: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 17:45, Aula SUPSI, Locarno. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Introduzione – Tempest e ardenti Nostalgie: a concert of the Ascona Music Weeks (classicAscona), on Sunday 27 September 2026 at 17:45, Aula SUPSI, Locarno. Performers: Davide Fersini. Programme, tickets and details on the concert page.",
+        "de": "Introduzione – Tempest e ardenti Nostalgie: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 27. September 2026 um 17:45 Uhr, Aula SUPSI, Locarno. Mitwirkende: Davide Fersini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Introduzione – Tempest e ardenti Nostalgie : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 27 septembre 2026 à 17:45, Aula SUPSI, Locarno. Interprètes : Davide Fersini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Aula SUPSI",
+      "address": {
+        "street": "Piazza S. Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/introduzione-tempest-e-ardenti-nostalgie/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Davide Fersini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/introduzione-tempest-e-ardenti-nostalgie/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-vii-ascona-baroque-academy-concerto-finale-ii",
+      "title": "Next Generation VII | Ascona Baroque Academy – Concerto finale II",
+      "startDate": "2026-09-27",
+      "startTime": "11:00",
+      "category": "musica",
+      "description": "Next Generation VII | Ascona Baroque Academy – Concerto finale II: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 11:00, Chiesa di Sant’Antonio Abate, Losone-Arcegno, Arcegno (Losone). Interpreti: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation VII | Ascona Baroque Academy – Concerto finale II: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 27 settembre 2026 alle 11:00, Chiesa di Sant’Antonio Abate, Losone-Arcegno, Arcegno (Losone). Interpreti: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation VII | Ascona Baroque Academy – Concerto finale II: a concert of the Ascona Music Weeks (classicAscona), on Sunday 27 September 2026 at 11:00, Chiesa di Sant’Antonio Abate, Losone-Arcegno, Arcegno (Losone). Performers: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programme, tickets and details on the concert page.",
+        "de": "Next Generation VII | Ascona Baroque Academy – Concerto finale II: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 27. September 2026 um 11:00 Uhr, Chiesa di Sant’Antonio Abate, Losone-Arcegno, Arcegno (Losone). Mitwirkende: Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation VII | Ascona Baroque Academy – Concerto finale II : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 27 septembre 2026 à 11:00, Chiesa di Sant’Antonio Abate, Losone-Arcegno, Arcegno (Losone). Interprètes : Maurice Steger, Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di Sant’Antonio Abate, Losone-Arcegno",
+      "address": {
+        "street": "Via Cantonale",
+        "postalCode": "6618",
+        "locality": "Arcegno (Losone)"
+      },
+      "comune": "Losone",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-vii-ascona-baroque-academy-concerto-finale-ii/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Maurice Steger"
+        },
+        {
+          "@type": "Person",
+          "name": "Direttori d’orchestra: Orchestra barocca “Il Pomo d’Oro”"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-vii-ascona-baroque-academy-concerto-finale-ii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-viii-concerto-finale-della-masterclass-di-vilde-frang",
+      "title": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang",
+      "startDate": "2026-09-28",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 28 settembre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 28 settembre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang: a concert of the Ascona Music Weeks (classicAscona), on Monday 28 September 2026 at 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Performers: Studenti. Programme, tickets and details on the concert page.",
+        "de": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang: Konzert der Musikwochen Ascona (classicAscona), am Montag, 28. September 2026 um 17:00 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Mitwirkende: Studenti. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation VIII | Concerto finale – Masterclass Vilde Frang : concert des Semaines musicales d’Ascona (classicAscona), le lundi 28 septembre 2026 à 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interprètes : Studenti. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-viii-concerto-finale-della-masterclass-di-vilde-frang/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Studenti"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-viii-concerto-finale-della-masterclass-di-vilde-frang/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:jazzascona-meets-classicascona-vision-string-quartet-elina-duni",
+      "title": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni",
+      "startDate": "2026-09-28",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 28 settembre 2026 alle 19:30, Teatro del Gatto, Ascona. Interpreti: Elina Duni & Rob Luft feat. Matthieu Michel, Vision String Quartet. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 28 settembre 2026 alle 19:30, Teatro del Gatto, Ascona. Interpreti: Elina Duni & Rob Luft feat. Matthieu Michel, Vision String Quartet. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni: a concert of the Ascona Music Weeks (classicAscona), on Monday 28 September 2026 at 19:30, Teatro del Gatto, Ascona. Performers: Elina Duni & Rob Luft feat. Matthieu Michel, Vision String Quartet. Programme, tickets and details on the concert page.",
+        "de": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni: Konzert der Musikwochen Ascona (classicAscona), am Montag, 28. September 2026 um 19:30 Uhr, Teatro del Gatto, Ascona. Mitwirkende: Elina Duni & Rob Luft feat. Matthieu Michel, Vision String Quartet. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "JazzAscona meets classicAscona | Vision String Quartet & Elina Duni : concert des Semaines musicales d’Ascona (classicAscona), le lundi 28 septembre 2026 à 19:30, Teatro del Gatto, Ascona. Interprètes : Elina Duni & Rob Luft feat. Matthieu Michel, Vision String Quartet. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Teatro del Gatto, Ascona",
+      "address": {
+        "street": "Via Muraccio 21",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/jazzascona-meets-classicascona-vision-string-quartet-elina-duni/",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1776",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Elina Duni & Rob Luft feat. Matthieu Michel"
+        },
+        {
+          "@type": "Person",
+          "name": "Vision String Quartet"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/jazzascona-meets-classicascona-vision-string-quartet-elina-duni/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-ix-luka-coetzee",
+      "title": "Costellazione Giovani | Next Generation IX | Luka Coetzee",
+      "startDate": "2026-09-29",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Costellazione Giovani | Next Generation IX | Luka Coetzee: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 29 settembre 2026 alle 17:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Luka Coetzee, Yukino Kaihara. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Costellazione Giovani | Next Generation IX | Luka Coetzee: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 29 settembre 2026 alle 17:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Luka Coetzee, Yukino Kaihara. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Costellazione Giovani | Next Generation IX | Luka Coetzee: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 29 September 2026 at 17:30, Chiesa dei Santi Pietro e Paolo, Ascona. Performers: Luka Coetzee, Yukino Kaihara. Programme, tickets and details on the concert page.",
+        "de": "Costellazione Giovani | Next Generation IX | Luka Coetzee: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 29. September 2026 um 17:30 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Mitwirkende: Luka Coetzee, Yukino Kaihara. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Costellazione Giovani | Next Generation IX | Luka Coetzee : concert des Semaines musicales d’Ascona (classicAscona), le mardi 29 septembre 2026 à 17:30, Chiesa dei Santi Pietro e Paolo, Ascona. Interprètes : Luka Coetzee, Yukino Kaihara. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-ix-luka-coetzee/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1821",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Luka Coetzee"
+        },
+        {
+          "@type": "Person",
+          "name": "Yukino Kaihara"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-ix-luka-coetzee/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:mondi-da-sogno-traumwelten-vilde-frang-ii",
+      "title": "Mondi da sogno – Traumwelten | Vilde Frang II",
+      "startDate": "2026-09-29",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Mondi da sogno – Traumwelten | Vilde Frang II: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 29 settembre 2026 alle 19:30, Chiesa di S. Maria di Ponte, Brissago. Interpreti: Vilde Frang, Ilya Gringolts, Lawrence Power. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Mondi da sogno – Traumwelten | Vilde Frang II: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 29 settembre 2026 alle 19:30, Chiesa di S. Maria di Ponte, Brissago. Interpreti: Vilde Frang, Ilya Gringolts, Lawrence Power. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Mondi da sogno – Traumwelten | Vilde Frang II: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 29 September 2026 at 19:30, Chiesa di S. Maria di Ponte, Brissago. Performers: Vilde Frang, Ilya Gringolts, Lawrence Power. Programme, tickets and details on the concert page.",
+        "de": "Mondi da sogno – Traumwelten | Vilde Frang II: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 29. September 2026 um 19:30 Uhr, Chiesa di S. Maria di Ponte, Brissago. Mitwirkende: Vilde Frang, Ilya Gringolts, Lawrence Power. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Mondi da sogno – Traumwelten | Vilde Frang II : concert des Semaines musicales d’Ascona (classicAscona), le mardi 29 septembre 2026 à 19:30, Chiesa di S. Maria di Ponte, Brissago. Interprètes : Vilde Frang, Ilya Gringolts, Lawrence Power. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di S. Maria di Ponte, Brissago",
+      "comune": "Brissago",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/mondi-da-sogno-traumwelten-vilde-frang-ii/",
+      "price": {
+        "amount": 20,
+        "highPrice": 60,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1777",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Vilde Frang"
+        },
+        {
+          "@type": "Person",
+          "name": "Ilya Gringolts"
+        },
+        {
+          "@type": "Person",
+          "name": "Lawrence Power"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/mondi-da-sogno-traumwelten-vilde-frang-ii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri-2",
+      "title": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri",
+      "startDate": "2026-09-30",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 30 settembre 2026 alle 17:00, Collegio Papio, Ascona, Aula Magna. Interpreti: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 30 settembre 2026 alle 17:00, Collegio Papio, Ascona, Aula Magna. Interpreti: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 30 September 2026 at 17:00, Collegio Papio, Ascona, Aula Magna. Performers: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programme, tickets and details on the concert page.",
+        "de": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 30. September 2026 um 17:00 Uhr, Collegio Papio, Ascona, Aula Magna. Mitwirkende: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 30 septembre 2026 à 17:00, Collegio Papio, Ascona, Aula Magna. Interprètes : Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Collegio Papio, Ascona, Aula Magna",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri-2/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1778",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Progetto Accademia per bambini e ragazzi"
+        },
+        {
+          "@type": "Person",
+          "name": "Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri-2/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:dalloscurita-alla-luce-sol-gabetta-ii",
+      "title": "Dall’oscurità alla luce | Sol Gabetta II",
+      "startDate": "2026-09-30",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Dall’oscurità alla luce | Sol Gabetta II: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 30 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Sol Gabetta, Bertrand Chamayou. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Dall’oscurità alla luce | Sol Gabetta II: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 30 settembre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Sol Gabetta, Bertrand Chamayou. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Dall’oscurità alla luce | Sol Gabetta II: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 30 September 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Sol Gabetta, Bertrand Chamayou. Programme, tickets and details on the concert page.",
+        "de": "Dall’oscurità alla luce | Sol Gabetta II: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 30. September 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Sol Gabetta, Bertrand Chamayou. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Dall’oscurità alla luce | Sol Gabetta II : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 30 septembre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Sol Gabetta, Bertrand Chamayou. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/dalloscurita-alla-luce-sol-gabetta-ii/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1779",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Sol Gabetta"
+        },
+        {
+          "@type": "Person",
+          "name": "Bertrand Chamayou"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/dalloscurita-alla-luce-sol-gabetta-ii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri",
+      "title": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri",
+      "startDate": "2026-10-01",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 17:00, Collegio Papio, Ascona, Aula Magna. Interpreti: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 17:00, Collegio Papio, Ascona, Aula Magna. Interpreti: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: a concert of the Ascona Music Weeks (classicAscona), on Thursday 1 October 2026 at 17:00, Collegio Papio, Ascona, Aula Magna. Performers: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programme, tickets and details on the concert page.",
+        "de": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 1. Oktober 2026 um 17:00 Uhr, Collegio Papio, Ascona, Aula Magna. Mitwirkende: Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation X | Sogni | Conservatorio della Svizzera italiana & Accademia Teatro Dimitri : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 1 octobre 2026 à 17:00, Collegio Papio, Ascona, Aula Magna. Interprètes : Progetto Accademia per bambini e ragazzi, Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Collegio Papio, Ascona, Aula Magna",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1795",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Progetto Accademia per bambini e ragazzi"
+        },
+        {
+          "@type": "Person",
+          "name": "Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-x-sogni-conservatorio-della-svizzera-italiana-accademia-teatro-dimitri/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xi-concerto-finale-masterclass-sol-gabetta",
+      "title": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta",
+      "startDate": "2026-10-01",
+      "startTime": "17:00",
+      "category": "musica",
+      "description": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interpreti: Studenti. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta: a concert of the Ascona Music Weeks (classicAscona), on Thursday 1 October 2026 at 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Performers: Studenti. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 1. Oktober 2026 um 17:00 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Mitwirkende: Studenti. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XI | Concerto finale – Masterclass Sol Gabetta : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 1 octobre 2026 à 17:00, Chiesa dei Santi Pietro e Paolo, Ascona. Interprètes : Studenti. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xi-concerto-finale-masterclass-sol-gabetta/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Studenti"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xi-concerto-finale-masterclass-sol-gabetta/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:musica-dal-cielo-vilde-frang-iii",
+      "title": "Musica dal cielo – Himmelsmusik | Vilde Frang III",
+      "startDate": "2026-10-01",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Musica dal cielo – Himmelsmusik | Vilde Frang III: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Andreas Brantelid, Vilde Frang, Anna Prohaska, Ilya Gringolts, Nils Mönkemeyer, Olli Mustonen, Johannes Fischer, Domenico Melchiorre. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Musica dal cielo – Himmelsmusik | Vilde Frang III: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 1 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Andreas Brantelid, Vilde Frang, Anna Prohaska, Ilya Gringolts, Nils Mönkemeyer, Olli Mustonen, Johannes Fischer, Domenico Melchiorre. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Musica dal cielo – Himmelsmusik | Vilde Frang III: a concert of the Ascona Music Weeks (classicAscona), on Thursday 1 October 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Andreas Brantelid, Vilde Frang, Anna Prohaska, Ilya Gringolts, Nils Mönkemeyer, Olli Mustonen, Johannes Fischer, Domenico Melchiorre. Programme, tickets and details on the concert page.",
+        "de": "Musica dal cielo – Himmelsmusik | Vilde Frang III: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 1. Oktober 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Andreas Brantelid, Vilde Frang, Anna Prohaska, Ilya Gringolts, Nils Mönkemeyer, Olli Mustonen, Johannes Fischer, Domenico Melchiorre. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Musica dal cielo – Himmelsmusik | Vilde Frang III : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 1 octobre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Andreas Brantelid, Vilde Frang, Anna Prohaska, Ilya Gringolts, Nils Mönkemeyer, Olli Mustonen, Johannes Fischer, Domenico Melchiorre. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/musica-dal-cielo-vilde-frang-iii/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1780",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Andreas Brantelid"
+        },
+        {
+          "@type": "Person",
+          "name": "Vilde Frang"
+        },
+        {
+          "@type": "Person",
+          "name": "Anna Prohaska"
+        },
+        {
+          "@type": "Person",
+          "name": "Ilya Gringolts"
+        },
+        {
+          "@type": "Person",
+          "name": "Nils Mönkemeyer"
+        },
+        {
+          "@type": "Person",
+          "name": "Olli Mustonen"
+        },
+        {
+          "@type": "Person",
+          "name": "Johannes Fischer"
+        },
+        {
+          "@type": "Person",
+          "name": "Domenico Melchiorre"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/musica-dal-cielo-vilde-frang-iii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:introduzione-il-dolce-far-niente",
+      "title": "Introduzione – Il dolce far niente",
+      "startDate": "2026-10-02",
+      "startTime": "18:45",
+      "category": "musica",
+      "description": "Introduzione – Il dolce far niente: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 18:45, Aula SUPSI, Locarno. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Introduzione – Il dolce far niente: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 18:45, Aula SUPSI, Locarno. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Introduzione – Il dolce far niente: a concert of the Ascona Music Weeks (classicAscona), on Friday 2 October 2026 at 18:45, Aula SUPSI, Locarno. Performers: Davide Fersini. Programme, tickets and details on the concert page.",
+        "de": "Introduzione – Il dolce far niente: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 2. Oktober 2026 um 18:45 Uhr, Aula SUPSI, Locarno. Mitwirkende: Davide Fersini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Introduzione – Il dolce far niente : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 2 octobre 2026 à 18:45, Aula SUPSI, Locarno. Interprètes : Davide Fersini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Aula SUPSI",
+      "address": {
+        "street": "Piazza S. Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/introduzione-il-dolce-far-niente/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Davide Fersini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/introduzione-il-dolce-far-niente/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xii-elias-david-moncado",
+      "title": "Costellazione Giovani | Next Generation XII | Elias David Moncado",
+      "startDate": "2026-10-02",
+      "startTime": "17:45",
+      "category": "musica",
+      "description": "Costellazione Giovani | Next Generation XII | Elias David Moncado: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 17:45, Sala Sopracenerina, Locarno. Interpreti: Lauma Skride, Elias David Moncado. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Costellazione Giovani | Next Generation XII | Elias David Moncado: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 17:45, Sala Sopracenerina, Locarno. Interpreti: Lauma Skride, Elias David Moncado. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Costellazione Giovani | Next Generation XII | Elias David Moncado: a concert of the Ascona Music Weeks (classicAscona), on Friday 2 October 2026 at 17:45, Sala Sopracenerina, Locarno. Performers: Lauma Skride, Elias David Moncado. Programme, tickets and details on the concert page.",
+        "de": "Costellazione Giovani | Next Generation XII | Elias David Moncado: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 2. Oktober 2026 um 17:45 Uhr, Sala Sopracenerina, Locarno. Mitwirkende: Lauma Skride, Elias David Moncado. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Costellazione Giovani | Next Generation XII | Elias David Moncado : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 2 octobre 2026 à 17:45, Sala Sopracenerina, Locarno. Interprètes : Lauma Skride, Elias David Moncado. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Sala Sopracenerina, Locarno",
+      "address": {
+        "street": "Piazza Grande 1",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xii-elias-david-moncado/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1781",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Lauma Skride"
+        },
+        {
+          "@type": "Person",
+          "name": "Elias David Moncado"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xii-elias-david-moncado/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:il-dolce-far-niente-sol-gabetta-iii",
+      "title": "Il dolce far niente | Sol Gabetta III",
+      "startDate": "2026-10-02",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Il dolce far niente | Sol Gabetta III: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Sol Gabetta, Giovanni Antonini, Il Giardino Armonico. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Il dolce far niente | Sol Gabetta III: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 2 ottobre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Sol Gabetta, Giovanni Antonini, Il Giardino Armonico. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Il dolce far niente | Sol Gabetta III: a concert of the Ascona Music Weeks (classicAscona), on Friday 2 October 2026 at 19:30, Chiesa San Francesco, Locarno. Performers: Sol Gabetta, Giovanni Antonini, Il Giardino Armonico. Programme, tickets and details on the concert page.",
+        "de": "Il dolce far niente | Sol Gabetta III: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 2. Oktober 2026 um 19:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Sol Gabetta, Giovanni Antonini, Il Giardino Armonico. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Il dolce far niente | Sol Gabetta III : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 2 octobre 2026 à 19:30, Chiesa San Francesco, Locarno. Interprètes : Sol Gabetta, Giovanni Antonini, Il Giardino Armonico. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/il-dolce-far-niente-sol-gabetta-iii/",
+      "price": {
+        "amount": 40,
+        "highPrice": 140,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1782",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Sol Gabetta"
+        },
+        {
+          "@type": "Person",
+          "name": "Giovanni Antonini"
+        },
+        {
+          "@type": "Person",
+          "name": "Il Giardino Armonico"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/il-dolce-far-niente-sol-gabetta-iii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xiii-ensemble-di-chitarre-del-conservatorio-della-svizzera-italiana",
+      "title": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana",
+      "startDate": "2026-10-03",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 17:30, Chiostro del Collegio Papio, Ascona [Chiostro, Openair]. Interpreti: Ensemble di chitarre del Conservatorio della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 17:30, Chiostro del Collegio Papio, Ascona [Chiostro, Openair]. Interpreti: Ensemble di chitarre del Conservatorio della Svizzera italiana. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana: a concert of the Ascona Music Weeks (classicAscona), on Saturday 3 October 2026 at 17:30, Chiostro del Collegio Papio, Ascona [Chiostro, Openair]. Performers: Ensemble di chitarre del Conservatorio della Svizzera italiana. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 3. Oktober 2026 um 17:30 Uhr, Chiostro del Collegio Papio, Ascona [Chiostro, Openair]. Mitwirkende: Ensemble di chitarre del Conservatorio della Svizzera italiana. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XIII | Ensemble di chitarre del Conservatorio della Svizzera italiana : concert des Semaines musicales d’Ascona (classicAscona), le samedi 3 octobre 2026 à 17:30, Chiostro del Collegio Papio, Ascona [Chiostro, Openair]. Interprètes : Ensemble di chitarre del Conservatorio della Svizzera italiana. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiostro del Collegio Papio, Ascona [Chiostro, Openair]",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xiii-ensemble-di-chitarre-del-conservatorio-della-svizzera-italiana/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ensemble di chitarre del Conservatorio della Svizzera italiana"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xiii-ensemble-di-chitarre-del-conservatorio-della-svizzera-italiana/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:arie-di-baule-arie-da-viaggio-le-star-dellopera-in-tournee-julia-lezhneva-iii",
+      "title": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III",
+      "startDate": "2026-10-03",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Julia Lezhneva, Orchestra da Camera di Basilea, Dmitry Smirnov. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Julia Lezhneva, Orchestra da Camera di Basilea, Dmitry Smirnov. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III: a concert of the Ascona Music Weeks (classicAscona), on Saturday 3 October 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Julia Lezhneva, Orchestra da Camera di Basilea, Dmitry Smirnov. Programme, tickets and details on the concert page.",
+        "de": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 3. Oktober 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Julia Lezhneva, Orchestra da Camera di Basilea, Dmitry Smirnov. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Arie di baule – Arie da viaggio: le star dell’opera in tournée | Julia Lezhneva III : concert des Semaines musicales d’Ascona (classicAscona), le samedi 3 octobre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Julia Lezhneva, Orchestra da Camera di Basilea, Dmitry Smirnov. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/arie-di-baule-arie-da-viaggio-le-star-dellopera-in-tournee-julia-lezhneva-iii/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1783",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Julia Lezhneva"
+        },
+        {
+          "@type": "Person",
+          "name": "Orchestra da Camera di Basilea"
+        },
+        {
+          "@type": "Person",
+          "name": "Dmitry Smirnov"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/arie-di-baule-arie-da-viaggio-le-star-dellopera-in-tournee-julia-lezhneva-iii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:valle-maggia-musica-e-piacere",
+      "title": "Valle Maggia | Musica e piacere",
+      "startDate": "2026-10-03",
+      "startTime": "12:30",
+      "category": "musica",
+      "description": "Valle Maggia | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 12:30, Chiesa di Mogno, Vallemaggia. Interpreti: Mario Brunello. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Valle Maggia | Musica e piacere: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 12:30, Chiesa di Mogno, Vallemaggia. Interpreti: Mario Brunello. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Valle Maggia | Musica e piacere: a concert of the Ascona Music Weeks (classicAscona), on Saturday 3 October 2026 at 12:30, Chiesa di Mogno, Vallemaggia. Performers: Mario Brunello. Programme, tickets and details on the concert page.",
+        "de": "Valle Maggia | Musica e piacere: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 3. Oktober 2026 um 12:30 Uhr, Chiesa di Mogno, Vallemaggia. Mitwirkende: Mario Brunello. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Valle Maggia | Musica e piacere : concert des Semaines musicales d’Ascona (classicAscona), le samedi 3 octobre 2026 à 12:30, Chiesa di Mogno, Vallemaggia. Interprètes : Mario Brunello. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di Mogno, Vallemaggia",
+      "address": {
+        "street": "Via Cantonale",
+        "postalCode": "6696",
+        "locality": "Mogno"
+      },
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/valle-maggia-musica-e-piacere/",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1796",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Mario Brunello"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/valle-maggia-musica-e-piacere/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:introduzione-arie-di-baule",
+      "title": "Introduzione – Arie di baule",
+      "startDate": "2026-10-03",
+      "startTime": "18:45",
+      "category": "musica",
+      "description": "Introduzione – Arie di baule: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Introduzione – Arie di baule: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 3 ottobre 2026 alle 18:45, Biblioteca Papio. Interpreti: Davide Fersini. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Introduzione – Arie di baule: a concert of the Ascona Music Weeks (classicAscona), on Saturday 3 October 2026 at 18:45, Biblioteca Papio. Performers: Davide Fersini. Programme, tickets and details on the concert page.",
+        "de": "Introduzione – Arie di baule: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 3. Oktober 2026 um 18:45 Uhr, Biblioteca Papio. Mitwirkende: Davide Fersini. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Introduzione – Arie di baule : concert des Semaines musicales d’Ascona (classicAscona), le samedi 3 octobre 2026 à 18:45, Biblioteca Papio. Interprètes : Davide Fersini. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Biblioteca Papio",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/introduzione-arie-di-baule/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Davide Fersini"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/introduzione-arie-di-baule/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:isola-di-brissago-musica-e-letteratura-san-gottardo-iii",
+      "title": "Isole di Brissago | Musica e letteratura | San Gottardo III",
+      "startDate": "2026-10-04",
+      "startTime": "14:00",
+      "category": "musica",
+      "description": "Isole di Brissago | Musica e letteratura | San Gottardo III: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 4 ottobre 2026 alle 14:00, Isole di Brissago, Villa Emden. Interpreti: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Andriy Dragan, Alain Claude Sulzer. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Isole di Brissago | Musica e letteratura | San Gottardo III: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 4 ottobre 2026 alle 14:00, Isole di Brissago, Villa Emden. Interpreti: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Andriy Dragan, Alain Claude Sulzer. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Isole di Brissago | Musica e letteratura | San Gottardo III: a concert of the Ascona Music Weeks (classicAscona), on Sunday 4 October 2026 at 14:00, Isole di Brissago, Villa Emden. Performers: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Andriy Dragan, Alain Claude Sulzer. Programme, tickets and details on the concert page.",
+        "de": "Isole di Brissago | Musica e letteratura | San Gottardo III: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 4. Oktober 2026 um 14:00 Uhr, Isole di Brissago, Villa Emden. Mitwirkende: Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Andriy Dragan, Alain Claude Sulzer. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Isole di Brissago | Musica e letteratura | San Gottardo III : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 4 octobre 2026 à 14:00, Isole di Brissago, Villa Emden. Interprètes : Ariela Sarbacher, Zora del Buono (Lettura DE & IT), Andriy Dragan, Alain Claude Sulzer. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Isole di Brissago, Villa Emden",
+      "address": {
+        "street": "Isola Grande SA",
+        "postalCode": "6614",
+        "locality": "Isole di Brissago"
+      },
+      "comune": "Brissago",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/isola-di-brissago-musica-e-letteratura-san-gottardo-iii/",
+      "price": {
+        "amount": 100,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1784",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Ariela Sarbacher"
+        },
+        {
+          "@type": "Person",
+          "name": "Zora del Buono (Lettura DE & IT)"
+        },
+        {
+          "@type": "Person",
+          "name": "Andriy Dragan"
+        },
+        {
+          "@type": "Person",
+          "name": "Alain Claude Sulzer"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/isola-di-brissago-musica-e-letteratura-san-gottardo-iii/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:chopin-orbit",
+      "title": "Chopin Orbit",
+      "startDate": "2026-10-04",
+      "startTime": "18:30",
+      "category": "musica",
+      "description": "Chopin Orbit: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 4 ottobre 2026 alle 18:30, Chiesa del Collegio Papio, Ascona. Interpreti: Hayato Sumino. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Chopin Orbit: concerto delle Settimane Musicali di Ascona (classicAscona), domenica 4 ottobre 2026 alle 18:30, Chiesa del Collegio Papio, Ascona. Interpreti: Hayato Sumino. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Chopin Orbit: a concert of the Ascona Music Weeks (classicAscona), on Sunday 4 October 2026 at 18:30, Chiesa del Collegio Papio, Ascona. Performers: Hayato Sumino. Programme, tickets and details on the concert page.",
+        "de": "Chopin Orbit: Konzert der Musikwochen Ascona (classicAscona), am Sonntag, 4. Oktober 2026 um 18:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Hayato Sumino. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Chopin Orbit : concert des Semaines musicales d’Ascona (classicAscona), le dimanche 4 octobre 2026 à 18:30, Chiesa del Collegio Papio, Ascona. Interprètes : Hayato Sumino. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/chopin-orbit/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1785",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Hayato Sumino"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/chopin-orbit/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xiv-canto-della-sera",
+      "title": "Next Generation XIV | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-05",
+      "startTime": "21:00",
+      "category": "musica",
+      "description": "Next Generation XIV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 5 ottobre 2026 alle 21:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XIV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 5 ottobre 2026 alle 21:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XIV | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Monday 5 October 2026 at 21:00, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XIV | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Montag, 5. Oktober 2026 um 21:00 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XIV | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le lundi 5 octobre 2026 à 21:00, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xiv-canto-della-sera/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xiv-canto-della-sera/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xiv-ascona-choral-academy-evensong",
+      "title": "Next Generation XIV | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-05",
+      "startTime": "18:00",
+      "category": "musica",
+      "description": "Next Generation XIV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 5 ottobre 2026 alle 18:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XIV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), lunedì 5 ottobre 2026 alle 18:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XIV | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Monday 5 October 2026 at 18:00, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XIV | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Montag, 5. Oktober 2026 um 18:00 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XIV | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le lundi 5 octobre 2026 à 18:00, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xiv-ascona-choral-academy-evensong/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xiv-ascona-choral-academy-evensong/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xv-ufficio-dei-vespri",
+      "title": "Next Generation XV | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-06",
+      "startTime": "21:00",
+      "category": "musica",
+      "description": "Next Generation XV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 6 ottobre 2026 alle 21:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 6 ottobre 2026 alle 21:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XV | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 6 October 2026 at 21:00, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XV | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 6. Oktober 2026 um 21:00 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XV | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le mardi 6 octobre 2026 à 21:00, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xv-ufficio-dei-vespri/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xv-ufficio-dei-vespri/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xv-ascona-choral-academy-evensong",
+      "title": "Next Generation XV | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-06",
+      "startTime": "18:00",
+      "category": "musica",
+      "description": "Next Generation XV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 6 ottobre 2026 alle 18:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XV | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), martedì 6 ottobre 2026 alle 18:00, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XV | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Tuesday 6 October 2026 at 18:00, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XV | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Dienstag, 6. Oktober 2026 um 18:00 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XV | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le mardi 6 octobre 2026 à 18:00, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xv-ascona-choral-academy-evensong/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xv-ascona-choral-academy-evensong/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:richard-galliano-new-viaggio-trio",
+      "title": "Richard Galliano – New Viaggio Trio",
+      "startDate": "2026-10-07",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Richard Galliano – New Viaggio Trio: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Richard Galliano, Adrien Moignard, Philippe Aerts. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Richard Galliano – New Viaggio Trio: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Richard Galliano, Adrien Moignard, Philippe Aerts. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Richard Galliano – New Viaggio Trio: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 7 October 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Richard Galliano, Adrien Moignard, Philippe Aerts. Programme, tickets and details on the concert page.",
+        "de": "Richard Galliano – New Viaggio Trio: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 7. Oktober 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Richard Galliano, Adrien Moignard, Philippe Aerts. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Richard Galliano – New Viaggio Trio : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 7 octobre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Richard Galliano, Adrien Moignard, Philippe Aerts. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/richard-galliano-new-viaggio-trio/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1787",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Richard Galliano"
+        },
+        {
+          "@type": "Person",
+          "name": "Adrien Moignard"
+        },
+        {
+          "@type": "Person",
+          "name": "Philippe Aerts"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/richard-galliano-new-viaggio-trio/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xvi-canto-della-sera",
+      "title": "Next Generation XVI | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-07",
+      "startTime": "21:00",
+      "category": "musica",
+      "description": "Next Generation XVI | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 21:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XVI | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 21:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XVI | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 7 October 2026 at 21:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XVI | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 7. Oktober 2026 um 21:00 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XVI | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 7 octobre 2026 à 21:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xvi-canto-della-sera/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xvi-canto-della-sera/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa dei Santi Pietro e Paolo, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xvi-ascona-choral-academy-evensong",
+      "title": "Next Generation XVI | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-07",
+      "startTime": "18:00",
+      "category": "musica",
+      "description": "Next Generation XVI | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 18:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XVI | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), mercoledì 7 ottobre 2026 alle 18:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XVI | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Wednesday 7 October 2026 at 18:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XVI | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Mittwoch, 7. Oktober 2026 um 18:00 Uhr, Chiesa dei Santi Pietro e Paolo, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XVI | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le mercredi 7 octobre 2026 à 18:00, Chiesa dei Santi Pietro e Paolo, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa dei Santi Pietro e Paolo, Ascona",
+      "address": {
+        "street": "Piazzetta San Pietro 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xvi-ascona-choral-academy-evensong/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xvi-ascona-choral-academy-evensong/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa dei Santi Pietro e Paolo, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:canti-medievali-lamentazioni-di-tallis",
+      "title": "Canti medievali & Lamentazioni di Tallis",
+      "startDate": "2026-10-08",
+      "startTime": "21:30",
+      "category": "musica",
+      "description": "Canti medievali & Lamentazioni di Tallis: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 21:30, Chiesa del Collegio Papio, Ascona. Interpreti: Tenebrae Choir (London), Nigel Short. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Canti medievali & Lamentazioni di Tallis: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 21:30, Chiesa del Collegio Papio, Ascona. Interpreti: Tenebrae Choir (London), Nigel Short. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Canti medievali & Lamentazioni di Tallis: a concert of the Ascona Music Weeks (classicAscona), on Thursday 8 October 2026 at 21:30, Chiesa del Collegio Papio, Ascona. Performers: Tenebrae Choir (London), Nigel Short. Programme, tickets and details on the concert page.",
+        "de": "Canti medievali & Lamentazioni di Tallis: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 8. Oktober 2026 um 21:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Tenebrae Choir (London), Nigel Short. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Canti medievali & Lamentazioni di Tallis : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 8 octobre 2026 à 21:30, Chiesa del Collegio Papio, Ascona. Interprètes : Tenebrae Choir (London), Nigel Short. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/canti-medievali-lamentazioni-di-tallis/",
+      "price": {
+        "amount": 20,
+        "highPrice": 60,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1792",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Tenebrae Choir (London)"
+        },
+        {
+          "@type": "Person",
+          "name": "Nigel Short"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/canti-medievali-lamentazioni-di-tallis/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xviii-ascona-choral-academy-sing-along",
+      "title": "Next Generation XVIII | Ascona Choral Academy | Sing Along",
+      "startDate": "2026-10-08",
+      "startTime": "19:00",
+      "category": "musica",
+      "description": "Next Generation XVIII | Ascona Choral Academy | Sing Along: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 19:00, Chiesa del Collegio Papio, Ascona. Interpreti: Nigel Short, Pubblico. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XVIII | Ascona Choral Academy | Sing Along: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 19:00, Chiesa del Collegio Papio, Ascona. Interpreti: Nigel Short, Pubblico. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XVIII | Ascona Choral Academy | Sing Along: a concert of the Ascona Music Weeks (classicAscona), on Thursday 8 October 2026 at 19:00, Chiesa del Collegio Papio, Ascona. Performers: Nigel Short, Pubblico. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XVIII | Ascona Choral Academy | Sing Along: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 8. Oktober 2026 um 19:00 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Nigel Short, Pubblico. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XVIII | Ascona Choral Academy | Sing Along : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 8 octobre 2026 à 19:00, Chiesa del Collegio Papio, Ascona. Interprètes : Nigel Short, Pubblico. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xviii-ascona-choral-academy-sing-along/",
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Nigel Short"
+        },
+        {
+          "@type": "Person",
+          "name": "Pubblico"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xviii-ascona-choral-academy-sing-along/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xvii-ascona-choral-academy-evensong",
+      "title": "Next Generation XVII | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-08",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Next Generation XVII | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 17:30, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XVII | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), giovedì 8 ottobre 2026 alle 17:30, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XVII | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Thursday 8 October 2026 at 17:30, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XVII | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Donnerstag, 8. Oktober 2026 um 17:30 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XVII | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le jeudi 8 octobre 2026 à 17:30, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xvii-ascona-choral-academy-evensong/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xvii-ascona-choral-academy-evensong/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:inno-alla-bellezza-celeste",
+      "title": "A Hymn of Heavenly Beauty",
+      "startDate": "2026-10-09",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "A Hymn of Heavenly Beauty: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 9 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Tenebrae Choir (London), Nigel Short. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "A Hymn of Heavenly Beauty: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 9 ottobre 2026 alle 19:30, Chiesa del Collegio Papio, Ascona. Interpreti: Tenebrae Choir (London), Nigel Short. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "A Hymn of Heavenly Beauty: a concert of the Ascona Music Weeks (classicAscona), on Friday 9 October 2026 at 19:30, Chiesa del Collegio Papio, Ascona. Performers: Tenebrae Choir (London), Nigel Short. Programme, tickets and details on the concert page.",
+        "de": "A Hymn of Heavenly Beauty: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 9. Oktober 2026 um 19:30 Uhr, Chiesa del Collegio Papio, Ascona. Mitwirkende: Tenebrae Choir (London), Nigel Short. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "A Hymn of Heavenly Beauty : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 9 octobre 2026 à 19:30, Chiesa del Collegio Papio, Ascona. Interprètes : Tenebrae Choir (London), Nigel Short. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/inno-alla-bellezza-celeste/",
+      "price": {
+        "amount": 20,
+        "highPrice": 60,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1788",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Tenebrae Choir (London)"
+        },
+        {
+          "@type": "Person",
+          "name": "Nigel Short"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/inno-alla-bellezza-celeste/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:next-generation-xix-ascona-choral-academy-evensong",
+      "title": "Next Generation XIX | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-09",
+      "startTime": "17:30",
+      "category": "musica",
+      "description": "Next Generation XIX | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 9 ottobre 2026 alle 17:30, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XIX | Ascona Choral Academy | Evensong: concerto delle Settimane Musicali di Ascona (classicAscona), venerdì 9 ottobre 2026 alle 17:30, Chiesa del Collegio Papio, Ascona. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XIX | Ascona Choral Academy | Evensong: a concert of the Ascona Music Weeks (classicAscona), on Friday 9 October 2026 at 17:30, Chiesa del Collegio Papio, Ascona. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XIX | Ascona Choral Academy | Evensong: Konzert der Musikwochen Ascona (classicAscona), am Freitag, 9. Oktober 2026 um 17:30 Uhr, Chiesa del Collegio Papio, Ascona. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XIX | Ascona Choral Academy | Evensong : concert des Semaines musicales d’Ascona (classicAscona), le vendredi 9 octobre 2026 à 17:30, Chiesa del Collegio Papio, Ascona. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xix-ascona-choral-academy-evensong/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xix-ascona-choral-academy-evensong/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "Chiesa del Collegio Papio, Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xx-ascona-choral-academy-cantare-per-le-strade",
+      "title": "Next Generation XX | Ascona Choral Academy | Cantare per le strade",
+      "startDate": "2026-10-10",
+      "startTime": "14:00",
+      "category": "musica",
+      "description": "Next Generation XX | Ascona Choral Academy | Cantare per le strade: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 14:00. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Next Generation XX | Ascona Choral Academy | Cantare per le strade: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 14:00. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Next Generation XX | Ascona Choral Academy | Cantare per le strade: a concert of the Ascona Music Weeks (classicAscona), on Saturday 10 October 2026 at 14:00. Programme, tickets and details on the concert page.",
+        "de": "Next Generation XX | Ascona Choral Academy | Cantare per le strade: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 10. Oktober 2026 um 14:00 Uhr. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Next Generation XX | Ascona Choral Academy | Cantare per le strade : concert des Semaines musicales d’Ascona (classicAscona), le samedi 10 octobre 2026 à 14:00. Programme, billets et détails sur la page du concert."
+      },
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xx-ascona-choral-academy-cantare-per-le-strade/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xx-ascona-choral-academy-cantare-per-le-strade/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z",
+      "performer": {
+        "@type": "Organization",
+        "name": "classicAscona — Settimane Musicali di Ascona"
+      }
+    },
+    {
+      "id": "classicascona:next-generation-xxi-dmitry-yudin",
+      "title": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin",
+      "startDate": "2026-10-10",
+      "startTime": "18:00",
+      "category": "musica",
+      "description": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 18:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Dmitry Yudin. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 18:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interpreti: Dmitry Yudin. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin: a concert of the Ascona Music Weeks (classicAscona), on Saturday 10 October 2026 at 18:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Performers: Dmitry Yudin. Programme, tickets and details on the concert page.",
+        "de": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 10. Oktober 2026 um 18:00 Uhr, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Mitwirkende: Dmitry Yudin. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Costellazione Giovani | Next Generation XXI | Dmitry Yudin : concert des Semaines musicales d’Ascona (classicAscona), le samedi 10 octobre 2026 à 18:00, Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno. Interprètes : Dmitry Yudin. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa di Santa Maria Assunta (Chiesa Nuova), Locarno",
+      "address": {
+        "street": "Via Cittadella 17",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/next-generation-xxi-dmitry-yudin/",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/it/50028/classicAscona/event/1801",
+        "priceSource": "classicascona",
+        "priceField": "offers.price"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Dmitry Yudin"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/next-generation-xxi-dmitry-yudin/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    },
+    {
+      "id": "classicascona:concerto-per-la-pace",
+      "title": "Concerto per la pace",
+      "startDate": "2026-10-10",
+      "startTime": "19:30",
+      "category": "musica",
+      "description": "Concerto per la pace: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Maria Stella Maurizi, Freya Apffelstaedt, Salvador Villanueva, Lobel Barun, Coro del Festival di Ascona con la partecipazione del Tenebrae Choir, Orchestra Sinfonica Giovanile dell’Ucraina, Oksana Lyniv. Programma, biglietti e dettagli sulla pagina del concerto.",
+      "descriptionByLocale": {
+        "it": "Concerto per la pace: concerto delle Settimane Musicali di Ascona (classicAscona), sabato 10 ottobre 2026 alle 19:30, Chiesa San Francesco, Locarno. Interpreti: Maria Stella Maurizi, Freya Apffelstaedt, Salvador Villanueva, Lobel Barun, Coro del Festival di Ascona con la partecipazione del Tenebrae Choir, Orchestra Sinfonica Giovanile dell’Ucraina, Oksana Lyniv. Programma, biglietti e dettagli sulla pagina del concerto.",
+        "en": "Concerto per la pace: a concert of the Ascona Music Weeks (classicAscona), on Saturday 10 October 2026 at 19:30, Chiesa San Francesco, Locarno. Performers: Maria Stella Maurizi, Freya Apffelstaedt, Salvador Villanueva, Lobel Barun, Coro del Festival di Ascona con la partecipazione del Tenebrae Choir, Orchestra Sinfonica Giovanile dell’Ucraina, Oksana Lyniv. Programme, tickets and details on the concert page.",
+        "de": "Concerto per la pace: Konzert der Musikwochen Ascona (classicAscona), am Samstag, 10. Oktober 2026 um 19:30 Uhr, Chiesa San Francesco, Locarno. Mitwirkende: Maria Stella Maurizi, Freya Apffelstaedt, Salvador Villanueva, Lobel Barun, Coro del Festival di Ascona con la partecipazione del Tenebrae Choir, Orchestra Sinfonica Giovanile dell’Ucraina, Oksana Lyniv. Programm, Tickets und Details auf der Konzertseite.",
+        "fr": "Concerto per la pace : concert des Semaines musicales d’Ascona (classicAscona), le samedi 10 octobre 2026 à 19:30, Chiesa San Francesco, Locarno. Interprètes : Maria Stella Maurizi, Freya Apffelstaedt, Salvador Villanueva, Lobel Barun, Coro del Festival di Ascona con la partecipazione del Tenebrae Choir, Orchestra Sinfonica Giovanile dell’Ucraina, Oksana Lyniv. Programme, billets et détails sur la page du concert."
+      },
+      "venue": "Chiesa San Francesco, Locarno",
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://classicascona.ch/concerti/concerto-per-la-pace/",
+      "price": {
+        "amount": 40,
+        "highPrice": 85,
+        "currency": "CHF",
+        "isFree": false,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01T00:00:00+01:00",
+        "url": "https://www.kulturticket.ch/50028/classicAscona/event/1789",
+        "priceSource": "classicascona",
+        "priceField": "offers.lowPrice"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Maria Stella Maurizi"
+        },
+        {
+          "@type": "Person",
+          "name": "Freya Apffelstaedt"
+        },
+        {
+          "@type": "Person",
+          "name": "Salvador Villanueva"
+        },
+        {
+          "@type": "Person",
+          "name": "Lobel Barun"
+        },
+        {
+          "@type": "Person",
+          "name": "Coro del Festival di Ascona con la partecipazione del Tenebrae Choir"
+        },
+        {
+          "@type": "Person",
+          "name": "Orchestra Sinfonica Giovanile dell’Ucraina"
+        },
+        {
+          "@type": "Person",
+          "name": "Oksana Lyniv"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "classicAscona",
+        "url": "https://classicascona.ch/concerti/concerto-per-la-pace/"
+      },
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "crawledAt": "2026-10-05T22:32:34.107Z"
+    }
+  ]
+}
