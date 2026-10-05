@@ -36,6 +36,14 @@ export interface WeatherForecastDay {
 
 export interface CityWeather {
   cityId: string;
+  /**
+   * Codice del cantone (TI, BS, AI …) per le citta' svizzere: lo legge il
+   * corpus (refresh-canton-services-data.mjs) per il blocco meteo degli hub
+   * cantonali. Assente per le citta' italiane.
+   */
+  canton?: string;
+  /** Nome leggibile, per i consumatori che non hanno la lista delle citta'. */
+  name?: string;
   current: WeatherCurrent;
   hourly24: WeatherForecastHour[];
   daily7: WeatherForecastDay[];
@@ -188,7 +196,14 @@ function parseCityWeather(o: unknown, path: string): ParsedSnapshot<CityWeather>
   const srcs = parseSourcesArray(o.sources, `${path}.sources`); if (!srcs.ok) return srcs as ParsedSnapshotError;
   const conf = parseConfidence(o.confidence, `${path}.confidence`); if (!conf.ok) return conf as ParsedSnapshotError;
   const ts = expectField(o, 'generatedAt', isStr, path); if (!ts.ok) return ts as ParsedSnapshotError;
-  return { ok: true, value: { cityId: id.value, current: cur.value, hourly24: hourly, daily7: daily, sources: srcs.value, confidence: conf.value, generatedAt: ts.value } };
+  // `canton`/`name` sono opzionali: le registrazioni precedenti non li hanno, e
+  // scartarli qui li toglierebbe anche alle citta' riprese dallo snapshot
+  // precedente in `mergeWithPrevious`.
+  const extra = {
+    ...(isStr(o.canton) ? { canton: o.canton } : {}),
+    ...(isStr(o.name) ? { name: o.name } : {}),
+  };
+  return { ok: true, value: { cityId: id.value, ...extra, current: cur.value, hourly24: hourly, daily7: daily, sources: srcs.value, confidence: conf.value, generatedAt: ts.value } };
 }
 
 function parseAlertState(o: unknown, path: string): ParsedSnapshot<AlertState> {
