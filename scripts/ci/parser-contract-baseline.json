@@ -1,0 +1,323 @@
+{
+  "description": "Ratchet di scripts/ci/check-parser-contract.mjs: violazioni ammesse per file e regola. Puo' solo scendere (--update-baseline).",
+  "totals": {
+    "R3": 23,
+    "R4": 18,
+    "R5": 114
+  },
+  "files": {
+    "scripts/lib/a-plus-plus-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/afry-job-parser.mjs": {
+      "R5": 6
+    },
+    "scripts/lib/agie-charmilles-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/agroscope-job-parser.mjs": {
+      "R4": 1,
+      "R5": 2
+    },
+    "scripts/lib/alten-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/amag-job-parser.mjs": {
+      "R3": 1,
+      "R5": 2
+    },
+    "scripts/lib/answerconsulting-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/apg-sga-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/ariston-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/artisa-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/avaloq-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/axa-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/berit-klinik-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/bps-suisse-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/burkhalter-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/cerbios-pharma-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/citta-di-lugano-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/clinique-le-noirmont-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/convit-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/cordenpharma-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/damiani-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/delvitech-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/efg-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/emmi-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/fincons-job-parser.mjs": {
+      "R3": 1,
+      "R5": 1
+    },
+    "scripts/lib/giorgio-armani-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/hoval-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/kanton-aargau-job-parser.mjs": {
+      "R3": 2
+    },
+    "scripts/lib/ksa-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/lis-lugano-istituti-sociali-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/mcdonalds-job-parser.mjs": {
+      "R3": 2,
+      "R5": 2
+    },
+    "scripts/lib/mtic-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/new-yorker-job-parser.mjs": {
+      "R3": 1
+    },
+    "scripts/lib/pkb-private-bank-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/postauto-job-parser.mjs": {
+      "R3": 1
+    },
+    "scripts/lib/protectas-job-parser.mjs": {
+      "R3": 1
+    },
+    "scripts/lib/pwc-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/relewant-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/ruag-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/sbb-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/sintetica-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/skyguide-job-parser.mjs": {
+      "R5": 4
+    },
+    "scripts/lib/smn-clinic-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/spital-thurgau-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/sro-job-parser.mjs": {
+      "R3": 1
+    },
+    "scripts/lib/sunrise-job-parser.mjs": {
+      "R3": 1,
+      "R5": 1
+    },
+    "scripts/lib/swiss-medical-network-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/tarchini-group-job-parser.mjs": {
+      "R5": 2
+    },
+    "scripts/lib/tpl-lugano-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/villa-im-park-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/vz-vermoegenszentrum-job-parser.mjs": {
+      "R4": 1
+    },
+    "scripts/lib/yousty-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/update-afry-jobs.mjs": {
+      "R3": 1,
+      "R5": 2
+    },
+    "scripts/update-ail-jobs.mjs": {
+      "R3": 1,
+      "R5": 1
+    },
+    "scripts/update-alten-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-amag-jobs.mjs": {
+      "R3": 2,
+      "R5": 1
+    },
+    "scripts/update-artificialy-jobs.mjs": {
+      "R3": 1
+    },
+    "scripts/update-axa-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-axpo-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-banca-sempione-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-berit-klinik-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-bps-suisse-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-burkhalter-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-citta-di-bellinzona-jobs.mjs": {
+      "R3": 1
+    },
+    "scripts/update-citta-di-lugano-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-clinique-le-noirmont-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-confederazione-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-coop-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-csc-costruzioni-jobs.mjs": {
+      "R3": 1
+    },
+    "scripts/update-damiani-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-efg-jobs.mjs": {
+      "R5": 4
+    },
+    "scripts/update-eoc-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-fincons-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-fnz-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-hamilton-jobs.mjs": {
+      "R4": 1,
+      "R5": 1
+    },
+    "scripts/update-hitachi-energy-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-ibsa-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-julius-baer-jobs.mjs": {
+      "R4": 1
+    },
+    "scripts/update-kempinski-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-ksgr-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-lafonte-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-lis-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-lwphr-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-mendrisio-jobs.mjs": {
+      "R5": 3
+    },
+    "scripts/update-oscam-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-pemsa-jobs.mjs": {
+      "R3": 1
+    },
+    "scripts/update-postch-jobs.mjs": {
+      "R3": 1,
+      "R5": 1
+    },
+    "scripts/update-postfinance-jobs.mjs": {
+      "R3": 2
+    },
+    "scripts/update-raiffeisen-vc-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-ruag-jobs.mjs": {
+      "R3": 1,
+      "R5": 1
+    },
+    "scripts/update-sbb-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-sunrise-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-supsi-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-swisscom-jobs.mjs": {
+      "R4": 1,
+      "R5": 1
+    },
+    "scripts/update-tich-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-tinext-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-tpl-lugano-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-trumpf-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-usi-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-vtg-jobs.mjs": {
+      "R4": 1,
+      "R5": 1
+    }
+  }
+}
