@@ -1,7 +1,7 @@
 {
   "key": "gz-dielsdorf",
   "label": "Gesundheitszentrum Dielsdorf",
-  "generatedAt": "2026-10-04T21:43:45.976Z",
+  "generatedAt": "2026-10-05T09:27:27.710Z",
   "total": 17,
   "discovered": null,
   "parsed": 17,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 17,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6719,
-  "avgDurationMs": 6719,
+  "durationMs": 6499,
+  "avgDurationMs": 6499,
   "durationHistory": [
-    6719
+    6499
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/235e85e5-32cf-40da-ad55-3b389ad19a73",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.165Z",
+      "crawledAt": "2026-10-05T09:27:16.030Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,18 +50,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/708/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-12T10:40:41.319Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -75,7 +79,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ef32664f-32dd-4c02-8404-68bc87bb25d4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.161Z",
+      "crawledAt": "2026-10-05T09:27:16.026Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,18 +93,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/646/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-26T10:13:16.543Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -116,7 +122,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c0bd766a-b33b-4462-91d6-dfb91567611a",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.157Z",
+      "crawledAt": "2026-10-05T09:27:16.023Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -130,18 +136,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/709/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-28T05:38:21.569Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -157,7 +165,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41427caf-48cd-4b48-8042-a98f049f9e8d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.154Z",
+      "crawledAt": "2026-10-05T09:27:16.020Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,18 +179,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/525/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-03T13:45:23.941Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -198,7 +208,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b1c73df1-bba5-47bb-a4ce-aae61d6f316b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.149Z",
+      "crawledAt": "2026-10-05T09:27:16.016Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,18 +222,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/713/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-24T00:09:08.349Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -239,7 +251,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.144Z",
+      "crawledAt": "2026-10-05T09:27:16.011Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,18 +265,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/714/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-24T00:09:08.322Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -280,7 +294,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8f551c5a-87eb-41fb-aeb6-69b25719b70f",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.140Z",
+      "crawledAt": "2026-10-05T09:27:16.007Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,7 +308,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.keller-beratung.ch/cvdropper/a2b1f368bda844848b6b88c435272a4c/DE?src=13gpblhqvrjn36iofvgn7ulwknjvb4ywwaahyxxzxmlnmr7e5ort3t6smtd86gfx",
       "salaryMin": 99200,
       "salaryMax": 138400,
@@ -320,7 +336,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.137Z",
+      "crawledAt": "2026-10-05T09:27:16.002Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,18 +350,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/683/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-18T14:20:10.585Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -361,7 +379,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/cb972e87-7c38-4eb5-a2f3-9ea43b426eb0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.133Z",
+      "crawledAt": "2026-10-05T09:27:15.997Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -375,18 +393,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/710/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-28T05:38:21.569Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -402,7 +422,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.130Z",
+      "crawledAt": "2026-10-05T09:27:15.988Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -416,18 +436,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/680/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-26T10:13:16.563Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -443,7 +465,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d1b2fd41-f265-4007-bf72-58470d5d4a75",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.126Z",
+      "crawledAt": "2026-10-05T09:27:15.983Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -457,17 +479,19 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/715/Application/CheckLogin/1?lang=ger",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -483,7 +507,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a9d50780-7e3a-4f50-8544-098a3c73e96f",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.118Z",
+      "crawledAt": "2026-10-05T09:27:15.976Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -497,18 +521,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/704/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-01T11:19:56.726Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -524,7 +550,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fd9bdc63-dd7b-4426-8e5c-a39de2f46154",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.114Z",
+      "crawledAt": "2026-10-05T09:27:15.968Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -538,18 +564,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/702/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-01T11:19:56.749Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -565,7 +593,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/38de01c8-a4a7-4efb-87d2-d2e59c1ab64b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.110Z",
+      "crawledAt": "2026-10-05T09:27:15.964Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -579,18 +607,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/716/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-30T21:34:32.660Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -606,7 +636,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0c356493-b3f8-45ec-83bd-3761cc285d65",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.106Z",
+      "crawledAt": "2026-10-05T09:27:15.960Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -620,18 +650,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/717/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-09-30T21:34:32.654Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -647,7 +679,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.102Z",
+      "crawledAt": "2026-10-05T09:27:15.956Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -661,18 +693,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/706/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-01T22:38:53.088Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -688,7 +722,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:43:35.095Z",
+      "crawledAt": "2026-10-05T09:27:15.949Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -702,22 +736,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/701/Application/CheckLogin/1?lang=ger",
       "firstSeenAt": "2026-08-01T22:38:53.116Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

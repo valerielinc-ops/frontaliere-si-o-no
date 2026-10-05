@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-04T21:37:41.636Z",
+  "generatedAt": "2026-10-05T09:27:39.465Z",
   "total": 2,
   "discovered": null,
   "parsed": 3,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4936,
-  "avgDurationMs": 4936,
+  "durationMs": 3989,
+  "avgDurationMs": 3989,
   "durationHistory": [
-    4936
+    3989
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:31.896Z",
+      "crawledAt": "2026-10-05T09:27:31.745Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,7 +49,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
+      "datePosted": "2026-08-20T15:32:57Z",
+      "postedDate": "2026-08-20T15:32:57Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "firstSeenAt": "2026-08-07T01:16:19.310Z",
       "salaryMin": 73200,
@@ -74,7 +78,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:31.317Z",
+      "crawledAt": "2026-10-05T09:27:31.255Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +91,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "2026-09-30T14:19:52Z",
+      "postedDate": "2026-09-30T14:19:52Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "firstSeenAt": "2026-08-07T01:16:17.904Z",
       "salaryMin": 73000,
@@ -102,44 +108,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "forel-klinik-0d131a918a14",
-      "slug": "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
-      "company": "Forel Klinik",
-      "companyKey": "forel-klinik",
-      "companyDomain": "forel-klinik.ch",
-      "title": "Mitarbeiter/-in Hauswirtschaft (m/w/d) 60-100%",
-      "needsRetranslation": true,
-      "location": "Ellikon an der Thur",
-      "canton": "ZH",
-      "url": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
-      "source": "Forel Klinik Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:30.738Z",
-      "addressLocality": "Ellikon an der Thur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8548",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
