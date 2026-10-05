@@ -12590,6 +12590,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.camion-avaria-san-nicolao.title': 'Lastwagen mit Panne im Tunnel San Nicolao',
     'blog.article.camion-avaria-san-nicolao.excerpt': 'Ein liegen gebliebener Lastwagen im Tunnel San Nicolao sorgt auf der A2 für Behinderungen: In Richtung Süden ist die linke Fahrspur befahrbar, in Richtung Norden kommt es zu Verzögerungen von bis zu 20 Minuten.',
     'blog.article.camion-avaria-san-nicolao.imageAlt': 'Pannenlastwagen im San-Nicolao-Tunnel verursacht Behinderungen auf der A2',
+    'blog.article.sequestri-contanti-brogeda.title': 'Nicht deklariertes Bargeld: Beschlagnahmungen in Brogeda',
+    'blog.article.sequestri-contanti-brogeda.excerpt': 'Zwei Kontrollen am Autobahngrenzübergang Como-Brogeda führten zur Beschlagnahme von 128.500 und 113.450 Euro, Beträgen über der Schwelle von 10.000 Euro.',
+    'blog.article.sequestri-contanti-brogeda.imageAlt': 'Fahrzeuge am Autobahn-Grenzübergang Como-Brogeda',
 };
 
 export default blogMetaDe;

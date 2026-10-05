@@ -12593,6 +12593,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.camion-avaria-san-nicolao.title': 'Camion en panne dans le tunnel San Nicolao',
     'blog.article.camion-avaria-san-nicolao.excerpt': 'Un camion en panne dans le tunnel San Nicolao crée des perturbations sur l\'A2 : voie de gauche praticable vers le sud et retards pouvant aller jusqu\'à 20 minutes vers le nord.',
     'blog.article.camion-avaria-san-nicolao.imageAlt': 'Camion en panne dans le tunnel San Nicolao, circulation perturbée sur l\'A2',
+    'blog.article.sequestri-contanti-brogeda.title': 'Espèces non déclarées : saisies à Brogeda',
+    'blog.article.sequestri-contanti-brogeda.excerpt': 'Deux contrôles au poste-frontière autoroutier de Como-Brogeda ont conduit à la saisie de 128.500 et 113.450 euros, des montants excédant le seuil de 10.000 euros.',
+    'blog.article.sequestri-contanti-brogeda.imageAlt': 'Véhicules au poste-frontière autoroutier de Como-Brogeda',
 };
 
 export default blogMetaFr;

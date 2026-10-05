@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES: Article[] = [
+const RAW_ARTICLES = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -37794,6 +37794,16 @@ const RAW_ARTICLES: Article[] = [
  date: '2026-10-05T07:32:18.599Z',
  image: '/images/blog/camion-avaria-san-nicolao.webp',
  hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'sequestri-contanti-brogeda',
+ category: 'pratico',
+ date: '2026-10-05T08:04:32.317Z',
+ image: '/images/blog/sequestri-contanti-brogeda.webp',
+ hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
