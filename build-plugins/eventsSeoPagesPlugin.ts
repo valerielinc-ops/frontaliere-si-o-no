@@ -73,6 +73,7 @@ import {
   weekWindow,
   overlapsWindow,
   hasConfidentPrice,
+  isFromEventPrice,
   OTHER_EVENTS_SEGMENT,
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
@@ -104,6 +105,8 @@ type EventPrice = {
   // structured fields (JSON-LD offers.price / isAccessibleForFree).
   priceSource?: string;
   priceField?: string;
+  // Upper bound of a minimum price («from CHF X», AggregateOffer.highPrice).
+  highPrice?: number;
   priceConflicts?: Array<{ eventId: string; amount: number; currency: string; isFree: boolean; priceSource?: string; priceField?: string }>;
 };
 
@@ -1248,10 +1251,18 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
+  // A minimum price («from CHF X») is an AggregateOffer: lowPrice, plus
+  // highPrice when the source gave a valid upper bound.
+  const fromPrice = isFromEventPrice(event.price);
+  const highPrice = fromPrice && typeof event.price?.highPrice === 'number' && event.price.highPrice > (event.price.amount ?? 0)
+    ? event.price.highPrice
+    : undefined;
   const offer = (confidentPrice || event.structuredDataDefaultsApplied)
     ? {
-      '@type': 'Offer',
-      ...(confidentPrice ? { price: event.price!.isFree ? 0 : event.price!.amount } : {}),
+      '@type': fromPrice ? 'AggregateOffer' : 'Offer',
+      ...(fromPrice
+        ? { lowPrice: event.price!.amount, ...(highPrice !== undefined ? { highPrice } : {}) }
+        : confidentPrice ? { price: event.price!.isFree ? 0 : event.price!.amount } : {}),
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
@@ -2858,6 +2869,9 @@ interface DetailCopy {
   // of DetailCopy these need no cantonSubstitutionRules pass.
   priceLabel: string;
   freeLabel: string;
+  // A minimum price (AggregateOffer.lowPrice, Eventfrog lowestTicketPrice):
+  // «da CHF 40», never a bare amount that would read as the only tariff.
+  priceFrom: (amount: string) => string;
   recurringLabel: string;
   addressLabel: string;
   mapLinkLabel: (place: string) => string;
@@ -2994,6 +3008,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     faqA2: (c) => `Nella pagina dedicata a ${c} trovi l’agenda completa degli eventi del comune, aggiornata ogni giorno.`,
     priceLabel: 'Prezzo',
     freeLabel: 'Gratis',
+    priceFrom: (amount: string) => `da ${amount}`,
     recurringLabel: 'Evento ricorrente',
     addressLabel: 'Indirizzo',
     mapLinkLabel: (place: string) => `Apri ${place} su OpenStreetMap`,
@@ -3023,6 +3038,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     faqA2: (c) => `The ${c} page lists the full agenda of events in the municipality, refreshed daily.`,
     priceLabel: 'Price',
     freeLabel: 'Free',
+    priceFrom: (amount: string) => `from ${amount}`,
     recurringLabel: 'Recurring event',
     addressLabel: 'Address',
     mapLinkLabel: (place: string) => `Open ${place} on OpenStreetMap`,
@@ -3052,6 +3068,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     faqA2: (c) => `Auf der Seite zu ${c} finden Sie die vollständige, täglich aktualisierte Veranstaltungsagenda der Gemeinde.`,
     priceLabel: 'Preis',
     freeLabel: 'Gratis',
+    priceFrom: (amount: string) => `ab ${amount}`,
     recurringLabel: 'Wiederkehrende Veranstaltung',
     addressLabel: 'Adresse',
     mapLinkLabel: (place: string) => `${place} auf OpenStreetMap öffnen`,
@@ -3081,6 +3098,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     faqA2: (c) => `La page dédiée à ${c} liste l’agenda complet des événements de la commune, mis à jour chaque jour.`,
     priceLabel: 'Prix',
     freeLabel: 'Gratuit',
+    priceFrom: (amount: string) => `dès ${amount}`,
     recurringLabel: 'Événement récurrent',
     addressLabel: 'Adresse',
     mapLinkLabel: (place: string) => `Ouvrir ${place} sur OpenStreetMap`,
@@ -3139,7 +3157,8 @@ function priceLine(event: SiteEvent, dc: DetailCopy): string {
   // structured-data fallback: an ambiguous price renders nothing rather than
   // a bare "CHF" with no amount.
   if (!hasConfidentPrice(event.price)) return '';
-  const value = event.price!.isFree ? dc.freeLabel : `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
+  const amount = `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
+  const value = event.price!.isFree ? dc.freeLabel : isFromEventPrice(event.price) ? dc.priceFrom(amount) : amount;
   return renderMetric(dc.priceLabel, esc(value));
 }
 

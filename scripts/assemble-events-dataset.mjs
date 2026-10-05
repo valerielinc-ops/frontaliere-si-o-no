@@ -31,6 +31,14 @@
  *      different events that happen to share a generic title and a
  *      low-confidence region-fallback comune) is left untouched — merging
  *      those would risk silently dropping a genuine event.
+ *   3b. Organizer vs tio.ch (classicAscona, D3 2026-10-05): tio.ch re-titles
+ *      the organizer's concerts («Richard Galliano | Nuovo Viaggio Trio» for
+ *      «Richard Galliano – New Viaggio Trio», «Un inno di bellezza celeste» for
+ *      «A Hymn of Heavenly Beauty») and sometimes names another hall, so the
+ *      title key of rule 3 misses them. A classicAscona concert and a tio-agenda
+ *      record collapse when they start the same day in the same comune and
+ *      share a distinctive word of the title (or of the organizer's URL slug),
+ *      matched one-to-one — see `dedupeOrganizerAgainstTio`.
  *   4. Italian frontier comuni geo-link (issue #3125): every assembled event
  *      that carries `geo` but has no `italianFrontierComuni` yet (a crawler
  *      may already have attached it) gets `resolveItalianFrontierComuni`
@@ -128,7 +136,7 @@ export function eventRichnessScore(ev) {
 // tourism-board catalog (good imagery, but skews toward touristy/generic
 // listings over hyper-local ones) — lowest priority of the three. Any future
 // source not listed here sorts last (lowest priority) rather than crashing.
-const SOURCE_PRIORITY = ['tio-agenda', 'guidle', 'myswitzerland'];
+const SOURCE_PRIORITY = ['tio-agenda', 'classicascona', 'guidle', 'myswitzerland'];
 
 function sourcePriorityRank(ev) {
   const key = ev.sourceKey || String(ev.id || '').split(':')[0];
@@ -142,7 +150,9 @@ function knownPrice(price) {
   return { amount, currency: price.currency || 'CHF', isFree: amount === 0 };
 }
 
-const PRICE_PROVENANCE_FIELDS = ['priceSource', 'priceField'];
+// `currencySource` is provenance too: Eventfrog's amount has no currency, and
+// its CHF is valid only together with the record that read location.country.
+const PRICE_PROVENANCE_FIELDS = ['priceSource', 'priceField', 'currencySource'];
 
 function priceProvenance(price) {
   return Object.fromEntries(PRICE_PROVENANCE_FIELDS.filter((field) => price?.[field]).map((field) => [field, price[field]]));
@@ -362,6 +372,96 @@ export function dedupeFuzzy(events) {
   return { events: out, mergedAway };
 }
 
+// ── Organizer vs tio.ch dedup (rule 3b) ─────────────────────────────────
+// Organizer sources whose concerts tio.ch also lists under its own titles.
+const ORGANIZER_SOURCES_COVERED_BY_TIO = new Set(['classicascona']);
+
+// Words that say nothing about WHICH concert it is: articles/prepositions in
+// it/en/de/fr, the generic «concert/music» words and the places of the
+// festival. «Next Generation» stays: it names the free series both sources list.
+const NON_DISTINCTIVE_TITLE_WORDS = new Set([
+  'alla', 'alle', 'agli', 'allo', 'della', 'delle', 'dello', 'degli', 'dalla', 'dalle', 'nella', 'nelle', 'sulla', 'sulle',
+  'with', 'from', 'that', 'this', 'their', 'into', 'uber', 'dans', 'pour', 'avec', 'sous',
+  'concerto', 'concerti', 'concert', 'concerts', 'konzert', 'konzerte', 'musica', 'music', 'musik', 'musique',
+  'settimane', 'musicali', 'classicascona', 'ascona', 'locarno', 'chiesa', 'church', 'kirche', 'eglise',
+]);
+
+/** Distinctive lowercase words (≥ 4 letters, not a number) of a title or URL slug. */
+export function distinctiveTitleWords(...texts) {
+  const words = new Set();
+  for (const text of texts) {
+    for (const word of normalizeText(String(text || '')).split(/[^a-z0-9]+/)) {
+      if (word.length >= 4 && !/^\d+$/.test(word) && !NON_DISTINCTIVE_TITLE_WORDS.has(word)) words.add(word);
+    }
+  }
+  return words;
+}
+
+function organizerSlug(event) {
+  try {
+    return new URL(event.url).pathname.split('/').filter(Boolean).pop() || '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Rule 3b. Collapse each organizer concert (classicAscona) with the tio-agenda
+ * record of the same concert: same `startDate`, same comune, and at least one
+ * shared distinctive word between the tio title and the organizer title or
+ * URL slug. Matching is one-to-one and only on an unambiguous best score — two
+ * concerts of the same evening in the same comune (Evensong and Galliano,
+ * 2026-10-07, Ascona) each keep their own tio twin, and a tie merges nothing.
+ * The pair goes through `pickRichestEvent`, so identity follows richness and
+ * the organizer's structured tariff replaces tio's text price, with the
+ * disagreement recorded in `price.priceConflicts` (Galliano: tio 20,
+ * classicAscona from 40).
+ */
+export function dedupeOrganizerAgainstTio(events) {
+  const sourceOf = (event) => event.sourceKey || String(event.id || '').split(':')[0];
+  const comuneOf = (event) => normalizeText(event.comune || '');
+  const tioByDay = new Map();
+  for (const event of events) {
+    if (sourceOf(event) !== 'tio-agenda' || !comuneOf(event)) continue;
+    const key = `${event.startDate}|${comuneOf(event)}`;
+    if (!tioByDay.has(key)) tioByDay.set(key, []);
+    tioByDay.get(key).push(event);
+  }
+  const proposals = [];
+  for (const organizer of events) {
+    if (!ORGANIZER_SOURCES_COVERED_BY_TIO.has(sourceOf(organizer)) || !comuneOf(organizer)) continue;
+    const words = distinctiveTitleWords(organizer.title, organizerSlug(organizer));
+    const scored = (tioByDay.get(`${organizer.startDate}|${comuneOf(organizer)}`) || [])
+      .map((tio) => ({ tio, score: [...distinctiveTitleWords(tio.title)].filter((word) => words.has(word)).length }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score);
+    if (!scored.length || (scored[1] && scored[1].score === scored[0].score)) continue;
+    proposals.push({ organizer, tio: scored[0].tio, score: scored[0].score });
+  }
+  // One organizer concert per tio record: the best score wins, a tie merges nothing.
+  const byTio = new Map();
+  for (const proposal of proposals) {
+    if (!byTio.has(proposal.tio)) byTio.set(proposal.tio, []);
+    byTio.get(proposal.tio).push(proposal);
+  }
+  const replaced = new Map();
+  let mergedAway = 0;
+  for (const [tio, candidates] of byTio) {
+    candidates.sort((a, b) => b.score - a.score);
+    if (candidates[1] && candidates[1].score === candidates[0].score) continue;
+    replaced.set(tio, pickRichestEvent([tio, candidates[0].organizer]));
+    replaced.set(candidates[0].organizer, null);
+    mergedAway += 1;
+  }
+  if (!mergedAway) return { events, mergedAway };
+  const out = [];
+  for (const event of events) {
+    if (!replaced.has(event)) out.push(event);
+    else if (replaced.get(event)) out.push(replaced.get(event));
+  }
+  return { events: out, mergedAway };
+}
+
 // ── Italian frontier comuni attachment ──────────────────────────────────
 /**
  * Attach `italianFrontierComuni` to every event that has `geo` but doesn't
@@ -429,7 +529,9 @@ function assemble() {
   }
 
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
-  const { events: deduped, mergedAway } = dedupeFuzzy(merged);
+  const { events: fuzzyDeduped, mergedAway: fuzzyMergedAway } = dedupeFuzzy(merged);
+  const { events: deduped, mergedAway: organizerMergedAway } = dedupeOrganizerAgainstTio(fuzzyDeduped);
+  const mergedAway = fuzzyMergedAway + organizerMergedAway;
   const cantonlessBefore = deduped.filter((event) => !(typeof event.canton === 'string' && event.canton.trim())).length;
   const cantonFromGeo = attachCantonFromGeo(deduped);
   const frontierAttached = attachItalianFrontierComuni(deduped);
