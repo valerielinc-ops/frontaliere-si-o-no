@@ -113,3 +113,13 @@ it('Omega does not assign a listing-matched date to a different emitted heading'
   expect(jobs).toHaveLength(1);
   expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: 'Another Vacancy' });
 });
+it('Omega propagates a later listing-page failure', async () => {
+  const list = `<div class="card h-100"><img src="brands-logos/omega.png"><h4 class="card-title"><a href="/en/job/123">${TITLE}</a></h4><p class="card__text">Swiss source role</p></div>`;
+  vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
+    const value = String(url);
+    if (!value.includes('job-finder')) return new Response(detail('omega', [posting('omega')]));
+    if (new URL(value).searchParams.get('page') === '0') return new Response(list);
+    throw new Error('page 2 down');
+  }));
+  await expect(fetchAllOmegaJobs()).rejects.toThrow('page 2 down');
+});

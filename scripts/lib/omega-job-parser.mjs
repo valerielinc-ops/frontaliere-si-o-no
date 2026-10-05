@@ -478,10 +478,10 @@ export async function fetchAllOmegaJobs() {
         throw err;
       }
       // Mid-crawl failure: publishing a PARTIAL list would expire the jobs on
-      // the unfetched pages, so bail out to the safe 0-job early exit instead.
+      // the unfetched pages, so fail the run and preserve the prior snapshot.
       console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
-      console.warn('   Aborting with no jobs (prior data preserved) — will retry next cycle.');
-      return [];
+      console.warn('   Aborting the crawl with an error (prior data preserved) — will retry next cycle.');
+      throw err;
     }
 
     const { listings, cardCount } = parseListPage(html);
