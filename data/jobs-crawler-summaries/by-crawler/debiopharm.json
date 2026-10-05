@@ -1,19 +1,21 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-05T09:22:18.487Z",
+  "generatedAt": "2026-10-05T21:34:48.343Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3278,
-  "avgDurationMs": 3278,
+  "unchangedCount": 5,
+  "durationMs": 3130,
+  "avgDurationMs": 3130,
   "durationHistory": [
-    3278
+    3130
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "P2622 - Audit & CAPA Lead",
       "slug": "p2622-responsabilita-audit-e-capa-debiopharm-lausanne",
@@ -101,7 +103,6 @@
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/59653399e4",
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
       "_qualityScore": 94,
@@ -188,6 +189,7 @@
       "streetAddress": "",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -246,7 +248,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

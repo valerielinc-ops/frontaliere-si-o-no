@@ -19,6 +19,7 @@ import { WEATHER_ALERT_CONFIG, type WeatherAlertConfig } from '../data/weatherAl
 import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weatherAlertEvaluator';
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
 import { cdnDataHydrationUrlExpr } from './shared/cdnDataHydrationUrl';
@@ -525,6 +526,7 @@ function jsonLd(locale: Locale, title: string, description: string, canonical: s
     url: canonical,
     isPartOf: {
       '@type': 'WebSite',
+      '@id': WEBSITE_ID,
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     },
