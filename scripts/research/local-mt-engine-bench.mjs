@@ -140,7 +140,20 @@ function main() {
       if (!a?.text || !b?.text) continue;
       both++;
       if (a.text === b.text) identical++;
-      else if (diffs.length < 6) diffs.push({ dir: `${r.from}>${r.to}`, base: a.text.slice(0, 160), head: b.text.slice(0, 160) });
+      else if (diffs.length < 8) {
+        // Show the first line that differs, not the (usually equal) head of a
+        // long description.
+        const la = a.text.split('\n');
+        const lb = b.text.split('\n');
+        let i = 0;
+        while (i < la.length && i < lb.length && la[i] === lb[i]) i++;
+        diffs.push({
+          dir: `${r.from}>${r.to}`,
+          lines: `${la.length}/${lb.length}`,
+          base: String(la[i] ?? '').slice(0, 200),
+          head: String(lb[i] ?? '').slice(0, 200),
+        });
+      }
     }
     return { both, identical, diffs };
   };
@@ -169,7 +182,7 @@ function main() {
   for (const [name, c] of Object.entries(comparisons)) {
     if (!c.diffs.length) continue;
     lines.push('', `<details><summary>${name}: first responses that differ from base</summary>`, '');
-    for (const d of c.diffs) lines.push(`- \`${d.dir}\`  \n  base: ${JSON.stringify(d.base)}  \n  ${name}: ${JSON.stringify(d.head)}`);
+    for (const d of c.diffs) lines.push(`- \`${d.dir}\` (lines ${d.lines}, first differing line)  \n  base: ${JSON.stringify(d.base)}  \n  ${name}: ${JSON.stringify(d.head)}`);
     lines.push('', '</details>');
   }
   for (const [name, run] of Object.entries(runs)) {

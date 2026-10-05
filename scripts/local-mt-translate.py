@@ -73,9 +73,11 @@ Env:
   LOCAL_MT_BATCH_TOKENS — CTranslate2 max_batch_size in tokens for the batched
                      engine (default 4096). Argos' own default is 32 tokens, i.e.
                      one or two sentences per forward pass.
-  LOCAL_MT_STANZA_BULK — `1` (default) segments a chunk's paragraphs with one
-                     Stanza call; `0` calls the sentencizer per paragraph, as
-                     Argos does.
+  LOCAL_MT_STANZA_BULK — `0` (default) calls the sentencizer per paragraph, as
+                     Argos does; `1` segments a chunk's paragraphs with one
+                     Stanza call. Measured (local-mt-bench run 37354644699):
+                     no speed-up and worse output, e.g. a title cut to
+                     "Dipendenti / Dipendenti". Kept only to reproduce that.
   LOCAL_MT_UNIT_CACHE — optional JSONL file of already-translated units. Loaded at
                      start (those units are not translated again) and appended
                      after every chunk, so the work a timeout kill interrupts is
@@ -230,9 +232,19 @@ class _BatchedEngine:
     tokenizer, the same translate_batch options (beam_size, length_penalty,
     replace_unknowns, target_prefix, num_hypotheses=1) and the same decode and
     paragraph joining as argostranslate 1.11 apply_packaged_translation(). What
-    changes: many sentences per forward pass, one Stanza call per chunk
-    (documents batched), and each leg's output memoised per (package, text), so
-    the it->en leg of it->de and it->fr is computed once.
+    changes: many sentences per forward pass and each leg's output memoised
+    per (package, text), so the it->en leg of it->de and it->fr is computed
+    once. Sentence splitting stays per paragraph.
+
+    Measured on the pipeline's runner, 400 real requests, 600 s cap
+    (local-mt-bench run 37354644699): base 19.1 requests/min, this engine
+    59.6; of the 191 responses both produced, 177 (92.7%) are byte-identical.
+    The legacy path of this same worker is 191/191 identical, so the base is
+    deterministic and the 7.3% comes from batch composition: CTranslate2 pads
+    the sentences of a batch together and the int8 beam search can then pick
+    another hypothesis. 32-token batches narrow it (96.3%) but give the speed
+    back (19.5 requests/min). Every write still passes the mop-up's structural
+    and semantic guards.
 
     Any exception building the chain or running a leg is raised to the caller,
     which falls back to the legacy per-unit path for that chunk."""
@@ -242,7 +254,7 @@ class _BatchedEngine:
         self.batch_tokens = batch_tokens
         self._chains = {}
         self._memo = {}   # (leg key, text) -> translated text
-        self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "1").strip() != "0"
+        self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "0").strip() == "1"
         for name in ("get_translation_from_codes", "CachedTranslation",
                      "CompositeTranslation", "IdentityTranslation", "PackageTranslation"):
             if not hasattr(tr, name):
@@ -289,9 +301,9 @@ class _BatchedEngine:
         return leg.translator
 
     def _split_many(self, leg, paragraphs):
-        """Sentence lists for many paragraphs; one Stanza call when the leg's
-        sentencizer is Stanza (documents are segmented independently), else the
-        sentencizer per paragraph exactly as Argos calls it."""
+        """Sentence lists for many paragraphs: the sentencizer per paragraph,
+        exactly as Argos calls it. LOCAL_MT_STANZA_BULK=1 batches the Stanza
+        documents instead (measured worse, see the module docstring)."""
         sentencizer = leg.sentencizer
         pipeline = getattr(sentencizer, "lazy_pipeline", None)
         if pipeline is None or not self.stanza_bulk:

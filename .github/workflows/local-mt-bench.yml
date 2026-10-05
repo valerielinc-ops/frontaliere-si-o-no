@@ -7,8 +7,8 @@
 # (macOS + torch + CTranslate2 load two OpenMP runtimes and hang). The bench
 # runs the base worker and the head worker on the same deterministic sample,
 # under the same cap, and reports throughput and byte-identical responses.
-# The variants rerun the head worker with one knob changed (legacy per-unit
-# path, per-paragraph sentence split, Argos' 32-token batches) to tell which
+# Optional variants rerun the head worker with one knob changed (legacy
+# per-unit path, bulk sentence split, Argos' 32-token batches) to tell which
 # part of the engine moves the output.
 # Read-only: no secrets, no writes, nothing pushed.
 name: Local MT worker bench
@@ -27,6 +27,9 @@ on:
       cap_seconds:
         description: Wall-clock cap per worker (seconds)
         default: '600'
+      variants:
+        description: Extra `--variant name:ENV=VAL,...` arguments for the bench
+        default: ''
 
 permissions:
   contents: read
@@ -83,12 +86,11 @@ jobs:
         env:
           BENCH_REQUESTS: ${{ inputs.requests || '400' }}
           BENCH_CAP: ${{ inputs.cap_seconds || '600' }}
+          # Extra head runs, e.g. `--variant legacy:LOCAL_MT_ENGINE=legacy
+          # --variant batch-32:LOCAL_MT_BATCH_TOKENS=32` (run 37354644699).
+          BENCH_VARIANTS: ${{ inputs.variants || '' }}
         run: |
           node scripts/research/local-mt-engine-bench.mjs \
             --base "$RUNNER_TEMP/base-worker.py" \
             --requests "$BENCH_REQUESTS" \
-            --cap-seconds "$BENCH_CAP" \
-            --variant legacy:LOCAL_MT_ENGINE=legacy \
-            --variant per-paragraph-sbd:LOCAL_MT_STANZA_BULK=0 \
-            --variant argos-batch-32:LOCAL_MT_BATCH_TOKENS=32 \
-            --variant per-paragraph-sbd-batch-32:LOCAL_MT_STANZA_BULK=0,LOCAL_MT_BATCH_TOKENS=32
+            --cap-seconds "$BENCH_CAP" $BENCH_VARIANTS
