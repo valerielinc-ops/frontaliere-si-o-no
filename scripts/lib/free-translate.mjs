@@ -305,11 +305,14 @@ export function getCascadeStats() {
  * riserva di translate-pending (scripts/lib/codex-reserve-report.mjs). Fuori
  * dalla sezione `Codex Luna Max` di proposito: quella sezione e' byte-identica
  * al corpus e qui si leggono soltanto le sue variabili di modulo.
+ *   - `textsSent`: testi distinti mandati a Codex;
  *   - `accepted`: testi che Codex ha tradotto e che hanno passato i gate di
- *     `tryTier` (passthrough, meta-risposta, confine di riga);
- *   - `rejected`: risposte di Codex scartate da quei gate o finite in errore;
- *   - `textsSent`: testi distinti mandati a Codex (gli echi del prompt e le
- *     meta-risposte scartate dentro la sezione restano qui e non in `accepted`).
+ *     ammissione (eco del prompt e meta-risposta dentro la sezione, poi
+ *     passthrough, meta-risposta e confine di riga in `tryTier`);
+ *   - `rejected`: testi mandati e non ammessi — rifiuto o domanda del modello,
+ *     eco della sorgente o del prompt, risposta vuota, errore della chiamata.
+ *     Le meta-risposte scartate dentro la sezione non arrivano a `tryTier`,
+ *     quindi si contano per differenza e non dai bucket della cascata.
  */
 export function getCodexTierStats() {
   const s = _cascadeStats;
@@ -324,7 +327,7 @@ export function getCodexTierStats() {
     maxMs: _codexBudget('FREE_TRANSLATE_CODEX_MAX_MS', CODEX_TRANSLATE_MAX_MS_DEFAULT),
     stopReason: _codexStopReason || null,
     accepted: s.tierHits.codex || 0,
-    rejected: (s.tierErrors.codex || 0) + (s.tierPassthroughs.codex || 0) + (s.tierMetaResponses.codex || 0),
+    rejected: Math.max(0, _codexTexts - (s.tierHits.codex || 0)),
   };
 }
 
