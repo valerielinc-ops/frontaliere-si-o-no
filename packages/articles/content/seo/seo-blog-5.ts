@@ -99095,6 +99095,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camion-avaria-san-nicolao': {
+    title: 'Camion in avaria nella galleria San Nicolao | Frontaliere Ticino',
+    description: 'Camion in avaria nella galleria San Nicolao: disagi sull\'A2 verso sud e traffico congestionato tra Mendrisio e il tunnel, con ritardi fino a 20 minuti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, camion, avaria, nella, galleria',
+    ogTitle: 'Camion in avaria nella galleria San Nicolao',
+    ogDescription: 'La viabilità sull\'A2 è condizionata da un camion in avaria nella galleria San Nicolao. Verso sud è percorribile solo la corsia di sinistra già da Grancia; verso nord il TCS segnala congestione tra Mendrisio e il tunnel, con ritardi fino a 20 minuti.',
+    canonicalPath: '/articoli-frontaliere/camion-avaria-san-nicolao/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camion in avaria nella galleria San Nicolao",
+      "description": "Camion in avaria nella galleria San Nicolao: disagi sull'A2 verso sud e traffico congestionato tra Mendrisio e il tunnel, con ritardi fino a 20 minuti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camion-avaria-san-nicolao.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion in avaria nella galleria San Nicolao e disagi sull'A2"
+      },
+      "datePublished": "2026-10-05T07:32:18+00:00",
+      "dateModified": "2026-10-05T07:32:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camion-avaria-san-nicolao/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
