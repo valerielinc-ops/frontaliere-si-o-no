@@ -1,7 +1,7 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-10-04T21:16:01.865Z",
+  "generatedAt": "2026-10-05T09:18:56.994Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3884,
-  "avgDurationMs": 3884,
+  "durationMs": 4617,
+  "avgDurationMs": 4617,
   "durationHistory": [
-    3884
+    4617
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,24 +43,26 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:55.840Z",
+      "crawledAt": "2026-10-05T09:18:49.904Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -81,27 +85,29 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.air-zermatt.ch/de/service/offene-stellen/rettungssanitaeterin-mit-anteil-flugbetrieb-100-571",
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/rettungssanitaeterin-mit-anteil-flugbetrieb-100-571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:55.612Z",
+      "crawledAt": "2026-10-05T09:18:49.659Z",
       "firstSeenAt": "2026-09-10T23:10:59.522Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
