@@ -7730,6 +7730,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.startup-ticinesi-top100-2026.title': 'Three Ticino companies in the Top100 Swiss Startup Award 2026',
     'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics, and In Virtuo Laboratories represent Ticino in the ranking of the one hundred most promising Swiss startups of 2026.',
     'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Three Ticino startups among the top 100 most promising at the Top100 Swiss Startup Award 2026',
+    'blog.article.autisti-uber-svizzera-condizioni.title': 'Seventy francs for nine hours of work: the protest',
+    'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'Uber drivers in Switzerland denounce worsening conditions and demand greater rights and protections. Amid low fares and Bolt\'s arrival.',
+    'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Uber drivers in Switzerland demand better working conditions',
 };
 
 export default blogMetaChEn;

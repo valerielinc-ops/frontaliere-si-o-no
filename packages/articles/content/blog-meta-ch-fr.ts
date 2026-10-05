@@ -7730,6 +7730,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.startup-ticinesi-top100-2026.title': 'Trois entreprises tessinoises dans le Top100 Swiss Startup Award 2026',
     'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics et In Virtuo Laboratories représentent le Tessin dans le classement des cent startups suisses les plus prometteuses de 2026.',
     'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Trois start-up tessinoises parmi les cent plus prometteuses au Top100 Swiss Startup Award 2026',
+    'blog.article.autisti-uber-svizzera-condizioni.title': 'Soixante-dix francs pour neuf heures de travail : la protestation',
+    'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'Les conducteurs d\'Uber en Suisse dénoncent la dégradation de leurs conditions et demandent davantage de droits et de protections. Entre tarifs bas et arrivée de Bolt.',
+    'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Les chauffeurs Uber en Suisse demandent de meilleures conditions',
 };
 
 export default blogMetaChFr;
