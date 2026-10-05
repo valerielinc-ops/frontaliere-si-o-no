@@ -2,19 +2,14 @@
   "version": 1,
   "snoozes": {
     "B.2.gsc-fetch-failure": {
-      "consecutiveDays": 2,
-      "lastSeen": "2026-10-04",
-      "snoozedUntil": null
-    },
-    "B.3.ga4-fetch-failure": {
-      "consecutiveDays": 2,
-      "lastSeen": "2026-10-04",
-      "snoozedUntil": null
+      "consecutiveDays": 3,
+      "lastSeen": "2026-10-05",
+      "snoozedUntil": "2026-10-12"
     },
     "B.4.posthog-fetch-failure": {
-      "consecutiveDays": 2,
-      "lastSeen": "2026-10-04",
-      "snoozedUntil": null
+      "consecutiveDays": 3,
+      "lastSeen": "2026-10-05",
+      "snoozedUntil": "2026-10-12"
     }
   }
 }
