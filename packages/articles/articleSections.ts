@@ -30,7 +30,7 @@ export type HistoricalArticleSection = 'frontaliere' | 'svizzera';
 
 /**
  * Canton section ids (`canton-ti`, `canton-basilea`, …), generated from
- * `data/canton-url-slugs.json` into `engine/shared/cantonArticleSectionCore.generated.mjs`.
+ * data/canton-url-slugs.json into `engine/shared/cantonArticleSectionCore.generated.mjs`.
  * Open on purpose: the closed set lives in the generated data, not in a type
  * someone has to keep in step with it.
  */

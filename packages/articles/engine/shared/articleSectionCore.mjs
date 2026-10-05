@@ -31,7 +31,7 @@
  * pure data, no `fs`/JSON import inside this file, so it has zero runtime
  * dependencies and can be imported from anywhere with a plain relative path.
  * Its only import is the sibling `cantonArticleSectionCore.generated.mjs`,
- * equally pure (generated from `data/canton-url-slugs.json` by
+ * equally pure (generated from data/canton-url-slugs.json by
  * `scripts/generate-canton-article-sections.mjs`, so no JSON is read here).
  *
  * Every consumer above still owns fields that are genuinely NOT part of this
@@ -128,7 +128,7 @@ const HISTORICAL_ARTICLE_SECTION_CORE = {
 
 /**
  * EVERY known section, active or not: the 2 historical ones followed by the
- * 24 canton URL groups generated from `data/canton-url-slugs.json`
+ * 24 canton URL groups generated from data/canton-url-slugs.json
  * (`cantonArticleSectionCore.generated.mjs`). Use it for lookups by id
  * (`articleSectionKind`, `cantonHubTopicSlugs`) and for collision checks —
  * never to decide what to build or publish.
