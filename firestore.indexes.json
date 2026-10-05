@@ -34,6 +34,14 @@
       ]
     },
     {
+      "collectionGroup": "events",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "event_type", "order": "ASCENDING" },
+        { "fieldPath": "occurred_at", "order": "DESCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "publisher_jobs",
       "queryScope": "COLLECTION",
       "fields": [
