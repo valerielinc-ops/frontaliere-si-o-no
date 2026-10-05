@@ -75,7 +75,7 @@ describe('isPrivateEventRecord', () => {
     expect(() => assertNoPrivateEvents([TIO], 'x')).not.toThrow();
     let message = '';
     try {
-      assertNoPrivateEvents([TIO, FROG], 'public/data/events.json');
+      assertNoPrivateEvents([TIO, FROG], 'public events dataset boundary');
     } catch (error) {
       message = (error as Error).message;
     }
