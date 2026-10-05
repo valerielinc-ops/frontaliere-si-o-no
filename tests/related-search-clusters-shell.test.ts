@@ -240,7 +240,7 @@ describe('related search cluster SEO shell', () => {
         locale: 'it',
         keyword: 'data analyst',
         city: 'Lugano',
-        intro: 'Pagina di ricerca per data analyst a Lugano con offerte aggiornate, aziende attive, criteri di candidatura, stipendio in franchi, costi da frontaliere e strumenti per confrontare netto, cambio e copertura sanitaria prima di inviare una candidatura.',
+        intro: 'Pagina di ricerca per data analyst a Lugano con offerte aggiornate, aziende attive, criteri di candidatura, stipendio in franchi, costi da frontaliere e strumenti per confrontare netto, cambio e copertura sanitaria prima di inviare una candidatura. La pagina aiuta a verificare mansioni, datore, località, contratto e percorso di candidatura prima di scegliere un\'offerta.',
         faqs: [],
       },
       hreflang: [
