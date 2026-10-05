@@ -167,6 +167,11 @@ const sourceTreeLintTests = new Map([
   // import del test. Senza questa voce il budget restava stantio sulla PR che
   // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
   ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
+  // Contratto statico dei parser (issue 11674): il lint legge da disco ogni
+  // parser e runner e li confronta con la baseline a ratchet; nessun import
+  // lega il test al parser che giudica, e un parser senza test proprio non
+  // selezionava niente. La baseline e' letta da disco anche lei.
+  ['tests/parser-diff-contract.test.ts', /^scripts\/(?:lib\/.*-job-parser|update-.*-jobs)\.mjs$|^scripts\/ci\/parser-contract-baseline\.json$/],
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
