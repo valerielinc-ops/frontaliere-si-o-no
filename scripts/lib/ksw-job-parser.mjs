@@ -21,6 +21,8 @@
  *   - isTrustedDomain()  — Validate URLs belong to KSW / Solique tenant `ksw`
  *   - KSW_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -269,6 +271,7 @@ export function parseKswDetailPage(html = '') {
   return {
     title: detailTitle,
     description: blocks.join('\n\n'),
+    ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
   };
 }
 
@@ -343,9 +346,6 @@ export async function fetchAllKswJobs() {
     html = await fetchPage(LISTING_URL);
   } catch (err) {
     console.error(`❌ Failed to fetch Solique tenant page: ${err?.message}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
 
@@ -445,7 +445,7 @@ export async function fetchAllKswJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detailOkHere ? detail : {}),
       applyUrl: listing.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

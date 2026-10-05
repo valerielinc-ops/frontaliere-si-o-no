@@ -18,6 +18,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -292,7 +293,8 @@ export async function fetchAllMabetexJobs() {
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      // The careers card has no verified publication field; employment start is separate.
+      ...sourcePostingDateFields(),
       url: publicUrl,
       applyUrl: CAREERS_URL,
       source: 'Mabetex Group Dedicated Parser',

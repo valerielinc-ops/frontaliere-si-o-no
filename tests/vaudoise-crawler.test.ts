@@ -463,7 +463,9 @@ describe('Vaudoise Assurances crawler parser', () => {
       expect(job.country).toBe('CH');
       expect(job.url).toBe('https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge');
       expect(job.applyUrl).toBe(job.url);
-      expect(job.postedDate).toBe('5/8/26');
+      expect(job.datePosted).toBe('');
+      expect(job.postedDate).toBe('');
+      expect(job.postingDateSource).toBe('unknown');
       expect(job.experienceLevel).toBe('senior');
       // Title has "80-100%" → part-time bracket
       expect(job.employmentType).toBe('PART_TIME');

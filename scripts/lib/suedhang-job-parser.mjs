@@ -14,6 +14,8 @@
  * /karriere/offene-stellen/{slug}/ with rich detail content. We scrape the
  * listing index, then fetch each detail page for the description.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -260,7 +262,7 @@ export async function fetchAllSuedhangJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted),
       applyUrl: tile.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

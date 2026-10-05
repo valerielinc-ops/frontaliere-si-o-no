@@ -22,6 +22,7 @@
  * For each job we tag the canton by inspecting the PDF filename and title
  * (ESTA → BL/Reinach, everything else → BS/Basel).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -153,16 +154,12 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
     listingHtml = await fetchHtml(SUCHTHILFE_REGION_BASEL_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -216,7 +213,7 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: SUCHTHILFE_REGION_BASEL_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
