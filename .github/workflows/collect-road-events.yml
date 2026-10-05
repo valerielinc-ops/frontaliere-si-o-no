@@ -1,0 +1,108 @@
+name: Collect Road Events (closures, roadworks, transit)
+
+# Per-canton mobility dataset (plan P9c of the per-canton article sections):
+# scripts/collect-road-events.mjs reads the ASTRA DATEX II traffic situations
+# (opentransportdata.swiss, token OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN from
+# Remote Config) and the cantonal mobility/police feeds of
+# scripts/lib/road-events.mjs, and writes data/road-events.json +
+# public/data/road-events.json. The articles repo reads the published copy on
+# the CDN (generator/scripts/refresh-road-events.mjs there).
+#
+# Separate from traffic-scheduler.yml on purpose: that workflow is clocked by
+# the Cloud Scheduler slots of the paid routing providers; road works and
+# closures change over hours, not minutes, and one DATEX pull costs one unit
+# of the shared opentransportdata/traffic-situations quota.
+#
+# Both files are in deploy.yml's paths-ignore: no page reads them at build
+# time yet, so a push every 3 hours must not start a full SEO deploy. They
+# reach the CDN with the next deploy triggered by anything else (the same
+# contract as data/border-wait-averages.json).
+
+on:
+  schedule:
+    - cron: '47 */3 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: collect-road-events
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Collect road events
+        run: node scripts/collect-road-events.mjs
+
+      # Same gate as a PR touching the dataset: the parsers' fixtures and the
+      # structural check of the file this run is about to commit.
+      - name: Gate — road events contract
+        run: npx vitest run tests/road-events.test.ts
+
+      - name: Commit + push (with rebase-retry)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/road-events.json public/data/road-events.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(road-events): snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "${GITHUB_REF_NAME:-main}" \
+            --regenerate-cmd "node scripts/collect-road-events.mjs && git add data/road-events.json public/data/road-events.json"
+
+      # Stable title: github-issue-creator.mjs dedups on it, and
+      # close-recovered-failure-issues.mjs closes it on the first green run.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Riproduci: node scripts/collect-road-events.mjs --check (con OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN da Remote Config)." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
