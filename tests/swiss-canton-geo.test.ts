@@ -34,6 +34,14 @@ describe('cantonAtPoint (fixture polygons)', () => {
     expect(cantonAtPoint({ lat: 0.5, lng: 0.95 }, fixtureIndex)).toBeNull();
   });
 
+  it('returns null for a point exactly on a border, outer ring or hole', () => {
+    const adjacent = indexCantonBoundaries({ cantons: { AA: [[square(0, 0, 1, 1)]], BB: [[square(1, 0, 2, 1)]] } });
+    expect(cantonAtPoint({ lat: 0.5, lng: 1 }, adjacent)).toBeNull();
+    expect(cantonAtPoint({ lat: 0.5, lng: 0.5 }, adjacent)).toBe('AA');
+    expect(cantonAtPoint({ lat: 0, lng: 1.5 }, adjacent)).toBeNull();
+    expect(cantonAtPoint({ lat: 0.3, lng: 0.2 }, fixtureIndex)).toBeNull();
+  });
+
   it('returns null outside every canton and for unusable coordinates', () => {
     expect(cantonAtPoint({ lat: 5, lng: 5 }, fixtureIndex)).toBeNull();
     expect(cantonAtPoint({ lat: Number.NaN, lng: 0.5 }, fixtureIndex)).toBeNull();

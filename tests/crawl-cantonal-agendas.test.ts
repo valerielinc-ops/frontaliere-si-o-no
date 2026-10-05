@@ -4,11 +4,18 @@
  * Fixtures under tests/fixtures/events-agendas/ are trimmed real responses
  * captured on 2026-10-05 (the Luzern `<author>` contact is redacted).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseFribourgEventsFeed, parseFeedDateTime, parseFeedGps, FEED_URL } from '../scripts/crawl-fr-agenda.mjs';
-import { parseIcmsAnlaesseHtml, parseIcmsTermineRss, parseIcmsTime, parseRssEventDate } from '../scripts/lib/icms-agenda.mjs';
+import {
+  parseIcmsAnlaesseHtml,
+  parseIcmsTermineRss,
+  parseIcmsTime,
+  parseRssEventDate,
+  isValidClockTime,
+  failIfSourceUnreachable,
+} from '../scripts/lib/icms-agenda.mjs';
 import { ICMS_AGENDAS, parserFor } from '../scripts/crawl-icms-agenda.mjs';
 import { EVENT_SOURCES } from '../scripts/lib/events-utils.mjs';
 
@@ -82,6 +89,13 @@ describe('fr.ch events feed', () => {
     </channel></rss>`;
     expect(parseFribourgEventsFeed(xml)).toEqual([]);
     expect(parseFribourgEventsFeed('not xml <<<')).toEqual([]);
+  });
+
+  it('rejects an impossible time instead of publishing it', () => {
+    expect(parseFeedDateTime('2026-10-10T25:99:00+02:00')).toBeNull();
+    expect(parseFeedDateTime('2026-10-10T23:60:00+02:00')).toBeNull();
+    const xml = `<rss><channel><item><title>Ora impossibile</title><link>https://www.fr.ch/x/evenements/ora</link><event:startDate>2026-10-10T24:00:00+02:00</event:startDate></item></channel></rss>`;
+    expect(parseFribourgEventsFeed(xml)).toEqual([]);
   });
 
   it('reads the date in the feed offset, never through UTC', () => {
@@ -180,5 +194,25 @@ describe('iCMS events RSS (stadtluzern.ch termine.rss)', () => {
     expect(parseRssEventDate('2026-10-03 ')).toEqual({ day: '2026-10-03', time: undefined });
     expect(parseRssEventDate('2026-10-09 12:00:00')).toEqual({ day: '2026-10-09', time: '12:00' });
     expect(parseRssEventDate('09.10.2026')).toBeNull();
+    expect(parseRssEventDate('2026-10-10 25:99:00')).toBeNull();
+  });
+});
+
+describe('shared guards of the cantonal agenda crawlers', () => {
+  it('accepts only a wall-clock time', () => {
+    expect(isValidClockTime('00', '00')).toBe(true);
+    expect(isValidClockTime('23', '59')).toBe(true);
+    expect(isValidClockTime('24', '00')).toBe(false);
+    expect(isValidClockTime('12', '60')).toBe(false);
+  });
+
+  it('fails the step when the source document could not be fetched', () => {
+    const codes: number[] = [];
+    const setCode = (code: number) => codes.push(code);
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    expect(failIfSourceUnreachable('nw-agenda', { pagesOk: 0, pagesFail: 1, written: false }, setCode)).toBe(true);
+    expect(failIfSourceUnreachable('nw-agenda', { pagesOk: 1, pagesFail: 0, written: true }, setCode)).toBe(false);
+    expect(codes).toEqual([1]);
+    vi.restoreAllMocks();
   });
 });

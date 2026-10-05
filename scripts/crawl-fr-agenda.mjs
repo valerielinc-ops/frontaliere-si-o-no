@@ -33,6 +33,7 @@ import { pathToFileURL } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
 import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, cleanEventText } from './lib/events-utils.mjs';
+import { isValidClockTime, failIfSourceUnreachable } from './lib/icms-agenda.mjs';
 
 const SOURCE = EVENT_SOURCES['fr-agenda'];
 export const FEED_URL = 'https://www.fr.ch/evenements/rss.xml';
@@ -57,10 +58,10 @@ function isValidIsoDay(day) {
   return date.getUTCFullYear() === y && date.getUTCMonth() === m - 1 && date.getUTCDate() === d;
 }
 
-/** `2026-10-10T13:30:00+02:00` → `{ day: '2026-10-10', time: '13:30' }`, or null. */
+/** `2026-10-10T13:30:00+02:00` → `{ day: '2026-10-10', time: '13:30' }`, or null (invalid day or time). */
 export function parseFeedDateTime(raw) {
   const match = ISO_LOCAL_RE.exec(String(raw || '').trim());
-  if (!match || !isValidIsoDay(match[1])) return null;
+  if (!match || !isValidIsoDay(match[1]) || !isValidClockTime(match[2], match[3])) return null;
   const time = `${match[2]}:${match[3]}`;
   // Drupal writes a date-only event as local midnight; 00:00 carries no time.
   return { day: match[1], time: time === '00:00' ? undefined : time };
@@ -177,8 +178,9 @@ const crawler = createAgendaCrawler({
 
 async function main() {
   const dryRun = process.argv.slice(2).includes('--dry-run');
-  const { events } = await crawler.crawl({ dryRun });
-  if (dryRun) console.log(JSON.stringify(events.slice(0, 3), null, 2));
+  const result = await crawler.crawl({ dryRun });
+  failIfSourceUnreachable(SOURCE.key, result);
+  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {

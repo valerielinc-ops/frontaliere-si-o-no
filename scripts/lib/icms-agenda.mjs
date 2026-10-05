@@ -33,14 +33,23 @@ function validIsoDay(value) {
   return date.getUTCFullYear() === y && date.getUTCMonth() === m - 1 && date.getUTCDate() === d ? match[0] : null;
 }
 
+/**
+ * Wall-clock time guard shared by the cantonal agenda parsers (fr.ch and
+ * iCMS): hours 00–23, minutes 00–59. An event whose source time is out of
+ * range is rejected, never published with an impossible `startTime`.
+ */
+export function isValidClockTime(hours, minutes) {
+  const h = Number(hours);
+  const m = Number(minutes);
+  return Number.isInteger(h) && Number.isInteger(m) && h >= 0 && h <= 23 && m >= 0 && m <= 59;
+}
+
 /** "13.30 Uhr" / "9.00 Uhr" / "13:30" → "13:30"; anything else → undefined. */
 export function parseIcmsTime(raw) {
   const match = /^\s*(\d{1,2})[.:](\d{2})(?:\s*Uhr)?\s*$/i.exec(String(raw || ''));
   if (!match) return undefined;
-  const hours = Number(match[1]);
-  const minutes = Number(match[2]);
-  if (hours > 23 || minutes > 59) return undefined;
-  return `${String(hours).padStart(2, '0')}:${match[2]}`;
+  if (!isValidClockTime(match[1], match[2])) return undefined;
+  return `${String(Number(match[1])).padStart(2, '0')}:${match[2]}`;
 }
 
 /** "6370 Stans" → "Stans"; trims stray whitespace. */
@@ -136,11 +145,12 @@ function textOf(value) {
   return String(value);
 }
 
-/** "2026-10-09 12:00:00" / "2026-10-03 " → { day, time } or null. */
+/** "2026-10-09 12:00:00" / "2026-10-03 " → { day, time } or null (invalid day or time). */
 export function parseRssEventDate(raw) {
   const match = /^\s*(\d{4}-\d{2}-\d{2})(?:[ T](\d{2}):(\d{2}))?/.exec(String(raw || ''));
   const day = match && validIsoDay(match[1]);
   if (!day) return null;
+  if (match[2] !== undefined && !isValidClockTime(match[2], match[3])) return null;
   const time = match[2] ? `${match[2]}:${match[3]}` : undefined;
   return { day, time: time && time !== '00:00' ? time : undefined };
 }
@@ -193,4 +203,21 @@ export function parseIcmsTermineRss(xml, { sourceKey, canton }) {
   }
   if (skippedNoDate > 0) console.warn(`[${sourceKey}] skipped ${skippedNoDate} item(s) without a valid ev:startdate`);
   return events;
+}
+
+/**
+ * Exit status of a single-document agenda crawl. The shared factory treats a
+ * run whose every fetch failed as transient (exit 0, previous slice kept);
+ * for these one-document sources that would hide an outage indefinitely, so
+ * an unreachable source fails the step (exit 1) — still without touching the
+ * previous slice, which the factory never writes when nothing was parsed.
+ * Returns true when the failure was flagged.
+ */
+export function failIfSourceUnreachable(sourceKey, result, setExitCode = (code) => { process.exitCode = code; }) {
+  if (result && result.pagesOk === 0 && result.pagesFail > 0) {
+    console.error(`[${sourceKey}] source unreachable: ${result.pagesFail} fetch(es) failed, previous slice kept`);
+    setExitCode(1);
+    return true;
+  }
+  return false;
 }

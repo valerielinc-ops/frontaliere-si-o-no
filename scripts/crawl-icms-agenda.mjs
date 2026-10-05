@@ -10,15 +10,16 @@
  * Each source is one document fetched once per run (the whole upcoming
  * agenda is in it), parsed by scripts/lib/icms-agenda.mjs. robots.txt of the
  * three hosts is empty (no rule, no AI-bot block) as of 2026-10-05.
- * A run whose fetch fails writes nothing and exits 0 (factory contract: a
- * transient network/WAF failure keeps the previous slice); a page that loads
- * but yields zero events exits 1 (format drift), so crawl-events.yml
- * surfaces it.
+ * A run whose fetch fails writes nothing (the previous slice stays) and exits
+ * 1 (`failIfSourceUnreachable`): with one document per source, the factory's
+ * "transient, exit 0" default would hide an outage. A page that loads but
+ * yields zero events also exits 1 (format drift). Either way crawl-events.yml
+ * surfaces the failure after publication.
  */
 import { pathToFileURL } from 'node:url';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
 import { EVENT_SOURCES } from './lib/events-utils.mjs';
-import { parseIcmsAnlaesseHtml, parseIcmsTermineRss } from './lib/icms-agenda.mjs';
+import { parseIcmsAnlaesseHtml, parseIcmsTermineRss, failIfSourceUnreachable } from './lib/icms-agenda.mjs';
 
 /** Per-source fetch target and parser; keys must exist in EVENT_SOURCES. */
 export const ICMS_AGENDAS = {
@@ -57,8 +58,9 @@ async function main() {
     iterations: 1,
   });
   const dryRun = argv.includes('--dry-run');
-  const { events } = await crawler.crawl({ dryRun });
-  if (dryRun) console.log(JSON.stringify(events.slice(0, 3), null, 2));
+  const result = await crawler.crawl({ dryRun });
+  failIfSourceUnreachable(sourceKey, result);
+  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {

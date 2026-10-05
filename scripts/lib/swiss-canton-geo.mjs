@@ -25,7 +25,9 @@
  *     outside the cantonal surface) → null, never the nearest canton;
  *   - a point inside TWO cantons (a sliver where the simplified shared border
  *     overlaps, i.e. within the simplification tolerance of the real border)
- *     → null: ambiguous is not a guess.
+ *     → null: ambiguous is not a guess;
+ *   - a point exactly ON a ring edge (outer or hole) → null: ray casting would
+ *     pick a side arbitrarily, so the boundary itself counts as ambiguous.
  */
 
 import { readFileSync } from 'node:fs';
@@ -50,6 +52,21 @@ function ringBbox(ring) {
     if (y > maxY) maxY = y;
   }
   return [minX, minY, maxX, maxY];
+}
+
+/** True when (x, y) lies on a segment of the flat ring (collinear and within its extent). */
+function pointOnRingBoundary(x, y, ring) {
+  const n = ring.length;
+  for (let i = 0, j = n - 2; i < n; j = i, i += 2) {
+    const xi = ring[i];
+    const yi = ring[i + 1];
+    const xj = ring[j];
+    const yj = ring[j + 1];
+    const cross = (x - xj) * (yi - yj) - (y - yj) * (xi - xj);
+    if (Math.abs(cross) > 1e-12) continue;
+    if (x >= Math.min(xi, xj) && x <= Math.max(xi, xj) && y >= Math.min(yi, yj) && y <= Math.max(yi, yj)) return true;
+  }
+  return false;
 }
 
 /** Even-odd ray casting on a flat ring. */
@@ -118,6 +135,7 @@ export function cantonAtPoint(geo, index = loadDefaultIndex()) {
   const hits = new Set();
   for (const { code, bbox, outer, holes } of index) {
     if (lng < bbox[0] || lng > bbox[2] || lat < bbox[1] || lat > bbox[3]) continue;
+    if (pointOnRingBoundary(lng, lat, outer) || holes.some((hole) => pointOnRingBoundary(lng, lat, hole))) return null;
     if (!pointInRing(lng, lat, outer)) continue;
     if (holes.some((hole) => pointInRing(lng, lat, hole))) continue;
     hits.add(code);
