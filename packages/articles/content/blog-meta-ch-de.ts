@@ -7724,6 +7724,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.veicoli-berna-calcolo-pratico.title': 'Motorfahrzeugsteuer in Bern: Berechnung und Zahlung',
     'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Im Kanton Bern richten sich Kriterien, Fristen, Beträge und die Kfz-Steuerstelle nach den kantonalen Regelungen.',
     'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Auto und Unterlagen zur kantonalen Motorfahrzeugsteuer in Bern.',
+    'blog.article.prezzi-pellet-ticino-aumenti.title': 'Pelletpreise im Tessin: Preissteigerungen und Winterkäufe',
+    'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analyse der Pelletpreise im Tessin mit geschätzten Preissteigerungen zwischen 5% und 10% und Empfehlungen für Käufe vor dem Winter.',
+    'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Holzpellet-Lager im Tessin mit Säcken und Schüttgut',
 };
 
 export default blogMetaChDe;

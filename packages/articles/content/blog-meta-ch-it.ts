@@ -7724,6 +7724,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.veicoli-berna-calcolo-pratico.title': 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
     'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Nel Cantone di Berna criteri, scadenze, importi e ufficio per l\'imposta sugli autoveicoli dipendono dalle regole cantonali.',
     'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Documenti e auto per l\'imposta cantonale sugli autoveicoli a Berna.',
+    'blog.article.prezzi-pellet-ticino-aumenti.title': 'Prezzi pellet in Ticino: rincari e acquisti invernali',
+    'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analisi dei prezzi del pellet in Ticino con rincari stimati tra il 5% e il 10% e raccomandazioni per gli acquisti prima dell\'inverno.',
+    'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Deposito di pellet di legno in Ticino con sacchi e stoccaggio',
 };
 
 export default blogMetaChIt;
