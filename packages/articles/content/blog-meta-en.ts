@@ -12552,6 +12552,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uyba-esordio-pari-novara.title': 'Uyba make an even debut against Novara: Igor win in the tie-break',
     'blog.article.uyba-esordio-pari-novara.excerpt': 'Laica Busto Arsizio lose 3-2 in the tie-break against Igor Novara at the Biella Forum in front of 1679 spectators; Grozer finishes with 26 points and Uyba earn a point.',
     'blog.article.uyba-esordio-pari-novara.imageAlt': 'Uyba and Novara players in action at the Biella Forum during the first set, with fans in the stands',
+    'blog.article.gran-fondo-varese-2025.title': 'Varese: Record-breaking Gran Fondo with 5.000 registrants',
+    'blog.article.gran-fondo-varese-2025.excerpt': 'Tenth edition concluded on October 4: 2.000 foreign participants and victories for Ferraro Morey and Rumasaite.',
+    'blog.article.gran-fondo-varese-2025.imageAlt': 'Cyclists racing on the Varese road during the Gran Fondo Tre Valli Varesine',
 };
 
 export default blogMetaEn;

@@ -98687,6 +98687,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gran-fondo-varese-2025': {
+    title: 'Varese: Gran Fondo da record con 5.000 iscritti',
+    description: 'Decima edizione della Gran Fondo Tre Valli Varesine chiusa il 4 ottobre: 5.000 iscritti, 2.000 stranieri e 25 nazioni. Vittorie di Ferraro Morey e Rumasaite.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, gran, fondo, record',
+    ogTitle: 'Varese: Gran Fondo da record con 5.000 iscritti',
+    ogDescription: 'La decima edizione della Gran Fondo Tre Valli Varesine ha battuto ogni record: 5.000 iscritti da oltre 25 nazioni. Domenica 4 ottobre, vittoria di Alessio Ferraro Morey e della lituana Rasa Rumasaite nella prova regina di 130 km.',
+    canonicalPath: '/articoli-frontaliere/gran-fondo-varese-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Gran Fondo da record con 5.000 iscritti",
+      "description": "Decima edizione della Gran Fondo Tre Valli Varesine chiusa il 4 ottobre: 5.000 iscritti, 2.000 stranieri e 25 nazioni. Vittorie di Ferraro Morey e Rumasaite.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gran-fondo-varese-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti in gara sulla strada di Varese durante la Gran Fondo Tre Valli Varesine"
+      },
+      "datePublished": "2026-10-05T00:34:02+00:00",
+      "dateModified": "2026-10-05T00:34:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gran-fondo-varese-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
