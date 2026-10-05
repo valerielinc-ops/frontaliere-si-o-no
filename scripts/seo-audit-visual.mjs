@@ -55,7 +55,7 @@ const URLS = [
   // Other
   { url: `${BASE}/confronti-frontalieri/`, type: 'comparisons' },
   { url: `${BASE}/premi-cassa-malati/`, type: 'health-premiums' },
-  { url: `${BASE}/guida-frontaliere/tempi-attesa-dogana/`, type: 'guide-border-wait' },
+  { url: `${BASE}/traffico-dogane/`, type: 'guide-border-wait' },
   { url: `${BASE}/statistiche/prezzi-benzina-confine/`, type: 'stats-fuel' },
 ];
 

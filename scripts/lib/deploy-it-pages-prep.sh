@@ -77,6 +77,25 @@ source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
+
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
 # see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
 # in-process export is essential: the monolith propagated CDN_BASE/TAR_BYTES
@@ -227,7 +246,9 @@ _publish_cdn_r2() {
   # (marker withheld, the full prep retries the push), a ledger read falls back
   # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
   # as the last backstop.
-  local _t_obj="${R2_TIMEOUT_OBJECT_S:-60}" _t_purge="${R2_TIMEOUT_PURGE_S:-300}"
+  local _t_obj _t_purge
+  _t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+  _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
@@ -529,7 +550,9 @@ _janitor_cdn_r2() {
   local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
   # Wall-clock limits (NX-SKEW-2b, see _publish_cdn_r2): this scan runs inside
   # the deploy's CDN push step on every deploy. Its listing measured 42-53 s.
-  local t_list="${R2_TIMEOUT_LIST_S:-180}" t_obj="${R2_TIMEOUT_OBJECT_S:-60}"
+  local t_list t_obj
+  t_list="$(_r2_timeout_s R2_TIMEOUT_LIST_S 180)"
+  t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
 
   local active_list; active_list="$(mktemp)"
   ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true
