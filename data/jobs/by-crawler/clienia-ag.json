@@ -1598,9 +1598,7 @@
         "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
         "medico-specializzando-60-100-clienia-ag-pfaffikon",
         "resident-physician-60-100-clienia-ag-pfaffikon",
-        "medical-interne-60-100-clienia-ag-pfaffikon",
-        "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh",
-        "assistenzarztin-assistenzarzt-100-clienia-ag-pfaffikon"
+        "medical-interne-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:08.339Z",
       "salaryMin": 91500,
@@ -6723,14 +6721,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-pfaffikon",
-        "infermiere-diplomato-pedagogo-sociale-sss-sup-m-f-d-60-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-pfaffikon",
-          "infermiere-diplomato-pedagogo-sociale-sss-sup-m-f-d-60-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-sozialpadagoge-in-hf-fh-m-w-d-60-clienia-ag-pfaffikon"
@@ -7322,12 +7318,12 @@
     },
     {
       "id": "clienia-ag-410f5795d777",
-      "slug": "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon",
+      "slug": "addetto-a-all-amministrazione-del-paziente-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon",
-        "en": "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon",
+        "it": "addetto-a-all-amministrazione-del-paziente-80-100-clienia-ag-pfaffikon-zh",
+        "en": "patient-administration-clerk-80-100-clienia-ag-pfaffikon-zh",
         "de": "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-zurich",
-        "fr": "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon"
+        "fr": "responsable-de-l-administration-des-patients-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7372,11 +7368,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-zurich"
+        "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-zurich",
+        "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-zurich"
+          "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-zurich",
+          "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenadministration-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-28T21:18:59.636Z",

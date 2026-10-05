@@ -9435,12 +9435,12 @@
     },
     {
       "id": "unispital-basel-91b0d55cb4a8",
-      "slug": "doktorand-in-kardiologie-unispital-basel-ch",
+      "slug": "dottorando-in-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "doktorand-in-kardiologie-unispital-basel-ch",
-        "en": "doktorand-in-kardiologie-unispital-basel-ch",
+        "it": "dottorando-in-cardiologia-universitatsspital-basel-basel",
+        "en": "doctoral-student-in-cardiology-universitatsspital-basel-basel",
         "de": "doktorand-in-kardiologie-unispital-basel-ch",
-        "fr": "doktorand-in-kardiologie-unispital-basel-ch"
+        "fr": "doctorant-e-en-cardiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9497,7 +9497,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-kardiologie-unispital-basel-ch"
+        ],
+        "en": [
+          "doktorand-in-kardiologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "doktorand-in-kardiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-kardiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-6629f9e0f44e",

@@ -5522,12 +5522,12 @@
     },
     {
       "id": "interdiscount-455b8875-1a4",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
+      "slug": "responsabile-del-commercio-al-dettaglio-afc-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount",
       "slugByLocale": {
         "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
-        "it": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-lausanne-gare",
-        "en": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
-        "de": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        "it": "responsabile-del-commercio-al-dettaglio-afc-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount",
+        "en": "retail-manager-swc-designing-and-conducting-purchasing-experiences-interdiscount-lausanne-gare",
+        "de": "detailhandelsmanager-efz-konzeption-und-realisierung-von-einkaufserlebnissen-interdiscount-lausanne-gare"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -5603,7 +5603,23 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-lausanne-gare",
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "en": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "de": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-lausanne-gare",
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+      ]
     },
     {
       "id": "interdiscount-84b5d509-2ec",

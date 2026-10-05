@@ -1225,9 +1225,9 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1373356957",
-      "slug": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "responsabile-della-riassicurazione-ceduta-al-100-zurich-insurance-zurich-1373356957",
       "slugByLocale": {
-        "it": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
+        "it": "responsabile-della-riassicurazione-ceduta-al-100-zurich-insurance-zurich-1373356957",
         "en": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
         "de": "ceded-ruckversicherungsmanager-100-zurich-insurance-zurich-1373356957",
         "fr": "ceded-reassurance-manager-100-zurich-insurance-zurich-1373356957"
@@ -1288,7 +1288,15 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373274457",
