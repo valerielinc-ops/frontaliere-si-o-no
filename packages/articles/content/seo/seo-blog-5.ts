@@ -98925,6 +98925,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-magrini-cultura-provincia-varese': {
+    title: 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
+    description: 'Il presidente della Provincia di Varese Marco Magrini risponde alla Regione: fondo da 100mila euro e investimenti per la candidatura a Capitale della cultura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, magrini, provincia, investe',
+    ogTitle: 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
+    ogDescription: 'Il presidente della Provincia di Varese Marco Magrini risponde alla Regione: fondo da 100mila euro e investimenti per la candidatura a Capitale della cultura.',
+    canonicalPath: '/articoli-frontaliere/magrini-cultura-provincia-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, Magrini: 'La Provincia investe già sulla cultura'",
+      "description": "Il presidente della Provincia di Varese Marco Magrini risponde alla Regione: fondo da 100mila euro e investimenti per la candidatura a Capitale della cultura.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/magrini-cultura-provincia-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il presidente della Provincia di Varese Marco Magrini durante una conferenza stampa"
+      },
+      "datePublished": "2026-10-05T04:21:20+00:00",
+      "dateModified": "2026-10-05T04:21:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/magrini-cultura-provincia-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

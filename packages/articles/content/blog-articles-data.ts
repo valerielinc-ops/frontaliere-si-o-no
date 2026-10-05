@@ -37738,6 +37738,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'magrini-cultura-provincia-varese',
+ category: 'novita',
+ date: '2026-10-05T04:21:20.033Z',
+ image: '/images/blog/magrini-cultura-provincia-varese.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
