@@ -19,11 +19,9 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    # Alzato 5->8min: il Checkout da solo arriva gia' al 55% del vecchio cap
-    # (vedi tetto sullo step sotto) — stesso sintomo di #5659 (Checkout che
-    # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
-    # che diventi un timeout osservato. Il job stesso, nel run piu' lento
-    # campionato, ha gia' usato l'83% del vecchio cap (249s su 300s).
+    # Il checkout generato resta pieno quando il profilo analizzato ricadrebbe
+    # nella fascia lenta: il controllo locale è ~20s, contro 299s del profilo
+    # sparse osservato nella run 37197962007.
     # The snapshot push hit the 8-minute cap after 6m26s of contention
     # retries (#10545); retain the Checkout guard but give the job push room.
     timeout-minutes: 15
@@ -32,33 +30,13 @@ jobs:
         uses: actions/checkout@v7
         with:
           persist-credentials: false
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
         # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori (stesso bug class di #5659). 5min stanno sopra il
-        # massimo osservato sui run sani (135-166s su 5 run) e sotto il nuovo
-        # cap del job. NIENTE `filter: blob:none`: con `fetch-depth: 1`
-        # (default) e' un peggioramento misurato (+125% su tests.yml, #5164).
+        # margine ampio sul checkout pieno misurato localmente. NIENTE
+        # `filter: blob:none`: con `fetch-depth: 1` (default) e' un
+        # peggioramento misurato quando la maggior parte dei blob serve.
         timeout-minutes: 5
 
       - uses: actions/setup-node@v7
@@ -133,6 +111,7 @@ jobs:
             --body-file "$body"
 
       - name: Report failure to GitHub Issues
+        id: report_failure
         if: failure()
         continue-on-error: true
         env:
@@ -147,3 +126,37 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Report failure without checkout (fallback)
+        # Se il checkout/setup fallisce, lo script nel workspace non esiste.
+        # Recupera solo il creator alla SHA della run: gh e Node sono già
+        # disponibili sul runner, quindi il segnalatore non dipende dal repo.
+        if: >-
+          always() && !cancelled() && failure() &&
+          steps.report_failure.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ALARM_SHA: ${{ github.sha }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          creator=scripts/lib/github-issue-creator.mjs
+          if [ ! -s "$creator" ]; then
+            creator="$RUNNER_TEMP/github-issue-creator.mjs"
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/${GH_REPO}/contents/scripts/lib/github-issue-creator.mjs?ref=${ALARM_SHA}" \
+              > "$creator" || true
+          fi
+          if [ ! -s "$creator" ]; then
+            echo "::error title=Exchange failure not reported::il creator delle issue non è leggibile né dal checkout né via API; apri a mano ${ALARM_RUN_URL}"
+            exit 0
+          fi
+          node "$creator" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "Il workflow è rosso ma il checkout non ha reso disponibile il reporter principale. Run: ${ALARM_RUN_URL}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}" \
+            || echo "::error title=Exchange failure not reported::il creator è uscito non-zero; apri a mano ${ALARM_RUN_URL}"
