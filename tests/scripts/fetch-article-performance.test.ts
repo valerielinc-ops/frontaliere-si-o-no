@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 // Pure-function tests for the article-performance pipeline. We exercise the
 // scoring math, fingerprint extraction, newsletter filter contract, and the
 // graceful-empty-shape contract. We deliberately avoid the network helpers
-// (gsc/ga4/posthog/adsense) which are integration code.
+// (gsc/ga4/adsense) which are integration code.
 
 import * as scoring from '../../scripts/lib/perf-sources/scoring.mjs';
 import * as discovery from '../../scripts/lib/perf-sources/articleDiscovery.mjs';
@@ -192,14 +192,14 @@ describe('fetch-article-performance / newsletter filter', () => {
       sources: {
         gsc: { ok: false, reason: 'no token' },
         ga4: { ok: false, reason: 'no prop' },
-        posthog: { ok: false, reason: 'no key' },
         adsense: { ok: false, reason: 'no token' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
     });
     expect(out.filters.newsletter.applied).toBe(true);
     expect(out.filters.newsletter.method).toMatch(/utm_medium=newsletter/);
-    expect(out.filters.newsletter.method).toMatch(/GA4 \+ PostHog/);
+    expect(out.filters.newsletter.method).toMatch(/GA4/);
+    expect(out.filters.newsletter.method).not.toMatch(/PostHog/);
   });
 });
 
@@ -212,7 +212,6 @@ describe('fetch-article-performance / graceful empty', () => {
       sources: {
         gsc: { ok: false, reason: 'no token' },
         ga4: { ok: false, reason: 'no prop' },
-        posthog: { ok: false, reason: 'no key' },
         adsense: { ok: false, reason: 'no token' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
@@ -225,7 +224,8 @@ describe('fetch-article-performance / graceful empty', () => {
     expect(out.winnerFingerprint).toBeDefined();
     expect(out.sources.gsc.ok).toBe(false);
     expect(out.sources.ga4.ok).toBe(false);
-    expect(out.sources.posthog.ok).toBe(false);
+    // PostHog is no longer a source (decisione H9 2026-10-05).
+    expect(out.sources).not.toHaveProperty('posthog');
     expect(out.sources.adsense.ok).toBe(false);
     // Score formula stays consistent with the spec literal so the agent's
     // documentation gate and consumers can rely on it.
@@ -254,7 +254,6 @@ describe('fetch-article-performance / determinism', () => {
     const sources = {
       gsc: { ok: true, rows: 3, perPath: gscPerPath },
       ga4: { ok: false, reason: 'skipped' },
-      posthog: { ok: false, reason: 'skipped' },
       adsense: { ok: false, reason: 'skipped' },
     };
     const a = JSON.stringify(aggregate({ articles, seoMeta, sources, generatedAt: '2026-05-06T00:00:00Z' }), null, 2);
@@ -353,7 +352,6 @@ describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
       sources: {
         gsc: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/a/', { clicks: 100, impressions: 1000, ctr: 0.1, position: 5 }]]) },
         ga4: { ok: false, reason: 'skipped' },
-        posthog: { ok: false, reason: 'skipped' },
         adsense: { ok: false, reason: 'skipped' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
@@ -394,7 +392,6 @@ describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
           ['/articoli-frontaliere/permit/', { clicks: 50,  impressions: 500,  ctr: 0.10, position: 10 }],
         ]) },
         ga4: { ok: false, reason: 'skipped' },
-        posthog: { ok: false, reason: 'skipped' },
         adsense: { ok: false, reason: 'skipped' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
@@ -455,7 +452,6 @@ describe('fetch-article-performance / aggregate cluster case fix', () => {
           ['/articoli-frontaliere/b/', { clicks: 50,  impressions: 500,  ctr: 0.10, position: 8 }],
         ]) },
         ga4: { ok: false, reason: 'skipped' },
-        posthog: { ok: false, reason: 'skipped' },
         adsense: { ok: false, reason: 'skipped' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
@@ -480,7 +476,6 @@ describe('fetch-article-performance / aggregate cluster case fix', () => {
       sources: {
         gsc: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/pen/', { clicks: 100, impressions: 1000, ctr: 0.10, position: 5 }]]) },
         ga4: { ok: false, reason: 'skipped' },
-        posthog: { ok: false, reason: 'skipped' },
         adsense: { ok: false, reason: 'skipped' },
       },
       generatedAt: '2026-05-06T00:00:00Z',
@@ -630,5 +625,46 @@ describe('article revenue attribution', () => {
     expect(result.winners[0].metrics).toMatchObject({ adsenseRevenue: 5, adsenseRevenueAttribution: 'estimated_view_share', adsenseCurrencyCode: 'EUR' });
     expect(result.revenueAttribution.measuredPerPage).toBe(false);
     expect(result.sources.adsense).toMatchObject({ currencyCode: 'EUR', revenueScope: 'all_url_channels_fallback', coverage: { complete: false }, warnings: ['Partial report'] });
+  });
+});
+
+// ── GA4 replaces PostHog (decisione H9 2026-10-05) ─────────────
+describe('fetch-article-performance / GA4 only', () => {
+  it('reads pageviews from GA4 and never from a PostHog source', () => {
+    const articles = [
+      { slug: 'a', locale: 'it', url: 'https://frontaliereticino.ch/articoli-frontaliere/a/', title: 'A', excerpt: 'A' },
+      { slug: 'b', locale: 'it', url: 'https://frontaliereticino.ch/articoli-frontaliere/b/', title: 'B', excerpt: 'B' },
+    ];
+    const seoMeta = new Map([
+      ['a', { cluster: 'Fiscale', publishedAt: '2025-01-01' }],
+      ['b', { cluster: 'Fiscale', publishedAt: '2025-01-01' }],
+    ]);
+    const out = aggregate({
+      articles,
+      seoMeta,
+      sources: {
+        gsc: { ok: false, reason: 'skipped' },
+        ga4: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/a/', { pageviews: 40 }]]) },
+        // A caller still passing the retired source must not leak it into rows.
+        posthog: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/b/', { pageviews: 999, scrollP50: 0.9 }]]) },
+        adsense: { ok: false, reason: 'skipped' },
+      },
+      generatedAt: '2026-10-05T00:00:00Z',
+    });
+    type OutRow = { slug: string; metrics: { pageviews: number | null; scrollP50: number | null } };
+    const all: OutRow[] = [...out.winners, ...out.losers];
+    const rowA = all.find((r) => r.slug === 'a');
+    expect(rowA?.metrics.pageviews).toBe(40);
+    // `b` only had PostHog pageviews: with PostHog ignored it carries no metric.
+    expect(all.find((r) => r.slug === 'b')).toBeUndefined();
+    for (const r of all) expect(r.metrics.scrollP50).toBeNull();
+  });
+
+  it('the script no longer imports a PostHog reader', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { resolve } = await import('node:path');
+    const source = readFileSync(resolve(__dirname, '../../scripts/fetch-article-performance.mjs'), 'utf8');
+    expect(source).not.toMatch(/perf-sources\/posthog\.mjs|posthog-client\.mjs|checkPostHogLiveness|HogQLQuery/);
+    expect(source).toMatch(/fetchGa4ByPage\(/);
   });
 });
