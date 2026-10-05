@@ -26,6 +26,7 @@
  *
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -65,7 +66,7 @@ function normalize(value = '') {
  * Parse "DD.MM.YYYY" → "YYYY-MM-DD". Returns '' on failure.
  */
 export function parseDate(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
   return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
 }
@@ -623,7 +624,6 @@ export async function fetchAllHirslandenJobs() {
         continue;
       }
 
-      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${HIRSLANDEN_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
@@ -656,7 +656,7 @@ export async function fetchAllHirslandenJobs() {
         experienceLevel: detectExperienceLevel(title),
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(listing.postedDate),
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',

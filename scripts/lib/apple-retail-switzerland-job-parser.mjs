@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -372,9 +373,9 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     const jobSlug = slugify(`${title} apple-retail-switzerland ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = listing.postDateInGMT
-      ? String(listing.postDateInGMT).slice(0, 10)
-      : new Date().toISOString().split('T')[0];
+    // The field explicitly specifies GMT; a timezone-free timestamp is UTC.
+    const postedGmt = typeof listing.postDateInGMT === 'string' ? listing.postDateInGMT.trim() : '';
+    const publication = sourcePostingDateCandidatesFields([postedGmt, `${postedGmt}Z`]);
 
     const job = {
       // ── Required fields ──
@@ -411,7 +412,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
       sector: 'Retail',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

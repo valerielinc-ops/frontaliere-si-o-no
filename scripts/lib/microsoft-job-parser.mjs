@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { normalizeCantonCode, canonicalSwissCityName } from './target-swiss-locations.mjs';
@@ -311,9 +312,6 @@ export async function fetchAllMicrosoftJobs() {
     positions = await fetchSwissPositions();
   } catch (err) {
     console.error(`❌ Eightfold PCS fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   if (positions.length === 0) {
@@ -349,11 +347,13 @@ export async function fetchAllMicrosoftJobs() {
     const slugCity = location && location !== 'Switzerland' ? location : 'switzerland';
     const jobSlug = slugify(`${title} microsoft ${slugCity}`);
 
-    const postedTs = Number(pos.postedTs || pos.creationTs || 0);
-    const postedDate =
-      postedTs > 0
-        ? new Date(postedTs * 1000).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0];
+    // PCS postedTs is expressed in epoch seconds; creationTs is not publication.
+    const postedTs = typeof pos.postedTs === 'number' ? pos.postedTs : NaN;
+    const postedInstant = new Date(postedTs * 1000);
+    const publication = sourcePostingDateFields(
+      Number.isFinite(postedTs) && postedTs > 0 && Number.isFinite(postedInstant.getTime())
+        ? postedInstant.toISOString() : '',
+    );
 
     const job = {
       // ── Required fields ──
@@ -386,7 +386,7 @@ export async function fetchAllMicrosoftJobs() {
       sector: 'Altro',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

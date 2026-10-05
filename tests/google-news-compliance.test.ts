@@ -30,6 +30,10 @@ import * as path from 'node:path';
 import { ARTICLES, type Article } from '@/data/blog-articles-data';
 import { AUTHORS, getAuthorBySlug } from '@/data/authors';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
+import { BLOG_SLUGS } from '@/services/routerBlogData';
+import { isUnknownArticleDate } from '@/services/articleSourceDates';
+import { RSS_SECTIONS } from '../packages/articles/engine/rssFeeds.mjs';
+import { findAllSeoEntryMatches } from '../packages/articles/engine/shared/seo-entry.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -243,14 +247,73 @@ describe('Google News compliance — E1', () => {
   // ────────────────────────────────────────────────────────────────────────
 
   describe('Suite 2 — Date compliance', () => {
-    it('every article has a parseable ISO 8601 date (publication)', () => {
-      const offenders = ARTICLES.filter((a) => !isValidIsoDate(a.date)).map(
-        (a) => `  - ${a.id}: date=${JSON.stringify(a.date)}`,
-      );
+    // `date: ''` is the corpus marking the publication date UNKNOWN (corpus
+    // PR 2082: it does not invent dates it cannot verify). That is a valid
+    // state with its own obligations, checked below; any OTHER non-ISO value —
+    // malformed, partial, `undefined` — is still an error.
+    it('every article has a parseable ISO 8601 date (publication) or is marked unknown', () => {
+      const offenders = ARTICLES.filter(
+        (a) => !isValidIsoDate(a.date) && !isUnknownArticleDate(a.date),
+      ).map((a) => `  - ${a.id}: date=${JSON.stringify(a.date)}`);
       expect(
         offenders.length,
         `${offenders.length} article(s) have an invalid/missing date:${summarize(offenders)}`,
       ).toBe(0);
+    });
+
+    // An unknown publication date must not be re-invented downstream. The
+    // article page JSON-LD (`ogPagesPlugin`) and the RSS feeds read
+    // `datePublished` from the SEO entry, so the SEO entry must not carry one;
+    // `dateModified` is legitimate only when the registry documents a real
+    // `updatedAt` (an update date is not a publication date).
+    describe('articles with an unknown publication date', () => {
+      const unknown = ARTICLES.filter((a) => isUnknownArticleDate(a.date));
+      const frontaliere = RSS_SECTIONS.find((section) => section.id === 'frontaliere')!;
+      const seoBlocks = new Map<string, string>();
+      for (const file of frontaliere.seoFiles as string[]) {
+        const abs = path.join(ROOT, 'services', 'seo', file);
+        if (!fs.existsSync(abs)) continue;
+        const src = fs.readFileSync(abs, 'utf-8');
+        for (const { id, index, closeIdx } of findAllSeoEntryMatches(src, abs)) {
+          seoBlocks.set(id, src.slice(index, closeIdx + 1));
+        }
+      }
+      const urlsOf = (id: string): string[] =>
+        Object.values((BLOG_SLUGS as Record<string, Record<string, string>>)[id] ?? { it: id })
+          .map((slug) => `/${slug}/`);
+
+      it('carry no datePublished (nor an undocumented dateModified) in their SEO entry', () => {
+        expect(seoBlocks.size, 'SEO entries were read').toBeGreaterThan(0);
+        const offenders: string[] = [];
+        for (const a of unknown) {
+          const block = seoBlocks.get(a.id);
+          if (!block) continue;
+          if (/"datePublished"\s*:/.test(block)) offenders.push(`  - ${a.id}: SEO entry has datePublished`);
+          if (!isValidIsoDate(a.updatedAt) && /"dateModified"\s*:/.test(block)) {
+            offenders.push(`  - ${a.id}: SEO entry has dateModified without a registry updatedAt`);
+          }
+        }
+        expect(offenders, `unknown-date articles with an invented schema date:${summarize(offenders)}`).toEqual([]);
+      });
+
+      // The published feeds are pulled from the corpus into public/ (tracked);
+      // a sparse local checkout may lack them, CI never does.
+      const feedFiles = ['sitemap-news.xml', 'rss.xml', 'rss-it.xml', 'rss-en.xml', 'rss-de.xml', 'rss-fr.xml']
+        .map((name) => path.join(PUBLIC_DIR, name))
+        .filter((abs) => fs.existsSync(abs));
+
+      it.skipIf(feedFiles.length === 0)('are absent from the Google News sitemap and the RSS feeds', () => {
+        const offenders: string[] = [];
+        for (const abs of feedFiles) {
+          const xml = fs.readFileSync(abs, 'utf-8');
+          for (const a of unknown) {
+            // `<loc>…/slug/</loc>`, `<link>…/slug/</link>` or `href="…/slug/"`.
+            const hit = urlsOf(a.id).find((url) => xml.includes(`${url}<`) || xml.includes(`${url}"`));
+            if (hit) offenders.push(`  - ${a.id}: ${path.basename(abs)} lists ${hit}`);
+          }
+        }
+        expect(offenders, `unknown-date articles in a dated feed:${summarize(offenders)}`).toEqual([]);
+      });
     });
 
     it('every article datePublished is in the past (no future-dated articles)', () => {

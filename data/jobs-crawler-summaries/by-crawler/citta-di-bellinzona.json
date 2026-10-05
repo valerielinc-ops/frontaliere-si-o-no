@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-04T09:12:20.982Z",
+  "generatedAt": "2026-10-04T21:15:47.099Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9844,
-  "avgDurationMs": 9844,
+  "durationMs": 5844,
+  "avgDurationMs": 5844,
   "durationHistory": [
-    9844
+    5844
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,14 +43,17 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:12:09.146Z",
+      "crawledAt": "2026-10-04T21:15:37.021Z",
       "firstSeenAt": "2026-09-18T23:10:50.201Z",
-      "_qualityScore": 92,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 18
+        "completeness": 23
       }
     },
     {
@@ -80,14 +83,17 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:12:11.328Z",
+      "crawledAt": "2026-10-04T21:15:37.544Z",
       "firstSeenAt": "2026-10-03T09:11:46.377Z",
-      "_qualityScore": 88,
+      "salaryMin": 34000,
+      "salaryMax": 51500,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 18
+        "completeness": 23
       }
     },
     {
@@ -117,18 +123,21 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:12:11.920Z",
+      "crawledAt": "2026-10-04T21:15:37.786Z",
       "firstSeenAt": "2026-10-03T09:11:46.572Z",
-      "_qualityScore": 92,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 18
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

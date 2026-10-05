@@ -26,6 +26,9 @@
  * - isTrustedDomain()          — Validate URLs belong to ag.ch
  * - KANTON_AARGAU_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import {
   slugify,
@@ -300,7 +303,6 @@ export async function fetchAllKantonAargauJobs() {
     throw new Error(`Kanton Aargau job-market API reports ${total} vacancies but returned ${entries.length} usable ones; keeping the existing slice.`);
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const entry of entries) {
@@ -308,7 +310,17 @@ export async function fetchAllKantonAargauJobs() {
     // (the fetch error propagates) or that carries no ad body is fatal: a
     // title-and-metadata stand-in would publish a JobPosting below the content
     // floor in place of the ad the slice already holds.
-    const detail = extractAgJobPosting(await fetchDetailHtml(entry.url));
+    const detailHtml = await fetchDetailHtml(entry.url);
+    const detail = extractAgJobPosting(detailHtml);
+    const posting = extractJobPostingLd(detailHtml);
+    const explicitUrls = [posting?.url, posting?.sameAs].filter(Boolean);
+    let sameUrl = explicitUrls.length === 0 && extractPostingRecords(detailHtml, entry.url).length === 1;
+    if (explicitUrls.length) {
+      try { sameUrl = explicitUrls.every((value) => new URL(value, entry.url).href === new URL(entry.url).href); }
+      catch { sameUrl = false; }
+    }
+    const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(entry.title).toLowerCase();
+    const publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
     if (!detail.description) {
       throw new Error(`Kanton Aargau vacancy ${entry.id} has no ad body at ${entry.url}; keeping the existing slice.`);
     }
@@ -328,7 +340,6 @@ export async function fetchAllKantonAargauJobs() {
     const sourceLang = 'de';
     const jobSlug = slugify(`${entry.title} kanton-aargau ch`);
     const urlHash = createHash('sha1').update(`kanton-aargau-job-${entry.id}`).digest('hex').slice(0, 12);
-    const postedDate = (detail?.datePosted || entry.startDate || '').slice(0, 10) || todayIso;
     const employmentType = /teilzeit|part/i.test(detail?.employmentType || '') ? 'PART_TIME'
       : (/full|voll/i.test(detail?.employmentType || '') ? 'FULL_TIME' : detectEmploymentType(`${entry.title} ${entry.pensum}`));
 
@@ -364,7 +375,7 @@ export async function fetchAllKantonAargauJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       ...(detail?.validThrough || entry.endDate ? { validThrough: (detail?.validThrough || entry.endDate) } : {}),
       applyUrl: entry.url,
       requirements: [],

@@ -20,6 +20,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -246,9 +248,6 @@ export async function fetchAllZermattBergbahnenJobs() {
     html = extractListingHtml(raw);
   } catch (err) {
     console.warn(`  Failed to fetch ${CAREERS_TAB_URL}: ${err.message}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   } finally {
     // Restore original TLS setting
@@ -266,6 +265,7 @@ export async function fetchAllZermattBergbahnenJobs() {
   const jobs = [];
   for (const listing of listings) {
     let description = '';
+    let publication = mergeSourcePostingDates();
     if (listing.url) {
       try {
         // Detail pages may also have SSL issues
@@ -274,6 +274,13 @@ export async function fetchAllZermattBergbahnenJobs() {
         try {
           const detailHtml = await fetchHtml(listing.url, { timeoutMs: 15000 });
           description = parseDetailPage(detailHtml);
+          const records = extractJsonLd(detailHtml, listing.url);
+          const matched = records.find(record => {
+            if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(listing.title).toLowerCase()) return false;
+            if (!record.urlExplicit) return records.length === 1;
+            try { return new URL(record.url, listing.url).href === new URL(listing.url).href; } catch { return false; }
+          });
+          publication = mergeSourcePostingDates({}, matched);
         } finally {
           if (origTls2 === undefined) {
             delete process.env.NODE_TLS_REJECT_UNAUTHORIZED;
@@ -320,7 +327,7 @@ export async function fetchAllZermattBergbahnenJobs() {
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title, listing.tags),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Zermatt Bergbahnen Dedicated Parser',

@@ -31,6 +31,8 @@
  * `spital-sts-job-parser.mjs` (which uses the same SSR fallback after the
  * /medium API was deprecated).
  */
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -190,14 +192,14 @@ export function buildPblDetailDescription(html, { title = '', fallbackTeaser = '
   return [fallbackTeaser, text].filter(Boolean).join('\n\n').trim();
 }
 
-async function fetchDetailDescription(detailUrl, fallbackTeaser, title = '') {
-  if (!detailUrl) return fallbackTeaser || '';
+async function fetchDetailData(detailUrl, fallbackTeaser, title = '') {
+  if (!detailUrl) return { description: fallbackTeaser || '', ...sourcePostingDateFields() };
   try {
     const html = await fetchHtml(detailUrl);
-    return buildPblDetailDescription(html, { title, fallbackTeaser });
+    return { description: buildPblDetailDescription(html, { title, fallbackTeaser }), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ PBL detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return fallbackTeaser || '';
+    return { description: fallbackTeaser || '', ...sourcePostingDateFields() };
   }
 }
 
@@ -263,14 +265,14 @@ export async function fetchAllPblJobs() {
   if (!all.length) return [];
 
   const jobs = [];
-  const todayIso = new Date().toISOString().slice(0, 10);
   let detailHits = 0;
   for (let i = 0; i < all.length; i += 1) {
     const r = all[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
     const fallback = `${r.title} — ${PBL_COMPANY_NAME}, ${r.workplace || 'Liestal'}.`;
-    const desc = await fetchDetailDescription(r.detailUrl, fallback, r.title);
+    const detail = await fetchDetailData(r.detailUrl, fallback, r.title);
+    const desc = detail.description;
     if (desc && desc.length > fallback.length + 20) detailHits += 1;
     const safeDescription = desc && desc.split(/\s+/).length >= 30
       ? desc
@@ -316,7 +318,7 @@ export async function fetchAllPblJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

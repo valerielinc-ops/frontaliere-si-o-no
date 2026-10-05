@@ -34,6 +34,7 @@
  *   - isTrustedDomain()             -- Validate URLs belong to this employer
  *   - slugify() / stripHtml()       -- Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -262,9 +263,6 @@ export async function fetchAllEtatDeFribourgJobs() {
       if (rows.length < PAGE_SIZE) break; // last page
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch listing page startrow=${startrow}: ${err.message}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
       throw err;
     }
   }
@@ -371,7 +369,7 @@ export async function fetchAllEtatDeFribourgJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate: detail?.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

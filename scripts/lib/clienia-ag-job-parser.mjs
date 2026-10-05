@@ -16,6 +16,7 @@
  * time), so each detail page is scraped for the «Ihre Aufgaben» / «Ihr
  * Profil» / «Unser Angebot» content blocks via a text-region heuristic.
  */
+import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
@@ -136,7 +137,6 @@ export async function fetchAllCleniaAgJobs() {
   warnIfListingAtCap({ label: 'Clienia AG WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const item of listings) {
@@ -163,10 +163,7 @@ export async function fetchAllCleniaAgJobs() {
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${CLIENIA_AG_KEY} zurich`);
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
-    const postedDate = (() => {
-      const d = new Date(item?.date || '');
-      return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
-    })();
+    const publication = wordpressPublicationDateFields(item);
 
     jobs.push({
       id: `${CLIENIA_AG_KEY}-${urlHash}`,
@@ -201,7 +198,7 @@ export async function fetchAllCleniaAgJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

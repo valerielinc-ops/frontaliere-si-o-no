@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -352,10 +353,8 @@ export async function fetchAllTransgourmetJobs() {
 
     const jobSlug = slugify(`${title} transgourmet ${city || canton}`);
 
-    // Posted date from API start_date
-    const postedDate = listing.start_date
-      ? new Date(listing.start_date).toISOString().slice(0, 10)
-      : new Date().toISOString().split('T')[0];
+    // No tenant-specific publication semantics are established for start_date.
+    const publication = sourcePostingDateFields();
 
     const job = {
       // ── Required fields ──
@@ -392,7 +391,7 @@ export async function fetchAllTransgourmetJobs() {
       sector: 'Commercio all\'ingrosso alimentare',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       ...(pensum ? { pensum } : {}),
       ...(applyUrl ? { applyUrl } : { applyUrl: publicUrl }),
 

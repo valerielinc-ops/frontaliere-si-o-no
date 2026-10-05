@@ -1,18 +1,19 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-04T09:32:23.153Z",
+  "generatedAt": "2026-10-04T21:34:24.822Z",
   "total": 8,
-  "newCount": 8,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 123982,
-  "avgDurationMs": 123982,
+  "durationMs": 73184,
+  "avgDurationMs": 73184,
   "durationHistory": [
-    123982
+    73184
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-l4ti3x",
       "slug": "assistente-risorse-umane-supsi-dti-manno",
@@ -35,7 +36,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -50,11 +51,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 23
       }
     },
@@ -80,7 +81,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -93,11 +94,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -123,7 +124,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -138,11 +139,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 23
       }
     },
@@ -168,7 +169,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -180,14 +181,14 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 23
       }
     },
@@ -213,7 +214,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -228,11 +229,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 23
       }
     },
@@ -258,7 +259,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-09-19T23:08:45.327Z",
       "country": "CH",
       "sourceLang": "it",
@@ -268,14 +269,14 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -300,7 +301,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-09-04T23:12:08.169Z",
       "country": "CH",
       "sourceLang": "it",
@@ -316,11 +317,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 23
       }
     },
@@ -345,7 +346,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-04T09:31:27.790Z",
+      "crawledAt": "2026-10-04T21:34:08.991Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -361,17 +362,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -4865,6 +4865,13 @@ ${staticAnalyticsHtml}
  `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p class="s-Yy-luh">${esc(
  brandCopy.tagline,
  )}</p></header>`,
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
+ openRolesListHtml
+ ? `<ul class="s-0WjlyL">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
+ hubLabels.viewAllLabel,
+ )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
+ : `<p>${esc(brandCopy.emptyStateNote)}</p>`
+ }</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.locations)}</h2><p>${esc(
  brandCopy.locationsIntro,
@@ -4878,13 +4885,6 @@ ${staticAnalyticsHtml}
  curatedBrand.website.replace(/^https?:\/\//, ''),
  )} &rarr;</a></p>`
  : ''
- }</section>`,
- `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
- openRolesListHtml
- ? `<ul class="s-0WjlyL">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
- hubLabels.viewAllLabel,
- )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
- : `<p>${esc(brandCopy.emptyStateNote)}</p>`
  }</section>`,
  `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
  ].join('\n');
@@ -8618,11 +8618,8 @@ ${staticAnalyticsHtml}
  // build day, so a listing posted later today still counts.
  const sectorFreshMax = sectorFreshStamp + 24 * 60 * 60 * 1000;
  const sFreshCount = sJobs.filter((j: any) => {
- // First PARSEABLE date, not first truthy: a malformed postedDate must not
- // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = hasPostingDateProvenance(j)
- ? firstParsableMs(resolveReportedPostingDate(j))
- : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ // Only source-verified publication dates contribute to the fresh tile.
+ const t = firstParsableMs(resolveReportedPostingDate(j));
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {

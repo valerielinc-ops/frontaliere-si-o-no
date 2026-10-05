@@ -11,6 +11,7 @@ const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
 describe('JobBoard date filters', () => {
   it('excludes a listing published 18 days ago even when it was crawled recently', () => {
     const recrawledOldListing = {
+      postingDateSource: 'reported',
       postedDate: '2026-08-28',
       firstSeenAt: '2026-08-28T05:27:13.245Z',
       crawledAt: '2026-09-13T14:02:16.761Z',
@@ -19,7 +20,7 @@ describe('JobBoard date filters', () => {
     expect(isJobWithinDateRange(recrawledOldListing, NOW - SEVEN_DAYS)).toBe(false);
   });
 
-  it('uses firstSeenAt when the source has no publication date', () => {
+  it('does not use firstSeenAt as publication when the source date is missing', () => {
     const discoveredOldListing = {
       postedDate: '',
       firstSeenAt: '2026-08-28T05:27:13.245Z',
@@ -52,8 +53,17 @@ describe('JobBoard date filters', () => {
       postedDate: '', firstSeenAt, crawledAt: new Date().toISOString(),
     });
     expect(normalized.postingDateSource).toBe(postingDateSource);
-    expect(isJobWithinDateRange(normalized, Date.now() - 7 * 86400000)).toBe(postingDateSource !== 'unknown');
+    expect(isJobWithinDateRange(normalized, Date.now() - 7 * 86400000)).toBe(postingDateSource === 'reported');
     expect(normalized.postedDate).toBe(postingDateSource === 'reported' ? datePosted : '');
+  });
+
+  it.each([undefined, 'unknown', 'reported'] as const)('separates first observation from publication for %s', (postingDateSource) => {
+    const firstSeenAt = new Date(Date.now() - 3600000).toISOString();
+    const record = { postingDateSource, firstSeenAt, postedDate: firstSeenAt };
+    expect(isJobWithinDateRange(record, Date.now() - SEVEN_DAYS)).toBe(postingDateSource === 'reported');
+    expect(isJobWithinDateRange(record, 0)).toBe(true);
+    expect(isJobNewAt(record, Date.now())).toBe(true);
+    expect(isJobNewAt({ postingDateSource, postedDate: firstSeenAt }, Date.now())).toBe(false);
   });
 
   it('defines “new” from firstSeenAt, not from a later recrawl', () => {

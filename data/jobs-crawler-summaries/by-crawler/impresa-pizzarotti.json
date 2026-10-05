@@ -1,7 +1,7 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-10-04T09:30:01.311Z",
+  "generatedAt": "2026-10-04T21:35:28.550Z",
   "total": 0,
   "discovered": 9,
   "parsed": 0,
@@ -9,53 +9,16 @@
   "lastFetchOutcome": "filtered_empty",
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1467,
-  "avgDurationMs": 1467,
+  "durationMs": 1234,
+  "avgDurationMs": 1234,
   "durationHistory": [
-    1467
+    1234
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "PROJECT CONTROL MANAGER - SVIZZERA",
-      "slug": "project-control-manager-svizzera-impresa-pizzarotti-c-s-p-a-impresa-pizzarotti-c-s-p-a",
-      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
-      "company": "Impresa Pizzarotti & C. S.p.A.",
-      "companyKey": "impresa-pizzarotti",
-      "companyDomain": "pizzarotti.it",
-      "location": "Impresa Pizzarotti & C",
-      "addressLocality": "Impresa Pizzarotti & C",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Costruzioni & Infrastrutture",
-      "source": "pizzarotti-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "impresa-pizzarotti-ec6ee74e2f70",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-17T10:52:26.697Z",
-      "postalCode": "2000",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -939,9 +939,9 @@ describe('parseTalentsJobPage', () => {
     expect(page?.title).toBe('Restaurant Manager');
   });
 
-  it('reads intro, datePosted and the three sections of the microsite markup', () => {
+  it('reads intro and sections without attesting a URL-less publication date', () => {
     expect(page?.intro).toContain('Giardino Mountain');
-    expect(page?.datePosted).toBe(POSTED);
+    expect(page).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     expect(page?.sections.aboutJob).toContain('Du betreust unsere Gäste');
     expect(page?.sections.aboutJob).toContain('eng mit der Küche');
     expect(page?.sections.aboutYou).toEqual(['Berufsausbildung in der Hotellerie', 'Sehr gute Deutschkenntnisse']);
@@ -1030,7 +1030,9 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
       title: 'Restaurant Manager',
       location: 'Champfèr',
       canton: 'GR',
-      postedDate: POSTED,
+      postedDate: '',
+      datePosted: '',
+      postingDateSource: 'unknown',
       url: 'https://giardinohotels.ch/talents/en/job-restaurant-manager.html',
       requirements: ['Professional training in hospitality', 'Very good German'],
       sourceLang: 'en',

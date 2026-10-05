@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Praxisklinik Rennbahn / Rennbahnklinik (Muttenz, BL) — dedicated job parser.
  *
@@ -134,7 +136,7 @@ function extractDetailBody(html) {
 async function fetchDetailContent(detailUrl, fallbackTitle) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return { title: '', description: '' };
+    if (!html) return { title: '', description: '', ...sourcePostingDateFields('') };
 
     const h1 = extractH1(html) || fallbackTitle;
     const lead = extractLeadText(html);
@@ -142,10 +144,10 @@ async function fetchDetailContent(detailUrl, fallbackTitle) {
 
     const parts = [lead, body].filter(Boolean).map((s) => s.trim());
     const description = parts.join('\n\n');
-    return { title: h1, description };
+    return { title: h1, description, ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Rennbahnklinik detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return { title: '', description: '' };
+    return { title: '', description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -159,10 +161,7 @@ export async function fetchAllRennbahnklinikJobs() {
   try {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
-    console.warn(`  ⚠️ Rennbahnklinik listing fetch failed: ${err?.message || err}.`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
+    console.warn(`  ⚠️ Rennbahnklinik listing fetch failed: ${err?.message || err}. Returning [].`);
     throw err;
   }
 
@@ -171,7 +170,6 @@ export async function fetchAllRennbahnklinikJobs() {
   if (!items.length) return [];
 
   const jobs = [];
-  const todayIso = new Date().toISOString().slice(0, 10);
   let detailHits = 0;
   for (let i = 0; i < items.length; i += 1) {
     const it = items[i];
@@ -226,7 +224,7 @@ export async function fetchAllRennbahnklinikJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

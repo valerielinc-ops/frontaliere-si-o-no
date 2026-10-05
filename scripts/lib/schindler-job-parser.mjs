@@ -22,7 +22,7 @@
  *      (25 per page, ~93 total Swiss jobs)
  *   2. For each listing extract: title, url, location, postedDate, jobId
  *   3. Fetch each detail page for the full description (<div id="content">)
- *   4. Build ParsedJob with canton resolution + fallback description
+ *   4. Build ParsedJob with canton resolution and the posting’s source description
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchindlerJobs()  — Fetch and parse all jobs
@@ -31,6 +31,10 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { readAttr, readTagByAttr } from './html-attr.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
@@ -78,28 +82,16 @@ const MONTH_ABBR = {
  *   - "May 11, 2026" / "Apr 28, 2026"  (English, common default)
  *   - "DD.MM.YYYY"                     (German format)
  *   - "2026-05-11"                     (ISO, just-in-case)
- * Returns YYYY-MM-DD or '' on failure.
+ * Preserves valid source precision; returns '' for invalid/future input.
  */
 export function parseDate(raw = '') {
   const text = String(raw || '').trim();
-  if (!text) return '';
-
-  // ISO already
-  const iso = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
-
-  // English "MMM D, YYYY"
-  const en = text.match(/^([A-Za-zÀ-ÿ]{3,5})\s+(\d{1,2}),?\s+(\d{4})/);
-  if (en) {
-    const mm = MONTH_ABBR[en[1].toLowerCase().slice(0, 4)] || MONTH_ABBR[en[1].toLowerCase().slice(0, 3)];
-    if (mm) return `${en[3]}-${mm}-${en[2].padStart(2, '0')}`;
+  const localMonth = /^([A-Za-zÀ-ÿ]{3,5})\s+(\d{1,2}),?\s+(\d{4})$/.exec(text);
+  if (localMonth) {
+    const mm = MONTH_ABBR[localMonth[1].toLowerCase().slice(0, 4)] || MONTH_ABBR[localMonth[1].toLowerCase().slice(0, 3)];
+    if (mm) return successFactorsPostingDateFields(`${localMonth[3]}-${mm}-${localMonth[2].padStart(2, '0')}`).postedDate;
   }
-
-  // German "DD.MM.YYYY"
-  const de = text.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (de) return `${de[3]}-${de[2].padStart(2, '0')}-${de[1].padStart(2, '0')}`;
-
-  return '';
+  return successFactorsPostingDateFields(text).postedDate;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -216,6 +208,9 @@ export function parseSearchResults(html) {
   if (!html || typeof html !== 'string') return [];
   const jobs = [];
   const seen = new Set();
+  // Only a complete result row establishes which vacancy owns these fields.
+  // Unscoped links remain discoverable, but cannot borrow adjacent metadata.
+  const rows = Array.from(html.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr\s*>/gi));
 
   // Match anchors to detail pages across any tenant under job.schindler.com.
   // Pattern: /{Tenant}/job/{slug}/{jobId}/
@@ -241,14 +236,11 @@ export function parseSearchResults(html) {
 
     const fullUrl = `${BASE_URL}${relUrl}`;
 
-    // Locate the surrounding row to extract location + date columns.
-    // The relevant pattern in the j2w template:
-    //   <td class="colLocation ...">...<span class="jobLocation">City, Region, CC</span>...</td>
-    //   <td class="colDate ...">...<span class="jobDate">May 11, 2026</span>...</td>
-    // We search forward from the anchor match for the next ~3KB of HTML.
-    const lookahead = html.slice(m.index, m.index + 4000);
-    const locMatch = lookahead.match(/class="jobLocation"[^>]*>\s*([^<]+?)\s*</i);
-    const dateMatch = lookahead.match(/class="jobDate"[^>]*>\s*([^<]+?)\s*</i);
+    const row = rows.find((candidate) => candidate.index <= m.index
+      && candidate.index + candidate[0].length >= anchorRe.lastIndex);
+    const rowHtml = row?.[0] || '';
+    const locMatch = rowHtml.match(/class="jobLocation"[^>]*>\s*([^<]+?)\s*</i);
+    const dateMatch = rowHtml.match(/class="jobDate"[^>]*>\s*([^<]+?)\s*</i);
 
     const location = locMatch ? normalizeSpace(locMatch[1]) : '';
     const rawDate = dateMatch ? normalizeSpace(dateMatch[1]) : '';
@@ -258,7 +250,7 @@ export function parseSearchResults(html) {
       title: rawTitle,
       url: fullUrl,
       location,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       jobId,
       tenant,
     });
@@ -370,7 +362,9 @@ export function parseDetailPage(html, { listingTitle = '' } = {}) {
   // value is always authoritative; fetchAll uses it directly.
   const location = '';
 
-  return { title, description, location, applyUrl };
+  const publicationTag = readTagByAttr(html, 'itemprop', 'datePosted');
+  const publication = extractJobPostingField(html, 'datePosted') || (publicationTag ? readAttr(publicationTag, 'content') : '');
+  return { title, description, location, applyUrl, ...successFactorsPostingDateFields(publication) };
 }
 
 /* ── HTTP fetch with timeout ──────────────────────────────── */
@@ -475,7 +469,6 @@ export async function fetchAllSchindlerJobs() {
       }
 
       const sourceLang = detectLang(description || title, 'de');
-      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${SCHINDLER_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
@@ -511,7 +504,7 @@ export async function fetchAllSchindlerJobs() {
         sector: 'Industrial',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...mergeSourcePostingDates(listing, detail || {}),
         applyUrl: detail?.applyUrl || listing.url,
         jobReqId: listing.jobId || null,
         requirements: [],

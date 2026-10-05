@@ -62,8 +62,12 @@ function transientResponse(response) {
  * read. A typed array other than Uint8Array is copied byte by byte, not
  * element by element. Anything else is not a body chunk.
  */
+function isCrossRealmArrayBuffer(value) {
+  return Object.prototype.toString.call(value) === '[object ArrayBuffer]';
+}
+
 function copyOfChunk(value) {
-  if (value instanceof ArrayBuffer) return new Uint8Array(value.slice(0));
+  if (isCrossRealmArrayBuffer(value)) return new Uint8Array(value.slice(0));
   if (ArrayBuffer.isView(value)) {
     return new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength));
   }

@@ -41,6 +41,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company/ATS
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -402,8 +403,8 @@ export function parsePostings(postings = []) {
     const jobSlug = slugify(`${title} bucherer ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${posting.typeOfEmployment?.label || ''} ${title}`);
-    const postedDate = (posting.postingStartTimestampUTC && String(posting.postingStartTimestampUTC).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    // Dayforce Posting Start Date is candidate availability, distinct from Job Start Date.
+    const postingDates = sourcePostingDateFields(posting.postingStartTimestampUTC);
 
     const job = {
       // ── Required fields ──
@@ -438,7 +439,7 @@ export function parsePostings(postings = []) {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId: posting.jobReqId || jobPostingId || null,
       requirements: [],

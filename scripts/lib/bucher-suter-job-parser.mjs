@@ -59,6 +59,7 @@
  * - detectCategory() / detectEmploymentType() / detectExperienceLevel()
  * - BUCHER_SUTER_KEY / BUCHER_SUTER_COMPANY_NAME / BUCHER_SUTER_COMPANY_DOMAIN
  */
+import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -301,8 +302,7 @@ export async function fetchAllBucherSuterJobs() {
     const streetAddress = HQ.city === city ? 'Lindenhofstrasse 1' : city;
     const country = 'CH';
 
-    const postedRaw = listing?.modified || listing?.date || '';
-    const postedDate = postedRaw ? String(postedRaw).split('T')[0] : new Date().toISOString().split('T')[0];
+    const publication = wordpressPublicationDateFields(listing);
 
     const idHash = createHash('sha1').update(`wp-${wpId}`).digest('hex').slice(0, 12);
     // Language of the published body, not of the title (issue 5253): titles
@@ -347,7 +347,7 @@ export async function fetchAllBucherSuterJobs() {
       sector: 'IT / Contact Center Solutions',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: wpLink,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

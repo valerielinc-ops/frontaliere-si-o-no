@@ -19,13 +19,14 @@ import { splitJobLocation } from './job-location-display.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   firstLocationSegment,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -216,7 +217,7 @@ async function fetchJobListings() {
         title: id.title,
         location: locationText,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -364,7 +365,7 @@ export async function fetchAllLogitechJobs() {
       sector: 'Tecnologia / Hardware Consumer',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

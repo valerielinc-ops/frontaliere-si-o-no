@@ -178,9 +178,15 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   if (!text.trim() || !referenceText.trim()) return [];
 
   const referenceWords = countTranslationWords(referenceText);
-  if (referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
-
   const translatedWords = countTranslationWords(text);
+  // Il floor protegge le sezioni brevi dalla varianza naturale fra lingue. Un
+  // body senza ALCUNA parola («...», «…», «—») contro un italiano che ne ha non
+  // e' varianza: e' una traduzione assente, e chiusa da un punto passava ogni
+  // controllo di punteggiatura (`como-fai-giornate-autunno`, 2026-10-03). Il
+  // placeholder si giudica quindi PRIMA del floor; tutto il resto dopo.
+  const placeholder = translatedWords === 0 && referenceWords > 0;
+  if (!placeholder && referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
+
   const ratio = translatedWords / referenceWords;
   const lostParagraph = countParagraphs(text) < countParagraphs(referenceText);
   const threshold = lostParagraph
@@ -191,14 +197,21 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   const label = opts.label ? `[${opts.label}] ` : '';
   const percentage = Math.round(ratio * 100);
   const severity = ratio < TRANSLATION_CRITICAL_RATIO ? 'critical' : 'major';
-  return [issue(
+  // Quale regola ha parlato. `word-ratio`: mancano parole oltre la varianza
+  // fra lingue, con o senza paragrafi persi. `paragraph-drop`: le parole sono
+  // fra il 70% e l'85% e c'e' un paragrafo in meno — un paragrafo omesso OPPURE
+  // una traduzione compatta che ne ha accorpati due. La diagnosi e' la stessa;
+  // chi agisce sul body (il retry del generatore, che lo lascia in attesa se
+  // il retry fallisce) distingue, per non togliere una traduzione valida.
+  const rule = ratio < TRANSLATION_RATIO_THRESHOLD ? 'word-ratio' : 'paragraph-drop';
+  return [{ ...issue(
     'translation-semantic-truncation',
     severity,
     `${label}La traduzione contiene solo ${translatedWords}/${referenceWords} parole dell'italiano (${percentage}%) — possibile paragrafo omesso anche se la frase finale è chiusa`,
     `${label}paragrafi: ${countParagraphs(referenceText)} → ${countParagraphs(text)}; parole: ${referenceWords} → ${translatedWords}`,
     `Confronta la sezione ${label || 'tradotta'} con l'italiano e reintegra ogni paragrafo mancante. `
       + 'Il testo tradotto deve conservare tutto il contenuto, non solo terminare con punteggiatura valida.',
-  )];
+  ), rule }];
 }
 
 /**
@@ -1504,10 +1517,81 @@ const NORM_CITATION_CUE =
 // senza la parola `legge`, `art.` o `RS`. Manteniamo il bare match storico e
 // scartiamo soltanto forme esplicitamente da nome di entita'/prodotto, che e'
 // l'intento anti-falso-positivo della meta' corpus senza aprire quel buco.
+// Le forme societarie coprono i quattro locali del corpus, accenti compresi:
+// `soci[eé]t[aàeé]` tiene società/societa e société/societe.
 const benignNormEntity = (acronym) => new RegExp(
-  String.raw`\b(?:gruppo|azienda|societ[aà]|associazione|banca|app|company|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen)\s+${acronym}$`,
+  String.raw`\b(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)\s+${acronym}$`,
   'i',
 );
+
+// Il tema delle leggi fiscali e del lavoro inventate, nei quattro locali del
+// corpus. Serve alle sigle che hanno un omonimo reale in un altro dominio
+// (`LTF` = Tribunale federale): la sigla e' fabbricata quando la frase parla
+// di fisco, frontalieri o lavoro, non ovunque compaia.
+const FISCAL_LABOUR_CUE =
+  /(?:tassazion|imposizion|impost[ae]\b|fiscal|tributar|reddit|frontalier|lavor|tirocin|apprendist|\btax|income|cross-border|border\s+work|labou?r\b|\bwork|apprentic|Steuer|Einkommen|Grenzg[äa]nger|grenzüberschreitend|Arbeit|\bLehr|imp[ôo]t|revenu|travail|apprentissage)/i;
+
+// Il traffico e i trasporti, nei quattro locali. Serve alla seconda famiglia
+// di `LTF` inventate (ED-FAB-3, 12 sorgenti it e 21 traduzioni): «legge
+// federale sul traffico (LTF)» al posto della LCStr (circolazione stradale,
+// RS 741.01, 19 dicembre 1958), e le sue varianti «sul traffico ferroviario»,
+// «sul trasporto ferroviario», «sul traffico aereo». Le traduzioni scrivono
+// «Federal Rail Transport Act … (LTF)», «Bundesgesetz über den Luftverkehr
+// (LTF)», «loi fédérale sur le trafic aérien (LTF)»: per questo il cue copre
+// anche ferrovia/trasporto/aereo, non solo la strada. `strad` copre
+// strada/stradale, `routi[eè]r` circulation routière, `Stra(?:ss|ß)e` i
+// composti tedeschi (Strassenverkehr, Straßenverkehrsgesetz).
+const TRANSPORT_TRAFFIC_CUE =
+  /(?:circolazion|traffic|trafic|strad[aei]|autostrad|motorway|Autobahn|autoroute|ferrovi|trasport|aere[oi]\b|automobilist|patente|ciclist|Verkehr|Stra(?:ss|ß)e|Eisenbahn|Fahrzeug|F[üu]hrerausweis|Radfahr|circulation|routi[eè]r|ferroviaire|a[ée]rien|cycliste|permis\s+de\s+conduire|transport|\broad\b|\brail|driving|driver|motorist|vehicle|cyclist)/i;
+
+// L'aggettivo federale nei quattro locali (legge federale, Bundesgesetz, loi
+// fédérale, Federal Act). Alle sigle senza omonimo federale reale basta questo
+// e il tema per dire che la citazione e' inventata.
+const FEDERAL_CUE = /(?:federal|Bundes|f[ée]d[ée]ral)/i;
+
+// Il Tribunale federale nominato nella stessa finestra: e' il contesto della
+// LTF vera, anche in una sentenza di assistenza amministrativa fiscale.
+const JUDICIAL_CUE =
+  /(?:Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht|Federal\s+Supreme\s+Court)/i;
+
+// Due cue che devono comparire ENTRAMBE nella finestra, in qualunque ordine.
+// Resta una RegExp (non un oggetto con `test`) perche' i chiamanti e i test
+// trattano `context` come tale.
+const allOf = (...cues) => new RegExp(
+  cues.map((cue) => `(?=[\\s\\S]*?(?:${cue.source}))`).join(''),
+  [...new Set(cues.flatMap((cue) => cue.flags.replace('g', '').split('')))].join(''),
+);
+
+// The ±120-character window is useful for a single cue, but it is too wide
+// when a composed guard asks whether two facts belong to the same claim. Keep
+// those callers on the statement that contains the acronym: `statementSpans`
+// cuts at sentence punctuation and at a semicolon followed by a new clause,
+// while preserving the existing list-item boundaries.
+function statementContaining(text, index, spans) {
+  const span = spans.find(({ start, end }) => index >= start && index < end);
+  return span ? text.slice(span.start, span.end) : '';
+}
+
+// Il `veto` assolve un'occorrenza per il segno dell'omonimo reale, quindi deve
+// guardare la clausola che la contiene, non la frase intera. `SENTENCE_BREAK_RE`
+// taglia al `;` solo se segue una maiuscola: in «Il Tribunale federale ha
+// respinto il ricorso; la legge federale sul traffico (LTF) …» la frase resta
+// una sola e il Tribunale della prima clausola assolveva la LTF inventata della
+// seconda. Qui la frase si restringe ancora al `;` e all'a capo che circondano
+// l'occorrenza, qualunque lettera segua.
+const CLAUSE_BREAK_RE = /[;\n]/g;
+function clauseContaining(text, index, spans) {
+  const span = spans.find(({ start, end }) => index >= start && index < end);
+  if (!span) return '';
+  let start = span.start;
+  let end = span.end;
+  for (const m of text.slice(span.start, span.end).matchAll(CLAUSE_BREAK_RE)) {
+    const at = span.start + m.index;
+    if (at < index) start = at + 1;
+    else { end = at; break; }
+  }
+  return text.slice(start, end);
+}
 
 export const FABRICATED_NORM_ACRONYMS = [
   {
@@ -1558,6 +1642,120 @@ export const FABRICATED_NORM_ACRONYMS = [
     benign: benignNormEntity('LCO'),
     contextWindow: 120,
   },
+  {
+    // `LTF` e' una sigla VERA: Legge sul Tribunale federale (RS 173.110,
+    // 17 giugno 2005), «art. 84a LTF» nelle sentenze di assistenza fiscale.
+    // Nel corpus pero' 22 sorgenti italiane la usavano per leggi che non
+    // esistono — «legge federale del 1982 sulla tassazione dei redditi dei
+    // frontalieri (LTF)», «legge federale sul lavoro transfrontaliero (LTF)»,
+    // «legge sul tirocinio (LTF)», «legge ticinese … (LTF-TI)» — e la
+    // traduzione fedele le aveva portate in en/de/fr. Da qui le tre guardie
+    // insieme: `context` chiede il tema della fabbricazione (fisco,
+    // frontalieri, lavoro) nella finestra; `benign` assolve la citazione di un
+    // articolo («art. 84a LTF», «art. 82 segg. LTF») e il nome per esteso
+    // della legge vera («Legge sul Tribunale federale (LTF)»); `veto` assolve
+    // l'occorrenza che ha il Tribunale federale nella stessa frase/clausola,
+    // cioe' il contesto giudiziario anche quando il tema e' fiscale.
+    acronym: 'LTF',
+    re: /(?<![A-Za-z])LTF(?![A-Za-z])/i,
+    real: 'nessuna legge fiscale, sul lavoro o sul traffico si chiama LTF: la LTF vera è la Legge sul Tribunale federale (RS 173.110). Imposta federale diretta → LIFD (RS 642.11, 14 dicembre 1990); frontalieri italiani → Accordo Svizzera-Italia del 23 dicembre 2020; lavoro → LL (RS 822.11); tirocinio → LFPr (RS 412.10); circolazione stradale → LCStr (RS 741.01, 19 dicembre 1958); ferrovie → Lferr (RS 742.101); trasporto viaggiatori → LTV (RS 745.1); aviazione → LNA (RS 748.0)',
+    // ED-FAB-3: la seconda famiglia di LTF inventate e' la «legge federale sul
+    // traffico (LTF)» (strada, ferrovia, aereo). Il tema dei trasporti si
+    // somma a quello fiscale/del lavoro; `veto` e `benign` restano gli stessi,
+    // quindi la LTF giudiziaria resta libera anche in una sentenza sulla
+    // circolazione («art. 84a LTF», «il Tribunale federale … secondo la LTF»).
+    context: new RegExp(`${FISCAL_LABOUR_CUE.source}|${TRANSPORT_TRAFFIC_CUE.source}`, 'i'),
+    benign: /(?:(?:\bart\.?\s*|\barticol[oi]\s+)\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?(?:\s+(?:dell[ae']?|del|de la|du|des|der|of the))?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
+    veto: JUDICIAL_CUE,
+    vetoScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // «legge federale sulla migrazione (LMA)», «… sulla migrazione e
+    // sull'asilo (LMA)»: nessuna legge federale porta questa sigla. Il
+    // contesto e' la citazione di una norma, come per LCL: `LMA` fuori da una
+    // citazione (una sigla medica, un'azienda) resta libera.
+    acronym: 'LMA',
+    re: /(?<![A-Za-z])LMA(?![A-Za-z])/i,
+    real: "non esiste: la legge sugli stranieri è la LStrI (RS 142.20, 16 dicembre 2005), l'asilo è la LAsi (RS 142.31); per i frontalieri UE vale l'ALC (RS 0.142.112.681)",
+    context: NORM_CITATION_CUE,
+    benign: benignNormEntity('LMA'),
+    contextWindow: 120,
+  },
+  {
+    // «legge federale sul reddito (LRF) del 8 ottobre 1952», «legge federale
+    // sulla tassazione dei redditi (LRF) del 22 marzo 1925», «Legge Federale
+    // sulle Relazioni di Lavoro (LRF) del 13 marzo 1943»: nessuna esiste.
+    // Serve la citazione E il tema fiscale/del lavoro, perche' una sigla di
+    // tre lettere puo' essere una legge cantonale vera di un altro dominio.
+    acronym: 'LRF',
+    re: /(?<![A-Za-z])LRF(?![A-Za-z])/i,
+    real: "non esiste: l'imposta federale diretta è la LIFD (RS 642.11, 14 dicembre 1990); il diritto del lavoro è il CO (RS 220) con la LL (RS 822.11)",
+    context: allOf(NORM_CITATION_CUE, FISCAL_LABOUR_CUE),
+    benign: benignNormEntity('LRF'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // «Ordinanza sulla tassazione del reddito (OT): 1993». `OT` e' anche la
+    // Operational Technology degli articoli di cybersicurezza («IT e OT»),
+    // quindi il contesto chiede una ordinanza E la tassazione, non uno dei due.
+    acronym: 'OT',
+    re: /(?<![A-Za-z])OT(?![A-Za-z])/i,
+    real: "non esiste un'«Ordinanza sulla tassazione del reddito»: l'imposta federale diretta è la LIFD (RS 642.11) con le sue ordinanze di esecuzione",
+    context: allOf(
+      /\b(?:ordinanz[ae]|Verordnung|ordonnance|ordinance)\b/i,
+      /(?:tassazion|imposizion|Besteuerung|imposition|taxation)/i,
+    ),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sull'apprendistato (LFA) del 24 marzo 2017»,
+    // «… (LFA) del 1964», «legge federale sulle frontalieri (LFA) del 2007»,
+    // «Legge federale sugli stranieri (LFA)», «… sugli alimenti e le bevande
+    // (LFA)», «… sull'asilo (LFA)»: 20 file del corpus, una legge diversa a
+    // ogni giro e nessuna esiste con questa sigla. Il contesto chiede una
+    // citazione E l'aggettivo federale nella stessa frase: una «LFA» fuori
+    // da una legge federale (un'azienda, una sigla tecnica) resta libera.
+    acronym: 'LFA',
+    re: /(?<![A-Za-z])LFA(?![A-Za-z])/i,
+    real: "nessuna legge federale si chiama LFA: tirocinio → LFPr (RS 412.10); stranieri → LStrI (RS 142.20); asilo → LAsi (RS 142.31); derrate alimentari → LDerr (RS 817.0); assicurazione malattie → LAMal (RS 832.10)",
+    context: allOf(NORM_CITATION_CUE, FEDERAL_CUE),
+    benign: benignNormEntity('LFA'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sul salario minimo (LSM) del 17 giugno 2015»,
+    // «… (LSM) approvata il 28 settembre 2018», «… (LSM) del 1943»: la
+    // Svizzera non ha un salario minimo federale (l'iniziativa popolare fu
+    // respinta il 18 maggio 2014). La sigla da sola NON basta: in Ticino
+    // esiste una legge cantonale sul salario minimo, e `LSM` compare anche
+    // per altre leggi inventate di altri domini. Il contesto chiede quindi
+    // il salario minimo E l'aggettivo federale nella stessa frase.
+    acronym: 'LSM',
+    re: /(?<![A-Za-z])LSM(?![A-Za-z])/i,
+    real: "non esiste una legge federale sul salario minimo (l'iniziativa popolare è stata respinta il 18 maggio 2014): i salari minimi sono cantonali (Ticino, Neuchâtel, Giura, Ginevra, Basilea Città) o fissati dai contratti collettivi di lavoro",
+    context: allOf(FEDERAL_CUE, /(?:salari[oe]\s+minim|Mindestlohn|salaire\s+minim|minimum\s+wage)/i),
+    benign: benignNormEntity('LSM'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sul commercio estero (LCE) del 10 ottobre
+    // 1977» che «regola le importazioni e le esportazioni»: non esiste. `LCE`
+    // resta libera fuori da questo tema, perche' altrove e' una sigla vera
+    // (la legge belga sulle comunicazioni elettroniche): il contesto chiede
+    // il commercio estero E l'aggettivo federale nella stessa frase.
+    acronym: 'LCE',
+    re: /(?<![A-Za-z])LCE(?![A-Za-z])/i,
+    real: "non esiste una legge federale sul commercio estero: importazioni ed esportazioni → legge federale sulle misure economiche esterne (RS 946.201) e legge sulle dogane (LD, RS 631.0)",
+    context: allOf(FEDERAL_CUE, /(?:commercio\s+ester|Au(?:ss|ß)enhandel|commerce\s+ext[ée]rieur|foreign\s+trade)/i),
+    benign: benignNormEntity('LCE'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
 ];
 
 /**
@@ -1577,7 +1775,8 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text) return issues;
   const locale = opts.locale || 'it';
-  for (const { acronym, re, real, context, benign, contextWindow } of FABRICATED_NORM_ACRONYMS) {
+  const statements = statementSpans(text);
+  for (const { acronym, re, real, context, benign, veto, contextScope, vetoScope, contextWindow } of FABRICATED_NORM_ACRONYMS) {
     // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
     // calls, and this table is module-level shared state. Lo scan qui sotto
     // usa quindi un CLONE locale con flag `g`, mai la regex della tabella:
@@ -1593,15 +1792,23 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
     let m;
     while ((m = scan.exec(text)) !== null) {
       if (m[0] === '') { scan.lastIndex += 1; continue; }
-      if (context || benign) {
+      if (context || benign || veto) {
         const w = contextWindow ?? 80;
         const nearby = text.slice(Math.max(0, m.index - w), m.index + m[0].length + w);
         // Il cue benigno deve terminare sulla occorrenza CORRENTE: cercarlo
         // nell'intera finestra farebbe assolvere una seconda citazione legale
         // solo perche' 80 caratteri prima compariva «il gruppo LFW».
         const throughMatch = text.slice(Math.max(0, m.index - w), m.index + m[0].length);
+        const statement = (contextScope === 'statement' || vetoScope === 'statement')
+          ? statementContaining(text, m.index, statements)
+          : '';
         if (benign?.test(throughMatch)) continue;
-        if (context && !context.test(nearby)) continue;
+        // `veto`: il segno dell'omonimo REALE nella clausola corrente (per
+        // `LTF` il Tribunale federale), delimitata anche da `;` e a capo che
+        // `statementSpans` non taglia. Assolve solo l'occorrenza corrente: lo
+        // scan prosegue e una fabbricazione piu' in basso viene ancora vista.
+        if (veto?.test(vetoScope === 'statement' ? clauseContaining(text, m.index, statements) : nearby)) continue;
+        if (context && !context.test(contextScope === 'statement' ? statement : nearby)) continue;
       }
       issues.push(issue(
         'fabricated-norm-acronym',
@@ -2619,12 +2826,19 @@ export function runFactualityGates(params = {}) {
   const fullText = joined(sections);
   const localeOptions = { ...options, locale };
   // A missing/thin source cannot support the learner's negative evidence: an
-  // empty source is not proof that an acronym is fabricated. Keep curated
-  // static guards active, but do not let memory learned from other articles
-  // block this run or feed another unknown observation back into the learner.
+  // empty source is not proof that an acronym is fabricated. So without a
+  // usable source nothing is LEARNED (no observations, below) and the
+  // unconfirmed suspects stay quiet. The DENYLIST is different: an acronym gets
+  // there only as CONFIRMED fabricated, from sourced evidence across articles
+  // (source-less observations never reach the learner), so it is a fact about
+  // the acronym, not about this article's source — exactly like the curated
+  // static guards, which stay active too. Dropping it here switched it off for
+  // every evergreen, whose gate source is '' by construction.
   const hasUsableSourceForLearning = typeof sourceText === 'string'
     && sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
-  const learnedMemory = hasUsableSourceForLearning ? memory : {};
+  const learnedMemory = hasUsableSourceForLearning
+    ? memory
+    : { denylist: memory?.denylist, degraded: memory?.degraded };
 
   let issues = [];
   for (const [label, text] of Object.entries(sections)) {

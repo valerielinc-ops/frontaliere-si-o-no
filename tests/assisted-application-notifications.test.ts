@@ -83,7 +83,7 @@ const {
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
 const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
-const { verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { CONSENT_BOUND_EXPIRES_AT, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
 const NOW = Date.parse('2026-09-30T10:00:00Z');
 const HOUR = 60 * 60 * 1000;
@@ -520,6 +520,53 @@ describe('the «inviata» e-mail and the candidate’s documents', () => {
     }
   });
 
+  it('tells an order with an active alias how the employer answer reaches them, instead of inviting replies to Valerie', () => {
+    const alias = { candidateAlias: { address: 'mario.rossi.ab2c@candidature.frontaliereticino.ch', active: true } };
+    const ASK_VALERIE = "Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email.";
+    const PHONE = "L'azienda può chiamarti al numero di telefono che mi hai dato oppure scriverti per email.";
+    const FORWARD = 'te lo inoltro subito in questa casella. Per rispondere all\'azienda basta rispondere all\'email inoltrata';
+    const NEXT = 'Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!';
+
+    const withPhone = buildCustomerEmail('submitted', submitted({ ...alias, applicantPhone: '+41 79 000 00 00' }), 'order-1', { nowMs: NOW });
+    for (const body of [withPhone.text, withPhone.html.replace(/&#39;/g, "'")]) {
+      expect(body).toContain(PHONE);
+      expect(body).toContain(FORWARD);
+      expect(body).toContain(NEXT);
+      expect(body).not.toContain(ASK_VALERIE);
+    }
+    // The text never names the alias itself: it would only confuse the candidate.
+    expect(withPhone.text).not.toContain('candidature.frontaliereticino.ch');
+    expect(withPhone.text.indexOf(PHONE)).toBeLessThan(withPhone.text.indexOf(FORWARD));
+
+    // No phone in the order (it may come from the CV): the phone is not promised.
+    const noPhone = buildCustomerEmail('submitted', submitted(alias), 'order-1', { nowMs: NOW });
+    expect(noPhone.text).not.toContain(PHONE);
+    expect(noPhone.text).toContain(FORWARD);
+
+    // No active alias (concierge, or the rule not created yet): the employer has the candidate's own address.
+    for (const order of [submitted(), submitted({ candidateAlias: { ...alias.candidateAlias, active: false }, applicantPhone: '+41 79 000 00 00' })]) {
+      const email = buildCustomerEmail('submitted', order, 'order-1', { nowMs: NOW });
+      expect(email.text).toContain(ASK_VALERIE);
+      expect(email.text).not.toContain(FORWARD);
+    }
+    // WhatsApp keeps its own closing: the chat starts from the candidate's phone.
+    expect(buildCustomerEmail('submitted', whatsapp(alias), 'order-1', { nowMs: NOW }).text).not.toContain(FORWARD);
+
+    const LOCALIZED: Record<string, [string, string, string]> = {
+      it: ['numero di telefono', 'te lo inoltro subito', 'scrivimi pure rispondendo'],
+      fr: ['numéro de téléphone', 'je vous le transfère aussitôt', "avez besoin d'autre chose"],
+      de: ['Telefonnummer', 'ich leite sie dir sofort', 'noch etwas brauchst'],
+      en: ['phone number', 'I forward it to this inbox right away', 'need anything else'],
+    };
+    for (const [locale, page] of Object.entries(PAGES)) {
+      const localized = { ...alias, applicantPhone: '+41 79 000 00 00', orderPageUrl: `https://frontaliereticino.ch${page}?assisted_application_order_id=order-1` };
+      const email = buildCustomerEmail('submitted', submitted(localized), 'order-1', { nowMs: NOW });
+      const [phone, forward, askValerie] = LOCALIZED[locale];
+      expect([locale, email.text.includes(phone), email.text.includes(forward), email.text.includes(askValerie)]).toEqual([locale, true, true, false]);
+      expect(email.html).not.toMatch(/undefined|\[object/);
+    }
+  });
+
   it('links the review page of an automated order marked submitted until the purge; a failed mint never stops the e-mail', async () => {
     const cvUploadedAt = new Date(NOW - 10 * DAY);
     const before = submitted({ submissionStatus: 'in_progress', automationState: 'submitted' });
@@ -562,8 +609,17 @@ describe('the «inviata» e-mail and the candidate’s documents', () => {
     // A refund anchors the purge.
     const refunded = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 80 * DAY), refundedAt: new Date(NOW) }, nowMs: NOW, getSecret });
     expect(verifyReviewToken({ secret: SECRET, token: new URL(refunded).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 90 * DAY });
-    // An order the purge never reaches (the talent pool) keeps the usual 30 days.
-    const kept = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW), talentPoolConsent: true }, nowMs: NOW, getSecret });
-    expect(verifyReviewToken({ secret: SECRET, token: new URL(kept).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY });
+    // An order kept for the talent pool: as long as the consent (owner decision 2026-10-05), which the
+    // review endpoint checks at every access — well beyond 30 days and the 90 of the purge.
+    const kept = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 200 * DAY), talentPoolConsent: true }, nowMs: NOW, getSecret });
+    const keptToken = new URL(kept).searchParams.get('assisted_application_review');
+    expect(verifyReviewToken({ secret: SECRET, token: keptToken, nowMs: NOW + 400 * DAY }))
+      .toMatchObject({ ok: true, kind: 'review', consentBound: true, expiresAt: CONSENT_BOUND_EXPIRES_AT });
+    // Without a date for the purge and without the consent: the usual 30 days, never bound to a consent.
+    const undated = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted' }, nowMs: NOW, getSecret });
+    expect(verifyReviewToken({ secret: SECRET, token: new URL(undated).searchParams.get('assisted_application_review'), nowMs: NOW }))
+      .toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY, consentBound: false });
+    // An order the purge already emptied is no longer kept for the pool: its documents are gone.
+    expect(await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', talentPoolConsent: true, retentionPurgedAt: new Date(NOW) }, nowMs: NOW, getSecret })).not.toContain('assisted_application_review');
   });
 });

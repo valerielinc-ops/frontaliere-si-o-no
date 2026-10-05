@@ -34,6 +34,7 @@
  *   - isTrustedDomain()   — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -183,7 +184,7 @@ function parseFeedItems(xml = '') {
     const url = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'link')));
     const guid = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'guid')));
     if (!rawTitle || !url) continue;
-    items.push({ rawTitle, descriptionHtml, url, guid });
+    items.push({ rawTitle, descriptionHtml, url, guid, ...sourceRssPostingDateFields(extractTag(itemXml, 'pubDate')) });
   }
   return items;
 }
@@ -206,9 +207,6 @@ export async function fetchAllRiriJobs() {
     listings = await fetchJobListings();
   } catch (err) {
     console.warn(`  Failed to fetch ${FEED_URL}: ${err.message}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   console.log(`  Listings found (all Riri Group manufacturing sites): ${listings.length}`);
@@ -254,7 +252,7 @@ export async function fetchAllRiriJobs() {
       employmentType: detectEmploymentType(title + ' ' + descriptionText),
       experienceLevel: detectExperienceLevel(title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, listing),
       url: listing.url || CAREER_URL,
       applyUrl: listing.url || CAREER_URL,
       source: 'Riri Group Dedicated Parser',

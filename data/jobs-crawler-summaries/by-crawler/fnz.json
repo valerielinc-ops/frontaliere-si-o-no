@@ -1,20 +1,63 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-10-04T09:14:25.198Z",
+  "generatedAt": "2026-10-05T06:24:20.463Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8546,
-  "avgDurationMs": 8546,
+  "unchangedCount": 1,
+  "durationMs": 8172,
+  "avgDurationMs": 8172,
   "durationHistory": [
-    8546
+    8172
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "unchangedJobs": [
+    {
+      "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
+      "applyUrl": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
+      "title": "Solution Consultant CRM",
+      "company": "FNZ (Switzerland) AG",
+      "companyKey": "fnz",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "solution-consulente-crm-fnz-switzerland-ag-chiasso",
+      "category": "consulting",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
+      "source": "fnz-workday-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Fintech / Servizi finanziari",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Chiasso"
+      },
+      "jobReqId": "REQ-16005",
+      "id": "fnz-addd1ea2604e",
+      "firstSeenAt": "2026-09-04T13:28:24.249Z",
+      "crawledAt": "",
+      "salaryMin": 61000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ],
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
