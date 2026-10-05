@@ -86,4 +86,12 @@ describe('a form that wraps the whole page is not cut', () => {
     expect(text).toContain('Kreditorenbuchhaltung und unterstützen');
     expect(text).toContain('Mitarbeit beim Monats- und Jahresabschluss');
   });
+
+  it('cuts an application form with its own unrelated heading', () => {
+    const html = `<article><h1>Job X</h1>
+      <form><h1>Bewerbungsformular</h1><label>Vorname</label></form>
+    </article>`;
+    const text = publishedDescription(html, 'https://jobs.example.ch/job/job-x/');
+    expect(text).not.toContain('Vorname');
+  });
 });
