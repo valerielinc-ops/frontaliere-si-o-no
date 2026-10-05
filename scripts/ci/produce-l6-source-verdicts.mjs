@@ -52,7 +52,30 @@ export const MIN_SOURCE_TEXT_CHARS = 200;
 export const USER_AGENT = 'frontaliereticino-l6-source-check/1.0 (+https://frontaliereticino.ch/; deterministic figure check of a cited source)';
 export const SKIP_REASONS = ['no-citation', 'no-figures', 'fetch-failed', 'source-unreadable', 'locale-missing'];
 
-const RAW_ARTICLES_START = /const\s+RAW_ARTICLES\s*=\s*\[/;
+const RAW_ARTICLES_START = /const\s+(RAW_ARTICLES(?:_CHUNK_\d+)?)\s*(?:\s*:\s*Article\[\])?\s*=\s*\[/g;
+
+function matchingArrayEnd(text, open) {
+  let depth = 0;
+  let quote = null;
+  for (let index = open; index < text.length; index += 1) {
+    const character = text[index];
+    if (quote !== null) {
+      if (character === '\\') index += 1;
+      else if (character === quote) quote = null;
+      continue;
+    }
+    if (character === "'" || character === '"' || character === '`') {
+      quote = character;
+      continue;
+    }
+    if (character === '[') depth += 1;
+    else if (character === ']') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
 
 function field(objectText, name) {
   // Top-level members only (shared tokenizer): a field name inside another
@@ -63,12 +86,18 @@ function field(objectText, name) {
 /** The RAW_ARTICLES array literal of blog-articles-data.ts, as text. */
 export function rawArticlesBlock(dataText) {
   const text = String(dataText ?? '');
-  const start = text.search(RAW_ARTICLES_START);
-  if (start === -1) throw new Error('RAW_ARTICLES not found in blog-articles-data.ts');
-  const open = text.indexOf('[', start);
-  const end = text.indexOf('\n]', open);
-  if (end === -1) throw new Error('end of RAW_ARTICLES not found in blog-articles-data.ts');
-  return text.slice(open + 1, end);
+  const declarations = [...text.matchAll(RAW_ARTICLES_START)];
+  const chunks = declarations.filter((match) => match[1].startsWith('RAW_ARTICLES_CHUNK_'));
+  const aggregates = declarations.filter((match) => match[1] === 'RAW_ARTICLES');
+  const arrays = chunks.length ? [...chunks, ...aggregates] : aggregates;
+  if (arrays.length === 0) throw new Error('RAW_ARTICLES not found in blog-articles-data.ts');
+
+  return arrays.map((match) => {
+    const open = match.index + match[0].lastIndexOf('[');
+    const end = matchingArrayEnd(text, open);
+    if (end === -1) throw new Error('end of RAW_ARTICLES not found in blog-articles-data.ts');
+    return text.slice(open + 1, end);
+  }).join('\n');
 }
 
 /** `{ id, category, date, updatedAt }` of every RAW_ARTICLES entry, in file order. */

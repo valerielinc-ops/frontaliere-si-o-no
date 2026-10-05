@@ -142,6 +142,35 @@ describe('selection from RAW_ARTICLES', () => {
     expect(parsed).toEqual(real);
   });
 
+  it('reads rows from a registry with an explicit Article[] annotation', () => {
+    const typedFixture = `const RAW_ARTICLES: Article[] = [
+      { id: 'typed-entry', category: 'novita', date: '2026-10-05' },
+    ] satisfies Article[];`;
+
+    expect(parseRawArticles(typedFixture).map((entry) => entry.id)).toEqual(['typed-entry']);
+    expect(rawArticlesBlock(typedFixture)).toContain("id: 'typed-entry'");
+  });
+
+  it('reads typed literal chunks without double-counting the spread aggregator', () => {
+    const chunkedFixture = `const RAW_ARTICLES_CHUNK_01: Article[] = [
+      { id: 'chunk-one', category: 'novita', date: '2026-10-04' },
+    ];
+    const RAW_ARTICLES_CHUNK_02: Article[] = [
+      { id: 'chunk-two', category: 'novita', date: '2026-10-05' },
+    ];
+    const RAW_ARTICLES: Article[] = [
+      ...RAW_ARTICLES_CHUNK_01,
+      ...RAW_ARTICLES_CHUNK_02,
+      { id: 'appended-entry', category: 'novita', date: '2026-10-06' },
+    ] satisfies Article[];`;
+
+    expect(parseRawArticles(chunkedFixture).map((entry) => entry.id)).toEqual([
+      'chunk-one',
+      'chunk-two',
+      'appended-entry',
+    ]);
+  });
+
   it('--select prints the four body paths of each selected article, one per line', async () => {
     const root = tempRoot([]);
     let printed = '';
@@ -173,6 +202,24 @@ describe('selection from RAW_ARTICLES', () => {
     expect(entries.filter((entry) => !entry.category || typeof entry.date !== 'string')).toEqual([]);
     expect(entries.filter((entry) => entry.date !== '' && !Number.isFinite(Date.parse(entry.date!)))).toEqual([]);
     expect(entries.filter((entry) => entry.category === 'novita').length).toBeGreaterThan(0);
+    expect(entries.every((entry) => (
+      typeof entry.category === 'string' && entry.category.length > 0 && typeof entry.date === 'string'
+    ))).toBe(true);
+  });
+
+  it.skipIf(SKIP_LIVE_DATA || (!realPresent && !process.env.CI))('keeps the generated raw registry and public export explicitly typed', () => {
+    const text = fs.readFileSync(realData, 'utf8');
+    const declarations = [...text.matchAll(/const\s+(RAW_ARTICLES(?:_CHUNK_\d+)?)([^\n]*)/g)];
+    expect(declarations.length).toBeGreaterThan(0);
+    expect(declarations.every((match) => /:\s*Article\[\]\s*=/.test(match[2]))).toBe(true);
+    expect(text).toMatch(/export\s+const\s+ARTICLES\s*:\s*Article\[\]\s*=/);
+
+    if (!text.includes('const RAW_ARTICLES_CHUNK_01')) {
+      const start = text.indexOf('const RAW_ARTICLES: Article[] = [');
+      const end = text.indexOf('\n];', start);
+      expect(end).toBeGreaterThan(start);
+      expect(text.slice(start, end)).not.toContain('satisfies Article[]');
+    }
   });
 });
 
