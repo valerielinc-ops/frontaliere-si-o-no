@@ -31,6 +31,84 @@ function readIfPresent(base: string, rel: string): string | null {
   return fs.existsSync(abs) ? fs.readFileSync(abs, 'utf-8') : null;
 }
 
+const BASE_URL = 'https://frontaliereticino.ch';
+const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+const HISTORICAL_SECTION_URLS = {
+  frontaliere: {
+    articleId: 'stipendio-netto-2026',
+    indexSlug: {
+      it: 'articoli-frontaliere',
+      en: 'cross-border-articles',
+      de: 'grenzgaenger-artikel',
+      fr: 'articles-frontalier',
+    },
+    rss: {
+      it: '/rss.xml',
+      en: '/rss-en.xml',
+      de: '/rss-de.xml',
+      fr: '/rss-fr.xml',
+    },
+  },
+  svizzera: {
+    articleId: 'costo-vita-svizzera-2026',
+    indexSlug: {
+      it: 'articoli-svizzera',
+      en: 'swiss-articles',
+      de: 'schweiz-artikel',
+      fr: 'articles-suisse',
+    },
+    rss: {
+      it: '/rss-svizzera.xml',
+      en: '/rss-svizzera-en.xml',
+      de: '/rss-svizzera-de.xml',
+      fr: '/rss-svizzera-fr.xml',
+    },
+  },
+} as const;
+
+type JsonLdBlock = {
+  '@type'?: string;
+  itemListElement?: Array<{ item?: string }>;
+};
+
+function jsonLdBlocks(html: string): JsonLdBlock[] {
+  return [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]) as JsonLdBlock);
+}
+
+describe.each(Object.entries(HISTORICAL_SECTION_URLS))('%s article localized metadata paths', (section, config) => {
+  it('localizes the section breadcrumb, RSS alternate, and visible section link without changing canonical or og:url', async () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), `ogpages-${section}-paths-`));
+
+    try {
+      const result = await renderArticlePages({
+        rootDir,
+        distDir: outDir,
+        section: section as 'frontaliere' | 'svizzera',
+        onlyArticleId: config.articleId,
+      });
+      expect(result.entries).toHaveLength(1);
+      const entry = result.entries[0];
+
+      for (const locale of LOCALES) {
+        const html = fs.readFileSync(path.join(outDir, entry.paths[locale]), 'utf-8');
+        const localePrefix = locale === 'it' ? '' : `/${locale}`;
+        const sectionPath = `${localePrefix}/${config.indexSlug[locale]}/`;
+        const expectedSectionUrl = `${BASE_URL}${sectionPath}`;
+        const breadcrumbs = jsonLdBlocks(html).find((block) => block['@type'] === 'BreadcrumbList');
+
+        expect(breadcrumbs?.itemListElement?.[1]?.item).toBe(expectedSectionUrl);
+        expect(html).toContain(`<link rel="canonical" href="${entry.urls[locale]}">`);
+        expect(html).toContain(`<meta property="og:url" content="${entry.urls[locale]}">`);
+        expect(html).toContain(`<link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}${config.rss[locale]}">`);
+        expect(html).toContain(`<a href="${sectionPath}">Articoli</a>`);
+      }
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
+  }, 300_000);
+});
+
 describe('renderArticlePages — single-article render equals full-section render', () => {
   it('emits byte-identical HTML for the same article in both modes', async () => {
     const fullDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-full-'));
