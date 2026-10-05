@@ -147,6 +147,7 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     'I need to check the existing translations in the repository.',
     'I need to see the context of where this job title is used.',
     'I need to see the actual job file to identify which title needs translation.',
+    'I need to see the phrase to translate.',
     'Non vedo alcun titolo nel messaggio.',
     'Ich sehe keinen Stellentitel in Ihrer Nachricht.',
     'Je ne vois pas de titre à traduire.',
@@ -171,6 +172,8 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     'The user has provided the job title Buyer for translation.',
     'The user provided the job title Buyer for translation.',
     'The user gave the title Buyer to translate.',
+    'The user provided "Buyer" for translation.',
+    'The user has given the job title Buyer to translate.',
   ])('riconosce la narrazione che esplicita l input fornito dall utente: %s', (text) => {
     expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
   });
@@ -178,6 +181,7 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
   it.each([
     'The user provided feedback on the new translation process.',
     'The user gave the title Buyer to the hiring manager.',
+    'The user provided "Buyer" for the hiring manager.',
   ])('non tratta come narrazione una frase senza intento di traduzione: %s', (text) => {
     expect(detectAiMetaResponse(text)).toBeNull();
   });

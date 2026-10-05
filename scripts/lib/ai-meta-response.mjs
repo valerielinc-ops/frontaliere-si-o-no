@@ -44,7 +44,7 @@ const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160
 // context of»). «I don't see any reason», «I cannot find a better job in
 // Ticino» or «Ho bisogno di più tempo» are first-person prose of a real ad or
 // letter, not a model asking for its input.
-const EN_INPUT = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting)\b`;
+const EN_INPUT = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting|phrase)\b`;
 const IT_INPUT = String.raw`(?:(?:il|lo|la|i|gli|le|un|uno|una|alcun|nessun)\s+)?(?:[\wàèéìòù'’-]+\s+){0,3}?(?:titol[oi]|test[oi]|messaggio|traduzion[ei]|dati|file|contesto|annuncio)\b`;
 const DE_INPUT = String.raw`(?:[\wäöüß-]+\s+){0,3}?(?:titel|stellentitel|text|nachricht|übersetzung|kontext|daten|datei)\b`;
 const FR_INPUT = String.raw`(?:(?:le|la|les|l['’]|un|une|du|de|des|d['’])\s*)?(?:[\wàâçéèêëîïôûù'’-]+\s+){0,3}?(?:titre|texte|message|traduction|contexte|données|fichier|annonce)s?\b`;
@@ -69,7 +69,7 @@ const LEADING_PATTERNS = [
   ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir |savoir |vérifier |plus de )|je ne (?:vois|trouve) (?:pas|aucun|aucune) )${FR_INPUT}`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
-  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has )?(?:provided|gave) ${EN_INPUT}[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
+  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has (?:provided|given)|provided|gave) (?:${EN_INPUT}|${TRANSLATION_QUOTED_INPUT})[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
   // «We need to translate "GL & VAT Accountant" to English.»: only with the
   // quoted input AND the target language. «We need to produce…», «We need to
   // translate our software into German» open real ads and articles.
