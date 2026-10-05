@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-05T09:19:01.115Z",
+  "generatedAt": "2026-10-05T10:32:47.092Z",
   "total": 70,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 66,
-  "durationMs": 78225,
-  "avgDurationMs": 78225,
+  "durationMs": 83403,
+  "avgDurationMs": 83403,
   "durationHistory": [
-    78225
+    83403
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -514,7 +514,6 @@
       "salaryMax": 87000,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -911,7 +910,6 @@
       "salaryMax": 87000,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1245,5 +1243,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
 }

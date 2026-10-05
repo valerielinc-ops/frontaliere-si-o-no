@@ -449,7 +449,13 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: expect.any(String),
+      url: expect.stringMatching(/^https:\/\//),
+    });
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -663,13 +669,19 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers).toBeUndefined();
   });
 
-  it('omits offers when the page has no verifiable amount even when defaults are requested', () => {
+  it('emits a price-free Offer shell when the detail page has no verifiable amount', () => {
     const ld = eventLd({
       ...baseEvent,
       structuredDataDefaultsApplied: true,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: baseEvent.startDate,
+      url: baseEvent.url,
+    });
   });
 });
 
