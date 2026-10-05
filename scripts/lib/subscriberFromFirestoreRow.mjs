@@ -99,5 +99,9 @@ export function subscriberFromFirestoreRow(row) {
     // consumed by scripts/lib/send-schedule.mjs:resolveEffectivePreferredHour.
     preferredSendHourUtc: row.preferred_send_hour_utc ?? null,
     preferredSendSampleCount: row.preferred_send_sample_count ?? 0,
+    // Opposition to the click-based job ordering (privacy policy): set by
+    // hand on the document; the sender then does not read the person's
+    // affinity profile and uses the standard order.
+    rankingPersonalizationOptOut: row.ranking_personalization_opt_out === true,
   };
 }

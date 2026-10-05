@@ -1,6 +1,8 @@
 /**
  * jobEmailAffinityStore.js — cancellazione immediata del profilo di affinita'
- * (`job_email_affinity/{pseudonimo}`, forma in ./jobEmailAffinity.js).
+ * (`job_email_affinity/{pseudonimo}`, forma in ./jobEmailAffinity.js) e
+ * lettura a lotti dei profili dei destinatari di un invio
+ * (loadJobEmailAffinityProfiles, in fondo).
  *
  * La privacy policy promette che il profilo sparisce SUBITO quando la persona
  * si cancella da tutte le comunicazioni o elimina l'account. I percorsi che lo
@@ -26,7 +28,11 @@
  * cancella. Il log non contiene email ne' pseudonimi.
  */
 
-import { JOB_EMAIL_AFFINITY_COLLECTION, affinityDocId, isStoppedFromAllEmail } from './jobEmailAffinity.js';
+import {
+  JOB_EMAIL_AFFINITY_COLLECTION,
+  affinityDocId,
+  isStoppedFromAllEmail,
+} from './jobEmailAffinity.js';
 
 const REMOTE_CONFIG_TIMEOUT_MS = 5000;
 
@@ -96,4 +102,80 @@ export async function eraseJobEmailAffinityProfileIfNoEmailLeft(db, email, { sec
 /** Eventi dei provider che equivalgono a una disiscrizione da tutto. */
 export function isAffinityErasingEvent(type) {
   return type === 'complaint' || type === 'unsubscribed';
+}
+
+/** Profili per chiamata a getAll: dentro i 300-500 riferimenti per lotto. */
+export const AFFINITY_PROFILE_READ_CHUNK = 300;
+
+/**
+ * Legge i profili di affinita' dei destinatari di UN invio, una lettura per
+ * persona (non per alert), a lotti con getAll.
+ *
+ * `recipients` e' un elenco di `{ email, optOut }`: `optOut` e' il flag
+ * `ranking_personalization_opt_out === true` del documento
+ * `newsletter_subscribers/{email}` che il mittente ha gia' letto. Chi si e'
+ * opposto non viene letto e vale null (ordine standard).
+ *
+ * L'id del documento e' l'HMAC dell'email con NEWSLETTER_SECRET
+ * (affinityDocId), calcolato qui dall'indirizzo: MAI lo `user_id` degli eventi
+ * di clic, che nelle Cloud Functions e' calcolato senza segreto e non
+ * coincide.
+ *
+ * Non lancia mai: senza segreto, senza getAll o con un lotto fallito quei
+ * destinatari valgono null e l'invio prosegue con l'ordine standard. Il log
+ * contiene solo conteggi, mai email o pseudonimi.
+ *
+ * @returns {Promise<{ profiles: Map<string, object|null>, stats: object }>}
+ *   chiave: email minuscola senza spazi.
+ */
+export async function loadJobEmailAffinityProfiles(db, recipients, {
+  secret = process.env.NEWSLETTER_SECRET,
+  chunkSize = AFFINITY_PROFILE_READ_CHUNK,
+} = {}) {
+  const profiles = new Map();
+  const stats = { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: null };
+  const toRead = [];
+  for (const recipient of Array.isArray(recipients) ? recipients : []) {
+    const email = String(recipient?.email || '').trim().toLowerCase();
+    if (!email || profiles.has(email)) continue;
+    profiles.set(email, null);
+    stats.recipients += 1;
+    if (recipient.optOut === true) {
+      stats.opted_out += 1;
+      continue;
+    }
+    toRead.push(email);
+  }
+  if (toRead.length === 0) return { profiles, stats };
+  if (!db || typeof db.getAll !== 'function') {
+    stats.skipped_reason = 'no_firestore';
+  } else if (!affinityDocId(toRead[0], secret)) {
+    stats.skipped_reason = 'missing_secret';
+  }
+  if (stats.skipped_reason) {
+    console.warn(`⚠️ job_email_affinity: profili non letti (${stats.skipped_reason}), ordine standard per ${toRead.length} destinatari`);
+    return { profiles, stats };
+  }
+
+  const size = Math.max(1, Math.trunc(Number(chunkSize)) || AFFINITY_PROFILE_READ_CHUNK);
+  for (let offset = 0; offset < toRead.length; offset += size) {
+    const chunk = toRead.slice(offset, offset + size);
+    try {
+      const refs = chunk.map((email) => db.collection(JOB_EMAIL_AFFINITY_COLLECTION).doc(affinityDocId(email, secret)));
+      const snapshots = await db.getAll(...refs);
+      stats.read += chunk.length;
+      snapshots.forEach((snapshot, index) => {
+        const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+        if (!exists) return;
+        profiles.set(chunk[index], snapshot.data() || null);
+        stats.found += 1;
+      });
+    } catch (error) {
+      // Solo il codice: il messaggio di Firestore puo' citare il path del
+      // documento, cioe' lo pseudonimo.
+      stats.failed += chunk.length;
+      console.warn(`⚠️ job_email_affinity: lettura di ${chunk.length} profili fallita (${error?.code || error?.name || 'errore'}), ordine standard per loro`);
+    }
+  }
+  return { profiles, stats };
 }

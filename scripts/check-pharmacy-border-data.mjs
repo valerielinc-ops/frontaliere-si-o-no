@@ -12,11 +12,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { BORDER_MINIMUMS, verifyPharmacyReleaseContract } from './import-pharmacies-border.mjs';
+import { validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from './lib/pharmacy-enrichment.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TICINO_PATH = path.join(ROOT, 'data', 'pharmacies-ticino-complete.json');
 const ITALY_PATH = path.join(ROOT, 'data', 'pharmacies-italy-border.json');
+const ENRICHMENT_PATH = path.join(ROOT, 'data', 'pharmacy-enrichment.json');
+const ENRICHMENT_SOURCES_PATH = path.join(ROOT, 'data', 'pharmacy-enrichment-sources.json');
 const DUTIES_PATH = path.join(ROOT, 'data', 'pharmacy-duties-ticino.json');
 const DUTIES_STATUS_PATH = path.join(ROOT, 'data', 'pharmacy-duties-ticino-status.json');
 const SOURCES_PATH = path.join(ROOT, 'data', 'pharmacy-border-sources.json');
@@ -24,6 +27,22 @@ const PROVINCES = new Set(['CO', 'VA', 'VB']);
 const COUNTRIES = new Set(['CH', 'IT']);
 const OPTIONAL_FIELDS = new Set(['phone', 'website', 'coordinates', 'openingHours', 'services']);
 const FIELD_STATUSES = new Set(['verified', 'not_published', 'not_checked']);
+
+function validateBorderEnrichment({ ticino, italy, config, enrichment }) {
+  const errors = [
+    ...validatePharmacyEnrichmentConfig(config),
+    ...validatePharmacyEnrichmentSnapshot(enrichment),
+  ];
+  const knownIds = new Set([...(ticino?.pharmacies || []), ...(italy?.pharmacies || [])].map((pharmacy) => pharmacy.id));
+  for (const id of Object.keys(enrichment?.records || {})) {
+    if (!knownIds.has(id)) errors.push(`enrichment record ${id} is not in the catalogue`);
+  }
+  for (const source of config?.sources || []) {
+    if (!knownIds.has(source.pharmacyId)) errors.push(`enrichment source ${source.id} references unknown ${source.pharmacyId}`);
+  }
+  if (JSON.stringify(enrichment).match(/farmacia-aperta|federfarma/i)) errors.push('enrichment contains prohibited Farmacia Aperta/Federfarma source text');
+  return errors;
+}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -142,6 +161,12 @@ export function main() {
   try {
     const errors = [
       ...validateBorderSources(readJson(SOURCES_PATH)),
+      ...validateBorderEnrichment({
+        ticino: readJson(TICINO_PATH),
+        italy: readJson(ITALY_PATH),
+        config: readJson(ENRICHMENT_SOURCES_PATH),
+        enrichment: readJson(ENRICHMENT_PATH),
+      }),
       ...validateBorderSnapshot({
         ticino: readJson(TICINO_PATH),
         italy: readJson(ITALY_PATH),

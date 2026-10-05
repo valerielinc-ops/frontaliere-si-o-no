@@ -34,6 +34,7 @@ import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
+import { isSafeDistPath } from './shared/distPathSafety';
 import {
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -268,9 +269,14 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedExisting = 0;
       let skippedUnresolved = 0;
       let skippedNonOwnedLocale = 0;
+      let skippedUnsafeDistPaths = 0;
 
       for (const { path: rawPath } of ordered) {
         const from = withSlash(rawPath);
+        if (!isSafeDistPath(from)) {
+          skippedUnsafeDistPaths++;
+          continue;
+        }
 
         // Per-locale matrix shard (BUILD_LOCALE, issue #5130): a bridge in a
         // NON-owned locale subtree is deleted, unread, by
@@ -456,6 +462,11 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved, ` +
             `${skippedNonOwnedLocale} non-owned-locale skipped). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
+        );
+      }
+      if (skippedUnsafeDistPaths > 0) {
+        console.log(
+          `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedUnsafeDistPaths} path(s) with dot-prefixed URL path segments before dist emission.`,
         );
       }
       },
