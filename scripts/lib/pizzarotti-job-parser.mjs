@@ -5,6 +5,10 @@ import {
   isSwissLocationText,
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
+import {
+  isExplicitlyOutsideTarget,
+  isLocationExplicitlyForeign,
+} from './dedicated-crawler-common.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
@@ -91,11 +95,24 @@ export function parsePizzarottiListings(html = '') {
 export function classifyPizzarottiListings(listings = []) {
   const rows = Array.isArray(listings) ? listings : [];
   const swissListings = rows.filter((row) => isPizzarottiSwissLocation(row.location));
+  const unclassifiedLocationCount = rows.filter(
+    (row) => !isPizzarottiClassifiableLocation(row.location),
+  ).length;
+  const lastFetchOutcome = rows.length === 0
+    ? null
+    : swissListings.length === 0
+      ? 'filtered_empty'
+      : 'ok';
   return {
     listings: swissListings,
     discovered: rows.length,
-    lastFetchOutcome:
-      rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+    lastFetchOutcome,
+    unclassifiedLocationCount,
+    // A complete non-empty board whose every location is classifiable and
+    // contains no Swiss row proves the target (Swiss) slice is empty. A
+    // missing or ambiguous location keeps the health advisory fail-closed.
+    authoritativeEmptySnapshot: lastFetchOutcome === 'filtered_empty'
+      && unclassifiedLocationCount === 0,
   };
 }
 
@@ -113,6 +130,19 @@ export function parsePizzarottiPageCount(html = '') {
 export function isPizzarottiSwissLocation(raw = '') {
   const location = normalizeSpace(raw);
   return isTargetSwissLocation(location) || isSwissLocationText(location);
+}
+
+/**
+ * A location is classifiable when the source gives us positive evidence for
+ * either side of the Swiss filter. Unknown/blank locations stay ambiguous:
+ * they must not turn a zero result into an authoritative filtered snapshot.
+ */
+export function isPizzarottiClassifiableLocation(raw = '') {
+  const location = normalizeSpace(raw);
+  if (!location) return false;
+  return isPizzarottiSwissLocation(location)
+    || isLocationExplicitlyForeign(location)
+    || isExplicitlyOutsideTarget(location);
 }
 
 /**

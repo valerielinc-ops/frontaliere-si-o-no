@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-10-05T06:52:53.947Z",
+  "assembledAt": "2026-10-05T12:49:01.642Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -72077,6 +72077,4727 @@
         "name": "Museum Kleines Klingental"
       },
       "imageUrl": "/images/events/guidle-ATp84KQ.webp"
+    },
+    {
+      "id": "guidle:AhsZQut",
+      "title": "TEXTUR 2026 - Filiae tonitrui",
+      "titleByLocale": {
+        "it": "TEXTUR 2026 - Filiae tonitrui",
+        "en": "TUR 2026-Filiae tonitrui",
+        "de": "TE GRAFFTUR 2026-Filiae tonitrui",
+        "fr": "TUR 2026-Filies tonitrui"
+      },
+      "description": "‎Ein musikalisches Porträt des heiligen Jakobus im 12.",
+      "descriptionByLocale": {
+        "it": "‎Ein musikalisches Porträt des heiligen Jakobus im 12.",
+        "en": "Ein musikalisches Porträt des heiligen Jakobus im 12.",
+        "de": "Ein musikalisches Porträt des heiligen Jakobus im 12.",
+        "fr": "Ein musikalisches Porträt des heiligen Jakobus im 12."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "15:00",
+      "category": "Festival / Incontro",
+      "venue": "Evang.-ref. St. Margarethenkirche",
+      "comune": "Binningen",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/binningen/textur-2026-filiae-tonitrui_AhsZQut",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "St. Margarethen 8",
+        "postalCode": "4102"
+      },
+      "geo": {
+        "lat": 47.54325607977029,
+        "lng": 7.579604213691731
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Evang.-ref. St. Margarethenkirche"
+      },
+      "imageUrl": "/images/events/guidle-AhsZQut.webp"
+    },
+    {
+      "id": "guidle:ALx9byG",
+      "title": "TEXTUR 2026 - Héroïnes",
+      "titleByLocale": {
+        "it": "TEXTUR 2026 - Héroïnes",
+        "en": "TEXTUR 2026 - Heroes",
+        "de": "Textur 2026 - Helden",
+        "fr": "TEX TUR 2026-Héros"
+      },
+      "description": "Zweifache Königin, Mutter von elf Kindern und grosse Förderin der Künste: Aliénor von Aquitanien prägte das politische und kulturelle Leben des europäischen Mittelalters.",
+      "descriptionByLocale": {
+        "it": "Zweifache Königin, Mutter von elf Kindern und grosse Förderin der Künste: Aliénor von Aquitanien prägte das politische und kulturelle Leben des europäischen Mittelalters.",
+        "en": "Twice queen, mother of eleven children and great patron of the arts: Aliénor of Aquitaine shaped the political and cultural life of the European Middle Ages.",
+        "de": "Zweifache Königin, Mutter von elf Kindern und großer Förderin der Künste: Aliénor von Aquitanien prägte das politische und kulturelle Leben des europäischen Mittelalters.",
+        "fr": "Zweifache Königin, Mutter von elf Kindern und grosse Förderin der Künste : Aliénor von Aquitanien prägte das politische und kulturelle Leben des europäischen Mittelalters."
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "17:00",
+      "category": "Festival / Incontro",
+      "venue": "Dorfkirche Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/riehen/textur-2026-heroines_ALx9byG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "4125"
+      },
+      "geo": {
+        "lat": 47.582659,
+        "lng": 7.652434
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Dorfkirche Riehen"
+      },
+      "imageUrl": "/images/events/guidle-ALx9byG.webp"
+    },
+    {
+      "id": "guidle:APGRBDn",
+      "title": "TEXTUR 2026 - Polia potente",
+      "titleByLocale": {
+        "it": "TEXTUR 2026 - Polia potente",
+        "en": "TEXTUR 2026 - Powerful Polia",
+        "de": "Textur 2026 - Leistungsstarkes Polia",
+        "fr": "TEXTUR 2026 - Polia puissant"
+      },
+      "description": "Ein Traum im Traum, eine geheimnisvolle Liebesreise und eines der rätselhaftesten Bücher der Renaissance: Die Hypnerotomachia Poliphili wird zur Grundlage eines musikalisch-szenischen Dialogs",
+      "descriptionByLocale": {
+        "it": "Ein Traum im Traum, eine geheimnisvolle Liebesreise und eines der rätselhaftesten Bücher der Renaissance: Die Hypnerotomachia Poliphili wird zur Grundlage eines musikalisch-szenischen Dialogs",
+        "en": "A dream within a dream, a mysterious journey of love and one of the most enigmatic books of the Renaissance: the Hypnerotomachia Poliphili becomes the basis of a musical-scenic dialog",
+        "de": "Ein Traum im Traum, eine heimnisvolle Liebes-und einereiner der R. ⑤selhaftesten B. ⑤cher der Renaissance: Die H. Sierotomachia Polyphili, die zur Grundlage eines musikalischen-szenischen Dialogs",
+        "fr": "Ein Traum im Traum, eine geheimnisvolle Liebesreise und eines der rätselhaftesten Bücher der Renaissance : Die Hypnerotomachia Polyphili wird zur Grundlage eines musikalisch-szenischen Dialogs"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "17:00",
+      "category": "Festival / Incontro",
+      "venue": "Evang.-ref. St. Margarethenkirche",
+      "comune": "Binningen",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/binningen/textur-2026-polia-potente_APGRBDn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "St. Margarethen 8",
+        "postalCode": "4102"
+      },
+      "geo": {
+        "lat": 47.54325607977029,
+        "lng": 7.579604213691731
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Evang.-ref. St. Margarethenkirche"
+      },
+      "imageUrl": "/images/events/guidle-APGRBDn.webp"
+    },
+    {
+      "id": "guidle:ACpEGaN",
+      "title": "TEXTUR 2026 - Ségurant, le chevalier au dragon",
+      "titleByLocale": {
+        "it": "TEXTUR 2026 - Ségurant, le chevalier au dragon",
+        "en": "TEXTUR 2026 - Segurant, the dragon knight",
+        "de": "TEXTUR 2026 – Ségurant, der Chevalier au Dragon",
+        "fr": "TET TUR 2026-Segurant, le chevalier au dragon"
+      },
+      "description": "Ein vergessener Ritter der Tafelrunde, ein feuerspeiender Drache und eine unglaubliche Entdeckung: Emanuele Arioli hat nach mehr als zehn Jahren Recherche einen verloren geglaubten Artusroman wieder",
+      "descriptionByLocale": {
+        "it": "Ein vergessener Ritter der Tafelrunde, ein feuerspeiender Drache und eine unglaubliche Entdeckung: Emanuele Arioli hat nach mehr als zehn Jahren Recherche einen verloren geglaubten Artusroman wieder",
+        "en": "Once again Ritter der Tafelrunde, un feuerspeiender Drache und unglaubliche Entdeckung: Emanuele Arioli hat nach mehr als zehn Jahren Recherche einen verloren geglaubten Artusroman wieder",
+        "de": "Ein vergessener Ritter der Tafelrunde, ein feuerspeiender Drache und eine unglaubliche Entdeckung: Emanuele Arioli hat nach mehr als zehn Jahren Recherche eine geglaubte Artusroman wieder",
+        "fr": "Ein vergessener Ritter der Tafelrunde, ein feuerspeiender Drache und eine unglaubliche Entdeckung : Emanuele Arioli hat nach mehr als zehn Jahren Recherche einen verloren geglaubten Artusroman wieder"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "13:00",
+      "category": "Festival / Incontro",
+      "venue": "Historisches Museum Basel: Musikmuseum",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/textur-2026-segurant-le-chevalier-au-dragon_ACpEGaN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Im Lohnhof 9",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5548271,
+        "lng": 7.5878102
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Historisches Museum Basel: Musikmuseum"
+      },
+      "imageUrl": "/images/events/guidle-ACpEGaN.webp"
+    },
+    {
+      "id": "guidle:AFpsTL5",
+      "title": "Line Dance Night",
+      "titleByLocale": {
+        "it": "Line Dance Night",
+        "en": "Line Dance Night",
+        "de": "Line Dance Abend",
+        "fr": "Soirée de danse en ligne"
+      },
+      "description": "Freu dich auf mitreissende Country-Beats, tolle Stimmung und DJ Pitt live am Start. Let’s dance – wir sehen uns auf der Tanzfläche!",
+      "descriptionByLocale": {
+        "it": "Freu dich auf mitreissende Country-Beats, tolle Stimmung und DJ Pitt live am Start. Let’s dance – wir sehen uns auf der Tanzfläche!",
+        "en": "Freu dich auf mitreissende Country-Beats, tolle Stimmung und DJ Pitt live am Start. Let's dance – wir sehen uns auf der Tanzfläche!",
+        "de": "Freu dich auf mitreissende Country-Beats, tolle Stimmung und DJ Pitt live am Start. Let's dance – wir sehen uns auf der Tanzfläche!",
+        "fr": "Freu dich auf mitreissende Country-Beats, tolle Stimmung und DJ Pitt live am Start. Let’s dance – wir sehen uns auf der Tanzfläche !"
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "19:30",
+      "category": "Country",
+      "venue": "Chesselhuus",
+      "comune": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/pfaeffikon-zh/line-dance-night_AFpsTL5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tumbelenstrasse 6",
+        "postalCode": "8330"
+      },
+      "geo": {
+        "lat": 47.3646392,
+        "lng": 8.7822567
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chesselhuus"
+      },
+      "imageUrl": "/images/events/guidle-AFpsTL5.webp"
+    },
+    {
+      "id": "guidle:AykpEHQ",
+      "title": "Gin & Jazz - Kurt Ackermann Trio",
+      "titleByLocale": {
+        "it": "Gin & Jazz - Kurt Ackermann Trio",
+        "en": "Gin & Kurt",
+        "de": "Gin & Jazz – Kurt Ackermann Trio",
+        "fr": "Le Gin et Kurt"
+      },
+      "description": "GIN, JAZZ & GOOD VIBES – An evening of live music and signature drinks at the Schweizerhof Bar.",
+      "descriptionByLocale": {
+        "it": "GIN, JAZZ & GOOD VIBES – An evening of live music and signature drinks at the Schweizerhof Bar.",
+        "en": "GIN, GIN ZAZZ & GOOD VIBES – An evening of live music and signature drinks at the Sch Sch",
+        "de": "GIN, JAZZ & GOOD VIBES – Ein Abend mit Livemusik und Signature-Drinks in der Schweizerhof Bar.",
+        "fr": "GIN, JAZZ & GOOD VIBES – Une soirée de concerts et de boissons signature au Schweizerhof Bar."
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "19:00",
+      "category": "Soul",
+      "venue": "Hotel Schweizerhof Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/music/zurich/gin-und-jazz-kurt-ackermann-trio_AykpEHQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bahnhofplatz 7",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3769343,
+        "lng": 8.5393979
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Hotel Schweizerhof Zürich"
+      },
+      "imageUrl": "/images/events/guidle-AykpEHQ.webp"
+    },
+    {
+      "id": "guidle:A5LGVBh",
+      "title": "NICOLAS FOLMER FEAT. RICK MARGITZA",
+      "titleByLocale": {
+        "it": "NICOLAS FOLMER FEAT. RICK MARGITZA",
+        "en": "JESSICA FOLMER FEAT. RICK MARGITZA",
+        "de": "NICOLAS FOLMER FEAT. RICK MARGITZA",
+        "fr": "NICOLAS FOLMER AVEC RICK MARGITZA"
+      },
+      "description": "Mitwirkende: Nicolas Folmer",
+      "descriptionByLocale": {
+        "it": "Mitwirkende: Nicolas Folmer",
+        "en": "Mitir",
+        "de": "Mit ③irkende: Nicolas Folmer",
+        "fr": "Mitwirkende : Nicolas Folmer"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "21:00",
+      "category": "Jazz",
+      "venue": "Centre des Musiques Actuelles",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/genf/nicolas-folmer-feat-rick-margitza_A5LGVBh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 19.2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Passage Marie-Claude Leburgue 2",
+        "postalCode": "1205"
+      },
+      "geo": {
+        "lat": 46.2120031,
+        "lng": 6.1423601
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Nicolas Folmer"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-A5LGVBh.webp"
+    },
+    {
+      "id": "guidle:ArEJsvy",
+      "title": "Vagalumes - Baiju Bhatt & Red Sun",
+      "titleByLocale": {
+        "it": "Vagalumes - Baiju Bhatt & Red Sun",
+        "en": "Vagalumes - Baiju Bhatt & Red Sun",
+        "de": "Vagalumes - Baiju Bhatt & Red Sun",
+        "fr": "Vagalumes - Baiju Bhatt & Red Sun"
+      },
+      "description": "Mitwirkende: Vagalumes",
+      "descriptionByLocale": {
+        "it": "Mitwirkende: Vagalumes",
+        "en": "Mitwirkende: Vagalumes",
+        "de": "Mitwirkende: Vagalumes",
+        "fr": "Mitwirkende: Vagalumes"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "21:00",
+      "category": "Jazz",
+      "venue": "Centre des Musiques Actuelles",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/genf/vagalumes-baiju-bhatt-und-red-sun_ArEJsvy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Passage Marie-Claude Leburgue 2",
+        "postalCode": "1205"
+      },
+      "geo": {
+        "lat": 46.2120031,
+        "lng": 6.1423601
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Vagalumes"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-ArEJsvy.webp"
+    },
+    {
+      "id": "guidle:ANfCUHZ",
+      "title": "Live Musik in der Café-Bar mit dem Trio Querdöre",
+      "titleByLocale": {
+        "it": "Live Musik in der Café-Bar mit dem Trio Querdöre",
+        "en": "Live Musik in der Café-Bar mit dem Trio Querdöre",
+        "de": "Live Musik in der Café-Bar mit dem Trio Querdöre",
+        "fr": "Live Musik in der Café-Bar mit dem Trio Querdöre"
+      },
+      "description": "Am Freitag, 30 Oktober 2026 spielt das Trio Querdöre von 17.30 bis 22.00 Uhr in der Café-Bar in Unterwasser.",
+      "descriptionByLocale": {
+        "it": "Am Freitag, 30 Oktober 2026 spielt das Trio Querdöre von 17.30 bis 22.00 Uhr in der Café-Bar in Unterwasser.",
+        "en": "Am Freitag, 30 Oktober 2026 spielt das Trio Querdöre von 17.30 bis 22.00 Uhr in der Café-Bar in Unterwasser.",
+        "de": "Am Freitag, 30 Oktober 2026 spielt das Trio Querdöre von 17.30 bis 22.00 Uhr in der Café-Bar in Unterwasser.",
+        "fr": "Am Freitag, 30 Oktober 2026 spielt das Trio Querdöre von 17.30 bis 22.00 Uhr in der Café-Bar in Unterwasser."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "17:30",
+      "category": "Altri musica",
+      "venue": "Café-Bar Bahnhof Unterwasser",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/unterwasser/live-musik-in-der-cafe-bar-mit-dem-trio-querdoere_ANfCUHZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Frühweidstrasse 8",
+        "postalCode": "9657"
+      },
+      "geo": {
+        "lat": 47.194712,
+        "lng": 9.309229
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Café-Bar Bahnhof Unterwasser"
+      },
+      "imageUrl": "/images/events/guidle-ANfCUHZ.webp"
+    },
+    {
+      "id": "guidle:ArLfCn7",
+      "title": "Jazz GmbH",
+      "titleByLocale": {
+        "it": "Jazz GmbH",
+        "en": "Jazz, LLC",
+        "de": "Jazz GmbH",
+        "fr": "Jazz S.A.R.L."
+      },
+      "description": "In ihrem Repertoire befinden sich Werke vom Dixieland über Blues, Swingnummern von Duke Ellington, Miles Davis, Count Basie und vielen anderen bis hin zu Eigenkompositionen und eigenen Arrangements.",
+      "descriptionByLocale": {
+        "it": "In ihrem Repertoire befinden sich Werke vom Dixieland über Blues, Swingnummern von Duke Ellington, Miles Davis, Count Basie und vielen anderen bis hin zu Eigenkompositionen und eigenen Arrangements.",
+        "en": "Their repertoire ranges from Dixieland and blues to swing numbers by Duke Ellington, Miles Davis, Count Basie, and many others, as well as original compositions and their own arrangements.",
+        "de": "In ihrem Repertoire befinden sich Werke vom Dixieland über Blues, Swingnummern von Duke Ellington, Miles Davis, Count Basie und vielen anderen bis hin zu Eigenkompositionen und eigenen Arrangements.",
+        "fr": "Leur répertoire comprend des morceaux allant du dixieland au blues, en passant par des titres de swing de Duke Ellington, Miles Davis, Count Basie et bien d'autres, ainsi que des compositions et des arrangements originaux."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "20:30",
+      "category": "Jazz",
+      "venue": "Jazz Chälli",
+      "comune": "Visp",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/music/visp/jazz-llc_ArLfCn7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Fülagasse 2",
+        "postalCode": "3930"
+      },
+      "geo": {
+        "lat": 46.2901638,
+        "lng": 7.8820886
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Jazz Chälli"
+      },
+      "imageUrl": "/images/events/guidle-ArLfCn7.webp"
+    },
+    {
+      "id": "guidle:A6wbUid",
+      "title": "Jubiläumskonzert 25 Jahre Gospel Singers Wollishofen",
+      "titleByLocale": {
+        "it": "Jubiläumskonzert 25 Jahre Gospel Singers Wollishofen",
+        "en": "Jubiläumskonzert 25 Jahre Gospel Singers Wollishofen",
+        "de": "Jubiläumskonzert 25 Jahre Gospel Singers Wollishofen",
+        "fr": "Jubiläumskonzert 25 Jahre Gospel Singers Wollishofen"
+      },
+      "description": "25 Jahre Gospel Singers Wollishofen – 3 Konzerte – 2 Programme und 1 Special Guest Die Gospel Singers Wollishofen haben Grund zum Feiern.",
+      "descriptionByLocale": {
+        "it": "25 Jahre Gospel Singers Wollishofen – 3 Konzerte – 2 Programme und 1 Special Guest Die Gospel Singers Wollishofen haben Grund zum Feiern.",
+        "en": "25 Jahre Gospel Singers Wollishofen – 3 Konzerte – 2 Programme und 1 Special Guest Die Gospel Singers Wollishofen haben Grund zum Feiern.",
+        "de": "25 Jahre Gospel Singers Wollishofen – 3 Konzerte – 2 Programme und 1 Special Guest Die Gospel Singers Wollishofen haben Grund zum Feiern.",
+        "fr": "25 Jahre Gospel Singers Wollishofen – 3 Konzerte – 2 Programme und 1 Special Guest Die Gospel Singers Wollishofen haben Grund zum Feiern."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-31",
+      "startTime": "17:00",
+      "category": "Gospel",
+      "venue": "Reformierte Kirche Auf der Egg",
+      "comune": "Egg",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/jubilaeumskonzert-25-jahre-gospel-singers-wollishofen_A6wbUid",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 36.6,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Auf der Egg",
+        "postalCode": "8038"
+      },
+      "geo": {
+        "lat": 47.3414773,
+        "lng": 8.5322146
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Gospel Singers Wollishofen"
+        },
+        {
+          "name": "Marc Sway (beim Konzert am 21"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-A6wbUid.webp"
+    },
+    {
+      "id": "guidle:AdaQ1B1",
+      "title": "Cena soul con Camen & Band",
+      "titleByLocale": {
+        "it": "Cena soul con Camen & Band",
+        "en": "Soul Dinner with Camen & Band",
+        "de": "Soul Dinner mit Camen & Band",
+        "fr": "Soirée « Soul Dinner » avec Camen et son groupe"
+      },
+      "description": "Dopo il grande successo dello scorso anno, Camen torna all’aigu con la sua band, con un mix di soul, funk e rock 'n' roll che arriva dritto al cuore (e fa ballare).",
+      "descriptionByLocale": {
+        "it": "Dopo il grande successo dello scorso anno, Camen torna all’aigu con la sua band, con un mix di soul, funk e rock 'n' roll che arriva dritto al cuore (e fa ballare).",
+        "en": "Following last year's huge success, Camen is returning to the aigu with his band—with a mix of soul, funk, and rock 'n' roll that goes straight to the heart (and gets your feet moving).",
+        "de": "Nach dem grossen Erfolg im letzten Jahr kehrt Camen mit seiner Band zurück ins aigu – mit einer Mischung aus Soul, Funk und Rock 'n' Roll, die direkt ins Herz (und in die Beine) geht.",
+        "fr": "Après le grand succès rencontré l'année dernière, Camen revient à l'aigu avec son groupe – avec un mélange de soul, de funk et de rock 'n' roll qui va droit au cœur (et fait bouger les jambes)."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "18:30",
+      "category": "Cibo con un teatro / concerto",
+      "venue": "aigu Restaurant & Bar",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/eventi/musica/zugo/cena-soul-con-camen-und-band_AdaQ1B1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 81,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Industriestrasse 14",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.172386,
+        "lng": 8.5189526
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Groove, Geschmack"
+        },
+        {
+          "name": "Gänsehaut"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AdaQ1B1.webp"
+    },
+    {
+      "id": "guidle:AL5khXm",
+      "title": "Sheer Terror (US), Tear Up (UK) & more",
+      "titleByLocale": {
+        "it": "Sheer Terror (US), Tear Up (UK) & more",
+        "en": "Sheer Terror (US), Tear Up (UK) & more",
+        "de": "Sheer Terror (US), Tear Up (UK) & more",
+        "fr": "Sheer Terror (US), Tear Up (UK) & more"
+      },
+      "description": "PTR x PETALUS PROD present : Sheer Terror (US) - Punk Hardcore Sheer Terror, groupe américain de punk hardcore de New York, a été formé en décembre 1984.",
+      "descriptionByLocale": {
+        "it": "PTR x PETALUS PROD present : Sheer Terror (US) - Punk Hardcore Sheer Terror, groupe américain de punk hardcore de New York, a été formé en décembre 1984.",
+        "en": "PTR x PETALUS PROD present : Sheer Terror (US) - Punk Hardcore Sheer Terror, groupe américain de punk hardcore de New York, a été formé en décembre 1984.",
+        "de": "PTR x PETALUS PROD present : Sheer Terror (US) - Punk Hardcore Sheer Terror, groupe américain de punk hardcore de New York, a été formé en décembre 1984.",
+        "fr": "PTR x PETALUS PROD present : Sheer Terror (US) - Punk Hardcore Sheer Terror, groupe américain de punk hardcore de New York, a été formé en décembre 1984."
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "20:00",
+      "category": "Metal / Hardcore",
+      "venue": "PTR Usine",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/punk-rock-show-sheer-terror-us-tear-up-uk-und-more_AL5khXm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 19,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place des Volontaires 4",
+        "postalCode": "1200"
+      },
+      "geo": {
+        "lat": 46.203991,
+        "lng": 6.1363811
+      },
+      "recurring": false,
+      "performer": {
+        "name": "MCA Records pour la sortie de Love Songs for the Unloved en 1995"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AL5khXm.webp"
+    },
+    {
+      "id": "guidle:AZdbi75",
+      "title": "SOPHIE ALLOWAY QUARTET",
+      "titleByLocale": {
+        "it": "SOPHIE ALLOWAY QUARTET",
+        "en": "SOPHIE ALLOWAY QUARTET",
+        "de": "SOPHIE ALLOWAY QUARTET",
+        "fr": "SOPHIE ALLOWAY QUARTET"
+      },
+      "description": "https://www.mariansjazzroom.ch/termine-marians/sophie-alloway-2026",
+      "descriptionByLocale": {
+        "it": "https://www.mariansjazzroom.ch/termine-marians/sophie-alloway-2026",
+        "en": "https://www.mariansjazzroom.ch/termine-marians/sophie-alloway-2026",
+        "de": "https://www.mariansjazzroom.ch/termine-marians/sophie-alloway-2026",
+        "fr": "https://www.mariansjazzroom.ch/termine-marians/sophie-alloway-2026"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-31",
+      "startTime": "19:30",
+      "category": "Jazz",
+      "venue": "Marians Jazzroom",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/sophie-alloway-quartet_AZdbi75",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Engestrasse 54",
+        "postalCode": "3012"
+      },
+      "geo": {
+        "lat": 46.9610314,
+        "lng": 7.4394074
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Marians Jazzroom"
+      },
+      "imageUrl": "/images/events/guidle-AZdbi75.webp"
+    },
+    {
+      "id": "guidle:Aypbp8X",
+      "title": "SULLIVAN FORTNER TRIO",
+      "titleByLocale": {
+        "it": "SULLIVAN FORTNER TRIO",
+        "en": "SULLIVAN FORTNER TRIO",
+        "de": "SULLIVAN FORTNER TRIO",
+        "fr": "SULLIVAN FORTNER TRIO"
+      },
+      "description": "https://www.mariansjazzroom.ch/termine-marians/sullivan-fortner",
+      "descriptionByLocale": {
+        "it": "https://www.mariansjazzroom.ch/termine-marians/sullivan-fortner",
+        "en": "https://www.mariansjazzroom.ch/termine-marians/sullivan-fortner",
+        "de": "https://www.mariansjazzroom.ch/termine-marians/sullivan-fortner",
+        "fr": "https://www.mariansjazzroom.ch/termine-marians/sullivan-fortner"
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-07",
+      "startTime": "19:30",
+      "category": "Jazz",
+      "venue": "Marians Jazzroom",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/sullivan-fortner-trio_Aypbp8X",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Engestrasse 54",
+        "postalCode": "3012"
+      },
+      "geo": {
+        "lat": 46.9610314,
+        "lng": 7.4394074
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Marians Jazzroom"
+      },
+      "imageUrl": "/images/events/guidle-Aypbp8X.webp"
+    },
+    {
+      "id": "guidle:AvEbJ1s",
+      "title": "Frölein da Capo",
+      "titleByLocale": {
+        "it": "Frölein da Capo",
+        "en": "Frölein da Capo",
+        "de": "Frölein da Capo",
+        "fr": "Frölein da Capo"
+      },
+      "description": "Wer die Hälfte hinter sich hat, hat die Hälfte vor sich. Frölein Da Capo weiss nicht, wo es endet – aber sie glaubt zu wissen, wo die Mitte ist.",
+      "descriptionByLocale": {
+        "it": "Wer die Hälfte hinter sich hat, hat die Hälfte vor sich. Frölein Da Capo weiss nicht, wo es endet – aber sie glaubt zu wissen, wo die Mitte ist.",
+        "en": "Wer die Hälfte hinter sich hat, hat die Hälfte vor sich. Frölein Da Capo weiss nicht, wo es endet – aber sie glaubt zu wissen, wo die Mitte ist.",
+        "de": "Wer die Hälfte hinter sich hat, hat die Hälfte vor sich. Frölein Da Capo weiss nicht, wo es endet – aber sie glaubt zu wissen, wo die Mitte ist.",
+        "fr": "Wer die Hälfte hinter sich hat, hat die Hälfte vor sich. Frölein Da Capo weiss nicht, wo es endet – aber sie glaubt zu wissen, wo die Mitte ist."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2027-02-18",
+      "startTime": "20:00",
+      "category": "Cabaret",
+      "venue": "Tonhalle Wil",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/wil-sg/froelein-da-capo_AvEbJ1s",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Tonhallestrasse 29",
+        "postalCode": "9500"
+      },
+      "geo": {
+        "lat": 47.4656162,
+        "lng": 9.0499564
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Tonhalle Wil"
+      },
+      "imageUrl": "/images/events/guidle-AvEbJ1s.webp"
+    },
+    {
+      "id": "guidle:Ae2At5L",
+      "title": "Gletschergarten by Night",
+      "titleByLocale": {
+        "it": "Gletschergarten by Night",
+        "en": "Gletschergarten by Night",
+        "de": "Gletschergarten by Night",
+        "fr": "Gletschergarten by Night"
+      },
+      "description": "Wenn der Gletschergarten im warmen Licht erstrahlt, beginnt ein besonderer Zauber: Vier Nächte voller Live-Musik, Krimilesungen, Eisgeschichten und Luzerner Genuss – mitten im historischen Garten.",
+      "descriptionByLocale": {
+        "it": "Wenn der Gletschergarten im warmen Licht erstrahlt, beginnt ein besonderer Zauber: Vier Nächte voller Live-Musik, Krimilesungen, Eisgeschichten und Luzerner Genuss – mitten im historischen Garten.",
+        "en": "Wenn der Gletschergarten im warmen Licht erstrahlt, beginnt ein besonderer Zauber: Vier Nächte voller Live-Musik, Krimilesungen, Eisgeschichten und Luzerner Genuss – mitten im historischen Garten.",
+        "de": "Wenn der Gletschergarten im warmen Licht erstrahlt, beginnt ein besonderer Zauber: Vier Nächte voller Live-Musik, Krimilesungen, Eisgeschichten und Luzerner Genuss – mitten im historischen Garten.",
+        "fr": "Wenn der Gletschergarten im warmen Licht erstrahlt, beginnt ein besonderer Zauber: Vier Nächte voller Live-Musik, Krimilesungen, Eisgeschichten und Luzerner Genuss – mitten im historischen Garten."
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-07",
+      "startTime": "17:00",
+      "category": "Festival / Incontro",
+      "venue": "Gletschergarten Luzern",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/gletschergarten-by-night_Ae2At5L",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 23,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Denkmalstrasse 4",
+        "postalCode": "6006"
+      },
+      "geo": {
+        "lat": 47.0588773,
+        "lng": 8.3102592
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Gletschergarten Luzern"
+      },
+      "imageUrl": "/images/events/guidle-Ae2At5L.webp"
+    },
+    {
+      "id": "guidle:A55HYvp",
+      "title": "Moncef Genoud Trio",
+      "titleByLocale": {
+        "it": "Moncef Genoud Trio",
+        "en": "Moncef Genoud Trio",
+        "de": "Moncef Genoud Trio",
+        "fr": "Moncef Genoud Trio"
+      },
+      "description": "Moncef Genoud, p Tim Verdesca, b François Christe, d Les amis sont comme le vin ! Ils se bonifient avec le temps...",
+      "descriptionByLocale": {
+        "it": "Moncef Genoud, p Tim Verdesca, b François Christe, d Les amis sont comme le vin ! Ils se bonifient avec le temps...",
+        "en": "Moncef Genoud, p Tim Verdesca, b François Christe, d Les amis sont comme le vin ! Ils se bonifient avec le temps...",
+        "de": "Moncef Genoud, p Tim Verdesca, b François Christe, d Les amis sont comme le vin ! Ils se bonifient avec le temps...",
+        "fr": "Moncef Genoud, p Tim Verdesca, b François Christe, d Les amis sont comme le vin ! Ils se bonifient avec le temps..."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "19:30",
+      "category": "Jazz",
+      "venue": "Temple du Bas",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/evenements/musique/neuchatel/moncef-genoud-trio_A55HYvp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du Temple-Neuf 5",
+        "postalCode": "2000"
+      },
+      "geo": {
+        "lat": 46.99112,
+        "lng": 6.9302083
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Temple du Bas"
+      },
+      "imageUrl": "/images/events/guidle-A55HYvp.webp"
+    },
+    {
+      "id": "guidle:AnHmv3m",
+      "title": "Wohnzimmerkonzert mit Mainact The Great Stoyan Duo - Supportact tba",
+      "titleByLocale": {
+        "it": "Wohnzimmerkonzert mit Mainact The Great Stoyan Duo - Supportact tba",
+        "en": "Wohnzimmerkonzert mit Mainact The Great Stoyan Duo - Supportact tba",
+        "de": "Wohnzimmerkonzert mit Mainact The Great Stoyan Duo - Supportact tba",
+        "fr": "Wohnzimmerkonzert mit Mainact The Great Stoyan Duo - Supportact tba"
+      },
+      "description": "Gian Rosen und Benjamin Amaru sind the great stoyan duo: zwei Freunde, zwei kreative Köpfe und ehrliche Folk-Rock-Pop-Songs, die mal mitreissen, mal berühren.",
+      "descriptionByLocale": {
+        "it": "Gian Rosen und Benjamin Amaru sind the great stoyan duo: zwei Freunde, zwei kreative Köpfe und ehrliche Folk-Rock-Pop-Songs, die mal mitreissen, mal berühren.",
+        "en": "Gian Rosen und Benjamin Amaru sind the great stoyan duo: zwei Freunde, zwei kreative Köpfe und ehrliche Folk-Rock-Pop-Songs, die mal mitreissen, mal berühren.",
+        "de": "Gian Rosen und Benjamin Amaru sind the great stoyan duo: zwei Freunde, zwei kreative Köpfe und ehrliche Folk-Rock-Pop-Songs, die mal mitreissen, mal berühren.",
+        "fr": "Gian Rosen und Benjamin Amaru sind the great stoyan duo: zwei Freunde, zwei kreative Köpfe und ehrliche Folk-Rock-Pop-Songs, die mal mitreissen, mal berühren."
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2027-02-03",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Kulturzentrum Presswerk",
+      "comune": "Arbon",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/arbon/wohnzimmerkonzert-mit-mainact-the-great-stoyan-duo-supportact-tba_AnHmv3m",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hamelstrasse 15",
+        "postalCode": "9320"
+      },
+      "geo": {
+        "lat": 47.510121,
+        "lng": 9.4311557
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Mainact The Great Stoyan Duo"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AnHmv3m.webp"
+    },
+    {
+      "id": "guidle:ABMEn5d",
+      "title": "Rythmes et paysages cubains · Saison mosaïque",
+      "titleByLocale": {
+        "it": "Rythmes et paysages cubains · Saison mosaïque",
+        "en": "Rythmes et paysages cubains · Saison mosaïque",
+        "de": "Rythmes et paysages cubains · Saison mosaïque",
+        "fr": "Rythmes et paysages cubains · Saison mosaïque"
+      },
+      "description": "Danse et guitares en dialogue",
+      "descriptionByLocale": {
+        "it": "Danse et guitares en dialogue",
+        "en": "Danse et guitares en dialogue",
+        "de": "Danse et guitares en dialogue",
+        "fr": "Danse et guitares en dialogue"
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "18:30",
+      "category": "Altri musica",
+      "venue": "Autre lieu",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/rythmes-et-paysages-cubains-saison-mosaique_ABMEn5d",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Genève",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.193878,
+        "lng": 6.145186
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Autre lieu"
+      },
+      "imageUrl": "/images/events/guidle-ABMEn5d.webp"
+    },
+    {
+      "id": "guidle:Ax6QJcP",
+      "title": "Baloise Session: ERYKAH BADU | MAX HERRE & JOY DENALANE",
+      "titleByLocale": {
+        "it": "Baloise Session: ERYKAH BADU | MAX HERRE & JOY DENALANE",
+        "en": "Baloise Session: ERYKAH BADU | MAX HERRE & JOY DENALANE",
+        "de": "Baloise Session: ERYKAH BADU | MAX HERRE & JOY DENALANE",
+        "fr": "Baloise Session: ERYKAH BADU | MAX HERRE & JOY DENALANE"
+      },
+      "description": "La Badu trifft auf Max Herre & Joy Denalane. Die Hohepriesterin des Neo-Soul und zwei gewichtige Stimmen des Deutschen Soul bringen Funk, Hip-Hop und kluge Liebeslieder nach Basel.",
+      "descriptionByLocale": {
+        "it": "La Badu trifft auf Max Herre & Joy Denalane. Die Hohepriesterin des Neo-Soul und zwei gewichtige Stimmen des Deutschen Soul bringen Funk, Hip-Hop und kluge Liebeslieder nach Basel.",
+        "en": "When La Badu meets Max Herre & Joy Denalane. The high priestess of neo-soul and two heavyweights of German soul bring funk, hip-hop, and clever love songs to Basel.",
+        "de": "La Badu trifft auf Max Herre & Joy Denalane. Die Hohepriesterin des Neo-Soul und zwei gewichtige Stimmen des Deutschen Soul bringen Funk, Hip-Hop und kluge Liebeslieder nach Basel.",
+        "fr": "Quand la Badu rencontre Max Herre & Joy Denalane. La grande prêtresse du neo-soul et deux figures majeures de la soul allemande apportent funk, hip-hop et chansons d’amour intelligentes à Bâle."
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTime": "20:00",
+      "category": "Soul",
+      "venue": "Messe Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/baloise-session-erykah-badu-max-herre-und-joy-denalane_Ax6QJcP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 110,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Messeplatz 21",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5624806,
+        "lng": 7.5992528
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Dir"
+        },
+        {
+          "name": "Alles Liebe » en passant par Freundeskreis"
+        },
+        {
+          "name": "Mamani », jusqu’à Bâle"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Ax6QJcP.webp"
+    },
+    {
+      "id": "guidle:A2wU1ZU",
+      "title": "Baloise Session: JOE BONAMASSA | BRANDY CLARK",
+      "titleByLocale": {
+        "it": "Baloise Session: JOE BONAMASSA | BRANDY CLARK",
+        "en": "Baloise Session: JOE BONAMASSA | BRANDY CLARK",
+        "de": "Baloise Session: JOE BONAMASSA | BRANDY CLARK",
+        "fr": "Baloise Session: JOE BONAMASSA | BRANDY CLARK"
+      },
+      "description": "Urbaner Bluesrock von Joe Bonamassa und Countrysongs von Brandy Clark zeigen zwei Seiten der USA von heute.",
+      "descriptionByLocale": {
+        "it": "Urbaner Bluesrock von Joe Bonamassa und Countrysongs von Brandy Clark zeigen zwei Seiten der USA von heute.",
+        "en": "Urban blues rock from Joe Bonamassa and country songs from Brandy Clark showcase two sides of modern-day America.",
+        "de": "Urbaner Bluesrock von Joe Bonamassa und Countrysongs von Brandy Clark zeigen zwei Seiten der USA von heute.",
+        "fr": "Le blues rock urbain de Joe Bonamassa et la country de Brandy Clark dévoilent deux facettes de l’Amérique d’aujourd’hui."
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-03",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Messe Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/evenements/musique/bale/baloise-session-joe-bonamassa-brandy-clark_A2wU1ZU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Messeplatz 21",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5624806,
+        "lng": 7.5992528
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Messe Basel"
+      },
+      "imageUrl": "/images/events/guidle-A2wU1ZU.webp"
+    },
+    {
+      "id": "guidle:ARg3jZn",
+      "title": "Tolga Candar - Maksat muhabbet",
+      "titleByLocale": {
+        "it": "Tolga Candar - Maksat muhabbet",
+        "en": "Tolga Candar - Maksat muhabbet",
+        "de": "Tolga Candar - Maksat muhabbet",
+        "fr": "Tolga Candar - Maksat muhabbet"
+      },
+      "description": "TOLGA CANDAR – „MAKSAT MUHABBET“ Ein besonderer Abend mit Tolga Candar , seiner Bağlama, seinen Liedern und Geschichten.",
+      "descriptionByLocale": {
+        "it": "TOLGA CANDAR – „MAKSAT MUHABBET“ Ein besonderer Abend mit Tolga Candar , seiner Bağlama, seinen Liedern und Geschichten.",
+        "en": "TOLGA CANDAR – „MAKSAT MUHABBET“ Ein besonderer Abend mit Tolga Candar , seiner Bağlama, seinen Liedern und Geschichten.",
+        "de": "TOLGA CANDAR – „MAKSAT MUHABBET“ Ein besonderer Abend mit Tolga Candar , seiner Bağlama, seinen Liedern und Geschichten.",
+        "fr": "TOLGA CANDAR – „MAKSAT MUHABBET“ Ein besonderer Abend mit Tolga Candar , seiner Bağlama, seinen Liedern und Geschichten."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "18:00",
+      "category": "Folk Music",
+      "venue": "Kanzlei Club",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/tolga-candar-maksat-muhabbet_ARg3jZn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30.3,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kanzleistrasse 56",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755322,
+        "lng": 8.5258409
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Tolga Candar"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-ARg3jZn.webp"
+    },
+    {
+      "id": "guidle:AtSWh3r",
+      "title": "Martin Schmitt, Klavier-Kabarett, im Kulturtreff Rotfarb Uznach",
+      "titleByLocale": {
+        "it": "Martin Schmitt, Klavier-Kabarett, im Kulturtreff Rotfarb Uznach",
+        "en": "Martin Schmitt, Klavier-Kabarett, im Kulturtreff Rotfarb Uznach",
+        "de": "Martin Schmitt, Klavier-Kabarett, im Kulturtreff Rotfarb Uznach",
+        "fr": "Martin Schmitt, Klavier-Kabarett, im Kulturtreff Rotfarb Uznach"
+      },
+      "description": "Schmitt happens: «Pointiertes Klavierkabarett, wunderbare Songs und geballte Charmeoffensiven»",
+      "descriptionByLocale": {
+        "it": "Schmitt happens: «Pointiertes Klavierkabarett, wunderbare Songs und geballte Charmeoffensiven»",
+        "en": "Schmitt happens: «Pointiertes Klavierkabarett, wunderbare Songs und geballte Charmeoffensiven»",
+        "de": "Schmitt happens: «Pointiertes Klavierkabarett, wunderbare Songs und geballte Charmeoffensiven»",
+        "fr": "Schmitt happens: «Pointiertes Klavierkabarett, wunderbare Songs und geballte Charmeoffensiven»"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "20:30",
+      "category": "Cabaret",
+      "venue": "Kulturtreff Rotfarb",
+      "comune": "Uznach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/uznach/martin-schmitt-klavier-kabarett-im-kulturtreff-rotfarb-uznach_AtSWh3r",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rotfarb 15",
+        "postalCode": "8730"
+      },
+      "geo": {
+        "lat": 47.2194748,
+        "lng": 8.9986568
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kulturtreff Rotfarb"
+      },
+      "imageUrl": "/images/events/guidle-AtSWh3r.webp"
+    },
+    {
+      "id": "guidle:ACxbcHR",
+      "title": "Musique Simili",
+      "titleByLocale": {
+        "it": "Musique Simili",
+        "en": "Musique Simili",
+        "de": "Musique Simili",
+        "fr": "Musique Simili"
+      },
+      "description": "VIVA LA LUNA! ist eine musikalische Rakete, die das Publikum mit Leichtigkeit und Energie auf den Mond entführt.",
+      "descriptionByLocale": {
+        "it": "VIVA LA LUNA! ist eine musikalische Rakete, die das Publikum mit Leichtigkeit und Energie auf den Mond entführt.",
+        "en": "VIVA LA LUNA! ist eine musikalische Rakete, die das Publikum mit Leichtigkeit und Energie auf den Mond entführt.",
+        "de": "VIVA LA LUNA! ist eine musikalische Rakete, die das Publikum mit Leichtigkeit und Energie auf den Mond entführt.",
+        "fr": "VIVA LA LUNA! ist eine musikalische Rakete, die das Publikum mit Leichtigkeit und Energie auf den Mond entführt."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:30",
+      "category": "A cappella",
+      "venue": "Kulturhof - Schloss Köniz",
+      "comune": "Köniz",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/koeniz/musique-simili_ACxbcHR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Muhlernstrasse 11",
+        "postalCode": "3098"
+      },
+      "geo": {
+        "lat": 46.9210814,
+        "lng": 7.4142999
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Leichtigkeit"
+        },
+        {
+          "name": "Energie auf den Mond entführt"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-ACxbcHR.webp"
+    },
+    {
+      "id": "guidle:A597Ywr",
+      "title": "Tanznachmittag mit Joel Waldvogel",
+      "titleByLocale": {
+        "it": "Tanznachmittag mit Joel Waldvogel",
+        "en": "Tanznachmittag mit Joel Waldvogel",
+        "de": "Tanznachmittag mit Joel Waldvogel",
+        "fr": "Tanznachmittag mit Joel Waldvogel"
+      },
+      "description": "Unterhaltsamer Schlagernachmittag",
+      "descriptionByLocale": {
+        "it": "Unterhaltsamer Schlagernachmittag",
+        "en": "Unterhaltsamer Schlagernachmittag",
+        "de": "Unterhaltsamer Schlagernachmittag",
+        "fr": "Unterhaltsamer Schlagernachmittag"
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "startTime": "15:00",
+      "category": "Danza te stesso",
+      "venue": "Alterszentrum Am Bachgraben",
+      "comune": "Allschwil",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/allschwil/tanznachmittag-mit-joel-waldvogel_A597Ywr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Muesmattweg 33",
+        "postalCode": "4123"
+      },
+      "geo": {
+        "lat": 47.5557431,
+        "lng": 7.5529011
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Joel Waldvogel"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-A597Ywr.webp"
+    },
+    {
+      "id": "guidle:A38MPTv",
+      "title": "JAZZ BRUNCH mit Jazzafinado 2026",
+      "titleByLocale": {
+        "it": "JAZZ BRUNCH mit Jazzafinado 2026",
+        "en": "JAZZ BRUNCH mit Jazzafinado 2026",
+        "de": "JAZZ BRUNCH mit Jazzafinado 2026",
+        "fr": "JAZZ BRUNCH mit Jazzafinado 2026"
+      },
+      "description": "Erleben Sie einen stimmungsvollen Sonntagvormittag mit Live-Jazz von Jazzafinado und einem reichhaltigen Bauernbrunch der Melser Bäuerinnen und Landfrauen.",
+      "descriptionByLocale": {
+        "it": "Erleben Sie einen stimmungsvollen Sonntagvormittag mit Live-Jazz von Jazzafinado und einem reichhaltigen Bauernbrunch der Melser Bäuerinnen und Landfrauen.",
+        "en": "Erleben Sie einen stimmungsvollen Sonntagvormittag mit Live-Jazz von Jazzafinado und einem reichhaltigen Bauernbrunch der Melser Bäuerinnen und Landfrauen.",
+        "de": "Erleben Sie einen stimmungsvollen Sonntagvormittag mit Live-Jazz von Jazzafinado und einem reichhaltigen Bauernbrunch der Melser Bäuerinnen und Landfrauen.",
+        "fr": "Erleben Sie einen stimmungsvollen Sonntagvormittag mit Live-Jazz von Jazzafinado und einem reichhaltigen Bauernbrunch der Melser Bäuerinnen und Landfrauen."
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "10:00",
+      "category": "Cibo con un teatro / concerto",
+      "venue": "Verrucano Mels - Kultur und Kongresshaus",
+      "comune": "Mels",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/mels/jazz-brunch-mit-jazzafinado-2026_A38MPTv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-25T12:00",
+        "url": "https://www.ticketino.com/de/Event/217470",
+        "priceSource": "guidle",
+        "priceField": "booking-page"
+      },
+      "address": {
+        "street": "Platz 4",
+        "postalCode": "8887"
+      },
+      "geo": {
+        "lat": 47.0467857,
+        "lng": 9.4195024
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Verrucano Mels - Kultur und Kongresshaus"
+      },
+      "imageUrl": "/images/events/guidle-A38MPTv.webp"
+    },
+    {
+      "id": "guidle:AHbfiHC",
+      "title": "El Gran Combo",
+      "titleByLocale": {
+        "it": "El Gran Combo",
+        "en": "El Gran Combo",
+        "de": "El Gran Combo",
+        "fr": "El Gran Combo"
+      },
+      "description": "Seit Jahrzehnten steht El Gran Combo de Puerto Rico für pure Salsa-Energie, karibisches Lebensgefühl und unvergessliche Live-Momente.",
+      "descriptionByLocale": {
+        "it": "Seit Jahrzehnten steht El Gran Combo de Puerto Rico für pure Salsa-Energie, karibisches Lebensgefühl und unvergessliche Live-Momente.",
+        "en": "Seit Jahrzehnten steht El Gran Combo de Puerto Rico für pure Salsa-Energie, karibisches Lebensgefühl und unvergessliche Live-Momente.",
+        "de": "Seit Jahrzehnten steht El Gran Combo de Puerto Rico für pure Salsa-Energie, karibisches Lebensgefühl und unvergessliche Live-Momente.",
+        "fr": "Seit Jahrzehnten steht El Gran Combo de Puerto Rico für pure Salsa-Energie, karibisches Lebensgefühl und unvergessliche Live-Momente."
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "21:00",
+      "category": "Altri party",
+      "venue": "Stadthalle Dietikon",
+      "comune": "Dietikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/dietikon/el-gran-combo_AHbfiHC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 102.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Fondlistrasse 15",
+        "postalCode": "8953"
+      },
+      "geo": {
+        "lat": 47.4071385,
+        "lng": 8.386965
+      },
+      "recurring": false,
+      "performer": {
+        "name": "El Gran Combo de Puerto Rico"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AHbfiHC.webp"
+    },
+    {
+      "id": "guidle:AUmM6Te",
+      "title": "Co Streiff – Russ Johnson Quartet",
+      "titleByLocale": {
+        "it": "Co Streiff – Russ Johnson Quartet",
+        "en": "Co Streiff – Russ Johnson Quartet",
+        "de": "Co Streiff – Russ Johnson Quartet",
+        "fr": "Co Streiff – Russ Johnson Quartet"
+      },
+      "description": "Album-Releasetour «Oracle» Co Streiff (sax) | Russ Johnson (tp) | Christian Weber (b) | Gerry Hemingway (dr)",
+      "descriptionByLocale": {
+        "it": "Album-Releasetour «Oracle» Co Streiff (sax) | Russ Johnson (tp) | Christian Weber (b) | Gerry Hemingway (dr)",
+        "en": "Album-Releasetour «Oracle» Co Streiff (sax) | Russ Johnson (tp) | Christian Weber (b) | Gerry Hemingway (dr)",
+        "de": "Album-Releasetour «Oracle» Co Streiff (sax) | Russ Johnson (tp) | Christian Weber (b) | Gerry Hemingway (dr)",
+        "fr": "Album-Releasetour «Oracle» Co Streiff (sax) | Russ Johnson (tp) | Christian Weber (b) | Gerry Hemingway (dr)"
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "20:30",
+      "category": "Jazz",
+      "venue": "BeJazz Club",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/liebefeld/co-streiff-russ-johnson-quartet_AUmM6Te",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Könizstrasse 161",
+        "postalCode": "3097"
+      },
+      "geo": {
+        "lat": 46.9348858,
+        "lng": 7.4185926
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "BeJazz Club"
+      },
+      "imageUrl": "/images/events/guidle-AUmM6Te.webp"
+    },
+    {
+      "id": "guidle:AtnYF4G",
+      "title": "Voodoo Trio",
+      "titleByLocale": {
+        "it": "Voodoo Trio",
+        "en": "Voodoo Trio",
+        "de": "Voodoo Trio",
+        "fr": "Voodoo Trio"
+      },
+      "description": "Album-Releasetour «petaloúda» Michael Bucher (g) | Patrick Sommer (b) | Lionel Friedli (dr)",
+      "descriptionByLocale": {
+        "it": "Album-Releasetour «petaloúda» Michael Bucher (g) | Patrick Sommer (b) | Lionel Friedli (dr)",
+        "en": "Album-Releasetour «petaloúda» Michael Bucher (g) | Patrick Sommer (b) | Lionel Friedli (dr)",
+        "de": "Album-Releasetour «petaloúda» Michael Bucher (g) | Patrick Sommer (b) | Lionel Friedli (dr)",
+        "fr": "Album-Releasetour «petaloúda» Michael Bucher (g) | Patrick Sommer (b) | Lionel Friedli (dr)"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:30",
+      "category": "Jazz",
+      "venue": "BeJazz Club",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/liebefeld/voodoo-trio_AtnYF4G",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Könizstrasse 161",
+        "postalCode": "3097"
+      },
+      "geo": {
+        "lat": 46.9348858,
+        "lng": 7.4185926
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "BeJazz Club"
+      },
+      "imageUrl": "/images/events/guidle-AtnYF4G.webp"
+    },
+    {
+      "id": "guidle:A7XWEju",
+      "title": "Taxco - Una chicca per tutti gli appassionati di musica country",
+      "titleByLocale": {
+        "it": "Taxco - Una chicca per tutti gli appassionati di musica country",
+        "en": "Taxco—A Treat for All Country Fans",
+        "de": "Taxco - Leckerbissen für alle Country Fans",
+        "fr": "Taxco : un régal pour tous les fans de country"
+      },
+      "description": "I Taxco conquistano il pubblico con un sound compatto e inconfondibile, suggestivi arrangiamenti vocali a tre voci, il caratteristico suono della pedal steel, assoli di chitarra travolgenti e brani di propria composizione.",
+      "descriptionByLocale": {
+        "it": "I Taxco conquistano il pubblico con un sound compatto e inconfondibile, suggestivi arrangiamenti vocali a tre voci, il caratteristico suono della pedal steel, assoli di chitarra travolgenti e brani di propria composizione.",
+        "en": "Taxco captivates audiences with a compact, distinctive sound, impressive three-part harmonies, signature pedal steel guitar, rousing guitar solos, and original songs.",
+        "de": "Taxco begeistert mit einem kompakten, unverwechselbaren Sound, eindrucksvollem dreistimmigem Gesang, charakteristischer Pedal Steel, mitreissenden Gitarrensoli und selbst komponierte Songs.",
+        "fr": "Taxco séduit par un son compact et unique, des harmonies vocales à trois voix impressionnantes, une pedal steel caractéristique, des solos de guitare entraînants et des chansons de leur propre composition."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "20:15",
+      "category": "Country",
+      "venue": "Linde Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/events/music/heiden/taxcoa-treat-for-all-country-fans_A7XWEju",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Poststrasse 11",
+        "postalCode": "9410"
+      },
+      "geo": {
+        "lat": 47.4440331,
+        "lng": 9.5354646
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Linde Heiden"
+      },
+      "imageUrl": "/images/events/guidle-A7XWEju.webp"
+    },
+    {
+      "id": "guidle:A3p6Fni",
+      "title": "Patrick Joray Quartet",
+      "titleByLocale": {
+        "it": "Patrick Joray Quartet",
+        "en": "Patrick Joray Quartet",
+        "de": "Patrick Joray Quartet",
+        "fr": "Patrick Joray Quartet"
+      },
+      "description": "Konzert im bird’s eye jazz club Basel",
+      "descriptionByLocale": {
+        "it": "Konzert im bird’s eye jazz club Basel",
+        "en": "Konzert im bird’s eye jazz club Basel",
+        "de": "Konzert im bird’s eye jazz club Basel",
+        "fr": "Konzert im bird’s eye jazz club Basel"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-28",
+      "startTime": "00:00",
+      "category": "Jazz",
+      "venue": "the bird's eye jazz club",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/patrick-joray-quartet_A3p6Fni",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kohlenberg 20",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5550339,
+        "lng": 7.5875531
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "the bird's eye jazz club"
+      },
+      "imageUrl": "/images/events/guidle-A3p6Fni.webp"
+    },
+    {
+      "id": "guidle:AEQGpsj",
+      "title": "Tyn Wybenga Brainteaser Orchestra",
+      "titleByLocale": {
+        "it": "Tyn Wybenga Brainteaser Orchestra",
+        "en": "Tyn Wybenga Brainteaser Orchestra",
+        "de": "Tyn Wybenga Brainteaser Orchestra",
+        "fr": "Tyn Wybenga Brainteaser Orchestra"
+      },
+      "description": "Konzert im bird’s eye jazz club Basel",
+      "descriptionByLocale": {
+        "it": "Konzert im bird’s eye jazz club Basel",
+        "en": "Konzert im bird’s eye jazz club Basel",
+        "de": "Konzert im bird’s eye jazz club Basel",
+        "fr": "Konzert im bird’s eye jazz club Basel"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-31",
+      "startTime": "00:00",
+      "category": "Jazz",
+      "venue": "the bird's eye jazz club",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/tyn-wybenga-brainteaser-orchestra_AEQGpsj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kohlenberg 20",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5550339,
+        "lng": 7.5875531
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "the bird's eye jazz club"
+      },
+      "imageUrl": "/images/events/guidle-AEQGpsj.webp"
+    },
+    {
+      "id": "guidle:AEVbtJQ",
+      "title": "Basel Jazz Orchestra plays George Gruntz",
+      "titleByLocale": {
+        "it": "Basel Jazz Orchestra plays George Gruntz",
+        "en": "Basel Jazz Orchestra plays George Gruntz",
+        "de": "Basel Jazz Orchestra plays George Gruntz",
+        "fr": "Basel Jazz Orchestra plays George Gruntz"
+      },
+      "description": "Konzert im bird’s eye jazz club Basel(Big Band Night)",
+      "descriptionByLocale": {
+        "it": "Konzert im bird’s eye jazz club Basel(Big Band Night)",
+        "en": "Konzert im bird’s eye jazz club Basel(Big Band Night)",
+        "de": "Konzert im bird’s eye jazz club Basel(Big Band Night)",
+        "fr": "Konzert im bird’s eye jazz club Basel(Big Band Night)"
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "00:00",
+      "category": "Jazz",
+      "venue": "the bird's eye jazz club",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/basel-jazz-orchestra_AEVbtJQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kohlenberg 20",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5550339,
+        "lng": 7.5875531
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "the bird's eye jazz club"
+      },
+      "imageUrl": "/images/events/guidle-AEVbtJQ.webp"
+    },
+    {
+      "id": "guidle:AU7YiN8",
+      "title": "Salsa Fiesta WEMILERE mit Los Capitanes del Son",
+      "titleByLocale": {
+        "it": "Salsa Fiesta WEMILERE mit Los Capitanes del Son",
+        "en": "Salsa Fiesta WEMILERE mit Los Capitanes del Son",
+        "de": "Salsa Fiesta WEMILERE mit Los Capitanes del Son",
+        "fr": "Salsa Fiesta WEMILERE mit Los Capitanes del Son"
+      },
+      "description": "Am Freitag, 30. Oktober 2026 ist es wieder soweit. Die Salsa Fiesta WEMILERE ist zurück. Wir feiern in einer neuen LOCATION im Hirschen Sursee, Oberstadt 10. Um 19.",
+      "descriptionByLocale": {
+        "it": "Am Freitag, 30. Oktober 2026 ist es wieder soweit. Die Salsa Fiesta WEMILERE ist zurück. Wir feiern in einer neuen LOCATION im Hirschen Sursee, Oberstadt 10. Um 19.",
+        "en": "Am Freitag, 30. Oktober 2026 ist es wieder soweit. Die Salsa Fiesta WEMILERE ist zurück. Wir feiern in einer neuen LOCATION im Hirschen Sursee, Oberstadt 10. Um 19.",
+        "de": "Am Freitag, 30. Oktober 2026 ist es wieder soweit. Die Salsa Fiesta WEMILERE ist zurück. Wir feiern in einer neuen LOCATION im Hirschen Sursee, Oberstadt 10. Um 19.",
+        "fr": "Am Freitag, 30. Oktober 2026 ist es wieder soweit. Die Salsa Fiesta WEMILERE ist zurück. Wir feiern in einer neuen LOCATION im Hirschen Sursee, Oberstadt 10. Um 19."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-31",
+      "startTime": "19:30",
+      "category": "Salsa",
+      "venue": "Hirschen Sursee",
+      "comune": "Sursee",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/sursee/salsa-fiesta-wemilere-mit-los-capitanes-del-son_AU7YiN8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Oberstadt 10",
+        "postalCode": "6210"
+      },
+      "geo": {
+        "lat": 47.1721014,
+        "lng": 8.1102336
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Los Capitanes"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AU7YiN8.webp"
+    },
+    {
+      "id": "guidle:Af1qQQK",
+      "title": "Troubas Kater",
+      "titleByLocale": {
+        "it": "Troubas Kater",
+        "en": "Troubas Kater",
+        "de": "Troubas Kater",
+        "fr": "Troubas Kater"
+      },
+      "description": "Mundart, Rap, Chanson, Folk, Rock, Pop, Hip-Hop und alles, was sich der Band sonst noch in den Weg stellt: Mit dieser geballten Mischung kehren die Troubadouren zum Tourabschluss füreinen",
+      "descriptionByLocale": {
+        "it": "Mundart, Rap, Chanson, Folk, Rock, Pop, Hip-Hop und alles, was sich der Band sonst noch in den Weg stellt: Mit dieser geballten Mischung kehren die Troubadouren zum Tourabschluss füreinen",
+        "en": "Mundart, Rap, Chanson, Folk, Rock, Pop, Hip-Hop und alles, was sich der Band sonst noch in den Weg stellt: Mit dieser geballten Mischung kehren die Troubadouren zum Tourabschluss füreinen",
+        "de": "Mundart, Rap, Chanson, Folk, Rock, Pop, Hip-Hop und alles, was sich der Band sonst noch in den Weg stellt: Mit dieser geballten Mischung kehren die Troubadouren zum Tourabschluss füreinen",
+        "fr": "Mundart, Rap, Chanson, Folk, Rock, Pop, Hip-Hop und alles, was sich der Band sonst noch in den Weg stellt: Mit dieser geballten Mischung kehren die Troubadouren zum Tourabschluss füreinen"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Schüür",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/troubas-kater_Af1qQQK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tribschenstrasse 1",
+        "postalCode": "6005"
+      },
+      "geo": {
+        "lat": 47.0445413,
+        "lng": 8.3113502
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schüür"
+      },
+      "imageUrl": "/images/events/guidle-Af1qQQK.webp"
+    },
+    {
+      "id": "guidle:AAPaKZP",
+      "title": "Larissa Baumann & Band",
+      "titleByLocale": {
+        "it": "Larissa Baumann & Band",
+        "en": "Larissa Baumann & Band",
+        "de": "Larissa Baumann & Band",
+        "fr": "Larissa Baumann & Band"
+      },
+      "description": "Konzert mit sechsköpfiger Band, Blues-Award-Album „Showtime“ und riesiger Spielfreude – finest blues, soul & funk.",
+      "descriptionByLocale": {
+        "it": "Konzert mit sechsköpfiger Band, Blues-Award-Album „Showtime“ und riesiger Spielfreude – finest blues, soul & funk.",
+        "en": "Konzert mit sechsköpfiger Band, Blues-Award-Album „Showtime“ und riesiger Spielfreude – finest blues, soul & funk.",
+        "de": "Konzert mit sechsköpfiger Band, Blues-Award-Album „Showtime“ und riesiger Spielfreude – finest blues, soul & funk.",
+        "fr": "Konzert mit sechsköpfiger Band, Blues-Award-Album „Showtime“ und riesiger Spielfreude – finest blues, soul & funk."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "19:30",
+      "category": "Soul",
+      "venue": "INAC Gesellschaftsraum",
+      "comune": "Berneck",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/berneck/larissa-baumann-und-band_AAPaKZP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hafnerwisenstr. 2",
+        "postalCode": "9442"
+      },
+      "geo": {
+        "lat": 47.4251011,
+        "lng": 9.6232436
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "INAC Gesellschaftsraum"
+      },
+      "imageUrl": "/images/events/guidle-AAPaKZP.webp"
+    },
+    {
+      "id": "guidle:Aj9nbT1",
+      "title": "Extrakonzert \"Musikschule@Museum\" - VOZ E VENTO",
+      "titleByLocale": {
+        "it": "Extrakonzert \"Musikschule@Museum\" - VOZ E VENTO",
+        "en": "Extrakonzert \"Musikschule@Museum\" - VOZ E VENTO",
+        "de": "Extrakonzert \"Musikschule@Museum\" - VOZ E VENTO",
+        "fr": "Extrakonzert \"Musikschule@Museum\" - VOZ E VENTO"
+      },
+      "description": "Beyond Ipanema - Tom Jobim's Klangwelten",
+      "descriptionByLocale": {
+        "it": "Beyond Ipanema - Tom Jobim's Klangwelten",
+        "en": "Beyond Ipanema - Tom Jobim's Klangwelten",
+        "de": "Beyond Ipanema - Tom Jobim's Klangwelten",
+        "fr": "Beyond Ipanema - Tom Jobim's Klangwelten"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "19:00",
+      "category": "Altri musica",
+      "venue": "Museum Allschwil - Haus für Kultur und Geschichte",
+      "comune": "Allschwil",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/allschwil/extrakonzert-musikschulemuseum-voz-e-vento_Aj9nbT1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Baslerstrasse 48",
+        "postalCode": "4123"
+      },
+      "geo": {
+        "lat": 47.5516076,
+        "lng": 7.5390124
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Museum Allschwil - Haus für Kultur und Geschichte"
+      },
+      "imageUrl": "/images/events/guidle-Aj9nbT1.webp"
+    },
+    {
+      "id": "guidle:AdSR5fG",
+      "title": "Degustazione delle massime rarità di whisky e musica - Un'esperienza irripetibile",
+      "titleByLocale": {
+        "it": "Degustazione delle massime rarità di whisky e musica - Un'esperienza irripetibile",
+        "en": "Whiskey & Music: Tasting of Top Rarities—Once in a Lifetime",
+        "de": "Whisky & Music Top Raritäten Tasting - Once in a Lifetime",
+        "fr": "Dégustation de grandes raretés : whisky et musique - Une expérience unique"
+      },
+      "description": "Sei eccezionali rarità di whisky prodotte tra il 1971 e il 1990 – invecchiate fino a 52 anni. Una degustazione esclusiva accompagnata da cioccolato Grand Cru e da suggestiva musica dal vivo.",
+      "descriptionByLocale": {
+        "it": "Sei eccezionali rarità di whisky prodotte tra il 1971 e il 1990 – invecchiate fino a 52 anni. Una degustazione esclusiva accompagnata da cioccolato Grand Cru e da suggestiva musica dal vivo.",
+        "en": "Six exceptional, rare whiskies from 1971 to 1990—aged up to 52 years. An exclusive tasting featuring Grand Cru chocolate and atmospheric live music.",
+        "de": "Sechs aussergewöhnliche Whisky-Raritäten von 1971 bis 1990 – bis zu 52 Jahre gereift. Ein exklusives Tasting mit Grand-Cru-Schokolade und stimmungsvoller Live-Musik.",
+        "fr": "Six whiskies exceptionnels et rares, datant de 1971 à 1990, vieillis jusqu’à 52 ans. Une dégustation exclusive accompagnée de chocolats Grand Cru et d’un concert en direct créant une ambiance chaleureuse."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "19:00",
+      "category": "Degustazione",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/whisky-und-music-top-raritaeten-tasting-once-in-a-lifetime_AdSR5fG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Grand Cru chocolate and atmospheric live music"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AdSR5fG.webp"
+    },
+    {
+      "id": "guidle:A36iCD2",
+      "title": "Lucky The Girl",
+      "titleByLocale": {
+        "it": "Lucky The Girl",
+        "en": "Lucky The Girl",
+        "de": "Lucky The Girl",
+        "fr": "Lucky The Girl"
+      },
+      "description": "live i de Bar",
+      "descriptionByLocale": {
+        "it": "live i de Bar",
+        "en": "live i de Bar",
+        "de": "live i de Bar",
+        "fr": "live i de Bar"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "AHA Aeschbachhalle Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/lucky-the-girl_A36iCD2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Aeschbachweg 8",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3915427,
+        "lng": 8.0599934
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "AHA Aeschbachhalle Aarau"
+      },
+      "imageUrl": "/images/events/guidle-A36iCD2.webp"
+    },
+    {
+      "id": "guidle:AXJF7wG",
+      "title": "Bachata Sunday Social",
+      "titleByLocale": {
+        "it": "Bachata Sunday Social",
+        "en": "Bachata Sunday Social",
+        "de": "Bachata Sunday Social",
+        "fr": "Bachata Sunday Social"
+      },
+      "description": "Bachata Day Dance mit Workshop",
+      "descriptionByLocale": {
+        "it": "Bachata Day Dance mit Workshop",
+        "en": "Bachata Day Dance mit Workshop",
+        "de": "Bachata Day Dance mit Workshop",
+        "fr": "Bachata Day Dance mit Workshop"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "16:00",
+      "category": "Stili di danza di più",
+      "venue": "AHA Aeschbachhalle Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/bachata-sunday-social_AXJF7wG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Aeschbachweg 8",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3915427,
+        "lng": 8.0599934
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "AHA Aeschbachhalle Aarau"
+      },
+      "imageUrl": "/images/events/guidle-AXJF7wG.webp"
+    },
+    {
+      "id": "guidle:A3usJSV",
+      "title": "«Femizid an Agata oder Der Klang von Magma» – begleitet von Frauenliedern aus aller Welt",
+      "titleByLocale": {
+        "it": "«Femizid an Agata oder Der Klang von Magma» – begleitet von Frauenliedern aus aller Welt",
+        "en": "«Femizid an Agata oder Der Klang von Magma» – begleitet von Frauenliedern aus aller Welt",
+        "de": "«Femizid an Agata oder Der Klang von Magma» – begleitet von Frauenliedern aus aller Welt",
+        "fr": "«Femizid an Agata oder Der Klang von Magma» – begleitet von Frauenliedern aus aller Welt"
+      },
+      "description": "Patrizia Lo Turco Romane verbinden Spannung mit emotionaler Tiefe und zeichnen ein eindringliches Bild von Sizilien – geprägt von familiären Bindungen, sozialen Gegensätzen und der ständigen Präsenz",
+      "descriptionByLocale": {
+        "it": "Patrizia Lo Turco Romane verbinden Spannung mit emotionaler Tiefe und zeichnen ein eindringliches Bild von Sizilien – geprägt von familiären Bindungen, sozialen Gegensätzen und der ständigen Präsenz",
+        "en": "Patrizia Lo Turco Romane verbinden Spannung mit emotionaler Tiefe und zeichnen ein eindringliches Bild von Sizilien – geprägt von familiären Bindungen, sozialen Gegensätzen und der ständigen Präsenz",
+        "de": "Patrizia Lo Turco Romane verbinden Spannung mit emotionaler Tiefe und zeichnen ein eindringliches Bild von Sizilien – geprägt von familiären Bindungen, sozialen Gegensätzen und der ständigen Präsenz",
+        "fr": "Patrizia Lo Turco Romane verbinden Spannung mit emotionaler Tiefe und zeichnen ein eindringliches Bild von Sizilien – geprägt von familiären Bindungen, sozialen Gegensätzen und der ständigen Präsenz"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "11:00",
+      "category": "Festival / Incontro",
+      "venue": "Zentrum Karl der Grosse",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/femizid-an-agata-oder-der-klang-von-magma-begleitet-von-frauenliedern-aus-aller-welt_A3usJSV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kirchgasse 14",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.369758,
+        "lng": 8.5446454
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zentrum Karl der Grosse"
+      },
+      "imageUrl": "/images/events/guidle-A3usJSV.webp"
+    },
+    {
+      "id": "guidle:Aicd68w",
+      "title": "«Richtig im falschen Leben» mit Marina Vidovic",
+      "titleByLocale": {
+        "it": "«Richtig im falschen Leben» mit Marina Vidovic",
+        "en": "«Richtig im falschen Leben» mit Marina Vidovic",
+        "de": "«Richtig im falschen Leben» mit Marina Vidovic",
+        "fr": "«Richtig im falschen Leben» mit Marina Vidovic"
+      },
+      "description": "Wie lebt man weiter, wenn alles, was das eigene Leben ausmacht, plötzlich nicht mehr gültig ist?",
+      "descriptionByLocale": {
+        "it": "Wie lebt man weiter, wenn alles, was das eigene Leben ausmacht, plötzlich nicht mehr gültig ist?",
+        "en": "Wie lebt man weiter, wenn alles, was das eigene Leben ausmacht, plötzlich nicht mehr gültig ist?",
+        "de": "Wie lebt man weiter, wenn alles, was das eigene Leben ausmacht, plötzlich nicht mehr gültig ist?",
+        "fr": "Wie lebt man weiter, wenn alles, was das eigene Leben ausmacht, plötzlich nicht mehr gültig ist?"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "13:30",
+      "category": "Festival / Incontro",
+      "venue": "Zentrum Karl der Grosse",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/richtig-im-falschen-leben-mit-marina-vidovic_Aicd68w",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kirchgasse 14",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.369758,
+        "lng": 8.5446454
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Marina Vidovic"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Aicd68w.webp"
+    },
+    {
+      "id": "guidle:AtnSPpn",
+      "title": "10 x 15 – Die Indie-Matinee",
+      "titleByLocale": {
+        "it": "10 x 15 – Die Indie-Matinee",
+        "en": "10 x 15 – Die Indie-Matinee",
+        "de": "10 x 15 – Die Indie-Matinee",
+        "fr": "10 x 15 – Die Indie-Matinee"
+      },
+      "description": "Frischer Wind aus unabhängigen Schweizer Verlagen! Kommen Sie an Bord und entdecken Sie 10 ganz unterschiedliche Autorinnen und Autoren mit ihren neuen Büchern.",
+      "descriptionByLocale": {
+        "it": "Frischer Wind aus unabhängigen Schweizer Verlagen! Kommen Sie an Bord und entdecken Sie 10 ganz unterschiedliche Autorinnen und Autoren mit ihren neuen Büchern.",
+        "en": "Frischer Wind aus unabhängigen Schweizer Verlagen! Kommen Sie an Bord und entdecken Sie 10 ganz unterschiedliche Autorinnen und Autoren mit ihren neuen Büchern.",
+        "de": "Frischer Wind aus unabhängigen Schweizer Verlagen! Kommen Sie an Bord und entdecken Sie 10 ganz unterschiedliche Autorinnen und Autoren mit ihren neuen Büchern.",
+        "fr": "Frischer Wind aus unabhängigen Schweizer Verlagen! Kommen Sie an Bord und entdecken Sie 10 ganz unterschiedliche Autorinnen und Autoren mit ihren neuen Büchern."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "10:00",
+      "category": "Festival / Incontro",
+      "venue": "Zentrum Karl der Grosse",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/10-x-15-die-indie-matinee_AtnSPpn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kirchgasse 14",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.369758,
+        "lng": 8.5446454
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zentrum Karl der Grosse"
+      },
+      "imageUrl": "/images/events/guidle-AtnSPpn.webp"
+    },
+    {
+      "id": "guidle:AKQFABi",
+      "title": "Beatrix Gerstberger – von «Hummerfrauen» zu «Hummerjahre»",
+      "titleByLocale": {
+        "it": "Beatrix Gerstberger – von «Hummerfrauen» zu «Hummerjahre»",
+        "en": "Beatrix Gerstberger – von «Hummerfrauen» zu «Hummerjahre»",
+        "de": "Beatrix Gerstberger – von «Hummerfrauen» zu «Hummerjahre»",
+        "fr": "Beatrix Gerstberger – von «Hummerfrauen» zu «Hummerjahre»"
+      },
+      "description": "Der raue Alltag der Hummerfischerinnen wird zum Schauplatz des inspirierenden Romans «Hummerfrauen» über Liebe und die Kraft weiblicher Gemeinschaft.",
+      "descriptionByLocale": {
+        "it": "Der raue Alltag der Hummerfischerinnen wird zum Schauplatz des inspirierenden Romans «Hummerfrauen» über Liebe und die Kraft weiblicher Gemeinschaft.",
+        "en": "Der raue Alltag der Hummerfischerinnen wird zum Schauplatz des inspirierenden Romans «Hummerfrauen» über Liebe und die Kraft weiblicher Gemeinschaft.",
+        "de": "Der raue Alltag der Hummerfischerinnen wird zum Schauplatz des inspirierenden Romans «Hummerfrauen» über Liebe und die Kraft weiblicher Gemeinschaft.",
+        "fr": "Der raue Alltag der Hummerfischerinnen wird zum Schauplatz des inspirierenden Romans «Hummerfrauen» über Liebe und die Kraft weiblicher Gemeinschaft."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Zentrum Karl der Grosse",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/beatrix-gerstberger-von-hummerfrauen-zu-hummerjahre_AKQFABi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kirchgasse 14",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.369758,
+        "lng": 8.5446454
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zentrum Karl der Grosse"
+      },
+      "imageUrl": "/images/events/guidle-AKQFABi.webp"
+    },
+    {
+      "id": "guidle:A2cvnDT",
+      "title": "Anton Violinist & Friends 'Folk Passion'",
+      "titleByLocale": {
+        "it": "Anton Violinist & Friends 'Folk Passion'",
+        "en": "Anton Violinist & Friends 'Folk Passion'",
+        "de": "Anton Violinist & Friends 'Folk Passion'",
+        "fr": "Anton Violinist & Friends 'Folk Passion'"
+      },
+      "description": "✨ Folk Passion ✨ Liebe, Leidenschaft und feurige Zigeunermusik Ein inspirierendes Konzert, das Grenzen, Kulturen und Traditionen überschreitet und das Publikum auf eine faszinierende...",
+      "descriptionByLocale": {
+        "it": "✨ Folk Passion ✨ Liebe, Leidenschaft und feurige Zigeunermusik Ein inspirierendes Konzert, das Grenzen, Kulturen und Traditionen überschreitet und das Publikum auf eine faszinierende...",
+        "en": "✨ Folk Passion ✨ Liebe, Leidenschaft und feurige Zigeunermusik Ein inspirierendes Konzert, das Grenzen, Kulturen und Traditionen überschreitet und das Publikum auf eine faszinierende...",
+        "de": "✨ Folk Passion ✨ Liebe, Leidenschaft und feurige Zigeunermusik Ein inspirierendes Konzert, das Grenzen, Kulturen und Traditionen überschreitet und das Publikum auf eine faszinierende...",
+        "fr": "✨ Folk Passion ✨ Liebe, Leidenschaft und feurige Zigeunermusik Ein inspirierendes Konzert, das Grenzen, Kulturen und Traditionen überschreitet und das Publikum auf eine faszinierende..."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "19:30",
+      "category": "Folk Music",
+      "venue": "Tonhalle",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/st-gallen/anton-violinist-und-friends-folk-passion_A2cvnDT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Museumstrasse 25",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4276583,
+        "lng": 9.3798803
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Tonhalle"
+      },
+      "imageUrl": "/images/events/guidle-A2cvnDT.webp"
+    },
+    {
+      "id": "guidle:A1wXtwy",
+      "title": "RAUL HUERTA Y PALISANDRO",
+      "titleByLocale": {
+        "it": "RAUL HUERTA Y PALISANDRO",
+        "en": "RAUL HUERTA Y PALISANDRO",
+        "de": "RAUL HUERTA Y PALISANDRO",
+        "fr": "RAUL HUERTA Y PALISANDRO"
+      },
+      "description": "Schon früh fällt dem Umfeld des 1966 im Süden Perus geborenen Raul seine Leidenschaft für alles was mit Musik zusammenhängt auf.",
+      "descriptionByLocale": {
+        "it": "Schon früh fällt dem Umfeld des 1966 im Süden Perus geborenen Raul seine Leidenschaft für alles was mit Musik zusammenhängt auf.",
+        "en": "Schon früh fällt dem Umfeld des 1966 im Süden Perus geborenen Raul seine Leidenschaft für alles was mit Musik zusammenhängt auf.",
+        "de": "Schon früh fällt dem Umfeld des 1966 im Süden Perus geborenen Raul seine Leidenschaft für alles was mit Musik zusammenhängt auf.",
+        "fr": "Schon früh fällt dem Umfeld des 1966 im Süden Perus geborenen Raul seine Leidenschaft für alles was mit Musik zusammenhängt auf."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Latin",
+      "venue": "ONO Kulturlokal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/raul-huerta-y-palisandro_A1wXtwy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kramgasse 6",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9481497,
+        "lng": 7.4519649
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Musik zusammenhängt auf"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-A1wXtwy.webp"
+    },
+    {
+      "id": "guidle:AT9dqTk",
+      "title": "Noah Parks [CH]",
+      "titleByLocale": {
+        "it": "Noah Parks [CH]",
+        "en": "Noah Parks [CH]",
+        "de": "Noah Parks [CH]",
+        "fr": "Noah Parks [CH]"
+      },
+      "description": "Wohnzimmer Konzertreihe Musik, wie eine Umarmung. Die Stimme von Noah Parks ist warm, ehrlich, direkt und lädt dazu ein, inne zu halten und in sich hineinzufühlen.",
+      "descriptionByLocale": {
+        "it": "Wohnzimmer Konzertreihe Musik, wie eine Umarmung. Die Stimme von Noah Parks ist warm, ehrlich, direkt und lädt dazu ein, inne zu halten und in sich hineinzufühlen.",
+        "en": "Wohnzimmer Konzertreihe Musik, wie eine Umarmung. Die Stimme von Noah Parks ist warm, ehrlich, direkt und lädt dazu ein, inne zu halten und in sich hineinzufühlen.",
+        "de": "Wohnzimmer Konzertreihe Musik, wie eine Umarmung. Die Stimme von Noah Parks ist warm, ehrlich, direkt und lädt dazu ein, inne zu halten und in sich hineinzufühlen.",
+        "fr": "Wohnzimmer Konzertreihe Musik, wie eine Umarmung. Die Stimme von Noah Parks ist warm, ehrlich, direkt und lädt dazu ein, inne zu halten und in sich hineinzufühlen."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Kulturzentrum Kammgarn",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/schaffhausen/noah-parks-ch_AT9dqTk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Baumgartenstrasse 19",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.6944787,
+        "lng": 8.6362804
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kulturzentrum Kammgarn"
+      },
+      "imageUrl": "/images/events/guidle-AT9dqTk.webp"
+    },
+    {
+      "id": "guidle:AP7tceg",
+      "title": "NICOLAS FRAISSINET",
+      "titleByLocale": {
+        "it": "NICOLAS FRAISSINET",
+        "en": "NICOLAS FRAISSINET",
+        "de": "NICOLAS FRAISSINET",
+        "fr": "NICOLAS FRAISSINET"
+      },
+      "description": "Entre musique et cinéma, Nicolas Fraissinet propose une expérience épurée et intimiste : une voix, un piano et un écran pour faire dialoguer chansons et images.",
+      "descriptionByLocale": {
+        "it": "Entre musique et cinéma, Nicolas Fraissinet propose une expérience épurée et intimiste : une voix, un piano et un écran pour faire dialoguer chansons et images.",
+        "en": "Entre musique et cinéma, Nicolas Fraissinet propose une expérience épurée et intimiste : une voix, un piano et un écran pour faire dialoguer chansons et images.",
+        "de": "Entre musique et cinéma, Nicolas Fraissinet propose une expérience épurée et intimiste : une voix, un piano et un écran pour faire dialoguer chansons et images.",
+        "fr": "Entre musique et cinéma, Nicolas Fraissinet propose une expérience épurée et intimiste : une voix, un piano et un écran pour faire dialoguer chansons et images."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "19:30",
+      "category": "cantautore",
+      "venue": "Le Royal",
+      "comune": "Tavannes",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/evenements/musique/tavannes/nicolas-fraissinet_AP7tceg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "GRAND-RUE 28, 2710 TAVANNES",
+        "postalCode": "2710"
+      },
+      "geo": {
+        "lat": 47.2210566,
+        "lng": 7.2018085
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Le Royal"
+      },
+      "imageUrl": "/images/events/guidle-AP7tceg.webp"
+    },
+    {
+      "id": "guidle:AXv3rdq",
+      "title": "32nd Geneva International Film Festival (GIFF)",
+      "titleByLocale": {
+        "it": "32nd Geneva International Film Festival (GIFF)",
+        "en": "32nd Geneva International Film Festival (GIFF)",
+        "de": "32nd Geneva International Film Festival (GIFF)",
+        "fr": "32e Festival International du Film de Genève (GIFF)"
+      },
+      "description": "The 32nd edition of the GIFF will take place from October 30 to November 8, 2026: a space for experimentation, connection, and celebration, it will feature films, series, and immersive experiences.",
+      "descriptionByLocale": {
+        "it": "The 32nd edition of the GIFF will take place from October 30 to November 8, 2026: a space for experimentation, connection, and celebration, it will feature films, series, and immersive experiences.",
+        "en": "The 32nd edition of the GIFF will take place from October 30 to November 8, 2026: a space for experimentation, connection, and celebration, it will feature films, series, and immersive experiences.",
+        "de": "The 32nd edition of the GIFF will take place from October 30 to November 8, 2026: a space for experimentation, connection, and celebration, it will feature films, series, and immersive experiences.",
+        "fr": "32e Festival International du Film de Genève (GIFF)"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-08",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Théâtre Pitoëff",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/32e-festival-international-du-film-de-geneve-giff_AXv3rdq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue de Carouge 52",
+        "postalCode": "1205"
+      },
+      "geo": {
+        "lat": 46.1939332,
+        "lng": 6.1434322
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Théâtre Pitoëff"
+      },
+      "imageUrl": "/images/events/guidle-AXv3rdq.webp"
+    },
+    {
+      "id": "guidle:AxkpnTU",
+      "title": "«stadtklang» w/ YUNGER | Live @ Ruby Mimi Hotel & Bar Zürich",
+      "titleByLocale": {
+        "it": "«stadtklang» w/ YUNGER | Live @ Ruby Mimi Hotel & Bar Zürich",
+        "en": "«stadtklang» w/ YUNGER | Live @ Ruby Mimi Hotel & Bar Zürich",
+        "de": "«stadtklang» w/ YUNGER | Live @ Ruby Mimi Hotel & Bar Zürich",
+        "fr": "«stadtklang» w/ YUNGER | Live @ Ruby Mimi Hotel & Bar Zürich"
+      },
+      "description": "Yunger verbindet Folk-Gitarren und Indie-Klänge mit ehrlichen, emotionalen Songs über Reisen, Sehnsüchte, Hoffnungen, Träume und die kleinen Geschichten des Alltags.",
+      "descriptionByLocale": {
+        "it": "Yunger verbindet Folk-Gitarren und Indie-Klänge mit ehrlichen, emotionalen Songs über Reisen, Sehnsüchte, Hoffnungen, Träume und die kleinen Geschichten des Alltags.",
+        "en": "Yunger verbindet Folk-Gitarren und Indie-Klänge mit ehrlichen, emotionalen Songs über Reisen, Sehnsüchte, Hoffnungen, Träume und die kleinen Geschichten des Alltags.",
+        "de": "Yunger verbindet Folk-Gitarren und Indie-Klänge mit ehrlichen, emotionalen Songs über Reisen, Sehnsüchte, Hoffnungen, Träume und die kleinen Geschichten des Alltags.",
+        "fr": "Yunger verbindet Folk-Gitarren und Indie-Klänge mit ehrlichen, emotionalen Songs über Reisen, Sehnsüchte, Hoffnungen, Träume und die kleinen Geschichten des Alltags."
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "20:00",
+      "category": "cantautore",
+      "venue": "Ruby Mimi Hotel & Bar",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/stadtklang-w-yunger-live-ruby-mimi-hotel-und-bar-zuerich_AxkpnTU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Beatenplatz 4",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.376236,
+        "lng": 8.541163
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ruby Mimi Hotel & Bar"
+      },
+      "imageUrl": "/images/events/guidle-AxkpnTU.webp"
+    },
+    {
+      "id": "guidle:A3ASxDn",
+      "title": "Country Boat sul Rhy con musica dal vivo: Route 65",
+      "titleByLocale": {
+        "it": "Country Boat sul Rhy con musica dal vivo: Route 65",
+        "en": "Country Boat on the Rhine with Live Music: Route 65",
+        "de": "Country Boat uff em Rhy mit Live-Musik: Route 65",
+        "fr": "Country Boat sur le Rhin avec de la musique live : Route 65"
+      },
+      "description": "Musica country, il Reno e buon umore: la Route 65 porta a bordo l’atmosfera di Nashville. Che si tratti di line dance, di ballare insieme o di sorseggiare un drink godendosi il panorama.",
+      "descriptionByLocale": {
+        "it": "Musica country, il Reno e buon umore: la Route 65 porta a bordo l’atmosfera di Nashville. Che si tratti di line dance, di ballare insieme o di sorseggiare un drink godendosi il panorama.",
+        "en": "Country music, the Rhine, and a great atmosphere: Route 65 brings that Nashville vibe on board. Whether it’s line dancing, joining in the fun, or enjoying a drink with a view.",
+        "de": "Country-Musik, Rhein und gute Laune: Route 65 bringt Nashville-Feeling an Bord. Ob Line Dance, Mittanzen oder ein Drink mit Aussicht – Boots an und Yeehaw uff em Rhy!",
+        "fr": "Musique country, Rhin et bonne humeur : Route 65 vous fait vivre l'ambiance de Nashville à bord. Que ce soit pour faire de la danse en ligne, danser ou prendre un verre en profitant de la vue."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "18:30",
+      "category": "Line Dance",
+      "venue": "MS Christoph Merian",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/events/music/basel/country-boat-on-the-rhine-with-live-music-route-65_A3ASxDn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schifflände",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.553724,
+        "lng": 7.586071
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Live Music"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-A3ASxDn.webp"
+    },
+    {
+      "id": "guidle:AVV3HKY",
+      "title": "La nave “Schlager” sul Reno",
+      "titleByLocale": {
+        "it": "La nave “Schlager” sul Reno",
+        "en": "Schlager Cruise on the Rhine",
+        "de": "Schlager Schiff uff em Rhy",
+        "fr": "Schlager croisière sur le Rhin"
+      },
+      "description": "Canzoni popolari, luce autunnale e il Reno: una serata all’insegna della musica, della nostalgia e dell’atmosfera autunnale.",
+      "descriptionByLocale": {
+        "it": "Canzoni popolari, luce autunnale e il Reno: una serata all’insegna della musica, della nostalgia e dell’atmosfera autunnale.",
+        "en": "Schlager, autumn light, and the Rhine: An evening full of music, nostalgia, and that fall feeling. Dance to classic hits and pop songs, enjoy the evening cruise, and party on the Rhine.",
+        "de": "Schlager, Herbstlicht und Rhein: Ein Abend voller Musik, Nostalgie und Herbstgefühl. Tanze zu Klassikern und Popschlager, geniesse die Abendfahrt und feier uff em Rhy.",
+        "fr": "Chansons à succès, lumière d'automne et Rhin : une soirée placée sous le signe de la musique, de la nostalgie et de l'ambiance automnale."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "18:30",
+      "category": "Canzonetta",
+      "venue": "MS Christoph Merian",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/evenements/musique/bale/schlager-croisiere-sur-le-rhin_AVV3HKY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 29,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schifflände",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.553724,
+        "lng": 7.586071
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "MS Christoph Merian"
+      },
+      "imageUrl": "/images/events/guidle-AVV3HKY.webp"
+    },
+    {
+      "id": "guidle:AqHBqQq",
+      "title": "La nave da ballo sul Reno - Discofox al ritmo dei più grandi successi",
+      "titleByLocale": {
+        "it": "La nave da ballo sul Reno - Discofox al ritmo dei più grandi successi",
+        "en": "Dance Cruise on the Rhine - Discofox to the Biggest Hits",
+        "de": "Tanzschiff uff em Rhy - Discofox zu den grössten Hits",
+        "fr": "Le bateau de danse sur le Rhin - Discofox sur les plus grands tubes"
+      },
+      "description": "Discofox, grandi successi e vista sul Reno: dopo un corso intensivo con il Tanzbar Binningen, la pista da ballo sarà tutta vostra.",
+      "descriptionByLocale": {
+        "it": "Discofox, grandi successi e vista sul Reno: dopo un corso intensivo con il Tanzbar Binningen, la pista da ballo sarà tutta vostra.",
+        "en": "Discofox, big hits, and a view of the Rhine: After a crash course at Tanzbar Binningen, the dance floor is all yours. Learn the moves quickly, dance all night!",
+        "de": "Discofox, grosse Hits und Rheinblick: Nach einem Crashkurs mit der Tanzbar Binningen gehört die Tanzfläche euch. Kurz lernen, lange tanzen und gute Stimmung uff em Rhy geniessen!",
+        "fr": "Discofox, grands tubes et vue sur le Rhin : après un cours intensif à la Tanzbar Binningen, la piste de danse n'attend plus que vous."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "17:30",
+      "category": "Disco",
+      "venue": "MS Christoph Merian",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/tanzschiff-uff-em-rhy-discofox-zu-den-groessten-hits_AqHBqQq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 29,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schifflände",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.553724,
+        "lng": 7.586071
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Tanzbar Binningen"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AqHBqQq.webp"
+    },
+    {
+      "id": "guidle:Ap86sSx",
+      "title": "Thirtylicious",
+      "titleByLocale": {
+        "it": "Thirtylicious",
+        "en": "Thirtylicious",
+        "de": "Thirtylicious",
+        "fr": "Thirtylicious"
+      },
+      "description": "DJ Cyrilo & DJ BIGben",
+      "descriptionByLocale": {
+        "it": "DJ Cyrilo & DJ BIGben",
+        "en": "DJ Cyrilo & DJ BIGben",
+        "de": "DJ Cyrilo & DJ BIGben",
+        "fr": "DJ Cyrilo & DJ BIGben"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "21:30",
+      "category": "Pop generalmente",
+      "venue": "Salzhaus",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winterthur/thirtylicious_Ap86sSx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 13,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Untere Vogelsangstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4975855,
+        "lng": 8.7226442
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Radio Top"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Ap86sSx.webp"
+    },
+    {
+      "id": "guidle:Am7n5yM",
+      "title": "90s are now",
+      "titleByLocale": {
+        "it": "90s are now",
+        "en": "90s are now",
+        "de": "90s are now",
+        "fr": "90s are now"
+      },
+      "description": "DJ Captain Jonez & DJ Ibrahim Bassiv",
+      "descriptionByLocale": {
+        "it": "DJ Captain Jonez & DJ Ibrahim Bassiv",
+        "en": "DJ Captain Jonez & DJ Ibrahim Bassiv",
+        "de": "DJ Captain Jonez & DJ Ibrahim Bassiv",
+        "fr": "DJ Captain Jonez & DJ Ibrahim Bassiv"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "22:00",
+      "category": "Pop generalmente",
+      "venue": "Salzhaus",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winterthur/90s-are-now_Am7n5yM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Untere Vogelsangstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4975855,
+        "lng": 8.7226442
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Radio Top"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Am7n5yM.webp"
+    },
+    {
+      "id": "guidle:AJQ9ns6",
+      "title": "Jetlag Gang - Reggaeton Y Perreo",
+      "titleByLocale": {
+        "it": "Jetlag Gang - Reggaeton Y Perreo",
+        "en": "Jetlag Gang - Reggaeton Y Perreo",
+        "de": "Jetlag Gang - Reggaeton Y Perreo",
+        "fr": "Jetlag Gang - Reggaeton Y Perreo"
+      },
+      "description": "JetLag Gang débarque à Genève le samedi 24 octobre prochain et pose ses platines à PTR - L'Usine, Genève le temps d'une nuit ! 🗣️🇨🇭",
+      "descriptionByLocale": {
+        "it": "JetLag Gang débarque à Genève le samedi 24 octobre prochain et pose ses platines à PTR - L'Usine, Genève le temps d'une nuit ! 🗣️🇨🇭",
+        "en": "JetLag Gang débarque à Genève le samedi 24 octobre prochain et pose ses platines à PTR - L'Usine, Genève le temps d'une nuit ! 🗣️🇨🇭",
+        "de": "JetLag Gang débarque à Genève le samedi 24 octobre prochain et pose ses platines à PTR - L'Usine, Genève le temps d'une nuit ! 🗣️🇨🇭",
+        "fr": "JetLag Gang débarque à Genève le samedi 24 octobre prochain et pose ses platines à PTR - L'Usine, Genève le temps d'une nuit ! 🗣️🇨🇭"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "23:00",
+      "category": "Reggaeton",
+      "venue": "PTR Usine",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/jetlag-gang-reggaeton-y-perreo_AJQ9ns6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place des Volontaires 4",
+        "postalCode": "1200"
+      },
+      "geo": {
+        "lat": 46.203991,
+        "lng": 6.1363811
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "PTR Usine"
+      },
+      "imageUrl": "/images/events/guidle-AJQ9ns6.webp"
+    },
+    {
+      "id": "guidle:AeJ11Y1",
+      "title": "Skyrim: Musikalisches Erbe von Tamriel",
+      "titleByLocale": {
+        "it": "Skyrim: Musikalisches Erbe von Tamriel",
+        "en": "Skyrim: Musikalisches Erbe von Tamriel",
+        "de": "Skyrim: Musikalisches Erbe von Tamriel",
+        "fr": "Skyrim: Musikalisches Erbe von Tamriel"
+      },
+      "description": "Skyrim: Das musikalische Erbe von Tamriel lädt zu einer musikalischen Reise in den rauen und faszinierenden Norden ein.",
+      "descriptionByLocale": {
+        "it": "Skyrim: Das musikalische Erbe von Tamriel lädt zu einer musikalischen Reise in den rauen und faszinierenden Norden ein.",
+        "en": "Skyrim: Das musikalische Erbe von Tamriel lädt zu einer musikalischen Reise in den rauen und faszinierenden Norden ein.",
+        "de": "Skyrim: Das musikalische Erbe von Tamriel lädt zu einer musikalischen Reise in den rauen und faszinierenden Norden ein.",
+        "fr": "Skyrim: Das musikalische Erbe von Tamriel lädt zu einer musikalischen Reise in den rauen und faszinierenden Norden ein."
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "18:00",
+      "category": "Show",
+      "venue": "Evang.-ref. Kirche St. Peter",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/skyrim-musikalisches-erbe-von-tamriel_AeJ11Y1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 47.85,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "St. Peterhofstatt 2",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3714646,
+        "lng": 8.5404068
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Vivalis Project"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AeJ11Y1.webp"
+    },
+    {
+      "id": "guidle:Ad6S1Uc",
+      "title": "Bogroad (Celtic Folk)",
+      "titleByLocale": {
+        "it": "Bogroad (Celtic Folk)",
+        "en": "Bogroad (Celtic Folk)",
+        "de": "Bogroad (Celtic Folk)",
+        "fr": "Bogroad (Celtic Folk)"
+      },
+      "description": "Bogroad bringt mit schottischer und irischer Musik sowie eigenen Geschichten viele Emotionen auf die Bühne.",
+      "descriptionByLocale": {
+        "it": "Bogroad bringt mit schottischer und irischer Musik sowie eigenen Geschichten viele Emotionen auf die Bühne.",
+        "en": "Bogroad bringt mit schottischer und irischer Musik sowie eigenen Geschichten viele Emotionen auf die Bühne.",
+        "de": "Bogroad bringt mit schottischer und irischer Musik sowie eigenen Geschichten viele Emotionen auf die Bühne.",
+        "fr": "Bogroad bringt mit schottischer und irischer Musik sowie eigenen Geschichten viele Emotionen auf die Bühne."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:30",
+      "category": "Folk Music",
+      "venue": "Schmidechäuer",
+      "comune": "Burgdorf",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/burgdorf/bogroad-celtic-folk_Ad6S1Uc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Grabenstrasse 8",
+        "postalCode": "3400"
+      },
+      "geo": {
+        "lat": 47.0555255,
+        "lng": 7.6263959
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schmidechäuer"
+      },
+      "imageUrl": "/images/events/guidle-Ad6S1Uc.webp"
+    },
+    {
+      "id": "guidle:Ad3bYZH",
+      "title": "AGAPÈ · Faada Freddy & Orchestre GECA",
+      "titleByLocale": {
+        "it": "AGAPÈ · Faada Freddy & Orchestre GECA",
+        "en": "AGAPÈ · Faada Freddy & Orchestre GECA",
+        "de": "AGAPÈ · Faada Freddy & Orchestre GECA",
+        "fr": "AGAPÈ · Faada Freddy & Orchestre GECA"
+      },
+      "description": "Véritable phénomène du monde gospel et génie de la soul et du blues, Faada Freddy rejoint l'orchestre GECA pour une soirée unique ✨",
+      "descriptionByLocale": {
+        "it": "Véritable phénomène du monde gospel et génie de la soul et du blues, Faada Freddy rejoint l'orchestre GECA pour une soirée unique ✨",
+        "en": "Véritable phénomène du monde gospel et génie de la soul et du blues, Faada Freddy rejoint l'orchestre GECA pour une soirée unique ✨",
+        "de": "Véritable phénomène du monde gospel et génie de la soul et du blues, Faada Freddy rejoint l'orchestre GECA pour une soirée unique ✨",
+        "fr": "Véritable phénomène du monde gospel et génie de la soul et du blues, Faada Freddy rejoint l'orchestre GECA pour une soirée unique ✨"
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-03",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "BFM Bâtiment des Forces Motrices",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/agape-faada-freddy-und-orchestre-geca_Ad3bYZH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place des Volontaires 2",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2046537,
+        "lng": 6.1370867
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "FAADA FREDDY"
+        },
+        {
+          "name": "GECA"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Ad3bYZH.webp"
+    },
+    {
+      "id": "guidle:AQCvqQu",
+      "title": "klanghalt - im Oktober",
+      "titleByLocale": {
+        "it": "klanghalt - im Oktober",
+        "en": "klanghalt - im Oktober",
+        "de": "klanghalt - im Oktober",
+        "fr": "klanghalt - im Oktober"
+      },
+      "description": "«um der liebe willen singen» ist Thema von klanghalt 2025/2026. Vokalensembles aus nah und fern singen verschiedene Vertonungen vom «Lied der Lieder». Poesie in zwei Sprachen ergänzt das Programm.",
+      "descriptionByLocale": {
+        "it": "«um der liebe willen singen» ist Thema von klanghalt 2025/2026. Vokalensembles aus nah und fern singen verschiedene Vertonungen vom «Lied der Lieder». Poesie in zwei Sprachen ergänzt das Programm.",
+        "en": "«um der liebe willen singen» ist Thema von klanghalt 2025/2026. Vokalensembles aus nah und fern singen verschiedene Vertonungen vom «Lied der Lieder». Poesie in zwei Sprachen ergänzt das Programm.",
+        "de": "«um der liebe willen singen» ist Thema von klanghalt 2025/2026. Vokalensembles aus nah und fern singen verschiedene Vertonungen vom «Lied der Lieder». Poesie in zwei Sprachen ergänzt das Programm.",
+        "fr": "«um der liebe willen singen» ist Thema von klanghalt 2025/2026. Vokalensembles aus nah und fern singen verschiedene Vertonungen vom «Lied der Lieder». Poesie in zwei Sprachen ergänzt das Programm."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "17:00",
+      "category": "Lettura",
+      "venue": "Evang.-ref. Kirche St. Mangen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/st-gallen/klanghalt-im-oktober_AQCvqQu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchgasse 17",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4276566,
+        "lng": 9.3759918
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Evang.-ref. Kirche St. Mangen"
+      },
+      "imageUrl": "/images/events/guidle-AQCvqQu.webp"
+    },
+    {
+      "id": "guidle:AatDrck",
+      "title": "Handpan Schnupperkurs",
+      "titleByLocale": {
+        "it": "Handpan Schnupperkurs",
+        "en": "Handpan Schnupperkurs",
+        "de": "Handpan Schnupperkurs",
+        "fr": "Handpan Schnupperkurs"
+      },
+      "description": "Du wirst die Handpan kennen lernen und ausgiebig darauf spielen. Dir wird gezeigt, was das Instrument alles kann und am Schluss des Kurses wirst du bereits selber darauf spielen können.",
+      "descriptionByLocale": {
+        "it": "Du wirst die Handpan kennen lernen und ausgiebig darauf spielen. Dir wird gezeigt, was das Instrument alles kann und am Schluss des Kurses wirst du bereits selber darauf spielen können.",
+        "en": "Du wirst die Handpan kennen lernen und ausgiebig darauf spielen. Dir wird gezeigt, was das Instrument alles kann und am Schluss des Kurses wirst du bereits selber darauf spielen können.",
+        "de": "Du wirst die Handpan kennen lernen und ausgiebig darauf spielen. Dir wird gezeigt, was das Instrument alles kann und am Schluss des Kurses wirst du bereits selber darauf spielen können.",
+        "fr": "Du wirst die Handpan kennen lernen und ausgiebig darauf spielen. Dir wird gezeigt, was das Instrument alles kann und am Schluss des Kurses wirst du bereits selber darauf spielen können."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "13:00",
+      "category": "Altri musica",
+      "venue": "Handpanschule Thun",
+      "comune": "Thun",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/thun/handpan-schnupperkurs_AatDrck",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 100,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bälliz 61",
+        "postalCode": "3604"
+      },
+      "geo": {
+        "lat": 46.75765,
+        "lng": 7.629461
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Handpanschule Thun"
+      },
+      "imageUrl": "/images/events/guidle-AatDrck.webp"
+    },
+    {
+      "id": "guidle:AALc5tE",
+      "title": "S(J)MK Hit-Box",
+      "titleByLocale": {
+        "it": "S(J)MK Hit-Box",
+        "en": "S(J)MK Hit-Box",
+        "de": "S(J)MK Hit-Box",
+        "fr": "S(J)MK Hit-Box"
+      },
+      "description": "Samstag 24.10.2026, S(J)MK Hit-Box Unterhaltungskonzert im Breitisaal Winkel",
+      "descriptionByLocale": {
+        "it": "Samstag 24.10.2026, S(J)MK Hit-Box Unterhaltungskonzert im Breitisaal Winkel",
+        "en": "Samstag 24.10.2026, S(J)MK Hit-Box Unterhaltungskonzert im Breitisaal Winkel",
+        "de": "Samstag 24.10.2026, S(J)MK Hit-Box Unterhaltungskonzert im Breitisaal Winkel",
+        "fr": "Samstag 24.10.2026, S(J)MK Hit-Box Unterhaltungskonzert im Breitisaal Winkel"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "00:00",
+      "category": "Banda di ottoni",
+      "venue": "Landgasthof Breiti",
+      "comune": "Winkel",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winkel/sjmk-hit-box_AALc5tE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Seebnerstrasse 21",
+        "postalCode": "8185"
+      },
+      "geo": {
+        "lat": 47.4930096,
+        "lng": 8.5519596
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Landgasthof Breiti"
+      },
+      "imageUrl": "/images/events/guidle-AALc5tE.webp"
+    },
+    {
+      "id": "guidle:AVij54W",
+      "title": "Gabor Vosteen: WHAT THE FLUTE!?! The Fluteman Show",
+      "titleByLocale": {
+        "it": "Gabor Vosteen: WHAT THE FLUTE!?! The Fluteman Show",
+        "en": "Gabor Vosteen: WHAT THE FLUTE!?! The Fluteman Show",
+        "de": "Gabor Vosteen: WHAT THE FLUTE!?! The Fluteman Show",
+        "fr": "Gabor Vosteen: WHAT THE FLUTE!?! The Fluteman Show"
+      },
+      "description": "Wer hätte sich vorstellen können, «Blockflöte» und «Superheld» in einem Satz zu erwähnen?",
+      "descriptionByLocale": {
+        "it": "Wer hätte sich vorstellen können, «Blockflöte» und «Superheld» in einem Satz zu erwähnen?",
+        "en": "Wer hätte sich vorstellen können, «Blockflöte» und «Superheld» in einem Satz zu erwähnen?",
+        "de": "Wer hätte sich vorstellen können, «Blockflöte» und «Superheld» in einem Satz zu erwähnen?",
+        "fr": "Wer hätte sich vorstellen können, «Blockflöte» und «Superheld» in einem Satz zu erwähnen?"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "20:00",
+      "category": "Musica comica",
+      "venue": "La Cappella",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/gabor-vosteen-what-the-flute-the-fluteman-show_AVij54W",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Allmendstrasse 24",
+        "postalCode": "3014"
+      },
+      "geo": {
+        "lat": 46.9594646,
+        "lng": 7.4518305
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Cappella"
+      },
+      "imageUrl": "/images/events/guidle-AVij54W.webp"
+    },
+    {
+      "id": "guidle:ApAgMYs",
+      "title": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur",
+      "titleByLocale": {
+        "it": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur",
+        "en": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur",
+        "de": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur",
+        "fr": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur"
+      },
+      "description": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur Samstag, 31. Oktober 2026, 19.00 Uhr, Reformierte Kirche Hinwil",
+      "descriptionByLocale": {
+        "it": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur Samstag, 31. Oktober 2026, 19.00 Uhr, Reformierte Kirche Hinwil",
+        "en": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur Samstag, 31. Oktober 2026, 19.00 Uhr, Reformierte Kirche Hinwil",
+        "de": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur Samstag, 31. Oktober 2026, 19.00 Uhr, Reformierte Kirche Hinwil",
+        "fr": "Konzert der Harmonie am Bachtel: Berge, Vulkane und die Kraft der Natur Samstag, 31. Oktober 2026, 19.00 Uhr, Reformierte Kirche Hinwil"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "19:00",
+      "category": "Banda di ottoni",
+      "venue": "Evang.-ref. Kirche Hinwil",
+      "comune": "Hinwil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/hinwil/konzert-der-harmonie-am-bachtel-berge-vulkane-und-die-kraft-der-natur_ApAgMYs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Felsenhofstrasse 9",
+        "postalCode": "8340"
+      },
+      "geo": {
+        "lat": 47.301373,
+        "lng": 8.8481396
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Evang.-ref. Kirche Hinwil"
+      },
+      "imageUrl": "/images/events/guidle-ApAgMYs.webp"
+    },
+    {
+      "id": "guidle:A6fS4fA",
+      "title": "Charity-Konzert mit Michael von der Heide in der Druckerei Baden",
+      "titleByLocale": {
+        "it": "Charity-Konzert mit Michael von der Heide in der Druckerei Baden",
+        "en": "Charity-Konzert mit Michael von der Heide in der Druckerei Baden",
+        "de": "Charity-Konzert mit Michael von der Heide in der Druckerei Baden",
+        "fr": "Charity-Konzert mit Michael von der Heide in der Druckerei Baden"
+      },
+      "description": "Charity-Konzert zur Realisierung (bereits im Bau, geplanter Bezug Sommer 2027) einer Augenklinik in Togo. Behandlung der Ärmsten der Armen.",
+      "descriptionByLocale": {
+        "it": "Charity-Konzert zur Realisierung (bereits im Bau, geplanter Bezug Sommer 2027) einer Augenklinik in Togo. Behandlung der Ärmsten der Armen.",
+        "en": "Charity-Konzert zur Realisierung (bereits im Bau, geplanter Bezug Sommer 2027) einer Augenklinik in Togo. Behandlung der Ärmsten der Armen.",
+        "de": "Charity-Konzert zur Realisierung (bereits im Bau, geplanter Bezug Sommer 2027) einer Augenklinik in Togo. Behandlung der Ärmsten der Armen.",
+        "fr": "Charity-Konzert zur Realisierung (bereits im Bau, geplanter Bezug Sommer 2027) einer Augenklinik in Togo. Behandlung der Ärmsten der Armen."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "18:00",
+      "category": "Arte vocale",
+      "venue": "Druckerei",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/baden/charity-konzert-mit-michael-von-der-heide-in-der-druckerei-baden_A6fS4fA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Stadtturmstrasse 19",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4758607,
+        "lng": 8.3053496
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Druckerei"
+      },
+      "imageUrl": "/images/events/guidle-A6fS4fA.webp"
+    },
+    {
+      "id": "guidle:ALmKC4g",
+      "title": "Louis Billette 6tet + Mohs. feat. Fanny Martin + Arthur Hnatek",
+      "titleByLocale": {
+        "it": "Louis Billette 6tet + Mohs. feat. Fanny Martin + Arthur Hnatek",
+        "en": "Louis Billette 6tet + Mohs. feat. Fanny Martin + Arthur Hnatek",
+        "de": "Louis Billette 6tet + Mohs. feat. Fanny Martin + Arthur Hnatek",
+        "fr": "Louis Billette 6tet + Mohs. feat. Fanny Martin + Arthur Hnatek"
+      },
+      "description": "SOIREES Révélations JazzContreBand",
+      "descriptionByLocale": {
+        "it": "SOIREES Révélations JazzContreBand",
+        "en": "SOIREES Révélations JazzContreBand",
+        "de": "SOIREES Révélations JazzContreBand",
+        "fr": "SOIREES Révélations JazzContreBand"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Jazz",
+      "venue": "Centre des Musiques Actuelles",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/louis-billette-6tet-mohs-feat-fanny-martin-arthur-hnatek_ALmKC4g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Passage Marie-Claude Leburgue 2",
+        "postalCode": "1205"
+      },
+      "geo": {
+        "lat": 46.2120031,
+        "lng": 6.1423601
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Fanny Martin"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-ALmKC4g.webp"
+    },
+    {
+      "id": "guidle:Ag2kHgy",
+      "title": "Rock tes morts | The Underground Youth – Basic Partner",
+      "titleByLocale": {
+        "it": "Rock tes morts | The Underground Youth – Basic Partner",
+        "en": "Rock Your Dead | The Underground Youth - Basic Partner",
+        "de": "Rock tes morts | The Underground Youth – Basic Partner",
+        "fr": "Rock tes morts | The Underground Youth - Basic Partner"
+      },
+      "description": "„Le Point 11“ und „Les Caves du Manoir“ schliessen sich zusammen, um mit einer historischen Zusammenarbeit die Toten wieder zum Leben zu erwecken – ganz im Sinne des traditionellen Totenfestes.",
+      "descriptionByLocale": {
+        "it": "„Le Point 11“ und „Les Caves du Manoir“ schliessen sich zusammen, um mit einer historischen Zusammenarbeit die Toten wieder zum Leben zu erwecken – ganz im Sinne des traditionellen Totenfestes.",
+        "en": "Le Point 11 and Les Caves du Manoir are teaming up to “wake the dead” with a historic collaboration, in keeping with the traditional Day of the Dead celebration.",
+        "de": "„Le Point 11“ und „Les Caves du Manoir“ schliessen sich zusammen, um mit einer historischen Zusammenarbeit die Toten wieder zum Leben zu erwecken – ganz im Sinne des traditionellen Totenfestes.",
+        "fr": "Le Point 11 et les Caves du Manoir s’associent pour réveiller les morts avec une collab historique, en écho à la traditionnelle Fête des morts."
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Le Manoir de la Ville de Martigny",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/musique/martigny/rock-tes-morts-the-underground-youth-basic-partner_Ag2kHgy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 22,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue du Manoir 3",
+        "postalCode": "1920"
+      },
+      "geo": {
+        "lat": 46.1017013,
+        "lng": 7.0718729
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Le Manoir de la Ville de Martigny"
+      },
+      "imageUrl": "/images/events/guidle-Ag2kHgy.webp"
+    },
+    {
+      "id": "guidle:Atp7n3m",
+      "title": "Klezmer Jam",
+      "titleByLocale": {
+        "it": "Klezmer Jam",
+        "en": "Klezmer Jam",
+        "de": "Klezmer Jam",
+        "fr": "Klezmer Jam"
+      },
+      "description": "Angeleitet von Laura Münst",
+      "descriptionByLocale": {
+        "it": "Angeleitet von Laura Münst",
+        "en": "Angeleitet von Laura Münst",
+        "de": "Angeleitet von Laura Münst",
+        "fr": "Angeleitet von Laura Münst"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "17:00",
+      "category": "Klezmer",
+      "venue": "Galotti",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/klezmer-jam_Atp7n3m",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hohlstrasse 290",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3832672,
+        "lng": 8.5147044
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Laura Münst, Klarinette"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Atp7n3m.webp"
+    },
+    {
+      "id": "guidle:AvBWBMv",
+      "title": "Jubiläum – mit Esther Hasler",
+      "titleByLocale": {
+        "it": "Jubiläum – mit Esther Hasler",
+        "en": "Jubiläum – mit Esther Hasler",
+        "de": "Jubiläum – mit Esther Hasler",
+        "fr": "Jubiläum – mit Esther Hasler"
+      },
+      "description": "Über Esther Hasler wird gesagt, sie bringe Menschen gleichzeitig zum Nachdenken, Träumen und Lachen.",
+      "descriptionByLocale": {
+        "it": "Über Esther Hasler wird gesagt, sie bringe Menschen gleichzeitig zum Nachdenken, Träumen und Lachen.",
+        "en": "Über Esther Hasler wird gesagt, sie bringe Menschen gleichzeitig zum Nachdenken, Träumen und Lachen.",
+        "de": "Über Esther Hasler wird gesagt, sie bringe Menschen gleichzeitig zum Nachdenken, Träumen und Lachen.",
+        "fr": "Über Esther Hasler wird gesagt, sie bringe Menschen gleichzeitig zum Nachdenken, Träumen und Lachen."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "18:00",
+      "category": "Cabaret",
+      "venue": "Ortsarchiv Bümpliz",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/jubilaeum-mit-esther-hasler_AvBWBMv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bernstrasse 77",
+        "postalCode": "3018"
+      },
+      "geo": {
+        "lat": 46.9411509,
+        "lng": 7.3928421
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Perlen aus ihrem Soloprogramm"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AvBWBMv.webp"
+    },
+    {
+      "id": "guidle:ABXgE3J",
+      "title": "Leonard Cohen: dix ans plus tard, toujours vivant",
+      "titleByLocale": {
+        "it": "Leonard Cohen: dix ans plus tard, toujours vivant",
+        "en": "Leonard Cohen: dix ans plus tard, toujours vivant",
+        "de": "Leonard Cohen: dix ans plus tard, toujours vivant",
+        "fr": "Leonard Cohen: dix ans plus tard, toujours vivant"
+      },
+      "description": "Ehrungsabend",
+      "descriptionByLocale": {
+        "it": "Ehrungsabend",
+        "en": "Tribute evening",
+        "de": "Ehrungsabend",
+        "fr": "Soirée d'hommage"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "00:00",
+      "category": "cantautore",
+      "venue": "Bibliothèque cantonale et universitaire (BCU)",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/evenements/musique/fribourg/leonard-cohen-dix-ans-plus-tard-toujours-vivant_ABXgE3J",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue Joseph-Piller 2",
+        "postalCode": "1700"
+      },
+      "geo": {
+        "lat": 46.8065509,
+        "lng": 7.1559955
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bibliothèque cantonale et universitaire (BCU)"
+      },
+      "imageUrl": "/images/events/guidle-ABXgE3J.webp"
+    },
+    {
+      "id": "guidle:ACNfPtq",
+      "title": "Roche 'n' Jazz: Tyn Wybenga Brainteaser Orchestra",
+      "titleByLocale": {
+        "it": "Roche 'n' Jazz: Tyn Wybenga Brainteaser Orchestra",
+        "en": "Roche 'n' Jazz: Tyn Wybenga Brainteaser Orchestra",
+        "de": "Roche 'n' Jazz: Tyn Wybenga Brainteaser Orchestra",
+        "fr": "Roche 'n' Jazz: Tyn Wybenga Brainteaser Orchestra"
+      },
+      "description": "in Kooperation mit dem bird's eye jazz club Kosten: Museumseintritt Faszinierende, rahmensprengende Synergie von Jazz, Hip Hop, südafrikanischer Musik und Elektronik.",
+      "descriptionByLocale": {
+        "it": "in Kooperation mit dem bird's eye jazz club Kosten: Museumseintritt Faszinierende, rahmensprengende Synergie von Jazz, Hip Hop, südafrikanischer Musik und Elektronik.",
+        "en": "in Kooperation mit dem bird's eye jazz club Kosten: Museumseintritt Faszinierende, rahmensprengende Synergie von Jazz, Hip Hop, südafrikanischer Musik und Elektronik.",
+        "de": "in Kooperation mit dem bird's eye jazz club Kosten: Museumseintritt Faszinierende, rahmensprengende Synergie von Jazz, Hip Hop, südafrikanischer Musik und Elektronik.",
+        "fr": "in Kooperation mit dem bird's eye jazz club Kosten: Museumseintritt Faszinierende, rahmensprengende Synergie von Jazz, Hip Hop, südafrikanischer Musik und Elektronik."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "16:00",
+      "category": "Jazz",
+      "venue": "Museum Tinguely",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/roche-n-jazz-tyn-wybenga-brainteaser-orchestra_ACNfPtq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Paul Sacher-Anlage 1",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5591819,
+        "lng": 7.6121848
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Museum Tinguely"
+      },
+      "imageUrl": "/images/events/guidle-ACNfPtq.webp"
+    },
+    {
+      "id": "guidle:AJA5qMW",
+      "title": "Son of the Velvet Rat",
+      "titleByLocale": {
+        "it": "Son of the Velvet Rat",
+        "en": "Son of the Velvet Rat",
+        "de": "Son of the Velvet Rat",
+        "fr": "Son of the Velvet Rat"
+      },
+      "description": "Son of the Velvet Rat – ein Name wie aus einem Noir-Roman, eine Musik wie der Soundtrack zu eben diesem.",
+      "descriptionByLocale": {
+        "it": "Son of the Velvet Rat – ein Name wie aus einem Noir-Roman, eine Musik wie der Soundtrack zu eben diesem.",
+        "en": "Son of the Velvet Rat – ein Name wie aus einem Noir-Roman, eine Musik wie der Soundtrack zu eben diesem.",
+        "de": "Son of the Velvet Rat – ein Name wie aus einem Noir-Roman, eine Musik wie der Soundtrack zu eben diesem.",
+        "fr": "Son of the Velvet Rat – ein Name wie aus einem Noir-Roman, eine Musik wie der Soundtrack zu eben diesem."
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "21:00",
+      "category": "Rock generalmente",
+      "venue": "Spielboden",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/dornbirn/son-of-the-velvet-rat_AJA5qMW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Färbergasse 15",
+        "postalCode": "6850"
+      },
+      "geo": {
+        "lat": 47.4222623,
+        "lng": 9.737544
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Songs aus den “Red Barn Sessions"
+        },
+        {
+          "name": "Gravy Records/ 2024) auf Tour"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AJA5qMW.webp"
+    },
+    {
+      "id": "guidle:A15Hbub",
+      "title": "Kiwanis präsentiert: JAZZ NIGHT KÖNIZ",
+      "titleByLocale": {
+        "it": "Kiwanis präsentiert: JAZZ NIGHT KÖNIZ",
+        "en": "Kiwanis präsentiert: JAZZ NIGHT KÖNIZ",
+        "de": "Kiwanis präsentiert: JAZZ NIGHT KÖNIZ",
+        "fr": "Kiwanis präsentiert: JAZZ NIGHT KÖNIZ"
+      },
+      "description": "JazzSelection begeistert seit vielen Jahren mit swingendem Jazz ein Publikum von Jung bis Alt. Das erfahrene Berner Ensemble hat Hunderte von Auftritten im In- und Ausland absolviert.",
+      "descriptionByLocale": {
+        "it": "JazzSelection begeistert seit vielen Jahren mit swingendem Jazz ein Publikum von Jung bis Alt. Das erfahrene Berner Ensemble hat Hunderte von Auftritten im In- und Ausland absolviert.",
+        "en": "JazzSelection begeistert seit vielen Jahren mit swingendem Jazz ein Publikum von Jung bis Alt. Das erfahrene Berner Ensemble hat Hunderte von Auftritten im In- und Ausland absolviert.",
+        "de": "JazzSelection begeistert seit vielen Jahren mit swingendem Jazz ein Publikum von Jung bis Alt. Das erfahrene Berner Ensemble hat Hunderte von Auftritten im In- und Ausland absolviert.",
+        "fr": "JazzSelection begeistert seit vielen Jahren mit swingendem Jazz ein Publikum von Jung bis Alt. Das erfahrene Berner Ensemble hat Hunderte von Auftritten im In- und Ausland absolviert."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Jazz",
+      "venue": "Kulturhof - Schloss Köniz",
+      "comune": "Köniz",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/koeniz/kiwanis-praesentiert-jazz-night-koeniz_A15Hbub",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Muhlernstrasse 11",
+        "postalCode": "3098"
+      },
+      "geo": {
+        "lat": 46.9210814,
+        "lng": 7.4142999
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kulturhof - Schloss Köniz"
+      },
+      "imageUrl": "/images/events/guidle-A15Hbub.webp"
+    },
+    {
+      "id": "guidle:AmiYMk3",
+      "title": "Concerto del Quartetto Belena",
+      "titleByLocale": {
+        "it": "Concerto del Quartetto Belena",
+        "en": "Quartetto Belena Concert",
+        "de": "Konzert Quartetto Belena",
+        "fr": "Concert du Quartetto Belena"
+      },
+      "description": "L'ensemble propone un programma variegato con brani che spaziano dal Rinascimento ai giorni nostri: musica classica leggera, danze, musica popolare e colonne sonore.",
+      "descriptionByLocale": {
+        "it": "L'ensemble propone un programma variegato con brani che spaziano dal Rinascimento ai giorni nostri: musica classica leggera, danze, musica popolare e colonne sonore.",
+        "en": "The ensemble performs a varied program featuring works ranging from the Renaissance to the present day—light classical music, dances, folk music, and film scores.",
+        "de": "Das Ensemble spielt ein abwechslungsreiches Programm mit Werken von der Renaissance bis zur Gegenwart – leichte Klassik, Tänze, Volks- und Filmmusik.",
+        "fr": "L'ensemble propose un programme varié comprenant des œuvres allant de la Renaissance à nos jours : musique classique légère, danses, musique folklorique et musiques de films."
+      },
+      "startDate": "2026-10-28",
+      "endDate": "2026-10-28",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Zentrum Artos",
+      "comune": "Interlaken",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/interlaken/konzert-quartetto-belena_AmiYMk3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Alpenstrasse 45",
+        "postalCode": "3800"
+      },
+      "geo": {
+        "lat": 46.6855148,
+        "lng": 7.8663661
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Werken von der Renaissance bis zur Gegenwart – leichte Klassik, Tänze, Volks"
+        },
+        {
+          "name": "Filmmusik"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AmiYMk3.webp"
+    },
+    {
+      "id": "guidle:Asveyax",
+      "title": "Vibes im Visitor Centre – ein First Friday Event",
+      "titleByLocale": {
+        "it": "Vibes im Visitor Centre – ein First Friday Event",
+        "en": "Vibes im Visitor Centre – ein First Friday Event",
+        "de": "Vibes im Visitor Centre – ein First Friday Event",
+        "fr": "Vibes im Visitor Centre – ein First Friday Event"
+      },
+      "description": "Am 06. November begeistert Lutz & Laune im Visitor Centre mit viel Groove und Spielfreude. Dazu gibt es Wein von Rötiberg.",
+      "descriptionByLocale": {
+        "it": "Am 06. November begeistert Lutz & Laune im Visitor Centre mit viel Groove und Spielfreude. Dazu gibt es Wein von Rötiberg.",
+        "en": "Am 06. November begeistert Lutz & Laune im Visitor Centre mit viel Groove und Spielfreude. Dazu gibt es Wein von Rötiberg.",
+        "de": "Am 06. November begeistert Lutz & Laune im Visitor Centre mit viel Groove und Spielfreude. Dazu gibt es Wein von Rötiberg.",
+        "fr": "Am 06. November begeistert Lutz & Laune im Visitor Centre mit viel Groove und Spielfreude. Dazu gibt es Wein von Rötiberg."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "17:00",
+      "category": "Degustazione",
+      "venue": "Schaffhauserland Tourismus",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/schaffhausen/vibes-im-visitor-centre-ein-first-friday-event_Asveyax",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Vordergasse 73",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.6962875,
+        "lng": 8.6342551
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Coverhits aus vier Jahrzehnten"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Asveyax.webp"
+    },
+    {
+      "id": "guidle:AauupRR",
+      "title": "Santrofi (GH) + Tropical Six Pack Afterparty",
+      "titleByLocale": {
+        "it": "Santrofi (GH) + Tropical Six Pack Afterparty",
+        "en": "Santrofi (GH) + Tropical Six Pack Afterparty",
+        "de": "Santrofi (GH) + Tropical Six Pack Afterparty",
+        "fr": "Santrofi (GH) + Tropical Six Pack Afterparty"
+      },
+      "description": "Santrofi aus Ghana spielen Highlife-Grooves mit Hip-Hop-Seele. Sie machen Laune, sie machen Lärm. Die Tropical Six Pack heizen davor und danach auch noch ein.",
+      "descriptionByLocale": {
+        "it": "Santrofi aus Ghana spielen Highlife-Grooves mit Hip-Hop-Seele. Sie machen Laune, sie machen Lärm. Die Tropical Six Pack heizen davor und danach auch noch ein.",
+        "en": "Santrofi aus Ghana spielen Highlife-Grooves mit Hip-Hop-Seele. Sie machen Laune, sie machen Lärm. Die Tropical Six Pack heizen davor und danach auch noch ein.",
+        "de": "Santrofi aus Ghana spielen Highlife-Grooves mit Hip-Hop-Seele. Sie machen Laune, sie machen Lärm. Die Tropical Six Pack heizen davor und danach auch noch ein.",
+        "fr": "Santrofi aus Ghana spielen Highlife-Grooves mit Hip-Hop-Seele. Sie machen Laune, sie machen Lärm. Die Tropical Six Pack heizen davor und danach auch noch ein."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "21:00",
+      "category": "Brass Band",
+      "venue": "Kuppel Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/santrofi-gh-tropical-six-pack-afterparty_AauupRR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Nachtigallenwäldeli 9/10",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5501819,
+        "lng": 7.5846719
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kuppel Basel"
+      },
+      "imageUrl": "/images/events/guidle-AauupRR.webp"
+    },
+    {
+      "id": "guidle:APcPwkt",
+      "title": "Willy & The Sheiks | Kulturkarussell Rössli Stäfa",
+      "titleByLocale": {
+        "it": "Willy & The Sheiks | Kulturkarussell Rössli Stäfa",
+        "en": "Willy & The Sheiks | Kulturkarussell Rössli Stäfa",
+        "de": "Willy & The Sheiks | Kulturkarussell Rössli Stäfa",
+        "fr": "Willy & The Sheiks | Kulturkarussell Rössli Stäfa"
+      },
+      "description": "Willy & The Sheiks sind ein Septett, das den Swing mit unbändiger Energie, Charme und einem modernen Twist auf die Bühne bringt.",
+      "descriptionByLocale": {
+        "it": "Willy & The Sheiks sind ein Septett, das den Swing mit unbändiger Energie, Charme und einem modernen Twist auf die Bühne bringt.",
+        "en": "Willy & The Sheiks sind ein Septett, das den Swing mit unbändiger Energie, Charme und einem modernen Twist auf die Bühne bringt.",
+        "de": "Willy & The Sheiks sind ein Septett, das den Swing mit unbändiger Energie, Charme und einem modernen Twist auf die Bühne bringt.",
+        "fr": "Willy & The Sheiks sind ein Septett, das den Swing mit unbändiger Energie, Charme und einem modernen Twist auf die Bühne bringt."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Kulturhaus Rössli",
+      "comune": "Stäfa",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/staefa/willy-und-the-sheiks-kulturkarussell-roessli-staefa_APcPwkt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofstrasse 1",
+        "postalCode": "8712"
+      },
+      "geo": {
+        "lat": 47.2396312,
+        "lng": 8.7186473
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kulturhaus Rössli"
+      },
+      "imageUrl": "/images/events/guidle-APcPwkt.webp"
+    },
+    {
+      "id": "guidle:A8jKkBK",
+      "title": "Chorkonzert \"SINGING IN THE RAIN\"",
+      "titleByLocale": {
+        "it": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "en": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "de": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "fr": "Chorkonzert \"SINGING IN THE RAIN\""
+      },
+      "description": "Chorkonzert \"gospels and more Volketswil\"",
+      "descriptionByLocale": {
+        "it": "Chorkonzert \"gospels and more Volketswil\"",
+        "en": "Chorkonzert \"gospels and more Volketswil\"",
+        "de": "Chorkonzert \"gospels and more Volketswil\"",
+        "fr": "Chorkonzert \"gospels and more Volketswil\""
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Musica chorale",
+      "venue": "Evang.-Ref. Kirche",
+      "comune": "Volketswil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/volketswil/chorkonzert-singing-in-the-rain_A8jKkBK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Zentralstrasse 1",
+        "postalCode": "8604"
+      },
+      "geo": {
+        "lat": 47.389444,
+        "lng": 8.693323
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Evang.-Ref. Kirche"
+      },
+      "imageUrl": "/images/events/guidle-A8jKkBK.webp"
+    },
+    {
+      "id": "guidle:ApCCV97",
+      "title": "Chorkonzert \"SINGING IN THE RAIN\"",
+      "titleByLocale": {
+        "it": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "en": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "de": "Chorkonzert \"SINGING IN THE RAIN\"",
+        "fr": "Chorkonzert \"SINGING IN THE RAIN\""
+      },
+      "description": "Chorkonzert \"gospels and more Volketswil\"",
+      "descriptionByLocale": {
+        "it": "Chorkonzert \"gospels and more Volketswil\"",
+        "en": "Chorkonzert \"gospels and more Volketswil\"",
+        "de": "Chorkonzert \"gospels and more Volketswil\"",
+        "fr": "Chorkonzert \"gospels and more Volketswil\""
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "17:00",
+      "category": "Musica chorale",
+      "venue": "Reformierte Kirche",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/wangen-b-duebendorf/chorkonzert-singing-in-the-rain_ApCCV97",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "8602"
+      },
+      "geo": {
+        "lat": 47.408769,
+        "lng": 8.646451
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Reformierte Kirche"
+      },
+      "imageUrl": "/images/events/guidle-ApCCV97.webp"
+    },
+    {
+      "id": "guidle:AEXQMS1",
+      "title": "Trio Battida – Ein Flügel, Percussion und 6 Hände",
+      "titleByLocale": {
+        "it": "Trio Battida – Ein Flügel, Percussion und 6 Hände",
+        "en": "Trio Battida – Ein Flügel, Percussion und 6 Hände",
+        "de": "Trio Battida – Ein Flügel, Percussion und 6 Hände",
+        "fr": "Trio Battida – Ein Flügel, Percussion und 6 Hände"
+      },
+      "description": "Von Igor Stravinsky bis Astor Piazzolla: Eine musikalisch-tänzerische Reise voller Temperament, Witz und Poesie.",
+      "descriptionByLocale": {
+        "it": "Von Igor Stravinsky bis Astor Piazzolla: Eine musikalisch-tänzerische Reise voller Temperament, Witz und Poesie.",
+        "en": "Von Igor Stravinsky bis Astor Piazzolla: Eine musikalisch-tänzerische Reise voller Temperament, Witz und Poesie.",
+        "de": "Von Igor Stravinsky bis Astor Piazzolla: Eine musikalisch-tänzerische Reise voller Temperament, Witz und Poesie.",
+        "fr": "Von Igor Stravinsky bis Astor Piazzolla: Eine musikalisch-tänzerische Reise voller Temperament, Witz und Poesie."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "Rudolf Steiner Schule Zürcher Oberland",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/wetzikon-zh/trio-battida-ein-fluegel-percussion-und-6-haende_AEXQMS1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Usterstrasse 141",
+        "postalCode": "8620"
+      },
+      "geo": {
+        "lat": 47.3287608,
+        "lng": 8.7827111
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rudolf Steiner Schule Zürcher Oberland"
+      },
+      "imageUrl": "/images/events/guidle-AEXQMS1.webp"
+    },
+    {
+      "id": "guidle:Aw674M8",
+      "title": "Alex breahna | LIVE | ON STAGE",
+      "titleByLocale": {
+        "it": "Alex breahna | LIVE | ON STAGE",
+        "en": "Alex breahna | LIVE | ON STAGE",
+        "de": "Alex breahna | LIVE | ON STAGE",
+        "fr": "Alex breahna | LIVE | ON STAGE"
+      },
+      "description": "En collaboration avec ON STAGE ! Alex Breahna transforme la timidité en matière sonore.",
+      "descriptionByLocale": {
+        "it": "En collaboration avec ON STAGE ! Alex Breahna transforme la timidité en matière sonore.",
+        "en": "En collaboration avec ON STAGE ! Alex Breahna transforme la timidité en matière sonore.",
+        "de": "En collaboration avec ON STAGE ! Alex Breahna transforme la timidité en matière sonore.",
+        "fr": "En collaboration avec ON STAGE ! Alex Breahna transforme la timidité en matière sonore."
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "21:50",
+      "category": "Pop generalmente",
+      "venue": "Chat Noir",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/carouge-ge/alex-breahna-live-on-stage_Aw674M8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue Vautier 13",
+        "postalCode": "1227"
+      },
+      "geo": {
+        "lat": 46.1850382,
+        "lng": 6.1424173
+      },
+      "recurring": false,
+      "performer": {
+        "name": "ON STAGE"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-Aw674M8.webp"
+    },
+    {
+      "id": "guidle:AjVSTZq",
+      "title": "INSCAPE | LIVE | FESTIVAL JAZZCONTREBAND",
+      "titleByLocale": {
+        "it": "INSCAPE | LIVE | FESTIVAL JAZZCONTREBAND",
+        "en": "INSCAPE | LIVE | FESTIVAL JAZZCONTREBAND",
+        "de": "INSCAPE | LIVE | FESTIVAL JAZZCONTREBAND",
+        "fr": "INSCAPE | LIVE | FESTIVAL JAZZCONTREBAND"
+      },
+      "description": "Dans le cadre de JAZZCONTREBAND",
+      "descriptionByLocale": {
+        "it": "Dans le cadre de JAZZCONTREBAND",
+        "en": "Dans le cadre de JAZZCONTREBAND",
+        "de": "Dans le cadre de JAZZCONTREBAND",
+        "fr": "Dans le cadre de JAZZCONTREBAND"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "21:00",
+      "category": "Festival / Incontro",
+      "venue": "Chat Noir",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/carouge-ge/inscape-live-festival-jazzcontreband_AjVSTZq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue Vautier 13",
+        "postalCode": "1227"
+      },
+      "geo": {
+        "lat": 46.1850382,
+        "lng": 6.1424173
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chat Noir"
+      },
+      "imageUrl": "/images/events/guidle-AjVSTZq.webp"
+    },
+    {
+      "id": "guidle:AbavcuF",
+      "title": "Instrumentenbörse",
+      "titleByLocale": {
+        "it": "Instrumentenbörse",
+        "en": "Instrumentenbörse",
+        "de": "Instrumentenbörse",
+        "fr": "Instrumentenbörse"
+      },
+      "description": "Öffentlicher Verkauf von diversen Instrumenten im Klangkeller Quelle: Vereinigung Klangkeller Bern Lizenz: CC BY-SA 4.0",
+      "descriptionByLocale": {
+        "it": "Öffentlicher Verkauf von diversen Instrumenten im Klangkeller Quelle: Vereinigung Klangkeller Bern Lizenz: CC BY-SA 4.0",
+        "en": "Öffentlicher Verkauf von diversen Instrumenten im Klangkeller Quelle: Vereinigung Klangkeller Bern Lizenz: CC BY-SA 4.0",
+        "de": "Öffentlicher Verkauf von diversen Instrumenten im Klangkeller Quelle: Vereinigung Klangkeller Bern Lizenz: CC BY-SA 4.0",
+        "fr": "Öffentlicher Verkauf von diversen Instrumenten im Klangkeller Quelle: Vereinigung Klangkeller Bern Lizenz: CC BY-SA 4.0"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "13:00",
+      "category": "Altri musica",
+      "venue": "Klangkeller Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/instrumentenboerse_AbavcuF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Junkerngasse 43",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9476347,
+        "lng": 7.4541212
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Klangkeller Bern"
+      },
+      "imageUrl": "/images/events/guidle-AbavcuF.webp"
+    },
+    {
+      "id": "guidle:AWC2Aq9",
+      "title": "Frauenfeld ROCKT – 2. Halbfinal",
+      "titleByLocale": {
+        "it": "Frauenfeld ROCKT – 2. Halbfinal",
+        "en": "Frauenfeld ROCKT – 2. Halbfinal",
+        "de": "Frauenfeld ROCKT – 2. Halbfinal",
+        "fr": "Frauenfeld ROCKT – 2. Halbfinal"
+      },
+      "description": "Beim 2. Halbfinal wird um den Einzug in den Final am 14. November gerockt.",
+      "descriptionByLocale": {
+        "it": "Beim 2. Halbfinal wird um den Einzug in den Final am 14. November gerockt.",
+        "en": "Beim 2. Halbfinal wird um den Einzug in den Final am 14. November gerockt.",
+        "de": "Beim 2. Halbfinal wird um den Einzug in den Final am 14. November gerockt.",
+        "fr": "Beim 2. Halbfinal wird um den Einzug in den Final am 14. November gerockt."
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Schlosskeller Frauenfeld",
+      "comune": "Frauenfeld",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/frauenfeld/frauenfeld-rockt-2-halbfinal_AWC2Aq9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Schlossmühlestrasse 1",
+        "postalCode": "8500"
+      },
+      "geo": {
+        "lat": 47.5550931,
+        "lng": 8.8971869
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schlosskeller Frauenfeld"
+      },
+      "imageUrl": "/images/events/guidle-AWC2Aq9.webp"
+    },
+    {
+      "id": "guidle:AeLA8AA",
+      "title": "Julijan Erič Experience",
+      "titleByLocale": {
+        "it": "Julijan Erič Experience",
+        "en": "Julijan Erič Experience",
+        "de": "Julijan Erič Experience",
+        "fr": "Julijan Erič Experience"
+      },
+      "description": "Dieses Power-Trio aus Ljubljana, Slowenien, sprengt mühelos die Grenzen klassischer Genre-Zuschreibungen.",
+      "descriptionByLocale": {
+        "it": "Dieses Power-Trio aus Ljubljana, Slowenien, sprengt mühelos die Grenzen klassischer Genre-Zuschreibungen.",
+        "en": "Dieses Power-Trio aus Ljubljana, Slowenien, sprengt mühelos die Grenzen klassischer Genre-Zuschreibungen.",
+        "de": "Dieses Power-Trio aus Ljubljana, Slowenien, sprengt mühelos die Grenzen klassischer Genre-Zuschreibungen.",
+        "fr": "Dieses Power-Trio aus Ljubljana, Slowenien, sprengt mühelos die Grenzen klassischer Genre-Zuschreibungen."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:30",
+      "category": "Rock generalmente",
+      "venue": "Kammgarn",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/hard/julijan-eri-experience_AeLA8AA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "EUR",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Spinnereistrasse 10",
+        "postalCode": "6971"
+      },
+      "geo": {
+        "lat": 47.4981698,
+        "lng": 9.694048
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kammgarn"
+      },
+      "imageUrl": "/images/events/guidle-AeLA8AA.webp"
+    },
+    {
+      "id": "guidle:AKLpLd3",
+      "title": "Amistat",
+      "titleByLocale": {
+        "it": "Amistat",
+        "en": "Amistat",
+        "de": "Amistat",
+        "fr": "Amistat"
+      },
+      "description": "Nach einem wegweisenden Jahr 2025, in dem Amistat über 30.",
+      "descriptionByLocale": {
+        "it": "Nach einem wegweisenden Jahr 2025, in dem Amistat über 30.",
+        "en": "Nach einem wegweisenden Jahr 2025, in dem Amistat über 30.",
+        "de": "Nach einem wegweisenden Jahr 2025, in dem Amistat über 30.",
+        "fr": "Nach einem wegweisenden Jahr 2025, in dem Amistat über 30."
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "20:00",
+      "category": "Folk Music",
+      "venue": "Conrad Sohm",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/dornbirn/amistat_AKLpLd3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Boden 1",
+        "postalCode": "6850"
+      },
+      "geo": {
+        "lat": 47.3939075,
+        "lng": 9.766506
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Conrad Sohm"
+      },
+      "imageUrl": "/images/events/guidle-AKLpLd3.webp"
+    },
+    {
+      "id": "guidle:AfCM75j",
+      "title": "Baiba",
+      "titleByLocale": {
+        "it": "Baiba",
+        "en": "Baiba",
+        "de": "Baiba",
+        "fr": "Baiba"
+      },
+      "description": "BAIBA ist nicht mehr allein.",
+      "descriptionByLocale": {
+        "it": "BAIBA ist nicht mehr allein.",
+        "en": "BAIBA ist nicht mehr allein.",
+        "de": "BAIBA ist nicht mehr allein.",
+        "fr": "BAIBA ist nicht mehr allein."
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Kammgarn",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/hard/baiba_AfCM75j",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 16,
+        "currency": "EUR",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Spinnereistrasse 10",
+        "postalCode": "6971"
+      },
+      "geo": {
+        "lat": 47.4981698,
+        "lng": 9.694048
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kammgarn"
+      },
+      "imageUrl": "/images/events/guidle-AfCM75j.webp"
+    },
+    {
+      "id": "guidle:AjH6nxj",
+      "title": "Tito & Tarantula",
+      "titleByLocale": {
+        "it": "Tito & Tarantula",
+        "en": "Tito & Tarantula",
+        "de": "Tito & Tarantula",
+        "fr": "Tito & Tarantula"
+      },
+      "description": "Tito is back! Die Americana- und Desert Rock Legende schlechthin geht 2026 auf eine mit Spannung erwartete Best-of Europatournee.",
+      "descriptionByLocale": {
+        "it": "Tito is back! Die Americana- und Desert Rock Legende schlechthin geht 2026 auf eine mit Spannung erwartete Best-of Europatournee.",
+        "en": "Tito is back! Die Americana- und Desert Rock Legende schlechthin geht 2026 auf eine mit Spannung erwartete Best-of Europatournee.",
+        "de": "Tito is back! Die Americana- und Desert Rock Legende schlechthin geht 2026 auf eine mit Spannung erwartete Best-of Europatournee.",
+        "fr": "Tito is back! Die Americana- und Desert Rock Legende schlechthin geht 2026 auf eine mit Spannung erwartete Best-of Europatournee."
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "startTime": "20:30",
+      "category": "Rock generalmente",
+      "venue": "Conrad Sohm",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/dornbirn/tito-und-tarantula_AjH6nxj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Boden 1",
+        "postalCode": "6850"
+      },
+      "geo": {
+        "lat": 47.3939075,
+        "lng": 9.766506
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Spannung erwartete Best-of Europatournee"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AjH6nxj.webp"
+    },
+    {
+      "id": "guidle:AuTqhrF",
+      "title": "Triggerfinger",
+      "titleByLocale": {
+        "it": "Triggerfinger",
+        "en": "Triggerfinger",
+        "de": "Triggerfinger",
+        "fr": "Triggerfinger"
+      },
+      "description": "Ein neues Album, eine neue Tour – der Beginn einer neuen Ära. 2025 war ein weiterer Meilenstein für die in Antwerpen ansässige Band Triggerfinger, deren Karriere mittlerweile 25 Jahre umfasst.",
+      "descriptionByLocale": {
+        "it": "Ein neues Album, eine neue Tour – der Beginn einer neuen Ära. 2025 war ein weiterer Meilenstein für die in Antwerpen ansässige Band Triggerfinger, deren Karriere mittlerweile 25 Jahre umfasst.",
+        "en": "Ein neues Album, eine neue Tour – der Beginn einer neuen Ära. 2025 war ein weiterer Meilenstein für die in Antwerpen ansässige Band Triggerfinger, deren Karriere mittlerweile 25 Jahre umfasst.",
+        "de": "Ein neues Album, eine neue Tour – der Beginn einer neuen Ära. 2025 war ein weiterer Meilenstein für die in Antwerpen ansässige Band Triggerfinger, deren Karriere mittlerweile 25 Jahre umfasst.",
+        "fr": "Ein neues Album, eine neue Tour – der Beginn einer neuen Ära. 2025 war ein weiterer Meilenstein für die in Antwerpen ansässige Band Triggerfinger, deren Karriere mittlerweile 25 Jahre umfasst."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Conrad Sohm",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/dornbirn/triggerfinger_AuTqhrF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Boden 1",
+        "postalCode": "6850"
+      },
+      "geo": {
+        "lat": 47.3939075,
+        "lng": 9.766506
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Conrad Sohm"
+      },
+      "imageUrl": "/images/events/guidle-AuTqhrF.webp"
+    },
+    {
+      "id": "guidle:AYtPiuR",
+      "title": "Andariegas: Primavera",
+      "titleByLocale": {
+        "it": "Andariegas: Primavera",
+        "en": "Andariegas: Primavera",
+        "de": "Andariegas: Primavera",
+        "fr": "Andariegas: Primavera"
+      },
+      "description": "Als Support Act von Manu Chao spielt Andariegas in ausverkauften Arenen, nun kehren sie zu ihren Wurzeln in die La Cappella zurück.",
+      "descriptionByLocale": {
+        "it": "Als Support Act von Manu Chao spielt Andariegas in ausverkauften Arenen, nun kehren sie zu ihren Wurzeln in die La Cappella zurück.",
+        "en": "Als Support Act von Manu Chao spielt Andariegas in ausverkauften Arenen, nun kehren sie zu ihren Wurzeln in die La Cappella zurück.",
+        "de": "Als Support Act von Manu Chao spielt Andariegas in ausverkauften Arenen, nun kehren sie zu ihren Wurzeln in die La Cappella zurück.",
+        "fr": "Als Support Act von Manu Chao spielt Andariegas in ausverkauften Arenen, nun kehren sie zu ihren Wurzeln in die La Cappella zurück."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "cantautore",
+      "venue": "La Cappella",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/andariegas-primavera_AYtPiuR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Allmendstrasse 24",
+        "postalCode": "3014"
+      },
+      "geo": {
+        "lat": 46.9594646,
+        "lng": 7.4518305
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Cappella"
+      },
+      "imageUrl": "/images/events/guidle-AYtPiuR.webp"
+    },
+    {
+      "id": "guidle:AND3JJj",
+      "title": "Caroline Bungeroth: Bittersüsse Beichte",
+      "titleByLocale": {
+        "it": "Caroline Bungeroth: Bittersüsse Beichte",
+        "en": "Caroline Bungeroth: Bittersüsse Beichte",
+        "de": "Caroline Bungeroth: Bittersüsse Beichte",
+        "fr": "Caroline Bungeroth: Bittersüsse Beichte"
+      },
+      "description": "Was haben Pfarrerskinder – von denen es in der Schweiz ja etliche prominente gibt – und einsame Wölfe in Berlin gemeinsam? Und wie ist der kürzeste Weg vom Krippenspiel zur Liebeskunst?",
+      "descriptionByLocale": {
+        "it": "Was haben Pfarrerskinder – von denen es in der Schweiz ja etliche prominente gibt – und einsame Wölfe in Berlin gemeinsam? Und wie ist der kürzeste Weg vom Krippenspiel zur Liebeskunst?",
+        "en": "Was haben Pfarrerskinder – von denen es in der Schweiz ja etliche prominente gibt – und einsame Wölfe in Berlin gemeinsam? Und wie ist der kürzeste Weg vom Krippenspiel zur Liebeskunst?",
+        "de": "Was haben Pfarrerskinder – von denen es in der Schweiz ja etliche prominente gibt – und einsame Wölfe in Berlin gemeinsam? Und wie ist der kürzeste Weg vom Krippenspiel zur Liebeskunst?",
+        "fr": "Was haben Pfarrerskinder – von denen es in der Schweiz ja etliche prominente gibt – und einsame Wölfe in Berlin gemeinsam? Und wie ist der kürzeste Weg vom Krippenspiel zur Liebeskunst?"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Musica comica",
+      "venue": "La Cappella",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/caroline-bungeroth-bittersuesse-beichte_AND3JJj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Allmendstrasse 24",
+        "postalCode": "3014"
+      },
+      "geo": {
+        "lat": 46.9594646,
+        "lng": 7.4518305
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Freude am Schabernack und unter ausdrücklicher Verletzung des Beichtgeheimnisses"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "imageUrl": "/images/events/guidle-AND3JJj.webp"
+    },
+    {
+      "id": "guidle:AkisK8B",
+      "title": "Bastian Baker «Live Acoustic Tour»",
+      "titleByLocale": {
+        "it": "Bastian Baker «Live Acoustic Tour»",
+        "en": "Bastian Baker “Live Acoustic Tour”",
+        "de": "Bastian Baker «Live Acoustic Tour»",
+        "fr": "Bastian Baker « Live Acoustic Tour »"
+      },
+      "description": "Bastian Baker torna alle sue radici! Venite a scoprire da vicino la star svizzera con la chitarra e la voce in un’atmosfera intima, tra i suoi più grandi successi, aneddoti e improvvisazioni.",
+      "descriptionByLocale": {
+        "it": "Bastian Baker torna alle sue radici! Venite a scoprire da vicino la star svizzera con la chitarra e la voce in un’atmosfera intima, tra i suoi più grandi successi, aneddoti e improvvisazioni.",
+        "en": "Bastian Baker is returning to his roots! Experience the Swiss star up close with his guitar and voice in an intimate setting—featuring his greatest hits, anecdotes, and improvisation.",
+        "de": "Bastian Baker kehrt zu seinen Wurzeln zurück! Erleben Sie den Schweizer Star hautnah mit Gitarre und Stimme in intimer Atmosphäre – inklusive seiner grössten Hits, Anekdoten und Improvisation.",
+        "fr": "Bastian Baker revient à ses racines ! Venez découvrir la star suisse en toute intimité, accompagnée de sa guitare et de sa voix, dans une ambiance chaleureuse – avec ses plus grands succès, des anecdotes et des improvisations."
+      },
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Kirchgemeindehaus Matten",
+      "comune": "Interlaken",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/eventos/musica/matten-b-interlaken/bastian-baker-live-acoustic-tour_AkisK8B",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Herziggässli 21",
+        "postalCode": "3800"
+      },
+      "geo": {
+        "lat": 46.6803088,
+        "lng": 7.8696684
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kirchgemeindehaus Matten"
+      },
+      "imageUrl": "/images/events/guidle-AkisK8B.webp"
+    },
+    {
+      "id": "guidle:ABYT9yu",
+      "title": "Suehiro Commander | Drink & Draw | Reggae Dub",
+      "titleByLocale": {
+        "it": "Suehiro Commander | Drink & Draw | Reggae Dub",
+        "en": "Suehiro Commander | Drink & Draw | Reggae Dub",
+        "de": "Suehiro Commander | Drink & Draw | Reggae Dub",
+        "fr": "Suehiro Commander | Drink & Draw | Reggae Dub"
+      },
+      "description": "Ein gemütlicher Abend mit Konzert und Zeichnen.",
+      "descriptionByLocale": {
+        "it": "Ein gemütlicher Abend mit Konzert und Zeichnen.",
+        "en": "Ein gemütlicher Abend mit Konzert und Zeichnen.",
+        "de": "Ein gemütlicher Abend mit Konzert und Zeichnen.",
+        "fr": "Ein gemütlicher Abend mit Konzert und Zeichnen."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Meck",
+      "comune": "Frick",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/frick/suehiro-commander-drink-und-draw-reggae-dub_ABYT9yu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Geissgasse 17",
+        "postalCode": "5070"
+      },
+      "geo": {
+        "lat": 47.5049232,
+        "lng": 8.0220699
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Meck"
+      },
+      "imageUrl": "/images/events/guidle-ABYT9yu.webp"
     }
   ]
 }

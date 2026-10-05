@@ -2228,7 +2228,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2276,7 +2276,6 @@
       "previousSlugs": [
         "professorship-of-neurology-uzh-zurich",
         "professorship-of-neurology-universitat-zurich-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich",
         "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2285,7 +2284,6 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich",
           "professorship-of-neurology-universitat-zurich"
         ]
       },
@@ -3582,15 +3580,13 @@
       "previousSlugs": [
         "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
         "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich",
-        "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich",
-        "professorship-of-gastroenterology-and-hepatology-universitat-zurich"
+        "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
           "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich",
-          "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich",
-          "professorship-of-gastroenterology-and-hepatology-universitat-zurich"
+          "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich"
         ],
         "de": [
           "professorship-of-gastroenterology-and-hepatology-uzh-zurich"
@@ -9756,12 +9752,12 @@
     },
     {
       "id": "uzh-cfe3eea3675d",
-      "slug": "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh",
+      "slug": "ricercatore-post-dottorato-progetto-finanziato-da-snsf-le-varieta-dell-inquiry-posizione-di-20-mesi-universitat-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh",
-        "it": "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh",
-        "de": "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh",
-        "fr": "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh"
+        "it": "ricercatore-post-dottorato-progetto-finanziato-da-snsf-le-varieta-dell-inquiry-posizione-di-20-mesi-universitat-zurich",
+        "de": "postdoktorandin-snf-gefordertes-projekt-the-varieties-of-inquiry-20-monatige-stelle-universitat-zurich-zurich",
+        "fr": "chercheur-postdoctoral-projet-finance-par-la-snsf-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9820,7 +9816,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:28.128Z"
+      "firstSeenAt": "2026-10-05T09:15:28.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh"
+        ],
+        "de": [
+          "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh"
+        ],
+        "fr": [
+          "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-snsf-funded-project-the-varieties-of-inquiry-20-month-position-uzh"
+      ]
     },
     {
       "id": "uzh-a0079a7bc340",

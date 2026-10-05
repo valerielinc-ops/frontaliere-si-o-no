@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus",
         "en": "assistant-doctor-assistant-doctor-medicine-kantonsspital-glarus-ksgl-glarus",
-        "de": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+        "de": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus-asrn7m",
         "fr": "assistant-medecin-assistant-medecin-medecine-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -80,7 +80,8 @@
         ],
         "de": [
           "medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
-          "arztsekretar-in-medizin-ksgl-glarus"
+          "arztsekretar-in-medizin-ksgl-glarus",
+          "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
@@ -1538,12 +1539,12 @@
     },
     {
       "id": "ksgl-1f5a0fc4014b",
-      "slug": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+      "slug": "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus-967121",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
-        "it": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
-        "en": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
-        "fr": "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        "it": "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus-967121",
+        "en": "assistant-doctor-assistant-doctor-medicine-kantonsspital-glarus-ksgl-glarus-967121",
+        "fr": "assistant-medecin-assistant-medecin-medecine-kantonsspital-glarus-ksgl-glarus-967121"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1602,7 +1603,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-08T11:27:36.957Z"
+      "firstSeenAt": "2026-07-08T11:27:36.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+      ]
     }
   ]
 }
