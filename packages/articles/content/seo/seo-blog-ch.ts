@@ -97323,6 +97323,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protezione-civile-zurigo': {
+    title: 'Protezione civile Canton Zurigo: requisiti e indennità',
+    description: 'Protezione civile nel Cantone di Zurigo: requisiti, convocazioni e indennità nel quadro federale. Guida alle verifiche presso l\'autorità cantonale competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, canton, zurigo',
+    ogTitle: 'Protezione civile Canton Zurigo: requisiti e indennità',
+    ogDescription: 'Nel Cantone di Zurigo la protezione civile opera sotto coordinamento cantonale nell\'ambito della legge federale. Obblighi, convocazioni e indennità non vanno ricavati da importi generici: la verifica spetta all\'autorità competente.',
+    canonicalPath: '/articoli-svizzera/protezione-civile-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile Canton Zurigo: requisiti e indennità",
+      "description": "Protezione civile nel Cantone di Zurigo: requisiti, convocazioni e indennità nel quadro federale. Guida alle verifiche presso l'autorità cantonale competente.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/protezione-civile-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operatori della protezione civile davanti a un edificio pubblico svizzero"
+      },
+      "datePublished": "2026-10-05T01:48:52+00:00",
+      "dateModified": "2026-10-05T01:48:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/protezione-civile-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
