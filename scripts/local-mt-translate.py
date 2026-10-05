@@ -646,6 +646,8 @@ def translate_stream():
     cache_out = None
     if cache_path:
         try:
+            # First run after a cache miss: the directory does not exist yet.
+            os.makedirs(os.path.dirname(os.path.abspath(cache_path)), exist_ok=True)
             torn = False
             if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
                 with open(cache_path, "rb") as handle:
