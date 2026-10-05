@@ -7700,6 +7700,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rita-fuhrer-consiglio-federale-donne.title': 'Bundesrat ohne Frauen: die Analyse von Rita Fuhrer',
     'blog.article.rita-fuhrer-consiglio-federale-donne.excerpt': 'Rita Fuhrer, ehemalige Zürcher Regierungsrätin und ehemalige SVP-Kandidatin im Jahr 2000, kommentiert die Nachfolge in der Regierung und das Thema der Frauenvertretung.',
     'blog.article.rita-fuhrer-consiglio-federale-donne.imageAlt': 'Bundeshaus in Bern bei klarem Himmel',
+    'blog.article.guida-voto-zurigo-referendum.title': 'Kantonale Abstimmung in Zürich: Leitfaden zu Initiativen und Referenden',
+    'blog.article.guida-voto-zurigo-referendum.excerpt': 'Kantonale Abstimmung in Zürich: Initiativen, Referenden, Zeitplan und Stimmberechtigte. Eidgenössische Schwellenwerte: 100\'000 Unterschriften in 18 Monaten und 50\'000 in 100 Tagen.',
+    'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Stimmzettel für eine kantonale Abstimmung im Kanton Zürich',
 };
 
 export default blogMetaChDe;
