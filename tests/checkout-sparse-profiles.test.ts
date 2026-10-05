@@ -131,8 +131,15 @@ describe('profili di sparse-checkout', () => {
     expect(missingTypecheckSparsePaths(source, 'tests.yml')).toEqual([]);
     expect(TYPECHECK_REQUIRED_SPARSE_PATHS).toEqual([
       '/data/blog-articles-data.ts',
+      '/data/blogImageCdnMirror.ts',
       '/packages/articles/content/blog-articles-data.ts',
+      '/packages/articles/content/blogImageCdnMirror.ts',
     ]);
+    expect(fs.lstatSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts')).isSymbolicLink()).toBe(true);
+    expect(fs.existsSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts'))).toBe(true);
+    expect(fs.readlinkSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts'))).toBe(
+      '../packages/articles/content/blogImageCdnMirror.ts',
+    );
   });
 
   it('il profilo globale materializza tutti gli input runtime del build', () => {
@@ -140,7 +147,9 @@ describe('profili di sparse-checkout', () => {
     expect(missingGlobalTestsSparsePaths(source, 'tests.yml')).toEqual([]);
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/fuel-prices.json');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/public/data/fuel-prices.json');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/blogImageCdnMirror.ts');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/swiss-articles-data.ts');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/blogImageCdnMirror.ts');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/seo/seo-blog-7.ts');
   });
 
@@ -154,12 +163,14 @@ describe('profili di sparse-checkout', () => {
     const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([
       'synthetic.yml:typecheck:/data/blog-articles-data.ts',
+      'synthetic.yml:typecheck:/data/blogImageCdnMirror.ts',
       'synthetic.yml:typecheck:/packages/articles/content/blog-articles-data.ts',
+      'synthetic.yml:typecheck:/packages/articles/content/blogImageCdnMirror.ts',
     ]);
   });
 
   it('ignora un checkout secondario in una sottodirectory: tsc non gira li', () => {
-    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v7\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v7\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([]);
   });
 
