@@ -481,7 +481,7 @@ export async function fetchAllOmegaJobs() {
       // the unfetched pages, so fail the run and preserve the prior snapshot.
       console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
       console.warn('   Aborting the crawl with an error (prior data preserved) — will retry next cycle.');
-      throw err;
+      throw err instanceof Error ? err : new Error(String(err));
     }
 
     const { listings, cardCount } = parseListPage(html);
