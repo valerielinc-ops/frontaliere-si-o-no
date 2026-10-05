@@ -965,6 +965,12 @@ describe('checkFabricatedNormAcronyms', () => {
     }
   });
 
+  it('accepts a spelled-out article citation before a traffic sentence', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Secondo l\'articolo 84a della LTF. La circolazione stradale è regolata dalla LCStr.',
+    )).toEqual([]);
+  });
+
   // Il `veto` del Tribunale federale assolve solo la SUA finestra: una legge
   // fiscale inventata piu' in basso nello stesso testo resta rilevata.
   it('still flags a fabricated LTF that follows a judicial mention outside its window', () => {

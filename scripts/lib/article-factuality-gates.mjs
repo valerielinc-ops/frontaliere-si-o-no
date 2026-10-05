@@ -1644,7 +1644,7 @@ export const FABRICATED_NORM_ACRONYMS = [
     // quindi la LTF giudiziaria resta libera anche in una sentenza sulla
     // circolazione («art. 84a LTF», «il Tribunale federale … secondo la LTF»).
     context: new RegExp(`${FISCAL_LABOUR_CUE.source}|${TRANSPORT_TRAFFIC_CUE.source}`, 'i'),
-    benign: /(?:\bart\.?\s*\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
+    benign: /(?:(?:\bart\.?\s*|\barticol[oi]\s+)\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?(?:\s+(?:dell[ae']?|del|de la|du|des|der|of the))?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
     veto: JUDICIAL_CUE,
     vetoScope: 'statement',
     contextWindow: 120,
