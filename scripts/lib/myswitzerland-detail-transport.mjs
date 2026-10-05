@@ -98,7 +98,8 @@ export function recordDetailResponse(stats, response, url) {
       url,
     };
   } else if (kind === 'refused'
-    && stats.refused / Math.max(stats.attempted, REFUSAL_STOP_MIN_SAMPLE) > DETAIL_FAILURE_RATIO_THRESHOLD) {
+    && stats.attempted >= REFUSAL_STOP_MIN_SAMPLE
+    && stats.refused / stats.attempted > DETAIL_FAILURE_RATIO_THRESHOLD) {
     stats.stopped = {
       reason: `HTTP 406 above the ${Math.round(DETAIL_FAILURE_RATIO_THRESHOLD * 100)}% policy threshold (${stats.refused}/${stats.attempted})`,
       url,

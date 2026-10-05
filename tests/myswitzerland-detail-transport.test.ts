@@ -119,6 +119,12 @@ describe('stop of the detail phase (escalation)', () => {
       expect(stats.stopped).toBeNull();
     }
     recordDetailResponse(stats, { status: 406, html: null }, DETAIL_URL);
+    expect(stats.stopped).toBeNull();
+    for (let i = minRefusalsToStop; i < REFUSAL_STOP_MIN_SAMPLE - 1; i += 1) {
+      recordDetailResponse(stats, { status: 200, html: detailHtml }, DETAIL_URL);
+      expect(stats.stopped).toBeNull();
+    }
+    recordDetailResponse(stats, { status: 406, html: null }, DETAIL_URL);
     expect(stats.stopped?.reason).toMatch(/HTTP 406 above the 15% policy threshold/);
   });
 
