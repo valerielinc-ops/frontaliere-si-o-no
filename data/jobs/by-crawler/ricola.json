@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-10-05T09:39:16.289Z",
+  "assembledAt": "2026-10-05T21:50:27.450Z",
   "jobs": [
     {
       "id": "ricola-6e3762cab55f",
@@ -33,7 +33,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:39:11.485Z",
+      "crawledAt": "2026-10-05T21:50:22.704Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -47,7 +47,9 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -80,9 +82,7 @@
           "maxValue": 103600,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ricola-c78588f1aa2b",
@@ -115,7 +115,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:39:11.062Z",
+      "crawledAt": "2026-10-05T21:50:22.300Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -129,7 +129,9 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career.ricola.com/Vacancies/1064/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -162,9 +164,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     }
   ]
 }

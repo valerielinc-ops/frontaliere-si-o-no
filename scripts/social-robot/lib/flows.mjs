@@ -26,7 +26,7 @@ export const TIKTOK_UPLOAD = 'https://www.tiktok.com/tiktokstudio/upload';
 
 export const DEFAULT_TIMEOUTS = Object.freeze({
   ui: 20_000, // a control of the page
-  upload: 180_000, // TikTok processes the photos before the post button enables
+  upload: 180_000, // TikTok processes the video before the post button enables
   confirm: 180_000, // the platform's confirmation after the press
   optional: 3_000, // a dialog that may or may not be there
 });
@@ -62,6 +62,7 @@ export const RX = Object.freeze({
  * these, never anywhere on the page.
  */
 export const TT_SUCCESS_TOAST = '[role="alert"], [role="status"], [aria-live="polite"], [aria-live="assertive"], [class*="toast" i], [data-e2e*="toast"]';
+export const TT_PROCESSING = '[role="progressbar"], [data-e2e="upload-progress"], [data-e2e*="progress" i]';
 
 export class RobotError extends Error {
   /**
@@ -84,6 +85,15 @@ export function classifyError(err) {
   const wrapped = new RobotError('unexpected', String(err?.message || err));
   wrapped.stack = err?.stack;
   return wrapped;
+}
+
+/** Give larger/longer videos more processing time, with a bounded ceiling. */
+export function timeoutForTikTokVideo(video, fallback = DEFAULT_TIMEOUTS.upload) {
+  const bytes = Number(video?.bytes);
+  const durationMs = Number(video?.durationMs);
+  if (!Number.isFinite(bytes) || !Number.isFinite(durationMs) || bytes <= 0 || durationMs <= 0) return fallback;
+  const transferMs = Math.ceil(bytes / (256 * 1024)) * 1_000;
+  return Math.min(10 * 60_000, Math.max(60_000, 30_000 + transferMs + durationMs));
 }
 
 /** Steps at or after the press of the publish button: the post may be online. */
@@ -158,7 +168,7 @@ function normalize(text) {
  * there (TikTok pre-fills the file name), then line by line with a per-key
  * delay. Checks the editor holds the first line afterwards.
  */
-export async function typeCaption(page, editor, caption, { human, clear = false } = {}) {
+export async function typeCaption(page, editor, caption, { human, clear = false, hashtagSuggestions = false } = {}) {
   await editor.click();
   if (clear) {
     await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
@@ -166,13 +176,55 @@ export async function typeCaption(page, editor, caption, { human, clear = false 
   }
   const lines = String(caption).split('\n');
   for (let i = 0; i < lines.length; i++) {
-    if (lines[i]) await page.keyboard.type(lines[i], { delay: human.typeDelay() });
+    if (lines[i]) {
+      if (hashtagSuggestions) await typeTikTokLine(page, lines[i], human);
+      else await page.keyboard.type(lines[i], { delay: human.typeDelay() });
+    }
     if (i < lines.length - 1) await page.keyboard.press('Enter');
   }
   const firstLine = normalize(lines.find((l) => l.trim()) || '');
   const written = normalize(await editor.innerText().catch(() => ''));
   if (firstLine && !written.includes(firstLine.slice(0, 40))) {
     throw new RobotError('selector-missing', 'the caption editor does not hold the caption after typing');
+  }
+}
+
+/**
+ * Type a TikTok line while closing the hashtag suggestion popup after every
+ * tag. Escape leaves the text typed so far intact and cannot choose a
+ * platform suggestion; the original separating space is then entered.
+ */
+async function typeTikTokLine(page, line, human) {
+  const hashtag = /#[\p{L}\p{N}_]+/gu;
+  let cursor = 0;
+  for (const match of line.matchAll(hashtag)) {
+    const index = match.index ?? cursor;
+    const tag = match[0];
+    const before = line.slice(cursor, index);
+    if (before) await page.keyboard.type(before, { delay: human.typeDelay() });
+    await page.keyboard.type(tag, { delay: human.typeDelay() });
+    await page.keyboard.press('Escape');
+    cursor = index + tag.length;
+    if (line[cursor] === ' ') {
+      await page.keyboard.press('Space');
+      cursor += 1;
+    }
+  }
+  if (cursor < line.length) await page.keyboard.type(line.slice(cursor), { delay: human.typeDelay() });
+}
+
+async function waitForTikTokProcessing(page, { timeout, guard }) {
+  await guard();
+  const indicator = page.locator(TT_PROCESSING).first();
+  if ((await indicator.count().catch(() => 0)) === 0 || !(await indicator.isVisible().catch(() => false))) return;
+  const deadline = Date.now() + timeout;
+  for (;;) {
+    await guard();
+    if (!(await indicator.isVisible().catch(() => false))) return;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'TikTok keeps processing the video past the upload timeout', { step: 'processing' });
+    }
+    await sleep(250);
   }
 }
 
@@ -358,8 +410,9 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
 }
 
 /** Same contract as instagramFlow. */
-export async function tiktokFlow({ page, files, caption, dryRun, human, snap, startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
-  const t = { ...DEFAULT_TIMEOUTS, ...timeouts };
+export async function tiktokFlow({ page, files, caption, video, dryRun, human, snap, startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
+  const baseTimeouts = { ...DEFAULT_TIMEOUTS, ...timeouts };
+  const t = { ...baseTimeouts, upload: timeoutForTikTokVideo(video, baseTimeouts.upload) };
   const guard = tiktokGuard(page, step);
   step.set('open');
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
@@ -368,18 +421,19 @@ export async function tiktokFlow({ page, files, caption, dryRun, human, snap, st
 
   const input = await required(step, 'upload', [page.locator('input[type="file"]')], { guard, timeout: t.ui, state: 'attached' });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
-  if (accept && !/image|jpe?g|\*\/\*/i.test(accept)) {
-    throw new RobotError('upload-unsupported', `the upload field accepts only "${accept}": no photo post from this page`, { step: 'upload' });
+  if (accept && !/video(?:\/|,|\s|$)/i.test(accept)) {
+    throw new RobotError('upload-unsupported', `the upload field does not accept video/*: "${accept}"`, { step: 'upload' });
   }
   await input.setInputFiles(files);
   await human.pause();
+  await waitForTikTokProcessing(page, { timeout: t.upload, guard });
 
   const editor = await required(step, 'caption', [
     page.locator('[data-e2e="caption_container"] [contenteditable="true"]'),
     page.locator('.public-DraftEditor-content[contenteditable="true"]'),
     page.getByRole('combobox').and(page.locator('[contenteditable="true"]')),
   ], { guard, timeout: t.upload });
-  await typeCaption(page, editor, caption, { human, clear: true });
+  await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true });
   await human.pause();
 
   const post = await required(step, 'post-button', [

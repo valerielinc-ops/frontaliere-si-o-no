@@ -1,7 +1,7 @@
 {
   "key": "ecam",
   "label": "Ente Case Anziani Mendrisiotto (ECAM)",
-  "generatedAt": "2026-10-05T09:34:52.162Z",
+  "generatedAt": "2026-10-05T21:57:25.016Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5797,
-  "avgDurationMs": 5797,
+  "unchangedCount": 2,
+  "durationMs": 5883,
+  "avgDurationMs": 5883,
   "durationHistory": [
-    5797
+    5883
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ecam-590be7c475e5",
       "slug": "concorso-generale-permanente-2026-ecam-mendrisio",
@@ -35,7 +37,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:34:44.554Z",
+      "crawledAt": "2026-10-05T21:57:17.076Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -77,7 +79,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:34:43.777Z",
+      "crawledAt": "2026-10-05T21:57:16.670Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -95,7 +97,6 @@
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:54:37.539Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -109,7 +110,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

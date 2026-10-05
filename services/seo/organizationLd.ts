@@ -21,6 +21,23 @@ import { imageObjectLd, SITE_ORGANIZATION_ID } from './imageObjectLd';
 export const ORGANIZATION_ID = SITE_ORGANIZATION_ID;
 
 const SITE = 'https://frontaliereticino.ch';
+export const SITE_URL = `${SITE}/`;
+
+/** Stable graph identity for the site-level WebSite entity. */
+export const WEBSITE_ID = `${SITE}/#website`;
+
+/**
+ * Stable identity for the editorial team named in article bylines.
+ *
+ * The team is an authoring organization, while `#organization` identifies
+ * the Frontaliere Ticino publisher. Reusing the publisher id for both makes
+ * a graph merge two different names and URLs into one entity.
+ */
+export const EDITORIAL_TEAM_ID = `${SITE}/chi-siamo/#team`;
+
+/** Stable source identity for the Ticino customs webcam attribution. */
+export const TICINO_CUSTOMS_DEPARTMENT_ID = 'https://www.ti.ch/webcam';
+export const TICINO_CUSTOMS_DEPARTMENT_NAME = 'Dipartimento del territorio – Canton Ticino';
 
 /**
  * Profiles that anchor this entity to the same real-world organization

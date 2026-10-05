@@ -1,4 +1,5 @@
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
+import { officialPostalCodeForLocation } from './swiss-locality-directory.mjs';
 
 /**
  * Representative Swiss locations used only when a source omits mandatory
@@ -60,7 +61,13 @@ const CITY_POSTAL_FALLBACK = new Map(
   Object.entries(SWISS_POSTAL_CODES).map(([city, postalCode]) => [normalizeCityKey(city), String(postalCode)]),
 );
 
-export function getCantonPostalFallback(canton = '') {
+export function getCantonPostalFallback(canton = '', locality = '') {
+  const official = officialPostalCodeForLocation(locality, canton);
+  if (official.postalCode) return official.postalCode;
+  // A recognised locality without one unambiguous CAP must not receive the
+  // canton capital's unrelated CAP. Unknown free-text labels retain the
+  // legacy representative fallback for callers that explicitly need one.
+  if (official.known) return '';
   return CANTON_POSTAL_FALLBACK[String(canton || '').toUpperCase()] || '';
 }
 
