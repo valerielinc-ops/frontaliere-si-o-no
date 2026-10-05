@@ -58,7 +58,8 @@
 import type fsT from 'node:fs';
 import type npT from 'node:path';
 import { getSiteShell, type ArticleLocale } from './siteShell';
-import { ARTICLE_SECTIONS, type ArticleSection } from '../articleSections';
+import { ARTICLE_SECTIONS, activeArticleSection, type ArticleSection, type ArticleSectionKind } from '../articleSections';
+import { articleSectionKind, twinOf } from './shared/articleSectionCore.mjs';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import {
   readArticleDates,
@@ -91,18 +92,31 @@ const ARCHIVE_ALL_SLUG: Record<HubLocale, string> = {
 };
 
 /**
- * Base paths for the svizzera (Switzerland-wide) article archive. Derived from
- * `ARTICLE_SECTIONS.svizzera.indexSlug` so the slug table stays in one place.
- * Carried verbatim from `seoHubsData.svizzeraArticlesArchiveBasePaths()`.
+ * Base paths for a section's `/tutti/` archive derived from its own
+ * `indexSlug`, so the slug table stays in one place. For svizzera this is,
+ * value for value, the former `svizzeraArticlesArchiveBasePaths()` (itself
+ * carried verbatim from `seoHubsData.svizzeraArticlesArchiveBasePaths()`).
  */
-function svizzeraArticlesArchiveBasePaths(): Record<HubLocale, string> {
-  const cfg = ARTICLE_SECTIONS.svizzera.indexSlug;
+function derivedArticlesArchiveBasePaths(section: ArticleSection): Record<HubLocale, string> {
+  const cfg = activeArticleSection(section).indexSlug;
   const out = {} as Record<HubLocale, string>;
   for (const loc of getSiteShell().hubLocales) {
     const prefix = loc === 'it' ? '' : `/${loc}`;
     out[loc] = `${prefix}/${cfg[loc]}/${ARCHIVE_ALL_SLUG[loc]}/`;
   }
   return out;
+}
+
+/**
+ * Archive base paths of any active section, looked up by kind. The
+ * frontaliere section keeps reading the site shell's `articlesAllPaths` (the
+ * `HUB_SLUGS[locale].articlesAll` map it always used); every other kind
+ * derives them from its own `indexSlug`.
+ */
+function articlesArchiveBasePaths(section: ArticleSection): Record<HubLocale, string> {
+  return articleSectionKind(section) === 'frontaliere'
+    ? { ...getSiteShell().articlesAllPaths }
+    : derivedArticlesArchiveBasePaths(section);
 }
 
 /** Path-based pagination helper. Carried verbatim from `seoHubsData.ts`. */
@@ -564,11 +578,11 @@ const TWIN_SEE_ALSO_LABEL: Record<HubLocale, string> = {
  * `SECTION_LABEL`/`SVIZZERA_ARTICLES_COPY` already use for those pages' own
  * breadcrumbs, so the anchor text matches the destination's identity.
  */
-const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<ArticleSection, string>> = {
-  it: { frontaliere: 'Articoli per frontalieri', svizzera: 'Articoli Svizzera' },
-  en: { frontaliere: 'Cross-border articles', svizzera: 'Switzerland Articles' },
-  de: { frontaliere: 'Grenzgänger-Artikel', svizzera: 'Schweiz-Artikel' },
-  fr: { frontaliere: 'Articles pour frontaliers', svizzera: 'Articles Suisse' },
+const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<Exclude<ArticleSectionKind, 'canton'>, string>> = {
+  it: { frontaliere: 'Articoli per frontalieri', national: 'Articoli Svizzera' },
+  en: { frontaliere: 'Cross-border articles', national: 'Switzerland Articles' },
+  de: { frontaliere: 'Grenzgänger-Artikel', national: 'Schweiz-Artikel' },
+  fr: { frontaliere: 'Articles pour frontaliers', national: 'Articles Suisse' },
 };
 
 /**
@@ -718,8 +732,10 @@ export function buildArchiveTopicsNavHtml(args: {
   const indexLink = links.length > 0
     ? `<p class="s-Sn0UIv"><a class="s-7DS5hj" href="${archiveTopicIndexPath(section, locale)}">${esc(TOPIC_INDEX_TITLE[locale])}</a></p>`
     : '';
-  const twinSection: ArticleSection = section === 'frontaliere' ? 'svizzera' : 'frontaliere';
-  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinSection])}</a></p>`;
+  // The twin is always one of the two historical sections (`twinOf`), whose
+  // kinds are the keys of TWIN_ARCHIVE_LINK_LABEL.
+  const twinKind = articleSectionKind(twinOf(section)) as Exclude<ArticleSectionKind, 'canton'>;
+  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinKind])}</a></p>`;
   return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${indexLink}${twinLink}</nav>`;
 }
 
@@ -1193,26 +1209,55 @@ interface RenderArticleHubCoreArgs {
 // above `emitSeoHubs`'s export block for why those two cores are deliberately
 // separate.
 
+/**
+ * The `buildHtml` override for a section's archive, by kind. Frontaliere
+ * renders through `buildHtml`'s DEFAULT codepath (no override — byte-identical
+ * to the pre-#4881 inline branch); the national section uses
+ * SVIZZERA_ARTICLES_COPY. A canton section has no archive copy yet, and
+ * borrowing another section's title/H1 would publish a wrong page, so it fails
+ * loudly instead: canton archives are rendered by the corpus R2 publisher,
+ * which brings its own copy before any canton is activated.
+ */
+function archiveSectionOverride(
+  section: ArticleSection,
+  kind: ArticleSectionKind,
+  locale: HubLocale,
+  archiveBases: Record<HubLocale, string>,
+): ArticleSectionOverride | undefined {
+  switch (kind) {
+    case 'frontaliere':
+      return undefined;
+    case 'national': {
+      const copy = SVIZZERA_ARTICLES_COPY[locale];
+      return {
+        title: copy.title,
+        description: copy.description,
+        sectionLabel: copy.sectionLabel,
+        h1: copy.h1,
+        hreflangBases: archiveBases,
+      };
+    }
+    default:
+      throw new Error(`[article-hubs] nessuna copy d'archivio per la sezione "${section}" (tipo ${kind})`);
+  }
+}
+
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const {
     baseUrl: BASE_URL,
     hubLocales: HUB_LOCALES,
     articlesPageSize: ARTICLES_PAGE_SIZE,
-    articlesAllPaths,
   } = getSiteShell();
   const { fs, np, rootDir, distDir, section, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted, locales } = args;
   const cfg = ARTICLE_SECTIONS[section];
-  const isSvizzera = section === 'svizzera';
-  const archiveBases: Record<HubLocale, string> = isSvizzera
-    ? svizzeraArticlesArchiveBasePaths()
-    : { ...articlesAllPaths };
+  const kind = articleSectionKind(section);
+  const archiveBases: Record<HubLocale, string> = articlesArchiveBasePaths(section);
   // The OTHER section's archive bases — the cross-link target (#5414). For
   // frontaliere pages that is svizzera's derived bases; for svizzera pages it
   // is the shell's own frontaliere `/tutti/` map (identical to what the site
-  // build's `HUB_SLUGS[locale].articlesAll` resolves to).
-  const twinArchiveBases: Record<HubLocale, string> = isSvizzera
-    ? { ...articlesAllPaths }
-    : svizzeraArticlesArchiveBasePaths();
+  // build's `HUB_SLUGS[locale].articlesAll` resolves to). `twinOf` holds the
+  // pairing; a canton section points at svizzera.
+  const twinArchiveBases: Record<HubLocale, string> = articlesArchiveBasePaths(twinOf(section));
   // One membership pass per section render, shared by all locales — the
   // eligible set is locale-independent by construction (membership is
   // computed once, on the Italian corpus; see topicClusters.ts).
@@ -1291,18 +1336,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     // two reads agree, but routing through one source of truth means the
     // navigator (staticPagesPlugin.ts) and this emitter cannot disagree on N.
     const totalPages = Math.max(1, Math.ceil(unionSlugs.size / pageSize));
-    const sectionOverride: ArticleSectionOverride | undefined = isSvizzera
-      ? (() => {
-          const copy = SVIZZERA_ARTICLES_COPY[locale];
-          return {
-            title: copy.title,
-            description: copy.description,
-            sectionLabel: copy.sectionLabel,
-            h1: copy.h1,
-            hreflangBases: archiveBases,
-          };
-        })()
-      : undefined;
+    const sectionOverride = archiveSectionOverride(section, kind, locale, archiveBases);
 
     // Every locale now emits every page-N as static HTML.
     //

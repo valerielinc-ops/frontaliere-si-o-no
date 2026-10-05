@@ -1,19 +1,21 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-10-04T21:35:18.903Z",
+  "generatedAt": "2026-10-05T09:33:39.615Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9828,
-  "avgDurationMs": 9828,
+  "unchangedCount": 3,
+  "durationMs": 9773,
+  "avgDurationMs": 9773,
   "durationHistory": [
-    9828
+    9773
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "zambon-811389",
       "url": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
@@ -136,7 +138,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-04T21:13:37.117Z",
+  "generatedAt": "2026-10-05T09:15:10.814Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5148,
-  "avgDurationMs": 5148,
+  "durationMs": 7209,
+  "avgDurationMs": 7209,
   "durationHistory": [
-    5148
+    7209
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:25.085Z",
+      "crawledAt": "2026-10-05T09:15:00.958Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -46,19 +48,21 @@
       "sector": "Dental / Medical Devices (MedTech)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:10:03.139Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
-      "_qualityScore": 80,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -73,7 +77,7 @@
       "url": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:24.801Z",
+      "crawledAt": "2026-10-05T09:15:00.598Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -86,19 +90,21 @@
       "sector": "Dental / Medical Devices (MedTech)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:40:47.072Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -113,7 +119,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:24.437Z",
+      "crawledAt": "2026-10-05T09:14:58.680Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -126,19 +132,21 @@
       "sector": "Dental / Medical Devices (MedTech)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "salaryMin": 52500,
       "salaryMax": 92500,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -153,7 +161,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:13:24.118Z",
+      "crawledAt": "2026-10-05T09:14:58.343Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,23 +173,25 @@
       "sector": "Dental / Medical Devices (MedTech)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 79,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

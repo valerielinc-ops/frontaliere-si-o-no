@@ -756,6 +756,21 @@ function recordMemberCrawlExitLines(slug, exitExpression) {
     'fi',
   ];
 }
+// The detached worker's stdout IS the member log (`$state_dir/<slug>.log`,
+// the launcher's redirect target). The per-crawler reporter quotes it through
+// `github-issue-creator.mjs --log-excerpt-file`, so a `Crawler Failure: Run
+// <slug>` issue names the failing step's error instead of only linking a run
+// the fixer cannot read (issue 11553: closed as `no-root-cause`).
+export const MEMBER_LOG_FILE_ENV = 'CRAWLER_MEMBER_LOG_FILE';
+const ISSUE_CREATOR_INVOCATION = 'node scripts/lib/github-issue-creator.mjs';
+// A reporter that does not call the creator (test fixtures) is left as is;
+// tests/crawler-failure-report-excerpt.test.ts pins that every committed
+// group workflow reporter carries the flag.
+export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_FILE_ENV}:-}`) {
+  return String(run || '')
+    .split(ISSUE_CREATOR_INVOCATION)
+    .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}"`);
+}
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the four systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
@@ -927,9 +942,11 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   for (const step of crawler.postSteps) {
     if (step.if !== 'failure()') continue;
     const crawlerWorkflowId = `Run ${crawler.slug}`;
-    const literalizedRun = step.run
-      .split('${{ github.workflow }}')
-      .join(crawlerWorkflowId);
+    const literalizedRun = withMemberLogExcerpt(
+      step.run
+        .split('${{ github.workflow }}')
+        .join(crawlerWorkflowId),
+    );
     const timeoutAwareRun = literalizedRun.replace(
       '"## Crawler fallito',
       '"## Crawler fallito${crawler_failure_timeout_detail}',
@@ -1060,9 +1077,11 @@ export function buildCrawlerShellBody(crawler) {
       // a failure needing a report as one that failed to scrape (see
       // COMMIT-FAILURE VISIBILITY note above buildCrawlerShellBody).
       const crawlerWorkflowId = `Run ${crawler.slug}`;
-      const literalizedRun = step.run
-        .split('${{ github.workflow }}')
-        .join(crawlerWorkflowId);
+      const literalizedRun = withMemberLogExcerpt(
+        step.run
+          .split('${{ github.workflow }}')
+          .join(crawlerWorkflowId),
+      );
       lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
       // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh): the crawl
       // succeeded and only the ref race was lost after every retry. That is a
@@ -1226,6 +1245,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     crawlExitFileName === null
       ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
       : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${crawlExitFileName}"`,
+    `export ${MEMBER_LOG_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.log"`,
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
@@ -1463,7 +1483,7 @@ function buildWatchdogKillIssueLines(slug) {
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
-    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
     `    echo "::warning::${slug}: the watchdog-timeout issue could not be filed; the group verdict is unchanged"`,
     '  fi',
     'fi',

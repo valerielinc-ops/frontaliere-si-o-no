@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-10-04T21:22:35.984Z",
+  "generatedAt": "2026-10-05T09:19:20.856Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36596,
-  "avgDurationMs": 36596,
+  "durationMs": 52795,
+  "avgDurationMs": 52795,
   "durationHistory": [
-    36596
+    52795
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -53,13 +53,15 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -101,12 +103,14 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=29-infermieri-pregassona&language=it",
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -149,12 +153,14 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=33-operatori-sociosanitari-pregassona&language=it",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -196,13 +202,15 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -222,7 +230,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
-      "salaryMin": 53519,
+      "salaryMin": 57394,
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
@@ -246,12 +254,14 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=35-collaboratori-sanitari-pregassona&language=it",
       "needsRetranslation": true,
       "retranslationAttempts": 1,
-      "_qualityScore": 97,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -295,12 +305,14 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=36-operatori-settore-animazione-pregassona&language=it",
       "needsRetranslation": true,
       "retranslationAttempts": 0,
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -343,12 +355,14 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -368,7 +382,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
-      "salaryMin": 77526,
+      "salaryMin": 86928,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -390,14 +404,14 @@
       "firstSeenAt": "2026-04-13T22:02:43.951Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=38-educatori-sociali-pregassona&language=it",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "_qualityScore": 97,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -417,7 +431,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 73140,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -439,12 +453,14 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
-      "_qualityScore": 97,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -487,12 +503,14 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -534,12 +552,14 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=41-capisquadra-chef-di-cucina-pregassona&language=it",
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -581,12 +601,14 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
-      "_qualityScore": 93,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
@@ -606,7 +628,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
-      "salaryMin": 53519,
+      "salaryMin": 57394,
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
@@ -628,16 +650,18 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=43-addetti-servizi-alla-casa-pregassona&language=it",
-      "_qualityScore": 89,
+      "postedDate": "2026-01-26",
+      "postingDateSource": "reported",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 24,
         "translation": 25,
-        "completeness": 23
+        "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

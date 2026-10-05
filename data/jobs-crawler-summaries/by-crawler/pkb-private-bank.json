@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-04T21:35:59.775Z",
+  "generatedAt": "2026-10-05T09:36:12.653Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3223,
-  "avgDurationMs": 3223,
+  "durationMs": 3465,
+  "avgDurationMs": 3465,
   "durationHistory": [
-    3223
+    3465
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,17 +26,18 @@
       "country": "CH",
       "postalCode": "6900",
       "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-08-17",
+      "datePosted": "2026-08-18",
+      "postedDate": "2026-08-18",
+      "postingDateSource": "reported",
       "validThrough": "",
       "sector": "Banca e servizi finanziari",
       "role": "Altro",
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:35:54.137Z",
+      "crawledAt": "2026-10-05T09:36:06.862Z",
       "id": "pkb-private-bank-0b868337e255",
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -55,5 +56,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

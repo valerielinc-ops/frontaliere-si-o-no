@@ -1506,16 +1506,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-givaudan-licenziamenti': {
-    title: 'Givaudan licenza dipendenti | Frontaliere Ticino',
+    title: 'Givaudan a Vernier (Ginevra): licenziamenti',
     description: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, givaudan, licenza, dipendenti, leader',
-    ogTitle: 'Givaudan licenza dipendenti',
+    ogTitle: 'Givaudan a Vernier (Ginevra): licenziamenti',
     ogDescription: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta.',
     canonicalPath: '/articoli-svizzera/givaudan-licenziamenti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Givaudan licenza dipendenti",
+      "headline": "Givaudan a Vernier (Ginevra): licenziamenti",
       "description": "Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
@@ -97761,6 +97761,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/villa-principe-leopoldo-chiude/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-porte-aperte-login-ticino': {
+    title: 'Porte Aperte login Ticino: ferrovia, commercio e edifici',
+    description: 'Scopri l\'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici',
+    keywords: 'frontalieri, ticino, svizzera, italia, porte, aperte, login, ferrovia',
+    ogTitle: 'Porte Aperte login Ticino: ferrovia, commercio e AFC 2027',
+    ogDescription: 'L\'evento Porte Aperte login Ticino offre una giornata orientativa a Bellinzona il 10 ottobre dalle 09.00 alle 13.00. I partecipanti possono esplorare le professioni ferroviarie, il commercio al dettaglio e scoprire in anteprima la nuova formazione',
+    canonicalPath: '/articoli-svizzera/porte-aperte-login-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porte Aperte login Ticino: ferrovia, commercio e edifici",
+      "description": "Scopri l'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/porte-aperte-login-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visitatori alle Porte Aperte login Ticino osservano un elettrotreno e strumenti di automazione edilizia a Bellinzona"
+      },
+      "datePublished": "2026-10-05T09:48:17+00:00",
+      "dateModified": "2026-10-05T09:48:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/porte-aperte-login-ticino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

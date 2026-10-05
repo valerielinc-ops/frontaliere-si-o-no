@@ -3521,7 +3521,8 @@ const RAW_ARTICLES_CHUNK_02: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-// Evergreen SEO articles — March 2026
+
+ // Evergreen SEO articles — March 2026
  {
  id: 'guida-cambio-franco-euro-frontaliere',
  category: 'pratico',
@@ -37871,6 +37872,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  date: '2026-10-05T09:15:25.539Z',
  image: '/images/blog/osservatorio-varese-spettacolo-galileo.webp',
  hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'valuta-intercettata-brogeda',
+ category: 'novita',
+ date: '2026-10-05T10:10:43.621Z',
+ image: '/images/blog/valuta-intercettata-brogeda.webp',
+ hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',

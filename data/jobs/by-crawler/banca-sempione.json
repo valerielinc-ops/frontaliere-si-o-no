@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-10-05T06:25:01.893Z",
+  "assembledAt": "2026-10-05T09:17:51.241Z",
   "jobs": [
     {
       "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
@@ -264,6 +264,7 @@
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
       "salaryMin": 85500,
@@ -285,8 +286,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
-      "needsRetranslation": true
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/"
     }
   ]
 }

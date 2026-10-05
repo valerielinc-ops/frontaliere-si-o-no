@@ -309,7 +309,7 @@ describe('public domain and CC0 covers in the SPA (owner decision 2026-10-05)', 
       expect(readSpaNewsArticle()?.image).toMatchObject({
         '@type': 'ImageObject',
         contentUrl: fixture.cover,
-        creator: { '@type': 'Person', name: 'Fixture Photographer', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer' },
+        creator: { '@type': 'Person', '@id': 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer', name: 'Fixture Photographer', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer' },
         creditText: 'Fixture Photographer / Wikimedia Commons',
         copyrightNotice: notice,
         license,
@@ -331,7 +331,7 @@ describe('the SPA NewsArticle image (P14)', () => {
         '@type': 'ImageObject',
         contentUrl: fixture.cover,
         url: fixture.cover,
-        creator: { '@type': 'Person', name: 'Fixture Photographer', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer' },
+        creator: { '@type': 'Person', '@id': 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer', name: 'Fixture Photographer', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer' },
         creditText: 'Fixture Photographer / Wikimedia Commons',
         copyrightNotice: '© Fixture Photographer',
         license: 'https://creativecommons.org/licenses/by-sa/4.0/',
@@ -384,6 +384,16 @@ describe('the SPA NewsArticle image (P14)', () => {
     stubNetwork(false);
     renderArticle();
     expect((await spaNewsArticle()).image).toBe(fixture.cover);
+  });
+
+  it('keeps the hydrated NewsArticle identified by its canonical URL', async () => {
+    stubNetwork(false);
+    renderArticle();
+    const ld = await spaNewsArticle();
+    expect(ld.mainEntityOfPage).toBe(
+      `https://frontaliereticino.ch/articoli-frontaliere/${fixture.id}/`,
+    );
+    expect(ld['@id']).toBe(`${ld.mainEntityOfPage}#article`);
   });
 });
 

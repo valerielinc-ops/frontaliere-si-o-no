@@ -1,7 +1,7 @@
 {
   "key": "spital-affoltern",
   "label": "Spital Affoltern AG",
-  "generatedAt": "2026-10-04T21:20:00.170Z",
+  "generatedAt": "2026-10-05T09:24:43.800Z",
   "total": 18,
   "discovered": null,
   "parsed": 21,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 18,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 18,
-  "removedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15914,
-  "avgDurationMs": 15914,
+  "durationMs": 16756,
+  "avgDurationMs": 16756,
   "durationHistory": [
-    15914
+    16756
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/80815e4b-995e-429e-af6f-864d12c42bb4/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:50.854Z",
+      "crawledAt": "2026-10-05T09:24:34.042Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,18 +49,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/vnt8c9rs/80815e4b-995e-429e-af6f-864d12c42bb4/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:55.804Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/1bda14aa-42d9-45d4-9ff6-f32d38294fe3/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:50.417Z",
+      "crawledAt": "2026-10-05T09:24:33.570Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/vnt8c9rs/1bda14aa-42d9-45d4-9ff6-f32d38294fe3/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:55.386Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +120,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/de8a3978-1ea7-4cbc-8c42-72ef84293e0f/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:49.968Z",
+      "crawledAt": "2026-10-05T09:24:33.104Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,18 +133,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/vnt8c9rs/de8a3978-1ea7-4cbc-8c42-72ef84293e0f/detail?lang=DE",
       "firstSeenAt": "2026-06-15T15:18:40.176Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +162,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/f3a52c3e-e66f-48c0-bd4c-71820a43dced/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:49.526Z",
+      "crawledAt": "2026-10-05T09:24:32.644Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,18 +175,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/vnt8c9rs/f3a52c3e-e66f-48c0-bd4c-71820a43dced/detail?lang=DE",
       "firstSeenAt": "2026-06-15T15:18:39.740Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +204,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/136a014d-f8f4-4ecb-b089-97b2378f4299/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:49.076Z",
+      "crawledAt": "2026-10-05T09:24:32.154Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,18 +217,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/vnt8c9rs/136a014d-f8f4-4ecb-b089-97b2378f4299/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:54.961Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -234,7 +246,7 @@
       "url": "https://jobs.dualoo.com/portal/gjjv3bg7/c8e4e777-91c4-4ca1-808b-66a07f8e27be/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:48.628Z",
+      "crawledAt": "2026-10-05T09:24:31.682Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,18 +259,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/gjjv3bg7/c8e4e777-91c4-4ca1-808b-66a07f8e27be/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:54.102Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -274,7 +288,7 @@
       "url": "https://jobs.dualoo.com/portal/f1il0n9x/2dea1b35-f416-4ba9-a51b-33c1de2da84a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:48.135Z",
+      "crawledAt": "2026-10-05T09:24:31.156Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -287,18 +301,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/f1il0n9x/2dea1b35-f416-4ba9-a51b-33c1de2da84a/detail?lang=DE",
       "firstSeenAt": "2026-08-31T17:12:46.245Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -314,7 +330,7 @@
       "url": "https://jobs.dualoo.com/portal/f1il0n9x/c03cdaaf-bcfe-46a9-8853-83077d3b6790/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.690Z",
+      "crawledAt": "2026-10-05T09:24:30.697Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,18 +343,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/f1il0n9x/c03cdaaf-bcfe-46a9-8853-83077d3b6790/detail?lang=DE",
       "firstSeenAt": "2026-07-29T11:54:39.588Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -354,7 +372,7 @@
       "url": "https://jobs.dualoo.com/portal/f1il0n9x/1807eba2-18cb-4993-b5c9-5deb2aec906d/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.251Z",
+      "crawledAt": "2026-10-05T09:24:30.210Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -367,18 +385,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/f1il0n9x/1807eba2-18cb-4993-b5c9-5deb2aec906d/detail?lang=DE",
       "firstSeenAt": "2026-08-31T17:12:45.360Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -394,7 +414,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/862d7a6f-4509-48ad-a6fd-de6d43272107/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:46.809Z",
+      "crawledAt": "2026-10-05T09:24:29.736Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -407,18 +427,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/862d7a6f-4509-48ad-a6fd-de6d43272107/detail?lang=DE",
       "firstSeenAt": "2026-10-01T09:22:00.363Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -434,7 +456,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/6427188a-22f4-4a57-b0d6-e0d4b488dcbb/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:46.371Z",
+      "crawledAt": "2026-10-05T09:24:29.273Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -447,18 +469,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/6427188a-22f4-4a57-b0d6-e0d4b488dcbb/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:49.795Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -474,7 +498,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/e351e788-8c38-48f5-a43d-c8e8e0e83a81/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:45.497Z",
+      "crawledAt": "2026-10-05T09:24:28.329Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,18 +511,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/e351e788-8c38-48f5-a43d-c8e8e0e83a81/detail?lang=DE",
       "firstSeenAt": "2026-06-30T12:53:35.766Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -514,7 +540,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/91de123b-3e5e-48e5-ac97-839fe294374a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:44.634Z",
+      "crawledAt": "2026-10-05T09:24:27.392Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -527,18 +553,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/91de123b-3e5e-48e5-ac97-839fe294374a/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:48.528Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -554,7 +582,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/b1d231e6-528b-478a-a874-ec6f8c796497/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:44.200Z",
+      "crawledAt": "2026-10-05T09:24:26.932Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -567,18 +595,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/b1d231e6-528b-478a-a874-ec6f8c796497/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:48.107Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -594,7 +624,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/452d075b-b7ab-4f2c-878c-b9b325e642ba/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:43.762Z",
+      "crawledAt": "2026-10-05T09:24:26.473Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -607,18 +637,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/8n6b8ihk/452d075b-b7ab-4f2c-878c-b9b325e642ba/detail?lang=DE",
       "firstSeenAt": "2026-07-06T15:33:34.134Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -634,7 +666,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/53073577-fa19-4d79-a116-f7599f2a53ea/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:43.318Z",
+      "crawledAt": "2026-10-05T09:24:25.990Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -647,18 +679,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/8n6b8ihk/53073577-fa19-4d79-a116-f7599f2a53ea/detail?lang=DE",
       "firstSeenAt": "2026-05-19T12:20:47.674Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -674,7 +708,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/bacff699-1a39-4ff6-9972-5f353f05cd9a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:42.863Z",
+      "crawledAt": "2026-10-05T09:24:25.515Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -687,18 +721,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/8n6b8ihk/bacff699-1a39-4ff6-9972-5f353f05cd9a/detail?lang=DE",
       "firstSeenAt": "2026-08-21T09:53:04.091Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -714,7 +750,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/37adcc5b-6d64-4e96-bea0-053cce3bf824/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:41.974Z",
+      "crawledAt": "2026-10-05T09:24:24.588Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -727,131 +763,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.dualoo.com/portal/8n6b8ihk/37adcc5b-6d64-4e96-bea0-053cce3bf824/detail?lang=DE",
       "firstSeenAt": "2026-08-31T17:12:38.320Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spital-affoltern-3b9a6de0bb5b",
-      "slug": "oberarztin-oberarzt-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-      "company": "Spital Affoltern AG",
-      "companyKey": "spital-affoltern",
-      "companyDomain": "spitalaffoltern.ch",
-      "title": "Oberärztin / Oberarzt Alterspsychiatrie",
-      "needsRetranslation": true,
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://jobs.dualoo.com/portal/8n6b8ihk/c511c772-93ea-4ac5-bbca-a57cfff88f6a/detail?lang=DE",
-      "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:42.418Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8910",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://jobs.dualoo.com/portal/8n6b8ihk/c511c772-93ea-4ac5-bbca-a57cfff88f6a/detail?lang=DE",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "spital-affoltern-ae8d13463379",
-      "slug": "dipl-pflegefachperson-hf-fh-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
-      "company": "Spital Affoltern AG",
-      "companyKey": "spital-affoltern",
-      "companyDomain": "spitalaffoltern.ch",
-      "title": "Dipl. Pflegefachperson HF/FH Alterspsychiatrie",
-      "needsRetranslation": true,
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://jobs.dualoo.com/portal/9dfy7ms4/c1415699-1d03-42b0-a187-6ded45e00684/detail?lang=DE",
-      "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:45.066Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8910",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/c1415699-1d03-42b0-a187-6ded45e00684/detail?lang=DE",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "spital-affoltern-2715192293b9",
-      "slug": "fachperson-gesundheit-efz-psychiatrie-vorwiegend-im-nachtdienst-spital-affoltern-affoltern",
-      "company": "Spital Affoltern AG",
-      "companyKey": "spital-affoltern",
-      "companyDomain": "spitalaffoltern.ch",
-      "title": "Fachperson Gesundheit EFZ Psychiatrie vorwiegend im Nachtdienst",
-      "needsRetranslation": true,
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://jobs.dualoo.com/portal/9dfy7ms4/ae43faa1-440f-4622-ac75-8cc1fa20516c/detail?lang=DE",
-      "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:45.933Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8910",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-04",
-      "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/ae43faa1-440f-4622-ac75-8cc1fa20516c/detail?lang=DE",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

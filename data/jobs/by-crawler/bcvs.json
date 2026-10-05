@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-10-04T21:32:47.889Z",
+  "assembledAt": "2026-10-05T09:35:04.956Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:41.836Z",
+      "crawledAt": "2026-10-05T09:34:58.101Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -46,7 +46,7 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "requirements": [
         "Vous disposez d’une formation financière et/ou commerciale et d’une expérience bancaire avec d’excellentes aptitudes relationnelles.",
@@ -83,7 +83,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:48:06.057Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -96,7 +95,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bcvs-9ee203f89972",
@@ -129,7 +130,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:41.411Z",
+      "crawledAt": "2026-10-05T09:34:57.683Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,7 +143,7 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "requirements": [
         "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.",
@@ -170,7 +171,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:52.591Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -183,7 +183,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bcvs-a7ac7dab4c55",
@@ -216,7 +218,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:40.985Z",
+      "crawledAt": "2026-10-05T09:34:57.173Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -229,7 +231,7 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "requirements": [
         "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).",
@@ -257,7 +259,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:51.717Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -270,7 +271,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -303,7 +306,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:40.560Z",
+      "crawledAt": "2026-10-05T09:34:56.754Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -316,7 +319,7 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "requirements": [
         "Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.",
@@ -345,7 +348,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -358,7 +360,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bcvs-add4d1a4e3d9",
@@ -391,7 +395,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:40.133Z",
+      "crawledAt": "2026-10-05T09:34:56.340Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -404,7 +408,9 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "requirements": [
         "En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.",
@@ -481,7 +487,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:32:39.705Z",
+      "crawledAt": "2026-10-05T09:34:55.927Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -494,7 +500,9 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "requirements": [
         "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions IA, idéalement dans un environnement bancaire.",

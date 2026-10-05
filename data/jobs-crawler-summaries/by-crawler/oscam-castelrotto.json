@@ -1,7 +1,7 @@
 {
   "key": "oscam-castelrotto",
   "label": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-  "generatedAt": "2026-10-04T21:11:39.626Z",
+  "generatedAt": "2026-10-05T09:10:14.307Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,18 +9,19 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 2,
+  "newCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5863,
-  "avgDurationMs": 5863,
+  "durationMs": 5164,
+  "avgDurationMs": 5164,
   "durationHistory": [
-    5863
+    5164
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-fb9ba0759bc6",
       "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
@@ -34,7 +35,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:11:25.930Z",
+      "crawledAt": "2026-10-05T09:10:03.398Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -47,18 +48,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-04T21:11:25.930Z",
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-10-05T09:10:03.398Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +77,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:11:25.751Z",
+      "crawledAt": "2026-10-05T09:10:03.136Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -87,22 +90,25 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
       "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

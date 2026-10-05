@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-raiffeisen-vedeggio-cassarate",
-  "assembledAt": "2026-10-05T08:33:30.750Z",
+  "assembledAt": "2026-10-05T09:11:41.315Z",
   "jobs": [
     {
       "id": "company-fld8qw",
@@ -28,7 +28,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-10-05T08:33:26.460Z",
+      "crawledAt": "2026-10-05T09:11:37.633Z",
       "firstSeenAt": "2026-10-05T08:33:26.460Z",
       "titleByLocale": {
         "it": "Consulente clientela privata base (f/m/d)",
@@ -59,8 +59,6 @@
       "previousSlugs": [
         "consulente-clientela-privata-base-m-w-d-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino"
       ],
-      "salaryMin": 85500,
-      "salaryMax": 150000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -74,7 +72,9 @@
       },
       "addressLocality": "Gravesano, Ticino",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "salaryMin": 85500,
+      "salaryMax": 150000
     }
   ]
 }

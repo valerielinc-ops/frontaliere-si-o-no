@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-10-04T21:19:42.629Z",
+  "assembledAt": "2026-10-05T09:27:31.312Z",
   "jobs": [
     {
       "id": "somedia-ab12f68befed",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:37.370Z",
+      "crawledAt": "2026-10-05T09:27:25.993Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,7 +46,9 @@
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "validThrough": "2027-04-01",
       "applyUrl": "https://jobs.somedia.ch/Redaktorin-Video-40-de-f415.html",
       "requirements": [
@@ -94,8 +96,8 @@
           "redaktor-in-video-40-somedia-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "salaryMin": 26000,
       "salaryMax": 39400,
       "salarySource": "estimated",
@@ -142,7 +144,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:36.309Z",
+      "crawledAt": "2026-10-05T09:27:24.884Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,7 +157,9 @@
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "validThrough": "2027-04-01",
       "applyUrl": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-f416.html",
       "requirements": [
@@ -188,8 +192,8 @@
           "sales-manager-field-service-80-100-somedia-ag-glarus"
         ]
       },
-      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",

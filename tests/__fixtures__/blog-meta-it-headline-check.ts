@@ -18,7 +18,7 @@
  * Rigenerabile con: node scripts/dev/regen-headline-check-fixture.mjs
  */
 const blogMetaIt: Record<string, string> = {
- 'blog.article.salario-minimo-ticino-accordo.title': 'Salario minimo Ticino: si punta a 22 CHF l\'ora',
+ 'blog.article.salario-minimo-ticino-accordo.title': 'Salario minimo in Ticino: proposta a 22 CHF l\'ora',
  'blog.article.salario-minimo-ticino-accordo.excerpt': 'Presentata la bozza di accordo che porterebbe il minimo salariale a 22 CHF orari entro il 2029. Previsto un aumento graduale in tre tappe a partire dal 2027.',
  'blog.article.salario-minimo-ticino-accordo.imageAlt': 'Palazzo del Governo a Bellinzona, dove si discutono le politiche salariali del Canton Ticino',
  'blog.article.salario-minimo-sociale-ticino-dibattito.title': 'Salario minimo sociale: il Ticino cerca un\'intesa',

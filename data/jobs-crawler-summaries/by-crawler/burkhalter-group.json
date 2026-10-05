@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-10-04T21:26:02.147Z",
+  "generatedAt": "2026-10-05T09:24:04.702Z",
   "total": 244,
   "newCount": 1,
-  "updatedCount": 17,
+  "updatedCount": 243,
   "removedCount": 0,
-  "unchangedCount": 226,
-  "durationMs": 489260,
-  "avgDurationMs": 489260,
+  "unchangedCount": 0,
+  "durationMs": 489068,
+  "avgDurationMs": 489068,
   "durationHistory": [
-    489260
+    489068
   ],
   "newJobs": [
     {
@@ -33,10 +33,12 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.853Z",
+      "crawledAt": "2026-10-05T09:23:58.587Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -48,760 +50,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T03:38:03.399Z",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "updatedJobs": [
-    {
-      "title": "Installateur-électricien CFC / polyvalent - Installatrice-électricienne / polyvalente (100%)",
-      "slug": "installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-100-sedelec-yverdon-succursale-de",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
-      "company": "Sedelec Yverdon, succursale de Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Yverdon-Les-Bains",
-      "addressLocality": "Yverdon-Les-Bains",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.870Z",
-      "coordinates": [
-        46.7838193,
-        6.6264028
-      ],
-      "id": "burkhalter-group-d6f2886238d8",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Rue de la Blancherie 2",
-      "postalCode": "1400",
-      "firstSeenAt": "2026-05-11T21:39:47.298Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "installatore-idraulico-100-m-kunz-ag-klosters-klosters-dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-865",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-865",
-      "company": "M. Kunz AG Klosters",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Klosters Dorf",
-      "addressLocality": "Klosters Dorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.873Z",
-      "coordinates": [
-        46.8823512,
-        9.8788827
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Landstrasse 44",
-      "postalCode": "7252",
-      "id": "burkhalter-group-35838c541521",
-      "firstSeenAt": "2026-04-13T10:09:28.520Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-865",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "installatore-idraulico-100-m-kunz-ag-davos-davos-platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-871",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-871",
-      "company": "M. Kunz AG Davos",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Platz",
-      "addressLocality": "Davos Platz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.875Z",
-      "coordinates": [
-        46.7895975,
-        9.8161975
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Promenade 14",
-      "postalCode": "7270",
-      "id": "burkhalter-group-310a3e18471e",
-      "firstSeenAt": "2026-04-13T10:09:28.518Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-871",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (80 - 100%)",
-      "slug": "installatore-idraulico-80-100-sprecher-ag-davos-glaris",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-823",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-823",
-      "company": "Sprecher AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Frauenkirch",
-      "addressLocality": "Davos Frauenkirch",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-07-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.898Z",
-      "coordinates": [
-        46.7666214,
-        9.7987071
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Landwasserstrasse 27",
-      "postalCode": "7276",
-      "id": "burkhalter-group-82d5925947a6",
-      "firstSeenAt": "2026-04-13T10:09:28.526Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-823",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
-      "slug": "installatori-elettricisti-installatrici-elettriciste-afc-100-grichting-valterio-electro-sa-martigny",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3-1",
-      "company": "Grichting & Valterio Electro SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Martigny",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2025-06-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.906Z",
-      "coordinates": [
-        46.1078651,
-        7.0997695
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Rue des Etangs 1",
-      "postalCode": "1920",
-      "id": "burkhalter-group-3d187fcf6f5f",
-      "firstSeenAt": "2026-04-13T10:09:28.527Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3-1",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Chef/fe de chantier (100%)",
-      "slug": "capo-del-dipartimento-del-ministero-dell-istruzione-100-grichting-valterio-electro-sa-collombey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-1-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-1-1",
-      "company": "Grichting & Valterio Electro SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Collombey",
-      "addressLocality": "Collombey",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2025-06-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.906Z",
-      "coordinates": [
-        46.2693588,
-        6.9555405
-      ],
-      "id": "burkhalter-group-efbdfa157ccc",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-16T22:25:21.410Z",
-      "retranslationAttempts": 0,
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-1-1",
-      "postalCode": "1868",
-      "streetAddress": "Z.I. L'Epine 2",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (80 - 100%)",
-      "slug": "installatore-installatrice-sanitario-a-80-100-ulrich-huber-ag-malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1417",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1417",
-      "company": "Ulrich Huber AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Malans",
-      "addressLocality": "Malans",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-05-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.908Z",
-      "coordinates": [
-        46.9709598,
-        9.5592226
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Neugutstrasse 4a",
-      "postalCode": "7208",
-      "id": "burkhalter-group-e8709e179c21",
-      "firstSeenAt": "2026-04-13T10:09:28.528Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1417",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur-électricien / Installatrice-électricienne CFC (100%)",
-      "slug": "installateur-electricien-installatrice-electricienne-cfc-100-merinat-s-a-vevey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412",
-      "company": "Mérinat S.A.",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Vevey",
-      "addressLocality": "Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2025-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.909Z",
-      "coordinates": [
-        46.4615857,
-        6.842294
-      ],
-      "id": "burkhalter-group-a449e01dd8b8",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Chaussée de la Guinguette 12",
-      "postalCode": "1800",
-      "firstSeenAt": "2026-05-11T21:39:47.407Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur-électricien / Installatrice-électricienne CFC (100%)",
-      "slug": "installateur-electricien-installatrice-electricienne-cfc-100-merinat-s-a-succursale-de-lausanne-lausanne",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-1",
-      "company": "Mérinat S.A., succursale de Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2025-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.910Z",
-      "coordinates": [
-        46.5432538,
-        6.6239502
-      ],
-      "id": "burkhalter-group-ec24146eee11",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Route du Châtelard 50A",
-      "postalCode": "1018",
-      "firstSeenAt": "2026-05-11T21:39:47.408Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-1",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur-électricien / Installatrice-électricienne CFC (100%)",
-      "slug": "installateur-electricien-installatrice-electricienne-cfc-100-merinat-s-a-succursale-d-attalens-attalens",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-2",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-2",
-      "company": "Mérinat S.A., succursale d'Attalens",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Attalens",
-      "addressLocality": "Attalens",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2025-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.911Z",
-      "coordinates": [
-        46.5084544,
-        6.8486817
-      ],
-      "id": "burkhalter-group-045046f94433",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Rue de la Basse-Ville 30",
-      "postalCode": "1616",
-      "firstSeenAt": "2026-05-11T21:39:47.409Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-installatrice-electricienne-cfc-1412-2",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (100%)",
-      "slug": "heizungsinstallateur-in-100-hans-ziegler-ag-hauptsitz-lachen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-931",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-931",
-      "company": "Hans Ziegler AG Hauptsitz",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lachen",
-      "addressLocality": "Lachen",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "canton": "SZ",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-03-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.953Z",
-      "coordinates": [
-        47.1896268,
-        8.8482094
-      ],
-      "id": "burkhalter-group-8738f25df807",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-05T11:56:05.113Z",
-      "retranslationAttempts": 0,
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-931",
-      "needsRetranslation": true,
-      "postalCode": "8853",
-      "streetAddress": "Sagenriet 9",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateurs-électriciens / installatrices-électriciennes (orienté industrie) (100%)",
-      "slug": "elettricisti-installatori-elettriciste-installatrici-orientamento-industriale-100-grichting-valterio-electro-sa-collombe",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-oriente-industrie-267",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-oriente-industrie-267",
-      "company": "Grichting & Valterio Electro SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Collombey",
-      "addressLocality": "Collombey",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2022-02-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.966Z",
-      "coordinates": [
-        46.2693588,
-        6.9555405
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Z.I. L'Epine 2",
-      "postalCode": "1868",
-      "id": "burkhalter-group-6f32ac7a6326",
-      "firstSeenAt": "2026-04-13T10:09:28.538Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-oriente-industrie-267",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
-      "slug": "elettricisti-installatori-elettriciste-installatrici-afc-100-grichting-valterio-electro-sa-sion",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3",
-      "company": "Grichting & Valterio Electro SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Sion",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2022-02-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.967Z",
-      "coordinates": [
-        46.2181544,
-        7.3427999
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Route des Iles 38",
-      "postalCode": "1950",
-      "id": "burkhalter-group-3e2b91cca4b4",
-      "firstSeenAt": "2026-04-13T10:09:28.539Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateurs-électriciens / Installatrices-électriciennes CFC (100%)",
-      "slug": "elettricisti-installatori-elettriciste-installatrici-afc-100-grichting-valterio-electro-sa-collombey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-425-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-425-1",
-      "company": "Grichting & Valterio Electro SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Collombey",
-      "addressLocality": "Collombey",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2022-02-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.968Z",
-      "coordinates": [
-        46.2693588,
-        6.9555405
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Z.I. L'Epine 2",
-      "postalCode": "1868",
-      "id": "burkhalter-group-a1d6475181ae",
-      "firstSeenAt": "2026-04-13T10:09:28.539Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-425-1",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur-électricien / Installatrice-électricienne avec CFC (100%)",
-      "slug": "installateur-electricien-installatrice-electricienne-avec-cfc-100-sedelec-sa-lausanne-lausanne",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-avec-cfc-288",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-avec-cfc-288",
-      "company": "Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2022-01-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.973Z",
-      "coordinates": [
-        46.5355465,
-        6.6668244
-      ],
-      "id": "burkhalter-group-c049cf691b3c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Av. des Boveresses 48",
-      "postalCode": "1010",
-      "firstSeenAt": "2026-05-11T21:39:47.510Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-avec-cfc-288",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installateur-électricien CFC / polyvalent - Installatrice-électricienne /polyvalente (100%)",
-      "slug": "installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-100-sedelec-saignelegier-succursale-de",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-348",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-348",
-      "company": "Sedelec Saignelégier, succursale de Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Saignelégier",
-      "addressLocality": "Saignelégier",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2021-04-19",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.983Z",
-      "coordinates": [
-        47.2541809,
-        7.002328
-      ],
-      "id": "burkhalter-group-dfaa122994bd",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Chemin des Senailles 6",
-      "postalCode": "2350",
-      "firstSeenAt": "2026-05-11T21:39:47.528Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-348",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Elektroinstallateur/in (100%)",
-      "slug": "elektroinstallateur-in-100-eigenmann-ag-munchwilen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "company": "Eigenmann AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Münchwilen",
-      "addressLocality": "Münchwilen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2019-04-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:55.011Z",
-      "coordinates": [
-        47.4800309,
-        8.9938264
-      ],
-      "id": "burkhalter-group-2687dc74e28c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Frauenfelderstrasse 13",
-      "postalCode": "9542",
-      "firstSeenAt": "2026-05-17T09:50:15.035Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Mitarbeiter/in Empfang (60%)",
       "slug": "collaboratore-trice-empfang-60-sada-ag-glattpark-opfikon",
@@ -820,10 +78,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-10-04T21:25:54.841Z",
+      "crawledAt": "2026-10-05T09:23:58.578Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -837,12 +95,14 @@
       "firstSeenAt": "2026-09-29T21:21:29.949Z",
       "postalCode": "8152",
       "streetAddress": "Vega-Strasse 3",
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -863,10 +123,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-21",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.842Z",
+      "crawledAt": "2026-10-05T09:23:58.579Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -880,12 +140,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-sanitaer-1741",
       "postalCode": "8044",
       "streetAddress": "Zürichbergstrasse 80",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -906,10 +168,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2020-02-04",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.843Z",
+      "crawledAt": "2026-10-05T09:23:58.580Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -923,12 +185,14 @@
       "firstSeenAt": "2026-04-13T10:09:28.541Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-215",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -949,10 +213,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-15",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.844Z",
+      "crawledAt": "2026-10-05T09:23:58.581Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -966,12 +230,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-oder-spenglerpolier-in-1262",
       "postalCode": "6030",
       "streetAddress": "Neuhaltenstrasse 3",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -992,10 +258,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.845Z",
+      "crawledAt": "2026-10-05T09:23:58.581Z",
       "coordinates": [
         46.7795846,
         7.5920483
@@ -1009,12 +275,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-schaltanlagen-1737",
       "postalCode": "3661",
       "streetAddress": "Altelsweg 12",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1035,10 +303,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.846Z",
+      "crawledAt": "2026-10-05T09:23:58.582Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1052,12 +320,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
       "postalCode": "8044",
       "streetAddress": "Zürichbergstrasse 80",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1078,10 +348,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.848Z",
+      "crawledAt": "2026-10-05T09:23:58.583Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1095,12 +365,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-service-unterhalt-1728",
       "postalCode": "4123",
       "streetAddress": "Hagmattstrasse 11",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1121,10 +393,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-21",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.849Z",
+      "crawledAt": "2026-10-05T09:23:58.584Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1139,12 +411,14 @@
       "needsRetranslation": true,
       "postalCode": "8048",
       "streetAddress": "Hohlstrasse 475",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1165,10 +439,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-02-23",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.849Z",
+      "crawledAt": "2026-10-05T09:23:58.584Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1182,13 +456,14 @@
       "firstSeenAt": "2026-05-11T21:39:47.361Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-efz-1273",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 25
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -1209,10 +484,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2025-07-14",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.850Z",
+      "crawledAt": "2026-10-05T09:23:58.585Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1226,12 +501,14 @@
       "firstSeenAt": "2026-05-11T21:39:47.391Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-efz-1265",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1252,10 +529,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-23",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.851Z",
+      "crawledAt": "2026-10-05T09:23:58.585Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1269,12 +546,14 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
       "streetAddress": "Buchenhölzlistrasse 4b",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1295,10 +574,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-18",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.851Z",
+      "crawledAt": "2026-10-05T09:23:58.586Z",
       "coordinates": [
         46.950444,
         7.3939439
@@ -1313,12 +592,14 @@
       "needsRetranslation": true,
       "postalCode": "3027",
       "streetAddress": "Eymattstrasse 7",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1339,10 +620,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-05",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.852Z",
+      "crawledAt": "2026-10-05T09:23:58.586Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1356,12 +637,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-1705",
       "postalCode": "8853",
       "streetAddress": "Sagenriet 9",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1382,10 +665,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-31",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.852Z",
+      "crawledAt": "2026-10-05T09:23:58.587Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1399,12 +682,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-sicherheitsberater-in-1491",
       "postalCode": "4123",
       "streetAddress": "Hagmattstrasse 11",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1425,10 +710,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2025-06-13",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.854Z",
+      "crawledAt": "2026-10-05T09:23:58.588Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1442,12 +727,14 @@
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-2",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1468,10 +755,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-10",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.854Z",
+      "crawledAt": "2026-10-05T09:23:58.588Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1486,12 +773,14 @@
       "postalCode": "8048",
       "streetAddress": "Hohlstrasse 475",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1512,10 +801,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.855Z",
+      "crawledAt": "2026-10-05T09:23:58.589Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1531,12 +820,14 @@
       "needsRetranslation": true,
       "postalCode": "7302",
       "streetAddress": "Bahnhofplatz 3b",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1557,10 +848,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.856Z",
+      "crawledAt": "2026-10-05T09:23:58.589Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -1574,12 +865,14 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungstechnik-1547",
       "streetAddress": "Plam dil Bläsi 5",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1600,10 +893,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.859Z",
+      "crawledAt": "2026-10-05T09:23:58.592Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1617,12 +910,14 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
       "streetAddress": "Moosstrasse 52",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1643,10 +938,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-15",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.861Z",
+      "crawledAt": "2026-10-05T09:23:58.594Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1660,12 +955,14 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-1691",
       "streetAddress": "Industriestrasse 15",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1686,10 +983,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-15",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.862Z",
+      "crawledAt": "2026-10-05T09:23:58.594Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1703,12 +1000,14 @@
       "firstSeenAt": "2026-05-17T09:50:14.886Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1110",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1729,10 +1028,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-05",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.862Z",
+      "crawledAt": "2026-10-05T09:23:58.595Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -1746,12 +1045,14 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-in-efz-1335-9-2",
       "postalCode": "7500",
       "streetAddress": "Via Surpunt 62",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1772,10 +1073,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.863Z",
+      "crawledAt": "2026-10-05T09:23:58.595Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1790,12 +1091,14 @@
       "retranslationAttempts": 0,
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-1021",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1816,10 +1119,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.864Z",
+      "crawledAt": "2026-10-05T09:23:58.595Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1833,12 +1136,14 @@
       "firstSeenAt": "2026-04-13T10:09:28.530Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltesystemmonteur-in-fuer-montage-1020",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1859,10 +1164,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-28",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.865Z",
+      "crawledAt": "2026-10-05T09:23:58.596Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1876,12 +1181,14 @@
       "firstSeenAt": "2026-05-28T11:54:14.923Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-sanitaer-100-1282",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1902,10 +1209,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.867Z",
+      "crawledAt": "2026-10-05T09:23:58.598Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1921,12 +1228,14 @@
       "retranslationAttempts": 1,
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1947,10 +1256,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-08",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.868Z",
+      "crawledAt": "2026-10-05T09:23:58.599Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1964,12 +1273,14 @@
       "firstSeenAt": "2026-05-16T21:11:14.995Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1990,10 +1301,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-08",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.868Z",
+      "crawledAt": "2026-10-05T09:23:58.599Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -2007,12 +1318,14 @@
       "firstSeenAt": "2026-05-15T21:23:51.094Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -2033,10 +1346,10 @@
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.869Z",
+      "crawledAt": "2026-10-05T09:23:58.599Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -2050,57 +1363,63 @@
       "firstSeenAt": "2026-05-11T21:39:47.287Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
-      "title": "Chef de chantier / Cheffe de chantier – Installations électriques (100%)",
-      "slug": "construction-manager-construction-manager-impianti-elettrici-100-sedelec-saignelegier-succursale-de-sedelec-sa-lausanne-",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
-      "company": "Sedelec Saignelégier, succursale de Sedelec SA Lausanne",
+      "title": "Installateur-électricien CFC / polyvalent - Installatrice-électricienne / polyvalente (100%)",
+      "slug": "installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-100-sedelec-yverdon-succursale-de",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
+      "company": "Sedelec Yverdon, succursale de Sedelec SA Lausanne",
       "companyKey": "burkhalter-group",
       "companyDomain": "burkhalter.ch",
-      "location": "Saignelégier",
-      "addressLocality": "Saignelégier",
-      "addressRegion": "JU",
+      "location": "Yverdon-Les-Bains",
+      "addressLocality": "Yverdon-Les-Bains",
+      "addressRegion": "NE",
       "addressCountry": "CH",
-      "canton": "JU",
+      "canton": "NE",
       "country": "CH",
       "category": "Ingegneria & Tecnica",
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-04T21:25:54.870Z",
+      "crawledAt": "2026-10-05T09:23:58.600Z",
       "coordinates": [
-        47.2541809,
-        7.002328
+        46.7838193,
+        6.6264028
       ],
-      "id": "burkhalter-group-2e240c5e9989",
+      "id": "burkhalter-group-d6f2886238d8",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Chemin des Senailles 6",
-      "postalCode": "2350",
-      "firstSeenAt": "2026-05-11T21:39:47.299Z",
+      "streetAddress": "Rue de la Blancherie 2",
+      "postalCode": "1400",
+      "firstSeenAt": "2026-05-11T21:39:47.298Z",
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
-      "_qualityScore": 93,
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateur-electricien-cfc-polyvalent-installatrice-electricienne-polyvalente-1662",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

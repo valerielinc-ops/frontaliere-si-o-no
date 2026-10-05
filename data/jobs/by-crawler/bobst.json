@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-10-04T21:38:02.159Z",
+  "assembledAt": "2026-10-05T09:35:13.890Z",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:57.099Z",
+      "crawledAt": "2026-10-05T09:35:10.040Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,7 +45,7 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "07.04.2026",
+      "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "requirements": [],
       "requirementsByLocale": {
@@ -85,14 +85,12 @@
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen",
         "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
-        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen",
-        "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
+        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
-          "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
+          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
         ],
         "en": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
@@ -116,7 +114,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "datePosted": "2026-05-21",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -150,7 +150,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:37:56.529Z",
+      "crawledAt": "2026-10-05T09:35:09.441Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -161,19 +161,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "27.05.2026",
+      "postedDate": "2026-05-27",
       "applyUrl": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Research & Development (R&D)",
       "previousSlugs": [
-        "senior-writing-systems-engineer-bobst-ch",
-        "senior-writing-systems-ingegnere-bobst-switzerland-mex"
+        "senior-writing-systems-engineer-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-writing-systems-engineer-bobst-ch",
-          "senior-writing-systems-ingegnere-bobst-switzerland-mex"
+          "senior-writing-systems-engineer-bobst-ch"
         ],
         "de": [
           "senior-writing-systems-engineer-bobst-ch"
@@ -196,7 +194,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-05-27",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -230,7 +230,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:55.985Z",
+      "crawledAt": "2026-10-05T09:35:08.829Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -241,19 +241,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "30.06.2026",
+      "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Health & Safety",
       "previousSlugs": [
-        "ingenieur-specialiste-ehs-bobst-ch",
-        "specialista-ingegnere-ehs-bobst-switzerland-mex"
+        "ingenieur-specialiste-ehs-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-specialiste-ehs-bobst-ch",
-          "specialista-ingegnere-ehs-bobst-switzerland-mex"
+          "ingenieur-specialiste-ehs-bobst-ch"
         ],
         "en": [
           "ingenieur-specialiste-ehs-bobst-ch"
@@ -276,7 +274,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-06-30",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-d5cc3069bc1c",
@@ -285,7 +285,7 @@
         "it": "iot-technology-direttore-bobst-switzerland-mex",
         "en": "iot-technology-director-bobst-ch",
         "de": "iot-technology-direktor-bobst-switzerland-mex",
-        "fr": "iot-technology-director-bobst-switzerland-mex"
+        "fr": "directeur-de-la-technologie-iot-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -310,7 +310,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:37:55.173Z",
+      "crawledAt": "2026-10-05T09:35:08.226Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,27 +321,25 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "03.07.2026",
+      "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Research & Development (R&D)",
       "previousSlugs": [
         "iot-technology-director-bobst-ch",
-        "directeur-de-la-technologie-iot-bobst-switzerland-mex",
-        "iot-technology-direttore-bobst-switzerland-mex"
+        "iot-technology-director-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-technology-director-bobst-ch",
-          "iot-technology-direttore-bobst-switzerland-mex"
+          "iot-technology-director-bobst-ch"
         ],
         "de": [
           "iot-technology-director-bobst-ch"
         ],
         "fr": [
           "iot-technology-director-bobst-ch",
-          "directeur-de-la-technologie-iot-bobst-switzerland-mex"
+          "iot-technology-director-bobst-switzerland-mex"
         ]
       },
       "firstSeenAt": "2026-09-26T14:13:53.862Z",
@@ -358,7 +356,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-07-03",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -392,7 +392,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:37:54.304Z",
+      "crawledAt": "2026-10-05T09:35:07.375Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -403,7 +403,7 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "03.07.2026",
+      "postedDate": "2026-07-13",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -414,16 +414,14 @@
         "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
         "field-service-technician-external-mount-engineer-h-f-bobst-switzerland-mex",
         "field-service-techniker-monteur-externe-ingenieur-h-f-bobst-switzerland-mex",
-        "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-        "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+        "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-engineer-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
-          "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-          "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+          "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
         ],
         "en": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
@@ -454,7 +452,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-07-13",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -488,7 +488,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:53.457Z",
+      "crawledAt": "2026-10-05T09:35:06.500Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -499,19 +499,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "19.08.2026",
+      "postedDate": "2026-08-19",
       "applyUrl": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "dessinateur-batiment-et-technique-bobst-ch",
-        "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+        "dessinateur-batiment-et-technique-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-batiment-et-technique-bobst-ch",
-          "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+          "dessinateur-batiment-et-technique-bobst-ch"
         ],
         "en": [
           "dessinateur-batiment-et-technique-bobst-ch"
@@ -534,7 +532,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-19",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -543,7 +543,7 @@
         "it": "apprendimento-automatico-bobst-switzerland-mex",
         "en": "automatic-learning-bobst-switzerland-mex",
         "de": "automatisches-lernen-bobst-switzerland-mex",
-        "fr": "apprenti-automaticien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-automaticien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -568,7 +568,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:52.618Z",
+      "crawledAt": "2026-10-05T09:35:05.668Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -579,19 +579,19 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-automaticien-ne-bobst-ch",
+        "apprenti-automaticien-ne-bobst-switzerland-mex",
         "apprendimento-automatico-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-automaticien-ne-bobst-ch",
-          "apprendimento-automatico-bobst-switzerland-mex"
+          "apprenti-automaticien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-automaticien-ne-bobst-ch"
@@ -600,6 +600,7 @@
           "apprenti-automaticien-ne-bobst-ch"
         ],
         "fr": [
+          "apprenti-automaticien-ne-bobst-switzerland-mex",
           "apprenti-automaticien-ne-bobst-ch"
         ]
       },
@@ -617,7 +618,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -651,7 +654,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:51.763Z",
+      "crawledAt": "2026-10-05T09:35:04.808Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,19 +665,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-employe-e-de-commerce-cfc-bobst-ch",
-        "dipendente-commerciale-cfc-bobst-switzerland-mex"
+        "apprenti-employe-e-de-commerce-cfc-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-employe-e-de-commerce-cfc-bobst-ch",
-          "dipendente-commerciale-cfc-bobst-switzerland-mex"
+          "apprenti-employe-e-de-commerce-cfc-bobst-ch"
         ],
         "en": [
           "apprenti-employe-e-de-commerce-cfc-bobst-ch"
@@ -697,7 +698,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-f8dd9f2738dd",
@@ -706,7 +709,7 @@
         "it": "apparecchiature-meccaniche-bobst-switzerland-mex",
         "en": "polymechanical-apprentice-bobst-switzerland-mex",
         "de": "polymechanischer-lehrling-bobst-switzerland-mex",
-        "fr": "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-polymecanicien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -731,7 +734,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:50.976Z",
+      "crawledAt": "2026-10-05T09:35:03.912Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -742,19 +745,19 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-polymecanicien-ne-bobst-ch",
+        "apprenti-polymecanicien-ne-bobst-switzerland-mex",
         "apparecchiature-meccaniche-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-polymecanicien-ne-bobst-ch",
-          "apparecchiature-meccaniche-bobst-switzerland-mex"
+          "apprenti-polymecanicien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-polymecanicien-ne-bobst-ch"
@@ -763,6 +766,7 @@
           "apprenti-polymecanicien-ne-bobst-ch"
         ],
         "fr": [
+          "apprenti-polymecanicien-ne-bobst-switzerland-mex",
           "apprenti-polymecanicien-ne-bobst-ch"
         ]
       },
@@ -780,7 +784,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-093858ad3e55",
@@ -814,7 +820,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:50.163Z",
+      "crawledAt": "2026-10-05T09:35:03.049Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,19 +831,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
-        "apprenti-draughtsman-produttore-industriale-bobst-switzerland-mex"
+        "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
-          "apprenti-draughtsman-produttore-industriale-bobst-switzerland-mex"
+          "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
         ],
         "en": [
           "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
@@ -860,7 +864,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -894,7 +900,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:49.306Z",
+      "crawledAt": "2026-10-05T09:35:02.175Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -905,19 +911,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
-        "apprentice-ne-in-meccanica-afp-bobst-switzerland-mex"
+        "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
-          "apprentice-ne-in-meccanica-afp-bobst-switzerland-mex"
+          "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
         ],
         "en": [
           "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
@@ -940,7 +944,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -949,7 +955,7 @@
         "it": "median-n-apprentice-bobst-switzerland-mex",
         "en": "median-n-apprentice-bobst-switzerland-mex",
         "de": "median-n-lehrling-bobst-switzerland-mex",
-        "fr": "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-mediamaticien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -974,7 +980,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:48.483Z",
+      "crawledAt": "2026-10-05T09:35:01.329Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -985,19 +991,19 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-mediamaticien-ne-bobst-ch",
+        "apprenti-mediamaticien-ne-bobst-switzerland-mex",
         "median-n-apprentice-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-mediamaticien-ne-bobst-ch",
-          "median-n-apprentice-bobst-switzerland-mex"
+          "apprenti-mediamaticien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-mediamaticien-ne-bobst-ch"
@@ -1006,6 +1012,7 @@
           "apprenti-mediamaticien-ne-bobst-ch"
         ],
         "fr": [
+          "apprenti-mediamaticien-ne-bobst-switzerland-mex",
           "apprenti-mediamaticien-ne-bobst-ch"
         ]
       },
@@ -1023,7 +1030,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -1057,7 +1066,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:47.689Z",
+      "crawledAt": "2026-10-05T09:35:00.459Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1068,19 +1077,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-mecanicien-de-production-cfc-bobst-ch",
-        "ingegnere-di-produzione-di-apprendistato-cfc-bobst-switzerland-mex"
+        "apprenti-mecanicien-de-production-cfc-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-mecanicien-de-production-cfc-bobst-ch",
-          "ingegnere-di-produzione-di-apprendistato-cfc-bobst-switzerland-mex"
+          "apprenti-mecanicien-de-production-cfc-bobst-ch"
         ],
         "en": [
           "apprenti-mecanicien-de-production-cfc-bobst-ch"
@@ -1103,7 +1110,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -1137,7 +1146,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:46.868Z",
+      "crawledAt": "2026-10-05T09:34:59.587Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1148,19 +1157,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
-        "intern-mpc-3-1-risorse-umane-formazione-e-sviluppo-bobst-switzerland-mex"
+        "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
-          "intern-mpc-3-1-risorse-umane-formazione-e-sviluppo-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
         ],
         "en": [
           "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
@@ -1183,7 +1190,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-7953b2006541",
@@ -1217,7 +1226,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:46.124Z",
+      "crawledAt": "2026-10-05T09:34:58.718Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,19 +1237,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch",
-        "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex"
+        "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch",
-          "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-26T14:13:45.387Z",
@@ -1257,7 +1264,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-3621de669a99",
@@ -1291,7 +1300,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:45.277Z",
+      "crawledAt": "2026-10-05T09:34:57.846Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1302,19 +1311,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "28.08.2026",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
-        "intern-mpc-3-1-hr-ambiente-salute-e-sicurezza-bobst-switzerland-mex"
+        "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
-          "intern-mpc-3-1-hr-ambiente-salute-e-sicurezza-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
         ],
         "en": [
           "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
@@ -1337,7 +1344,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-06d7cab87f11",
@@ -1371,7 +1380,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:44.466Z",
+      "crawledAt": "2026-10-05T09:34:56.986Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1382,19 +1391,17 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "03.09.2026",
+      "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
-        "2025-tpm-corso-3-1-risorse-umane-centro-di-formazione-bobst-switzerland-mex"
+        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
-          "2025-tpm-corso-3-1-risorse-umane-centro-di-formazione-bobst-switzerland-mex"
+          "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
         ],
         "en": [
           "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
@@ -1417,7 +1424,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-09-03",
+      "postingDateSource": "reported"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -1426,7 +1435,7 @@
         "it": "apprendistato-bobst-switzerland-mex",
         "en": "apprenticeship-bobst-switzerland-mex",
         "de": "ausbildung-bobst-switzerland-mex",
-        "fr": "apprenti-logisitcien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-logisitcien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1451,7 +1460,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:43.623Z",
+      "crawledAt": "2026-10-05T09:34:56.121Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1462,19 +1471,19 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "09.09.2026",
+      "postedDate": "2026-09-09",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-logisitcien-ne-bobst-ch",
+        "apprenti-logisitcien-ne-bobst-switzerland-mex",
         "apprendistato-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-logisitcien-ne-bobst-ch",
-          "apprendistato-bobst-switzerland-mex"
+          "apprenti-logisitcien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-logisitcien-ne-bobst-ch"
@@ -1483,6 +1492,7 @@
           "apprenti-logisitcien-ne-bobst-ch"
         ],
         "fr": [
+          "apprenti-logisitcien-ne-bobst-switzerland-mex",
           "apprenti-logisitcien-ne-bobst-ch"
         ]
       },
@@ -1500,7 +1510,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "datePosted": "2026-09-09",
+      "postingDateSource": "reported"
     }
   ]
 }

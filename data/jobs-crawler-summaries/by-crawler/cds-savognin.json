@@ -1,7 +1,7 @@
 {
   "key": "cds-savognin",
   "label": "Center da Sanadad Savognin",
-  "generatedAt": "2026-10-04T21:14:51.415Z",
+  "generatedAt": "2026-10-05T09:16:11.147Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4236,
-  "avgDurationMs": 4236,
+  "durationMs": 3854,
+  "avgDurationMs": 3854,
   "durationHistory": [
-    4236
+    3854
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.646Z",
+      "crawledAt": "2026-10-05T09:16:03.933Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -47,18 +49,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://cds-savognin.ch/uploads/files/mpa-mit-qrcode.pdf",
       "firstSeenAt": "2026-06-15T22:41:27.054Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -68,13 +72,12 @@
       "companyKey": "cds-savognin",
       "companyDomain": "cds-savognin.ch",
       "title": "Dipl. Pflegefachperson (m/w) HF/FH",
-      "needsRetranslation": true,
       "location": "Savognin",
       "canton": "GR",
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.644Z",
+      "crawledAt": "2026-10-05T09:16:03.931Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -87,18 +90,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://cds-savognin.ch/uploads/files/202511_dipl.-pflegefachperson_mitqr-code.pdf",
       "firstSeenAt": "2026-06-15T22:41:27.049Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +119,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.641Z",
+      "crawledAt": "2026-10-05T09:16:03.928Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -127,18 +132,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://cds-savognin.ch/uploads/files/assistenzarzt_aerztin.pdf",
       "firstSeenAt": "2026-08-12T10:22:20.781Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +161,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.638Z",
+      "crawledAt": "2026-10-05T09:16:03.924Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -167,18 +174,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://cds-savognin.ch/uploads/files/chefarzt_aerztin_mitqr-code.pdf",
       "firstSeenAt": "2026-06-27T10:16:30.022Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +203,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.593Z",
+      "crawledAt": "2026-10-05T09:16:03.903Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -207,22 +216,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://cds-savognin.ch/uploads/files/mitarbeiterin-lingerie-und-bistro-per-sofort-oder-nach-vereinbarung.pdf",
       "firstSeenAt": "2026-07-06T13:13:18.823Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 78,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

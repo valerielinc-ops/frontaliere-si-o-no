@@ -1,6 +1,6 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-10-04T21:37:47.405Z",
+  "assembledAt": "2026-10-05T09:33:35.528Z",
   "jobs": [
     {
       "id": "otis-286c56c06554",
@@ -47,15 +47,13 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Kontrolleur-Aufzug-Neuanlagen--m-w-d-_20169268-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:41.892Z",
+      "crawledAt": "2026-10-05T09:33:30.680Z",
       "previousSlugs": [
-        "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen",
-        "ispettore-ascensore-nuovo-attrezzatura-m-f-d-otis-sa-oberburen"
+        "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen",
-          "ispettore-ascensore-nuovo-attrezzatura-m-f-d-otis-sa-oberburen"
+          "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen"
         ],
         "en": [
           "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen"
@@ -65,7 +63,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.649Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -127,17 +124,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:41.635Z",
+      "crawledAt": "2026-10-05T09:33:30.387Z",
       "previousSlugs": [
         "servicetechniker-in-m-w-d-otis-reinach",
-        "servicetechniker-in-m-w-d-otis-sa-reinach",
-        "tecnico-di-servizio-m-f-d-otis-sa-reinach"
+        "servicetechniker-in-m-w-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-m-w-d-otis-reinach",
-          "servicetechniker-in-m-w-d-otis-sa-reinach",
-          "tecnico-di-servizio-m-f-d-otis-sa-reinach"
+          "servicetechniker-in-m-w-d-otis-sa-reinach"
         ],
         "en": [
           "servicetechniker-in-m-w-d-otis-reinach"
@@ -147,7 +142,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -168,9 +162,9 @@
       "id": "otis-2fe25b9333f6",
       "slug": "tecnico-di-servizio-m-f-d-otis-sa-reinach-e0aa00",
       "slugByLocale": {
-        "de": "servicetechniker-in-m-w-d-otis-reinach",
         "it": "tecnico-di-servizio-m-f-d-otis-sa-reinach-e0aa00",
         "en": "service-technician-m-f-d-otis-sa-reinach-e0aa00",
+        "de": "servicetechniker-in-m-w-d-otis-reinach",
         "fr": "technicien-de-service-h-f-d-otis-sa-reinach-e0aa00"
       },
       "company": "Otis SA",
@@ -192,9 +186,7 @@
       },
       "sourceLang": "de",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Reinach",
       "canton": "BL",
       "addressLocality": "Reinach",
@@ -211,7 +203,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169288",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:41.376Z",
+      "crawledAt": "2026-10-05T09:33:30.101Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -283,15 +275,13 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Supervisor-NE_20168211",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:41.126Z",
+      "crawledAt": "2026-10-05T09:33:29.812Z",
       "previousSlugs": [
-        "supervisor-ne-otis-fribourg",
-        "supervisore-ne-otis-sa-fribourg"
+        "supervisor-ne-otis-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supervisor-ne-otis-fribourg",
-          "supervisore-ne-otis-sa-fribourg"
+          "supervisor-ne-otis-fribourg"
         ],
         "de": [
           "supervisor-ne-otis-fribourg"
@@ -362,9 +352,8 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur--m-w-d-_20167702",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:40.888Z",
+      "crawledAt": "2026-10-05T09:33:29.553Z",
       "firstSeenAt": "2026-09-01T10:16:05.174Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -426,19 +415,16 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Field-Operations-Assistant--FOD-_20165637",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:40.644Z",
+      "crawledAt": "2026-10-05T09:33:29.278Z",
       "previousSlugs": [
-        "field-operations-assistant-fod-otis-fribourg",
-        "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg"
+        "field-operations-assistant-fod-otis-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-operations-assistant-fod-otis-fribourg",
-          "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg"
+          "field-operations-assistant-fod-otis-fribourg"
         ]
       },
       "firstSeenAt": "2026-10-03T09:32:16.023Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -500,7 +486,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in-Modernisierung-und-Ersatzanlagen--m-w-d-_20167792",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:40.379Z",
+      "crawledAt": "2026-10-05T09:33:29.008Z",
       "previousSlugs": [
         "aufzugsmonteur-in-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
         "elevator-fitter-in-modernization-and-replacement-systems-m-f-d-otis-sa-kriens"
@@ -518,7 +504,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:19:02.274Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -541,8 +526,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -580,29 +565,23 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzugsreparateur-in-Service--m-w-d-_20165238",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:40.119Z",
+      "crawledAt": "2026-10-05T09:33:28.728Z",
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsreparateur-in-service-m-w-d-otis-belp",
-          "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp"
+          "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ],
         "de": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp",
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp",
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
           "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
@@ -669,7 +648,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20159274",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:39.874Z",
+      "crawledAt": "2026-10-05T09:33:28.444Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
@@ -748,7 +727,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:39.636Z",
+      "crawledAt": "2026-10-05T09:33:28.152Z",
       "previousSlugs": [
         "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-balerna"
       ],
@@ -758,7 +737,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:41.704Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -820,15 +798,13 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:39.376Z",
+      "crawledAt": "2026-10-05T09:33:27.860Z",
       "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
-        "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-fribourg"
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
-          "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-fribourg"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg"
         ]
       },
       "needsRetranslation": true,
@@ -894,15 +870,13 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:39.109Z",
+      "crawledAt": "2026-10-05T09:33:27.583Z",
       "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
-        "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-martigny"
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
-          "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-martigny"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny"
         ]
       },
       "needsRetranslation": true,
@@ -968,7 +942,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:38.889Z",
+      "crawledAt": "2026-10-05T09:33:27.311Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:48:41.013Z",
       "salaryMin": 68000,
@@ -1032,15 +1006,13 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:38.653Z",
+      "crawledAt": "2026-10-05T09:33:27.034Z",
       "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
-        "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-vernier"
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
-          "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-vernier"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier"
         ]
       },
       "needsRetranslation": true,
@@ -1106,7 +1078,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:38.426Z",
+      "crawledAt": "2026-10-05T09:33:26.760Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-reinach",
         "servicetechniker-m-w-d-otis-sa-reinach",
@@ -1114,8 +1086,7 @@
         "tecnico-di-servizio-m-f-d-otis-sa-reinach",
         "servicetechniker-m-w-d-otis-nenzlingerweg-2",
         "service-technician-m-f-d-otis-sa-reinach",
-        "technicien-des-services-m-f-d-otis-sa-reinach",
-        "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+        "technicien-des-services-m-f-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1124,8 +1095,7 @@
           "tecnico-di-servizio-m-f-d-otis-sa-reinach",
           "servicetechniker-m-w-d-otis-nenzlingerweg-2",
           "service-technician-m-f-d-otis-sa-reinach",
-          "technicien-des-services-m-f-d-otis-sa-reinach",
-          "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+          "technicien-des-services-m-f-d-otis-sa-reinach"
         ],
         "en": [
           "servicetechniker-m-w-d-otis-reinach",
@@ -1202,17 +1172,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:38.165Z",
+      "crawledAt": "2026-10-05T09:33:26.472Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
-        "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen"
+        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
-          "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen"
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
         ],
         "en": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
@@ -1283,17 +1251,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:37.891Z",
+      "crawledAt": "2026-10-05T09:33:26.189Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
-        "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp"
+        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
-          "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp"
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
         ],
         "en": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
@@ -1364,17 +1330,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:37.635Z",
+      "crawledAt": "2026-10-05T09:33:25.899Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
-        "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur"
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
-          "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur"
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
         ],
         "en": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
@@ -1445,15 +1409,14 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:37.373Z",
+      "crawledAt": "2026-10-05T09:33:25.625Z",
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
         "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
         "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
-        "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens",
-        "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+        "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1462,8 +1425,7 @@
           "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
           "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
-          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens",
-          "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
         ],
         "en": [
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
@@ -1540,17 +1502,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:37.131Z",
+      "crawledAt": "2026-10-05T09:33:25.349Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
-        "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach"
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
-          "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach"
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
         ],
         "en": [
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
@@ -1621,7 +1581,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Technische-r-Verkufer-in--m-w-d-_20169865",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:36.876Z",
+      "crawledAt": "2026-10-05T09:33:25.065Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:35:25.753Z",
       "salaryMin": 76000,
@@ -1683,17 +1643,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169211",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:36.614Z",
+      "crawledAt": "2026-10-05T09:33:24.774Z",
       "previousSlugsByLocale": {
         "de": [
-          "account-manager-m-w-d-otis-wallisellen",
-          "sales-manager-aussendienst-m-w-d-otis-dietlikon"
+          "account-manager-m-w-d-otis-wallisellen"
         ],
         "it": [
           "account-manager-m-w-d-otis-dietlikon",
           "sales-manager-aussendienst-m-w-d-otis-dietlikon",
-          "account-manager-m-w-d-otis-wallisellen",
-          "responsabile-vendite-m-f-d-otis-sa-dietlikon"
+          "account-manager-m-w-d-otis-wallisellen"
         ],
         "fr": [
           "sales-manager-aussendienst-m-w-d-otis-dietlikon"
@@ -1702,8 +1660,7 @@
       "previousSlugs": [
         "account-manager-m-w-d-otis-dietlikon",
         "sales-manager-aussendienst-m-w-d-otis-dietlikon",
-        "account-manager-m-w-d-otis-wallisellen",
-        "responsabile-vendite-m-f-d-otis-sa-dietlikon"
+        "account-manager-m-w-d-otis-wallisellen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:03.721Z",
@@ -1725,9 +1682,9 @@
     },
     {
       "id": "otis-df95b6c3ce48",
-      "slug": "account-manager-m-w-d-otis-wallisellen",
+      "slug": "gestore-conto-m-f-d-otis-sa-wallisellen",
       "slugByLocale": {
-        "it": "account-manager-m-w-d-otis-wallisellen",
+        "it": "gestore-conto-m-f-d-otis-sa-wallisellen",
         "en": "account-manager-m-w-d-otis-wallisellen",
         "de": "account-manager-m-w-d-otis-dietlikon",
         "fr": "gestionnaire-de-comptes-h-f-d-otis-sa-dietlikon"
@@ -1766,7 +1723,7 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169212-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:36.366Z",
+      "crawledAt": "2026-10-05T09:33:24.476Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:03.721Z",
       "salaryMin": 134000,
@@ -1786,10 +1743,15 @@
       "addressRegion": "ZH",
       "previousSlugsByLocale": {
         "de": [
+          "account-manager-m-w-d-otis-wallisellen",
           "account-manager-m-w-d-otis-dietlikon"
+        ],
+        "it": [
+          "account-manager-m-w-d-otis-wallisellen"
         ]
       },
       "previousSlugs": [
+        "account-manager-m-w-d-otis-wallisellen",
         "account-manager-m-w-d-otis-dietlikon"
       ]
     },
@@ -1808,7 +1770,7 @@
       "title": "Sales Specialist Neukundengewinnung im Aussendienst (m/w/d)",
       "titleByLocale": {
         "it": "Nuova acquisizione del cliente nel servizio di campo (m/f/d)",
-        "en": "Sales Specialist New Customer Acquisition in Field Sales (m/f/d)",
+        "en": "Sales Specialist Neukundengewinnung im Aussendienst (m/w/d)",
         "de": "Sales Spezialist Neukundengewinnung im Aussendienst (m/w/d)",
         "fr": "Sales Manager Nouvelle acquisition client dans le service sur le terrain (h/f/d)"
       },
@@ -1836,17 +1798,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Recapture-Specialist--m-w-d-_20169213",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:36.106Z",
+      "crawledAt": "2026-10-05T09:33:24.184Z",
       "previousSlugsByLocale": {
         "de": [
-          "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen",
-          "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
+          "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen"
         ],
         "it": [
           "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
           "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
-          "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen",
-          "nuova-acquisizione-del-cliente-nel-servizio-di-campo-m-f-d-otis-sa-dietlikon"
+          "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen"
         ],
         "en": [
           "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
@@ -1858,8 +1818,7 @@
       "previousSlugs": [
         "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
         "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
-        "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen",
-        "nuova-acquisizione-del-cliente-nel-servizio-di-campo-m-f-d-otis-sa-dietlikon"
+        "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-09-24T00:08:03.100Z",
       "salaryMin": 76000,
@@ -1876,7 +1835,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Recapture-Specialist--m-w-d-_20169213",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "otis-0c830d29685d",
@@ -1921,17 +1881,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20164337",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:35.853Z",
+      "crawledAt": "2026-10-05T09:33:23.881Z",
       "previousSlugsByLocale": {
         "de": [
-          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen",
-          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon"
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen"
         ],
         "it": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-dietlikon",
-          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen",
-          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-dietlikon"
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen"
         ],
         "en": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon"
@@ -1943,11 +1901,9 @@
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-dietlikon",
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen",
-        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-dietlikon"
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-13T10:19:36.343Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -2007,17 +1963,15 @@
       "postingDateSource": "reported",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-04T21:37:35.605Z",
+      "crawledAt": "2026-10-05T09:33:23.575Z",
       "previousSlugsByLocale": {
         "de": [
-          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen",
-          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen"
         ],
         "it": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
-          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen",
-          "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon"
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen"
         ],
         "en": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
@@ -2029,11 +1983,9 @@
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
-        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen",
-        "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon"
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-11T21:48:39.808Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",

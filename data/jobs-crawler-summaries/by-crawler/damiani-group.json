@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-04T21:14:10.893Z",
+  "generatedAt": "2026-10-05T09:18:52.150Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 6921,
-  "avgDurationMs": 6921,
+  "durationMs": 5999,
+  "avgDurationMs": 5999,
   "durationHistory": [
-    6921
+    5999
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,6 +50,7 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -380,7 +381,6 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -390,5 +390,5 @@
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

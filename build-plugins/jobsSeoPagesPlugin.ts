@@ -20,6 +20,7 @@ import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendatio
 import fs from 'node:fs';
 import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
+import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries';
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -1601,9 +1602,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  try {
  const blogDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'blog-articles-data.ts'), 'utf-8');
- const articleBlocks = [...blogDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/gs)];
- recentArticles = articleBlocks
- .map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }))
+ // Field-order-independent read: the previous regex required `image:` right
+ // after `date:`, so an article with `updatedAt` in between could never be
+ // listed here. `date: ''` (unknown) stays excluded, as before.
+ recentArticles = parseArticleRegistryEntries(blogDataSrc)
+ .filter(a => a.date !== '')
+ .map(({ id, category, date, image }) => ({ id, category, date, image }))
  .sort((a, b) => b.date.localeCompare(a.date))
  .slice(0, 5);
  } catch { /* non-fatal */ }
