@@ -1544,6 +1544,16 @@ const allOf = (...cues) => new RegExp(
   [...new Set(cues.flatMap((cue) => cue.flags.replace('g', '').split('')))].join(''),
 );
 
+// The ±120-character window is useful for a single cue, but it is too wide
+// when a composed guard asks whether two facts belong to the same claim. Keep
+// those callers on the statement that contains the acronym: `statementSpans`
+// cuts at sentence punctuation and at a semicolon followed by a new clause,
+// while preserving the existing list-item boundaries.
+function statementContaining(text, index, spans) {
+  const span = spans.find(({ start, end }) => index >= start && index < end);
+  return span ? text.slice(span.start, span.end) : '';
+}
+
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
@@ -1605,14 +1615,15 @@ export const FABRICATED_NORM_ACRONYMS = [
     // frontalieri, lavoro) nella finestra; `benign` assolve la citazione di un
     // articolo («art. 84a LTF», «art. 82 segg. LTF») e il nome per esteso
     // della legge vera («Legge sul Tribunale federale (LTF)»); `veto` assolve
-    // l'occorrenza che ha il Tribunale federale nella stessa finestra, cioe'
-    // il contesto giudiziario anche quando il tema e' fiscale.
+    // l'occorrenza che ha il Tribunale federale nella stessa frase/clausola,
+    // cioe' il contesto giudiziario anche quando il tema e' fiscale.
     acronym: 'LTF',
-    re: /(?<![A-Za-z])LTF(?![A-Za-z])/,
+    re: /(?<![A-Za-z])LTF(?![A-Za-z])/i,
     real: 'nessuna legge fiscale/sul lavoro si chiama LTF: la LTF vera è la Legge sul Tribunale federale (RS 173.110). Imposta federale diretta → LIFD (RS 642.11, 14 dicembre 1990); frontalieri italiani → Accordo Svizzera-Italia del 23 dicembre 2020; lavoro → LL (RS 822.11); tirocinio → LFPr (RS 412.10)',
     context: FISCAL_LABOUR_CUE,
     benign: /(?:\bart\.?\s*\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
     veto: JUDICIAL_CUE,
+    vetoScope: 'statement',
     contextWindow: 120,
   },
   {
@@ -1621,7 +1632,7 @@ export const FABRICATED_NORM_ACRONYMS = [
     // contesto e' la citazione di una norma, come per LCL: `LMA` fuori da una
     // citazione (una sigla medica, un'azienda) resta libera.
     acronym: 'LMA',
-    re: /(?<![A-Za-z])LMA(?![A-Za-z])/,
+    re: /(?<![A-Za-z])LMA(?![A-Za-z])/i,
     real: "non esiste: la legge sugli stranieri è la LStrI (RS 142.20, 16 dicembre 2005), l'asilo è la LAsi (RS 142.31); per i frontalieri UE vale l'ALC (RS 0.142.112.681)",
     context: NORM_CITATION_CUE,
     benign: benignNormEntity('LMA'),
@@ -1634,10 +1645,11 @@ export const FABRICATED_NORM_ACRONYMS = [
     // Serve la citazione E il tema fiscale/del lavoro, perche' una sigla di
     // tre lettere puo' essere una legge cantonale vera di un altro dominio.
     acronym: 'LRF',
-    re: /(?<![A-Za-z])LRF(?![A-Za-z])/,
+    re: /(?<![A-Za-z])LRF(?![A-Za-z])/i,
     real: "non esiste: l'imposta federale diretta è la LIFD (RS 642.11, 14 dicembre 1990); il diritto del lavoro è il CO (RS 220) con la LL (RS 822.11)",
     context: allOf(NORM_CITATION_CUE, FISCAL_LABOUR_CUE),
     benign: benignNormEntity('LRF'),
+    contextScope: 'statement',
     contextWindow: 120,
   },
   {
@@ -1645,12 +1657,13 @@ export const FABRICATED_NORM_ACRONYMS = [
     // Operational Technology degli articoli di cybersicurezza («IT e OT»),
     // quindi il contesto chiede una ordinanza E la tassazione, non uno dei due.
     acronym: 'OT',
-    re: /(?<![A-Za-z])OT(?![A-Za-z])/,
+    re: /(?<![A-Za-z])OT(?![A-Za-z])/i,
     real: "non esiste un'«Ordinanza sulla tassazione del reddito»: l'imposta federale diretta è la LIFD (RS 642.11) con le sue ordinanze di esecuzione",
     context: allOf(
       /\b(?:ordinanz[ae]|Verordnung|ordonnance|ordinance)\b/i,
       /(?:tassazion|imposizion|Besteuerung|imposition|taxation)/i,
     ),
+    contextScope: 'statement',
     contextWindow: 120,
   },
 ];
@@ -1672,7 +1685,8 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text) return issues;
   const locale = opts.locale || 'it';
-  for (const { acronym, re, real, context, benign, veto, contextWindow } of FABRICATED_NORM_ACRONYMS) {
+  const statements = statementSpans(text);
+  for (const { acronym, re, real, context, benign, veto, contextScope, vetoScope, contextWindow } of FABRICATED_NORM_ACRONYMS) {
     // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
     // calls, and this table is module-level shared state. Lo scan qui sotto
     // usa quindi un CLONE locale con flag `g`, mai la regex della tabella:
@@ -1695,12 +1709,16 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
         // nell'intera finestra farebbe assolvere una seconda citazione legale
         // solo perche' 80 caratteri prima compariva «il gruppo LFW».
         const throughMatch = text.slice(Math.max(0, m.index - w), m.index + m[0].length);
+        const statement = (contextScope === 'statement' || vetoScope === 'statement')
+          ? statementContaining(text, m.index, statements)
+          : '';
         if (benign?.test(throughMatch)) continue;
-        // `veto`: il segno dell'omonimo REALE nella finestra (per `LTF` il
-        // Tribunale federale). Assolve solo l'occorrenza corrente: lo scan
-        // prosegue e una fabbricazione piu' in basso viene ancora vista.
-        if (veto?.test(nearby)) continue;
-        if (context && !context.test(nearby)) continue;
+        // `veto`: il segno dell'omonimo REALE nella frase/clausola corrente
+        // (per `LTF` il Tribunale federale). Assolve solo l'occorrenza
+        // corrente: lo scan prosegue e una fabbricazione piu' in basso viene
+        // ancora vista.
+        if (veto?.test(vetoScope === 'statement' ? statement : nearby)) continue;
+        if (context && !context.test(contextScope === 'statement' ? statement : nearby)) continue;
       }
       issues.push(issue(
         'fabricated-norm-acronym',

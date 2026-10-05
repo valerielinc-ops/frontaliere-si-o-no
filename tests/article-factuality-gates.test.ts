@@ -977,6 +977,15 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(codes(issues)).toContain('fabricated-norm-acronym');
   });
 
+  it('does not let a judicial sentence veto a later fabricated LTF', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha deciso il ricorso. '
+      + 'La legge federale sul lavoro transfrontaliero (LTF) stabilisce i requisiti.',
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-norm-acronym');
+  });
+
   it('flags the invented LMA, LRF and OT citations and leaves their homonyms alone', () => {
     const frasiInventate = [
       'Secondo la legge federale sulla migrazione (LMA), il permesso di dimora B può essere concesso dopo due anni.',
@@ -996,6 +1005,25 @@ describe('checkFabricatedNormAcronyms', () => {
     for (const frase of omonimi) {
       expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
     }
+  });
+
+  it('does not combine allOf cues across separate sentences', () => {
+    expect(checkFabricatedNormAcronyms(
+      'IT e OT sono usati nella sicurezza. La nuova ordinanza sulla tassazione è stata pubblicata.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La nuova ordinanza sulla tassazione è stata pubblicata. La legge cantonale sul turismo (LRF) è contestata.',
+    )).toEqual([]);
+  });
+
+  it('matches the new normative acronym guards case-insensitively', () => {
+    const frasi = [
+      'La legge federale sul lavoro transfrontaliero (ltf)',
+      'La legge federale sulla migrazione (lma)',
+      'La legge federale sul reddito (lrf)',
+      'Ordinanza sulla tassazione del reddito (ot)',
+    ];
+    expect(frasi.map((frase) => checkFabricatedNormAcronyms(frase).length)).toEqual([1, 1, 1, 1]);
   });
 
   // Le regex della tabella sono module-level e condivise fra le chiamate: con
