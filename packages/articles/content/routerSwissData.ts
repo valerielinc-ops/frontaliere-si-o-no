@@ -2596,6 +2596,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'formazione-continua-zurigo-contributi': { it: 'formazione-continua-zurigo-contributi', en: 'zurich-continuing-education-grants', de: 'weiterbildung-zuerich-beitraege', fr: 'formation-continue-zurich-subventions' },
  'salario-minimo-berna-guida': { it: 'salario-minimo-berna-guida', en: 'bern-minimum-wage-rules', de: 'mindestlohn-bern-anwendung', fr: 'salaire-minimum-berne-application' },
  'sostegno-sociale-berna-procedura': { it: 'sostegno-sociale-berna-procedura', en: 'social-assistance-bern-application', de: 'sozialhilfe-bern-antrag', fr: 'aide-sociale-berne-demande' },
+ 'veicoli-berna-calcolo-pratico': { it: 'veicoli-berna-calcolo-pratico', en: 'bern-vehicle-tax-calculation-payment', de: 'bern-autosteuer-berechnung-zahlung', fr: 'berne-impot-vehicules-calcul-paiement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
