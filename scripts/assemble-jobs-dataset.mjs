@@ -82,7 +82,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
-import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
+import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
 import {
@@ -2928,9 +2928,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // guard runs would make the guard recapture the same contamination onto the
   // claimant. Include every existing slice in the owner index so the writer
   // covers cross-file owners as well as the current payload's same-file ones.
-  // The fresh payload is the only source entry: unrelated claimant slices are
-  // not rewritten by every crawler run, while a target slice is written first
-  // by decontaminateEntries before the claimant's deliberate guard-off write.
+  // Scan every active slice as a source as well as an owner namespace. A new
+  // posting can appear after its old alias was attached to a sibling slice;
+  // restricting the source set to the fresh payload leaves that stale claimant
+  // in place forever. The pass only writes entries with a redirect or pruned
+  // bucket, so the fleet-wide scan is order-independent without rewriting
+  // unrelated slices.
   const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
     .filter((filePath) => filePath !== slicePath)
     .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
@@ -2938,7 +2941,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   const currentEntry = { filePath: slicePath, slice: payload };
   const ownership = decontaminateEntries(
     [...fleetEntries, currentEntry],
-    { sourceEntries: [currentEntry], apply: true },
+    { sourceEntries: [...fleetEntries, currentEntry], apply: true },
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
@@ -3796,7 +3799,16 @@ function assembleExpiredJobs() {
  * Returns: { driftCount, mergedSlugs }.
  */
 export function trackSlugHistoryDrift(priorJobs, activeJobs) {
+  if (!Array.isArray(activeJobs)) {
+    return { driftCount: 0, mergedSlugs: 0 };
+  }
+
   if (!Array.isArray(priorJobs) || priorJobs.length === 0) {
+    // The assembled writer can receive a snapshot without a prior run (or a
+    // partially recovered one). Still apply the ownership ratchet: an alias
+    // whose URL-derived hash identifies a different active job must never be
+    // left on the claimant merely because there was no carry-forward pass.
+    decontaminateJobs(activeJobs);
     return { driftCount: 0, mergedSlugs: 0 };
   }
 
@@ -3876,6 +3888,12 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
 
     if (driftedThisJob) driftCount++;
   }
+
+  // Carry-forward is deliberately defensive and may replay a contaminated
+  // assembled snapshot. Reconcile after the whole fleet is present, so the
+  // stable URL-derived owner wins regardless of crawler/job iteration order.
+  // The helper is idempotent: a second writer pass sees no redirect plan.
+  decontaminateJobs(activeJobs);
 
   return { driftCount, mergedSlugs };
 }
