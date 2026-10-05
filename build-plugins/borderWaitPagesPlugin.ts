@@ -166,7 +166,7 @@ export function buildBorderWaitLeafTitle(
 ): string {
   const { corridor, route } = crossingTitleParts(crossingDisplay);
   const place = route ? `${route} — ${corridor}` : corridor;
-  const candidates: Record<BorderWaitLocale, string[]> = {
+  const candidatesByLocale: Record<BorderWaitLocale, string[]> = {
     it: route
       ? [`Tempi attesa ${place}`, `Dogana ${place}`, `Tempi ${route}`, `Dogana ${route}`]
       : [`Tempi attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi attesa ${place}`],
@@ -179,7 +179,8 @@ export function buildBorderWaitLeafTitle(
     fr: route
       ? [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${route}`, `Douane ${route}`]
       : [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${corridor}`],
-  }[locale];
+  };
+  const candidates = candidatesByLocale[locale];
   return candidates.find((candidate) => [...candidate].length <= TITLE_MAX_CHARS)
     ?? candidates[candidates.length - 1];
 }
