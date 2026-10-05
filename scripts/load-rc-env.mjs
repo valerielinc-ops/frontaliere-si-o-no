@@ -360,6 +360,16 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Eventfrog Public API, Ticino ephemeral event pages (owner decision D5,
+  // 2026-10-05). EVENTFROG_ENABLED is the switch of the whole source — the
+  // daily sync (crawl-events.yml), the snapshot download (deploy.yml) and the
+  // page emission; absent or anything but `true` keeps it off. The key and its
+  // expiry date (YYYY-MM-DD, for the renewal warning) are created by the owner
+  // on eventfrog.ch. Site-only on purpose: the corpus must never be able to
+  // read Eventfrog data (AGB §17(3)/(6)), so its loader does not map them.
+  EVENTFROG_ENABLED:              ['EVENTFROG_ENABLED'],
+  EVENTFROG_PUBLIC_API_KEY:       ['EVENTFROG_PUBLIC_API_KEY'],
+  EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT: ['EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT'],
   // Exact-job application-intent ranking (#9934); absent/false stays control.
   APPLICATION_INTENT_RANKING_ENABLED: ['APPLICATION_INTENT_RANKING_ENABLED'],
   // Job-email ranking (#7922), affinity variant since 2026-10: kill switch,
