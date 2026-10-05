@@ -161,6 +161,19 @@ describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il so
     }
   });
 
+  it('classifica copertura incompleta, mancata pubblicazione e update falliti come difetti', () => {
+    const findings = [
+      'sitemap coverage is incomplete',
+      'sitemap was never published',
+      'sitemap update failed',
+    ];
+    for (const finding of findings) {
+      expect(isGenuineCanonicalSitemapFinding(finding), finding).toBe(true);
+      expect(bucketFinding('🔴 Important: ' + finding), finding).toBe('canonical-sitemap');
+    }
+    expect(isGenuineCanonicalSitemapFinding('sitemap includes every URL')).toBe(false);
+  });
+
   it('mantiene i difetti SEO espliciti anche quando il testo contiene canonical', () => {
     const findings = [
       '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',

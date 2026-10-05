@@ -60,6 +60,13 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
   });
 
+  it('rejects an empty creator @type array before emitting JSON-LD', () => {
+    expect(() => imageObjectLd({
+      contentUrl: 'https://example.com/image.jpg',
+      creator: { '@type': [], name: 'Invalid creator' } as never,
+    })).toThrow(/creator @type array must include an Organization type/);
+  });
+
   it.each([
     'Organization' as const,
     'NewsMediaOrganization' as const,

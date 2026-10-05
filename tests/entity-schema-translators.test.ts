@@ -291,6 +291,20 @@ describe('translateDataset', () => {
  expect(obj.creator.name).toBe('SECO — State Secretariat for Economic Affairs');
  });
 
+ it('translates creator when @type contains Organization in an array', () => {
+ const obj: Record<string, any> = {
+ '@type': 'Dataset',
+ creator: {
+ '@type': ['NewsMediaOrganization', 'Organization'],
+ name: "SECO — Segreteria di Stato dell'economia",
+ url: 'https://www.seco.admin.ch',
+ },
+ };
+ translateDataset(obj, 'en');
+ expect(obj.creator.name).toBe('SECO — State Secretariat for Economic Affairs');
+ expect(obj.creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
+ });
+
  it('leaves unknown Dataset untouched', () => {
  const obj: Record<string, any> = {
  '@type': 'Dataset',

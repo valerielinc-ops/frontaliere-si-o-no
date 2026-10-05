@@ -634,10 +634,14 @@ const SITEMAP_NEUTRAL_ACTIVITY_RE =
 const SITEMAP_EXPLICIT_DEFECT_RE =
   /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
 
+const SITEMAP_EXPLICIT_DEFECT_EXTENSION_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:incomplete|failed|never\s+published)\b|\b(?:incomplete|failed|never\s+published)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
 export function isGenuineCanonicalSitemapFinding(text) {
   const s = String(text || '');
   if (!s) return false;
-  if (/\bsitemaps?\b/i.test(s) && SITEMAP_NEUTRAL_ACTIVITY_RE.test(s) && !SITEMAP_EXPLICIT_DEFECT_RE.test(s)) return false;
+  if (/\bsitemaps?\b/i.test(s) && SITEMAP_NEUTRAL_ACTIVITY_RE.test(s)
+      && !SITEMAP_EXPLICIT_DEFECT_RE.test(s) && !SITEMAP_EXPLICIT_DEFECT_EXTENSION_RE.test(s)) return false;
   // noindex is an SEO indexing directive by definition; the negated-impact
   // strip has already removed the "not touched" recap when this is called from
   // bucketFinding().

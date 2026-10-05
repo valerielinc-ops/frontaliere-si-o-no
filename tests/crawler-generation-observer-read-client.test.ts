@@ -171,8 +171,8 @@ describe.each([
 
   // FU-2026-09-29-005: the cap is inclusive. A body of exactly maxBytes is
   // read whole; one byte more is the oversize verdict. The reader lock is
-  // released on both paths, and only the oversize one cancels the stream.
-  function trackedResponse(chunks: Array<ArrayBuffer | ArrayBufferView>) {
+  // released on every path; oversize and invalid-chunk verdicts cancel it.
+  function trackedResponse(chunks: unknown[]) {
     const queue = [...chunks];
     const calls = { cancelled: 0, released: 0 };
     const reader = {
@@ -275,10 +275,10 @@ describe.each([
   });
 
   it('refuses a chunk that is not bytes without retrying it', async () => {
-    const { response, calls } = trackedResponse(['{"ok":1}' as unknown as ArrayBufferView]);
+    const { response, calls } = trackedResponse(['{"ok":1}']);
     const { result, fetchImpl } = await readWith(load, response, 64);
     await expect(result).rejects.toThrow(/github_api_invalid/);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
-    expect(calls.released).toBe(1);
+    expect(calls).toEqual({ cancelled: 1, released: 1 });
   });
 });
