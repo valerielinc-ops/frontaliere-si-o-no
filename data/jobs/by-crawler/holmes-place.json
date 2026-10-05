@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-10-05T09:30:56.319Z",
+  "assembledAt": "2026-10-05T21:40:04.900Z",
   "jobs": [
     {
       "id": "holmes-place-2936eefd975e",
@@ -33,7 +33,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.807Z",
+      "crawledAt": "2026-10-05T21:39:58.024Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -99,7 +99,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.806Z",
+      "crawledAt": "2026-10-05T21:39:58.023Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -149,9 +149,9 @@
     },
     {
       "id": "holmes-place-d268418edb73",
-      "slug": "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich",
+      "slug": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich",
       "slugByLocale": {
-        "it": "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich",
+        "it": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich",
         "en": "group-fitness-instructor-m-f-d-holmes-place-zurich",
         "de": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
         "fr": "instructeur-de-fitness-de-groupe-h-f-d-holmes-place-zurich"
@@ -161,7 +161,7 @@
       "companyDomain": "holmesplace.ch",
       "title": "Gruppenfitness-Instruktor (m/f/d)",
       "titleByLocale": {
-        "it": "Istruttore di fitness di gruppo (m/f/d)",
+        "it": "Gruppenfitness-Instruktor (m/f/d)",
         "en": "Group Fitness Instructor (m/f/d)",
         "de": "Gruppenfitness-Instruktor (m/f/d)",
         "fr": "Instructeur de fitness de groupe (h/f/d)"
@@ -178,7 +178,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.804Z",
+      "crawledAt": "2026-10-05T21:39:58.018Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -199,12 +199,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
-        "gruppenfitness-instruktor-m-w-d-holmes-place-zurich"
+        "gruppenfitness-instruktor-m-w-d-holmes-place-zurich",
+        "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
-          "gruppenfitness-instruktor-m-w-d-holmes-place-zurich"
+          "gruppenfitness-instruktor-m-w-d-holmes-place-zurich",
+          "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich"
         ],
         "en": [
           "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d"
@@ -214,6 +216,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T21:22:53.190Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -259,7 +262,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.799Z",
+      "crawledAt": "2026-10-05T21:39:58.011Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -325,7 +328,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.798Z",
+      "crawledAt": "2026-10-05T21:39:58.008Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",

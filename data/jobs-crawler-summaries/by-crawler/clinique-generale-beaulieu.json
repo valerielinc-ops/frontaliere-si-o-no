@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-10-05T09:32:05.971Z",
+  "generatedAt": "2026-10-05T21:40:24.817Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5700,
-  "avgDurationMs": 5700,
+  "durationMs": 5941,
+  "avgDurationMs": 5941,
   "durationHistory": [
-    5700
+    5941
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153323339-infirmier-ere-chirurgie-nuit",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:31:57.491Z",
+      "crawledAt": "2026-10-05T21:40:11.398Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:32:00.350Z",
+      "crawledAt": "2026-10-05T21:40:11.397Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
