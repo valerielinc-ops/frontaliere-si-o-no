@@ -1,7 +1,7 @@
 /**
  * Builds the TikTok robot transport video from the same JPEG carousel slides
- * the API path receives. The API path never imports this module: the video is
- * prepared only when the poster may need the Playwright queue.
+ * the API path receives. The API publish path never invokes this renderer: the
+ * video is prepared only when the poster may need the Playwright queue.
  */
 import { createHash } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';

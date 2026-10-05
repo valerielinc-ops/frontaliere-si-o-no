@@ -40,7 +40,7 @@ export const DEFAULT_SOCIAL_ROBOT_MODE = 'dry';
 export const SOCIAL_ROBOT_MODE_ENV = 'SOCIAL_ROBOT_MODE';
 export const QUEUE_SCHEMA_VERSION = 1;
 
-/** The images the robot downloads come only from the site's own CDN. */
+/** Social assets the robot downloads come only from the site's own CDN. */
 export const SOCIAL_IMAGE_ORIGIN = 'https://cdn.frontaliereticino.ch';
 
 /**
