@@ -18,6 +18,8 @@
 // NOTE: Strings intentionally avoid accented characters where the source
 // avoids them (Swiss-German umlaut rendering under ASCII-safe build).
 
+import { isOrganizationCreatorType } from './imageObjectLd';
+
 export type SupportedLocale = 'en' | 'de' | 'fr';
 
 interface LocalizedText {
@@ -825,7 +827,7 @@ export function translateDataset(
  // Translate nested creator (Organization).
  if (obj.creator && typeof obj.creator === 'object' && !Array.isArray(obj.creator)) {
  const creator = obj.creator as Record<string, any>;
- if (creator['@type'] === 'Organization') {
+ if (isOrganizationCreatorType(creator['@type'])) {
  translateOrganization(creator, locale);
  }
  }

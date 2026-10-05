@@ -168,6 +168,10 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     throw new Error('imageObjectLd: contentUrl (or url) is required');
   }
 
+  if (creator && Array.isArray(creator['@type']) && !isOrganizationCreatorType(creator['@type'])) {
+    throw new Error('imageObjectLd: creator @type array must include an Organization type');
+  }
+
   const resolvedCreator: ImageCreator = creator
     ? {
       ...creator,
