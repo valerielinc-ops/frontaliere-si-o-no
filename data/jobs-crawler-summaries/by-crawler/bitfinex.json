@@ -1,7 +1,7 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-10-04T21:16:43.975Z",
+  "generatedAt": "2026-10-05T09:19:17.328Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2650,
-  "avgDurationMs": 2650,
+  "durationMs": 2301,
+  "avgDurationMs": 2301,
   "durationHistory": [
-    2650
+    2301
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://bitfinex.recruitee.com/o/transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-9",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:37.094Z",
+      "crawledAt": "2026-10-05T09:19:10.777Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -47,8 +49,9 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-21",
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.bitfinex.com/o/transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-9/c/new",
       "department": "Compliance",
       "needsRetranslation": true,
@@ -56,16 +59,16 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
