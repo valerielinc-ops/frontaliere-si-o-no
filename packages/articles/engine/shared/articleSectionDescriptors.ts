@@ -43,7 +43,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { ARTICLE_SECTION_CORE } from './articleSectionCore.mjs';
+import { ARTICLE_SECTION_CORE_LIST } from './articleSectionCore.mjs';
 import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
 // @ts-ignore The site symlink can make tsc resolve this shared source from
 // build-plugins/shared, where this engine-local sibling is not visible at the
@@ -54,8 +54,17 @@ function isMissingPathError(error: unknown): boolean {
  return (error as NodeJS.ErrnoException).code === 'ENOENT';
 }
 
+type SectionKind = 'frontaliere' | 'national' | 'canton';
+/** Same open shape as `ArticleSection` in `articleSections.ts` (not imported: see the seo-entry note above). */
+type SectionId = 'frontaliere' | 'svizzera' | `canton-${string}`;
+
 export interface OgSection {
- name: 'frontaliere' | 'svizzera';
+ /** Section id: `frontaliere`, `svizzera` or `canton-<code>`. */
+ name: SectionId;
+ /** Editorial family from the core — what renderer branches look up instead of `name`. */
+ kind: SectionKind;
+ /** Pages-shard token (`articolifrontaliere`, …); `null` for canton sections (R2). */
+ shardKey: string | null;
  seoFiles: string[];
  canonicalPrefix: string;
  bodyDir: string;
@@ -77,10 +86,56 @@ export interface OgSection {
  canonicalOverrides: readonly string[];
 }
 
+interface CoreEntry {
+ section: SectionId;
+ kind: SectionKind;
+ shardKey: string | null;
+ indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
+ bodyDir: string;
+ metaPrefix: string;
+ registryFile: string;
+ slugDataFile: string;
+ slugConst: string;
+}
+
+/**
+ * The fields that are local to THIS shape, per section kind (they are not in
+ * the core tuple because no other consumer needs them). The frontaliere and
+ * national rows are the two literals this module held before the table: same
+ * seoFiles, sitemap and override candidates. The canton row derives the same
+ * fields from the section id (`seo-blog-canton-<code>.ts`,
+ * `sitemap-articles-<id>.xml`) and has no canonical-override map yet: a canton
+ * section starts empty, so every page is self-canonical by construction.
+ */
+const KIND_LOCAL_FIELDS: Record<SectionKind, (core: CoreEntry) => Pick<OgSection, 'seoFiles' | 'sitemap' | 'canonicalOverrides'>> = {
+ frontaliere: () => ({
+ seoFiles: ['services/seo/seo-blog.ts',
+ ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
+ sitemap: 'public/sitemap-blog.xml',
+ canonicalOverrides: CANONICAL_OVERRIDE_FILES.frontaliere,
+ }),
+ national: () => ({
+ seoFiles: ['services/seo/seo-blog-ch.ts'],
+ sitemap: 'public/sitemap-blog-ch.xml',
+ canonicalOverrides: CANONICAL_OVERRIDE_FILES.svizzera,
+ }),
+ canton: (core) => ({
+ seoFiles: [`services/seo/seo-blog-${core.section}.ts`],
+ sitemap: `public/sitemap-articles-${core.section}.xml`,
+ canonicalOverrides: [],
+ }),
+};
+
 /** Project a core entry onto the field names/shape this module's consumers expect. */
-function coreFields(id: 'frontaliere' | 'svizzera') {
- const core = ARTICLE_SECTION_CORE[id];
+function descriptorFor(core: CoreEntry): OgSection {
+ const local = KIND_LOCAL_FIELDS[core.kind];
+ if (!local) throw new Error(`articleSectionDescriptors: tipo di sezione non gestito "${core.kind}" (${core.section})`);
  return {
+ name: core.section,
+ kind: core.kind,
+ shardKey: core.shardKey,
+ ...local(core),
+ canonicalPrefix: `/${core.indexSlug.it}/`,
  bodyDir: core.bodyDir,
  metaPrefix: core.metaPrefix,
  registry: core.registryFile,
@@ -90,25 +145,14 @@ function coreFields(id: 'frontaliere' | 'svizzera') {
  };
 }
 
-export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
- {
- name: 'frontaliere',
- seoFiles: ['services/seo/seo-blog.ts',
- ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
- canonicalPrefix: '/articoli-frontaliere/',
- sitemap: 'public/sitemap-blog.xml',
- canonicalOverrides: CANONICAL_OVERRIDE_FILES.frontaliere,
- ...coreFields('frontaliere'),
- },
- {
- name: 'svizzera',
- seoFiles: ['services/seo/seo-blog-ch.ts'],
- canonicalPrefix: '/articoli-svizzera/',
- sitemap: 'public/sitemap-blog-ch.xml',
- canonicalOverrides: CANONICAL_OVERRIDE_FILES.svizzera,
- ...coreFields('svizzera'),
- },
-];
+/**
+ * One descriptor per ACTIVE section, in core order (frontaliere, svizzera,
+ * then any activated canton). Derived from `ARTICLE_SECTION_CORE_LIST`, so
+ * while no canton is active this is exactly the two hand-written entries it
+ * replaced.
+ */
+export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] =
+ (ARTICLE_SECTION_CORE_LIST as unknown as CoreEntry[]).map(descriptorFor);
 
 /**
  * Find every `'blog-<slug>': {` entry-key position in a `seoFiles` source

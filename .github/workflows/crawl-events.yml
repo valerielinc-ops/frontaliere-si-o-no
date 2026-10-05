@@ -6,6 +6,9 @@ name: Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitze
 # tio.ch agenda (Ticino only), guidle.com and myswitzerland.com (all of
 # Switzerland), and geneve.ch/agenda (GE — pilot canton validating the
 # reusable createAgendaCrawler factory, scripts/lib/agenda-crawler-factory.mjs).
+# Cantonal agendas on the same factory (P9a, 2026-10-05): fr.ch (FR, event RSS)
+# and the iCMS agendas nw.ch (NW), ow.ch (OW), stadtluzern.ch (LU) — one
+# isolated step each, surfaced after publication like the GE pilot.
 # Each writes its own per-source slice
 # (data/events/by-source/<key>.json); scripts/assemble-events-dataset.mjs
 # merges them (by-id, then a cross-source fuzzy dedup pass) into
@@ -270,6 +273,33 @@ jobs:
         continue-on-error: true
         run: node scripts/crawl-ge-agenda.mjs
 
+      # Cantonal agendas (P9a). Same isolation contract as the GE pilot: a
+      # failing source never blocks assemble/gate/publish for the others, and
+      # its "Surface …" twin below fails the job after publication.
+      - name: Crawl fr.ch agenda (FR)
+        id: crawl-fr
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-fr-agenda.mjs
+
+      - name: Crawl nw.ch agenda (NW)
+        id: crawl-nw
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source nw-agenda
+
+      - name: Crawl ow.ch agenda (OW)
+        id: crawl-ow
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source ow-agenda
+
+      - name: Crawl stadtluzern.ch agenda (LU)
+        id: crawl-lu
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source lu-stadt-agenda
+
       - name: Persist nationwide checkpoints + slices (survives downstream failures)
         id: persist-nationwide
         # The "Persist geo/translation caches" step above runs BEFORE guidle and
@@ -422,9 +452,11 @@ jobs:
             --path data/events-image-manifest.json
             --path data/events/checkpoints/
           )
-          if [ -f data/events/by-source/ge-agenda.json ]; then
-            paths+=(--path data/events/by-source/ge-agenda.json)
-          fi
+          for source in ge-agenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda; do
+            if [ -f "data/events/by-source/${source}.json" ]; then
+              paths+=(--path "data/events/by-source/${source}.json")
+            fi
+          done
           bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \
             --resolve-symlinks \
@@ -464,6 +496,22 @@ jobs:
             exit 1
           fi
 
+      - name: Surface cantonal agenda crawl failures (continue-on-error must not hide them)
+        # Twin of the GE/MySwitzerland steps above for the P9a cantonal
+        # agendas: runs after publication either way and fails the job when
+        # any of them failed, naming which.
+        if: always()
+        run: |
+          failed=""
+          [ "${{ steps.crawl-fr.outcome }}" = "failure" ] && failed="$failed fr.ch"
+          [ "${{ steps.crawl-nw.outcome }}" = "failure" ] && failed="$failed nw.ch"
+          [ "${{ steps.crawl-ow.outcome }}" = "failure" ] && failed="$failed ow.ch"
+          [ "${{ steps.crawl-lu.outcome }}" = "failure" ] && failed="$failed stadtluzern.ch"
+          if [ -n "$failed" ]; then
+            echo "::error::Cantonal agenda crawl failed this run:${failed} — previous slices kept, the other sources were published via continue-on-error; this needs investigation."
+            exit 1
+          fi
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
@@ -493,6 +541,10 @@ jobs:
           - Crawl guidle.com (nationwide): ${{ steps.crawl-guidle.outcome }}
           - Crawl myswitzerland.com (nationwide): ${{ steps.crawl-myswitzerland.outcome }}
           - Crawl geneve.ch agenda (GE, pilot): ${{ steps.crawl-ge.outcome }}
+          - Crawl fr.ch agenda (FR): ${{ steps.crawl-fr.outcome }}
+          - Crawl nw.ch agenda (NW): ${{ steps.crawl-nw.outcome }}
+          - Crawl ow.ch agenda (OW): ${{ steps.crawl-ow.outcome }}
+          - Crawl stadtluzern.ch agenda (LU): ${{ steps.crawl-lu.outcome }}
           - Assemble events dataset: ${{ steps.assemble.outcome }}
           - Refresh weekend-digest article: ${{ steps.digest.outcome }}
           - Gate (vitest): ${{ steps.gate.outcome }}

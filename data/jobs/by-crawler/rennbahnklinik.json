@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-10-04T21:21:10.121Z",
+  "assembledAt": "2026-10-05T09:25:02.518Z",
   "jobs": [
     {
       "id": "rennbahnklinik-56d6e1ef71bf",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:05.521Z",
+      "crawledAt": "2026-10-05T09:24:57.231Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "requirements": [],
       "requirementsByLocale": {
@@ -141,7 +143,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mpa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:04.305Z",
+      "crawledAt": "2026-10-05T09:24:55.853Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -155,7 +157,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/mpa",
       "requirements": [],
       "requirementsByLocale": {
@@ -213,7 +215,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "rennbahnklinik-3d9ef18a62e5",
@@ -247,7 +251,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:03.257Z",
+      "crawledAt": "2026-10-05T09:24:54.670Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -261,7 +265,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "requirements": [],
       "requirementsByLocale": {
@@ -367,7 +373,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:01.973Z",
+      "crawledAt": "2026-10-05T09:24:53.485Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -381,7 +387,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "requirements": [],
       "requirementsByLocale": {
@@ -459,7 +467,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:00.760Z",
+      "crawledAt": "2026-10-05T09:24:52.322Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -473,7 +481,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "requirements": [],
       "requirementsByLocale": {
@@ -512,7 +520,9 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "rennbahnklinik-a92ddbd0cad4",
@@ -546,7 +556,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/empfangsmitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:59.427Z",
+      "crawledAt": "2026-10-05T09:24:51.188Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -560,7 +570,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/empfangsmitarbeiter-in",
       "requirements": [],
       "requirementsByLocale": {},
@@ -627,7 +639,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mitarbeiter-in-leistungsdiagnostik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:58.249Z",
+      "crawledAt": "2026-10-05T09:24:49.903Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -641,7 +653,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/mitarbeiter-in-leistungsdiagnostik",
       "requirements": [],
       "requirementsByLocale": {},

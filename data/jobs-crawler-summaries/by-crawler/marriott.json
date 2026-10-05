@@ -1,23 +1,25 @@
 {
   "key": "marriott",
   "label": "Marriott International",
-  "generatedAt": "2026-10-04T21:42:40.691Z",
-  "total": 22,
+  "generatedAt": "2026-10-05T09:41:11.119Z",
+  "total": 21,
   "discovered": null,
   "parsed": 21,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 22,
+  "written": 21,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 21,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5778,
-  "avgDurationMs": 5778,
+  "unchangedCount": 0,
+  "durationMs": 6056,
+  "avgDurationMs": 6056,
   "durationHistory": [
-    5778
+    6056
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://careers.marriott.com/white-elephant-service/job/P1-6828633-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.405Z",
+      "crawledAt": "2026-10-05T09:41:02.616Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -46,7 +48,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/white-elephant-service/job/P1-6828633-0",
       "_marriottMeta": {
         "requisitionID": "26119242",
@@ -57,18 +61,18 @@
         "accountName": "",
         "publishEndDate": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:20:39.384Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -83,7 +87,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-day-night-winter-26-27-w-verbier/job/P1-6001389-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.404Z",
+      "crawledAt": "2026-10-05T09:41:02.615Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -96,7 +100,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/welcome-agent-receptionist-day-night-winter-26-27-w-verbier/job/P1-6001389-0",
       "_marriottMeta": {
         "requisitionID": "26073994",
@@ -112,12 +118,12 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -132,7 +138,7 @@
       "url": "https://careers.marriott.com/welcome-agent-intern-w-verbier/job/P1-6838759-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.403Z",
+      "crawledAt": "2026-10-05T09:41:02.614Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -145,7 +151,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/welcome-agent-intern-w-verbier/job/P1-6838759-0",
       "_marriottMeta": {
         "requisitionID": "26115301",
@@ -161,12 +169,12 @@
       "salaryMax": 57200,
       "salarySource": "reported",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -181,7 +189,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-day-night-long-term-w-verbier/job/P1-7080043-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.402Z",
+      "crawledAt": "2026-10-05T09:41:02.612Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -194,7 +202,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/welcome-agent-receptionist-day-night-long-term-w-verbier/job/P1-7080043-0",
       "_marriottMeta": {
         "requisitionID": "26126770",
@@ -211,12 +221,12 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -231,7 +241,7 @@
       "url": "https://careers.marriott.com/waitress-hostess-winter-26-27-w-verbier/job/P1-6926728-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.401Z",
+      "crawledAt": "2026-10-05T09:41:02.611Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -244,7 +254,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/waitress-hostess-winter-26-27-w-verbier/job/P1-6926728-0",
       "_marriottMeta": {
         "requisitionID": "26123789",
@@ -260,12 +272,12 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -280,7 +292,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/P1-4723585-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.400Z",
+      "crawledAt": "2026-10-05T09:41:02.610Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -293,7 +305,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/university-intern-europe/job/P1-4723585-0",
       "_marriottMeta": {
         "requisitionID": "26018393",
@@ -309,12 +323,12 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -329,7 +343,7 @@
       "url": "https://careers.marriott.com/technicien-de-maintenance/job/P1-7069701-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.399Z",
+      "crawledAt": "2026-10-05T09:41:02.609Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -342,7 +356,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/technicien-de-maintenance/job/P1-7069701-0",
       "_marriottMeta": {
         "requisitionID": "26126070",
@@ -359,12 +375,64 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "GE",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
+      }
+    },
+    {
+      "id": "marriott-6b3ffd8150bb",
+      "slug": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
+      "location": "Verbier",
+      "canton": "Walli",
+      "url": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-05T09:41:02.605Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "_marriottMeta": {
+        "requisitionID": "26121068",
+        "uniqueID": "PDX_MI_43E7266E-1B7D-45E1-AEA3-C3E2BC4A2DA9_22322638",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Food and Beverage Services",
+        "accountName": "",
+        "publishEndDate": "2026-11-02T14:51:00.000Z"
+      },
+      "firstSeenAt": "2026-09-19T23:20:39.381Z",
+      "needsRetranslation": true,
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "addressRegion": "WALLI",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -379,7 +447,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.395Z",
+      "crawledAt": "2026-10-05T09:41:02.604Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -392,7 +460,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
       "_marriottMeta": {
         "requisitionID": "26039863",
@@ -409,62 +479,64 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
-      "id": "marriott-6b3ffd8150bb",
-      "slug": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
+      "id": "marriott-5cd1241a6795",
+      "slug": "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
       "company": "Marriott International",
       "companyKey": "marriott",
       "companyDomain": "marriott.com",
-      "title": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
+      "title": "Spa Supervisor/Head Therapist (long term) - W VERBIER",
       "location": "Verbier",
       "canton": "Walli",
-      "url": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "url": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/P1-6555013-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.395Z",
+      "crawledAt": "2026-10-05T09:41:02.601Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "hospitality-food-beverage",
+      "category": "hospitality-spa",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "senior",
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/P1-6555013-0",
       "_marriottMeta": {
-        "requisitionID": "26121068",
-        "uniqueID": "PDX_MI_43E7266E-1B7D-45E1-AEA3-C3E2BC4A2DA9_22322638",
+        "requisitionID": "26105666",
+        "uniqueID": "PDX_MI_B12A898C-F35C-4B93-B436-C0E4F7E23E4A_22322638",
         "brandName": "W Hotels",
         "locationName": "W Verbier",
-        "jobField": "Food and Beverage Services",
+        "jobField": "Spa/Salon",
         "accountName": "",
-        "publishEndDate": "2026-11-02T14:51:00.000Z"
+        "publishEndDate": "2026-10-31T07:26:00.000Z"
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:20:39.381Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
+      "firstSeenAt": "2026-09-19T23:20:39.379Z",
+      "salaryMin": 72000,
+      "salaryMax": 90500,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -479,7 +551,7 @@
       "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/P1-6269922-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.392Z",
+      "crawledAt": "2026-10-05T09:41:02.601Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -492,7 +564,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/P1-6269922-0",
       "_marriottMeta": {
         "requisitionID": "26091575",
@@ -509,12 +583,12 @@
       "salaryMax": 33500,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -529,7 +603,7 @@
       "url": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/P1-6921407-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.391Z",
+      "crawledAt": "2026-10-05T09:41:02.600Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -542,7 +616,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/P1-6921407-0",
       "_marriottMeta": {
         "requisitionID": "26108980",
@@ -553,68 +629,18 @@
         "accountName": "",
         "publishEndDate": "2026-11-08T07:26:00.000Z"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:56:50.057Z",
+      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "marriott-5cd1241a6795",
-      "slug": "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Spa Supervisor/Head Therapist (long term) - W VERBIER",
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/P1-6555013-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.391Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-spa",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/P1-6555013-0",
-      "_marriottMeta": {
-        "requisitionID": "26105666",
-        "uniqueID": "PDX_MI_B12A898C-F35C-4B93-B436-C0E4F7E23E4A_22322638",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Spa/Salon",
-        "accountName": "",
-        "publishEndDate": "2026-10-31T07:26:00.000Z"
-      },
-      "firstSeenAt": "2026-09-19T23:20:39.379Z",
-      "needsRetranslation": true,
-      "salaryMin": 72000,
-      "salaryMax": 90500,
-      "salarySource": "estimated",
-      "addressRegion": "WALLI",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -629,7 +655,7 @@
       "url": "https://careers.marriott.com/night-auditor/job/P1-6901660-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.390Z",
+      "crawledAt": "2026-10-05T09:41:02.599Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -642,7 +668,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/night-auditor/job/P1-6901660-0",
       "_marriottMeta": {
         "requisitionID": "26122440",
@@ -658,12 +686,12 @@
       "salaryMax": 82500,
       "salarySource": "estimated",
       "addressRegion": "GE",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -678,7 +706,7 @@
       "url": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.385Z",
+      "crawledAt": "2026-10-05T09:41:02.593Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -691,7 +719,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
       "_marriottMeta": {
         "requisitionID": "26123193",
@@ -702,18 +732,18 @@
         "accountName": "",
         "publishEndDate": ""
       },
-      "firstSeenAt": "2026-09-24T00:09:41.777Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T00:09:41.777Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -728,7 +758,7 @@
       "url": "https://careers.marriott.com/m-club-lounge-support-steward/job/P1-6921468-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.384Z",
+      "crawledAt": "2026-10-05T09:41:02.592Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -741,7 +771,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/m-club-lounge-support-steward/job/P1-6921468-0",
       "_marriottMeta": {
         "requisitionID": "26123618",
@@ -752,18 +784,18 @@
         "accountName": "",
         "publishEndDate": ""
       },
-      "firstSeenAt": "2026-09-24T14:56:50.039Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:56:50.039Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -778,7 +810,7 @@
       "url": "https://careers.marriott.com/guest-experience-expert/job/P1-7069762-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.383Z",
+      "crawledAt": "2026-10-05T09:41:02.591Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -791,7 +823,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/guest-experience-expert/job/P1-7069762-0",
       "_marriottMeta": {
         "requisitionID": "26126017",
@@ -807,12 +841,12 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -827,7 +861,7 @@
       "url": "https://careers.marriott.com/global-managing-director-lefay/job/P1-6020255-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.382Z",
+      "crawledAt": "2026-10-05T09:41:02.590Z",
       "addressLocality": "Root D4",
       "streetAddress": "Platz 3 Root D4",
       "postalCode": "6039",
@@ -840,7 +874,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/global-managing-director-lefay/job/P1-6020255-0",
       "_marriottMeta": {
         "requisitionID": "26076100",
@@ -855,12 +891,12 @@
       "salaryMax": 133000,
       "salarySource": "estimated",
       "addressRegion": "LUCER",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -875,7 +911,7 @@
       "url": "https://careers.marriott.com/event-manager/job/P1-6716124-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.380Z",
+      "crawledAt": "2026-10-05T09:41:02.588Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -888,7 +924,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/event-manager/job/P1-6716124-0",
       "_marriottMeta": {
         "requisitionID": "26117637",
@@ -904,12 +942,12 @@
       "salaryMax": 122500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -924,7 +962,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-winter-26-27-w-verbier/job/P1-6272647-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.378Z",
+      "crawledAt": "2026-10-05T09:41:02.586Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -937,7 +975,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/commis-de-cuisine-winter-26-27-w-verbier/job/P1-6272647-0",
       "_marriottMeta": {
         "requisitionID": "26091755",
@@ -954,12 +994,12 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -974,7 +1014,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/P1-5172417-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.377Z",
+      "crawledAt": "2026-10-05T09:41:02.584Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -987,7 +1027,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/P1-5172417-0",
       "_marriottMeta": {
         "requisitionID": "26045094",
@@ -1004,12 +1046,12 @@
       "salaryMax": 67000,
       "salarySource": "estimated",
       "addressRegion": "WALLI",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1024,7 +1066,7 @@
       "url": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/P1-6268408-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:42:32.375Z",
+      "crawledAt": "2026-10-05T09:41:02.582Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1037,7 +1079,9 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/P1-6268408-0",
       "_marriottMeta": {
         "requisitionID": "26091515",
@@ -1053,68 +1097,16 @@
       "salaryMax": 57200,
       "salarySource": "reported",
       "addressRegion": "WALLI",
-      "_qualityScore": 99,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "marriott-5a0c47490982",
-      "slug": "chef-de-rang-sommelier-lungo-termine-w-verbier-marriott-international-verbier",
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Chef de Rang / Sommelier (long term) - W VERBIER",
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/chef-de-rang-sommelier-long-term-w-verbier/job/P1-6560178-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:26:30.112Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.marriott.com/chef-de-rang-sommelier-long-term-w-verbier/job/P1-6560178-0",
-      "_marriottMeta": {
-        "requisitionID": "26105923",
-        "uniqueID": "PDX_MI_ACE119A0-C86E-40F9-A334-39D2185A1D03_22322638",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Food and Beverage Services",
-        "accountName": "",
-        "publishEndDate": "2026-10-04T16:40:00.000Z"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:20:39.351Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "addressRegion": "WALLI",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "unchangedJobs": [],
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

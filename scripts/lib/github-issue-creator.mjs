@@ -1697,6 +1697,80 @@ export async function createGithubIssue({
 // Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
 // per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
 // `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+// ── Log excerpt of the failed step (`--log-excerpt-file`) ──────────────────
+//
+// A `Crawler Failure: Run <slug>` issue used to carry only the run URL, the
+// branch and the trigger. The cause lives in the log of ONE member of a
+// 25-30-crawler group job, and the fixer that triages the issue cannot read
+// that run: issue 11553 (csvp-poschiavo) was closed by the automatic cycle as
+// `no-root-cause` while the log said exactly why the crawl failed. The
+// generated group workflows pass the member's own log file (the detached
+// worker's stdout) so the body names the error without the external run.
+const LOG_EXCERPT_READ_BYTES = 256 * 1024;
+const LOG_EXCERPT_TAIL_LINES = 30;
+const LOG_EXCERPT_ERROR_LINES = 5;
+const LOG_EXCERPT_MAX_CHARS = 6000;
+// eslint-disable-next-line no-control-regex
+const ANSI_ESCAPE_RE = /\u001b\[[0-9;?]*[ -/]*[@-~]/g;
+const LOG_ERROR_LINE_RE = /❌|::error::|\berror\b|\bfailed\b|\bfatal\b|abortKind|earlyExit|exited with status|Traceback|Unhandled/i;
+
+/**
+ * Build the markdown section that quotes the end of a failed step's log and
+ * the last lines that name an error. Returns '' when the log has no text.
+ */
+export function buildLogExcerptSection(logText = '') {
+  const lines = String(logText || '')
+    .replace(ANSI_ESCAPE_RE, '')
+    .split(/\r?\n/)
+    .map((line) => line.replace(/\r/g, '').trimEnd());
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+  if (!lines.some((line) => line.trim())) return '';
+
+  const errorLines = [...new Set(lines.filter((line) => LOG_ERROR_LINE_RE.test(line)).map((line) => line.trim()))]
+    .slice(-LOG_EXCERPT_ERROR_LINES);
+  let tail = lines.slice(-LOG_EXCERPT_TAIL_LINES).join('\n');
+  if (tail.length > LOG_EXCERPT_MAX_CHARS) tail = `…${tail.slice(-LOG_EXCERPT_MAX_CHARS)}`;
+  // A fence the log itself cannot close.
+  const fence = /`{3,}/.test(tail) || errorLines.some((line) => /`{3,}/.test(line)) ? '~~~~' : '```';
+
+  const out = ['### Errore del passo (estratto del log del membro)', ''];
+  if (errorLines.length) {
+    out.push('**Righe di errore:**', fence + 'text', ...errorLines, fence, '');
+  }
+  out.push(`**Ultime righe del log** (max ${LOG_EXCERPT_TAIL_LINES}):`, fence + 'text', tail, fence);
+  return out.join('\n');
+}
+
+/**
+ * Append the excerpt of `logPath` to `description`. An unreadable or empty
+ * log is stated in the body instead of failing the report: the issue must be
+ * filed either way, and the triage must know the excerpt is missing.
+ */
+export function appendLogExcerpt(description = '', logPath = '') {
+  const target = String(logPath || '').trim();
+  let section = '';
+  if (!target) {
+    section = '_Estratto del log non disponibile: nessun file di log indicato._';
+  } else {
+    try {
+      const fd = fs.openSync(target, 'r');
+      try {
+        const { size } = fs.fstatSync(fd);
+        const length = Math.min(size, LOG_EXCERPT_READ_BYTES);
+        const buffer = Buffer.alloc(length);
+        fs.readSync(fd, buffer, 0, length, size - length);
+        section = buildLogExcerptSection(buffer.toString('utf8'))
+          || `_Estratto del log non disponibile: ${target} è vuoto._`;
+      } finally {
+        fs.closeSync(fd);
+      }
+    } catch (err) {
+      section = `_Estratto del log non disponibile: ${err?.code || err?.message || err}._`;
+    }
+  }
+  return [String(description || '').trimEnd(), section].filter(Boolean).join('\n\n');
+}
+
 const isDirectRun = (() => {
   try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
@@ -1717,7 +1791,7 @@ if (isDirectRun) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..." | --description-file path] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..." | --description-file path] [--log-excerpt-file path] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
     process.exit(1);
   }
 
@@ -1777,6 +1851,12 @@ if (isDirectRun) {
       console.error(`[github-issue-creator] Cannot read --description-file: ${err.message}`);
       process.exit(1);
     }
+  }
+
+  // `--log-excerpt-file <path>`: quote the failed step's own log (see
+  // buildLogExcerptSection). Present with an empty value → the body says so.
+  if (args.includes('--log-excerpt-file')) {
+    description = appendLogExcerpt(description, get('--log-excerpt-file'));
   }
 
   createGithubIssue({

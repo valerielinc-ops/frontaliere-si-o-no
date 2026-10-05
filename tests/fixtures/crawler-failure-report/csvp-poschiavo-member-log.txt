@@ -1,0 +1,9 @@
+  Centro Sanitario Valposchiavo (CSVP) — Standard Crawler Pipeline
+═══════════════════════════════════════════════
+
+🏥 Fetching Centro Sanitario Valposchiavo (CSVP) jobs
+   Source: https://www.csvp.ch/it/lavora-con-noi/cerchiamo
+
+  ✓ 0 offerte trovate
+❌ CSVP crawler failed: Centro Sanitario Valposchiavo (CSVP) snapshot is not a proven authoritative empty state: rows=0, state=(unset) (expected authoritative-source-zero)
+📂 Wrote summary slice: data/jobs-crawler-summaries/by-crawler/csvp-poschiavo.json
