@@ -832,6 +832,12 @@ export const HOMEPAGE_ROOT_CONTENT_RX =
 // the "Locale-root SPA shells" block below).
 const HOMEPAGE_BREADCRUMB_HOME_LABEL: Record<HpSeoLocale, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
 const HOMEPAGE_BREADCRUMB_LOCALE_PREFIX: Record<HpSeoLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+const HOMEPAGE_DISCOVERY_LABEL: Record<HpSeoLocale, string> = {
+ it: 'Esplora Frontaliere Ticino',
+ en: 'Explore Frontaliere Ticino',
+ de: 'Frontaliere Ticino entdecken',
+ fr: 'Explorer Frontaliere Ticino',
+};
 
 function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
  const homeUrl = `${BASE_URL}${HOMEPAGE_BREADCRUMB_LOCALE_PREFIX[locale]}/`;
@@ -852,13 +858,21 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  if (html.includes('id="hp-seo-block"')) {
   if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
    const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
+   if (html.includes('id="homepage-discovery"')) {
+    return html.replace(
+     /(<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?)(<\/section>)/i,
+     `$1${directoryHubs}$2`,
+    );
+   }
    return html.replace('</body>', `${directoryHubs}\n</body>`);
   }
   return html;
  }
  const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
- // Place the block before </body> so it sits as a sibling of #root and is
- // not touched by React hydration. Falls back to no-op if no </body>.
+ // Place the static navigation and SEO block after </body>'s React-owned
+ // siblings so they stay outside hydration. The discovery section keeps the
+ // crawlable rails together visually while preserving each marker id used by
+ // build repair and locale mirroring.
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
@@ -881,7 +895,11 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${directoryHubs}\n${cantonNav}\n</body>`);
+ const discoveryNavigation = [langSwitch, relatedGuides, directoryHubs, cantonNav]
+  .filter(Boolean)
+  .join('\n');
+ const discoverySection = `<section class="homepage-discovery" id="homepage-discovery" aria-label="${HOMEPAGE_DISCOVERY_LABEL[locale]}">${discoveryNavigation}</section>`;
+ return html.replace('</body>', `${discoverySection}\n${block}\n${breadcrumbScript}</body>`);
 }
 
 /**
@@ -963,15 +981,13 @@ function buildHomepageLangSwitchHtml(currentLocale: HpSeoLocale): string {
    : currentLocale === 'de' ? 'Sprachumschalter'
    : currentLocale === 'fr' ? 'Sélecteur de langue'
    : 'Cambia lingua';
- const pillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f8fafc;color:var(--color-heading);text-decoration:none;font-size:13px;font-weight:600;border:1px solid #cbd5e1';
- const activeStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#1e293b;color:#fff;font-size:13px;font-weight:600;border:1px solid #1e293b';
  const items = langs
    .map(({ code, label, href }) => code === currentLocale
-     ? `<span style="${activeStyle}" aria-current="page">${label}</span>`
-     : `<a href="${href}" hreflang="${code}" style="${pillStyle}">${label}</a>`,
+     ? `<span class="hp-language-option hp-language-option--current" aria-current="page">${label}</span>`
+     : `<a class="hp-language-option" href="${href}" hreflang="${code}">${label}</a>`,
    )
    .join('');
- return `<nav class="s-U89jtE" id="hp-lang-switch" aria-label="${navLabel}">${items}</nav>`;
+ return `<nav class="homepage-language-switch" id="hp-lang-switch" aria-label="${navLabel}">${items}</nav>`;
 }
 
 /**
@@ -1035,7 +1051,6 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
      .split('-')
      .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
      .join(' ');
-   const hubPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #c7d2fe';
    // The per-canton `tutti/` pill was dropped: each canton hub links to its
    // own `tutti/` archive internally, so a depth-1 anchor here was redundant
    // ambiguous link-text "Tutte" → 27 different URLs (Squirrel a11y
@@ -1045,7 +1060,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    void tuttiHref;
    void allJobsLabel;
    cantonRows.push(
-     `<a href="${cantonHubHref}" style="${hubPillStyle}" aria-label="${displayLabel}">${displayLabel}</a>`,
+     `<a class="hp-canton-link" href="${cantonHubHref}" aria-label="${displayLabel}">${displayLabel}</a>`,
    );
  }
  // NB: do NOT early-return when cantonRows is empty. The xsHubs block below
@@ -1098,19 +1113,18 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/fr/articles-suisse/tous/', label: 'Articles Suisse' },
    { href: '/fr/primes-assurance-maladie/', label: 'Primes LAMal' },
  ];
- const xsPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fff7ed;color:#9a3412;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #fed7aa';
  const xsHubsHtml = xsHubs
-   .map(({ href, label }) => `<a href="${href}" style="${xsPillStyle}">${label}</a>`)
+   .map(({ href, label }) => `<a class="hp-cross-hub-link" href="${href}">${label}</a>`)
    .join('');
- const xsHubsBlock = `<nav class="s-qF4KTg" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
+ const xsHubsBlock = `<nav class="hp-cross-hub-links" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
  // state, mobile fold stays clear. When cantonRows is empty (canton job-data
  // absent at build time) the canton <details> is omitted but the xsHubs block
  // still ships, keeping the Svizzera/frontaliere archives reachable at depth 1.
  const cantonDetails = cantonRows.length === 0
    ? ''
-   : `<details class="s-iS9cG5"><summary class="s-DhA4PZ">${navLabel} (${cantonRows.length})</summary><nav class="s-6_t7LY" aria-label="${navLabel}">${cantonRows.join('')}</nav></details>`;
- return `<aside class="s-A9Z4Vy" id="hp-canton-nav" aria-label="${navLabel}">${xsHubsBlock}${cantonDetails}</aside>`;
+   : `<details class="hp-canton-details"><summary class="hp-canton-summary">${navLabel} (${cantonRows.length})</summary><nav class="hp-canton-links" aria-label="${navLabel}">${cantonRows.join('')}</nav></details>`;
+ return `<aside class="hp-discovery-block hp-discovery-block--cantons" id="hp-canton-nav" aria-label="${navLabel}">${xsHubsBlock}${cantonDetails}</aside>`;
 }
 
 // ── Related-guides block (orphan-page rescue) ──────────────────────
@@ -1204,9 +1218,9 @@ function renderPillAnchors(
  links: ReadonlyArray<{ href: string; label: string }>,
  fontWeight: 500 | 600,
 ): string {
- const style = `display:inline-block;padding:4px 10px;margin:3px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-link);text-decoration:none;font-size:13px;font-weight:${fontWeight};border:1px solid var(--color-edge);line-height:1.4`;
+ const pillClass = fontWeight === 600 ? 'hp-discovery-pill hp-discovery-pill--nav' : 'hp-discovery-pill hp-discovery-pill--guide';
  return links
-  .map(({ href, label }) => `<a href="${href}" style="${style}">${escAttr(label)}</a>`)
+  .map(({ href, label }) => `<a class="${pillClass}" href="${href}">${escAttr(label)}</a>`)
   .join('');
 }
 
@@ -1218,7 +1232,7 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
    : locale === 'fr' ? 'Guides approfondis'
    : 'Guide approfondite';
  const anchors = renderPillAnchors(links, 500);
- return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+ return `<aside class="hp-discovery-block hp-discovery-block--guides" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="hp-discovery-heading" id="hpRelatedGuidesTitle">${heading}</h2><nav class="hp-discovery-links" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
 // The IT root is the crawl entry point for the static BFS audit. Locale roots
@@ -1240,7 +1254,7 @@ function buildHomepageDirectoryHubsBlock(locale: HpSeoLocale): string {
  if (locale !== 'it') return '';
  const heading = 'Farmacie e dati utili';
  const anchors = renderPillAnchors(HOMEPAGE_DIRECTORY_LINKS, 500);
- return `<aside class="s-Q1eQm9" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="s-WrrqHM" id="hpDirectoryHubsTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+ return `<aside class="hp-discovery-block hp-discovery-block--directory" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="hp-discovery-heading" id="hpDirectoryHubsTitle">${heading}</h2><nav class="hp-discovery-links" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
 // ── Locale main nav (crawlable) ─────────────────────────────────────
@@ -1366,12 +1380,7 @@ function buildLocaleMainNavHtml(locale: HpSeoLocale): string {
   if (links.length === 0) return '';
   const label = LOCALE_MAIN_NAV_ARIA[locale] ?? LOCALE_MAIN_NAV_ARIA.it;
   const anchors = renderPillAnchors(links, 600);
-  // Same extracted class as the lang switcher (`.s-U89jtE`, public/assets/
-  // seo-static.css): both are bare `<nav>` siblings of #root injected before
-  // `</body>`, so they need the identical 1100px-centred gutter wrapper. A
-  // third class with the same four declarations would be exactly the
-  // duplication CLAUDE.md #6 forbids.
-  return `<nav class="s-U89jtE" id="${LOCALE_MAIN_NAV_ID}" aria-label="${label}">${anchors}</nav>`;
+  return `<nav class="homepage-locale-main-nav" id="${LOCALE_MAIN_NAV_ID}" aria-label="${label}">${anchors}</nav>`;
 }
 
 /**
@@ -1415,6 +1424,7 @@ export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'):
  // Replace only the content fallback; stylesheet noscript blocks must survive.
  out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
    `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
+ out = out.replace(/<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?<\/section>\s*/i, '');
  out = out.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
