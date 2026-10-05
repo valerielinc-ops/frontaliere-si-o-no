@@ -118,9 +118,9 @@ describe('buildTikTokCaption', () => {
     } as const;
     for (const kind of ['article', 'job', 'border'] as const) {
       const caption = buildTikTokCaption({ kind, dayLabel: '23/08/2026', picks });
-      expect(caption.split('\n')[0].toLowerCase(), kind).toContain(expectedLead[kind]);
+      expect(caption.split('\n')[0].toLowerCase(), kind).toContain(expectedLead[kind].toLowerCase());
       expect(caption).toContain('23/08/2026');
-      expect(caption).toContain('link in bio');
+      expect(caption.toLowerCase()).toContain('link in bio');
       expect(caption).toContain('frontaliereticino.ch');
       expect(caption).not.toMatch(/https?:\/\//);
       expect(caption.length, kind).toBeLessThanOrEqual(TIKTOK_CAPTION_MAX_CHARS);
@@ -179,8 +179,14 @@ describe('TikTok video queue contract', () => {
     expect(filter).toContain(`pad=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}`);
     expect(filter).toContain(BRAND_VIDEO_BACKGROUND);
     expect(filter).toContain('xfade=transition=fade');
+    expect(args).toContain('anullsrc=channel_layout=stereo:sample_rate=44100');
     expect(args).toEqual(expect.arrayContaining(['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-c:a', 'aac', '-movflags', '+faststart']));
     expect(args.at(-1)).toBe('carousel.mp4');
+  });
+
+  it('uploads MP4 with the video MIME type used by the robot download check', () => {
+    const uploader = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/upload-cdn-file.sh'), 'utf8');
+    expect(uploader).toContain('mp4) printf \'%s\' "video/mp4"');
   });
 });
 
