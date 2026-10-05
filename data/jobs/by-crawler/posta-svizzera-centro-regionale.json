@@ -10422,9 +10422,9 @@
       "slug": "zusteller-in-pakete-post",
       "slugByLocale": {
         "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "en": "parcel-deliverer-die-schweizerische-post-baar",
         "de": "zusteller-in-pakete-die-schweizerische-post-baar",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "distributeur-en-colis-die-schweizerische-post-baar"
       },
       "sourceLang": "de",
       "department": "",
@@ -11400,10 +11400,10 @@
         "fr": "Conseillers clients",
         "it": "Consulente alla clientela"
       },
-      "slug": "consulenti-clienti-die-schweizerische-post-dudingen",
+      "slug": "consulente-alla-clientela-die-schweizerische-post-dudingen",
       "slugByLocale": {
-        "it": "consulenti-clienti-die-schweizerische-post-dudingen",
-        "en": "kundenberater-in-die-schweizerische-post-dudingen",
+        "it": "consulente-alla-clientela-die-schweizerische-post-dudingen",
+        "en": "sales-consultants-die-schweizerische-post-dudingen",
         "de": "kundenberater-in-die-schweizerische-post-dudingen",
         "fr": "conseillers-clients-die-schweizerische-post-dudingen"
       },
@@ -11442,15 +11442,20 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-post"
+          "kundenberater-in-post",
+          "consulenti-clienti-die-schweizerische-post-dudingen"
         ],
         "fr": [
+          "kundenberater-in-die-schweizerische-post-dudingen"
+        ],
+        "en": [
           "kundenberater-in-die-schweizerische-post-dudingen"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
-        "kundenberater-in-die-schweizerische-post-dudingen"
+        "kundenberater-in-die-schweizerische-post-dudingen",
+        "consulenti-clienti-die-schweizerische-post-dudingen"
       ],
       "postedDate": "2026-09-17",
       "postingDateSource": "reported"

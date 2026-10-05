@@ -2435,12 +2435,12 @@
     },
     {
       "id": "swissquote-8eb803b7202a",
-      "slug": "fraud-officer-swissquote-gland",
+      "slug": "addetto-alle-frodi-swissquote-gland",
       "slugByLocale": {
-        "it": "fraud-officer-swissquote-gland",
+        "it": "addetto-alle-frodi-swissquote-gland",
         "en": "fraud-officer-swissquote-gland",
-        "de": "fraud-officer-swissquote-gland",
-        "fr": "fraud-officer-swissquote-gland"
+        "de": "betrugsbeauftragter-swissquote-gland",
+        "fr": "agent-de-fraude-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2499,7 +2499,21 @@
         }
       },
       "datePosted": "2026-09-30T07:02:42.409Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "fraud-officer-swissquote-gland"
+        ],
+        "de": [
+          "fraud-officer-swissquote-gland"
+        ],
+        "fr": [
+          "fraud-officer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "fraud-officer-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-71b05864f415",

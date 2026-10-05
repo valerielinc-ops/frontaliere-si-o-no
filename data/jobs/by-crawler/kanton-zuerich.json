@@ -9515,12 +9515,12 @@
     },
     {
       "id": "kanton-zuerich-cc435a09ce1d",
-      "slug": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
       "slugByLocale": {
-        "it": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "en": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
+        "en": "workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
-        "fr": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "assistant-d-atelier-a-duree-determinee-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9573,6 +9573,12 @@
       "previousSlugsByLocale": {
         "it": [
           "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
+          "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "en": [
+          "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "fr": [
           "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },

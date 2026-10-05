@@ -3330,12 +3330,12 @@
     },
     {
       "id": "pdag-fec4674b62bd",
-      "slug": "oberarztin-oberarzt-pdag-windisch",
+      "slug": "primario-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-pdag-windisch",
-        "en": "oberarztin-oberarzt-pdag-windisch",
+        "it": "primario-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "oberarztin-oberarzt-pdag-windisch",
-        "fr": "oberarztin-oberarzt-pdag-windisch"
+        "fr": "medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -3391,7 +3391,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdag-windisch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdag-windisch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-dc0b9f798091",

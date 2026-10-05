@@ -3807,12 +3807,12 @@
     },
     {
       "id": "unibe-33766bf14391",
-      "slug": "sekretar-in-unibe-bern",
+      "slug": "segretario-universitat-bern-bern",
       "slugByLocale": {
-        "it": "sekretar-in-unibe-bern",
-        "en": "sekretar-in-unibe-bern",
+        "it": "segretario-universitat-bern-bern",
+        "en": "secretary-universitat-bern-bern",
         "de": "sekretar-in-unibe-bern",
-        "fr": "sekretar-in-unibe-bern"
+        "fr": "secretaire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3868,7 +3868,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-unibe-bern"
+        ],
+        "en": [
+          "sekretar-in-unibe-bern"
+        ],
+        "fr": [
+          "sekretar-in-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-unibe-bern"
+      ]
     },
     {
       "id": "unibe-8d3e9e6a7b54",

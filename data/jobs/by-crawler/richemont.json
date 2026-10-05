@@ -8989,7 +8989,7 @@
         "it": "hr-business-partner-cartier-csd-24-mesi-richemont-meyrin",
         "en": "hr-business-partner-cartier-cdd-24-mois-richemont-meyrin",
         "de": "hr-business-partner-cartier-csd-24-monate-richemont-meyrin",
-        "fr": "hr-business-partner-cartier-cdd-24-mois-richemont-meyrin"
+        "fr": "partenaire-d-affaires-rh-cartier-cdd-24-mois-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -9042,6 +9042,9 @@
           "hr-business-partner-cartier-csd-24-months-richemont-meyrin"
         ],
         "de": [
+          "hr-business-partner-cartier-cdd-24-mois-richemont-meyrin"
+        ],
+        "fr": [
           "hr-business-partner-cartier-cdd-24-mois-richemont-meyrin"
         ]
       },
@@ -9563,7 +9566,7 @@
         "it": "societa-commerciale-cartier-geneva",
         "en": "sales-associate-richemont-geneva",
         "de": "vertriebsmitarbeiter-cartier-geneva",
-        "fr": "sales-associate-richemont-geneva"
+        "fr": "associe-commercial-cartier-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -9616,6 +9619,9 @@
           "sales-associate-cartier-geneva"
         ],
         "de": [
+          "sales-associate-richemont-geneva"
+        ],
+        "fr": [
           "sales-associate-richemont-geneva"
         ]
       },
@@ -11007,7 +11013,7 @@
       "slugByLocale": {
         "it": "amministrazione-senior-manager-ch-stati-uniti-richemont-bellevue",
         "en": "government-affairs-senior-manager-ch-us-richemont-bellevue",
-        "de": "government-affairs-senior-manager-ch-us-richemont-bellevue",
+        "de": "senior-manager-fur-regierungsangelegenheiten-ch-usa-richemont-bellevue",
         "fr": "affaires-gouvernementales-gestionnaire-principal-ch-etats-unis-richemont-bellevue"
       },
       "company": "Richemont",
@@ -11057,6 +11063,9 @@
           "government-affairs-senior-manager-ch-us-richemont-bellevue"
         ],
         "fr": [
+          "government-affairs-senior-manager-ch-us-richemont-bellevue"
+        ],
+        "de": [
           "government-affairs-senior-manager-ch-us-richemont-bellevue"
         ]
       },
@@ -12297,9 +12306,9 @@
     },
     {
       "id": "richemont-f54786bc0c55",
-      "slug": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
+      "slug": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-couvet",
       "slugByLocale": {
-        "it": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
+        "it": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-couvet",
         "en": "r-i-internship-precision-3d-laser-micro-use-richemont-couvet",
         "de": "f-i-praktikum-prazisions-3d-laser-mikronutzung-richemont-couvet",
         "fr": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet"
@@ -12344,11 +12353,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laser-micro-map-3d-de-pre-richemont-couvet"
+        "laser-micro-map-3d-de-pre-richemont-couvet",
+        "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "laser-micro-map-3d-de-pre-richemont-couvet"
+        ],
+        "it": [
+          "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet"
         ]
       },
       "firstSeenAt": "2026-09-23T23:56:37.657Z",
@@ -12448,10 +12461,10 @@
     },
     {
       "id": "richemont-64f2eaeceb58",
-      "slug": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes",
+      "slug": "stage-r-i-visione-industriale-assistita-da-ia-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes",
-        "en": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes",
+        "it": "stage-r-i-visione-industriale-assistita-da-ia-richemont-buttes",
+        "en": "r-i-internship-ai-assisted-machine-vision-richemont-buttes",
         "de": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes",
         "fr": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes"
       },
@@ -12509,7 +12522,18 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes"
+        ],
+        "en": [
+          "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-20680163fe7f",

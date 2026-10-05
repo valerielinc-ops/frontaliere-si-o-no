@@ -7915,12 +7915,12 @@
     },
     {
       "id": "kliniken-valens-d961e09e2691",
-      "slug": "arztsekretar-in-40-montag-fix-kliniken-valens-wald",
+      "slug": "segretario-medico-40-lunedi-fisso-kliniken-valens-wald",
       "slugByLocale": {
-        "it": "arztsekretar-in-40-montag-fix-kliniken-valens-wald",
-        "en": "arztsekretar-in-40-montag-fix-kliniken-valens-wald",
+        "it": "segretario-medico-40-lunedi-fisso-kliniken-valens-wald",
+        "en": "medical-secretary-40-monday-fixed-kliniken-valens-wald",
         "de": "arztsekretar-in-40-montag-fix-kliniken-valens-wald",
-        "fr": "arztsekretar-in-40-montag-fix-kliniken-valens-wald"
+        "fr": "secretaire-medical-40-lundi-fixe-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -7975,7 +7975,21 @@
           "maxValue": 51200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-40-montag-fix-kliniken-valens-wald"
+        ],
+        "en": [
+          "arztsekretar-in-40-montag-fix-kliniken-valens-wald"
+        ],
+        "fr": [
+          "arztsekretar-in-40-montag-fix-kliniken-valens-wald"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-40-montag-fix-kliniken-valens-wald"
+      ]
     },
     {
       "id": "kliniken-valens-0b114de3d4d7",

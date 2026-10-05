@@ -8723,7 +8723,7 @@
       "slug": "kundenberater-in-basis-w-m-d-raiffeisen-zofingen",
       "slugByLocale": {
         "it": "kundenberater-in-basis-w-m-d-raiffeisen-zofingen",
-        "en": "kundenberater-in-basis-w-m-d-raiffeisen-zofingen",
+        "en": "client-advisor-basis-m-f-d-raiffeisen-zofingen",
         "de": "kundenberater-in-basis-w-m-d-raiffeisen-zofingen",
         "fr": "kundenberater-in-basis-w-m-d-raiffeisen-zofingen"
       },
@@ -9194,12 +9194,12 @@
     },
     {
       "id": "raiffeisen-3e6a52a9b0f1",
-      "slug": "kundenberater-in-raiffeisen-reinach-bl",
+      "slug": "consulente-alla-clientela-raiffeisen-reinach-bl",
       "slugByLocale": {
-        "it": "kundenberater-in-raiffeisen-reinach-bl",
-        "en": "kundenberater-in-raiffeisen-reinach-bl",
+        "it": "consulente-alla-clientela-raiffeisen-reinach-bl",
+        "en": "sales-consultants-raiffeisen-reinach-bl",
         "de": "kundenberater-in-raiffeisen-reinach-bl",
-        "fr": "kundenberater-in-raiffeisen-reinach-bl"
+        "fr": "conseiller-ere-a-la-clientele-raiffeisen-reinach-bl"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9255,7 +9255,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-raiffeisen-reinach-bl"
+        ],
+        "en": [
+          "kundenberater-in-raiffeisen-reinach-bl"
+        ],
+        "fr": [
+          "kundenberater-in-raiffeisen-reinach-bl"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-raiffeisen-reinach-bl"
+      ]
     },
     {
       "id": "raiffeisen-8cba43ca7588",
@@ -9584,9 +9598,9 @@
       "slug": "responsabile-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis",
       "slugByLocale": {
         "it": "responsabile-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis",
-        "en": "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis",
+        "en": "head-of-affoltern-office-at-albis-raiffeisen-affoltern-am-albis",
         "de": "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis",
-        "fr": "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis"
+        "fr": "responsable-du-bureau-d-affoltern-am-albis-raiffeisen-affoltern-am-albis"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9637,6 +9651,12 @@
         "it": [
           "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis",
           "responsabile-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis"
+        ],
+        "en": [
+          "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis"
+        ],
+        "fr": [
+          "leiter-in-geschaftsstelle-affoltern-am-albis-raiffeisen-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-09-25T14:47:17.984Z",

@@ -5305,12 +5305,12 @@
     },
     {
       "id": "kanton-st-gallen-8a409e555ad4",
-      "slug": "okonom-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "economista-a-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "okonom-in-m-w-d-kanton-st-gallen-ch",
-        "en": "okonom-in-m-w-d-kanton-st-gallen-ch",
+        "it": "economista-a-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "economist-m-f-d-kanton-st-gallen-st-gallen",
         "de": "okonom-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "okonom-in-m-w-d-kanton-st-gallen-ch"
+        "fr": "economiste-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5367,7 +5367,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "okonom-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "okonom-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "okonom-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "okonom-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-55d8b9023be6",
@@ -5700,12 +5714,12 @@
     },
     {
       "id": "kanton-st-gallen-78903141555d",
-      "slug": "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch",
+      "slug": "caposquadra-industriale-m-f-d-kanton-st-gallen-9465-salez",
       "slugByLocale": {
-        "it": "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch",
-        "en": "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch",
+        "it": "caposquadra-industriale-m-f-d-kanton-st-gallen-9465-salez",
+        "en": "foreman-industry-m-f-d-kanton-st-gallen-9465-salez",
         "de": "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch",
-        "fr": "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch"
+        "fr": "maitre-d-uvre-dans-l-industrie-h-f-d-kanton-st-gallen-9465-salez"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5762,16 +5776,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkmeister-in-industrie-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-c7bba119f0e4",
       "slug": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-e-waschereilogistik-m-w-d-kanton-st-gallen-9465-salez",
       "slugByLocale": {
         "it": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-e-waschereilogistik-m-w-d-kanton-st-gallen-9465-salez",
-        "en": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d",
+        "en": "maintenance-centre-foreman-focus-on-building-maintenance-and-laundry-logistics-m-f-d-kanton-st-gallen-9465-salez",
         "de": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d",
-        "fr": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
+        "fr": "maitre-d-uvre-centre-d-entretien-specialisation-entretien-du-batiment-et-logistique-de-blanchisserie-h-f-d-kanton-st"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5821,6 +5849,12 @@
       "previousSlugsByLocale": {
         "it": [
           "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
+        ],
+        "en": [
+          "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
+        ],
+        "fr": [
+          "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:38.399Z",
@@ -5843,9 +5877,9 @@
       "slug": "collaboratore-trice-zentrale-services-m-w-d-kanton-st-gallen",
       "slugByLocale": {
         "it": "collaboratore-trice-zentrale-services-m-w-d-kanton-st-gallen",
-        "en": "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch",
+        "en": "employee-central-services-m-f-d-kanton-st-gallen-st-gallen",
         "de": "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch",
-        "fr": "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch"
+        "fr": "employe-e-services-centraux-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5897,6 +5931,12 @@
         "it": [
           "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch",
           "collaboratore-trice-zentrale-services-m-w-d-kanton-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:37.599Z",
@@ -5919,9 +5959,9 @@
       "slug": "addetto-a-alla-logistica-vorortlager-m-w-d-kanton-st-gallen-bronschhofen",
       "slugByLocale": {
         "it": "addetto-a-alla-logistica-vorortlager-m-w-d-kanton-st-gallen-bronschhofen",
-        "en": "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch",
+        "en": "employee-logistics-subsidiary-warehouse-m-f-d-kanton-st-gallen-bronschhofen",
         "de": "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch",
-        "fr": "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch"
+        "fr": "employe-e-logistique-depot-sur-place-h-f-d-kanton-st-gallen-bronschhofen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5973,6 +6013,12 @@
         "it": [
           "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch",
           "addetto-a-alla-logistica-vorortlager-m-w-d-kanton-st-gallen-bronschhofen"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:36.758Z",
@@ -5997,7 +6043,7 @@
         "it": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
         "en": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
         "de": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch"
+        "fr": "partenaire-commercial-rh-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
