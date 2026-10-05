@@ -1029,6 +1029,8 @@
       },
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-heimservice-fust-freiburg"
@@ -1042,9 +1044,7 @@
       },
       "previousSlugs": [
         "servicetechniker-in-heimservice-fust-freiburg"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-w1ep66",
@@ -6846,10 +6846,10 @@
         "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-geneve-balexert"
       },
       "titleByLocale": {
+        "fr": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
         "it": "Responsabile del commercio al dettaglio AFC \"Progettazione e realizzazione di esperienze di acquisto\"",
         "en": "Retail Manager SWC “Designing and Conducting Purchasing Experiences”",
-        "de": "Detailhandelsmanager EFZ \"Konzeption und Realisierung von Einkaufserlebnissen\"",
-        "fr": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\""
+        "de": "Detailhandelsmanager EFZ \"Konzeption und Realisierung von Einkaufserlebnissen\""
       },
       "descriptionByLocale": {
         "it": "- Genève Balexert\n- Consumer-Electronics\n- Durée de l'apprentissage du 01.08.2027 au 31.07.2026\n\n## Tes missions\n- Conseil adapté aux besoins de notre clientèle exigeante\n- Vente et la location d'appareils multimédias\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et mise en ordre de la surface de vente\n- Etablissement de devis et le traitement de commandes de réparation\n\n## Ce que l'on attend de toi\n- Bons bulletins de notes (école secondaire)\n- Résultats d'un test d'aptitude tel que Multicheck dans le domaine du commerce de détail\n- Capacité de compréhension rapide\n- Dynamisme, sens des responsabilités et bon esprit d'équipe\n\n## Ce que nous t'offrons\n- Réductions: Abonnement Coop Mobile et autres réductions dans les différentes enseignes Coop, CHF 500.– pour un ordinateur portable ou une tablette, abonnement demi-tarif CFF ou participation à l'abonnement général de 650 CHF\n- Communication & Culture: Culture du Tutoiement dans l'ensemble de l'entreprise, Orientation vers des valeurs communes, Application interne pour la communication avec les collaborateurs\n- Jours fériés: 6 semaines de vacances\n- Santé: Abonnement annuel gratuit \" update Fitness \", consultation sociale gratuite et anonyme 24h/24 et 7j/7\n- Abonnement annuel \"update Fitness\"\n- CHF 500 pour l'achat d'un ordinateur portable ou d'une tablette\n- Abonnement demi-tarif ou participation de 650 CHF à l'achat de l'AG CFF\n- De nombreux avantages pour les collaborateurs\nChoose Your Character:\nCreate Your Future\nConstruis ton avenir avec Fust et montre ce dont tu es capable ! Fust t'offre une entrée optimale dans la vie professionnelle, où tu peux développer pleinement ton talent.\nUne chose est sûre : Fust, ça roule ! - ton avenir aussi.",
@@ -6866,6 +6866,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "fr",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6876,9 +6878,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      }
     },
     {
       "id": "company-nb3dvw",
