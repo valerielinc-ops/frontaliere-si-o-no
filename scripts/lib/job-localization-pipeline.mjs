@@ -10,7 +10,7 @@ import {
 } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
-import { hasStructureParity, MIN_TITLE_CHARS } from './translation-quality.mjs';
+import { hasStructureParity, isModelMetaAnswer, MIN_TITLE_CHARS } from './translation-quality.mjs';
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -207,6 +207,10 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
       : minChars;
   if (output.length < effectiveMinChars) return false;
   if (looksLikeCopy(source, output, kind)) return false;
+  // A refusal or a request for the input («I need to see the actual job
+  // title…») is never a translation, of a title least of all: the title branch
+  // below returns before the leak checks of the description branch.
+  if (isModelMetaAnswer(output, source)) return false;
   if (kind === 'title' || kind === 'requirement') {
     // Reject titles that look truncated mid-word: single short word ending with
     // lowercase that is a prefix of a word in the source text

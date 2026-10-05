@@ -22,11 +22,15 @@ import {
 import { normalizeForLengthComparison } from './dedicated-crawler-common.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import {
-  detectAiReasoningLeak,
   detectDegenerateRepetition,
   repetitionProfile,
 } from './ai-output-fidelity.mjs';
-import { hasStructuredContent, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './translation-quality.mjs';
+import {
+  hasStructuredContent,
+  isModelMetaAnswer,
+  isStructureFlattenedCopy,
+  MIN_TITLE_CHARS,
+} from './translation-quality.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
@@ -73,6 +77,18 @@ export function isIncomplete(job) {
     // Missing or too short
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
 
+    // A slot holding a model's answer ABOUT the request instead of the text:
+    // a refusal («Sorry, I can't help with that.»), a request for the input
+    // («I need to see the actual job title you want translated…»), the
+    // narration of an agent («Let me check the translation cache files…»), a
+    // leftover template label («Traduzione:»). Measured on origin/main on
+    // 2026-10-05: 58 live title slots and 40 live description slots, all
+    // passing every check below, so translate-pending un-flagged them without
+    // repair. Judged against the crawled text: wording the source itself
+    // carries is not a meta-response. Titles also get the reasoning/prompt-echo
+    // check of the descriptions below («<think> Okay, let's tackle…»).
+    if (isModelMetaAnswer(title, job.title || '')) return true;
+
     // A slot holding an AI model's reasoning or an echo of its prompt instead
     // of the ad (formatter leak, then translated into every locale — 11 jobs /
     // 31 slots on 2026-09-29). Long, not a copy and in a plausible language, so
@@ -80,7 +96,8 @@ export function isIncomplete(job) {
     // repair and a flagged one is un-flagged by reconcileRetranslationState.
     // Checked on every slot, source included: the forced relocalization resets
     // the source slot from the crawled description and retranslates from it.
-    if (detectAiReasoningLeak(desc)) return true;
+    // Same predicate as the title above: reasoning leak or meta-response.
+    if (isModelMetaAnswer(desc, baseDesc)) return true;
 
     // A slot where the translator fell into a repetition loop
     // («Risk-Lights-Lights-Lights-…», 181 jobs / 284 slots on 2026-09-29), judged
