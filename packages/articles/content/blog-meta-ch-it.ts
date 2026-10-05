@@ -7715,6 +7715,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.formazione-continua-zurigo-contributi.title': 'Formazione continua Canton Zurigo: requisiti e contributi',
     'blog.article.formazione-continua-zurigo-contributi.excerpt': 'Nel Canton Zurigo programmi riconosciuti, requisiti, termini e contributi vanno verificati presso la fonte ufficiale cantonale.',
     'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Aula svizzera per un corso di formazione continua con adulti al lavoro.',
+    'blog.article.salario-minimo-berna-guida.title': 'Salario minimo Canton Berna: requisiti e applicazione',
+    'blog.article.salario-minimo-berna-guida.excerpt': 'In Svizzera non c\'è un minimo federale: a Berna contano eventuale disciplina cantonale, contratti collettivi e verifiche ufficiali.',
+    'blog.article.salario-minimo-berna-guida.imageAlt': 'Documenti salariali e calcolatrice su una scrivania in un ufficio svizzero',
 };
 
 export default blogMetaChIt;

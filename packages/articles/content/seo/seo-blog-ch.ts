@@ -97425,6 +97425,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-berna-guida': {
+    title: 'Salario minimo Canton Berna: requisiti e applicazione',
+    description: 'Salario minimo nel Cantone di Berna: cosa cambia senza una soglia federale, come verificare eventuale disciplina cantonale, contratti collettivi, requisiti',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, canton, berna',
+    ogTitle: 'Salario minimo Canton Berna: requisiti e applicazione',
+    ogDescription: 'Nel Cantone di Berna non esiste una soglia salariale federale automatica: la Svizzera non ha un salario minimo federale. La verifica passa da disciplina cantonale, contratti collettivi e impatto di contributi, imposte e LAMal sul bilancio.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo Canton Berna: requisiti e applicazione",
+      "description": "Salario minimo nel Cantone di Berna: cosa cambia senza una soglia federale, come verificare eventuale disciplina cantonale, contratti collettivi, requisiti",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti salariali e calcolatrice su una scrivania in un ufficio svizzero"
+      },
+      "datePublished": "2026-10-05T03:32:04+00:00",
+      "dateModified": "2026-10-05T03:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

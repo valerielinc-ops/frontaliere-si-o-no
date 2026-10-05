@@ -7715,6 +7715,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.formazione-continua-zurigo-contributi.title': 'Continuing education Canton Zurich: requirements and contributions',
     'blog.article.formazione-continua-zurigo-contributi.excerpt': 'In the Canton of Zurich, recognized programs, requirements, deadlines and contributions must be verified at the official cantonal source.',
     'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Swiss adult education classroom for continuing professional training.',
+    'blog.article.salario-minimo-berna-guida.title': 'Minimum wage in the Canton of Bern: requirements and application',
+    'blog.article.salario-minimo-berna-guida.excerpt': 'In Switzerland there is no federal minimum: in Bern, any applicable cantonal rules, collective agreements and official checks are what matter.',
+    'blog.article.salario-minimo-berna-guida.imageAlt': 'Salary documents and a calculator on a desk in a Swiss office',
 };
 
 export default blogMetaChEn;

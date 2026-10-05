@@ -7715,6 +7715,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-continua-zurigo-contributi.title': 'Weiterbildung im Kanton Zürich: Anforderungen und Beiträge',
     'blog.article.formazione-continua-zurigo-contributi.excerpt': 'Im Kanton Zürich müssen anerkannte Programme, Anforderungen, Fristen und Beiträge anhand der offiziellen kantonalen Quelle überprüft werden.',
     'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Schweizer Kursraum für berufliche Weiterbildung mit erwachsenen Lernenden.',
+    'blog.article.salario-minimo-berna-guida.title': 'Mindestlohn im Kanton Bern: Voraussetzungen und Anwendung',
+    'blog.article.salario-minimo-berna-guida.excerpt': 'In der Schweiz gibt es keinen eidgenössischen Mindestlohn: In Bern sind eine allfällige kantonale Regelung, Gesamtarbeitsverträge und amtliche Kontrollen maßgeblich.',
+    'blog.article.salario-minimo-berna-guida.imageAlt': 'Lohnunterlagen und Taschenrechner auf einem Schreibtisch in einem Schweizer Büro',
 };
 
 export default blogMetaChDe;
