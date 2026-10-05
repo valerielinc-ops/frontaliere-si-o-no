@@ -79,6 +79,13 @@ async function gather(): Promise<WeatherSnapshot> {
     ...WEATHER_CITIES.map((c) => ({ id: c.id, name: c.name, canton: c.canton, lat: c.lat, lng: c.lng, hourly: true })),
     ...WEATHER_CANTON_CAPITALS.map((c) => ({ id: c.id, name: c.name, canton: c.canton, lat: c.lat, lng: c.lng, hourly: false })),
   ];
+  // Un id ripetuto fra le due liste sovrascriverebbe in silenzio la citta'
+  // con pagina: meglio fermare il giro (il test lo vincola gia' a monte).
+  const seen = new Set<string>();
+  for (const t of targets) {
+    if (seen.has(t.id)) throw new Error(`weather target id duplicato: ${t.id}`);
+    seen.add(t.id);
+  }
   for (const c of targets) {
     try {
       const council = await fetchCouncilCity({
