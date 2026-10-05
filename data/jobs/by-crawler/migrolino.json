@@ -65,7 +65,7 @@
         "verkaufsmitarbeiter-in-migrolino-wilderswil",
         "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:23:52.270Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -79,7 +79,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-f15f6cd99346",
@@ -248,7 +249,7 @@
           "personnel-de-vente-migrolino-wilderswil-1abf98"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:31:54.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -262,7 +263,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-fa41171abbf1",

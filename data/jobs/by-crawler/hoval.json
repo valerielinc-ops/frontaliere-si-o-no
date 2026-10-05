@@ -356,7 +356,8 @@
       "salarySource": "reported",
       "retranslationAttempts": 0,
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Servicetechniker/in Wärmepumpen - Region Zug (m/w/d) | Auch Quereinsteiger willkommen",
@@ -472,7 +473,7 @@
         "it": "servizio-tecnico-pompe-di-calore-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "en": "service-technician-heat-pumps-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "de": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "fr": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
+        "fr": "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
       },
       "id": "hoval-e59261301c25",
       "previousSlugsByLocale": {
@@ -726,8 +727,7 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Technicien/ne de service PAC - Région Vaud (m/f/d)",

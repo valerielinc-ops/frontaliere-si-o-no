@@ -1025,7 +1025,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1038,7 +1037,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2b18bfb9f371",
@@ -10508,11 +10508,12 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27077",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
+        "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+        "assistente-di-studio-medico-mpa-universitatsspital-basel-basel"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
-          "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch"
-        ],
         "it": [
           "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
           "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
@@ -10523,15 +10524,13 @@
         ],
         "fr": [
           "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+          "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch"
         ]
       },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
-        "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
-        "assistente-di-studio-medico-mpa-universitatsspital-basel-basel"
-      ],
       "firstSeenAt": "2026-06-29T14:24:41.982Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10544,7 +10543,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-5557eca90d79",
@@ -10594,11 +10594,12 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27865",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "studentische-aushilfe-unispital-basel-ch",
+        "studentische-aushilfe-universitatsspital-basel-basel",
+        "assistenza-agli-studenti-universitatsspital-basel-basel"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "studentische-aushilfe-universitatsspital-basel-basel",
-          "studentische-aushilfe-unispital-basel-ch"
-        ],
         "it": [
           "studentische-aushilfe-unispital-basel-ch",
           "assistenza-agli-studenti-universitatsspital-basel-basel"
@@ -10608,13 +10609,12 @@
         ],
         "fr": [
           "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "de": [
+          "studentische-aushilfe-universitatsspital-basel-basel",
+          "studentische-aushilfe-unispital-basel-ch"
         ]
       },
-      "previousSlugs": [
-        "studentische-aushilfe-unispital-basel-ch",
-        "studentische-aushilfe-universitatsspital-basel-basel",
-        "assistenza-agli-studenti-universitatsspital-basel-basel"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10677,24 +10677,24 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27783",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-universitatsspital-basel-basel",
+        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistent-in-gesundheit-und-soziales-herzzentrum-universitatsspital-basel-basel",
-          "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
-        ],
         "it": [
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
           "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
+        ],
+        "de": [
+          "assistent-in-gesundheit-und-soziales-herzzentrum-universitatsspital-basel-basel",
+          "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
         ]
       },
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
-        "assistent-in-gesundheit-und-soziales-herzzentrum-universitatsspital-basel-basel",
-        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
-      ],
       "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10758,11 +10758,12 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27686",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizincodiererin-medizincodierer-unispital-basel-ch",
+        "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+        "coder-medico-coder-medico-universitatsspital-basel-basel"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-          "medizincodiererin-medizincodierer-unispital-basel-ch"
-        ],
         "it": [
           "medizincodiererin-medizincodierer-unispital-basel-ch",
           "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
@@ -10773,15 +10774,13 @@
         ],
         "fr": [
           "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+          "medizincodiererin-medizincodierer-unispital-basel-ch"
         ]
       },
-      "previousSlugs": [
-        "medizincodiererin-medizincodierer-unispital-basel-ch",
-        "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-        "coder-medico-coder-medico-universitatsspital-basel-basel"
-      ],
       "firstSeenAt": "2026-07-03T23:45:57.171Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10794,7 +10793,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3ad364033f14",
@@ -10874,7 +10874,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "unispital-basel-fd83126338c2",
@@ -10924,21 +10925,21 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27868",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-in-servicemanagement-betrieb-universitatsspital-basel-basel",
-          "leiter-in-servicemanagement-betrieb-unispital-basel-ch"
-        ],
-        "it": [
-          "leiter-in-servicemanagement-betrieb-unispital-basel-ch",
-          "responsabile-servicemanagement-betrieb-universitatsspital-basel"
-        ]
-      },
       "previousSlugs": [
         "leiter-in-servicemanagement-betrieb-unispital-basel-ch",
         "leiter-in-servicemanagement-betrieb-universitatsspital-basel-basel",
         "responsabile-servicemanagement-betrieb-universitatsspital-basel"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-servicemanagement-betrieb-unispital-basel-ch",
+          "responsabile-servicemanagement-betrieb-universitatsspital-basel"
+        ],
+        "de": [
+          "leiter-in-servicemanagement-betrieb-universitatsspital-basel-basel",
+          "leiter-in-servicemanagement-betrieb-unispital-basel-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:10.042Z",
       "salaryMin": 85500,

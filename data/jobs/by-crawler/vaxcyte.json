@@ -247,7 +247,7 @@
           "senior-manager-quality-assurance-vaxcyte-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -261,7 +261,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -330,7 +331,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
