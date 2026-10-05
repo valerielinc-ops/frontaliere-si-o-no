@@ -297,6 +297,15 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(hasExplicitEmptyJobListing('')).toBe(false);
   });
 
+  it('recognizes the localized Italian no-open-positions marker', () => {
+    const visible = new JSDOM(
+      '<div id="listing"><p>Attualmente non ci sono posizioni aperte.</p></div>',
+    ).window.document.querySelector('#listing');
+    expect(hasExplicitEmptyJobListing(visible, {
+      scopedToListing: true,
+    })).toBe(true);
+  });
+
   it('does not use hidden or template empty-state copy as source evidence', () => {
     const hidden = new JSDOM(
       '<div id="listing"><div class="empty-state" style="display:none">No open positions are currently available.</div></div>',

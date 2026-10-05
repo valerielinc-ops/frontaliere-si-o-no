@@ -58,6 +58,7 @@ import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { hasExplicitEmptyJobListing } from './lib/job-listing-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -116,9 +117,17 @@ function hasExplicitEmptyListingState(html) {
     return text === '0' ? 0 : null;
   });
 
-  // Only the site's structural listing-count node can authorize zero. Missing,
-  // duplicated, or non-exact count markup fails closed and preserves prior jobs.
-  return countValues.length === 1 && countValues[0] === 0;
+  // Only the site's structural listing-count node or a visible, scoped empty
+  // state in the rendered main content can authorize zero. Missing,
+  // duplicated, or non-exact count markup still fails closed unless the source
+  // explicitly says that there are no open positions. The current Raiffeisen
+  // page uses the latter form ("Attualmente non ci sono posizioni aperte") and
+  // no longer emits `.listing-count` when the local bank has no vacancies.
+  const listingRoot = document.querySelector('main, [role="main"]');
+  const textualEmptyState = listingRoot
+    ? hasExplicitEmptyJobListing(listingRoot, { scopedToListing: true })
+    : false;
+  return (countValues.length === 1 && countValues[0] === 0) || textualEmptyState;
 }
 
 const AUTHORITATIVE_EMPTY_EVIDENCE =

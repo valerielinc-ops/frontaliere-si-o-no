@@ -1,4 +1,4 @@
-const EXPLICIT_EMPTY_JOB_LISTING_RE = /\b(no\s+(?:open\s+)?(?:jobs|positions|vacancies)|no\s+openings|nessun(?:a)?\s+(?:posizione|offerta)|keine\s+(?:offene\s+)?stellen|aucun(?:e)?\s+(?:poste|offre))/i;
+const EXPLICIT_EMPTY_JOB_LISTING_RE = /\b(no\s+(?:open\s+)?(?:jobs|positions|vacancies)|no\s+openings|(?:non\s+ci\s+sono)\s+(?:posizioni?|offerte?)\s+aperte|nessun(?:a)?\s+(?:posizione|offerta)|keine\s+(?:offene\s+)?stellen|aucun(?:e)?\s+(?:poste|offre))/i;
 
 const HIDDEN_EMPTY_STATE_SELECTOR = [
   '[hidden]',

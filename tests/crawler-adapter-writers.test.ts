@@ -336,12 +336,23 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
     expect(attempts).toBe(3);
   });
 
-  it('accepts zero only from both branded pages with a listing-count element', async () => {
+  it('accepts zero only from both branded pages with explicit listing evidence', async () => {
     const zero = async () => new Response(
       `${marker}<div class="listing-count">0</div><p>Offene Stellen – 0 neue Hinweise</p></html>`,
       { status: 200 },
     );
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: zero, timeoutMs: 1000 }))
+      .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
+    const localizedZero = async (url: string) => {
+      const emptyText = url.includes('/de/')
+        ? 'Derzeit haben wir keine offenen Stellen.'
+        : 'Attualmente non ci sono posizioni aperte.';
+      return new Response(
+        `${marker}<section><h2>Offene Stellen</h2><p>${emptyText}</p></section></main></html>`,
+        { status: 200 },
+      );
+    };
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: localizedZero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
     const duplicatedCount = async () => new Response(
       `${marker}<div class="listing-count">0</div><div class="listing-count">0</div></html>`,
