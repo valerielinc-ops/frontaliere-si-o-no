@@ -235,15 +235,26 @@ jobs:
         id: extract-locale-source
         run: |
           set -euo pipefail
+          fail() { echo "::error title=Non-IT source artifact::$1"; exit 1; }
           source_tar="$(find "$RUNNER_TEMP/locale-shard-source" -type f -name '*.tar' -print -quit 2>/dev/null || true)"
-          test -n "$source_tar"
+          [ -n "$source_tar" ] || fail "no .tar in the downloaded locale-shard-source artifact"
           rm -rf dist
           mkdir -p dist
           tar -C dist -xf "$source_tar"
-          test -s dist/build-id.txt
-          test "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID"
-          test -s "dist/${BUILD_LOCALE}.html"
-          test -s "dist/${BUILD_LOCALE}/index.html"
+          [ -s dist/build-id.txt ] || fail "dist/build-id.txt missing or empty"
+          [ "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID" ] || fail "build id $(cat dist/build-id.txt) != $DEPLOY_BUILD_ID"
+          [ -s "dist/${BUILD_LOCALE}/index.html" ] || fail "dist/${BUILD_LOCALE}/index.html missing or empty"
+          # Only what deploy.yml's «Pack non-IT locale shard source artifact»
+          # ALWAYS packs may be required here: the locale subtree and
+          # build-id.txt. It adds the flat homepage `<loc>.html` only when the
+          # build emitted one, and push-locale-shard.sh stages it only if
+          # present, so requiring it failed every non-IT tail without a word
+          # (publish runs 37255215160 and 37271778943: plain `test` exit 1 right
+          # after a good extract, with de/index.html present and the build id
+          # equal). Its absence is reported, not fatal.
+          if [ ! -s "dist/${BUILD_LOCALE}.html" ]; then
+            echo "::warning title=Flat locale homepage absent::dist/${BUILD_LOCALE}.html is not in the artifact; the shard is published without /${BUILD_LOCALE}.html (/${BUILD_LOCALE}/ is the homepage)"
+          fi
 
       - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
