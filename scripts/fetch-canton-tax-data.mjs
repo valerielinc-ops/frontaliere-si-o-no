@@ -39,6 +39,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
+  DATA_PIPELINE_USER_AGENT,
   ESTV_TAX_BURDEN_TOOL_URL,
   ESTV_WITHHOLDING_AUTHORITIES_PAGE,
   ESTV_WITHHOLDING_RECORD_FORMAT_URL,
@@ -90,13 +91,13 @@ function parseYearArg(argv) {
 }
 
 async function fetchText(url, label) {
-  const res = await httpFetchWithRetry(url, { headers: { 'user-agent': 'frontaliereticino-data/1.0 (+https://frontaliereticino.ch)' } }, { timeout: 60000, label });
+  const res = await httpFetchWithRetry(url, { headers: { 'user-agent': DATA_PIPELINE_USER_AGENT } }, { timeout: 60000, label });
   if (!res.ok) throw new Error(`${label}: HTTP ${res.status} (${url})`);
   return res.text();
 }
 
 async function fetchBuffer(url, label) {
-  const res = await httpFetchWithRetry(url, { headers: { 'user-agent': 'frontaliereticino-data/1.0 (+https://frontaliereticino.ch)' } }, { timeout: 120000, label });
+  const res = await httpFetchWithRetry(url, { headers: { 'user-agent': DATA_PIPELINE_USER_AGENT } }, { timeout: 120000, label });
   if (!res.ok) throw new Error(`${label}: HTTP ${res.status} (${url})`);
   return Buffer.from(await res.arrayBuffer());
 }

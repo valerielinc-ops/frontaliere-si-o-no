@@ -26,6 +26,7 @@
  */
 
 import { httpFetchWithRetry } from './transient-fetch.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 export const ESTV_TAX_CALCULATOR_BASE = 'https://swisstaxcalculator.estv.admin.ch';
 export const ESTV_TAX_BURDEN_EXPORT_URL = `${ESTV_TAX_CALCULATOR_BASE}/delegate/ost-integration/v1/export/income-tax-values/JSON/DE`;
@@ -35,11 +36,11 @@ export const ESTV_WITHHOLDING_AUTHORITIES_PAGE = 'https://www.estv.admin.ch/de/q
 export const ESTV_WITHHOLDING_RECORD_FORMAT_URL =
   'https://www.estv.admin.ch/dam/de/sd-web/AvojuyFCZY95/qst-tarife-recordformate-loehne-2025-de.pdf';
 
-/** I 26 cantoni, nell'ordine ufficiale ESTV dei file tariffari. */
-export const SWISS_CANTON_CODES = Object.freeze([
-  'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE',
-  'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
-]);
+/**
+ * I 26 cantoni. Riusa l'elenco canonico degli script (nessuna terza copia
+ * letterale: AGENTS.md #6), ordinato alfabeticamente come i file ESTV.
+ */
+export const SWISS_CANTON_CODES = Object.freeze([...ALL_CANTON_CODES].sort());
 
 /**
  * Nomi tedeschi usati da ESTV nella pagina dei link alle autorita' cantonali
@@ -98,10 +99,13 @@ export const TAX_BURDEN_SCENARIO = Object.freeze({
     'onere totale (federale + cantonale + comunale + imposta personale) in % del reddito lordo da lavoro',
 });
 
+/** User-Agent dichiarato di tutte le pipeline dati ufficiali (nessun UA camuffato, D10). */
+export const DATA_PIPELINE_USER_AGENT = 'frontaliereticino-data/1.0 (+https://frontaliereticino.ch)';
+
 const JSON_HEADERS = {
   'content-type': 'application/json',
   accept: 'application/json',
-  'user-agent': 'frontaliereticino-data/1.0 (+https://frontaliereticino.ch)',
+  'user-agent': DATA_PIPELINE_USER_AGENT,
 };
 
 async function readOk(res, label) {
