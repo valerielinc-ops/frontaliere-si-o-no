@@ -319,24 +319,25 @@ describe('buildEmployerHubTitle — employer hub', () => {
 
   it('preserves identity when long employer names share a prefix', () => {
     const sharedPrefix = 'International Research and Development Corporation ';
+    const sharedSuffix = ' Global Holdings';
     const alpha = buildEmployerHubTitle({
       locale: 'it',
-      companyDisplay: `${sharedPrefix}Alpha`,
+      companyDisplay: `${sharedPrefix}Alpha${sharedSuffix}`,
       location: 'Berna',
       count: 12,
       year: YEAR,
     });
     const beta = buildEmployerHubTitle({
       locale: 'it',
-      companyDisplay: `${sharedPrefix}Beta`,
+      companyDisplay: `${sharedPrefix}Beta${sharedSuffix}`,
       location: 'Berna',
       count: 12,
       year: YEAR,
     });
 
     expect(alpha).not.toBe(beta);
-    expect(alpha).toContain('Alpha');
-    expect(beta).toContain('Beta');
+    expect(alpha).toContain('International');
+    expect(beta).toContain('International');
     expect(isValidTitleLength(alpha), alpha).toBe(true);
     expect(isValidTitleLength(beta), beta).toBe(true);
   });

@@ -38,7 +38,7 @@
  */
 
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
-import { buildTitleWithBrand } from '../../build-plugins/shared/titleSuffix';
+import { buildTitleWithBrand, stableTitleToken } from '../../build-plugins/shared/titleSuffix';
 
 export type JobPageLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -444,13 +444,12 @@ function compactEmployerName(companyDisplay: string): string {
   const beforeQualifier = raw.split(/\s+[—–-]\s+/, 1)[0]?.trim() || raw;
   if (visibleLength(beforeQualifier) <= 32) return beforeQualifier;
   const chars = [...beforeQualifier];
-  const head = chars.slice(0, 20).join('');
-  const tail = chars.slice(-11).join('');
-  // Keep the tail as well as the familiar prefix: two long legal names may
-  // share their first 32 characters while differing in the identity-bearing
-  // suffix. The ellipsis marks the editorial abbreviation without adding a
-  // synthetic keyword.
-  return `${head}…${tail}`;
+  const head = chars.slice(0, 14).join('');
+  const tail = chars.slice(-7).join('');
+  // Keep the familiar prefix and tail, plus a stable identity token. Two
+  // long legal names can share both visible slices while differing in the
+  // middle; the token preserves that distinction without adding a keyword.
+  return `${head}…${tail}·${stableTitleToken(raw)}`;
 }
 
 export function buildEmployerHubTitle({
