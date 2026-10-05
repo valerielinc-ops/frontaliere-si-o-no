@@ -16,14 +16,26 @@
  * (SCALE_MS real milliseconds per simulated second), so a run takes a second.
  *
  *   node scripts/measure-codex-translate-tier.mjs [--json]
+ *   node scripts/measure-codex-translate-tier.mjs --reserve-compare
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
 export const FIXED_PROMPT_TOKENS = 5900;
-const FIRST_TEXT_S = 7.1;
-const EXTRA_TEXT_S = 7.4;
+export const CODEX_RESERVE_CALIBRATION = Object.freeze({
+  measuredAt: '2026-09-29',
+  oneTextSeconds: 7.1,
+  fiveTextsSeconds: 36.8,
+});
+export const CODEX_RESERVE_BENCHMARK_CONFIG = Object.freeze({
+  maxCalls: 30,
+  maxMs: 900_000,
+  lanes: 2,
+  batchMaxTexts: 5,
+});
+const FIRST_TEXT_S = CODEX_RESERVE_CALIBRATION.oneTextSeconds;
+const EXTRA_TEXT_S = (CODEX_RESERVE_CALIBRATION.fiveTextsSeconds - FIRST_TEXT_S) / 4;
 const SCALE_MS = 3;
 const IT = "Il permesso G si rinnova ogni cinque anni presso l'ufficio della migrazione del Cantone Ticino.";
 
@@ -34,6 +46,94 @@ export const MODES = Object.freeze({
 });
 
 const text = (n, lang) => `${IT} Campo ${n} (${lang}).`;
+
+/** Deterministic wall-time model calibrated against the local 2026-09-29 run. */
+export function simulatedCodexSeconds(texts) {
+  if (!Number.isInteger(texts) || texts < 1) throw new RangeError('texts must be a positive integer');
+  return Number((FIRST_TEXT_S + EXTRA_TEXT_S * (texts - 1)).toFixed(1));
+}
+
+function reserveCapacityForBudget({ maxCalls, maxMs, lanes, batchMaxTexts }) {
+  let calls = 0;
+  let texts = 0;
+  let elapsedMs = 0;
+  while (calls < maxCalls) {
+    const remainingMs = maxMs - elapsedMs;
+    let groupTexts = 0;
+    for (let candidate = batchMaxTexts; candidate >= 1; candidate -= 1) {
+      if (simulatedCodexSeconds(candidate) * 1000 <= remainingMs) {
+        groupTexts = candidate;
+        break;
+      }
+    }
+    if (groupTexts === 0) break;
+    const concurrentCalls = Math.min(lanes, maxCalls - calls);
+    calls += concurrentCalls;
+    texts += concurrentCalls * groupTexts;
+    elapsedMs += simulatedCodexSeconds(groupTexts) * 1000;
+  }
+  return {
+    calls,
+    texts,
+    elapsedSeconds: Number((elapsedMs / 1000).toFixed(1)),
+  };
+}
+
+/**
+ * Capacity of the configured reserve, using the same two lanes and five-text
+ * grouping as the branch. The comparison capacities isolate the call and time
+ * ceilings so the reported bottleneck is reproducible without a live model.
+ */
+export function calculateCodexReserveCapacity(config = CODEX_RESERVE_BENCHMARK_CONFIG) {
+  const { maxCalls, maxMs, lanes, batchMaxTexts } = config;
+  if (!Number.isInteger(maxCalls) || maxCalls < 1) throw new RangeError('maxCalls must be a positive integer');
+  if (!(maxMs > 0) || !Number.isFinite(maxMs)) throw new RangeError('maxMs must be positive and finite');
+  if (!Number.isInteger(lanes) || lanes < 1) throw new RangeError('lanes must be a positive integer');
+  if (!Number.isInteger(batchMaxTexts) || batchMaxTexts < 1) throw new RangeError('batchMaxTexts must be a positive integer');
+  const settings = { maxCalls, maxMs, lanes, batchMaxTexts };
+  const actual = reserveCapacityForBudget(settings);
+  const callsOnly = reserveCapacityForBudget({ ...settings, maxMs: Number.POSITIVE_INFINITY });
+  const timeOnly = reserveCapacityForBudget({ ...settings, maxCalls: Number.POSITIVE_INFINITY });
+  const limitingResource = callsOnly.texts < timeOnly.texts
+    ? 'calls'
+    : timeOnly.texts < callsOnly.texts ? 'time' : 'calls-and-time';
+  return {
+    ...actual,
+    maxCalls,
+    maxMs,
+    lanes,
+    batchMaxTexts,
+    callsOnlyTexts: callsOnly.texts,
+    timeCapacityTexts: timeOnly.texts,
+    limitingResource,
+  };
+}
+
+/** Compare the unreserved main cascade with the branch's Codex reserve. */
+export function compareCodexReserve(textCounts = [1, 5]) {
+  return textCounts.map((texts) => {
+    simulatedCodexSeconds(texts);
+    return {
+      texts,
+      baseline: { requests: 0, simulatedSeconds: 0, translated: 0 },
+      branch: { requests: 1, simulatedSeconds: simulatedCodexSeconds(texts), translated: texts },
+    };
+  });
+}
+
+export function formatCodexReserveBenchmark() {
+  const rows = compareCodexReserve();
+  const capacity = calculateCodexReserveCapacity();
+  const cell = (result, texts) => `${result.simulatedSeconds.toFixed(1)}s (${result.translated}/${texts})`;
+  const limitingResource = { calls: 'chiamate', time: 'tempo', 'calls-and-time': 'chiamate+tempo' }[capacity.limitingResource];
+  return [
+    `Codex reserve benchmark — simulato, senza rete; branch: ${CODEX_RESERVE_BENCHMARK_CONFIG.lanes} corsie, gruppi <=${CODEX_RESERVE_BENCHMARK_CONFIG.batchMaxTexts}; calibrazione ${CODEX_RESERVE_CALIBRATION.measuredAt}: 1=${CODEX_RESERVE_CALIBRATION.oneTextSeconds.toFixed(1)}s, 5=${CODEX_RESERVE_CALIBRATION.fiveTextsSeconds.toFixed(1)}s.`,
+    '| testi | baseline main (tradotti/entrati) | branch reserve (tradotti/entrati) |',
+    '|---:|---:|---:|',
+    ...rows.map((row) => `| ${row.texts} | ${cell(row.baseline, row.texts)} | ${cell(row.branch, row.texts)} |`),
+    `| capacità/run | ${capacity.texts} testi; ${capacity.calls} chiamate; ${capacity.elapsedSeconds.toFixed(1)}s/900.0s; limite: ${limitingResource}; solo-tempo: ${capacity.timeCapacityTexts} testi | |`,
+  ].join('\n');
+}
 
 /**
  * `concurrent: true` sends the texts together, like create-article translating
@@ -76,7 +176,7 @@ function simulatedCodex(stats) {
     stats.requests += 1;
     stats.texts += texts;
     stats.inputTokens += FIXED_PROMPT_TOKENS + Math.ceil(messages.reduce((n, m) => n + m.content.length, 0) / 4);
-    await new Promise((resolve) => setTimeout(resolve, (FIRST_TEXT_S + EXTRA_TEXT_S * (texts - 1)) * SCALE_MS));
+    await new Promise((resolve) => setTimeout(resolve, simulatedCodexSeconds(texts) * SCALE_MS));
     if (items) return JSON.stringify({ items: items.map(({ id, text: t }) => ({ id, text: `EN ${t}` })) });
     const framed = /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user);
     return `EN ${framed ? framed[1] : user}`;
@@ -136,6 +236,10 @@ export async function measureCodexTranslateTier() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
+  if (process.argv.includes('--reserve-compare')) {
+    console.log(formatCodexReserveBenchmark());
+    process.exit(0);
+  }
   const results = await measureCodexTranslateTier();
   if (process.argv.includes('--json')) {
     console.log(JSON.stringify(results, null, 2));
