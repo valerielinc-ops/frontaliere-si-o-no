@@ -7697,6 +7697,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rita-fuhrer-consiglio-federale.title': 'No woman needed on the Federal Council',
     'blog.article.rita-fuhrer-consiglio-federale.excerpt': 'Rita Fuhrer: \'Those days are over: it simply has to be the most suitable person\'',
     'blog.article.rita-fuhrer-consiglio-federale.imageAlt': 'Rita Fuhrer, former Zurich State Councillor, comments on Federal Council succession',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.title': 'Federal Council without women: Rita Fuhrer’s analysis',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.excerpt': 'Rita Fuhrer, former Zurich State Councillor and former UDC candidate in 2000, comments on the succession in government and the issue of the presence of women.',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.imageAlt': 'Federal Palace in Bern under a clear sky',
 };
 
 export default blogMetaChEn;
