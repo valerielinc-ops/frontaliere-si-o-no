@@ -152,7 +152,7 @@ and the `value_first` branch from `JobBoard` (preview box reverts to the control
 
 ---
 
-## Round 3 — `jobgate-v3` — LIVE since 2026-09-25 (~04:55 UTC), 25/25/25/25
+## Round 3 — `jobgate-v3` — CLOSED ✖ for futility (2026-09-25 → 2026-10-05)
 
 First *randomised* multi-arm round. Rounds 1-2 and the model test set the arm
 globally (PostHog flag, later `AUTHGATE_HEADLINE_VARIANT`); v3 assigns each
@@ -178,7 +178,7 @@ comparable traffic.
     ENABLED is `true` (QA/promotion); default empty.
 - Remote Config slower than 3 s, or throwing → not enrolled for that page view
   (no late flip). Crawlers/bots are bypassed and never tagged.
-- Publish: `node scripts/experiments/jobgate-v3-rc.mjs` (dry-run: reads the
+- Publish: `node scripts/experiments/jobgate-rc.mjs` (dry-run: reads the
   template, validates, prints the diff of the three keys) then `--apply`
   (etag-guarded publish, no `force`). `--kill --apply` flips the kill switch.
 
@@ -243,13 +243,13 @@ printed per signature and arm). Without it, 16-24/09: 7,226 gate persons, 208
 new gate subscribers (after the 2026-09-25 `created_at` backfill), **baseline
 2.88%** (2.24% with the robots in the denominator); ~700 unique gate
 persons/day over 21-42-day windows. The plan in
-`scripts/experiments/jobgate-v3-plan.mjs`: +30% relative, 80% power, α 0.05/3
+`scripts/experiments/jobgate-plan.mjs`: +30% relative, 80% power, α 0.05/3
 → **8,981 persons per arm**, **56 days** (analysis from 2026-09-26: the launch
 day had a CDN outage 04:55-06:30 UTC), decisions on whole weeks only, maximum
 70 days.
 
 **Monitor and automatic promotion.** `.github/workflows/jobgate-experiment-monitor.yml`
-runs `scripts/experiments/jobgate-v3-monitor.mjs` daily: it rewrites one status
+runs `scripts/experiments/jobgate-monitor.mjs` daily: it rewrites one status
 issue (`[jobgate-v3] Monitor esperimento: stato giornaliero`), opens/closes
 alarm issues (SRM p < 0.001, an arm significantly worse than control by ≥10%
 after Holm, gate subscribers missing the arm tag) and never changes anything
@@ -260,3 +260,88 @@ p < 0.05, the winner not significantly worse on auth/gate or confirmation, and
 ≥80% of gate subscribers carrying their arm. Past 70 days without that it asks
 the owner. Once FORCE is set the monitor pauses (idempotent). The decision
 rules are pinned in `tests/experiment-monitor.test.ts`.
+
+### Round 3 — result and closure (owner decision, 2026-10-05)
+
+First whole week (2026-09-26 → 2026-10-02, robots excluded, monitor run of
+2026-10-04, status issue #9874):
+
+| arm | gate persons | new subscribers | primary CR [95% CI] | vs control | Holm p |
+| --- | ---: | ---: | --- | ---: | ---: |
+| control | 1528 | 152 | 9.95% [8.55 – 11.55] | — | — |
+| social_first | 1556 | 148 | 9.51% [8.15 – 11.07] | −4.4% | 0.68 |
+| similar_alerts | 1500 | 130 | 8.67% [7.35 – 10.20] | −12.9% | 0.45 |
+| email_first | 1483 | 123 | 8.29% [7.00 – 9.81] | −16.6% | 0.35 |
+
+SRM p = 0.69, 94% of gate subscribers carried their arm. A guardrail alarm on
+auth/gate (`email_first` −21.7%, `social_first` −22.7%, Holm p ≈ 0.04) fired
+on 2026-10-01 and cleared the next day on the whole-week window.
+
+**Why it was stopped before the planned 56 days — futility, not a peek for a
+winner.** The round was powered for +30% relative on the primary metric. The
+upper bound of the 95% CI of the risk ratio vs control was already below that
+for every challenger: `social_first` ≤ +18.6%, `similar_alerts` ≤ +8.9%,
+`email_first` ≤ +4.6% (≤ +24.3% / +14.4% / +9.9% at the Bonferroni level
+α/3). No arm could still reach the effect the test was sized for, while 75% of
+gate traffic sat on arms whose point estimates were 4–17% worse (~50 gate
+subscribers/week at the observed rates). Stopping for futility declares no
+winner, so it does not inflate the false-positive rate.
+
+Applied: `node scripts/experiments/jobgate-rc.mjs --kill --apply` →
+Remote Config version 149, `JOBGATE_EXPERIMENT_ENABLED=false` (everybody back
+on control). The round-3 arms, their render knobs and their copy keys
+(`jobBoard.gate.v3.*`) were removed in the PR that introduced round 4.
+
+Open question carried over: the v3 control converted at 9.95%, more than three
+times the 2.88% pre-launch baseline the round was planned on. The cause was not
+investigated; round 4 is planned on the v3 control because it is the same
+metric from the same pipeline.
+
+---
+
+## Round 4 — `jobgate-v4` — visual treatment of the gate, 25/25/25/25
+
+Same copy, same controls, same tracking and consent notice in every arm; only
+colour, elevation and block order change. Arms are rendered from
+`components/community/jobGateSkin.ts` (control = the exact pre-round classes);
+the experiment id salts the hash, so v4 reshuffles every visitor and
+`experiment_assigned` uses a new storage key (`frontaliere_jobgate_v4_assigned`).
+Designed with the Impeccable design pass against `DESIGN.md` (Stripe tokens,
+semantic colours, no `dark:` classes, white text ≥ 7:1 on the fixed panels).
+
+Diagnosis of the incumbent gate (390px and 1280px screenshots, 2026-10-05):
+the lavender box has the same colour as the employer card right above it, so
+the decision point reads as one more info card; the strongest colour on it is
+LinkedIn's brand blue, not the primary path; the email CTA sits faded
+(`disabled:opacity-60`) until an address is typed; on a phone the buttons start
+~1,400px below the top of the card.
+
+| arm | change | hypothesis |
+| --- | --- | --- |
+| `control` | none | baseline |
+| `navy_panel` | the gate becomes a deep navy panel (`navy-900`, the footer colour), white/white-tinted text, purple email CTA | figure/ground: the gate stops blending with the lavender card above and reads as the place to act |
+| `spotlight` | white card lifted off the page (2px accent border + `shadow-stripe-lg`); the public preview fades into it; LinkedIn goes neutral like Google; the email CTA is the only saturated control and is never shown disabled (an empty submit is stopped by the input's native `required`) | one action, one colour: a clear "start here" instead of three competing fills |
+| `actions_first` | solid brand band (`stripe-700`) with the title; sign-in buttons right under it, the registration notice directly below the buttons, explanation and benefits after | distance to action, mostly on mobile (65% of auth_success) |
+
+**Same height in every arm.** A gate painted while Remote Config is still
+loading starts as control and switches to its arm when the assignment
+resolves. If the arms had different heights that switch would move the AdSense
+slot below the gate (CLS, RPM). So every arm renders the gate exactly as tall
+as control: arms recolour, re-order and add shadows/rings, but never change
+border width, control sizes or the sum of vertical paddings and gaps
+(`jobGateSkin.ts`, pinned in `tests/jobgate-experiment.test.ts`). A settled
+assignment is also served synchronously by the hook, so a gate rendered after
+Remote Config answered never starts as pending.
+
+**Plan** (`scripts/experiments/jobgate-plan.mjs`): baseline 9.95% (v3 control,
+2026-09-26..10-02), minimum effect +20% relative, 80% power, α 0.05 over 3
+comparisons, 700 unique gate persons/day → **5,153 persons per arm, 35 days**
+(five whole weeks), analysis from **2026-10-07** (Remote Config publish on
+2026-10-06), maximum 70 days. Same metrics, monitor, guardrails and automatic
+promotion rules as round 3.
+
+Launch: `node scripts/experiments/jobgate-rc.mjs` (dry-run) then `--apply`,
+only after the bundle with the v4 arms is live (the browser falls back to
+control for an unknown arm name, so publishing early would put everyone in
+control rather than break the page).
+

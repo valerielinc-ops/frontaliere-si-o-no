@@ -1,8 +1,8 @@
 /**
  * experiment-monitor.mjs — decisioni PURE del monitor di un test A/B (primo
- * consumer: scripts/experiments/jobgate-v3-monitor.mjs).
+ * consumer: scripts/experiments/jobgate-monitor.mjs).
  *
- * Niente I/O: prende il piano (scripts/experiments/jobgate-v3-plan.mjs), lo
+ * Niente I/O: prende il piano (scripts/experiments/jobgate-plan.mjs), lo
  * stato di Remote Config e il JSON del readout
  * (scripts/analytics/job-gate-experiment-readout.mjs --json) e restituisce
  * fase, allarmi, azione e il markdown della issue di stato. Tutto ciò che
@@ -28,7 +28,7 @@ import { countInclusiveUtcDays, fmtUtcDate } from './analytics-settled-window.mj
 import { achievedPower, fmtCi, fmtInt, fmtP, fmtPct, sampleSizePerArm } from './experiment-stats.mjs';
 
 /**
- * Piano di un esperimento (forma di JOBGATE_V3_PLAN, con valori sostituibili).
+ * Piano di un esperimento (forma di JOBGATE_PLAN, con valori sostituibili).
  * @typedef {{
  *   experimentId: string, control: string, launchedAt: string, analysisStart: string,
  *   baselineRate: number, baselineWindow: string, dailyGatePersons: number,
