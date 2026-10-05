@@ -12587,6 +12587,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestro-contanti-como-brogeda.title': 'Saisie d\'espèces à Como-Brogeda : plus de 240 mila euro',
     'blog.article.sequestro-contanti-como-brogeda.excerpt': 'Plus de 240.000 euro en espèces saisis au poste-frontière de Como-Brogeda par ADM et Guardia di Finanza lors de deux interventions distinctes.',
     'blog.article.sequestro-contanti-como-brogeda.imageAlt': 'Contrôles douaniers et saisie de liquidités à la frontière de Como-Brogeda',
+    'blog.article.raduno-auto-moto-cocquio.title': 'Cocquio Trevisago : rassemblement non autorisé dans la via Appennini',
+    'blog.article.raduno-auto-moto-cocquio.excerpt': 'Dimanche 4 octobre, une vingtaine de motos et trois voitures ont occupé la via Appennini pour des courses de vitesse et des wheelings. Les carabiniers de Besozzo sont intervenus.',
+    'blog.article.raduno-auto-moto-cocquio.imageAlt': 'Intervention des carabiniers dans la Via Appennini à Cocquio Trevisago',
 };
 
 export default blogMetaFr;
