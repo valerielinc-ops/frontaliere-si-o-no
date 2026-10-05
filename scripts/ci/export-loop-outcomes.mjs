@@ -20,8 +20,27 @@ import {
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
-export const DEFAULT_L4_WINDOW_HOURS = 30;
+export const L4_RETURN_WINDOW_DAYS = 7;
+export const L4_GA4_LAG_DAYS = 2;
+export const L4_DELIVERY_CONTRACT_VERSION = 1;
+export const L4_DELIVERY_LOOKBACK_DAYS = L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS + 1;
+export const DEFAULT_L4_WINDOW_HOURS = L4_DELIVERY_LOOKBACK_DAYS * 24;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
+
+/**
+ * L4's return cohort is read from GA4's native session campaign dimension.
+ * Job-alert links already emit `utm_campaign=alert_<alertId>`, so this
+ * contract needs no custom dimension and does not depend on PostHog.
+ */
+export const L4_GA4_RETURN_CONTRACT = Object.freeze({
+  dimension: 'sessionCampaignName',
+  metric: 'totalUsers',
+  campaignParameter: 'utm_campaign',
+  campaignPrefix: 'alert_',
+  returnWindowDays: L4_RETURN_WINDOW_DAYS,
+  lagDays: L4_GA4_LAG_DAYS,
+  source: 'GA4 Data API',
+});
 
 /**
  * The L5 export reads exact event-session counts from GA4. Firebase
@@ -746,6 +765,48 @@ function exactGa4TotalMetricValues(report, label, metricCount) {
   return metricValues.map((metric) => metric?.value ?? 0);
 }
 
+function l4Ga4ReturnBody({ startDate, endDate, campaignNames }) {
+  return {
+    dateRanges: [{ startDate, endDate }],
+    metrics: [{ name: L4_GA4_RETURN_CONTRACT.metric }],
+    dimensionFilter: {
+      filter: {
+        fieldName: L4_GA4_RETURN_CONTRACT.dimension,
+        inListFilter: { values: [...campaignNames], caseSensitive: true },
+      },
+    },
+    limit: 1,
+  };
+}
+
+/**
+ * Read one settled, unique-user GA4 return total for the mature alert cohort.
+ * The campaign names are the exact values emitted by the alert UTM producer;
+ * filtering them before asking for `totalUsers` keeps one user counted once
+ * even when that user received more than one alert in the cohort.
+ */
+export async function fetchL4ReturnUsers({
+  client,
+  startDate,
+  endDate,
+  campaignNames = [],
+  propertyId = null,
+} = {}) {
+  if (!text(startDate) || !text(endDate)) throw new Error('L4 GA4 return report requires startDate and endDate');
+  const names = [...new Set(campaignNames.map((name) => String(name || '').trim()).filter(Boolean))];
+  if (names.length === 0) throw new Error('L4 GA4 return report requires at least one campaign name');
+  const report = await client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(l4Ga4ReturnBody({ startDate, endDate, campaignNames: names })),
+    },
+  );
+  const [value] = exactGa4TotalMetricValues(report, 'GA4 L4 return report', 1);
+  return nonNegativeCount(value, 'totalUsers for L4 return cohort');
+}
+
 export function buildL3OutcomeExport({
   eligibleJobSessions,
   validHandoffs,
@@ -947,6 +1008,50 @@ function sendDay(ms) {
   return new Date(ms).toISOString().slice(0, 10);
 }
 
+function readDeliveryConsentEvidence(data, sentAt) {
+  const checked = first(data, ['consent_checked', 'consentChecked']);
+  const allowed = first(data, ['consent_allowed', 'consentAllowed']);
+  if (checked === false || allowed === false) return { status: 'refused' };
+  const checkedAt = toMillis(first(data, ['consent_checked_at', 'consentCheckedAt']));
+  const version = Number(first(data, ['outcome_contract_version', 'outcomeContractVersion']));
+  const basis = first(data, ['consent_basis', 'consentBasis']);
+  const clockSkewMs = 5 * 60_000;
+  if (
+    checked === true
+    && allowed === true
+    && version === L4_DELIVERY_CONTRACT_VERSION
+    && checkedAt != null
+    && checkedAt <= sentAt + clockSkewMs
+    && text(basis)
+  ) return { status: 'valid', checkedAt, basis: String(basis).trim() };
+  return { status: 'missing' };
+}
+
+function buildL4ReturnCohort(attributed, delivered, now) {
+  const deliveredAttributed = attributed.filter((delivery) => delivered.has(delivery.deliveryId));
+  const maturityMs = (L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS) * DAY_MS;
+  const settledBefore = now.getTime() - maturityMs;
+  const mature = deliveredAttributed.filter((delivery) => delivery.sentAt <= settledBefore);
+  const pending = deliveredAttributed.filter((delivery) => delivery.sentAt > settledBefore);
+  const campaignNames = [...new Set(mature.map((delivery) => `${L4_GA4_RETURN_CONTRACT.campaignPrefix}${delivery.alertId}`))].sort();
+  const cohortStartMs = mature.length > 0 ? Math.min(...mature.map((delivery) => delivery.sentAt)) : null;
+  const cohortEndMs = mature.length > 0
+    ? Math.max(...mature.map((delivery) => delivery.sentAt + L4_RETURN_WINDOW_DAYS * DAY_MS))
+    : null;
+  const insufficientUntilMs = pending.length > 0
+    ? Math.min(...pending.map((delivery) => delivery.sentAt + maturityMs))
+    : null;
+  return {
+    campaignNames,
+    cohortStartDate: cohortStartMs == null ? null : sendDay(cohortStartMs),
+    cohortEndDate: cohortEndMs == null ? null : sendDay(cohortEndMs),
+    insufficientUntil: insufficientUntilMs == null ? null : new Date(insufficientUntilMs).toISOString(),
+    matureDeliveryRows: mature.length,
+    pendingDeliveryRows: pending.length,
+    status: campaignNames.length > 0 ? 'ready' : 'insufficient',
+  };
+}
+
 /**
  * Build an L4 ledger from already-read rows. All predicates are injected so
  * the aggregation can be tested without a Firebase connection; production
@@ -962,13 +1067,12 @@ export function buildL4OutcomeLedger({
   now = new Date(),
   window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS),
   predicates = {},
+  ga4ReturnUsers7d = null,
 } = {}) {
   const evaluateConsent = predicates.evaluateJobAlertConsent
     || (({ alert }) => ({ allowed: alert?.backfilled_from ? false : true, reason: 'fallback' }));
   const crossChannelStop = predicates.isCrossChannelStop || (() => false);
   const jobAlertExcluded = predicates.isJobAlertExcluded || (() => false);
-  const readVisit = predicates.readReturnVisitStamp || (() => null);
-  const classifyVisit = predicates.classifyReturnVisit || (() => ({ returned: false }));
   const jobs = new Map();
   const newsletters = new Map();
   for (const row of jobAlertRoots) {
@@ -981,7 +1085,6 @@ export function buildL4OutcomeLedger({
   }
 
   const eligibleAlerts = new Map();
-  const consentedAlerts = new Map();
   // Every alert row read, consented or not: tells a delivery whose alert row
   // is gone apart from one whose alert exists but has no consent.
   const knownAlertKeys = new Set();
@@ -1002,13 +1105,6 @@ export function buildL4OutcomeLedger({
     }
     const alertKey = buildAlertKey(email, child.childId);
     knownAlertKeys.add(alertKey);
-    if (consent?.allowed === true) {
-      // Delivery attribution is historical: an alert can be paused, deleted or
-      // suppressed after a message was sent without invalidating the consent
-      // that authorized that message. Current active/suppression state remains
-      // the source for the eligible-user denominator below.
-      consentedAlerts.set(alertKey, { email, alertId: child.childId, alert });
-    }
     if (alert.active !== true) continue;
     if (!consent || consent.allowed !== true) suppressedWithoutConsent += 1;
     const eligible = alert.paused !== true
@@ -1023,19 +1119,21 @@ export function buildL4OutcomeLedger({
   const delivered = new Set();
   const opened = new Set();
   const clicked = new Set();
-  const returnedUsers = new Set();
   const dedupGroups = new Map();
   let unattributedDeliveries = 0;
   const unattributedDeliveryReasons = {
     missingAlertId: 0,
     missingSentAt: 0,
+    consentNotAllowed: 0,
+    missingConsentEvidence: 0,
     noConsentedAlert: 0,
   };
-  // Diagnostic split of noConsentedAlert (counts only). It never attributes a
-  // row: both causes keep consentChecked/deduplicationChecked false.
+  // Diagnostic split for rows whose alert id cannot be proven against the
+  // consent/delivery ledger. It never attributes a row.
   const noConsentedAlertCauses = {
     alertRowMissing: 0,
     consentNotAllowed: 0,
+    missingConsentEvidence: 0,
   };
   let quietHoursEvidenceComplete = true;
   let deliveryRowCount = 0;
@@ -1050,6 +1148,7 @@ export function buildL4OutcomeLedger({
     none: 0,
   };
   const attributed = [];
+  let consentViolations = 0;
   // Message keys of every delivery row, operator-verification and unattributed
   // rows included: their id-joined events must not be claimed by the
   // recipient-window join of an attributed delivery.
@@ -1075,22 +1174,30 @@ export function buildL4OutcomeLedger({
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
-    if (!alertId || sentAt == null || !consentedAlerts.has(key)) {
+    const consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
+    const knownAlert = knownAlertKeys.has(key);
+    if (!alertId || sentAt == null || !knownAlert || consentEvidence.status !== 'valid') {
       unattributedDeliveries += 1;
       // Shape only (id length), never the id itself: enough to tell an alert
       // id from an id of another nature without exporting identifiers.
       incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
-      else {
+      else if (!knownAlert) {
         unattributedDeliveryReasons.noConsentedAlert += 1;
-        if (knownAlertKeys.has(key)) noConsentedAlertCauses.consentNotAllowed += 1;
-        else noConsentedAlertCauses.alertRowMissing += 1;
+        noConsentedAlertCauses.alertRowMissing += 1;
+      } else if (consentEvidence.status === 'refused') {
+        consentViolations += 1;
+        unattributedDeliveryReasons.consentNotAllowed += 1;
+        noConsentedAlertCauses.consentNotAllowed += 1;
+      } else {
+        unattributedDeliveryReasons.missingConsentEvidence += 1;
+        noConsentedAlertCauses.missingConsentEvidence += 1;
       }
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
-    attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey });
+    attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey, consentEvidence });
 
     const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
     dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
@@ -1132,31 +1239,52 @@ export function buildL4OutcomeLedger({
     }
     if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
     if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
-
-    const visit = readVisit(jobs.get(email));
-    const classified = classifyVisit(visit);
-    if (deliveredEvidence && classified?.returned === true && Number.isFinite(visit?.atMs)
-        && visit.atMs >= sentAt && visit.atMs <= sentAt + 7 * DAY_MS) {
-      returnedUsers.add(email);
-    }
   }
 
   let duplicateSends = 0;
   for (const count of dedupGroups.values()) duplicateSends += Math.max(0, count - 1);
   const deferredAlerts = Object.values(snoozes?.snoozes || {})
     .filter((entry) => (toMillis(entry?.snoozedUntil) || 0) > now.getTime()).length;
-  const deduplicationChecked = unattributedDeliveries === 0;
+  const returnCohort = buildL4ReturnCohort(attributed, delivered, now);
+  const measuredReturningUsers = ga4ReturnUsers7d == null || returnCohort.status !== 'ready'
+    ? null
+    : nonNegativeCount(ga4ReturnUsers7d, 'returningUsers7d');
+  const deduplicationChecked = unattributedDeliveries === 0 && duplicateSends === 0;
   const consentEvidenceComplete = consentChecked && unattributedDeliveries === 0;
+  const returnMeasurement = measuredReturningUsers == null
+    ? {
+      status: 'insufficient',
+      source: L4_GA4_RETURN_CONTRACT.source,
+      dimension: L4_GA4_RETURN_CONTRACT.dimension,
+      metric: L4_GA4_RETURN_CONTRACT.metric,
+      cohortStartDate: returnCohort.cohortStartDate,
+      cohortEndDate: returnCohort.cohortEndDate,
+      insufficientUntil: returnCohort.insufficientUntil,
+      reason: returnCohort.status === 'ready'
+        ? 'GA4 return report has not been read for the mature cohort'
+        : 'no settled consented delivery cohort is available',
+    }
+    : {
+      status: 'observed',
+      source: L4_GA4_RETURN_CONTRACT.source,
+      dimension: L4_GA4_RETURN_CONTRACT.dimension,
+      metric: L4_GA4_RETURN_CONTRACT.metric,
+      campaignParameter: L4_GA4_RETURN_CONTRACT.campaignParameter,
+      cohortStartDate: returnCohort.cohortStartDate,
+      cohortEndDate: returnCohort.cohortEndDate,
+      matureDeliveryRows: returnCohort.matureDeliveryRows,
+      returningUsers7d: measuredReturningUsers,
+    };
 
-  return {
+  const outcome = {
     generatedAt: now.toISOString(),
     eligibleConsentedUsers: eligibleUsers.size,
     deliveredAlerts: delivered.size,
     openedAlerts: opened.size,
     clickedAlerts: clicked.size,
-    returningUsers7d: returnedUsers.size,
+    returningUsers7d: measuredReturningUsers,
     duplicateSends,
-    consentViolations: 0,
+    consentViolations,
     suppressedWithoutConsent,
     deferredAlerts,
     telemetryWindow: window,
@@ -1168,6 +1296,7 @@ export function buildL4OutcomeLedger({
         'firestore.newsletter_subscribers',
         'firestore.campaign_deliveries',
         'firestore.events',
+        'ga4-alert-return',
       ],
       consentChecked: consentEvidenceComplete,
       deduplicationChecked,
@@ -1184,23 +1313,32 @@ export function buildL4OutcomeLedger({
       deliveryEvidenceByJoin,
       deliveryEvidenceJoin: deliveryRowCount === 0 ? 'no-deliveries' : (delivered.size === 0 ? 'empty' : 'joined'),
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
-      returnClassifier: 'functions/src/lib/returnVisit.js',
+      returnMeasurement,
+      returnClassifier: 'GA4 sessionCampaignName filtered by utm_campaign=alert_<alertId>',
       deduplicationKey: 'recipient + alert id + UTC send day',
     },
   };
+  Object.defineProperty(outcome, '_returnCohort', { value: returnCohort, enumerable: false });
+  return outcome;
 }
 
-export async function exportL4({ configPath = null, snoozesPath = null, outputPath, now = new Date(), client = null, predicates = null } = {}) {
+export async function exportL4({
+  configPath = null,
+  snoozesPath = null,
+  outputPath,
+  now = new Date(),
+  client = null,
+  analyticsClient = null,
+  propertyId = null,
+  predicates = null,
+} = {}) {
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS);
   const fields = [
     'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_given', 'consentGiven', 'consent_text', 'consentText',
     'consent_text_displayed', 'consentTextDisplayed', 'consent_act', 'consentAct',
     'consent_origin', 'consentOrigin', 'status', 'unsubscribed_at', 'unsubscribedAt',
-    'resubscribed_at', 'resubscribedAt', 'last_site_visit_at', 'lastSiteVisitAt',
-    'last_site_visit_uid', 'lastSiteVisitUid', 'last_site_visit_ua', 'lastSiteVisitUa',
-    'last_site_visit_entry', 'lastSiteVisitEntry', 'last_site_visit_visible', 'lastSiteVisitVisible',
-    'last_site_visit_prerender', 'lastSiteVisitPrerender', 'last_site_visit_ip', 'lastSiteVisitIp',
+    'resubscribed_at', 'resubscribedAt',
   ];
   const [alerts, jobs, newsletters, deliveries, events] = await Promise.all([
     firestore.runQuery({ collectionId: 'alerts', allDescendants: true, fieldPaths: fields }),
@@ -1210,7 +1348,7 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
       collectionId: 'campaign_deliveries',
       allDescendants: true,
       where: firestoreTimestampFilter('sent_at', window.start),
-      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
+      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'consent_checked', 'consentChecked', 'consent_allowed', 'consentAllowed', 'consent_basis', 'consentBasis', 'consent_checked_at', 'consentCheckedAt', 'outcome_contract_version', 'outcomeContractVersion', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
     }),
     firestore.runQuery({
       collectionId: 'events',
@@ -1222,13 +1360,10 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
   const consent = predicates || await Promise.all([
     import('../../functions/src/jobAlertBackfillCore.js'),
     import('../../functions/src/lib/emailSuppression.js'),
-    import('../../functions/src/lib/returnVisit.js'),
-  ]).then(([core, suppression, returns]) => ({
+  ]).then(([core, suppression]) => ({
     evaluateJobAlertConsent: core.evaluateJobAlertConsent,
     isCrossChannelStop: suppression.isCrossChannelStop,
     isJobAlertExcluded: suppression.isJobAlertExcluded,
-    readReturnVisitStamp: returns.readReturnVisitStamp,
-    classifyReturnVisit: returns.classifyReturnVisit,
   }));
   const snoozes = snoozesPath && fs.existsSync(path.resolve(snoozesPath))
     ? JSON.parse(fs.readFileSync(path.resolve(snoozesPath), 'utf8'))
@@ -1244,6 +1379,29 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
     window,
     predicates: consent,
   });
+  const returnCohort = outcome._returnCohort;
+  if (returnCohort?.campaignNames?.length > 0) {
+    const analytics = analyticsClient || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+    const returningUsers7d = await fetchL4ReturnUsers({
+      client: analytics,
+      startDate: returnCohort.cohortStartDate,
+      endDate: returnCohort.cohortEndDate,
+      campaignNames: returnCohort.campaignNames,
+      propertyId,
+    });
+    outcome.returningUsers7d = returningUsers7d;
+    outcome.export.returnMeasurement = {
+      status: 'observed',
+      source: L4_GA4_RETURN_CONTRACT.source,
+      dimension: L4_GA4_RETURN_CONTRACT.dimension,
+      metric: L4_GA4_RETURN_CONTRACT.metric,
+      campaignParameter: L4_GA4_RETURN_CONTRACT.campaignParameter,
+      cohortStartDate: returnCohort.cohortStartDate,
+      cohortEndDate: returnCohort.cohortEndDate,
+      matureDeliveryRows: returnCohort.matureDeliveryRows,
+      returningUsers7d,
+    };
+  }
   outcome.export.configSource = configPath || 'data/alert-config.json';
   if (outcome.export.deliveryEvidenceJoin === 'empty') {
     // Aggregates only: the reason must be readable in the run log.
@@ -1277,7 +1435,7 @@ export function buildUnavailableL4OutcomeExport({
     deferredAlerts: null,
     evidence: {
       source: 'Firestore read-only alert delivery export unavailable',
-      sourceRefs: ['consent-delivery', 'posthog-return'],
+      sourceRefs: ['consent-delivery', 'ga4-alert-return'],
       status: 'unavailable',
     },
     export: {
@@ -1285,6 +1443,12 @@ export function buildUnavailableL4OutcomeExport({
       readOnly: true,
       unavailable: true,
       mutationsPerformed: false,
+      sourceRefs: ['consent-delivery', 'ga4-alert-return'],
+      returnMeasurement: {
+        status: 'unavailable',
+        source: 'GA4 Data API',
+        reason: 'Firestore alert-delivery export unavailable',
+      },
       externalDeliveryUntouched: true,
     },
     _meta: {

@@ -52,6 +52,12 @@ function outcomes(overrides: Record<string, unknown> = {}) {
       quietHoursEvidence: 'test sender schedule',
       externalDeliveryUntouched: true,
       unattributedDeliveries: 0,
+      returnMeasurement: {
+        status: 'observed',
+        source: 'GA4 Data API',
+        dimension: 'sessionCampaignName',
+        metric: 'totalUsers',
+      },
     },
     ...overrides,
   };
@@ -110,6 +116,72 @@ describe('L4 Alert → Return', () => {
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('outcomes.export.deduplicationChecked');
     expect(verdict.issues.join(' ')).toContain('unattributedDeliveries');
+  });
+
+  it('reports a GA4 return cohort as insufficient until its settled date', () => {
+    const verdict = validateAlertReturn({
+      config: config(),
+      snoozes: snoozes(),
+      outcomes: outcomes({
+        returningUsers7d: null,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          quietHoursChecked: true,
+          quietHoursEvidence: 'test sender schedule',
+          externalDeliveryUntouched: true,
+          unattributedDeliveries: 0,
+          returnMeasurement: {
+            status: 'insufficient',
+            source: 'GA4 Data API',
+            dimension: 'sessionCampaignName',
+            metric: 'totalUsers',
+            insufficientUntil: '2026-09-21T09:00:00.000Z',
+          },
+        },
+      }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.awaitingReturnCohort).toBe(true);
+    expect(verdict.issues.join(' ')).toContain('insufficient until 2026-09-21T09:00:00.000Z');
+  });
+
+  it('keeps a maturing return cohort in the awaiting-sample issue state', async () => {
+    const source = tempSource(outcomes({
+      returningUsers7d: null,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        quietHoursChecked: true,
+        quietHoursEvidence: 'test sender schedule',
+        externalDeliveryUntouched: true,
+        unattributedDeliveries: 0,
+        returnMeasurement: {
+          status: 'insufficient',
+          source: 'GA4 Data API',
+          dimension: 'sessionCampaignName',
+          metric: 'totalUsers',
+          insufficientUntil: '2026-09-21T09:00:00.000Z',
+        },
+      },
+    }));
+    const issues: Array<Record<string, unknown>> = [];
+    const result = await runL4({
+      now: NOW,
+      configPath: source.configPath,
+      snoozesPath: source.snoozesPath,
+      outcomePath: source.outcomePath,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+    expect(result.verdict.awaitingReturnCohort).toBe(true);
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      state: 'awaiting-sample',
+      sample: { current: 1, minimum: 2, windowDays: 9 },
+    });
   });
 
   it('marks stale outcomes and keeps a future timestamp from starting the window', async () => {

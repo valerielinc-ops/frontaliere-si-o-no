@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
+import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -55,7 +55,7 @@ function text(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
-function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
+function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [], awaitingReturnCohort = false }) {
   return {
     loopId: LOOP_ID,
     sourcePath,
@@ -67,6 +67,7 @@ function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnin
     warnings,
     snapshot,
     candidates,
+    ...(awaitingReturnCohort ? { awaitingReturnCohort: true } : {}),
   };
 }
 
@@ -141,6 +142,7 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
     return {
       quality: 'partial',
       issues: ['alert outcome export is missing'],
+      returnMeasurementInsufficient: false,
       snapshot: {
         path: sourcePath,
         generatedAt: null,
@@ -166,6 +168,7 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
     deferredAlerts: outcomes.deferredAlerts ?? outcomes.metrics?.deferredAlerts,
   };
   const exportEvidence = outcomes.export;
+  let returnMeasurementInsufficient = false;
   if (exportEvidence !== undefined) {
     if (!exportEvidence || typeof exportEvidence !== 'object' || Array.isArray(exportEvidence)) {
       issues.push('outcomes.export is not an object');
@@ -180,10 +183,28 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
       if (integer(exportEvidence.unattributedDeliveries) && exportEvidence.unattributedDeliveries > 0) {
         issues.push(`outcomes.export.unattributedDeliveries is ${exportEvidence.unattributedDeliveries}`);
       }
+      const returnMeasurement = exportEvidence.returnMeasurement;
+      if (!returnMeasurement || typeof returnMeasurement !== 'object' || Array.isArray(returnMeasurement)) {
+        issues.push('outcomes.export.returnMeasurement is missing or invalid');
+      } else if (returnMeasurement.status === 'insufficient') {
+        returnMeasurementInsufficient = true;
+        const insufficientUntil = finiteDate(returnMeasurement.insufficientUntil);
+        issues.push(insufficientUntil
+          ? `GA4 return cohort is insufficient until ${insufficientUntil.toISOString()}`
+          : 'GA4 return cohort is insufficient; no settled consented delivery cohort is available');
+      } else if (returnMeasurement.status !== 'observed') {
+        issues.push(`outcomes.export.returnMeasurement.status is ${String(returnMeasurement.status || '(missing)')}`);
+      } else {
+        if (returnMeasurement.source !== 'GA4 Data API') issues.push('outcomes.export.returnMeasurement.source must be GA4 Data API');
+        if (returnMeasurement.dimension !== 'sessionCampaignName') issues.push('outcomes.export.returnMeasurement.dimension must be sessionCampaignName');
+        if (returnMeasurement.metric !== 'totalUsers') issues.push('outcomes.export.returnMeasurement.metric must be totalUsers');
+      }
     }
   }
   if (!generatedAt) issues.push('outcomes.generatedAt is missing or invalid');
-  for (const [name, value] of Object.entries({ eligibleConsentedUsers, deliveredAlerts, openedAlerts, clickedAlerts, returningUsers7d })) {
+  const requiredMetrics = { eligibleConsentedUsers, deliveredAlerts, openedAlerts, clickedAlerts };
+  if (!returnMeasurementInsufficient) requiredMetrics.returningUsers7d = returningUsers7d;
+  for (const [name, value] of Object.entries(requiredMetrics)) {
     if (!integer(value)) issues.push(`outcomes.${name} is missing or not a non-negative integer`);
   }
   for (const [name, value] of Object.entries(optional)) {
@@ -216,6 +237,9 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
     consentViolations: integer(optional.consentViolations) ? optional.consentViolations : null,
     suppressedWithoutConsent: integer(optional.suppressedWithoutConsent) ? optional.suppressedWithoutConsent : null,
     deferredAlerts: integer(optional.deferredAlerts) ? optional.deferredAlerts : null,
+    returnMeasurement: exportEvidence && typeof exportEvidence === 'object' && !Array.isArray(exportEvidence)
+      ? exportEvidence.returnMeasurement || null
+      : null,
     export: exportEvidence && typeof exportEvidence === 'object' && !Array.isArray(exportEvidence)
       ? exportEvidence
       : null,
@@ -226,7 +250,35 @@ function validateOutcomes(outcomes, { now, maxAgeHours, sourcePath, minimumSampl
   else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
   else if (eligibleConsentedUsers === 0) quality = 'zero';
   else if (eligibleConsentedUsers < minimumSample) quality = 'partial';
-  return { quality, issues, snapshot };
+  return { quality, issues, snapshot, returnMeasurementInsufficient };
+}
+
+function hasReturnCohortWaitIssue(issue) {
+  return issue.startsWith('GA4 return cohort is insufficient');
+}
+
+function awaitingReturnCohort({ outcomeVerdict, issues }) {
+  const measurement = outcomeVerdict?.snapshot?.returnMeasurement;
+  const insufficientUntil = finiteDate(measurement?.insufficientUntil);
+  if (!outcomeVerdict?.returnMeasurementInsufficient || !insufficientUntil) return false;
+  // A waiting cohort is not a source defect. If consent, delivery, dedup or
+  // the config also fail, keep the normal failing state so the root cause is
+  // not hidden behind a calendar wait.
+  return issues.length > 0 && issues.every((issue) => (
+    hasReturnCohortWaitIssue(issue)
+    || issue.startsWith('eligibleConsentedUsers is below minimum sample')
+  ));
+}
+
+function returnCohortWaitSample(verdict, now) {
+  const insufficientUntil = finiteDate(verdict.snapshot?.outcomes?.returnMeasurement?.insufficientUntil);
+  const daysUntil = insufficientUntil
+    ? Math.max(1, Math.ceil((insufficientUntil.getTime() - now.getTime()) / 86_400_000))
+    : 1;
+  // reportLoopIssue's awaiting-sample contract renders an ETA from a sample
+  // rate. L4 has a calendar maturity date, not a growing population sample;
+  // this one-step marker makes that ETA equal the declared GA4 readiness date.
+  return { current: 1, minimum: 2, windowDays: daysUntil };
 }
 
 /** Validate consent, delivery, deduplication and return evidence separately. */
@@ -284,6 +336,7 @@ export function validateAlertReturn({ config, snoozes, outcomes = null }, {
     warnings,
     snapshot,
     candidates: candidates.sort((a, b) => String(a.key).localeCompare(String(b.key))),
+    awaitingReturnCohort: awaitingReturnCohort({ outcomeVerdict, issues }),
   });
 }
 
@@ -306,7 +359,7 @@ function readOptionalJson(filePath) {
 
 function reportMarkdown(verdict, observation, decision) {
   const lines = [
-    `## L4 Alert → Return — ${verdict.ok ? 'OK' : 'ACTION REQUIRED'}`,
+    `## L4 Alert → Return — ${verdict.ok ? 'OK' : (verdict.awaitingReturnCohort ? 'WAITING FOR DATA' : 'ACTION REQUIRED')}`,
     '',
     `- Quality: **${verdict.quality}**`,
     `- Source: ${verdict.sourcePath}`,
@@ -386,6 +439,7 @@ function issueBody(verdict, decision) {
     `- Quality: ${verdict.quality}`,
     `- Reason: ${verdict.reason}`,
     `- Decision: ${decision.decision} / ${decision.actionClass}`,
+    ...(verdict.awaitingReturnCohort ? ['- Stato: dati insufficienti fino alla maturazione dichiarata della coorte GA4; il monitor resta in attesa e non instrada un fixer.'] : []),
     '',
     'Azione sicura: mantenere invariati i destinatari e non inviare nuovi messaggi; sopprimere/deferire soltanto gli alert già eleggibili secondo i flag autorizzati, mantenendo consenso, quiet hours e deduplica fail-closed. Collegare l’export outcome prima di ottimizzare frequenza o CTA.',
     '',
@@ -529,6 +583,10 @@ export async function runL4({
       loopId: LOOP_ID,
       reason: verdict.reason,
       loopTitles: [ISSUE_TITLE],
+      ...(verdict.awaitingReturnCohort ? {
+        state: LOOP_STATE_AWAITING_SAMPLE,
+        sample: returnCohortWaitSample(verdict, now),
+      } : {}),
     });
     issued = true;
   } else if (issue) {
@@ -536,7 +594,7 @@ export async function runL4({
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
   if (resultFile) files.push(resultFile);
-  logger.log(`[L4] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
+  logger.log(`[L4] ${verdict.ok ? 'OK' : (verdict.awaitingReturnCohort ? 'WAITING FOR DATA' : 'ACTION REQUIRED')} — ${verdict.reason}`);
   return { verdict, observation, decision, files, issued, actionsWritten };
 }
 

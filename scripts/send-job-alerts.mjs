@@ -76,7 +76,7 @@ import {
   openedSinceLastJobAlertSend,
   reactivationAfterReturnVisit,
 } from './lib/jobAlertCadence.mjs';
-import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { buildDeliveryDocId, uniqueUnknownFallback } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
   assignJobRankingVariant,
@@ -1488,16 +1488,22 @@ export async function mailerooMetaOnSent(item, sendResult) {
 // (processRetryQueue) paths, same as mailerooMetaOnSent above.
 export async function persistJobAlertDelivery(item, sendResult) {
   const email = item.recipient?.email?.toLowerCase().trim();
-  const alertId = item.meta?.alertId;
-  if (!email || !alertId) return;
+  const alertId = String(item.meta?.alertId || '').trim();
+  if (!email) return;
   try {
     const db = await getFirestoreAdmin();
     const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
-    const deliveryDocId = buildDeliveryDocId(rankingDeliveryId || alertId, email);
+    const sentAt = new Date();
+    // A successful provider send must remain observable even if an upstream
+    // item lost its alert id. The null campaign_id keeps attribution closed;
+    // the provider id/time fallback prevents two unknown sends collapsing into
+    // one Firestore document and lets the exporter report missingAlertId.
+    const deliveryKey = rankingDeliveryId || alertId || uniqueUnknownFallback(sendResult?.messageId, sentAt.toISOString());
+    const deliveryDocId = buildDeliveryDocId(deliveryKey, email);
     await db.collection('job_alert_subscribers').doc(email)
       .collection('campaign_deliveries').doc(deliveryDocId).set({
       email,
-      campaign_id: alertId,
+      campaign_id: alertId || null,
       ranking_delivery_id: rankingDeliveryId,
       ranking_variant: item.meta?.rankingVariant || null,
       // Lean manifest only (job_id, position, scores): the full job objects stay
@@ -1512,8 +1518,17 @@ export async function persistJobAlertDelivery(item, sendResult) {
       // (personal/global) — absent entirely for retries, which never resolve one.
       scheduled_for: sendResult?.scheduledFor ?? null,
       send_time_source: item.meta?.sendTimeSource ?? null,
+      // L4 outcome contract v1: this is the consent decision evaluated before
+      // the provider call, not a reconstruction from the subscriber after the
+      // send. Keep the basis and timestamp so the exporter can prove consent
+      // existed at send time without trusting a later profile mutation.
+      outcome_contract_version: 1,
+      consent_checked: item.meta?.consentProof?.allowed === true,
+      consent_allowed: item.meta?.consentProof?.allowed === true,
+      consent_basis: item.meta?.consentProof?.basis || null,
+      consent_checked_at: item.meta?.consentProof?.checkedAt || null,
       is_operator_verification: !!item.meta?.isOperatorVerification,
-      sent_at: new Date(),
+      sent_at: sentAt,
     }, { merge: true });
   } catch (e) {
     console.warn('⚠️ Job-alert delivery persist failed:', e?.message);
@@ -1584,6 +1599,7 @@ async function sendBatch(emails) {
         rankingAffinityProfile: e.rankingAffinityProfile === true,
         rankingJobs: e.sentJobs || [],
         sendTimeSource: e.sendTimeSource || null,
+        consentProof: e.consentProof || null,
         // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
         // an operator verification run (parallel send-newsletter.mjs's mode==='test')
         // targeting specific recipient(s), not real subscriber traffic — flagged so
@@ -1739,15 +1755,25 @@ async function processRetryQueue(db) {
         const jobAlertRoot = jobAlertRootSnap.exists ? jobAlertRootSnap.data() || {} : null;
 
         let discardReason = null;
+        let consentProof = null;
         if (!alert || alert.active !== true || alert.paused === true) {
           discardReason = 'alert-not-live';
           retryStale += 1;
         } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
           discardReason = 'suppressed';
           retrySuppressed += 1;
-        } else if (!evaluateJobAlertConsent({ alert, subscriber: newsletter }).allowed) {
-          discardReason = 'no-subscription-basis';
-          retrySuppressed += 1;
+        } else {
+          const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
+          if (!consent.allowed) {
+            discardReason = 'no-subscription-basis';
+            retrySuppressed += 1;
+          } else {
+            consentProof = {
+              allowed: true,
+              basis: consent.reason || 'unspecified',
+              checkedAt: new Date().toISOString(),
+            };
+          }
         }
 
         if (discardReason) {
@@ -1779,6 +1805,7 @@ async function processRetryQueue(db) {
               ? item.data.rankingAffinityProfile
               : null,
             rankingJobs: item.data.rankingJobs || [],
+            consentProof,
           },
         });
         retryDocs.push({
@@ -2478,12 +2505,24 @@ async function main() {
   // consent) has no basis either — the same `hasSubscriptionBasis` floor the
   // newsletter senders apply since #9734, via the shared per-alert predicate.
   // Explicit alerts (alert form, company follow) keep their own basis.
+  const alertConsentProofs = new Map();
   {
     const before = alerts.length;
-    alerts = alerts.filter((a) => evaluateJobAlertConsent({
-      alert: a,
-      subscriber: subscriberProfiles.get(a.email.toLowerCase()) ?? null,
-    }).allowed);
+    const consentCheckedAt = new Date().toISOString();
+    alerts = alerts.filter((a) => {
+      const consent = evaluateJobAlertConsent({
+        alert: a,
+        subscriber: subscriberProfiles.get(a.email.toLowerCase()) ?? null,
+      });
+      if (consent.allowed === true) {
+        alertConsentProofs.set(`${a.email.toLowerCase()}\u0000${a.id}`, {
+          allowed: true,
+          basis: consent.reason || 'unspecified',
+          checkedAt: consentCheckedAt,
+        });
+      }
+      return consent.allowed === true;
+    });
     if (before !== alerts.length) {
       console.log(`   🚫 Backfilled alerts without a subscription basis: ${before - alerts.length} alert(s) skipped`);
     }
@@ -2855,6 +2894,7 @@ async function main() {
       rankingDeliveryId,
       rankingVariant,
       rankingAffinityProfile,
+      consentProof: alertConsentProofs.get(`${alert.email.toLowerCase()}\u0000${alert.id}`) || null,
       unsubscribeUrl,
       scheduledAt,
       sendTimeSource,
