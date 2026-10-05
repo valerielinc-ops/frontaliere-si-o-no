@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * jobgate-v3-monitor.mjs — monitor giornaliero del test A/B `jobgate-v3`
+ * jobgate-monitor.mjs — monitor giornaliero del test A/B del job gate
+ * (round e id nel piano, scripts/experiments/jobgate-plan.mjs)
  * (workflow .github/workflows/jobgate-experiment-monitor.yml).
  *
  * Ogni giro:
@@ -15,16 +16,16 @@
  *     issue di allarme quando un allarme compare o rientra;
  *  5. se TUTTE le condizioni sono vere e la promozione ha `--apply` e
  *     `--approve-promotion`, scrive `JOBGATE_EXPERIMENT_FORCE=<vincente>` con
- *     scripts/experiments/jobgate-v3-rc.mjs (etag, niente force) e apre la
+ *     scripts/experiments/jobgate-rc.mjs (etag, niente force) e apre la
  *     issue «promosso». Al giro dopo FORCE è impostato: fase `forced`, nessuna
  *     nuova pubblicazione (idempotente).
  *
  * Uso:
- *   node scripts/experiments/jobgate-v3-monitor.mjs                 # dry-run, niente issue
- *   node scripts/experiments/jobgate-v3-monitor.mjs --issues --apply --approve-promotion # approvazione manuale
- *   node scripts/experiments/jobgate-v3-monitor.mjs --rc-json rc.json \
+ *   node scripts/experiments/jobgate-monitor.mjs                 # dry-run, niente issue
+ *   node scripts/experiments/jobgate-monitor.mjs --issues --apply --approve-promotion # approvazione manuale
+ *   node scripts/experiments/jobgate-monitor.mjs --rc-json rc.json \
  *     --status-json status.json [--decision-json decision.json]    # fixture, niente rete
- * Opzioni del piano (default in jobgate-v3-plan.mjs): --mde, --baseline-rate,
+ * Opzioni del piano (default in jobgate-plan.mjs): --mde, --baseline-rate,
  * --daily-persons, --min-days-floor, --max-days, --checkpoint-days,
  * --min-attribution, --since YYYY-MM-DD (solo diagnostica: sposta l'inizio
  * dell'analisi). Altre: --until YYYY-MM-DD, --out <dir> (monitor.md/json).
@@ -57,13 +58,13 @@ import {
   readMonitorState,
   renderMonitorReport,
 } from '../lib/experiment-monitor.mjs';
-import { JOBGATE_V3_PLAN } from './jobgate-v3-plan.mjs';
+import { JOBGATE_PLAN } from './jobgate-plan.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const READOUT = path.join(HERE, '..', 'analytics', 'job-gate-experiment-readout.mjs');
-const RC_SCRIPT = path.join(HERE, 'jobgate-v3-rc.mjs');
+const RC_SCRIPT = path.join(HERE, 'jobgate-rc.mjs');
 
-const ID = JOBGATE_V3_PLAN.experimentId;
+const ID = JOBGATE_PLAN.experimentId;
 export const MONITOR_LABEL = 'experiment-monitor';
 /** Titoli stabili: i primi 60 caratteri sono la chiave di dedup di github-issue-creator. */
 export const ISSUE_TITLES = Object.freeze({
@@ -120,7 +121,7 @@ export function mayPublishPromotion({
 }
 
 /** Piano con le sostituzioni da CLI (numeri validati). */
-export function resolvePlan(args, base = JOBGATE_V3_PLAN) {
+export function resolvePlan(args, base = JOBGATE_PLAN) {
   const num = (flag, key, { integer = false, min = 0, max = Infinity } = {}) => {
     if (args[flag] == null) return base[key];
     const v = Number(args[flag]);
@@ -245,7 +246,7 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
     notes.push('Durata massima raggiunta senza vincente promuovibile: decisione richiesta.');
     await createGithubIssue({
       title: ISSUE_TITLES.askOwner,
-      description: `La finestra di decisione ha raggiunto la durata massima senza che tutte le condizioni di promozione fossero vere. Nessun cambio automatico.\n\n${decision.checks.map((c) => `- ${c.ok ? '✅' : '❌'} ${c.id}: ${c.detail}`).join('\n')}\n\nOpzioni: chiudere il test lasciando \`control\` (\`node scripts/experiments/jobgate-v3-rc.mjs --kill --apply\`), forzare un braccio a mano (\`--force-arm <braccio> --apply\`) o prolungare con \`--max-days\` nel workflow. Stato: ${statusRef}.`,
+      description: `La finestra di decisione ha raggiunto la durata massima senza che tutte le condizioni di promozione fossero vere. Nessun cambio automatico.\n\n${decision.checks.map((c) => `- ${c.ok ? '✅' : '❌'} ${c.id}: ${c.detail}`).join('\n')}\n\nOpzioni: chiudere il test lasciando \`control\` (\`node scripts/experiments/jobgate-rc.mjs --kill --apply\`), forzare un braccio a mano (\`--force-arm <braccio> --apply\`) o prolungare con \`--max-days\` nel workflow. Stato: ${statusRef}.`,
       priority: 2,
       labels: OWNER_LABELS,
       workflow,
@@ -263,7 +264,7 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
         'Passi per renderlo definitivo nel codice:',
         `1. In \`components/community/JobBoard.tsx\` rendere il comportamento di \`${decision.winner}\` quello di default e togliere i rami degli altri bracci.`,
         '2. Rimuovere `hooks/useJobGateExperiment.ts`, `services/jobGateExperiment.ts` e il tag `variant` nella scrittura dell\'iscritto (lasciare `services/jobGateExperimentCore.mjs` finché lo usano script e readout).',
-        '3. Togliere `JOBGATE_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere le chiavi con `node scripts/experiments/jobgate-v3-rc.mjs --kill --apply` DOPO il deploy.',
+        '3. Togliere `JOBGATE_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere le chiavi con `node scripts/experiments/jobgate-rc.mjs --kill --apply` DOPO il deploy.',
         '4. Disattivare il workflow `jobgate-experiment-monitor.yml` e aggiungere la voce in `WhatsNewModal.tsx`.',
         '',
         `Numeri completi: ${statusRef}.${runUrl ? `\n\nRun: ${runUrl}` : ''}`,
@@ -394,7 +395,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   runMonitor(process.argv.slice(2))
     .then(({ exitCode }) => process.exit(exitCode))
     .catch((e) => {
-      console.error(`jobgate-v3-monitor: ${e?.stack || e}`);
+      console.error(`jobgate-monitor: ${e?.stack || e}`);
       process.exit(1);
     });
 }

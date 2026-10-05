@@ -57,6 +57,12 @@ describe('border-wait comparison', () => {
     expect(html).toContain('14 min');
     expect(html).toContain('Profilo storico indicativo');
     expect(html).toContain('data-peer-comparison="1"');
+    expect(html).toContain('<caption class="s-li0wom">Profilo storico indicativo</caption>');
+    expect(html).toContain('<table role="table"');
+    expect(html).toContain('role="columnheader"');
+    expect(html).toContain('<th scope="row" role="rowheader"');
+    expect(html).toContain('<td role="cell"');
+    expect(html.match(/<th scope="col"/g)?.length).toBeGreaterThanOrEqual(11);
     expect(html).toContain('Classifica delle attese mattutine nel corridoio');
     expect(html).toContain('I valichi vicini, in ordine di distanza');
     expect(html.match(/data-bw-source-labels=/g)).toHaveLength(1);

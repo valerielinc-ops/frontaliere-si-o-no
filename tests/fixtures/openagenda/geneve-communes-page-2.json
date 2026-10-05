@@ -1,0 +1,139 @@
+{
+  "total": 5,
+  "events": [
+    {
+      "uid": 70000004,
+      "slug": "fete-annulee",
+      "state": 2,
+      "status": 6,
+      "attendanceMode": 1,
+      "title": {
+        "fr": "Fête de quartier"
+      },
+      "description": {
+        "fr": "Fête annulée pour cause de météo."
+      },
+      "timezone": "Europe/Zurich",
+      "timings": [
+        {
+          "begin": "2026-10-31T14:00:00+01:00",
+          "end": "2026-10-31T22:00:00+01:00"
+        }
+      ],
+      "location": {
+        "uid": 90000001,
+        "name": "Parc Exemple",
+        "address": "Chemin du Parc 3, 1213 Onex",
+        "postalCode": "1213",
+        "city": "Onex",
+        "adminLevel4": "Onex",
+        "countryCode": "CH",
+        "latitude": 46.1844,
+        "longitude": 6.1003,
+        "timezone": "Europe/Zurich",
+        "email": "contact@example.org",
+        "phone": "+41 00 000 00 00",
+        "website": "https://example.org/lieu",
+        "agendaUid": 52853891
+      },
+      "image": {
+        "filename": "c9d0e1f2.base.image.jpg",
+        "size": {
+          "width": 700,
+          "height": 467
+        },
+        "variants": [
+          {
+            "filename": "c9d0e1f2.full.image.jpg",
+            "size": {
+              "width": 1400,
+              "height": 934
+            },
+            "type": "full"
+          },
+          {
+            "filename": "c9d0e1f2.thumb.image.jpg",
+            "size": {
+              "width": 200,
+              "height": 200
+            },
+            "type": "thumbnail"
+          }
+        ],
+        "base": "https://img.openagenda.com/main/"
+      },
+      "imageCredits": "  ",
+      "updatedAt": "2026-10-02T09:00:00.000Z"
+    },
+    {
+      "uid": 70000005,
+      "slug": "atelier-enfants",
+      "state": 2,
+      "status": 1,
+      "attendanceMode": 1,
+      "title": {
+        "fr": "Atelier pour enfants",
+        "de": "Kinderworkshop",
+        "it": "Laboratorio per bambini"
+      },
+      "description": {
+        "fr": "Atelier créatif dès 6 ans."
+      },
+      "conditions": {
+        "fr": "Gratuit sur inscription"
+      },
+      "timezone": "Europe/Zurich",
+      "timings": [
+        {
+          "begin": "2026-11-07T09:00:00+01:00",
+          "end": "2026-11-07T11:00:00+01:00"
+        }
+      ],
+      "location": {
+        "uid": 90000001,
+        "name": "Bibliothèque Exemple",
+        "address": "Rue des Livres 4",
+        "postalCode": "1205",
+        "city": "Genève",
+        "adminLevel4": "Genève",
+        "countryCode": "CH",
+        "latitude": 46.195,
+        "longitude": 6.145,
+        "timezone": "Europe/Zurich",
+        "email": "contact@example.org",
+        "phone": "+41 00 000 00 00",
+        "website": "https://example.org/lieu",
+        "agendaUid": 52853891
+      },
+      "image": {
+        "filename": "aabbccdd.base.image.jpg",
+        "size": {
+          "width": 700,
+          "height": 467
+        },
+        "variants": [
+          {
+            "filename": "aabbccdd.full.image.jpg",
+            "size": {
+              "width": 1400,
+              "height": 934
+            },
+            "type": "full"
+          },
+          {
+            "filename": "aabbccdd.thumb.image.jpg",
+            "size": {
+              "width": 200,
+              "height": 200
+            },
+            "type": "thumbnail"
+          }
+        ],
+        "base": "https://img.openagenda.com/main/"
+      },
+      "imageCredits": "Droits réservés",
+      "updatedAt": "2026-10-03T10:00:00.000Z"
+    }
+  ],
+  "after": null
+}

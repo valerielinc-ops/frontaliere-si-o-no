@@ -239,11 +239,11 @@
     },
     {
       "id": "idorsia-a1d3ffebc851",
-      "slug": "senior-drug-safety-case-manager-idorsia-allschwil-basel-area",
+      "slug": "responsabile-senior-del-caso-di-sicurezza-dei-farmaci-idorsia-pharmaceuticals-allschwil-basel-area",
       "slugByLocale": {
-        "it": "senior-drug-safety-case-manager-idorsia-allschwil-basel-area",
+        "it": "responsabile-senior-del-caso-di-sicurezza-dei-farmaci-idorsia-pharmaceuticals-allschwil-basel-area",
         "en": "senior-drug-safety-case-manager-idorsia-allschwil-basel-area",
-        "de": "senior-drug-safety-case-manager-idorsia-allschwil-basel-area",
+        "de": "leitender-fallmanager-fur-arzneimittelsicherheit-idorsia-pharmaceuticals-allschwil-basel-area",
         "fr": "gestionnaire-principal-des-cas-d-innocuite-des-medicaments-idorsia-pharmaceuticals-allschwil-basel-area"
       },
       "company": "Idorsia Pharmaceuticals",
@@ -300,7 +300,18 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-drug-safety-case-manager-idorsia-allschwil-basel-area"
+        ],
+        "de": [
+          "senior-drug-safety-case-manager-idorsia-allschwil-basel-area"
+        ]
+      },
+      "previousSlugs": [
+        "senior-drug-safety-case-manager-idorsia-allschwil-basel-area"
+      ]
     },
     {
       "id": "idorsia-2854f468cd8f",
