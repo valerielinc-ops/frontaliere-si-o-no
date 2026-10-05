@@ -6731,6 +6731,16 @@ function hasWholeWordMarker(lower, cacheKey, markers) {
   return re.test(lower);
 }
 
+// These distinctive Italian localities are returned as bare location fields
+// by the Pizzarotti InRecruiting feed. Keep them in the shared foreign-place
+// vocabulary so a complete board can prove that its Swiss-filtered slice is
+// empty without treating an unknown location as foreign.
+const KNOWN_ITALIAN_LOCATION_MARKERS = [
+  'parma',
+  'ponte taro',
+  'baragiano',
+];
+
 export function isExplicitlyOutsideTarget(text) {
   const lower = String(text || '').toLowerCase();
   const outsideMarkers = [
@@ -6758,6 +6768,7 @@ export function isExplicitlyOutsideTarget(text) {
     'venezia', 'venice', 'verona', 'padova', 'trieste', 'brescia', 'modena',
     'forte dei marmi', 'toscana', 'lazio', 'lombardia', 'piemonte', 'campania',
     'puglia', 'sicilia', 'sardegna', 'calabria', 'emilia-romagna', 'umbria',
+    ...KNOWN_ITALIAN_LOCATION_MARKERS,
     'usa', 'united states', 'new york', 'los angeles', 'san francisco', 'chicago',
     'canada', 'toronto', 'montreal', 'vancouver',
     'brazil', 'brasile', 'são paulo', 'rio de janeiro',
@@ -6991,6 +7002,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
+    ...KNOWN_ITALIAN_LOCATION_MARKERS,
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
     // French/Italian forms of cities in this list, as translated descriptions
