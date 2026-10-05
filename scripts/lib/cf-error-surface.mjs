@@ -15,7 +15,7 @@
  * Closing it "because the 5xx went down" would have filed away a defect nobody diagnosed.
  *
  * The site-path partition mirrors one-to-one the cache rules that
- * `scripts/cf-locale-failover-setup.mjs` owns on the zone. The two GitHub webhook hosts are
+ * `scripts/cf-locale-failover-setup.mjs` owns on the zone. The GitHub webhook hosts are
  * separate Cloudflare Tunnel ingress surfaces; their receiver ports come from the workspace
  * tunnel configuration, and status codes alone do not attribute a failure to a tunnel hop.
  */
@@ -24,8 +24,11 @@
 export const CDN_HOST = 'cdn.frontaliereticino.ch';
 /** Apex host. */
 export const APEX_HOST = 'frontaliereticino.ch';
-/** Cloudflare Tunnel hostnames for the two local GitHub webhook receivers. */
+/** Cloudflare Tunnel hostname for the default local GitHub webhook receiver. */
 export const GH_DEFAULT_TUNNEL_HOST = 'gh-default.frontaliereticino.ch';
+/** Explicit agent-webhook hostname observed in the zone analytics report. */
+export const GH_DEFAULT_AGENTI_TUNNEL_HOST = 'gh-default-agenti.frontaliereticino.ch';
+/** Cloudflare Tunnel hostname for the nanako local GitHub webhook receiver. */
 export const GH_NANAKO_TUNNEL_HOST = 'gh-nanako.frontaliereticino.ch';
 
 /**
@@ -63,6 +66,11 @@ export const SURFACES = {
     cacheRule: null,
     serveStale: false,
   },
+  'github-webhook-default-agenti': {
+    origin: 'Cloudflare Tunnel -> default agents GitHub webhook receiver',
+    cacheRule: null,
+    serveStale: false,
+  },
   'github-webhook-nanako': {
     origin: 'Cloudflare Tunnel -> nanako GitHub webhook receiver (localhost:18788)',
     cacheRule: null,
@@ -72,7 +80,19 @@ export const SURFACES = {
   other: { origin: 'unknown', cacheRule: null, serveStale: false },
 };
 
-/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-nanako'|'www-redirect'|'other'} SurfaceKey */
+/** The webhook surfaces are explicit so receiver alerts never fall through to the site. */
+export const WEBHOOK_TUNNEL_SURFACES = Object.freeze([
+  'github-webhook-default',
+  'github-webhook-default-agenti',
+  'github-webhook-nanako',
+]);
+
+/** True only for the explicitly known GitHub webhook tunnel surfaces. */
+export function isWebhookTunnelSurface(surface) {
+  return WEBHOOK_TUNNEL_SURFACES.includes(surface);
+}
+
+/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-default-agenti'|'github-webhook-nanako'|'www-redirect'|'other'} SurfaceKey */
 
 /**
  * Classify a request into the surface that served it.
@@ -94,6 +114,7 @@ export function classifySurface(row) {
   if (!host) return 'other';
   if (host === CDN_HOST) return 'cdn-r2';
   if (host === GH_DEFAULT_TUNNEL_HOST) return 'github-webhook-default';
+  if (host === GH_DEFAULT_AGENTI_TUNNEL_HOST) return 'github-webhook-default-agenti';
   if (host === GH_NANAKO_TUNNEL_HOST) return 'github-webhook-nanako';
   if (host.startsWith('www.')) return 'www-redirect';
   if (host !== APEX_HOST) return 'other';
