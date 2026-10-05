@@ -1,5 +1,5 @@
 import { articleSourceDate } from '../packages/articles/engine/shared/sourceDates';
-export { articleSourceDate } from '../packages/articles/engine/shared/sourceDates';
+export { articleSourceDate, isUnknownArticleDate } from '../packages/articles/engine/shared/sourceDates';
 
 export function articleSchemaDates(article: { date?: string; updatedAt?: string }, now = new Date()): {
   datePublished?: string;
