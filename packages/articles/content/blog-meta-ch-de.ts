@@ -7703,6 +7703,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-voto-zurigo-referendum.title': 'Kantonale Abstimmung in Zürich: Leitfaden zu Initiativen und Referenden',
     'blog.article.guida-voto-zurigo-referendum.excerpt': 'Kantonale Abstimmung in Zürich: Initiativen, Referenden, Zeitplan und Stimmberechtigte. Eidgenössische Schwellenwerte: 100\'000 Unterschriften in 18 Monaten und 50\'000 in 100 Tagen.',
     'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Stimmzettel für eine kantonale Abstimmung im Kanton Zürich',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Kantonswahlen in Zürich: Kalender- und Abstimmungsleitfaden',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Praktischer Leitfaden zu den Kantonswahlen im Kanton Zürich: Was ist in Kalender, Abstimmungsmodalitäten, Listen und amtlichen Informationen zu beachten?',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Informationsmaterial für Kantonswahlen im Kanton Zürich',
 };
 
 export default blogMetaChDe;

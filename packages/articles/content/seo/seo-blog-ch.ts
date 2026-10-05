@@ -97289,6 +97289,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elezioni-cantonali-zurigo-vademecum': {
+    title: 'Elezioni cantonali a Zurigo: guida a calendario e voto',
+    description: 'Guida alle elezioni cantonali a Zurigo: calendario, modalità di voto, liste e ufficio elettorale, con il confronto tra voto cantonale e regole federali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, cantonali, zurigo, calendario',
+    ogTitle: 'Elezioni cantonali a Zurigo: guida a calendario e voto',
+    ogDescription: 'Il voto cantonale nel Cantone di Zurigo richiede di separare calendario, modalità, liste e ufficio elettorale dalle quattro date del voto federale. La guida collega questi passaggi alle competenze cantonali e comunali su fisco e servizi.',
+    canonicalPath: '/articoli-svizzera/elezioni-cantonali-zurigo-vademecum/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elezioni cantonali a Zurigo: guida a calendario e voto",
+      "description": "Guida alle elezioni cantonali a Zurigo: calendario, modalità di voto, liste e ufficio elettorale, con il confronto tra voto cantonale e regole federali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elezioni-cantonali-zurigo-vademecum.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Materiale informativo per le elezioni cantonali nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-05T01:17:29+00:00",
+      "dateModified": "2026-10-05T01:17:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elezioni-cantonali-zurigo-vademecum/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

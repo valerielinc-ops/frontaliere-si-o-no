@@ -7703,6 +7703,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-voto-zurigo-referendum.title': 'Voto cantonale a Zurigo: guida a iniziative e referendum',
     'blog.article.guida-voto-zurigo-referendum.excerpt': 'Voto cantonale a Zurigo: iniziative, referendum, calendario e aventi diritto. Soglie federali: 100\'000 firme in 18 mesi e 50\'000 in 100 giorni.',
     'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Schede per il voto cantonale nel Cantone di Zurigo',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Elezioni cantonali a Zurigo: guida a calendario e voto',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Guida pratica alle elezioni cantonali nel Cantone di Zurigo: cosa controllare su calendario, modalità di voto, liste e informazioni ufficiali.',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Materiale informativo per le elezioni cantonali nel Cantone di Zurigo',
 };
 
 export default blogMetaChIt;
