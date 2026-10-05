@@ -510,7 +510,7 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,

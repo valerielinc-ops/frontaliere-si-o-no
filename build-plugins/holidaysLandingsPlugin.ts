@@ -588,7 +588,7 @@ function renderPage(opts: {
 
   const articleLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
     image: seoHeroImageObject(hero),
