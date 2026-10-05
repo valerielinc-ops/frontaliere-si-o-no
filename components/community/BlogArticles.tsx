@@ -1641,13 +1641,19 @@ function BlogArticles({
  const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
  const scriptId = 'blog-article-jsonld';
  const schemaDates = articleSchemaDates(article);
- // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
- // to prevent duplicate schemas during SPA hydration
+ // Remove any pre-existing article JSON-LD from static HTML (ogPagesPlugin)
+ // to prevent duplicate schemas during SPA hydration. Undated articles emit
+ // WebPage from the static renderer, so its canonical article identity is part
+ // of this replacement set as well; generic WebPage schemas must stay put.
  document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
  if (el.id === scriptId) return;
  try {
  const data = JSON.parse(el.textContent || '');
- if (data['@type'] === 'BlogPosting' || data['@type'] === 'NewsArticle' || data['@type'] === 'Article') {
+ const isArticleSchema = data['@type'] === 'BlogPosting'
+ || data['@type'] === 'NewsArticle'
+ || data['@type'] === 'Article'
+ || (data['@type'] === 'WebPage' && data['@id'] === `${canonicalUrl}#article`);
+ if (isArticleSchema) {
  // P14: a static page rendered with the cover's credit carries it in this
  // ImageObject; keep it before the script goes, for when the fetch fails.
  staticCoverImageRef.current = creditedStaticImageObject(data.image, coverUrl) ?? staticCoverImageRef.current;
