@@ -96,6 +96,7 @@ const SIDE_EFFECT_WORKFLOWS = [
   'discover-404s-via-cloudflare.yml',
   'generate-border-wait-ranking-weekly.yml',
   'update-health-premiums.yml',
+  'update-canton-tax-data.yml',
   'refresh-plate-auctions.yml',
   'reconcile-expired-route-duplicates.yml',
   'migrate-prospected-slugs.yml',
@@ -241,6 +242,12 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'update-health-premiums.yml': [
     /Fetch health premiums/u,
     /Validate generated health premiums/u,
+    /Commit and push if changed/u,
+    /Trigger deploy workflow/u,
+  ],
+  'update-canton-tax-data.yml': [
+    /Fetch canton tax data/u,
+    /Validate canton tax data/u,
     /Commit and push if changed/u,
     /Trigger deploy workflow/u,
   ],
