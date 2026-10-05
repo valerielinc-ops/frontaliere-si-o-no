@@ -132,6 +132,8 @@ function historicalSlugKey(route, event) {
  */
 export function selectEphemeralEvents({ snapshotEvents, publicEvents, dateStamp }) {
   const candidates = (Array.isArray(snapshotEvents) ? snapshotEvents : []).filter(isPrivateEventRecord);
+  // upcomingEvents sorts by startDate, title and id, so the first record for a
+  // generated slug is deterministic even when the snapshot array is shuffled.
   const upcoming = upcomingEvents(candidates, dateStamp);
   const publicFuzzy = new Set();
   const publicSlugs = new Set();
@@ -148,16 +150,19 @@ export function selectEphemeralEvents({ snapshotEvents, publicEvents, dateStamp 
   }
   let duplicates = 0;
   let slugCollisions = 0;
+  const claimedSlugs = new Set(publicSlugs);
   const events = [];
   for (const event of upcoming) {
     if (publicFuzzy.has(fuzzyKey(event))) {
       duplicates += 1;
       continue;
     }
-    if (publicSlugs.has(slugKey(event))) {
+    const key = slugKey(event);
+    if (claimedSlugs.has(key)) {
       slugCollisions += 1;
       continue;
     }
+    claimedSlugs.add(key);
     events.push({ ...event, ephemeral: true });
   }
   return { events, counts: { snapshot: candidates.length, upcoming: upcoming.length, duplicates, slugCollisions } };
