@@ -12570,6 +12570,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellucci-finale-jingshan-2026.title': 'Mattia Bellucci falls one title short in Jingshan',
     'blog.article.bellucci-finale-jingshan-2026.excerpt': 'Bellucci loses the Jingshan Open final to Harris in the decisive tie-break after failing to convert two match points. The Varese native rises to No. 86 in the ATP rankings.',
     'blog.article.bellucci-finale-jingshan-2026.imageAlt': 'Mattia Bellucci in action during a Challenger hard court tournament',
+    'blog.article.a2-rumore-galbisio.title': 'A2 and noise: City plans the Galbisio terrace',
+    'blog.article.a2-rumore-galbisio.excerpt': 'The City reiterates the protection of Galbisio from the noise and visual impact of the A2. For Lepori, it is the first formal step after the endorsement of Pab5.',
+    'blog.article.a2-rumore-galbisio.imageAlt': 'A2 motorway and the landscape around Galbisio in the Bellinzonese area',
 };
 
 export default blogMetaEn;
