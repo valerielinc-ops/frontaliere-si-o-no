@@ -183,6 +183,61 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/ready/cv.pdf');
   });
 
+  it('returns the read-only order page state shown to the candidate', async () => {
+    const database = makeDb({
+      paid: {
+        jobTitle: 'Developer', companyName: 'ACME SA', paymentStatus: 'paid',
+        submissionStatus: 'awaiting_upload', cvStorageKey: 'assisted-application-uploads/paid/cv.pdf',
+        consentVersion: 'assisted-application-v2', consentedAt: '2026-09-15T10:00:00.000Z',
+        updatedAt: '2026-09-15T10:05:00.000Z', applicantEmail: 'candidate@example.test',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'paid' },
+    }));
+
+    expect(result).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        candidateView: {
+          orderId: 'paid',
+          jobTitle: 'Developer',
+          companyName: 'ACME SA',
+          pageState: 'paid',
+          paymentStatus: 'paid',
+          submissionStatus: 'awaiting_upload',
+          hasCv: true,
+          hasConsent: true,
+          updatedAt: '2026-09-15T10:05:00.000Z',
+        },
+      },
+    });
+  });
+
+  it('maps the queued candidate page before payment and rejects an unknown order', async () => {
+    const database = makeDb({ queued: { paymentStatus: 'pending', submissionStatus: 'awaiting_payment' } });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const queued = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'queued' },
+    }));
+    const missing = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'missing' },
+    }));
+
+    expect(queued).toMatchObject({
+      status: 200,
+      body: { candidateView: { pageState: 'pending', paymentStatus: 'pending', submissionStatus: 'awaiting_payment' } },
+    });
+    expect(missing).toEqual({ status: 404, body: { ok: false, error: 'order_not_found' } });
+  });
+
   it('never hides a paid order and withholds only CV links with a bad or pending verdict', async () => {
     const database = makeDb({
       clean: {

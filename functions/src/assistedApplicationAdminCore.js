@@ -2,9 +2,10 @@
  * Admin-only operational queue for one-off assisted applications.
  *
  * GET lists paid orders in the manual-submission lifecycle. POST performs a
- * server-validated submission-status transition or issues a full Stripe refund.
- * Candidate PII stays behind the same verified owner-email gate used by the
- * other AdminPanel endpoints; CVs are returned only as short-lived signed URLs.
+ * server-validated submission-status transition, issues a full Stripe refund,
+ * or returns a read-only candidate-facing order snapshot. Candidate PII stays
+ * behind the same verified owner-email gate used by the other AdminPanel
+ * endpoints; CVs are returned only as short-lived signed URLs.
  */
 
 import { randomUUID } from 'node:crypto';
@@ -30,6 +31,7 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ADMIN_STATUSES,
   ASSISTED_APPLICATION_ADMIN_STATUS_SET,
+  hasAssistedApplicationConsent,
 } from './assistedApplicationConstants.js';
 
 export { ASSISTED_APPLICATION_ADMIN_STATUSES };
@@ -235,6 +237,34 @@ function serializeOrder(doc, cvUrl) {
 }
 
 /**
+ * The state shown by AssistedApplicationUpload for this order. Keep the
+ * precedence identical to the candidate page: a queued submission wins over
+ * payment, then a confirmed payment wins over the waiting/error states.
+ */
+function candidatePageStateFor(order) {
+  const submissionStatus = statusFor(order);
+  if (submissionStatus === 'ready_for_manual_submission') return 'submitted';
+  if (order?.paymentStatus === 'paid') return 'paid';
+  if (order?.paymentStatus === 'failed' || order?.paymentStatus === 'refunded') return 'error';
+  return 'pending';
+}
+
+function serializeCandidateView(doc) {
+  const data = doc.data() || {};
+  return {
+    orderId: doc.id,
+    jobTitle: boundedString(data.jobTitle, 300),
+    companyName: boundedString(data.companyName, 200),
+    pageState: candidatePageStateFor(data),
+    paymentStatus: boundedString(data.paymentStatus, 40),
+    submissionStatus: statusFor(data),
+    hasCv: Boolean(data.cvStorageKey),
+    hasConsent: hasAssistedApplicationConsent(data),
+    updatedAt: timestampToIso(data.updatedAt || data.statusChangedAt || data.createdAt),
+  };
+}
+
+/**
  * The admin endpoint is the only path that turns a private Storage key into a
  * client-visible signed URL; the browser can never self-attest a scan verdict
  * (`cvScanStatus` is outside the candidate's writable keys in firestore.rules).
@@ -290,6 +320,20 @@ export async function handleListAssistedApplications(db, status = null) {
     console.error('[manageAssistedApplicationAdmin] renderer check not read', error instanceof Error ? error.message : String(error));
   }
   return { status: 200, body: { ok: true, orders, pdfRenderer } };
+}
+
+/** Read only the candidate-facing order state for the owner preview. */
+async function handleCandidateView(db, raw) {
+  const orderId = boundedString(raw.orderId, 200);
+  if (!orderId || !/^[A-Za-z0-9_-]+$/.test(orderId)) {
+    throw new AssistedApplicationAdminError('invalid_input', 400);
+  }
+  const doc = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId).get();
+  if (!doc.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
+  return {
+    status: 200,
+    body: { ok: true, candidateView: serializeCandidateView(doc) },
+  };
 }
 
 function transitionErrorResponse(error) {
@@ -628,6 +672,7 @@ async function handleOwnerCvUpload(db, raw, adminEmail) {
 async function handleMutate(db, req, adminEmail) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = boundedString(raw.action, 80);
+  if (action === 'candidateView') return handleCandidateView(db, raw);
   if (action === 'refund') return handleRefund(db, raw, adminEmail);
   if (action === 'uploadCv') return handleOwnerCvUpload(db, raw, adminEmail);
   if (AUTOMATION_ADMIN_ACTIONS.has(action)) {
