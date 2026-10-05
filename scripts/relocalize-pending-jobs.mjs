@@ -60,7 +60,7 @@ import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
-import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isModelMetaAnswer, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
 import {
   applyThinkingArm,
@@ -1203,6 +1203,37 @@ export function carryForwardMissingSlugBridges(crawlerJob, assembled) {
   return missingBridges.length > 0;
 }
 
+/**
+ * The assembled value a locale slot may receive, or '' when it must not be
+ * written. A model meta-answer («I need to see the actual job title you want
+ * translated…», «Sorry, I can't help with that.») is never synced: a title one
+ * becomes the canonical crawled title — still flagged by isIncomplete as an
+ * untranslated copy, but never the refusal — and a description one is dropped
+ * (the empty-value guard skips it). Exported for tests.
+ */
+export function sanitizeAssembledLocaleValue(field, value, crawlerJob = {}) {
+  const text = String(value || '').trim();
+  if (field === 'titleByLocale' && isModelMetaAnswer(text, crawlerJob.title || '')) {
+    return String(crawlerJob.title || '').trim();
+  }
+  if (field === 'descriptionByLocale' && isModelMetaAnswer(text, crawlerJob.description || '')) return '';
+  return value;
+}
+
+/**
+ * Sanitize a complete assembled locale map before adopting it into a crawler
+ * job. This path is distinct from the per-locale merge below because the
+ * crawler may not have the map at all; it must still never persist a model
+ * meta-answer.
+ */
+export function sanitizeAssembledLocaleMap(field, values, crawlerJob = {}) {
+  return Object.fromEntries(
+    Object.entries(values || {})
+      .map(([locale, value]) => [locale, sanitizeAssembledLocaleValue(field, value, crawlerJob)])
+      .filter(([, value]) => String(value || '').trim())
+  );
+}
+
 function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs) {
   const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
 
@@ -1245,18 +1276,18 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
     for (const field of ['titleByLocale', 'descriptionByLocale', 'slugByLocale']) {
       if (!assembled[field] || Object.keys(assembled[field]).length === 0) continue;
       if (!crawlerJob[field]) {
-        // Only adopt assembled data that has non-empty values
-        const nonEmpty = Object.fromEntries(
-          Object.entries(assembled[field]).filter(([, v]) => String(v || '').trim())
-        );
+        // Sanitize before adopting assembled data: this branch must not bypass
+        // the model-meta guard merely because the crawler has no locale map.
+        const nonEmpty = sanitizeAssembledLocaleMap(field, assembled[field], crawlerJob);
         if (Object.keys(nonEmpty).length > 0) {
           crawlerJob[field] = nonEmpty;
           changed = true;
         }
         continue;
       }
-      for (const [locale, value] of Object.entries(assembled[field])) {
+      for (const [locale, assembledValue] of Object.entries(assembled[field])) {
         const existing = crawlerJob[field][locale];
+        const value = sanitizeAssembledLocaleValue(field, assembledValue, crawlerJob);
         const trimmedValue = String(value || '').trim();
         const trimmedExisting = String(existing || '').trim();
         // NEVER write empty assembled values (safety guard: AI may have failed).
@@ -1302,7 +1333,11 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
           const hasSourceWords =
             (sourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
             (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|der|die|fachspezialist)\b/i.test(lc));
-          if (!isSourceCopy && !isWrongLanguage && !hasSourceWords) {
+          // A refusal or a request for the input («I need to see the actual
+          // job title…») is not a translation to keep stable: isIncomplete
+          // queued the job precisely for it.
+          const isMetaAnswer = isModelMetaAnswer(trimmedExisting, crawlerJob.title || '');
+          if (!isSourceCopy && !isWrongLanguage && !hasSourceWords && !isMetaAnswer) {
             // Title is correctly translated — keep it stable
             continue;
           }
@@ -1313,7 +1348,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
           const srcTitle = String(crawlerJob.title || '').trim().toLowerCase();
           const assembledIsCopy = trimmedValue.toLowerCase() === srcTitle;
           const existingIsCopy = trimmedExisting.toLowerCase() === srcTitle;
-          if (assembledIsCopy && !existingIsCopy) {
+          // The source title is still better than a model's refusal.
+          const existingIsMeta = isModelMetaAnswer(trimmedExisting, crawlerJob.title || '');
+          if (assembledIsCopy && !existingIsCopy && !existingIsMeta) {
             // Assembled is WORSE (source copy), existing is better (translated) — skip
             continue;
           }

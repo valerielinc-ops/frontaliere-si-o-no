@@ -52,6 +52,10 @@ vi.mock('@/scripts/lib/mymemory-translate.mjs', () => ({
 const AI_SEARCH_TEMPLATE_IMPORT = `import { getKeyFactsHeading, getTldrHeading } from '${
   new URL('../scripts/lib/ai-search-template.mjs', import.meta.url).href
 }';`;
+// Il rilevatore delle meta-risposte e' puro: anche qui il modulo vero.
+const AI_META_RESPONSE_IMPORT = `import { detectAiMetaResponse } from '${
+  new URL('../scripts/lib/ai-meta-response.mjs', import.meta.url).href
+}';`;
 
 const IT = [
   '## In breve',
@@ -191,6 +195,10 @@ function runExhaustedTierSkipScenario(
       .replace(
         "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",
         ${JSON.stringify(AI_SEARCH_TEMPLATE_IMPORT)},
+      )
+      .replace(
+        "import { detectAiMetaResponse } from './ai-meta-response.mjs';",
+        ${JSON.stringify(AI_META_RESPONSE_IMPORT)},
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -299,6 +307,10 @@ function runRetryOutcomeResetScenario() {
       .replace(
         "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",
         ${JSON.stringify(AI_SEARCH_TEMPLATE_IMPORT)},
+      )
+      .replace(
+        "import { detectAiMetaResponse } from './ai-meta-response.mjs';",
+        ${JSON.stringify(AI_META_RESPONSE_IMPORT)},
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -596,6 +608,55 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
+  });
+
+  // ── Meta-risposte (scheda AI-REFUSAL): un rifiuto non e' una traduzione ────
+
+  it('scarta il motore che risponde con una richiesta dell\'input, e non la conta come passthrough', async () => {
+    vi.mocked(translateWithMyMemory).mockResolvedValue(
+      'I need to see the actual job title you want translated. Could you provide the German job title?',
+    );
+    const before = statsSnapshot();
+    const metaBefore = getCascadeStats().tierMetaResponses.myMemory || 0;
+
+    const out = await freeTranslate({ text: 'Detailhandelsfachfrau/-mann EFZ', sourceLang: 'de', targetLang: 'en' });
+
+    expect(out).toBe('');
+    expect((getCascadeStats().tierMetaResponses.myMemory || 0) - metaBefore).toBe(1);
+    expect(statsSnapshot().passthroughs - before.passthroughs).toBe(0);
+    expect(statsSnapshot().hits - before.hits).toBe(0);
+  });
+
+  it('nomina le meta-risposte nel sommario della cascata', async () => {
+    vi.mocked(translateWithMyMemory).mockResolvedValue("Sorry, I can't help with that.");
+    await freeTranslate({ text: 'Lehrperson Kochen (w/m/d)', sourceLang: 'de', targetLang: 'fr' });
+
+    const lines: string[] = [];
+    const logSpy = vi.spyOn(console, 'log').mockImplementation((...a) => { lines.push(a.join(' ')); });
+    logCascadeSummary();
+    logSpy.mockRestore();
+
+    expect(lines.join('\n')).toMatch(/Tier meta-risposta .*myMemory=\d+/);
+  });
+
+  it('lascia passare un titolo vero che contiene «translation»', async () => {
+    vi.mocked(translateWithMyMemory).mockResolvedValue('Translation Trainee (m/w/x) – 100%');
+    const out = await freeTranslate({ text: 'Übersetzungspraktikant/in (m/w/x) – 100%', sourceLang: 'de', targetLang: 'en' });
+    expect(out).toContain('Translation Trainee');
+  });
+
+  it('con la cascata reale, il rifiuto di un tier passa la mano al tier successivo', () => {
+    const child = runRealCascadeWithSelfHostedBody(
+      { translatedText: "I don't see a job title in your message to translate. Could you provide the German job title?" },
+      false,
+      { myMemoryResults: ['The cross-border workers resident within twenty kilometres keep the old tax regime.'] },
+    );
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({
+      text: 'The cross-border workers resident within twenty kilometres keep the old tax regime.',
+      passthrough: false,
+    });
   });
 
   it('non riporta passthrough quando la cascata reale incontra una risposta 200 vuota', () => {
