@@ -496,16 +496,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-sostituzione-caldaia-ticino-2026': {
- title: 'Sostituzione Caldaia Ticino: Norme 2026 | Frontaliere Ticino',
+ title: 'Caldaie in Ticino: nuove norme e risparmio 2026',
  description: 'Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.',
  keywords: 'sostituzione caldaia ticino, pompa di calore ticino, norme energetiche RUEn, incentivi riscaldamento, risparmio energetico, frontalieri ticino, calor tech',
- ogTitle: 'La tua caldaia in Ticino ha più di 15 anni? Attenzione alle nuove norme 2026',
+ ogTitle: 'Caldaie in Ticino: nuove norme e risparmio 2026',
  ogDescription: 'Con le nuove regole energetiche (RUEn) del 2026, molti impianti in Ticino non saranno più efficienti. Scopri come agire e risparmiare migliaia di franchi.',
  canonicalPath: '/articoli-frontaliere/sostituzione-caldaia-ticino-norme-2026-risparmio/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "La tua caldaia in Ticino ha più di 15 anni? Attenzione alle nuove norme 2026",
+ "headline": "Caldaie in Ticino: nuove norme e risparmio 2026",
  "description": "Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/sostituzione-caldaia-ticino-2026.webp`,
@@ -754,10 +754,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-rsi-mostra-storia-ticino': {
- title: 'RSI in mostra: la storia del Ticino che ogni frontaliere',
+ title: 'Mostra RSI ad Airolo: la storia del Ticino',
  description: 'Scopri la mostra gratuita \'Una Storia\' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni \'60 ai 2000. Info e date.',
  keywords: 'mostra fotografica ticino, rsi eventi, storia svizzera italiana, frontalieri cultura, caseificio gottardo airolo, eventi gratuiti ticino, leventina, airolo',
- ogTitle: 'Un viaggio nel tempo in Ticino: la mostra gratuita della RSI che ogni frontaliere dovrebbe vedere',
+ ogTitle: 'Mostra RSI ad Airolo: la storia del Ticino',
  ogDescription: 'Dal 16 al 22 febbraio ad Airolo, la RSI espone la storia del Ticino in foto. Un\'occasione per capire il presente del Cantone. Ingresso libero.',
  canonicalPath: '/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri/',
  structuredData: {
@@ -1809,16 +1809,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-tredicesima-avs-stipendio-iva': {
- title: '13esima AVS: stipendio o IVA? Scontro sul finanziamento',
+ title: '13esima AVS: stipendio o IVA per finanziarla?',
  description: 'Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.',
  keywords: '13esima AVS, frontalieri, finanziamento, contributi salariali, IVA, stipendio ticino, pensione svizzera, consiglio degli stati',
- ogTitle: '13esima AVS: Aumento Stipendio o IVA? La Decisione che Tocca il Tuo Portafoglio',
+ ogTitle: '13esima AVS: stipendio o IVA per finanziarla?',
  ogDescription: 'La politica svizzera è divisa su come finanziare i 4,2 miliardi della 13esima AVS. La nuova proposta potrebbe ridurre il tuo stipendio netto. Scopri come.',
  canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendio-iva/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Finanziamento 13esima AVS: Scontro tra Aumento Contributi e IVA",
+ "headline": "13esima AVS: stipendio o IVA per finanziarla?",
  "description": "Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-iva.webp`,
@@ -1925,16 +1925,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-tredicesima-avs-stipendi-iva': {
- title: '13esima AVS: stipendio più basso per i frontalieri?',
+ title: '13esima AVS: cosa cambia per lo stipendio dei frontalieri',
  description: 'La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell\'IVA. Scopri l\'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.',
  keywords: 'tredicesima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, stipendio netto frontaliere, frontalieri ticino, pensione svizzera',
- ogTitle: '13esima AVS: Aumento Contributi e IVA in Vista. Cosa Cambia per il Tuo Stipendio?',
+ ogTitle: '13esima AVS: cosa cambia per lo stipendio dei frontalieri',
  ogDescription: 'La Commissione degli Stati vuole aumentare contributi e IVA per finanziare la 13esima AVS. Ecco l\'impatto previsto sulla tua busta paga da frontaliere.',
  canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "13esima AVS: Aumento Contributi e IVA in Vista. Cosa Cambia per il Tuo Stipendio?",
+ "headline": "13esima AVS: cosa cambia per lo stipendio dei frontalieri",
  "description": "La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell'IVA. Scopri l'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendi-iva.webp`,
@@ -2212,16 +2212,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-frontalieri-ticino-dati-ingannevoli': {
- title: 'Frontalieri in calo in Ticino? I dati | Frontaliere Ticino',
+ title: 'Frontalieri in Ticino: calo nei settori qualificati',
  description: 'Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.',
  keywords: 'frontalieri, ticino, dati lavoro, permesso g, mercato del lavoro ticino, sostituzione manodopera, statistiche frontalieri, economia ticinese',
- ogTitle: 'Calo dei frontalieri in Ticino? Non è come sembra: i dati settore per settore',
+ ogTitle: 'Frontalieri in Ticino: calo nei settori qualificati',
  ogDescription: 'Una flessione dello 0.2% nasconde una crescita boom nei settori IT, ingegneria e finanza. Ecco cosa significano veramente i nuovi dati sul lavoro in Ticino.',
  canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-settori-qualificati/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Calo dei frontalieri in Ticino? Non è come sembra: i dati settore per settore",
+ "headline": "Frontalieri in Ticino: calo nei settori qualificati",
  "description": "Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-ingannevoli.webp`,
@@ -2496,16 +2496,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-lugano-manifestazioni-regole-polemica': {
- title: 'Lugano, manifestazioni: regole uguali per tutti?',
+ title: 'Manifestazioni a Lugano: regole uguali per tutti?',
  description: 'Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L\'analisi sui costi e la fiducia.',
  keywords: 'manifestazioni lugano, regole ordine pubblico, frontalieri ticino, polemica politica lugano, parità di trattamento, costi polizia, andrea togni plr',
- ogTitle: 'Doppio Standard a Lugano? Manifestazioni Vietate ad Alcuni, Consentite ad Altri',
+ ogTitle: 'Manifestazioni a Lugano: regole uguali per tutti?',
  ogDescription: 'Un evento autorizzato viene negato, uno abusivo occupa il centro di Lugano. Scoppia la polemica sulla gestione dell\'ordine pubblico e sui costi per i contribuenti.',
  canonicalPath: '/articoli-frontaliere/lugano-manifestazioni-polemica-regole-uguali-per-tutti/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Doppio Standard a Lugano? Manifestazioni Vietate ad Alcuni, Consentite ad Altri",
+ "headline": "Manifestazioni a Lugano: regole uguali per tutti?",
  "description": "Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L'analisi sui costi e la fiducia.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lugano-manifestazioni-regole-polemica.webp`,
@@ -3308,16 +3308,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-sicurezza-lavoro-controlli-svizzera': {
- title: 'Sicurezza sul Lavoro in Svizzera | Frontaliere Ticino',
+ title: 'Sicurezza sul lavoro in Svizzera: controlli SUVA',
  description: 'Audit federale rivela lacune nei controlli sulla sicurezza sul lavoro in Svizzera e conflitto d\'interessi della Suva. Cosa cambia per i frontalieri.',
  keywords: 'sicurezza lavoro svizzera, suva, controlli lavoro ticino, frontalieri, infortuni professionali, cfst, audit cdf, ispettorato lavoro',
- ogTitle: 'Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli "Troppo Larghi"',
+ ogTitle: 'Sicurezza sul lavoro in Svizzera: controlli SUVA',
  ogDescription: 'Falle sistemiche e conflitti d\'interesse: la sicurezza dei lavoratori, inclusi i frontalieri in Ticino, è a rischio secondo un nuovo report federale.',
  canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-svizzera-controlli-insufficienti-suva/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli \"Troppo Larghi\"",
+ "headline": "Sicurezza sul lavoro in Svizzera: controlli SUVA",
  "description": "Un audit federale rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d'interessi della Suva. Le implicazioni per i frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/sicurezza-lavoro-controlli-svizzera.webp`,
@@ -3336,16 +3336,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-startup-investimenti-boom-ticino': {
- title: 'Boom Investimenti Startup Svizzera | Frontaliere Ticino',
+ title: 'Startup svizzere: investimenti AI e opportunità in Ticino',
  description: 'Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall\'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.',
  keywords: 'startup svizzera, investimenti ticino, intelligenza artificiale, lavoro frontalieri, economia ticino, medtech, fintech, opportunità lavoro',
- ogTitle: 'Boom Startup in Svizzera (+44%): 53 Milioni per il Ticino, nuove opportunità',
+ ogTitle: 'Startup svizzere: investimenti AI e opportunità in Ticino',
  ogDescription: 'Gli investimenti in startup svizzere esplodono a 3,3 mld, con l\'IA protagonista. Il Ticino attrae 53 milioni: ecco cosa cambia per il lavoro frontaliero.',
  canonicalPath: '/articoli-frontaliere/startup-svizzera-boom-investimenti-ia-opportunita-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Boom Startup in Svizzera (+44%): 53 Milioni per il Ticino, nuove opportunità",
+ "headline": "Startup svizzere: investimenti AI e opportunità in Ticino",
  "description": "Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/startup-investimenti-boom-ticino.webp`,
@@ -3420,16 +3420,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-fonderie-svizzere-crisi-2025': {
- title: 'Crisi Fonderie Svizzere 2025: Impatto | Frontaliere Ticino',
+ title: 'Fonderie svizzere: produzione in calo del 7,6%',
  description: 'La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall\'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.',
  keywords: 'fonderie svizzere, crisi industria, lavoro ticino, frontalieri, settore metalmeccanico, economia ticino, dazi trump, franco forte',
- ogTitle: 'Fonderie Svizzere: Produzione in calo del 7.6%. Cosa significa per il tuo lavoro in Ticino?',
+ ogTitle: 'Fonderie svizzere: produzione in calo del 7,6%',
  ogDescription: 'Il settore metalmeccanico svizzero soffre: la produzione è scesa del 7.6% nel 2025. Scopri le cause e l\'impatto sui posti di lavoro per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/fonderie-svizzere-crisi-produzione-2025-impatto-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Fonderie Svizzere: Produzione in calo del 7.6%. Cosa significa per il tuo lavoro in Ticino?",
+ "headline": "Fonderie svizzere: produzione in calo del 7,6%",
  "description": "La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/fonderie-svizzere-crisi-2025.webp`,
@@ -3448,16 +3448,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-salario-minimo-ticino-accordo': {
- title: 'Salario minimo Ticino: si punta a 22 CHF l\'ora',
+ title: 'Salario minimo in Ticino: accordo a 22 CHF',
  description: 'Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.',
  keywords: 'salario minimo ticino, stipendio frontalieri, aumento salario svizzera, lavoro ticino, 22 franchi ora, contratti collettivi, busta paga svizzera',
- ogTitle: 'Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga',
+ ogTitle: 'Salario minimo in Ticino: accordo a 22 CHF',
  ogDescription: 'Un accordo politico potrebbe portare il salario minimo ticinese a 4\'000 CHF mensili. Ecco il piano di aumento e le novità per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga",
+ "headline": "Salario minimo in Ticino: accordo a 22 CHF",
  "description": "Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.webp`,
@@ -3476,16 +3476,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-trasporti-pubblici-crescita-svizzera': {
- title: 'Trasporti Pubblici in Svizzera | Frontaliere Ticino',
+ title: 'Trasporti pubblici svizzeri: crescita e impatto sui frontalieri',
  description: 'Trasporti pubblici svizzeri: fatturato record di 7,04 miliardi CHF. Cosa significa per i frontalieri in Ticino e i costi del pendolarismo.',
  keywords: 'trasporti pubblici svizzera, frontalieri ticino, abbonamento arcobaleno, pendolarismo svizzera, costo treno frontaliere, TILO, Alliance SwissPass',
- ogTitle: 'Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?',
+ ogTitle: 'Trasporti pubblici svizzeri: crescita e impatto sui frontalieri',
  ogDescription: 'Con un fatturato di oltre 7 miliardi, i trasporti svizzeri sono in piena salute. Analizziamo l\'impatto sui pendolari del Ticino.',
  canonicalPath: '/articoli-frontaliere/trasporti-pubblici-svizzera-crescita-fatturato-impatto-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?",
+ "headline": "Trasporti pubblici svizzeri: crescita e impatto sui frontalieri",
  "description": "I trasporti pubblici svizzeri registrano un fatturato record di 7,04 miliardi CHF. Scopri cosa significa questa crescita per i frontalieri in Ticino e i costi del pendolarismo.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/trasporti-pubblici-crescita-svizzera.webp`,

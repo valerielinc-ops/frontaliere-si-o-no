@@ -1,18 +1,21 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-10-05T08:33:33.771Z",
+  "generatedAt": "2026-10-05T09:11:44.132Z",
   "total": 1,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 24661,
-  "avgDurationMs": 24661,
+  "unchangedCount": 1,
+  "durationMs": 19769,
+  "avgDurationMs": 19769,
   "durationHistory": [
-    24661
+    19769
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-fld8qw",
       "slug": "consulente-clientela-privata-base-m-w-d-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-fld8qw",
@@ -37,16 +40,16 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-10-05T08:33:26.460Z",
+      "crawledAt": "2026-10-05T09:11:37.633Z",
       "firstSeenAt": "2026-10-05T08:33:26.460Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
       "salarySource": "estimated",
       "addressLocality": "Gravesano, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,8 +59,5 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "131f8bc1b80cde75f604ccd4dd8964fc1ef88621"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
