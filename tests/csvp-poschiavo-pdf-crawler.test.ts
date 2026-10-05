@@ -7,6 +7,8 @@
  * a boilerplate-only description and tripped the boilerplate guard (1/1 jobs).
  * This test pins that the parser now extracts the PDF text into the description.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { fetchHtml, extractPdfJobContentFromUrl } = vi.hoisted(() => ({
@@ -81,6 +83,15 @@ const EMPTY_CATEGORY_IN_NAVIGATION_MODULE_HTML = `
     </div>
   </div>`;
 
+// Skeleton of the live listing (YOOtheme Warp / UIkit 2): Joomla's empty
+// message is a `.uk-alert` directly inside `main#tm-content`, the body carries
+// Warp's `tm-isblog` view marker, and no `.com-content-category-blog`/`.blog`
+// wrapper exists. The three runs of 2026-10-03/04 rejected exactly this page.
+const LIVE_WARP_EMPTY_CATEGORY_HTML = fs.readFileSync(
+  path.join(__dirname, 'fixtures', 'csvp-poschiavo', 'empty-category-warp-uikit.html'),
+  'utf8',
+);
+
 describe('CSVP crawler — PDF-backed description', () => {
   afterEach(() => {
     fetchHtml.mockReset();
@@ -132,6 +143,40 @@ describe('CSVP crawler — PDF-backed description', () => {
 
   it('does not prove an identical message in a navigation module', () => {
     expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_IN_NAVIGATION_MODULE_HTML)).toBe(false);
+  });
+
+  it('proves the live Warp/UIkit empty category as an authoritative zero', async () => {
+    fetchHtml.mockResolvedValue(LIVE_WARP_EMPTY_CATEGORY_HTML);
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(LIVE_WARP_EMPTY_CATEGORY_HTML)).toBe(true);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+  });
+
+  it('does not prove the Warp alert outside a blog view', () => {
+    const notBlogView = LIVE_WARP_EMPTY_CATEGORY_HTML.replace('tm-isblog', 'tm-isarticle');
+    expect(notBlogView).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(notBlogView)).toBe(false);
+  });
+
+  it('does not prove the Warp alert when it sits in a sidebar instead of #tm-content', () => {
+    const alert = '<div class="uk-alert">Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</div>';
+    const inSidebar = LIVE_WARP_EMPTY_CATEGORY_HTML
+      .replace(alert, '')
+      .replace('<aside class="tm-sidebar-a', `<aside class="tm-sidebar-x">${alert}</aside><aside class="tm-sidebar-a`);
+    expect(inSidebar).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(inSidebar)).toBe(false);
+  });
+
+  it('does not prove the Warp alert when an offer is live in #tm-content', () => {
+    const withOffer = LIVE_WARP_EMPTY_CATEGORY_HTML.replace(
+      '<div id="system-message-container">',
+      '<article class="uk-article"><h1><a href="/it/lavora-con-noi/cerchiamo/906-infermiere">Infermiere</a></h1><p>80%</p></article><div id="system-message-container">',
+    );
+    expect(withOffer).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(withOffer)).toBe(false);
   });
 
   it('keeps an unrecognised zero unproven so selector drift stays fail-closed', async () => {
