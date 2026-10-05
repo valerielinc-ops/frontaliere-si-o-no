@@ -1,7 +1,15 @@
 import pharmacyJson from '../../data/pharmacies-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
 import italyBorderJson from '../../data/pharmacies-italy-border.json';
-import { safePharmacyUrl, type Pharmacy } from './types';
+import pharmacyEnrichmentJson from '../../data/pharmacy-enrichment.json';
+import { mergePharmacyEnrichment } from './enrichment';
+import { safePharmacyUrl, type Pharmacy, type PharmacyEnrichmentSnapshot } from './types';
+
+const pharmacyEnrichment = pharmacyEnrichmentJson as unknown as PharmacyEnrichmentSnapshot;
+
+function applyEnrichment(pharmacies: Pharmacy[]): Pharmacy[] {
+  return pharmacies.map((pharmacy) => mergePharmacyEnrichment(pharmacy, pharmacyEnrichment.records?.[pharmacy.id]));
+}
 
 function sanitizePharmacy(pharmacy: Pharmacy): Pharmacy {
   const website = safePharmacyUrl(pharmacy.website);
@@ -13,11 +21,11 @@ function sanitizePharmacy(pharmacy: Pharmacy): Pharmacy {
 }
 
 /** The original four-region feed remains a compatibility fallback for old builds. */
-const LEGACY_TICINO_PHARMACIES = (pharmacyJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy);
+const LEGACY_TICINO_PHARMACIES = applyEnrichment((pharmacyJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy));
 export const TICINO_PHARMACIES = (completeTicinoJson.pharmacies?.length
-  ? (completeTicinoJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy)
+  ? applyEnrichment((completeTicinoJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy))
   : LEGACY_TICINO_PHARMACIES) as Pharmacy[];
-export const ITALY_BORDER_PHARMACIES = (italyBorderJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy);
+export const ITALY_BORDER_PHARMACIES = applyEnrichment((italyBorderJson.pharmacies as unknown as Pharmacy[]).map(sanitizePharmacy));
 export const BORDER_PHARMACIES = [...TICINO_PHARMACIES, ...ITALY_BORDER_PHARMACIES] as Pharmacy[];
 
 function slugifyCity(value: string): string {

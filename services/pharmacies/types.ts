@@ -19,7 +19,14 @@ export interface OpeningHours {
   isClosed?: boolean;
 }
 
-export type PharmacySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner' | 'directory';
+export type PharmacySourceType =
+  | 'official'
+  | 'association'
+  | 'pharmacy'
+  | 'verified_partner'
+  | 'directory'
+  | 'google_business_profile'
+  | 'facebook';
 
 export type PharmacyCountry = 'CH' | 'IT';
 
@@ -102,6 +109,53 @@ export interface PharmacyDataAvailability {
   coordinates?: PharmacyFieldStatus;
   openingHours?: PharmacyFieldStatus;
   services?: PharmacyFieldStatus;
+  contactEmail?: PharmacyFieldStatus;
+}
+
+export type PharmacyEnrichmentField =
+  | 'address'
+  | 'phone'
+  | 'website'
+  | 'openingHours'
+  | 'services'
+  | 'contactEmail';
+
+export type PharmacyExternalSourceStatus = 'verified' | 'unavailable' | 'not_found';
+
+/** A public page or authorised provider result used for optional facts. */
+export interface PharmacyExternalSource {
+  url: string;
+  label: string;
+  sourceType: PharmacySourceType;
+  checkedAt: string;
+  fields: PharmacyEnrichmentField[];
+  /** Google Places IDs are the only provider content retained indefinitely. */
+  placeId?: string;
+  status?: PharmacyExternalSourceStatus;
+  /** Source-published modification time, when exposed by the page/API. */
+  sourceUpdatedAt?: string;
+  license?: string;
+}
+
+/** Separate snapshot for optional facts so the official catalogue release stays atomic. */
+export interface PharmacyEnrichmentRecord {
+  checkedAt: string;
+  phone?: string;
+  website?: string;
+  openingHours?: OpeningHours[];
+  services?: string[];
+  contactEmail?: string;
+  /** Google Places exception: retain the stable place ID, not place content. */
+  googlePlaceId?: string;
+  fieldSources?: Partial<Record<PharmacyEnrichmentField, PharmacyFieldSource>>;
+  externalSources?: PharmacyExternalSource[];
+}
+
+export interface PharmacyEnrichmentSnapshot {
+  schemaVersion: 1;
+  generatedAt: string;
+  records: Record<string, PharmacyEnrichmentRecord>;
+  warnings: string[];
 }
 
 /**
@@ -141,8 +195,12 @@ export interface Pharmacy {
   sourceType: PharmacySourceType;
   lastVerifiedAt: string;
   /** Provenance for optional fields enriched from a second public source. */
-  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services', PharmacyFieldSource>>;
+  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services' | 'contactEmail', PharmacyFieldSource>>;
   dataAvailability?: PharmacyDataAvailability;
+  contactEmail?: string;
+  /** Stable Google Places ID; no Google place content is stored in the catalogue. */
+  googlePlaceId?: string;
+  externalSources?: PharmacyExternalSource[];
   /** Historical detail URLs retained by the data pipeline for redirects. */
   urlAliases?: PharmacyUrlAlias[];
 }
@@ -304,6 +362,8 @@ const SOURCE_TYPES: readonly PharmacySourceType[] = [
   'pharmacy',
   'verified_partner',
   'directory',
+  'google_business_profile',
+  'facebook',
 ];
 const SOURCE_STATUSES: readonly PharmacySourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
 // Single source shared with scripts/check-pharmacy-data-health.mjs.
@@ -349,6 +409,12 @@ export function safePharmacyUrl(value: unknown): string | undefined {
   } catch {
     return undefined;
   }
+}
+
+/** Builds a Google Maps deep link from the only Places value we retain. */
+export function pharmacyGoogleMapsUrl(placeId: unknown): string | undefined {
+  if (typeof placeId !== 'string' || !/^[A-Za-z0-9_-]+$/.test(placeId.trim())) return undefined;
+  return `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${encodeURIComponent(placeId.trim())}`;
 }
 
 /**
@@ -481,6 +547,14 @@ export function validatePharmacy(index: number | string, entry: unknown): string
     errors.push(`pharmacy[${index}]: invalid optional "dataAvailability"`);
   }
 
+  if (e.contactEmail !== undefined && (typeof e.contactEmail !== 'string' || !e.contactEmail.trim())) {
+    errors.push(`pharmacy[${index}]: invalid optional "contactEmail"`);
+  }
+
+  if (e.googlePlaceId !== undefined && (typeof e.googlePlaceId !== 'string' || !/^[A-Za-z0-9_-]+$/.test(e.googlePlaceId))) {
+    errors.push(`pharmacy[${index}]: invalid optional "googlePlaceId"`);
+  }
+
   if (e.website !== undefined && !safePharmacyUrl(e.website)) {
     errors.push(`pharmacy[${index}]: invalid optional "website" (expected an absolute HTTPS URL)`);
   }
@@ -495,6 +569,29 @@ export function validatePharmacy(index: number | string, entry: unknown): string
       || !candidate.slug.trim();
   }))) {
     errors.push(`pharmacy[${index}]: invalid optional "urlAliases"`);
+  }
+
+  if (e.externalSources !== undefined) {
+    if (!Array.isArray(e.externalSources)) {
+      errors.push(`pharmacy[${index}]: invalid optional "externalSources"`);
+    } else {
+      e.externalSources.forEach((source, sourceIndex) => {
+        if (typeof source !== 'object' || source === null || Array.isArray(source)) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: expected an object`);
+          return;
+        }
+        const candidate = source as Record<string, unknown>;
+        if (!safePharmacyUrl(candidate.url)) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid URL`);
+        if (typeof candidate.label !== 'string' || !candidate.label.trim()) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: missing label`);
+        if (typeof candidate.checkedAt !== 'string' || !Number.isFinite(Date.parse(candidate.checkedAt))) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid checkedAt`);
+        if (!Array.isArray(candidate.fields) || candidate.fields.some((field) => !['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail'].includes(String(field))) || (!candidate.fields.length && candidate.sourceType !== 'google_business_profile')) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid fields`);
+        }
+        if (candidate.sourceType === 'google_business_profile' && (typeof candidate.placeId !== 'string' || !candidate.placeId.trim())) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: Google source is missing placeId`);
+        }
+      });
+    }
   }
 
   return errors;
