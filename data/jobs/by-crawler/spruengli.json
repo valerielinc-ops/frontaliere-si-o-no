@@ -47,9 +47,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-01-05T16:12:14.480585+00:00",
       "postedDate": "2026-01-05T16:12:14.480585+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1203/pub/25/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1203",
@@ -60,16 +58,14 @@
         "personale-di-servizio-80-100-cafe-lounge-e-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich",
         "service-staff-80-100-cafe-lounge-and-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
         "personnel-du-service-80-100-cafe-salon-et-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich",
-        "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
           "personale-di-servizio-80-100-cafe-lounge-e-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich",
           "service-staff-80-100-cafe-lounge-and-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
-          "personnel-du-service-80-100-cafe-salon-et-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich",
-          "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+          "personnel-du-service-80-100-cafe-salon-et-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
         ],
         "en": [
           "service-staff-80-100-cafe-lounge-and-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
@@ -94,7 +90,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-01-05T16:12:14.480585+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-931c53178cb2",
@@ -141,9 +139,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-12-18T14:53:13.892006+00:00",
       "postedDate": "2025-12-18T14:53:13.892006+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1201/pub/33/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1201",
@@ -153,16 +149,14 @@
         "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
         "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
+        "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
           "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
           "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
+          "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ],
         "en": [
           "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich"
@@ -185,13 +179,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-12-18T14:53:13.892006+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-6322bfcc9df6",
-      "slug": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+      "slug": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
-        "it": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+        "it": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "en": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
         "de": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
         "fr": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
@@ -239,15 +235,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
+        "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
           "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
         ],
         "de": [
           "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
@@ -316,9 +312,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-06T07:11:12.738185+00:00",
       "postedDate": "2026-05-06T07:11:12.738185+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1232/pub/15/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1232",
@@ -330,8 +324,7 @@
         "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
         "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
         "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-va07jg",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -340,8 +333,7 @@
           "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
           "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
           "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-va07jg",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi"
         ],
         "en": [
           "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
@@ -366,7 +358,9 @@
           "maxValue": 51300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-06T07:11:12.738185+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-400904d57130",
@@ -413,9 +407,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-06T07:13:13.815332+00:00",
       "postedDate": "2026-05-06T07:13:13.815332+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1233/pub/26/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1233",
@@ -444,8 +436,7 @@
         "production-des-travailleurs-temporaires-jusqu-a-fin-decembre-60-confiserie-sprungli-ag-dietikon",
         "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-spr-545ezj",
         "production-des-travailleurs-temporaires-jusqu-a-fin-decembre-100-confiserie-sprungli-ag-dietikon",
-        "produzione-temporanea-dei-dipendenti-fino-alla-fine-di-dicembre-100-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon"
+        "produzione-temporanea-dei-dipendenti-fino-alla-fine-di-dicembre-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -467,8 +458,7 @@
           "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-spr-545ezj",
           "produzione-temporanea-dei-dipendenti-fino-alla-fine-di-dicembre-100-confiserie-sprungli-ag-dietikon",
           "temporare-mitarbeiter-innen-produktion-bis-ende-dezember-100-spruengli-dietikon",
-          "temporary-employees-parcel-shipping-until-the-end-of-december-confiserie-sprungli-ag-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon"
+          "temporary-employees-parcel-shipping-until-the-end-of-december-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "temporare-mitarbeiter-innen-produktion-bis-ende-dezember-100-spruengli-dietikon"
@@ -492,7 +482,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-06T07:13:13.815332+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-caa0de908018",
@@ -539,9 +531,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-01T08:11:57.301644+00:00",
       "postedDate": "2026-09-01T08:11:57.301644+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1258/pub/5/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1258",
@@ -552,16 +542,14 @@
         "produzione-60-confiserie-sprungli-ag-dietikon",
         "temporary-employees-production-60-confiserie-sprungli-ag-dietikon",
         "employes-temporaires-production-60-confiserie-sprungli-ag-dietikon",
-        "temporare-mitarbeiter-innen-produktion-60-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-60-confiserie-sprungli-ag-dietikon"
+        "temporare-mitarbeiter-innen-produktion-60-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "temporare-mitarbeiter-innen-produktion-60-spruengli-dietikon",
           "produzione-60-confiserie-sprungli-ag-dietikon",
           "temporary-employees-production-60-confiserie-sprungli-ag-dietikon",
-          "employes-temporaires-production-60-confiserie-sprungli-ag-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-60-confiserie-sprungli-ag-dietikon"
+          "employes-temporaires-production-60-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "temporare-mitarbeiter-innen-produktion-60-confiserie-sprungli-ag-dietikon"
@@ -585,7 +573,9 @@
           "maxValue": 61500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-01T08:11:57.301644+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-817031e8b021",
@@ -632,9 +622,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-01T05:50:36.758218+00:00",
       "postedDate": "2026-06-01T05:50:36.758218+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1237/pub/17/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1237",
@@ -642,14 +630,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli",
-        "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
-        "collaboratore-di-produzione-nell-uso-della-macchina-100-reparto-luxemburgerli-confiserie-sprungli-ag-dietikon"
+        "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli",
-          "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
-          "collaboratore-di-produzione-nell-uso-della-macchina-100-reparto-luxemburgerli-confiserie-sprungli-ag-dietikon"
+          "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
@@ -672,7 +658,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-01T05:50:36.758218+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-c935c81fcd73",
@@ -719,22 +707,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-03-05T14:30:49.140759+00:00",
       "postedDate": "2025-03-05T14:30:49.140759+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1112/pub/16/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1112",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+        "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
         ]
       },
       "needsRetranslation": true,
@@ -751,7 +735,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-03-05T14:30:49.140759+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-2929e8474439",
@@ -798,22 +784,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2017-12-14T12:17:27.944000+00:00",
       "postedDate": "2017-12-14T12:17:27.944000+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/0032/pub/56/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "0032",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon",
-        "apprendistato-kaufmann-kauffrau-dienstleistung-administration-per-2027-confiserie-sprungli-ag-dietikon"
+        "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon",
-          "apprendistato-kaufmann-kauffrau-dienstleistung-administration-per-2027-confiserie-sprungli-ag-dietikon"
+          "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
         ],
         "en": [
           "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
@@ -836,7 +818,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2017-12-14T12:17:27.944000+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-659c8211de0a",
@@ -883,22 +867,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2017-11-30T14:30:40.898000+00:00",
       "postedDate": "2017-11-30T14:30:40.898000+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/0015/pub/87/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "0015",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli",
-        "apprendistato-backer-konditor-confiseur-innen-cfc-specializzazione-confiserie-per-2027-confiserie-sprungli-ag-dietikon"
+        "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli",
-          "apprendistato-backer-konditor-confiseur-innen-cfc-specializzazione-confiserie-per-2027-confiserie-sprungli-ag-dietikon"
+          "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
         ],
         "en": [
           "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
@@ -921,7 +901,9 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2017-11-30T14:30:40.898000+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-8b1da3d0bb71",
@@ -968,22 +950,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-11-07T11:57:37.874925+00:00",
       "postedDate": "2025-11-07T11:57:37.874925+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1190/pub/44/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1190",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ],
         "en": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
@@ -1006,7 +984,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-11-07T11:57:37.874925+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-9fd44a817e5f",
@@ -1053,22 +1033,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-09T11:27:23.608524+00:00",
       "postedDate": "2026-09-09T11:27:23.608524+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1260/pub/5/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1260",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-        "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-          "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
         ],
         "en": [
           "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
@@ -1091,7 +1067,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-09T11:27:23.608524+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-55c820f5ba9b",
@@ -1207,22 +1185,18 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-06T12:11:14.454844+00:00",
       "postedDate": "2026-05-06T12:11:14.454844+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1234/pub/13/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1234",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+        "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1239,7 +1213,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-06T12:11:14.454844+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-0450563fb0d1",
@@ -1286,9 +1262,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-05-15T06:24:34.444000+00:00",
       "postedDate": "2025-05-15T06:24:34.444000+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1125/pub/60/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1125",
@@ -1296,14 +1270,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
-        "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-        "vice-direttore-di-filiale-100-nella-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+        "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
-          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-          "vice-direttore-di-filiale-100-nella-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ],
         "fr": [
           "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
@@ -1323,7 +1295,9 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-05-15T06:24:34.444000+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-266b4c67c871",
@@ -1370,9 +1344,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-23T13:42:23.225919+00:00",
       "postedDate": "2026-07-23T13:42:23.225919+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1251/pub/9/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1251",
@@ -1380,14 +1352,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "abteilungsleiter-in-controlling-70-100-spruengli-dietikon",
-        "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon",
-        "responsabiledi-reparto-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
+        "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-controlling-70-100-spruengli-dietikon",
-          "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon",
-          "responsabiledi-reparto-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
+          "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
@@ -1409,7 +1379,9 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-23T13:42:23.225919+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-036b84971096",
@@ -1456,9 +1428,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-17T10:52:48.702465+00:00",
       "postedDate": "2026-09-17T10:52:48.702465+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1261/pub/3/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1261",
@@ -1466,13 +1436,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon",
-          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
+          "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon"
         ],
         "it": [
           "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon",
-          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
-          "dipendenti-di-produzione-cremepost-100-confiserie-sprungli-ag-dietikon"
+          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
@@ -1483,8 +1451,7 @@
       },
       "previousSlugs": [
         "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon",
-        "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
-        "dipendenti-di-produzione-cremepost-100-confiserie-sprungli-ag-dietikon"
+        "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
       ],
       "firstSeenAt": "2026-09-19T22:57:46.594Z",
       "salaryMin": 76000,
@@ -1499,7 +1466,9 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T10:52:48.702465+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-c9843f5af7d2",
@@ -1554,8 +1523,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
-          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
+          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau"
         ],
         "it": [
           "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
@@ -1564,8 +1532,7 @@
           "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
           "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
           "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
+          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
         ],
         "en": [
           "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
@@ -1583,8 +1550,7 @@
         "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
         "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
         "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
+        "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
       ],
       "firstSeenAt": "2026-09-01T00:41:48.698Z",
       "salaryMin": 59200,
@@ -1656,15 +1622,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
-          "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern"
         ],
         "it": [
           "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
           "sales-consultant-80-100-bern-station-confiserie-sprungli-ag-bern",
           "consultant-commercial-80-100-bern-station-confiserie-sprungli-ag-bern",
-          "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-          "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+          "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "en": [
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
@@ -1677,8 +1641,7 @@
         "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
         "sales-consultant-80-100-bern-station-confiserie-sprungli-ag-bern",
         "consultant-commercial-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+        "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
       ],
       "firstSeenAt": "2026-09-01T14:17:28.134Z",
       "salaryMin": 77500,
@@ -1742,9 +1705,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-10T11:28:06.043255+00:00",
       "postedDate": "2026-06-10T11:28:06.043255+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1240/pub/10/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1240",
@@ -1752,15 +1713,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern"
         ],
         "it": [
           "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
           "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
           "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern",
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-          "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "en": [
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
@@ -1773,8 +1732,7 @@
         "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
         "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
         "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+        "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
       ],
       "firstSeenAt": "2026-09-01T14:17:28.128Z",
       "salaryMin": 109000,
@@ -1789,7 +1747,9 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-10T11:28:06.043255+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "spruengli-8503e0c8e947",
@@ -1836,9 +1796,7 @@
       "sector": "Alimentare / Confetteria",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2024-09-04T05:20:10.253488+00:00",
       "postedDate": "2024-09-04T05:20:10.253488+00:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "hiringOrganizationName": "Confiserie Sprüngli AG",
       "jobReqId": "1039",
@@ -1846,13 +1804,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
-        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
-          "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
         ],
         "en": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
@@ -1877,7 +1833,9 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2024-09-04T05:20:10.253488+00:00",
+      "postingDateSource": "reported"
     }
   ]
 }

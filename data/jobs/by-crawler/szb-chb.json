@@ -6012,9 +6012,9 @@
       "slug": "dipl-pflegefachfrau-mann-hno-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hno-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne",
+        "en": "qualified-nurse-man-ent-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne",
-        "fr": "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
+        "fr": "dipl-infirmiere-homme-orl-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6063,6 +6063,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:18.224Z",
@@ -6084,12 +6090,12 @@
     },
     {
       "id": "szb-chb-33adb0d8a3cd",
-      "slug": "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "assistente-medico-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "assistente-medico-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "medical-practice-assistant-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne",
-        "fr": "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "assistant-e-medical-e-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6133,11 +6139,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne"
+        "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne",
+        "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne"
+          "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne",
+          "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:17.393Z",
