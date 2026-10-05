@@ -167,6 +167,7 @@ type AllowReason = 'no-publish' | 'agent-bridge' | 'agent-lane';
 const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'campaign-goal-check.yml :: check :: Run campaign goal check': { reason: 'no-publish', why: 'legge metriche e apre/aggiorna issue' },
   'crawler-content-plausibility-audit.yml :: verify :: Verify shortlist and open issues': { reason: 'agent-bridge', why: 'corsia agente che apre issue' },
+  'deploy-publish.yml :: recover-legacy-publish-contract :: Dispatch a current build': { reason: 'no-publish', why: 'dispatch del deploy di recovery dopo guardia actions: write' },
   'followup-drainer.yml :: drain :: Probe capacità workflow del token di push (zero-Claude)': { reason: 'no-publish', why: 'sonda in sola lettura dello scope del token' },
   'followup-drainer.yml :: drain :: Drain follow-up queue (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta e smista issue, non pusha' },
   'generate-article.yml :: generate :: Self-trigger next run': { reason: 'no-publish', why: 'dispatch del run successivo' },

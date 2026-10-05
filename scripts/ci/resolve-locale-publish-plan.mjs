@@ -35,6 +35,26 @@ function normalizeConclusion(value) {
   return text(value).toLowerCase();
 }
 
+function hasOwn(object, key) {
+  return Object.prototype.hasOwnProperty.call(object, key);
+}
+
+/**
+ * The non-IT split added both fields to every provenance receipt. A receipt
+ * without them was emitted by the pre-split publisher and cannot be handed to
+ * the current tail workflow safely: it has no way to prove that the source
+ * artifact is the validated handoff rather than the old full-publish payload.
+ */
+function isLegacyNonItProvenance(manifest) {
+  const outcomes = manifest?.outcomes;
+  return manifest?.locale !== 'it'
+    && outcomes
+    && typeof outcomes === 'object'
+    && !Array.isArray(outcomes)
+    && !hasOwn(outcomes, 'sourceArtifact')
+    && !hasOwn(outcomes, 'tailBudget');
+}
+
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
@@ -93,6 +113,7 @@ function blockedPlan({ runConclusion, sourceRunId, sourceSha, reasons, staleReas
     buildId: '',
     healthyLocales: [],
     tailLocales: [],
+    recoveryRequired: false,
     staleLocales: LOCALES.slice(),
     staleReasons,
     reason: reasons.join('; ') || 'no locale publish plan was admissible',
@@ -150,6 +171,7 @@ export function resolveLocalePublishPlan({
   // the final `always()` upload before GitHub persists an artifact.
   const healthyLocales = [];
   const tailLocales = [];
+  const legacySourceLocales = [];
   const manifestFailures = {};
   let buildId = '';
   for (const locale of LOCALES) {
@@ -194,6 +216,7 @@ export function resolveLocalePublishPlan({
         staleReasons[locale] = 'validated source artifact awaiting the post-build non-IT shard tail';
         continue;
       }
+      if (isLegacyNonItProvenance(entry.manifest)) legacySourceLocales.push(locale);
       const reason = `${verdict.errors.join('; ')}; source handoff rejected: ${sourceVerdict.errors.join('; ')}`;
       manifestFailures[locale] = reason;
       staleReasons[locale] = `provenance rejected: ${reason}`;
@@ -237,6 +260,11 @@ export function resolveLocalePublishPlan({
     return blockedPlan({ runConclusion: conclusion, sourceRunId: runId, sourceSha: sha, reasons, staleReasons });
   }
 
+  const recoveryRequired = healthyLocales.includes('it') && legacySourceLocales.length > 0;
+  const recoveryReason = recoveryRequired
+    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; dispatch a current build to replay the split handoff`
+    : '';
+
   return {
     allowed: true,
     mode: staleLocales.length ? 'partial' : 'full',
@@ -246,11 +274,15 @@ export function resolveLocalePublishPlan({
     buildId,
     healthyLocales,
     tailLocales,
+    recoveryRequired,
+    legacySourceLocales,
     staleLocales,
     staleReasons,
-    reason: staleLocales.length
-      ? `admitted ${healthyLocales.join(', ')}; stale fallback for ${staleLocales.join(', ')}`
-      : `admitted all locales at build id ${buildId}`,
+    reason: recoveryRequired
+      ? `${recoveryReason}; stale fallback for ${staleLocales.join(', ')}`
+      : staleLocales.length
+        ? `admitted ${healthyLocales.join(', ')}; stale fallback for ${staleLocales.join(', ')}`
+        : `admitted all locales at build id ${buildId}`,
   };
 }
 
@@ -275,6 +307,7 @@ function writeGithubOutputs(file, plan) {
     build_id: plan.buildId,
     healthy_locales: JSON.stringify(plan.healthyLocales),
     tail_locales: JSON.stringify(plan.tailLocales || []),
+    recovery_required: String(plan.recoveryRequired === true),
     stale_locales: JSON.stringify(plan.staleLocales),
     stale_reasons: JSON.stringify(plan.staleReasons),
     reason: plan.reason,
