@@ -60,6 +60,8 @@ describe('A++ listing classification', () => {
   });
 
   it('publishes a filtered-empty discovery through the empty merge path', () => {
+    expect(APLUS_UPDATER).toContain('fetchListings(summaryCounts)');
+    expect(APLUS_UPDATER).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");
     const discovery = { discovered: 1, listings: [], lastFetchOutcome: 'filtered_empty' };
     const jobs = discovery.listings;
 

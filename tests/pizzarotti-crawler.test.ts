@@ -59,6 +59,8 @@ describe('Pizzarotti listing classification', () => {
   });
 
   it('lets a parsed-but-geographically-filtered empty snapshot pass the shrink guard', () => {
+    expect(PIZZAROTTI_UPDATER).toContain('fetchPizzarottiListings(summaryCounts)');
+    expect(PIZZAROTTI_UPDATER).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");
     expect(PIZZAROTTI_UPDATER).toContain(
       "skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',",
     );

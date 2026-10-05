@@ -146,13 +146,18 @@ function inferCategory(detail = {}) {
 
 /* ── Fetch listings ────────────────────────────────────────── */
 
-async function fetchListings() {
+async function fetchListings(summaryCounts = null) {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
   const all = parseAplusListings(html);
   const discovery = classifyAplusListings(all, {
     sourceEmpty: isAplusEmptyListingPage(html, all),
   });
+  if (summaryCounts) {
+    summaryCounts.discovered = discovery.discovered;
+    summaryCounts.parsed = discovery.listings.length;
+    summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
+  }
   console.log(`📋 Total listing cards: ${discovery.discovered}`);
   console.log(`📋 Swiss-located cards: ${discovery.listings.length}`);
   if (discovery.authoritativeEmptySnapshot) {
@@ -162,9 +167,19 @@ async function fetchListings() {
     console.log(`  📄 ${row.title}${row.location ? ` (${row.location})` : ''}`);
   }
   if (discovery.discovered === 0 && !discovery.authoritativeEmptySnapshot) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
     throw new Error('A++ Group listing page produced no vacancy cards; refusing to publish an empty snapshot.');
   }
   if (discovery.listings.length === 0 && discovery.unclassifiedLocationCount > 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
     throw new Error(
       `A++ Group listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
     );
@@ -338,7 +353,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Portal: ${LISTING_URL}\n`);
 
-  const discovery = await fetchListings();
+  const discovery = await fetchListings(summaryCounts);
   const listings = discovery.listings;
   summaryCounts.discovered = discovery.discovered;
   summaryCounts.parsed = listings.length;
