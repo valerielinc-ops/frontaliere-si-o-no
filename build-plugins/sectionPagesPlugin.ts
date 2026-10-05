@@ -67,6 +67,7 @@ import { BLOG_SLUGS } from '../services/routerBlogData';
 // to do with routing.
 import type { BlogArticleId } from '../services/blogArticleIds';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { articleSourceDate, compareArticleSourceDates } from '../services/articleSourceDates';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   type SectionId,
@@ -857,7 +858,9 @@ function pickLatestArticles(
     });
   }
 
-  matched.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0));
+  // Unknown publication dates (`date: ''`, corpus PR 2082) sort after every
+  // dated article instead of depending on how '' compares as a string.
+  matched.sort(compareArticleSourceDates);
   return matched.slice(0, MAX_ARTICLES_PER_SECTION);
 }
 
@@ -903,7 +906,8 @@ function formatDate(iso: string, locale: SectionLocale): string {
   }
 }
 
-function renderArticleList(
+/** Exported for tests only (`tests/article-unknown-date-surfaces.test.ts`). */
+export function renderArticleList(
   articles: readonly MatchedArticle[],
   locale: SectionLocale,
 ): string {
@@ -925,14 +929,18 @@ function renderArticleList(
   const items = articles
     .map((a) => {
       const href = buildArticleHref(a.localeSlug, locale);
-      const dateLabel = formatDate(a.date, locale);
+      // An unknown date renders no <time> at all: an empty `datetime=""` with
+      // an empty label would be a dateless byline pretending to carry one.
+      const dateHtml = articleSourceDate(a.date)
+        ? `<time datetime="${esc(a.date.slice(0, 10))}">${esc(formatDate(a.date, locale))}</time>
+            <span aria-hidden="true"> · </span>
+            `
+        : '';
       return `
         <li class="s-cpad s-cbody" style="margin:0 0 12px;list-style:none">
           <h3 class="s-0UflqU"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(a.displayTitle)}</a></h3>
           <p class="s-TR0f1t">
-            <time datetime="${esc(a.date.slice(0, 10))}">${esc(dateLabel)}</time>
-            <span aria-hidden="true"> · </span>
-            <span>${esc(a.authorName)}</span>
+            ${dateHtml}<span>${esc(a.authorName)}</span>
           </p>
           <p class="s-UHS0XW"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.readMoreLabel)} →</a></p>
         </li>`;

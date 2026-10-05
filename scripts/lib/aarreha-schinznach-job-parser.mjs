@@ -9,11 +9,13 @@
  * Cegid/Talentsoft ATS (same family as REHAB Basel). The list page renders
  * each offer as a server-rendered `<li class="ts-offer-list-item">` whose
  * description `<ul>` carries the department (German label) and the city.
- * No posted date in the listing, so we default to today. Detail page content
+ * Publication is accepted only from explicit JobPosting metadata on the detail page. Detail page content
  * lives under `id="contenu-ficheoffre"` and contains structured German prose
  * (Funktion / Pensum / Aufgaben / Profil / Einsatzort).
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -115,11 +117,10 @@ export function extractAarrehaSchinznachDetailDescription(html = '') {
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractAarrehaSchinznachDetailDescription(html);
+    return { body: extractAarrehaSchinznachDetailDescription(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ aarReha detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -159,12 +160,12 @@ export async function fetchAllAarrehaSchinznachJobs() {
   console.log(`  ✓ ${rows.length} Talentsoft offers (deduped across pages)`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const detailText = await fetchDetailDescription(r.detailUrl);
+    const detail = await fetchDetailDescription(r.detailUrl);
+    const detailText = detail.body;
 
     // Only the vacancy's own text (issue 5253): no summary of labelled
     // listing fields (Bereich/Standort/Referenz) plus a company sentence in
@@ -212,7 +213,7 @@ export async function fetchAllAarrehaSchinznachJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

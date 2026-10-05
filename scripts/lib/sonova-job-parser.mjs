@@ -14,7 +14,8 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
 
@@ -230,9 +231,7 @@ async function fetchJobDetail(url) {
   if (!html) return {};
 
   const dateM = html.match(/itemprop="datePosted"[^>]*content="([^"]+)"/i);
-  const postedDate = dateM
-    ? parseSuccessFactorsPostedDate(dateM[1]) || null
-    : null;
+  const publication = successFactorsPostingDateFields(dateM?.[1]);
 
   let description = '';
   const descM = html.match(/<span class="jobdescription"[^>]*>/i);
@@ -253,7 +252,7 @@ async function fetchJobDetail(url) {
 
   const empM = html.match(/itemprop="employmentType"[^>]*content="([^"]+)"/i);
   return {
-    postedDate,
+    ...publication,
     descriptionHtml: description,
     employmentTypeHint: empM ? empM[1] : '',
   };
@@ -270,9 +269,6 @@ async function fetchJobListings() {
       html = await fetchHtml(url, { headers: { 'User-Agent': CRAWLER_UA } });
     } catch (err) {
       console.error(`❌ listing fetch failed (startrow=${startrow}): ${err?.message || err}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
       throw err;
     }
     const rows = parseTilePage(html);
@@ -392,7 +388,7 @@ export async function fetchAllSonovaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

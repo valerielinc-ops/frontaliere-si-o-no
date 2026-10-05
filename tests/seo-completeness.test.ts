@@ -36,6 +36,7 @@ import type { AppRoute, BlogArticleId } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
+import { buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -185,6 +186,14 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const ALL_ROUTES = getAllRoutes();
+
+/** Border crossing leaves are emitted by borderWaitPagesPlugin into its own sitemap. */
+function isGeneratedBorderWaitRoute(route: AppRoute): boolean {
+  const candidate = route as AppRoute & { guidaSubTab?: string; borderCrossing?: string };
+  return candidate.activeTab === 'guida'
+    && candidate.guidaSubTab === 'border'
+    && typeof candidate.borderCrossing === 'string';
+}
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
 const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
   .map(f => { try { return readProjectFile(f); } catch { return ''; } }).join('\n');
@@ -511,6 +520,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isGeneratedBorderWaitRoute(route)) continue;
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
@@ -521,7 +531,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
       // when BORDER_WAIT_CROSSINGS grew (#4952) — the failure was caught here,
       // but told nobody there is a script that fixes it.
       const remedy = activeTab === 'border'
-        ? '\n  Fix: node scripts/sync-border-wait-static-sitemap.mjs (regenerates the crossing block from BORDER_WAIT_CROSSINGS).'
+        ? '\n  Border leaves are emitted by borderWaitPagesPlugin into sitemap-border-wait.xml.'
         : '\n  Fix: add the URL to the matching public/sitemap-*.xml, or to the generator that emits it.';
       expect(
         sitemapContent.includes(fullUrl),
@@ -595,6 +605,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isGeneratedBorderWaitRoute(route)) continue;
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
@@ -650,6 +661,17 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isGeneratedBorderWaitRoute(route)) {
+      for (const locale of locales) {
+        it(`${label} [${locale}] → uses the data-driven border-wait path`, () => {
+          expect(buildOggiPath(locale, (route as { borderCrossing: string }).borderCrossing as BorderCrossingSlug))
+            .toMatch(locale === 'it'
+              ? /^\/traffico-dogane\/.+\/oggi\/$/
+              : new RegExp(`^\\/${locale}\\/[^/]+\\/.+\\/$`));
+        });
+      }
+      continue;
+    }
 
     for (const locale of locales) {
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {

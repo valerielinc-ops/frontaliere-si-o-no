@@ -27,6 +27,7 @@
  *   - https://recrutement.chuv.ch/home.html
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -334,9 +335,13 @@ export async function fetchAllChuvJobs() {
     const jobSlug = slugify(`${title} chuv ${listing?.id || ''}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (listing?.publication?.internet?.publish_date || listing?.timestamp || '')
-      .toString()
-      .slice(0, 10) || new Date().toISOString().split('T')[0];
+    const published = listing?.publication?.internet?.publish_date;
+    // Hireserve's midnight date-only field matches the visible publication day.
+    // Other unzoned times have no established timezone; do not invent one.
+    const publicationDay = typeof published === 'string'
+      ? published.replace(/^(\d{4}-\d{2}-\d{2}) 00:00:00$/, '$1')
+      : '';
+    const publication = sourcePostingDateFields(publicationDay);
 
     const job = {
       // ── Required fields ──
@@ -370,7 +375,7 @@ export async function fetchAllChuvJobs() {
       sector: 'healthcare',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

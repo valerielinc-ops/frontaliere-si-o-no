@@ -58,6 +58,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
@@ -423,8 +424,7 @@ export async function fetchAllSwisslogJobs() {
     const jobSlug = slugify(`${title} swisslog ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = normalizeEmploymentType(listing.employmentType, title);
-    const postedDate = (listing.datePosted && String(listing.datePosted).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateFields(listing.datePosted);
 
     const jobReqIdMatch = publicUrl.match(/-(\d+)\/?$/);
     const jobReqId = jobReqIdMatch ? jobReqIdMatch[1] : (listing.jobReqId || null);
@@ -462,7 +462,7 @@ export async function fetchAllSwisslogJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId,
       requirements: [],

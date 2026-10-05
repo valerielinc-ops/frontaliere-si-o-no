@@ -6,6 +6,7 @@
  * API endpoint: https://casale.recruitee.com/api/offers
  * Fallback HTML: https://recruit.casale.ch/
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -59,7 +60,7 @@ async function fetchJson(url, timeoutMs = 20000) {
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; } finally { clearTimeout(timer); }
 }
 
-async function fetchJobs() {
+export async function fetchJobs() {
   console.log(`🔍 Fetching Casale SA jobs from API: ${API_URL}`);
   const apiData = await fetchJson(API_URL, 25000);
   if (!apiData) { console.error('❌ Failed to fetch Casale API.'); return []; }
@@ -87,7 +88,7 @@ async function fetchJobs() {
       ...sourceSlotTitleAndSlug(built.title, slug, sourceLang),
       slug,
       category: detectCategory(built.title),
-      datePosted: built.datePosted,
+      ...mergeSourcePostingDates({}, built),
       source: 'casale-careers-crawler', sourceLang, employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',

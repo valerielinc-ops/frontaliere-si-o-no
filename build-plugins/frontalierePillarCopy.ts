@@ -103,7 +103,7 @@ const IT: FrontalierePillarCopy = {
     {
       heading: 'Vivere al confine: comuni, valichi e tempi di attesa',
       paragraphsHtml: [
-        'Dove abiti cambia il pendolarismo: i <a href="/vivere-in-ticino/comuni-di-frontiera/">comuni di frontiera</a> raccolgono affitti, servizi e distanze dai valichi, la <a href="/guida-frontaliere/mappa-confine/">mappa del confine</a> mostra i valichi principali e i <a href="/guida-frontaliere/tempi-attesa-dogana/">tempi di attesa in dogana</a> sono aggiornati in continuo. Tutte le guide pratiche (primo giorno, disoccupazione, auto) vivono nella <a href="/guida-frontaliere/">guida frontaliere</a>.',
+        'Dove abiti cambia il pendolarismo: i <a href="/vivere-in-ticino/comuni-di-frontiera/">comuni di frontiera</a> raccolgono affitti, servizi e distanze dai valichi, la <a href="/guida-frontaliere/mappa-confine/">mappa del confine</a> mostra i valichi principali e i <a href="/traffico-dogane/">tempi di attesa in dogana</a> sono aggiornati in continuo. Tutte le guide pratiche (primo giorno, disoccupazione, auto) vivono nella <a href="/guida-frontaliere/">guida frontaliere</a>.',
       ],
     },
   ],

@@ -418,8 +418,12 @@ describe('pickJobDisambiguator (human-readable cascade)', () => {
  });
 
  it('falls through to posted month when no salary', () => {
-  const job = { employmentType: 'FULL_TIME', postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
-  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('apr 2027');
+  const year = new Date().getUTCFullYear() - 1;
+  const job = { employmentType: 'FULL_TIME', postingDateSource: 'reported', postedDate: `${year}-04-01`, id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe(`apr ${year}`);
+  expect(pickJobDisambiguator({ ...job, postingDateSource: 'unknown' }, 'it', baseTitle)).toBe('rif. abc1');
+  expect(pickJobDisambiguator({ ...job, postingDateSource: undefined }, 'it', baseTitle)).toBe('rif. abc1');
+  expect(pickJobDisambiguator({ ...job, postedDate: new Date(Date.now() + 86400000).toISOString() }, 'it', baseTitle)).toBe('rif. abc1');
  });
 
  it('falls through to job-id reference as last resort', () => {

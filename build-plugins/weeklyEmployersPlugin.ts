@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -1030,14 +1030,11 @@ export function buildCompanyCityStats(opts: {
   // Canonical employer display name — take first job's company string.
   const employer = String(matching[0].company || '').trim();
 
-  // Sort by recency desc (postedDate/datePosted descending, missing last).
-  // First *parsable* date, not first truthy: a malformed `postedDate`
-  // ("30/05/26") is truthy and sorts lexically above ISO, floating a stale job
-  // to the top of the slice and dropping a fresh one from the indexed employer
-  // page. See firstParsableMs.
+  // Verified publication dates sort first; unknown and unmarked records remain
+  // available after them without borrowing observation clocks.
   const sorted = [...matching].sort((a, b) => {
-    const da = hasPostingDateProvenance(a) ? firstParsableMs(resolveReportedPostingDate(a)) : firstParsableMs(a.postedDate, a.datePosted);
-    const db = hasPostingDateProvenance(b) ? firstParsableMs(resolveReportedPostingDate(b)) : firstParsableMs(b.postedDate, b.datePosted);
+    const da = firstParsableMs(resolveReportedPostingDate(a));
+    const db = firstParsableMs(resolveReportedPostingDate(b));
     return db - da;
   });
 

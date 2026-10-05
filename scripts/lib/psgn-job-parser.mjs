@@ -22,6 +22,7 @@
  * that survived the same Prospective 400 outage by scraping HTML directly).
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -231,10 +232,6 @@ function pickCanton(city) {
   return inferred || 'SG';
 }
 
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
-}
-
 /* ── Main entry ────────────────────────────────────────────── */
 
 /**
@@ -254,11 +251,9 @@ export async function fetchAllPsgnJobs() {
   try {
     listHtml = await fetchHtml(CAREER_LIST_URL);
   } catch (err) {
-    console.warn(`  ⚠️ PSGN careercenter fetch failed: ${err?.message || err}.`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
-    throw err;
+    // fetch-failure-empty-ok: PSGN's isolated careercenter is optional; callers retain the previous source snapshot.
+    console.warn(`  ⚠️ PSGN careercenter fetch failed: ${err?.message || err}. Returning [].`);
+    return [];
   }
 
   const rows = parseJobListHtml(listHtml);
@@ -315,7 +310,8 @@ export async function fetchAllPsgnJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no verified publication date.
+      ...sourcePostingDateFields(),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

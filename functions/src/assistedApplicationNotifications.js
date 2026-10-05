@@ -30,7 +30,7 @@ import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
-import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import {
   brandButton,
   brandCallout,
@@ -201,8 +201,11 @@ export function buildReviewPageUrl(order, token, locale = resolveOrderLocale(ord
  * The review page of an automated order whose application left (owner decision 2026-10-03): the
  * documents prepared and sent stay there for the candidate. Minted as the automated e-mails mint it
  * (assistedApplicationAutomationEffects.js: the flow's round), and valid until the retention purge
- * deletes those documents (owner decision 2026-10-03, «Fino alla cancellazione»). '' for any other
- * order and whenever the link cannot be made: the «inviata» e-mail always leaves.
+ * deletes those documents (owner decision 2026-10-03, «Fino alla cancellazione»). An order kept for the
+ * talent pool, which the purge never reaches, gets a link that lasts as long as the consent (owner decision
+ * 2026-10-05, «Fino a fine consenso»): the review endpoint refuses it once the consent is withdrawn or the
+ * documents are gone. '' for any other order and whenever the link cannot be made: the «inviata» e-mail
+ * always leaves.
  */
 export async function submittedReviewUrl({ db, orderId, order, nowMs = Date.now(), getSecret = getReviewTokenSecret }) {
   // The flow mirrors its state on the order in the transaction that commits it, before mark_submitted runs.
@@ -211,11 +214,17 @@ export async function submittedReviewUrl({ db, orderId, order, nowMs = Date.now(
     const snapshot = await flowRefFor(db, orderId).get();
     const flow = snapshot.exists ? snapshot.data() || {} : null;
     if (flow?.state !== 'submitted') return '';
-    // An order the purge never reaches keeps the usual lifetime; one already due for it gets no link.
+    // The purge already ran: the documents are gone.
+    if (order.retentionPurgedAt != null) return '';
+    const round = Number(flow.round) || 1;
+    if (talentPoolConsentActive(order)) {
+      return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round, nowMs, untilConsentEnds: true }));
+    }
+    // An order without a date for the purge keeps the usual lifetime; one already due for it gets no link.
     const purgeAt = retentionPurgeDueAt(order);
     const ttlMs = purgeAt === null ? REVIEW_TOKEN_TTL_MS : purgeAt - nowMs;
     if (ttlMs <= 0) return '';
-    return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round: Number(flow.round) || 1, nowMs, ttlMs }));
+    return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round, nowMs, ttlMs }));
   } catch (error) {
     console.warn('[assistedApplicationNotifications] «inviata» e-mail without the review link:', error instanceof Error ? error.message : String(error));
     return '';
@@ -317,6 +326,9 @@ const COPY = {
     submittedSubject: 'Ho inviato la tua candidatura a {company}',
     submittedLead: "ti confermo che il {date} ho inviato la tua candidatura per {job} presso {company}, attraverso il canale indicato nell'annuncio.",
     submittedNext: "Se l'azienda ti contatta, rispondi direttamente a loro. Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email. In bocca al lupo!",
+    submittedContactPhone: "L'azienda può chiamarti al numero di telefono che mi hai dato oppure scriverti per email.",
+    submittedContactAlias: "Nella candidatura ho indicato un indirizzo email creato apposta per questa candidatura: ogni messaggio dell'azienda arriva lì e te lo inoltro subito in questa casella. Per rispondere all'azienda basta rispondere all'email inoltrata: la risposta arriva direttamente a loro.",
+    submittedNextAlias: 'Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!',
     whatsappSubject: "La tua candidatura a {company}: l'ultimo passo è su WhatsApp",
     whatsappLead: "la candidatura per {job} presso {company} si fa solo via WhatsApp: un assistente automatico dell'azienda ti fa alcune domande in chat. Nessuno può farlo al posto tuo, perché la chat parte dal tuo numero ed è lì che l'azienda ti ricontatterà.",
     whatsappHow: 'Come fare',
@@ -390,6 +402,9 @@ const COPY = {
     submittedSubject: "J'ai envoyé votre candidature à {company}",
     submittedLead: "je vous confirme que le {date} j'ai envoyé votre candidature pour {job} chez {company}, par le canal indiqué dans l'annonce.",
     submittedNext: "Si l'entreprise vous contacte, répondez-lui directement. Si vous recevez une réponse ou avez besoin d'autre chose, écrivez-moi en répondant à cet e-mail. Bonne chance !",
+    submittedContactPhone: "L'entreprise peut vous appeler au numéro de téléphone que vous m'avez donné ou vous écrire par e-mail.",
+    submittedContactAlias: "Dans la candidature, j'ai indiqué une adresse e-mail créée spécialement pour cette candidature : chaque message de l'entreprise y arrive et je vous le transfère aussitôt dans cette boîte. Pour répondre à l'entreprise, il suffit de répondre à l'e-mail transféré : la réponse lui parvient directement.",
+    submittedNextAlias: 'Si quelque chose ne fonctionne pas, écrivez-moi en répondant à cet e-mail. Bonne chance !',
     whatsappSubject: 'Votre candidature chez {company} : la dernière étape se fait sur WhatsApp',
     whatsappLead: "la candidature pour {job} chez {company} se fait uniquement par WhatsApp : un assistant automatique de l'entreprise vous pose quelques questions dans le chat. Personne ne peut le faire à votre place, car la conversation part de votre numéro et c'est par là que l'entreprise vous recontactera.",
     whatsappHow: 'Comment faire',
@@ -463,6 +478,9 @@ const COPY = {
     submittedSubject: 'Ich habe deine Bewerbung an {company} gesendet',
     submittedLead: 'hiermit bestätige ich, dass ich deine Bewerbung für {job} bei {company} am {date} über den in der Anzeige genannten Kanal versendet habe.',
     submittedNext: 'Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn du eine Antwort erhältst oder noch etwas brauchst, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
+    submittedContactPhone: 'Das Unternehmen kann dich unter der Telefonnummer anrufen, die du mir gegeben hast, oder dir per E-Mail schreiben.',
+    submittedContactAlias: 'In der Bewerbung habe ich eine E-Mail-Adresse angegeben, die eigens für diese Bewerbung eingerichtet wurde: Jede Nachricht des Unternehmens kommt dort an, und ich leite sie dir sofort in dieses Postfach weiter. Um dem Unternehmen zu antworten, antworte einfach auf die weitergeleitete E-Mail: Deine Antwort geht direkt an das Unternehmen.',
+    submittedNextAlias: 'Wenn etwas nicht klappt, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
     whatsappSubject: 'Deine Bewerbung bei {company}: Der letzte Schritt läuft über WhatsApp',
     whatsappLead: 'die Bewerbung für {job} bei {company} läuft nur über WhatsApp: Ein automatischer Assistent des Unternehmens stellt dir im Chat ein paar Fragen. Das kann niemand an deiner Stelle tun, denn der Chat startet von deiner Nummer, und darüber meldet sich das Unternehmen später bei dir.',
     whatsappHow: 'So geht es',
@@ -535,6 +553,9 @@ const COPY = {
     submittedSubject: 'I sent your application to {company}',
     submittedLead: 'I can confirm that on {date} I sent your application for {job} at {company}, through the channel the ad asks for.',
     submittedNext: "If the company contacts you, reply to them directly. If you hear back or need anything else, just reply to this email. Good luck!",
+    submittedContactPhone: 'The company may call you on the phone number you gave me or write to you by email.',
+    submittedContactAlias: 'In the application I gave an email address created just for this application: every message from the company arrives there and I forward it to this inbox right away. To answer the company, just reply to the forwarded email: your reply goes straight to them.',
+    submittedNextAlias: 'If something does not work, just reply to this email. Good luck!',
     whatsappSubject: 'Your application to {company}: the last step is on WhatsApp',
     whatsappLead: "the application for {job} at {company} is done only on WhatsApp: the company's automated assistant asks you a few questions in the chat. Nobody can do it for you, because the chat starts from your number and that is where the company will get back to you.",
     whatsappHow: 'How it works',
@@ -670,8 +691,15 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
       htmlParts.push(paragraph(esc(copy.submittedDocuments)), brandButton(reviewUrl, copy.documentsCta));
       textParts.push(`${copy.submittedDocuments}\n${copy.documentsCta}: ${reviewUrl}`);
     }
-    htmlParts.push(paragraph(esc(copy.submittedNext)), brandFinePrint(esc(copy.noGuarantee)));
-    textParts.push(copy.submittedNext, copy.noGuarantee);
+    // With an active alias the employer writes to it and the inbound handler
+    // forwards each message (assistedApplicationInbound.js): say so, so the
+    // candidate does not ask Valerie how the answer will reach them. The phone
+    // is named only when the order holds it (it may come from the CV instead).
+    const next = order?.candidateAlias?.active && order?.candidateAlias?.address
+      ? [...(clean(order?.applicantPhone, 80) ? [copy.submittedContactPhone] : []), copy.submittedContactAlias, copy.submittedNextAlias]
+      : [copy.submittedNext];
+    htmlParts.push(...next.map((line) => paragraph(esc(line))), brandFinePrint(esc(copy.noGuarantee)));
+    textParts.push(...next, copy.noGuarantee);
   } else {
     throw new Error(`unknown_assisted_application_email:${kind}`);
   }

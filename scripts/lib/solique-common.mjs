@@ -75,6 +75,8 @@
  *     `scripts/lib/ottos-job-parser.mjs`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace, stripHtml, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -865,7 +867,6 @@ export function createSoliqueParser(config) {
     }
     console.log(`  ✓ ${tiles.length} jobs from Solique listing (${mode})`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let failed = 0;
@@ -874,8 +875,11 @@ export function createSoliqueParser(config) {
       const tile = tiles[i];
       const detailUrl = tile.detailUrl || `${detailUrlPrefix}${tile.id}`;
       let detailContent = '';
+      let postingDates = sourcePostingDateFields('');
       try {
         const detailHtml = await fetchHtml(detailUrl);
+        // Eintritt/startDate describes employment start, never publication.
+        postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
         detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard, tasksProfileBoard });
         if (detailContent) detailHits += 1;
       } catch (err) {
@@ -953,7 +957,7 @@ export function createSoliqueParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
+        ...postingDates,
         applyUrl: detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

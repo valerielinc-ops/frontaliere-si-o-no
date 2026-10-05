@@ -1,5 +1,9 @@
 import { isJobBoardSectorHubPath as isSharedJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
 import { classifyEventsPage } from '../scripts/lib/eventsSections.mjs';
+import { classifyEmployerLandingFeature } from '../scripts/lib/employerLandingSections.mjs';
+import { isHealthFacilitiesSectionPath } from '../scripts/lib/healthFacilitiesSections.mjs';
+import { isPharmacySectionPath } from '../scripts/lib/pharmacySections.mjs';
+import { isPlateAuctionSectionPath } from '../scripts/lib/plateAuctionSections.mjs';
 
 export type AnalyticsPageContext = {
  contentGroup: string;
@@ -8,6 +12,15 @@ export type AnalyticsPageContext = {
  contentLocale: 'it' | 'en' | 'de' | 'fr';
  routeFamily: string;
 };
+
+export type DirectoryPageKind =
+ | 'employer_profile'
+ | 'employer_weekly'
+ | 'pharmacy'
+ | 'health_facility'
+ | 'border_municipality'
+ | 'fiscal_municipality'
+ | 'plate_auction';
 
 const LOCALE_PREFIX_RE = /^\/(en|de|fr)(?=\/|$)/i;
 
@@ -37,6 +50,35 @@ function startsWithAny(path: string, prefixes: string[]): boolean {
  return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
+const BORDER_MUNICIPALITY_ROOTS = [
+ '/vivere-in-ticino/comuni-di-frontiera',
+ '/living-in-ticino/border-municipalities',
+ '/leben-im-tessin/grenzgemeinden',
+ '/vivre-au-tessin/communes-frontiere',
+];
+
+const FISCAL_MUNICIPALITY_ROOTS = [
+ '/tasse-frontalieri-comune',
+ '/cross-border-tax-municipality',
+ '/grenzgaenger-steuern-gemeinde',
+ '/impots-frontaliers-commune',
+];
+
+/** Classify published data-backed directories before generic page fallbacks. */
+export function classifyDirectoryPage(inputPath: string): DirectoryPageKind | null {
+ const path = normalizePath(inputPath);
+ const localPath = path.replace(LOCALE_PREFIX_RE, '') || '/';
+ const employerFeature = classifyEmployerLandingFeature(path);
+ if (employerFeature === 'employer-profiles') return 'employer_profile';
+ if (employerFeature === 'weekly-employers' || employerFeature === 'weekly-employers-hub') return 'employer_weekly';
+ if (isPharmacySectionPath(path)) return 'pharmacy';
+ if (isHealthFacilitiesSectionPath(path)) return 'health_facility';
+ if (startsWithAny(localPath, BORDER_MUNICIPALITY_ROOTS)) return 'border_municipality';
+ if (startsWithAny(localPath, FISCAL_MUNICIPALITY_ROOTS)) return 'fiscal_municipality';
+ if (isPlateAuctionSectionPath(path)) return 'plate_auction';
+ return null;
+}
+
 /**
  * Sector hubs and job details share the same two-segment URL shape. Keep this
  * exact lookup separate so analytics consumers can reject hub traffic before
@@ -58,7 +100,16 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
  const statsRoots = ['/statistiche', '/statistics', '/statistiken', '/statistiques'];
  const fuelRoots = ['/prezzi-benzina', '/prezzi-diesel', '/fuel-prices', '/diesel-price-switzerland', '/benzinpreise', '/dieselpreise', '/prix-essence', '/prix-diesel'];
  const healthRoots = ['/premi-cassa-malati', '/health-insurance-premiums', '/krankenkassenpraemien', '/primes-assurance-maladie'];
- const borderWaitRoots = ['/traffico-dogane', '/border-wait', '/grenzwartezeiten', '/temps-attente-frontiere'];
+ const borderWaitRoots = [
+  '/traffico-dogane',
+  '/border-wait',
+  '/grenzwartezeiten',
+  '/temps-attente-frontiere',
+  '/guida-frontaliere/tempi-attesa-dogana',
+  '/cross-border-guide/border-waiting-times',
+  '/grenzgaenger-ratgeber/wartezeiten-grenze',
+  '/guide-frontalier/temps-attente-douane',
+ ];
  const guideRoots = ['/guida-frontaliere', '/cross-border-guide', '/grenzgaenger-guide', '/guide-frontalier'];
  const compareRoots = ['/compara-servizi', '/compare-services', '/services-vergleichen', '/comparer-services'];
  const calculatorRoots = ['/calcola-stipendio', '/salary-calculator', '/lohnrechner', '/calcul-salaire'];
@@ -73,6 +124,18 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
  siteSection: 'home',
  contentLocale,
  routeFamily: 'home',
+ };
+ }
+
+ const directoryPage = classifyDirectoryPage(normalizedPath);
+ if (directoryPage) {
+ const pageTemplate = `directory_${directoryPage}`;
+ return {
+ contentGroup: 'directory',
+ pageTemplate,
+ siteSection: 'directory',
+ contentLocale,
+ routeFamily: pageTemplate,
  };
  }
 

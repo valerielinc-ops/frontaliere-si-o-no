@@ -21,6 +21,7 @@
  * the block and produce the in-page anchor URL (`#job-{ID}`) as deep link.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -136,7 +137,6 @@ export async function fetchAllKlinikSchuetzenJobs() {
   console.log(`  ✓ ${rows.length} jobs from server-rendered career page`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const r of rows) {
     const sourceLang = detectLang(r.description || r.title, 'de');
@@ -179,7 +179,8 @@ export async function fetchAllKlinikSchuetzenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The parsed vacancy record carries no verified publication date.
+      ...sourcePostingDateFields(''),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

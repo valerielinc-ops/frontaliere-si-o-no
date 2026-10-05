@@ -257,7 +257,8 @@ async function main() {
     // (`name.js`, the vite.config.ts stable-name policy) and any legacy
     // content-hashed leftover (`name-<hash8>.js`, from before the stable-name
     // cutover #1933). Sibling `.js.map`/`.css.map` files (vite.config.ts
-    // `build.sourcemap: true`, #5607) are candidates too — same lastActive
+    // `PUBLIC_SOURCEMAPS=1` controlled builds (or older deployments) are
+    // candidates too — same lastActive
     // tracking, same grace window — otherwise every renamed/removed chunk's
     // sourcemap is invisible to this filter and accumulates forever (never
     // enters `allAssets`, so `isActive`/registry never see it and

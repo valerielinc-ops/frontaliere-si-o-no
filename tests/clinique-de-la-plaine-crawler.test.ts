@@ -156,9 +156,9 @@ describe('Clinique de la Plaine crawler parser', () => {
       expect(rows).toHaveLength(2);
       expect(rows[0].url).toBe('https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/');
       expect(rows[0].title).toBe('Un(e) aide de salle à 80%-100%');
-      expect(rows[0].postedDate).toBe('2026-04-23');
+      expect(rows[0].postedDate).toBe('2026-04-23T10:20:31+02:00');
       expect(rows[1].title).toBe('Infirmier(ère) bloc opératoire');
-      expect(rows[1].postedDate).toBe('2026-05-01');
+      expect(rows[1].postedDate).toBe('2026-05-01T08:00:00+02:00');
     });
 
     it('deduplicates repeated anchors', () => {

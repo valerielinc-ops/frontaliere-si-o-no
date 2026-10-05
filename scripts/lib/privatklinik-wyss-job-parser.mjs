@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Privatklinik Wyss — psychiatric private clinic in Münchenbuchsee (BE).
  *
@@ -302,7 +304,7 @@ export async function fetchAllPrivatklinikWyssJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted),
       applyUrl: tile.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

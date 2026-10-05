@@ -28,12 +28,12 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '1196',
   sector: 'Software / Fintech',
   defaultSourceLang: 'en',
-  // Temenos calls the country facet `locationMainGroup`; the shared default
-  // `locationCountry` is rejected with HTTP 400. Keep the source-empty proof
-  // enabled so a live global board with no Swiss value is a published,
-  // revalidated zero rather than an indistinguishable parser bail-out.
-  countryFacetParameter: 'locationMainGroup',
+  // `locationMainGroup` is a nested display group, not an applied country
+  // facet. The standard key is rejected on this tenant, so the factory falls
+  // back to the complete global board and proves a zero only when every
+  // posting's own structured primary country is foreign.
   proveSwissAbsentFromLiveBoard: true,
+  proveForeignOnlyBoardEmpty: true,
 });
 
 export const fetchAllTemenosJobs = parser.fetchAllJobs;

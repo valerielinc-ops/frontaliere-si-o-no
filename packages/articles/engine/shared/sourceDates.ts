@@ -18,3 +18,11 @@ export function articleSourceDate(value?: string | null, now = new Date()): stri
   return value.length === 10 ? value : iso;
 }
 
+/**
+ * `date: ''` in the article registry is the corpus stating that the
+ * publication date is UNKNOWN (corpus PR 2082): an editorial decision not to
+ * invent one. It is distinct from a malformed date, which stays an error.
+ */
+export function isUnknownArticleDate(value: unknown): boolean {
+  return value === '';
+}

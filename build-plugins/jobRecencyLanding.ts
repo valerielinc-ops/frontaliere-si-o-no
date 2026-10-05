@@ -1,5 +1,4 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Recency-filtered job landing hubs.
  *
@@ -131,25 +130,9 @@ export function otherVariant(variant: JobRecencyVariant): JobRecencyVariant {
 
 type JobLike = Record<string, unknown>;
 
-function parseDate(value: unknown): Date | null {
-  if (!value) return null;
-  const raw = String(value).trim();
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d;
-}
-
 function getJobFreshnessDate(job: JobLike, now: Date): Date | null {
-  if (hasPostingDateProvenance(job)) {
-    const reported = resolveReportedPostingDate(job, now);
-    return reported ? new Date(reported) : null;
-  }
-  return (
-    parseDate((job as Record<string, unknown>).postedDate)
-    || parseDate((job as Record<string, unknown>).datePosted)
-    || parseDate((job as Record<string, unknown>).crawledAt)
-    || parseDate((job as Record<string, unknown>).updatedAt)
-  );
+ const reported = resolveReportedPostingDate(job, now);
+ return reported ? new Date(reported) : null;
 }
 
 /**

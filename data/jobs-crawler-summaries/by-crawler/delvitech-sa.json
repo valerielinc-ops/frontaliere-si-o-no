@@ -1,23 +1,25 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-04T09:24:15.577Z",
-  "total": 10,
+  "generatedAt": "2026-10-04T21:21:48.096Z",
+  "total": 7,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 3,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 24569,
-  "avgDurationMs": 24569,
+  "newCount": 0,
+  "updatedCount": 0,
+  "removedCount": 3,
+  "unchangedCount": 7,
+  "durationMs": 43980,
+  "avgDurationMs": 43980,
   "durationHistory": [
-    24569
+    43980
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
-      "slug": "mechanical-engineer-delvitech-mendrisio",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "applyUrl": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "company": "Delvitech SA",
@@ -40,12 +42,18 @@
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
-      "_qualityScore": 65,
+      "id": "delvitech-sa-d624f7e54b9b",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-04T09:24:09.322Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 12
+        "translation": 25,
+        "completeness": 17
       }
     },
     {
@@ -73,17 +81,23 @@
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
-      "_qualityScore": 65,
+      "id": "delvitech-sa-bfc600631968",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-04T09:24:09.322Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 12
+        "translation": 25,
+        "completeness": 17
       }
     },
     {
       "title": "Customer Support Manager",
-      "slug": "customer-support-manager-delvitech-mendrisio",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/customer-support-manager/",
       "applyUrl": "https://legacy.delvi.tech/customer-support-manager/",
       "company": "Delvitech SA",
@@ -106,19 +120,26 @@
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
-      "_qualityScore": 65,
+      "id": "delvitech-sa-572058706020",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-04T09:24:09.322Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 12
+        "translation": 25,
+        "completeness": 17
       }
     }
   ],
-  "updatedJobs": [
+  "unchangedJobs": [
     {
       "title": "Application Engineer",
-      "slug": "application-engineer-delvitech-mendrisio",
+      "slug": "application-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/application-engineer-2/",
       "applyUrl": "https://legacy.delvi.tech/application-engineer-2/",
       "company": "Delvitech SA",
@@ -188,6 +209,7 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/back-office-specialist",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -198,7 +220,7 @@
     },
     {
       "title": "Junior Project Manager",
-      "slug": "junior-project-manager-delvitech-mendrisio",
+      "slug": "responsabile-di-progetto-junior-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/junior-project-manager/",
       "applyUrl": "https://legacy.delvi.tech/junior-project-manager/",
       "company": "Delvitech SA",
@@ -238,7 +260,7 @@
     },
     {
       "title": "Front-End SW Engineer",
-      "slug": "front-end-sw-engineer-delvitech-mendrisio",
+      "slug": "front-end-sw-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/front-end-sw-engineer/",
       "applyUrl": "https://legacy.delvi.tech/front-end-sw-engineer/",
       "company": "Delvitech SA",
@@ -278,7 +300,7 @@
     },
     {
       "title": "Firmware Embedded Developer",
-      "slug": "firmware-embedded-developer-delvitech-mendrisio",
+      "slug": "firmware-embedded-sviluppatore-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/firmware-embedded-developer/",
       "applyUrl": "https://legacy.delvi.tech/firmware-embedded-developer/",
       "company": "Delvitech SA",
@@ -318,7 +340,7 @@
     },
     {
       "title": "DevOps Engineer",
-      "slug": "devops-engineer-delvitech-mendrisio",
+      "slug": "devops-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/devops-engineer-2/",
       "applyUrl": "https://legacy.delvi.tech/devops-engineer-2/",
       "company": "Delvitech SA",
@@ -358,7 +380,7 @@
     },
     {
       "title": "E2E Test Engineer",
-      "slug": "e2e-test-engineer-delvitech-mendrisio",
+      "slug": "e2e-test-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/e2e-test-engineer/",
       "applyUrl": "https://legacy.delvi.tech/e2e-test-engineer/",
       "company": "Delvitech SA",
@@ -397,7 +419,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

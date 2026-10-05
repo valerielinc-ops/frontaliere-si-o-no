@@ -1,7 +1,7 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-10-04T09:29:51.500Z",
+  "generatedAt": "2026-10-04T21:34:49.658Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,16 +14,16 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4820,
-  "avgDurationMs": 4820,
+  "durationMs": 3606,
+  "avgDurationMs": 3606,
   "durationHistory": [
-    4820
+    3606
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "igroove-c5d93def086a",
-      "slug": "senior-data-pipeline-engineer-igroove-pfaffikon",
+      "slug": "senior-data-pipeline-ingegnere-igroove-ag-zurich",
       "company": "iGroove AG",
       "companyKey": "igroove",
       "companyDomain": "igroovemusic.com",
@@ -33,7 +33,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:29:40.737Z",
+      "crawledAt": "2026-10-04T21:34:41.791Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -47,20 +47,25 @@
       "sector": "Media / Musica digitale",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-03-31",
       "postedDate": "2026-03-31",
+      "postingDateSource": "reported",
       "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
       "jobReqId": "2588083",
       "firstSeenAt": "2026-07-03T21:58:03.200Z",
-      "_qualityScore": 92,
+      "salaryMin": 114500,
+      "salaryMax": 195000,
+      "salarySource": "estimated",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

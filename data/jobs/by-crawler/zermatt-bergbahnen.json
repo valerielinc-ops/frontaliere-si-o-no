@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-10-04T09:23:29.366Z",
+  "assembledAt": "2026-10-04T21:36:07.264Z",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-44fe7c8677eb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:25.300Z",
+      "crawledAt": "2026-10-04T21:36:03.396Z",
       "requirementsByLocale": {
         "en": [
           "Good analytical skills and networked thinking",
@@ -168,7 +168,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:24.733Z",
+      "crawledAt": "2026-10-04T21:36:02.901Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -256,7 +256,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:24.070Z",
+      "crawledAt": "2026-10-04T21:36:02.380Z",
       "previousSlugs": [
         "elektroinstallateur-in-efz-zermatt-zermatt-bergbahnen",
         "installatore-trice-elettrico-a-in-cfc-zermatt-bergbahnen-zermatt"
@@ -274,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T09:26:34.385Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",

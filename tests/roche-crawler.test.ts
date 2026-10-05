@@ -19,7 +19,8 @@ const mocks = vi.hoisted(() => ({
   }),
 }));
 
-vi.mock('../scripts/lib/ats-clients/workday-client.mjs', () => ({
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => ({
+  ...await importOriginal<typeof import('../scripts/lib/ats-clients/workday-client.mjs')>(),
   buildWorkdayApiBase: () => 'https://roche.wd3.myworkdayjobs.com/wday/cxs/roche/roche-ext',
   fetchWorkdayJobs: mocks.fetchWorkdayJobs,
   fetchWorkdayJobDetailParts: mocks.fetchWorkdayJobDetailParts,

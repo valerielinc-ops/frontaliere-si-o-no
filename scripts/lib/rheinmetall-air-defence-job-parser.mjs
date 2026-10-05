@@ -32,6 +32,7 @@
  * endpoint — /de/career/vacancies 404s), so sourceLang is 'de'.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import {
   slugify,
@@ -78,12 +79,6 @@ function buildEmploymentType(workingHoursValue) {
   return 'OTHER';
 }
 
-function parseDate(dateStr) {
-  // API returns "2025-07-14 00:00:00" — take the date portion.
-  if (!dateStr) return null;
-  const datePart = String(dateStr).split(' ')[0];
-  return /^\d{4}-\d{2}-\d{2}$/.test(datePart) ? datePart : null;
-}
 
 function firstOf(nestedArr) {
   // Fields like cities/countries come back as [["Zürich"]] — unwrap safely.
@@ -136,7 +131,6 @@ function buildJob(listing, detail) {
 
   const slug = slugify(`${title}-${RHEINMETALL_AIR_DEFENCE_COMPANY_NAME}-${loc.city}`);
   const sourceLang = 'de';
-  const postedDate = parseDate(detail?.date) || parseDate(listing.date);
   const crawledAt = new Date().toISOString();
 
   return {
@@ -171,7 +165,9 @@ function buildJob(listing, detail) {
     experienceLevel: normalizeSpace(detail?.entryLevel || listing.entryLevel || '') || undefined,
     sector: 'Difesa / Industria',
     currency: 'CHF',
-    postedDate: postedDate || undefined,
+    // Corporate listing dates match datePosted on the same first-party vacancy pages.
+    // Prefer the listing's explicit timezone; never guess a zone for bare detail times.
+    ...sourcePostingDateCandidatesFields([listing.date, detail?.date]),
     applyUrl: url,
     featured: false,
 

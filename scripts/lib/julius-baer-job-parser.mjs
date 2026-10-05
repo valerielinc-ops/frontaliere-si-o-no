@@ -16,6 +16,7 @@
 
 import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
@@ -231,7 +232,6 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
   const publicUrl = buildPublicUrl(externalPath);
   const timeType = info.timeType || '';
   const jobReqId = info.jobReqId || '';
-  const startDate = info.startDate || new Date().toISOString().split('T')[0];
 
   return {
     title,
@@ -242,7 +242,7 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
     employmentType: detectEmploymentType(timeType),
     category: detectCategory(title),
     experienceLevel: detectExperienceLevel(title),
-    datePosted: startDate,
+    ...workdayPostingDateFields({ jobPostingInfo: info }),
     jobReqId,
     externalPath,
   };

@@ -237,7 +237,8 @@ export function buildPwcJob(row) {
     sector: 'Consulenza',
     source: 'pwc-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    ...sourcePostingDateFields(row.startDate),
+    // Prospective start_date has no verified publication meaning for this tenant.
+    ...sourcePostingDateFields(),
     crawledAt: new Date().toISOString(),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.employmentType || 'full-time',

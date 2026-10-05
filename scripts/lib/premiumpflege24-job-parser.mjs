@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -129,6 +130,7 @@ export function extractPremiumpflege24NationwideApplicationListing(
     addressCountry: 'CH',
     country: 'CH',
     description,
+    ...mergeSourcePostingDates({}, detail),
     postedAt: detail.postedDate || null,
     nationwide: true,
   };
@@ -345,9 +347,8 @@ export async function fetchAllPremiumpflege24Jobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Publication evidence is distinct from the collection timestamp.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

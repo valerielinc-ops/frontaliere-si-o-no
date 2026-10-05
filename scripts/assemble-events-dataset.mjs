@@ -61,6 +61,7 @@ import {
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
+import { eventDateIssues } from './lib/events-date-quality.mjs';
 
 function readSlices() {
   if (!existsSync(EVENTS_SLICE_DIR)) return [];
@@ -378,11 +379,18 @@ function assemble() {
   const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
   const slices = readSlices();
   const byId = new Map();
+  let invalidRecords = 0;
 
   for (const slice of slices) {
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
     for (const ev of slice.events) {
       if (!ev || !ev.id || !ev.startDate || !ev.title) continue;
+      const dateIssues = eventDateIssues(ev);
+      if (dateIssues.length > 0) {
+        invalidRecords += 1;
+        console.warn(`[assemble-events] skipping ${ev.id}: ${dateIssues.join(', ')}`);
+        continue;
+      }
       const prev = byId.get(ev.id);
       if (!prev || sliceTs >= (prev.__ts || 0)) {
         const merged = prev ? preserveEventHistory(ev, [prev]) : ev;
@@ -436,7 +444,7 @@ function assemble() {
   mkdirSync(path.dirname(publicPath), { recursive: true });
   writeFileSync(publicPath, json, 'utf-8');
 
-  return { events, slices: slices.length, mergedAway, frontierAttached };
+  return { events, slices: slices.length, mergedAway, frontierAttached, invalidRecords };
 }
 
 function printStats(events, mergedAway, frontierAttached) {
@@ -478,7 +486,7 @@ function printStats(events, mergedAway, frontierAttached) {
 // data/events.json.
 const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) {
-  const { events, slices, mergedAway, frontierAttached } = assemble();
-  console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
+  const { events, slices, mergedAway, frontierAttached, invalidRecords } = assemble();
+  console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed; ${invalidRecords} invalid date record(s) skipped) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
   if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached);
 }

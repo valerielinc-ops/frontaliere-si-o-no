@@ -13,6 +13,8 @@
  * Refline listing format: `<a href=".../{posId}/pub/{rev}/index.html">Title</a>`
  * where posId is a 4-digit zero-padded alphanumeric (e.g. 0052, 0047).
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -210,7 +212,7 @@ export async function fetchAllPrivatklinikHoheneggJobs() {
     let detail = { title: '', description: '' };
     try {
       const detailHtml = await fetchPage(listing.url, timeoutMs);
-      detail = parseReflineDetail(detailHtml);
+      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
     }
@@ -262,7 +264,7 @@ export async function fetchAllPrivatklinikHoheneggJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

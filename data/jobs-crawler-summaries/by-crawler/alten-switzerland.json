@@ -1,24 +1,26 @@
 {
   "key": "alten-switzerland",
   "label": "ALTEN Switzerland",
-  "generatedAt": "2026-10-04T09:25:29.786Z",
+  "generatedAt": "2026-10-04T21:21:25.514Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14843,
-  "avgDurationMs": 14843,
+  "unchangedCount": 2,
+  "durationMs": 67272,
+  "avgDurationMs": 67272,
   "durationHistory": [
-    14843
+    67272
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Project Manager – IT & Banking",
-      "slug": "project-manager-it-banking-alten-switzerland-switzerland",
+      "slug": "project-manager-it-e-bancario-alten-switzerland-switzerland",
       "url": "https://www.alten.ch/jobs/903-pipe-project-manager-it/",
       "applyUrl": "https://www.alten.ch/jobs/903-pipe-project-manager-it/apply",
       "company": "ALTEN Switzerland",
@@ -57,7 +59,7 @@
     },
     {
       "title": "Cloud Engineer – Google Cloud Platform",
-      "slug": "ingegnere-cloud-google-cloud-platform-alten-switzerland-switzerland",
+      "slug": "ingegnere-cloud-google-cloud-platform-alten-switzerland-ticino",
       "url": "https://www.alten.ch/jobs/879-google-cloud-platform/",
       "applyUrl": "https://www.alten.ch/jobs/879-google-cloud-platform/apply",
       "company": "ALTEN Switzerland",
@@ -96,7 +98,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
@@ -226,8 +227,8 @@ export async function fetchAllDufercoJobs() {
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} duferco ${swissCity}`);
     const category = detectCategory(title);
-    const postedDate = String(listing.created_at || '').slice(0, 10) ||
-      new Date().toISOString().split('T')[0];
+    // Public Talentics endpoint exposes creation only, not publication.
+    const publication = sourcePostingDateFields('');
     // Derive `contract` from `employmentType` so the two never diverge —
     // jobsSeoPagesPlugin/mobileActionBlock read `job.contract` directly.
     const employmentType = detectEmploymentType(listing.type || title);
@@ -265,7 +266,7 @@ export async function fetchAllDufercoJobs() {
       department: normalizeSpace(listing.department || ''),
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

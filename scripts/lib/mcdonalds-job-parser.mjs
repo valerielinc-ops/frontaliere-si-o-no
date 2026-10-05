@@ -1,3 +1,5 @@
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { TLS_ERROR_CODES } from './transient-fetch.mjs';
@@ -361,7 +363,7 @@ function classifyListingEntry(entry) {
       postalCode: String(location?.zipCode || '').trim(),
       streetAddress: String(location?.streetAddress || '').trim(),
       description: '',
-      datePosted: '',
+      ...sourcePostingDateFields(''),
       validThrough: '',
       employmentType: inferEmploymentType(title, entry.employmentType),
     },
@@ -498,7 +500,7 @@ function extractJsonLdBlocks(html = '') {
  * Parse a McDonald's job detail page HTML and return a structured job, or
  * null if no JobPosting JSON-LD block is present.
  */
-export function parseMcdoDetailPage(html, pageUrl = '') {
+export function parseMcdoDetailPage(html, pageUrl = '', expectedTitle = '') {
   if (!html || typeof html !== 'string') return null;
   const blocks = extractJsonLdBlocks(html);
   const ld = blocks.find((b) => b && b['@type'] === 'JobPosting');
@@ -521,7 +523,7 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
       : 'unresolved';
 
   const description = stripHtml(ld.description || '');
-  const datePosted = ld.datePosted ? String(ld.datePosted).slice(0, 10) : '';
+  const publication = identifiedPostingPublication(html, pageUrl, expectedTitle);
   const validThrough = ld.validThrough ? String(ld.validThrough).slice(0, 10) : '';
 
   return {
@@ -536,16 +538,16 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
     description,
-    datePosted,
+    ...publication,
     validThrough,
     employmentType: inferEmploymentType(ld.title, ld.employmentType),
   };
 }
 
-export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
+export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, expectedTitle = '' } = {}) {
   const html = await fetchText(url, { userAgent, timeoutMs });
   if (!html) return null;
-  return parseMcdoDetailPage(html, url);
+  return parseMcdoDetailPage(html, url, expectedTitle);
 }
 
 /* ── Job object builder ──────────────────────────────────────── */
@@ -625,10 +627,7 @@ export function buildMcdoJob(parsed) {
     postalCode,
     streetAddress,
     description,
-    // Canonical pipeline field is `postedDate` (schema.org JSON-LD calls it
-    // `datePosted`, but every downstream consumer — JobBoard, sitemap,
-    // newsletter, assemble-jobs-dataset churn guard — reads `postedDate`).
-    postedDate: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, parsed)),
     validThrough: parsed.validThrough || '',
     employmentType: parsed.employmentType,
     jobReqId: parsed.jobReqId,
@@ -758,7 +757,7 @@ export async function fetchMcdoJobs({
  const enriched = await runWithConcurrency(
    parsedList,
    async (parsed) => {
-     const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
+     const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs, expectedTitle: parsed.title });
      if (!detail) {
        detailFallbacks += 1;
        return parsed;
@@ -777,7 +776,7 @@ export async function fetchMcdoJobs({
         return {
           ...parsed,
           description: detail.description || parsed.description,
-          datePosted: detail.datePosted || parsed.datePosted,
+          ...mergeSourcePostingDates(parsed, detail),
           validThrough: detail.validThrough || parsed.validThrough,
         };
       }
@@ -787,7 +786,7 @@ export async function fetchMcdoJobs({
        sourceLocation: detail.sourceLocation || parsed.sourceLocation,
        sourceCountry: detail.sourceCountry || parsed.sourceCountry,
        description: detail.description || parsed.description,
-       datePosted: detail.datePosted || parsed.datePosted,
+       ...mergeSourcePostingDates(parsed, detail),
        validThrough: detail.validThrough || parsed.validThrough,
        postalCode: detail.postalCode || parsed.postalCode,
        streetAddress: detail.streetAddress || parsed.streetAddress,

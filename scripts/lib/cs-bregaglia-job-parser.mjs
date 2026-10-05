@@ -10,6 +10,7 @@
  * reliable than scraping the HTML listing page.
  */
 import { createHash } from 'node:crypto';
+import { sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -97,7 +98,6 @@ export async function fetchAllCsBregagliaJobs() {
   console.log(`  ✓ ${items.length} items from RSS feed`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title.replace(/^Offerta di lavoro:\s*/i, '');
@@ -114,10 +114,7 @@ export async function fetchAllCsBregagliaJobs() {
     const description = (detailBody.length > it.description.length ? detailBody : '')
       || it.description
       || '';
-    const postedDate = (() => {
-      const d = new Date(it.pubDate || '');
-      return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
-    })();
+    const publication = sourceRssPostingDateFields(it.pubDate);
     const sourceLang = detectLang(description || title, 'it');
     const jobSlug = slugify(`${title} ${CS_BREGAGLIA_KEY} promontogno`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
@@ -156,7 +153,7 @@ export async function fetchAllCsBregagliaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

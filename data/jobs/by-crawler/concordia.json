@@ -1,6 +1,6 @@
 {
   "crawlerKey": "concordia",
-  "assembledAt": "2026-10-04T09:15:06.306Z",
+  "assembledAt": "2026-10-04T21:15:40.283Z",
   "jobs": [
     {
       "id": "concordia-12db5f0109b1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitspruefung-bvm-80/f1f2ed0f-c54b-4c68-9aa9-81419f862808",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:00.068Z",
+      "crawledAt": "2026-10-04T21:15:34.764Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -53,12 +53,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
-        "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern"
+        "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
+        "controllo-delle-prestazioni-del-team-leader-e-collaudo-economico-bvm-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
-          "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern"
+          "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
+          "controllo-delle-prestazioni-del-team-leader-e-collaudo-economico-bvm-80-100-concordia-luzern"
         ],
         "en": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
@@ -114,7 +116,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-sursee/86f4ccc9-48ee-4455-88df-ef4a9037b89b",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:59.569Z",
+      "crawledAt": "2026-10-04T21:15:34.353Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -133,11 +135,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-100-in-sursee-concordia-sursee"
+        "kundenberater-in-100-in-sursee-concordia-sursee",
+        "servizio-clienti-100-in-sursee-concordia-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-100-in-sursee-concordia-sursee"
+          "kundenberater-in-100-in-sursee-concordia-sursee",
+          "servizio-clienti-100-in-sursee-concordia-sursee"
         ],
         "en": [
           "kundenberater-in-100-in-sursee-concordia-sursee"
@@ -192,7 +196,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-80-in-bern/3f2aafea-0e36-43db-bd92-bc65b8f0842c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:59.090Z",
+      "crawledAt": "2026-10-04T21:15:33.925Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -214,14 +218,16 @@
         "consulente-assicurativo-in-80-100-a-berna-concordia-bern",
         "insurance-consultant-in-80-100-in-bern-concordia-bern",
         "consultant-en-assurance-en-80-100-a-berne-concordia-bern",
-        "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        "versicherungsberater-in-80-100-in-bern-concordia-bern",
+        "consulente-assicurativo-80-100-a-berna-concordia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-in-80-100-a-berna-concordia-bern",
           "insurance-consultant-in-80-100-in-bern-concordia-bern",
           "consultant-en-assurance-en-80-100-a-berne-concordia-bern",
-          "versicherungsberater-in-80-100-in-bern-concordia-bern"
+          "versicherungsberater-in-80-100-in-bern-concordia-bern",
+          "consulente-assicurativo-80-100-a-berna-concordia-bern"
         ],
         "en": [
           "insurance-consultant-in-80-100-in-bern-concordia-bern",
@@ -279,7 +285,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-baar/03ed1b6a-cd00-4419-b288-d4d55c265d8d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:58.593Z",
+      "crawledAt": "2026-10-04T21:15:33.517Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -301,14 +307,16 @@
         "consulente-assicurativo-in-100-in-baar-concordia-baar",
         "insurance-consultant-in-100-in-baar-concordia-baar",
         "consultant-en-assurance-in-100-a-baar-concordia-baar",
-        "versicherungsberater-in-100-in-baar-concordia-baar"
+        "versicherungsberater-in-100-in-baar-concordia-baar",
+        "consulente-assicurativo-100-in-baar-concordia-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-in-100-in-baar-concordia-baar",
           "insurance-consultant-in-100-in-baar-concordia-baar",
           "consultant-en-assurance-in-100-a-baar-concordia-baar",
-          "versicherungsberater-in-100-in-baar-concordia-baar"
+          "versicherungsberater-in-100-in-baar-concordia-baar",
+          "consulente-assicurativo-100-in-baar-concordia-baar"
         ],
         "en": [
           "insurance-consultant-in-100-in-baar-concordia-baar",
@@ -366,7 +374,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-ca-in-grosswangen/dcbc0bf2-d03f-4eaf-b6e3-7118d2806adf",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:58.135Z",
+      "crawledAt": "2026-10-04T21:15:33.095Z",
       "addressLocality": "Grosswangen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -385,11 +393,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
+        "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
+        "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
+          "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
+          "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen"
         ],
         "en": [
           "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
@@ -445,7 +455,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-nyon/9597a476-b0f8-4595-8708-ce11b72bcb49",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:57.588Z",
+      "crawledAt": "2026-10-04T21:15:32.683Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -464,11 +474,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-nyon-concordia-nyon"
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-nyon-concordia-nyon",
+        "consulente-clienti-f-m-nb-100-in-nyon-concordia-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-nyon-concordia-nyon"
+          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-nyon-concordia-nyon",
+          "consulente-clienti-f-m-nb-100-in-nyon-concordia-nyon"
         ],
         "en": [
           "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-nyon-concordia-nyon"
@@ -524,7 +536,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zofingen/3d2179e7-89e6-4c1e-a665-406fcc53a29f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:57.061Z",
+      "crawledAt": "2026-10-04T21:15:32.283Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -543,11 +555,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-100-in-zofingen-concordia-zofingen"
+        "kundenberater-in-100-in-zofingen-concordia-zofingen",
+        "consulente-clienti-100-a-zofingen-concordia-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-100-in-zofingen-concordia-zofingen"
+          "kundenberater-in-100-in-zofingen-concordia-zofingen",
+          "consulente-clienti-100-a-zofingen-concordia-zofingen"
         ],
         "en": [
           "kundenberater-in-100-in-zofingen-concordia-zofingen"
@@ -603,7 +617,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-yverdon/eb5b5248-6274-48c8-b345-dc2a3cc656e9",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:56.605Z",
+      "crawledAt": "2026-10-04T21:15:31.873Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -624,13 +638,15 @@
       "previousSlugs": [
         "client-advisor-f-m-nb-60-in-yverdon-concordia-yverdon-les-bains",
         "kundenberater-w-m-nb-60-in-yverdon-concordia-yverdon-les-bains",
-        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-60-a-yverdon-concordia-yverdon-les-bains"
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-60-a-yverdon-concordia-yverdon-les-bains",
+        "consulente-clienti-f-m-nb-60-in-yverdon-concordia-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-f-m-nb-60-in-yverdon-concordia-yverdon-les-bains",
           "kundenberater-w-m-nb-60-in-yverdon-concordia-yverdon-les-bains",
-          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-60-a-yverdon-concordia-yverdon-les-bains"
+          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-60-a-yverdon-concordia-yverdon-les-bains",
+          "consulente-clienti-f-m-nb-60-in-yverdon-concordia-yverdon-les-bains"
         ],
         "en": [
           "conseiller-ou-conseillere-a-la-clientele-f-m-nb-60-a-yverdon-concordia-yverdon-les-bains"
@@ -685,7 +701,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/specialiste-en-prestations-f-m-nb-a-lausanne/2c73621b-e929-4fb9-92bb-8039e3ba32bf",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:56.058Z",
+      "crawledAt": "2026-10-04T21:15:31.480Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -705,12 +721,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
-        "specialiste-en-prestations-f-m-nb-80-100-a-lausanne-concordia-lausanne"
+        "specialiste-en-prestations-f-m-nb-80-100-a-lausanne-concordia-lausanne",
+        "specialista-di-performance-f-h-nb-80-100-a-losanna-concordia-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne",
-          "specialiste-en-prestations-f-m-nb-80-100-a-lausanne-concordia-lausanne"
+          "specialiste-en-prestations-f-m-nb-80-100-a-lausanne-concordia-lausanne",
+          "specialista-di-performance-f-h-nb-80-100-a-losanna-concordia-lausanne"
         ],
         "en": [
           "specialiste-en-prestations-f-h-nb-80-100-a-lausanne-concordia-lausanne"
@@ -765,7 +783,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lead-architect-head-of-architecture-w-m-d-80/6771ee73-c142-4369-a621-389b241b301a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:55.603Z",
+      "crawledAt": "2026-10-04T21:15:31.082Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -784,11 +802,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-architect-head-of-architecture-w-m-d-80-100-concordia-luzern"
+        "lead-architect-head-of-architecture-w-m-d-80-100-concordia-luzern",
+        "lead-architetto-responsabile-architecture-w-m-d-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-architect-head-of-architecture-w-m-d-80-100-concordia-luzern"
+          "lead-architect-head-of-architecture-w-m-d-80-100-concordia-luzern",
+          "lead-architetto-responsabile-architecture-w-m-d-80-100-concordia-luzern"
         ],
         "fr": [
           "lead-architect-head-of-architecture-w-m-d-80-100-concordia-luzern"
@@ -840,7 +860,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-kriens/15702370-9bed-45da-a126-f21d8acfe3b1",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:51.598Z",
+      "crawledAt": "2026-10-04T21:15:30.677Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -859,11 +879,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-40-in-kriens-concordia-kriens"
+        "kundenberater-in-40-in-kriens-concordia-kriens",
+        "servizio-clienti-40-in-kriens-concordia-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-40-in-kriens-concordia-kriens"
+          "kundenberater-in-40-in-kriens-concordia-kriens",
+          "servizio-clienti-40-in-kriens-concordia-kriens"
         ],
         "en": [
           "kundenberater-in-40-in-kriens-concordia-kriens"
@@ -918,7 +940,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-medikamentenmanagement-80/018037fe-d37e-4f8c-99dc-4080e115ce08",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:48.447Z",
+      "crawledAt": "2026-10-04T21:15:30.283Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -937,11 +959,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leistungsspezialist-in-medikamentenmanagement-80-100-concordia-luzern"
+        "leistungsspezialist-in-medikamentenmanagement-80-100-concordia-luzern",
+        "specialista-nella-gestione-della-droga-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leistungsspezialist-in-medikamentenmanagement-80-100-concordia-luzern"
+          "leistungsspezialist-in-medikamentenmanagement-80-100-concordia-luzern",
+          "specialista-nella-gestione-della-droga-80-100-concordia-luzern"
         ],
         "en": [
           "leistungsspezialist-in-medikamentenmanagement-80-100-concordia-luzern"
@@ -996,7 +1020,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-langenthal/a180448b-389c-47f7-a09e-fcf07a753977",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:48.082Z",
+      "crawledAt": "2026-10-04T21:15:29.879Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1015,11 +1039,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-60-100-in-langenthal-concordia-langenthal"
+        "kundenberater-in-60-100-in-langenthal-concordia-langenthal",
+        "consulente-clienti-60-100-a-langenthal-concordia-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-60-100-in-langenthal-concordia-langenthal"
+          "kundenberater-in-60-100-in-langenthal-concordia-langenthal",
+          "consulente-clienti-60-100-a-langenthal-concordia-langenthal"
         ],
         "en": [
           "kundenberater-in-60-100-in-langenthal-concordia-langenthal"
@@ -1074,7 +1100,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/a8dd34c4-1476-4cc2-bcc2-f4e91f36c350",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:47.705Z",
+      "crawledAt": "2026-10-04T21:15:29.500Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1097,13 +1123,15 @@
         "responsabile-agenzia-in-100-in-biel-concordia-biel",
         "head-of-agency-in-100-in-biel-concordia-biel",
         "chef-de-l-agence-in-100-a-biel-concordia-biel",
-        "agenturleiter-in-100-in-biel-concordia-biel"
+        "agenturleiter-in-100-in-biel-concordia-biel",
+        "capo-dell-agenzia-100-in-biel-concordia-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-agenzia-100-a-biel-concordia-biel",
           "responsabile-agenzia-in-100-in-biel-concordia-biel",
-          "agenturleiter-in-100-in-biel-concordia-biel"
+          "agenturleiter-in-100-in-biel-concordia-biel",
+          "capo-dell-agenzia-100-in-biel-concordia-biel"
         ],
         "en": [
           "head-of-agency-in-100-in-biel-concordia-biel",
@@ -1161,7 +1189,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-engineer-digital-workplace-w-m-d-80/7fda128e-5b83-439f-a2fe-e6f8f06ee5e9",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:47.334Z",
+      "crawledAt": "2026-10-04T21:15:29.097Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1226,7 +1254,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-system-team-ci-cd-software-development-80/7ab03115-e389-4720-8fda-9c2ec098dae1",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:46.931Z",
+      "crawledAt": "2026-10-04T21:15:28.694Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1248,14 +1276,16 @@
         "equipe-du-systeme-proprietaire-du-produit-ic-cd-et-developpement-de-logiciels-80-100-concordia-luzern",
         "proprietario-del-prodotto-in-system-team-ci-cd-software-development-80-100-concordia-luzern",
         "proprietaire-du-produit-dans-l-equipe-systeme-ic-cd-developpement-de-logiciels-80-100-concordia-luzern",
-        "product-owner-in-system-team-ci-cd-amp-software-development-80-100-concordia-luzern"
+        "product-owner-in-system-team-ci-cd-amp-software-development-80-100-concordia-luzern",
+        "team-di-sistema-proprietario-del-prodotto-ci-cd-sviluppo-software-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "equipe-du-systeme-proprietaire-du-produit-ic-cd-et-developpement-de-logiciels-80-100-concordia-luzern",
           "proprietario-del-prodotto-in-system-team-ci-cd-software-development-80-100-concordia-luzern",
           "proprietaire-du-produit-dans-l-equipe-systeme-ic-cd-developpement-de-logiciels-80-100-concordia-luzern",
-          "product-owner-in-system-team-ci-cd-amp-software-development-80-100-concordia-luzern"
+          "product-owner-in-system-team-ci-cd-amp-software-development-80-100-concordia-luzern",
+          "team-di-sistema-proprietario-del-prodotto-ci-cd-sviluppo-software-80-100-concordia-luzern"
         ],
         "fr": [
           "equipe-du-systeme-proprietaire-du-produit-ic-cd-et-developpement-de-logiciels-80-100-concordia-luzern",
@@ -1309,7 +1339,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-basel/64edd576-3051-4e58-b33e-17ebd9fc3897",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:46.546Z",
+      "crawledAt": "2026-10-04T21:15:28.303Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1331,14 +1361,16 @@
         "consulente-clienti-in-100-basilea-concordia-basel",
         "customer-advisor-in-100-basel-concordia-basel",
         "conseiller-client-in-100-bale-concordia-basel",
-        "kundenberater-in-100-basel-concordia-basel"
+        "kundenberater-in-100-basel-concordia-basel",
+        "consulente-clienti-100-basilea-concordia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-clienti-in-100-basilea-concordia-basel",
           "customer-advisor-in-100-basel-concordia-basel",
           "conseiller-client-in-100-bale-concordia-basel",
-          "kundenberater-in-100-basel-concordia-basel"
+          "kundenberater-in-100-basel-concordia-basel",
+          "consulente-clienti-100-basilea-concordia-basel"
         ],
         "en": [
           "customer-advisor-in-100-basel-concordia-basel",
@@ -1395,7 +1427,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/fachspezialist-in-underwriting-privatkunden-it-fr/b5208f78-3737-40bb-8a5b-c6074097f450",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:46.168Z",
+      "crawledAt": "2026-10-04T21:15:27.917Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1414,11 +1446,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-underwriting-privatkunden-it-fr-100-concordia-luzern"
+        "fachspezialist-in-underwriting-privatkunden-it-fr-100-concordia-luzern",
+        "specialist-underwriting-clienti-privati-it-fr-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-underwriting-privatkunden-it-fr-100-concordia-luzern"
+          "fachspezialist-in-underwriting-privatkunden-it-fr-100-concordia-luzern",
+          "specialist-underwriting-clienti-privati-it-fr-100-concordia-luzern"
         ],
         "en": [
           "fachspezialist-in-underwriting-privatkunden-it-fr-100-concordia-luzern"
@@ -1473,7 +1507,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-lyss/3fdb824e-7b93-4a48-91ee-a5be05c34151",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:45.372Z",
+      "crawledAt": "2026-10-04T21:15:27.136Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1492,11 +1526,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+        "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+        "customer-manager-office-60-in-lyss-concordia-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
+          "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
+          "customer-manager-office-60-in-lyss-concordia-lyss"
         ],
         "en": [
           "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss"
@@ -1552,7 +1588,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-crm-80/da467beb-60e3-4ce9-a9a6-abf646b96f2f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:44.959Z",
+      "crawledAt": "2026-10-04T21:15:26.769Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1616,7 +1652,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-im-service-center-zuerich-80/a1eb84c2-fa2d-49db-9a07-ca3942741580",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:44.587Z",
+      "crawledAt": "2026-10-04T21:15:26.360Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1635,11 +1671,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-80-100-concordia-zurich"
+        "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-80-100-concordia-zurich",
+        "specialista-presso-il-service-center-di-zurigo-80-100-concordia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-80-100-concordia-zurich"
+          "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-80-100-concordia-zurich",
+          "specialista-presso-il-service-center-di-zurigo-80-100-concordia-zurich"
         ],
         "en": [
           "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-80-100-concordia-zurich"
@@ -1695,7 +1733,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-laufen/921aca05-27cb-4c3e-8655-e322790679b8",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:44.216Z",
+      "crawledAt": "2026-10-04T21:15:25.970Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1719,7 +1757,8 @@
         "consultant-client-en-bureau-80-a-laufen-concordia-laufen",
         "customer-advisor-in-office-80-in-laufen-concordia-laufen",
         "conseiller-client-au-bureau-80-a-laufen-concordia-laufen",
-        "kundenberater-in-geschaftsstelle-80-in-laufen-concordia-laufen"
+        "kundenberater-in-geschaftsstelle-80-in-laufen-concordia-laufen",
+        "ufficio-consulente-clienti-80-a-laufen-concordia-laufen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1728,7 +1767,8 @@
           "consultant-client-en-bureau-80-a-laufen-concordia-laufen",
           "customer-advisor-in-office-80-in-laufen-concordia-laufen",
           "conseiller-client-au-bureau-80-a-laufen-concordia-laufen",
-          "kundenberater-in-geschaftsstelle-80-in-laufen-concordia-laufen"
+          "kundenberater-in-geschaftsstelle-80-in-laufen-concordia-laufen",
+          "ufficio-consulente-clienti-80-a-laufen-concordia-laufen"
         ],
         "en": [
           "customer-consultant-in-office-80-in-laufen-concordia-laufen",
@@ -1785,7 +1825,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-neuchatel-et-delemont/3eb64c7e-a108-405b-83f0-f6e205d415a9",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:43.853Z",
+      "crawledAt": "2026-10-04T21:15:25.597Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1804,11 +1844,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-50-a-neuchatel-et-delemont-concordia"
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-50-a-neuchatel-et-delemont-concordia",
+        "consulente-clienti-f-m-nb-50-in-neuchatel-e-delemont-concordia-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-50-a-neuchatel-et-delemont-concordia"
+          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-50-a-neuchatel-et-delemont-concordia",
+          "consulente-clienti-f-m-nb-50-in-neuchatel-e-delemont-concordia-neuchatel"
         ],
         "en": [
           "conseiller-ou-conseillere-a-la-clientele-f-m-nb-50-a-neuchatel-et-delemont-concordia"
@@ -1864,7 +1906,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-sion/5709992c-3404-4214-ad82-d517964d3e97",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:43.466Z",
+      "crawledAt": "2026-10-04T21:15:25.213Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1886,14 +1928,16 @@
         "consulente-clienti-f-m-nb-100-a-sion-concordia-sion",
         "client-advisor-f-m-nb-100-in-sion-concordia-sion",
         "kundenberater-w-m-nb-100-in-sion-concordia-sion",
-        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-sion-concordia-sion"
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-sion-concordia-sion",
+        "consulente-clienti-e-m-nb-100-a-sion-concordia-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-clienti-f-m-nb-100-a-sion-concordia-sion",
           "client-advisor-f-m-nb-100-in-sion-concordia-sion",
           "kundenberater-w-m-nb-100-in-sion-concordia-sion",
-          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-sion-concordia-sion"
+          "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-sion-concordia-sion",
+          "consulente-clienti-e-m-nb-100-a-sion-concordia-sion"
         ],
         "en": [
           "client-advisor-f-m-nb-100-in-sion-concordia-sion",
@@ -1950,7 +1994,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-kloten/36d57d5e-f4f7-4f8e-821f-d92f59d7f252",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:43.091Z",
+      "crawledAt": "2026-10-04T21:15:24.813Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1977,7 +2021,8 @@
         "customer-advisor-in-80-in-kloten-concordia-kloten",
         "conseiller-client-en-80-en-kloten-concordia-kloten",
         "kundenberater-in-80-in-kloten-concordia-kloten",
-        "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        "kundenberater-in-80-100-in-kloten-concordia-kloten",
+        "consulente-clienti-80-100-a-kloten-concordia-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1989,7 +2034,8 @@
           "customer-advisor-in-80-in-kloten-concordia-kloten",
           "conseiller-client-en-80-en-kloten-concordia-kloten",
           "kundenberater-in-80-in-kloten-concordia-kloten",
-          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+          "kundenberater-in-80-100-in-kloten-concordia-kloten",
+          "consulente-clienti-80-100-a-kloten-concordia-kloten"
         ],
         "en": [
           "customer-advisor-in-80-100-in-kloten-concordia-kloten",
@@ -2047,7 +2093,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-lenzburg/6705c52c-0cf3-40c5-99ba-579e0f0e7641",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:42.721Z",
+      "crawledAt": "2026-10-04T21:15:24.425Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2069,14 +2115,16 @@
         "consulente-assicurativo-in-100-a-lenzburg-concordia-lenzburg",
         "insurance-consultant-in-100-in-lenzburg-concordia-lenzburg",
         "consultant-en-assurance-in-100-a-lenzburg-concordia-lenzburg",
-        "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
+        "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-in-100-a-lenzburg-concordia-lenzburg",
           "insurance-consultant-in-100-in-lenzburg-concordia-lenzburg",
           "consultant-en-assurance-in-100-a-lenzburg-concordia-lenzburg",
-          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
+          "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg"
         ],
         "en": [
           "insurance-consultant-in-100-in-lenzburg-concordia-lenzburg",
@@ -2134,7 +2182,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-frick/b0c69958-0fd2-4f7f-bde2-b0f322b1b4f9",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:42.312Z",
+      "crawledAt": "2026-10-04T21:15:24.035Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2156,14 +2204,16 @@
         "servizio-clienti-in-100-in-frick-concordia-frick",
         "customer-service-in-100-in-frick-concordia-frick",
         "service-a-la-clientele-in-100-en-frick-concordia-frick",
-        "kundenberater-in-100-in-frick-concordia-frick"
+        "kundenberater-in-100-in-frick-concordia-frick",
+        "consulente-clienti-100-in-frick-concordia-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-in-100-in-frick-concordia-frick",
           "customer-service-in-100-in-frick-concordia-frick",
           "service-a-la-clientele-in-100-en-frick-concordia-frick",
-          "kundenberater-in-100-in-frick-concordia-frick"
+          "kundenberater-in-100-in-frick-concordia-frick",
+          "consulente-clienti-100-in-frick-concordia-frick"
         ],
         "en": [
           "customer-service-in-100-in-frick-concordia-frick",
@@ -2221,7 +2271,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-database-engineer-oracle-postgresql-80/27c1c6b6-960f-498c-9e62-0de9678b720c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:41.920Z",
+      "crawledAt": "2026-10-04T21:15:23.638Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2298,7 +2348,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-zug/0bbabcb7-ed23-46c9-8ffe-ca55fca8d0ff",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:41.528Z",
+      "crawledAt": "2026-10-04T21:15:23.213Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2323,7 +2373,8 @@
         "consulente-assicurativo-100-a-zug-concordia-zug-3ba523",
         "consultant-en-assurance-in-100-en-zug-concordia-zug-3ba523",
         "insurance-consultant-in-100-in-zug-concordia-zug-3ba523",
-        "versicherungsberater-in-100-in-zug-concordia-zug"
+        "versicherungsberater-in-100-in-zug-concordia-zug",
+        "consulente-assicurativo-100-a-zug-concordia-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2333,7 +2384,8 @@
           "consulente-assicurativo-100-a-zug-concordia-zug-3ba523",
           "consultant-en-assurance-in-100-en-zug-concordia-zug-3ba523",
           "insurance-consultant-in-100-in-zug-concordia-zug-3ba523",
-          "versicherungsberater-in-100-in-zug-concordia-zug"
+          "versicherungsberater-in-100-in-zug-concordia-zug",
+          "consulente-assicurativo-100-a-zug-concordia-zug"
         ],
         "en": [
           "insurance-consultant-in-100-in-zug-concordia-zug",
@@ -2391,7 +2443,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/fachspezialist-in-inkasso-d-f-80/f7eb943b-d184-4017-a464-e242756818ab",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:41.141Z",
+      "crawledAt": "2026-10-04T21:15:22.802Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2456,7 +2508,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/netzwerk-und-security-engineer-w-m-d-50/72735b86-5c38-43ab-a372-365b7f9a4fbb",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:40.752Z",
+      "crawledAt": "2026-10-04T21:15:22.413Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2475,11 +2527,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "netzwerk-und-security-engineer-w-m-d-50-60-concordia-luzern"
+        "netzwerk-und-security-engineer-w-m-d-50-60-concordia-luzern",
+        "netzwerk-e-security-ingegnere-m-w-d-50-60-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "netzwerk-und-security-engineer-w-m-d-50-60-concordia-luzern"
+          "netzwerk-und-security-engineer-w-m-d-50-60-concordia-luzern",
+          "netzwerk-e-security-ingegnere-m-w-d-50-60-concordia-luzern"
         ]
       },
       "firstSeenAt": "2026-09-29T09:19:28.502Z",
@@ -2529,7 +2583,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-chur/b0ce1795-21b7-4374-93f4-6e8f7e94a98c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:40.360Z",
+      "crawledAt": "2026-10-04T21:15:22.006Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2552,7 +2606,8 @@
         "customer-advisor-in-80-100-in-chur-concordia-chur",
         "conseiller-client-in-80-100-a-chur-concordia-chur",
         "conseiller-client-dans-80-100-a-chur-concordia-chur",
-        "kundenberater-in-80-100-in-chur-concordia-chur"
+        "kundenberater-in-80-100-in-chur-concordia-chur",
+        "consulente-clienti-80-100-a-coira-concordia-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2560,7 +2615,8 @@
           "customer-advisor-in-80-100-in-chur-concordia-chur",
           "conseiller-client-in-80-100-a-chur-concordia-chur",
           "conseiller-client-dans-80-100-a-chur-concordia-chur",
-          "kundenberater-in-80-100-in-chur-concordia-chur"
+          "kundenberater-in-80-100-in-chur-concordia-chur",
+          "consulente-clienti-80-100-a-coira-concordia-chur"
         ],
         "en": [
           "customer-advisor-in-80-100-in-chur-concordia-chur",
@@ -2618,7 +2674,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agile-coach-w-m-d-80/5bbc9b27-cc36-4858-888f-a14f9737b97c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:39.939Z",
+      "crawledAt": "2026-10-04T21:15:21.593Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2683,7 +2739,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/b127bf65-4aa2-4233-a37a-c65fe2090b77",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:39.555Z",
+      "crawledAt": "2026-10-04T21:15:21.201Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2701,6 +2757,22 @@
       "applyUrl": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/b127bf65-4aa2-4233-a37a-c65fe2090b77",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-in-100-in-zurich-concordia-zurich",
+        "consulente-clienti-100-a-zurigo-concordia-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-zurich-concordia-zurich",
+          "consulente-clienti-100-a-zurigo-concordia-zurich"
+        ],
+        "en": [
+          "kundenberater-in-100-in-zurich-concordia-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-100-in-zurich-concordia-zurich"
+        ]
+      },
       "firstSeenAt": "2026-08-31T17:10:04.500Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2714,21 +2786,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-in-100-in-zurich-concordia-zurich"
-        ],
-        "en": [
-          "kundenberater-in-100-in-zurich-concordia-zurich"
-        ],
-        "fr": [
-          "kundenberater-in-100-in-zurich-concordia-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "kundenberater-in-100-in-zurich-concordia-zurich"
-      ]
+      }
     },
     {
       "id": "concordia-4f90c2a6265a",
@@ -2762,7 +2820,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-chur/73b9b50d-0f23-4d31-9c16-e135c8697c4e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:39.163Z",
+      "crawledAt": "2026-10-04T21:15:20.803Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2780,23 +2838,14 @@
       "applyUrl": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-chur/73b9b50d-0f23-4d31-9c16-e135c8697c4e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:10:02.454Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "agenturleiter-in-100-in-chur-concordia-chur",
+        "responsabile-agenzia-100-a-coire-concordia-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturleiter-in-100-in-chur-concordia-chur"
+          "agenturleiter-in-100-in-chur-concordia-chur",
+          "responsabile-agenzia-100-a-coire-concordia-chur"
         ],
         "en": [
           "agenturleiter-in-100-in-chur-concordia-chur"
@@ -2805,9 +2854,20 @@
           "agenturleiter-in-100-in-chur-concordia-chur"
         ]
       },
-      "previousSlugs": [
-        "agenturleiter-in-100-in-chur-concordia-chur"
-      ]
+      "firstSeenAt": "2026-08-31T17:10:02.454Z",
+      "salaryMin": 96000,
+      "salaryMax": 147500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 147500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "concordia-68425d2dbfb1",
@@ -2841,7 +2901,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/vertrauensaerztin-oder-vertrauensarzt-80/c5eb5a3d-9340-4fa4-b302-93de3fcb233f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:38.774Z",
+      "crawledAt": "2026-10-04T21:15:20.404Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2920,7 +2980,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-alpnach/7a7289f2-e138-427b-bb36-c068c1595078",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:38.387Z",
+      "crawledAt": "2026-10-04T21:15:20.003Z",
       "addressLocality": "Alpnach",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -3005,7 +3065,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-90-in-hitzkirch/c50779a9-d48e-445f-8a3f-85cf64c20073",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:38.000Z",
+      "crawledAt": "2026-10-04T21:15:19.578Z",
       "addressLocality": "Hitzkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3070,7 +3130,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027/babd14c1-13b6-4894-9ac4-c007e820f63e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:37.617Z",
+      "crawledAt": "2026-10-04T21:15:19.170Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3117,7 +3177,8 @@
         "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-zurich-ete-2027-concordia-zurich",
         "apprendistato-kauffrau-o-kaufmann-cfc-in-horw-sommer-2027-concordia-horw",
         "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw",
-        "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw"
+        "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
+        "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3139,7 +3200,8 @@
           "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw",
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern",
-          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-bale-ete-2027-concordia-basel"
+          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-bale-ete-2027-concordia-basel",
+          "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern"
         ],
         "en": [
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern"
@@ -3195,7 +3257,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027/3a9a1d4a-58a5-411b-bb1e-1e3d65151ccf",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:37.244Z",
+      "crawledAt": "2026-10-04T21:15:18.778Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3214,11 +3276,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027-concordia-burgdorf"
+        "lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027-concordia-burgdorf",
+        "apprendistato-kauffrau-o-kaufmann-cfc-in-burgdorf-sommer-2027-concordia-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027-concordia-burgdorf"
+          "lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027-concordia-burgdorf",
+          "apprendistato-kauffrau-o-kaufmann-cfc-in-burgdorf-sommer-2027-concordia-burgdorf"
         ],
         "en": [
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027-concordia-burgdorf"
@@ -3256,7 +3320,7 @@
       "companyDomain": "concordia.ch",
       "title": "Care Manager:in, 80-100 %",
       "titleByLocale": {
-        "it": "Responsabile dell'assistenza, 80-100%",
+        "it": "Care Manager:in, 80-100 %",
         "en": "Care Manager, 80-100%",
         "de": "Care Manager:in, 80-100 %",
         "fr": "Gestionnaire de soins, 80-100 %"
@@ -3274,7 +3338,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/care-manager-in/e22c19c7-b40e-449a-b05f-2aeb806c45f2",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:36.844Z",
+      "crawledAt": "2026-10-04T21:15:18.377Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3294,12 +3358,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-soins-dans-80-100-concordia-luzern",
-        "care-manager-in-80-100-concordia-luzern"
+        "care-manager-in-80-100-concordia-luzern",
+        "responsabile-dell-assistenza-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-soins-dans-80-100-concordia-luzern",
-          "care-manager-in-80-100-concordia-luzern"
+          "care-manager-in-80-100-concordia-luzern",
+          "responsabile-dell-assistenza-80-100-concordia-luzern"
         ],
         "fr": [
           "gestionnaire-de-soins-dans-80-100-concordia-luzern",
@@ -3353,7 +3419,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/care-manager-f-m-nb/a4cf4050-cddb-4812-800d-99fe479ac26e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:14:36.454Z",
+      "crawledAt": "2026-10-04T21:15:17.985Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3418,7 +3484,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-luzern/09608afb-9f39-4352-b810-8fc2a2c065a0",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:36.070Z",
+      "crawledAt": "2026-10-04T21:15:17.585Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3445,7 +3511,8 @@
         "kundenberater-in-70-in-luzern-concordia-luzern",
         "conseiller-client-in-70-a-lucerne-concordia-luzern",
         "conseiller-client-in-70-in-lucerne-concordia-luzern",
-        "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        "versicherungsberater-in-100-in-luzern-concordia-luzern",
+        "consulente-assicurativo-100-a-lucerna-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3457,7 +3524,8 @@
           "kundenberater-in-70-in-luzern-concordia-luzern",
           "conseiller-client-in-70-a-lucerne-concordia-luzern",
           "conseiller-client-in-70-in-lucerne-concordia-luzern",
-          "versicherungsberater-in-100-in-luzern-concordia-luzern"
+          "versicherungsberater-in-100-in-luzern-concordia-luzern",
+          "consulente-assicurativo-100-a-lucerna-concordia-luzern"
         ],
         "en": [
           "insurance-consultant-in-100-in-lucerne-concordia-luzern",
@@ -3515,7 +3583,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zug-und-cham/36f6cf27-de19-46cc-a042-8cf19466e022",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:35.651Z",
+      "crawledAt": "2026-10-04T21:15:17.176Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3602,7 +3670,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-olten/e9df3d00-540a-4596-812a-f18ae75eeb44",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:14:35.198Z",
+      "crawledAt": "2026-10-04T21:15:16.747Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3625,7 +3693,8 @@
         "customer-service-in-60-in-olten-concordia-olten",
         "service-clientele-en-60-a-olten-concordia-olten",
         "service-a-la-clientele-en-60-a-olten-concordia-olten",
-        "kundenberater-in-60-in-olten-concordia-olten"
+        "kundenberater-in-60-in-olten-concordia-olten",
+        "consulente-clienti-60-a-olten-concordia-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3633,7 +3702,8 @@
           "customer-service-in-60-in-olten-concordia-olten",
           "service-clientele-en-60-a-olten-concordia-olten",
           "service-a-la-clientele-en-60-a-olten-concordia-olten",
-          "kundenberater-in-60-in-olten-concordia-olten"
+          "kundenberater-in-60-in-olten-concordia-olten",
+          "consulente-clienti-60-a-olten-concordia-olten"
         ],
         "en": [
           "customer-service-in-60-in-olten-concordia-olten",

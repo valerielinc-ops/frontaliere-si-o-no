@@ -1,7 +1,7 @@
 {
   "key": "apply",
   "label": "LEITpuls AG",
-  "generatedAt": "2026-10-04T09:20:33.606Z",
+  "generatedAt": "2026-10-05T08:12:13.590Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,21 +9,25 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4210,
-  "avgDurationMs": 4210,
+  "unchangedCount": 1,
+  "durationMs": 3011,
+  "avgDurationMs": 3011,
   "durationHistory": [
-    4210
+    3011
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "apply-fa0e71e72c9b",
-      "slug": "projektmanager-in-technische-koordination-gesamtleitung-gebaudetechnik-80-100-bern-be",
+      "slug": "project-manager-coordinamento-tecnico-gestione-complessiva-della-tecnologia-edilizia-80-100-leitpuls-ag-bern",
       "company": "LEITpuls AG",
       "companyKey": "apply",
       "companyDomain": "apply.refline.ch",
@@ -33,7 +37,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:25.667Z",
+      "crawledAt": "2026-10-05T08:12:06.022Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -45,20 +49,23 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "datePosted": "2026-03-23T13:34:18.762978+00:00",
+      "postedDate": "2026-03-23T13:34:18.762978+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/968123/1468/pub/5/index.html",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:45:13.709Z",
-      "_qualityScore": 86,
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "21813a55c13b693c6bc3b96ebf7755119b32c8ef"
 }

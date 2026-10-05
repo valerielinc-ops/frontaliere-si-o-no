@@ -36,6 +36,8 @@
  *   - isSuvaJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()  — Validate URLs belong to this company
  */
+import { JSDOM } from 'jsdom';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -323,6 +325,12 @@ export async function fetchAllSuvaJobs() {
     try {
       const html = await fetchHtml(jobUrl);
       const parsed = parseDetailPage(html);
+      const dom = new JSDOM(html);
+      let publication;
+      try {
+        const node = dom.window.document.querySelector('[itemprop="datePosted"]');
+        publication = successFactorsPostingDateFields(node?.getAttribute('content') || node?.textContent || '');
+      } finally { dom.window.close(); }
       if (!parsed) {
         console.warn(` ⚠️ Could not parse detail page: ${jobUrl}`);
         continue;
@@ -379,7 +387,7 @@ export async function fetchAllSuvaJobs() {
         sector: 'Assicurazioni',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...publication,
         applyUrl: jobUrl,
         ...(pensum ? { pensum } : {}),
       };

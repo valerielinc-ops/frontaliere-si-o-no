@@ -1,5 +1,4 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 export type JobLandingLocale = 'it' | 'en' | 'de' | 'fr';
 export type JobLandingTypeKey = 'apprenticeship' | 'internship' | 'partTime';
 export type JobLandingSectorKey = 'health' | 'finance' | 'tech' | 'engineering' | 'admin' | 'hospitality' | 'sales';
@@ -1324,19 +1323,9 @@ function isPartTime(job: JobLike): boolean {
  });
 }
 
-function parseDate(value: string): Date | null {
- const raw = normalizeSpace(value);
- if (!raw) return null;
- const parsed = new Date(raw);
- return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
 function getJobFreshnessDate(job: JobLike, now?: Date): Date | null {
- if (hasPostingDateProvenance(job)) {
-  const reported = resolveReportedPostingDate(job, now);
-  return reported ? new Date(reported) : null;
- }
- return parseDate(job.postedDate) || parseDate(job.datePosted) || parseDate(job.crawledAt) || parseDate(job.updatedAt);
+ const reported = resolveReportedPostingDate(job, now);
+ return reported ? new Date(reported) : null;
 }
 
 function dayKey(date: Date): string {
@@ -1440,14 +1429,7 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
    Object.entries(rawTitleByLocale).filter(([, v]) => typeof v === 'string'),
   ) as Partial<Record<JobLandingLocale, string>>;
   const posted = getJobFreshnessDate(job as JobLike, now);
-  const datePosted = posted
-   ? posted.toISOString()
-   : hasPostingDateProvenance(job) ? undefined
-   : typeof j.postedDate === 'string'
-    ? j.postedDate
-    : typeof j.datePosted === 'string'
-     ? j.datePosted
-     : undefined;
+  const datePosted = posted?.toISOString();
   return {
    title: normalizeSpace(String(j.titleByLocale && typeof (j.titleByLocale as Record<string, unknown>)[locale] === 'string'
     ? (j.titleByLocale as Record<string, string>)[locale]

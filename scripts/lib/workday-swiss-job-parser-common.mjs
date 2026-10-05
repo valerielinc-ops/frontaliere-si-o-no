@@ -572,10 +572,12 @@ function detectEmploymentType(timeType = '', title = '') {
  *   location is a search/region label.
  * @param {boolean} [config.proveForeignOnlyBoardEmpty=false] Stamp an empty
  *   result as a source-proven zero (`markAuthoritativeEmptySnapshot`) when the
- *   Swiss-faceted board was seen whole and EVERY listing on it is a req whose
- *   structured primary country is foreign — i.e. cross-postings that list a
- *   Swiss site only as an additional location, which the primary-only gate
- *   refuses by design (issue #9651). Pair with the runner's
+ *   complete board used for the final parse was seen whole and EVERY listing
+ *   on it is a req whose structured primary country is foreign — i.e.
+ *   cross-postings that list a Swiss site only as an additional location,
+ *   which the primary-only gate refuses by design (issue #9651). The complete
+ *   board may be the Swiss-faceted response or the unfiltered fallback after
+ *   that facet was rejected. Pair with the runner's
  *   `allowAuthoritativeEmptySnapshot` + `authoritativeSnapshotScope:
  *   'empty-only'`.
  * @param {boolean} [config.includeCareerSiteSidebar=false] Append the career
@@ -798,6 +800,12 @@ export function createWorkdaySwissParser(config) {
     // How the faceted pagination ended — the completeness evidence for the
     // authoritative-empty proof. Only the faceted fetch fills it.
     const facetStats = {};
+    // When a tenant rejects the configured country facet, the complete-board
+    // proof must inspect the stats of the unfiltered fallback, not the failed
+    // faceted attempt. Keeping them separate also prevents a partial fallback
+    // from being mistaken for a complete source snapshot.
+    const unfilteredStats = {};
+    let listingsStats = facetStats;
     // The facet key the Swiss-scoped query ends up using: the declared one, or
     // the one discovered on the board after the default was rejected.
     let facetParameter = countryFacetParameter;
@@ -827,7 +835,8 @@ export function createWorkdaySwissParser(config) {
         // apply a strict Swiss-canton gate per listing instead.
         console.warn(`⚠️ ${companyName}: refetching unfiltered with strict CH gate.`);
         facetApplied = false;
-        listings = await fetchJobListings({ useCountryFacet: false });
+        listings = await fetchJobListings({ useCountryFacet: false, stats: unfilteredStats });
+        listingsStats = unfilteredStats;
       }
     }
 
@@ -865,7 +874,8 @@ export function createWorkdaySwissParser(config) {
       }
       console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
       facetApplied = false;
-      listings = await fetchJobListings({ useCountryFacet: false });
+      listings = await fetchJobListings({ useCountryFacet: false, stats: unfilteredStats });
+      listingsStats = unfilteredStats;
     }
 
     // An anti-bot block on a later page can leave either unfiltered retry with
@@ -1121,22 +1131,22 @@ export function createWorkdaySwissParser(config) {
         : emptyProof;
       if (isAuthoritativeEmptySnapshot(proven)) return proven;
     }
-    // Source-proven zero: the facet-scoped board was observed whole (the
-    // iterator yielded exactly the `total` page 0 announced and no page failed
-    // — a short page alone is not proof, a tenant can cut a page short while
-    // `total` says more) and every req on it is worked abroad. That is a positive statement by the source, not "the parser
-    // found nothing": an anti-bot `[]`, a zero-listing board, a facet the
-    // tenant ignored, a detail that failed to load or a req without a
+    // Source-proven zero: the board used for the final listing set was
+    // observed whole (the iterator yielded exactly the `total` page 0
+    // announced and no page failed — a short page alone is not proof, a tenant
+    // can cut a page short while `total` says more) and every req on it is
+    // worked abroad. That is a positive statement by the source, not "the
+    // parser found nothing": an anti-bot `[]`, a zero-listing board, a facet
+    // the tenant ignored, a detail that failed to load or a req without a
     // structured country all leave the batch unstamped, so the pipeline keeps
     // failing closed on them.
     if (
       proveForeignOnlyBoardEmpty
       && jobs.length === 0
-      && facetApplied
-      && isCompleteWorkdayBoard(facetStats, listings.length)
+      && isCompleteWorkdayBoard(listingsStats, listings.length)
       && foreignPrimaryListings.length === listings.length
     ) {
-      const evidence = `${companyName} Workday Swiss-faceted board: ${listings.length} listing(s), `
+      const evidence = `${companyName} Workday board: ${listings.length} listing(s), `
         + `every primary workplace abroad (${foreignPrimaryListings.join(', ')})`;
       console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
       return markAuthoritativeEmptySnapshot(jobs, evidence);

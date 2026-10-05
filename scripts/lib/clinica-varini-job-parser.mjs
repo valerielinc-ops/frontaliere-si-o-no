@@ -27,6 +27,7 @@
  * concorso_dir_sanitario).
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -269,7 +270,6 @@ export async function fetchAllClinicaVariniJobs() {
     return listings;
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   const sourceBodyFailures = [];
   for (const listing of listings) {
@@ -335,7 +335,9 @@ export async function fetchAllClinicaVariniJobs() {
       sector: 'Sanità / Clinica privata',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF/attachment offers no verified publication field. File dates,
+      // deadlines and employment start do not establish publication.
+      ...sourcePostingDateFields(''),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
       ...(pdfFailed

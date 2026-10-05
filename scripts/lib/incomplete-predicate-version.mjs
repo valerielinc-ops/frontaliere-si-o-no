@@ -46,10 +46,11 @@ import { fileURLToPath } from 'node:url';
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 /** Il file che definisce `isIncomplete`. */
-export const PREDICATE_ENTRY = 'scripts/relocalize-pending-jobs.mjs';
+export const PREDICATE_ENTRY = 'scripts/lib/translation-incomplete.mjs';
 
 /** Moduli il cui contenuto (con la chiusura degli import relativi) è predicato. */
 export const PREDICATE_MODULES = Object.freeze([
+  'scripts/lib/translation-incomplete.mjs',
   'scripts/lib/translation-quality.mjs',
   'scripts/lib/ai-output-fidelity.mjs',
   'scripts/lib/job-locale-utils.mjs',

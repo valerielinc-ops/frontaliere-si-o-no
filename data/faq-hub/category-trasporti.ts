@@ -256,10 +256,10 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
     relatedLinks: [
       {
         href: {
-          it: '/guida-frontaliere/tempi-attesa-dogana/',
-          en: '/en/cross-border-guide/border-waiting-times/',
-          de: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/',
-          fr: '/fr/guide-frontalier/temps-attente-douane/',
+          it: '/traffico-dogane/',
+          en: '/en/border-wait/',
+          de: '/de/wartezeit-grenze/',
+          fr: '/fr/temps-attente-douane/',
         },
         label: {
           it: 'Tempi di attesa ai valichi',

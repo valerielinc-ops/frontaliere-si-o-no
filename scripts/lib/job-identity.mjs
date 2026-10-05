@@ -53,6 +53,48 @@ export function buildStableJobIdentity(job = {}) {
 }
 
 /**
+ * Source-posting identities an expired archive record declares: its own URL
+ * when present, the `sourceIdentity` written by the archivers, and every
+ * identity a dedup merge recorded in `sourceIdentityHistory`.
+ *
+ * @param {object} expiredJob archive record
+ * @returns {Set<string>} stable-job identities (possibly empty)
+ */
+export function archiveRecordSourceIdentities(expiredJob = {}) {
+  const ids = new Set();
+  const add = (value) => {
+    const id = normalizeSpace(value ?? '');
+    if (id) ids.add(id);
+  };
+  if (normalizeSpace(expiredJob?.url ?? '')) add(buildStableJobIdentity(expiredJob));
+  add(expiredJob?.sourceIdentity);
+  const history = Array.isArray(expiredJob?.sourceIdentityHistory) ? expiredJob.sourceIdentityHistory : [];
+  for (const entry of history) add(entry?.sourceIdentity);
+  return ids;
+}
+
+/**
+ * Whether an expired archive record may describe `activeJob`'s posting.
+ *
+ * Merging an archive record's routes into an active job is only correct when
+ * both describe the SAME posting. A record that names its source posting and
+ * does not name the active job is a different posting that merely shares
+ * title/company/location (typically a sibling vacancy archived as a dedup
+ * duplicate); merging it hands the active job another posting's routes,
+ * hash-tailed slug included (#11596). Records without any identity, or an
+ * active job without a URL, cannot be judged here and stay eligible.
+ *
+ * @param {object} expiredJob archive record
+ * @param {object} activeJob candidate active owner
+ * @returns {boolean}
+ */
+export function archiveRecordNamesPosting(expiredJob = {}, activeJob = {}) {
+  const expiredIds = archiveRecordSourceIdentities(expiredJob);
+  if (expiredIds.size === 0 || !normalizeSpace(activeJob?.url ?? '')) return true;
+  return expiredIds.has(buildStableJobIdentity(activeJob));
+}
+
+/**
  * Identity of a record in the assembled jobs population.
  *
  * URL keys deliberately retain hash fragments, matching the assembler's

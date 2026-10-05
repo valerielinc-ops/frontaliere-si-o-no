@@ -41,6 +41,7 @@ import {
   publishedEventRoutes,
 } from '../scripts/lib/events-retention.mjs';
 import { mergeEventsIntoSlice } from '../scripts/lib/crawl-checkpoint.mjs';
+import { eventDateIssues, isValidEventIsoDate } from '../scripts/lib/events-date-quality.mjs';
 import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 import { CANTON_CODES } from '../services/cantonList';
@@ -231,6 +232,16 @@ describe('events-utils helpers', () => {
     expect(isoFromCompactDate('20260704')).toBe('2026-07-04');
     expect(isoFromCompactDate('bad')).toBe('');
     expect(eventStableId('tio-agenda', '62100')).toBe('tio-agenda:62100');
+  });
+
+  it('rejects impossible, inverted and implausibly distant event dates', () => {
+    expect(isValidEventIsoDate('2024-02-29')).toBe(true);
+    expect(isValidEventIsoDate('2026-02-29')).toBe(false);
+    expect(isValidEventIsoDate('2026-13-01')).toBe(false);
+
+    expect(eventDateIssues({ startDate: '2926-01-22' })).toContain('start_date_too_far_future');
+    expect(eventDateIssues({ startDate: '2999-10-10', endDate: '2999-10-09' })).toContain('end_before_start');
+    expect(eventDateIssues({ startDate: '2026-02-29' })).toContain('invalid_start_date');
   });
 
   it('upcomingEvents prunes past and sorts ascending', () => {

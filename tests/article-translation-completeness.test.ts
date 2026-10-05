@@ -17,8 +17,29 @@ describe('translation semantic completeness', () => {
 
     const found = issues.find((issue) => issue.code === 'translation-semantic-truncation');
     expect(found?.severity).toBe('critical');
+    expect(found?.rule).toBe('word-ratio');
     expect(found?.message).toMatch(/paragrafo omesso/);
     expect(found?.evidence).toContain('paragrafi: 2 → 1');
+  });
+
+  // Fra il 70% e l'85% delle parole con un paragrafo in meno il rilievo dice
+  // `rule: 'paragraph-drop'`: puo' essere un paragrafo omesso o soltanto una
+  // traduzione piu' compatta che ne ha accorpati due. Chi deve DISTRUGGERE un
+  // body (il retry del generatore che lo lascia in attesa) agisce solo su
+  // `word-ratio`; la diagnosi resta.
+  it('marks a paragraph-merge-only shortfall as paragraph-drop, a real loss as word-ratio', () => {
+    const it80 = Array.from({ length: 5 }, (_, i) => `Il paragrafo ${i + 1} spiega una regola diversa per i frontalieri del Ticino con venti parole di contenuto utile.`).join('\n\n');
+    const words = it80.match(/[\p{L}\p{N}]+/gu).length;
+    const compact = it80.replace(/\n\n/g, ' ').split(' ').slice(0, Math.round(words * 0.8)).join(' ') + '.';
+    const merged = detectTruncation(compact, { label: 'en/body1', locale: 'en', referenceText: it80 })
+      .find((issue) => issue.code === 'translation-semantic-truncation');
+    expect(merged?.rule).toBe('paragraph-drop');
+    expect(merged?.severity).toBe('major');
+
+    const lost = it80.split('\n\n').slice(0, 3).join('\n\n');
+    const dropped = detectTruncation(lost, { label: 'en/body1', locale: 'en', referenceText: it80 })
+      .find((issue) => issue.code === 'translation-semantic-truncation');
+    expect(dropped?.rule).toBe('word-ratio');
   });
 
   it('does not flag a shorter translation that only merges paragraphs', () => {
@@ -36,6 +57,28 @@ describe('translation semantic completeness', () => {
     });
 
     expect(result.issues.map((issue) => issue.code)).not.toContain('translation-semantic-truncation');
+  });
+
+  // Il floor di 40 parole protegge le sezioni brevi dalla varianza naturale fra
+  // lingue, non un body che non contiene alcuna parola: «...» o «—» al posto di
+  // una sezione italiana breve e' una traduzione assente, e uscita con un punto
+  // passava ogni controllo di punteggiatura.
+  it.each(['...', '…', ' — ', '**...**'])('flags a short section translated as the placeholder %j', (placeholder) => {
+    const result = runFactualityGates({
+      sections: { body1: placeholder },
+      locale: 'en',
+      italianSections: { body1: 'La sezione breve spiega dove ritirare il modulo.' },
+    });
+    const found = result.issues.find((issue) => issue.code === 'translation-semantic-truncation');
+    expect(found?.severity).toBe('critical');
+    expect(result.blocking.map((issue) => issue.code)).toContain('translation-semantic-truncation');
+  });
+
+  it('keeps the 40-word floor for a short section that is actually translated', () => {
+    const issues = detectTruncation('The short section explains where to collect the form.', {
+      label: 'en/body1', locale: 'en', referenceText: 'La sezione breve spiega dove ritirare il modulo.',
+    });
+    expect(issues.map((issue) => issue.code)).not.toContain('translation-semantic-truncation');
   });
 
   it('reports a whole body section missing from the translation', () => {

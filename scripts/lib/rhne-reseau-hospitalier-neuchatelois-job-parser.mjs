@@ -33,6 +33,7 @@
  *
  * As of July 2026 the listing exposes ~13 active openings.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -43,7 +44,6 @@ import {
   htmlToText,
   locateTagByAttribute,
   extractBalancedTagBlock,
-  parseSwissShortDate,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -160,8 +160,11 @@ export async function fetchRhneJobDetail(detailUrl) {
   const locationMatch = inner.match(/Lieu de travail\s*:\s*([^<]+)/i);
   const location = locationMatch ? normalizeSpace(decodeEntities(locationMatch[1])) : '';
 
-  const dateMatch = inner.match(/Date de publication\s*:\s*([\d.]+)/i);
-  const datePosted = dateMatch ? parseSwissShortDate(dateMatch[1]) : '';
+  const dateMatch = inner.match(/Date de publication\s*:\s*([^<]*)/i);
+  const rawPublication = normalizeSpace(decodeEntities(dateMatch?.[1] || ''));
+  const localPublication = /^(\d{1,2})\.(\d{1,2})\.(\d{4})$/.exec(rawPublication);
+  const publication = sourcePostingDateFields(localPublication
+    ? `${localPublication[3]}-${localPublication[2].padStart(2, '0')}-${localPublication[1].padStart(2, '0')}` : rawPublication);
 
   const applyMatch = inner.match(/id="applyButton"[\s\S]{0,300}?href="([^"]+)"/i);
   const applyUrl = applyMatch ? decodeEntities(applyMatch[1].replace(/&amp;/g, '&')) : '';
@@ -179,7 +182,7 @@ export async function fetchRhneJobDetail(detailUrl) {
   }
 
   if (!bodyText) return null;
-  return { title, location, datePosted, applyUrl, body: bodyText };
+  return { title, location, ...publication, applyUrl, body: bodyText };
 }
 
 export async function fetchAllRhneJobs() {
@@ -191,16 +194,12 @@ export async function fetchAllRhneJobs() {
     html = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   const items = parseRhneListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
@@ -255,7 +254,7 @@ export async function fetchAllRhneJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: detail?.datePosted || todayIso,
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail || {})),
       applyUrl: detail?.applyUrl || it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
