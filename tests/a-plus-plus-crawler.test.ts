@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   classifyAplusListings,
+  isAplusClassifiableLocation,
   isAplusEmptyListingPage,
   parseAplusListings,
 } from '../scripts/lib/a-plus-plus-job-parser.mjs';
@@ -23,6 +24,8 @@ describe('A++ listing classification', () => {
     expect(result.discovered).toBe(2);
     expect(result.listings).toEqual([]);
     expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
   it('reports a source-proven company-wide empty board as ok', () => {
@@ -45,7 +48,37 @@ describe('A++ listing classification', () => {
     expect(result.lastFetchOutcome).toBeNull();
   });
 
+  it('does not prove an empty target slice when a location is unknown', () => {
+    const result = classifyAplusListings([
+      { href: '/jobs/unknown', title: 'Unknown role', location: 'A newly added place' },
+    ]);
+
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(1);
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+    expect(isAplusClassifiableLocation('')).toBe(false);
+  });
+
+  it('keeps a missing location out of the Swiss slice and fail-closes', () => {
+    const result = classifyAplusListings([{ location: '' }]);
+
+    expect(result.listings).toEqual([]);
+    expect(result.unclassifiedLocationCount).toBe(1);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('lets an explicit foreign country override a Swiss city name', () => {
+    const result = classifyAplusListings([{ location: 'Lugano, Germany' }]);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('publishes a filtered-empty discovery through the empty merge path', () => {
+    expect(APLUS_UPDATER).toContain('fetchListings(summaryCounts)');
+    expect(APLUS_UPDATER).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");
     const discovery = { discovered: 1, listings: [], lastFetchOutcome: 'filtered_empty' };
     const jobs = discovery.listings;
 

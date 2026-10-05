@@ -2,6 +2,10 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
+import {
+  isExplicitlyOutsideTarget,
+  isLocationExplicitlyForeign,
+} from './dedicated-crawler-common.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -171,14 +175,23 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
  */
 export function classifyAplusListings(listings = [], { sourceEmpty = false } = {}) {
   const rows = Array.isArray(listings) ? listings : [];
-  const swissListings = rows.filter((row) => !row.location || isAplusSwissLocation(row.location));
-  const authoritativeEmptySnapshot = rows.length === 0 && sourceEmpty === true;
+  const swissListings = rows.filter((row) => isAplusSwissLocation(row.location));
+  const unclassifiedLocationCount = rows.filter(
+    (row) => !isAplusClassifiableLocation(row.location),
+  ).length;
+  const sourceProvenEmpty = rows.length === 0 && sourceEmpty === true;
+  const authoritativeEmptySnapshot = sourceProvenEmpty || (
+    rows.length > 0
+    && swissListings.length === 0
+    && unclassifiedLocationCount === 0
+  );
   return {
     listings: swissListings,
     discovered: rows.length,
+    unclassifiedLocationCount,
     authoritativeEmptySnapshot,
     lastFetchOutcome:
-      authoritativeEmptySnapshot ? 'ok' : rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+      sourceProvenEmpty ? 'ok' : rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
   };
 }
 
@@ -269,6 +282,8 @@ function parseAplusHtmlDetail(html = '', pageUrl = '') {
  * A++ Group is headquartered in Ticino and may have other Swiss positions.
  */
 export function isAplusSwissLocation(raw = '') {
+  if (isLocationExplicitlyForeign(raw)) return false;
+
   const lower = normalizeSpace(raw)
     .toLowerCase()
     .normalize('NFD')
@@ -277,6 +292,19 @@ export function isAplusSwissLocation(raw = '') {
   return /svizzera|suisse|schweiz|switzerland|swiss|ticino|tessin|grigioni|graubunden|grisons|massagno|lugano|chiasso|bellinzona|locarno|mendrisio|ascona|muralto|chur|davos/.test(
     lower,
   );
+}
+
+/**
+ * A location is classifiable when the source gives us positive evidence for
+ * either side of the Swiss filter. Unknown/blank locations stay ambiguous:
+ * they must not turn a zero result into an authoritative filtered snapshot.
+ */
+export function isAplusClassifiableLocation(raw = '') {
+  const location = normalizeSpace(raw);
+  if (!location) return false;
+  return isAplusSwissLocation(location)
+    || isLocationExplicitlyForeign(location)
+    || isExplicitlyOutsideTarget(location);
 }
 
 /**
