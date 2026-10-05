@@ -798,7 +798,7 @@ const frGuide: Record<string, string> = {
  'firstday.tax_sub1': 'Impôt à la source tessinois basé sur la classe tarifaire (A, B, C, H)',
  'firstday.tax_sub2': 'Délai IRPEF : 30 septembre (Modello Redditi)',
  'firstday.tax_sub3': 'Nouvel accord 2026 : franchise de €10.000 pour les nouveaux frontaliers',
- 'firstday.pillar3_sub1': 'Max déductible : CHF 7.056/an (2025) pour les salariés avec 2e pilier',
+ 'firstday.pillar3_sub1': 'Max déductible : CHF 7.258/an (2026) pour les salariés avec 2e pilier',
  'firstday.pillar3_sub2': 'Réduit l\'impôt à la source avec la rectification de fin d\'année',
  'firstday.730_sub1': 'Déclarer les revenus suisses convertis en EUR au taux moyen annuel',
  'firstday.730_sub2': 'Crédit d\'impôt pour les impôts payés en Suisse',

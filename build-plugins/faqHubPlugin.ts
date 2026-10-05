@@ -533,7 +533,7 @@ function renderPage(
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: seoHeroImageObject(hero),
@@ -993,7 +993,7 @@ function renderEntryPage(
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: question,
     description: guardArticleJsonLdDescription(plainAnswer(entry, locale)),
     image: seoHeroImageObject(hero),

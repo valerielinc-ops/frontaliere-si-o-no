@@ -16,11 +16,11 @@
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { ELAVORO_EMPTY_MESSAGE } from './elavoro-empty-state.mjs';
 
 const ELAVORO_HOST = 'www.e-lavoro.ch';
 const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
 const NON_JOB_NODE_IDS = new Set(['75', '76']);
-const ELAVORO_EMPTY_MESSAGE = 'purtroppo non ci sono offerte di lavoro, torna a trovarci';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();

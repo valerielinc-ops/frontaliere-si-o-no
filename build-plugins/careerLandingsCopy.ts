@@ -243,7 +243,7 @@ const IT_CONCORSI: CareerLandingCopy = {
     },
     {
       label: 'Portale concorsi.ti.ch — schede di dettaglio dei bandi',
-      href: "https://www.concorsi.ti.ch/offerte-d'impieghi.html",
+      href: 'https://www.concorsi.ti.ch/',
     },
     {
       label:
@@ -433,7 +433,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
     {
       label:
         'Ufficio Popolazione Ticino — Permesso G per frontalieri',
-      href: 'https://www4.ti.ch/di/sp/',
+      href: 'https://www4.ti.ch/di/spop/stranieri/dettaglio-permesso-g/',
     },
   ],
   sections: [

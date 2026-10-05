@@ -97,6 +97,7 @@ const SIDE_EFFECT_WORKFLOWS = [
   'generate-border-wait-ranking-weekly.yml',
   'update-health-premiums.yml',
   'update-canton-tax-data.yml',
+  'update-pension-parameters.yml',
   'refresh-plate-auctions.yml',
   'reconcile-expired-route-duplicates.yml',
   'migrate-prospected-slugs.yml',
@@ -248,6 +249,12 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'update-canton-tax-data.yml': [
     /Fetch canton tax data/u,
     /Validate canton tax data/u,
+    /Commit and push if changed/u,
+    /Trigger deploy workflow/u,
+  ],
+  'update-pension-parameters.yml': [
+    /Fetch pension parameters/u,
+    /Validate pension parameters/u,
     /Commit and push if changed/u,
     /Trigger deploy workflow/u,
   ],

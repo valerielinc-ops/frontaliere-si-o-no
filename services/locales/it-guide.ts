@@ -819,7 +819,7 @@ const translations: Record<string, string> = {
  'firstday.tax_sub1': 'L\'imposta alla fonte TI viene applicata in base a classe tariffaria (A, B, C, H)',
  'firstday.tax_sub2': 'Scadenza dichiarazione IRPEF: entro il 30 settembre (Modello Redditi) o 30 novembre (730 tardivo)',
  'firstday.tax_sub3': 'Nuovo accordo 2026: franchigia €10.000 per i nuovi frontalieri',
- 'firstday.pillar3_sub1': 'Massimo deducibile: CHF 7.056/anno (2025) per dipendenti con 2° pilastro',
+ 'firstday.pillar3_sub1': 'Massimo deducibile: CHF 7.258/anno (2026) per dipendenti con 2° pilastro',
  'firstday.pillar3_sub2': 'Riduce l\'imposta alla fonte se si fa rettifica a fine anno',
  'firstday.730_sub1': 'Dichiarare i redditi svizzeri convertiti in EUR al cambio medio annuo',
  'firstday.730_sub2': 'Credito d\'imposta per imposte pagate in Svizzera (evitare doppia imposizione)',

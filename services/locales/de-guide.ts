@@ -798,7 +798,7 @@ const deGuide: Record<string, string> = {
  'firstday.tax_sub1': 'Tessiner Quellensteuer basierend auf Tarifklasse (A, B, C, H)',
  'firstday.tax_sub2': 'IRPEF-Frist: 30. September (Modello Redditi)',
  'firstday.tax_sub3': 'Neues Abkommen 2026: €10.000 Freibetrag für neue Grenzgänger',
- 'firstday.pillar3_sub1': 'Max. absetzbar: CHF 7.056/Jahr (2025) für Angestellte mit 2. Säule',
+ 'firstday.pillar3_sub1': 'Max. absetzbar: CHF 7.258/Jahr (2026) für Angestellte mit 2. Säule',
  'firstday.pillar3_sub2': 'Reduziert Quellensteuer bei Jahresendberichtigung',
  'firstday.730_sub1': 'Schweizer Einkommen in EUR zum Jahresdurchschnittskurs deklarieren',
  'firstday.730_sub2': 'Steuergutschrift für in der Schweiz bezahlte Steuern',

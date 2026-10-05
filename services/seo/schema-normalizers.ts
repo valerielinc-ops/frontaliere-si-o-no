@@ -41,6 +41,15 @@ function normalizeArticleEntity(
 function normalizeArticleNode(record: Record<string, any>): Record<string, any> {
  if (!isArticleSchema(record)) return record;
 
+ // A page is an Article only when its publication is editorially documented.
+ // Generated landing pages used to claim Article/NewsArticle while omitting
+ // datePublished because their data refresh or build time is not a publication
+ // event. Keep the factual fields below, but describe those evergreen pages as
+ // WebPage rather than inventing a date.
+ const hasEditorialPublicationDate = typeof record.datePublished === 'string'
+  && record.datePublished.trim().length > 0;
+ if (!hasEditorialPublicationDate) record['@type'] = 'WebPage';
+
  // Static SEO pages are standalone documents. A bare #organization pointer is
  // resolvable in the SPA graph but not by a page-local crawler, so expand it to
  // the same named entities used by the rest of the site.

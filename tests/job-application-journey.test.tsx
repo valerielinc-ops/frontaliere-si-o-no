@@ -80,6 +80,23 @@ describe('application journey cohorts', () => {
   const date = events[0].journey_cohort;
   expect(journeyReportRequest(date, date).dimensionFilter.andGroup.expressions).toContainEqual({ filter: { fieldName: 'hostName', stringFilter: { value: 'frontaliereticino.ch', matchType: 'EXACT' } } });
  });
+
+ it('keeps an observed transition partial when its predecessor row is missing', () => {
+  const report = summarizeJourneyRows([{
+   dimensionValues: [
+    { value: '2026-10-05|direct|direct|handoff|d>h' },
+    { value: 'desktop' },
+    { value: 'demo-employer' },
+   ],
+   metricValues: [{ value: '1' }],
+  }]);
+  const transition = report.segments[0].transitions['detail_view→handoff'];
+  expect(transition).toEqual({ numerator: 1, denominator: 0, rate: null });
+  expect(report).toMatchObject({
+   quality: 'partial',
+   incompleteTransitions: [{ transition: 'detail_view→handoff', numerator: 1, denominator: 0 }],
+  });
+ });
 });
 
 function ReadingProbe({ route }: { route: string }) {

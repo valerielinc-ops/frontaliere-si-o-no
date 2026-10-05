@@ -6,13 +6,14 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
-import { DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
+import { AC_SALARY_CAP_CHF, DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
+import { LPP_COORDINATION_DEDUCTION_CHF, LPP_ENTRY_THRESHOLD_CHF } from '@/services/pensionParameters';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
 // Swiss social deduction rates from shared constants
 const AVS_RATE = DEFAULT_TECH_PARAMS.avsRate;
 const AD_RATE = DEFAULT_TECH_PARAMS.acRate;
-const AD_CAP = 148200; // AD salary cap
+const AD_CAP = AC_SALARY_CAP_CHF; // AD salary cap (constants.ts, locked to the official dataset)
 const AINF_RATE = DEFAULT_TECH_PARAMS.laaRate;
 const IJM_RATE = DEFAULT_TECH_PARAMS.ijmRate;
 
@@ -24,9 +25,10 @@ const LPP_RATES: { minAge: number; maxAge: number; rate: number }[] = [
  { minAge: 55, maxAge: 65, rate: DEFAULT_TECH_PARAMS.lppRate55_plus },
 ];
 
-// LPP coordination deduction & entry threshold (2025)
-const LPP_COORD_DEDUCTION = 25725;
-const LPP_ENTRY_THRESHOLD = 22050;
+// LPP coordination deduction & entry threshold from the official dataset
+// (services/pensionParameters.ts): they move with the AVS maximum pension.
+const LPP_COORD_DEDUCTION = LPP_COORDINATION_DEDUCTION_CHF;
+const LPP_ENTRY_THRESHOLD = LPP_ENTRY_THRESHOLD_CHF;
 
 // Simplified Ticino withholding tax tables (A=single, B=married)
 // Rates interpolated from cantonal barème for common salary ranges

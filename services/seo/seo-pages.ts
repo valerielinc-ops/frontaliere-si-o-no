@@ -494,8 +494,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cos'è il 2° pilastro LPP e chi deve aderirvi?", acceptedAnswer: { '@type': 'Answer', text: "La LPP (Previdenza Professionale Obbligatoria) è il 2° pilastro svizzero: un fondo pensione aziendale obbligatorio per tutti i dipendenti con salario AVS superiore a CHF 22.050 annui (soglia 2026). Ogni azienda aderisce a una cassa pensione che accumula contributi mensili in un conto individuale e li restituisce al pensionamento come rendita vitalizia o capitale. I frontalieri sono inclusi automaticamente." } },
- { '@type': 'Question', name: "Quanto si contribuisce alla LPP ogni mese?", acceptedAnswer: { '@type': 'Answer', text: "I contributi LPP minimi per legge variano per età, applicati sul salario coordinato (lordo meno deduzione di coordinamento di CHF 25.725): 7% dai 25–34 anni, 10% dai 35–44, 15% dai 45–54, 18% dai 55–65. Il contributo è metà lavoratore e metà datore. Molte casse pensione (piani sovraobbligatori) prevedono percentuali più alte, quindi il contributo reale può arrivare al 20–25%." } },
+ { '@type': 'Question', name: "Cos'è il 2° pilastro LPP e chi deve aderirvi?", acceptedAnswer: { '@type': 'Answer', text: "La LPP (Previdenza Professionale Obbligatoria) è il 2° pilastro svizzero: un fondo pensione aziendale obbligatorio per tutti i dipendenti con salario AVS superiore a CHF 22.680 annui (soglia 2026). Ogni azienda aderisce a una cassa pensione che accumula contributi mensili in un conto individuale e li restituisce al pensionamento come rendita vitalizia o capitale. I frontalieri sono inclusi automaticamente." } },
+ { '@type': 'Question', name: "Quanto si contribuisce alla LPP ogni mese?", acceptedAnswer: { '@type': 'Answer', text: "I contributi LPP minimi per legge variano per età, applicati sul salario coordinato (lordo meno deduzione di coordinamento di CHF 26.460): 7% dai 25–34 anni, 10% dai 35–44, 15% dai 45–54, 18% dai 55–65. Il contributo è metà lavoratore e metà datore. Molte casse pensione (piani sovraobbligatori) prevedono percentuali più alte, quindi il contributo reale può arrivare al 20–25%." } },
  { '@type': 'Question', name: "Posso riscuotere il 2° pilastro se rientro in Italia?", acceptedAnswer: { '@type': 'Answer', text: "In parte. Lasciando definitivamente la Svizzera per un Paese UE/AELS (come l'Italia), si può riscuotere solo la parte sovraobbligatoria come capitale. La parte obbligatoria resta su un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente non lavoratore dipendente, acquisto prima casa). Nel Liechtenstein o in altri cantoni il prelievo è possibile: pianificare il domicilio della cassa aiuta ad ottimizzare la tassazione." } },
  { '@type': 'Question', name: "Come viene tassato il riscatto del 2° pilastro?", acceptedAnswer: { '@type': 'Answer', text: "Il capitale LPP prelevato in Svizzera è tassato con aliquota agevolata separata (tra 4% e 12% a seconda del cantone e dell'importo). Se il frontaliere si è trasferito in Italia prima del riscatto, in Italia il capitale è soggetto a tassazione IRPEF sulla parte redditi (non su contributi personali già tassati). La pianificazione cantonale del domicilio della cassa (es. Schwyz, Zugo) può ridurre sensibilmente l'imposizione svizzera." } },
  { '@type': 'Question', name: "Cos'è il riscatto volontario LPP ed è deducibile?", acceptedAnswer: { '@type': 'Answer', text: "È un versamento alla cassa pensione per colmare lacune previdenziali, secondo le condizioni della cassa. Non garantisce un rimborso dell’imposta alla fonte. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
@@ -1435,7 +1435,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come si calcola la pensione AVS per un frontaliere?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.225/mese, massima CHF 2.450/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
+ "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
  }
  },
  {
@@ -1476,7 +1476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ClaimReview",
  "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
- "claimReviewed": "La rendita AVS massima in Svizzera nel 2026 è CHF 2.450 al mese (CHF 29.400 annui) con la scala 44 di contribuzione completa.",
+ "claimReviewed": "La rendita AVS massima in Svizzera nel 2026 è CHF 2.520 al mese (CHF 30.240 annui) con la scala 44 di contribuzione completa.",
  "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
  "datePublished": "2026-04-23",
  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
@@ -1485,7 +1485,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — AVS 1° pilastro" },
  "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Assicurazione vecchiaia e superstiti (AVS) 2026" }
  },
- "reviewBody": "Adeguamento rendite AVS/AI 2026 deciso dal Consiglio federale: rendita minima CHF 1.225/mese, rendita massima CHF 2.450/mese alla scala 44 (art. 34 LAVS)."
+ "reviewBody": "Rendite AVS/AI in vigore dal 1° gennaio 2025 e invariate nel 2026 (promemoria AVS/AI 3.01, stato al 1° gennaio 2026): rendita minima CHF 1.260/mese, rendita massima CHF 2.520/mese alla scala 44 (art. 34 LAVS)."
  },
  {
  "@context": "https://schema.org",

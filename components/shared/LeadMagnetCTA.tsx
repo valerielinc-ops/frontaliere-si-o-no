@@ -163,7 +163,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Contributi LPP (2o pilastro): deducibili fino al limite previsto dalla normativa italiana',
  'Premio LAMal: deducibile come onere sanitario (quadro E del 730, rigo E1)',
  'Spese di trasporto: deducibili fino a EUR 2.500/anno (abbonamento treno, pedaggi, carburante)',
- 'Pilastro 3a: i versamenti volontari (max CHF 7.056/anno) sono deducibili in Svizzera ma NON in Italia',
+ 'Pilastro 3a: i versamenti volontari (max CHF 7.258/anno) sono deducibili in Svizzera ma NON in Italia',
  ]},
  { heading: 'Imposta alla Fonte in Canton Ticino', items: [
  'Tabella A (80%): Celibi/nubili senza figli a carico',
@@ -310,7 +310,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ]},
  { heading: 'FASE 5: Dopo i Primi 3 Mesi', items: [
  'Verifica il primo cedolino: controlla che le trattenute corrispondano alla tua tabella',
- 'Iscriviti al Pilastro 3a per il risparmio previdenziale agevolato (max CHF 7.056/anno)',
+ 'Iscriviti al Pilastro 3a per il risparmio previdenziale agevolato (max CHF 7.258/anno)',
  'Apri un conto Wise o Revolut per il cambio CHF/EUR a tassi vantaggiosi',
  'Verifica i ristorni comunali: controlla quanto il tuo comune riceve dalla Svizzera',
  'Inizia a raccogliere i documenti per la dichiarazione redditi italiana',
@@ -401,8 +401,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  sections: [
  { heading: '1o Pilastro: AVS/AI (Rendita Base Svizzera)', items: [
  'Contributo: 5.3% del lordo a carico tuo + 5.3% a carico del datore = 10.6% totale',
- 'Rendita massima 2026: CHF 2.450/mese (per 44 anni di contributi completi)',
- 'Rendita minima: CHF 1.225/mese (almeno 1 anno di contributi)',
+ 'Rendita massima 2026: CHF 2.520/mese (per 44 anni di contributi completi)',
+ 'Rendita minima completa: CHF 1.260/mese (con 44 anni di contributi; con anni mancanti la rendita è parziale)',
  'Eta\' pensionabile: 65 anni (uomini); 64 anni e 3 mesi (donne, graduale aumento a 65 entro 2028)',
  'Pensione anticipata: possibile a 63 anni con riduzione del 6.8% per anno',
  'Pensione posticipata: possibile fino a 70 anni con aumento del 5.2-31.5%',
@@ -411,7 +411,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'La rendita AVS viene pagata mensilmente sul tuo conto anche se vivi in Italia',
  ]},
  { heading: '2o Pilastro: LPP (Cassa Pensione Aziendale)', items: [
- 'Obbligatoria per stipendi > CHF 22.050/anno (soglia d\'ingresso 2026)',
+ 'Obbligatoria per stipendi > CHF 22.680/anno (soglia d\'ingresso 2026)',
  'Contributi a carico dipendente (meta\' del totale):',
  ' - 25-34 anni: 3.5% del salario coordinato',
  ' - 35-44 anni: 5.0%',
@@ -433,7 +433,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Puoi scegliere tra rendita mensile o prelievo in capitale (dipende dal regolamento della cassa)',
  ]},
  { heading: 'Pilastro 3a: Risparmio Previdenziale Volontario', items: [
- 'Versamento massimo 2026: CHF 7.056/anno (per dipendenti con 2o pilastro)',
+ 'Versamento massimo 2026: CHF 7.258/anno (per dipendenti con 2o pilastro)',
  'Completamente deducibile dal reddito imponibile SVIZZERO',
  'NON deducibile dal reddito imponibile italiano',
  'Prelievo possibile: 5 anni prima dell\'eta\' pensionabile, per acquisto abitazione, o se lasci la CH',
@@ -457,7 +457,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ' - AVS: circa CHF 1.950/mese (35/44 della rendita piena)',
  ' - LPP: capitale stimato CHF 350.000-450.000 (rendita o prelievo)',
  ' - INPS (se ha 10 anni Italia): rendita proporzionale circa EUR 300-500/mese',
- ' - Pilastro 3a (se versa CHF 7.056/anno per 25 anni): circa CHF 220.000',
+ ' - Pilastro 3a (se versa CHF 7.258/anno per 25 anni): circa CHF 226.000',
  'TOTALE STIMATO: CHF 2.500-3.500/mese di rendita + capitale 3a',
  'Usa il simulatore pensione su frontaliereticino.ch per una stima personalizzata',
  ]},
@@ -505,9 +505,9 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Confronta sempre almeno 3-5 casse prima di scegliere',
  ]},
  { heading: 'Pensione e Previdenza', items: [
- 'AVS (1o pilastro): rendita base, max CHF 2.450/mese, eta\' 65 anni',
+ 'AVS (1o pilastro): rendita base, max CHF 2.520/mese, eta\' 65 anni',
  'LPP (2o pilastro): cassa pensione aziendale, capitale personale e portatile',
- 'Pilastro 3a: risparmio volontario fino a CHF 7.056/anno, deducibile in CH',
+ 'Pilastro 3a: risparmio volontario fino a CHF 7.258/anno, deducibile in CH',
  'Se torni in Italia: la parte obbligatoria LPP resta in Svizzera come rendita futura',
  'Totalizzazione INPS: gli anni svizzeri contano per i requisiti pensionistici italiani',
  'Riceverai DUE pensioni separate: una AVS (dalla Svizzera) + una INPS (dall\'Italia)',

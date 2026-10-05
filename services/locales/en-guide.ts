@@ -798,7 +798,7 @@ const enGuide: Record<string, string> = {
  'firstday.tax_sub1': 'Ticino withholding tax based on tariff class (A, B, C, H)',
  'firstday.tax_sub2': 'IRPEF deadline: September 30 (Modello Redditi) or late November 30 (730)',
  'firstday.tax_sub3': 'New 2026 agreement: €10,000 exemption for new cross-border workers',
- 'firstday.pillar3_sub1': 'Max deductible: CHF 7,056/year (2025) for employees with 2nd pillar',
+ 'firstday.pillar3_sub1': 'Max deductible: CHF 7,258/year (2026) for employees with 2nd pillar',
  'firstday.pillar3_sub2': 'Reduces withholding tax if rectification done at year end',
  'firstday.730_sub1': 'Declare Swiss income converted to EUR at average annual exchange rate',
  'firstday.730_sub2': 'Tax credit for taxes paid in Switzerland (avoid double taxation)',

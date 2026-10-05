@@ -367,7 +367,7 @@ const deFisco: Record<string, string> = {
  'taxReturn.deductions.lpp': 'BVG-Beiträge (2. Säule)',
  'taxReturn.deductions.lppDesc': 'Obligatorische Beiträge zur 2. Säule sind vollständig vom steuerbaren Einkommen absetzbar.',
  'taxReturn.deductions.pillar3a': 'Einzahlungen 3. Säule',
- 'taxReturn.deductions.pillar3aDesc': 'Säule-3a-Einzahlungen absetzbar bis CHF 7.056 (mit BVG) oder CHF 35.280 (ohne).',
+ 'taxReturn.deductions.pillar3aDesc': 'Säule-3a-Einzahlungen absetzbar bis CHF 7.258 (mit BVG) oder CHF 36.288 (ohne).',
  'taxReturn.deductions.healthInsurance': 'Krankenkassenprämien',
  'taxReturn.deductions.healthInsuranceDesc': 'KVG/CMU-Prämien als absetzbare Kosten zu 19% mit €129,11 Schwelle.',
  'taxReturn.deductions.childcare': 'Kinderbetreuungskosten',
