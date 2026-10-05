@@ -5011,7 +5011,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
  const companyContracts = [...new Set(companyJobs.map((j: any) => String(j.contract || '')).filter(Boolean))];
- const primaryLocation = companyLocations[0] || '';
  const displayCanton = companyDisplayCanton;
  const locationListStr = companyLocations.slice(0, 5).join(', ');
  const locationListLinkedHtml = companyLocations
