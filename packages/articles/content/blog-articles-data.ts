@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES = [
+const RAW_ARTICLES: Article[] = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
