@@ -26,10 +26,14 @@
  *     the 4 locale searches are unioned by id to build titleByLocale /
  *     descriptionByLocale (real per-locale translations, not machine ones).
  *
- * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
- * TLS/header spoofing, a clearly identifying User-Agent (matches the tio-agenda
- * / mirrorEventImage convention), and a politeness delay between requests to
- * both Algolia and the myswitzerland.com origin. Every event image is mirrored
+ * Respectful crawling: plain `fetch`, no headless browser, no TLS spoofing, a
+ * clearly identifying User-Agent (matches the tio-agenda / mirrorEventImage
+ * convention), and a politeness delay between requests to both Algolia and
+ * the myswitzerland.com origin. ONE owner-approved exception (decision D1,
+ * 2026-10-05, issue #10710): the detail pages only are requested with a fixed
+ * desktop-browser User-Agent, because the CDN refuses identifying clients
+ * with HTTP 406. It lives in lib/myswitzerland-detail-transport.mjs with its
+ * limits and stop rules; do not copy it to any other crawler or request. Every event image is mirrored
  * once via `mirrorEventImage` (see scripts/lib/events-utils.mjs) — the output
  * slice NEVER references a myswitzerland.com/cloudfront image URL directly.
  *
@@ -88,6 +92,12 @@ import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericC
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
+  createDetailTransportStats,
+  fetchMySwitzerlandDetailPage,
+  recordDetailResponse,
+  reportDetailTransport,
+} from './lib/myswitzerland-detail-transport.mjs';
+import {
   extractDetailContactName,
   extractDetailTableValue,
   extractEventPeopleFromText,
@@ -130,11 +140,6 @@ const ALGOLIA_DELAY_MS = 120; // between Algolia queries (index enumeration)
 // www.myswitzerland.com asks `Crawl-delay: 1`, so this must never go below
 // 1000 ms (tests/crawl-myswitzerland-events.test.ts pins the floor).
 export const DETAIL_DELAY_MS = 1000;
-// HTTP 406 is how the www.myswitzerland.com CDN refuses this client (measured
-// 2026-10-04: empty body on every uncached detail page). The refusal is per
-// client, not per URL: the other locale URLs of the same event answer 406 too,
-// so asking for them only repeats a refused request.
-const DETAIL_REFUSED_STATUS = 406;
 const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
 // Caps the locale-fallback translation pass that runs AFTER the visit loop.
 // RUN_BUDGET_MS never covered it, so the process routinely outlived its stated
@@ -181,22 +186,11 @@ async function algoliaQuery(index, body) {
   }
 }
 
-/** Detail page fetch: `{ status, html }`, html null unless 2xx; status 0 on network error. */
-async function fetchDetailPage(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: controller.signal });
-    if (!res.ok) return { status: res.status, html: null };
-    return { status: res.status, html: await res.text() };
-  } catch {
-    return { status: 0, html: null };
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-let detailRefusedCount = 0;
+// Counters of the detail transport for the whole run (step summary observer).
+// HTTP 406 is how the www.myswitzerland.com CDN refuses a client (2026-10-04
+// wave); a refusal stops the locale walk of the event, a 403/429/challenge or
+// 406 above the policy threshold stops the whole detail phase.
+const detailStats = createDetailTransportStats();
 
 /**
  * Enumerate ALL "Event"-type records in one locale index via recursive
@@ -795,11 +789,14 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
  * locale URL after the first waits `delayMs`, and an HTTP 406 stops the locale
  * walk for this event — the event falls back to the index-only fields and is
  * counted as a detail failure by the caller, never as a disappeared event.
+ * A 403, 429 or challenge page (or 406 above the policy threshold) sets
+ * `stats.stopped`: no further detail request is made in this run.
  */
 export async function fetchDetailEnrichment(perLocaleHits, {
-  fetchPage = fetchDetailPage,
+  fetchPage = fetchMySwitzerlandDetailPage,
   pause = sleep,
   delayMs = DETAIL_DELAY_MS,
+  stats = detailStats,
 } = {}) {
   let enrichment = null;
   let requests = 0;
@@ -815,14 +812,13 @@ export async function fetchDetailEnrichment(perLocaleHits, {
     if (!hit?.url) continue;
     const path_ = String(hit.url).startsWith('/') ? hit.url : `/${hit.url}`;
     const url = `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[locale]}${path_}`;
+    if (stats.stopped) break;
     if (requests > 0) await pause(delayMs);
     requests += 1;
     const { status, html } = await fetchPage(url);
-    if (status === DETAIL_REFUSED_STATUS) {
-      detailRefusedCount += 1;
-      break;
-    }
-    if (!html) continue;
+    const kind = recordDetailResponse(stats, { status, html }, url);
+    if (kind === 'refused' || kind === 'escalation') break;
+    if (kind !== 'ok' || !html) continue;
     const ld = extractEventJsonLd(html);
     const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
     const candidatePrice = extractPrice(ld, html, url);
@@ -1050,6 +1046,7 @@ async function main() {
       break;
     }
 
+    if (detailStats.stopped) break;
     const rec = records[cursor];
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
@@ -1084,10 +1081,17 @@ async function main() {
     if (visited < records.length) await sleep(DETAIL_DELAY_MS);
   }
 
+  reportDetailTransport(detailStats);
+  if (detailStats.stopped) {
+    // Fail closed exactly like a policy rejection: nothing is written, the
+    // cursor stays put, the previous slice stays byte-for-byte on disk.
+    throw new Error(`[myswitzerland] detail phase stopped (${detailStats.stopped.reason}); batch not written`);
+  }
+
   const resolved = events.filter((e) => e.comune).length;
   console.log(
     `[myswitzerland] visited ${visited}/${records.length} event(s) this run — ${events.length} mapped — ` +
-      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields; ${detailRefusedCount} refused with HTTP 406) — comune resolved ${resolved}/${events.length}`,
+      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields; ${detailStats.refused} refused with HTTP 406) — comune resolved ${resolved}/${events.length}`,
   );
 
   // #7328: myswitzerland's own `addressRegion` plus venue/title text-matching
