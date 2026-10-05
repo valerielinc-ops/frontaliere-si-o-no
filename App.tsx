@@ -981,9 +981,14 @@ const App: React.FC = () => {
  }
  localCompanyFollowPath = safeCompanyFollowPath(localCompanyFollows[0]?.sourceJobUrl);
  const serverFollowup = result.companyFollowFollowup;
+ // The endpoint already turned the server-recorded follow into the alert:
+ // nothing to complete here, and the local queue (replayed below) converges
+ // on that same alert instead of signalling a company-only signup.
+ const serverFulfilledFollow = Boolean(result.companyFollowFulfilled) && !serverFollowup;
  const companyOnlyFollowup = serverFollowup?.newsletterActive === false
-  || (!serverFollowup && localCompanyFollows.length > 0);
- followupForUi = serverFollowup || localCompanyFollows.length > 0
+  || result.companyFollowFulfilled?.newsletterActive === false
+  || (!serverFollowup && !serverFulfilledFollow && localCompanyFollows.length > 0);
+ followupForUi = serverFollowup || (!serverFulfilledFollow && localCompanyFollows.length > 0)
   ? {
    required: true,
    sourcePath: safeCompanyFollowPath(serverFollowup?.sourcePath) || localCompanyFollowPath,

@@ -188,7 +188,7 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-function stableAlertIdempotencyKey(
+export function stableAlertIdempotencyKey(
   userId: string,
   email: string,
   config: JobAlertConfig,
@@ -396,6 +396,19 @@ export async function createAlert(
   });
   if (existingIdempotent) {
     return alertFromStoredData(existingIdempotent.id, existingIdempotent.data() as Record<string, any>, fallback);
+  }
+  // One followed employer = one alert, whichever writer got there first. The
+  // confirmation endpoint may already have created it from the server-side
+  // follow intent (functions/src/companyFollowIntents.js) with another locale
+  // or provenance, i.e. another idempotency key; replaying the local queue
+  // must return that alert, not add a second one for the same company.
+  if (canonicalSpecificCompanyKey) {
+    const sameCompany = existing.docs.find(
+      (d) => (d.data() as { specificCompanyKey?: string | null }).specificCompanyKey === canonicalSpecificCompanyKey,
+    );
+    if (sameCompany) {
+      return alertFromStoredData(sameCompany.id, sameCompany.data() as Record<string, any>, fallback);
+    }
   }
   // Two budgets, counted apart — see MAX_COMPANY_ALERTS_PER_USER. The read is
   // the same one document set either way, so this costs nothing extra.
