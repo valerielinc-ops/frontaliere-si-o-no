@@ -239,8 +239,20 @@ const VERIFIED_CRAWLER_UAS = [
   'FacebookBot',
 ];
 const OWNER_IP = '178.197.238.144';
+
+// Cloudflare's custom-firewall phase is capped at five rules on this zone's
+// plan. Keep this as a hard invariant: silently truncating foreign rules would
+// change an owner's policy, while sending an oversized PUT fails the whole
+// deploy after routes/cache work has already run.
+const MAX_CUSTOM_FIREWALL_RULES = 5;
+
 const LEGACY_SOURCE_MAP_RULE_DESCRIPTION =
   'cdn-source-maps-block (managed by scripts/cf-locale-failover-setup.mjs)';
+const LEGACY_SOURCE_MAP_RULE_ACTION = 'block';
+const LEGACY_SOURCE_MAP_RULE_EXPRESSION =
+  '(http.host eq "cdn.frontaliereticino.ch" and ' +
+  'starts_with(http.request.uri.path, "/assets/") and ' +
+  'ends_with(http.request.uri.path, ".map"))';
 
 const MANAGED_FIREWALL_RULES = [
   {
@@ -784,6 +796,18 @@ function fwShape(r) {
   return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''} ${stableStringify(r.action_parameters || null)}`;
 }
 
+// A source-map rule created by PR #11626 can keep serving the same policy
+// after someone edits its description in the dashboard. Match that legacy
+// entry by action + expression so reconciliation removes it as managed legacy
+// instead of counting it as foreign and creating a duplicate. The exact pair
+// is intentional: a foreign rule with another policy remains untouched.
+function isSourceMapFirewallRule(rule) {
+  return (
+    rule?.action === LEGACY_SOURCE_MAP_RULE_ACTION &&
+    rule?.expression === LEGACY_SOURCE_MAP_RULE_EXPRESSION
+  );
+}
+
 async function assertFirewallRules(zoneId) {
   // The custom-firewall entrypoint may not exist on a zone with no custom rules
   // — GET then answers 404; the PUT below creates it.
@@ -813,8 +837,19 @@ async function assertFirewallRules(zoneId) {
   // verified-crawler allowlist skip — all blocking/challenge rules MUST run
   // before the skip, else it can short-circuit a request before our rule fires.
   // Order-sensitive — that's why we compare the full list, not per-rule.
-  const foreign = stripped.filter((r) => !managedDescriptions.has(r.description));
+  const staleSourceMapRules = stripped.filter(isSourceMapFirewallRule);
+  const foreign = stripped.filter(
+    (r) => !managedDescriptions.has(r.description) && !isSourceMapFirewallRule(r),
+  );
   const desired = [...desiredManaged, ...foreign];
+
+  if (desired.length > MAX_CUSTOM_FIREWALL_RULES) {
+    bail(
+      `${FIREWALL_PHASE} would contain ${desired.length} rules, but Cloudflare allows at most ` +
+        `${MAX_CUSTOM_FIREWALL_RULES}; preserving ${foreign.length} legitimate foreign rule(s) ` +
+        `requires removing one before applying managed rules`,
+    );
+  }
 
   const same =
     desired.length === stripped.length &&
@@ -822,6 +857,11 @@ async function assertFirewallRules(zoneId) {
   if (same) {
     console.log('firewall rules: all in shape (managed rules prepended)');
     return;
+  }
+  if (staleSourceMapRules.length) {
+    console.log(
+      `firewall rules: removing ${staleSourceMapRules.length} stale source-map rule(s) by action/expression`,
+    );
   }
   console.log(
     `firewall rules: drift — applying ${desiredManaged.length} managed rule(s) ahead of ${foreign.length} foreign rule(s)${DRY_RUN ? ' (dry-run)' : ''}`,
