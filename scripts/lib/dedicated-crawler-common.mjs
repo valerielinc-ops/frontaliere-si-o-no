@@ -70,6 +70,7 @@ import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { getRetranslationBaseline, recordRetranslationBaseline } from './crawler-retranslation-baseline.mjs';
+import { recordPreviousRunSlice } from './crawler-previous-run-slice.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -4628,6 +4629,9 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       if (!getRetranslationBaseline(key)) {
         recordRetranslationBaseline(key, readSliceJobsForBaseline(slicePath));
       }
+      // Same for the checks that compare this run with the previous one: the
+      // admission threshold and the summary partition (crawler-previous-run-slice.mjs).
+      recordPreviousRunSlice(slicePath);
       writeJson(slicePath, { jobs });
     }
     // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
