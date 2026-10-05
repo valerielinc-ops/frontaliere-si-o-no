@@ -9,7 +9,7 @@
 // had this bug inlined — fixed once in shared ./lib/llm-json-repair.mjs.
 
 import { describe, expect, it } from 'vitest';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError, describeRawForDiagnostics } from '../../scripts/lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, describeJsonParseError, describeRawForDiagnostics, repairLlmJson, repairLlmJsonArray } from '../../scripts/lib/llm-json-repair.mjs';
 
 describe('fixJsonStringBody', () => {
   it('escapes an unescaped inner quote so the string does not terminate early', () => {
@@ -265,6 +265,52 @@ describe('stripCodeFences', () => {
 
   it('leaves unfenced content untouched', () => {
     expect(stripCodeFences('{"a":1}')).toBe('{"a":1}');
+  });
+});
+
+describe('repairLlmJson', () => {
+  it('inserts a missing comma after a nested object', () => {
+    const raw = '{"id":"x","imageAlt":{"it":"it","en":"en"}"slugs":{"it":"x"}}';
+    expect(JSON.parse(repairLlmJson(raw))).toEqual({
+      id: 'x',
+      imageAlt: { it: 'it', en: 'en' },
+      slugs: { it: 'x' },
+    });
+  });
+
+  it('chooses a marked final answer over a preceding JSON example', () => {
+    const raw = 'Esempio: {"id":"example"}. Risposta finale: {"id":"final"}';
+    expect(JSON.parse(repairLlmJson(raw))).toEqual({ id: 'final' });
+  });
+
+  it('repairs array-shaped payloads through the same bounded path', () => {
+    const raw = 'Risposta finale: {"faq":[{"q":"Q","a":"A"}] "meta":{"source":"model"}}';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed.faq).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('prefers a later direct array over an earlier parseable object preamble', () => {
+    const raw = 'meta {"note":"x"} [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('skips an unmatched object preamble before a balanced array payload', () => {
+    const raw = 'preamble {unbalanced [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('skips an unmatched array preamble before a balanced array payload', () => {
+    const raw = 'preamble [unbalanced [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('keeps a real wrapper when a trailing direct array is marked as an example', () => {
+    const raw = '{"faqs":[{"q":"real","a":"A"}]} Example: [{"q":"example","a":"B"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual({ faqs: [{ q: 'real', a: 'A' }] });
   });
 });
 

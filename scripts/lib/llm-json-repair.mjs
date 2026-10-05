@@ -1,7 +1,7 @@
 /**
  * Shared JSON-repair helpers for cleaning up common LLM JSON output quirks
  * (markdown fences, literal newlines inside strings, unescaped inner quotes,
- * stray markdown-bold asterisks). Used by every script that JSON.parse()s an
+ * stray markdown-bold asterisks, and omitted commas after nested values). Used by every script that JSON.parse()s an
  * LLM response so a fix to the repair logic lands once instead of drifting
  * across independent copies (create-article.mjs repairLlmJson,
  * batch-add-faq-to-articles.mjs repairJsonArray both had this inlined).
@@ -568,4 +568,284 @@ export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
     out += ch;
   }
   return out;
+}
+
+// ── LLM JSON repair (handles the common LLM output quirks) ──────────────────
+//
+// Why: GitHub Models / Groq / Mistral occasionally emit markdown bold markers
+// (`**` / `***`) between JSON properties instead of commas, or wrap the payload
+// in ```json fences, or stick a preamble before the opening `{`, or echo a
+// quoted phrase from the source text unescaped (e.g. a title like
+// `..."tassa sulla salute"...`) which desyncs naive quote-toggle string
+// tracking into `Unterminated string in JSON`. The string-repair walk
+// (preserve asterisks INSIDE quoted strings — markdown bold in body1/body2 is
+// load-bearing — replace a stray `*` OUTSIDE strings with a comma, escape
+// unescaped inner quotes) is `fixJsonStringBody` above, shared with
+// `batch-add-faq-to-articles.mjs`. Truncated payloads still throw — callers
+// detect that via `parseErr.message` and retry with a larger `maxTokens`.
+/**
+ * Add the comma most often omitted between two object properties when the
+ * first value is itself an object/array. This is deliberately narrow: scalar
+ * comma insertion needs a full JSON lexer and guessing there would be more
+ * likely to alter prose inside a string than to repair a payload.
+ */
+function insertMissingPropertyCommas(input) {
+  const hasContainerPropertyAfterComma = (quoteIdx) => {
+    let separator = quoteIdx + 1;
+    while (separator < input.length && /\s/.test(input[separator])) separator++;
+    if (input[separator] !== ',') return false;
+
+    let keyStart = separator + 1;
+    while (keyStart < input.length && /\s/.test(input[keyStart])) keyStart++;
+    if (input[keyStart] !== '"') return false;
+
+    const keyEnd = scanKeyEnd(input, keyStart);
+    if (keyEnd === -1) return false;
+    let colon = keyEnd;
+    while (colon < input.length && /\s/.test(input[colon])) colon++;
+    if (input[colon] !== ':') return false;
+
+    let valueStart = colon + 1;
+    while (valueStart < input.length && /\s/.test(input[valueStart])) valueStart++;
+    return input[valueStart] === '{' || input[valueStart] === '[';
+  };
+
+  let out = '';
+  let inString = false;
+  let escaped = false;
+
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i];
+    out += ch;
+
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"' && (
+        decideQuoteCloses(input, i, true)
+        || hasContainerPropertyAfterComma(i)
+      )) inString = false;
+      continue;
+    }
+
+    if (ch === '"') {
+      inString = true;
+      continue;
+    }
+    if (ch !== '}' && ch !== ']') continue;
+
+    let keyStart = i + 1;
+    while (keyStart < input.length && /\s/.test(input[keyStart])) keyStart++;
+    if (input[keyStart] !== '"') continue;
+
+    let keyEnd = keyStart + 1;
+    let keyEscaped = false;
+    for (; keyEnd < input.length; keyEnd++) {
+      const keyCh = input[keyEnd];
+      if (keyEscaped) {
+        keyEscaped = false;
+      } else if (keyCh === '\\') {
+        keyEscaped = true;
+      } else if (keyCh === '"') {
+        break;
+      }
+    }
+    if (keyEnd >= input.length) continue;
+
+    let colon = keyEnd + 1;
+    while (colon < input.length && /\s/.test(input[colon])) colon++;
+    if (input[colon] === ':') out += ',';
+  }
+
+  return out;
+}
+
+function normalizeJsonCandidate(input) {
+  const out = fixJsonStringBody(input, { fixAsterisks: true });
+  return insertMissingPropertyCommas(out)
+    .replace(/,(\s*,)+/g, ',')
+    .replace(/,(\s*[}\]])/g, '$1');
+}
+
+/** Maximum number of later top-level candidate roots inspected after the first one. */
+const MAX_LATER_CANDIDATES = 24;
+
+/**
+ * The only safe reason to skip a valid first payload is an explicit response
+ * marker. Without this rule, a valid answer followed by a JSON example in the
+ * model's closing prose was silently replaced by that example.
+ */
+const ANSWER_CUE_RE = /(?:^|\s)(?:risposta(?:\s+finale)?|final(?:\s+answer)?|answer|response|output)(?:\s+json)?\s*[:\-]\s*$/i;
+const EXAMPLE_CUE_RE = /\b(?:esempio|example|sample|e\.g\.|for example|ad esempio)\b[^\n]{0,120}$/i;
+
+function cueBefore(source, start, pattern) {
+  const prefix = source.slice(Math.max(0, start - 240), start).replace(/\s+/g, ' ');
+  return pattern.test(prefix);
+}
+
+function firstRootStart(source, rootOpeners) {
+  return rootOpeners.reduce((first, opener) => {
+    const start = source.indexOf(opener);
+    return start === -1 ? first : first === -1 ? start : Math.min(first, start);
+  }, -1);
+}
+
+function nextRootStart(source, from, rootOpeners) {
+  return rootOpeners.reduce((next, opener) => {
+    const start = source.indexOf(opener, from);
+    return start === -1 ? next : next === -1 ? start : Math.min(next, start);
+  }, -1);
+}
+
+function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {}) {
+  const start = firstRootStart(source, rootOpeners);
+  if (start === -1) return { start, candidates: [] };
+
+  // If the preferred root itself is unterminated, later object roots are
+  // normally its still-complete elements, not independent response roots.
+  // Inspecting them as candidates makes a truncated array of FAQ objects
+  // select the first object and discards the rest before the caller's salvage
+  // path can recover them. A later preferred root can still be a real payload
+  // after an unmatched preamble, so keep scanning that root shape only.
+  const laterRootOpeners = preferredRoot && source[start] === preferredRoot
+    ? [preferredRoot]
+    : rootOpeners;
+
+  const candidates = [];
+  const addCandidate = (candidateStart, candidateEnd, balanced) => {
+    candidates.push({
+      start: candidateStart,
+      end: candidateEnd,
+      balanced,
+      input: source.slice(candidateStart, candidateEnd + 1),
+    });
+  };
+
+  const collectLaterBalancedCandidates = (from, { skipUnbalanced = false } = {}) => {
+    let nextStart = nextRootStart(source, from, laterRootOpeners);
+    let examined = 0;
+    while (nextStart !== -1 && examined < MAX_LATER_CANDIDATES) {
+      examined++;
+      const nextCloseIdx = findMatchingClose(source, nextStart, true);
+      if (nextCloseIdx === -1) {
+        if (!skipUnbalanced) break;
+        nextStart = nextRootStart(source, nextStart + 1, laterRootOpeners);
+        continue;
+      }
+      addCandidate(nextStart, nextCloseIdx, true);
+      nextStart = nextRootStart(source, nextCloseIdx + 1, laterRootOpeners);
+    }
+  };
+
+  const opener = source[start];
+  const firstCloseIdx = findMatchingClose(source, start, true);
+  if (firstCloseIdx !== -1) {
+    addCandidate(start, firstCloseIdx, true);
+  } else {
+    // In array mode, a malformed root in a prose preamble can precede the
+    // real FAQ array. Keep the historical truncated fallback for retry/error
+    // diagnostics, but inspect later roots so a balanced preferred array is
+    // not hidden by that unmatched opener (including an unmatched array).
+    if (preferredRoot) {
+      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true });
+    }
+    // Keep the historical truncated-payload fallback: callers can still
+    // retry with a larger token budget.
+    const closer = opener === '[' ? ']' : '}';
+    const end = source.lastIndexOf(closer);
+    addCandidate(start, end > start ? end : source.length - 1, false);
+  }
+
+  // A later root can be the real response after an example in a prose
+  // preamble. Inspect only a bounded number of TOP-LEVEL roots. Advancing
+  // past each matching close prevents nested objects in an example consuming
+  // the whole candidate budget before the real response is considered.
+  if (firstCloseIdx !== -1) {
+    collectLaterBalancedCandidates(firstCloseIdx + 1);
+  }
+
+  return { start, candidates };
+}
+
+function selectJsonCandidate(source, parseable, { preferredRoot = null } = {}) {
+  const balanced = parseable.filter((candidate) => candidate.balanced);
+  const pool = balanced.length > 0 ? balanced : parseable;
+  const topLevel = pool
+    .filter((candidate) => !pool.some((other) => (
+      other.start < candidate.start && other.end >= candidate.end
+    )))
+    .sort((a, b) => a.start - b.start || b.end - a.end);
+  if (!topLevel.length) return null;
+
+  // Prefer a candidate explicitly introduced as the answer. This preserves
+  // the useful "example ... Risposta finale: payload" recovery case.
+  const markedAnswers = topLevel.filter((candidate) => cueBefore(source, candidate.start, ANSWER_CUE_RE));
+  if (markedAnswers.length) return markedAnswers[markedAnswers.length - 1];
+
+  // A response can contain a valid wrapper followed by a JSON example. Filter
+  // explicit examples before preferring the root shape; otherwise the example
+  // array wins over the real wrapper simply because arrays are preferred.
+  const nonExamples = topLevel.filter((candidate) => !cueBefore(source, candidate.start, EXAMPLE_CUE_RE));
+  const selectionCandidates = nonExamples.length ? nonExamples : topLevel;
+
+  // Array-shaped callers must not let a parseable object preamble hide a
+  // later direct array payload. Keep wrapped object responses supported by
+  // falling back to the complete top-level candidate list when no preferred
+  // root is present.
+  const preferred = preferredRoot
+    ? selectionCandidates.filter((candidate) => source[candidate.start] === preferredRoot)
+    : selectionCandidates;
+  const selectionPool = preferred.length ? preferred : selectionCandidates;
+
+  // If the first candidate is explicitly an example, a later top-level
+  // candidate is the only plausible answer. In every other case the first
+  // valid candidate wins, so trailing examples cannot overwrite a response.
+  if (cueBefore(source, selectionPool[0].start, EXAMPLE_CUE_RE)) {
+    return selectionPool[1] ?? selectionPool[0];
+  }
+  return selectionPool[0];
+}
+
+function repairJsonDocument(raw, {
+  rootOpeners = ['{'],
+  preferredRoot = null,
+  validateCandidate = null,
+} = {}) {
+  const c = insertMissingPropertyCommas(stripCodeFences(raw));
+  const { start, candidates } = collectJsonCandidates(c, rootOpeners, { preferredRoot });
+  if (start === -1) return normalizeJsonCandidate(c);
+
+  const parseable = [];
+  for (const candidate of candidates) {
+    const repaired = normalizeJsonCandidate(candidate.input);
+    try {
+      const parsed = JSON.parse(repaired);
+      if (validateCandidate && !validateCandidate(parsed, candidate)) continue;
+      parseable.push({ ...candidate, repaired });
+    } catch {
+      // Callers still receive the repaired first candidate below so their
+      // existing retry/diagnostic path remains unchanged for truncated JSON.
+    }
+  }
+
+  const best = selectJsonCandidate(c, parseable, { preferredRoot });
+  if (best !== null) return best.repaired;
+  return normalizeJsonCandidate(candidates[0]?.input ?? c);
+}
+
+export function repairLlmJson(raw) {
+  return repairJsonDocument(raw);
+}
+
+/**
+ * Shared repair/extraction for array-shaped LLM responses. `validateCandidate`
+ * is intentionally supplied by the caller: the generic repair module cannot
+ * know whether an array is FAQ data, translations, or another contract.
+ */
+export function repairLlmJsonArray(raw, { validateCandidate = null } = {}) {
+  return repairJsonDocument(raw, {
+    rootOpeners: ['[', '{'],
+    preferredRoot: '[',
+    validateCandidate,
+  });
 }
