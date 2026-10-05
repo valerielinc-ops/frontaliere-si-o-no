@@ -300,13 +300,17 @@ export function ambiguousJobIdentities(...lists) {
     const postingsByIdentity = new Map();
     for (const record of Array.isArray(list) ? list : []) {
       if (!record || typeof record !== 'object') continue;
-      const identity = record.sourceIdentity || buildStableJobIdentity(record);
       const posting = postingKey(record);
-      if (!identity || !posting) continue;
-      const postings = postingsByIdentity.get(identity) || new Set();
-      postings.add(posting);
-      postingsByIdentity.set(identity, postings);
-      if (postings.size > 1) ambiguous.add(identity);
+      if (!posting) continue;
+      // Both spellings a caller may look the record up by: the archived
+      // `sourceIdentity` and the identity derived from its current URL.
+      for (const identity of new Set([record.sourceIdentity, buildStableJobIdentity(record)])) {
+        if (!identity) continue;
+        const postings = postingsByIdentity.get(identity) || new Set();
+        postings.add(posting);
+        postingsByIdentity.set(identity, postings);
+        if (postings.size > 1) ambiguous.add(identity);
+      }
     }
   }
   return ambiguous;
