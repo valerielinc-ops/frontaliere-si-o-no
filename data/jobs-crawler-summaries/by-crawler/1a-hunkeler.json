@@ -1,7 +1,7 @@
 {
   "key": "1a-hunkeler",
   "label": "1a-hunkeler",
-  "generatedAt": "2026-10-04T21:22:20.441Z",
+  "generatedAt": "2026-10-05T06:26:23.649Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,10 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5496,
-  "avgDurationMs": 5496,
+  "durationMs": 5386,
+  "avgDurationMs": 5386,
   "durationHistory": [
-    5496
+    5386
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "source": "1a-hunkeler Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:11.697Z",
+      "crawledAt": "2026-10-05T06:26:16.085Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "2026-10-04",
+      "postedDate": "2026-10-04",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "firstSeenAt": "2026-09-21T16:03:10.340Z",
       "salaryMin": 69500,
@@ -64,5 +66,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

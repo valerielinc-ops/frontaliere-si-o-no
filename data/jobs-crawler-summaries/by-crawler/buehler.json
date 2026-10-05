@@ -1,7 +1,7 @@
 {
   "key": "buehler",
   "label": "Bühler Group",
-  "generatedAt": "2026-10-04T21:24:41.647Z",
+  "generatedAt": "2026-10-05T06:26:29.754Z",
   "total": 17,
   "discovered": null,
   "parsed": 17,
@@ -14,10 +14,10 @@
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4208,
-  "avgDurationMs": 4208,
+  "durationMs": 4511,
+  "avgDurationMs": 4511,
   "durationHistory": [
-    4208
+    4511
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:31.004Z",
+      "crawledAt": "2026-10-05T06:26:21.826Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -48,18 +48,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2280",
       "firstSeenAt": "2026-06-23T11:09:06.180Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -75,7 +77,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/legal-counsel/b5409f3c-72a6-42f9-b206-03990c61a7a6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.945Z",
+      "crawledAt": "2026-10-05T06:26:21.804Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -89,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3222",
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -110,13 +114,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Lehre als Entwickler:in Digitales Business EFZ",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.941Z",
+      "crawledAt": "2026-10-05T06:26:21.800Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -130,18 +133,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3200",
       "firstSeenAt": "2026-07-01T11:17:55.649Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -151,13 +156,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Lehre als Industrielackierer:in EFZ",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.937Z",
+      "crawledAt": "2026-10-05T06:26:21.798Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -171,18 +175,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3201",
       "firstSeenAt": "2026-07-01T11:17:55.648Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -192,13 +198,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Lehre als Logistiker:in EFZ",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-logistiker-in-efz/8397c1a0-c23e-4475-9ce0-79b17935e3d4",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.934Z",
+      "crawledAt": "2026-10-05T06:26:21.795Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,18 +217,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3204",
       "firstSeenAt": "2026-07-01T11:17:55.644Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -239,7 +246,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.911Z",
+      "crawledAt": "2026-10-05T06:26:21.780Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -253,18 +260,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3239",
       "firstSeenAt": "2026-07-02T21:32:07.699Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -274,13 +283,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Solution Architect SAP PS & SD",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-ps-sd/d9f8f672-b00a-4174-9488-13ad38e8587d",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.859Z",
+      "crawledAt": "2026-10-05T06:26:21.744Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -294,18 +302,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3323",
       "firstSeenAt": "2026-07-28T12:07:51.303Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -321,7 +331,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/system-architect-sap-pm-btp/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.856Z",
+      "crawledAt": "2026-10-05T06:26:21.742Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -335,18 +345,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3240",
       "firstSeenAt": "2026-07-02T21:32:07.730Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -362,7 +374,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/export-compliance-engineer/ef870955-2a40-4b40-8157-d8619ea00404",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.845Z",
+      "crawledAt": "2026-10-05T06:26:21.731Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -376,18 +388,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3223",
       "firstSeenAt": "2026-08-05T23:02:02.360Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -403,7 +417,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/identity-access-management-architect/f03c7409-8d94-424f-acab-55e11f3a403f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.817Z",
+      "crawledAt": "2026-10-05T06:26:21.693Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -417,18 +431,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3416",
       "firstSeenAt": "2026-08-17T09:59:09.850Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -438,13 +454,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "SAP Application & Business Process Manager (LE/TM)",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/sap-application-business-process-manager-le-tm/f62e87ca-0eaa-486e-8c9f-582d3542bce8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.781Z",
+      "crawledAt": "2026-10-05T06:26:21.666Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -458,18 +473,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3503",
       "firstSeenAt": "2026-08-31T17:13:42.304Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -479,13 +496,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Bereichsleiter:in Berufsbildung Konstruktion & Projektmanagement",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/offene-stellen/bereichsleiter-in-berufsbildung-konstruktion-projektmanagement/76df488c-e2bf-4b07-910d-e5bcba99bbab",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.682Z",
+      "crawledAt": "2026-10-05T06:26:21.562Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -499,18 +515,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3350",
       "firstSeenAt": "2026-09-11T13:38:25.413Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -520,13 +538,12 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Senior Process Engineer Innovation Wheat & Rye",
-      "needsRetranslation": true,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-process-engineer-innovation-wheat-rye/267569dc-af9c-4e1c-be99-3d49bdfe0f1f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.561Z",
+      "crawledAt": "2026-10-05T06:26:21.408Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -540,18 +557,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3327",
       "firstSeenAt": "2026-09-02T23:16:34.793Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -567,7 +586,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/product-manager-chocolate-portfolio/7d31f1f7-9d85-476c-b9e6-6e300a7c2b07",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.554Z",
+      "crawledAt": "2026-10-05T06:26:21.405Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -581,18 +600,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3221",
       "firstSeenAt": "2026-09-19T22:58:07.157Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -608,7 +629,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/2c051c07-059e-4f91-80f0-a11c759cb7f6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.551Z",
+      "crawledAt": "2026-10-05T06:26:21.401Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -622,18 +643,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2003",
       "firstSeenAt": "2026-09-02T23:16:34.784Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -643,13 +666,13 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Senior Installation Supervisor",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uzwil",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/ed70c224-9726-4750-95f1-8fae588a973f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:30.547Z",
+      "crawledAt": "2026-10-05T06:26:21.397Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -663,18 +686,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2197",
       "firstSeenAt": "2026-09-02T23:16:34.792Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -690,7 +715,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lead-plc-engineer-r-d/8d6ca185-1f29-4058-8434-85ab531eed7b",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:30.542Z",
+      "crawledAt": "2026-10-05T06:26:21.393Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -704,22 +729,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3316",
       "firstSeenAt": "2026-09-02T23:16:34.789Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
