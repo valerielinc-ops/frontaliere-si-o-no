@@ -464,14 +464,17 @@ export function filesUncitedInBody(diffPaths, body) {
  */
 const PERF_QTY = String.raw`\d+(?:[.,']\d+)*\s*(?:ms|s|sec|secondi|minut[oi]|min|ore|h|MB|GB|KB|MiB|GiB|%)(?!\w)`;
 const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
-const PERF_BENEFIT = `(?:${PERF_BENEFIT_ALT})`;
-const PERF_RESOURCE = String.raw`(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|\brss\b|\boom\b|heap|\bdisco\b|\bdisk\b|spazio su disco|\bleak\b|\bpack\b|margine del job|minuti|secondi|quota|latenza|throughput)`;
+// `\b` iniziale: senza, `tagli\w*` matchava dentro «dettaglio» e un body del
+// prospector che descrive il gate di qualita' («85% delle pagine di dettaglio»)
+// diventava un claim di prestazione.
+const PERF_BENEFIT = `\\b(?:${PERF_BENEFIT_ALT})`;
+const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|minuti|secondi|quota|latenza|throughput)\b`;
 const PERF_CLAIM_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,120}${PERF_BENEFIT}|${PERF_BENEFIT}[^.\n]{0,120}${PERF_QTY}`
   + String.raw`|${PERF_BENEFIT}[^.\n]{0,100}${PERF_RESOURCE}|${PERF_RESOURCE}[^.\n]{0,100}${PERF_BENEFIT}`,
   'i',
 );
-const IO_BENEFIT = String.raw`(?:${PERF_BENEFIT_ALT}|limitat\w*|bound\w*)`;
+const IO_BENEFIT = String.raw`\b(?:${PERF_BENEFIT_ALT}|limitat\w*|bound\w*)`;
 const IO_RESOURCE = String.raw`(?:download|prefetch|preflight|fetch)`;
 const IO_BOUND_CLAIM_RE = new RegExp(
   String.raw`${IO_BENEFIT}[^.\n]{0,100}${IO_RESOURCE}|${IO_RESOURCE}[^.\n]{0,100}${IO_BENEFIT}`,

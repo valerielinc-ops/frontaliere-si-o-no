@@ -85,6 +85,13 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(res.warnings.some(isIoWarning)).toBe(false);
   });
 
+  it('i criteri di un gate di qualità non sono un claim («pagine di dettaglio» non è «taglio»)', () => {
+    // Frase generata da scripts/prospect-promote.mjs (buildPromotionPrBody).
+    const res = strict(body("- **in questa PR** — crawler promossi dal prospector. Ognuno ha superato il gate: qualita' >= 0.9 contro la pagina ufficiale del datore, su almeno 3 pagine di dettaglio, con **2 validazioni buone su 2 giorni** — e con almeno il 85% delle pagine di dettaglio che **legge come un annuncio di lavoro**."));
+    expect(res.violations.some(isClaimViolation)).toBe(false);
+    expect(res.warnings.some(isIoWarning)).toBe(false);
+  });
+
   it('un claim citato solo dentro un blocco di codice non conta', () => {
     const res = strict(body('- Aggiornato il template:\n```\ncirca 30 s in meno per run\n```'));
     expect(res.violations.some(isClaimViolation)).toBe(false);
