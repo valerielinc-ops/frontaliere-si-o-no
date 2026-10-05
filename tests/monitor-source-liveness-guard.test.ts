@@ -481,8 +481,12 @@ describe('the monitor fleet is fully declared (GA4 since H9, 2026-10-05)', () =>
     // emit no judgement — the registry only has to cover the monitors, so a
     // reader is allowed to be absent ONLY if it opens no issue and no workflow
     // runs it. Anything scheduled must be declared.
+    // Every workflow, not only those that mention PostHog: a workflow that
+    // runs a PostHog reader needs no PostHog text of its own (the reader
+    // loads its credentials itself), and filtering on that text hid
+    // adsense-format-ab-report.mjs and employer-traffic-report.mjs until H9.
     const scheduled = execSync(
-      `grep -rl "posthog\\|POSTHOG" ${JSON.stringify(resolve(ROOT, '.github/workflows'))} || true`,
+      `ls ${JSON.stringify(resolve(ROOT, '.github/workflows'))}/*.yml`,
       { encoding: 'utf8' },
     ).trim().split('\n').filter(Boolean);
     expect(scheduled.length).toBeGreaterThan(0);

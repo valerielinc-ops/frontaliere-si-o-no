@@ -421,4 +421,6 @@ export const POSTHOG_MONITORS = [
   { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot; the workflow defaults to --source ga4, PostHog only on a manual --source posthog' },
   { path: 'scripts/ci/export-l7-experiment-outcomes.mjs', guarded: false, emits: 'L7 experiment outcome ledger; reads PostHog only when an experiment is declared, today none (tests/loop-fleet-source-liveness.test.ts)' },
   { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'L8 affiliate outcome ledger; main reads GA4, PostHog helpers kept for historical exports' },
+  { path: 'scripts/employer-traffic-report.mjs', guarded: false, emits: 'employer traffic report; both scheduled workflows pass --source ga4, PostHog only on a manual --source posthog' },
+  { path: 'scripts/adsense-format-ab-report.mjs', guarded: false, emits: 'AdSense format A/B report; CWV guardrail reads GA4 web_vitals first, PostHog $web_vitals is the second fallback before CrUX' },
 ];
