@@ -9974,7 +9974,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingFacts(faqJobInput, locale);
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
