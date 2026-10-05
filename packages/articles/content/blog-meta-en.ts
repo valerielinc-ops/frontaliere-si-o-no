@@ -12573,6 +12573,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-rumore-galbisio.title': 'A2 and noise: City plans the Galbisio terrace',
     'blog.article.a2-rumore-galbisio.excerpt': 'The City reiterates the protection of Galbisio from the noise and visual impact of the A2. For Lepori, it is the first formal step after the endorsement of Pab5.',
     'blog.article.a2-rumore-galbisio.imageAlt': 'A2 motorway and the landscape around Galbisio in the Bellinzonese area',
+    'blog.article.magrini-cultura-provincia-varese.title': 'Varese, Magrini: \'The Province is already investing in culture\'',
+    'blog.article.magrini-cultura-provincia-varese.excerpt': 'President Magrini responds to the Region: a fund of 100 thousand euros has been allocated for the candidacy for Italian Capital of Culture and projects in the area.',
+    'blog.article.magrini-cultura-provincia-varese.imageAlt': 'President of the Province of Varese Marco Magrini during a press conference',
 };
 
 export default blogMetaEn;

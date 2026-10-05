@@ -12574,6 +12574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-rumore-galbisio.title': 'A2 e rumore: Città pianifica la terrazza di Galbisio',
     'blog.article.a2-rumore-galbisio.excerpt': 'La Città ribadisce la protezione di Galbisio dall’impatto fonico e paesaggistico dell’A2. Per Lepori è il primo passo formale dopo l’avallo del Pab5.',
     'blog.article.a2-rumore-galbisio.imageAlt': 'A2 e paesaggio della frazione di Galbisio nel Bellinzonese',
+    'blog.article.magrini-cultura-provincia-varese.title': 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
+    'blog.article.magrini-cultura-provincia-varese.excerpt': 'Il presidente Magrini risponde alla Regione: stanziato un fondo da 100 mila euro per la candidatura a Capitale italiana della cultura e progetti sul territorio.',
+    'blog.article.magrini-cultura-provincia-varese.imageAlt': 'Il presidente della Provincia di Varese Marco Magrini durante una conferenza stampa',
 };
 
 export default blogMetaIt;
