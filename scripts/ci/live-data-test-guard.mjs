@@ -372,6 +372,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     ['tests/dist-hash-manifest-deploy-perimeter.test.ts', ['data/jobs.json'], 'data/jobs.json e` un file sintetico scritto in una cartella mkdtemp e un nome atteso nel perimetro; nessuna lettura dal checkout'],
     ['tests/git-commit-data-append-only-sets.test.ts', ['data/jobs/', 'data/seo-404-compat/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/git-commit-data-grouped-isolation.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/git-commit-data-skip-identical.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir() (origin bare, clone e secondo clone); dal checkout si legge solo scripts/lib/git-commit-data.sh, lo script sotto test (#11758)'],
     ['tests/git-commit-data-slice-scoping.test.ts', ['data/jobs-crawler-summaries/', 'data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/job-locale-mark-persistence.test.ts', ['data/jobs/'], 'la variabile root e` una cartella temporanea: le slice by-crawler sono fixture scritte dal test stesso'],
     ['tests/slug-active-loss-regression-5229.test.ts', ['data/jobs/'], 'data/jobs/by-crawler/banca-cler.json e` il path relativo di una slice scritta in un repository temporaneo'],
