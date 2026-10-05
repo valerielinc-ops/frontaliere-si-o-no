@@ -15,9 +15,12 @@ import {
   REWARDED_APPLICATION_ACCESS_TTL_HOURS,
 } from '@/services/rewardedApplicationAccess';
 import {
+  OFFERWALL_STAGED_APPEAR_TIMEOUT_MS,
   offerwallGateStatus,
+  parkedOfferwallRoot,
   releaseHeldOfferwall,
   revealStagedOfferwall,
+  showParkedOfferwall,
   type OfferwallAppearTimeoutDecision,
   type OfferwallGateStatus,
   type OfferwallReleaseResult,
@@ -174,6 +177,12 @@ interface GateDecision {
   plan: OfferwallClickPlan;
   status: OfferwallGateStatus;
   consent: OfferwallConsentState;
+  /**
+   * The gate is `released`, but a staged Offerwall of an earlier closed
+   * choice on this page is parked, complete: it is shown again instead of a
+   * reload (showParkedOfferwall).
+   */
+  parked?: boolean;
 }
 
 const PHASE_FOR_PLAN: Record<OfferwallClickPlan, OfferPhase> = {
@@ -239,6 +248,11 @@ export interface RewardedApplicationOfferProps {
    * at once, as before.
    */
   paidChoice?: RewardedOfferPaidChoice;
+  /**
+   * The visitor already saw the paid choice and took the free path before the
+   * recovery reload: a failure goes to the employer, no second paid offer.
+   */
+  paidOfferSeen?: boolean;
   /** This offer reopens a click after the recovery reload: never reload again. */
   resumed?: boolean;
   /**
@@ -292,6 +306,7 @@ export default function RewardedApplicationOffer({
   onReload,
   startInHandoff = false,
   paidChoice,
+  paidOfferSeen = false,
 }: RewardedApplicationOfferProps) {
   const { t } = useTranslation();
   const [retryToken, setRetryToken] = useState(0);
@@ -300,6 +315,11 @@ export default function RewardedApplicationOffer({
   const canReload = Boolean(onReload) && !resumed;
   const decideFor = (status: OfferwallGateStatus): GateDecision => {
     const consent = offerwallConsentState();
+    // An Offerwall parked by a choice closed earlier on this page is the one
+    // Google gives for now: a reload would not get another one (GA4 05-10).
+    if (status === 'released' && consent !== 'none' && parkedOfferwallRoot() !== null) {
+      return { plan: 'offerwall', status, consent, parked: true };
+    }
     return { plan: planOfferwallClick(status, consent, { canReload }), status, consent };
   };
   // The paid choice is decided when the click opens the offer; the latest
@@ -307,8 +327,12 @@ export default function RewardedApplicationOffer({
   const [choiceFirst] = useState(() => Boolean(paidChoice));
   const lastPaidChoiceRef = useRef<RewardedOfferPaidChoice | undefined>(paidChoice);
   if (paidChoice) lastPaidChoiceRef.current = paidChoice;
+  // With the paid choice first a click that needs the recovery reload gets
+  // the choice at once too: only the free path reloads (chooseFree).
   const phaseFor = (decision: GateDecision): OfferPhase => (
-    decision.plan === 'offerwall' && choiceFirst ? 'choice' : PHASE_FOR_PLAN[decision.plan]
+    choiceFirst && (decision.plan === 'offerwall' || decision.plan === 'reload')
+      ? 'choice'
+      : PHASE_FOR_PLAN[decision.plan]
   );
   // The AdSense Offerwall is the site's only rewarded demand: when Funding
   // Choices holds one for this page view, the click releases it first. A gate
@@ -349,7 +373,7 @@ export default function RewardedApplicationOffer({
   const stagedReadyRef = useRef(false);
   const stageFailedRef = useRef(false);
   // The paid choice was on screen: a later failure goes to the employer.
-  const paidOfferShownRef = useRef(false);
+  const paidOfferShownRef = useRef(paidOfferSeen);
   const offerwallWatchRef = useRef<AbortController | null>(null);
   const offerwallAdsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const offerwallAdsSentRef = useRef(false);
@@ -636,30 +660,40 @@ export default function RewardedApplicationOffer({
     });
   };
 
+  // Reload once to resume this click where only a fresh page load can hold
+  // the Offerwall. `choice: 'free'` when the visitor took the free path of the
+  // paid choice: the resumed click then goes straight to the Offerwall.
+  const reloadForOfferwall = (decision: GateDecision, extra: { choice?: string } = {}) => {
+    const reason = NOT_HELD_REASON[decision.status as Exclude<OfferwallGateStatus, 'held'>];
+    if (onReload && markOfferwallResume(jobId, {
+      reason,
+      gate_status: decision.status,
+      consent_state: decision.consent,
+      ...extra,
+    })) {
+      // Best effort: an event sent this close to the reload usually does
+      // not reach GA4. The resumed click reports the same context
+      // (`rewarded_application_offer_resumed`).
+      trackAssistedApplicationEvent('rewarded_offerwall_reload', {
+        ...offerwallContext(),
+        reason,
+      });
+      onReload();
+      return;
+    }
+    // No session storage for the resume marker: a reload would lose the click.
+    reportNotReleased(decision);
+    setPhase('gpt');
+  };
+
   // Act on a decision whose phase is already set.
   const applyDecision = (decision: GateDecision) => {
     decisionRef.current = decision;
     if (decision.plan === 'offerwall') return;
     if (decision.plan === 'reload' && decision.status !== 'held') {
-      const reason = NOT_HELD_REASON[decision.status];
-      if (onReload && markOfferwallResume(jobId, {
-        reason,
-        gate_status: decision.status,
-        consent_state: decision.consent,
-      })) {
-        // Best effort: an event sent this close to the reload usually does
-        // not reach GA4. The resumed click reports the same context
-        // (`rewarded_application_offer_resumed`).
-        trackAssistedApplicationEvent('rewarded_offerwall_reload', {
-          ...offerwallContext(),
-          reason,
-        });
-        onReload();
-        return;
-      }
-      // No session storage for the resume marker: a reload would lose the click.
-      reportNotReleased(decision);
-      setPhase('gpt');
+      // Behind the paid choice the reload waits for the free path.
+      if (choiceFirst) return;
+      reloadForOfferwall(decision);
       return;
     }
     reportNotReleased(decision);
@@ -752,15 +786,32 @@ export default function RewardedApplicationOffer({
 
   useEffect(() => {
     if ((phase !== 'offerwall' && phase !== 'choice') || offerwallStartedRef.current) return;
+    const decision = decisionRef.current;
+    if (phase === 'choice') {
+      // Nothing to stage: the reload waits for the free path, and a parked
+      // Offerwall is complete already (shown by the free path).
+      if (decision?.plan !== 'offerwall') return;
+      if (decision.parked) {
+        stagedReadyRef.current = true;
+        return;
+      }
+    }
     offerwallStartedRef.current = true;
-    trackAssistedApplicationEvent('rewarded_offerwall_released', offerwallContext());
+    trackAssistedApplicationEvent('rewarded_offerwall_released', {
+      ...offerwallContext(),
+      ...(decision?.parked ? { reason: 'parked_reuse' } : {}),
+    });
     const watch = typeof AbortController !== 'undefined' ? new AbortController() : null;
     offerwallWatchRef.current = watch;
-    void releaseHeldOfferwall({
+    const staged = phase === 'choice';
+    const showOfferwall = decision?.parked ? showParkedOfferwall : releaseHeldOfferwall;
+    void showOfferwall({
       ...(watch ? { signal: watch.signal } : {}),
       // Behind the paid choice the Offerwall renders hidden; the free path
-      // reveals it (chooseFree). Nothing times out before that.
-      staged: phase === 'choice',
+      // reveals it (chooseFree). Nothing times out before that, and after it
+      // the wait is short (OFFERWALL_STAGED_APPEAR_TIMEOUT_MS).
+      staged,
+      ...(staged ? { appearTimeoutMs: OFFERWALL_STAGED_APPEAR_TIMEOUT_MS } : {}),
       onStaged: ({ elapsedMs, root }) => {
         if (!mountedRef.current) return;
         stagedReadyRef.current = true;
@@ -907,18 +958,28 @@ export default function RewardedApplicationOffer({
   // (at once when it is complete, otherwise as soon as Google renders it).
   const chooseFree = () => {
     if (!mountedRef.current || phaseRef.current !== 'choice') return;
+    const decision = decisionRef.current;
+    const reloadFirst = decision?.plan === 'reload';
     trackAssistedApplicationEvent('assisted_application_choose_external', {
       ...offerwallContext(),
-      reason: stageFailedRef.current
-        ? 'offerwall_unavailable'
-        : stagedReadyRef.current ? 'offerwall_ready' : 'offerwall_pending',
+      reason: reloadFirst
+        ? 'offerwall_reload'
+        : stageFailedRef.current
+          ? 'offerwall_unavailable'
+          : stagedReadyRef.current ? 'offerwall_ready' : 'offerwall_pending',
     });
+    if (reloadFirst && decision) {
+      setPhase('reloading');
+      reloadForOfferwall(decision, { choice: 'free' });
+      return;
+    }
     if (stageFailedRef.current) {
       setPhase('gpt');
       return;
     }
     setPhase('offerwall');
-    revealStagedOfferwall();
+    // A parked Offerwall is shown by the release effect (showParkedOfferwall).
+    if (!decision?.parked) revealStagedOfferwall();
   };
 
   const handleUnavailable = (reason = 'unavailable', info?: GptRewardedAdCallbackInfo) => {

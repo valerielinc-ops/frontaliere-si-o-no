@@ -128,6 +128,11 @@ export interface OfferwallResumeContext {
   reason?: string;
   gate_status?: string;
   consent_state?: string;
+  /**
+   * `free`: the visitor already took the free path of the paid choice before
+   * the reload, so the resumed click goes straight to the Offerwall.
+   */
+  choice?: string;
 }
 
 /**
@@ -174,7 +179,7 @@ export function takeOfferwallResume(jobId: string, win: Window = window): Offerw
       && age <= OFFERWALL_RESUME_MAX_AGE_MS;
     if (!fresh) return null;
     const context: OfferwallResumeContext = {};
-    for (const key of ['reason', 'gate_status', 'consent_state'] as const) {
+    for (const key of ['reason', 'gate_status', 'consent_state', 'choice'] as const) {
       if (typeof marker[key] === 'string') context[key] = marker[key] as string;
     }
     return context;
