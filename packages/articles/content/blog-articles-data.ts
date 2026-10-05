@@ -37893,6 +37893,19 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  },
 ];
 
+const RAW_ARTICLES_CHUNK_20: Article[] = [
+ {
+ id: 'unione-confronto-pilastro-ch-it',
+ category: 'pensione',
+ date: '2026-10-05T10:48:06.796Z',
+ image: '/images/blog/unione-confronto-pilastro-ch-it.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+];
+
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
@@ -37913,6 +37926,7 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_17,
  ...RAW_ARTICLES_CHUNK_18,
  ...RAW_ARTICLES_CHUNK_19,
+ ...RAW_ARTICLES_CHUNK_20,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
