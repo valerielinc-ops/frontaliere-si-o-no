@@ -7727,6 +7727,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-pellet-ticino-aumenti.title': 'Pellet prices in Ticino: price increases and winter purchases',
     'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analysis of pellet prices in Ticino with estimated price increases between 5% and 10% and recommendations for purchases before winter.',
     'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Wood pellet storage in Ticino with bags and bulk',
+    'blog.article.startup-ticinesi-top100-2026.title': 'Three Ticino companies in the Top100 Swiss Startup Award 2026',
+    'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics, and In Virtuo Laboratories represent Ticino in the ranking of the one hundred most promising Swiss startups of 2026.',
+    'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Three Ticino startups among the top 100 most promising at the Top100 Swiss Startup Award 2026',
 };
 
 export default blogMetaChEn;

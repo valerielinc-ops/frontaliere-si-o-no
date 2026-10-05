@@ -97561,6 +97561,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-startup-ticinesi-top100-2026': {
+    title: 'Tre aziende ticinesi nella Top100 Swiss Startup Award 2026',
+    description: 'InkVivo, Jaipur Robotics e In Virtuo Laboratories sono state incluse tra le cento startup svizzere più promettenti nel Top100 Swiss Startup Award 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, ticinesi, nella, top100',
+    ogTitle: 'Tre aziende ticinesi tra le migliori Startup della Svizzera',
+    ogDescription: 'Scopri le tre aziende ticinesi InkVivo, Jaipur Robotics e In Virtuo Laboratories inserite nella classifica Top100 Swiss Startup Award 2026 tra innovazione, farmaci e intelligenza artificiale.',
+    canonicalPath: '/articoli-svizzera/startup-ticinesi-top100-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre aziende ticinesi nella Top100 Swiss Startup Award 2026",
+      "description": "InkVivo, Jaipur Robotics e In Virtuo Laboratories sono state incluse tra le cento startup svizzere più promettenti nel Top100 Swiss Startup Award 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/startup-ticinesi-top100-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tre startup ticinesi tra le cento più promettenti al Top100 Swiss Startup Award 2026"
+      },
+      "datePublished": "2026-10-05T06:15:18+00:00",
+      "dateModified": "2026-10-05T06:15:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/startup-ticinesi-top100-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
