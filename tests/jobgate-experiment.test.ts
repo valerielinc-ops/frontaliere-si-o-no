@@ -298,6 +298,47 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     expect(first.emailSubmitDisabledWhenEmpty).toBe(true);
   });
 
+  // A gate painted while Remote Config loads starts as control and switches to
+  // its arm: the height must not change, or the AdSense slot below it jumps.
+  // Measured in a browser at 390px and 1280px when the arms were built; this
+  // pins the box-model inputs that measurement depends on.
+  it('keeps every arm at the control height (no layout shift when the arm resolves)', () => {
+    const px = (cls: string, re: RegExp) => {
+      const scale: Record<string, number> = { '2': 8, '3': 12, '4': 16, '6': 24 };
+      const m = cls.match(re);
+      return m ? scale[m[1]] : 0;
+    };
+    const control = jobGateSkin('control');
+    for (const arm of JOBGATE_ARMS) {
+      const skin = jobGateSkin(arm);
+      // Same border width, same control sizes, same type scale.
+      expect(skin.container, arm).not.toMatch(/\bborder-[2-9]\b/);
+      for (const key of ['emailSubmit', 'linkedInButton', 'googleFallbackButton'] as const) {
+        expect(skin[key], `${arm}.${key}`).toContain('min-h-[44px]');
+        expect(skin[key], `${arm}.${key}`).toContain('py-2.5');
+        expect(skin[key], `${arm}.${key}`).toContain('text-sm');
+      }
+      for (const key of ['heading', 'trustList', 'socialProof', 'emailInput'] as const) {
+        const size = (c: string) => c.split(' ').filter((t) => /^(sm:)?text-(xs|sm|base|lg|xl)$/.test(t) || /^(mt|py|px|space-y)-/.test(t)).sort().join(' ');
+        expect(size(skin[key]), `${arm}.${key}`).toBe(size(control[key]));
+      }
+      if (!skin.headerBand) {
+        expect(skin.container, arm).toContain('p-4 sm:p-6');
+        expect(skin.subtitle, arm).toContain('mt-2');
+        continue;
+      }
+      // Banded layout: control is 2P + 60 (gaps 8+12+12+12+16). Here the gaps
+      // are 12+12+12+12 = 48 and the bottom padding is P, so band + body top
+      // must be P + 12, at both breakpoints.
+      expect(skin.subtitle, arm).toContain('mt-3');
+      expect(skin.body, arm).toContain('pb-4');
+      expect(skin.body, arm).toContain('sm:pb-6');
+      const bodyTop = px(skin.body, /(?:^|\s)pt-(\d)/);
+      expect(2 * px(skin.headerBand, /(?:^|\s)py-(\d)/) + bodyTop, arm).toBe(16 + 12);
+      expect(2 * px(skin.headerBand, /sm:py-(\d)/) + bodyTop, arm).toBe(24 + 12);
+    }
+  });
+
   it('uses no inline hex and no dark: colour classes', () => {
     for (const arm of JOBGATE_ARMS) {
       for (const value of Object.values(jobGateSkin(arm))) {
@@ -312,8 +353,6 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     const src = read('components/community/JobBoard.tsx');
     expect(src).toContain('const gateSkin = jobGateSkin(jobGate.arm);');
     expect(src).toMatch(/className=\{gateSkin\.container\}/);
-    // No late arm flip: committing the gate while the arm is pending locks this session to today's gate.
-    expect(src).toContain('ref={(el) => { if (el && !jobGate.ready) lockJobGateBeforeAssignment(); }}');
     const band = src.slice(src.indexOf('{gateSkin.headerBand ? ('), src.indexOf(') : (', src.indexOf('{gateSkin.headerBand ? (')));
     expect(band.indexOf('{gateActions}')).toBeLessThan(band.indexOf('{gateConsent}'));
     expect(band.indexOf('{gateConsent}')).toBeLessThan(band.indexOf('{gateExplanation}'));

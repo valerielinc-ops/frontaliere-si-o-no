@@ -6,7 +6,6 @@ import {
   JOBGATE_LOAD_TIMEOUT_MS,
   currentJobGateAssignment,
   loadJobGateAssignment,
-  lockJobGateBeforeAssignment,
   recordJobGateExposure,
   resetJobGateAssignmentForTests,
   useJobGateExperiment,
@@ -72,27 +71,16 @@ describe('useJobGateExperiment', () => {
     expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'actions_first' });
   });
 
-  it('a gate painted while the assignment is pending keeps today\'s gate, untagged, for the session', async () => {
+  it('a gate rendered while Remote Config is pending still enrols the visitor and reports the arm', async () => {
     remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'spotlight' });
     const { result } = renderHook(() => useJobGateExperiment());
-    expect(result.current.ready).toBe(false);
-    // JobBoard's ref on #job-auth-gate fires at commit, before the arm is known.
-    lockJobGateBeforeAssignment();
+    // First render: pending, drawn as control (same height as every arm).
+    expect(result.current).toEqual({ ready: false, enrolled: false, arm: 'control' });
     await waitFor(() => expect(result.current.ready).toBe(true));
-    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'control' });
-    expect(getJobGateTelemetryParams()).toBeNull();
-    await expect(currentJobGateAssignment()).resolves.toEqual({ ready: true, enrolled: false, arm: 'control' });
+    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight' });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'spotlight' });
     recordJobGateExposure(result.current);
-    expect(trackExperimentEvent).not.toHaveBeenCalled();
-  });
-
-  it('the lock is a no-op once the assignment settled', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'navy_panel' });
-    await loadJobGateAssignment();
-    lockJobGateBeforeAssignment();
-    const { result } = renderHook(() => useJobGateExperiment());
-    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'navy_panel' });
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
+    expect(trackExperimentEvent).toHaveBeenCalledWith('experiment_assigned', { experiment_id: 'jobgate-v4', variant: 'spotlight' });
   });
 
   it('keeps crawlers/bots out without reading Remote Config', async () => {

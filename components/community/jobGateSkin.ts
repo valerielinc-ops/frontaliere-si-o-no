@@ -12,6 +12,13 @@
  * panel must look the same in light and dark mode (white text on those is
  * ≥ 7:1 in both). The class strings live in `components/` so Tailwind's
  * content scan sees them.
+ *
+ * HEIGHT INVARIANT: every arm renders the gate exactly as tall as `control`.
+ * A gate painted while Remote Config is still loading starts as control and
+ * switches to its arm afterwards; if the height changed, the AdSense slot
+ * below the gate would jump (CLS). So an arm may recolour, re-order and add
+ * shadows/rings (no layout), but never changes border width, control sizes or
+ * the sum of vertical paddings and gaps. `actions_first` shows the arithmetic.
  */
 
 import type { JobGateArm } from '@/services/jobGateExperiment';
@@ -111,8 +118,9 @@ const NAVY_PANEL: JobGateSkin = {
  */
 const SPOTLIGHT: JobGateSkin = {
   ...CONTROL,
-  container: 'relative z-10 mt-3 scroll-mt-20 rounded-stripe border-2 border-accent bg-surface p-4 sm:p-6 shadow-stripe-lg',
-  emailSubmit: 'w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-4 py-3 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-base font-semibold shadow-stripe transition-colors',
+  // 1px border + 1px ring reads as a 2px accent outline; the ring is a shadow, so the box keeps control's size.
+  container: 'relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent ring-1 ring-accent bg-surface p-4 sm:p-6 shadow-stripe-lg',
+  emailSubmit: 'w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold shadow-stripe transition-colors',
   emailSubmitDisabledWhenEmpty: false,
   linkedInButton: 'w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors',
   linkedInIcon: 'text-brand-linkedin',
@@ -126,15 +134,20 @@ const SPOTLIGHT: JobGateSkin = {
  * brand band and the buttons follow it immediately; the registration notice
  * stays directly under the buttons (it must be read with them), explanation
  * and benefits come after.
+ *
+ * Height arithmetic (P = control padding, 16px / 24px from `sm`): control is
+ * 2P + gaps 8+12+12+12+16 = 2P + 60. Here the gaps are 12 (notice) + 12
+ * (explanation) + 12 + 12 = 48 and the bottom padding is P, so band + body-top
+ * padding must add up to P + 12: band 8+8 / 12+12, body top 12 → 28 / 36.
  */
 const ACTIONS_FIRST: JobGateSkin = {
   ...CONTROL,
   container: 'relative z-10 mt-3 scroll-mt-20 overflow-hidden rounded-stripe border border-stripe-700 bg-surface shadow-stripe-md',
-  headerBand: 'bg-stripe-700 px-4 py-4 sm:px-6',
-  body: 'p-4 sm:p-6',
+  headerBand: 'bg-stripe-700 px-4 py-2 sm:px-6 sm:py-3',
+  body: 'px-4 pt-3 pb-4 sm:px-6 sm:pb-6',
   heading: 'flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-on-accent leading-tight',
   headingIcon: 'w-5 h-5 mt-0.5 text-stripe-200 flex-shrink-0',
-  subtitle: 'mt-4 text-sm text-subtle',
+  subtitle: 'mt-3 text-sm text-subtle',
   actionsFirst: true,
 };
 

@@ -12,12 +12,13 @@
  *   - JOBGATE_EXPERIMENT_ENABLED missing/`false` (kill switch);
  *   - Remote Config slower than LOAD_TIMEOUT_MS or throwing;
  *   - no stable visitor id (storage blocked) and no forced arm;
- *   - crawlers/bots (the caller passes `bypass`);
- *   - the gate was painted before the assignment settled
- *     (`lockJobGateBeforeAssignment`): the arms differ in height and block
- *     order, so a late flip would shift the gate and the ad slot below it.
- *     The lock is taken before the arm is known, so it excludes visitors
- *     independently of their arm.
+ *   - crawlers/bots (the caller passes `bypass`).
+ *
+ * A gate rendered before the assignment settles starts as control and switches
+ * to its arm when Remote Config answers. That switch must not move the page:
+ * every arm keeps the gate at the control's height (jobGateSkin.ts), so the ad
+ * slot below it stays put. A settled assignment is served synchronously, so a
+ * gate rendered after it never starts as pending.
  */
 
 import { useEffect, useState } from 'react';
@@ -47,8 +48,6 @@ export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v4_assigned';
 let assignmentPromise: Promise<JobGateAssignment> | null = null;
 /** The settled assignment, readable synchronously so a gate rendered after it never starts as pending. */
 let settledAssignment: JobGateAssignment | null = null;
-/** Set when the gate was painted while the assignment was still pending: no late flip. */
-let lockedBeforeAssignment = false;
 const assignedThisSession = new Set<string>();
 
 async function readAssignment(): Promise<JobGateAssignment> {
@@ -76,23 +75,11 @@ export function loadJobGateAssignment(): Promise<JobGateAssignment> {
       .then(resolve, () => resolve(JOBGATE_NOT_ENROLLED))
       .finally(() => clearTimeout(timer));
   }).then((assignment) => {
-    const final = lockedBeforeAssignment ? JOBGATE_NOT_ENROLLED : assignment;
-    settledAssignment = final;
-    setActiveJobGateAssignment(final);
-    return final;
+    settledAssignment = assignment;
+    setActiveJobGateAssignment(assignment);
+    return assignment;
   });
   return assignmentPromise;
-}
-
-/**
- * Called when the gate is committed to the DOM while the assignment is still
- * pending (JobBoard's ref on `#job-auth-gate`, i.e. before paint). From then
- * on this page session stays on today's gate, untagged: same rule as the
- * Remote Config timeout. No-op once the assignment settled.
- */
-export function lockJobGateBeforeAssignment(): void {
-  if (settledAssignment) return;
-  lockedBeforeAssignment = true;
 }
 
 /**
@@ -109,7 +96,6 @@ export function currentJobGateAssignment(): Promise<JobGateAssignment> {
 export function resetJobGateAssignmentForTests(): void {
   assignmentPromise = null;
   settledAssignment = null;
-  lockedBeforeAssignment = false;
   assignedThisSession.clear();
   setActiveJobGateAssignment(null);
 }
