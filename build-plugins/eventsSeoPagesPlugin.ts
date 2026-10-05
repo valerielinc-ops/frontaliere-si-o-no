@@ -1214,9 +1214,10 @@ export function zurichOffset(isoDate: string): string {
  *
  * Source values remain authoritative. Older and partial slices are completed
  * at detail-page render time with deterministic catalog/venue/image defaults.
- * An Offer is emitted only when the source provides a confident price signal;
- * unknown prices remain absent rather than becoming a fabricated zero or an
- * incomplete Offer.
+ * Detail pages also emit an Offer shell when the source has no verifiable
+ * price, so the page still exposes its source URL and availability without
+ * fabricating a zero or other amount. Direct callers only get that fallback
+ * when they explicitly opt into the detail-page contract.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1247,10 +1248,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
-  const offer = confidentPrice
+  const offer = (confidentPrice || event.structuredDataDefaultsApplied)
     ? {
       '@type': 'Offer',
-      price: event.price!.isFree ? 0 : event.price!.amount,
+      ...(confidentPrice ? { price: event.price!.isFree ? 0 : event.price!.amount } : {}),
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,

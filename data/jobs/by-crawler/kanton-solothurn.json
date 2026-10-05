@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-10-04T21:24:40.359Z",
+  "assembledAt": "2026-10-05T09:25:54.469Z",
   "jobs": [
     {
       "id": "kanton-solothurn-e34f08aa6360",
@@ -34,7 +34,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:24.327Z",
+      "crawledAt": "2026-10-05T09:25:33.467Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -48,7 +48,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-01",
       "postedDate": "2026-08-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
       "requirements": [],
       "requirementsByLocale": {},
@@ -112,7 +114,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:22.323Z",
+      "crawledAt": "2026-10-05T09:25:31.447Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -157,7 +159,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-01",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-1e60e0e3b74e",
@@ -190,7 +194,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:18.323Z",
+      "crawledAt": "2026-10-05T09:25:30.469Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -237,7 +241,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-27",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-d06b80520258",
@@ -270,7 +276,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/b8b48373-b759-4f06-a83d-143cc81bae8b",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:16.315Z",
+      "crawledAt": "2026-10-05T09:25:29.457Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -315,7 +321,9 @@
           "maxValue": 72800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-08",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-d59302a8ccaf",
@@ -348,7 +356,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-finanzen-und-controlling/cddc4e9d-5cef-416f-a8c3-64683d716863",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:14.318Z",
+      "crawledAt": "2026-10-05T09:25:27.466Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -393,7 +401,9 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-10",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-6814b8aecb45",
@@ -426,7 +436,7 @@
       "url": "https://job.so.ch/offene-stellen/leitende-r-gerichtsschreiber-in-des-obergerichts/bd841a43-68dc-4f36-a98e-59bc3b2a5da4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:12.315Z",
+      "crawledAt": "2026-10-05T09:25:28.448Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -471,7 +481,9 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-10",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-a9d07a3b8a17",
@@ -504,7 +516,7 @@
       "url": "https://job.so.ch/offene-stellen/teamleiter-in-finanzen-und-controlling/d3980875-796e-489d-85fb-fe7da55d0cb0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:10.327Z",
+      "crawledAt": "2026-10-05T09:25:26.477Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -551,7 +563,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-e6144341ceea",
@@ -584,7 +598,7 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/e79e2db6-6555-4d3b-9efb-4758746705eb",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:08.322Z",
+      "crawledAt": "2026-10-05T09:25:24.449Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -631,7 +645,9 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-f361651dce62",
@@ -664,7 +680,7 @@
       "url": "https://job.so.ch/offene-stellen/amtliche-r-tierarzt-tieraerztin/b9e45555-ec89-4b41-8ad7-35a3375382d6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:06.328Z",
+      "crawledAt": "2026-10-05T09:25:25.467Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -709,7 +725,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-56769d2bdc90",
@@ -742,7 +760,7 @@
       "url": "https://job.so.ch/offene-stellen/stellvertretende-r-lehrer-in-fuer-das-fach-allgemeinbildender-unterricht-abu/7f09483f-9e96-4e5e-b8dd-d3d301f7ffd2",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:04.309Z",
+      "crawledAt": "2026-10-05T09:25:23.458Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -789,7 +807,9 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-4006dc688ae5",
@@ -822,7 +842,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-stab-staatsschreiber/99285753-1127-4969-90dd-a06c5547ff1f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:24:02.317Z",
+      "crawledAt": "2026-10-05T09:25:22.487Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -869,7 +889,9 @@
           "maxValue": 128700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-cc4403a2f65b",
@@ -902,7 +924,7 @@
       "url": "https://job.so.ch/offene-stellen/amtliche-r-fachassistent-in-fleisch/c4b5a065-b7a1-4143-9f00-cd6a6fa5d702",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:55.331Z",
+      "crawledAt": "2026-10-05T09:25:19.461Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -947,7 +969,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-28e9b55728c1",
@@ -975,12 +999,13 @@
         "de": "Das Berufsbildungszentrum BBZ Solothurn-Grenchen ist das regionale Kompetenzzentrum für die berufliche Grund- und Weiterbildung und umfasst fünf Leistungsbereiche (EBZ Solothurn-Grenchen, GIBS Grenchen, GIBS Solothurn, KBS Solothurn, ZeitZentrum Grenchen). Die Gewerblich-Industrielle Berufsfachschule GIBS Solothurn beschult gut 1'500 Lernende in der beruflichen Grundbildung. Für die Gewerblich-Industrielle Berufsfachschule GIBS Solothurn suchen wir per 01.04.2027 oder nach Vereinbarung eine/-n Prorektor/-in, 80-100%.\n\nIhre Verantwortung\n\n• Im Rahmen des BBZ Solothurn-Grenchen unterstützen Sie die Rektorin in den Leistungsbereichen der GIBS Solothurn mit den Berufen u.a. in den Bereichen Automobiltechnik, Maschinenbau, Gastronomie, Informatik/Mediamatik und Raumausstattung. Insbesondere unterstützen Sie die pädagogische Leitung und stellen personelle Führung einer Abteilung sicher.\n\n• Sie prüfen und unterstützen, dass der erteilte Unterricht und die erbrachten Leistungen den aktuellen Anforderungen der Bildungspartner/-innen entsprechen.\n\n• Die Übernahme von schul- und bereichsübergreifende Aufgaben des BBZ Solothurn-Grenchen gehört zudem zu Ihrem Wirkungskreis.\n\n• Sie erteilen im Umfang von 6 bis 9 Lektionen Unterricht.\n\n• Als Mitglied der Schulleitung der GIBS Solothurn arbeiten Sie mit der Schulleitung an übergeordneten Themen, Aufgaben und Projekten aktiv mit.\n\nIhr Profil\n\n• Sie verfügen über einen Fach- oder Hochschulabschluss oder über äquivalente Ausbildungen; Führungserfahrung ist von Vorteil.\n\n• Mehrjährige Unterrichtserfahrung auf der Stufe Sek II, fundierte Kenntnisse der Schweizer Bildungslandschaft sowie aktive Kontakte zur Arbeitswelt zeichnen Sie aus. Idealerweise besitzen Sie Erfahrungen im Gewerbe und in der Industrie.\n\n• Erfahrungen als Projektleiter/-in diverser Bildungsprojekte runden Ihr Profil ideal ab.\n\n• Die Arbeit mit jungen Menschen und am Unterrichten bereitet Ihnen Freude, Sie führen kooperativ und sind ein/-e gute/-r Motivator/-in.\n\n• Im Weiteren sind Sie wirtschaftsorientiert, offen für Veränderungen, innovativ, kompromissfähig, loyal und versiert im Umgang mit neuen Technologien.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Beutler\nDirektor BBZ Solothurn-Grenchen\n032 627 78 07\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le Centre de formation professionnelle BBZ Solothurn-Grenchen est le centre régional de compétence pour la formation professionnelle de base et la formation continue et comprend cinq zones de service (EBZ Solothurn-Grenchen, GIBS Grenchen, GIBS Solothurn, KBS Solothurn, ZeitZentrum Grenchen). Le collège professionnel industriel GIBS Soleure offre une formation à plus de 1 500 apprenants en formation professionnelle de base. Pour l'école professionnelle commerciale-industrielle GIBS Soleure nous sommes à la recherche d'un vice-recteur, 80-100% au 01.04.2027 ou par accord.\n\nVotre responsabilité\n\n• Dans le cadre de la BBZ Solothurn-Grenchen, vous soutenez le Recteur dans les domaines de service de GIBS Solothurn avec les professions, entre autres, dans les domaines de la technologie automobile, de l'ingénierie mécanique, de la gastronomie, de l'informatique/médiatique et de l'équipement de salle. En particulier, vous soutenez la gestion pédagogique et assurez la gestion du personnel d'un département.\n\n• Ils vérifient et soutiennent que l'enseignement dispensé et les services fournis répondent aux exigences actuelles des partenaires éducatifs.\n\n• La prise en charge des tâches scolaires et interdivisionnelles de la BBZ Soleure-Grenchen fait également partie de votre sphère d'activité.\n\n• Ils enseignent 6 à 9 leçons.\n\n• En tant que membre de la direction de l'école de GIBS Soleure, vous travaillez activement avec la direction de l'école sur des sujets, des tâches et des projets globaux.\n\nVotre profil\n\n• ils sont titulaires d'un diplôme technique ou universitaire ou d'une formation équivalente; l'expérience en leadership est bénéfique.\n\n• Plusieurs années d'expérience pédagogique au niveau Sek II, une connaissance approfondie du paysage éducatif suisse et des contacts actifs avec le monde du travail vous distinguent. Idéalement, vous avez de l'expérience dans les affaires et l'industrie.\n\n• L'expérience en tant que gestionnaire de projet / dans divers projets éducatifs complètent votre profil idéalement.\n\n• Travailler avec les jeunes et l'enseignement vous donne plaisir, vous dirigez en coopération et êtes un bon motivateur.\n\n• De plus, vous êtes orienté vers l'entreprise, ouvert au changement, innovant, capable de compromis, fidèle et habile à gérer les nouvelles technologies.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nBernhard Beutler\nDirecteur BBZ Soleure-Grenchen\n032 627 78 07\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/prorektor-in-gibs-solothurn/345c2489-b8c4-402b-8b8d-907fb7b0d0ee",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:51.821Z",
+      "crawledAt": "2026-10-05T09:25:21.452Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -994,10 +1019,20 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18",
       "postedDate": "2026-09-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/prorektor-in-gibs-solothurn/345c2489-b8c4-402b-8b8d-907fb7b0d0ee",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "prorektor-in-gibs-solothurn-80-100-kanton-solothurn-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "prorektor-in-gibs-solothurn-80-100-kanton-solothurn-solothurn"
+        ]
+      },
       "firstSeenAt": "2026-09-19T23:03:13.004Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1011,16 +1046,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "prorektor-in-gibs-solothurn-80-100-kanton-solothurn-solothurn"
-        ]
-      },
-      "previousSlugs": [
-        "prorektor-in-gibs-solothurn-80-100-kanton-solothurn-solothurn"
-      ],
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-solothurn-056a04d6a35d",
@@ -1053,7 +1079,7 @@
       "url": "https://job.so.ch/offene-stellen/applikationsverantwortliche-r/a349f2f2-9c16-4a5e-a3a4-b547ceccb4fe",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:42.825Z",
+      "crawledAt": "2026-10-05T09:25:20.472Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1098,7 +1124,9 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-eca5d6131213",
@@ -1132,7 +1160,7 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in-digitalrecht/71a272af-a9a3-4e69-ab60-807f9611cae7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:36.331Z",
+      "crawledAt": "2026-10-05T09:25:18.450Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1146,7 +1174,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/jurist-in-digitalrecht/71a272af-a9a3-4e69-ab60-807f9611cae7",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1206,7 +1236,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/58b13094-fe7c-4790-a57f-c34f58d2cb2a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:34.315Z",
+      "crawledAt": "2026-10-05T09:25:17.461Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1251,7 +1281,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-22",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-7419ecb6386e",
@@ -1285,7 +1317,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/75ae5924-aaa1-4fb7-bf26-f07f401d1e1f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:32.315Z",
+      "crawledAt": "2026-10-05T09:25:16.485Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1299,7 +1331,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/75ae5924-aaa1-4fb7-bf26-f07f401d1e1f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1357,7 +1391,7 @@
       "url": "https://job.so.ch/offene-stellen/verantwortliche-r-aussenbeziehungen/acd908c6-8cbc-4b2c-9837-39b0c8119d21",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:30.323Z",
+      "crawledAt": "2026-10-05T09:25:15.451Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1402,7 +1436,9 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-22",
+      "postingDateSource": "reported"
     },
     {
       "id": "kanton-solothurn-5c6d5f380ea1",
@@ -1436,7 +1472,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/bc3370c7-f052-4a26-a9a8-41448306a4be",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:28.334Z",
+      "crawledAt": "2026-10-05T09:25:14.462Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1450,7 +1486,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/bc3370c7-f052-4a26-a9a8-41448306a4be",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1512,7 +1550,7 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-hydrometrie/74022999-a1b9-4a30-8383-78c071d0ab00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:26.317Z",
+      "crawledAt": "2026-10-05T09:25:13.506Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1526,7 +1564,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-hydrometrie/74022999-a1b9-4a30-8383-78c071d0ab00",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1561,9 +1601,9 @@
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
-      "slug": "giurista-60-kanton-solothurn-solothurn",
+      "slug": "jurist-in-60-kanton-solothurn",
       "slugByLocale": {
-        "it": "giurista-60-kanton-solothurn-solothurn",
+        "it": "jurist-in-60-kanton-solothurn",
         "en": "lawyer-60-kanton-solothurn-solothurn",
         "de": "jurist-in-60-kanton-solothurn-solothurn",
         "fr": "juriste-60-kanton-solothurn-solothurn"
@@ -1573,7 +1613,7 @@
       "companyDomain": "so.ch",
       "title": "Jurist/-in, 60%",
       "titleByLocale": {
-        "it": "Giurista, 60%",
+        "it": "Jurist/-in, 60%",
         "en": "Lawyer, 60%",
         "de": "Jurist/-in, 60%",
         "fr": "Juriste, 60 %"
@@ -1585,12 +1625,13 @@
         "de": "Das Departementssekretariat ist die Stabsstelle und das Dienstleistungszentrum des Departements des Innern. Es gliedert sich in die Abteilungen Administration, Rechtsdienst, Controlling und Digitalisierung, Kommunikation, Swisslos-Fonds und die Oberämter. Es unterstützt und berät die Departementsvorsteherin und erbringt Querschnittsaufgaben für die fünf Ämter des Departements. Für den Rechtsdienst suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 60%.\n\nIhre Verantwortung\n\n• Es erwartet Sie eine vielfältige juristische Tätigkeit im Bereich Soziales des departementalen Rechtsdienstes.\n\n• Sie führen Verwaltungsbeschwerdeverfahren (insbesondere im Bereich der Sozialhilfe) und bearbeiten Aufsichtsbeschwerden im Bereich des Kindes- und Erwachsenenschutzes.\n\n• Die Bearbeitung von Schadenersatzbegehren im Bereich des Kindes- und Erwachsenenschutzes und die Abklärung von Anfragen aus verschiedenen Rechtsgebieten im sozialen Bereich, gehören ebenfalls zu Ihren Kernaufgaben.\n\n• Überdies wirken Sie an Gesetzgebungs- und Verordnungsprojekten im Bereich Soziales mit.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Hochschulstudium und Berufserfahrung im Bereich Soziales (insbesondere Sozialhilfe und/oder Kindes- und Erwachsenenschutz). Ein Anwaltspatent sowie erste Erfahrungen in der Gesetzgebung sind von Vorteil.\n\n• Analytisches Denken, eine hohe Selbständigkeit und die nötige Flexibilität für den Einsatz in verschiedenen Bereichen gehören zu Ihren Stärken.\n\n• Belastbarkeit und eine stilsichere, adressatengerechte schriftliche Ausdrucksweise zeichnen Sie aus.\n\n• Sie verfügen über Eigeninitiative, erledigen anfallende Arbeiten exakt und speditiv und schätzen die Arbeit im Team.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nNoemi Sprenger\nLeiterin Fachbereich Soziales\n032 627 93 73\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le Secrétariat du Département est le département et le centre de services du Département de l'intérieur. Il est divisé en départements de l'administration, du service juridique, du contrôle et de la numérisation, de la communication, des fonds Swisslos et des bureaux supérieurs. Il appuie et conseille le chef de département et exécute des tâches transversales pour les cinq bureaux de département. Pour le service juridique, nous recherchons un avocat, 60%, au 01.01.2027 ou par accord au lieu de Soleure.\n\nVotre responsabilité\n\n• Il vous attend une activité juridique diversifiée dans le domaine des affaires sociales du service juridique ministériel.\n\n• Ils mènent des procédures administratives de plainte (en particulier dans le domaine de l'aide sociale) et traitent les plaintes de surveillance dans le domaine de la protection des enfants et des adultes.\n\n• Le traitement des demandes de dommages-intérêts dans le domaine de la protection de l'enfant et de l'adulte et la clarification des enquêtes dans divers domaines juridiques dans le domaine social comptent également parmi vos tâches principales.\n\n• Vous participez également à des projets législatifs et réglementaires dans le domaine des affaires sociales.\n\nVotre profil\n\n• Vous avez terminé des études de droit et une expérience professionnelle dans le domaine des affaires sociales (en particulier l'assistance sociale et/ou la protection des enfants et des adultes). Le brevet d'un avocat et l'expérience initiale en matière de législation sont bénéfiques.\n\n• La pensée analytique, un degré élevé d'indépendance et la flexibilité nécessaire pour l'utilisation dans différents domaines sont parmi vos forces.\n\n• La résilience et une expression écrite élégante et adressable vous caractérisent.\n\n• Ils ont leur propre initiative, font le travail qu'ils font précisément et rapidement et apprécient le travail qu'ils font dans l'équipe.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nNoemi Sprenger\nChef des affaires sociales\n032 627 93 73\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/jurist-in/8529e9e2-e746-44ed-9b18-728cad45b57f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:24.342Z",
+      "crawledAt": "2026-10-05T09:25:13.161Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1604,10 +1645,28 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/jurist-in/8529e9e2-e746-44ed-9b18-728cad45b57f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "jurist-in-60-kanton-solothurn-solothurn",
+        "giurista-60-kanton-solothurn-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-60-kanton-solothurn-solothurn",
+          "giurista-60-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ]
+      },
       "firstSeenAt": "2026-09-25T14:53:20.900Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -1621,21 +1680,7 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "jurist-in-60-kanton-solothurn-solothurn"
-        ],
-        "en": [
-          "jurist-in-60-kanton-solothurn-solothurn"
-        ],
-        "fr": [
-          "jurist-in-60-kanton-solothurn-solothurn"
-        ]
-      },
-      "previousSlugs": [
-        "jurist-in-60-kanton-solothurn-solothurn"
-      ]
+      }
     },
     {
       "id": "kanton-solothurn-16a7037ef985",
@@ -1651,7 +1696,7 @@
       "companyDomain": "so.ch",
       "title": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
       "titleByLocale": {
-        "it": "Commercialista/Commercialista Privati, 80-100%",
+        "it": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
         "en": "Tax specialist Private individuals, 80-100 %",
         "de": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
         "fr": "Spécialiste fiscal Particuliers, 80-100 %"
@@ -1663,12 +1708,13 @@
         "de": "Das Steueramt beschafft die finanziellen Mittel für das öffentliche Gemeinwesen und versteht sich als partnerschaftliches Bindeglied zwischen Staat, Bund, Gemeinden, Bevölkerung und Wirtschaft. Für die Abteilung Privatpersonen suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten, Balsthal oder Dornach eine/-n Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%.\n\nIhre Verantwortung\n\n• Zu Ihrem Aufgabenbereich gehört die Veranlagung von natürlichen Personen für die Staats- und direkte Bundessteuer im Bereich Privatpersonen.\n\n• Sie führen Steuerausscheidungen von Innerkantonalen, Interkantonalen und Internationalen durch.\n\n• Die Selbstständige Erledigung der Korrespondenz, Einforderung von Beweisunterlagen sowie Erteilung von Auskünften an andere Steuerbehörden und Amtsstellen gehören ebenfalls zu Ihren Aufgaben.\n\n• Sie beraten Steuerpflichtige sowie deren Vertretungen und wirken bei Einspracheverhandlungen wie auch weiteren Fachaufgaben mit.\n\nIhr Profil\n\n• Sie bringen einen kaufmännischen Lehrabschluss, eine abgeschlossene Mittelschulbildung oder eine gleichwertige Ausbildung mit.\n\n• Ihr Interesse zeigt sich am Steuerrecht und an der fachlichen Weiterentwicklung im Bereich der natürlichen Personen.\n\n• Eine selbstständige, sorgfältige und effiziente Arbeitsweise mit hohem Qualitätsbewusstsein zeichnet Sie aus.\n\n• Sie haben Freude am Kontakt mit Menschen, verfügen über eine kundenorientierte wie auch respektvolle Kommunikation. Zudem haben Sie sehr gute mündliche und schriftliche Deutschkenntnisse.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDaniel Lüthi\nLeiter Privatpersonen\n032 627 88 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le bureau fiscal procure les ressources financières à la communauté publique et se considère comme un lien de partenariat entre l'État, le gouvernement fédéral, les municipalités, la population et l'économie. Pour le département du secteur privé, nous recherchons un spécialiste de l'impôt de 80 à 100 % aux endroits de Soleure, Olten, Balsthal ou Dornach.\n\nVotre responsabilité\n\n• Vos responsabilités comprennent l'évaluation des personnes physiques pour l'État et l'impôt fédéral direct dans le domaine des particuliers.\n\n• Ils appliquent des exonérations fiscales aux cantonaux, intercantonaux et internationaux.\n\n• Le traitement indépendant de la correspondance, la demande de pièces justificatives et la communication d'informations à d'autres autorités et bureaux fiscaux font également partie de vos tâches.\n\n• Ils conseillent les contribuables et leurs représentants et participent aux négociations de consultation ainsi qu'à d'autres tâches spécialisées.\n\nVotre profil\n\n• Vous apportez un diplôme d'apprentissage commercial, un enseignement secondaire terminé ou un enseignement équivalent.\n\n• Son intérêt se reflète dans le droit fiscal et le développement professionnel dans le domaine des personnes physiques.\n\n• Une façon indépendante, prudente et efficace de travailler avec une conscience de haute qualité vous distingue.\n\n• Ils aiment le contact avec les gens, ont une communication orientée client et respectueuse. De plus, vous avez une très bonne connaissance orale et écrite de l'allemand.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nDaniel Lüthi\nChef des personnes privées\n032 627 88 47\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/steuerfachmann-steuerfachfrau-privatpersonen/33364d92-f55d-4dec-abac-388f89bb540d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:21.848Z",
+      "crawledAt": "2026-10-05T09:25:12.813Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1682,7 +1728,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/steuerfachmann-steuerfachfrau-privatpersonen/33364d92-f55d-4dec-abac-388f89bb540d",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1749,7 +1797,7 @@
       "url": "https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/d29b5286-0e5e-4837-b17a-8b5afc60a5fa",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:18.810Z",
+      "crawledAt": "2026-10-05T09:25:12.466Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1763,7 +1811,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/d29b5286-0e5e-4837-b17a-8b5afc60a5fa",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1822,7 +1872,7 @@
       "url": "https://job.so.ch/offene-stellen/fachsekretaer-in-kesb/b14bea88-9dbb-4e01-b5b2-41c0a17414a3",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:15.313Z",
+      "crawledAt": "2026-10-05T09:25:12.121Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1836,7 +1886,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/fachsekretaer-in-kesb/b14bea88-9dbb-4e01-b5b2-41c0a17414a3",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1887,7 +1939,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/4b427ac8-630f-4c81-bed9-f94f77f066f0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:12.313Z",
+      "crawledAt": "2026-10-05T09:25:11.398Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1901,7 +1953,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/4b427ac8-630f-4c81-bed9-f94f77f066f0",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1952,7 +2006,7 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-servicedesk-support-und-ict-service-management/c67546fa-ce42-41ae-891d-aff48c2acffd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:09.332Z",
+      "crawledAt": "2026-10-05T09:25:11.053Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1966,7 +2020,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-servicedesk-support-und-ict-service-management/c67546fa-ce42-41ae-891d-aff48c2acffd",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2024,7 +2080,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-tagungszentrum/d67516fc-c53b-4c72-8fee-a8e20d63e66a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:05.820Z",
+      "crawledAt": "2026-10-05T09:25:10.613Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2038,7 +2094,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/leiter-in-tagungszentrum/d67516fc-c53b-4c72-8fee-a8e20d63e66a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2097,7 +2155,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-kesb/2534c520-45df-4dd4-af16-751f262fb9f5",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:02.863Z",
+      "crawledAt": "2026-10-05T09:25:10.185Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2111,7 +2169,9 @@
       "sector": "Amministrazione pubblica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in-kesb/2534c520-45df-4dd4-af16-751f262fb9f5",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2129,6 +2189,144 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kanton-solothurn-b903ac3d8091",
+      "slug": "logopade-logopadin-60-100-kanton-solothurn-olten",
+      "slugByLocale": {
+        "de": "logopade-logopadin-60-100-kanton-solothurn-olten",
+        "it": "logopade-logopadin-60-100-kanton-solothurn-olten",
+        "en": "logopade-logopadin-60-100-kanton-solothurn-olten",
+        "fr": "logopade-logopadin-60-100-kanton-solothurn-olten"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Logopäde/Logopädin, 60-100%",
+      "titleByLocale": {
+        "de": "Logopäde/Logopädin, 60-100%",
+        "it": "Logopäde/Logopädin, 60-100%",
+        "en": "Logopäde/Logopädin, 60-100%",
+        "fr": "Logopäde/Logopädin, 60-100%"
+      },
+      "description": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per sofort oder nach Vereinbarung eine/-n Logopäden/Logopädin, 60-100%.\n\nIhre Verantwortung\n\n• Ihre Arbeit erledigen Sie in Einzellektionen oder Kleingruppen.\n\n• Sie sind zuständig für die logopädische Therapie, Diagnostik und Abklärung von Kindern und Jugendlichen vom Kindergartenalter bis in die Mittelstufe.\n\n• In der Zusammenarbeit mit den anderen Logopäden/Logopädinnen und der Fachstelle Unterstützte Kommunikation in Bezug auf Fragestellungen zur Sprache und Kommunikation, wirken Sie als fachliche Ansprechperson.\n\nIhr Profil\n\n• Sie bringen Freude an der Arbeit mit Kindern und Jugendlichen im Förderbereich Kognition und Verhalten mit.\n\n• Ausserdem haben Sie eine EDK anerkannte Ausbildung als Logopäde/Logopädin oder schliessen demnächst Ihr Studium ab.\n\n• Sie bringen eine interdisziplinäre Grundhaltung mit, die Sie in einem offenen und dynamischen Team einfliessen lassen. Zudem sind Sie engagiert, belastbar und haben Freude am Lernen in einem spannenden Umfeld.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "de": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per sofort oder nach Vereinbarung eine/-n Logopäden/Logopädin, 60-100%.\n\nIhre Verantwortung\n\n• Ihre Arbeit erledigen Sie in Einzellektionen oder Kleingruppen.\n\n• Sie sind zuständig für die logopädische Therapie, Diagnostik und Abklärung von Kindern und Jugendlichen vom Kindergartenalter bis in die Mittelstufe.\n\n• In der Zusammenarbeit mit den anderen Logopäden/Logopädinnen und der Fachstelle Unterstützte Kommunikation in Bezug auf Fragestellungen zur Sprache und Kommunikation, wirken Sie als fachliche Ansprechperson.\n\nIhr Profil\n\n• Sie bringen Freude an der Arbeit mit Kindern und Jugendlichen im Förderbereich Kognition und Verhalten mit.\n\n• Ausserdem haben Sie eine EDK anerkannte Ausbildung als Logopäde/Logopädin oder schliessen demnächst Ihr Studium ab.\n\n• Sie bringen eine interdisziplinäre Grundhaltung mit, die Sie in einem offenen und dynamischen Team einfliessen lassen. Zudem sind Sie engagiert, belastbar und haben Freude am Lernen in einem spannenden Umfeld.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "it": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per sofort oder nach Vereinbarung eine/-n Logopäden/Logopädin, 60-100%.\n\nIhre Verantwortung\n\n• Ihre Arbeit erledigen Sie in Einzellektionen oder Kleingruppen.\n\n• Sie sind zuständig für die logopädische Therapie, Diagnostik und Abklärung von Kindern und Jugendlichen vom Kindergartenalter bis in die Mittelstufe.\n\n• In der Zusammenarbeit mit den anderen Logopäden/Logopädinnen und der Fachstelle Unterstützte Kommunikation in Bezug auf Fragestellungen zur Sprache und Kommunikation, wirken Sie als fachliche Ansprechperson.\n\nIhr Profil\n\n• Sie bringen Freude an der Arbeit mit Kindern und Jugendlichen im Förderbereich Kognition und Verhalten mit.\n\n• Ausserdem haben Sie eine EDK anerkannte Ausbildung als Logopäde/Logopädin oder schliessen demnächst Ihr Studium ab.\n\n• Sie bringen eine interdisziplinäre Grundhaltung mit, die Sie in einem offenen und dynamischen Team einfliessen lassen. Zudem sind Sie engagiert, belastbar und haben Freude am Lernen in einem spannenden Umfeld.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "en": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per sofort oder nach Vereinbarung eine/-n Logopäden/Logopädin, 60-100%.\n\nIhre Verantwortung\n\n• Ihre Arbeit erledigen Sie in Einzellektionen oder Kleingruppen.\n\n• Sie sind zuständig für die logopädische Therapie, Diagnostik und Abklärung von Kindern und Jugendlichen vom Kindergartenalter bis in die Mittelstufe.\n\n• In der Zusammenarbeit mit den anderen Logopäden/Logopädinnen und der Fachstelle Unterstützte Kommunikation in Bezug auf Fragestellungen zur Sprache und Kommunikation, wirken Sie als fachliche Ansprechperson.\n\nIhr Profil\n\n• Sie bringen Freude an der Arbeit mit Kindern und Jugendlichen im Förderbereich Kognition und Verhalten mit.\n\n• Ausserdem haben Sie eine EDK anerkannte Ausbildung als Logopäde/Logopädin oder schliessen demnächst Ihr Studium ab.\n\n• Sie bringen eine interdisziplinäre Grundhaltung mit, die Sie in einem offenen und dynamischen Team einfliessen lassen. Zudem sind Sie engagiert, belastbar und haben Freude am Lernen in einem spannenden Umfeld.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per sofort oder nach Vereinbarung eine/-n Logopäden/Logopädin, 60-100%.\n\nIhre Verantwortung\n\n• Ihre Arbeit erledigen Sie in Einzellektionen oder Kleingruppen.\n\n• Sie sind zuständig für die logopädische Therapie, Diagnostik und Abklärung von Kindern und Jugendlichen vom Kindergartenalter bis in die Mittelstufe.\n\n• In der Zusammenarbeit mit den anderen Logopäden/Logopädinnen und der Fachstelle Unterstützte Kommunikation in Bezug auf Fragestellungen zur Sprache und Kommunikation, wirken Sie als fachliche Ansprechperson.\n\nIhr Profil\n\n• Sie bringen Freude an der Arbeit mit Kindern und Jugendlichen im Förderbereich Kognition und Verhalten mit.\n\n• Ausserdem haben Sie eine EDK anerkannte Ausbildung als Logopäde/Logopädin oder schliessen demnächst Ihr Studium ab.\n\n• Sie bringen eine interdisziplinäre Grundhaltung mit, die Sie in einem offenen und dynamischen Team einfliessen lassen. Zudem sind Sie engagiert, belastbar und haben Freude am Lernen in einem spannenden Umfeld.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden."
+      },
+      "needsRetranslation": true,
+      "location": "Olten",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/logopaede-logopaedin/6893bb82-e176-4dca-a779-5eef7a0df2c2",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:25:11.755Z",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Educazione & Cultura",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/logopaede-logopaedin/6893bb82-e176-4dca-a779-5eef7a0df2c2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T09:25:11.755Z"
+    },
+    {
+      "id": "kanton-solothurn-f2a825b14d29",
+      "slug": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+      "slugByLocale": {
+        "de": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+        "it": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+        "en": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+        "fr": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Sachbearbeiter/-in Grundbuch, 80-100%",
+      "titleByLocale": {
+        "de": "Sachbearbeiter/-in Grundbuch, 80-100%",
+        "it": "Sachbearbeiter/-in Grundbuch, 80-100%",
+        "en": "Sachbearbeiter/-in Grundbuch, 80-100%",
+        "fr": "Sachbearbeiter/-in Grundbuch, 80-100%"
+      },
+      "description": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "de": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "it": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "en": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden."
+      },
+      "needsRetranslation": true,
+      "location": "Thal-Gäu",
+      "canton": "SG",
+      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-grundbuch/ff4f5857-76ad-423e-929d-440823f462a3",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:25:09.712Z",
+      "addressLocality": "Thal-Gäu",
+      "addressRegion": "SG",
+      "streetAddress": "",
+      "postalCode": "4710",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in-grundbuch/ff4f5857-76ad-423e-929d-440823f462a3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 99000,
+      "salaryMax": 174000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99000,
+          "maxValue": 174000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T09:25:09.712Z"
     }
   ]
 }

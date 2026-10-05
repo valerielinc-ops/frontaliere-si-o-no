@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-10-04T21:36:22.808Z",
+  "assembledAt": "2026-10-05T09:32:45.396Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:15.267Z",
+      "crawledAt": "2026-10-05T09:32:36.989Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -45,7 +45,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/366/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -77,14 +77,12 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
-          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
-          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
+          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
@@ -101,7 +99,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-635645b27dbc",
@@ -134,7 +134,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:14.342Z",
+      "crawledAt": "2026-10-05T09:32:36.100Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/416/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -187,13 +187,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-sportmedizin-100-spital-davos-ch",
-        "assistente-in-medicina-sportiva-100-spital-davos-davos"
+        "unterassistent-in-sportmedizin-100-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-sportmedizin-100-spital-davos-ch",
-          "assistente-in-medicina-sportiva-100-spital-davos-davos"
+          "unterassistent-in-sportmedizin-100-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
@@ -210,7 +208,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-0fa61762dcc2",
@@ -243,7 +243,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:13.373Z",
+      "crawledAt": "2026-10-05T09:32:35.194Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/369/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -287,13 +287,11 @@
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
         "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos",
-        "assistente-di-medicina-interna-100-spital-davos-davos"
+        "senior-physician-internal-medicine-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-innere-medizin-100-spital-davos-ch",
-          "assistente-di-medicina-interna-100-spital-davos-davos"
+          "unterassistent-in-innere-medizin-100-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
@@ -310,7 +308,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-9481c5b262d7",
@@ -343,7 +343,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:12.409Z",
+      "crawledAt": "2026-10-05T09:32:34.251Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/613/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -389,14 +389,12 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "sostanza-in-anestesia-100-spital-davos-davos",
-        "subassistance-in-anaesthesia-100-spital-davos-davos",
-        "assistente-anestesia-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch",
-          "sostanza-in-anestesia-100-spital-davos-davos",
-          "assistente-anestesia-100-spital-davos-davos"
+          "sostanza-in-anestesia-100-spital-davos-davos"
         ],
         "en": [
           "subassistance-in-anaesthesia-100-spital-davos-davos"
@@ -416,7 +414,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-4316d2e9f777",
@@ -449,7 +449,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.469Z",
+      "crawledAt": "2026-10-05T09:32:33.362Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -461,7 +461,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/704/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -471,13 +471,11 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
-        "salvataggio-suit-2027-50-100-spital-davos-davos"
+        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
-          "salvataggio-suit-2027-50-100-spital-davos-davos"
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
         ],
         "fr": [
           "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
@@ -497,7 +495,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-9804891a5da1",
@@ -530,7 +530,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:10.498Z",
+      "crawledAt": "2026-10-05T09:32:32.492Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -542,7 +542,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/696/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -553,14 +553,12 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-salute-specialistica-50-100-spital-davos-davos",
-        "spitex-assistente-sanitario-50-100-spital-davos-davos"
+        "spitex-salute-specialistica-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-          "spitex-salute-specialistica-50-100-spital-davos-davos",
-          "spitex-assistente-sanitario-50-100-spital-davos-davos"
+          "spitex-salute-specialistica-50-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
@@ -577,7 +575,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-016659b12606",
@@ -610,7 +610,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:09.520Z",
+      "crawledAt": "2026-10-05T09:32:31.558Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -622,7 +622,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/695/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -640,16 +640,14 @@
         "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
           "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
           "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
-          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
-          "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
         ],
         "en": [
           "surgery-orthopaedics-assistant-100-spital-davos-davos"
@@ -675,7 +673,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-5795d1727096",
@@ -708,7 +708,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:08.554Z",
+      "crawledAt": "2026-10-05T09:32:30.664Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -720,7 +720,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/677/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -736,8 +736,7 @@
         "dipl-pflegefachperson-hf-per-tagesklinik-40-spital-davos",
         "dipl-nursing-professional-hf-for-day-clinic-40-spital-davos-davos",
         "dipl-pflegefachperson-hf-fur-tagesklinik-40-spital-davos-ch",
-        "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos",
-        "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
+        "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -746,8 +745,7 @@
           "dipl-pflegefachperson-hf-per-tagesklinik-40-spital-davos",
           "dipl-nursing-professional-hf-for-day-clinic-40-spital-davos-davos",
           "dipl-pflegefachperson-hf-fur-tagesklinik-40-spital-davos-ch",
-          "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos",
-          "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
+          "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos"
         ],
         "en": [
           "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
@@ -776,7 +774,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-e03bc13235e6",
@@ -809,7 +809,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:07.584Z",
+      "crawledAt": "2026-10-05T09:32:29.755Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -821,7 +821,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-28",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/707/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -831,13 +831,11 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "previousSlugs": [
-        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
-        "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
+        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
-          "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
+          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
         ],
         "en": [
           "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
@@ -860,7 +858,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-02bd827fc8c3",
@@ -893,7 +893,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/712/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:06.632Z",
+      "crawledAt": "2026-10-05T09:32:28.842Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -905,7 +905,9 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/712/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -998,7 +1000,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/724/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:05.658Z",
+      "crawledAt": "2026-10-05T09:32:27.935Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1010,7 +1012,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/724/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1025,14 +1027,12 @@
         "emergency-medical-technician-winter-season-2026-27-50-100-spital-davos-davos",
         "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
         "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
-        "rettungssanitater-in-wintersaison-2027-28-50-100-bewerbungsmanagement-spital-davos-ch",
-        "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
+        "rettungssanitater-in-wintersaison-2027-28-50-100-bewerbungsmanagement-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
-          "rettungssanitater-in-wintersaison-2027-28-50-100-bewerbungsmanagement-spital-davos-ch",
-          "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
+          "rettungssanitater-in-wintersaison-2027-28-50-100-bewerbungsmanagement-spital-davos-ch"
         ],
         "en": [
           "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
@@ -1058,7 +1058,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-9677672d80d1",
@@ -1091,7 +1093,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/727/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:05.046Z",
+      "crawledAt": "2026-10-05T09:32:27.047Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1103,7 +1105,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/727/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1114,14 +1116,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-physiotherapeut-in-80-100-spital-davos-ch",
-        "dipl-physiotherapeut-in-80-100-bewerbungsmanagement-spital-davos-ch",
-        "dipl-terapeuta-fisica-in-80-100-spital-davos-davos"
+        "dipl-physiotherapeut-in-80-100-bewerbungsmanagement-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-80-100-spital-davos-ch",
-          "dipl-physiotherapeut-in-80-100-bewerbungsmanagement-spital-davos-ch",
-          "dipl-terapeuta-fisica-in-80-100-spital-davos-davos"
+          "dipl-physiotherapeut-in-80-100-bewerbungsmanagement-spital-davos-ch"
         ],
         "en": [
           "dipl-physiotherapeut-in-80-100-spital-davos-ch",
@@ -1145,7 +1145,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-12263da966ee",
@@ -1178,7 +1180,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:04.433Z",
+      "crawledAt": "2026-10-05T09:32:26.116Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1190,7 +1192,9 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/723/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1265,7 +1269,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/733/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:03.694Z",
+      "crawledAt": "2026-10-05T09:32:25.223Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1277,7 +1281,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/733/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1288,14 +1292,12 @@
       "pensum": "50 - 90%",
       "previousSlugs": [
         "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
-        "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos",
-        "assistenza-sanitaria-professionale-efz-a-lungo-termine-per-la-guardia-notturna-50-90-spital-davos-davos"
+        "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
-          "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos",
-          "assistenza-sanitaria-professionale-efz-a-lungo-termine-per-la-guardia-notturna-50-90-spital-davos-davos"
+          "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos"
         ],
         "en": [
           "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch"
@@ -1318,7 +1320,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-7fa6fd515a3d",
@@ -1351,7 +1355,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/734/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:02.731Z",
+      "crawledAt": "2026-10-05T09:32:24.301Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1363,7 +1367,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/734/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1373,13 +1377,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-100-winter-2026-27-spital-davos-ch",
-        "infermiera-hf-fh-80-100-inverno-2026-27-spital-davos-davos"
+        "dipl-pflegefachperson-hf-fh-80-100-winter-2026-27-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-winter-2026-27-spital-davos-ch",
-          "infermiera-hf-fh-80-100-inverno-2026-27-spital-davos-davos"
+          "dipl-pflegefachperson-hf-fh-80-100-winter-2026-27-spital-davos-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-80-100-winter-2026-27-spital-davos-ch"
@@ -1402,7 +1404,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-3f3aac543872",
@@ -1435,7 +1439,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/650/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:01.987Z",
+      "crawledAt": "2026-10-05T09:32:23.414Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1447,20 +1451,18 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/650/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "D3 Pflege",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch",
-        "apprendistato-fachfrau-fachmann-gesundheit-cfc-spital-davos"
+        "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch",
-          "apprendistato-fachfrau-fachmann-gesundheit-cfc-spital-davos"
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-09-21T16:13:20.290Z",
@@ -1477,16 +1479,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-f2fa7536bcba",
       "slug": "medizinische-r-praxisassistent-in-60-100-wintersaison-2027-28-spital-davos-ch",
       "slugByLocale": {
         "it": "medizinische-r-praxisassistent-in-60-100-wintersaison-2027-28-spital-davos-ch",
-        "en": "medizinische-r-praxisassistent-in-60-100-wintersaison-2027-28-spital-davos-ch",
+        "en": "medical-practice-assistant-60-100-winter-2027-28-spital-davos-davos",
         "de": "medizinische-r-praxisassistent-in-60-100-wintersaison-2027-28-spital-davos-ch",
-        "fr": "medizinische-r-praxisassistent-in-60-100-wintersaison-2027-28-spital-davos-ch"
+        "fr": "assistant-e-medical-e-60-100-saison-d-hiver-2027-28-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1510,7 +1514,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/736/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:01.027Z",
+      "crawledAt": "2026-10-05T09:32:22.705Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1522,7 +1526,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/736/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1546,7 +1550,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-52fac3ee6994",
@@ -1579,7 +1585,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/737/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:00.279Z",
+      "crawledAt": "2026-10-05T09:32:21.789Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1591,7 +1597,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/737/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1605,8 +1611,7 @@
         "home-medico-60-100-spital-davos-davos",
         "home-doctor-60-100-spital-davos-davos",
         "medecin-a-domicile-60-100-spital-davos-davos",
-        "hausarztin-hausarzt-60-100-spital-davos-ch-8uvhvb",
-        "professionista-generale-60-100-spital-davos-davos"
+        "hausarztin-hausarzt-60-100-spital-davos-ch-8uvhvb"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1614,8 +1619,7 @@
           "home-medico-60-100-spital-davos-davos",
           "home-doctor-60-100-spital-davos-davos",
           "medecin-a-domicile-60-100-spital-davos-davos",
-          "hausarztin-hausarzt-60-100-spital-davos-ch-8uvhvb",
-          "professionista-generale-60-100-spital-davos-davos"
+          "hausarztin-hausarzt-60-100-spital-davos-ch-8uvhvb"
         ],
         "en": [
           "hausarztin-hausarzt-60-100-spital-davos-ch",
@@ -1640,7 +1644,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -1673,7 +1679,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:35:59.527Z",
+      "crawledAt": "2026-10-05T09:32:20.911Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1685,7 +1691,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/699/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -1716,14 +1722,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "stationsleitung-akutabteilung-80-100-spital-davos-ch",
-        "stationsleitung-akutabteilung-80-100-bewerbungsmanagement-spital-davos-ch",
-        "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
+        "stationsleitung-akutabteilung-80-100-bewerbungsmanagement-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleitung-akutabteilung-80-100-spital-davos-ch",
-          "stationsleitung-akutabteilung-80-100-bewerbungsmanagement-spital-davos-ch",
-          "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
+          "stationsleitung-akutabteilung-80-100-bewerbungsmanagement-spital-davos-ch"
         ],
         "de": [
           "stationsleitung-akutabteilung-80-100-bewerbungsmanagement-spital-davos-ch"
@@ -1743,7 +1747,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-ef6b78e4c203",
@@ -1776,7 +1782,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:35:58.561Z",
+      "crawledAt": "2026-10-05T09:32:19.970Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1788,7 +1794,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/689/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -1830,14 +1836,12 @@
         "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-pflegefachperson-hf-uberwachungsstation-70-100-bewerbungsmanagement-spital-davos-ch",
-        "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-uberwachungsstation-70-100-bewerbungsmanagement-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
-          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-bewerbungsmanagement-spital-davos-ch",
-          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-bewerbungsmanagement-spital-davos-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-uberwachungsstation-70-100-bewerbungsmanagement-spital-davos-ch"
@@ -1857,7 +1861,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "spital-davos-8569cb344e08",
@@ -1890,7 +1896,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:35:57.616Z",
+      "crawledAt": "2026-10-05T09:32:19.062Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1902,7 +1908,7 @@
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/694/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1920,16 +1926,14 @@
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
         "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-pflegefachperson-hf-uberwachungsstation-40-60-bewerbungsmanagement-spital-davos-ch",
-        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
+        "dipl-pflegefachperson-hf-uberwachungsstation-40-60-bewerbungsmanagement-spital-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
           "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
           "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos",
-          "dipl-pflegefachperson-hf-uberwachungsstation-40-60-bewerbungsmanagement-spital-davos-ch",
-          "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
+          "dipl-pflegefachperson-hf-uberwachungsstation-40-60-bewerbungsmanagement-spital-davos-ch"
         ],
         "en": [
           "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
@@ -1957,7 +1961,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

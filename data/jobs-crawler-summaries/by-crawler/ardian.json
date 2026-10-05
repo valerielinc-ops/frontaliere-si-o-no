@@ -1,7 +1,7 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-10-04T21:44:47.998Z",
+  "generatedAt": "2026-10-05T09:40:57.065Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5889,
-  "avgDurationMs": 5889,
+  "unchangedCount": 3,
+  "durationMs": 4956,
+  "avgDurationMs": 4956,
   "durationHistory": [
-    5889
+    4956
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ardian-9f5eec77bfad",
       "slug": "investor-relations-tirocinante-january-2027-i-zurich-ardian-zurich",
@@ -34,7 +38,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:39.172Z",
+      "crawledAt": "2026-10-05T09:40:49.749Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,7 +50,9 @@
       "sector": "Finanza / Private Equity",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-28",
       "postedDate": "2026-08-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "firstSeenAt": "2026-08-31T17:40:33.185Z",
       "salaryMin": 79000,
@@ -73,7 +79,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:38.438Z",
+      "crawledAt": "2026-10-05T09:40:49.049Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +91,9 @@
       "sector": "Finanza / Private Equity",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-28",
       "postedDate": "2026-08-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "firstSeenAt": "2026-08-31T17:40:32.438Z",
       "salaryMin": 79000,
@@ -112,7 +120,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:37.697Z",
+      "crawledAt": "2026-10-05T09:40:48.335Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +132,9 @@
       "sector": "Finanza / Private Equity",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23",
       "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "firstSeenAt": "2026-09-24T00:08:00.352Z",
       "salaryMin": 79000,
@@ -139,7 +149,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
