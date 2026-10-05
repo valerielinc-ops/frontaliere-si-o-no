@@ -11,6 +11,7 @@ import { describe, it, expect } from 'vitest';
 import {
   buildJobPostingSchema as buildRawJobPostingSchema,
   buildCompanyOrganization,
+  buildJobPostingFacts,
   isEmployerOwnedApplyUrl,
   MANDATORY_JOBPOSTING_FIELDS,
   type JobInput,
@@ -359,6 +360,17 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
 
     expect(organization['@id']).toBeUndefined();
     expect(organization.url).toBeUndefined();
+  });
+
+  it('uses an explicit canonical fallback for runtime FAQ facts', () => {
+    const canonicalUrl = 'https://frontaliereticino.ch/en/cerca-lavoro-ticino/dettaglio-offerta/runtime-facts/';
+    const facts = buildJobPostingFacts({ company: 'Unknown Employer', city: 'Lugano' }, 'en', {
+      fallbackUrl: canonicalUrl,
+      knownSlugs: new Set<string>(),
+    });
+
+    expect(facts.hiringOrganization.url).toBe(canonicalUrl);
+    expect(facts.hiringOrganization['@id']).toBe(`${canonicalUrl}#organization`);
   });
 
   it('MANDATORY_JOBPOSTING_FIELDS lists all 9 required paths', () => {
