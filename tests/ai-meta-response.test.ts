@@ -167,6 +167,21 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
   });
 
+  it.each([
+    'The user has provided the job title Buyer for translation.',
+    'The user provided the job title Buyer for translation.',
+    'The user gave the title Buyer to translate.',
+  ])('riconosce la narrazione che esplicita l input fornito dall utente: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
+  });
+
+  it.each([
+    'The user provided feedback on the new translation process.',
+    'The user gave the title Buyer to the hiring manager.',
+  ])('non tratta come narrazione una frase senza intento di traduzione: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toBeNull();
+  });
+
   it('riconosce la descrizione che si chiude con l\'etichetta del template', () => {
     expect(detectAiMetaResponse(`${IT_DESC}\n\nTraduzione:`)).toMatchObject({ kind: 'label-leak' });
   });

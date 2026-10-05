@@ -69,7 +69,7 @@ const LEADING_PATTERNS = [
   ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir |savoir |vérifier |plus de )|je ne (?:vois|trouve) (?:pas|aucun|aucune) )${FR_INPUT}`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
-  ['agent-narration', /^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to)\b/i],
+  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has )?(?:provided|gave) ${EN_INPUT}[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
   // «We need to translate "GL & VAT Accountant" to English.»: only with the
   // quoted input AND the target language. «We need to produce…», «We need to
   // translate our software into German» open real ads and articles.
