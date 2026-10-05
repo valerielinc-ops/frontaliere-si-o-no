@@ -188,12 +188,56 @@ export function EmployerBrandHub({
         <p className="text-sm sm:text-base text-subtle">{copy.tagline}</p>
       </header>
 
-      <div className="prose prose-sm sm:prose-base max-w-none text-body">
+      <section
+        aria-labelledby="employer-brand-open-roles-heading"
+        data-testid="employer-brand-open-roles"
+        className="rounded-xl border border-accent-border bg-accent-subtle/40 p-4 sm:p-5"
+      >
+        <header className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h2
+            id="employer-brand-open-roles-heading"
+            className="text-lg sm:text-xl font-bold font-display text-heading"
+          >
+            {openRolesLabel}
+          </h2>
+          <span className="text-sm font-semibold tabular-nums text-accent">
+            {jobs.length}
+          </span>
+        </header>
+        {topJobs.length === 0 ? (
+          <p className="mt-3 text-sm text-subtle">{copy.emptyStateNote}</p>
+        ) : (
+          <ul className="mt-4 space-y-2">
+            {topJobs.map((job) => {
+              const href = buildJobHref(job, locale);
+              const title = localizedJobTitle(job, locale);
+              const salary = formatSalary(job, locale);
+              return (
+                <li key={job.id}>
+                  <a
+                    href={href}
+                    className="flex min-h-[52px] flex-col justify-center rounded-lg border border-edge bg-surface px-3 py-3 transition-colors hover:border-accent hover:bg-surface-raised sm:px-4"
+                  >
+                    <span className="block text-sm font-semibold leading-snug text-heading">{title}</span>
+                    <span className="mt-1 block text-xs leading-snug text-subtle">
+                      {job.location}
+                      {job.canton ? ` · ${job.canton}` : ''}
+                      {salary ? ` · ${salary}` : ''}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+
+      <section className="prose prose-sm sm:prose-base max-w-none text-body">
         <h2>{copy.sectionHeadings.about}</h2>
         {copy.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
-      </div>
+      </section>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
@@ -233,39 +277,6 @@ export function EmployerBrandHub({
               <span aria-hidden>&rarr;</span>
             </a>
           </p>
-        )}
-      </div>
-
-      <div>
-        <h2 className="text-lg font-bold text-heading mb-3">
-          {openRolesLabel}{' '}
-          <span className="text-subtle font-normal text-base">({jobs.length})</span>
-        </h2>
-        {topJobs.length === 0 ? (
-          <p className="text-sm text-subtle">{copy.emptyStateNote}</p>
-        ) : (
-          <ul className="space-y-2">
-            {topJobs.map((job) => {
-              const href = buildJobHref(job, locale);
-              const title = localizedJobTitle(job, locale);
-              const salary = formatSalary(job, locale);
-              return (
-                <li key={job.id}>
-                  <a
-                    href={href}
-                    className="block rounded-lg border border-edge bg-surface-raised px-3 py-2 hover:border-accent hover:bg-accent-subtle transition-colors"
-                  >
-                    <span className="block text-sm font-semibold text-heading">{title}</span>
-                    <span className="block text-xs text-subtle">
-                      {job.location}
-                      {job.canton ? ` · ${job.canton}` : ''}
-                      {salary ? ` · ${salary}` : ''}
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
         )}
       </div>
 
