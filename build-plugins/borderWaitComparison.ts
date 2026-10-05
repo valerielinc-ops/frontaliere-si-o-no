@@ -347,10 +347,10 @@ export function renderBorderWaitComparison(params: {
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:680px" data-bw-comparison-table>
         <caption class="s-li0wom">${escapeHtml(copy.heading)}</caption>
         <thead><tr>
-          <th class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.observed)}</th>
-          <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.updated)}</th>
-          <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.source)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.observed)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.updated)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.source)}</th>
         </tr></thead>
         <tbody>${liveRows}</tbody>
       </table>
@@ -360,11 +360,12 @@ export function renderBorderWaitComparison(params: {
     <p class="s-sau7he">${escapeHtml(copy.historyLead)}</p>
     <div class="s-card" style="overflow-x:auto;padding:0">
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:520px">
+        <caption class="s-li0wom">${escapeHtml(copy.historyHeading)}</caption>
         <thead><tr>
-          <th class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.morning)}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.evening)}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.distance)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.morning)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.evening)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.distance)}</th>
         </tr></thead>
         <tbody>${historyRows}</tbody>
       </table>

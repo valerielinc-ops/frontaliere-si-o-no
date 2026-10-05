@@ -21,12 +21,15 @@ import { resolve } from 'node:path';
 const fixture = vi.hoisted(() => {
   const id = 'fixture-credit-article';
   const cover = `https://cdn.frontaliereticino.ch/images/blog/${id}.webp`;
-  return { id, cover };
+  const undatedId = 'fixture-undated-article';
+  const undatedCover = `https://cdn.frontaliereticino.ch/images/blog/${undatedId}.webp`;
+  return { id, cover, undatedId, undatedCover };
 });
 
 vi.mock('@/data/blog-articles-data', () => ({
   ARTICLES: [
     { id: fixture.id, category: 'novita', date: '2026-10-01', image: fixture.cover, hasCalculator: false },
+    { id: fixture.undatedId, category: 'pratico', date: '', image: fixture.undatedCover, hasCalculator: false },
     { id: 'fixture-neighbour', category: 'novita', date: '2026-09-30', image: 'https://cdn.frontaliereticino.ch/images/blog/fixture-neighbour.webp', hasCalculator: false },
   ],
 }));
@@ -96,6 +99,11 @@ mergeArticleMetaOverlay('it', {
     { q: 'Prima domanda di prova?', a: 'Prima risposta di prova, abbastanza lunga.' },
     { q: 'Seconda domanda di prova?', a: 'Seconda risposta di prova, abbastanza lunga.' },
   ]),
+  [`blog.article.${fixture.undatedId}.title`]: 'Guida senza data editoriale',
+  [`blog.article.${fixture.undatedId}.excerpt`]: 'Una guida evergreen usata per verificare la sostituzione dello schema.',
+  [`blog.article.${fixture.undatedId}.body1`]: body(4),
+  [`blog.article.${fixture.undatedId}.body2`]: body(5),
+  [`blog.article.${fixture.undatedId}.body3`]: body(6),
   'blog.article.fixture-neighbour.title': 'Articolo vicino',
 });
 
@@ -157,18 +165,22 @@ function stubNetwork(withCredits: boolean | object) {
 
 const nav = { navigateTo: vi.fn() } as unknown as NavigationContextType;
 
-function renderArticle(): HTMLElement {
+function renderArticle(selectedArticle = fixture.id): HTMLElement {
   const wrapper = ({ children }: { children: ReactNode }) => (
     <NavigationContext.Provider value={nav}>{children}</NavigationContext.Provider>
   );
-  return render(<BlogArticles selectedArticle={fixture.id as never} section="frontaliere" />, { wrapper }).container;
+  return render(<BlogArticles selectedArticle={selectedArticle as never} section="frontaliere" />, { wrapper }).container;
 }
 
 /** The static NewsArticle a shard page carries before the SPA replaces it. */
 function addStaticNewsArticle(image: Record<string, unknown>): HTMLScriptElement {
+  return addStaticSchema({ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: 'static', image });
+}
+
+function addStaticSchema(schema: Record<string, unknown>): HTMLScriptElement {
   const el = document.createElement('script');
   el.type = 'application/ld+json';
-  el.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: 'static', image });
+  el.textContent = JSON.stringify(schema);
   document.head.appendChild(el);
   return el;
 }
@@ -394,6 +406,42 @@ describe('the SPA NewsArticle image (P14)', () => {
       `https://frontaliereticino.ch/articoli-frontaliere/${fixture.id}/`,
     );
     expect(ld['@id']).toBe(`${ld.mainEntityOfPage}#article`);
+  });
+
+  it('replaces the static WebPage for an undated article without removing the hydrated WebPage', async () => {
+    stubNetwork(false);
+    const canonical = `https://frontaliereticino.ch/articoli-frontaliere/${fixture.undatedId}/`;
+    const staticArticle = addStaticSchema({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${canonical}#article`,
+      url: canonical,
+      headline: 'static',
+    });
+    const staticPage = addStaticSchema({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+    });
+
+    renderArticle(fixture.undatedId);
+    const hydrated = await spaNewsArticle();
+
+    expect(staticArticle.isConnected).toBe(false);
+    expect(staticPage.isConnected).toBe(true);
+    expect(hydrated['@type']).toBe('WebPage');
+    expect(hydrated['@id']).toBe(`${canonical}#article`);
+    const articleIdentityScripts = [...document.head.querySelectorAll('script[type="application/ld+json"]')]
+      .filter((script) => {
+        try {
+          return JSON.parse(script.textContent || '{}')['@id'] === `${canonical}#article`;
+        } catch {
+          return false;
+        }
+      });
+    expect(articleIdentityScripts).toHaveLength(1);
+    expect(articleIdentityScripts[0].id).toBe('blog-article-jsonld');
   });
 });
 
