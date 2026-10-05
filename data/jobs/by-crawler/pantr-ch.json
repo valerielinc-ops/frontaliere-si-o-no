@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-04T21:42:59.061Z",
+  "assembledAt": "2026-10-05T09:38:51.473Z",
   "jobs": [
     {
       "id": "pantr-ch-fa865fd8b331",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.215Z",
+      "crawledAt": "2026-10-05T09:38:46.708Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -85,7 +85,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-09T14:18:36+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "pantr-ch-cfd0a7b808cb",
@@ -119,7 +121,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.215Z",
+      "crawledAt": "2026-10-05T09:38:46.708Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -133,7 +135,9 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-09T14:06:48+00:00",
       "postedDate": "2026-07-09T14:06:48+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -185,7 +189,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.214Z",
+      "crawledAt": "2026-10-05T09:38:46.707Z",
       "addressLocality": "Rüti",
       "addressRegion": "Zürich",
       "addressCountry": "Switzerland",
@@ -199,7 +203,9 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-24T10:13:53+00:00",
       "postedDate": "2026-07-24T10:13:53+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -251,7 +257,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.213Z",
+      "crawledAt": "2026-10-05T09:38:46.706Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "Switzerland",
@@ -265,7 +271,9 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-19T13:03:18+00:00",
       "postedDate": "2026-08-19T13:03:18+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -327,7 +335,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.213Z",
+      "crawledAt": "2026-10-05T09:38:46.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -374,7 +382,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-04T15:15:06+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "pantr-ch-dbf01c94d0ef",
@@ -408,7 +418,7 @@
       "url": "https://pantr.ch/jobs/senior-business-controller-196/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.212Z",
+      "crawledAt": "2026-10-05T09:38:46.705Z",
       "addressLocality": "Oberkirch",
       "addressRegion": "Luzern",
       "addressCountry": "Switzerland",
@@ -422,7 +432,9 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-08T14:52:06+00:00",
       "postedDate": "2026-09-08T14:52:06+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/senior-business-controller-196/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -474,7 +486,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.211Z",
+      "crawledAt": "2026-10-05T09:38:46.704Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "Switzerland",
@@ -488,7 +500,9 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24T10:17:59+00:00",
       "postedDate": "2026-09-24T10:17:59+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -550,7 +564,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:42:53.209Z",
+      "crawledAt": "2026-10-05T09:38:46.702Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "Switzerland",
@@ -594,7 +608,9 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23T10:30:37+00:00",
+      "postingDateSource": "reported"
     }
   ]
 }

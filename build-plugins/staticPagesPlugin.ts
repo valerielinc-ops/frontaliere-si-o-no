@@ -37,6 +37,7 @@ import { compareArticleSourceDates } from '../services/articleSourceDates';
 // package, where an extensionless deep specifier does not resolve under plain
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
+import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { renderCorrectionsEditorial } from './shared/correctionsEditorial';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
@@ -2256,11 +2257,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // FRO-330: Extract blog article data from blog-articles-data.ts for hero image + SSG article cards
  let blogHeroImageStatic = '';
  interface StaticArticle { id: string; category: string; date: string; image: string }
+ // Field-order-independent read (articleRegistryEntries.ts): the regex that
+ // was here required `image:` right after `date:`, so every entry with
+ // `updatedAt` in between — 306 blog + 60 svizzera on 2026-10-05 — never
+ // reached the hub cards, the hub hero or the per-article hero index below.
+ const readStaticArticles = (src: string): StaticArticle[] =>
+ parseArticleRegistryEntries(src).map(({ id, category, date, image }) => ({ id, category, date, image }));
  let blogArticlesStatic: StaticArticle[] = [];
  try {
  const blogDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'blog-articles-data.ts'), 'utf-8');
- const articleBlocks = [...blogDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']*)',\s*image:\s*'([^']+)'/gs)];
- blogArticlesStatic = articleBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
+ blogArticlesStatic = readStaticArticles(blogDataSrc);
  blogArticlesStatic.sort(compareArticleSourceDates);
  if (blogArticlesStatic.length) {
  blogHeroImageStatic = blogArticlesStatic[0].image;
@@ -2299,13 +2305,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // copy and a CTA to /tutti/, so a reader landing on /articoli-svizzera/ saw
  // no article until they clicked through, and the corpus had no marker to
  // refresh. `swiss-articles-data.ts` is the same `Article` shape, so the same
- // regex reads it.
+ // reader reads it.
  let swissArticlesStatic: StaticArticle[] = [];
  let swissHeroImageStatic = '';
  try {
  const swissDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'swiss-articles-data.ts'), 'utf-8');
- const swissBlocks = [...swissDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']*)',\s*image:\s*'([^']+)'/gs)];
- swissArticlesStatic = swissBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
+ swissArticlesStatic = readStaticArticles(swissDataSrc);
  swissArticlesStatic.sort(compareArticleSourceDates);
  if (swissArticlesStatic.length) {
  swissHeroImageStatic = swissArticlesStatic[0].image;
@@ -2324,30 +2329,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // della stessa pagina nominava l'immagine giusta e `og:image` una terza cosa
  // ancora (`/og-image.png`).
  //
- // Un solo indice id → path, letto dagli stessi registri gia' parsati qui
+ // Un solo indice id → path, costruito dagli stessi registri gia' letti qui
  // sopra, cosi' i tre consumatori (img, og:image, ImageObject) non possono
- // nominare file diversi.
- // Regex propria, non `blogArticlesStatic`: quella richiede
- // id/category/date/image ADIACENTI, e 12 articoli su 3.741 hanno `updatedAt`
- // in mezzo, quindi ne restano fuori. Per le CARD dell'hub e' innocuo (12 voci
- // su 100 mostrate), ma qui un id mancante ricadrebbe sulla hero dell'hub —
- // esattamente il bug che questo indice esiste per chiudere. `[^{}]` non
- // attraversa il confine dell'oggetto, quindi non puo' accoppiare l'id di un
- // articolo con l'immagine del successivo.
- //
- // Deliberatamente NON allargo la regex di `blogArticlesStatic`: quella governa
- // anche la griglia di card e `numberOfItems` dell'ItemList, e cambiarla qui
- // sarebbe un drive-by su una superficie che nessuna misura ha indicato rotta.
+ // nominare file diversi. Fino al 2026-10-05 aveva una regex propria, perche'
+ // quella delle card richiedeva `image:` subito dopo `date:`; anche questa
+ // pero' pretendeva `category` subito dopo `id` e una data non vuota, quindi
+ // gli articoli con `updatedAt` prima di `category` o con `date: ''` ricadevano
+ // sulla hero dell'hub. Ora le card e questo indice leggono con lo stesso
+ // parser, indipendente dall'ordine dei campi (articleRegistryEntries.ts).
+ // Blog prima di svizzera: su un id ripetuto vince la prima voce, come prima.
  const heroImageByArticleId: Record<string, string> = {};
- for (const rel of ['blog-articles-data.ts', 'swiss-articles-data.ts']) {
- try {
- const src = fs.readFileSync(np.resolve(rootDir, 'data', rel), 'utf-8');
- const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']+',\s*date:\s*'[^']+',[^{}]*?image:\s*'([^']+)'/g;
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- if (!heroImageByArticleId[m[1]]) heroImageByArticleId[m[1]] = m[2];
- }
- } catch { /* non-fatal, come le letture di registro qui sopra */ }
+ for (const art of [...blogArticlesStatic, ...swissArticlesStatic]) {
+ if (!heroImageByArticleId[art.id]) heroImageByArticleId[art.id] = art.image;
  }
 
  // Dimensioni REALI della hero, lette dall'header del file, mai dall'attributo
