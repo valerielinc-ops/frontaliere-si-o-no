@@ -35,6 +35,8 @@ import { ARTICLE_SECTION_CORE_LIST } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
+import { articleSectionEntry } from './shared/articleSectionCore.mjs';
+import { cantonRssChannel } from './shared/cantonSectionCopy.mjs';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 export const RSS_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -77,12 +79,14 @@ const FRONTALIERE_SEO_CHUNKS = [
  * hand-written entries this table held before it became table-driven, value
  * for value.
  *
- * There is deliberately no `canton` row yet: a canton channel needs its own
- * title/description per locale, and inventing them here would ship a wrong
- * channel. `rssSectionFor` therefore fails loudly when an ACTIVE section has
- * no profile — activating a canton section has to bring its feed profile in
- * the same change (the test in tests/build-plugins/articleSectionCore.test.ts
- * checks every active section resolves).
+ * The `canton` row (P7a) derives everything from the section core: its own
+ * SEO chunk (`seo-blog-canton-<code>.ts`, the same file the article renderer's
+ * descriptor reads), its own feed names (`rss-canton-<code>[-<locale>].xml`)
+ * and a channel titled with the canton's display name in each locale
+ * (`shared/cantonSectionCopy.mjs`), so no canton can borrow svizzera's
+ * channel. `channel` is a function of the core entry for every kind; the two
+ * historical rows return the same literals they always held.
+ * `rssSectionFor` still fails loudly on a kind with no row.
  */
 const RSS_KIND_PROFILES = {
   frontaliere: {
@@ -91,12 +95,12 @@ const RSS_KIND_PROFILES = {
     slugFallback: 'it',
     mainFeed: () => 'rss.xml',
     feedFile: () => (locale) => `rss-${locale}.xml`,
-    channel: {
+    channel: () => ({
       it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino' },
       en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino' },
       de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin' },
       fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin' },
-    },
+    }),
   },
   national: {
     seoFiles: ['seo-blog-ch.ts'],
@@ -106,12 +110,24 @@ const RSS_KIND_PROFILES = {
     slugFallback: 'id',
     mainFeed: (core) => `rss-${core.section}.xml`,
     feedFile: (core) => (locale) => `rss-${core.section}-${locale}.xml`,
-    channel: {
+    channel: () => ({
       it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana' },
       en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life' },
       de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag' },
       fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne' },
-    },
+    }),
+  },
+  canton: {
+    // Never shared with another section: the article renderer reads this
+    // section's entries from `services/seo/seo-blog-<section>.ts`
+    // (articleSectionDescriptors.ts, canton row), the feed reads the same file.
+    seoFiles: (core) => [`seo-blog-${core.section}.ts`],
+    // Same fallback the archive applies to a canton article without a slug in
+    // this locale (`blogUrlSlugs[id]?.[locale] ?? id`): the id, not the IT slug.
+    slugFallback: 'id',
+    mainFeed: (core) => `rss-${core.section}.xml`,
+    feedFile: (core) => (locale) => `rss-${core.section}-${locale}.xml`,
+    channel: (core) => cantonRssChannel(core.section),
   },
 };
 
@@ -130,9 +146,10 @@ export function rssSectionFor(core) {
   if (!profile) {
     throw new Error(`rssFeeds: nessun profilo RSS per la sezione attiva "${core.section}" (tipo ${core.kind})`);
   }
+  const channel = profile.channel(core);
   return {
     id: core.section,
-    seoFiles: profile.seoFiles,
+    seoFiles: typeof profile.seoFiles === 'function' ? profile.seoFiles(core) : profile.seoFiles,
     slugFile: core.slugDataFile,
     slugConst: core.slugConst,
     metaFile: (locale) => `${core.metaPrefix}-${locale}.ts`,
@@ -141,8 +158,8 @@ export function rssSectionFor(core) {
     mainFeed: profile.mainFeed(core),
     feedFile: profile.feedFile(core),
     localeMeta: Object.fromEntries(RSS_LOCALES.map((locale) => [locale, {
-      title: profile.channel[locale].title,
-      description: profile.channel[locale].description,
+      title: channel[locale].title,
+      description: channel[locale].description,
       language: locale,
       articlePrefix: articlePrefixFor(core, locale),
     }])),
@@ -155,6 +172,17 @@ export function rssSectionFor(core) {
  * list, so the ten feeds are unchanged.
  */
 export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
+
+/**
+ * RSS table row of ANY known section id, active or not (throws on an unknown
+ * id). `RSS_SECTIONS` stays the active list the publisher iterates; this is
+ * what the canton publisher (corpus, R2) and the tests use to build one
+ * canton's feeds — pass the row to `buildSectionFeeds`.
+ * @param {string} id
+ */
+export function rssSectionForId(id) {
+  return rssSectionFor(articleSectionEntry(id));
+}
 
 const DEFAULT_LAYOUT = { seoDir: 'services/seo', localesDir: 'services/locales', slugDir: null };
 

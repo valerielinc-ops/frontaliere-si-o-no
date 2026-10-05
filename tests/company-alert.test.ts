@@ -373,6 +373,16 @@ describe('pinned-company match survives a brand alias whose canonical is not a s
     const profile = alertFor(canonicalCompanyProfileSlug('Guess Ticino'));
     expect(scoreJobForAlert({ id: 'x', title: 'Sales Assistant', company: 'Medacta International SA', canton: 'TI' }, profile)).toBe(0);
   });
+
+  // Measured on Firestore 2026-10-05: active alerts pinned to a label the
+  // crawler no longer emits, with zero matching jobs. The fold keeps them alive.
+  it.each([
+    ['usi', 'USI – Università della Svizzera italiana'],
+    ['ospedale-malcantonese-oscam-fondazione-giuseppe-rossi', 'OSCAM – Ospedale e Casa Anziani Malcantonese'],
+    ['zurich-insurance-sede-ticino', 'Zurich Insurance'],
+  ])('an alert stored as %s still matches the label "%s"', (storedKey, company) => {
+    expect(scoreJobForAlert({ id: 'j', title: 'Collaboratore', company, canton: 'TI' }, alertFor(storedKey))).toBeGreaterThan(0);
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

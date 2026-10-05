@@ -405,7 +405,6 @@
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84"
       ],
       "previousSlugsByLocale": {
@@ -413,7 +412,6 @@
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84"
         ],
         "de": [
@@ -5818,12 +5816,12 @@
     },
     {
       "id": "stadtspital-zuerich-b62282b72b68",
-      "slug": "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc",
+      "slug": "dipl-analista-biomedico-in-hf-diagnostico-di-laboratorio-biomedico-in-bsc-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc",
-        "en": "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc",
+        "it": "dipl-analista-biomedico-in-hf-diagnostico-di-laboratorio-biomedico-in-bsc-stadtspital-zurich-zurich",
+        "en": "dipl-biomedical-analyst-hf-biomedical-laboratory-diagnostician-bsc-stadtspital-zurich-zurich",
         "de": "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc",
-        "fr": "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc"
+        "fr": "analyste-biomedical-diplome-es-diagnosticien-de-laboratoire-biomedical-bsc-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5884,7 +5882,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc"
+        ],
+        "en": [
+          "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc"
+        ],
+        "fr": [
+          "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-biomedizinischer-analytiker-in-hf-biomedizinischer-labordiagnostiker-in-bsc"
+      ]
     },
     {
       "id": "stadtspital-zuerich-111a1716205b",
