@@ -31,6 +31,10 @@
  * 6. New PR writes can opt into a strict decision-deferral check: `per scelta`,
  *    `by construction` and the owner-decision state require concrete `Motivo:`
  *    and `Prossimo passo:` fields.
+ * 7. The same strict mode (`strictClaims`, default = `strictDecisionDeferrals`)
+ *    blocks a performance claim in `## Implementato` with no evidence in the
+ *    body (`unvalidated-perf-claim`, #11675) and warns on an unmeasured bounded
+ *    I/O claim (`unvalidated-io-bound-claim`). See `unvalidatedPerfClaims`.
  *
  * Usage:
  *   node scripts/lib/pr-body-sections-check.mjs "$BODY"   # exit 1 on violation
@@ -421,6 +425,97 @@ export function filesUncitedInBody(diffPaths, body) {
 }
 
 // ---------------------------------------------------------------------------
+// Claim di prestazione non validato (escalation #11675)
+// ---------------------------------------------------------------------------
+
+/**
+ * AGENTS.md («Claim build/perf/memoria non validabile pre-merge → dichiara il
+ * trigger di revert») e REVIEW.md step 7 erano solo prosa: il reviewer li
+ * applicava dopo, con un 🔴 e un giro di review in più. Bucket
+ * `reviewer-finding/unvalidated-claim` del lessons-harvester, 6 PR in 14 giorni
+ * (#11641, #11053, #10464, #10292, #9959, #9950), tutte con un 🔴 corretto
+ * prima di `## LGTM`. Qui la stessa regola diventa deterministica e scatta
+ * prima della review: in `## Implementato` una frase che dichiara un guadagno
+ * di tempo, memoria, disco o CI, senza nel body nessuna delle prove che il
+ * reviewer accetta.
+ *
+ * Due livelli, tarati sul body che il reviewer ha giudicato (la versione in
+ * vigore alla prima review, dalla cronologia degli edit) e su 145 body
+ * originali di PR mergiate dal 21-09 al 05-10 con `## LGTM` finale e senza quel
+ * finding (10 per giorno):
+ *   - `unvalidated-perf-claim` (VIOLAZIONE): quantità con unità di tempo o di
+ *     dimensione accanto a un verbo di guadagno, oppure un verbo di guadagno
+ *     accanto a un sostantivo di risorsa (suite completa, wall-time, memoria,
+ *     RSS, OOM, disco, pack, margine del job…). Segnala 4 esempi su 6
+ *     (#10292, #11641, #10464, #9959); 1 body su 145 (#10653, «riducendo la
+ *     crescita della memoria del build» senza misura, cioè proprio la classe
+ *     della regola, che il reviewer non ha segnalato).
+ *   - `unvalidated-io-bound-claim` (WARNING): lavoro di I/O limitato o evitato
+ *     (fetch, download, prefetch, preflight; limitato, bounded). Prende gli altri
+ *     2 esempi (#9950, #11053), ma su 145 body ne segnala altri 3 (#9552,
+ *     #10272, #10430): sopra la tolleranza di un falso positivo su 50, quindi
+ *     resta advisory.
+ *
+ * Prova = una qualunque delle forme che il reviewer accetta, ovunque nel body:
+ * link a una run `/actions/runs/<id>`, una riga `Misura:` / `Comando:`, una
+ * «misura pre/post» o «prima/dopo», una coppia di quantità confrontate
+ * («308 MB contro 203 MB», «da 216 s a 9 s»), «non validato pre-merge», un
+ * trigger o un rischio di revert, `blocked: misura post-merge`, una baseline.
+ */
+const PERF_QTY = String.raw`\d+(?:[.,']\d+)*\s*(?:ms|s|sec|secondi|minut[oi]|min|ore|h|MB|GB|KB|MiB|GiB|%)(?!\w)`;
+const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
+const PERF_BENEFIT = `(?:${PERF_BENEFIT_ALT})`;
+const PERF_RESOURCE = String.raw`(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|\brss\b|\boom\b|heap|\bdisco\b|\bdisk\b|spazio su disco|\bleak\b|\bpack\b|margine del job|minuti|secondi|quota|latenza|throughput)`;
+const PERF_CLAIM_RE = new RegExp(
+  String.raw`${PERF_QTY}[^.\n]{0,120}${PERF_BENEFIT}|${PERF_BENEFIT}[^.\n]{0,120}${PERF_QTY}`
+  + String.raw`|${PERF_BENEFIT}[^.\n]{0,100}${PERF_RESOURCE}|${PERF_RESOURCE}[^.\n]{0,100}${PERF_BENEFIT}`,
+  'i',
+);
+const IO_BENEFIT = String.raw`(?:${PERF_BENEFIT_ALT}|limitat\w*|bound\w*)`;
+const IO_RESOURCE = String.raw`(?:download|prefetch|preflight|fetch)`;
+const IO_BOUND_CLAIM_RE = new RegExp(
+  String.raw`${IO_BENEFIT}[^.\n]{0,100}${IO_RESOURCE}|${IO_RESOURCE}[^.\n]{0,100}${IO_BENEFIT}`,
+  'i',
+);
+const PERF_EVIDENCE_RE = /\/actions\/runs\/\d+|^\s*(?:[-*]\s*)?(?:\*\*)?(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:|\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)|\bnon\s+validat[oaie]\s+pre-?merge|\btrigger\s+di\s+revert|\brevert[- ]trigger|\brischio\s+di\s+revert|\bblocked\s*:\s*misura\s+post-?merge|\bbaseline\b/im;
+const PERF_PAIR_RE = new RegExp(
+  String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
+  + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
+  'i',
+);
+
+function stripCode(text) {
+  return stripNonContent(text).replace(/`[^`\n]*`/g, ' ');
+}
+
+/**
+ * Le frasi di `## Implementato` che dichiarano un guadagno di prestazione senza
+ * che il body porti una prova (vedi sopra). `blocking` sono i claim del livello
+ * violazione, `advisory` quelli del solo livello I/O.
+ *
+ * @param {string} body full PR body text
+ * @returns {{ blocking: string[], advisory: string[] }}
+ */
+export function unvalidatedPerfClaims(body = '') {
+  const s = String(body ?? '');
+  const empty = { blocking: [], advisory: [] };
+  const impl = extractSection(s, IMPL_RE);
+  if (!impl) return empty;
+  if (PERF_EVIDENCE_RE.test(stripNonContent(s)) || PERF_PAIR_RE.test(stripCode(s))) return empty;
+  const blocking = [];
+  const advisory = [];
+  for (const line of stripCode(impl).split('\n')) {
+    for (const sentence of line.split(/(?<=[.;])\s+/)) {
+      const text = sentence.replace(/^[ \t]*[-*+][ \t]*/, '').trim();
+      if (!text) continue;
+      if (PERF_CLAIM_RE.test(text)) blocking.push(text);
+      else if (IO_BOUND_CLAIM_RE.test(text)) advisory.push(text);
+    }
+  }
+  return { blocking, advisory };
+}
+
+// ---------------------------------------------------------------------------
 // Combined validator
 // ---------------------------------------------------------------------------
 
@@ -453,12 +548,14 @@ const NON_IMPL_NO_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im
  * da fare quando la misura sarà 0/13.
  *
  * @param {string} body full PR body text
- * @param {{ diffPaths?: string[], strictDecisionDeferrals?: boolean }} [opts] `diffPaths` (optional): repo-relative paths
+ * @param {{ diffPaths?: string[], strictDecisionDeferrals?: boolean, strictClaims?: boolean }} [opts] `diffPaths` (optional): repo-relative paths
  *   changed by the PR, to power the diff-vs-body citation check (#6301). Omitted →
  *   that check simply doesn't run (no diff to compare against).
  * @returns {{ ok: boolean, violations: Array<{type:string,section?:string,message:string}>, warnings: Array<{type:string,section?:string,message:string}> }}
  */
-export function checkPrBodySections(body = '', { diffPaths, strictDecisionDeferrals = false } = {}) {
+export function checkPrBodySections(body = '', {
+  diffPaths, strictDecisionDeferrals = false, strictClaims = strictDecisionDeferrals,
+} = {}) {
   const s = String(body ?? '');
   const violations = [];
   const warnings = [];
@@ -607,6 +704,38 @@ export function checkPrBodySections(body = '', { diffPaths, strictDecisionDeferr
             + '`Motivo: <causa concreta>` e `Prossimo passo: <azione concreta>`.',
         });
       }
+    }
+  }
+
+  // --- 5c. STRICT: claim di prestazione senza prova (#11675) ------------------
+  // Solo per le scritture nuove (stessa opzione delle deroghe): i lettori di
+  // body storici e il contratto del corpus, che chiama senza opzioni, restano
+  // invariati.
+  if (strictClaims && hasImpl) {
+    const { blocking, advisory } = unvalidatedPerfClaims(s);
+    const remedy = ' Aggiungi nel body una prova: link alla run `/actions/runs/<id>`, una riga'
+      + ' `Misura:` o `Comando:` con l\'output pre/post, oppure dichiara il claim'
+      + ' «non validato pre-merge» con un bullet `blocked: misura post-merge` in'
+      + ' `## Non implementato (ancora)` che nomina workflow, soglia e trigger di revert'
+      + ' (AGENTS.md, Build And Test; REVIEW.md step 7).';
+    if (blocking.length > 0) {
+      violations.push({
+        type: 'unvalidated-perf-claim',
+        section: 'Implementato',
+        message:
+          `${blocking.length} frase di \`## Implementato\` dichiara un guadagno di tempo, memoria,`
+          + ` disco o CI senza misura: "${blocking[0].slice(0, 160)}".` + remedy,
+      });
+    }
+    if (advisory.length > 0) {
+      warnings.push({
+        type: 'unvalidated-io-bound-claim',
+        section: 'Implementato',
+        message:
+          `${advisory.length} frase di \`## Implementato\` limita o evita lavoro di I/O senza misura:`
+          + ` "${advisory[0].slice(0, 160)}". Se è un claim di prestazione, vale la stessa regola.`
+          + remedy,
+      });
     }
   }
 
