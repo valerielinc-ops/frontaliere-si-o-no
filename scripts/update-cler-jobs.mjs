@@ -148,7 +148,7 @@ export function resolveBranchAddress(arbeitsort, sourceStreetAddress = '') {
         postalCode: sourcePostalCode
           || officialLocalityPostalCode(candidate, branch.canton)
           || branch.postalCode
-          || getCantonPostalFallback(branch.canton),
+          || getCantonPostalFallback(branch.canton, candidate),
         street: sourceStreet || candidate.trim(),
       };
     }
@@ -160,7 +160,7 @@ export function resolveBranchAddress(arbeitsort, sourceStreetAddress = '') {
         canton,
         postalCode: sourcePostalCode
           || officialLocalityPostalCode(candidate, canton)
-          || getCantonPostalFallback(canton),
+          || getCantonPostalFallback(canton, candidate),
         street: sourceStreet || candidate.trim(),
       };
     }

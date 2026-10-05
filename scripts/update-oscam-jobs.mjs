@@ -16,7 +16,7 @@
  *   3. Filter out non-job entries (forms, certificates)
  *   4. Deduplicate across both pages by PDF URL
  *   5. Build job objects with structured descriptions
- *   6. Merge into data/jobs.json (add new, update existing, prune stale)
+ *   6. Merge into data/jobs.json (add new, update existing, archive stale)
  *   7. Run the base crawler for AI localization (4 locales)
  *   8. Post-process: fix company name, location, canton
  *   9. Validate locale coverage across IT/EN/DE/FR
@@ -59,6 +59,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -83,6 +84,20 @@ const CAREERS_URLS = [
   'https://www.oscam.ch/lavoraconnoi-cam/',
 ];
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const OSCAM_HOSPITAL_ADDRESS = Object.freeze({
+  streetAddress: 'Nucleo 30',
+  addressLocality: 'Castelrotto',
+  addressRegion: 'TI',
+  postalCode: '6980',
+  addressCountry: 'CH',
+});
+const OSCAM_CASA_ANZIANA_ADDRESS = Object.freeze({
+  streetAddress: 'Via Mera 9',
+  addressLocality: 'Caslano',
+  addressRegion: 'TI',
+  postalCode: '6987',
+  addressCountry: 'CH',
+});
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -214,7 +229,7 @@ async function fetchPage(url, timeoutMs = 20_000) {
  *
  * Non-job entries (Certificato medico, Autocertificazioni) must be skipped.
  */
-function parseListingPage(html) {
+function parseListingPage(html, careerPageUrl = '') {
   const jobs = [];
 
   // Extract the CONCORSI ATTIVI section
@@ -282,6 +297,7 @@ function parseListingPage(html) {
     jobs.push({
       title: anchorTitle || rawTitle,
       pdfUrl: pdfUrl.startsWith('http') ? pdfUrl : `https://www.oscam.ch${pdfUrl}`,
+      careerPageUrl,
     });
   }
 
@@ -395,7 +411,7 @@ export async function fetchOscamJobs() {
       continue;
     }
 
-    const listings = parseListingPage(html);
+    const listings = parseListingPage(html, url);
     console.log(`📋 Found ${listings.length} concorso(i) on ${url}`);
 
     for (const listing of listings) {
@@ -431,15 +447,19 @@ export async function fetchOscamJobs() {
       }
 
       const slug = slugify(listing.title, COMPANY_KEY);
+      const address = listing.careerPageUrl?.includes('lavoraconnoi-cam')
+        ? OSCAM_CASA_ANZIANA_ADDRESS
+        : OSCAM_HOSPITAL_ADDRESS;
 
       const job = {
         title: listing.title,
         slug,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
-        location: 'Castelrotto',
+        location: address.addressLocality,
         canton: HQ.canton,
         country: 'CH',
+        ...address,
         url: listing.pdfUrl,
         applyUrl: 'mailto:info@oscam.ch',
         description,
@@ -454,7 +474,7 @@ export async function fetchOscamJobs() {
         descriptionByLocale: { [sourceLang]: description },
         slugByLocale: { [sourceLang]: slug },
         sourceLang,
-        _targetScope: { canton: HQ.canton, location: 'Castelrotto' },
+        _targetScope: { canton: HQ.canton, location: address.addressLocality },
       };
 
       allJobs.push(job);
@@ -524,6 +544,11 @@ async function mergeJobs(discoveredJobs) {
         location: discovered.location || ex.location,
         canton: HQ.canton,
         country: 'CH',
+        streetAddress: discovered.streetAddress || ex.streetAddress,
+        postalCode: discovered.postalCode || ex.postalCode,
+        addressLocality: discovered.addressLocality || ex.addressLocality,
+        addressRegion: discovered.addressRegion || ex.addressRegion || HQ.addressRegion,
+        addressCountry: discovered.addressCountry || ex.addressCountry || 'CH',
         url: discovered.url || ex.url,
         applyUrl: discovered.applyUrl || ex.applyUrl,
         category: discovered.category || ex.category,
@@ -556,9 +581,11 @@ async function mergeJobs(discoveredJobs) {
     }
   }
 
-  for (const [key] of existingByKey) {
-    if (!discoveredByKey.has(key)) removed++;
-  }
+  const removedJobs = [...existingByKey.entries()]
+    .filter(([key]) => !discoveredByKey.has(key))
+    .map(([, job]) => job);
+  removed = removedJobs.length;
+  const archived = archiveRemovedJobsToSlice(removedJobs, COMPANY_KEY);
 
   const final = [...nonTargetJobs, ...merged];
 
@@ -569,7 +596,7 @@ async function mergeJobs(discoveredJobs) {
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
-  console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  📦 Archived (stale): ${archived}/${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
   return { added, updated, removed, total: final.length };
@@ -644,9 +671,18 @@ function postProcessJobs() {
     }
     job.canton = HQ.canton;
     job.country = 'CH';
-    if (!job.location) {
-      job.location = 'Castelrotto';
+    const address = normalize(job.addressLocality || job.location) === 'caslano'
+      ? OSCAM_CASA_ANZIANA_ADDRESS
+      : OSCAM_HOSPITAL_ADDRESS;
+    if (job.location !== address.addressLocality) {
+      job.location = address.addressLocality;
       fixed++;
+    }
+    for (const [field, value] of Object.entries(address)) {
+      if (job[field] !== value) {
+        job[field] = value;
+        fixed++;
+      }
     }
   }
 

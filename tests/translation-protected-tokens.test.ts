@@ -600,6 +600,10 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // `shadowWithheldOverwrite` (issue #9677) conta gli overwrite trattenuti
     // dal kill-switch e giudica il campione shadow: riceve rollout e giudice
     // come argomenti, non tocca il filesystem e non scrive un job.
+    // `isOverwriteSlot` e `overwriteQueueBudget` decidono quante sovrascritture
+    // vanno in coda: funzioni pure. `readOverwriteRollback` e
+    // `recordOverwriteRollback` leggono/scrivono il marker del rollback solo
+    // quando sono chiamate; all'import calcolano soltanto il percorso.
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
@@ -608,6 +612,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'commitMopupCandidate',
       'createFreshCoverageMeter',
       'finalizeMopupTranslation',
+      'isOverwriteSlot',
       'judgeMopupWrite',
       'languageAwareOverwriteEnabled',
       'masculineGermanTitle',
@@ -617,6 +622,9 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'opusMtRescueEnabled',
       'orderMopupJobsByTraffic',
       'orderMopupRequestsTitleFirst',
+      'overwriteQueueBudget',
+      'readOverwriteRollback',
+      'recordOverwriteRollback',
       'rescueMopupRejects',
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',

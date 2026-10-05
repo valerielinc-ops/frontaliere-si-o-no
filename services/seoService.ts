@@ -117,7 +117,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // hide it from non-mocked consumers like services/seo/schema-normalizers.ts.
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
-import { ORGANIZATION_LD } from './seo/organizationLd';
+import { EDITORIAL_TEAM_ID, ORGANIZATION_LD } from './seo/organizationLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -125,12 +125,12 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
  * Reused across all structured data to ensure consistency.
  *
  * Includes inline E-E-A-T fields (name, description, knowsAbout) alongside
- * the @id reference so that AI crawlers and schema validators see expertise
- * signals even without resolving the referenced #organization entity.
+ * the editorial-team identity so that AI crawlers and schema validators see
+ * expertise signals without merging the team into the publisher entity.
  */
 export const SCHEMA_AUTHOR = {
  "@type": "Organization",
- "@id": `${BASE_URL}/#organization`,
+ "@id": EDITORIAL_TEAM_ID,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",
@@ -153,12 +153,12 @@ export const SCHEMA_PUBLISHER = ORGANIZATION_LD;
  * Organization author for blog articles and editorial content.
  * Uses the same enriched author object as SCHEMA_AUTHOR so that
  * AI systems see E-E-A-T signals (knowsAbout, description) inline,
- * while the @id still links to the standalone Organization in index.html
- * for knowledge graph consistency.
+ * while the @id still links to the editorial team page instead of the
+ * publisher Organization in index.html.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
  "@type": "Organization",
- "@id": `${BASE_URL}/#organization`,
+ "@id": EDITORIAL_TEAM_ID,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",

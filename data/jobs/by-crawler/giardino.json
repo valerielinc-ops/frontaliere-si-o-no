@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-10-05T09:34:47.116Z",
+  "assembledAt": "2026-10-05T21:55:38.895Z",
   "jobs": [
     {
       "id": "giardino-decd4a786515",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:34:41.730Z",
+      "crawledAt": "2026-10-05T21:55:32.719Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -46,7 +46,9 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "requirements": [
         "Solid professional training with relevant work experience",
@@ -100,9 +102,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "giardino-2403a22d9a66",
@@ -135,7 +135,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:34:41.560Z",
+      "crawledAt": "2026-10-05T21:55:32.533Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -148,7 +148,9 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "requirements": [
         "Completed professional training as a restaurant specialist / hospitality professional",
@@ -208,9 +210,7 @@
           "maxValue": 39000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "giardino-227608c1543b",
@@ -243,7 +243,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:34:41.416Z",
+      "crawledAt": "2026-10-05T21:55:32.321Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -256,7 +256,9 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "requirements": [
         "Completed training in the commercial sector",
@@ -316,15 +318,13 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "giardino-e4acc19666d6",
       "slug": "chef-de-rang-giardino-group-champfer",
       "slugByLocale": {
-        "it": "capo-di-stato-maggiore-giardino-group-champfer",
+        "it": "chef-de-rang-giardino-group-champfer",
         "en": "chef-de-rang-giardino-group-champfer",
         "de": "chef-de-rang-giardino-group-champfer",
         "fr": "chef-de-rang-giardino-group-champfer"
@@ -351,7 +351,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:34:41.256Z",
+      "crawledAt": "2026-10-05T21:55:32.126Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -364,7 +364,9 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "requirements": [
         "Completed training as a restaurant specialist",
@@ -402,11 +404,13 @@
         "capo-di-grado-giardino-group-champfer",
         "chef-de-rang-giardino-group-champfer-xfwxht",
         "chief-of-rank-giardino-group-champfer",
-        "head-of-rank-giardino-group-champfer"
+        "head-of-rank-giardino-group-champfer",
+        "capo-di-stato-maggiore-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-di-grado-giardino-group-champfer"
+          "capo-di-grado-giardino-group-champfer",
+          "capo-di-stato-maggiore-giardino-group-champfer"
         ],
         "en": [
           "chef-de-rang-giardino-group-champfer-xfwxht",
@@ -434,9 +438,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     }
   ]
 }
