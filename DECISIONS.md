@@ -2,15 +2,9 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-10-05 | Traduzioni dei lavori: quando i tier a chiave (Azure, DeepL, Google) falliscono per auth o quota, la cascata di translate-pending usa **Codex Luna Max come riserva**, con un tetto per run. Un 401 di Azure coperto dalla riserva non è needs-human | sessione 05-10 (H7, corpus 2054) |
-| 2026-10-05 | Copie della sorgente negli slot di lingua dei lavori: i crawler **tengono la convenzione**, cioè la copia marcata `needsRetranslation` che translate-pending sostituisce. La housekeeping delle slice non scrive copie (#11576) | sessione 05-10 (I2, #6109) |
-| 2026-10-05 | Harvester delle lezioni: i bucket **di argomento** restano solo nel report e l'escalation scatta solo sulle sottoclassi legate a una regola violata. Soglie invariate | sessione 05-10 (I3, #10112) |
-| 2026-10-05 | Follow-up: un item bloccato **solo** dalla guardia risorse locale diventa `done` quando la CI required sullo sha di merge ha eseguito verde la sua suite, e la prova (job, run e sha) resta nell'item. È un allargamento voluto del criterio di chiusura | sessione 05-10 (I4) |
-| 2026-10-05 | Monitor del CTR per template: le query promozionali o di solo marchio e quelle con operatori di ricerca (`-site:`, `site:` …) si **segmentano** fuori dalla metrica principale. È una correzione della misura dichiarata; la soglia non cambia | sessione 05-10 (I5, #11198) |
-| 2026-10-05 | **PostHog sostituito da GA4** come sorgente dei monitor. Il codice client di PostHog resta solo per la telemetria storica | sessione 05-10 (H9, #5921) |
-| 2026-10-05 | GA4: con 50 dimensioni EVENT su 50 in uso **non se ne archivia nessuna per ora**; si decide quando un esperimento chiede una dimensione nuova | sessione 05-10 (H4) |
-| 2026-10-05 | Prezzi degli eventi (TAR-1): accettato che i prezzi senza provenienza restino nascosti finché i crawler non li ritimbrano con la fonte | sessione 05-10 (H5, #11499) |
-| 2026-10-05 | Dati non ottenibili da una fonte ammessa, per esempio le farmacie di turno di 23 cantoni senza feed ufficiale o un endpoint che non esiste: l'item si **chiude come non ottenibile**, con scritta la condizione per riaprirlo, come per le targhe JU/NE | sessione 05-10 (#8705) |
+| 2026-10-05 | Traduzioni lavori: Codex Luna Max di riserva se falliscono le chiavi, tetto per run (H7); copie sorgente marcate tenute (I2) | 05-10 |
+| 2026-10-05 | Monitor: GA4 invece di PostHog (H9); CTR senza query promo/operatori, soglia invariata (I5); argomenti harvester solo nel report (I3); GA4 non si archivia (H4) | 05-10 |
+| 2026-10-05 | Item bloccato solo dalla guardia locale: done con CI required verde (I4); prezzi eventi senza fonte nascosti (H5); dato senza fonte ammessa: chiuso non ottenibile (#8705) | 05-10 |
 | 2026-10-04 | Gate CLS post-deploy: regressione → issue, nessun blocco del deploy | sessione 04-10 |
 | 2026-09-29, conferma 2026-10-04 | #6408 antivirus dei CV: **NO, nessuna scansione**. CV in coda admin col badge «non scansionato»; restano magic bytes (`cvFileCheck`) e `storage.rules`. Motivo: nessun provider AV approvato e integrarlo manda CV reali a un terzo (secret, egress, retention). #6408 chiusa `not planned` | sessione 29-09 (PR #10287), conferma 04-10 |
 | 2026-09-24 | **Nessun veto sul ciclo autonomo**: F1/F7, control-plane, path/categorie ignoti e `needs-human` sono evidenza, mai deny (policy f1-f7-v4). Supersede il veto del contratto VISION | istruzione diretta, sessione 24-09 |
@@ -24,9 +18,7 @@
 | 2026-09-24 | #9559: **SÌ, procedi** — il click su “Candidati” è consenso esplicito per il segnale `application_intent` (distinto dalla candidatura completata). Il record Firebase salva timestamp, versione e testo mostrati, origine, identificatore, IP anonimizzato e user-agent troncato; testo/terms accanto al CTA prima del click; reminder e ranking entro retention, opt-out e cancellazione | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | #1715 corpus: **SÌ, procedi** — stessa decisione applicata al handoff dal corpus al sito; il click su “Candidati” è un consenso esplicito per registrare l’intento e alimentare reminder/ranking secondo il contratto Firebase del sito | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | #1626 corpus: **SÌ, procedi** — mantenere il contratto attuale: il fast publisher aggiorna solo `.shard-filecount`; `.shard-deploys` resta riservato ai full/locale push e al cap di flatten della cronologia | istruzione diretta, sessione 24-09 |
-| 2026-09-23 → superseded 2026-09-24 | Deny tecnico, capability mancante, timeout e root-cause non convergente vanno in `automation-deferred`; `needs-human` non è più un canale di attesa | istruzione diretta, sessione 23-09 |
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
-| 2026-09-03 → superseded 2026-09-16 | Modello unificato Claude Opus a `--effort medium` per i tier del fixer; decisione storica, sostituita dal lane Codex | issue-fix.yml → Tier |
 | 2026-09-16 | Workflow agentici e lane articolo unificati su Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`); nessun fallback Claude nei workflow | issue-fix.yml, tests.yml, setup Codex lane |
 | 2026-09-23 | Quando una PR è `MERGED` e il run post-fix è verde, è autorizzata la chiusura manuale dell'issue anche se la riapertura punta soltanto a un run storico; la verifica deve restare nel ledger | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Un crawler apparentemente morto non si ritira per prima cosa: si triangolano sorgente ufficiale, fonti secondarie, raggiungibilità, selettori e recenza. Ritiro solo dopo evidenza, decisa dall'agente con l'evidenza nella PR (2026-09-24) | istruzione diretta, sessione 23-09 |
@@ -42,7 +34,6 @@
 | 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |
-| 2026-08-14 → superseded 2026-09-24 | Congelamento job-alert revocato: vedi riga 2026-09-24 | sessione 14-08 |
 | 2026-08-13 | Publisher doppio sulla stessa coda: spento lo schedule del sito | #5794 → PR #5822 |
 | 2026-08-13 | Quattro scelte LPD registrate | #5764 (commenti 13-08) |
 | 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
