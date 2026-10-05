@@ -1,6 +1,6 @@
 {
   "crawlerKey": "blatters-hotel",
-  "assembledAt": "2026-10-05T09:20:34.085Z",
+  "assembledAt": "2026-10-05T16:23:23.420Z",
   "jobs": [
     {
       "id": "blatters-hotel-58ae0d93afc8",
@@ -33,7 +33,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:20:29.191Z",
+      "crawledAt": "2026-10-05T16:23:18.120Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:20:29.189Z",
+      "crawledAt": "2026-10-05T16:23:18.118Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -124,7 +124,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "requirements": [],
       "requirementsByLocale": {},
@@ -155,9 +157,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "blatters-hotel-28c8df98464e",
@@ -190,7 +190,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:20:29.188Z",
+      "crawledAt": "2026-10-05T16:23:18.116Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",

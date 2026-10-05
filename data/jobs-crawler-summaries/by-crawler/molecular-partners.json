@@ -1,7 +1,7 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-10-05T09:16:33.845Z",
+  "generatedAt": "2026-10-05T16:19:26.411Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4653,
-  "avgDurationMs": 4653,
+  "unchangedCount": 2,
+  "durationMs": 4675,
+  "avgDurationMs": 4675,
   "durationHistory": [
-    4653
+    4675
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
       "slug": "responsabile-contabilita-senior-molecular-partners-switzerland-zurich-schlieren",
@@ -35,7 +37,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:16:26.425Z",
+      "crawledAt": "2026-10-05T16:19:16.079Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -76,7 +78,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:16:25.875Z",
+      "crawledAt": "2026-10-05T16:19:15.531Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,8 +95,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
-      "firstSeenAt": "2026-09-23T19:50:29.070Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T19:50:29.070Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -107,7 +109,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "e6907b26c920b76d7ae0325c41ce8e4d2c525562"
 }
