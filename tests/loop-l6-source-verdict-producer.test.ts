@@ -123,6 +123,14 @@ describe('selection from RAW_ARTICLES', () => {
     expect(selected.at(-1)?.id).toBe('notizia-antica');
   });
 
+  it('keeps an article when a quoted field contains braces', () => {
+    const withBraces = DATA_FIXTURE.replace(
+      "id: 'notizia-recente',",
+      "id: 'notizia-recente',\n title: 'Aliquota { speciale }',",
+    );
+    expect(parseRawArticles(withBraces).map((entry) => entry.id)).toContain('notizia-recente');
+  });
+
   it('--select prints the four body paths of each selected article, one per line', async () => {
     const root = tempRoot([]);
     let printed = '';

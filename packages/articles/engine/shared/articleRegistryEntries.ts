@@ -1,3 +1,5 @@
+import { articleRegistryObjectBodies } from './articleRegistryObjectBodies.mjs';
+
 /**
  * Reads the entries of an article registry SOURCE
  * (`blog-articles-data.ts` / `swiss-articles-data.ts`) without importing it.
@@ -17,16 +19,17 @@
  * them — and they are the most recently updated articles, exactly the ones a
  * newest-first grid should show.
  *
- * Here each entry is one flat object literal (`[^{}]` cannot cross an entry
- * boundary, so an id can never be paired with the next entry's image), and each
- * field is looked up by name inside it, in any order. An entry without a
- * string `id`, `category`, `image` and `date` is not an article entry (for
- * instance the `Article` interface body) and is skipped. `date: ''` is kept:
- * it is the corpus saying the date is UNKNOWN, and the renderers handle it
+ * Here each entry is one flat object literal; the object scanner tracks braces
+ * only outside quoted strings, so an id can never be paired with the next
+ * entry's image even when a title contains `{` or `}`. Each field is looked up
+ * by name inside the object, in any order. An entry without a string `id`,
+ * `category`, `image` and `date` is not an article entry (for instance the
+ * `Article` interface body) and is skipped. `date: ''` is kept: it is the
+ * corpus saying the date is UNKNOWN, and the renderers handle it
  * (`./sourceDates`).
  *
- * Pure and import-free, so it stays inside the `packages/articles`
- * confinement boundary and the corpus can run it unchanged.
+ * The shared scanner is pure and import-free, so this reader stays inside the
+ * `packages/articles` confinement boundary and the corpus can run it unchanged.
  */
 
 export interface ArticleRegistryEntry {
@@ -37,8 +40,6 @@ export interface ArticleRegistryEntry {
   readonly image: string;
   readonly updatedAt?: string;
 }
-
-const ENTRY_RE = /\{([^{}]*)\}/g;
 
 function stringField(body: string, key: string): string | undefined {
   const m = new RegExp(`(?:^|[\\s,{])${key}\\s*:\\s*'((?:[^'\\\\]|\\\\.)*)'`).exec(body);
@@ -52,8 +53,7 @@ function stringField(body: string, key: string): string | undefined {
 export function parseArticleRegistryEntries(source: string): ArticleRegistryEntry[] {
   const out: ArticleRegistryEntry[] = [];
   const seen = new Set<string>();
-  for (const m of source.matchAll(ENTRY_RE)) {
-    const body = m[1];
+  for (const body of articleRegistryObjectBodies(source)) {
     const id = stringField(body, 'id');
     if (!id || seen.has(id)) continue;
     const category = stringField(body, 'category');

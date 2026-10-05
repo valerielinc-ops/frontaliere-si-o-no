@@ -101,6 +101,14 @@ describe('parseArticleRegistryEntries', () => {
     const src = "{ id: 'a', category: 'fiscale', date: '' },\n{ id: 'b', category: 'fiscale', date: '', image: '/b.webp' }";
     expect(parseArticleRegistryEntries(src).map((e) => [e.id, e.image])).toEqual([['b', '/b.webp']]);
   });
+
+  it('keeps braces inside quoted fields within the entry', () => {
+    const entries = parseArticleRegistryEntries(
+      "{ id: 'a', category: 'fiscale', date: '2026-01-01', title: 'Aliquota { speciale }', image: '/images/a.jpg' }",
+    );
+    expect(entries).toHaveLength(1);
+    expect(entries[0]).toMatchObject({ id: 'a', image: '/images/a.jpg' });
+  });
 });
 
 describe('hub cards built from the registry', () => {
