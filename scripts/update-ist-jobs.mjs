@@ -64,7 +64,11 @@ import {
   sourceLocaleDescription,
 } from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  locationFieldHasSwissSignal,
+} from './lib/target-swiss-locations.mjs';
 import {
   exitCrawlerOnError,
   fetchHtml as fetchHtmlShared,
@@ -439,6 +443,68 @@ export function parseCountryCode(locText = '') {
   return inferAnyCanton(locality) === tail ? 'CH' : tail;
 }
 
+/**
+ * A detail walk can prove that the global portal has no IST opening only when
+ * every fetched page is classifiable. A title alone is not enough: a missing
+ * location or tenant marker can be selector drift on an IST posting and must
+ * keep the run fail-closed.
+ */
+export function hasCompleteIstDetailEvidence(detail = {}) {
+  const location = normalizeSpace(detail.location);
+  if (!normalizeSpace(detail.title) || !location) return false;
+
+  const countryCode = parseCountryCode(location);
+  const explicitlyForeign = (countryCode && countryCode !== 'CH')
+    || isLocationExplicitlyForeign(location);
+  if (explicitlyForeign) return true;
+
+  if (!locationFieldHasSwissSignal(location)) return false;
+  if (isIstDetailJob(detail)) return true;
+
+  const identityValues = [
+    detail.company,
+    detail.tenant,
+    detail.tenantName,
+    detail.facility,
+    detail.facilityName,
+    detail.school,
+    detail.schoolName,
+    detail.organization,
+    detail.site,
+    detail.siteName,
+    detail.hiringOrganization,
+  ]
+    .map((value) => normalize(value))
+    .filter(Boolean);
+
+  // `Inspired Education` is the shared portal owner, not a tenant identity.
+  // Any other populated identity field is enough to prove that a Swiss row
+  // was classified as another school rather than silently discarded.
+  return identityValues.some((value) => !IST_SHARED_PORTAL_COMPANIES.has(value));
+}
+
+/**
+ * Classify the source/detail boundary for the crawler-health receipt.
+ *
+ * A complete global detail walk with zero IST jobs is a source-backed empty
+ * snapshot. If any detail was not classifiable, keep `selector_miss` so a
+ * changed detail schema cannot be mistaken for a quiet school.
+ */
+export function classifyIstDetailWalk({ discoveredCount, parsedCount, completeDetailCount }) {
+  const validCounts = [discoveredCount, parsedCount, completeDetailCount]
+    .every((value) => Number.isInteger(value) && value >= 0);
+  if (!validCounts || completeDetailCount > discoveredCount || parsedCount > discoveredCount) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
+  const complete = discoveredCount === 0 || completeDetailCount === discoveredCount;
+  return {
+    authoritativeEmptySnapshot: parsedCount === 0 && complete,
+    lastFetchOutcome: parsedCount > 0
+      ? 'ok'
+      : (complete ? 'filtered_empty' : 'selector_miss'),
+  };
+}
+
 /* ── Job building ──────────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -503,6 +569,7 @@ export async function fetchIstJobs() {
 
   const jobs = [];
   let titledDetails = 0;
+  let completeDetailCount = 0;
   for (const url of jobUrls) {
     const detail = await fetchJobDetail(url);
     if (!detail || !detail.title) {
@@ -510,6 +577,7 @@ export async function fetchIstJobs() {
       continue;
     }
     titledDetails++;
+    if (hasCompleteIstDetailEvidence(detail)) completeDetailCount++;
 
     if (!isIstDetailJob(detail)) {
       console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
@@ -579,9 +647,19 @@ export async function fetchIstJobs() {
   }
 
   SUMMARY_COUNTS.parsed = jobs.length;
-  SUMMARY_COUNTS.lastFetchOutcome = jobs.length > 0
-    ? 'ok'
-    : (titledDetails > 0 ? 'filtered_empty' : 'selector_miss');
+  const detailWalk = classifyIstDetailWalk({
+    discoveredCount: jobUrls.length,
+    parsedCount: jobs.length,
+    completeDetailCount,
+  });
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = detailWalk.authoritativeEmptySnapshot;
+  SUMMARY_COUNTS.lastFetchOutcome = detailWalk.lastFetchOutcome;
+  if (jobs.length === 0 && titledDetails > 0 && !detailWalk.authoritativeEmptySnapshot) {
+    console.warn(
+      `⚠️ IST detail walk was incomplete (${completeDetailCount}/${jobUrls.length} pages classifiable); `
+      + 'keeping the empty result fail-closed.',
+    );
+  }
   console.log(`\n📋 Total unique IST jobs discovered: ${jobs.length}`);
   return jobs;
 }

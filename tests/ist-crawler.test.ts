@@ -3,7 +3,9 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildIstDescriptionFields,
+  classifyIstDetailWalk,
   dropIstFabricatedText,
+  hasCompleteIstDetailEvidence,
   isIstDetailJob,
   parseCountryCode,
   parseIstSitemapJobUrls,
@@ -46,6 +48,34 @@ describe('IST sitemap discovery', () => {
       ],
       authoritativeEmptySnapshot: false,
     });
+  });
+});
+
+describe('IST empty-source proof', () => {
+  it('accepts a complete global detail walk with no IST jobs as authoritative empty', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'London, GB',
+      hiringOrganization: 'Inspired Education',
+    })).toBe(true);
+    expect(classifyIstDetailWalk({
+      discoveredCount: 301,
+      parsedCount: 0,
+      completeDetailCount: 301,
+    })).toEqual({ authoritativeEmptySnapshot: true, lastFetchOutcome: 'filtered_empty' });
+  });
+
+  it('does not certify an empty source when a Swiss detail lacks tenant evidence', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Lugano, CH',
+      hiringOrganization: 'Inspired Education',
+    })).toBe(false);
+    expect(classifyIstDetailWalk({
+      discoveredCount: 301,
+      parsedCount: 0,
+      completeDetailCount: 300,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
   });
 });
 
