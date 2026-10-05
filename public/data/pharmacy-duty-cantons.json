@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-05T17:10:39.017Z",
+  "windowDays": 7,
+  "dutyHubPath": "/farmacie-di-turno/",
+  "cantons": {
+    "TI": {
+      "members": [
+        "TI"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:09:51.520Z",
+      "sourceUrl": "https://www.ofct.ch/farmacieturno/",
+      "sourceType": "official",
+      "duties": [
+        {
+          "pharmacy": "Stazione",
+          "city": "Biasca",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-02T16:00:00.000Z",
+          "endsAt": "2026-10-09T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Del Corso",
+          "city": "Chiasso",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-03T06:00:00.000Z",
+          "endsAt": "2026-10-06T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Farmacia Bozzoreda",
+          "city": "Pregassona",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-03T06:00:00.000Z",
+          "endsAt": "2026-10-10T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "S. Gottardo",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-05T16:30:00.000Z",
+          "endsAt": "2026-10-09T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Contrada dei Patrizi",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-06T06:00:00.000Z",
+          "endsAt": "2026-10-10T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Moderna",
+          "city": "Bodio",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-09T16:00:00.000Z",
+          "endsAt": "2026-10-16T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Malè",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-09T16:30:00.000Z",
+          "endsAt": "2026-10-12T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Dr.Camponovo",
+          "city": "Balerna",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-10T06:00:00.000Z",
+          "endsAt": "2026-10-13T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Farmacia Pharmaexpress",
+          "city": "Lugano",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-10T06:00:00.000Z",
+          "endsAt": "2026-10-17T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Teatro",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-12T16:30:00.000Z",
+          "endsAt": "2026-10-16T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        }
+      ],
+      "unresolvedDuties": 3
+    },
+    "GE": {
+      "members": [
+        "GE"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:10:37.842Z",
+      "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+      "sourceType": "association",
+      "duties": [
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-04T22:00:00.000Z",
+          "endsAt": "2026-10-05T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-05T22:00:00.000Z",
+          "endsAt": "2026-10-06T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-06T22:00:00.000Z",
+          "endsAt": "2026-10-07T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-07T22:00:00.000Z",
+          "endsAt": "2026-10-08T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-08T22:00:00.000Z",
+          "endsAt": "2026-10-09T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-09T22:00:00.000Z",
+          "endsAt": "2026-10-10T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-10T22:00:00.000Z",
+          "endsAt": "2026-10-11T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-11T22:00:00.000Z",
+          "endsAt": "2026-10-12T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        }
+      ],
+      "unresolvedDuties": 0
+    },
+    "JU": {
+      "members": [
+        "JU"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:10:39.017Z",
+      "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
+      "sourceType": "official",
+      "duties": [
+        {
+          "pharmacy": "Amavita Porrentruy",
+          "city": "Porrentruy",
+          "coverageName": "Ajoie",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-03T06:00:00.000Z",
+          "endsAt": "2026-10-10T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/771931847a2abb283d1594e963fa55092c48113f1c90583a0594fbd0894ef21f.pdf/Plan-de-garde-des-pharmacies-dAjoie-2026-2027.pdf?download=1"
+        },
+        {
+          "pharmacy": "Sun Store",
+          "city": "Delémont",
+          "coverageName": "Delémont",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-03T06:00:00.000Z",
+          "endsAt": "2026-10-10T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/01baf7bafb804ba41706469e756cfccecfac1eee8116c5ba49fc8a29abfe57a6.pdf/Plan-de-garde-des-pharmacies-de-Delemont-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-05T16:30:00.000Z",
+          "endsAt": "2026-10-06T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-06T16:30:00.000Z",
+          "endsAt": "2026-10-07T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-07T16:30:00.000Z",
+          "endsAt": "2026-10-08T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-08T16:30:00.000Z",
+          "endsAt": "2026-10-09T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-09T16:30:00.000Z",
+          "endsAt": "2026-10-10T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Benu-Gare",
+          "city": "Delémont",
+          "coverageName": "Delémont",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-10T06:00:00.000Z",
+          "endsAt": "2026-10-17T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/01baf7bafb804ba41706469e756cfccecfac1eee8116c5ba49fc8a29abfe57a6.pdf/Plan-de-garde-des-pharmacies-de-Delemont-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Sun Store Esplanade",
+          "city": "Porrentruy",
+          "coverageName": "Ajoie",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-10T06:00:00.000Z",
+          "endsAt": "2026-10-17T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/771931847a2abb283d1594e963fa55092c48113f1c90583a0594fbd0894ef21f.pdf/Plan-de-garde-des-pharmacies-dAjoie-2026-2027.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-10T16:30:00.000Z",
+          "endsAt": "2026-10-11T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-11T08:00:00.000Z",
+          "endsAt": "2026-10-11T10:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-11T16:30:00.000Z",
+          "endsAt": "2026-10-12T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-11T16:30:00.000Z",
+          "endsAt": "2026-10-11T17:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-10-12T16:30:00.000Z",
+          "endsAt": "2026-10-13T06:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        }
+      ],
+      "unresolvedDuties": 0
+    },
+    "BASILEA": {
+      "members": [
+        "BS"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:10:39.017Z",
+      "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
+      "sourceType": "official",
+      "duties": [
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-04T22:00:00.000Z",
+          "endsAt": "2026-10-05T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-05T22:00:00.000Z",
+          "endsAt": "2026-10-06T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-06T22:00:00.000Z",
+          "endsAt": "2026-10-07T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-07T22:00:00.000Z",
+          "endsAt": "2026-10-08T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-08T22:00:00.000Z",
+          "endsAt": "2026-10-09T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-09T22:00:00.000Z",
+          "endsAt": "2026-10-10T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-10T22:00:00.000Z",
+          "endsAt": "2026-10-11T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-11T22:00:00.000Z",
+          "endsAt": "2026-10-12T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        }
+      ],
+      "unresolvedDuties": 0
+    },
+    "ZH": {
+      "members": [
+        "ZH"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:10:39.017Z",
+      "sourceUrl": "https://www.avkz.ch/notfalldienst",
+      "sourceType": "association",
+      "duties": [
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-04T22:00:00.000Z",
+          "endsAt": "2026-10-05T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-05T22:00:00.000Z",
+          "endsAt": "2026-10-06T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-06T22:00:00.000Z",
+          "endsAt": "2026-10-07T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-07T22:00:00.000Z",
+          "endsAt": "2026-10-08T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-08T22:00:00.000Z",
+          "endsAt": "2026-10-09T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-09T22:00:00.000Z",
+          "endsAt": "2026-10-10T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-10T22:00:00.000Z",
+          "endsAt": "2026-10-11T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-11T22:00:00.000Z",
+          "endsAt": "2026-10-12T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        }
+      ],
+      "unresolvedDuties": 0
+    },
+    "SO": {
+      "members": [
+        "SO"
+      ],
+      "state": "fresh",
+      "fetchedAt": "2026-10-05T17:10:39.017Z",
+      "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
+      "sourceType": "association",
+      "duties": [
+        {
+          "pharmacy": "Saner Apotheke Dornach",
+          "city": "Dornach",
+          "coverageName": "Dorneck-Thierstein",
+          "dutyType": "holiday",
+          "startsAt": "2026-10-11T07:00:00.000Z",
+          "endsAt": "2026-10-11T10:00:00.000Z",
+          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
+        },
+        {
+          "pharmacy": "Apotheke Coop-Vitality - Grenchen",
+          "city": "Grenchen",
+          "coverageName": "Solothurn",
+          "dutyType": "holiday",
+          "startsAt": "2026-10-11T08:00:00.000Z",
+          "endsAt": "2026-10-11T10:00:00.000Z",
+          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
+        },
+        {
+          "pharmacy": "Apotheke zum Kreuz",
+          "city": "Olten",
+          "coverageName": "Olten",
+          "dutyType": "holiday",
+          "startsAt": "2026-10-11T08:00:00.000Z",
+          "endsAt": "2026-10-11T10:00:00.000Z",
+          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
+        }
+      ],
+      "unresolvedDuties": 0
+    }
+  }
+}
