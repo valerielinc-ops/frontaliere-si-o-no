@@ -196,4 +196,35 @@ describe('index.css (SPA bundle source) cascade does not re-hide the cluster bod
       });
     });
   });
+
+  it('keeps the homepage SEO panel styling in the SPA stylesheet', () => {
+    const css = fs.readFileSync(SPA_CSS_PATH, 'utf8');
+    const root = postcss.parse(css, { from: SPA_CSS_PATH });
+    const lastRootRule = (selector: string): postcss.Rule | undefined => {
+      let match: postcss.Rule | undefined;
+      root.walkRules((rule) => {
+        if (rule.selector === selector && rule.parent === root) match = rule;
+      });
+      return match;
+    };
+
+    const panelRule = lastRootRule('aside.seo-footer-block');
+    expect(panelRule?.toString()).toContain('border-radius: 16px');
+    expect(panelRule?.toString()).toContain('background: var(--color-surface-alt)');
+
+    const openDetailsRule = lastRootRule('aside.seo-footer-block details[open]');
+    expect(openDetailsRule?.toString()).toContain('border: 1px solid var(--color-accent-border)');
+
+    const desktopCardsRule = lastRootRule('aside.seo-footer-block .seo-fb-cards');
+    expect(desktopCardsRule?.toString()).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))');
+
+    let mobileCardsRule: postcss.Rule | undefined;
+    root.walkAtRules('media', (media) => {
+      if (media.params !== '(max-width: 640px)') return;
+      media.walkRules((rule) => {
+        if (rule.selector === 'aside.seo-footer-block .seo-fb-cards') mobileCardsRule = rule;
+      });
+    });
+    expect(mobileCardsRule?.toString()).toContain('grid-template-columns: 1fr');
+  });
 });
