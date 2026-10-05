@@ -7724,6 +7724,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.veicoli-berna-calcolo-pratico.title': 'Motor vehicle tax in Bern: calculation and payment',
     'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'In the Canton of Bern, the criteria, deadlines, amounts and office responsible for motor vehicle tax depend on cantonal rules.',
     'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Car and documents for the cantonal motor vehicle tax in Bern.',
+    'blog.article.prezzi-pellet-ticino-aumenti.title': 'Pellet prices in Ticino: price increases and winter purchases',
+    'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analysis of pellet prices in Ticino with estimated price increases between 5% and 10% and recommendations for purchases before winter.',
+    'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Wood pellet storage in Ticino with bags and bulk',
 };
 
 export default blogMetaChEn;
