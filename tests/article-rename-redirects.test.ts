@@ -431,8 +431,9 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    // 177 since #8730 added the FR `frais-de-transit-suisse` Bing remediation redirect.
-    expect(Object.keys(HARDCODED).length).toBe(177);
+    // 183 on the current main baseline, including the six redirects added
+    // after the original #8730 canary was recorded.
+    expect(Object.keys(HARDCODED).length).toBe(183);
   });
 });
 
