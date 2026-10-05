@@ -51,7 +51,7 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
@@ -4011,6 +4011,15 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       && !overlapCandidate,
     );
     if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
+    // A ghost is the SAME posting under another slug. An archive record that
+    // names its source posting (url, sourceIdentity, or the history a dedup
+    // merge leaves) and does not name the matched job is a different posting
+    // that happens to share title/company/location — typically a sibling
+    // vacancy housekeeping archived as a duplicate. Merging it would hand the
+    // active job another posting's routes, including its hash-tailed slug,
+    // which becomes cross-job contamination once that posting is re-listed
+    // (#11596). Records without any identity keep the legacy evidence rules.
+    if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost
     const ghostId = expiredGhostIdentity(ej);
