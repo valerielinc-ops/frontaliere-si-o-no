@@ -180,6 +180,15 @@ describe('selection from RAW_ARTICLES', () => {
     )));
   });
 
+  it('reads rows from a registry with an explicit Article[] annotation', () => {
+    const typedFixture = `const RAW_ARTICLES: Article[] = [
+      { id: 'typed-entry', category: 'novita', date: '2026-10-05' },
+] satisfies Article[];`;
+
+    expect(parseRawArticles(typedFixture).map((entry) => entry.id)).toEqual(['typed-entry']);
+    expect(rawArticlesBlock(typedFixture)).toContain("id: 'typed-entry'");
+  });
+
   const realData = path.join(ROOT, ARTICLES_DATA_PATH);
   const realPresent = fs.existsSync(realData);
   // The one live-data case of this file (LIVE_DATA_PARTIAL_TESTS): the article
