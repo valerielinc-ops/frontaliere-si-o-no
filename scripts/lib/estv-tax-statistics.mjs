@@ -163,8 +163,13 @@ export function parseTaxBurdenExport(json, { years, incomes }) {
       byYear: Object.fromEntries(years.map((y) => [String(y), new Array(incomes.length).fill(null)])),
     });
     years.forEach((year, i) => {
+      const slot = entry.byYear[String(year)];
+      // Una sola riga per (cantone, reddito): un duplicato vuol dire che il
+      // formato dell'export e' cambiato, e scegliere in silenzio l'ultima
+      // riga pubblicherebbe un numero non verificato.
+      if (slot[incomeIndex] !== null) throw new Error(`ESTV tax burden export: riga duplicata ${code} ${row.income} ${year}`);
       const v = Number(row.values[i]);
-      entry.byYear[String(year)][incomeIndex] = Number.isFinite(v) ? round2(v) : null;
+      slot[incomeIndex] = Number.isFinite(v) ? round2(v) : NaN;
     });
   }
   return out;

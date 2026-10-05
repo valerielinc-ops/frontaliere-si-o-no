@@ -116,6 +116,8 @@ describe('parser delle pagine ESTV', () => {
       TI: { municipality: 'Bellinzona', bfsId: 5002, byYear: { '2025': [2.91, 8.92], '2026': [2.91, 8.92] } },
     });
     expect(() => parseTaxBurdenExport({}, { years: [2026], incomes: [30000] })).toThrow(/payload/);
+    const dup = { payload: [json.payload[0], { ...json.payload[0], values: [3, 3] }] };
+    expect(() => parseTaxBurdenExport(dup, { years: [2025, 2026], incomes: [30000, 60000] })).toThrow(/duplicata/);
   });
 
   it('arrotonda come round(x, 2) di Python sul valore binario esatto', () => {

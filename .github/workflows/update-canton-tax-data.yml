@@ -109,9 +109,12 @@ jobs:
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
+      # Niente `|| true`: se il dispatch fallisce, i dati restano committati ma
+      # non pubblicati sul CDN (latest.json obsoleto per il corpus), e il job
+      # deve diventare rosso per raggiungere il reporter qui sotto.
       - name: Trigger deploy workflow
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh || true
+        run: bash scripts/lib/trigger-deploy.sh
 
       - name: Report failure to GitHub Issues
         if: failure()
