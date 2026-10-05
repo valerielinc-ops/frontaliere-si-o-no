@@ -1263,7 +1263,7 @@ export const ONE_TAP_ATTRIBUTION: Readonly<AuthAttributionContext> = Object.free
 
 /**
  * `newsletter_subscribers.variant` for a login that started from the JobBoard
- * gate of a visitor enrolled in jobgate-v3 — the same `jobgate-v3:<arm>` the
+ * gate of a visitor enrolled in the jobgate experiment — the same `jobgate-v4:<arm>` the
  * gate's email unlock writes (`upsertJobGateSubscriber`), which is the
  * readout's join key. The arm travels in the job context JobBoard parks at the
  * gate (`variant` + `experimentId`, re-parked when the assignment resolves)

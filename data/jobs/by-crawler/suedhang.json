@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suedhang",
-  "assembledAt": "2026-10-05T09:12:57.689Z",
+  "assembledAt": "2026-10-05T21:27:22.685Z",
   "jobs": [
     {
       "id": "suedhang-c5cfbbeecd8d",
@@ -34,7 +34,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:52.812Z",
+      "crawledAt": "2026-10-05T21:27:19.044Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -56,13 +56,11 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-suedhang-ch",
-        "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach"
+        "mitarbeiter-in-reinigung-suedhang-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-suedhang-ch",
-          "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach"
+          "mitarbeiter-in-reinigung-suedhang-ch"
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:46.861Z",
@@ -86,9 +84,9 @@
       "slug": "sozialarbeiter-in-bsc-suedhang-ch",
       "slugByLocale": {
         "it": "sozialarbeiter-in-bsc-suedhang-ch",
-        "en": "sozialarbeiter-in-bsc-suedhang-ch",
+        "en": "socialworker-bsc-klinik-sudhang-kirchlindach",
         "de": "sozialarbeiter-in-bsc-suedhang-ch",
-        "fr": "sozialarbeiter-in-bsc-suedhang-ch"
+        "fr": "travailleursocial-bsc-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -113,7 +111,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/sozialarbeiterin-bsc/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:52.344Z",
+      "crawledAt": "2026-10-05T21:27:18.551Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -182,7 +180,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:51.874Z",
+      "crawledAt": "2026-10-05T21:27:18.063Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -205,14 +203,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-          "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch"
@@ -268,7 +264,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:51.406Z",
+      "crawledAt": "2026-10-05T21:27:17.574Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -291,12 +287,10 @@
       "pensum": "40 - 50%",
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
@@ -306,9 +300,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
       ],
       "firstSeenAt": "2026-08-31T17:02:35.263Z",
       "salaryMin": 73000,
@@ -358,7 +350,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:50.934Z",
+      "crawledAt": "2026-10-05T21:27:17.085Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -381,14 +373,12 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-suedhang-ch",
-        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
-        "dipl-professionista-hf-fh-klinik-sudhang-kirchlindach"
+        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-suedhang-ch",
-          "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
-          "dipl-professionista-hf-fh-klinik-sudhang-kirchlindach"
+          "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
@@ -444,7 +434,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:50.467Z",
+      "crawledAt": "2026-10-05T21:27:16.593Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -496,14 +486,12 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+          "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
@@ -556,7 +544,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:49.998Z",
+      "crawledAt": "2026-10-05T21:27:16.104Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -580,14 +568,12 @@
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch-2",
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
@@ -646,7 +632,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:49.528Z",
+      "crawledAt": "2026-10-05T21:27:15.612Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -668,13 +654,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-suedhang-ch",
-        "principale-medico-principal-medico-klinik-sudhang-kirchlindach"
+        "leitende-arztin-leitenden-arzt-suedhang-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitenden-arzt-suedhang-ch",
-          "principale-medico-principal-medico-klinik-sudhang-kirchlindach"
+          "leitende-arztin-leitenden-arzt-suedhang-ch"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-suedhang-ch"

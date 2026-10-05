@@ -506,18 +506,18 @@ describe('attributionCoverage', () => {
   });
 });
 
-describe('readout CLI: finestra di default per jobgate-v3', () => {
+describe('readout CLI: finestra di default per l\'esperimento del piano (jobgate-v4)', () => {
   const script = path.resolve(__dirname, '../scripts/analytics/job-gate-experiment-readout.mjs');
   const env = { ...process.env, GOOGLE_APPLICATION_CREDENTIALS: '', FIREBASE_SERVICE_ACCOUNT_JSON: '' };
 
-  it('--since vale 2026-09-26 (giorno dopo il guasto CDN del lancio)', () => {
-    const res = spawnSync(process.execPath, [script, '--until', '2026-09-25'], { encoding: 'utf8', env });
+  it('--since vale 2026-10-07 (giorno dopo il lancio su Remote Config)', () => {
+    const res = spawnSync(process.execPath, [script, '--until', '2026-10-06'], { encoding: 'utf8', env });
     expect(res.status).toBe(2);
-    expect(res.stderr).toContain('--until 2026-09-25 precede --since 2026-09-26');
+    expect(res.stderr).toContain('--until 2026-10-06 precede --since 2026-10-07');
   });
 
   it('con una finestra valida arriva al controllo delle credenziali (nessuna rete)', () => {
-    const res = spawnSync(process.execPath, [script, '--until', '2026-10-02', '--include-bots'], { encoding: 'utf8', env });
+    const res = spawnSync(process.execPath, [script, '--until', '2026-10-13', '--include-bots'], { encoding: 'utf8', env });
     expect(res.status).toBe(2);
     expect(res.stderr).toContain('credenziali mancanti');
   });

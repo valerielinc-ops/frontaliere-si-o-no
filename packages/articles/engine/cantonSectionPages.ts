@@ -654,7 +654,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
   }
   const topic = input.topic;
   const updatedAt = requireDate(input.updatedAt, 'updatedAt');
-  const { baseUrl } = getSiteShell();
+  const { baseUrl, organizationLd } = getSiteShell();
   const copy = HUB_COPY[locale];
   const sectionLabel = cantonSectionLabel(section, locale);
   const hubLabel = cantonTopicHubLabel(section, topic, locale);
@@ -775,7 +775,10 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
       dateModified: updatedAt,
       isAccessibleForFree: true,
       spatialCoverage: { '@type': 'Place', name: cantonDisplayName(section, locale) },
-      creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${baseUrl}/` },
+      // Dataset creator is the same publisher entity used by every other
+      // static emitter.  An anonymous same-name Organization creates a
+      // second graph node beside `#organization`.
+      creator: organizationLd,
       ...(sources.length ? { isBasedOn: sources.map(absUrl) } : {}),
     });
   }

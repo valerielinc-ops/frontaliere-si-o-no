@@ -207,9 +207,8 @@ import { currentJobGateAssignment, recordJobGateExposure, useJobGateExperiment }
 import {
  JOBGATE_EXPERIMENT_ID,
  getJobGateSubscriberVariant,
- jobGateEmailFirst,
- jobGateEmailFormOpen,
 } from '@/services/jobGateExperiment';
+import { jobGateSkin } from '@/components/community/jobGateSkin';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  shouldOfferPaidFallback,
@@ -266,8 +265,6 @@ import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoSer
 import { getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
- getEmailProviderInfo,
- openEmailProvider,
  unifiedEmailConsentInput,
  upsertNewsletterSubscriber,
  upsertUnifiedEmailSubscriber,
@@ -2273,8 +2270,8 @@ function isExternalApplicationJob(job: JobListing): boolean {
 const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
 
 /**
- * The gate's unified subscriber write. An enrolled jobgate-v3 visitor also gets
- * `variant: 'jobgate-v3:<arm>'` on the document (the readout's join key); the
+ * The gate's unified subscriber write. An enrolled jobgate visitor also gets
+ * `variant: 'jobgate-v4:<arm>'` on the document (the readout's join key); the
  * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
  * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
  */
@@ -2326,7 +2323,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const isLikelyBotVisitor = useMemo(() => isLikelyBot(), []);
  const shouldBypassAssistedApplicationExperiment = isCrawlerVisitor || isLikelyBotVisitor;
- // jobgate-v3: while enrolled, every gate event carries the v3 id + arm;
+ // jobgate: while enrolled, every gate event carries the round's id + arm;
  // otherwise the tags stay exactly the headline experiment's.
  const jobGate = useJobGateExperiment(shouldBypassAssistedApplicationExperiment);
  const gateVariant: string = jobGate.enrolled ? jobGate.arm : headlineVariant;
@@ -8229,15 +8226,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }
 
- // jobgate-v3 `similar_alerts`: the pending notice restates the promise
- // (similar jobs need the confirmation click) and opens the known mailbox.
- const jobGateSimilarAlerts = jobGate.arm === 'similar_alerts';
- const jobGateMailbox = jobGateSimilarAlerts && authNotice?.kind === 'pending'
-  ? getEmailProviderInfo(authNotice.email)
-  : null;
- const jobGatePendingJobTitle = jobGateSimilarAlerts && selectedJob
-  ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title)
-  : '';
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
  // Mobile-collapsed by design: the user is at the top of a job-detail page
  // and the auth-pending banner pushed the actual content below the fold on
@@ -8248,7 +8236,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // opens by default and stays open (open:hidden on the marker hides the
  // chevron once expanded). Native <details> needs no extra JS and remains
  // accessible to screen readers and keyboard users.
- <>
  <details
  className="group rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-left shadow-sm [&[open]]:py-4"
  open={typeof window !== 'undefined' ? window.matchMedia('(min-width: 640px)').matches : false}
@@ -8259,9 +8246,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0 flex-1">
  <p className="text-sm font-bold text-warning">
- {jobGatePendingJobTitle
-  ? t('jobBoard.gate.v3.similarAlerts.pendingTitle', { title: jobGatePendingJobTitle })
-  : t('newsletter.doubleOptIn.title')}
+ {t('newsletter.doubleOptIn.title')}
  </p>
  <p className="mt-1 truncate text-xs font-medium text-warning">{authNotice.email}</p>
  </div>
@@ -8275,24 +8260,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
  </div>
  </details>
- {jobGateMailbox && (
- <button
-  type="button"
-  onClick={() => {
-   Analytics.trackExperimentEvent('jobgate_open_mailbox', {
-    experiment_id: JOBGATE_EXPERIMENT_ID,
-    variant: jobGate.arm,
-    provider: jobGateMailbox.name,
-   });
-   openEmailProvider(authNotice.email);
-  }}
-  className="mt-2 w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover text-on-accent text-sm font-semibold transition-colors"
- >
-  <Mail className="w-4 h-4" aria-hidden="true" />
-  {t('jobBoard.gate.v3.similarAlerts.openMailbox', { provider: jobGateMailbox.name })}
- </button>
- )}
- </>
  ) : null;
 
  if (editorialJobTodayLanding) {
@@ -9258,8 +9225,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
- // The inline email form, rendered below the provider buttons (control) or
- // above them for the jobgate-v3 `email_first` arm — one element, never both.
+ // jobgate-v4: colour, elevation and block order of the gate per arm; the
+ // control arm keeps the exact classes and order the gate shipped with.
+ const gateSkin = jobGateSkin(jobGate.arm);
  const inlineEmailForm = (
  <form
  onSubmit={(e) => {
@@ -9284,18 +9252,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  void handleInlineEmailAccess(selectedJob);
  }}
- className={jobGateEmailFirst(jobGate.arm) ? 'space-y-2' : 'mt-3 space-y-2'}
+ className="mt-3 space-y-2"
  >
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
  placeholder={t('jobBoard.authGateEmailPlaceholder')}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className={gateSkin.emailInput}
  />
+ {/* `spotlight` keeps the CTA enabled on an empty field: the input is
+     `required`, so the browser stops the submit and focuses it. */}
  <button
  type="submit"
- disabled={authBusy !== null || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ disabled={authBusy !== null || (gateSkin.emailSubmitDisabledWhenEmpty && !emailInput.trim())}
+ className={gateSkin.emailSubmit}
  >
  {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.gate.emailCta')}
@@ -9472,7 +9442,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
  {/* The anonymous preview has one text budget; requirements remain behind access. */}
  <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description" data-job-description-preview>
-  {descriptionPreview ? <p className="text-sm leading-relaxed text-body">{descriptionPreview}</p> : (
+  {descriptionPreview ? <p className={gateSkin.previewFade ? 'text-sm leading-relaxed text-body mask-b-from-30%' : 'text-sm leading-relaxed text-body'}>{descriptionPreview}</p> : (
    // Keep the empty-description slot stable when enrichment settles without a
    // public description. Otherwise the settled fallback collapses the space
    // reserved by the loading skeleton and shifts the auth gate upward.
@@ -9484,51 +9454,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
   )}
  </section>
 
- {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
- <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
- <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
+ {/* Auth gate — embedded inline for all viewports (no extra click needed).
+     jobgate-v4 arms restyle it through `gateSkin` (components/community/jobGateSkin.ts);
+     `actions_first` also moves the sign-in buttons right under the title. */}
+ {(() => {
+ const gateHeading = (
+ <h2 className={gateSkin.heading}>
+ <Eye className={gateSkin.headingIcon} aria-hidden="true" />
  <span>{t('jobBoard.gate.applicationTitle')}</span>
  </h2>
- <p className="mt-2 text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
+ );
+ const gateExplanation = (
+ <>
+ <p className={gateSkin.subtitle}>{t('jobBoard.gate.subtitle')}</p>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
  per the project's design context (.impeccable.md). */}
- <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <ul className={gateSkin.trustList}>
  <li className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
- <span>{jobGate.arm === 'similar_alerts' ? t('jobBoard.gate.v3.similarAlerts.benefit') : locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
+ <CheckCircle2 size={14} className={gateSkin.trustIcon} aria-hidden="true" />
+ <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
  </li>
  <li className="flex items-center gap-2">
- <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <Shield size={14} className={gateSkin.trustIcon} aria-hidden="true" />
  <span>{t('jobBoard.gate.privacyNote')}</span>
  </li>
  </ul>
-
+ </>
+ );
+ const gateConsent = (
  <EmailConsentCheckbox
   consentKey="communicationsOptIn"
   locale={locale}
   className="mt-3 text-xs text-muted leading-relaxed"
+  noticeClassName={gateSkin.consentNotice ?? undefined}
  />
-
- {/* Social proof — keep one short line */}
- {jobs.length > 0 && (
- <p className="mt-3 text-xs font-medium text-accent">
+ );
+ // Social proof — keep one short line
+ const gateSocialProof = jobs.length > 0 && (
+ <p className={gateSkin.socialProof}>
  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
  </p>
- )}
-
- <div className="mt-4 space-y-3">
- {jobGateEmailFirst(jobGate.arm) && (
- <>
- {inlineEmailForm}
- <div className="flex items-center gap-3">
- <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{t('jobBoard.gate.v3.emailFirst.orProvider')}</span>
- <div className="flex-1 h-px bg-surface-raised/50" />
- </div>
- </>
- )}
+ );
+ const gateActions = (
+ <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
  <div className="space-y-2">
  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
@@ -9556,7 +9525,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  void handleAuthAndOpen('google', 'inline');
  }}
  disabled={authBusy !== null}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
+ className={gateSkin.googleFallbackButton}
  >
  {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -9617,35 +9586,63 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={gateSkin.linkedInButton}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
- <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+ <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  )}
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
  )}
  {/* Email — wrapped in <details open>: default expanded so we don't lose
  the email-preferring segment, but social-first users can collapse it
- to remove the form's vertical footprint from their decision flow.
- jobgate-v3: `social_first` starts it collapsed, `email_first` moves it up. */}
- {!jobGateEmailFirst(jobGate.arm) && (
- <details open={jobGateEmailFormOpen(jobGate.arm)} className="group">
+ to remove the form's vertical footprint from their decision flow. */}
+ <details open className="group">
  <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
- <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ <div className={gateSkin.divider} />
+ <span className={gateSkin.dividerLabel}>
  {t('jobBoard.authGateOrEmail')}
  <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
  </span>
- <div className="flex-1 h-px bg-surface-raised/50" />
+ <div className={gateSkin.divider} />
  </summary>
  {inlineEmailForm}
  </details>
+ </div>
+ );
+ const gateError = authError && <p className={gateSkin.authError}>{authError}</p>;
+ return (
+ <div
+ id="job-auth-gate"
+ role="region"
+ aria-label={t('jobBoard.gate.title')}
+ className={gateSkin.container}
+ data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}
+ >
+ {gateSkin.headerBand ? (
+ <>
+ <div className={gateSkin.headerBand}>{gateHeading}</div>
+ <div className={gateSkin.body}>
+ {gateActions}
+ {gateConsent}
+ {gateExplanation}
+ {gateSocialProof}
+ {gateError}
+ </div>
+ </>
+ ) : (
+ <>
+ {gateHeading}
+ {gateExplanation}
+ {gateConsent}
+ {gateSocialProof}
+ {gateActions}
+ {gateError}
+ </>
  )}
  </div>
-
- {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
- </div>
+ );
+ })()}
  </div>
 
  {/* AdSense — below auth gate form */}
@@ -9974,7 +9971,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingFacts(faqJobInput, locale);
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
