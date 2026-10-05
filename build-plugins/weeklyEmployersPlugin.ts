@@ -2604,7 +2604,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
       }, {
         locale,
         baseUrl: BASE_URL,
-        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+        ...(href ? { fallbackUrl: `${BASE_URL}${href}` } : {}),
         knownSlugs: inp.knownEmployerProfileSlugs,
       });
       return {
@@ -3241,7 +3241,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       }, {
         locale,
         baseUrl: BASE_URL,
-        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+        ...(href ? { fallbackUrl: `${BASE_URL}${href}` } : {}),
         knownSlugs: knownEmployerProfileSlugs,
       });
       return {
