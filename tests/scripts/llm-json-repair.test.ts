@@ -300,6 +300,18 @@ describe('repairLlmJson', () => {
     const parsed = JSON.parse(repairLlmJsonArray(raw));
     expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
   });
+
+  it('skips an unmatched array preamble before a balanced array payload', () => {
+    const raw = 'preamble [unbalanced [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('keeps a real wrapper when a trailing direct array is marked as an example', () => {
+    const raw = '{"faqs":[{"q":"real","a":"A"}]} Example: [{"q":"example","a":"B"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual({ faqs: [{ q: 'real', a: 'A' }] });
+  });
 });
 
 describe('describeJsonParseError', () => {

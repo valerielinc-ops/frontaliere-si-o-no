@@ -732,11 +732,11 @@ function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {
   if (firstCloseIdx !== -1) {
     addCandidate(start, firstCloseIdx, true);
   } else {
-    // In array mode, a malformed object in a prose preamble can precede the
+    // In array mode, a malformed root in a prose preamble can precede the
     // real FAQ array. Keep the historical truncated fallback for retry/error
     // diagnostics, but inspect later roots so a balanced preferred array is
-    // not hidden by that unmatched non-array opener.
-    if (preferredRoot && opener !== preferredRoot) {
+    // not hidden by that unmatched opener (including an unmatched array).
+    if (preferredRoot) {
       collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true });
     }
     // Keep the historical truncated-payload fallback: callers can still
@@ -772,14 +772,20 @@ function selectJsonCandidate(source, parseable, { preferredRoot = null } = {}) {
   const markedAnswers = topLevel.filter((candidate) => cueBefore(source, candidate.start, ANSWER_CUE_RE));
   if (markedAnswers.length) return markedAnswers[markedAnswers.length - 1];
 
+  // A response can contain a valid wrapper followed by a JSON example. Filter
+  // explicit examples before preferring the root shape; otherwise the example
+  // array wins over the real wrapper simply because arrays are preferred.
+  const nonExamples = topLevel.filter((candidate) => !cueBefore(source, candidate.start, EXAMPLE_CUE_RE));
+  const selectionCandidates = nonExamples.length ? nonExamples : topLevel;
+
   // Array-shaped callers must not let a parseable object preamble hide a
   // later direct array payload. Keep wrapped object responses supported by
   // falling back to the complete top-level candidate list when no preferred
   // root is present.
   const preferred = preferredRoot
-    ? topLevel.filter((candidate) => source[candidate.start] === preferredRoot)
-    : topLevel;
-  const selectionPool = preferred.length ? preferred : topLevel;
+    ? selectionCandidates.filter((candidate) => source[candidate.start] === preferredRoot)
+    : selectionCandidates;
+  const selectionPool = preferred.length ? preferred : selectionCandidates;
 
   // If the first candidate is explicitly an example, a later top-level
   // candidate is the only plausible answer. In every other case the first
