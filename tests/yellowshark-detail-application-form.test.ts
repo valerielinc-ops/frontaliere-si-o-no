@@ -73,6 +73,37 @@ describe('Yellowshark detail page with an embedded application form', () => {
   });
 });
 
+describe('only the vacancy title exempts a form', () => {
+  // No named body container: the <main>/<article> fallback reads the region,
+  // so the form's text is published unless the form is cut as chrome.
+  const BODY = '<p>Sie betreuen unsere Kundschaft am Schalter und beraten sie zu allen Produkten und Dienstleistungen der Filiale.</p>';
+
+  it('cuts an application form with its own h1 (review of PR 11718, acceptance input)', () => {
+    const html = '<article><h1>Job X</h1><form><h1>Bewerbungsformular</h1><label>Vorname</label></form></article>';
+    const description = extractDetailFields(html, 'https://jobs.example.ch/job/x/').description;
+    expect(description).not.toContain('Vorname');
+    expect(description).not.toContain('Bewerbungsformular');
+  });
+
+  it('cuts an application form with its own h1 next to the ad', () => {
+    const html = `<html><body><article><h1>Job X</h1>${BODY}
+      <form><h1>Bewerbungsformular</h1><label>Vorname</label><input name="firstname"></form>
+    </article></body></html>`;
+    const text = publishedDescription(html, 'https://jobs.example.ch/job/x/');
+    expect(text).toContain('beraten sie zu allen Produkten');
+    expect(text).not.toContain('Vorname');
+  });
+
+  it('cuts an application form that carries its own article container', () => {
+    const html = `<html><body><main><h1>Job X</h1>${BODY}
+      <form><article><h2>Jetzt bewerben</h2><label>Vorname</label><input name="firstname"></article></form>
+    </main></body></html>`;
+    const text = publishedDescription(html, 'https://jobs.example.ch/job/x/');
+    expect(text).toContain('beraten sie zu allen Produkten');
+    expect(text).not.toContain('Vorname');
+  });
+});
+
 describe('a form that wraps the whole page is not cut', () => {
   it('keeps the vacancy of a page rendered inside one page-level form (ASP.NET WebForms shape)', () => {
     const html = `<html><body><form method="post" action="./Stelle.aspx?id=7" id="aspnetForm">
