@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-10-05T09:24:25.728Z",
+  "generatedAt": "2026-10-05T21:47:25.210Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6464,
-  "avgDurationMs": 6464,
+  "unchangedCount": 2,
+  "durationMs": 5476,
+  "avgDurationMs": 5476,
   "durationHistory": [
-    6464
+    5476
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
       "slug": "psychomotorik-therapeut-in-stiftung-kind-autismus-urdorf",
@@ -36,7 +38,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:24:16.773Z",
+      "crawledAt": "2026-10-05T21:47:17.165Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -73,13 +75,12 @@
       "companyKey": "stiftung-kind-autismus",
       "companyDomain": "kind-autismus.ch",
       "title": "Lehrstelle Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ",
-      "needsRetranslation": true,
       "location": "Urdorf",
       "canton": "ZH",
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:24:15.671Z",
+      "crawledAt": "2026-10-05T21:47:16.426Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +111,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

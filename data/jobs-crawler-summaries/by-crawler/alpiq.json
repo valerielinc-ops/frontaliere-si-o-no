@@ -1,18 +1,19 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-10-05T09:28:46.804Z",
+  "generatedAt": "2026-10-05T21:45:19.276Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 12827,
-  "avgDurationMs": 12827,
+  "durationMs": 10674,
+  "avgDurationMs": 10674,
   "durationHistory": [
-    12827
+    10674
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alpiq-f86495c1bdcc",
       "slug": "da-id-power-trader-uk-focus-alpiq-switzerland",
@@ -39,22 +40,20 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=125&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:28:37.523Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T21:45:11.361Z",
+      "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T09:28:37.523Z",
-      "_qualityScore": 70,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -83,7 +82,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:28:37.506Z",
+      "crawledAt": "2026-10-05T21:45:11.350Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -122,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:28:37.520Z",
+      "crawledAt": "2026-10-05T21:45:11.360Z",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
@@ -165,7 +164,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:28:37.524Z",
+      "crawledAt": "2026-10-05T21:45:11.362Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -204,7 +203,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:28:37.527Z",
+      "crawledAt": "2026-10-05T21:45:11.365Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -219,5 +218,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
