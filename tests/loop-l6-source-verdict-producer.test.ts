@@ -154,6 +154,21 @@ const RAW_ARTICLES: Article[] = [
 
   const realData = path.join(ROOT, ARTICLES_DATA_PATH);
   const realPresent = fs.existsSync(realData);
+  it('keeps the generated raw registry and public export explicitly typed', () => {
+    const text = fs.readFileSync(realData, 'utf8');
+    const declarations = [...text.matchAll(/const\s+(RAW_ARTICLES(?:_CHUNK_\d+)?)([^\n]*)/g)];
+    expect(declarations.length).toBeGreaterThan(0);
+    expect(declarations.every((match) => /:\s*Article\[\]\s*=/.test(match[2]))).toBe(true);
+    expect(text).toMatch(/export\s+const\s+ARTICLES\s*:\s*Article\[\]\s*=/);
+
+    if (!text.includes('const RAW_ARTICLES_CHUNK_01')) {
+      const start = text.indexOf('const RAW_ARTICLES: Article[] = [');
+      const end = text.indexOf('\n];', start);
+      expect(end).toBeGreaterThan(start);
+      expect(text.slice(start, end)).not.toContain('satisfies Article[]');
+    }
+  });
+
   // The one live-data case of this file (LIVE_DATA_PARTIAL_TESTS): the article
   // list is rewritten by the publishing pipeline, so the check runs in
   // live-data-gates, not in the blocking PR job. It asserts no count, only that
