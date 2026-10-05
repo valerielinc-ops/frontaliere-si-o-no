@@ -86,6 +86,10 @@ const LEGIT_DESCRIPTION_OPENERS = [
   // richiesta del modello finche' non parla di tradurlo.
   'Please provide the actual job title you are applying for.',
   'Can you provide the text of your cover letter in German or Italian?',
+  // Review della PR corpus 2166: «we need to …» apre annunci e articoli veri.
+  'We need to produce high-quality components for the automotive industry.',
+  'We need to translate our software into German and French.',
+  'We need to keep our customers at the centre of everything we do.',
 ];
 
 const DE_DESC = 'Als Detailhandelsfachfrau oder Detailhandelsfachmann beraten Sie unsere Kundinnen und Kunden kompetent und freundlich. '
@@ -156,6 +160,15 @@ describe('detectAiMetaResponse — testi legittimi che condividono le parole', (
       source: 'Indicare il titolo della posizione a cui ti candidi.',
     })).toBeNull();
     expect(detectAiMetaResponse('I need to see the actual job title you want translated.')?.kind).toBe('clarification');
+  });
+
+  it('una citazione nella sorgente non esenta una traduzione che APRE con il rifiuto', () => {
+    // Review della PR corpus 2166: l'esenzione valeva per un `includes()` su
+    // tutta la sorgente, quindi bastava che la sorgente citasse il rifiuto.
+    const source = "Il chatbot risponde «Sorry, I can't help with that.» alle domande fuori tema.";
+    expect(detectAiMetaResponse("Sorry, I can't help with that.", { source })?.kind).toBe('refusal');
+    // Ma una sorgente che si apre con lo stesso marcatore resta esente.
+    expect(detectAiMetaResponse("Sorry, I can't help with that.", { source: "Sorry, I can't help with that." })).toBeNull();
   });
 
   it('non conta un marcatore che la sorgente stessa contiene', () => {

@@ -21,7 +21,8 @@
  * can legitimately say «we need» or «sorry» in its body, a translator never
  * opens a title with «I need to see». Markers that can never belong to a job
  * ad (tool-call markup, the runner's checkout path, our prompt's own field
- * hints) count anywhere. A marker that is also in the source text is the
+ * hints) count anywhere. A marker that the source text carries IN THE SAME
+ * PLACE (an opener the source opens with, an anywhere-marker anywhere) is the
  * source's own wording, not a meta-response, and is ignored.
  *
  * Pure and free of imports: the same file can serve the corpus cascade.
@@ -52,7 +53,11 @@ const LEADING_PATTERNS = [
   ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir|savoir|vérifier|plus)|je ne vois (?:pas|aucun) (?:de |le |d${A})?(?:titre|texte|message))`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
-  ['agent-narration', /^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|we need to (?:translate|output|return|keep|produce)|the user (?:wants|asks|is asking|has|provided|gave))\b/i],
+  ['agent-narration', /^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to)\b/i],
+  // «We need to translate "GL & VAT Accountant" to English.»: only with the
+  // quoted input AND the target language. «We need to produce…», «We need to
+  // translate our software into German» open real ads and articles.
+  ['agent-narration', /^we need to (?:translate|output|return) ["“«'][^"”»'\n]{1,160}["”»'] (?:in)?to (?:english|italian|german|french|en|it|de|fr)\b/i],
   ['agent-narration', /^(?:the |here(?:'s| is) the )?translat(?:ed|ion)(?: (?:job )?title| text)? (?:is|would be)\b/i],
   ['agent-narration', /^(?:procedo a tradurre|traduco (?:il|questo)|ich übersetze (?:den|diesen)|je vais traduire)\b/i],
   // ── the answer opens with a template label («Traduzione:», «Traduzione:
@@ -95,9 +100,23 @@ function leadingWindow(text) {
     .slice(0, LEADING_WINDOW_CHARS);
 }
 
-function presentInSource(marker, source) {
+/**
+ * The source's own wording, in the SAME context the marker was found in: an
+ * opener only if the source opens with it, a leading-window request only if
+ * the source's leading window carries it, an anywhere-marker anywhere. A
+ * source that merely quotes «I need to see» further down does not excuse a
+ * translation that opens with it.
+ *
+ * @param {string} marker
+ * @param {string} source
+ * @param {'opener'|'head'|'anywhere'} scope
+ */
+function presentInSource(marker, source, scope) {
   if (!source) return false;
-  return String(source).toLowerCase().includes(String(marker).toLowerCase().trim());
+  const needle = String(marker).toLowerCase().trim();
+  if (scope === 'anywhere') return String(source).toLowerCase().includes(needle);
+  const sourceHead = leadingWindow(source).toLowerCase();
+  return scope === 'opener' ? sourceHead.startsWith(needle) : sourceHead.includes(needle);
 }
 
 /**
@@ -116,15 +135,15 @@ export function detectAiMetaResponse(text, { source = '' } = {}) {
   const head = leadingWindow(value);
   for (const [kind, re] of LEADING_PATTERNS) {
     const m = head.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
+    if (m && !presentInSource(m[0], source, 'opener')) return { kind, marker: m[0] };
   }
   for (const [kind, re] of HEAD_REQUEST_PATTERNS) {
     const m = head.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
+    if (m && !presentInSource(m[0], source, 'head')) return { kind, marker: m[0] };
   }
   for (const [kind, re] of ANYWHERE_PATTERNS) {
     const m = value.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0].trim() };
+    if (m && !presentInSource(m[0], source, 'anywhere')) return { kind, marker: m[0].trim() };
   }
   return null;
 }
