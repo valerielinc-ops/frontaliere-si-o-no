@@ -5,12 +5,14 @@ import os from 'node:os';
 import path from 'node:path';
 import {
   applyTarget,
+  employerProfileSlugsFromEmittedProfiles,
   publisherAdPagesPlugin,
   renderBody,
   resolveSlugCollisions,
   isCanaryOrTestAd,
 } from '../build-plugins/publisherAdPagesPlugin';
 import { buildJobPostingSchema, MANDATORY_JOBPOSTING_FIELDS } from '../build-plugins/shared/jobPostingSchema';
+import { resolveEmployerProfilesFlushed } from '../build-plugins/shared/buildSignals';
 
 const BASE_REC = {
   title: 'Prompt engineer da remoto',
@@ -239,19 +241,51 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
 });
 
 describe('publisherAdPagesPlugin — emitted employer profile identity', () => {
-  it('passes the emitted profile registry to static JobPosting schemas', async () => {
+  it('derives unique canonical slugs from the profile paths emitted by the build', () => {
+    const knownSlugs = employerProfileSlugsFromEmittedProfiles([
+      { path: '/aziende/acme-corp/' },
+      { path: '/en/aziende/acme-corp/' },
+      { path: '/de/aziende/other-ag/' },
+      { path: '/fr/aziende/other-ag/' },
+      { path: '/aziende/' },
+      { path: '/aziende/not-a-profile' },
+    ]);
+
+    expect([...knownSlugs]).toEqual(['acme-corp', 'other-ag']);
+
+    const url = 'https://frontaliereticino.ch/lavoro/acme-sviluppatore-lugano/';
+    const schema = buildJobPostingSchema({
+      ...BASE_REC,
+      company: 'Acme Corp',
+      companyKey: 'acme-corp',
+      postingDateSource: 'reported',
+      postedDate: new Date(Date.now() - 86400000).toISOString(),
+    }, { locale: 'it', url, knownSlugs });
+
+    expect(schema?.hiringOrganization).toMatchObject({
+      '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+      url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+    });
+    expect(schema?.hiringOrganization['@id']).not.toBe(`${url}#organization`);
+  });
+
+  it('uses the emitted profile registry when rendering a static publisher JobPosting', async () => {
+    const emittedProfiles = [{
+      locale: 'it' as const,
+      path: '/aziende/acme-corp/',
+      label: 'Acme Corp',
+      indexable: true,
+      companyKey: 'acme-corp',
+    }];
+    // The build signal is process-wide by design; settle it with the same
+    // producer payload the closeBundle consumer receives in production.
+    resolveEmployerProfilesFlushed(emittedProfiles);
+
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-ad-profile-'));
     try {
       fs.mkdirSync(path.join(root, 'data', 'jobs', 'by-crawler'), { recursive: true });
       fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
       fs.writeFileSync(path.join(root, 'dist', 'index.html'), '<!doctype html><html></html>');
-      fs.writeFileSync(
-        path.join(root, 'data', 'employer-profiles.json'),
-        JSON.stringify({
-          profiles: [{ slug: 'acme-corp', name: 'Acme Corp' }],
-          belowFloor: [],
-        }),
-      );
       fs.writeFileSync(
         path.join(root, 'data', 'jobs', 'by-crawler', 'publisher-submitted.json'),
         JSON.stringify([{
