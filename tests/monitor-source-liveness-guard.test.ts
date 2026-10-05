@@ -71,6 +71,7 @@ const {
   DEFAULT_MIN_EVENTS_PER_DAY,
   POSTHOG_MONITORS,
   GA4_MONITORS,
+  GA4_DATA_MIRRORS,
 } = await import('../scripts/lib/source-liveness.mjs');
 
 /**
@@ -450,8 +451,25 @@ describe('the monitor fleet is fully declared (GA4 since H9, 2026-10-05)', () =>
     }
   });
 
+  it('the data mirrors read GA4 and no longer reach PostHog', () => {
+    expect(GA4_DATA_MIRRORS.length).toBeGreaterThan(0);
+    for (const m of GA4_DATA_MIRRORS) {
+      const src = read(m.path);
+      expect(src, `${m.path} must read GA4`).toMatch(/analytics\.readonly|GA4_READONLY_SCOPE/);
+      expect(src, `${m.path} must not read PostHog`).not.toMatch(POSTHOG_READ);
+      expect(src, `${m.path} must not probe PostHog`).not.toMatch(/checkPostHogLiveness/);
+    }
+  });
+
+  it('every declared PostHog reader still reads PostHog, so the list can only shrink', () => {
+    for (const m of POSTHOG_MONITORS) {
+      expect(read(m.path), `${m.path} no longer reads PostHog: drop it from POSTHOG_MONITORS`).toMatch(POSTHOG_READ);
+    }
+  });
+
   it('a monitor is either a GA4 monitor or a declared PostHog reader, never both', () => {
     const ga4 = new Set(GA4_MONITORS.map((m: { path: string }) => m.path));
+    for (const m of GA4_DATA_MIRRORS) ga4.add(m.path);
     const overlap = POSTHOG_MONITORS.map((m: { path: string }) => m.path).filter((p: string) => ga4.has(p));
     expect(overlap).toEqual([]);
   });

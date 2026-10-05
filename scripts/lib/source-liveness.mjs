@@ -395,25 +395,30 @@ export const GA4_MONITORS = [
 ];
 
 /**
+ * The data scripts that used to union PostHog into GSC/GA4 artefacts. Since
+ * H9 they read GA4 (+ GSC) only; listed so the move is explicit and the guard
+ * test can hold them to "no PostHog read". They emit artefacts, not
+ * judgements, and judge GA4 completeness with their own guards
+ * (`guardCompleteGa4Report`, exit codes), so they carry no liveness guard.
+ */
+export const GA4_DATA_MIRRORS = [
+  { path: 'scripts/build-evidence-index.mjs', emits: 'data/evidence-index.json (drives thin-page filtering); GSC + GA4' },
+  { path: 'scripts/fetch-thin-page-promotions.mjs', emits: 'exit 2/3 + promotion URL set; GA4 + GSC thin_page_view' },
+  { path: 'scripts/fetch-article-performance.mjs', emits: 'data/article-performance.json (winners/losers); GSC + GA4 + AdSense' },
+  { path: 'scripts/refresh-noslash-keep.mjs', emits: 'data/noslash-keep.json URL keep-list; GSC + GA4' },
+  { path: 'scripts/refresh-indexed-cluster-urls.mjs', emits: 'data/indexed-cluster-urls.json; GSC + GA4' },
+];
+
+/**
  * The scheduled scripts that still reach PostHog. PostHog is no longer a
  * source the fleet expects to be alive (H9), so none of these is a reason for
  * Source Liveness to raise an outage: each entry says why it may still read
- * PostHog and where its migration stands. The guard test fails when a
- * scheduled PostHog reader is missing from here, so the list can only shrink.
- *
- * `guarded: true` — consults `checkPostHogLiveness` before using a PostHog
- *                   number, and already has GA4 as an independent source.
+ * PostHog. The guard test fails when a scheduled PostHog reader is missing
+ * from here AND when an entry no longer reads PostHog, so the list can only
+ * shrink.
  */
 export const POSTHOG_MONITORS = [
   { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot; the workflow defaults to --source ga4, PostHog only on a manual --source posthog' },
   { path: 'scripts/ci/export-l7-experiment-outcomes.mjs', guarded: false, emits: 'L7 experiment outcome ledger; reads PostHog only when an experiment is declared, today none (tests/loop-fleet-source-liveness.test.ts)' },
-  { path: 'scripts/ci/export-l2-demand-outcomes.mjs', guarded: false, emits: 'L2 demand/utility outcome ledger, read from GA4' },
   { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'L8 affiliate outcome ledger; main reads GA4, PostHog helpers kept for historical exports' },
-  { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857 from the revenue-monitor CLS (GA4 since H9)' },
-  { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering); GSC + GA4 + PostHog union' },
-  { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: false, emits: 'exit 2/3 + promotion URL set; GA4 + GSC + PostHog union' },
-  { path: 'scripts/fetch-article-performance.mjs', guarded: true, emits: 'data/article-performance.json (winners/losers); GA4 + PostHog' },
-  { path: 'scripts/refresh-noslash-keep.mjs', guarded: false, emits: 'data/noslash-keep.json URL keep-list; GSC + GA4 + PostHog union' },
-  { path: 'scripts/refresh-indexed-cluster-urls.mjs', guarded: false, emits: 'data/indexed-cluster-urls.json; GSC + GA4 + PostHog union' },
-  { path: 'scripts/quality-alerts.mjs', guarded: false, emits: 'alert exit code 8 (email channel), reads evidence-index' },
 ];
