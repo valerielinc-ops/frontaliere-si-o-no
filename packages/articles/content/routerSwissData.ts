@@ -2603,6 +2603,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'allarme-aumento-affitti-svizzera': { it: 'allarme-aumento-affitti-svizzera', en: 'rent-hike-alarm-switzerland', de: 'mieterhoehungen-alarm-schweiz', fr: 'hausse-loyers-alerte-suisse' },
  'affitti-svizzera-aumento-asi': { it: 'affitti-svizzera-aumento-asi', en: 'switzerland-rents-increase-asi', de: 'mieten-schweiz-anstieg-asi', fr: 'loyers-suisse-hausse-asi' },
  'voto-iva-avs-novembre-2026': { it: 'voto-iva-avs-novembre-2026', en: 'vat-avs-vote-november-2026', de: 'mwst-ahv-abstimmung-november-2026', fr: 'vote-tva-avs-novembre-2026' },
+ 'villa-principe-leopoldo-chiude': { it: 'villa-principe-leopoldo-chiude', en: 'villa-principe-leopoldo-closes', de: 'villa-principe-leopoldo-schliesst', fr: 'villa-principe-leopoldo-ferme' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
