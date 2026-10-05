@@ -44,6 +44,7 @@ import {
   updateFollowupItemState,
   parseFollowupItems,
 } from '../followup-resolution-match.mjs';
+import { VITEST_CHECK_NAME } from './constants.mjs';
 import { inertCommentText, itemCiSuiteMarker } from './followup-item-evidence.mjs';
 
 /** Il workflow della CI required e l'artifact col report JSON di vitest. */
@@ -377,7 +378,7 @@ export function ciSuiteProofCommentBody({ id, pr, proof, repository = '' }) {
   const source = proof.source === 'report' ? 'report JSON di vitest' : 'righe per file del log del job';
   return [
     itemCiSuiteMarker({ item: id, pr, commit: proof.sha, run: proof.run, job: proof.job }),
-    `✅ **Item \`${id}\` → \`done\`** (decisione I4 del 2026-10-05): il blocco dichiarato era solo la guardia risorse locale, e la CI required della PR #${Number(pr)} ${where} \`${String(proof.sha).slice(0, 12)}\` (${runRef}, job \`vitest (unit + integration)\` verde) ha eseguito verde la suite dell'item (${source}):`,
+    `✅ **Item \`${id}\` → \`done\`** (decisione I4 del 2026-10-05): il blocco dichiarato era solo la guardia risorse locale, e la CI required della PR #${Number(pr)} ${where} \`${String(proof.sha).slice(0, 12)}\` (${runRef}, job \`${VITEST_CHECK_NAME}\` verde) ha eseguito verde la suite dell'item (${source}):`,
     ...proof.files.map((file) => `- \`${inertCommentText(file)}\``),
   ].join('\n');
 }
