@@ -276,12 +276,19 @@ describe('crawler generation PR B workflow wiring', () => {
       const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       expect(steps.some((step: any) => step.name === 'Upload thinking A/B rows')).toBe(false);
       expect(mopUp.index).toBeGreaterThan(cascade.index);
-      // Il broker Codex rientra solo come ultimo tier delle fasi 2d/2e, dopo
-      // Argos (decisione del proprietario del 2026-09-25): mai nella cascata
-      // 2b, dove viveva l'A/B invalidato.
+      // Decisione del proprietario H7 (2026-10-05, DECISIONS.md), che supera
+      // quella del 2026-09-25 («Codex solo dopo Argos»): Codex Luna Max entra
+      // nella cascata 2b come riserva quando le chiavi falliscono, con un tetto
+      // per run. Il broker parte quindi prima della 2b; la 2b porta il tetto e
+      // mai la variante A/B invalidata.
       const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
-      expect(setupIndex).toBeGreaterThan(mopUp.index);
-      expect(steps[cascade.index].env?.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
+      expect(setupIndex).toBeGreaterThan(-1);
+      expect(setupIndex).toBeLessThan(cascade.index);
+      const cascadeEnv = steps[cascade.index].env ?? {};
+      expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
+      const maxCalls = Number(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS);
+      expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
+      expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();
       // The experiment is intentionally declared as an opt-in input by the
       // companyServed observation PR; only an unconditional enablement would
       // reactivate it on scheduled translation runs.
