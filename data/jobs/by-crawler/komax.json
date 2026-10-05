@@ -1,15 +1,15 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-10-04T21:40:32.611Z",
+  "assembledAt": "2026-10-05T09:24:34.173Z",
   "jobs": [
     {
       "id": "komax-38b4439706fb",
-      "slug": "facility-manager-m-w-d-komax-dierikon",
+      "slug": "gestione-della-funzionalita-m-f-d-komax-dierikon",
       "slugByLocale": {
         "de": "facility-manager-w-m-d-komax-ch",
         "en": "facility-manager-w-m-d-komax-dierikon",
-        "it": "facility-manager-m-w-d-komax-dierikon",
-        "fr": "facility-manager-m-w-d-komax-dierikon"
+        "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -33,7 +33,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.133Z",
+      "crawledAt": "2026-10-05T09:24:28.605Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -47,7 +47,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-04",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "jobReqId": "1165472855",
       "requirements": [],
@@ -56,12 +56,19 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-manager-w-m-d-komax-ch",
-          "facility-manager-w-m-d-komax-ch-ji9uhd"
+          "facility-manager-w-m-d-komax-ch-ji9uhd",
+          "facility-manager-m-w-d-komax-dierikon"
+        ],
+        "fr": [
+          "facility-manager-m-w-d-komax-dierikon",
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "previousSlugs": [
         "facility-manager-w-m-d-komax-ch",
-        "facility-manager-w-m-d-komax-ch-ji9uhd"
+        "facility-manager-w-m-d-komax-ch-ji9uhd",
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -76,16 +83,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:17:37.993Z"
+      "firstSeenAt": "2026-09-21T16:17:37.993Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-5dc9d2ba6fee",
-      "slug": "lead-group-it-service-desk-w-m-d-komax-ch",
+      "slug": "gruppo-capofila-it-service-desk-m-f-d-komax-dierikon",
       "slugByLocale": {
         "en": "lead-group-it-service-desk-w-m-d-komax-ch",
         "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon",
-        "it": "lead-group-it-service-desk-w-m-d-komax-ch",
-        "de": "lead-group-it-service-desk-w-m-d-komax-ch"
+        "it": "gruppo-capofila-it-service-desk-m-f-d-komax-dierikon",
+        "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon-358ddd"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -109,7 +118,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:40:21.132Z",
+      "crawledAt": "2026-10-05T09:24:28.605Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -123,7 +132,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-04",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "jobReqId": "1165481155",
       "requirements": [],
@@ -141,7 +150,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:10:25.496Z"
+      "firstSeenAt": "2026-09-24T00:10:25.496Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-group-it-service-desk-w-m-d-komax-ch"
+        ],
+        "de": [
+          "lead-group-it-service-desk-w-m-d-komax-ch",
+          "leitgruppe-it-service-desk-m-w-d-komax-dierikon"
+        ]
+      },
+      "previousSlugs": [
+        "lead-group-it-service-desk-w-m-d-komax-ch",
+        "leitgruppe-it-service-desk-m-w-d-komax-dierikon"
+      ]
     },
     {
       "id": "komax-b5882ca23e19",
@@ -174,7 +198,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.132Z",
+      "crawledAt": "2026-10-05T09:24:28.604Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -188,7 +212,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252455/",
       "jobReqId": "1165252455",
       "requirements": [],
@@ -196,15 +220,13 @@
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
           "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh"
         ]
       },
       "needsRetranslation": true,
@@ -221,7 +243,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-3a29c65992eb",
@@ -254,7 +278,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.131Z",
+      "crawledAt": "2026-10-05T09:24:28.602Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -268,19 +292,17 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "jobReqId": "1164647755",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch",
-        "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-2027-komax-dierikon"
+        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch",
-          "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-2027-komax-dierikon"
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-2027-komax-ch"
@@ -302,7 +324,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-dba70561829b",
@@ -335,7 +359,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165138355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.130Z",
+      "crawledAt": "2026-10-05T09:24:28.602Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -349,7 +373,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-04",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165138355/",
       "jobReqId": "1165138355",
       "requirements": [],
@@ -389,7 +413,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:22:05.166Z"
+      "firstSeenAt": "2026-09-10T23:22:05.166Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -422,7 +448,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.129Z",
+      "crawledAt": "2026-10-05T09:24:28.601Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -436,7 +462,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "jobReqId": "1164647555",
       "requirements": [],
@@ -458,8 +484,7 @@
         "apprendistato-mediamatiker-in-cfc-2027-komax-dierikon",
         "apprenticeship-in-media-matter-efz-2027-komax-dierikon",
         "lehrstelle-mediamatiker-in-efz-2027-komax-ch",
-        "apprentissage-dans-les-medias-efz-2027-komax-dierikon",
-        "apprendistato-logistiker-in-cfc-2027-komax-dierikon"
+        "apprentissage-dans-les-medias-efz-2027-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -479,8 +504,7 @@
           "apprendistato-mediamatiker-in-cfc-2027-komax-dierikon",
           "apprenticeship-in-media-matter-efz-2027-komax-dierikon",
           "lehrstelle-mediamatiker-in-efz-2027-komax-ch",
-          "apprentissage-dans-les-medias-efz-2027-komax-dierikon",
-          "apprendistato-logistiker-in-cfc-2027-komax-dierikon"
+          "apprentissage-dans-les-medias-efz-2027-komax-dierikon"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-komax-ch",
@@ -510,7 +534,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-925f9fb150d6",
@@ -543,7 +569,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:40:21.128Z",
+      "crawledAt": "2026-10-05T09:24:28.600Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -557,19 +583,17 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "jobReqId": "1165469655",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-service-support-80-100-m-w-komax-ch",
-        "assistenza-tecnica-80-100-m-f-komax-thun"
+        "technical-service-support-80-100-m-w-komax-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-service-support-80-100-m-w-komax-ch",
-          "assistenza-tecnica-80-100-m-f-komax-thun"
+          "technical-service-support-80-100-m-w-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -586,7 +610,9 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-826883aee630",
@@ -633,23 +659,19 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481055/",
       "jobReqId": "1165481055",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-group-it-service-desk-w-m-d-komax-ch",
-        "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
-        "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon"
+        "lead-group-it-service-desk-w-m-d-komax-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-group-it-service-desk-w-m-d-komax-ch",
-          "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon"
+          "lead-group-it-service-desk-w-m-d-komax-ch"
         ],
         "en": [
-          "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
           "lead-group-it-service-desk-w-m-d-komax-ch"
         ]
       },
@@ -668,7 +690,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "komax-401b132730ac",
@@ -715,7 +739,7 @@
       "sector": "Industria / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472755/",
       "jobReqId": "1165472755",
       "requirements": [],
@@ -723,15 +747,13 @@
       "previousSlugs": [
         "facility-manager-w-m-d-komax-ch",
         "gestione-della-funzionalita-m-f-d-komax-dierikon",
-        "gestionnaire-d-installations-h-f-d-komax-dierikon",
-        "gestione-della-funzionalita-m-f-d-komax-dierikon-e5658d"
+        "gestionnaire-d-installations-h-f-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facility-manager-w-m-d-komax-ch",
           "gestione-della-funzionalita-m-f-d-komax-dierikon",
-          "gestionnaire-d-installations-h-f-d-komax-dierikon",
-          "gestione-della-funzionalita-m-f-d-komax-dierikon-e5658d"
+          "gestionnaire-d-installations-h-f-d-komax-dierikon"
         ],
         "fr": [
           "gestionnaire-d-installations-h-f-d-komax-dierikon"
@@ -752,7 +774,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

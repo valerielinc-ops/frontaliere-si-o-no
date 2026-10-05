@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-10-04T21:35:38.543Z",
+  "assembledAt": "2026-10-05T09:33:35.195Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5725",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:33.755Z",
+      "crawledAt": "2026-10-05T09:33:29.330Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-08-14",
+      "postedDate": "2026-08-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "requirements": [],
       "requirementsByLocale": {},
@@ -118,7 +120,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5857",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:33.314Z",
+      "crawledAt": "2026-10-05T09:33:28.867Z",
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -132,7 +134,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5857",
       "requirements": [],
       "requirementsByLocale": {},
@@ -212,7 +216,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5843",
       "requirements": [],
       "requirementsByLocale": {},
@@ -242,7 +246,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5891",
@@ -275,7 +282,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5891",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:32.437Z",
+      "crawledAt": "2026-10-05T09:33:28.274Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -289,7 +296,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-16",
+      "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5891",
       "requirements": [],
       "requirementsByLocale": {},
@@ -355,7 +364,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5898",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:32.000Z",
+      "crawledAt": "2026-10-05T09:33:27.811Z",
       "addressLocality": "Les Bioux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -369,7 +378,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5898",
       "requirements": [],
       "requirementsByLocale": {},
@@ -435,7 +446,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5897",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:31.568Z",
+      "crawledAt": "2026-10-05T09:33:27.337Z",
       "addressLocality": "Ste-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -449,7 +460,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5897",
       "requirements": [],
       "requirementsByLocale": {},
@@ -529,7 +542,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5881",
       "requirements": [],
       "requirementsByLocale": {},
@@ -558,7 +571,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5912",
@@ -605,7 +621,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5912",
       "requirements": [],
       "requirementsByLocale": {},
@@ -638,7 +654,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5899",
@@ -685,7 +704,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5899",
       "requirements": [],
       "requirementsByLocale": {},
@@ -716,7 +735,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5887",
@@ -763,7 +785,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5887",
       "requirements": [],
       "requirementsByLocale": {},
@@ -794,7 +816,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5916",
@@ -827,7 +852,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5916",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:29.379Z",
+      "crawledAt": "2026-10-05T09:33:26.876Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -841,7 +866,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-22",
+      "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5916",
       "requirements": [],
       "requirementsByLocale": {},
@@ -907,7 +934,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5907",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:28.944Z",
+      "crawledAt": "2026-10-05T09:33:26.404Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -921,7 +948,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-22",
+      "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5907",
       "requirements": [],
       "requirementsByLocale": {},
@@ -987,7 +1016,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5905",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:28.495Z",
+      "crawledAt": "2026-10-05T09:33:25.741Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1001,7 +1030,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-09-22",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5905",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1032,7 +1061,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-22",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5893",
@@ -1079,7 +1110,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5893",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1112,7 +1143,10 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5900",
@@ -1145,7 +1179,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5900",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:27.623Z",
+      "crawledAt": "2026-10-05T09:33:25.280Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1159,7 +1193,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-09-23",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5900",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1194,7 +1228,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5933",
@@ -1227,7 +1263,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5933",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:27.162Z",
+      "crawledAt": "2026-10-05T09:33:24.809Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1241,7 +1277,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-09-24",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5933",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1276,7 +1312,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5931",
@@ -1309,7 +1347,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5931",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:26.718Z",
+      "crawledAt": "2026-10-05T09:33:23.590Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1323,7 +1361,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-25",
+      "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5931",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1391,7 +1431,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5877",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:26.280Z",
+      "crawledAt": "2026-10-05T09:33:23.088Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1405,7 +1445,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-25",
+      "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5877",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1471,7 +1513,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5946",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:25.842Z",
+      "crawledAt": "2026-10-05T09:33:22.621Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1485,7 +1527,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5946",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1551,7 +1595,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5939",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:25.406Z",
+      "crawledAt": "2026-10-05T09:33:22.160Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1565,7 +1609,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5939",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1631,7 +1677,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5937",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:24.970Z",
+      "crawledAt": "2026-10-05T09:33:21.687Z",
       "addressLocality": "L'Isle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1645,7 +1691,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5937",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1711,7 +1759,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5936",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:24.527Z",
+      "crawledAt": "2026-10-05T09:33:21.212Z",
       "addressLocality": "Cully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1725,7 +1773,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5936",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1791,7 +1841,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5928",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:24.071Z",
+      "crawledAt": "2026-10-05T09:33:20.754Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1805,7 +1855,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5928",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1844,10 +1896,10 @@
       "id": "etat-de-vaud-5914",
       "slug": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne-f999aa",
       "slugByLocale": {
-        "fr": "chef-fe-de-projet-etat-de-vaud-lausanne",
         "it": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne-f999aa",
         "en": "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-f999aa",
-        "de": "projektmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-f999aa"
+        "de": "projektmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-f999aa",
+        "fr": "chef-fe-de-projet-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -1861,17 +1913,17 @@
       },
       "description": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "en": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-        "de": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+        "de": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "fr": "Le Pôle d'appui social et d'orientation (PASO) rattaché à la Direction de l'insertion et des solidarités (DIRIS) de la Direction générale de la cohésion sociale (DGCS), a pour mission d'assurer le suivi et le développement de projets et programmes dans le domaine de l'accueil, du conseil, de l'accompagnement et de l'orientation sociale. Afin de renforcer son équipe, le PASO recherche un·e Chef·fe de projet . Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Léa Fazenda, Responsable du Pôle d'appui social et d'orientation (PASO), à l'adresse email: dgcs.recrutement@vd.ch\n\n• Assurer une cohérence, une coordination et une vision d'ensemble entre les partenaires et les projets conduits par la DGCS pour l'appui social et l'orientation des jeunes adultes (FORJAD) et adultes (FORMAD) sans formation professionnelle achevée.\n• Suivre, effectuer la contractualisation et la surveillance des partenaires du PASO offrant des prestations d'appui social et d'orientation à des personnes qui s'orientent vers une formation ou en formation.\n• Conseiller et renseigner les partenaires de l'action sociale, sa hiérarchie, le chef de Département et toutes personnes concernées sur la thématique et les projets confiés.\n• Développer de nouveaux projets dans le domaine de l'appui social et de l'orientation des personnes sans formation professionnelle ou des personnes en formation.\n• Participer aux travaux de développement de l'appui social populationnel et conduire des projets dans ce cadre.\n\n• Master en sciences sociales ou politiques ou titre jugé équivalent, exigé.\n• Formation en gestion de projets souhaitée.\n• Expérience de minimum 5 ans dans le domaine social ou de gestion de projet.\n• Bonnes connaissances de l'Administration cantonale vaudoise ainsi que du domaine des politiques sociales.\n• Maîtrise des outils informatiques usuels.\n• Aptitude à travailler de manière autonome.\n• Sens des responsabilités et éthique du service public développés.\n• Excellentes capacités rédactionnelles, d'analyse et de synthèse.\n• Capacité d'adaptation avérée et flexibilité\n• Aisance dans l'écoute et la communication.\n• Sens de l'organisation et de la planification, parfaite gestion des priorités.\n• Bon leadership.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5914",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:23.623Z",
+      "crawledAt": "2026-10-05T09:33:20.226Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1885,12 +1937,10 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-09-28",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5914",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -1900,20 +1950,22 @@
       "previousSlugs": [
         "chef-fe-de-projet-etat-de-vaud-lausanne"
       ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.035Z"
+      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5906",
@@ -1946,7 +1998,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5906",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:23.182Z",
+      "crawledAt": "2026-10-05T09:33:19.747Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1960,7 +2012,7 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-09-28",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5906",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1993,7 +2045,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5903",
@@ -2026,7 +2080,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5903",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:22.746Z",
+      "crawledAt": "2026-10-05T09:33:19.279Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2040,7 +2094,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5903",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2106,7 +2162,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5956",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:22.312Z",
+      "crawledAt": "2026-10-05T09:33:18.811Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2120,7 +2176,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5956",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2191,7 +2249,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5950",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:21.872Z",
+      "crawledAt": "2026-10-05T09:33:18.340Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2205,7 +2263,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5950",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2274,7 +2334,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5932",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:21.435Z",
+      "crawledAt": "2026-10-05T09:33:17.875Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2288,7 +2348,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-09-30",
+      "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5932",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2357,7 +2419,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5970",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:20.999Z",
+      "crawledAt": "2026-10-05T09:33:17.376Z",
       "addressLocality": "Villeneuve VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2371,7 +2433,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5970",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2422,7 +2486,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5967",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:20.560Z",
+      "crawledAt": "2026-10-05T09:33:16.913Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2436,7 +2500,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5967",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2503,7 +2569,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5966",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:20.116Z",
+      "crawledAt": "2026-10-05T09:33:16.450Z",
       "addressLocality": "Grandson",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2517,7 +2583,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5966",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2584,7 +2652,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5965",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:19.659Z",
+      "crawledAt": "2026-10-05T09:33:15.977Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2598,7 +2666,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5965",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2665,7 +2735,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5929",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:19.224Z",
+      "crawledAt": "2026-10-05T09:33:15.511Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2679,7 +2749,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5929",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2729,12 +2801,12 @@
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
+      "title": "Chef·fe de projet dans l’équipe du projet d’agglomération Lausanne-Morges (PALM)",
       "titleByLocale": {
         "it": "Capo del progetto agglomerato Lausanne-Morges (PALM)",
         "en": "Head of agglomeration project Lausanne-Morges (PALM)",
         "de": "Leiter Agglomerationsprojekt Lausanne-Morges (PALM)",
-        "fr": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)"
+        "fr": "Chef·fe de projet dans l’équipe du projet d’agglomération Lausanne-Morges (PALM)"
       },
       "description": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
@@ -2748,7 +2820,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5896",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:18.776Z",
+      "crawledAt": "2026-10-05T09:33:15.046Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2762,19 +2834,19 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5896",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
-        "capo-del-progetto-agglomerato-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "head-of-agglomeration-project-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "leiter-agglomerationsprojekt-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "chef-fe-de-projet-dans-l-equipe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de"
+        ],
         "it": [
           "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
+          "chef-fe-de-projet-dans-l-equipe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de",
           "capo-del-progetto-agglomerato-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
@@ -2786,6 +2858,13 @@
           "leiter-agglomerationsprojekt-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
+      "previousSlugs": [
+        "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
+        "chef-fe-de-projet-dans-l-equipe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de",
+        "capo-del-progetto-agglomerato-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "head-of-agglomeration-project-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "leiter-agglomerationsprojekt-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
       "salaryMin": 83500,
@@ -2833,7 +2912,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5979",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:18.335Z",
+      "crawledAt": "2026-10-05T09:33:14.575Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2847,7 +2926,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5979",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2918,7 +2999,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5978",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:17.895Z",
+      "crawledAt": "2026-10-05T09:33:14.111Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2932,7 +3013,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5978",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3003,7 +3086,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5972",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:17.449Z",
+      "crawledAt": "2026-10-05T09:33:13.638Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3017,7 +3100,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5972",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3088,7 +3173,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5969",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:16.991Z",
+      "crawledAt": "2026-10-05T09:33:13.168Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3102,7 +3187,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5969",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3136,10 +3223,10 @@
       "id": "etat-de-vaud-5968",
       "slug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
       "slugByLocale": {
-        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
         "it": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
         "en": "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
-        "de": "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3"
+        "de": "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
+        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3153,17 +3240,17 @@
       },
       "description": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "en": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-        "de": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+        "de": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "fr": "Nous recherchons une personne motivée à s'engager dans une mission porteuse de sens, au service des personnes les plus vulnérables. En qualité de curateur·trice professionnel·le, vous exercez un métier exigeant, utile et profondément humain. Chaque jour, vous accompagnez et protégez des personnes majeures en situation de vulnérabilité dans des problématiques variées touchant aux domaines sociaux, administratifs, financiers, juridiques et de la santé. La diversité des personnes et des situations fait la richesse du métier et offre un environnement de travail stimulant, varié et en constante évolution. Vous exercez votre activité dans un cadre professionnel structuré, dans un service qui applique les recommandations intercantonales de la Conférence en matière de protection des mineurs et des adultes (COPMA), en particulier celles concernant le nombre de dossiers par curateur·trice. Vous bénéficiez du soutien de supports internes dans les domaines juridique, financier, fiscal et des assurances. Vous contribuez, au quotidien, à la perspective d’une vie digne et autonome pour toutes et tous, en participant ainsi à la justice sociale.\n\n• Gestion diligente des mesures de protection de l’adulte confiées par les Justices de paix du canton, en conformité avec le cadre légal et réglementaire.\n• Gestion du patrimoine et représentation légale.\n• Gestion des revenus et des dépenses des bénéficiaires.\n• Développement d’un partenariat actif avec les réseaux professionnels et les proches des bénéficiaires.\n• Création d’une relation de confiance avec les bénéficiaires.\n• Investissement dans les formations initiales nécessaires à la fonction et dans les formations continues utiles au développement du service. Pour de plus amples informations, veuillez consulter le cahier des charges , ou visionner les vidéos de ce métier \"Curatelles et tutelles : Une mission de proximité, diversifiée et gratifiante\". En rejoignant notre service, vous aurez la possibilité d’effectuer du télétravail. En effet, nous encourageons la flexibilité pour mieux concilier vie professionnelle et vie personnelle. Pour tout complément d'information, vous pouvez contacter Sophie Longchamp, cheffe de groupe, au 021 316 66 96.\n\n• Bachelor HES ou universitaire dans le domaine social, juridique ou financier ou titre jugé équivalent.\n• 3 ans d’expérience professionnelle en lien avec les missions du service ou expérience significative dans l’accompagnement d’adultes vulnérables.\n• Toute formation complémentaire en lien avec les domaines de la santé, addiction, migration, droit, gestion budgétaire et assurances sociales sont les bienvenues.\n• Excellentes capacités organisationnelles, rigueur administrative et financière.\n• Autonomie, résistance au stress, sens des responsabilités et des priorités.\n• Ouverture d’esprit, écoute, flexibilité, grande capacité d’adaptation et d’apprentissage.\n• La communication d’éventuels antécédents judiciaires ainsi que d’un extrait de l’Office des poursuites est requise pour cette fonction.\n• Permis de conduire.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Yverdon-Les-Bains",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5968",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:16.548Z",
+      "crawledAt": "2026-10-05T09:33:12.708Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3177,12 +3264,10 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5968",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -3205,7 +3290,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "datePosted": "2026-10-02",
+      "postingDateSource": "reported"
     },
     {
       "id": "etat-de-vaud-5961",
@@ -3238,7 +3325,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5961",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:16.095Z",
+      "crawledAt": "2026-10-05T09:33:12.245Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3252,7 +3339,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5961",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3323,7 +3412,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5949",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:15.658Z",
+      "crawledAt": "2026-10-05T09:33:11.076Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3337,7 +3426,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5949",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3407,7 +3498,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5927",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:35:15.216Z",
+      "crawledAt": "2026-10-05T09:33:10.621Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3421,7 +3512,9 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5927",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3460,6 +3553,436 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-6000",
+      "slug": "directeur-trice-du-gymnase-de-chamblandes-etat-de-vaud-pully",
+      "slugByLocale": {
+        "fr": "directeur-trice-du-gymnase-de-chamblandes-etat-de-vaud-pully",
+        "it": "directeur-trice-du-gymnase-de-chamblandes-etat-de-vaud-pully",
+        "en": "directeur-trice-du-gymnase-de-chamblandes-etat-de-vaud-pully",
+        "de": "directeur-trice-du-gymnase-de-chamblandes-etat-de-vaud-pully"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Directeur∙trice du gymnase de Chamblandes",
+      "titleByLocale": {
+        "fr": "Directeur∙trice du gymnase de Chamblandes",
+        "it": "Directeur∙trice du gymnase de Chamblandes",
+        "en": "Directeur∙trice du gymnase de Chamblandes",
+        "de": "Directeur∙trice du gymnase de Chamblandes"
+      },
+      "description": "A la tête de cet établissement de plus de 700 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "A la tête de cet établissement de plus de 700 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "A la tête de cet établissement de plus de 700 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "A la tête de cet établissement de plus de 700 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "A la tête de cet établissement de plus de 700 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6000",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:10.158Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1009",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6000",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5999",
+      "slug": "directeur-trice-du-gymnase-d-etoy-etat-de-vaud-etoy",
+      "slugByLocale": {
+        "fr": "directeur-trice-du-gymnase-d-etoy-etat-de-vaud-etoy",
+        "it": "directeur-trice-du-gymnase-d-etoy-etat-de-vaud-etoy",
+        "en": "directeur-trice-du-gymnase-d-etoy-etat-de-vaud-etoy",
+        "de": "directeur-trice-du-gymnase-d-etoy-etat-de-vaud-etoy"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Directeur∙trice du gymnase d’Etoy",
+      "titleByLocale": {
+        "fr": "Directeur∙trice du gymnase d’Etoy",
+        "it": "Directeur∙trice du gymnase d’Etoy",
+        "en": "Directeur∙trice du gymnase d’Etoy",
+        "de": "Directeur∙trice du gymnase d’Etoy"
+      },
+      "description": "A la tête de cet établissement d’environ 800 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "A la tête de cet établissement d’environ 800 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "A la tête de cet établissement d’environ 800 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "A la tête de cet établissement d’environ 800 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "A la tête de cet établissement d’environ 800 élèves, vous pilotez l’ensemble des activités pédagogiques, administratives, techniques et financières afin d’offrir un cadre d’apprentissage de qualité et bienveillant. Vous fédérez vos équipes autour de la réussite des élèves, tout en veillant à leur épanouissement professionnel. Représentant l’établissement, vous vous engagez dans la promotion de sa réputation auprès des partenaires et de la communauté scolaire, en renforçant et en développant les relations utiles à l’accomplissement de ses missions.\n\n• Mettre en œuvre les politiques cantonales et/ou fédérales en matière d’enseignement au sein de l’établissement.\n• Conduire l’établissement et coordonner l’ensemble de ses activités et de ses services en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources.\n• Assurer la qualité de l’enseignement et en superviser la répartition, en veillant au suivi des élèves ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences dans la limite du cadre fixé.\n• Assurer la diffusion de l’information pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer la bonne utilisation, l’entretien et le renouvellement des équipements et des infrastructures.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II (ou expérience jugée équivalente).\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’Enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Etoy",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5999",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:09.696Z",
+      "addressLocality": "Etoy",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1014",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5999",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5998",
+      "slug": "directeur-trice-du-centre-d-enseignement-professionnel-de-morges-cepm-etat-de-vaud-morges",
+      "slugByLocale": {
+        "fr": "directeur-trice-du-centre-d-enseignement-professionnel-de-morges-cepm-etat-de-vaud-morges",
+        "it": "directeur-trice-du-centre-d-enseignement-professionnel-de-morges-cepm-etat-de-vaud-morges",
+        "en": "directeur-trice-du-centre-d-enseignement-professionnel-de-morges-cepm-etat-de-vaud-morges",
+        "de": "directeur-trice-du-centre-d-enseignement-professionnel-de-morges-cepm-etat-de-vaud-morges"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Directeur∙trice du Centre d’enseignement professionnel de Morges (CEPM)",
+      "titleByLocale": {
+        "fr": "Directeur∙trice du Centre d’enseignement professionnel de Morges (CEPM)",
+        "it": "Directeur∙trice du Centre d’enseignement professionnel de Morges (CEPM)",
+        "en": "Directeur∙trice du Centre d’enseignement professionnel de Morges (CEPM)",
+        "de": "Directeur∙trice du Centre d’enseignement professionnel de Morges (CEPM)"
+      },
+      "description": "En votre qualité de Directeur∙trice, vous dirigez et pilotez l’ensemble des activités du Centre d’enseignement professionnel de Morges (CEPM), établissement regroupant près de 2'900 apprenti∙e∙s et élèves en formation, plus de 170 enseignant∙e∙s et chargé∙e∙s de cours, une équipe administrative et un service technique. Vous proposez des objectifs en lien avec la stratégie du département et les déclinez en plans d’actions pour l’ensemble de l’établissement. Vous fédérez vos équipes autour de la qualité de l’enseignement et de la réussite des élèves et des apprenti·e·s, tout en veillant à l’épanouissement professionnel de chaque collaborateur∙trice. Représentant l’établissement, vous vous engagez en faveur de la construction de partenariats pérennes avec les associations professionnelles ainsi que les milieux économiques et académiques.\n\n• Planifier, diriger et coordonner l’ensemble des activités et des services de l’établissement, en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources à disposition.\n• Assurer la qualité de l’enseignement, notamment par des visites de classes, en superviser la répartition et veiller au suivi des élèves et des apprenti·e·s ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement à l’évolution des plans de formation et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences.\n• Assurer la diffusion de l’information au sein de l’établissement pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer l’utilisation rationnelle et l’entretien des locaux et des équipements et proposer les acquisitions nécessaires en fonction des besoins et des évolutions techniques.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II.\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En votre qualité de Directeur∙trice, vous dirigez et pilotez l’ensemble des activités du Centre d’enseignement professionnel de Morges (CEPM), établissement regroupant près de 2'900 apprenti∙e∙s et élèves en formation, plus de 170 enseignant∙e∙s et chargé∙e∙s de cours, une équipe administrative et un service technique. Vous proposez des objectifs en lien avec la stratégie du département et les déclinez en plans d’actions pour l’ensemble de l’établissement. Vous fédérez vos équipes autour de la qualité de l’enseignement et de la réussite des élèves et des apprenti·e·s, tout en veillant à l’épanouissement professionnel de chaque collaborateur∙trice. Représentant l’établissement, vous vous engagez en faveur de la construction de partenariats pérennes avec les associations professionnelles ainsi que les milieux économiques et académiques.\n\n• Planifier, diriger et coordonner l’ensemble des activités et des services de l’établissement, en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources à disposition.\n• Assurer la qualité de l’enseignement, notamment par des visites de classes, en superviser la répartition et veiller au suivi des élèves et des apprenti·e·s ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement à l’évolution des plans de formation et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences.\n• Assurer la diffusion de l’information au sein de l’établissement pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer l’utilisation rationnelle et l’entretien des locaux et des équipements et proposer les acquisitions nécessaires en fonction des besoins et des évolutions techniques.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II.\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En votre qualité de Directeur∙trice, vous dirigez et pilotez l’ensemble des activités du Centre d’enseignement professionnel de Morges (CEPM), établissement regroupant près de 2'900 apprenti∙e∙s et élèves en formation, plus de 170 enseignant∙e∙s et chargé∙e∙s de cours, une équipe administrative et un service technique. Vous proposez des objectifs en lien avec la stratégie du département et les déclinez en plans d’actions pour l’ensemble de l’établissement. Vous fédérez vos équipes autour de la qualité de l’enseignement et de la réussite des élèves et des apprenti·e·s, tout en veillant à l’épanouissement professionnel de chaque collaborateur∙trice. Représentant l’établissement, vous vous engagez en faveur de la construction de partenariats pérennes avec les associations professionnelles ainsi que les milieux économiques et académiques.\n\n• Planifier, diriger et coordonner l’ensemble des activités et des services de l’établissement, en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources à disposition.\n• Assurer la qualité de l’enseignement, notamment par des visites de classes, en superviser la répartition et veiller au suivi des élèves et des apprenti·e·s ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement à l’évolution des plans de formation et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences.\n• Assurer la diffusion de l’information au sein de l’établissement pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer l’utilisation rationnelle et l’entretien des locaux et des équipements et proposer les acquisitions nécessaires en fonction des besoins et des évolutions techniques.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II.\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En votre qualité de Directeur∙trice, vous dirigez et pilotez l’ensemble des activités du Centre d’enseignement professionnel de Morges (CEPM), établissement regroupant près de 2'900 apprenti∙e∙s et élèves en formation, plus de 170 enseignant∙e∙s et chargé∙e∙s de cours, une équipe administrative et un service technique. Vous proposez des objectifs en lien avec la stratégie du département et les déclinez en plans d’actions pour l’ensemble de l’établissement. Vous fédérez vos équipes autour de la qualité de l’enseignement et de la réussite des élèves et des apprenti·e·s, tout en veillant à l’épanouissement professionnel de chaque collaborateur∙trice. Représentant l’établissement, vous vous engagez en faveur de la construction de partenariats pérennes avec les associations professionnelles ainsi que les milieux économiques et académiques.\n\n• Planifier, diriger et coordonner l’ensemble des activités et des services de l’établissement, en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources à disposition.\n• Assurer la qualité de l’enseignement, notamment par des visites de classes, en superviser la répartition et veiller au suivi des élèves et des apprenti·e·s ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement à l’évolution des plans de formation et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences.\n• Assurer la diffusion de l’information au sein de l’établissement pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer l’utilisation rationnelle et l’entretien des locaux et des équipements et proposer les acquisitions nécessaires en fonction des besoins et des évolutions techniques.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II.\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En votre qualité de Directeur∙trice, vous dirigez et pilotez l’ensemble des activités du Centre d’enseignement professionnel de Morges (CEPM), établissement regroupant près de 2'900 apprenti∙e∙s et élèves en formation, plus de 170 enseignant∙e∙s et chargé∙e∙s de cours, une équipe administrative et un service technique. Vous proposez des objectifs en lien avec la stratégie du département et les déclinez en plans d’actions pour l’ensemble de l’établissement. Vous fédérez vos équipes autour de la qualité de l’enseignement et de la réussite des élèves et des apprenti·e·s, tout en veillant à l’épanouissement professionnel de chaque collaborateur∙trice. Représentant l’établissement, vous vous engagez en faveur de la construction de partenariats pérennes avec les associations professionnelles ainsi que les milieux économiques et académiques.\n\n• Planifier, diriger et coordonner l’ensemble des activités et des services de l’établissement, en garantissant une organisation interne fluide et structurée ainsi qu’une utilisation optimale des ressources à disposition.\n• Assurer la qualité de l’enseignement, notamment par des visites de classes, en superviser la répartition et veiller au suivi des élèves et des apprenti·e·s ainsi qu’au respect des programmes et des législations en vigueur.\n• Veiller à l’adaptation des prestations de l’établissement à l’évolution des plans de formation et au maintien d’une culture d’établissement.\n• Recruter, accompagner et fédérer les équipes pédagogiques, administratives et techniques ; encourager le développement de leurs compétences.\n• Assurer la diffusion de l’information au sein de l’établissement pour garantir une communication claire et un dialogue permanent.\n• Elaborer et suivre le budget, définir les priorités et garantir une gestion comptable fiable.\n• Assurer l’utilisation rationnelle et l’entretien des locaux et des équipements et proposer les acquisitions nécessaires en fonction des besoins et des évolutions techniques.\n• Promouvoir l’image de l’établissement et développer son intégration dans son environnement économique, social et académique, notamment en participant à différentes conférences, commissions et groupes de travail.\n\n• Master universitaire ou titre jugé équivalent dans un domaine enseigné au niveau post-obligatoire, complété par un titre pédagogique pour l’enseignement au niveau secondaire II.\n• Expérience managériale confirmée de plusieurs années, acquise dans le domaine de l’enseignement.\n• Compétences managériales éprouvées, excellente communication et aisance dans la gestion des conflits, capacité d’analyse et de synthèse, ouverture aux changements et aux projets novateurs, capacité à développer une culture d’établissement.\n• Le CAS en administration et gestion d’institutions de formation (FORDIF) est souhaité et sera exigé dans le cas où il n’a pas été suivi avant l’entrée en fonction Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Lionel Eperon, Directeur général de la Direction générale de l’enseignement postobligatoire au 021 316 63 22. La communication des antécédents judiciaires est requise pour exercer la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Morges",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5998",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:09.227Z",
+      "addressLocality": "Morges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1110",
+      "streetAddress": "Place du Château 1",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5998",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5975",
+      "slug": "gestionnaire-de-dossiers-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+      "slugByLocale": {
+        "fr": "gestionnaire-de-dossiers-etat-de-vaud-orbe",
+        "it": "gestionnaire-de-dossiers-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "gestionnaire-de-dossiers-etat-de-vaud-orbe",
+        "de": "gestionnaire-de-dossiers-etat-de-vaud-orbe"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Gestionnaire de dossiers",
+      "titleByLocale": {
+        "fr": "Gestionnaire de dossiers",
+        "it": "Gestionnaire de dossiers",
+        "en": "Gestionnaire de dossiers",
+        "de": "Gestionnaire de dossiers"
+      },
+      "description": "En votre qualité de gestionnaire de dossiers au sein de la prison de la Croisée à Orbe, vous aidez à la gestion des activités liées au greffe et gérez le suivi administratif des dossiers des personnes détenues. Vous prenez en charge les différentes procédures liées à leur détention, de leur entrée à leur sortie, et veillez à la tenue rigoureuse des dossiers ainsi qu’au respect des échéances et des exigences légales et administratives. Dans le cadre de votre fonction, vous assurez également les échanges avec les autorités pénales, les partenaires institutionnels et les différents secteurs de l’établissement. Vous renseignez et orientez vos interlocuteurs, participez au suivi des décisions et apportez, au besoin, votre soutien aux autres activités du secteur administratif. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Gérer quotidiennement les procédures d’entrée et de sortie des personnes détenues, le planning des comparutions au tribunal. Tenir l’échéancier, tenir à jour des statistiques, effectuer le classement et l’archivage.\n• Tenir à jour les dossiers courants des personnes détenues incarcérées, rédiger l’ensemble des courriers relatifs à la gestion des personnes détenues. Saisir et suivre les changements d’autorité, les procédures de condamnation, les demandes de reliefs, les demandes de transfert en exécution de peine, etc.\n• Organiser les séances relatives aux personnes détenues (réseaux interdisciplinaires). Participer à la planification et à la gestion des transferts liés aux problématiques médicales et aux transferts vers un autre établissement.\n• Analyser les demandes de visites aux personnes détenues, déterminer leur faisabilité, effectuer la planification et rédiger les autorisations ou les refus.\n• Analyser et traiter l'ensemble des courriers reçus émanant des différentes autorités pénales et des différents secteurs de l'établissement en lien avec la détention des personnes détenues.\n• Assurer, développer et maintenir des contacts avec les instances, services, organismes, institutions et personnes liées directement à l’activité du SPEN, à la vie des détenus. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Viviane Monnier – administratrice gestionnaire au 021 316 08 86. CDD une année, éventuellement renouvelable.\n\n• CFC d’employé·e de commerce ou titre jugé équivalent.\n• Forte d’une expérience confirmée d’au moins 4 ans au sein d’une entité de la chaîne pénale.\n• Très bonnes capacités d’organisation.\n• Grande discrétion dans le traitement des données sensibles.\n• Excellentes aptitudes relationnelles, sens du travail en équipe et empathie.\n• Bonne maitrise du français à l’oral comme à l’écrit.\n• Connaissance de l’allemand et de l’anglais un atout.\n• Maîtrise des outils informatiques usuels. Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En votre qualité de gestionnaire de dossiers au sein de la prison de la Croisée à Orbe, vous aidez à la gestion des activités liées au greffe et gérez le suivi administratif des dossiers des personnes détenues. Vous prenez en charge les différentes procédures liées à leur détention, de leur entrée à leur sortie, et veillez à la tenue rigoureuse des dossiers ainsi qu’au respect des échéances et des exigences légales et administratives. Dans le cadre de votre fonction, vous assurez également les échanges avec les autorités pénales, les partenaires institutionnels et les différents secteurs de l’établissement. Vous renseignez et orientez vos interlocuteurs, participez au suivi des décisions et apportez, au besoin, votre soutien aux autres activités du secteur administratif. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Gérer quotidiennement les procédures d’entrée et de sortie des personnes détenues, le planning des comparutions au tribunal. Tenir l’échéancier, tenir à jour des statistiques, effectuer le classement et l’archivage.\n• Tenir à jour les dossiers courants des personnes détenues incarcérées, rédiger l’ensemble des courriers relatifs à la gestion des personnes détenues. Saisir et suivre les changements d’autorité, les procédures de condamnation, les demandes de reliefs, les demandes de transfert en exécution de peine, etc.\n• Organiser les séances relatives aux personnes détenues (réseaux interdisciplinaires). Participer à la planification et à la gestion des transferts liés aux problématiques médicales et aux transferts vers un autre établissement.\n• Analyser les demandes de visites aux personnes détenues, déterminer leur faisabilité, effectuer la planification et rédiger les autorisations ou les refus.\n• Analyser et traiter l'ensemble des courriers reçus émanant des différentes autorités pénales et des différents secteurs de l'établissement en lien avec la détention des personnes détenues.\n• Assurer, développer et maintenir des contacts avec les instances, services, organismes, institutions et personnes liées directement à l’activité du SPEN, à la vie des détenus. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Viviane Monnier – administratrice gestionnaire au 021 316 08 86. CDD une année, éventuellement renouvelable.\n\n• CFC d’employé·e de commerce ou titre jugé équivalent.\n• Forte d’une expérience confirmée d’au moins 4 ans au sein d’une entité de la chaîne pénale.\n• Très bonnes capacités d’organisation.\n• Grande discrétion dans le traitement des données sensibles.\n• Excellentes aptitudes relationnelles, sens du travail en équipe et empathie.\n• Bonne maitrise du français à l’oral comme à l’écrit.\n• Connaissance de l’allemand et de l’anglais un atout.\n• Maîtrise des outils informatiques usuels. Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En votre qualité de gestionnaire de dossiers au sein de la prison de la Croisée à Orbe, vous aidez à la gestion des activités liées au greffe et gérez le suivi administratif des dossiers des personnes détenues. Vous prenez en charge les différentes procédures liées à leur détention, de leur entrée à leur sortie, et veillez à la tenue rigoureuse des dossiers ainsi qu’au respect des échéances et des exigences légales et administratives. Dans le cadre de votre fonction, vous assurez également les échanges avec les autorités pénales, les partenaires institutionnels et les différents secteurs de l’établissement. Vous renseignez et orientez vos interlocuteurs, participez au suivi des décisions et apportez, au besoin, votre soutien aux autres activités du secteur administratif. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Gérer quotidiennement les procédures d’entrée et de sortie des personnes détenues, le planning des comparutions au tribunal. Tenir l’échéancier, tenir à jour des statistiques, effectuer le classement et l’archivage.\n• Tenir à jour les dossiers courants des personnes détenues incarcérées, rédiger l’ensemble des courriers relatifs à la gestion des personnes détenues. Saisir et suivre les changements d’autorité, les procédures de condamnation, les demandes de reliefs, les demandes de transfert en exécution de peine, etc.\n• Organiser les séances relatives aux personnes détenues (réseaux interdisciplinaires). Participer à la planification et à la gestion des transferts liés aux problématiques médicales et aux transferts vers un autre établissement.\n• Analyser les demandes de visites aux personnes détenues, déterminer leur faisabilité, effectuer la planification et rédiger les autorisations ou les refus.\n• Analyser et traiter l'ensemble des courriers reçus émanant des différentes autorités pénales et des différents secteurs de l'établissement en lien avec la détention des personnes détenues.\n• Assurer, développer et maintenir des contacts avec les instances, services, organismes, institutions et personnes liées directement à l’activité du SPEN, à la vie des détenus. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Viviane Monnier – administratrice gestionnaire au 021 316 08 86. CDD une année, éventuellement renouvelable.\n\n• CFC d’employé·e de commerce ou titre jugé équivalent.\n• Forte d’une expérience confirmée d’au moins 4 ans au sein d’une entité de la chaîne pénale.\n• Très bonnes capacités d’organisation.\n• Grande discrétion dans le traitement des données sensibles.\n• Excellentes aptitudes relationnelles, sens du travail en équipe et empathie.\n• Bonne maitrise du français à l’oral comme à l’écrit.\n• Connaissance de l’allemand et de l’anglais un atout.\n• Maîtrise des outils informatiques usuels. Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En votre qualité de gestionnaire de dossiers au sein de la prison de la Croisée à Orbe, vous aidez à la gestion des activités liées au greffe et gérez le suivi administratif des dossiers des personnes détenues. Vous prenez en charge les différentes procédures liées à leur détention, de leur entrée à leur sortie, et veillez à la tenue rigoureuse des dossiers ainsi qu’au respect des échéances et des exigences légales et administratives. Dans le cadre de votre fonction, vous assurez également les échanges avec les autorités pénales, les partenaires institutionnels et les différents secteurs de l’établissement. Vous renseignez et orientez vos interlocuteurs, participez au suivi des décisions et apportez, au besoin, votre soutien aux autres activités du secteur administratif. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Gérer quotidiennement les procédures d’entrée et de sortie des personnes détenues, le planning des comparutions au tribunal. Tenir l’échéancier, tenir à jour des statistiques, effectuer le classement et l’archivage.\n• Tenir à jour les dossiers courants des personnes détenues incarcérées, rédiger l’ensemble des courriers relatifs à la gestion des personnes détenues. Saisir et suivre les changements d’autorité, les procédures de condamnation, les demandes de reliefs, les demandes de transfert en exécution de peine, etc.\n• Organiser les séances relatives aux personnes détenues (réseaux interdisciplinaires). Participer à la planification et à la gestion des transferts liés aux problématiques médicales et aux transferts vers un autre établissement.\n• Analyser les demandes de visites aux personnes détenues, déterminer leur faisabilité, effectuer la planification et rédiger les autorisations ou les refus.\n• Analyser et traiter l'ensemble des courriers reçus émanant des différentes autorités pénales et des différents secteurs de l'établissement en lien avec la détention des personnes détenues.\n• Assurer, développer et maintenir des contacts avec les instances, services, organismes, institutions et personnes liées directement à l’activité du SPEN, à la vie des détenus. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Viviane Monnier – administratrice gestionnaire au 021 316 08 86. CDD une année, éventuellement renouvelable.\n\n• CFC d’employé·e de commerce ou titre jugé équivalent.\n• Forte d’une expérience confirmée d’au moins 4 ans au sein d’une entité de la chaîne pénale.\n• Très bonnes capacités d’organisation.\n• Grande discrétion dans le traitement des données sensibles.\n• Excellentes aptitudes relationnelles, sens du travail en équipe et empathie.\n• Bonne maitrise du français à l’oral comme à l’écrit.\n• Connaissance de l’allemand et de l’anglais un atout.\n• Maîtrise des outils informatiques usuels. Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En votre qualité de gestionnaire de dossiers au sein de la prison de la Croisée à Orbe, vous aidez à la gestion des activités liées au greffe et gérez le suivi administratif des dossiers des personnes détenues. Vous prenez en charge les différentes procédures liées à leur détention, de leur entrée à leur sortie, et veillez à la tenue rigoureuse des dossiers ainsi qu’au respect des échéances et des exigences légales et administratives. Dans le cadre de votre fonction, vous assurez également les échanges avec les autorités pénales, les partenaires institutionnels et les différents secteurs de l’établissement. Vous renseignez et orientez vos interlocuteurs, participez au suivi des décisions et apportez, au besoin, votre soutien aux autres activités du secteur administratif. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Gérer quotidiennement les procédures d’entrée et de sortie des personnes détenues, le planning des comparutions au tribunal. Tenir l’échéancier, tenir à jour des statistiques, effectuer le classement et l’archivage.\n• Tenir à jour les dossiers courants des personnes détenues incarcérées, rédiger l’ensemble des courriers relatifs à la gestion des personnes détenues. Saisir et suivre les changements d’autorité, les procédures de condamnation, les demandes de reliefs, les demandes de transfert en exécution de peine, etc.\n• Organiser les séances relatives aux personnes détenues (réseaux interdisciplinaires). Participer à la planification et à la gestion des transferts liés aux problématiques médicales et aux transferts vers un autre établissement.\n• Analyser les demandes de visites aux personnes détenues, déterminer leur faisabilité, effectuer la planification et rédiger les autorisations ou les refus.\n• Analyser et traiter l'ensemble des courriers reçus émanant des différentes autorités pénales et des différents secteurs de l'établissement en lien avec la détention des personnes détenues.\n• Assurer, développer et maintenir des contacts avec les instances, services, organismes, institutions et personnes liées directement à l’activité du SPEN, à la vie des détenus. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Viviane Monnier – administratrice gestionnaire au 021 316 08 86. CDD une année, éventuellement renouvelable.\n\n• CFC d’employé·e de commerce ou titre jugé équivalent.\n• Forte d’une expérience confirmée d’au moins 4 ans au sein d’une entité de la chaîne pénale.\n• Très bonnes capacités d’organisation.\n• Grande discrétion dans le traitement des données sensibles.\n• Excellentes aptitudes relationnelles, sens du travail en équipe et empathie.\n• Bonne maitrise du français à l’oral comme à l’écrit.\n• Connaissance de l’allemand et de l’anglais un atout.\n• Maîtrise des outils informatiques usuels. Nos conditions d’emploi exigent que vous soyez suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Orbe",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5975",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:08.758Z",
+      "addressLocality": "Orbe",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1350",
+      "streetAddress": "Place du Château 1",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5975",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-dossiers-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-dossiers-etat-de-vaud-orbe"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
+    },
+    {
+      "id": "etat-de-vaud-5957",
+      "slug": "repondant-e-si-metier-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "repondant-e-si-metier-etat-de-vaud-lausanne",
+        "it": "repondant-e-si-metier-etat-de-vaud-lausanne",
+        "en": "repondant-e-si-metier-etat-de-vaud-lausanne",
+        "de": "repondant-e-si-metier-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Répondant-e SI métier",
+      "titleByLocale": {
+        "fr": "Répondant-e SI métier",
+        "it": "Répondant-e SI métier",
+        "en": "Répondant-e SI métier",
+        "de": "Répondant-e SI métier"
+      },
+      "description": "La Direction finances, administration et support associe des connaissances stratégiques, financières, administratives, techniques et politiques. Entité support au service des autres direction de la Direction générales des immeubles et du patrimoine de sa Direction générale, elle regroupe diverses activités transversales. Afin de renforcer ses activités, la Direction finances, administration et support est à la recherche d'un·e répondant·e du SI métier. A ce titre, dans un environnement diversifié et stimulant, vous pilotez la vision ainsi que la stratégie d'évolution du SI métier, vous contribuez à sa modernisation et répondez aux enjeux stratégiques et opérationnels de directions.\n\n• Assurer un rôle de gouvernance du SI métier de la Direction générale des immeubles et du patrimoine et assurer l'interface stratégique avec la Direction générale du Numérique et des systèmes d'information pour l'ensemble des problématiques et solutions du SI\n• Conduire les grands projets informatiques de notre direction\n• Garantir la cohérence entre les outils informatiques, les processus, les aspects organisationnels et d'innovation ainsi que le système d'assurance qualité et assurer la veille technologique en matière informatique du SI\n• Conseiller la direction sur les orientations stratégiques du SI et représenter la Direction générale des immeuble et du patrimoine, dans son domaine de compétence, à l'interne et à l'externe. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Markus Bärtschi, Responsable administration et support au 021 316 74 85.\n\n• Master dans le domaine des systèmes d'information ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans le domaine de la gestion de programme, dans la gestion de projets informatiques complexes et dans la conduite du changement\n• Bonne capacité rédactionnelle, maitrise des applications informatiques courantes, aptitudes à développer et créer des outils d'analyse et de controlling\n• Connaissance de l’administration et des domaines de l'immobilier et du patrimoine, maitrise de l'anglais (niveau B2)\n• Capacité à développer des échanges positifs, esprit de décision, capacité d'analyse et de synthèse, sens de l'intégrité et du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "La Direction finances, administration et support associe des connaissances stratégiques, financières, administratives, techniques et politiques. Entité support au service des autres direction de la Direction générales des immeubles et du patrimoine de sa Direction générale, elle regroupe diverses activités transversales. Afin de renforcer ses activités, la Direction finances, administration et support est à la recherche d'un·e répondant·e du SI métier. A ce titre, dans un environnement diversifié et stimulant, vous pilotez la vision ainsi que la stratégie d'évolution du SI métier, vous contribuez à sa modernisation et répondez aux enjeux stratégiques et opérationnels de directions.\n\n• Assurer un rôle de gouvernance du SI métier de la Direction générale des immeubles et du patrimoine et assurer l'interface stratégique avec la Direction générale du Numérique et des systèmes d'information pour l'ensemble des problématiques et solutions du SI\n• Conduire les grands projets informatiques de notre direction\n• Garantir la cohérence entre les outils informatiques, les processus, les aspects organisationnels et d'innovation ainsi que le système d'assurance qualité et assurer la veille technologique en matière informatique du SI\n• Conseiller la direction sur les orientations stratégiques du SI et représenter la Direction générale des immeuble et du patrimoine, dans son domaine de compétence, à l'interne et à l'externe. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Markus Bärtschi, Responsable administration et support au 021 316 74 85.\n\n• Master dans le domaine des systèmes d'information ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans le domaine de la gestion de programme, dans la gestion de projets informatiques complexes et dans la conduite du changement\n• Bonne capacité rédactionnelle, maitrise des applications informatiques courantes, aptitudes à développer et créer des outils d'analyse et de controlling\n• Connaissance de l’administration et des domaines de l'immobilier et du patrimoine, maitrise de l'anglais (niveau B2)\n• Capacité à développer des échanges positifs, esprit de décision, capacité d'analyse et de synthèse, sens de l'intégrité et du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "La Direction finances, administration et support associe des connaissances stratégiques, financières, administratives, techniques et politiques. Entité support au service des autres direction de la Direction générales des immeubles et du patrimoine de sa Direction générale, elle regroupe diverses activités transversales. Afin de renforcer ses activités, la Direction finances, administration et support est à la recherche d'un·e répondant·e du SI métier. A ce titre, dans un environnement diversifié et stimulant, vous pilotez la vision ainsi que la stratégie d'évolution du SI métier, vous contribuez à sa modernisation et répondez aux enjeux stratégiques et opérationnels de directions.\n\n• Assurer un rôle de gouvernance du SI métier de la Direction générale des immeubles et du patrimoine et assurer l'interface stratégique avec la Direction générale du Numérique et des systèmes d'information pour l'ensemble des problématiques et solutions du SI\n• Conduire les grands projets informatiques de notre direction\n• Garantir la cohérence entre les outils informatiques, les processus, les aspects organisationnels et d'innovation ainsi que le système d'assurance qualité et assurer la veille technologique en matière informatique du SI\n• Conseiller la direction sur les orientations stratégiques du SI et représenter la Direction générale des immeuble et du patrimoine, dans son domaine de compétence, à l'interne et à l'externe. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Markus Bärtschi, Responsable administration et support au 021 316 74 85.\n\n• Master dans le domaine des systèmes d'information ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans le domaine de la gestion de programme, dans la gestion de projets informatiques complexes et dans la conduite du changement\n• Bonne capacité rédactionnelle, maitrise des applications informatiques courantes, aptitudes à développer et créer des outils d'analyse et de controlling\n• Connaissance de l’administration et des domaines de l'immobilier et du patrimoine, maitrise de l'anglais (niveau B2)\n• Capacité à développer des échanges positifs, esprit de décision, capacité d'analyse et de synthèse, sens de l'intégrité et du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "La Direction finances, administration et support associe des connaissances stratégiques, financières, administratives, techniques et politiques. Entité support au service des autres direction de la Direction générales des immeubles et du patrimoine de sa Direction générale, elle regroupe diverses activités transversales. Afin de renforcer ses activités, la Direction finances, administration et support est à la recherche d'un·e répondant·e du SI métier. A ce titre, dans un environnement diversifié et stimulant, vous pilotez la vision ainsi que la stratégie d'évolution du SI métier, vous contribuez à sa modernisation et répondez aux enjeux stratégiques et opérationnels de directions.\n\n• Assurer un rôle de gouvernance du SI métier de la Direction générale des immeubles et du patrimoine et assurer l'interface stratégique avec la Direction générale du Numérique et des systèmes d'information pour l'ensemble des problématiques et solutions du SI\n• Conduire les grands projets informatiques de notre direction\n• Garantir la cohérence entre les outils informatiques, les processus, les aspects organisationnels et d'innovation ainsi que le système d'assurance qualité et assurer la veille technologique en matière informatique du SI\n• Conseiller la direction sur les orientations stratégiques du SI et représenter la Direction générale des immeuble et du patrimoine, dans son domaine de compétence, à l'interne et à l'externe. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Markus Bärtschi, Responsable administration et support au 021 316 74 85.\n\n• Master dans le domaine des systèmes d'information ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans le domaine de la gestion de programme, dans la gestion de projets informatiques complexes et dans la conduite du changement\n• Bonne capacité rédactionnelle, maitrise des applications informatiques courantes, aptitudes à développer et créer des outils d'analyse et de controlling\n• Connaissance de l’administration et des domaines de l'immobilier et du patrimoine, maitrise de l'anglais (niveau B2)\n• Capacité à développer des échanges positifs, esprit de décision, capacité d'analyse et de synthèse, sens de l'intégrité et du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "La Direction finances, administration et support associe des connaissances stratégiques, financières, administratives, techniques et politiques. Entité support au service des autres direction de la Direction générales des immeubles et du patrimoine de sa Direction générale, elle regroupe diverses activités transversales. Afin de renforcer ses activités, la Direction finances, administration et support est à la recherche d'un·e répondant·e du SI métier. A ce titre, dans un environnement diversifié et stimulant, vous pilotez la vision ainsi que la stratégie d'évolution du SI métier, vous contribuez à sa modernisation et répondez aux enjeux stratégiques et opérationnels de directions.\n\n• Assurer un rôle de gouvernance du SI métier de la Direction générale des immeubles et du patrimoine et assurer l'interface stratégique avec la Direction générale du Numérique et des systèmes d'information pour l'ensemble des problématiques et solutions du SI\n• Conduire les grands projets informatiques de notre direction\n• Garantir la cohérence entre les outils informatiques, les processus, les aspects organisationnels et d'innovation ainsi que le système d'assurance qualité et assurer la veille technologique en matière informatique du SI\n• Conseiller la direction sur les orientations stratégiques du SI et représenter la Direction générale des immeuble et du patrimoine, dans son domaine de compétence, à l'interne et à l'externe. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Markus Bärtschi, Responsable administration et support au 021 316 74 85.\n\n• Master dans le domaine des systèmes d'information ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans le domaine de la gestion de programme, dans la gestion de projets informatiques complexes et dans la conduite du changement\n• Bonne capacité rédactionnelle, maitrise des applications informatiques courantes, aptitudes à développer et créer des outils d'analyse et de controlling\n• Connaissance de l’administration et des domaines de l'immobilier et du patrimoine, maitrise de l'anglais (niveau B2)\n• Capacité à développer des échanges positifs, esprit de décision, capacité d'analyse et de synthèse, sens de l'intégrité et du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5957",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:08.169Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5957",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5940",
+      "slug": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+      "slugByLocale": {
+        "fr": "gestionnaire-de-dossiers-specialises-etat-de-vaud-yverdon-les-bains",
+        "it": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "en": "gestionnaire-de-dossiers-specialises-etat-de-vaud-yverdon-les-bains",
+        "de": "gestionnaire-de-dossiers-specialises-etat-de-vaud-yverdon-les-bains"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Gestionnaire de dossiers spécialisés",
+      "titleByLocale": {
+        "fr": "Gestionnaire de dossiers spécialisés",
+        "it": "Gestionnaire de dossiers spécialisés",
+        "en": "Gestionnaire de dossiers spécialisés",
+        "de": "Gestionnaire de dossiers spécialisés"
+      },
+      "description": "Pour le Ministère public de l'arrondissement du Nord vaudois, nous recherchons un·e gestionnaire de dossiers spécialisés. Dans ce cadre, vous assurez le secrétariat et le fonctionnement du greffe du·de la procureur·e. En complément aux activités ci-dessous, vous tenez les statistiques et renseignez, au besoin, les divers intervenant·e·s aux dossiers. En outre, vous pouvez être amené·e à prendre des procès-verbaux d'audiences. Le Ministère public est l'autorité de poursuite pénale pour l'ensemble du territoire vaudois. C'est donc lui qui dirige la procédure pénale préliminaire et les enquêtes sur les infractions portées à sa connaissance, lorsqu’elles concernent des personnes majeures. Il représente également l'accusation devant les tribunaux et diverses instances judiciaires. Le Ministère public est composé du Ministère public central, des 4 offices d’arrondissement et du Ministère public cantonal STRADA.\n\n• Assurer le secrétariat et le fonctionnement du greffe du·de la procureur·e\n• Gérer les dossiers judiciaires instruits par le·la procureur·e\n• Renseigner les justiciables et partenaires de la chaîne pénale\n• Assister le·la procureur·e ou le·la greffier·ière en audition Le Ministère public offre à son personnel des possibilités de flexibilité dans l'organisation du temps de travail. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Céline Christillin, Assistante RH et conseillère en recrutement au 021 316 65 26. Merci de bien vouloir accompagner votre CV d'un dossier complet et d'une lettre de motivation.\n\n• Certificat fédéral d'employé·e de commerce ou titre jugé équivalent\n• Expérience souhaitée de quelques années dans le domaine judiciaire et/ou bancaire\n• Excellente maîtrise de l'orthographe\n• Rigueur, capacité d'adaptation et facilité à travailler en équipe\n• Flexibilité, résistance au stress et discrétion\n• Respect des normes et des procédures\n• Sens de l'organisation et du service public\n• Casier judiciaire vierge et exempt·e de poursuites ou d'acte de défaut de biens L'exercice d'une activité annexe dans le même domaine d'activité est considéré comme un conflit d’intérêt et est donc incompatible avec le poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Pour le Ministère public de l'arrondissement du Nord vaudois, nous recherchons un·e gestionnaire de dossiers spécialisés. Dans ce cadre, vous assurez le secrétariat et le fonctionnement du greffe du·de la procureur·e. En complément aux activités ci-dessous, vous tenez les statistiques et renseignez, au besoin, les divers intervenant·e·s aux dossiers. En outre, vous pouvez être amené·e à prendre des procès-verbaux d'audiences. Le Ministère public est l'autorité de poursuite pénale pour l'ensemble du territoire vaudois. C'est donc lui qui dirige la procédure pénale préliminaire et les enquêtes sur les infractions portées à sa connaissance, lorsqu’elles concernent des personnes majeures. Il représente également l'accusation devant les tribunaux et diverses instances judiciaires. Le Ministère public est composé du Ministère public central, des 4 offices d’arrondissement et du Ministère public cantonal STRADA.\n\n• Assurer le secrétariat et le fonctionnement du greffe du·de la procureur·e\n• Gérer les dossiers judiciaires instruits par le·la procureur·e\n• Renseigner les justiciables et partenaires de la chaîne pénale\n• Assister le·la procureur·e ou le·la greffier·ière en audition Le Ministère public offre à son personnel des possibilités de flexibilité dans l'organisation du temps de travail. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Céline Christillin, Assistante RH et conseillère en recrutement au 021 316 65 26. Merci de bien vouloir accompagner votre CV d'un dossier complet et d'une lettre de motivation.\n\n• Certificat fédéral d'employé·e de commerce ou titre jugé équivalent\n• Expérience souhaitée de quelques années dans le domaine judiciaire et/ou bancaire\n• Excellente maîtrise de l'orthographe\n• Rigueur, capacité d'adaptation et facilité à travailler en équipe\n• Flexibilité, résistance au stress et discrétion\n• Respect des normes et des procédures\n• Sens de l'organisation et du service public\n• Casier judiciaire vierge et exempt·e de poursuites ou d'acte de défaut de biens L'exercice d'une activité annexe dans le même domaine d'activité est considéré comme un conflit d’intérêt et est donc incompatible avec le poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Pour le Ministère public de l'arrondissement du Nord vaudois, nous recherchons un·e gestionnaire de dossiers spécialisés. Dans ce cadre, vous assurez le secrétariat et le fonctionnement du greffe du·de la procureur·e. En complément aux activités ci-dessous, vous tenez les statistiques et renseignez, au besoin, les divers intervenant·e·s aux dossiers. En outre, vous pouvez être amené·e à prendre des procès-verbaux d'audiences. Le Ministère public est l'autorité de poursuite pénale pour l'ensemble du territoire vaudois. C'est donc lui qui dirige la procédure pénale préliminaire et les enquêtes sur les infractions portées à sa connaissance, lorsqu’elles concernent des personnes majeures. Il représente également l'accusation devant les tribunaux et diverses instances judiciaires. Le Ministère public est composé du Ministère public central, des 4 offices d’arrondissement et du Ministère public cantonal STRADA.\n\n• Assurer le secrétariat et le fonctionnement du greffe du·de la procureur·e\n• Gérer les dossiers judiciaires instruits par le·la procureur·e\n• Renseigner les justiciables et partenaires de la chaîne pénale\n• Assister le·la procureur·e ou le·la greffier·ière en audition Le Ministère public offre à son personnel des possibilités de flexibilité dans l'organisation du temps de travail. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Céline Christillin, Assistante RH et conseillère en recrutement au 021 316 65 26. Merci de bien vouloir accompagner votre CV d'un dossier complet et d'une lettre de motivation.\n\n• Certificat fédéral d'employé·e de commerce ou titre jugé équivalent\n• Expérience souhaitée de quelques années dans le domaine judiciaire et/ou bancaire\n• Excellente maîtrise de l'orthographe\n• Rigueur, capacité d'adaptation et facilité à travailler en équipe\n• Flexibilité, résistance au stress et discrétion\n• Respect des normes et des procédures\n• Sens de l'organisation et du service public\n• Casier judiciaire vierge et exempt·e de poursuites ou d'acte de défaut de biens L'exercice d'une activité annexe dans le même domaine d'activité est considéré comme un conflit d’intérêt et est donc incompatible avec le poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Pour le Ministère public de l'arrondissement du Nord vaudois, nous recherchons un·e gestionnaire de dossiers spécialisés. Dans ce cadre, vous assurez le secrétariat et le fonctionnement du greffe du·de la procureur·e. En complément aux activités ci-dessous, vous tenez les statistiques et renseignez, au besoin, les divers intervenant·e·s aux dossiers. En outre, vous pouvez être amené·e à prendre des procès-verbaux d'audiences. Le Ministère public est l'autorité de poursuite pénale pour l'ensemble du territoire vaudois. C'est donc lui qui dirige la procédure pénale préliminaire et les enquêtes sur les infractions portées à sa connaissance, lorsqu’elles concernent des personnes majeures. Il représente également l'accusation devant les tribunaux et diverses instances judiciaires. Le Ministère public est composé du Ministère public central, des 4 offices d’arrondissement et du Ministère public cantonal STRADA.\n\n• Assurer le secrétariat et le fonctionnement du greffe du·de la procureur·e\n• Gérer les dossiers judiciaires instruits par le·la procureur·e\n• Renseigner les justiciables et partenaires de la chaîne pénale\n• Assister le·la procureur·e ou le·la greffier·ière en audition Le Ministère public offre à son personnel des possibilités de flexibilité dans l'organisation du temps de travail. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Céline Christillin, Assistante RH et conseillère en recrutement au 021 316 65 26. Merci de bien vouloir accompagner votre CV d'un dossier complet et d'une lettre de motivation.\n\n• Certificat fédéral d'employé·e de commerce ou titre jugé équivalent\n• Expérience souhaitée de quelques années dans le domaine judiciaire et/ou bancaire\n• Excellente maîtrise de l'orthographe\n• Rigueur, capacité d'adaptation et facilité à travailler en équipe\n• Flexibilité, résistance au stress et discrétion\n• Respect des normes et des procédures\n• Sens de l'organisation et du service public\n• Casier judiciaire vierge et exempt·e de poursuites ou d'acte de défaut de biens L'exercice d'une activité annexe dans le même domaine d'activité est considéré comme un conflit d’intérêt et est donc incompatible avec le poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Pour le Ministère public de l'arrondissement du Nord vaudois, nous recherchons un·e gestionnaire de dossiers spécialisés. Dans ce cadre, vous assurez le secrétariat et le fonctionnement du greffe du·de la procureur·e. En complément aux activités ci-dessous, vous tenez les statistiques et renseignez, au besoin, les divers intervenant·e·s aux dossiers. En outre, vous pouvez être amené·e à prendre des procès-verbaux d'audiences. Le Ministère public est l'autorité de poursuite pénale pour l'ensemble du territoire vaudois. C'est donc lui qui dirige la procédure pénale préliminaire et les enquêtes sur les infractions portées à sa connaissance, lorsqu’elles concernent des personnes majeures. Il représente également l'accusation devant les tribunaux et diverses instances judiciaires. Le Ministère public est composé du Ministère public central, des 4 offices d’arrondissement et du Ministère public cantonal STRADA.\n\n• Assurer le secrétariat et le fonctionnement du greffe du·de la procureur·e\n• Gérer les dossiers judiciaires instruits par le·la procureur·e\n• Renseigner les justiciables et partenaires de la chaîne pénale\n• Assister le·la procureur·e ou le·la greffier·ière en audition Le Ministère public offre à son personnel des possibilités de flexibilité dans l'organisation du temps de travail. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Céline Christillin, Assistante RH et conseillère en recrutement au 021 316 65 26. Merci de bien vouloir accompagner votre CV d'un dossier complet et d'une lettre de motivation.\n\n• Certificat fédéral d'employé·e de commerce ou titre jugé équivalent\n• Expérience souhaitée de quelques années dans le domaine judiciaire et/ou bancaire\n• Excellente maîtrise de l'orthographe\n• Rigueur, capacité d'adaptation et facilité à travailler en équipe\n• Flexibilité, résistance au stress et discrétion\n• Respect des normes et des procédures\n• Sens de l'organisation et du service public\n• Casier judiciaire vierge et exempt·e de poursuites ou d'acte de défaut de biens L'exercice d'une activité annexe dans le même domaine d'activité est considéré comme un conflit d’intérêt et est donc incompatible avec le poste.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Yverdon-Les-Bains",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5940",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T09:33:07.706Z",
+      "addressLocality": "Yverdon-Les-Bains",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "streetAddress": "Place du Château 1",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5940",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-yverdon-les-bains"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
     }
   ]
 }

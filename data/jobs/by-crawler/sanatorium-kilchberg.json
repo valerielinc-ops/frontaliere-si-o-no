@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-10-04T21:21:10.891Z",
+  "assembledAt": "2026-10-05T09:19:10.571Z",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:05.599Z",
+      "crawledAt": "2026-10-05T09:19:05.956Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +48,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/289/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -80,8 +80,7 @@
         "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg-2",
         "primario-sanatorium-kilchberg-kilchberg",
         "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg",
-        "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg",
-        "assistente-medico-sanatorium-kilchberg-kilchberg"
+        "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -93,8 +92,7 @@
           "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg-2",
           "primario-sanatorium-kilchberg-kilchberg",
           "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg",
-          "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg",
-          "assistente-medico-sanatorium-kilchberg-kilchberg"
+          "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg-3e94d6",
@@ -120,7 +118,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -153,7 +153,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:21:01.593Z",
+      "crawledAt": "2026-10-05T09:19:01.843Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/344/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -190,13 +190,11 @@
       "previousSlugs": [
         "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg-kilchberg",
         "pflegefachkraft-hf-in-ausbildung-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg",
-        "professionista-sanitario-hf-in-formazione-sanatorium-kilchberg-kilchberg"
+        "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg-kilchberg",
-          "professionista-sanitario-hf-in-formazione-sanatorium-kilchberg-kilchberg"
+          "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-in-ausbildung-sanatorium-kilchberg-kilchberg",
@@ -219,7 +217,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-9d7b5fd4744c",
@@ -252,7 +252,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:57.591Z",
+      "crawledAt": "2026-10-05T09:18:57.938Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -266,7 +266,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/528/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -297,14 +297,12 @@
       },
       "previousSlugs": [
         "fachpersonen-gesundheit-efz-pflegehelfer-in-srk-fur-den-internen-pflegepool-sanatorium",
-        "pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg",
-        "operatore-socio-sanitario-oss-assistente-di-cura-crs-per-il-pool-infermieristico-interno-sanatorium-kilchberg-kilchberg"
+        "pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachpersonen-gesundheit-efz-pflegehelfer-in-srk-fur-den-internen-pflegepool-sanatorium",
-          "pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg",
-          "operatore-socio-sanitario-oss-assistente-di-cura-crs-per-il-pool-infermieristico-interno-sanatorium-kilchberg-kilchberg"
+          "pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg"
         ],
         "de": [
           "fachpersonen-gesundheit-efz-pflegehelfer-in-srk-fur-den-internen-pflegepool-sanatorium"
@@ -323,7 +321,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-27ac27e9eae8",
@@ -356,7 +356,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:53.598Z",
+      "crawledAt": "2026-10-05T09:18:53.939Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +370,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/542/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -396,13 +396,11 @@
       "previousSlugs": [
         "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
         "vorsorgeberater-in-80-100-generalagentur-berner-oberland",
-        "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi",
-        "operatore-socio-sanitario-oss-con-attestato-federale-di-capacita-afc-sanatorium-kilchberg-kilchberg"
+        "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
-          "operatore-socio-sanitario-oss-con-attestato-federale-di-capacita-afc-sanatorium-kilchberg-kilchberg"
+          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
         ],
         "de": [
           "vorsorgeberater-in-80-100-generalagentur-berner-oberland",
@@ -422,7 +420,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -456,7 +456,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:49.622Z",
+      "crawledAt": "2026-10-05T09:18:49.935Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,7 +470,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/587/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -500,16 +500,14 @@
         "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg",
         "addetto-a-alla-manutenzione-della-cucina-sanatorium-kilchberg-kilchberg",
         "kitchen-maintenance-assistant-sanatorium-kilchberg-kilchberg",
-        "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg-2",
-        "addetto-a-alla-manutenzione-del-valore-della-cucina-sanatorium-kilchberg-kilchberg"
+        "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg",
           "addetto-a-alla-manutenzione-della-cucina-sanatorium-kilchberg-kilchberg",
           "kitchen-maintenance-assistant-sanatorium-kilchberg-kilchberg",
-          "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg-2",
-          "addetto-a-alla-manutenzione-del-valore-della-cucina-sanatorium-kilchberg-kilchberg"
+          "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg-2"
         ],
         "de": [
           "mitarbeiter-in-werterhaltung-kuche-sanatorium-kilchberg-kilchberg-2"
@@ -528,7 +526,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-436cf9be7104",
@@ -562,7 +562,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/620/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:45.595Z",
+      "crawledAt": "2026-10-05T09:18:45.951Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -576,18 +576,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-01",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/620/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
@@ -609,7 +607,9 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -643,7 +643,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/629/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:41.599Z",
+      "crawledAt": "2026-10-05T09:18:41.841Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,19 +657,17 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/629/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
-        "cura-professionale-hf-fh-sanatorium-kilchberg-kilchberg-5f5b1f"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "cura-professionale-hf-fh-sanatorium-kilchberg-kilchberg-5f5b1f"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
@@ -694,7 +692,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-1c2f76ea153e",
@@ -728,7 +728,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/644/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:37.604Z",
+      "crawledAt": "2026-10-05T09:18:37.935Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -742,18 +742,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-05",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/644/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
+        "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-          "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
+          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
@@ -775,7 +773,9 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-f51d92b553f6",
@@ -809,7 +809,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/652/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:33.598Z",
+      "crawledAt": "2026-10-05T09:18:33.841Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,19 +823,17 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/652/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg",
-        "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg"
@@ -857,7 +855,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-1dc5b66d44ed",
@@ -891,7 +891,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/654/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:29.614Z",
+      "crawledAt": "2026-10-05T09:18:29.849Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -905,24 +905,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/654/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk4"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f580ce"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk4",
-        "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f580ce"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
       "salaryMin": 91500,
@@ -937,7 +933,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-11a5e19f0f00",
@@ -971,7 +969,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/655/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:25.582Z",
+      "crawledAt": "2026-10-05T09:18:25.846Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -985,24 +983,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/655/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "professionista-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5",
-        "professionista-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
       "salaryMin": 91500,
@@ -1017,7 +1011,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-ad2a286928b6",
@@ -1051,7 +1047,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/667/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:21.611Z",
+      "crawledAt": "2026-10-05T09:18:21.841Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1065,18 +1061,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/667/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologe-psychologin-sanatorium-kilchberg-kilchberg",
-        "psicologo-psicologo-sanatorium-kilchberg-kilchberg"
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologe-psychologin-sanatorium-kilchberg-kilchberg",
-          "psicologo-psicologo-sanatorium-kilchberg-kilchberg"
+          "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
@@ -1098,7 +1092,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-9a9af16c5117",
@@ -1132,7 +1128,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/673/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:17.617Z",
+      "crawledAt": "2026-10-05T09:18:17.873Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1146,18 +1142,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/673/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
-        "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg"
+        "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
-          "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg"
+          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:15.820Z",
@@ -1173,14 +1167,16 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-41ad7241e363",
       "slug": "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "it": "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
-        "en": "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg",
+        "en": "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg",
         "de": "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
         "fr": "therapeute-sportif-ou-therapeute-des-mouvements-sanatorium-kilchberg-kilchberg"
       },
@@ -1207,7 +1203,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/674/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:13.593Z",
+      "crawledAt": "2026-10-05T09:18:13.842Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1221,26 +1217,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/674/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
         "sporttherapeutin-sporttherapeut-o-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg",
-        "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg",
-        "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
         "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
-          "sporttherapeutin-sporttherapeut-o-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg",
-          "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg"
+          "sporttherapeutin-sporttherapeut-o-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg"
         ],
         "en": [
           "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
-          "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg",
           "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg"
         ],
         "fr": [
@@ -1260,7 +1252,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-56dc28263951",
@@ -1294,7 +1288,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/675/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:09.599Z",
+      "crawledAt": "2026-10-05T09:18:09.846Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1308,24 +1302,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/675/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5flv"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "professionista-hf-fh-sanatorium-kilchberg-kilchberg-582efb"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5flv",
-        "professionista-hf-fh-sanatorium-kilchberg-kilchberg-582efb"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
       "salaryMin": 91500,
@@ -1340,7 +1330,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-de4d9ebaf506",
@@ -1374,7 +1366,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/682/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:08.216Z",
+      "crawledAt": "2026-10-05T09:18:05.844Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1388,18 +1380,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/682/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
-        "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg"
+        "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
-          "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg"
+          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
@@ -1421,7 +1411,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-37aebc3d3ea5",
@@ -1455,7 +1447,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/684/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:07.383Z",
+      "crawledAt": "2026-10-05T09:18:01.854Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1469,18 +1461,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/684/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg",
-        "cura-specializzata-sanatorium-kilchberg-kilchberg"
+        "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg",
-          "cura-specializzata-sanatorium-kilchberg-kilchberg"
+          "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg"
@@ -1502,7 +1492,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-566d332bded8",
@@ -1536,7 +1528,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/685/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:06.534Z",
+      "crawledAt": "2026-10-05T09:17:57.847Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1550,20 +1542,18 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/685/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-masseur-in-sanatorium-kilchberg-kilchberg",
-        "medizinische-r-masseur-in-sanatorium-kilchberg-kilchberg",
-        "massaggio-medico-sanatorium-kilchberg-kilchberg"
+        "medizinische-r-masseur-in-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-masseur-in-sanatorium-kilchberg-kilchberg",
-          "medizinische-r-masseur-in-sanatorium-kilchberg-kilchberg",
-          "massaggio-medico-sanatorium-kilchberg-kilchberg"
+          "medizinische-r-masseur-in-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "medizinische-masseur-in-sanatorium-kilchberg-kilchberg"
@@ -1585,7 +1575,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sanatorium-kilchberg-27baae9b0aaa",
@@ -1618,7 +1610,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/688/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:05.704Z",
+      "crawledAt": "2026-10-05T09:17:54.495Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1632,18 +1624,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/688/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg",
-        "medico-di-fine-settimana-sanatorium-kilchberg-kilchberg"
+        "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg",
-          "medico-di-fine-settimana-sanatorium-kilchberg-kilchberg"
+          "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg"
@@ -1665,7 +1655,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

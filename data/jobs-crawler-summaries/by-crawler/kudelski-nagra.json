@@ -1,7 +1,7 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-10-04T21:36:41.296Z",
+  "generatedAt": "2026-10-05T09:32:44.018Z",
   "total": 1,
   "discovered": 13,
   "parsed": 1,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6632,
-  "avgDurationMs": 6632,
+  "durationMs": 5543,
+  "avgDurationMs": 5543,
   "durationHistory": [
-    6632
+    5543
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:29.898Z",
+      "crawledAt": "2026-10-05T09:32:32.163Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -47,23 +49,25 @@
       "sector": "Sicurezza digitale / Media technology",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

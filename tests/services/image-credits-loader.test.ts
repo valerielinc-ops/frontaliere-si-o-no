@@ -103,7 +103,12 @@ describe('fetchImageCredit — a published credit becomes the record the project
       'Immagine di copertina: «Fixture Lake» di Fixture Author, CC BY-SA 4.0, tramite Wikimedia Commons (ritagliata e ridimensionata).',
     );
     expect(imageObjectCreditFields(record)).toEqual({
-      creator: { '@type': 'Person', name: 'Fixture Author', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Author' },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://commons.wikimedia.org/wiki/User:Fixture_Author',
+        name: 'Fixture Author',
+        url: 'https://commons.wikimedia.org/wiki/User:Fixture_Author',
+      },
       creditText: 'Fixture Author / Wikimedia Commons',
       copyrightNotice: '© Fixture Author',
       license: 'https://creativecommons.org/licenses/by-sa/4.0/',

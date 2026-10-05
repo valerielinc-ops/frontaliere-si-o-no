@@ -213,7 +213,7 @@ jobs:
 
           # ---- felfel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run felfel" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -253,6 +253,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/felfel.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/felfel.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/felfel.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/felfel.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -400,7 +401,7 @@ jobs:
 
           # ---- siemens: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run siemens" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -440,6 +441,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/siemens.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/siemens.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/siemens.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/siemens.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -587,7 +589,7 @@ jobs:
 
           # ---- linnea: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run linnea" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -627,6 +629,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/linnea.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/linnea.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/linnea.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/linnea.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -775,7 +778,7 @@ jobs:
 
           # ---- oscam-castelrotto: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run oscam-castelrotto" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -815,6 +818,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/oscam-castelrotto.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/oscam-castelrotto.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/oscam-castelrotto.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/oscam-castelrotto.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -962,7 +966,7 @@ jobs:
 
           # ---- zkb: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run zkb" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1002,6 +1006,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/zkb.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/zkb.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/zkb.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/zkb.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1149,7 +1154,7 @@ jobs:
 
           # ---- rss-surselva: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run rss-surselva" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1189,6 +1194,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/rss-surselva.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/rss-surselva.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/rss-surselva.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/rss-surselva.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1336,7 +1342,7 @@ jobs:
 
           # ---- ukbb: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run ukbb" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1376,6 +1382,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/ukbb.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/ukbb.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/ukbb.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/ukbb.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1523,7 +1530,7 @@ jobs:
 
           # ---- totalenergies: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run totalenergies" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1563,6 +1570,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/totalenergies.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/totalenergies.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/totalenergies.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/totalenergies.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1710,7 +1718,7 @@ jobs:
 
           # ---- uzh: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run uzh" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1750,6 +1758,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/uzh.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/uzh.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/uzh.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/uzh.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1898,7 +1907,7 @@ jobs:
 
           # ---- klinik-aadorf: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run klinik-aadorf" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1938,6 +1947,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/klinik-aadorf.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/klinik-aadorf.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/klinik-aadorf.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/klinik-aadorf.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2085,7 +2095,7 @@ jobs:
 
           # ---- efg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run efg" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2125,6 +2135,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/efg.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/efg.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/efg-international.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/efg.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2272,7 +2283,7 @@ jobs:
 
           # ---- spital-maennedorf: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run spital-maennedorf" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2312,6 +2323,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/spital-maennedorf.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/spital-maennedorf.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/spital-maennedorf.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/spital-maennedorf.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2459,7 +2471,7 @@ jobs:
 
           # ---- ubs: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run ubs" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2499,6 +2511,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/ubs.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/ubs.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/ubs.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/ubs.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2646,7 +2659,7 @@ jobs:
 
           # ---- ksa: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run ksa" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2686,6 +2699,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/ksa.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/ksa.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/ksa.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/ksa.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2833,7 +2847,7 @@ jobs:
 
           # ---- kispi-zurich: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run kispi-zurich" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2873,6 +2887,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/kispi-zurich.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/kispi-zurich.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/kispi-zurich.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/kispi-zurich.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3020,7 +3035,7 @@ jobs:
 
           # ---- helsinn: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run helsinn" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3060,6 +3075,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/helsinn.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/helsinn.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/helsinn.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/helsinn.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3207,7 +3223,7 @@ jobs:
 
           # ---- hib: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run hib" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3247,6 +3263,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/hib.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/hib.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/hib-broye.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/hib.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3394,7 +3411,7 @@ jobs:
 
           # ---- galliker: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run galliker" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3434,6 +3451,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/galliker.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/galliker.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/galliker.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/galliker.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3581,7 +3599,7 @@ jobs:
 
           # ---- clinique-cic: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run clinique-cic" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3621,6 +3639,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/clinique-cic.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/clinique-cic.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/clinique-cic.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/clinique-cic.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3768,7 +3787,7 @@ jobs:
 
           # ---- casale: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run casale" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3808,6 +3827,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/casale.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/casale.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/casale.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/casale.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3955,7 +3975,7 @@ jobs:
 
           # ---- interdiscount: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run interdiscount" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3995,6 +4015,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/interdiscount.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/interdiscount.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/interdiscount.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/interdiscount.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4142,7 +4163,7 @@ jobs:
 
           # ---- bosch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run bosch" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4182,6 +4203,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/bosch.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/bosch.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/bosch-thermotechnik-ag.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/bosch.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4329,7 +4351,7 @@ jobs:
 
           # ---- hopital-de-moutier: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run hopital-de-moutier" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4369,6 +4391,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/hopital-de-moutier.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/hopital-de-moutier.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/hopital-de-moutier.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/hopital-de-moutier.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4516,7 +4539,7 @@ jobs:
 
           # ---- mobiliar: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run mobiliar" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4556,6 +4579,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/mobiliar.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/mobiliar.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/mobiliar.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/mobiliar.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4703,7 +4727,7 @@ jobs:
 
           # ---- berner-montage: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run berner-montage" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4743,6 +4767,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/berner-montage.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/berner-montage.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/berner-montage.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/berner-montage.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4890,7 +4915,7 @@ jobs:
 
           # ---- climeworks: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run climeworks" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4930,6 +4955,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/climeworks.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/climeworks.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/climeworks.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/climeworks.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5077,7 +5103,7 @@ jobs:
 
           # ---- arosa-lenzerheide: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run arosa-lenzerheide" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5117,6 +5143,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/arosa-lenzerheide.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/arosa-lenzerheide.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/arosa-lenzerheide.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/arosa-lenzerheide.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5264,7 +5291,7 @@ jobs:
 
           # ---- schweizerhof-flims: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run schweizerhof-flims" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5304,6 +5331,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/schweizerhof-flims.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/schweizerhof-flims.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/schweizerhof-flims.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/schweizerhof-flims.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5451,7 +5479,7 @@ jobs:
 
           # ---- schindler: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run schindler" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5491,6 +5519,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-03/schindler.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-03/schindler.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-03/schindler.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-03/schindler.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -7227,7 +7256,7 @@ jobs:
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
               echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
               watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --priority 2 --label Bug --workflow "Run $slug"; then
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug"; then
                 echo "::warning::$slug: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
               fi
             fi

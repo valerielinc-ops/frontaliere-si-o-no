@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ecam",
-  "assembledAt": "2026-10-04T21:37:02.108Z",
+  "assembledAt": "2026-10-05T09:34:49.493Z",
   "jobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -33,7 +33,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:36:57.547Z",
+      "crawledAt": "2026-10-05T09:34:44.554Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,11 +46,13 @@
       "sector": "Sanità / Case per anziani",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-01",
+      "postedDate": "",
       "validThrough": "2026-12-31",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "requirements": [],
       "requirementsByLocale": {},
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "firstSeenAt": "2026-09-24T14:54:38.347Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +99,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:36:57.203Z",
+      "crawledAt": "2026-10-05T09:34:43.777Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -110,7 +112,7 @@
       "sector": "Sanità / Case per anziani",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
+      "postedDate": "",
       "validThrough": "2026-09-18",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "requirements": [],
@@ -128,7 +130,9 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

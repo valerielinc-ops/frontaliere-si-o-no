@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emmi",
-  "assembledAt": "2026-10-04T21:22:40.006Z",
+  "assembledAt": "2026-10-05T09:21:30.976Z",
   "jobs": [
     {
       "id": "emmi-522a64170ebf",
@@ -33,7 +33,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse/67d6c61c-c687-4d14-aa07-6f38abd398af",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.765Z",
+      "crawledAt": "2026-10-05T09:21:26.841Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -46,7 +46,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-03-05",
+      "postedDate": "2025-03-05T13:22:32Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=15927",
       "requirements": [
         "• Excellentes compétences en communication et en vente",
@@ -65,13 +65,11 @@
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse",
-        "collaboratore-trice-part-time-per-degustazioni-promozioni-in-tutta-la-svizzera-emmi-luzern"
+        "collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse",
-          "collaboratore-trice-part-time-per-degustazioni-promozioni-in-tutta-la-svizzera-emmi-luzern"
+          "collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.216Z",
@@ -87,7 +85,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-03-05T13:22:32Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-5cbcedbc687a",
@@ -120,7 +120,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in-automatiker-in-tagesbetrieb/b4be9f66-68b3-47df-8ad8-c4a12f35d190",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.764Z",
+      "crawledAt": "2026-10-05T09:21:26.840Z",
       "addressLocality": "Langnau im Emmental",
       "postalCode": "3550",
       "addressRegion": "Bern",
@@ -133,7 +133,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-13T09:58:53Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19404",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Automatiker:in, Polymechaniker:in oder Landmaschinenmechaniker:in.",
@@ -170,13 +170,11 @@
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
-        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental"
+        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
-          "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental"
+          "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
         ]
       },
       "needsRetranslation": true,
@@ -193,7 +191,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-13T09:58:53Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-62d4a71a8724",
@@ -226,7 +226,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in/dd5fa58f-486e-4fb0-a090-c3bc1e989b4e",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.763Z",
+      "crawledAt": "2026-10-05T09:21:26.840Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -239,7 +239,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-18",
+      "postedDate": "2026-06-18T07:46:44Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19375",
       "requirements": [
         "• Du bringst eine Ausbildung im Lebensmittelbereich mit oder du hast Erfahrung als Maschinenführer:in.",
@@ -268,8 +268,7 @@
         "operatore-emmi-emmen-luzern",
         "operator-in-emmi-emmen-luzern",
         "anlagenfuhrer-in-emmi-ch",
-        "operateur-in-emmi-emmen-luzern",
-        "operatore-macchina-emmi-emmen-luzern"
+        "operateur-in-emmi-emmen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281,8 +280,7 @@
           "operatore-emmi-emmen-luzern",
           "operator-in-emmi-emmen-luzern",
           "anlagenfuhrer-in-emmi-ch",
-          "operateur-in-emmi-emmen-luzern",
-          "operatore-macchina-emmi-emmen-luzern"
+          "operateur-in-emmi-emmen-luzern"
         ],
         "en": [
           "maschinenfuhrer-in-emmi-emmen",
@@ -310,7 +308,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-18T07:46:44Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-025f3db15e67",
@@ -343,7 +343,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/fachspezialist-in-elektrotechnik/55f49031-c3e9-49fa-b952-f89a93cb3ef1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.762Z",
+      "crawledAt": "2026-10-05T09:21:26.839Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -356,7 +356,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-29",
+      "postedDate": "2026-06-29T09:48:17Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19308",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Elektromonteur EFZ.",
@@ -378,16 +378,14 @@
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen",
         "plantelectrician-automation-technician-emmi-ostermundigen",
-        "electricien-d-exploitation-automaticien-emmi-ostermundigen",
-        "specialista-in-elettrotecnica-emmi-ostermundigen-bern"
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-elektrotechnik-emmi-ch",
           "betriebselektriker-in-automatiker-in-emmi-ch",
           "betriebselektriker-in-automatiker-in-emmi-ch-2",
-          "elettricista-aziendale-automatico-a-emmi-ostermundigen",
-          "specialista-in-elettrotecnica-emmi-ostermundigen-bern"
+          "elettricista-aziendale-automatico-a-emmi-ostermundigen"
         ],
         "en": [
           "fachspezialist-in-elektrotechnik-emmi-ch",
@@ -412,7 +410,9 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-06-29T09:48:17Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-62c5db607e29",
@@ -445,7 +445,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/12cf834e-5056-456a-ab1a-da3d9782704f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.761Z",
+      "crawledAt": "2026-10-05T09:21:26.839Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -458,7 +458,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-09T08:14:37Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19574",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -481,14 +481,12 @@
       },
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-emmen"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-emmen"
+          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
@@ -511,7 +509,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-09T08:14:37Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-dc3b9c11519d",
@@ -544,7 +544,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/f2019aca-7592-40c0-95aa-a46a113fc4c0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.760Z",
+      "crawledAt": "2026-10-05T09:21:26.838Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -557,7 +557,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-09T08:37:56Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19573",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -582,14 +582,12 @@
       },
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-ostermundigen"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
-          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-ostermundigen"
+          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2"
@@ -612,7 +610,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-09T08:37:56Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-194e638ecc41",
@@ -645,7 +645,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027/6fe35107-f292-4e4c-a77b-e4dc9e277f9f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.759Z",
+      "crawledAt": "2026-10-05T09:21:26.837Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -658,7 +658,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-09T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19578",
       "requirements": [
         "• Begeisterung für Technik und Mechanik bringst du mit – damit bist du bereit für die spannenden Herausforderungen dieses Berufs. 🔥",
@@ -678,14 +678,12 @@
       },
       "previousSlugs": [
         "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2",
-        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch",
-        "apprendistato-come-polymechaniker-in-cfc-specializzazione-instandhaltung-2027-emmi-emmen"
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2",
-          "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch",
-          "apprendistato-come-polymechaniker-in-cfc-specializzazione-instandhaltung-2027-emmi-emmen"
+          "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2"
@@ -707,7 +705,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-09T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-eed098ce2f0b",
@@ -740,7 +740,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-oder-eba-2027/97288a59-45c1-4be2-b09e-2c77a868242a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.759Z",
+      "crawledAt": "2026-10-05T09:21:26.838Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -753,7 +753,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "2026-07-09T08:42:26Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19575",
       "requirements": [
         "• Du verfügst über einen erfolgreichen Real- oder Sekabschluss.",
@@ -776,14 +776,12 @@
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch",
-        "lehre-als-logistiker-in-efz-oder-eba-2027-emmi-ch",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-emmen"
+        "lehre-als-logistiker-in-efz-oder-eba-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch",
-          "lehre-als-logistiker-in-efz-oder-eba-2027-emmi-ch",
-          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-emmen"
+          "lehre-als-logistiker-in-efz-oder-eba-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch"
@@ -805,7 +803,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-09T08:42:26Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-cdb21a41cf00",
@@ -838,7 +838,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027/c659cbe9-1b03-483a-8ddd-9aad627a6ab1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.758Z",
+      "crawledAt": "2026-10-05T09:21:26.837Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -851,7 +851,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T06:59:10Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19580",
       "requirements": [
         "• Bis spätestens am 30. November im ersten Lehrjahr wirst du 16 Jahre alt.",
@@ -870,13 +870,11 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-        "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-emmen"
+        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-          "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-emmen"
+          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
@@ -899,7 +897,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T06:59:10Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-878b7c62b8eb",
@@ -932,7 +932,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/7d3b2fe1-95bc-4991-9146-6b8f5d4bdcba",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.757Z",
+      "crawledAt": "2026-10-05T09:21:26.836Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -945,7 +945,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T07:13:44Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19588",
       "requirements": [
         "• Du verfügst über einen guten Real- oder Sekabschluss.",
@@ -967,14 +967,12 @@
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-2",
-        "lehre-als-logistiker-in-efz-2027-emmi-ch",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-dagmersellen"
+        "lehre-als-logistiker-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-2",
-          "lehre-als-logistiker-in-efz-2027-emmi-ch",
-          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-dagmersellen"
+          "lehre-als-logistiker-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-2"
@@ -996,7 +994,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T07:13:44Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-cdb71eeb4e3d",
@@ -1029,7 +1029,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchpraktiker-in-eba-2027/c89abe64-96c1-4f2d-96a9-b82f80dc89de",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.756Z",
+      "crawledAt": "2026-10-05T09:21:26.836Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -1042,7 +1042,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T07:30:40Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19589",
       "requirements": [
         "• Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -1062,13 +1062,11 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-        "apprendistato-come-milchpraktiker-in-afp-2027-emmi-dagmersellen"
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-          "apprendistato-come-milchpraktiker-in-afp-2027-emmi-dagmersellen"
+          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
@@ -1091,7 +1089,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T07:30:40Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-d30aa9af5587",
@@ -1124,7 +1124,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/5895afaf-fa7b-4a8b-a7a0-71f4afc56f4a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.755Z",
+      "crawledAt": "2026-10-05T09:21:26.835Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -1137,7 +1137,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T07:46:43Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19590",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -1160,14 +1160,12 @@
       },
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-3",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-dagmersellen"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-3",
-          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-dagmersellen"
+          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-3"
@@ -1190,7 +1188,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T07:46:43Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-e5dcf3e4b5c2",
@@ -1223,7 +1223,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/3373715c-dd0c-406e-b5e9-94e5218d5373",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.754Z",
+      "crawledAt": "2026-10-05T09:21:26.835Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -1236,7 +1236,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T07:51:22Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19591",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -1254,13 +1254,11 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-dagmersellen"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-dagmersellen"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
@@ -1282,7 +1280,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T07:51:22Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-144a65912a5d",
@@ -1315,7 +1315,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/6e606875-14d9-4298-9308-b9dcc09dea23",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.753Z",
+      "crawledAt": "2026-10-05T09:21:26.834Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -1328,7 +1328,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T09:58:10Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19592",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -1347,14 +1347,12 @@
       },
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-ostermundigen"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-ostermundigen"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2"
@@ -1376,7 +1374,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T09:58:10Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-83e2a320405f",
@@ -1409,7 +1409,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027/ba96a54d-6d80-4232-9d17-78052547c5ed",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.752Z",
+      "crawledAt": "2026-10-05T09:21:26.834Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -1422,7 +1422,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T10:12:38Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19593",
       "requirements": [
         "• Bis spätestens am 30. November im ersten Lehrjahr wirst du 16 Jahre alt.",
@@ -1447,14 +1447,12 @@
       },
       "previousSlugs": [
         "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-2",
-        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-        "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-ostermundigen"
+        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-2",
-          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-          "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-ostermundigen"
+          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-2"
@@ -1477,7 +1475,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T10:12:38Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-cb16fd4e6f7f",
@@ -1510,7 +1510,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchpraktiker-in-eba-2027/9a8cbec9-3908-4c7e-815e-7d50b5f0327f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.751Z",
+      "crawledAt": "2026-10-05T09:21:26.833Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -1523,7 +1523,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T12:49:35Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19595",
       "requirements": [
         "• Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -1542,14 +1542,12 @@
       },
       "previousSlugs": [
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2",
-        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-        "apprendistato-come-milchpraktiker-in-afp-2027-emmi-ostermundigen"
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2",
-          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-          "apprendistato-come-milchpraktiker-in-afp-2027-emmi-ostermundigen"
+          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2"
@@ -1572,7 +1570,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T12:49:35Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-fb9104d21e56",
@@ -1605,7 +1605,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/f0a7e287-3b67-42ce-963b-f3d665ca8479",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.750Z",
+      "crawledAt": "2026-10-05T09:21:26.832Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -1618,7 +1618,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T15:28:10Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19598",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -1643,14 +1643,12 @@
       },
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-4",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-kirchberg"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-4",
-          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-kirchberg"
+          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-4"
@@ -1673,7 +1671,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T15:28:10Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-f2fdb1e998a6",
@@ -1706,7 +1706,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027/b75eaa9c-da37-4bc0-9be6-bc172f0f0a7f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.750Z",
+      "crawledAt": "2026-10-05T09:21:26.832Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -1719,7 +1719,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T13:23:53Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19597",
       "requirements": [
         "• Du verfügst über einen Realabschluss mit guten Leistungen in Deutsch, Mathematik sowie Englisch oder Französisch.",
@@ -1737,13 +1737,11 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-emmi-ch",
-        "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-2027-emmi-bern"
+        "lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-emmi-ch",
-          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-2027-emmi-bern"
+          "lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-emmi-ch"
@@ -1766,7 +1764,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T13:23:53Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-c1f2d43ba71e",
@@ -1799,7 +1799,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/9ff4035b-e1fb-4203-8459-ef9322868088",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.749Z",
+      "crawledAt": "2026-10-05T09:21:26.832Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -1812,7 +1812,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T15:33:12Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19600",
       "requirements": [
         "• Du verfügst über einen guten Real- oder Sekabschluss.",
@@ -1835,15 +1835,13 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-5",
         "lehre-als-logistiker-in-efz-2027-emmi-ch",
-        "lehre-als-logistiker-in-efz-2027-emmi-ch-4",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-kirchberg"
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-5",
           "lehre-als-logistiker-in-efz-2027-emmi-ch",
-          "lehre-als-logistiker-in-efz-2027-emmi-ch-4",
-          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-kirchberg"
+          "lehre-als-logistiker-in-efz-2027-emmi-ch-4"
         ],
         "en": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-5"
@@ -1865,7 +1863,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T15:33:12Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-ce9e755fad82",
@@ -1898,7 +1898,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-automatiker-in-efz-2027/9909e0de-8ae3-4720-8c85-9753c86280d1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.747Z",
+      "crawledAt": "2026-10-05T09:21:26.830Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -1911,7 +1911,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T15:52:11Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19602",
       "requirements": [
         "• Du verfügst über einen Sekabschluss mit sehr guten Leistungen in Mathematik und Physik.",
@@ -1931,13 +1931,11 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-automatiker-in-efz-2027-emmi-ch",
-        "apprendistato-come-automatiker-in-cfc-2027-emmi-kirchberg"
+        "lehre-als-automatiker-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-automatiker-in-efz-2027-emmi-ch",
-          "apprendistato-come-automatiker-in-cfc-2027-emmi-kirchberg"
+          "lehre-als-automatiker-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-automatiker-in-efz-2027-emmi-ch"
@@ -1960,7 +1958,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T15:52:11Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-d9ea73007c0d",
@@ -1993,7 +1993,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-kauffrau-kaufmann-efz-2027/77317ccb-35b8-4c93-a895-8d20e4f991a8",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.747Z",
+      "crawledAt": "2026-10-05T09:21:26.831Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -2006,7 +2006,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T15:40:32Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19601",
       "requirements": [
         "• Kommunikation ist dein Ding! Du schreibst gerne Texte und liebst den Kontakt mit Menschen.",
@@ -2025,14 +2025,12 @@
       },
       "previousSlugs": [
         "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2",
-        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch",
-        "apprendistato-come-kauffrau-kaufmann-cfc-2027-emmi-kirchberg"
+        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2",
-          "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch",
-          "apprendistato-come-kauffrau-kaufmann-cfc-2027-emmi-kirchberg"
+          "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2"
@@ -2055,7 +2053,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T15:40:32Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-58a195fac325",
@@ -2088,7 +2088,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/932aaa10-8c9b-4870-ad03-6e06575fae37",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.746Z",
+      "crawledAt": "2026-10-05T09:21:26.830Z",
       "addressLocality": "Langnau im Emmental",
       "postalCode": "3550",
       "addressRegion": "Bern",
@@ -2101,7 +2101,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T16:07:53Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19604",
       "requirements": [
         "• Du verfügst über einen guten Real- oder Sekabschluss.",
@@ -2124,15 +2124,13 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-6",
         "lehre-als-logistiker-in-efz-2027-emmi-ch",
-        "lehre-als-logistiker-in-efz-2027-emmi-ch-5",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-langnau-im-emmental"
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-6",
           "lehre-als-logistiker-in-efz-2027-emmi-ch",
-          "lehre-als-logistiker-in-efz-2027-emmi-ch-5",
-          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-langnau-im-emmental"
+          "lehre-als-logistiker-in-efz-2027-emmi-ch-5"
         ],
         "en": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-6"
@@ -2154,7 +2152,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T16:07:53Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-bcbae5c50162",
@@ -2187,7 +2187,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/b3d55ff6-dd6e-4302-95c2-f52878d394ed",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.744Z",
+      "crawledAt": "2026-10-05T09:21:26.829Z",
       "addressLocality": "Langnau im Emmental",
       "postalCode": "3550",
       "addressRegion": "Bern",
@@ -2200,7 +2200,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "2026-07-10T16:12:46Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19603",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -2225,14 +2225,12 @@
       },
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-langnau-im-emmental"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5",
-          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-langnau-im-emmental"
+          "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5"
@@ -2255,7 +2253,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-10T16:12:46Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-ecfa5d57df9f",
@@ -2288,7 +2288,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/f3cd1fd8-59b4-45a6-9af2-6f349b3f2681",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.743Z",
+      "crawledAt": "2026-10-05T09:21:26.829Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -2301,7 +2301,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-12",
+      "postedDate": "2026-07-12T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19576",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -2319,14 +2319,12 @@
       },
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-3",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-emmen"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-3",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-emmen"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.933Z",
@@ -2342,7 +2340,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-12T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-ecffa7d953fe",
@@ -2375,7 +2375,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/c145f720-5da5-4642-b127-6453be02f046",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.741Z",
+      "crawledAt": "2026-10-05T09:21:26.828Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressRegion": "Graubünden",
@@ -2388,7 +2388,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T08:42:06Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19605",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -2408,15 +2408,13 @@
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-3",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-landquart"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-3",
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-landquart"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-3"
@@ -2438,7 +2436,9 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T08:42:06Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-50b374c08faa",
@@ -2471,7 +2471,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/52a8da72-5228-4845-b1dd-d947c8574264",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.740Z",
+      "crawledAt": "2026-10-05T09:21:26.828Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -2484,7 +2484,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T09:36:02Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19606",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -2504,15 +2504,13 @@
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-kaltbach"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5",
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-kaltbach"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-5"
@@ -2534,7 +2532,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T09:36:02Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-fa467bd7cced",
@@ -2567,7 +2567,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/a4ed147e-5928-468c-93b5-f153a823a1ab",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.739Z",
+      "crawledAt": "2026-10-05T09:21:26.827Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -2580,7 +2580,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T10:15:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19607",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -2600,15 +2600,13 @@
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-6",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-bischofszell"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-6"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4",
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-6",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-bischofszell"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-6"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-4"
@@ -2630,7 +2628,9 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T10:15:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-3fcdda4d1035",
@@ -2663,7 +2663,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2027/2c7db6ba-e165-4245-8f50-9666b2aaa605",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.738Z",
+      "crawledAt": "2026-10-05T09:21:26.827Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -2676,7 +2676,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T12:34:16Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19609",
       "requirements": [
         "• Du verfügst über einen Real- oder Sekabschluss.",
@@ -2700,15 +2700,13 @@
       "previousSlugs": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6",
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell"
+        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6",
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch",
-          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-bischofszell"
+          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3"
         ],
         "en": [
           "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-6"
@@ -2731,7 +2729,9 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T12:34:16Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-6919b0e35310",
@@ -2764,7 +2764,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027/13f9f61d-31ed-4735-b0af-5d9ba7c7224b",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.737Z",
+      "crawledAt": "2026-10-05T09:21:26.826Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -2777,7 +2777,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T12:39:28Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19610",
       "requirements": [
         "• Begeisterung für Technik und Mechanik bringst du mit – damit bist du bereit für die spannenden Herausforderungen dieses Berufs. 🔥",
@@ -2797,14 +2797,12 @@
       },
       "previousSlugs": [
         "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-3",
-        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch",
-        "apprendistato-come-polymechaniker-in-cfc-specializzazione-instandhaltung-2027-emmi-bischofszell"
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-3",
-          "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch",
-          "apprendistato-come-polymechaniker-in-cfc-specializzazione-instandhaltung-2027-emmi-bischofszell"
+          "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-3"
@@ -2826,7 +2824,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T12:39:28Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-94bf665de984",
@@ -2859,7 +2859,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchpraktiker-in-eba-2027/59325d86-def6-4ed1-bc64-0800b681c2dc",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.736Z",
+      "crawledAt": "2026-10-05T09:21:26.826Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -2872,7 +2872,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T12:43:41Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19608",
       "requirements": [
         "• Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -2893,14 +2893,12 @@
       },
       "previousSlugs": [
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-3",
-        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-        "apprendistato-come-milchpraktiker-in-afp-2027-emmi-bischofszell"
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-3",
-          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch",
-          "apprendistato-come-milchpraktiker-in-afp-2027-emmi-bischofszell"
+          "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-3"
@@ -2923,7 +2921,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T12:43:41Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-e7a08de182f3",
@@ -2956,7 +2956,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027/0ba2c2a5-7446-48eb-b5a5-e8ffa8b384b7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.735Z",
+      "crawledAt": "2026-10-05T09:21:26.825Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -2969,7 +2969,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T12:52:08Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19615",
       "requirements": [
         "• Bis spätestens am 30. November im ersten Lehrjahr wirst du 16 Jahre alt.",
@@ -2992,14 +2992,12 @@
       },
       "previousSlugs": [
         "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-3",
-        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-        "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-suhr"
+        "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-3",
-          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch",
-          "apprendistato-come-strassentransportfachfrau-strassentransportfachmann-cfc-2027-emmi-suhr"
+          "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch"
         ],
         "en": [
           "lehre-als-strassentransportfachfrau-strassentransportfachmann-efz-2027-emmi-ch-3"
@@ -3022,7 +3020,9 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T12:52:08Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-2a551aa85f82",
@@ -3055,7 +3055,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/1954e955-a464-45f6-9b2e-17eb432bbb34",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.734Z",
+      "crawledAt": "2026-10-05T09:21:26.825Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -3068,7 +3068,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T13:29:17Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19616",
       "requirements": [
         "• Du verfügst über einen guten Real- oder Sekabschluss.",
@@ -3093,14 +3093,12 @@
         "lehre-als-logistiker-in-efz-2027-emmi-ch",
         "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-emmen",
         "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern",
-        "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-suhr"
+        "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-2027-emmi-ch-6",
-          "lehre-als-logistiker-in-efz-2027-emmi-ch",
-          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-suhr"
+          "lehre-als-logistiker-in-efz-2027-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.924Z",
@@ -3116,7 +3114,9 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T13:29:17Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-71181c6992d2",
@@ -3149,7 +3149,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/d4129226-f6b4-49ca-bcce-c3ae82c2b0c4",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.733Z",
+      "crawledAt": "2026-10-05T09:21:26.824Z",
       "addressLocality": "Stein",
       "postalCode": "9063",
       "addressRegion": "Appenzell Ausserrhoden",
@@ -3162,7 +3162,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T13:58:09Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19613",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -3182,15 +3182,13 @@
       "previousSlugs": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-stein"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8",
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch",
-          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-stein"
+          "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2"
         ],
         "en": [
           "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8"
@@ -3212,7 +3210,9 @@
           "maxValue": 83000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T13:58:09Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-331988334e04",
@@ -3245,7 +3245,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/apprenti-e-technologue-du-lait-cfc-2027/f16b482a-0b8f-4bcc-bc5e-733b7160a807",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.732Z",
+      "crawledAt": "2026-10-05T09:21:26.823Z",
       "addressLocality": "Courgenay",
       "postalCode": "2950",
       "addressRegion": "Jura",
@@ -3258,7 +3258,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19611",
       "requirements": [
         "• Tu as terminé l'école obligatoire avec un bon niveau en français, en mathématiques et en sciences naturelles.",
@@ -3277,13 +3277,11 @@
         ]
       },
       "previousSlugs": [
-        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch",
-        "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-courgenay-jura"
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch",
-          "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-courgenay-jura"
+          "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-07-14T22:19:42.495Z",
@@ -3299,7 +3297,9 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-ef37df05ac69",
@@ -3332,7 +3332,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2027/70ddf4ab-ec8b-447e-81cb-fb428168a269",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.732Z",
+      "crawledAt": "2026-10-05T09:21:26.823Z",
       "addressLocality": "Frenkendorf",
       "postalCode": "4402",
       "addressRegion": "Basel-Landschaft",
@@ -3345,7 +3345,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "postedDate": "2026-07-13T14:10:14Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19614",
       "requirements": [
         "• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.",
@@ -3373,8 +3373,7 @@
         "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach",
         "apprenticeship-as-a-dairy-technologist-efz-2026-emmi-kaltbach",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch",
-        "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach",
-        "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-frenkendorf"
+        "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3383,8 +3382,7 @@
           "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach",
           "apprenticeship-as-a-dairy-technologist-efz-2026-emmi-kaltbach",
           "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch",
-          "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach",
-          "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-frenkendorf"
+          "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach"
         ],
         "en": [
           "apprenticeship-as-a-dairy-technologist-efz-2026-emmi-kaltbach"
@@ -3409,7 +3407,9 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-13T14:10:14Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-0e9748503a05",
@@ -3442,7 +3442,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/fachmitarbeiter-in-produktionslogistik/eb716594-0998-4b87-ad43-1eac1888db2d",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.731Z",
+      "crawledAt": "2026-10-05T09:21:26.822Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -3455,7 +3455,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "postedDate": "2026-07-21T08:54:45Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19545",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung im Bereich Logistik oder im Lebensmittelumfeld.",
@@ -3476,15 +3476,13 @@
       "previousSlugs": [
         "fachmitarbeiter-in-palettierraum-emmi-ch",
         "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
-        "fachmitarbeiter-in-produktionslogistik-emmi-ch",
-        "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern"
+        "fachmitarbeiter-in-produktionslogistik-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiter-in-palettierraum-emmi-ch",
           "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
-          "fachmitarbeiter-in-produktionslogistik-emmi-ch",
-          "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern"
+          "fachmitarbeiter-in-produktionslogistik-emmi-ch"
         ],
         "en": [
           "fachmitarbeiter-in-palettierraum-emmi-ostermundigen"
@@ -3510,7 +3508,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-21T08:54:45Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-ae9d0d25291a",
@@ -3543,7 +3543,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/restaurationsspezialist-in-chaeschaeuer-bern-zytglogge-befristet-auf-3-monate/be506208-d62a-4637-aebb-05f4ca5b28d7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.730Z",
+      "crawledAt": "2026-10-05T09:21:26.822Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -3556,7 +3556,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "postedDate": "2026-07-21T14:27:56Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19647",
       "requirements": [
         "• Abgeschlossene Berufsausbildung als Restaurationsfachfrau/-mann EFZ mit einschlägiger Berufserfahrung in der Gastronomie.",
@@ -3575,14 +3575,12 @@
       },
       "previousSlugs": [
         "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-ch",
-        "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-bern",
-        "specialista-di-restauro-in-chaschauer-bern-zytglogge-limitato-a-3-mesi-emmi-bern-bern"
+        "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-ch",
-          "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-bern",
-          "specialista-di-restauro-in-chaschauer-bern-zytglogge-limitato-a-3-mesi-emmi-bern-bern"
+          "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-bern"
         ],
         "en": [
           "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-ch"
@@ -3605,7 +3603,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-21T14:27:56Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-f4f6f1526493",
@@ -3638,7 +3638,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/produktionsplaner-in/5a33b7ec-d179-45e1-845d-cda0531ea915",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.729Z",
+      "crawledAt": "2026-10-05T09:21:26.821Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -3651,7 +3651,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24",
+      "postedDate": "2026-07-24T11:05:56Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19646",
       "requirements": [
         "• 🎓 Du hast eine abgeschlossene Grundausbildung im Bereich Lebensmittel, Logistik oder im kaufmännischen Umfeld und bringst idealerweise eine Weiterbildung als Prozessfachmann/-frau oder Technische:r Kaufmann/-frau mit.",
@@ -3670,14 +3670,12 @@
       },
       "previousSlugs": [
         "produktionsplaner-in-emmi-ch",
-        "produktionsplaner-in-emmi-ostermundigen",
-        "piano-di-produzione-in-emmi-ostermundigen-bern"
+        "produktionsplaner-in-emmi-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsplaner-in-emmi-ch",
-          "produktionsplaner-in-emmi-ostermundigen",
-          "piano-di-produzione-in-emmi-ostermundigen-bern"
+          "produktionsplaner-in-emmi-ostermundigen"
         ],
         "en": [
           "produktionsplaner-in-emmi-ostermundigen"
@@ -3700,7 +3698,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-24T11:05:56Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-b193d691347d",
@@ -3733,7 +3733,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/projektleiter-in-f-e-international/11a510a5-fc5b-441f-85fa-dcd28c1875c7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.728Z",
+      "crawledAt": "2026-10-05T09:21:26.821Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -3746,7 +3746,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-30",
+      "postedDate": "2026-07-30T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19535",
       "requirements": [
         "• Du verfügst über einen Hochschulabschluss in Lebensmitteltechnologie, Verfahrenstechnik oder einem vergleichbaren Fachgebiet sowie mehrjährige Erfahrung in der Produktentwicklung.",
@@ -3759,15 +3759,13 @@
       "previousSlugs": [
         "projektleiter-in-f-e-international-emmi-ch",
         "project-manager-f-e-international-emmi-emmen-luzern",
-        "chef-de-projet-f-e-international-emmi-emmen-luzern",
-        "responsabile-di-progetto-f-e-international-emmi-emmen"
+        "chef-de-projet-f-e-international-emmi-emmen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-f-e-international-emmi-ch",
           "project-manager-f-e-international-emmi-emmen-luzern",
-          "chef-de-projet-f-e-international-emmi-emmen-luzern",
-          "responsabile-di-progetto-f-e-international-emmi-emmen"
+          "chef-de-projet-f-e-international-emmi-emmen-luzern"
         ],
         "en": [
           "projektleiter-in-f-e-international-emmi-ch"
@@ -3790,7 +3788,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-30T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-6ad554f0770a",
@@ -3823,7 +3823,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-milchabfuellung/63dd0002-848b-460e-ba76-b09e7887de91",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.727Z",
+      "crawledAt": "2026-10-05T09:21:26.820Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -3836,7 +3836,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-06",
+      "postedDate": "2026-08-06T11:30:22Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19667",
       "requirements": [
         "• Dein fachliches Fundament bildet eine abgeschlossene Ausbildung im technischen oder lebensmittelnahen Umfeld.",
@@ -3865,8 +3865,7 @@
         "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau",
         "schichtleiter-in-emmi-ch",
         "shift-leader-emmi-bischofszell-thurgau",
-        "capo-turno-emmi-bischofszell-thurgau",
-        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau"
+        "capo-turno-emmi-bischofszell-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3881,8 +3880,7 @@
           "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau",
           "schichtleiter-in-emmi-ch",
           "shift-leader-emmi-bischofszell-thurgau",
-          "capo-turno-emmi-bischofszell-thurgau",
-          "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau"
+          "capo-turno-emmi-bischofszell-thurgau"
         ],
         "en": [
           "teamleiter-in-milchabfullung-emmi-ch",
@@ -3910,7 +3908,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-06T11:30:22Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-5ce9878c66b7",
@@ -3943,7 +3943,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/automatiker-in-betriebselektriker-in/39c0ec09-5420-487f-9974-faac8d549f65",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.726Z",
+      "crawledAt": "2026-10-05T09:21:26.820Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -3956,7 +3956,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-11",
+      "postedDate": "2026-08-11T07:31:35Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19336",
       "requirements": [
         "• Du verfügst über eine abgeschlossene technische Grundausbildung, idealerweise als Automatiker:in oder Elektriker:in.",
@@ -3981,8 +3981,7 @@
         "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
         "automated-electrician-plant-electrician-emmi-kirchberg",
         "operatore-automatico-elettricista-operativo-emmi-kirchberg",
-        "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern"
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3991,8 +3990,7 @@
           "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
           "automated-electrician-plant-electrician-emmi-kirchberg",
           "operatore-automatico-elettricista-operativo-emmi-kirchberg",
-          "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-          "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern"
+          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ],
         "en": [
           "automated-electrician-plant-electrician-emmi-kirchberg",
@@ -4017,7 +4015,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-11T07:31:35Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-d146547cfa6a",
@@ -4050,7 +4050,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-convenience-2/4cd66a84-5701-417e-b15b-88de415b12eb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.725Z",
+      "crawledAt": "2026-10-05T09:21:26.819Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -4063,7 +4063,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
+      "postedDate": "2026-08-12T14:23:56Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19688",
       "requirements": [
         "• 🎓 Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).",
@@ -4086,13 +4086,11 @@
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-convenience-2-emmi-ch",
-        "manager-in-convenienza-2-emmi-kirchberg-bern"
+        "anlagenfuhrer-in-convenience-2-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-convenience-2-emmi-ch",
-          "manager-in-convenienza-2-emmi-kirchberg-bern"
+          "anlagenfuhrer-in-convenience-2-emmi-ch"
         ],
         "en": [
           "anlagenfuhrer-in-convenience-2-emmi-ch"
@@ -4115,7 +4113,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-12T14:23:56Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-15245c6db7d7",
@@ -4148,7 +4148,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.724Z",
+      "crawledAt": "2026-10-05T09:21:26.819Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4161,7 +4161,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "postedDate": "2026-08-13T12:21:50Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19681",
       "requirements": [
         "• Du verfügst über einen HR-Fachausweis oder eine vergleichbare Weiterbildung sowie mehrere Jahre Erfahrung als HR Business Partner:in in einem produzierenden oder industriellen Umfeld.",
@@ -4181,14 +4181,12 @@
       },
       "previousSlugs": [
         "hr-business-partner-in-emmi-ch",
-        "hr-business-partner-emmi-ch",
-        "risorse-umane-business-partner-in-emmi-suhr"
+        "hr-business-partner-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-in-emmi-ch",
-          "hr-business-partner-emmi-ch",
-          "risorse-umane-business-partner-in-emmi-suhr"
+          "hr-business-partner-emmi-ch"
         ],
         "fr": [
           "hr-business-partner-in-emmi-ch"
@@ -4207,7 +4205,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-13T12:21:50Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-c0878be9ff66",
@@ -4240,7 +4240,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/pruefleiter-in-mikrobiologie/af7642d0-4424-40b8-8bb7-cf57d76af95f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.723Z",
+      "crawledAt": "2026-10-05T09:21:26.818Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -4253,7 +4253,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-20T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19682",
       "requirements": [
         "• Abschluss als Laborant:in EFZ Fachrichtung Biologie oder Milchwirtschaftliche/r Laborant:in",
@@ -4274,15 +4274,13 @@
       "previousSlugs": [
         "leader-du-test-en-microbiologie-emmi-emmen-luzern",
         "test-leader-in-microbiology-emmi-emmen-luzern",
-        "prufleiter-in-mikrobiologie-emmi-ch",
-        "test-leader-in-microbiologia-emmi-emmen-luzern"
+        "prufleiter-in-mikrobiologie-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leader-du-test-en-microbiologie-emmi-emmen-luzern",
           "test-leader-in-microbiology-emmi-emmen-luzern",
-          "prufleiter-in-mikrobiologie-emmi-ch",
-          "test-leader-in-microbiologia-emmi-emmen-luzern"
+          "prufleiter-in-mikrobiologie-emmi-ch"
         ],
         "en": [
           "prufleiter-in-mikrobiologie-emmi-ch"
@@ -4304,7 +4302,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-20T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-77526ccf1041",
@@ -4337,7 +4337,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaeserei/ea7d03ad-f6cc-4235-a4e8-434229ee1b3e",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.722Z",
+      "crawledAt": "2026-10-05T09:21:26.817Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -4350,7 +4350,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
+      "postedDate": "2026-08-21T06:51:22Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19699",
       "requirements": [
         "• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.",
@@ -4373,8 +4373,7 @@
         "manager-in-cheese-factory-emmi-emmen",
         "responsable-d-installations-de-fromagerie-emmi-emmen",
         "responsabile-impianti-caseificio-emmi-emmen-q2xl8i",
-        "anlagenfuhrer-in-kaserei-emmi-ch-2",
-        "direttore-delle-piante-di-formaggio-emmi-emmen-luzern"
+        "anlagenfuhrer-in-kaserei-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4383,8 +4382,7 @@
           "manager-in-cheese-factory-emmi-emmen",
           "responsable-d-installations-de-fromagerie-emmi-emmen",
           "responsabile-impianti-caseificio-emmi-emmen-q2xl8i",
-          "anlagenfuhrer-in-kaserei-emmi-ch-2",
-          "direttore-delle-piante-di-formaggio-emmi-emmen-luzern"
+          "anlagenfuhrer-in-kaserei-emmi-ch-2"
         ],
         "en": [
           "manager-in-cheese-factory-emmi-emmen",
@@ -4409,7 +4407,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-21T06:51:22Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-631000150475",
@@ -4442,7 +4442,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/141cdaa8-eba9-4571-a845-5a34d9e07c5e",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.721Z",
+      "crawledAt": "2026-10-05T09:21:26.817Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -4455,7 +4455,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19350",
       "requirements": [
         "• Du hast eine technische Ausbildung (Mechanik, Elektrik oder ähnlich) und arbeitest gerne eigenständig und lösungsorientiert.",
@@ -4480,8 +4480,7 @@
         "betriebsmechaniker-in-emmi-ch-2",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
         "business-mechanic-in-emmi-bischofszell-thurgau",
-        "betriebsmechaniker-in-emmi-bischofszell",
-        "meccanica-aziendale-in-emmi-bischofszell-thurgau"
+        "betriebsmechaniker-in-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4493,8 +4492,7 @@
           "betriebsmechaniker-in-emmi-ch-2",
           "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
           "business-mechanic-in-emmi-bischofszell-thurgau",
-          "betriebsmechaniker-in-emmi-bischofszell",
-          "meccanica-aziendale-in-emmi-bischofszell-thurgau"
+          "betriebsmechaniker-in-emmi-bischofszell"
         ],
         "en": [
           "plant-mechanic-emmi-bischofszell",
@@ -4522,7 +4520,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-53cefdbcffdf",
@@ -4555,7 +4555,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/bd33e612-d0f2-4f11-b90a-d88bdd7f7c6b",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.719Z",
+      "crawledAt": "2026-10-05T09:21:26.816Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4568,7 +4568,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19517",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Ausbildung im Lebensmittelbereich (Milch- oder Lebensmitteltechnologe /-technologin, Koch, Metzger, etc.) und bringst vielleicht schon erste Erfahrung als AnlagenführerIn mit.",
@@ -4611,8 +4611,7 @@
         "system-operator-in-bottling-emmi-suhr-aargau",
         "anlagenfuhrer-in-abfullung-emmi-ch",
         "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau",
-        "responsable-d-installation-de-remplissage-emmi-suhr",
-        "operatore-di-impianti-misto-emmi-suhr-aargau"
+        "responsable-d-installation-de-remplissage-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4634,8 +4633,7 @@
           "conducteur-d-installation-en-pet-emmi-suhr",
           "anlagenfuhrer-in-pet-emmi-ch",
           "plant-operator-pet-emmi-suhr",
-          "gestore-dell-impianto-in-pet-emmi-suhr",
-          "operatore-di-impianti-misto-emmi-suhr-aargau"
+          "gestore-dell-impianto-in-pet-emmi-suhr"
         ],
         "en": [
           "plant-manager-mixing-plant-emmi-suhr",
@@ -4669,7 +4667,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-7a1bb52a7917",
@@ -4702,7 +4702,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-past-milch/04baed25-3617-4048-b805-ee8a47b84488",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.718Z",
+      "crawledAt": "2026-10-05T09:21:26.816Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4715,7 +4715,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19658",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Anlagenführer:in EFZ oder bringst eine vergleichbare technische Ausbildung mit und konntest idealerweise bereits Erfahrung in einem industriellen Produktionsbetrieb der Lebensmittelbranche sammeln.",
@@ -4733,16 +4733,14 @@
         "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau",
         "plant-manager-in-past-milch-emmi-suhr-aargau",
         "anlagenfuhrer-in-past-milch-emmi-ch",
-        "responsabile-impianti-in-past-milch-emmi-suhr-aargau",
-        "responsabile-delle-piante-latte-passato-emmi-suhr-aargau"
+        "responsabile-impianti-in-past-milch-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau",
           "plant-manager-in-past-milch-emmi-suhr-aargau",
           "anlagenfuhrer-in-past-milch-emmi-ch",
-          "responsabile-impianti-in-past-milch-emmi-suhr-aargau",
-          "responsabile-delle-piante-latte-passato-emmi-suhr-aargau"
+          "responsabile-impianti-in-past-milch-emmi-suhr-aargau"
         ],
         "en": [
           "anlagenfuhrer-in-past-milch-emmi-ch"
@@ -4765,7 +4763,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-22c587e26511",
@@ -4798,7 +4798,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-fluessig-uht/d5622123-5622-43fb-9892-eb4b4390d7fb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.716Z",
+      "crawledAt": "2026-10-05T09:21:26.815Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4811,7 +4811,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19525",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Anlagenführer:in EFZ und bringst mehrjährige Erfahrung in einem industriellen Produktionsumfeld, idealerweise in der Lebensmittelbranche, mit.",
@@ -4831,8 +4831,7 @@
         "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
         "system-operator-in-liquid-uht-emmi-suhr-aargau",
         "anlagenfuhrer-in-flussig-uht-emmi-ch",
-        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau",
-        "gestione-del-sistema-liquid-uht-emmi-suhr-aargau"
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4841,8 +4840,7 @@
           "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
           "system-operator-in-liquid-uht-emmi-suhr-aargau",
           "anlagenfuhrer-in-flussig-uht-emmi-ch",
-          "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau",
-          "gestione-del-sistema-liquid-uht-emmi-suhr-aargau"
+          "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
         ],
         "en": [
           "anlagenfuhrer-in-flussig-uht-emmi-ch"
@@ -4868,7 +4866,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-49eec4ae1aa2",
@@ -4901,7 +4901,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/7dcc0747-4977-429f-978d-27e65fde1a49",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.715Z",
+      "crawledAt": "2026-10-05T09:21:26.815Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4914,7 +4914,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19452",
       "requirements": [
         "• Abgeschlossene Ausbildung als Chauffeur:in oder mehrjährige Fahrpraxis im Transportbereich",
@@ -4944,8 +4944,7 @@
         "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau",
         "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr-kmkb5u",
         "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch",
-        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2",
-        "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr"
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4959,8 +4958,7 @@
           "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau",
           "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr-kmkb5u",
           "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch",
-          "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2",
-          "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr"
+          "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2"
         ],
         "en": [
           "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-2"
@@ -4982,7 +4980,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-689f37e21ec8",
@@ -5015,7 +5015,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/4ea7f9fb-1d52-40c4-a65f-0c365e0a8e7f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.713Z",
+      "crawledAt": "2026-10-05T09:21:26.814Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -5028,7 +5028,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-08-31T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19507",
       "requirements": [
         "• Abgeschlossene Ausbildung als Chauffeur:in oder mehrjährige Fahrpraxis im Transportbereich.",
@@ -5056,8 +5056,7 @@
         "driver-category-c-e-emmi-bischofszell",
         "autista-categoria-c-e-emmi-bischofszell",
         "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2",
-        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch",
-        "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell"
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5069,8 +5068,7 @@
           "driver-category-c-e-emmi-bischofszell",
           "autista-categoria-c-e-emmi-bischofszell",
           "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2",
-          "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch",
-          "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell"
+          "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch"
         ],
         "en": [
           "driver-category-c-e-emmi-bischofszell",
@@ -5095,7 +5093,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-31T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-43090d433347",
@@ -5128,7 +5128,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-butterei/9451d4d3-2635-4c8e-bde5-19554d07c6ee",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.712Z",
+      "crawledAt": "2026-10-05T09:21:26.814Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -5141,7 +5141,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "postedDate": "2026-09-03T11:31:56Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19711",
       "requirements": [
         "• Eine abgeschlossene Ausbildung als Milch- oder Lebensmitteltechnologe EFZ bildet deine fachliche Basis. Idealerweise hast du dein Wissen mit einer passenden Weiterbildung auf Stufe HF oder FS1/2 ergänzt.",
@@ -5161,13 +5161,11 @@
       },
       "previousSlugs": [
         "teamleiter-in-butterei-emmi-suhr",
-        "teamleiter-in-butterei-emmi-ch",
-        "team-leader-in-butterei-emmi-suhr-aargau"
+        "teamleiter-in-butterei-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-butterei-emmi-ch",
-          "team-leader-in-butterei-emmi-suhr-aargau"
+          "teamleiter-in-butterei-emmi-ch"
         ],
         "en": [
           "teamleiter-in-butterei-emmi-ch"
@@ -5193,7 +5191,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-03T11:31:56Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-13d7fd887e9a",
@@ -5226,7 +5226,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/9af8ee3e-356e-494f-b8d4-b6be369ea4b5",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.710Z",
+      "crawledAt": "2026-10-05T09:21:26.813Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -5239,7 +5239,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "datePosted": "2026-09-04T08:15:04Z",
+      "postedDate": "2026-09-04T08:15:04Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19697",
       "requirements": [
         "• Du bist im Besitz eines Führerausweis Kat. C/E, eines Fahrerqualifizierungsnachweis und einer Fahrerkarte (CZV).",
@@ -5316,7 +5318,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/vendeur-vendeuse/8cbe7403-e5ab-404b-9c54-6c08aacdeed1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.709Z",
+      "crawledAt": "2026-10-05T09:21:26.813Z",
       "addressLocality": "Allaman",
       "postalCode": "1165",
       "addressRegion": "Vaud",
@@ -5329,7 +5331,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "2026-09-07T08:07:26Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19714",
       "requirements": [
         "• Vous avez terminé une formation dans la vente (gestionnaire du commerce de détail) et disposez d'une première expérience dans la vente de produits alimentaires (e.g. fromage, boulangerie, boucherie). 🧀🥐",
@@ -5346,14 +5348,12 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-emmi-ch",
-        "vendeur-vendeuse-emmi-allaman",
-        "venditore-emmi-allaman-vaud"
+        "vendeur-vendeuse-emmi-allaman"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-emmi-ch",
-          "vendeur-vendeuse-emmi-allaman",
-          "venditore-emmi-allaman-vaud"
+          "vendeur-vendeuse-emmi-allaman"
         ],
         "en": [
           "vendeur-vendeuse-emmi-ch"
@@ -5375,7 +5375,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07T08:07:26Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-c4eb09001fa2",
@@ -5408,7 +5410,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/e6946096-77ff-4fd2-b62c-548860b211a0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.707Z",
+      "crawledAt": "2026-10-05T09:21:26.812Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -5421,7 +5423,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "2026-09-07T11:19:31Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19206",
       "requirements": [
         "• 🎓 Du verfügst über eine Grundausbildung EFZ im Lebensmittelbereich (Koch, Metzger oder in der Lebens- oder Milchtechnologie)",
@@ -5461,8 +5463,7 @@
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
         "anlagenfuhrer-in-emmi-ch",
         "operator-in-emmi-kirchberg-bern",
-        "operateur-in-emmi-kirchberg-bern",
-        "operatore-emmi-kirchberg-bern"
+        "operateur-in-emmi-kirchberg-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5482,8 +5483,7 @@
           "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
           "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
           "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
-          "anlagenfuhrer-in-emmi-ch",
-          "operatore-emmi-kirchberg-bern"
+          "anlagenfuhrer-in-emmi-ch"
         ],
         "en": [
           "system-manager-in-mixmatic-emmi-ostermundigen-bern",
@@ -5516,7 +5516,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07T11:19:31Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-77709d382034",
@@ -5539,9 +5541,9 @@
       },
       "description": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
       "descriptionByLocale": {
-        "de": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
         "it": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
         "en": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
+        "de": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
         "fr": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• 🍦 Du bist verantwortlich für die eigenständige Bedienung der dir zugeteilten Produktionslinien für unsere leckeren Ice Cream-Produkte.\n\n• 🔎 Du instruierst und organisierst das eingesetzte Personal an der Produktionslinie und gibst alle wichtigen Informationen an die richtigen Ansprechpartner weiter (Vorgesetzte:r, Schichtführer:in).\n\n• 🏆 Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• 📋 Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• 🛠️ Du unterstützt unseren technischen Dienst bei Störungen oder Wartungen tatkräftig.\n\nDas bringst du mit\n\n• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).\n\n• 🏭 Du konntest bereits Erfahrung in einer ähnlichen Funktion, am besten in einem produzierenden Lebensmittelbetrieb sammeln.\n\n• 🚗 Du bist flexibel und die Arbeit im Schichtbetrieb (maximal 2-Schichtbetrieb) macht dir nichts aus.\n\n• 💬 Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren"
       },
       "location": "Ostermundigen, Bern",
@@ -5549,7 +5551,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-ice-cream/3405067f-29e3-4445-b496-0f14d6e86654",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.706Z",
+      "crawledAt": "2026-10-05T09:21:26.811Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -5562,7 +5564,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "2026-09-07T13:43:14Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19554",
       "requirements": [
         "• 🎓 Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Anlagenführer, Milchtechnologe, Bäcker, Metzger, Koch, etc.).",
@@ -5579,13 +5581,11 @@
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-ice-cream-emmi-ch",
-        "manager-in-gelato-emmi-ostermundigen-bern"
+        "anlagenfuhrer-in-ice-cream-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-ice-cream-emmi-ch",
-          "manager-in-gelato-emmi-ostermundigen-bern"
+          "anlagenfuhrer-in-ice-cream-emmi-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-ice-cream-emmi-ch"
@@ -5605,7 +5605,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07T13:43:14Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-7fdde2872f4f",
@@ -5638,7 +5640,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/projektleiter-in-molkereitechnik/bdf8e3b3-7868-43e1-9f48-877912eebf02",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.704Z",
+      "crawledAt": "2026-10-05T09:21:26.811Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -5651,7 +5653,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "postedDate": "2026-09-09T11:37:13Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19444",
       "requirements": [
         "• Eine fundierte Ausbildung mit Weiterbildung auf Stufe HFP/HF oder vergleichbar im Bereich Lebensmittel oder Technik.",
@@ -5670,13 +5672,11 @@
       },
       "previousSlugs": [
         "projektleiter-in-molkereitechnik-emmi-ch",
-        "projektleiter-in-molkereitechnik-emmi-suhr",
-        "responsabile-di-progetto-molkereitechnik-emmi-suhr"
+        "projektleiter-in-molkereitechnik-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-molkereitechnik-emmi-ch",
-          "responsabile-di-progetto-molkereitechnik-emmi-suhr"
+          "projektleiter-in-molkereitechnik-emmi-ch"
         ],
         "en": [
           "projektleiter-in-molkereitechnik-emmi-suhr"
@@ -5699,7 +5699,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-09T11:37:13Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-f4f843e84fe9",
@@ -5722,9 +5724,9 @@
       },
       "description": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
       "descriptionByLocale": {
-        "de": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
         "it": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
         "en": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
+        "de": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
         "fr": "Frische im Fokus, Technik im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist die erste Ansprechperson am Standort, wenn an den Maschinen oder Hausleitsystemen eine Störung entsteht.\n\n• Du bist verantwortlich für die Fehlersuche und Störungsbehebung der ausgefallenen Maschine oder des ausgefallenen Systems mit dem Ziel, so wenig Störzeiten wie möglich zu generieren.\n\n• Du tauschst Ersatzteile aus und verantwortest Umbauten wo nötig.\n\n• Du stellst Spezialanfertigungen her, damit unsere Maschinen so schnell wie möglich wieder zum Laufen gebracht werden.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.\n\n• Bonuspunkte sammelst du durch fundierte Kenntnisse in der Elektrotechnik.\n\n• Du bist flexibel und bereit im 3-Schichtbetrieb zu arbeiten\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren"
       },
       "location": "Ostermundigen, Bern",
@@ -5732,7 +5734,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in-3-schicht/8e6985f2-1c54-4ae0-9123-848257adda32",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.702Z",
+      "crawledAt": "2026-10-05T09:21:26.810Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -5745,7 +5747,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "postedDate": "2026-09-09T12:42:28Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19720",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Automechaniker:in, Landmaschinenmechaniker:in oder in einem ähnlichen Berufsfeld und bringst idealerweise bereits Erfahrung in einer ähnlichen Funktion mit.",
@@ -5762,14 +5764,12 @@
       },
       "previousSlugs": [
         "betriebsmechaniker-in-3-schicht-emmi-ch",
-        "betriebsmechaniker-in-3-schicht-emmi-ostermundigen",
-        "meccanico-operativo-a-3-strati-emmi-ostermundigen-bern"
+        "betriebsmechaniker-in-3-schicht-emmi-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-3-schicht-emmi-ch",
-          "betriebsmechaniker-in-3-schicht-emmi-ostermundigen",
-          "meccanico-operativo-a-3-strati-emmi-ostermundigen-bern"
+          "betriebsmechaniker-in-3-schicht-emmi-ostermundigen"
         ],
         "en": [
           "betriebsmechaniker-in-3-schicht-emmi-ostermundigen"
@@ -5792,7 +5792,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-09T12:42:28Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-dba3ee73e5f0",
@@ -5825,7 +5827,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-modellierung/8e541b6f-8621-429a-bd84-aab74a86f8e0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.700Z",
+      "crawledAt": "2026-10-05T09:21:26.809Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -5838,7 +5840,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-11T13:10:10Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19725",
       "requirements": [
         "• Du bringst eine abgeschlossene Ausbildung als Anlagenführer:in EFZ im Lebensmittelsektor mit oder hast eine Berufslehre in der Lebensmittelindustrie und mehrjährige Erfahrung als Anlagenführer- dein Fachwissen ist unsere Stärke!",
@@ -5852,13 +5854,11 @@
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-modellierung-emmi-ch",
-        "modellazione-di-plant-manager-emmi-suhr-aargau"
+        "anlagenfuhrer-in-modellierung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-modellierung-emmi-ch",
-          "modellazione-di-plant-manager-emmi-suhr-aargau"
+          "anlagenfuhrer-in-modellierung-emmi-ch"
         ],
         "en": [
           "anlagenfuhrer-in-modellierung-emmi-ch"
@@ -5881,7 +5881,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-11T13:10:10Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-5361394dabce",
@@ -5914,7 +5916,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-spezialitaeten/1fb4b2ce-0dfd-4cc4-bd10-f7de02419ef5",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.699Z",
+      "crawledAt": "2026-10-05T09:21:26.809Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -5927,7 +5929,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-11T13:12:41Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19707",
       "requirements": [
         "• Du bringst eine Ausbildung im Lebensmittelbereich, als Anlagenführer oder Erfahrung in der Lebensmittelproduktion mit.",
@@ -5946,14 +5948,12 @@
       },
       "previousSlugs": [
         "maschinenfuhrer-in-spezialitaten-emmi-ch",
-        "maschinenfuhrer-in-spezialitaten-emmi-bischofszell",
-        "specialita-degli-operatori-emmi-bischofszell-thurgau"
+        "maschinenfuhrer-in-spezialitaten-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-spezialitaten-emmi-ch",
-          "maschinenfuhrer-in-spezialitaten-emmi-bischofszell",
-          "specialita-degli-operatori-emmi-bischofszell-thurgau"
+          "maschinenfuhrer-in-spezialitaten-emmi-bischofszell"
         ],
         "en": [
           "maschinenfuhrer-in-spezialitaten-emmi-bischofszell"
@@ -5976,7 +5976,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-11T13:12:41Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-d6d5a6bd6e58",
@@ -6009,7 +6011,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-produktion-ice-cream/ecc9e691-d622-4b72-9a60-8314fed9bdbf",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.698Z",
+      "crawledAt": "2026-10-05T09:21:26.808Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -6022,7 +6024,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "postedDate": "2026-09-11T13:16:25Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19724",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung im Lebensmittelumfeld (Koch/Köchin, Bäcker:in, etc.).",
@@ -6041,13 +6043,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-produktion-ice-cream-emmi-ch",
-        "gruppo-leader-produzione-gelato-emmi-ostermundigen-bern"
+        "teamleiter-in-produktion-ice-cream-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-produktion-ice-cream-emmi-ch",
-          "gruppo-leader-produzione-gelato-emmi-ostermundigen-bern"
+          "teamleiter-in-produktion-ice-cream-emmi-ch"
         ],
         "en": [
           "teamleiter-in-produktion-ice-cream-emmi-ch"
@@ -6070,7 +6070,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-11T13:16:25Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-3ae4e71bdc00",
@@ -6103,7 +6105,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmitarbeiter-in-logistik-kommissionierung/64cccc45-8582-4571-ae26-4be14df31026",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.697Z",
+      "crawledAt": "2026-10-05T09:21:26.808Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -6116,7 +6118,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "postedDate": "2026-09-14T11:42:26Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19518",
       "requirements": [
         "• Du hast eine abgeschlossene Ausbildung als Logistiker:in EFZ oder EBA.",
@@ -6141,8 +6143,7 @@
         "operating-staff-in-logistics-assembly-emmi-emmen-luzern",
         "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch",
         "personnel-d-exploitation-en-montage-logistique-emmi-emmen-luzern",
-        "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
-        "operazioni-staff-logistica-di-raccolta-emmi-emmen-luzern"
+        "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6154,8 +6155,7 @@
           "operating-staff-in-logistics-assembly-emmi-emmen-luzern",
           "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch",
           "personnel-d-exploitation-en-montage-logistique-emmi-emmen-luzern",
-          "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
-          "operazioni-staff-logistica-di-raccolta-emmi-emmen-luzern"
+          "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
         ],
         "en": [
           "operating-staff-in-logistics-picking-100-emmi-emmen-luzern",
@@ -6183,7 +6183,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14T11:42:26Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-9425fcad9a40",
@@ -6216,7 +6218,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/verkaeufer-in/47600338-14bb-4bd1-b6c4-434b4f3ce2fa",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.696Z",
+      "crawledAt": "2026-10-05T09:21:26.807Z",
       "addressLocality": "Kappelen",
       "postalCode": "3273",
       "addressRegion": "Bern",
@@ -6229,7 +6231,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "2026-09-16T22:00:00Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19730",
       "requirements": [
         "• Leidenschaft für Käse und Freude am Verkauf",
@@ -6249,14 +6251,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-emmi-ch",
-        "verkaufer-in-emmi-kappelen",
-        "venditore-emmi-kappelen-bern"
+        "verkaufer-in-emmi-kappelen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-emmi-ch",
-          "verkaufer-in-emmi-kappelen",
-          "venditore-emmi-kappelen-bern"
+          "verkaufer-in-emmi-kappelen"
         ],
         "en": [
           "verkaufer-in-emmi-kappelen"
@@ -6279,7 +6279,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-83c2ca76ffd4",
@@ -6312,7 +6314,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmitarbeiter-in-logistik-konfektionierung/8af1d74f-2f32-42dd-bb24-b244808805f6",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.695Z",
+      "crawledAt": "2026-10-05T09:21:26.806Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -6325,7 +6327,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "2026-09-17T22:00:00Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19509",
       "requirements": [
         "• Du verstehst einfache Abläufe und bist dir speditives Arbeiten gewohnt.",
@@ -6342,13 +6344,11 @@
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch",
-        "personale-operativo-configurazione-logistica-emmi-emmen-luzern"
+        "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch",
-          "personale-operativo-configurazione-logistica-emmi-emmen-luzern"
+          "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch"
         ],
         "en": [
           "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch"
@@ -6371,7 +6371,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-166a0db974f5",
@@ -6404,7 +6406,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/vendeur-vendeuse-cdd/4b6023dd-1255-4c12-ab71-95cb366769c4",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.694Z",
+      "crawledAt": "2026-10-05T09:21:26.805Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -6417,7 +6419,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-23T06:55:30Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19743",
       "requirements": [
         "• Vous avez terminé une formation dans la vente (gestionnaire du commerce de détail) et disposez d'une première expérience dans la vente de produits alimentaires (e.g. fromage, boulangerie, boucherie). 🧀🥐",
@@ -6434,14 +6436,12 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-cdd-emmi-ch",
-        "vendeur-vendeuse-cdd-emmi-lausanne",
-        "venditore-cdd-emmi-lausanne-vaud"
+        "vendeur-vendeuse-cdd-emmi-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-cdd-emmi-ch",
-          "vendeur-vendeuse-cdd-emmi-lausanne",
-          "venditore-cdd-emmi-lausanne-vaud"
+          "vendeur-vendeuse-cdd-emmi-lausanne"
         ],
         "en": [
           "vendeur-vendeuse-cdd-emmi-ch"
@@ -6463,7 +6463,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23T06:55:30Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-fd619f5dddd7",
@@ -6496,7 +6498,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/vendeur-vendeuse-cdd/b90572d5-f6f1-4417-89f2-f4d775257f15",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.693Z",
+      "crawledAt": "2026-10-05T09:21:26.805Z",
       "addressLocality": "Carouge",
       "postalCode": "1227",
       "addressRegion": "Genf",
@@ -6509,7 +6511,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-23T07:01:22Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19742",
       "requirements": [
         "• Vous avez terminé une formation dans la vente (gestionnaire du commerce de détail) et disposez d'une première expérience dans la vente de produits alimentaires (e.g. fromage, boulangerie, boucherie). 🧀🥐",
@@ -6527,15 +6529,13 @@
       "previousSlugs": [
         "vendeur-vendeuse-30-50-carouge-cdd-emmi-ch",
         "vendeur-vendeuse-30-50-carouge-cdd-emmi-carouge",
-        "vendeur-vendeuse-cdd-emmi-ch",
-        "venditore-30-50-carouge-cdd-emmi-carouge-genf"
+        "vendeur-vendeuse-cdd-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-30-50-carouge-cdd-emmi-ch",
           "vendeur-vendeuse-30-50-carouge-cdd-emmi-carouge",
-          "vendeur-vendeuse-cdd-emmi-ch",
-          "venditore-30-50-carouge-cdd-emmi-carouge-genf"
+          "vendeur-vendeuse-cdd-emmi-ch"
         ],
         "en": [
           "vendeur-vendeuse-30-50-carouge-cdd-emmi-ch"
@@ -6557,7 +6557,9 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23T07:01:22Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-50c3970c0eed",
@@ -6590,7 +6592,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagefuehrer-in-schmelzkaese-abfuellung/6718422e-b0a7-41d1-bc94-d968201fd374",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.691Z",
+      "crawledAt": "2026-10-05T09:21:26.804Z",
       "addressLocality": "Langnau im Emmental",
       "postalCode": "3550",
       "addressRegion": "Bern",
@@ -6603,7 +6605,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-23T09:51:51Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19739",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung als Anlagenführer:in oder alternativ in der Lebensmittelbranche (Milchtechnologe/Milchtechnologin, Bäcker:in, Koch/Köchin, Metzger:in, etc.). 🥨",
@@ -6620,13 +6622,11 @@
         ]
       },
       "previousSlugs": [
-        "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch",
-        "responsabile-impianti-di-imbottigliamento-del-formaggio-emmi-langnau-im-emmental"
+        "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch",
-          "responsabile-impianti-di-imbottigliamento-del-formaggio-emmi-langnau-im-emmental"
+          "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch"
         ],
         "en": [
           "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch"
@@ -6649,16 +6649,18 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23T09:51:51Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-42bc108884ca",
       "slug": "teamleiter-in-gebaudereinigung-emmi-luzern",
       "slugByLocale": {
         "it": "teamleiter-in-gebaudereinigung-emmi-luzern",
-        "en": "teamleiter-in-gebaudereinigung-emmi-luzern",
+        "en": "building-cleaning-team-leader-emmi-luzern-luzern",
         "de": "teamleiter-in-gebaudereinigung-emmi-ch",
-        "fr": "teamleiter-in-gebaudereinigung-emmi-luzern"
+        "fr": "chef-d-equipe-dans-le-nettoyage-des-batiments-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6682,7 +6684,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-gebaeudereinigung/cbc5a7de-1f1c-41a8-9f32-a32942d3d610",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.690Z",
+      "crawledAt": "2026-10-05T09:21:26.803Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -6695,7 +6697,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-24T19:49:32Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19747",
       "requirements": [
         "• Du hast eine abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder eine technische bzw. handwerkliche Grundausbildung.",
@@ -6710,13 +6712,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-gebaudereinigung-emmi-ch",
-        "teamleiter-in-gebaudereinigung-emmi-luzern"
+        "teamleiter-in-gebaudereinigung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-gebaudereinigung-emmi-ch",
-          "teamleiter-in-gebaudereinigung-emmi-luzern"
+          "teamleiter-in-gebaudereinigung-emmi-ch"
         ]
       },
       "needsRetranslation": true,
@@ -6733,7 +6733,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24T19:49:32Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-cfb6415b85ed",
@@ -6766,7 +6768,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/projektleiter-in-engineering/4803d1e3-93c2-4108-b84f-ad85dd574200",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.689Z",
+      "crawledAt": "2026-10-05T09:21:26.803Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -6779,7 +6781,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-24T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19715",
       "requirements": [
         "• Du verfügst über eine technische Aus- oder Weiterbildung im Bereich Lebensmitteltechnologie, Verfahrenstechnik, Maschinenbau oder in einer vergleichbaren Fachrichtung.",
@@ -6797,13 +6799,11 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-engineering-emmi-ch",
-        "responsabile-di-progetto-engineering-emmi-dagmersellen"
+        "projektleiter-in-engineering-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-engineering-emmi-ch",
-          "responsabile-di-progetto-engineering-emmi-dagmersellen"
+          "projektleiter-in-engineering-emmi-ch"
         ],
         "en": [
           "projektleiter-in-engineering-emmi-ch"
@@ -6826,16 +6826,18 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-bde29e2d3b43",
       "slug": "betriebsmitarbeiter-in-produktion-emmi-landquart",
       "slugByLocale": {
         "it": "betriebsmitarbeiter-in-produktion-emmi-landquart",
-        "en": "betriebsmitarbeiter-in-produktion-emmi-landquart",
+        "en": "production-operations-officer-emmi-landquart-graubunden",
         "de": "betriebsmitarbeiter-in-produktion-emmi-ch",
-        "fr": "betriebsmitarbeiter-in-produktion-emmi-landquart"
+        "fr": "employeoperationnel-en-production-emmi-landquart-graubunden"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6872,7 +6874,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "postedDate": "",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19746",
       "requirements": [
         "• Du verfügst idealerweise über Erfahrung in einem Produktionsbetrieb, vorzugsweise in der Lebensmittelindustrie.",
@@ -6893,13 +6895,11 @@
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-produktion-emmi-ch",
-        "betriebsmitarbeiter-in-produktion-emmi-landquart"
+        "betriebsmitarbeiter-in-produktion-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiter-in-produktion-emmi-ch",
-          "betriebsmitarbeiter-in-produktion-emmi-landquart"
+          "betriebsmitarbeiter-in-produktion-emmi-ch"
         ]
       },
       "needsRetranslation": true,
@@ -6916,7 +6916,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "emmi-1a4803a1d274",
@@ -6949,7 +6952,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/vendeur-vendeuse/fa45c5bc-c7b6-4ee2-8090-0536f94ecce5",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:22:32.685Z",
+      "crawledAt": "2026-10-05T09:21:26.802Z",
       "addressLocality": "Carouge",
       "postalCode": "1227",
       "addressRegion": "Genf",
@@ -6962,7 +6965,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-28T15:56:59Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19744",
       "requirements": [
         "• Vous avez terminé une formation dans la vente (gestionnaire du commerce de détail) et disposez d'une première expérience dans la vente de produits alimentaires (e.g. fromage, boulangerie, boucherie). 🧀🥐",
@@ -6978,13 +6981,11 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-emmi-ch",
-        "vendeur-vendeuse-emmi-carouge"
+        "vendeur-vendeuse-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-emmi-ch",
-          "vendeur-vendeuse-emmi-carouge"
+          "vendeur-vendeuse-emmi-ch"
         ],
         "en": [
           "vendeur-vendeuse-emmi-ch"
@@ -7006,7 +7007,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T15:56:59Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-e41add27af17",
@@ -7052,7 +7055,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19751",
       "requirements": [
         "• Eine abgeschlossene technische Berufsausbildung sowie Erfahrung in der Instandhaltung in der Lebensmittel- oder Pharmaindustrie bilden eine gute Grundlage für diese Aufgabe.",
@@ -7089,7 +7092,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "emmi-3e517f13d6eb",
@@ -7122,7 +7128,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/praktikant-in-informatik-plattformentwicklung-2027-2029-team-nss/6e88437b-6d31-464f-b4cc-a4bcd917faec",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.682Z",
+      "crawledAt": "2026-10-05T09:21:26.801Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -7135,7 +7141,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T13:24:21Z",
+      "postedDate": "2026-09-29T13:24:21Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19745",
       "requirements": [
         "• Du bist aktuell in einer laufenden Ausbildung als Informatiker:in EFZ Fachrichtung Plattformentwicklung (Modell: 2 Jahre Schule + 2 Jahre Praktikum).",
@@ -7204,7 +7212,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/b9af6463-c02f-4d3d-9df9-3aa8ca13d352",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.681Z",
+      "crawledAt": "2026-10-05T09:21:26.800Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -7217,7 +7225,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-29T22:00:00Z",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19695",
       "requirements": [
         "• Du hast eine abgeschlossene Ausbildung EFZ als Polymechaniker:in Instandhaltung, Land-/ Baumaschinenmechaniker:in oder vergleichbare Qualifikationen.",
@@ -7238,15 +7246,13 @@
       "previousSlugs": [
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-emmi-ch",
-        "betriebsmechaniker-emmi-emmen",
-        "betriebsmechaniker-in-emmi-emmen"
+        "betriebsmechaniker-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-emmi-ch",
           "betriebsmechaniker-emmi-ch",
-          "betriebsmechaniker-emmi-emmen",
-          "betriebsmechaniker-in-emmi-emmen"
+          "betriebsmechaniker-emmi-emmen"
         ],
         "de": [
           "betriebsmechaniker-emmi-ch"
@@ -7266,7 +7272,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-c06695fe72cd",
@@ -7299,7 +7307,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/fachspezialist-in-ersatzteillager/164c4ede-5138-4669-afbe-477068786163",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.679Z",
+      "crawledAt": "2026-10-05T09:21:26.800Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -7312,7 +7320,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-29T22:00:00Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19585",
       "requirements": [
         "• Du hast eine abgeschlossene Ausbildung im technischen Bereich mit Erfahrung in der Lagerbewirtschaftung.",
@@ -7333,13 +7341,11 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-ersatzteillager-emmi-ch",
-        "fachspezialist-in-ersatzteillager-emmi-emmen"
+        "fachspezialist-in-ersatzteillager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-ersatzteillager-emmi-ch",
-          "fachspezialist-in-ersatzteillager-emmi-emmen"
+          "fachspezialist-in-ersatzteillager-emmi-ch"
         ]
       },
       "needsRetranslation": true,
@@ -7356,7 +7362,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-6afc4a9e8764",
@@ -7389,7 +7397,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/44e06d12-3713-4692-babe-d7f1e43f6132",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.678Z",
+      "crawledAt": "2026-10-05T09:21:26.799Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -7402,7 +7410,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-29T22:00:00Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19553",
       "requirements": [
         "• Du bringst eine abgeschlossene Ausbildung in einem mechanischen oder vergleichbaren technischen Beruf mit – und damit genau das Fachwissen, das im industriellen Umfeld entscheidend ist. Deine Erfahrung bildet die Grundlage für qualitativ hochwertige Arbeit im täglichen Betrieb.",
@@ -7419,8 +7427,7 @@
         "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
         "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
         "business-mechanic-in-emmi-dagmersellen-luzern",
-        "meccanica-aziendale-in-emmi-dagmersellen-luzern",
-        "betriebsmechaniker-in-emmi-dagmersellen"
+        "meccanica-aziendale-in-emmi-dagmersellen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7430,8 +7437,7 @@
           "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
           "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
           "business-mechanic-in-emmi-dagmersellen-luzern",
-          "meccanica-aziendale-in-emmi-dagmersellen-luzern",
-          "betriebsmechaniker-in-emmi-dagmersellen"
+          "meccanica-aziendale-in-emmi-dagmersellen-luzern"
         ],
         "en": [
           "business-mechanic-in-emmi-dagmersellen-luzern"
@@ -7454,7 +7460,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-7c61ad60bdec",
@@ -7487,7 +7495,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin/ab567b5b-2cf1-4481-bc7a-f9f9585372a7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.676Z",
+      "crawledAt": "2026-10-05T09:21:26.798Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -7500,7 +7508,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postedDate": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=18919",
       "requirements": [
         "• Du hast die Berufsausbildung EFZ (Milch- oder Lebensmitteltechnologie) und vielleicht schon etwas Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.",
@@ -7592,7 +7602,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/8b991c65-8d60-4442-924d-a0f9ce4b803b",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.675Z",
+      "crawledAt": "2026-10-05T09:21:26.798Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressRegion": "Graubünden",
@@ -7605,7 +7615,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-29T22:00:00Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19382",
       "requirements": [
         "• Ausbildung als Milchtechnologin oder Milchtechnologe oder ähnliches.",
@@ -7633,8 +7643,7 @@
         "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
         "milk-technologist-or-dairy-technologist-emmi-landquart",
         "tecnico-lattiero-caseario-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-landquart",
-        "milchtechnologin-o-milchtechnologe-emmi-landquart"
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7644,8 +7653,7 @@
           "tecnico-lattiero-caseario-emmi-landquart-6s079b",
           "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
           "milk-technologist-or-dairy-technologist-emmi-landquart",
-          "tecnico-lattiero-caseario-emmi-landquart",
-          "milchtechnologin-o-milchtechnologe-emmi-landquart"
+          "tecnico-lattiero-caseario-emmi-landquart"
         ],
         "en": [
           "milk-technologist-or-dairy-technologist-emmi-landquart",
@@ -7670,7 +7678,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-96d0bd4823ea",
@@ -7703,7 +7713,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-jogurt/25f2a9d9-7d3d-467c-8209-3917fe85ebcf",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.674Z",
+      "crawledAt": "2026-10-05T09:21:26.797Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -7716,7 +7726,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-09-30T11:35:17Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19734",
       "requirements": [
         "• Du verfügst über eine abgeschlossene Berufsausbildung in der Lebensmittelindustrie (Milchtechnologe/Milchtechnologin, Koch, Bäcker, Metzger, etc.) oder im Logistik-Umfeld.",
@@ -7735,13 +7745,11 @@
         ]
       },
       "previousSlugs": [
-        "maschinenfuhrer-in-jogurt-emmi-ch",
-        "maschinenfuhrer-in-jogurt-emmi-ostermundigen"
+        "maschinenfuhrer-in-jogurt-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maschinenfuhrer-in-jogurt-emmi-ch",
-          "maschinenfuhrer-in-jogurt-emmi-ostermundigen"
+          "maschinenfuhrer-in-jogurt-emmi-ch"
         ]
       },
       "needsRetranslation": true,
@@ -7758,7 +7766,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-30T11:35:17Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "emmi-250c5a7b7c6e",
@@ -7791,7 +7801,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-team-butter/84a2a116-5f65-4260-8a4d-2faafa8389f6",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.672Z",
+      "crawledAt": "2026-10-05T09:21:26.796Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -7804,7 +7814,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "2026-10-01T11:30:34Z",
+      "postedDate": "2026-10-01T11:30:34Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19701",
       "requirements": [
         "• Du besitzt eine Grundausbildung EFZ im Lebensmittelbereich (Koch, Metzger oder in der Lebens- oder Milchtechnologie) und hast vielleicht schon Erfahrung in der Industrie gesammelt.",
@@ -7865,7 +7877,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-abfuellanlagen/f612b174-087e-4235-ba79-07677b7395c8",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.670Z",
+      "crawledAt": "2026-10-05T09:21:26.794Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -7878,7 +7890,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "2026-10-01T22:00:00Z",
+      "postedDate": "2026-10-01T22:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19665",
       "requirements": [
         "• Du hast eine Berufslehre im Lebensmittelbereich schon etwas Erfahrung an Produktionsanlagen.",
@@ -7966,7 +7980,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/schichtfuehrer-in-uht-past/877386aa-a9b3-446b-b7b9-ccaec79f8f88",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.669Z",
+      "crawledAt": "2026-10-05T09:21:26.793Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -7979,7 +7993,9 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "datePosted": "2026-10-02T06:58:55Z",
+      "postedDate": "2026-10-02T06:58:55Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19685",
       "requirements": [
         "• Du verfügst über mehrjährige Berufserfahrung in der produzierenden Lebensmittelindustrie sowie eine abgeschlossene Berufsausbildung in einem relevanten Umfeld.",
@@ -8041,7 +8057,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/application-operation-manager-sap-scm/61d189e6-e846-4984-ae07-819d8d6098b1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:32.664Z",
+      "crawledAt": "2026-10-05T09:21:26.791Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -8054,7 +8070,7 @@
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-02T07:04:02Z",
       "applyUrl": "https://jobs.emmi.com/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19740",
       "requirements": [
         "• Du hast eine abgeschlossene Grundausbildung und eine relevante Weiterbildung, beispielsweise in Wirtschaftsinformatik, Informatik oder Supply Chain Management, oder eine vergleichbare Qualifikation.",
@@ -8069,13 +8085,11 @@
         ]
       },
       "previousSlugs": [
-        "application-operation-manager-sap-scm-emmi-ch",
-        "gestione-delle-applicazioni-sap-scm-emmi-ostermundigen-bern"
+        "application-operation-manager-sap-scm-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-operation-manager-sap-scm-emmi-ch",
-          "gestione-delle-applicazioni-sap-scm-emmi-ostermundigen-bern"
+          "application-operation-manager-sap-scm-emmi-ch"
         ],
         "fr": [
           "application-operation-manager-sap-scm-emmi-ch"
@@ -8095,7 +8109,9 @@
           "maxValue": 167500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-02T07:04:02Z",
+      "postingDateSource": "reported"
     }
   ]
 }

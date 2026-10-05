@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-ticino-osc",
-  "assembledAt": "2026-10-04T21:23:49.969Z",
+  "assembledAt": "2026-10-05T09:17:52.005Z",
   "jobs": [
     {
       "id": "canton-ticino-osc-4225-88e3240f5907",
@@ -33,7 +33,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4225",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:23:44.466Z",
+      "crawledAt": "2026-10-05T09:17:46.674Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,7 +46,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-05",
+      "postedDate": "",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4225",
       "requirements": [],
       "requirementsByLocale": {},
@@ -102,7 +102,9 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "canton-ticino-osc-4099-2e16ac30702b",
@@ -135,7 +137,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:23:43.881Z",
+      "crawledAt": "2026-10-05T09:17:46.042Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -148,7 +150,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "requirements": [],
       "requirementsByLocale": {
@@ -252,7 +254,9 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "canton-ticino-osc-4094-9ac7ccbadb9e",
@@ -285,7 +289,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:23:43.294Z",
+      "crawledAt": "2026-10-05T09:17:45.412Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -298,7 +302,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
       "requirements": [],
       "requirementsByLocale": {
@@ -388,7 +392,9 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "canton-ticino-osc-4091-db22a8a58db8",
@@ -421,7 +427,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:23:42.704Z",
+      "crawledAt": "2026-10-05T09:17:44.784Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -434,7 +440,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "requirements": [],
       "requirementsByLocale": {
@@ -530,7 +536,9 @@
           "maxValue": 132500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "canton-ticino-osc-4281-621808acd0a9",
@@ -563,7 +571,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4281",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:23:39.963Z",
+      "crawledAt": "2026-10-05T09:17:40.838Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -576,7 +584,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4281",
       "requirements": [],
       "requirementsByLocale": {},
@@ -593,7 +601,9 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

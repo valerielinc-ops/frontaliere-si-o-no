@@ -1,6 +1,6 @@
 {
   "crawlerKey": "baloise",
-  "assembledAt": "2026-10-04T21:38:12.601Z",
+  "assembledAt": "2026-10-05T09:33:30.475Z",
   "jobs": [
     {
       "id": "baloise-aca09435dae8",
@@ -33,7 +33,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.421Z",
+      "crawledAt": "2026-10-05T09:33:26.114Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -47,7 +47,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19284",
       "requirements": [],
       "requirementsByLocale": {
@@ -98,7 +98,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "baloise-0a757f8e61be",
@@ -131,7 +133,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn-olten/60f6e635-cfe8-4997-9fdd-426829a3bdc7",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.419Z",
+      "crawledAt": "2026-10-05T09:33:26.113Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -145,7 +147,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "postedDate": "",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19557",
       "requirements": [],
       "requirementsByLocale": {},
@@ -178,7 +180,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "baloise-fcba44183089",
@@ -212,7 +216,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.418Z",
+      "crawledAt": "2026-10-05T09:33:26.112Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -226,7 +230,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19558",
       "requirements": [],
       "requirementsByLocale": {},
@@ -289,7 +295,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.417Z",
+      "crawledAt": "2026-10-05T09:33:26.110Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -303,7 +309,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "postedDate": "",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19555",
       "requirements": [],
       "requirementsByLocale": {},
@@ -336,7 +342,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "baloise-98ac70965f17",
@@ -369,7 +377,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.415Z",
+      "crawledAt": "2026-10-05T09:33:26.109Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -383,7 +391,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "postedDate": "",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19561",
       "requirements": [],
       "requirementsByLocale": {},
@@ -416,7 +424,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "baloise-61a40f2fcd24",
@@ -450,7 +460,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/hr-generalist-administration-w-m-d-bank/ac93c03d-5c16-4fe8-a0eb-b4c7faa3c68f",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.413Z",
+      "crawledAt": "2026-10-05T09:33:26.107Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -464,7 +474,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19562",
       "requirements": [],
       "requirementsByLocale": {},
@@ -515,7 +527,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:08.402Z",
+      "crawledAt": "2026-10-05T09:33:26.097Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -529,7 +541,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19724",
       "requirements": [],
       "requirementsByLocale": {},

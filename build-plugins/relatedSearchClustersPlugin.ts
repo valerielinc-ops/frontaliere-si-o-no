@@ -58,7 +58,15 @@ import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
-import { buildTitleWithBrand, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  escapeForBudget,
+  META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
+  TITLE_MAX_CHARS,
+  truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 import {
   getTrafficEvidenceFilter,
   type FilterDecision,
@@ -2566,14 +2574,162 @@ const EMPTY_TAGLINE: Record<Locale, (kw: string, city: string | null) => string>
     : `Alerte quotidienne pour "${kw}" au Tessin — soyez prévenu·e dès qu'une offre est publiée.`,
 };
 
-/** Build the meta description (120-160 chars). */
+/**
+ * Job-intent framing for the cluster `<title>` (issue 11198).
+ *
+ * The title used to be the bare headline — keyword + city, e.g.
+ * "Fielmann a Genève | Frontaliere Ticino" or "Driver Truck | Frontaliere
+ * Ticino" — so nothing in the SERP said the page lists JOBS. Every sibling job
+ * template already carries that signal (`buildRoleHubTitle`,
+ * `buildCityHubTitle`, `buildEmployerHubTitle`, the keyword landings in
+ * jobsSeoPagesPlugin). Measured on the family 2026-09-20/10-04: CTR 7,44 %
+ * against a 9,53 % curve target at position 10.
+ *
+ * No live count in the title on purpose: the H1 already carries it ("— 30
+ * offerte aperte"), which keeps title ≠ H1 for `audit:h1-title-duplicates`.
+ */
+const TITLE_JOB_FRAMING: Record<Locale, (headline: string, hasCity: boolean) => string> = {
+  it: (h, hasCity) => (hasCity ? `${h}: offerte di lavoro` : `${h}: offerte di lavoro in Svizzera`),
+  en: (h, hasCity) => (hasCity ? `${h}: open jobs` : `${h}: jobs in Switzerland`),
+  de: (h, hasCity) => (hasCity ? `${h}: offene Stellen` : `${h}: Jobs in der Schweiz`),
+  fr: (h, hasCity) => (hasCity ? `${h} : offres d’emploi` : `${h} : offres d’emploi en Suisse`),
+};
+
+/**
+ * A keyword that already names the job intent ("offerte lavoro Operatore",
+ * "Stellen Pflege", "offres d'emploi …") keeps its bare headline: framing it
+ * again would stack two job phrases in a 66-char budget.
+ */
+const KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])(lavor[oi]|offert[ae]|impieg[oh]i?|jobs?|stellen\w*|emplois?|offres?|careers?|karriere|vacanc\w*)(?=$|[^\p{L}])/iu;
+const GERMAN_KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])stelle(?=$|[^\p{L}])/iu;
+
+function keywordHasJobIntent(keyword: string, locale: Locale): boolean {
+  return KEYWORD_JOB_INTENT_RE.test(keyword)
+    || (locale === 'de' && GERMAN_KEYWORD_JOB_INTENT_RE.test(keyword));
+}
+
+/**
+ * The cluster `<title>`, shared by the page render and the incremental
+ * manifest so the two can never disagree. Ladder: job-framed headline (with
+ * or without brand, via `buildTitleWithBrand`) when its ESCAPED length fits
+ * `TITLE_MAX_CHARS`; otherwise the historical bare headline capped by
+ * {@link capForTitle}.
+ */
+export function buildClusterTitle(keyword: string, city: string | null, locale: Locale): string {
+  const measure = (s: string) => escapeForBudget(s).length;
+  const headline = buildHeadline(keyword, city, locale);
+  if (String(keyword || '').trim() && !keywordHasJobIntent(keyword, locale)) {
+    // Suffix, not prefix: the title keeps starting with the same localized
+    // headline as the H1 (tests/related-search-clusters-shell.test.ts).
+    const framed = TITLE_JOB_FRAMING[locale](headline, Boolean(city));
+    if (measure(framed) <= TITLE_MAX_CHARS) {
+      return buildTitleWithBrand(framed, undefined, TITLE_MAX_CHARS, measure);
+    }
+  }
+  return buildTitleWithBrand(
+    truncateHeadlineToMeasuredBudget(
+      capForTitle(headline, TITLE_MAX_CHARS),
+      TITLE_MAX_CHARS,
+      measure,
+    ),
+    undefined,
+    TITLE_MAX_CHARS,
+    measure,
+  );
+}
+
+/**
+ * Complete, job-specific sentences that bring a short cluster description up
+ * to the SERP floor (issue 11198). Without them a ~70-110 char tagline reached
+ * `clampMetaDescription`, which pads short copy with the evergreen SITE blurb
+ * and stops wherever the budget runs out — production shipped "… Fielmann
+ * Group. Scopri guide pratiche, dati aggiornati" and "… Explore practical
+ * guides, current data and useful". Appended whole, in order, only while the
+ * description is under {@link META_DESCRIPTION_MIN_CHARS}.
+ */
+const DESCRIPTION_CLOSINGS: Record<Locale, { apply: string; calculator: string; audience: string }> = {
+  it: {
+    apply: 'Candidatura diretta sul sito del datore di lavoro.',
+    calculator: 'Calcola anche lo stipendio netto da frontaliere.',
+    audience: 'Per frontalieri e residenti in Svizzera.',
+  },
+  en: {
+    apply: 'Apply directly on the employer’s website.',
+    calculator: 'Estimate your cross-border net salary too.',
+    audience: 'For cross-border commuters and Swiss residents.',
+  },
+  de: {
+    apply: 'Direkt beim Arbeitgeber bewerben.',
+    calculator: 'Nettolohn für Grenzgänger gratis berechnen.',
+    audience: 'Für Grenzgänger und Einwohner der Schweiz.',
+  },
+  fr: {
+    apply: 'Postulez directement sur le site de l’employeur.',
+    calculator: 'Calculez aussi votre salaire net de frontalier.',
+    audience: 'Pour frontaliers et résidents en Suisse.',
+  },
+};
+
+/**
+ * Build the meta description (120-160 chars), from whole parts only: the
+ * tagline, then as many top employers as fit (2 → 1 → 0, never a name cut
+ * mid-word — production shipped "Universitäre Psych…"), then whole closing
+ * sentences until the {@link META_DESCRIPTION_MIN_CHARS} floor.
+ */
+export function buildClusterDescription(
+  input: { keyword: string; city: string | null; jobCount: number; topCompanies: ReadonlyArray<string> },
+  locale: Locale,
+): string {
+  const max = META_DESCRIPTION_MAX_CHARS;
+  const tagline = input.jobCount === 0
+    ? EMPTY_TAGLINE[locale](input.keyword, input.city)
+    : COPY[locale].taglineSingular(input.jobCount, input.keyword, input.city);
+  let out = tagline.trim();
+  // A tagline alone over budget is a keyword-length data problem: cut it
+  // word-aware with the shared helper, never mid-word.
+  if (out.length > max) return truncateHeadline(out, max);
+
+  const closings = DESCRIPTION_CLOSINGS[locale];
+  // Keep enough room for at least the shortest complete closing sentence. A
+  // tagline at 118–119 chars otherwise leaves every whole closing over the
+  // 160-char cap, making the result violate the 120-char floor.
+  const ordered = input.jobCount === 0
+    ? [closings.calculator, closings.audience]
+    : [closings.apply, closings.calculator, closings.audience];
+  const shortestClosingLength = Math.min(...ordered.map((sentence) => sentence.length));
+  const maxTaglineWithClosing = max - shortestClosingLength - 1;
+  if (out.length < META_DESCRIPTION_MIN_CHARS && out.length > maxTaglineWithClosing) {
+    out = truncateHeadline(out, maxTaglineWithClosing);
+  }
+
+  const companies = input.topCompanies
+    .map((c) => String(c || '').trim().replace(/\.+$/, ''))
+    .filter(Boolean);
+  for (let k = Math.min(2, companies.length); k > 0; k--) {
+    const candidate = `${out} ${companies.slice(0, k).join(', ')}.`;
+    const leavesClosingRoom = candidate.length + shortestClosingLength + 1 <= max;
+    if (candidate.length <= max && (candidate.length >= META_DESCRIPTION_MIN_CHARS || leavesClosingRoom)) {
+      out = candidate;
+      break;
+    }
+  }
+
+  // "Apply directly" promises a listing to apply to: not on the zero-job copy.
+  for (const sentence of ordered) {
+    if (out.length >= META_DESCRIPTION_MIN_CHARS) break;
+    const candidate = `${out} ${sentence}`;
+    if (candidate.length <= max) out = candidate;
+  }
+  return out;
+}
+
 function buildDescription(ctx: ClusterContext, locale: Locale): string {
-  const tagline = ctx.matchingJobs.length === 0
-    ? EMPTY_TAGLINE[locale](ctx.keyword, ctx.city)
-    : COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
-  const head = ctx.topCompanies.length > 0 ? ` ${ctx.topCompanies.slice(0, 2).join(', ')}.` : '';
-  const out = `${tagline}${head}`.trim();
-  return out.length > 158 ? `${out.slice(0, 157)}…` : out;
+  return buildClusterDescription({
+    keyword: ctx.keyword,
+    city: ctx.city,
+    jobCount: ctx.matchingJobs.length,
+    topCompanies: ctx.topCompanies,
+  }, locale);
 }
 
 /**
@@ -3073,23 +3229,11 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS, contentHtml: bodyContentHtml })}
   </div>`;
 
-  // Cluster keywords can exceed 60+ chars when the candidate slug is a long
-  // compound query (e.g. "addetto al commercio al dettaglio efz creare
-  // esperienze di acquisto"). buildTitleWithBrand returns the headline
-  // verbatim past the 66-char cap (no `…` per titleSuffix policy), so we
-  // must shorten the headline at source before composing. Word-aware cut
-  // on a whitespace boundary, no ellipsis — preserves SERP CTR while
-  // keeping the title within the audit:title-length ratchet.
-  const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
-  // Same escaped budget as capForTitle above: the brand-drop decision must be
-  // taken on the string that ships, or a headline that just fits raw acquires
-  // " | Frontaliere Ticino" and lands over cap once escaped.
-  const title = buildTitleWithBrand(
-    titleHeadline,
-    undefined,
-    TITLE_MAX_CHARS,
-    (s) => escapeForBudget(s).length,
-  );
+  // Job-framed when it fits, otherwise the bare headline capped at source
+  // (long compound keywords such as "addetto al commercio al dettaglio efz
+  // creare esperienze di acquisto"): see buildClusterTitle / capForTitle.
+  // The incremental manifest calls the same helper.
+  const title = buildClusterTitle(ctx.keyword, ctx.city, locale);
 
   // Hand the SPA the job set this build just computed, so hydration STOPS
   // recomputing a smaller one. The two sides read different corpora — this
@@ -4921,12 +5065,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (incrementalManifests) {
           const clusterManifestInput = buildRelatedClusterManifestInput({
             slug: ctx.candidate.slug,
-            title: buildTitleWithBrand(
-              capForTitle(buildHeadline(ctx.keyword, ctx.city, locale), TITLE_MAX_CHARS),
-              undefined,
-              TITLE_MAX_CHARS,
-              (s) => escapeForBudget(s).length,
-            ),
+            title: buildClusterTitle(ctx.keyword, ctx.city, locale),
             locale,
             canton: ctx.cantonGroup,
             matchingJobs: ctx.matchingJobs,
