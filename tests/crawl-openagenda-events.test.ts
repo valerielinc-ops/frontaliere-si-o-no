@@ -232,6 +232,54 @@ describe('OpenAgenda: paginazione, chiave e slice', () => {
     expect(slice.events.every((event: { sourceKey: string }) => event.sourceKey === 'openagenda')).toBe(true);
   });
 
+  it('fallisce senza scrivere il batch parziale quando il cap lascia un cursore aperto', async () => {
+    const calls: string[] = [];
+    const fetchImpl = async (url: string) => {
+      calls.push(url);
+      return jsonResponse({ total: 12000, events: [ALL_RAW[0]], after: ['still-open'] });
+    };
+    const sliceDir = mkdtempSync(path.join(os.tmpdir(), 'openagenda-cap-'));
+    const result = await crawlOpenAgenda({
+      key: 'oa_pk_test',
+      agendas: [ACG],
+      fetchImpl: fetchImpl as never,
+      sliceDir,
+      delayMs: 0,
+      mirrorImage: async () => undefined,
+      log: silentLog().log,
+    });
+
+    expect(calls).toHaveLength(40);
+    expect(result.status).toBe('failed');
+    expect(result.failures).toEqual([ACG.uid]);
+    expect(result.written).toBe(false);
+    expect(existsSync(path.join(sliceDir, 'openagenda.json'))).toBe(false);
+  });
+
+  it('propaga come failure un agenda vuota anche quando un altro agenda ha eventi', async () => {
+    const fetchImpl = async (url: string) => {
+      const uid = Number(new URL(url).pathname.split('/')[3]);
+      if (uid === VILLE.uid) return jsonResponse({ total: 0, events: [], after: null });
+      return jsonResponse({ total: 1, events: [ALL_RAW[0]], after: null });
+    };
+    const sliceDir = mkdtempSync(path.join(os.tmpdir(), 'openagenda-empty-agenda-'));
+    const result = await crawlOpenAgenda({
+      key: 'oa_pk_test',
+      agendas: [VILLE, ACG],
+      fetchImpl: fetchImpl as never,
+      sliceDir,
+      delayMs: 0,
+      mirrorImage: async () => undefined,
+      log: silentLog().log,
+    });
+
+    expect(result.status).toBe('failed');
+    expect(result.failures).toEqual([VILLE.uid]);
+    expect(result.events).toHaveLength(1);
+    expect(result.written).toBe(true);
+    expect(result.perAgenda[0]).toMatchObject({ uid: VILLE.uid, received: 0, status: 'failed' });
+  });
+
   it('senza chiave stampa il notice, non chiama la API e non tocca lo slice', async () => {
     const sliceDir = mkdtempSync(path.join(os.tmpdir(), 'openagenda-nokey-'));
     let fetched = 0;
@@ -363,6 +411,28 @@ describe('OpenAgenda: deduplica contro ge-agenda in assemble', () => {
     const { events, mergedAway } = dedupeSupersededTwins([running, twin] as never);
     expect(mergedAway).toBe(1);
     expect(events.map((event: { id: string }) => event.id)).toEqual(['openagenda:1']);
+  });
+
+  it('non assorbe una sede diversa o quando la sede fisica manca', () => {
+    const running = { ...openagenda, id: 'openagenda:1', startDate: '2026-10-01', endDate: '2026-10-25' };
+    const differentVenue = { ...geAgenda, startDate: '2026-10-05', venue: 'Autre salle' };
+    const missingVenue = { ...geAgenda, startDate: '2026-10-05', venue: undefined, address: undefined, geo: undefined };
+    expect(dedupeSupersededTwins([running, differentVenue] as never).events).toHaveLength(2);
+    expect(dedupeSupersededTwins([running, missingVenue] as never).events).toHaveLength(2);
+  });
+
+  it('porta nel replacement ogni previousRoutes del gemello scartato', () => {
+    const running = { ...openagenda, id: 'openagenda:1', startDate: '2026-10-01', endDate: '2026-10-25' };
+    const twin = {
+      ...geAgenda,
+      startDate: '2026-10-05',
+      previousRoutes: [{ slug: 'old-route' }],
+    };
+    const { events } = dedupeSupersededTwins([running, twin] as never);
+    expect(events).toHaveLength(1);
+    expect(events[0].previousRoutes).toEqual(expect.arrayContaining([
+      expect.objectContaining({ slug: 'old-route' }),
+    ]));
   });
 
   it('lascia stare un gemello ambiguo, di un altro comune o fuori intervallo', () => {

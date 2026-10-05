@@ -384,26 +384,31 @@ async function fetchJson(url, key, fetchImpl) {
 /**
  * Legge un'agenda seguendo il cursore `after` fino a `after: null`, a una
  * pagina vuota o al tetto di sicurezza. Restituisce gli eventi grezzi e il
- * `total` dichiarato dalla API.
+ * `total` dichiarato dalla API. `incomplete` segnala che il tetto è stato
+ * raggiunto mentre la API offriva ancora un cursore: il chiamante deve
+ * scartare quel batch parziale e fallire l'agenda.
  */
 export async function fetchAgendaEvents(agenda, { key, fetchImpl = fetch, horizonIso, delayMs = POLITE_DELAY_MS, maxPages = MAX_PAGES_PER_AGENDA } = {}) {
   const events = [];
   let after;
   let total;
   let pages = 0;
+  let complete = false;
   for (; pages < maxPages; pages += 1) {
     if (pages > 0) await sleep(delayMs);
     const body = await fetchJson(buildEventsUrl(agenda.uid, { after, horizonIso }), key, fetchImpl);
     if (typeof body?.total === 'number') total = body.total;
     const batch = Array.isArray(body?.events) ? body.events : [];
     events.push(...batch);
-    if (!batch.length || !Array.isArray(body?.after) || body.after.length === 0) {
+    const hasNextPage = Array.isArray(body?.after) && body.after.length > 0;
+    if (!batch.length || !hasNextPage) {
       pages += 1;
+      complete = true;
       break;
     }
     after = body.after;
   }
-  return { events, total, pages };
+  return { events, total, pages, incomplete: !complete };
 }
 
 /**
@@ -441,6 +446,33 @@ export async function crawlOpenAgenda({
     } catch (err) {
       failures.push(agenda.uid);
       log.error(`[openagenda] agenda ${agenda.uid} (${agenda.title}): ${err?.message || err}`);
+      continue;
+    }
+    if (fetched.incomplete) {
+      failures.push(agenda.uid);
+      log.error(`[openagenda] agenda ${agenda.uid} (${agenda.title}): pagination cap reached with another cursor; partial batch discarded`);
+      perAgenda.push({
+        uid: agenda.uid,
+        total: fetched.total,
+        received: fetched.events.length,
+        mapped: 0,
+        pages: fetched.pages,
+        status: 'failed',
+        incomplete: true,
+      });
+      continue;
+    }
+    if (fetched.events.length === 0) {
+      failures.push(agenda.uid);
+      log.error(`[openagenda] agenda ${agenda.uid} (${agenda.title}): API returned zero events`);
+      perAgenda.push({
+        uid: agenda.uid,
+        total: fetched.total,
+        received: 0,
+        mapped: 0,
+        pages: fetched.pages,
+        status: 'failed',
+      });
       continue;
     }
     let mapped = 0;
