@@ -470,7 +470,7 @@ describe('Wikimedia Commons cover credits on the article page (P14)', () => {
           // Structured data: the photo's own creator and licence, five fields.
           for (const ld of lds) {
             const expected = {
-              creator: { '@type': 'Person', name: rec.author.name, url: rec.author.url },
+              creator: { '@type': 'Person', '@id': rec.author.url, name: rec.author.name, url: rec.author.url },
               creditText: `${rec.author.name} / Wikimedia Commons`,
               copyrightNotice: `© ${rec.author.name}`,
               license: rec.licence.url,
@@ -592,7 +592,7 @@ describe('Wikimedia Commons cover credits on the article page (P14)', () => {
         if (lds.length === 0) offenders.push(`${rel}: no hero ImageObject`);
         for (const ld of lds) {
           const expected = {
-            creator: { '@type': 'Person', name: rec.author.name, url: rec.author.url },
+            creator: { '@type': 'Person', '@id': rec.author.url, name: rec.author.name, url: rec.author.url },
             creditText: `${rec.author.name} / Wikimedia Commons`,
             copyrightNotice: family === 'pd' ? 'Public domain' : family === 'cc0' ? 'CC0' : `© ${rec.author.name}`,
             license: rec.licence.url ?? rec.commons.pageUrl,
