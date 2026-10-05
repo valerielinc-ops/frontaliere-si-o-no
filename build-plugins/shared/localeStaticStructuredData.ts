@@ -50,9 +50,12 @@ function schemaNodes(parsed: unknown): Node[] {
   return top.flatMap((n) => {
     if (!n || typeof n !== 'object' || Array.isArray(n)) return [];
     const node = n as Node;
-    return Array.isArray(node['@graph'])
-      ? [node, ...(node['@graph'] as unknown[]).filter((g): g is Node => !!g && typeof g === 'object' && !Array.isArray(g))]
-      : [node];
+    const graph = node['@graph'];
+    if (Array.isArray(graph)) {
+      return [node, ...graph.filter((g): g is Node => !!g && typeof g === 'object' && !Array.isArray(g))];
+    }
+    if (graph && typeof graph === 'object') return [node, graph as Node];
+    return [node];
   });
 }
 

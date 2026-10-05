@@ -195,6 +195,34 @@ describe('JSON-LD delle pagine statiche localizzate: rami SSG per locale', () =>
       expect(localizeStaticPageStructuredData(once, page, SEPARATOR)).toBe(once);
     }
   });
+
+  it('localizza il nodo pagina dentro un @graph oggetto', () => {
+    const sourceUrl = `${BASE}/foo/`;
+    const canonicalUrl = `${BASE}/en/foo/`;
+    const serialized = JSON.stringify({
+      '@graph': {
+        '@type': 'WebPage',
+        url: sourceUrl,
+        '@id': `${sourceUrl}#webpage`,
+        inLanguage: 'it',
+        name: 'Pagina italiana',
+        description: 'Descrizione italiana',
+      },
+    });
+
+    const localized = localizeStaticPageStructuredData(serialized, {
+      sourceUrl,
+      canonicalUrl,
+      headline: 'English page',
+      description: 'English description',
+      locale: 'en',
+    }, SEPARATOR);
+    const graph = (JSON.parse(localized!) as Node)['@graph'] as Node;
+
+    expect(graph.url).toBe(canonicalUrl);
+    expect(graph['@id']).toBe(`${canonicalUrl}#webpage`);
+    expect(graph.inLanguage).toBe('en');
+  });
 });
 
 // Il gemello SPA della stessa classe: il DefinedTermSet che `Glossary.tsx`
