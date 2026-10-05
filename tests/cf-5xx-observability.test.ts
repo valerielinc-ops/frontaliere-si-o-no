@@ -77,8 +77,9 @@ describe('classifySurface — the split that was missing', () => {
     expect(classifySurface({ host: 'CDN.FrontaliereTicino.CH', path: '/a' })).toBe('cdn-r2');
   });
 
-  it('separates both webhook tunnels from the locale shard page in this issue cluster', () => {
+  it('separates the webhook tunnel hosts from the locale shard page in this issue cluster', () => {
     expect(classifyCfErrorUrl('gh-default.frontaliereticino.ch/github/webhook')).toBe('github-webhook-default');
+    expect(classifyCfErrorUrl('gh-default-agenti.frontaliereticino.ch/github/webhook')).toBe('github-webhook-default-agenti');
     expect(classifyCfErrorUrl('gh-nanako.frontaliereticino.ch/github/webhook')).toBe('github-webhook-nanako');
     expect(classifyCfErrorUrl('frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/')).toBe('worker-shard');
   });

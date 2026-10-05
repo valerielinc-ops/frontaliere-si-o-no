@@ -494,14 +494,9 @@ describe('live-link prefetch stats (#9314 matching split log)', () => {
 
 describe('bounded live-link shortlist (#9314)', () => {
   const rankingOptions = {
-    statsByJob: new Map(),
     variant: 'control',
-    surface: 'job_alert',
-    surfaceId: 'bounded-live-check',
-    campaignId: '2026-09-26',
-    randomSeed: 'bounded@example.test',
+    affinityScorer: null,
     config: { enabled: false },
-    nowMs: NOW,
   };
 
   function rankedJobs(count = 30) {
@@ -574,12 +569,18 @@ describe('bounded live-link shortlist (#9314)', () => {
 
   it('keeps ranked order when the full-pool fail-open guard trips', async () => {
     const matched = rankedJobs(5).reverse();
+    // An affinity order that differs from the matcher order: the scorer
+    // favours the lowest-relevance job, which must stay first after fail-open.
+    const lastId = matched[matched.length - 1].id;
     const treatmentRankingOptions = {
       ...rankingOptions,
-      variant: 'treatment',
-      config: { ...JOB_EMAIL_RANKING_DEFAULTS, rollout: 1, epsilon: 0 },
+      variant: 'affinity',
+      affinityScorer: (attrs: { category: string | null }) => (attrs.category === 'affinity-target' ? 1 : 0),
+      config: { ...JOB_EMAIL_RANKING_DEFAULTS, rollout: 1, affinityWeight: 1 },
     };
+    matched[matched.length - 1] = { ...matched[matched.length - 1], category: 'affinity-target' };
     const expected = rankEmailJobs(matched, { ...treatmentRankingOptions, limit: 10 });
+    expect(expected[0].id).toBe(lastId);
     const checked = [];
     const live = await rankLiveJobsForEmail(
       matched,

@@ -132,8 +132,7 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
         "Oui sous conditions : les subsides (réduction individuelle de primes, RIP) art. 65 LAMal sont délégués aux cantons [source : Fedlex LAMal RS 832.10]. Au Tessin la LApLAMal art. 33 étend le droit aux frontaliers imposés à la source. Demande à IAS avant le 31 janvier sur iasti.ch avec certificat de salaire, fiche de janvier et certificat de famille. Calcul selon revenu familial brut et enfants. En 2026 seuils ~CHF 60 000 (célibataire) et CHF 90 000 (couple + 1 enfant). Subvention versée directement à l'assureur.",
     },
     sources: [
-      'https://www.iasti.ch/',
-      'https://www4.ti.ch/dss/ias/sai/sussidi-cassa-malati',
+      'https://www4.ti.ch/dss/ias/prestazioni-e-contributi/scheda/p/s/dettaglio/riduzione-dei-premi-dellassicurazione-malattia-ripam-1/',
     ],
   },
   {

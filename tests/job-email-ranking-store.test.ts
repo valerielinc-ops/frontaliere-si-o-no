@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { rankingStatsKey } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
-  loadNewsletterRankingStats,
   recordJobEmailImpressions,
   recordJobEmailRankingClick,
 } from '../functions/src/lib/jobEmailRankingStore.js';
@@ -98,7 +97,7 @@ describe('job email ranking Firestore store', () => {
       alertId: 'alert-1',
       deliveryId: 'jer_job_alert_1',
       position: 1,
-      variant: 'treatment',
+      variant: 'affinity',
     });
     const first = await recordJobEmailRankingClick(db, {
       email: 'person@example.com',
@@ -123,7 +122,7 @@ describe('job email ranking Firestore store', () => {
     expect(stats.surface).toBe('job_alert');
     expect(stats.clicks).toHaveProperty('operand', 1);
     expect(stats.clicks_by_variant).toEqual({
-      treatment: expect.objectContaining({ operand: 1 }),
+      affinity: expect.objectContaining({ operand: 1 }),
     });
   });
 
@@ -136,7 +135,7 @@ describe('job email ranking Firestore store', () => {
       alertId: 'alert-deleted',
       deliveryId: 'jer_job_alert_deleted',
       position: 1,
-      variant: 'treatment',
+      variant: 'affinity',
     });
 
     const result = await recordJobEmailRankingClick(db, {
@@ -162,7 +161,7 @@ describe('job email ranking Firestore store', () => {
       alertId: 'alert-1',
       deliveryId: 'jer_job_alert_existing',
       position: 1,
-      variant: 'treatment',
+      variant: 'affinity',
     });
 
     const result = await recordJobEmailRankingClick(db, {
@@ -195,7 +194,7 @@ describe('job email ranking Firestore store', () => {
       alertId: 'alert-race',
       deliveryId: 'jer_job_alert_race',
       position: 1,
-      variant: 'treatment',
+      variant: 'affinity',
     });
 
     const result = await recordJobEmailRankingClick(db, {
@@ -224,7 +223,7 @@ describe('job email ranking Firestore store', () => {
       alertId: 'alert-concurrent',
       deliveryId: 'jer_job_alert_concurrent',
       position: 1,
-      variant: 'treatment',
+      variant: 'affinity',
     });
 
     const result = await recordJobEmailRankingClick(db, {
@@ -249,16 +248,18 @@ describe('job email ranking Firestore store', () => {
       surfaceId: 'newsletter_weekly',
       newsletterId: 'weekly_2026-09-08',
       email: 'person@example.com',
-      variant: 'treatment',
+      variant: 'affinity',
+      affinityProfile: true,
       sentAt: '2026-09-08T10:00:00.000Z',
       jobs: [{
         jobId: 'job-one',
+        category: 'Informatica',
+        canton: 'TI',
         ranking: {
           position: 2,
           rankingScore: 0.81,
           relevanceScore: 8,
-          ctrShrink: 0.11,
-          randomBoost: 0.4,
+          affinityScore: 0.75,
         },
       }],
     }]);
@@ -267,54 +268,54 @@ describe('job email ranking Firestore store', () => {
     expect(impression).toMatchObject({
       job_id: 'job-one',
       position: 2,
-      ranking_variant: 'treatment',
+      ranking_variant: 'affinity',
       ranking_score: 0.81,
       relevance_score: 8,
-      ctr_shrink: 0.11,
-      random_boost: 0.4,
+      affinity_profile: true,
     });
+    // The CTR experiment's per-job fields are no longer written.
+    expect(impression).not.toHaveProperty('ctr_shrink');
+    expect(impression).not.toHaveProperty('random_boost');
     expect(impression.user_id).toHaveLength(32);
     expect(impression).not.toHaveProperty('email');
+
+    const delivery = [...values.values()].find((value) => value.delivery_id === 'jer_newsletter_2' && Array.isArray(value.jobs));
+    expect(delivery).toMatchObject({ ranking_variant: 'affinity', affinity_profile: true });
+    expect(delivery.jobs[0]).toMatchObject({ job_id: 'job-one', affinity_score: 0.75, category: 'Informatica', canton: 'TI' });
   });
 
-  it('bounds newsletter stats reads to the ranking surface and rolling window', async () => {
-    const whereCalls: Array<[string, string, string]> = [];
-    const query: any = {
-      where: (field: string, operator: string, value: string) => {
-        whereCalls.push([field, operator, value]);
-        return query;
-      },
-      get: async () => ({
-        docs: [{
-          data: () => ({
-            surface: 'newsletter',
-            surface_id: 'newsletter_weekly',
-            job_id: 'job-one',
-            date: '2026-09-08',
-            impressions: 10,
-            clicks: 2,
-            position_sum: 12,
-          }),
-        }],
-      }),
-    };
-    const db: any = {
-      collection: (name: string) => {
-        expect(name).toBe('job_email_ranking_stats');
-        return query;
-      },
-    };
-
-    const stats = await loadNewsletterRankingStats(db, { sinceDay: '2026-07-10' });
-    expect(whereCalls).toEqual([
-      ['surface', '==', 'newsletter'],
-      ['surface_id', '==', 'newsletter_weekly'],
-      ['date', '>=', '2026-07-10'],
-    ]);
-    expect(stats.get('job-one')?.days['2026-09-08']).toEqual({
-      impressions: 10,
-      clicks: 2,
-      position_sum: 12,
+  it('writes affinity_profile on every delivery and impression of BOTH variants', async () => {
+    const { db, values } = fakeDb();
+    const record = (deliveryId: string, variant: string, affinityProfile: boolean | undefined) => ({
+      deliveryId,
+      surface: 'job_alert',
+      surfaceId: `alert-${deliveryId}`,
+      alertId: `alert-${deliveryId}`,
+      email: `${deliveryId}@example.com`,
+      variant,
+      affinityProfile,
+      sentAt: '2026-10-05T10:00:00.000Z',
+      jobs: [{ jobId: `${deliveryId}-a` }, { jobId: `${deliveryId}-b` }],
     });
+    await recordJobEmailImpressions(db, [
+      record('c-with', 'control', true),
+      record('c-without', 'control', false),
+      record('a-with', 'affinity', true),
+      record('a-without', 'affinity', false),
+      // A job-alert retry queued before the field existed carries no value.
+      record('legacy', 'control', undefined),
+    ]);
+
+    const rows = [...values.values()];
+    const expected: Record<string, boolean | null> = {
+      'c-with': true, 'c-without': false, 'a-with': true, 'a-without': false, legacy: null,
+    };
+    for (const [deliveryId, flag] of Object.entries(expected)) {
+      const delivery = rows.find((value) => value.delivery_id === deliveryId && Array.isArray(value.jobs));
+      expect(delivery?.affinity_profile, deliveryId).toBe(flag);
+      const impressions = rows.filter((value) => value.delivery_id === deliveryId && value.event_type === 'job_alert_impression');
+      expect(impressions, deliveryId).toHaveLength(2);
+      for (const impression of impressions) expect(impression.affinity_profile, deliveryId).toBe(flag);
+    }
   });
 });

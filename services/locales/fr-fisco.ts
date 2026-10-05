@@ -367,7 +367,7 @@ const frFisco: Record<string, string> = {
  'taxReturn.deductions.lpp': 'Cotisations LPP (2e pilier)',
  'taxReturn.deductions.lppDesc': 'Les cotisations obligatoires au 2e pilier sont intégralement déductibles du revenu imposable.',
  'taxReturn.deductions.pillar3a': 'Versements 3e pilier',
- 'taxReturn.deductions.pillar3aDesc': 'Versements au pilier 3a déductibles jusqu\'à CHF 7 056 (avec LPP) ou CHF 35 280 (sans).',
+ 'taxReturn.deductions.pillar3aDesc': 'Versements au pilier 3a déductibles jusqu\'à CHF 7 258 (avec LPP) ou CHF 36 288 (sans).',
  'taxReturn.deductions.healthInsurance': 'Primes d\'assurance maladie',
  'taxReturn.deductions.healthInsuranceDesc': 'Primes LAMal/CMU déductibles comme charges à 19% avec seuil de €129,11.',
  'taxReturn.deductions.childcare': 'Frais de garde d\'enfants',
