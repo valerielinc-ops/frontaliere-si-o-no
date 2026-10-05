@@ -544,9 +544,12 @@ export function buildRecipientSections(
 ) {
   const sections = [];
   const followGroupOf = (alert) => companyFollowGroupKey(canonicalCompanyAlertKey(alert?.specificCompanyKey));
-  // Delivery history shared by every alert of one follow group (union, latest
-  // timestamp wins), so the window check sees what ANY member already sent.
+  // Delivery history shared by every alert of one follow group, so the window
+  // check sees what ANY member already sent (union, latest timestamp wins) and
+  // what any member has in flight: a `claimed`/`ambiguous` ledger entry on one
+  // member blocks the job for the others too, or it would go out twice.
   const sentByGroup = new Map();
+  const ledgerByGroup = new Map();
   for (const alert of alerts || []) {
     const group = followGroupOf(alert);
     if (!group) continue;
@@ -555,6 +558,13 @@ export function buildRecipientSections(
       if (!(merged[key] >= ms)) merged[key] = ms;
     }
     sentByGroup.set(group, merged);
+    const ledger = ledgerByGroup.get(group) || {};
+    for (const [key, entry] of Object.entries(normalizeDeliveryLedger(alert?.deliveryLedger))) {
+      if (!ledger[key] || (deliveryEntryBlocksRetry(entry, nowMs) && !deliveryEntryBlocksRetry(ledger[key], nowMs))) {
+        ledger[key] = entry;
+      }
+    }
+    ledgerByGroup.set(group, ledger);
   }
   // Stable claim order: a retry of a failed send must compose the same email.
   const ordered = [...(alerts || [])].sort((a, b) => String(a?.id || '').localeCompare(String(b?.id || '')));
@@ -583,7 +593,7 @@ export function buildRecipientSections(
       sentByGroup.get(followGroupOf(alert)) || sentMap,
       nowMs,
       dedupWindowMs,
-      alert.deliveryLedger,
+      ledgerByGroup.get(followGroupOf(alert)) || alert.deliveryLedger,
       true,
     )
       .filter((job) => !claimed.has(jobDedupKey(job)))

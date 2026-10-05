@@ -119,6 +119,20 @@ describe('immediate sender: one recipient never gets the same job twice', () => 
     expect(sections).toEqual([]);
   });
 
+  it('a job in flight on one member (ambiguous ledger) is not selected through the other', () => {
+    const sections = buildRecipientSections(
+      [
+        alertDoc('a1', 'coop', { deliveryLedger: { 'j-coop': { state: 'ambiguous', at: NOW - 1000 } } }),
+        alertDoc('a2', 'coop-genossenschaft'),
+      ],
+      jobs,
+      NOW,
+    );
+    const ids = sections.flatMap((s: { jobs: Array<{ id: string }> }) => s.jobs.map((j) => j.id));
+    expect(ids).not.toContain('j-coop');
+    expect(ids).toContain('j-gen');
+  });
+
   it('two identical pins of one address (measured in production) send each job once', () => {
     const bellinzona = [
       { ...jobDoc('j-b1', 'Città di Bellinzona'), companyKey: 'citta-di-bellinzona' },
