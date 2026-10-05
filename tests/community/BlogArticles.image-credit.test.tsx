@@ -138,11 +138,17 @@ const json = (status: number, payload?: unknown) => Promise.resolve({
   json: () => Promise.resolve(payload),
 } as unknown as Response);
 
-/** Every request answers 404 except the credits file, when `withCredits`. */
-function stubNetwork(withCredits: boolean) {
+/** The same credits file with the cover under another licence. */
+function creditsUnder(licence: Record<string, unknown>) {
+  return { ...credits, files: { 'Fixture Valley.jpg': { ...credits.files['Fixture Valley.jpg'], licence } } };
+}
+
+/** Every request answers 404 except the credits file, when `withCredits` (`true` = the CC BY-SA file). */
+function stubNetwork(withCredits: boolean | object) {
+  const payload = withCredits === true ? credits : withCredits || null;
   const fn = vi.fn((input: RequestInfo | URL) => {
     const url = String(input);
-    if (withCredits && url.includes('/data/image-credits-frontaliere.json')) return json(200, credits);
+    if (payload && url.includes('/data/image-credits-frontaliere.json')) return json(200, payload);
     return json(404);
   });
   vi.stubGlobal('fetch', fn);
@@ -284,6 +290,35 @@ describe('the cover credit at the end of the SPA article (P14)', () => {
     const creditRequests = fn.mock.calls.map((c) => String(c[0])).filter((u) => u.includes('image-credits-'));
     expect(creditRequests).toHaveLength(1);
     expect(creditRequests[0]).toMatch(/\/data\/image-credits-frontaliere\.json\?v=\d+$/);
+  });
+});
+
+/**
+ * Owner decision, 2026-10-05: «Togliere il credito» for public domain and CC0
+ * covers. No visible line; the NewsArticle ImageObject keeps author, licence
+ * and the Commons file page.
+ */
+describe('public domain and CC0 covers in the SPA (owner decision 2026-10-05)', () => {
+  it.each([
+    ['public domain', { name: 'Public domain', url: null, family: 'pd', attributionRequired: false }, 'Public domain', PAGE_URL],
+    ['CC0', { name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/', family: 'cc0', attributionRequired: false }, 'CC0', 'https://creativecommons.org/publicdomain/zero/1.0/'],
+  ])('%s: no line, credited ImageObject', async (_label, licence, notice, license) => {
+    stubNetwork(creditsUnder(licence));
+    const root = renderArticle();
+    await waitFor(() => {
+      expect(readSpaNewsArticle()?.image).toMatchObject({
+        '@type': 'ImageObject',
+        contentUrl: fixture.cover,
+        creator: { '@type': 'Person', name: 'Fixture Photographer', url: 'https://commons.wikimedia.org/wiki/User:Fixture_Photographer' },
+        creditText: 'Fixture Photographer / Wikimedia Commons',
+        copyrightNotice: notice,
+        license,
+        acquireLicensePage: PAGE_URL,
+        isBasedOn: PAGE_URL,
+      });
+    }, WAIT);
+    await waitFor(() => expect(root.querySelector('#article-faq-content')).not.toBeNull(), WAIT);
+    expect(root.querySelector('footer.ft-image-credit')).toBeNull();
   });
 });
 

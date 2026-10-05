@@ -214,3 +214,78 @@ describe('soglia di ammissione agenzie — writer + assemblatore reali', () => {
     expect(ids(published.data)).toEqual(['coop-hold-9', 'sta-hold-1', 'sta-hold-2', 'sta-hold-3']);
   });
 });
+
+/**
+ * Il percorso dei runner dedicati (crawler-template → runDedicatedBaseCrawler):
+ * prima della scrittura finale `seedCrawlerSlicesFromDataJobs` sostituisce lo
+ * slice su disco con il working set del run. Misurato sui primi crawl dopo la
+ * soglia (2026-10-04): fachkraft 156 nuovi, 0 trattenuti, perché lo slice
+ * «precedente» letto dallo scrittore conteneva già ogni arrivo. Il confronto
+ * va fatto con lo slice del run precedente (lib/crawler-previous-run-slice.mjs).
+ */
+describe('soglia di ammissione agenzie — dopo il seed dei runner dedicati', () => {
+  function stellentreffJob(n: number, overrides: Job = {}): Job {
+    return agencyJob(n, {
+      id: `stt-hold-${n}`,
+      url: `https://jobs.example.invalid/stt/33${n}`,
+      slug: `polymechaniker-in-cnc-fertigung-${n}-stellentreff-ag-zurich`,
+      slugByLocale: {
+        it: `polymechaniker-in-cnc-fertigung-${n}-stellentreff-ag-zurich`,
+        en: `polymechaniker-in-cnc-fertigung-${n}-stellentreff-ag-zurich-en`,
+        de: `polymechaniker-in-cnc-fertigung-${n}-zurich-stellentreff-ch`,
+        fr: `polymechaniker-in-cnc-fertigung-${n}-stellentreff-ag-zurich-fr`,
+      },
+      company: 'Stellentreff AG',
+      companyKey: 'stellentreff',
+      ...overrides,
+    });
+  }
+
+  function runSeededWrite(firstRead: boolean) {
+    // The slice the previous run committed: one job, online, untranslated.
+    const online = stellentreffJob(1);
+    writeJson('data/jobs/by-crawler/stellentreff.json', { crawlerKey: 'stellentreff', assembledAt: daysAgo(1), jobs: [online] });
+    // This run's merged working set: the online job, a new untranslated
+    // arrival and a new arrival that is already translated.
+    writeJson('working-set.json', [stellentreffJob(1), stellentreffJob(2), withTranslatedTitles(stellentreffJob(3))]);
+    fs.writeFileSync(path.join(tmpRoot, 'seeded-write.mjs'), [
+      "import fs from 'node:fs';",
+      "import { readExistingCrawlerJobs, writeJobsCrawlerSlice } from './scripts/assemble-jobs-dataset.mjs';",
+      "import { seedCrawlerSlicesFromDataJobs } from './scripts/lib/dedicated-crawler-common.mjs';",
+      "import { createAwaitingAdmissionCheck } from './scripts/lib/translation-publication-hold.mjs';",
+      "import { computeSlicePartition, publishedSliceFor } from './scripts/lib/crawler-summary-partition.mjs';",
+      "if (process.argv[2] === 'first-read') readExistingCrawlerJobs('stellentreff');",
+      "seedCrawlerSlicesFromDataJobs(process.cwd(), ['stellentreff'], 'working-set.json');",
+      "const working = JSON.parse(fs.readFileSync('working-set.json', 'utf8'));",
+      "const awaiting = createAwaitingAdmissionCheck();",
+      "const awaitingIds = working.filter((job) => awaiting(job)).map((job) => job.id);",
+      "writeJobsCrawlerSlice('stellentreff', working);",
+      "const published = publishedSliceFor('stellentreff');",
+      "const partition = computeSlicePartition(published.beforeJobs, published.afterJobs);",
+      "console.log('RESULT ' + JSON.stringify({ awaitingIds, newIds: partition.newJobs.map((job) => job.id) }));",
+    ].join('\n'));
+    const log = runNode(['seeded-write.mjs', firstRead ? 'first-read' : 'seed-only'], { SKIP_OWNERSHIP_GUARD: '1' });
+    const line = log.split('\n').find((row) => row.startsWith('RESULT '));
+    expect(line, log).toBeTruthy();
+    const result = JSON.parse(String(line).slice('RESULT '.length));
+    const slice = readJson('data/jobs/by-crawler/stellentreff.json').jobs as Job[];
+    const heldIds = slice.filter((job) => job.translationHoldSince).map((job) => job.id).sort();
+    return { ...result, heldIds, log };
+  }
+
+  for (const firstRead of [true, false]) {
+    it(`holds the new untranslated arrival even though the seed already wrote it to the slice (${firstRead ? 'runner read first' : 'seed only'})`, () => {
+      const { heldIds, awaitingIds, newIds, log } = runSeededWrite(firstRead);
+      // The writer judges admission against the previous run's slice, not the
+      // seeded file: the new untranslated arrival is held, the online job and
+      // the translated arrival are not.
+      expect(heldIds).toEqual(['stt-hold-2']);
+      expect(log).toContain('1 job trattenuti in attesa di traduzione (1 nuovi), 0 rilasciati, 1 ammessi già tradotti');
+      // The slug registry's admission check (mergeAndDeduplicate) runs after
+      // the seed too: the held arrival must not enter it.
+      expect(awaitingIds).toEqual(['stt-hold-2']);
+      // The summary partition counts the two arrivals as new.
+      expect([...newIds].sort()).toEqual(['stt-hold-2', 'stt-hold-3']);
+    });
+  }
+});

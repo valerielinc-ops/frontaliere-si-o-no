@@ -457,6 +457,7 @@ Crediti delle copertine prese da Wikimedia Commons ([`decisioni.md`](decisioni.m
 | #11507 | sito | Credito nella SPA e nelle 44 pagine scritte a mano; re-render completo delle pagine del motore |
 | nanakokyobashi-rgb/frontaliere-articles#2129 | corpus | Rivalidazione mensile in sola lettura (prova a secco: 0 problemi) |
 | nanakokyobashi-rgb/frontaliere-articles#2133 | corpus | 55 copertine con ritratti, insegne o funzionari sostituite da foto Commons senza persone |
+| #11588 | sito | Nessun credito visibile per le copertine in pubblico dominio o CC0 (decisione del 5 ottobre); dati strutturati invariati |
 
 ## Appendice: riproducibilità e limiti
 
