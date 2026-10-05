@@ -7739,6 +7739,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-svizzera-aumento-asi.title': 'Affitti in Svizzera: aumento del 32% in vent\'anni',
     'blog.article.affitti-svizzera-aumento-asi.excerpt': 'L\'Associazione svizzera inquilini segnala rincari del 32,1% tra il 2005 e il 2025. Pressione su redditi bassi e medi e nuove richieste politiche.',
     'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Palazzi di residenza in Svizzera con affitti in aumento',
+    'blog.article.voto-iva-avs-novembre-2026.title': 'Voto IVA per AVS: data e dettagli della votazione federale',
+    'blog.article.voto-iva-avs-novembre-2026.excerpt': 'Il 26 novembre 2026 si vota sul finanziamento della 13a mensilità AVS tramite l aumento dell IVA. Scopri aliquote, scadenze e impatti sul bilancio.',
+    'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Palazzo federale a Berna in primo piano per il voto sull IVA',
 };
 
 export default blogMetaChIt;
