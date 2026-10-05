@@ -113,6 +113,7 @@ describe('parseAplusListings', () => {
     const rows = parseAplusListings(emptyHtml);
 
     expect(isAplusEmptyListingPage(emptyHtml, rows)).toBe(true);
+    expect(isAplusEmptyListingPage('<main>Nessun annuncio disponibile</main>', [])).toBe(true);
     expect(isAplusEmptyListingPage('<main><p>No jobs.</p></main>', [])).toBe(false);
   });
 
@@ -121,8 +122,13 @@ describe('parseAplusListings', () => {
     expect(isAplusEmptyListingPage(hidden, [])).toBe(false);
     const hiddenAncestor = '<div hidden><p>No vacancies available</p></div>';
     expect(isAplusEmptyListingPage(hiddenAncestor, [])).toBe(false);
+    const hiddenDescendant = '<div><span hidden>Nessun annuncio disponibile</span></div>';
+    expect(isAplusEmptyListingPage(hiddenDescendant, [])).toBe(false);
     const hiddenClass = '<div class="hidden"><p>No vacancies available</p></div>';
     expect(isAplusEmptyListingPage(hiddenClass, [])).toBe(false);
+
+    const splitVisibleMarker = '<div><span>No vacancies</span><span> available</span></div>';
+    expect(isAplusEmptyListingPage(splitVisibleMarker, [])).toBe(true);
 
     const live = `${LISTING_HTML}<p>No vacancies available</p>`;
     const rows = parseAplusListings(live);
