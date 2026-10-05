@@ -97969,6 +97969,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guy-parmelin-visita-india': {
+    title: 'Parmelin in India: focus su economia e investimenti',
+    description: 'Il consigliere federale Guy Parmelin in missione in India per rafforzare la cooperazione economica, la tutela della proprietà intellettuale e la mobilità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, india, focus, economia',
+    ogTitle: 'Parmelin in India: focus su economia e investimenti',
+    ogDescription: 'Il consigliere federale Guy Parmelin a New Delhi per rafforzare i legami economici tra Svizzera e India, tra accordi commerciali e cooperazione scientifica.',
+    canonicalPath: '/articoli-svizzera/guy-parmelin-visita-india/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin in India: focus su economia e investimenti",
+      "description": "Il consigliere federale Guy Parmelin in missione in India per rafforzare la cooperazione economica, la tutela della proprietà intellettuale e la mobilità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guy-parmelin-visita-india.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il consigliere federale Guy Parmelin in visita ufficiale"
+      },
+      "datePublished": "2026-10-05T13:21:32+00:00",
+      "dateModified": "2026-10-05T13:21:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guy-parmelin-visita-india/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

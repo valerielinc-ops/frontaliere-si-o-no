@@ -7763,6 +7763,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tamedia-taglio-posti-lavoro.title': 'Tamedia supprime 34 postes : une réorganisation en vue',
     'blog.article.tamedia-taglio-posti-lavoro.excerpt': 'L\'entreprise éditoriale annonce la suppression de 34 postes à temps plein, concernant 41 collaborateurs en Suisse alémanique et en Suisse romande d\'ici fin octobre.',
     'blog.article.tamedia-taglio-posti-lavoro.imageAlt': 'Siège d\'une entreprise de médias suisse dans un cadre urbain',
+    'blog.article.guy-parmelin-visita-india.title': 'Parmelin en Inde : l’accent sur l’économie et les investissements',
+    'blog.article.guy-parmelin-visita-india.excerpt': 'Le conseiller fédéral Guy Parmelin à New Delhi pour renforcer la coopération économique, la protection de la propriété intellectuelle et les accords sur la migration.',
+    'blog.article.guy-parmelin-visita-india.imageAlt': 'Le conseiller fédéral Guy Parmelin en visite officielle',
 };
 
 export default blogMetaChFr;
