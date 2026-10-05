@@ -92,7 +92,7 @@
       "companyDomain": "pictet.com",
       "title": "Collaborateur/trice Production Support",
       "titleByLocale": {
-        "it": "Collaborateur/trice Production Support",
+        "it": "Collaboratore/trice Produzione Supporto",
         "en": "Collaborator Production Support",
         "de": "Kollaborateur Produktionsunterstützung",
         "fr": "Collaborateur/trice Production Support"
@@ -121,9 +121,7 @@
       "sector": "Finanza / Banca privata",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "jobReqId": "125071",
       "requirements": [],
@@ -158,7 +156,9 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "pictet-206a06b28cff",

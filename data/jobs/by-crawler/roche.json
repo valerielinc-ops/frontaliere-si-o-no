@@ -8206,7 +8206,7 @@
       "title": "Projekt Manager CAPEX",
       "titleByLocale": {
         "it": "Responsabile del progetto CAPEX",
-        "en": "Projekt Manager CAPEX",
+        "en": "Project Manager CAPEX",
         "de": "Projekt Manager CAPEX",
         "fr": "Gestionnaire de projet CAPEX"
       },
@@ -8233,9 +8233,7 @@
       "sector": "Farmaceutico",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Project-Manager-CAPEX_202609-124469-2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -8274,7 +8272,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "datePosted": "2026-09-30",
+      "postingDateSource": "reported"
     },
     {
       "id": "roche-ab83569f3467",
