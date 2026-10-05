@@ -151,6 +151,11 @@ async function fetchPizzarottiListings() {
   if (discovery.discovered === 0) {
     throw new Error('Pizzarotti listing page produced no vacancy cards; refusing to publish an empty snapshot.');
   }
+  if (discovery.unclassifiedLocationCount > 0) {
+    throw new Error(
+      `Pizzarotti listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
+    );
+  }
   if (discovery.listings.length < 1) {
     console.warn(`⚠️  No Swiss-located Pizzarotti jobs found. Current listings are all in Italy.`);
   }
@@ -339,6 +344,8 @@ async function main() {
     parsed: summaryCounts.parsed,
     written: _sliceJobs.length,
     lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: discovery.authoritativeEmptySnapshot === true,
+    authoritativeSnapshotVerified: discovery.authoritativeEmptySnapshot === true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
