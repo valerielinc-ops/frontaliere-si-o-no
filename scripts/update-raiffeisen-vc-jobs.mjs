@@ -406,9 +406,19 @@ export async function fetchJobUrls(options = {}) {
   }
   let apiQueried = false;
   let apiSourceZero = false;
-  if (byIdentity.size === 0) {
+  if (byIdentity.size === 0 && emptyStatePages !== CAREERS_URLS.length) {
     console.log('🔍 Careers shell exposed no detail URLs; querying the Prospective employer feed…');
-    const apiDiscovery = await fetchProspectiveDetailUrls(options);
+    let apiDiscovery;
+    try {
+      apiDiscovery = await fetchProspectiveDetailUrls(options);
+    } catch (err) {
+      throw new Error(
+        'Raiffeisen VC discovery failed: both branded careers pages exposed no detail URLs '
+        + 'and neither the explicit zero-open-positions marker nor the Prospective employer feed '
+        + `proved zero open positions. ${err.message}`,
+        { cause: err },
+      );
+    }
     apiQueried = true;
     apiSourceZero = apiDiscovery.sourceZero;
     for (const [identity, href] of apiDiscovery.byIdentity) {
