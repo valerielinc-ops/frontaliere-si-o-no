@@ -4,10 +4,20 @@ on:
   schedule:
     # Weekly: Sunday 16:00 UTC (after monitor-gsc-seo.yml @ 15:00)
     - cron: '0 16 * * 0'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      measure_cardinality:
+        description: >-
+          Solo misura: righe pagina×query filtrate e non filtrate per ogni
+          famiglia e alias, con i tempi. Nessuno state, nessuna issue, nessun
+          commit; rosso se un alias filtrato raggiunge il tetto.
+        type: boolean
+        default: false
 
+# The measurement run gets its own group: it must neither cancel a real
+# monitor run nor be cancelled by one.
 concurrency:
-  group: monitor-seo-ctr-by-template
+  group: monitor-seo-ctr-by-template${{ inputs.measure_cardinality && '-measure' || '' }}
   cancel-in-progress: true
 
 permissions:
@@ -16,6 +26,7 @@ permissions:
 
 jobs:
   monitor:
+    if: ${{ !inputs.measure_cardinality }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -123,3 +134,65 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+  # Pre-merge proof for the query prefilter (scripts/lib/perf-sources/gsc.mjs,
+  # fetchGscPageQueryRows): read-only by construction — contents: read, no
+  # issue token, no commit step, no failure issue. The red of this job is
+  # the result, not an incident to report.
+  measure-cardinality:
+    if: ${{ inputs.measure_cardinality }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::No Firebase SA credentials — the measurement cannot run"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Measure prefilter cardinality per family and alias
+        run: npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --measure-cardinality
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
