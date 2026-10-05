@@ -12595,6 +12595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestri-contanti-brogeda.title': 'Contanti non dichiarati: sequestri a Brogeda',
     'blog.article.sequestri-contanti-brogeda.excerpt': 'Due controlli al valico autostradale di Como-Brogeda hanno portato al sequestro di 128.500 e 113.450 euro, eccedenze oltre la soglia di 10.000 euro.',
     'blog.article.sequestri-contanti-brogeda.imageAlt': 'Veicoli al valico autostradale di Como-Brogeda',
+    'blog.article.prevenzione-salute-aziende-ticinesi.title': 'Salute mentale: il DSS porta la prevenzione nelle aziende',
+    'blog.article.prevenzione-salute-aziende-ticinesi.excerpt': 'Il DSS e il Forum GSA Ticino promuovono la salute mentale sul lavoro. Dati: il 32,3% dei giovani ticinesi si sente svuotato, il 61% degli apprendisti soffre.',
+    'blog.article.prevenzione-salute-aziende-ticinesi.imageAlt': 'Ambiente di lavoro professionale in un ufficio ticinese.',
 };
 
 export default blogMetaIt;

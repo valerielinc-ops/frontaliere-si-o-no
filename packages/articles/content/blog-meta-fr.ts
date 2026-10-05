@@ -12596,6 +12596,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestri-contanti-brogeda.title': 'Espèces non déclarées : saisies à Brogeda',
     'blog.article.sequestri-contanti-brogeda.excerpt': 'Deux contrôles au poste-frontière autoroutier de Como-Brogeda ont conduit à la saisie de 128.500 et 113.450 euros, des montants excédant le seuil de 10.000 euros.',
     'blog.article.sequestri-contanti-brogeda.imageAlt': 'Véhicules au poste-frontière autoroutier de Como-Brogeda',
+    'blog.article.prevenzione-salute-aziende-ticinesi.title': 'Santé mentale : le DSS introduit la prévention dans les entreprises',
+    'blog.article.prevenzione-salute-aziende-ticinesi.excerpt': 'Le DSS et le Forum GSA Ticino promeuvent la santé mentale au travail. Données : 32,3% des jeunes tessinois se sentent vidés, 61% des apprentis souffrent.',
+    'blog.article.prevenzione-salute-aziende-ticinesi.imageAlt': 'Environnement de travail professionnel dans un bureau au Tessin.',
 };
 
 export default blogMetaFr;
