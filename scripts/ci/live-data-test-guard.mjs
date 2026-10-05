@@ -287,6 +287,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: "tests/search-console-compat.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/seo-completeness.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/seo-description-length.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // Corpus genuinely the subject: this sync regression checks that every
+  // generated Italian metadata entry has a matching entry across the sharded
+  // live SEO modules. A fixture would stop detecting a missing generated shard.
+  { file: "tests/seo/blog-meta-it-shard-coverage.test.ts", roots: ["packages/articles/content/"], since: "2026-10-05", evidence: "review", runtime: true },
   { file: "tests/seo/cathedral-expired-tracking-canton.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/seo/cathedral-slug-registry-canton-backfill.test.ts", roots: ["data/slug-registry.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/seo/rate-baseline-internal-consistency.test.ts", roots: ["data/active-jobs-baseline.json"], since: "2026-09-19", evidence: "review", runtime: true },
