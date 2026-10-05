@@ -153,6 +153,56 @@ interface SiteEvent {
   descriptionByLocale?: Partial<Record<Locale, string>>;
   /** Routes emitted by an earlier crawl/build for this stable event id. */
   previousRoutes?: Array<{ canton?: string; comune?: string; slug: string }>;
+  // OpenAgenda (Licence Ouverte 2.0): the agenda the record was read from and
+  // the source's last update, both required by the licence on the page.
+  sourceAgenda?: string;
+  sourceUpdatedAt?: string;
+  /** Credit of a mirrored image, when the source states one. */
+  imageCredit?: string;
+  /** Source-stated status other than scheduled. */
+  eventStatus?: 'cancelled' | 'postponed';
+}
+
+const EVENT_STATUS_LD: Record<NonNullable<SiteEvent['eventStatus']>, string> = {
+  cancelled: 'https://schema.org/EventCancelled',
+  postponed: 'https://schema.org/EventPostponed',
+};
+
+const EVENT_STATUS_LABEL: Record<NonNullable<SiteEvent['eventStatus']>, Record<Locale, string>> = {
+  cancelled: { it: 'Annullato', en: 'Cancelled', de: 'Abgesagt', fr: 'Annulé' },
+  postponed: { it: 'Rinviato', en: 'Postponed', de: 'Verschoben', fr: 'Reporté' },
+};
+
+const OPENAGENDA_ATTRIBUTION: Record<Locale, { source: string; updated: string; image: string }> = {
+  it: { source: 'Fonte', updated: 'aggiornato il', image: 'Immagine' },
+  en: { source: 'Source', updated: 'updated on', image: 'Image' },
+  de: { source: 'Quelle', updated: 'aktualisiert am', image: 'Bild' },
+  fr: { source: 'Source', updated: 'mis à jour le', image: 'Image' },
+};
+
+/**
+ * Licence Ouverte 2.0 attribution for an OpenAgenda record: source, agenda
+ * and date of the last update, linked to the event's OpenAgenda page — and
+ * nothing that suggests an endorsement (no logo, no wording of the agenda's
+ * owner). Empty for every other source and for a record missing either field.
+ */
+export function renderOpenAgendaAttribution(event: SiteEvent, locale: Locale): string {
+  if (event.sourceKey !== 'openagenda' || !event.sourceAgenda || !event.sourceUpdatedAt) return '';
+  const updated = new Date(event.sourceUpdatedAt);
+  if (Number.isNaN(updated.getTime())) return '';
+  const copy = OPENAGENDA_ATTRIBUTION[locale];
+  const day = new Intl.DateTimeFormat(INTL_LANG[locale], {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Europe/Zurich',
+  }).format(updated);
+  const label = `OpenAgenda — ${event.sourceAgenda}`;
+  const link = event.url
+    ? `<a class="ev-lnk" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>`
+    : esc(label);
+  const credit = event.imageCredit && event.imageUrl?.startsWith('/') ? ` · ${esc(copy.image)}: ${esc(event.imageCredit)}` : '';
+  return `<p class="ev-p-sm" data-event-attribution="openagenda">${esc(copy.source)}: ${link}, ${esc(copy.updated)} <time datetime="${esc(updated.toISOString())}">${esc(day)}</time>${credit}</p>`;
 }
 
 function localizedTitle(event: SiteEvent, locale: Locale): string {
@@ -1275,7 +1325,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     name: title,
     startDate: startIso,
     endDate: endIso,
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus: event.eventStatus ? EVENT_STATUS_LD[event.eventStatus] : 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -1337,7 +1387,7 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),
-    creditText: event.sourceName,
+    creditText: event.imageCredit || event.sourceName,
   });
 }
 
@@ -3294,6 +3344,7 @@ export function renderEventDetailPage(params: {
       <div class="ev-head-top">
         <span class="ev-tag ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
         ${event.recurring ? `<span class="ev-tag2">${esc(dc.recurringLabel)}</span>` : ''}
+        ${event.eventStatus ? `<span class="ev-tag2">${esc(EVENT_STATUS_LABEL[event.eventStatus][locale])}</span>` : ''}
       </div>
       <h1 class="ev-h1">${esc(title)}</h1>
       <p class="ev-lede">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
@@ -3319,6 +3370,7 @@ export function renderEventDetailPage(params: {
       <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
       <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
+    ${renderOpenAgendaAttribution(event, locale)}
 
     <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>

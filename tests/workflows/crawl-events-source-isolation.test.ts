@@ -42,7 +42,7 @@ const surfacingStepsFor = (id: string) => steps
 
 describe('crawl-events.yml isolates failing sources without hiding them', () => {
   // Each isolated crawl step must be surfaced after publication.
-  for (const id of ['crawl-myswitzerland', 'crawl-ge', 'crawl-fr', 'crawl-nw', 'crawl-ow', 'crawl-lu', 'crawl-classicascona']) {
+  for (const id of ['crawl-myswitzerland', 'crawl-ge', 'crawl-openagenda', 'crawl-fr', 'crawl-nw', 'crawl-ow', 'crawl-lu', 'crawl-classicascona']) {
     describe(id, () => {
       it('is isolated with continue-on-error', () => {
         const index = indexOfId(id);
@@ -68,7 +68,7 @@ describe('crawl-events.yml isolates failing sources without hiding them', () => 
     const report = steps.findIndex((step) => step.name === 'Report failure to GitHub Issues');
     expect(report).toBeGreaterThanOrEqual(0);
     expect(String(steps[report].if)).toContain('failure()');
-    for (const id of ['crawl-myswitzerland', 'crawl-ge', 'crawl-fr', 'crawl-nw', 'crawl-ow', 'crawl-lu', 'crawl-classicascona']) {
+    for (const id of ['crawl-myswitzerland', 'crawl-ge', 'crawl-openagenda', 'crawl-fr', 'crawl-nw', 'crawl-ow', 'crawl-lu', 'crawl-classicascona']) {
       for (const { index } of surfacingStepsFor(id)) expect(index).toBeLessThan(report);
     }
   });

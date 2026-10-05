@@ -273,6 +273,20 @@ jobs:
         continue-on-error: true
         run: node scripts/crawl-ge-agenda.mjs
 
+      # OpenAgenda API v2 (Ville de Genève, communes genevoises, Région de
+      # Nyon), Licence Ouverte 2.0. The public key OPENAGENDA_PUBLIC_KEY comes
+      # from Remote Config, loaded above only in real runs: without it (dry_run
+      # dispatches, or before the owner creates the key) the crawler prints a
+      # ::notice:: and exits 0 without touching its slice. Runs next to the
+      # geneve.ch HTML pilot above; assemble keeps the OpenAgenda record of a
+      # duplicate pair (SUPERSEDED_EVENT_SOURCES). Same isolation contract as
+      # the GE pilot, with its own "Surface …" twin below.
+      - name: Crawl OpenAgenda (GE/VD)
+        id: crawl-openagenda
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-openagenda-events.mjs
+
       # Cantonal agendas (P9a). Same isolation contract as the GE pilot: a
       # failing source never blocks assemble/gate/publish for the others, and
       # its "Surface …" twin below fails the job after publication.
@@ -463,7 +477,7 @@ jobs:
             --path data/events-image-manifest.json
             --path data/events/checkpoints/
           )
-          for source in ge-agenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda classicascona; do
+          for source in ge-agenda openagenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda classicascona; do
             if [ -f "data/events/by-source/${source}.json" ]; then
               paths+=(--path "data/events/by-source/${source}.json")
             fi
@@ -492,6 +506,17 @@ jobs:
         run: |
           if [ "${{ steps.crawl-ge.outcome }}" = "failure" ]; then
             echo "::error::Crawl geneve.ch agenda (GE, pilot) failed this run — dataset commit still proceeded via continue-on-error, but this needs investigation."
+            exit 1
+          fi
+
+      - name: Surface OpenAgenda crawl failures (continue-on-error must not hide them)
+        # Twin of the GE pilot step above for "Crawl OpenAgenda (GE/VD)". A
+        # missing key is a notice and exit 0, so it never lands here; a
+        # rejected key, an unreachable API or a run with zero events does.
+        if: always()
+        run: |
+          if [ "${{ steps.crawl-openagenda.outcome }}" = "failure" ]; then
+            echo "::error::Crawl OpenAgenda (GE/VD) failed this run — previous openagenda slice kept, the other sources were published via continue-on-error; this needs investigation."
             exit 1
           fi
 
@@ -563,6 +588,7 @@ jobs:
           - Crawl guidle.com (nationwide): ${{ steps.crawl-guidle.outcome }}
           - Crawl myswitzerland.com (nationwide): ${{ steps.crawl-myswitzerland.outcome }}
           - Crawl geneve.ch agenda (GE, pilot): ${{ steps.crawl-ge.outcome }}
+          - Crawl OpenAgenda (GE/VD): ${{ steps.crawl-openagenda.outcome }}
           - Crawl fr.ch agenda (FR): ${{ steps.crawl-fr.outcome }}
           - Crawl nw.ch agenda (NW): ${{ steps.crawl-nw.outcome }}
           - Crawl ow.ch agenda (OW): ${{ steps.crawl-ow.outcome }}
