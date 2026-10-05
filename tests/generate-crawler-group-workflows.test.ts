@@ -2714,9 +2714,10 @@ describe('cross-repo crawler execution artifacts', () => {
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
-    // translate-pending usa Codex solo come ultimo tier delle fasi 2d/2e, dopo
-    // Argos (decisione del proprietario del 2026-09-25): stesso confinamento
-    // del secret dei crawler, e la cascata 2b resta senza socket.
+    // translate-pending usa Codex come riserva dei tier a chiave nella cascata
+    // 2b (decisione del proprietario H7, 2026-10-05) e come ultimo tier delle
+    // fasi 2d/2e, dopo Argos (decisione del 2026-09-25): stesso confinamento
+    // del secret dei crawler, e il socket solo come output del broker.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSteps: any[] = translation.jobs.translate.steps;
     const translationSetupStep = translationSteps.find(
@@ -2728,11 +2729,14 @@ describe('cross-repo crawler execution artifacts', () => {
       (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
     );
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
-    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
+    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationStep.env.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
     expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
     const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       && step.name !== 'Cleanup Codex auth broker');
     expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2b: Translate pending jobs (cascade top-up)',
       'Phase 2d: Fix untranslated titles (free cascade)',
       'Phase 2e: Fix untranslated descriptions (free cascade)',
     ]);
