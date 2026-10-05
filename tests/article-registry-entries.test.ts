@@ -97,6 +97,44 @@ describe('parseArticleRegistryEntries', () => {
     expect(entries[2]).toMatchObject({ category: 'novita', date: OLDEST, updatedAt: OLDER });
   });
 
+  // A field name inside another field's quoted value is data, not a field:
+  // a regex over the raw object text read `image: 'wrong.jpg'` out of the title.
+  it.each([
+    ['double-quoted title', `{ id: 'a', category: 'fiscale', title: "Promo image: 'wrong.jpg'", date: '2026-01-01', image: '/images/right.jpg' }`],
+    ['single-quoted title with escaped quotes', `{ id: 'a', category: 'fiscale', title: 'Promo image: \\'wrong.jpg\\'', date: '2026-01-01', image: '/images/right.jpg' }`],
+    ['apostrophe in a double-quoted title', `{ id: 'a', category: 'fiscale', title: "L'offerta, image: 'wrong.jpg'", date: '2026-01-01', image: '/images/right.jpg' }`],
+    ['fake fields before the real ones', `{ title: "id: 'z', image: 'wrong.jpg', date: 'x'", id: 'a', category: 'fiscale', date: '2026-01-01', image: '/images/right.jpg' }`],
+  ])('reads only top-level fields, not text inside a quoted value (%s)', (_name, src) => {
+    expect(parseArticleRegistryEntries(src)).toEqual([
+      { id: 'a', category: 'fiscale', date: '2026-01-01', image: '/images/right.jpg' },
+    ]);
+  });
+
+  // The real registries open with a prose header ("doesn't", `@/`): read as
+  // quotes, an apostrophe or backtick in a comment swallowed the whole file.
+  it('skips comments that contain apostrophes and backticks', () => {
+    const src = [
+      "/** The module isn't imported: the `@/` alias breaks config load. */",
+      "// it's appended, not sorted",
+      `{ id: 'a', category: 'fiscale', date: '2026-01-01', image: '/images/a.webp' }, // l'ultimo`,
+      "/* `b` */ { id: 'b', category: 'pratico', date: '', image: '/images/b.webp' }",
+    ].join('\n');
+    expect(parseArticleRegistryEntries(src).map((e) => e.id)).toEqual(['a', 'b']);
+  });
+
+  // CI has the full checkout; a sparse worktree may not materialize the corpus.
+  it.each(['packages/articles/content/blog-articles-data.ts', 'packages/articles/content/swiss-articles-data.ts'])(
+    'reads every entry of the real registry %s',
+    (rel) => {
+      const abs = path.resolve(__dirname, '..', rel);
+      if (!fs.existsSync(abs)) return;
+      const src = fs.readFileSync(abs, 'utf8');
+      const declared = (src.match(/^\s*\{\s*id:\s*'/gm) ?? []).length;
+      expect(declared).toBeGreaterThan(0);
+      expect(parseArticleRegistryEntries(src)).toHaveLength(declared);
+    },
+  );
+
   it('never pairs an id with the next entry image', () => {
     const src = "{ id: 'a', category: 'fiscale', date: '' },\n{ id: 'b', category: 'fiscale', date: '', image: '/b.webp' }";
     expect(parseArticleRegistryEntries(src).map((e) => [e.id, e.image])).toEqual([['b', '/b.webp']]);

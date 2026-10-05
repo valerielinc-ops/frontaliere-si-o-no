@@ -39,7 +39,7 @@ import {
   htmlToText,
 } from '../lib/l6-source-check.mjs';
 import { independentSourceUrlIssue } from './export-l6-factuality-outcomes.mjs';
-import { articleRegistryObjectBodies } from '../../packages/articles/engine/shared/articleRegistryObjectBodies.mjs';
+import { articleRegistryObjectBodies, articleRegistryObjectFields } from '../../packages/articles/engine/shared/articleRegistryObjectBodies.mjs';
 
 export const ARTICLES_DATA_PATH = path.join('packages', 'articles', 'content', 'blog-articles-data.ts');
 export const BODY_ROOT = path.join('packages', 'articles', 'content', 'blog-body');
@@ -55,8 +55,9 @@ export const SKIP_REASONS = ['no-citation', 'no-figures', 'fetch-failed', 'sourc
 const RAW_ARTICLES_START = /const\s+RAW_ARTICLES\s*=\s*\[/;
 
 function field(objectText, name) {
-  const match = objectText.match(new RegExp(`(?:^|[\\s,{])${name}\\s*:\\s*(['"])((?:(?!\\1)[^\\\\]|\\\\.)*)\\1`));
-  return match ? match[2] : null;
+  // Top-level members only (shared tokenizer): a field name inside another
+  // quoted value is data, not the field.
+  return articleRegistryObjectFields(objectText).get(name) ?? null;
 }
 
 /** The RAW_ARTICLES array literal of blog-articles-data.ts, as text. */

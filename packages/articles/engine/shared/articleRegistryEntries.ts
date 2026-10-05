@@ -1,4 +1,4 @@
-import { articleRegistryObjectBodies } from './articleRegistryObjectBodies.mjs';
+import { articleRegistryObjectBodies, articleRegistryObjectFields } from './articleRegistryObjectBodies.mjs';
 
 /**
  * Reads the entries of an article registry SOURCE
@@ -21,8 +21,9 @@ import { articleRegistryObjectBodies } from './articleRegistryObjectBodies.mjs';
  *
  * Here each entry is one flat object literal; the object scanner tracks braces
  * only outside quoted strings, so an id can never be paired with the next
- * entry's image even when a title contains `{` or `}`. Each field is looked up
- * by name inside the object, in any order. An entry without a string `id`,
+ * entry's image even when a title contains `{` or `}`. Each field is read
+ * from the object's top-level members only, in any order, so a field name
+ * quoted inside another value is never mistaken for the field. An entry without a string `id`,
  * `category`, `image` and `date` is not an article entry (for instance the
  * `Article` interface body) and is skipped. `date: ''` is kept: it is the
  * corpus saying the date is UNKNOWN, and the renderers handle it
@@ -41,10 +42,6 @@ export interface ArticleRegistryEntry {
   readonly updatedAt?: string;
 }
 
-function stringField(body: string, key: string): string | undefined {
-  const m = new RegExp(`(?:^|[\\s,{])${key}\\s*:\\s*'((?:[^'\\\\]|\\\\.)*)'`).exec(body);
-  return m ? m[1] : undefined;
-}
 
 /**
  * Every article entry of the registry source, in source order. A repeated id
@@ -54,13 +51,16 @@ export function parseArticleRegistryEntries(source: string): ArticleRegistryEntr
   const out: ArticleRegistryEntry[] = [];
   const seen = new Set<string>();
   for (const body of articleRegistryObjectBodies(source)) {
-    const id = stringField(body, 'id');
+    // Top-level members only: a field name inside another quoted value
+    // (`title: "Promo image: 'x.jpg'"`) is data, not the field.
+    const fields = articleRegistryObjectFields(body);
+    const id = fields.get('id');
     if (!id || seen.has(id)) continue;
-    const category = stringField(body, 'category');
-    const date = stringField(body, 'date');
-    const image = stringField(body, 'image');
+    const category = fields.get('category');
+    const date = fields.get('date');
+    const image = fields.get('image');
     if (category === undefined || date === undefined || !image) continue;
-    const updatedAt = stringField(body, 'updatedAt');
+    const updatedAt = fields.get('updatedAt');
     seen.add(id);
     out.push(updatedAt === undefined ? { id, category, date, image } : { id, category, date, image, updatedAt });
   }
