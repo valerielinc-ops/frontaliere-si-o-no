@@ -21,9 +21,12 @@ on:
         default: true
         type: boolean
 
+# Mai cancellare una run in corso: tra il push diretto dei dati e il dispatch
+# del deploy una cancellazione lascerebbe latest.json committato ma non
+# pubblicato, e la run successiva, senza diff, salterebbe il deploy.
 concurrency:
   group: canton-tax-data
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write
