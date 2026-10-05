@@ -1137,10 +1137,22 @@ export function rescueSwissCityFromText(text = '', { foreignContext = false, isF
  * @param {string} value
  * @param {{ allowUnqualifiedEnglishExonyms?: boolean }} [options]
  */
+const SWISS_CANTON_CODE_MARKER_SOURCE = `(?:${ALL_CANTON_CODES.join('|')})`;
+const SWISS_CANTON_CODE_MARKER_RE = new RegExp(
+  `\\b${SWISS_CANTON_CODE_MARKER_SOURCE}\\b`,
+  'gi',
+);
 const SWISS_LOCATION_FIELD_MARKER_RE = new RegExp(
-  `\\b(?:${ALL_CANTON_CODES.join('|')}|CH|CHE|756)\\b`,
+  `\\b(?:${SWISS_CANTON_CODE_MARKER_SOURCE}|CH|CHE|756)\\b`,
   'i',
 );
+
+function hasMatchingCantonMarker(raw, city) {
+  const markers = [...raw.matchAll(SWISS_CANTON_CODE_MARKER_RE)].map(([marker]) => marker.toUpperCase());
+  if (!markers.length) return true;
+  const cityCantons = swissMunicipalityCantons(city);
+  return markers.every((marker) => cityCantons.includes(marker));
+}
 
 function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExonyms = false) {
   const raw = String(value || '').trim();
@@ -1155,6 +1167,7 @@ function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExony
   const withoutWorkMode = raw.replace(WORK_MODE_TOKEN_RE, '$1 ');
   const hasWorkMode = withoutWorkMode !== raw;
   const hasSwissMarker = SWISS_COUNTRY_RE.test(raw) || SWISS_LOCATION_FIELD_MARKER_RE.test(raw);
+  if (hasSwissMarker && !hasMatchingCantonMarker(raw, candidate)) return '';
   return allowUnqualifiedEnglishExonyms
     || normalizeSwissTargetLocationText(raw) === candidate
     || hasWorkMode
