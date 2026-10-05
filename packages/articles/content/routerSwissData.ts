@@ -2608,6 +2608,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rischi-cyber-pmi-svizzere': { it: 'rischi-cyber-pmi-svizzere', en: 'swiss-sme-cyber-risks', de: 'cyberrisiken-schweizer-kmu', fr: 'cyber-risques-pme-suisses' },
  'india-aels-protezione-capitali': { it: 'india-aels-protezione-capitali', en: 'parmelin-india-investment-protection', de: 'parmelin-indien-investitionsschutz', fr: 'parmelin-inde-protection-investissements' },
  'aumento-iva-finanziamento-13esima-avs': { it: 'aumento-iva-finanziamento-13esima-avs', en: 'vat-increase-13th-pillar-ahv-financing', de: 'mwst-erhoehung-13-ahv-finanzierung', fr: 'hausse-tva-financement-13e-avs' },
+ 'lugano-trasparenza-partecipate': { it: 'lugano-trasparenza-partecipate', en: 'lugano-transparency-municipal-companies', de: 'lugano-transparenz-beteiligungen', fr: 'lugano-transparence-societes-participations' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

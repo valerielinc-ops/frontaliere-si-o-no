@@ -97901,6 +97901,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-trasparenza-partecipate': {
+    title: 'Lugano: l\'UDC propone più trasparenza sui compensi',
+    description: 'L\'UDC di Lugano propone una mozione per pubblicare i compensi di Cda e CEO delle società partecipate dalla Città per garantire maggiore trasparenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, propone, trasparenza, compensi',
+    ogTitle: 'Lugano: l\'UDC propone più trasparenza sui compensi',
+    ogDescription: 'Una mozione dell\'UDC chiede la pubblicazione annuale delle retribuzioni di CEO e membri dei Cda delle società partecipate dalla Città di Lugano per sostituire le speculazioni con dati istituzionali.',
+    canonicalPath: '/articoli-svizzera/lugano-trasparenza-partecipate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano: l'UDC propone più trasparenza sui compensi",
+      "description": "L'UDC di Lugano propone una mozione per pubblicare i compensi di Cda e CEO delle società partecipate dalla Città per garantire maggiore trasparenza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-trasparenza-partecipate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il centro culturale LAC di Lugano affacciato sul lago."
+      },
+      "datePublished": "2026-10-05T11:58:26+00:00",
+      "dateModified": "2026-10-05T11:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lugano-trasparenza-partecipate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
