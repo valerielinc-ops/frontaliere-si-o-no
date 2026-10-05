@@ -97867,6 +97867,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-iva-finanziamento-13esima-avs': {
+    title: 'Aumento IVA per la 13esima AVS | Frontaliere Ticino',
+    description: 'Il 29 novembre svizzeri al voto per l\'aumento dell\'IVA necessario a finanziare la 13esima rendita AVS. Dettagli su aliquote, costi e posizioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, 13esima, novembre, vota',
+    ogTitle: 'Aumento IVA per finanziare la 13esima AVS: si vota il 29 novembre',
+    ogDescription: 'Il futuro della 13esima rendita AVS dipende dal voto popolare del 29 novembre sull\'aumento dell\'IVA. Scopri i dettagli dell\'aumento proposto, i costi previsti e le diverse posizioni politiche. Un\'analisi per comprendere l\'impatto sulle famiglie',
+    canonicalPath: '/articoli-svizzera/aumento-iva-finanziamento-13esima-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento IVA per la 13esima AVS",
+      "description": "Il 29 novembre svizzeri al voto per l'aumento dell'IVA necessario a finanziare la 13esima rendita AVS. Dettagli su aliquote, costi e posizioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-iva-finanziamento-13esima-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero a Berna, sede del governo e del parlamento."
+      },
+      "datePublished": "2026-10-05T11:44:07+00:00",
+      "dateModified": "2026-10-05T11:44:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-iva-finanziamento-13esima-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

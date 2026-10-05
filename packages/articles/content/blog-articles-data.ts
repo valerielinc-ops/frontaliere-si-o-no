@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES: Article[] = [
+const RAW_ARTICLES = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -37858,7 +37858,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-];
+] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
 // instead of the Pages artifact — see services/seo/blogImageCdn.ts. The raw
