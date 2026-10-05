@@ -7700,6 +7700,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rita-fuhrer-consiglio-federale-donne.title': 'Consiglio federale senza donne: l\'analisi di Rita Fuhrer',
     'blog.article.rita-fuhrer-consiglio-federale-donne.excerpt': 'Rita Fuhrer, ex consigliera di Stato zurighese ed ex candidata UDC nel 2000, commenta la successione in governo e il tema della presenza femminile.',
     'blog.article.rita-fuhrer-consiglio-federale-donne.imageAlt': 'Palazzo Federale a Berna con cielo sereno',
+    'blog.article.guida-voto-zurigo-referendum.title': 'Voto cantonale a Zurigo: guida a iniziative e referendum',
+    'blog.article.guida-voto-zurigo-referendum.excerpt': 'Voto cantonale a Zurigo: iniziative, referendum, calendario e aventi diritto. Soglie federali: 100\'000 firme in 18 mesi e 50\'000 in 100 giorni.',
+    'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Schede per il voto cantonale nel Cantone di Zurigo',
 };
 
 export default blogMetaChIt;
