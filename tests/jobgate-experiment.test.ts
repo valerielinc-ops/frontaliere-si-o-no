@@ -312,6 +312,8 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     const src = read('components/community/JobBoard.tsx');
     expect(src).toContain('const gateSkin = jobGateSkin(jobGate.arm);');
     expect(src).toMatch(/className=\{gateSkin\.container\}/);
+    // No late arm flip: committing the gate while the arm is pending locks this session to today's gate.
+    expect(src).toContain('ref={(el) => { if (el && !jobGate.ready) lockJobGateBeforeAssignment(); }}');
     const band = src.slice(src.indexOf('{gateSkin.headerBand ? ('), src.indexOf(') : (', src.indexOf('{gateSkin.headerBand ? (')));
     expect(band.indexOf('{gateActions}')).toBeLessThan(band.indexOf('{gateConsent}'));
     expect(band.indexOf('{gateConsent}')).toBeLessThan(band.indexOf('{gateExplanation}'));

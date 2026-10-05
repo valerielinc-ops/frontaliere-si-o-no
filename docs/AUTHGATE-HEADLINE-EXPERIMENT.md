@@ -323,6 +323,16 @@ LinkedIn's brand blue, not the primary path; the email CTA sits faded
 | `spotlight` | white card lifted off the page (2px accent border + `shadow-stripe-lg`); the public preview fades into it; LinkedIn goes neutral like Google; the email CTA is the only saturated control and is never shown disabled (an empty submit is stopped by the input's native `required`) | one action, one colour: a clear "start here" instead of three competing fills |
 | `actions_first` | solid brand band (`stripe-700`) with the title; sign-in buttons right under it, the registration notice directly below the buttons, explanation and benefits after | distance to action, mostly on mobile (65% of auth_success) |
 
+**No late arm flip.** The arms differ in height and block order, so switching
+from the pending (control) render to an arm after paint would shift the gate
+and the AdSense slot below it. The hook therefore serves an already-settled
+assignment synchronously (Remote Config is fetched at app start, so the gate
+normally renders straight in its arm), and a gate committed while the arm is
+still pending locks that page session to today's gate, untagged and not
+enrolled (`lockJobGateBeforeAssignment`, called from the gate's ref before
+paint). The lock is taken before the arm is known, so it excludes visitors
+independently of their arm — the same rule as the 3 s Remote Config timeout.
+
 **Plan** (`scripts/experiments/jobgate-plan.mjs`): baseline 9.95% (v3 control,
 2026-09-26..10-02), minimum effect +20% relative, 80% power, α 0.05 over 3
 comparisons, 700 unique gate persons/day → **5,153 persons per arm, 35 days**

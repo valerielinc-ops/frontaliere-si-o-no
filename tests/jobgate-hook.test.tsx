@@ -6,6 +6,7 @@ import {
   JOBGATE_LOAD_TIMEOUT_MS,
   currentJobGateAssignment,
   loadJobGateAssignment,
+  lockJobGateBeforeAssignment,
   recordJobGateExposure,
   resetJobGateAssignmentForTests,
   useJobGateExperiment,
@@ -62,6 +63,36 @@ describe('useJobGateExperiment', () => {
     const { result } = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight' });
+  });
+
+  it('renders the final arm on the first paint when the assignment already settled (no flip)', async () => {
+    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'actions_first' });
+    await loadJobGateAssignment();
+    const { result } = renderHook(() => useJobGateExperiment());
+    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'actions_first' });
+  });
+
+  it('a gate painted while the assignment is pending keeps today\'s gate, untagged, for the session', async () => {
+    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'spotlight' });
+    const { result } = renderHook(() => useJobGateExperiment());
+    expect(result.current.ready).toBe(false);
+    // JobBoard's ref on #job-auth-gate fires at commit, before the arm is known.
+    lockJobGateBeforeAssignment();
+    await waitFor(() => expect(result.current.ready).toBe(true));
+    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'control' });
+    expect(getJobGateTelemetryParams()).toBeNull();
+    await expect(currentJobGateAssignment()).resolves.toEqual({ ready: true, enrolled: false, arm: 'control' });
+    recordJobGateExposure(result.current);
+    expect(trackExperimentEvent).not.toHaveBeenCalled();
+  });
+
+  it('the lock is a no-op once the assignment settled', async () => {
+    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'navy_panel' });
+    await loadJobGateAssignment();
+    lockJobGateBeforeAssignment();
+    const { result } = renderHook(() => useJobGateExperiment());
+    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'navy_panel' });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
   });
 
   it('keeps crawlers/bots out without reading Remote Config', async () => {

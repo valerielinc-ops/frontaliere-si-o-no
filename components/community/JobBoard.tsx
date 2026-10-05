@@ -203,7 +203,7 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
-import { currentJobGateAssignment, recordJobGateExposure, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
+import { currentJobGateAssignment, lockJobGateBeforeAssignment, recordJobGateExposure, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
 import {
  JOBGATE_EXPERIMENT_ID,
  getJobGateSubscriberVariant,
@@ -9612,7 +9612,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const gateError = authError && <p className={gateSkin.authError}>{authError}</p>;
  return (
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className={gateSkin.container} data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}>
+ <div
+ id="job-auth-gate"
+ role="region"
+ aria-label={t('jobBoard.gate.title')}
+ className={gateSkin.container}
+ data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}
+ // Committed (pre-paint) while the arm is still pending → this session
+ // keeps today's gate: no late arm flip, no shift of the ad slot below.
+ ref={(el) => { if (el && !jobGate.ready) lockJobGateBeforeAssignment(); }}
+ >
  {gateSkin.headerBand ? (
  <>
  <div className={gateSkin.headerBand}>{gateHeading}</div>
