@@ -20,7 +20,9 @@ describe('crawler health state publication', () => {
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).toContain('--path data/crawler-health.json');
     expect(workflow).toContain('--branch chore/refresh-crawler-health');
-    expect(workflow).toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain(
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}",
+    );
     expect(workflow).toContain('## Implementato');
     expect(workflow).toContain('## Non implementato (ancora)');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');

@@ -19,6 +19,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -306,6 +308,7 @@ async function fetchJobListings(options = {}) {
     );
     return swissOnly;
   } catch (err) {
+    // fetch-failure-empty-ok: typed Playwright branches (anti-bot, navigation timeout, browser launch) are runner transients the pipeline does not soft-exit
     if (AntiBotBlockError && err instanceof AntiBotBlockError) {
       console.warn(
         `   ⚠️ Vaudoise: anti-bot block (status=${err.status}, title=${JSON.stringify(err.title || '')}). Returning [].`,
@@ -468,8 +471,11 @@ export async function fetchAllVaudoiseJobs(options = {}) {
     // `untranslated_description` check after hardening copied the stub
     // into every locale slot (GH run 26004869125).
     let descriptionText = '';
+    let postingDates = sourcePostingDateFields('');
     try {
-      descriptionText = await fetchVaudoiseDescription(publicUrl, detailFetcher);
+      const detailHtml = await detailFetcher(publicUrl);
+      descriptionText = parseVaudoiseDetailHtml(detailHtml);
+      postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
     } catch {
       descriptionText = '';
     }
@@ -513,7 +519,8 @@ export async function fetchAllVaudoiseJobs(options = {}) {
       sector: 'Assicurazioni', // Insurance (life, non-life, pensions)
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      // The unlabelled listing date is not proof of publication.
+      ...postingDates,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

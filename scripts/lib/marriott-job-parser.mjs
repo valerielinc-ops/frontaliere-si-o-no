@@ -20,6 +20,7 @@
  *
  * Source: https://careers.marriott.com/jobs?country=Switzerland
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -363,7 +364,7 @@ function buildJobFromApi(listing) {
   const jobSlug = slugify(`${title} ${MARRIOTT_KEY} ${locationForSlug}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  // Posted date from custom field or fallback to today
+  // Publication deadline is separate from the unverified publication date.
   const publishEndDate = getCustomField(listing.customFields, 'cf_publish_job_end_date') ||
     getCustomField(listing.customFields, 'Publish Job End Date');
 
@@ -403,7 +404,8 @@ function buildJobFromApi(listing) {
     sector: 'Hôtellerie / Hospitality',
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().split('T')[0],
+    // This Paradox payload has no verified publication contract; creation/start are not substitutes.
+    ...sourcePostingDateFields(),
     applyUrl: isMarriottOracleApplyUrl(listing.applyURL) ? publicUrl : (listing.applyURL || publicUrl),
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

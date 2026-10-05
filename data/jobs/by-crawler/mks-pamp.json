@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-10-04T09:34:20.137Z",
+  "assembledAt": "2026-10-04T21:39:13.409Z",
   "jobs": [
     {
       "title": "Metal Operations Manager",
@@ -62,7 +62,7 @@
       "firstSeenAt": "2026-10-03T09:31:28.506Z",
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.894Z",
+      "crawledAt": "2026-10-04T21:39:09.839Z",
       "previousSlugsByLocale": {
         "it": [
           "metal-operations-manager-mks-pamp-castel-san-pietro"
@@ -137,7 +137,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.897Z"
+      "crawledAt": "2026-10-04T21:39:09.843Z"
     },
     {
       "title": "Precious Metal Control Manager",
@@ -197,10 +197,11 @@
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
       "salarySource": "estimated",
       "previousSlugsByLocale": {
-        "it": [
-          "precious-metal-control-manager-mks-pamp-castel-san-pietro"
-        ],
         "fr": [
+          "precious-metal-control-manager-mks-pamp-castel-san-pietro",
+          "responsable-du-controle-des-metaux-precieux-mks-pamp-castel-san-pietro"
+        ],
+        "it": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
         "de": [
@@ -211,11 +212,12 @@
         ]
       },
       "previousSlugs": [
-        "precious-metal-control-manager-mks-pamp-castel-san-pietro"
+        "precious-metal-control-manager-mks-pamp-castel-san-pietro",
+        "responsable-du-controle-des-metaux-precieux-mks-pamp-castel-san-pietro"
       ],
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.901Z"
+      "crawledAt": "2026-10-04T21:39:09.847Z"
     },
     {
       "title": "Technical Drawer & Tooling Warehouse Specialist",
@@ -276,7 +278,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-11T17:56:17+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.903Z",
+      "crawledAt": "2026-10-04T21:39:09.849Z",
       "needsRetranslation": true
     },
     {
@@ -338,7 +340,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-30T18:17:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.905Z"
+      "crawledAt": "2026-10-04T21:39:09.851Z"
     },
     {
       "title": "Operatore reparto Raffineria",
@@ -434,7 +436,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.906Z"
+      "crawledAt": "2026-10-04T21:39:09.852Z"
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -534,7 +536,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.907Z"
+      "crawledAt": "2026-10-04T21:39:09.853Z"
     }
   ]
 }

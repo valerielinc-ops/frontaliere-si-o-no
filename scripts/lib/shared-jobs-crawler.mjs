@@ -3120,6 +3120,7 @@ async function searchGoogleCse(query, limit = 8) {
       .map((x) => tryUrl(x?.link || ''))
       .filter(Boolean);
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3136,6 +3137,7 @@ async function searchDuckDuckGo(query, limit = 8) {
     const html = await res.text();
     return parseDuckDuckGoHtmlLinks(html).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3161,6 +3163,7 @@ async function searchBingRss(query, limit = 8) {
     const xml = await res.text();
     return parseRssLinks(xml).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -4041,8 +4044,12 @@ async function crawlWorkdayJobs(
           requirementsByLocale = detailPayload.requirementsByLocale || {};
 
           // AI enrichment only if still thin or locale coverage is missing.
+          // Never inside the orchestrated crawl (SKIP_AI_TRANSLATION=1): the
+          // job falls through to enrichJobLocalesDCC, which marks it
+          // needsRetranslation for translate-pending, as every other crawler.
           const localeCoverage = Object.keys(descriptionByLocale).length;
           if (
+            process.env.SKIP_AI_TRANSLATION !== '1' &&
             crawlerConfig?.aiLocalizationEnabled &&
             aiLocalizationCalls < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) &&
             localeCoverage === 0 &&
@@ -4151,6 +4158,7 @@ async function crawlGreenhouseJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4201,6 +4209,7 @@ async function crawlLeverJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4258,6 +4267,7 @@ async function crawlSmartRecruitersJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4418,6 +4428,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   try {
     res = await fetchWithTimeout(apiUrl, { headers: { Accept: 'application/json, text/plain, */*' } });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -6820,6 +6831,16 @@ async function main() {
     localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
     localizationObservability: localizationObservability?.toJSON() || null,
+    // Dedicated post-processors need to distinguish a current, observed
+    // source pool from a scratch slice retained after an empty/failed fetch.
+    // Keep only the identity fields needed by post-processors from THIS run;
+    // callers must not infer source liveness from the merged output written to
+    // disk, and the full job payload must not be retained by the return value.
+    observedJobs: incomingJobs.map((job) => ({
+      url: job?.url,
+      company: job?.company,
+      companyDomain: job?.companyDomain,
+    })),
   };
 }
 

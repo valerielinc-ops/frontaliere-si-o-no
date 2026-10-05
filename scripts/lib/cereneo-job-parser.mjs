@@ -24,6 +24,8 @@
  * Modelled on `scripts/lib/uroviva-job-parser.mjs`.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -179,13 +181,19 @@ export async function fetchAllCereneoJobs() {
 
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (let i = 0; i < chItems.length; i += 1) {
     const it = chItems[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, {
+      fetchPage: async (url) => {
+        const html = await fetchHtml(url);
+        publication = sourcePostingDateFields(extractJobPostingLd(html)?.datePosted);
+        return html;
+      },
+    });
     if (detailContent) detailHits += 1;
 
     const loc = parseLocation(it.location);
@@ -239,7 +247,7 @@ export async function fetchAllCereneoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

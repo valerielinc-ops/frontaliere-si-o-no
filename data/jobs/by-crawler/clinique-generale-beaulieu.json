@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-beaulieu",
-  "assembledAt": "2026-10-04T09:25:47.373Z",
+  "assembledAt": "2026-10-04T21:24:10.439Z",
   "jobs": [
     {
       "id": "clinique-generale-beaulieu-fbe40293dbd8",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:25:42.037Z",
+      "crawledAt": "2026-10-04T21:24:03.146Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "slugByLocale": {
         "it": "infermiere-a-chirurgia-notte-clinique-generale-beaulieu-geneve",
         "en": "nurse-surgery-night-clinique-generale-beaulieu-geneve",
-        "de": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu-geneve",
+        "de": "krankenschwester-chirurgie-nacht-clinique-generale-beaulieu-geneve",
         "fr": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
       },
       "company": "Clinique Générale-Beaulieu",
@@ -100,7 +100,7 @@
       "titleByLocale": {
         "it": "Infermiere/a chirurgia notte",
         "en": "Nurse surgery night",
-        "de": "Infirmier(ère) chirurgie nuit",
+        "de": "Krankenschwester Chirurgie Nacht",
         "fr": "Infirmier(ère) chirurgie nuit"
       },
       "description": "• Assurer une prise en charge globale du patient pour favoriser son autonomie, maintenir son bien être et anticiper les suites de soins\n\n• Entretenir un raisonnement clinique afin d’optimiser la qualité des soins et la sécurité du patient.\n\n• Avoir une approche clinique et adaptée à la douleur du patient\n\n• Faire preuve de polyvalence (chirurgie polyvalente, médecine, oncologie...)\n\n• Veiller au respect des processus en vigueur.\n\n• Adhérer à la politique institutionnelle, partie prenante dans l'amélioration continue des pratiques\n\n• Favoriser l'intégration des nouveaux collaborateurs et des étudiants\n\n• Bachelor HES en soins infirmiers ou formation équivalente, reconnue par la Croix Rouge Suisse.\n\n• Expérience souhaitée en service de chirurgie; travail de nuit, un atout\n\n• Organisation, capacité d'analyse, gestion du stress\n\n• Langue maternelle française ou très bonnes connaissances obligatoire\n\n• Langues étrangères un atout\n\n• Formation de spécialisation complémentaire bienvenue\n\n• Une activité dans un domaine passionnant, au sein d’une clinique de renommée internationale, à la pointe du développement technologique\n\n• Un cadre de travail agréable\n\n• Clinique à taille humaine\n\n• Travail en 12h\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Générale-Beaulieu est réputée pour l'excellence de ses soins prodigués aux patients et ses installations médicales de premier ordre, qui contribuent à garantir un rétablissement rapide des patients. La clinique s'est spécialisée dans le soin aux patients internationaux et offre une prise en charge multilingue et culturellement diversifiée. Ses domaines de spécialisation comprennent l'oncologie, la chirurgie polyvalente (orthopédie, chirurgie du rachis, gynécologie, chirurgie digestive, urologie, ORL), ainsi que la maternité.",
@@ -117,7 +117,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153323339-infirmier-ere-chirurgie-nuit",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:25:39.284Z",
+      "crawledAt": "2026-10-04T21:24:00.323Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,6 +138,7 @@
       "previousSlugs": [
         "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
         "krankenpfleger-in-nachtchirurgie-clinique-generale-beaulieu-geneve",
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu-geneve",
         "infermiere-a-chirurgia-notte-clinique-generale-beaulieu-geneve"
       ],
       "previousSlugsByLocale": {
@@ -150,7 +151,8 @@
         ],
         "de": [
           "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
-          "krankenpfleger-in-nachtchirurgie-clinique-generale-beaulieu-geneve"
+          "krankenpfleger-in-nachtchirurgie-clinique-generale-beaulieu-geneve",
+          "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu-geneve"
         ]
       },
       "firstSeenAt": "2026-07-17T22:38:50.801Z",

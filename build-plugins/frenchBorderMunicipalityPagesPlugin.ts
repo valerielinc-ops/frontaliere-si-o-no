@@ -698,7 +698,7 @@ export function renderAboveFloorPage(params: {
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -872,7 +872,7 @@ export function renderHubPage(params: { locale: FrenchLocale; dateStamp: string;
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const hubHreflang = FRENCH_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${FRENCH_HUB_PATH[alt]}">`,

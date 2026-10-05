@@ -81,17 +81,20 @@ import {
   saveGeocodeCache,
   enrichEventsWithGeoComune,
   hasConfidentPrice,
+  hasParsedPrice,
+  withEventPriceSource,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   extractEventOfferMetadata,
+  extractStructuredEventPrice,
   parseEventPriceText,
-  eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   fillEventPeopleDefaults,
@@ -357,41 +360,18 @@ export function humanizeCategory(rawType) {
   return base.replace(/([a-z0-9])([A-Z])/g, '$1 $2').trim() || 'Event';
 }
 
-/** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
+/**
+ * Price from JSON-LD `isAccessibleForFree`/`offers` (structured, reliable), or
+ * else the localized detail table (tariff text, recorded but not reliable).
+ */
 export function extractPrice(ld, detailHtml, detailUrl) {
-  if (ld?.isAccessibleForFree === true) {
-    const offersRaw = ld?.offers;
-    const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
-    const zeroOffer = offers.find((offer) => eventOfferPriceAmount(offer?.price) === 0);
-    return {
-      amount: 0,
-      currency: zeroOffer?.priceCurrency || offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF',
-      isFree: true,
-      ...(zeroOffer ? extractEventOfferMetadata(zeroOffer, detailUrl || SITE_ORIGIN) || {} : {}),
-    };
-  }
-  const offersRaw = ld?.offers;
-  const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
-  const priced = offers
-    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer?.price) }))
-    .filter(({ amount }) => Number.isFinite(amount));
-  if (priced.length) {
-    const cheapest = priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
-    const currency = typeof cheapest.offer?.priceCurrency === 'string'
-      ? cheapest.offer.priceCurrency
-      : offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
-    return {
-      amount: cheapest.amount,
-      currency,
-      isFree: cheapest.amount === 0,
-      ...(extractEventOfferMetadata(cheapest.offer, detailUrl || SITE_ORIGIN) || {}),
-    };
-  }
-  const offerMetadata = extractEventOfferMetadata(offersRaw, detailUrl || SITE_ORIGIN) || {};
+  const structured = extractStructuredEventPrice(ld, detailUrl || SITE_ORIGIN, SOURCE.key);
+  if (structured) return structured;
+  const offerMetadata = extractEventOfferMetadata(ld?.offers, detailUrl || SITE_ORIGIN) || {};
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
   if (tablePrice) {
     const price = parseEventPriceText(tablePrice);
-    if (hasConfidentPrice(price)) return { ...price, ...offerMetadata };
+    if (hasParsedPrice(price)) return withEventPriceSource({ ...price, ...offerMetadata }, SOURCE.key, 'detail-table');
   }
   return undefined;
 }
@@ -406,7 +386,7 @@ export function extractIndexedEventPrice(content) {
   if (typeof content !== 'string') return undefined;
   const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
     || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)(?:\s*:\s*|\s+(?:is\s+)?)free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|liber[oa]|libre|gratuit[oea]?|kostenlos|gratis))\s*[.!]?\s*$/iu.test(content);
-  if (freeTariff) return { amount: 0, currency: 'CHF', isFree: true };
+  if (freeTariff) return withEventPriceSource({ amount: 0, currency: 'CHF', isFree: true }, SOURCE.key, 'index-content');
 
   // Index content can concatenate adjacent HTML blocks ("buffetPrice:").
   // Require a field boundary or that exact concatenation, not "parking price".
@@ -419,8 +399,8 @@ export function extractIndexedEventPrice(content) {
     .replace(/^\s*(?:per\s+(?:person|persona)|pro\s+Person|par\s+personne|for\s+everyone)\b/iu, '');
   if (/^\s*(?:[+/%(]|(?:CHF|EUR|€)\s*\d|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:for|für|pour|per)\s+\p{L}|(?:(?:the|les|le|gli|i|die|den)\s+)?(?:members?|adults?|adult[ei]|adultes?|erwachsenen?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|famil(?:y|ies|ien|les)|famigli[ae]|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
   const price = parseEventPriceText(tariff[1]);
-  return hasConfidentPrice(price)
-    ? { ...price, currency: /EUR|€/iu.test(tariff[1]) ? 'EUR' : 'CHF' }
+  return hasParsedPrice(price)
+    ? withEventPriceSource({ ...price, currency: /EUR|€/iu.test(tariff[1]) ? 'EUR' : 'CHF' }, SOURCE.key, 'index-content')
     : undefined;
 }
 
@@ -428,10 +408,10 @@ export function extractIndexedEventPrice(content) {
 export function recoverExistingIndexedPrices(existingEvents, records) {
   const pricesById = new Map(records.map(({ objectID, perLocaleHits }) => [
     eventStableId(SOURCE.key, objectID),
-    LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(hasConfidentPrice),
+    LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(hasParsedPrice),
   ]));
   return existingEvents.flatMap((event) => {
-    if (hasConfidentPrice(event.price)) return [];
+    if (hasParsedPrice(event.price)) return [];
     const price = pricesById.get(event.id);
     return price ? [{ ...event, price: { ...event.price, ...price } }] : [];
   });
@@ -459,14 +439,17 @@ export async function recoverExistingBookingPrices(existingEvents, records, {
   }));
   const updates = [];
   for (const event of existingEvents) {
-    if (hasConfidentPrice(event.price) || datesById.get(event.id) !== event.startDate
+    if (hasParsedPrice(event.price) || datesById.get(event.id) !== event.startDate
       || !event.startDate || !supportedEventBookingUrl(event.price?.url)) continue;
     if (Date.now() >= deadline) break;
     try {
       const price = typeof venueMatcher === 'function'
         ? await fetchFn(event, event.price.url, { venueMatcher })
         : await fetchFn(event, event.price.url);
-      if (hasConfidentPrice(price)) updates.push({ ...event, price: { ...event.price, ...price } });
+      // A third-party ticketing page is not a MySwitzerland field: recorded, not reliable.
+      if (hasParsedPrice(price)) {
+        updates.push({ ...event, price: { ...event.price, ...withEventPriceSource(price, SOURCE.key, 'booking-page') } });
+      }
     } catch { /* Optional enrichment must not abort the primary crawl. */ }
   }
   return updates;
@@ -507,12 +490,19 @@ export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
   const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
   return freshEvents.map(event => {
     const backfill = backfills.get(event?.id);
-    if (!backfill || hasConfidentPrice(event?.price) || !backfill?.price || typeof backfill.price !== 'object'
+    // A fresh price is kept unless it is text and the backfill holds a
+    // structured value: the structured field comes first (owner, 2026-10-04).
+    const freshPriceWins = hasConfidentPrice(event?.price)
+      || (hasParsedPrice(event?.price) && !hasConfidentPrice(backfill?.price));
+    if (!backfill || freshPriceWins || !backfill?.price || typeof backfill.price !== 'object'
       || !Object.keys(backfill.price).length
       || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
       || !sameBackfillVenue(event, backfill)) return event;
     const freshMetadata = Object.fromEntries(
-      Object.entries(event.price || {}).filter(([key, value]) => value != null && !Object.hasOwn(backfill.price, key)),
+      // Provenance belongs to the value it describes: never pair the backfill
+      // amount with the fresh record's priceSource/priceField.
+      Object.entries(event.price || {}).filter(([key, value]) => value != null && !Object.hasOwn(backfill.price, key)
+        && key !== 'priceSource' && key !== 'priceField'),
     );
     return { ...event, price: { ...freshMetadata, ...backfill.price } };
   });
@@ -609,7 +599,7 @@ export function extractEventJsonLd(html) {
   let match;
   while ((match = LD_JSON_RE.exec(html))) {
     try {
-      const parsed = JSON.parse(match[1].trim().replace(/^<!--\s*|\s*-->$/g, ''));
+      const parsed = parseJsonLdText(match[1]);
       const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
       if (event) return event;
     } catch {
@@ -732,12 +722,30 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN)
     || detailImageSourceUrl
     || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
-  const price = [
-    extractPrice(detailLd, detailHtml, detailUrl),
-    detailPrice,
-    ...LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)),
-  ].find(hasConfidentPrice);
-  const offerMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
+  // A structured JSON-LD price wins over any tariff text, whichever locale
+  // variant published it; text is kept only when no structured value exists.
+  const detailOfferMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
+  const priceCandidates = [
+    // extractPrice() and detailPrice already carry the Offer metadata from the
+    // page that produced their value. Keep that pairing intact when a later
+    // locale supplies the structured price.
+    { price: extractPrice(detailLd, detailHtml, detailUrl) },
+    { price: detailPrice },
+    // Indexed/text prices have no Offer of their own, so retain the primary
+    // page's unpriced booking metadata only for those fallback candidates.
+    ...LOCALES.map((locale) => ({
+      price: extractIndexedEventPrice(perLocaleHits[locale]?.content),
+      offerMetadata: detailOfferMetadata,
+    })),
+  ];
+  const selectedPriceCandidate = priceCandidates.find(({ price: candidate }) => hasConfidentPrice(candidate))
+    || priceCandidates.find(({ price: candidate }) => hasParsedPrice(candidate));
+  const selectedPrice = selectedPriceCandidate?.price;
+  const selectedOfferMetadata = selectedPriceCandidate?.offerMetadata
+    || (!selectedPriceCandidate ? detailOfferMetadata : undefined);
+  const price = selectedPrice || selectedOfferMetadata
+    ? { ...selectedOfferMetadata, ...selectedPrice }
+    : undefined;
 
   return {
     event: fillEventPeopleDefaults({
@@ -756,7 +764,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: price || offerMetadata ? { ...offerMetadata, ...price } : undefined,
+      price,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
@@ -818,7 +826,8 @@ async function fetchDetailEnrichment(perLocaleHits) {
     }
 
     if (!enrichment.detailAddress && candidateAddress) enrichment.detailAddress = candidateAddress;
-    if ((!enrichment.detailPrice || (enrichment.detailPrice.amount === null && candidatePrice?.amount !== null)) && candidatePrice) {
+    if ((!enrichment.detailPrice || (enrichment.detailPrice.amount === null && candidatePrice?.amount !== null)
+      || (!hasConfidentPrice(enrichment.detailPrice) && hasConfidentPrice(candidatePrice))) && candidatePrice) {
       enrichment.detailPrice = candidatePrice;
     }
     if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;

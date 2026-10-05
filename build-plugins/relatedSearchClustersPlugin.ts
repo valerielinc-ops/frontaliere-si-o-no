@@ -107,8 +107,14 @@ import {
   type LocaleCopy,
   type RawJob,
 } from './relatedSearchClustersData';
-import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+  getActiveJobSitemapLocs,
+  jobsSeoPagesFlushed,
+  setActiveJobSitemapLocs,
+} from './shared/buildSignals';
+import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
+import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   normalizeRelatedSearchClusterPath,
@@ -1362,13 +1368,26 @@ export class TokenIndex {
       }
     }
 
-    // Full Uint8Array scan was empirically faster than a sort+touched
-    // iteration: V8's Array.prototype.sort with a comparator costs more
-    // than a sequential typed-array walk for the typical small touched
-    // sizes (~100 entries), and the run 26467347040 measurement showed
-    // the sort variant added +11s across 161,542 OR-merge calls vs the
-    // straight scan. Keep the scan; the scratchScores typed array is
-    // cache-friendly and bounded by jobs.length (5819).
+    if (touched.length === 0) return;
+
+    // The old full Uint8Array scan was faster when an OR merge touched most
+    // of the corpus, but it made every sparse merge O(jobs.length): the new
+    // occupation predicate leaves many candidates below the AND cap, so a
+    // 349k-candidate build could scan the whole corpus several times per
+    // candidate. Keep corpus-order output by sorting the touched indexes only
+    // when that is cheaper than scanning every job; retain the dense scan for
+    // genuinely dense merges. The score buckets and accept predicate are
+    // unchanged, so this is an execution-plan fix, not a ranking change.
+    const scoreLevels = fullScore - minScore;
+    if (scoreLevels <= 0) {
+      for (const idx of touched) scores[idx] = 0;
+      touched.length = 0;
+      return;
+    }
+    const touchedSortCost = touched.length > 1 ? Math.ceil(Math.log2(touched.length)) : 0;
+    const useTouchedOrder =
+      touched.length * (scoreLevels + touchedSortCost) < scores.length * scoreLevels;
+    const orderedTouched = useTouchedOrder ? touched.sort((a, b) => a - b) : null;
     // `minScore` is the relevance floor: OR-fill only appends jobs matching at
     // least this many query tokens. For multi-token *content* queries it is 2,
     // so a job matching only the generic role word ("responsabile") but not the
@@ -1377,8 +1396,15 @@ export class TokenIndex {
     // / Vendite listings. For single-content-token queries (e.g. "koch davos",
     // where the city token is droppable) it stays 1 to preserve recovery.
     for (let score = fullScore - 1; score >= minScore && out.length < maxJobs; score--) {
-      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
-        if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+      if (orderedTouched) {
+        for (const idx of orderedTouched) {
+          if (out.length >= maxJobs) break;
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
+      } else {
+        for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
       }
     }
 
@@ -3044,7 +3070,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // through the shared page shell, while the static slot is the policy failure
   // reproduced by issue #9244 on short, enriched cluster pages.
   const bodyHtml = `${bodyContentHtml}
-    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS })}
+    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS, contentHtml: bodyContentHtml })}
   </div>`;
 
   // Cluster keywords can exceed 60+ chars when the candidate slug is a long
@@ -3274,6 +3300,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   const bodyHtml = `${hubBodyContentHtml}
     ${endOfContentMultiplexHtml({
       indexable: countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS,
+      contentHtml: hubBodyContentHtml,
     })}
   </article>`;
 
@@ -3582,9 +3609,33 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
 // Attribute-order-independent (two lookaheads, #3060): content-before-name on the
 // robots meta must not slip past and leak a noindex page into a cluster.
 const NOINDEX_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
-const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
-const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
-const JOB_SITEMAP_FILE_RE = /^sitemap-jobs(?:-[a-z0-9][a-z0-9-]*)?\.xml$/i;
+// Redirect/bridge pages emitted by legacyRedirectsPlugin use a meta refresh.
+// It is deliberately attribute-order independent and quote-flexible, matching
+// the same minified HTML shapes accepted by NOINDEX_RE.
+const META_REFRESH_RE = /<meta\b(?=[^>]*\bhttp-equiv\s*=\s*(?:["']refresh["']|refresh(?=\s|\/?\s*>)))(?=[^>]*\bcontent\s*=)[^>]*>/i;
+const LINK_TAG_RE = /<link\b[^>]*>/gi;
+
+function readHtmlAttribute(tag: string, attributeName: string): string | null {
+  const wanted = attributeName.toLowerCase();
+  for (const match of tag.matchAll(/([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/g)) {
+    if (match[1].toLowerCase() !== wanted) continue;
+    return (match[2] ?? match[3] ?? match[4] ?? '').trim();
+  }
+  return null;
+}
+
+/** Extract canonical only from a validated `<link>` element. */
+function extractCanonicalHref(html: string): string | null {
+  for (const match of html.matchAll(LINK_TAG_RE)) {
+    const tag = match[0];
+    const rel = readHtmlAttribute(tag, 'rel');
+    if (!rel || !rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readHtmlAttribute(tag, 'href');
+    if (href) return href;
+  }
+  return null;
+}
+
 function normalizeLocForCanonicalCmp(u: string): string {
   try {
     const parsed = new URL(u, BASE_URL);
@@ -3638,6 +3689,8 @@ export async function dropOverwrittenLocs(
   const DROP_NOINDEX = 2;
   const DROP_NONCANON = 3;
   const DROP_MISSING = 4;
+  const DROP_REDIRECT = 5;
+  const DROP_MISSING_CANONICAL = 6;
   const flags = new Uint8Array(locs.length);
 
   // Concurrency cap for in-flight async readFile attempts. Bumped 32 → 64
@@ -3693,14 +3746,18 @@ export async function dropOverwrittenLocs(
         flags[i] = DROP_NOINDEX;
         continue;
       }
-      const canonMatch =
-        html.match(CANONICAL_HREF_RE) || html.match(CANONICAL_HREF_REVERSED_RE);
-      if (canonMatch && canonMatch[1]) {
-        const canonHref = canonMatch[1].trim();
-        if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
-          flags[i] = DROP_NONCANON;
-          continue;
-        }
+      if (META_REFRESH_RE.test(html)) {
+        flags[i] = DROP_REDIRECT;
+        continue;
+      }
+      const canonHref = extractCanonicalHref(html);
+      if (!canonHref) {
+        flags[i] = DROP_MISSING_CANONICAL;
+        continue;
+      }
+      if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
+        flags[i] = DROP_NONCANON;
+        continue;
       }
       flags[i] = KEEP;
     }
@@ -3713,15 +3770,19 @@ export async function dropOverwrittenLocs(
   const out: string[] = [];
   let droppedNoindex = 0;
   let droppedNonCanonical = 0;
+  let droppedRedirect = 0;
+  let droppedMissingCanonical = 0;
   for (let i = 0; i < locs.length; i++) {
     const f = flags[i];
     if (f === KEEP) out.push(locs[i]);
     else if (f === DROP_NOINDEX) droppedNoindex++;
     else if (f === DROP_NONCANON) droppedNonCanonical++;
+    else if (f === DROP_REDIRECT) droppedRedirect++;
+    else if (f === DROP_MISSING_CANONICAL) droppedMissingCanonical++;
   }
-  if (droppedNoindex > 0 || droppedNonCanonical > 0) {
+  if (droppedNoindex > 0 || droppedNonCanonical > 0 || droppedRedirect > 0 || droppedMissingCanonical > 0) {
     console.log(
-      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
+      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical + ${droppedRedirect} redirect + ${droppedMissingCanonical} missing-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
     );
   }
   return out;
@@ -3782,6 +3843,84 @@ export function extractSitemapLocs(xml: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(xml)) !== null) out.push(m[1]);
   return out;
+}
+
+/**
+ * Recover the jobs producer's active URL set when a cache-hit path reaches
+ * reconciliation with the shared registry still unset. `sitemap-jobs.xml` is
+ * the producer's persisted decision: its `<loc>` entries and their hreflang
+ * annotations are emitted from the same active, self-canonical job set. Keep
+ * this fallback scoped to the site's own origin so an unexpected annotation
+ * cannot become an allowlist entry.
+ */
+function deriveActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const legacySitemap = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
+  const active = new Set<string>();
+  if (!legacySitemap) return active;
+
+  const siteOrigin = new URL(BASE_URL).origin;
+  const addSiteUrl = (value: string): void => {
+    const candidate = value.trim();
+    try {
+      if (new URL(candidate).origin === siteOrigin) active.add(candidate);
+    } catch {
+      // Ignore malformed source markup; it cannot safely identify a live URL.
+    }
+  };
+
+  for (const entry of parseAnnotatedSitemapUrls(legacySitemap)) {
+    addSiteUrl(entry.loc);
+    for (const annotation of entry.annotations) addSiteUrl(annotation.href);
+  }
+  return active;
+}
+
+function ensureActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const active = getActiveJobSitemapLocs();
+  if (active !== null) return active;
+  const recovered = deriveActiveJobSitemapLocs(files);
+  setActiveJobSitemapLocs(recovered);
+  return recovered;
+}
+
+/**
+ * Sharded job files contain only job-detail URLs and canton roots. Once the
+ * jobs producer has published its source allowlist, a priority-0.6 detail
+ * entry that is absent from that allowlist is stale even when its foreign
+ * locale HTML is not present in this build tree. Keep the filter scoped to
+ * shard files: the legacy sitemap also contains category pages with the same
+ * priority, so applying the source allowlist to `sitemap-jobs.xml` would
+ * misclassify valid landing URLs.
+ */
+function staleJobShardLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+  activeLocs: ReadonlySet<string> | null,
+): string[] {
+  // The source-stale predicate is meaningful only when the producer's exact
+  // source sitemap is present. A shard-only dist (for example a locale leg
+  // that emitted `sitemap-jobs-ti.xml` without `sitemap-jobs.xml`) has no
+  // authoritative allowlist to compare against; treating the recovered empty
+  // set as authoritative would delete every priority-0.6 detail URL.
+  if (activeLocs === null || !files.some(({ file }) => file === 'sitemap-jobs.xml')) return [];
+  const active = new Set([...activeLocs].map(normalizeLocForCanonicalCmp));
+  const stale: string[] = [];
+  const urlBlockRe = /[ \t]*<url>[\s\S]*?<\/url>\n?/g;
+  const locRe = /<loc>([^<]+)<\/loc>/;
+  const detailPriorityRe = /<priority>\s*0\.6\s*<\/priority>/i;
+  for (const { file, xml } of files) {
+    if (!isJobSitemapShardFilename(file)) continue;
+    for (const block of xml.matchAll(urlBlockRe)) {
+      if (!detailPriorityRe.test(block[0])) continue;
+      const loc = block[0].match(locRe)?.[1];
+      if (!loc || active.has(normalizeLocForCanonicalCmp(loc))) continue;
+      stale.push(loc);
+    }
+  }
+  return stale;
 }
 
 /**
@@ -3876,7 +4015,7 @@ export async function reconcileSitemapJobsWithDist(
   if (!fs.existsSync(distDir)) return;
   const files = fs
     .readdirSync(distDir)
-    .filter((file) => JOB_SITEMAP_FILE_RE.test(file));
+    .filter((file) => isJobSitemapFilename(file));
   if (files.length === 0) return;
 
   const sitemapFiles: Array<{ file: string; xml: string }> = [];
@@ -3893,6 +4032,19 @@ export async function reconcileSitemapJobsWithDist(
     }
   }
 
+  // A zero-entry shard is never a valid output of writeShardsToDist(). Remove
+  // it here as well because a stale shard may have come from an earlier
+  // artifact or may have become empty after the dist-truth filter. Leaving it
+  // on disk lets sitemapAliasPlugin rediscover and publish the stale filename.
+  for (const { file, xml } of sitemapFiles) {
+    if (!isJobSitemapShardFilename(file) || extractSitemapLocs(xml).length > 0) continue;
+    try {
+      await fs.promises.unlink(path.join(distDir, file));
+    } catch (error: any) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
+
   const locs = sitemapFiles.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (locs.length === 0 && mirrorLocs.length === 0) return;
 
@@ -3905,7 +4057,12 @@ export async function reconcileSitemapJobsWithDist(
       .map(normalizeLocForCanonicalCmp),
   );
   const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
-  const dropLocs = [...new Set([...unserved, ...mirrorLocs])];
+  // A cache HIT can reach this reconciler after the jobs producer's normal
+  // allowlist population was skipped. Recover the current decision before
+  // filtering historical shards; a null registry must never disable this
+  // stale-detail guard.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
+  const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
   if (dropLocs.length === 0) return;
 
   let dropped = 0;
@@ -3913,14 +4070,23 @@ export async function reconcileSitemapJobsWithDist(
   for (const { file, xml } of sitemapFiles) {
     const result = dropUrlBlocksByLoc(xml, dropLocs);
     if (result.xml === xml || result.dropped === 0) continue;
-    await fs.promises.writeFile(path.join(distDir, file), result.xml, 'utf-8');
+    if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
+      try {
+        await fs.promises.unlink(path.join(distDir, file));
+      } catch (error: any) {
+        if (error?.code !== 'ENOENT') throw error;
+      }
+      changedFiles.push(`${file} (removed-empty)`);
+    } else {
+      await fs.promises.writeFile(path.join(distDir, file), result.xml, 'utf-8');
+      changedFiles.push(file);
+    }
     dropped += result.dropped;
-    changedFiles.push(file);
   }
   if (dropped > 0) {
     console.log(
       `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs*.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
-      `(${unserved.length} failed the dist-truth check, ${mirrorLocs.length} known cross-section mirror(s), ` +
+      `(${unserved.length} failed the dist-truth check, ${sourceStale.length} stale source URL(s), ${mirrorLocs.length} known cross-section mirror(s), ` +
       `files=${changedFiles.join(', ')}, issue #911)`,
     );
   }

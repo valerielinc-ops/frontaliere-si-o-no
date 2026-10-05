@@ -43,6 +43,8 @@
  *   - GZO_WETZIKON_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
@@ -232,21 +234,6 @@ async function fetchAllPastaHrJobs() {
   return all;
 }
 
-/* ── Date helper ──────────────────────────────────────────── */
-
-function parseSwissDate(raw = '') {
-  // Listings carry "DD.MM.YYYY" (and a stray leading "1" we observed —
-  // e.g. "129.05.2026"). Be defensive: strip anything that isn't
-  // \d{1,2}.\d{1,2}.\d{2,4}, then parse.
-  const trimmed = String(raw || '').trim().replace(/^1(\d{2}\.)/, '$1');
-  const m = trimmed.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2,4})$/);
-  if (!m) return null;
-  const dd = m[1].padStart(2, '0');
-  const mm = m[2].padStart(2, '0');
-  const yyyy = m[3].length === 2 ? `20${m[3]}` : m[3];
-  return `${yyyy}-${mm}-${dd}`;
-}
-
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -256,11 +243,10 @@ function parseSwissDate(raw = '') {
 async function fetchGzoDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractPublicjobsDetailDescription(html);
+    return { body: extractPublicjobsDetailDescription(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ GZO detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -306,12 +292,10 @@ export async function fetchAllGzoWetzikonJobs() {
     const employmentType = detectEmploymentType(title);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const postedDate = parseSwissDate(row?.job_booking_start || '')
-      || new Date().toISOString().split('T')[0];
-
     // publicjobs.ch listings ship only title+city — fetch the public detail
     // page to recover the actual job description. Polite delay 250 ms.
-    const detailDescription = await fetchGzoDetailDescription(detailUrl);
+    const detail = await fetchGzoDetailDescription(detailUrl);
+    const detailDescription = detail.body;
     // Only source text (issue 5253): no "<title> — <company>, <place>." stub
     // in place of a thin body. A body under the common 50-word floor gives no
     // description (the shared pipeline's thin-source path).
@@ -355,7 +339,7 @@ export async function fetchAllGzoWetzikonJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

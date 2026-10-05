@@ -19,7 +19,8 @@ const mocks = vi.hoisted(() => ({
   }),
 }));
 
-vi.mock('../scripts/lib/ats-clients/workday-client.mjs', () => ({
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => ({
+  ...await importOriginal<typeof import('../scripts/lib/ats-clients/workday-client.mjs')>(),
   buildWorkdayApiBase: () => 'https://roche.wd3.myworkdayjobs.com/wday/cxs/roche/roche-ext',
   fetchWorkdayJobs: mocks.fetchWorkdayJobs,
   fetchWorkdayJobDetailParts: mocks.fetchWorkdayJobDetailParts,
@@ -83,6 +84,25 @@ describe('Roche crawler parser', () => {
       url: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR1',
     });
     expect((jobs as any).missingDetailUrlCount).toBe(1);
+    expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
+  });
+
+  it('skips a Swiss vacancy whose detail has no body and never emits a Key details stub', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Clinical Research Associate',
+        location: 'Basel',
+        externalPath: '/job/Basel/Clinical-Research-Associate_JR3',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Clinical-Research-Associate_JR3',
+        jobReqId: 'JR3',
+      };
+    });
+    mocks.fetchWorkdayJobDetailParts.mockResolvedValueOnce({ text: '', info: {} });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect(JSON.stringify(jobs)).not.toContain('Key details');
     expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
   });
 

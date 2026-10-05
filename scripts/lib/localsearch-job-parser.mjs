@@ -10,6 +10,7 @@
  * Source: https://karriere.localsearch.ch/en/
  * Data:   https://cdn.jobylon.com/jobs/companies/3174/embed/v2/
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -219,7 +220,7 @@ export async function fetchAllLocalsearchJobs() {
     console.log(`  📄 Fetching detail: ${title}`);
 
     let descriptionText = normalizeSpace(listing.summary || '');
-    let datePosted = listing.published_date || '';
+    let detailPublication = '';
 
     try {
       const detailHtml = await fetchPage(detailUrl);
@@ -228,9 +229,12 @@ export async function fetchAllLocalsearchJobs() {
       if (jsonLd?.description) {
         descriptionText = stripHtml(jsonLd.description);
       }
-      if (jsonLd?.datePosted) {
-        datePosted = jsonLd.datePosted.split('T')[0];
+      const sameTitle = normalizeSpace(jsonLd?.title || '').toLowerCase() === title.toLowerCase();
+      let sameUrl = !jsonLd?.url;
+      if (jsonLd?.url) {
+        try { sameUrl = new URL(jsonLd.url, detailUrl).href === new URL(detailUrl).href; } catch { sameUrl = false; }
       }
+      if (jsonLd?.['@type'] === 'JobPosting' && sameTitle && sameUrl) detailPublication = jsonLd.datePosted;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message || err}`);
     }
@@ -273,7 +277,7 @@ export async function fetchAllLocalsearchJobs() {
       sector: 'Marketing digitale / Tecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateCandidatesFields([detailPublication, listing.published_date]),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

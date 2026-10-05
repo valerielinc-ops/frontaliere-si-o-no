@@ -622,6 +622,18 @@ describe('checkFabricatedNormAcronyms', () => {
     )).toEqual([]);
   });
 
+  // Le forme societarie valgono in ogni locale del corpus: «la société LFW» e
+  // «die Gesellschaft LPS» sono la stessa entita' di «il gruppo LFW».
+  it.each([
+    ['fr', 'La société LFW a ouvert un guichet pour les frontaliers près de la frontière.'],
+    ['fr', 'La societe LCO recrute des frontaliers au Tessin.'],
+    ['de', 'Die Gesellschaft LPS hat eine neue Filiale für Grenzgänger eröffnet.'],
+    ['de', 'Die Firma LFW sucht Grenzgänger im Tessin.'],
+    ['en', 'The firm LCO hired cross-border commuters in Ticino.'],
+  ])('leaves a %s company name using the sigla alone', (_locale, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
   it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {
     expect(codes(checkFabricatedNormAcronyms(
       'Secondo la LFW, il datore di lavoro deve registrare ogni ora supplementare.',
@@ -1197,7 +1209,7 @@ describe('runFactualityGates', () => {
     expect(result.passed).toBe(true);
   });
 
-  it('does not let learned institution memory block or learn without a usable source', () => {
+  it('keeps the confirmed denylist but neither suspects nor learns without a usable source', () => {
     const sections = {
       body1: 'Il Dipartimento federale delle cose (XYZ) ha pubblicato una comunicazione.',
     };
@@ -1207,9 +1219,17 @@ describe('runFactualityGates', () => {
       degraded: null,
     };
     const withoutSource = runFactualityGates({ sections, memory, sourceText: '' });
-    expect(codes(withoutSource.issues)).not.toContain('fabricated-institution');
-    expect(codes(withoutSource.issues)).not.toContain('suspected-institution');
+    expect(codes(withoutSource.blocking)).toContain('fabricated-institution');
     expect(withoutSource.observations).toEqual([]);
+
+    const suspectOnly = runFactualityGates({
+      sections,
+      memory: { denylist: new Set(), suspects: new Set(['XYZ']), degraded: null },
+      sourceText: '',
+    });
+    expect(codes(suspectOnly.issues)).not.toContain('suspected-institution');
+    expect(codes(suspectOnly.issues)).not.toContain('fabricated-institution');
+    expect(suspectOnly.observations).toEqual([]);
 
     const withSource = runFactualityGates({
       sections,
@@ -1389,6 +1409,22 @@ describe('detectLeakedScaffolding', () => {
   it('flags a formatting directive addressed to the model', () => {
     expect(codes(detectLeakedScaffolding('Verwenden Sie ZERO Fettschrift im ganzen Feld.')))
       .toContain('leaked-prompt-scaffolding');
+  });
+
+  // The expansion prompt of create-article.mjs hands the model two input labels
+  // — the title reference and the current text with its word count. The corpus
+  // copy of this module learned them (corpus #1678) while this one did not:
+  // reconciling the both-moved twin brings them back here, so the copy that
+  // descends to the corpus keeps catching them.
+  it.each([
+    ['title reference label', 'RIFERIMENTO DEL TITOLO (SOLO INPUT, NON RIPETERE): lavoro transfrontaliero\n\nTesto valido.'],
+    ['current-text label with its word count', 'TESTO ATTUALE (42 parole): testo interno del prompt\n\nTesto valido.'],
+  ])('flags the expansion prompt %s', (_label, body) => {
+    expect(codes(detectLeakedScaffolding(body))).toContain('leaked-prompt-scaffolding');
+  });
+
+  it('does not flag prose that merely mentions the current text', () => {
+    expect(detectLeakedScaffolding('Il testo attuale della legge (42 articoli) resta in vigore.')).toEqual([]);
   });
 
   it('tells the writer to delete it, not to rephrase it', () => {

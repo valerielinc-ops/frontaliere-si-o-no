@@ -864,10 +864,17 @@ async function readEventImageBody(response, maxBytes) {
       }
       if (chunkBytes === 0) continue;
 
-      if (buffer) buffer.set(value, totalBytes);
+      // The chunk's bytes as a view: over a bare ArrayBuffer `buffer.set(value)`
+      // copied nothing (no `length`) and `Buffer.from(value)` shared the
+      // producer's memory; a typed array other than Uint8Array would be copied
+      // element by element instead of byte by byte.
+      const bytes = value instanceof ArrayBuffer
+        ? new Uint8Array(value)
+        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      if (buffer) buffer.set(bytes, totalBytes);
       // A copy, not the chunk itself: a reader may hand back the same buffer
       // on every read (corpus nanakokyobashi-rgb/frontaliere-articles#1906).
-      else chunks.push(Buffer.from(value));
+      else chunks.push(Buffer.from(bytes));
       totalBytes += chunkBytes;
     }
     return buffer ? buffer.subarray(0, totalBytes) : Buffer.concat(chunks, totalBytes);
@@ -1651,14 +1658,53 @@ export function parsePriceText(rawText) {
 }
 
 /**
- * Whether a parsed `{amount, currency, isFree}` price carries a confident
- * enough signal to publish as schema.org `offers` — `isFree: true` or a real
- * parsed `amount`. Excludes the `amount: null` ambiguous bucket (price
- * mentioned but not machine-parseable, e.g. "su richiesta"): asserting
- * `price:"0"` there would fabricate "free" for a plausibly-paid event.
+ * Whether a parsed `{amount, currency, isFree}` price carries a value at all —
+ * `isFree: true` or a real parsed `amount`. Excludes the `amount: null`
+ * ambiguous bucket (price mentioned but not machine-parseable, e.g. "su
+ * richiesta"). This is the crawler-internal candidate test ("did this field
+ * yield a tariff?"); it says nothing about provenance, so it must never decide
+ * publication — that is `hasConfidentPrice()`.
+ */
+export function hasParsedPrice(price) {
+  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+}
+
+/**
+ * Tariff sources admitted by the owner decision of 2026-10-04 (FU-2026-10-03-002),
+ * in precedence order: MySwitzerland first, Guidle second. A source outside
+ * this list (Turismo Ticino, tio.ch, Genève agenda, …) never makes a price
+ * reliable until its terms of use have been verified and it is added here.
+ */
+export const EVENT_PRICE_SOURCES = Object.freeze(['myswitzerland', 'guidle']);
+
+/**
+ * Source fields whose value is typed data rather than prose: the schema.org
+ * Event JSON-LD `offers[].price` and `isAccessibleForFree`. Labelled HTML
+ * tariff boxes (`detail-table`, `price-accordion`), indexed copy
+ * (`index-content`) and third-party ticketing pages (`booking-page`) are free
+ * text read by a parser, so they are recorded but never reliable.
+ */
+export const STRUCTURED_EVENT_PRICE_FIELDS = Object.freeze(['offers.price', 'isAccessibleForFree']);
+
+/** Stamp a parsed price with the source and the field it was read from. */
+export function withEventPriceSource(price, priceSource, priceField) {
+  if (!price || typeof price !== 'object') return price;
+  return { ...price, priceSource, priceField };
+}
+
+/**
+ * Whether a price is reliable enough to publish (schema.org `offers`,
+ * `isAccessibleForFree`, the visible price line): it carries a value AND was
+ * read from a structured field (`STRUCTURED_EVENT_PRICE_FIELDS`) of an
+ * admitted source (`EVENT_PRICE_SOURCES`). A tariff parsed from free text —
+ * or a legacy record without `priceSource`/`priceField` — stays in the data
+ * but is not reliable: asserting `price:"0"` or a parsed amount there would
+ * publish an inference as a source fact.
  */
 export function hasConfidentPrice(price) {
-  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+  return hasParsedPrice(price)
+    && EVENT_PRICE_SOURCES.includes(price.priceSource)
+    && STRUCTURED_EVENT_PRICE_FIELDS.includes(price.priceField);
 }
 
 // ── Date helpers ─────────────────────────────────────────────

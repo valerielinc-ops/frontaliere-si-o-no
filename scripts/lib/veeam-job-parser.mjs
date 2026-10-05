@@ -54,6 +54,7 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
@@ -239,7 +240,7 @@ async function fetchJobListings() {
       title: j.title,
       location: j.location,
       url: j.applyUrl,
-      postedAt: j.postedAt,
+      ...mergeSourcePostingDates({}, j),
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
@@ -355,8 +356,6 @@ export async function fetchAllVeeamJobs() {
     const jobSlug = slugify(`${title} veeam ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(title);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -391,7 +390,7 @@ export async function fetchAllVeeamJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       department: '',
       jobReqId: listing.jobReqId || null,

@@ -11,6 +11,7 @@ const { handleAutomationAdminAction, loadAutomationForAdmin, recordOwnerSubmissi
 const { transition } = await import('../functions/src/assistedApplicationFlow.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { chooseCv } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { detectCvFileType } = await import('../functions/src/assistedApplicationCvCheck.js');
 
 const T0 = Date.UTC(2026, 9, 1, 12, 0, 0);
 const ORDER = 'order_FILL01';
@@ -84,6 +85,21 @@ describe('fill kit', () => {
   });
 });
 
+// P4 (owner decisions of 2026-10-03): the status the candidate chose, as the portal planner's sentence, and the birth
+// date in the form the extension reads.
+describe('fill kit: the candidate’s Swiss status and birth date', () => {
+  it('types the status as its sentence and the birth date as a numeric date', () => {
+    const kit = buildFillKit({
+      orderId: ORDER, order, draft: { ...draft, profile: { ...draft.profile, dateOfBirth: '14. März 2010', workPermit: 'Permesso G da richiedere' } },
+      flow: { ...takenOver, answers: { ...takenOver.answers, work_permit: 'G' } },
+    });
+    expect(kit.profile).toMatchObject({ workPermit: 'Ich arbeite heute in der Schweiz mit gültiger Grenzgängerbewilligung G.', dateOfBirth: '2010-03-14' });
+    // Nothing chosen: the CV's own words, never a permit to come.
+    const silent = buildFillKit({ orderId: ORDER, order, draft: { ...draft, profile: { ...draft.profile, workPermit: 'Permesso G da richiedere' } }, flow: takenOver });
+    expect(silent.profile.workPermit).toBe('');
+  });
+});
+
 describe('owner queue: fill kit and «Segna come inviata»', () => {
   let store: ReturnType<typeof createMemoryFirestore>;
   let effects: any[];
@@ -150,6 +166,23 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     }
   });
 
+  // Close-out P8: one rule for the CV that leaves (cvToSend). The upload page keys the candidate's own file
+  // name, whose extension can be wrong: the runner sends the original as its bytes say.
+  it('names the original CV by the type of its bytes, as the runner does', async () => {
+    const key = KEY('1-cv.pdf');
+    const flow = { ...takenOver, cvChoice: 'original' };
+    await seed(flow);
+    await store.db.collection('assisted_applications').doc(ORDER).set({ cvStorageKey: key, cvFileCheck: { key, verdict: 'ok', detectedType: 'docx' } }, { merge: true });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.documents.cv).toEqual({ url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' });
+    // The runner on the same order: agent.mjs reads the type from the bytes (detectCvFileType), chooseCv keeps it.
+    const bytes = Buffer.from([0x50, 0x4b, 0x03, 0x04, 0, 0, 0, 0]);
+    const bucket = { file: () => { throw new Error('the original is never downloaded again'); } };
+    const sent = await chooseCv({ draft, flow, bucket, cvBuffer: bytes, cvType: detectCvFileType(bytes), cvKey: key });
+    expect(sent).toMatchObject({ cvSent: 'original', cvType: 'docx', cvKey: key });
+    expect(kit.documents.cv.fileName.endsWith(`.${sent.cvType}`)).toBe(true);
+  });
+
   it('shows the owner the CV choice that holds and the renderer of each PDF', async () => {
     await seed({ ...takenOver, cvChoice: 'inplace' }, { tailoredCv: { ...draft.tailoredCv, renderer: 'typst', inplace }, coverLetterRenderer: 'legacy' });
     const ready = (await loadAutomationForAdmin(store.db, ORDER, { signUrl }))?.draft as any;
@@ -203,10 +236,14 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: T0 - 60_000 } });
     await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    // The robot recorded what it was sending at its press (submit.mjs `sentAttempt`).
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ sentAttempt: { at: T0 - 60_000, channel: 'join', packaging: 'portal', files: [] } }, { merge: true });
     // She looked on the portal: nothing arrived. The round is released and the kit leaves.
     const { kit } = await call('automationFillKit', { confirmNotReceived: true }) as any;
     expect(kit.orderId).toBe(ORDER);
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    // What the robot tried did not arrive: it is no record of what she will send.
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sentAttempt: null });
     // A robot run that died before its click left nothing at the employer: no question asked.
     await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: null } });
     expect((await call('automationFillKit') as any).kit.orderId).toBe(ORDER);
@@ -230,6 +267,19 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension', by: 'owner@example.com' } });
     expect(effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
     await expect(call('automationMarkSubmitted')).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
+  });
+
+  // Owner decision of 2026-10-04: a robot's send of uncertain outcome that Valerie confirms is what left.
+  it('turns the robot’s record of an uncertain send into the record of what left when Valerie marks it sent, and only that round’s', async () => {
+    const attempt = { at: T0 - 60_000, channel: 'lever', packaging: 'portal', reason: 'default', letterKey: null, files: [{ kind: 'cv', name: 'CV_Maria_Luisa_Rossi.pdf', key: KEY('ai-cv-r1-1.pdf') }] };
+    await seed({ ...takenOver, heldBy: ['portal_ambiguous'] }, { sentAttempt: attempt });
+    expect(await call('automationMarkSubmitted')).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sent: { ...attempt, confirmedBy: 'owner', confirmedAt: T0 }, sentAttempt: null });
+    // A draft of another round than the flow's: its attempt is not this round's send.
+    await seed({ ...takenOver, round: 2, heldBy: ['portal_ambiguous'] }, { sentAttempt: attempt });
+    expect(await call('automationMarkSubmitted')).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sentAttempt: attempt });
+    expect(store.read(`${PATH}/ai_drafts/current`).sent).toBeUndefined();
   });
 
   it('closes the flow also when Valerie marks it sent in the classic queue, and only a flow left to her', async () => {

@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -187,7 +188,9 @@ function parseFeedItems(xml = '') {
     const location = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'g:location')));
     const jobFunction = decodeHtmlEntities(normalizeSpace(extractTag(itemXml, 'g:job_function')));
     if (!title || !url) continue;
-    items.push({ title, descriptionHtml, url, jobId, location, jobFunction });
+    items.push({ title, descriptionHtml, url, jobId, location, jobFunction,
+      ...sourceRssPostingDateFields(normalizeSpace(extractTag(itemXml, 'pubDate'))),
+    });
   }
   return items;
 }
@@ -263,7 +266,7 @@ export async function fetchAllBarryCallebautJobs() {
       sector: 'Alimentare', // Global chocolate/cocoa manufacturer
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

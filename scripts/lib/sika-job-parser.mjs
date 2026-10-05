@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -145,7 +146,10 @@ async function fetchJobListings() {
       data = await fetchJson(url, { headers });
     } catch (err) {
       console.warn(`   ⚠️ Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const items = assertJsonListShape(data, { key: 'items', source: 'sika' });
@@ -336,7 +340,7 @@ export async function fetchAllSikaJobs() {
     const employmentType = detail.employmentType
       ? detectEmploymentType(detail.employmentType)
       : detectEmploymentType((listing.tags || []).join(' ') || title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(detail.datePosted);
 
     const job = {
       // ── Required fields ──
@@ -371,7 +375,7 @@ export async function fetchAllSikaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

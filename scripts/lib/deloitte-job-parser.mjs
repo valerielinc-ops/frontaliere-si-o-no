@@ -41,6 +41,7 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - DELOITTE_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -343,7 +344,7 @@ function extractJsonLd(html) {
  * Returns null (never throws) if the fetch fails — the caller falls back
  * to listing-only stub data.
  */
-async function fetchJobDetail(url) {
+async function fetchJobDetail(url, expectedTitle) {
   let html;
   try {
     html = await fetchHtml(url, { headers: { 'User-Agent': BROWSER_UA } });
@@ -353,6 +354,14 @@ async function fetchJobDetail(url) {
   }
 
   const ld = extractJsonLd(html);
+  let sameIdentity = !ld || normalizeSpace(ld.title).toLowerCase() === expectedTitle.toLowerCase();
+  if (ld?.url) {
+    try { sameIdentity = sameIdentity && new URL(ld.url, url).href === new URL(url).href; }
+    catch { sameIdentity = false; }
+  }
+  const publication = sourcePostingDateCandidatesFields(sameIdentity
+    ? [ld?.datePosted, parseDeloitteDate(extractField(html, 'Date published'))]
+    : []);
   return {
     businessLine: extractField(html, 'Business line'),
     city: extractField(html, 'City'),
@@ -360,7 +369,7 @@ async function fetchJobDetail(url) {
     workingPct: extractField(html, 'Working time percentage'),
     datePublishedRaw: extractField(html, 'Date published'),
     descriptionHtml: extractJobDescriptionHtml(html),
-    datePosted: (ld && ld.datePosted) || '',
+    ...publication,
   };
 }
 
@@ -382,7 +391,7 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
     } catch (err) {
       console.warn(`   ⚠️ listing page fetch failed (${pageUrl}): ${err && err.message ? err.message : err}`);
-      break;
+      throw err;
     }
 
     const legendMatch = html.match(/list-controls__text__legend"[^>]*>([\s\S]{0,200}?)<\/div>/i);
@@ -411,7 +420,7 @@ async function fetchJobListings() {
 
   const listings = [];
   for (const stub of stubs) {
-    const detail = await fetchJobDetail(stub.url);
+    const detail = await fetchJobDetail(stub.url, stub.title);
     listings.push({ ...stub, detail });
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -455,10 +464,7 @@ export async function fetchAllDeloitteJobs() {
     const jobSlug = slugify(`${title} deloitte ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.workingPct || '');
-    const postedDate =
-      (detail.datePosted && String(detail.datePosted).slice(0, 10)) ||
-      parseDeloitteDate(detail.datePublishedRaw) ||
-      new Date().toISOString().split('T')[0];
+
 
     const job = {
       // ── Required fields ──
@@ -493,7 +499,7 @@ export async function fetchAllDeloitteJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       hiringOrganizationName: DELOITTE_COMPANY_NAME,

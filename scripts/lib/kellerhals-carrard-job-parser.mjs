@@ -28,6 +28,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
@@ -181,7 +182,6 @@ function buildParsedJob(rec) {
   // pipeline's thin-source path).
   const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = new Date().toISOString().slice(0, 10);
   const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 
   return {
@@ -213,7 +213,7 @@ function buildParsedJob(rec) {
     sector: 'Legale',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, rec),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -240,7 +240,10 @@ export async function fetchAllKellerhalsCarrardJobs() {
     });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!Array.isArray(records)) {
     console.warn(`⚠️ Personio search.json: expected array, got ${typeof records}`);

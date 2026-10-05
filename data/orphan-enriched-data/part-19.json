@@ -1972,17 +1972,17 @@
       "observedPaths": {
         "de": "/de/jobs-in-schweiz/alle",
         "it": "/cerca-lavoro-ticino/alle",
-        "fr": "/fr/trouver-emploi-tessin/alle",
-        "en": "/en/find-jobs-ticino/alle"
+        "en": "/en/find-jobs-jura/alle",
+        "fr": "/fr/trouver-emploi-tessin/alle"
       },
       "queries": [
         {
-          "query": "\"sunrise communications\" \"lehrling\" monatsgehalt",
+          "query": "personaldienstleister waadt",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 22
         },
         {
-          "query": "personaldienstleister waadt",
+          "query": "\"sunrise communications\" \"lehrling\" monatsgehalt",
           "clicks": 0,
           "impressions": 19
         },
@@ -2077,9 +2077,9 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 418,
+      "totalImpressions": 430,
       "totalClicks": 0,
-      "topQuery": "\"sunrise communications\" \"lehrling\" monatsgehalt",
+      "topQuery": "personaldienstleister waadt",
       "title": "Alle",
       "titleByLocale": {
         "it": "",
@@ -15683,7 +15683,7 @@
       "locale": "it",
       "path": "/cerca-lavoro-obvaldo/chimica/",
       "observedPaths": {
-        "it": "/cerca-lavoro-ticino/chimica",
+        "it": "/cerca-lavoro-obvaldo/chimica",
         "de": "/de/jobs-im-tessin/chimica",
         "fr": "/fr/trouver-emploi-tessin/chimica",
         "en": "/en/find-jobs-ticino/chimica"
@@ -15740,6 +15740,16 @@
           "impressions": 1
         },
         {
+          "query": "diagnostica prenatale ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "organica",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "puedes buscarme ofertas",
           "clicks": 0,
           "impressions": 1
@@ -15778,19 +15788,9 @@
           "query": "chemie karriere",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "chemie stellenangebote",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "chemieingenieur jobs",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 64,
+      "totalImpressions": 66,
       "totalClicks": 2,
       "topQuery": "offerte di lavoro canton ticino per frontalieri",
       "title": "Chimica",
@@ -24382,10 +24382,10 @@
         "fr": "dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "en": "/en/find-jobs-lucerne/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "de": "/de/jobs-in-luzern/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "fr": "/fr/trouver-emploi-lucerne/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        "it": "/cerca-lavoro-soletta/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "en": "/en/find-jobs-solothurn/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "de": "/de/jobs-in-solothurn/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "fr": "/fr/trouver-emploi-soleure/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24815,10 +24815,10 @@
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
-        "en": "/en/find-jobs-ticino/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
-        "de": "/de/jobs-im-tessin/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
-        "fr": "/fr/trouver-emploi-tessin/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden"
+        "it": "/cerca-lavoro-zurigo/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
+        "en": "/en/find-jobs-zurich/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
+        "de": "/de/jobs-in-zurich/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden",
+        "fr": "/fr/trouver-emploi-zurich/dipl-pflegefachfrau-pflegefachmann-hf-a-orthopadisches-notfallzentrum-40-60-hirslanden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26386,10 +26386,10 @@
       "locale": "en",
       "path": "/en/find-jobs-graubunden/doctors/",
       "observedPaths": {
-        "it": "/cerca-lavoro-ticino/doctors",
-        "en": "/en/find-jobs-ticino/doctors",
-        "de": "/de/jobs-im-tessin/doctors",
-        "fr": "/fr/trouver-emploi-tessin/doctors"
+        "it": "/cerca-lavoro-grigioni/doctors",
+        "fr": "/fr/trouver-emploi-grisons/doctors",
+        "de": "/de/jobs-im-graubunden/doctors",
+        "en": "/en/find-jobs-graubunden/doctors"
       },
       "queries": [
         {
@@ -36995,12 +36995,12 @@
         {
           "query": "disegnatore",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 12
         },
         {
           "query": "rvcs ticino",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 12
         },
         {
           "query": "lavoro in svizzera per italiani",
@@ -37078,7 +37078,7 @@
           "impressions": 4
         }
       ],
-      "totalImpressions": 278,
+      "totalImpressions": 283,
       "totalClicks": 5,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Ingegneri",
@@ -37814,10 +37814,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "elektroinstallateur-in-fur-industrielle-elektromontage-mit-qualitatsbewusstsein-zofingen",
+        "fr": "installateur-trice-electricien-ne-fur-industrielle-elektromontage-mit-qualitatsbewusstsein-fachkraft-ch-gmbh-lugano",
         "it": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
-        "en": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
-        "de": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
-        "fr": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen"
+        "en": "elektroinstallateur-in-fur-industrielle-elektromontage-mit-qualitatsbewusstsein-fachkraft"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
@@ -37825,12 +37825,13 @@
         "de": "/de/jobs-im-aargau/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
         "fr": "/fr/trouver-emploi-argovie/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fachkraft.ch/stellen/elektroinstallateur-in-zofingen-dauerstelle-289686",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -38234,10 +38235,10 @@
         "fr": "internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
-        "en": "/en/find-jobs-vaud/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
+        "it": "/cerca-lavoro-friburgo/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
+        "en": "/en/find-jobs-fribourg/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
         "de": "/de/jobs-im-waadt/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve",
-        "fr": "/fr/trouver-emploi-vaud/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve"
+        "fr": "/fr/trouver-emploi-fribourg/internal-sales-advisor-100-kuchen-w-m-d-bms-building-materials-villeneuve"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -40257,6 +40258,64 @@
       ]
     },
     {
+      "slug": "lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388/"
+      },
+      "queries": [
+        {
+          "query": "ksml bern",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "ksml bern",
+      "title": "Lecons en petites classes 14 lecons ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern 40388",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "en": "lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "de": "lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "fr": "lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "en": "/en/find-jobs-bern/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "de": "/de/jobs-im-bern/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388",
+        "fr": "/fr/trouver-emploi-berne/lecons-en-petites-classes-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40388"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "legal-and-compliance-analyste-100-remote-tether-operations-brussels",
       "locale": "en",
       "path": "/en/find-jobs-ticino/legal-and-compliance-analyste-100-remote-tether-operations-brussels",
@@ -41942,7 +42001,17 @@
           "impressions": 1
         },
         {
+          "query": "emploi logistique vaud",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "emploi transport et logistique vaud",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "je regarde des postes en logistique et je voudrais savoir le salaire d un logisticien en suisse.",
           "clicks": 0,
           "impressions": 1
         },
@@ -41962,7 +42031,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 25,
+      "totalImpressions": 27,
       "totalClicks": 0,
       "topQuery": "logistique jura",
       "title": "Logistique",
@@ -51428,6 +51497,68 @@
       ]
     },
     {
+      "slug": "polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+      "locale": "de",
+      "path": "/de/jobs-in-nidwalden/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans/",
+      "observedPaths": {
+        "de": "/de/jobs-in-nidwalden/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans/"
+      },
+      "queries": [
+        {
+          "query": "jobs nidwalden teilzeit",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "teilzeit jobs nidwalden",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "jobs nidwalden teilzeit",
+      "title": "Polymechaniker in mit inbetriebnahme und pneumatischen kenntnissen fachkraft ch gmbh stans",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "en": "polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "de": "polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "fr": "polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-nidvaldo/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "en": "/en/find-jobs-nidwalden/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "de": "/de/jobs-im-nidwalden/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans",
+        "fr": "/fr/trouver-emploi-nidwald/polymechaniker-in-mit-inbetriebnahme-und-pneumatischen-kenntnissen-fachkraft-ch-gmbh-stans"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "polyvalent-collaborateur-h-f-d-societe-cooperative-migros-vaud-crissier",
       "locale": "it",
       "path": "/fr/trouver-emploi-lucerne/polyvalent-collaborateur-h-f-d-societe-cooperative-migros-vaud-crissier",
@@ -54340,17 +54471,17 @@
           "impressions": 2
         },
         {
-          "query": "frontalieri",
+          "query": "pulizie civili",
           "clicks": 0,
           "impressions": 2
         },
         {
-          "query": "imprese di pulizie svizzera offerte di lavoro",
+          "query": "frontalieri",
           "clicks": 0,
           "impressions": 2
         }
       ],
-      "totalImpressions": 338,
+      "totalImpressions": 342,
       "totalClicks": 10,
       "topQuery": "lavoro in svizzera per italiani",
       "title": "Pulizie",
@@ -59003,6 +59134,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel/"
+      },
+      "queries": [
+        {
+          "query": "novartis svizzera lavora con noi",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "novartis svizzera lavora con noi",
+      "title": "Ricercatore ii supporto per l automazione dei laboratori scoperta delle droghe novartis",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "en": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "de": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "fr": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "en": "/en/find-jobs-basel/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "de": "/de/jobs-im-basel/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel",
+        "fr": "/fr/trouver-emploi-bale/ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -67356,10 +67545,10 @@
         "fr": "spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
-        "en": "/en/find-jobs-ticino/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
-        "de": "/de/jobs-im-tessin/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
-        "fr": "/fr/trouver-emploi-tessin/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern"
+        "it": "/cerca-lavoro-berna/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
+        "en": "/en/find-jobs-bern/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
+        "de": "/de/jobs-in-bern/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern",
+        "fr": "/fr/trouver-emploi-berne/spezialist-in-gebaudebetrieb-1-swiss-armed-forces-vtg-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69509,10 +69698,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "stv-filialleiter-in-denner-ag-luzern-81vwm4",
+        "fr": "directeur-de-succursale-stv-in-denner-ag-luzern",
         "it": "stv-filialleiter-in-denner-luzern",
-        "en": "stv-filialleiter-in-denner-luzern",
-        "de": "stv-filialleiter-in-denner-luzern",
-        "fr": "stv-filialleiter-in-denner-luzern"
+        "en": "stv-filialleiter-in-denner-luzern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/stv-filialleiter-in-denner-luzern",
@@ -69526,6 +69715,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80114,10 +80304,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-battwil",
-        "en": "verkaufer-in-food-coop-genossenschaft-battwil",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-battwil",
+        "en": "seller-food-coop-genossenschaft-battwil",
         "de": "verkaufer-in-food-coop-genossenschaft-battwil",
-        "fr": "verkaufer-in-food-coop-genossenschaft-battwil"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-battwil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/verkaufer-in-food-coop-genossenschaft-battwil",
@@ -80131,6 +80321,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80268,10 +80459,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-heimberg",
-        "en": "verkaufer-in-food-coop-genossenschaft-heimberg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-heimberg",
+        "en": "seller-food-coop-genossenschaft-heimberg",
         "de": "verkaufer-in-food-coop-genossenschaft-heimberg",
-        "fr": "verkaufer-in-food-coop-genossenschaft-heimberg"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-heimberg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-heimberg",
@@ -80285,6 +80476,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -80752,10 +80944,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
-        "en": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
-        "de": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
-        "fr": "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
+        "de": "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-kiosk-coop-genossenschaft-bern",
@@ -80769,6 +80958,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80967,10 +81157,10 @@
         "fr": "verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp",
-        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp",
+        "it": "/cerca-lavoro-zugo/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp",
+        "en": "/en/find-jobs-zug/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp",
         "de": "/de/jobs-im-zurich/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp"
+        "fr": "/fr/trouver-emploi-zoug/verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-idi7rp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

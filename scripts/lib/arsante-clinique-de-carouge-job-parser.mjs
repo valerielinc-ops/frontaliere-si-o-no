@@ -29,6 +29,9 @@
  * Polite delay: 250 ms between detail-page fetches.
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -128,16 +131,34 @@ export function extractDetailBody(html) {
   return '';
 }
 
+function publicationFromDetail(html) {
+  const dom = new JSDOM(html);
+  try {
+    const element = dom.window.document.querySelector('[itemtype="https://schema.org/JobPosting"] .post__date[itemprop="datePosted"]');
+    const raw = normalizeSpace(element?.textContent || '');
+    const french = /^(\d{1,2}) ([a-zéûô]+) (\d{4})$/i.exec(raw);
+    let normalized = raw;
+    if (french) {
+      const month = Array.from({ length: 12 }, (_, index) => new Intl.DateTimeFormat('fr', { month: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2000, index, 1)))).indexOf(french[2].toLowerCase()) + 1;
+      normalized = month ? `${french[3]}-${String(month).padStart(2, '0')}-${french[1].padStart(2, '0')}` : '';
+    }
+    return sourcePostingDateCandidatesFields([extractJobPostingLd(html)?.datePosted, element?.getAttribute('content'), normalized]);
+  } finally {
+    dom.window.close();
+  }
+}
+
 async function fetchDetail(url) {
   try {
     const html = await fetchHtml(url);
     return {
       entity: extractEntity(html),
       body: extractDetailBody(html),
+      ...publicationFromDetail(html),
     };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return { entity: '', body: '' };
+    return { entity: '', body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -167,7 +188,7 @@ export async function fetchAllArsanteJobs() {
       html = await fetchHtml(url);
     } catch (err) {
       console.warn(`  ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      throw err;
     }
     const rows = parseListing(html);
     console.log(`  ✓ page ${page}: ${rows.length} jobs`);
@@ -183,7 +204,6 @@ export async function fetchAllArsanteJobs() {
   console.log(`\n  Total unique rows: ${allRows.length}`);
   if (!allRows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < allRows.length; i += 1) {
     const r = allRows[i];
@@ -238,7 +258,7 @@ export async function fetchAllArsanteJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

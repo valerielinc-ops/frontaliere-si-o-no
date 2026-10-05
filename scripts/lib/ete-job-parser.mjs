@@ -11,6 +11,7 @@
  *   - stripHtml()                — Re-exported from crawler-template.mjs
  *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
@@ -265,7 +266,7 @@ export async function fetchAllEteJobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

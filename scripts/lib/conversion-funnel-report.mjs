@@ -127,8 +127,11 @@ export function assertCompleteReport(data, limit = DEFAULT_LIMIT, name = 'GA4') 
   const count = (data?.rows || []).length;
   const reported = data?.rowCount == null ? null : Number(data.rowCount);
   const metadata = data?.metadata || {};
-  const truncated = reported === null ? count >= limit
-    : !Number.isSafeInteger(reported) || reported < count || reported > count;
+  // Una risposta paginata (runGa4ReportPaged) porta il proprio verdetto di
+  // completezza; una pagina singola si giudica da rowCount e limit.
+  const truncated = typeof data?.complete === 'boolean' ? !data.complete
+    : reported === null ? count >= limit
+      : !Number.isSafeInteger(reported) || reported < count || reported > count;
   if (truncated || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
     || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
     || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize))) {

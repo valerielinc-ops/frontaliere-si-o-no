@@ -4,11 +4,11 @@
   "generatorSha256": "da2ca616eb5d838b50a4e29262823df4af9fb4a5fb918d728bdf2592027f9556",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "4b443e05c1b28fffebeae7e71ecb458ddae3fb2f",
+  "sourceCommit": "aba17c33cb733025957c5a18173e6f9d25a9c219",
   "artifactObservation": {
     "generatorSha256": "da2ca616eb5d838b50a4e29262823df4af9fb4a5fb918d728bdf2592027f9556",
     "sourceRef": "main",
-    "sourceCommit": "4b443e05c1b28fffebeae7e71ecb458ddae3fb2f"
+    "sourceCommit": "aba17c33cb733025957c5a18173e6f9d25a9c219"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -68,6 +68,7 @@
     "scripts/mark-locale-mismatched-jobs.mjs",
     "scripts/mark-mistranslated-jobs.mjs",
     "scripts/regenerate-slugs-by-locale.mjs",
+    "scripts/release-translation-holds.mjs",
     "scripts/relocalize-pending-jobs.mjs",
     "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
@@ -617,7 +618,7 @@
     {
       "source": "observers/scripts/lib/github-actions-read-client.mjs",
       "target": "scripts/ci/lib/github-actions-read-client.mjs",
-      "sha256": "1b175fe8929c880373b1fb514bfc5e99566b806f26beb5a3362bb2b73a50b1e7"
+      "sha256": "ac3fbf4d0070047578be2f52fd5e907f73af473225949caf9857268462652491"
     }
   ],
   "checkout": {
@@ -1483,8 +1484,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "aa67dfcd10e29392ffd92da60af1c016c3295aa63997d864e70ad9edde596a29",
-      "artifactSha256": "06405b3713cb2ce321946d6c7ace267cca26460428fc50682d04d97d2c131e45",
+      "sourceSha256": "15a15cc57d11b136f9bbf798c994c575363161307eb64c65674fe3bc4f8a40a8",
+      "artifactSha256": "fc268d811d8e6b48a08ca2a09cf63bd7f9b0d0c0fb09567016ce41826ef7c3fb",
       "generatorSha256": "da2ca616eb5d838b50a4e29262823df4af9fb4a5fb918d728bdf2592027f9556",
       "members": []
     }

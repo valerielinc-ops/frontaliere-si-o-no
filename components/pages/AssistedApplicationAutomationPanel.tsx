@@ -7,6 +7,7 @@ import {
   type AutomationAdminAction,
 } from '@/services/assistedApplicationAdminService';
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
+import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -56,7 +57,6 @@ const TAILORED_CV_LABELS: Record<string, string> = {
 
 const HELD_LABELS: Record<string, string> = {
   fact_check: 'fatti non verificati nei testi',
-  knock_out: 'requisito indispensabile mancante',
   no_posting: 'testo dell’annuncio non recuperato',
   channel_unknown: 'canale di candidatura sconosciuto',
   legitimacy: 'annuncio sospetto (Block G)',
@@ -64,6 +64,9 @@ const HELD_LABELS: Record<string, string> = {
   draft_failed: 'bozza non generata',
   posting_closed: 'annuncio chiuso (rimborso automatico)',
   portal_needs_candidate: 'il portale richiede il candidato',
+  fact_check_not_acknowledged: 'invio fermato dal controllo dei fatti: serve la tua conferma',
+  sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
+  sent_attempt_not_stored: 'tentativo d’invio non registrato: la candidatura non è partita',
   owner: 'presa in carico manuale',
 };
 
@@ -86,10 +89,11 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
   posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
-  whatsapp: 'candidatura solo via WhatsApp (PastaHR): affidala al candidato',
+  // #11161: a retry completes it when the channel has a PastaHR https link (the candidate gets it by e-mail).
+  whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
 };
 
-function heldLabel(reason: string): string {
+export function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
   if (reason.startsWith('document:')) return `documento mancante: ${reason.slice(9)}`;
   if (reason.startsWith('portal:')) return PORTAL_STOP_LABELS[reason.slice(7)] || PORTAL_STOP_LABELS.portal_needs_candidate;
@@ -279,6 +283,9 @@ export default function AssistedApplicationAutomationPanel({
   const secondary = `${button} border border-edge text-subtle hover:border-accent hover:text-link`;
   const spinner = (name: string) => (busy === name ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null);
   const unsupported = draft?.factCheck?.unsupported || [];
+  // The runner checks the facts again before sending, with the gate of the day: a send it stopped
+  // leaves again only with the tick an approval needs (the runner stored the facts it found).
+  const needsFactAck = (flow?.heldBy || []).includes('fact_check_not_acknowledged') && unsupported.length > 0;
   // Not blocking: words echoed from the posting, filler phrases, a letter out of 150-380 words.
   const advisories = draft?.factCheck?.advisories || [];
   const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
@@ -331,9 +338,27 @@ export default function AssistedApplicationAutomationPanel({
         </div>
       )}
 
-      {(automation?.followup || automation?.interviewPrep) && (
+      {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
         <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
+          {draft?.sent && (
+            <div className="mt-1">
+              <p><strong>Inviato</strong> {formatMs(draft.sent.at)}: {sentSummaryIt(draft.sent)}</p>
+              {(draft.sent.files.length > 0 || draft.sent.letterUrl) && (
+                <p className="text-muted">
+                  {draft.sent.files.map((file, index) => (
+                    <span key={`${file.kind}-${index}`}>
+                      {index > 0 ? ' · ' : ''}
+                      {file.url ? <a className="text-link hover:underline" href={file.url} target="_blank" rel="noreferrer">{file.name}</a> : file.name}
+                    </span>
+                  ))}
+                  {draft.sent.packaging === 'single' && draft.sent.letterUrl && (
+                    <> · <a className="text-link hover:underline" href={draft.sent.letterUrl} target="_blank" rel="noreferrer">lettera da sola</a></>
+                  )}
+                </p>
+              )}
+            </div>
+          )}
           {automation?.followup && (
             <p className="mt-1">
               <strong>Solleciti:</strong> {FOLLOWUP_STATES[automation.followup.state || ''] || automation.followup.state} · inviati {automation.followup.sent}/2
@@ -468,7 +493,8 @@ export default function AssistedApplicationAutomationPanel({
             <div className="rounded-lg border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
               <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
               <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
-              <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>
+              {/* A send the runner stopped is confirmed next to «Riprova l’invio automatico», with the same tick. */}
+              {!needsFactAck && <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>}
             </div>
           )}
           {advisories.length > 0 && (
@@ -480,7 +506,7 @@ export default function AssistedApplicationAutomationPanel({
           {/* A profile that is not a full match no longer needs a tick here: the candidate is told on the review page. */}
           {draft.verdict === 'poor' && (
             <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
-              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: il candidato lo legge sopra le domande, con i requisiti che non risultano dal CV, e decide lui se inviare.
+              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: la pagina della candidatura lo dice al candidato, con i requisiti che non risultano dal CV quando ce ne sono, e la scelta di inviarla resta sua.
             </p>
           )}
           {/* The other owner flags: approving needs an explicit acknowledgement of each (409 owner_flags_open otherwise). */}
@@ -549,9 +575,19 @@ export default function AssistedApplicationAutomationPanel({
             </button>
           )}
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
-              {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
-            </button>
+            <>
+              {needsFactAck && (
+                <div className="w-full text-xs text-body">
+                  <p id={`fact-retry-${order.orderId}`}>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
+                  <label className="mt-1 flex items-center gap-2">
+                    <input type="checkbox" aria-describedby={`fact-retry-${order.orderId}`} checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
+                  </label>
+                </div>
+              )}
+              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
+                {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
+              </button>
+            </>
           )}
           {flow.state === 'owner_takeover' && draft?.round === flow.round && portalUrl && (extensionVersion ? (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>

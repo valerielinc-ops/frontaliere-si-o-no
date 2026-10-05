@@ -497,7 +497,7 @@ function renderPage(
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -961,7 +961,7 @@ function renderEntryPage(
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',

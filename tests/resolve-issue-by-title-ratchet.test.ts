@@ -35,6 +35,28 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'la CLI `--resolve` riceve solo `--title`: un passo `if: success()` chiude il titolo stabile del suo reporter',
   },
+  'scripts/audit-duplicate-crawler-companies.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `creator.resolveGithubIssue` di reportFindingIssues.
+    calls: 0,
+    why: 'audit settimanale dei crawler: una famiglia (duplicate/coverage-gap/snapshot-stale) misurata a 0 chiude la issue della sua chiave stabile, la stessa dedupKey con cui la apre; nessun numero valutato',
+  },
+  'scripts/audit-missing-company-logos.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `resolveIssue` di reportIssue (issue 6504).
+    calls: 0,
+    why: 'audit loghi settimanale: 0 aziende senza logo verificato chiude il titolo stabile MISSING_LOGOS_ISSUE_TITLE che lo stesso audit apre, nessun numero valutato',
+  },
+  'scripts/audit-cls-live.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `resolve: resolveIssue = resolveGithubIssue` di syncClsRegressionIssue.
+    calls: 0,
+    why: 'gate CLS post-deploy (CLS-2): una misura completa senza regressioni hard chiude il titolo stabile esatto CLS_REGRESSION_ISSUE_TITLE che lo stesso gate apre, nessun numero valutato',
+  },
+  'scripts/check-source-liveness.mjs': {
+    calls: 1,
+    why: 'sorgente misurata viva chiude il titolo stabile ISSUE_TITLE dell\'outage che lo stesso script apre; nessun numero valutato',
+  },
   'scripts/ci/check-employer-insights-freshness.mjs': {
     calls: 1,
     why: 'dato fresco → chiude il titolo stabile esatto che lo stesso monitor apre quando è stantio',
@@ -69,13 +91,17 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'un allarme rientrato nel diff di stato chiude il titolo stabile di quell\'allarme',
   },
+  'scripts/monitor-telegram-member-count.mjs': {
+    calls: 1,
+    why: 'il conteggio iscritti cambiato entro la soglia chiude il titolo stabile STABLE_ISSUE_TITLE della stagnazione che lo stesso monitor apre',
+  },
   'scripts/monitor-gcp-costs.mjs': {
     calls: 1,
     why: 'nessun driver sopra soglia → chiude il titolo stabile del monitor costi',
   },
   'scripts/send-job-alerts.mjs': {
     calls: 1,
-    why: 'tasso zero-match rientrato → chiude il titolo stabile del monitor',
+    why: 'sonde sintetiche del matcher tutte verdi → chiude il titolo stabile del monitor',
   },
   'scripts/seo/seo-health-loop.mjs': {
     calls: 1,

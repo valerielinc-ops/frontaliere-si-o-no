@@ -16,6 +16,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -319,7 +320,11 @@ function buildJobFromJsonLd(jsonLd, detailUrl, rexxId) {
   const jobSlug = slugify(`${title} ${MATTERHORN_GOTTHARD_BAHN_KEY} ch`);
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-  const postedDate = normalizeSpace(jsonLd.datePosted || '').slice(0, 10);
+  let matchingUrl = !jsonLd.url;
+  if (jsonLd.url) {
+    try { matchingUrl = new URL(jsonLd.url, detailUrl).href === new URL(detailUrl).href; } catch { matchingUrl = false; }
+  }
+  const publication = sourcePostingDateFields(matchingUrl ? jsonLd.datePosted : '');
   const validThrough = normalizeSpace(jsonLd.validThrough || '').slice(0, 10);
 
   return {
@@ -354,7 +359,7 @@ function buildJobFromJsonLd(jsonLd, detailUrl, rexxId) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    postedDate: postedDate || new Date().toISOString().split('T')[0],
+    ...publication,
     validThrough: validThrough || '',
     applyUrl: detailUrl.replace(/-de-j(\d+)\.html$/, `-de-f$1.html`),
     requirements,

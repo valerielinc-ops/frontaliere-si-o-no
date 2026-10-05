@@ -22,11 +22,20 @@
  * the dynamic ones.
  */
 
+import fs from 'node:fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
+import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+  FUEL_SITEMAP_FILES,
+  isFuelSitemapFile,
+} from './fuelDailyData';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
 import {
+  dropOverwrittenLocs,
+  dropUrlBlocksByLoc,
+  extractSitemapLocs,
   getFinalSitemapMirrorLocs,
   reconcileSitemapJobsWithDist,
   reconcileSitemapSearchClustersWithDist,
@@ -119,6 +128,88 @@ ${entries}
 export interface SitemapXmlFile {
   file: string;
   xml: string;
+}
+
+/** Remove numeric fuel sitemap shards left by an older incremental build. */
+function removeStaleFuelSitemapFiles(distDir: string): string[] {
+  const current = new Set<string>(FUEL_SITEMAP_FILES);
+  const removed: string[] = [];
+  for (const file of fs.readdirSync(distDir)) {
+    if (!isFuelSitemapFile(file) || current.has(file)) continue;
+    try {
+      fs.rmSync(path.join(distDir, file), { force: true });
+      removed.push(file);
+    } catch {
+      // The final reconciliation below still filters current files. A stale
+      // shard that cannot be removed must not make the build fail here.
+    }
+  }
+  return removed;
+}
+
+/**
+ * Reconcile every fuel sitemap against the final HTML in dist/.
+ *
+ * Fuel pages are emitted by one plugin but can be overwritten later by a
+ * bridge/alias emitter, and incremental builds can carry an old fuel shard.
+ * The path arrays collected before the final write are therefore not enough:
+ * a loc remains indexable only when its final document exists, is indexable,
+ * and self-canonical. Missing or noindex bridge pages are deliberately kept
+ * as HTML recovery pages but removed from the sitemap.
+ *
+ * Exported for the dist-artifact regression test; the Vite hook calls it after
+ * all page emitters have completed.
+ */
+export async function reconcileSitemapFuelWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+
+  const removedShards = removeStaleFuelSitemapFiles(distDir);
+  if (removedShards.length > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m removed stale fuel sitemap shard(s): ${removedShards.join(', ')}`,
+    );
+  }
+
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => isFuelSitemapFile(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const locs = files.flatMap(({ xml }) => extractSitemapLocs(xml));
+  if (locs.length === 0) return 0;
+
+  // On a locale shard, a genuinely absent foreign-locale page belongs to a
+  // sibling artifact and must remain in the main sitemap. If that foreign
+  // path is present on disk (for example, a direct-fs bridge), inspect it so
+  // noindex/non-self-canonical HTML cannot leak through.
+  const kept = new Set(
+    await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }),
+  );
+  const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
+  if (dropLocs.length === 0) return 0;
+
+  let dropped = 0;
+  const changedFiles: string[] = [];
+  for (const { file, xml } of files) {
+    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    if (result.xml === xml || result.dropped === 0) continue;
+    if (extractSitemapLocs(result.xml).length === 0) {
+      fs.rmSync(path.join(distDir, file), { force: true });
+    } else {
+      fs.writeFileSync(path.join(distDir, file), result.xml, 'utf-8');
+    }
+    dropped += result.dropped;
+    changedFiles.push(file);
+  }
+  if (dropped > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m fuel sitemap dist-truth reconciliation removed ` +
+        `${dropped} URL(s) whose final HTML was missing, noindex, or non-self-canonical ` +
+        `(files=${changedFiles.join(', ')})`,
+    );
+  }
+  return dropped;
 }
 
 /** A `<url>` block that carries xhtml:link hreflang annotations. */
@@ -299,6 +390,7 @@ export async function reconcileFinalSitemapsWithDist(
 ): Promise<void> {
   await reconcileSitemapSearchClustersWithDist(distDir);
   await reconcileSitemapJobsWithDist(distDir, mirrorLocs);
+  await reconcileSitemapFuelWithDist(distDir);
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {
@@ -323,6 +415,10 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         //    producers' first passes run before later page emitters, so only
         //    this position can catch a late noindex, non-self-canonical, or
         //    redirect/missing overwrite in either family.
+        //    The explicit jobs barrier is required even though this hook is
+        //    post/sequential: closeBundle scheduling can otherwise expose a
+        //    stale foreign-locale shard before the jobs writer resolves.
+        await jobsSeoPagesFlushed;
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the

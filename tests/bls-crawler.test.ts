@@ -227,6 +227,49 @@ describe('BLS AG crawler parser', () => {
     }
   });
 
+  it('matches structured publication evidence when its URL has a trailing slash', async () => {
+    const searchUrl = 'https://jobs.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/techniker/uuid-trailing-slash';
+    const listingHtml = `<div data-init="jobs" data-api-url-jobs-search="${searchUrl}"></div>`;
+    const apiResponse = [{
+      Title: 'Techniker:in Schienenfahrzeuge',
+      Lead: 'Bönigen, 80-100%',
+      URL: detailUrl,
+    }];
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Techniker:in Schienenfahrzeuge',
+      url: `${detailUrl}/`,
+      datePosted: '2026-09-01',
+      description: 'Wartung und Instandhaltung von Schienenfahrzeugen.',
+      jobLocation: { address: { addressLocality: 'Bönigen', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response(listingHtml, { status: 200 });
+      }
+      if (url === searchUrl) return new Response(JSON.stringify(apiResponse), { status: 200 });
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        datePosted: '2026-09-01',
+        postedDate: '2026-09-01',
+        postingDateSource: 'reported',
+      });
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
   it('uses the canonical JobsSearch endpoint when the widget omits it', async () => {
     const searchUrl = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
     const detailUrl = 'https://jobs.bls.ch/offene-stellen/disponent/uuid-fallback';

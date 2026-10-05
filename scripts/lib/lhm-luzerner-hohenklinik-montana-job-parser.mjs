@@ -21,6 +21,8 @@
  *
  * Polite delay: 250 ms between detail-page fetches.
  */
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -134,10 +136,18 @@ async function fetchDetail(url) {
     const html = await fetchHtml(url);
     const title = extractH1(html);
     const body = extractBodyText(html);
-    return { title, body };
+    const postings = extractJobPostingsLd(html);
+    const matching = postings.filter((posting) => {
+      if (!title || normalizeSpace(posting.title || '').toLowerCase() !== title.toLowerCase()) return false;
+      const urls = [posting.url, posting.sameAs].filter(Boolean);
+      if (!urls.length) return postings.length === 1;
+      try { return urls.every((value) => new URL(value, url).href === new URL(url).href); }
+      catch { return false; }
+    });
+    return { title, body, ...sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '') };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return { title: '', body: '' };
+    return { title: '', body: '', ...sourcePostingDateFields() };
   }
 }
 
@@ -158,14 +168,13 @@ export async function fetchAllLhmJobs() {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} job links discovered`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (let i = 0; i < rows.length; i += 1) {
@@ -220,7 +229,7 @@ export async function fetchAllLhmJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

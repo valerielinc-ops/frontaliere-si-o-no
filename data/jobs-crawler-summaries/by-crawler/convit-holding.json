@@ -1,22 +1,61 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-10-04T09:29:29.753Z",
+  "generatedAt": "2026-10-04T21:38:38.229Z",
   "total": 36,
-  "newCount": 6,
-  "updatedCount": 30,
+  "newCount": 7,
+  "updatedCount": 17,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 40532,
-  "avgDurationMs": 40532,
+  "unchangedCount": 12,
+  "durationMs": 53200,
+  "avgDurationMs": 53200,
   "durationHistory": [
-    40532
+    53200
   ],
   "newJobs": [
     {
+      "id": "convit-782719a2ffcb",
+      "title": "Consulente previdenziale – cambio di carriera (zona Massagno)",
+      "slug": "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
+      "url": "https://www.careers-page.com/convit-holding-gmbh/job/937W943Y",
+      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/937W943Y/apply",
+      "company": "Convit Holding GmbH",
+      "companyKey": "convit-holding",
+      "companyDomain": "careers-page.com",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Finanza & Previdenza",
+      "source": "convit-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "2026-09-26T18:20:31.472782+00:00",
+      "postedDate": "2026-09-26T18:20:31.472782+00:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
+    {
       "id": "convit-89d88d6b6cfb",
       "title": "Consulente previdenziale (zona Lugano)",
-      "slug": "consulente-previdenziale-zona-lugano-convit-lugano",
+      "slug": "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/4R45XV37",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/4R45XV37/apply",
       "company": "Convit Holding GmbH",
@@ -32,24 +71,32 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-09-26T18:19:40.508426+00:00",
+      "postedDate": "2026-09-26T18:19:40.508426+00:00",
+      "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 25
       }
     },
     {
       "id": "convit-ae8e2d729db0",
       "title": "Consulente previdenziale (junior) 3a/3b, Ibrido",
-      "slug": "consulente-previdenziale-junior-3a-3b-ibrido-convit-cadempino",
+      "slug": "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84X9R",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84X9R/apply",
       "company": "Convit Holding GmbH",
@@ -71,18 +118,24 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 71500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
       "id": "convit-cdf168c2d43b",
       "title": "Consulente previdenziale – 3a/3b, tempo indeterminato",
-      "slug": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-cadempino",
+      "slug": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/7XW583V5",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/7XW583V5/apply",
       "company": "Convit Holding GmbH",
@@ -104,18 +157,24 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
       "id": "convit-8b83d8fd7720",
       "title": "Consulente pianificazione pensionistica & budget (entrata laterale) Homeoffice possibile",
-      "slug": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-cadempino",
+      "slug": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/8X75849R",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/8X75849R/apply",
       "company": "Convit Holding GmbH",
@@ -137,18 +196,24 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
       "id": "convit-8e047d3f2fb7",
       "title": "Consulente budget & pianificazione (junior)",
-      "slug": "consulente-budget-pianificazione-junior-convit-cadempino",
+      "slug": "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/4R849W6V",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/4R849W6V/apply",
       "company": "Convit Holding GmbH",
@@ -170,18 +235,24 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
       "id": "convit-37cb1e8bc73e",
       "title": "Consulente budget & patrimonio (junior) tempo parziale possibile",
-      "slug": "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-cadempino",
+      "slug": "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV3W",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV3W/apply",
       "company": "Convit Holding GmbH",
@@ -203,12 +274,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 71500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 12
+        "translation": 16,
+        "completeness": 17
       }
     }
   ],
@@ -232,7 +309,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:51:35.565029+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -242,20 +319,20 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-27T20:51:35.565029+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
       "id": "convit-7bf067a76142",
       "title": "Consulente previdenziale – VBV, profilo Vita (zona Barbengo)",
-      "slug": "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo",
+      "slug": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/7X59X6W5",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/7X59X6W5/apply",
       "company": "Convit Holding GmbH",
@@ -271,7 +348,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:45.887119+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -281,14 +358,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "datePosted": "2026-09-27T20:50:45.887119+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -310,7 +387,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:20.701364+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -320,14 +397,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-27T20:50:20.701364+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -349,7 +426,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:19.192686+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -359,14 +436,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-27T20:50:19.192686+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -388,7 +465,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:17.544506+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -398,14 +475,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-27T20:50:17.544506+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -427,7 +504,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:15.482783+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -437,14 +514,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-27T20:50:15.482783+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -466,7 +543,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:14.663574+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -478,20 +555,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "datePosted": "2026-09-27T20:50:14.663574+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 23
+        "completeness": 25
       }
     },
     {
       "id": "convit-35f87a6a86d3",
       "title": "Consulente previdenziale – VBV, profilo Vita (zona Massagno)",
-      "slug": "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno",
+      "slug": "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/937W3636",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/937W3636/apply",
       "company": "Convit Holding GmbH",
@@ -507,7 +584,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:11.834045+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -517,20 +594,20 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "datePosted": "2026-09-27T20:50:11.834045+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
       "id": "convit-5891066f7a44",
       "title": "Consulente previdenziale – con o senza qualifica VBV (zona Chiasso)",
-      "slug": "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-chiasso",
+      "slug": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/8X5VX6XR",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/8X5VX6XR/apply",
       "company": "Convit Holding GmbH",
@@ -546,7 +623,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-27T20:50:11.244317+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -555,20 +632,20 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "datePosted": "2026-09-27T20:50:11.244317+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
       "id": "convit-6c5ceb801ab7",
       "title": "Consulente previdenziale VBV Vita (zona Pregassona)",
-      "slug": "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona",
+      "slug": "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/4R45X8V7",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/4R45X8V7/apply",
       "company": "Convit Holding GmbH",
@@ -584,7 +661,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:20:47.581527+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -594,14 +671,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "datePosted": "2026-09-26T18:20:47.581527+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -623,7 +700,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:20:41.901711+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -633,14 +710,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-26T18:20:41.901711+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -662,7 +739,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:20:34.391223+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -672,53 +749,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-26T18:20:34.391223+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "convit-782719a2ffcb",
-      "title": "Consulente previdenziale – cambio di carriera (zona Massagno)",
-      "slug": "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/937W943Y",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/937W943Y/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -740,7 +778,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:20:08.835822+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -750,14 +788,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-26T18:20:08.835822+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -779,7 +817,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:19:59.887534+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -789,14 +827,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "datePosted": "2026-09-26T18:19:59.887534+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -818,7 +856,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:19:53.308108+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -828,20 +866,20 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-26T18:19:53.308108+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
       "id": "convit-b4b9e893fe67",
       "title": "Consulente previdenziale VBV, profilo Vita (zona Locarno)",
-      "slug": "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-locarno",
+      "slug": "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/5W86VY53",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/5W86VY53/apply",
       "company": "Convit Holding GmbH",
@@ -857,7 +895,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:19:40.792503+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -867,14 +905,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "datePosted": "2026-09-26T18:19:40.792503+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -896,7 +934,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "",
+      "postedDate": "2026-09-26T18:19:30.816623+00:00",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -906,20 +944,23 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 83,
+      "datePosted": "2026-09-26T18:19:30.816623+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "convit-cfded655d12b",
       "title": "Consulenza investimenti & previdenza (entrata laterale benvenuti) tempo indeterminato",
-      "slug": "consulenza-investimenti-previdenza-entrata-laterale-benvenuti-tempo-indeterminato-convit-cadempino",
+      "slug": "consulenza-investimenti-previdenza-entrata-laterale-benvenuti-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/RY79X3RX",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/RY79X3RX/apply",
       "company": "Convit Holding GmbH",
@@ -960,7 +1001,7 @@
     {
       "id": "convit-61e45957498d",
       "title": "Consulente soluzioni finanziarie (junior)",
-      "slug": "consulente-soluzioni-finanziarie-junior-convit-cadempino",
+      "slug": "consulente-soluzioni-finanziarie-junior-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV5W",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV5W/apply",
       "company": "Convit Holding GmbH",
@@ -1001,7 +1042,7 @@
     {
       "id": "convit-0ba4fc14f88e",
       "title": "Consulente previdenziale per la vecchiaia & 3a (entrata laterale) tempo indeterminato",
-      "slug": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-cadempino",
+      "slug": "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV8W",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV8W/apply",
       "company": "Convit Holding GmbH",
@@ -1040,7 +1081,7 @@
     {
       "id": "convit-52e8a7e703b7",
       "title": "Consulente previdenziale familiare (junior) 3a/3b, Ibrido",
-      "slug": "consulente-previdenziale-familiare-junior-3a-3b-ibrido-convit-cadempino",
+      "slug": "consulente-previdenziale-familiare-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VWYR",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VWYR/apply",
       "company": "Convit Holding GmbH",
@@ -1070,6 +1111,7 @@
       "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/x9y8vwyr",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "retranslationAttempts": 0,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1081,7 +1123,7 @@
     {
       "id": "convit-797b2e5c312b",
       "title": "Consulente previdenziale & 3a (entrata laterale) tempo indeterminato",
-      "slug": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-cadempino",
+      "slug": "consulente-previdenziale-pianificazione-ibrido-convit-montagnola",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YRR",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YRR/apply",
       "company": "Convit Holding GmbH",
@@ -1120,7 +1162,7 @@
     {
       "id": "convit-1c1006f76a77",
       "title": "Consulente previdenziale 3a/3b (junior) Ibrido/Homeoffice",
-      "slug": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-cadempino",
+      "slug": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/Y6R89X8V",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/Y6R89X8V/apply",
       "company": "Convit Holding GmbH",
@@ -1161,7 +1203,7 @@
     {
       "id": "convit-d63227f6286b",
       "title": "Consulente patrimonio (junior)",
-      "slug": "consulente-patrimonio-junior-convit-cadempino",
+      "slug": "consulente-patrimonio-junior-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW4R",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW4R/apply",
       "company": "Convit Holding GmbH",
@@ -1202,7 +1244,7 @@
     {
       "id": "convit-4d18010f6ad8",
       "title": "Consulente investimenti & previdenza (junior) tempo indeterminato",
-      "slug": "consulente-investimenti-previdenza-junior-tempo-indeterminato-convit-cadempino",
+      "slug": "consulente-investimenti-previdenza-junior-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV4W",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV4W/apply",
       "company": "Convit Holding GmbH",
@@ -1244,7 +1286,7 @@
     {
       "id": "convit-554e8b53ca46",
       "title": "Consulente investimenti & previdenza (entrata laterale) Ibrido",
-      "slug": "consulente-investimenti-previdenza-entrata-laterale-ibrido-convit-cadempino",
+      "slug": "consulente-investimenti-previdenza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/V6Y89R4R",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/V6Y89R4R/apply",
       "company": "Convit Holding GmbH",
@@ -1286,7 +1328,7 @@
     {
       "id": "convit-048f45a09b17",
       "title": "Consulente budget & previdenza (entrata laterale) Ibrido",
-      "slug": "consulente-budget-previdenza-entrata-laterale-ibrido-convit-cadempino",
+      "slug": "consulente-budget-previdenza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/Y6R89X5V",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/Y6R89X5V/apply",
       "company": "Convit Holding GmbH",
@@ -1316,6 +1358,7 @@
       "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/y6r89x5v",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "retranslationAttempts": 0,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1327,7 +1370,7 @@
     {
       "id": "convit-e4c5decdc48c",
       "title": "Consulente accumulo di capitale (junior) – orari flessibili",
-      "slug": "consulente-accumulo-di-capitale-junior-orari-flessibili-convit-cadempino",
+      "slug": "consulente-accumulo-di-capitale-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/V6Y89RYR",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/V6Y89RYR/apply",
       "company": "Convit Holding GmbH",
@@ -1368,7 +1411,7 @@
     {
       "id": "convit-eaadcb848a68",
       "title": "Consulente 3a & piani di risparmio (senza esperienza) formazione gratuita",
-      "slug": "consulente-3a-piani-di-risparmio-senza-esperienza-formazione-gratuita-convit-cadempino",
+      "slug": "consulente-3a-piani-di-risparmio-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
       "url": "https://www.careers-page.com/convit-holding-gmbh/job/934785X6",
       "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/934785X6/apply",
       "company": "Convit Holding GmbH",
@@ -1393,19 +1436,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

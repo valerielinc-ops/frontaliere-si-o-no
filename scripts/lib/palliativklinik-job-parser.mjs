@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Palliativklinik im Park (Arlesheim, BL) — dedicated parser.
  *
@@ -177,13 +178,12 @@ export async function fetchAllPalliativklinikJobs() {
     listingHtml = await fetchHtml(PALLIATIVKLINIK_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -238,7 +238,7 @@ export async function fetchAllPalliativklinikJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: PALLIATIVKLINIK_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

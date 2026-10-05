@@ -42,12 +42,13 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -252,13 +253,14 @@ async function fetchJobListings() {
         title: id.title,
         location: cityFromLocationText(posting.locationsText || ''),
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
       });
     }
   } catch (err) {
+    // fetch-failure-empty-ok: WorkdayAuthError anti-bot branch: the pipeline soft-exits only connection-level/antiBotExhausted errors, so a throw would open a Crawler Failure on every blocked run
     if (err instanceof WorkdayAuthError) {
       console.error(`❌ Workday anti-bot block (${BERNER_MONTAGE_COMPANY_NAME}): ${err.message}`);
       return [];
@@ -277,7 +279,7 @@ async function fetchJobListings() {
         title: id.title,
         location: cityFromLocationText(posting.locationsText || ''),
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -385,7 +387,6 @@ export async function fetchAllBernerMontageJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     // The CXS listing row carries no `timeType`; the detail does.
     const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
-    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -424,7 +425,7 @@ export async function fetchAllBernerMontageJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

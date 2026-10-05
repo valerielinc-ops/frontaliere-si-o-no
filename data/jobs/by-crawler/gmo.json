@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-10-04T09:13:32.039Z",
+  "assembledAt": "2026-10-04T21:17:07.935Z",
   "jobs": [
     {
       "id": "gmo-06d32a1fe66e",
@@ -34,7 +34,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.282Z",
+      "crawledAt": "2026-10-04T21:17:00.840Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -68,87 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:39.488Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gmo-785f6aa1a91e",
-      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-      "slugByLocale": {
-        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
-        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
-        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-      },
-      "slugDisambiguator": "785f6aa1",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin interniste généraliste FMH",
-      "titleByLocale": {
-        "it": "Generalista internista medico FMH",
-        "en": "Generalist internist physician FMH",
-        "de": "Generalist Internist Arzt FMH",
-        "fr": "Médecin interniste généraliste FMH"
-      },
-      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
-      "descriptionByLocale": {
-        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
-        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
-        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
-        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.281Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
-        "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
-          "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1"
-        ],
-        "en": [
-          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-        ],
-        "de": [
-          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:15:39.486Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -195,7 +114,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-expert-18",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.281Z",
+      "crawledAt": "2026-10-04T21:17:00.839Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -245,6 +164,86 @@
       }
     },
     {
+      "id": "gmo-785f6aa1a91e",
+      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+      "slugByLocale": {
+        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
+        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
+        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+      },
+      "slugDisambiguator": "785f6aa1",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Médecin interniste généraliste FMH",
+      "titleByLocale": {
+        "it": "Generalista internista medico FMH",
+        "en": "Generalist internist physician FMH",
+        "de": "Generalist Internist Arzt FMH",
+        "fr": "Médecin interniste généraliste FMH"
+      },
+      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
+      "descriptionByLocale": {
+        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
+        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
+        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
+        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T21:17:00.838Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
+        "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
+          "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1"
+        ],
+        "en": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ],
+        "de": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:15:39.486Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "gmo-ecfa03f8bb0f",
       "slug": "specialista-medico-fmh-gmo-1023-crissier-ecfa03f8",
       "slugByLocale": {
@@ -276,7 +275,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.280Z",
+      "crawledAt": "2026-10-04T21:17:00.836Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -325,87 +324,6 @@
       }
     },
     {
-      "id": "gmo-2d02ba119d36",
-      "slug": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
-      "slugByLocale": {
-        "it": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
-        "en": "physician-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11",
-        "de": "arzt-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11",
-        "fr": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
-      },
-      "slugDisambiguator": "2d02ba11",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)",
-      "titleByLocale": {
-        "it": "Medico (Mebeko / FMH) - Unità di cura intermedia (UATm)",
-        "en": "Physician ( Mebeko / FMH) - Intermediate Care Unit (UATm)",
-        "de": "Arzt (Mebeko / FMH) - Intermediate Care Unit (UATm)",
-        "fr": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)"
-      },
-      "description": "Poste à temps partiel (60–80%) – Sans gardes.\nNous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle.\nVos missions\n- Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n- Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n- Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n- Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n- Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n- Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n- Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes.\nConditions du poste\n- Taux d’activité : 60–80% , présence régulière sur cinq jours.\n- Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n- Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n- Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique.\nProfil recherché\n- Diplôme reconnu en Suisse (MEBEKO).\n- Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n- Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n- Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n- Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle.",
-      "descriptionByLocale": {
-        "it": "Posto part-time (60-80%) – Senza guardie.\nStiamo cercando un medico laureato (MEBEKO o FMH, medico assistente avanzato o capo di clinica) per unire l'unità di assistenza medica di un istituto sanitario riconosciuto per la sua offerta di formazione continua e il suo impegno per l'innovazione organizzativa.\nLe vostre missioni\n- Fornire l'accesso e il follow-up medico giornaliero ai pazienti in servizio (presente 60-80% diffuso in 5 giorni).\n- Scrivere report e lettere di uscita in stretta collaborazione con il team sanitario.\n- Essere un giocatore chiave nel coordinamento medico, in connessione con gli specialisti della casa sanitaria e l'altopiano tecnico.\n- Partecipare a un servizio ospedaliero amichevole, orientato alla qualità delle rotte e alla pertinenza della cura.\n- Lavorare in un contesto interprofessionale innovativo, con grande libertà di iniziativa clinica e organizzativa.\n- Regolare le traiettorie dei pazienti, spesso complesse, per garantire una gestione adeguata e progressiva.\n- Contribuire attivamente allo sviluppo istituzionale, tra cui l'evoluzione del concetto UATM come alternativa credibile alle ricovero pesanti.\nCondizioni postali\n- Tasso di attività: 60-80%, presenza regolare in cinque giorni.\n- Nessuna penalità, grazie alla presenza permanente di un servizio di emergenza interno.\n- Integrazione in un team che è accogliente, esperto e abituato alla collaborazione.\n- Ambiente noto per la formazione continua, il supporto e la qualità clinica.\nProfilo ricercato\n- Diploma riconosciuto in Svizzera (MEBEKO).\n- Idealmente titolo FMH in medicina interna generale o esperienza equivalente.\n- Esperienza clinica confermata (assistente medico avanzato o capo della clinica).\n- Interessi di coordinamento, di cura e di medicina di transizione.\n- Un senso di lavoro di squadra, autonomia, adattabilità e un gusto per l'innovazione organizzativa.",
-        "en": "Part-time post (60-80%) – Without guards.\nWe are looking for a graduate doctor (MEBEKO or FMH, advanced assistant physician or head of clinic) to join the medical care unit of a health institution recognized for its offer of continuing education and its commitment to organizational innovation.\nYour missions\n- Provide access and daily medical follow-up to patients in the service (present 60-80% spread over 5 days).\n- Write reports and exit letters in close collaboration with the health care team.\n- To be a key player in medical coordination, in connection with the specialists of the health home and the technical plateau.\n- Participate in a friendly hospital service, oriented to the quality of the routes and the relevance of the care.\n- Working in an innovative interprofessional context, with great freedom of clinical and organizational initiative.\n- Adjust the trajectories of patients, often complex, to ensure appropriate and progressive management.\n- Actively contribute to institutional development, including the evolution of the UATM concept as a credible alternative to heavy hospitalizations.\nPost conditions\n- Activity rate: 60-80%, regular presence over five days.\n- No penalty, thanks to the permanent presence of an internal emergency service.\n- Integration into a team that is welcoming, experienced and accustomed to collaboration.\n- Environment known for continuing training, support and clinical quality.\nProfile sought\n- Recognized diploma in Switzerland (MEBEKO).\n- Ideally FMH title in general internal medicine or equivalent experience.\n- Confirmed clinical experience (advanced assistant physician or head of clinic).\n- Interest in coordination, care pathways and transition medicine.\n- A sense of teamwork, autonomy, adaptability, and a taste for organizational innovation.",
-        "de": "Teilzeitpost (60-80%) - Ohne Wachen.\nWir suchen einen Diplom-Arzt (MEBEKO oder FMH, fortgeschrittener Assistenzarzt oder Klinikleiter) für die medizinische Versorgung einer Gesundheitseinrichtung, die für ihr Weiterbildungsangebot und ihr Engagement für organisatorische Innovation anerkannt ist.\nIhre Missionen\n- Bereitstellung von Zugang und täglicher medizinischer Nachsorge für Patienten im Dienst (derzeit 60-80% verteilt auf 5 Tage).\n- Schreiben Sie Berichte und Ausstiegsschreiben in enger Zusammenarbeit mit dem Gesundheitsteam.\n- Ein wichtiger Akteur in der medizinischen Koordination zu sein, in Verbindung mit den Spezialisten des Gesundheitsheims und des technischen Plateaus.\n- Nehmen Sie an einem freundlichen Krankenhausservice teil, der sich an der Qualität der Routen und der Relevanz der Pflege orientiert.\n- Arbeiten in einem innovativen interprofessionellen Kontext mit großer Freiheit der klinischen und organisatorischen Initiative.\n- Passen Sie die Trajektorien von Patienten an, die oft komplex sind, um ein angemessenes und fortschrittliches Management zu gewährleisten.\n- Aktiv zur institutionellen Entwicklung beitragen, einschließlich der Weiterentwicklung des UATM-Konzepts als glaubwürdige Alternative zu schweren Krankenhausaufenthalten.\nPostbedingungen\n- Aktivitätsrate: 60-80%, regelmäßige Anwesenheit über fünf Tage.\n- Keine Strafe, dank der ständigen Anwesenheit eines internen Notdienstes.\n- Integration in ein Team, das einladend, erfahren und an die Zusammenarbeit gewöhnt ist.\n- Umwelt bekannt für Weiterbildung, Unterstützung und klinische Qualität.\nProfil gesucht\n- Anerkanntes Diplom in der Schweiz (MEBEKO).\n- Idealerweise FMH Titel in der allgemeinen inneren Medizin oder gleichwertige Erfahrung.\n- Bestätigte klinische Erfahrung (fortgeschrittener Assistenzarzt oder Klinikleiter).\n- Interesse an Koordination, Pflegewegen und Übergangsmedizin.\n- Ein Gefühl von Teamwork, Autonomie, Anpassungsfähigkeit und ein Geschmack für organisatorische Innovation.",
-        "fr": "Poste à temps partiel (60–80%) – Sans gardes.\nNous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle.\nVos missions\n- Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n- Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n- Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n- Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n- Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n- Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n- Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes.\nConditions du poste\n- Taux d’activité : 60–80% , présence régulière sur cinq jours.\n- Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n- Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n- Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique.\nProfil recherché\n- Diplôme reconnu en Suisse (MEBEKO).\n- Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n- Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n- Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n- Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle."
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.277Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
-        "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
-          "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11"
-        ],
-        "en": [
-          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
-        ],
-        "de": [
-          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:15:39.483Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "gmo-7911830dc886",
       "slug": "medico-internista-generale-gmo-1213-onex-7911830d",
       "slugByLocale": {
@@ -437,7 +355,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.277Z",
+      "crawledAt": "2026-10-04T21:17:00.832Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -486,6 +404,86 @@
       }
     },
     {
+      "id": "gmo-2d02ba119d36",
+      "slug": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
+      "slugByLocale": {
+        "it": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
+        "en": "physician-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11",
+        "de": "arzt-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11",
+        "fr": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+      },
+      "slugDisambiguator": "2d02ba11",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)",
+      "titleByLocale": {
+        "it": "Medico (Mebeko / FMH) - Unità di cura intermedia (UATm)",
+        "en": "Physician ( Mebeko / FMH) - Intermediate Care Unit (UATm)",
+        "de": "Arzt (Mebeko / FMH) - Intermediate Care Unit (UATm)",
+        "fr": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)"
+      },
+      "description": "Poste à temps partiel (60–80%) – Sans gardes.\nNous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle.\nVos missions\n- Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n- Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n- Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n- Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n- Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n- Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n- Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes.\nConditions du poste\n- Taux d’activité : 60–80% , présence régulière sur cinq jours.\n- Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n- Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n- Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique.\nProfil recherché\n- Diplôme reconnu en Suisse (MEBEKO).\n- Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n- Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n- Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n- Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle.",
+      "descriptionByLocale": {
+        "it": "Posto part-time (60-80%) – Senza guardie.\nStiamo cercando un medico laureato (MEBEKO o FMH, medico assistente avanzato o capo di clinica) per unire l'unità di assistenza medica di un istituto sanitario riconosciuto per la sua offerta di formazione continua e il suo impegno per l'innovazione organizzativa.\nLe vostre missioni\n- Fornire l'accesso e il follow-up medico giornaliero ai pazienti in servizio (presente 60-80% diffuso in 5 giorni).\n- Scrivere report e lettere di uscita in stretta collaborazione con il team sanitario.\n- Essere un giocatore chiave nel coordinamento medico, in connessione con gli specialisti della casa sanitaria e l'altopiano tecnico.\n- Partecipare a un servizio ospedaliero amichevole, orientato alla qualità delle rotte e alla pertinenza della cura.\n- Lavorare in un contesto interprofessionale innovativo, con grande libertà di iniziativa clinica e organizzativa.\n- Regolare le traiettorie dei pazienti, spesso complesse, per garantire una gestione adeguata e progressiva.\n- Contribuire attivamente allo sviluppo istituzionale, tra cui l'evoluzione del concetto UATM come alternativa credibile alle ricovero pesanti.\nCondizioni postali\n- Tasso di attività: 60-80%, presenza regolare in cinque giorni.\n- Nessuna penalità, grazie alla presenza permanente di un servizio di emergenza interno.\n- Integrazione in un team che è accogliente, esperto e abituato alla collaborazione.\n- Ambiente noto per la formazione continua, il supporto e la qualità clinica.\nProfilo ricercato\n- Diploma riconosciuto in Svizzera (MEBEKO).\n- Idealmente titolo FMH in medicina interna generale o esperienza equivalente.\n- Esperienza clinica confermata (assistente medico avanzato o capo della clinica).\n- Interessi di coordinamento, di cura e di medicina di transizione.\n- Un senso di lavoro di squadra, autonomia, adattabilità e un gusto per l'innovazione organizzativa.",
+        "en": "Part-time post (60-80%) – Without guards.\nWe are looking for a graduate doctor (MEBEKO or FMH, advanced assistant physician or head of clinic) to join the medical care unit of a health institution recognized for its offer of continuing education and its commitment to organizational innovation.\nYour missions\n- Provide access and daily medical follow-up to patients in the service (present 60-80% spread over 5 days).\n- Write reports and exit letters in close collaboration with the health care team.\n- To be a key player in medical coordination, in connection with the specialists of the health home and the technical plateau.\n- Participate in a friendly hospital service, oriented to the quality of the routes and the relevance of the care.\n- Working in an innovative interprofessional context, with great freedom of clinical and organizational initiative.\n- Adjust the trajectories of patients, often complex, to ensure appropriate and progressive management.\n- Actively contribute to institutional development, including the evolution of the UATM concept as a credible alternative to heavy hospitalizations.\nPost conditions\n- Activity rate: 60-80%, regular presence over five days.\n- No penalty, thanks to the permanent presence of an internal emergency service.\n- Integration into a team that is welcoming, experienced and accustomed to collaboration.\n- Environment known for continuing training, support and clinical quality.\nProfile sought\n- Recognized diploma in Switzerland (MEBEKO).\n- Ideally FMH title in general internal medicine or equivalent experience.\n- Confirmed clinical experience (advanced assistant physician or head of clinic).\n- Interest in coordination, care pathways and transition medicine.\n- A sense of teamwork, autonomy, adaptability, and a taste for organizational innovation.",
+        "de": "Teilzeitpost (60-80%) - Ohne Wachen.\nWir suchen einen Diplom-Arzt (MEBEKO oder FMH, fortgeschrittener Assistenzarzt oder Klinikleiter) für die medizinische Versorgung einer Gesundheitseinrichtung, die für ihr Weiterbildungsangebot und ihr Engagement für organisatorische Innovation anerkannt ist.\nIhre Missionen\n- Bereitstellung von Zugang und täglicher medizinischer Nachsorge für Patienten im Dienst (derzeit 60-80% verteilt auf 5 Tage).\n- Schreiben Sie Berichte und Ausstiegsschreiben in enger Zusammenarbeit mit dem Gesundheitsteam.\n- Ein wichtiger Akteur in der medizinischen Koordination zu sein, in Verbindung mit den Spezialisten des Gesundheitsheims und des technischen Plateaus.\n- Nehmen Sie an einem freundlichen Krankenhausservice teil, der sich an der Qualität der Routen und der Relevanz der Pflege orientiert.\n- Arbeiten in einem innovativen interprofessionellen Kontext mit großer Freiheit der klinischen und organisatorischen Initiative.\n- Passen Sie die Trajektorien von Patienten an, die oft komplex sind, um ein angemessenes und fortschrittliches Management zu gewährleisten.\n- Aktiv zur institutionellen Entwicklung beitragen, einschließlich der Weiterentwicklung des UATM-Konzepts als glaubwürdige Alternative zu schweren Krankenhausaufenthalten.\nPostbedingungen\n- Aktivitätsrate: 60-80%, regelmäßige Anwesenheit über fünf Tage.\n- Keine Strafe, dank der ständigen Anwesenheit eines internen Notdienstes.\n- Integration in ein Team, das einladend, erfahren und an die Zusammenarbeit gewöhnt ist.\n- Umwelt bekannt für Weiterbildung, Unterstützung und klinische Qualität.\nProfil gesucht\n- Anerkanntes Diplom in der Schweiz (MEBEKO).\n- Idealerweise FMH Titel in der allgemeinen inneren Medizin oder gleichwertige Erfahrung.\n- Bestätigte klinische Erfahrung (fortgeschrittener Assistenzarzt oder Klinikleiter).\n- Interesse an Koordination, Pflegewegen und Übergangsmedizin.\n- Ein Gefühl von Teamwork, Autonomie, Anpassungsfähigkeit und ein Geschmack für organisatorische Innovation.",
+        "fr": "Poste à temps partiel (60–80%) – Sans gardes.\nNous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle.\nVos missions\n- Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n- Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n- Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n- Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n- Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n- Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n- Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes.\nConditions du poste\n- Taux d’activité : 60–80% , présence régulière sur cinq jours.\n- Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n- Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n- Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique.\nProfil recherché\n- Diplôme reconnu en Suisse (MEBEKO).\n- Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n- Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n- Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n- Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T21:17:00.831Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
+        "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
+          "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11"
+        ],
+        "en": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        ],
+        "de": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:15:39.483Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "gmo-45ad69cc39fe",
       "slug": "un-infermiera-d-emergenza-gmo-1213-onex-45ad69cc",
       "slugByLocale": {
@@ -517,7 +515,7 @@
       "url": "https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.276Z",
+      "crawledAt": "2026-10-04T21:17:00.829Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -597,7 +595,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.275Z",
+      "crawledAt": "2026-10-04T21:17:00.827Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -631,7 +629,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:39.482Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -678,7 +675,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.274Z",
+      "crawledAt": "2026-10-04T21:17:00.826Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -763,7 +760,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.272Z",
+      "crawledAt": "2026-10-04T21:17:00.825Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -849,7 +846,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.271Z",
+      "crawledAt": "2026-10-04T21:17:00.823Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -935,7 +932,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.270Z",
+      "crawledAt": "2026-10-04T21:17:00.821Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1015,7 +1012,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.268Z",
+      "crawledAt": "2026-10-04T21:17:00.819Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1101,7 +1098,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.267Z",
+      "crawledAt": "2026-10-04T21:17:00.817Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1186,7 +1183,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.265Z",
+      "crawledAt": "2026-10-04T21:17:00.815Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1271,7 +1268,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:13:26.263Z",
+      "crawledAt": "2026-10-04T21:17:00.811Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",

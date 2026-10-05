@@ -429,6 +429,7 @@ async function fetchSupsiJobDetailUrls() {
           userAgent,
         });
       } catch (err) {
+        // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
         console.warn(`  ⚠️ page ${page} fetch failed: ${err?.message || err}`);
         break;
       }
@@ -832,13 +833,26 @@ async function translateTextDirect(text, sourceLang, targetLang) {
   return '';
 }
 
-async function fillMissingLocaleDescriptions() {
+/**
+ * Safety net for locale descriptions still missing after enrichment.
+ *
+ * With SKIP_AI_TRANSLATION=1 (the orchestrated crawl) no inline DeepL/Google
+ * call is made: the job is marked `needsRetranslation` and translate-pending
+ * fills the slot, the contract every crawler of the group follows (sbb moved
+ * to it on 2026-10-02 after inline translation pushed it past the worker
+ * watchdog). Owner decision 2026-10-03: SUPSI and USI follow it too.
+ */
+export async function fillMissingLocaleDescriptions({
+  skipAiTranslation = process.env.SKIP_AI_TRANSLATION === '1',
+  translate = translateTextDirect,
+} = {}) {
   if (!fs.existsSync(DATA_JOBS)) return 0;
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   if (!Array.isArray(raw)) return 0;
 
   const MIN_DESC_CHARS = 120;
   let filled = 0;
+  let deferred = 0;
   let changed = false;
 
   for (const job of raw) {
@@ -854,8 +868,16 @@ async function fillMissingLocaleDescriptions() {
       const isIdenticalToSource = current && normalize(current) === normalize(sourceDesc);
       if (current.length >= MIN_DESC_CHARS && !isIdenticalToSource) continue;
 
+      if (skipAiTranslation) {
+        if (job.needsRetranslation !== true) {
+          job.needsRetranslation = true;
+          changed = true;
+        }
+        deferred += 1;
+        continue;
+      }
       // eslint-disable-next-line no-await-in-loop
-      const translated = await translateTextDirect(sourceDesc, sourceLang, locale);
+      const translated = await translate(sourceDesc, sourceLang, locale);
       // Reject clipped/truncated provider output (length-ratio gate) before
       // writing to the indexed descriptionByLocale dataset; the char floor
       // (MIN_DESC_CHARS) alone accepts provider clips. Keep the explicit
@@ -874,6 +896,9 @@ async function fillMissingLocaleDescriptions() {
 
   if (changed) {
     writeJobsFiles(raw);
+  }
+  if (deferred > 0) {
+    console.log(`ℹ️ SKIP_AI_TRANSLATION=1 — ${deferred} missing locale description(s) left to translate-pending.`);
   }
   return filled;
 }

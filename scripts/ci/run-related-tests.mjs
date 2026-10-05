@@ -105,6 +105,15 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // Lint del token App su TUTTI i workflow (issue 10114): un workflow nuovo
+  // che pusha con `env.APP_TOKEN || ...` non importa niente, e uno script in
+  // `scripts/` puo' cominciare a pushare o a leggere APP_TOKEN senza che il
+  // workflow che lo lancia cambi. Il test legge entrambi da disco. Il runner
+  // stesso e' escluso: non pusha, e la sua suite di regressione ha un budget.
+  [
+    'tests/workflow-app-token-capability.test.ts',
+    (file) => /^(?:\.github\/workflows|scripts)\//.test(file) && file !== 'scripts/ci/run-related-tests.mjs',
+  ],
   // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
   // test la confronta con la chiusura degli import di
   // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai
@@ -203,6 +212,17 @@ const sourceTreeLintTests = new Map([
   // sorgenti giudicati sono letti da disco: dopo la PR 11327 la bio corretta nel
   // registro e' rimasta vecchia nelle copie a mano senza che nulla fallisse.
   ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts|build-plugins\/shared\/authorEditorial\.ts|scripts\/lib\/llms-txt-generator\.mjs|services\/seo\/authorProfileMetadata\.ts)$/], // Scope producers: build-plugins/shared/authorEditorial.ts, scripts/lib/llms-txt-generator.mjs, services/seo/authorProfileMetadata.ts.
+  // Profili sparse dei workflow contro il codice che i job caricano. Il test
+  // legge da disco i YAML, le action locali, gli script npm di package.json e
+  // la chiusura degli import di ogni job: nessun import lo lega a quei file.
+  // Era in `alwaysExcludedTests`, quindi non girava MAI, ne' sulle PR ne'
+  // nella suite piena: il 2026-10-04 su main 6 job escludevano bucket che il
+  // loro codice nomina (34 problemi) e 12 workflow erano in ritardo sul
+  // generatore. Solo uno era nato da un YAML: gli altri da codice della
+  // chiusura (`portal.mjs`, `ai-models.mjs`, `cf-5xx-issue-sync.mjs`,
+  // `decompose-route-check.mjs`), quindi il perimetro e' il codice che un job
+  // puo' caricare, non solo `.github/`. Il test costa ~35 s.
+  ['tests/checkout-sparse-profiles.test.ts', /^(?:\.github\/(?:workflows|actions)\/|package\.json$|(?:scripts|functions|services|build-plugins|infra|server|packages\/articles)\/.+\.(?:[cm]?[jt]sx?|sh|json)$|[^/]+\.(?:[cm]?[jt]sx?)$)/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
@@ -260,8 +280,12 @@ const relatedAssetFileScopes = new Map([
 // firestore-rules-consent-write needs a running Firestore emulator (Java 21+,
 // wired via `npm run test:firestore-rules`) — plain `vitest run` fails fast
 // with ECONNREFUSED, so it stays out of the blocking related-tests gate (#6377).
+// `tests/checkout-sparse-profiles.test.ts` non sta piu' qui: il profilo del job
+// `vitest` di tests.yml materializza ogni file che `verifyCheckoutProfiles()`
+// apre (misurato il 2026-10-04: 3136 file tracciati letti, 3136 dentro le
+// regole sparse, `git sparse-checkout check-rules`), quindi in CI il verdetto
+// e' quello di un checkout pieno. E' fra i lint dell'albero dei sorgenti sopra.
 const alwaysExcludedTests = new Set([
-  'tests/checkout-sparse-profiles.test.ts',
   'tests/faq-readability-gate.test.ts',
   'tests/firestore-rules-consent-write.test.ts',
 ]);
@@ -279,6 +303,12 @@ const ignoredRe = GRAPH_IGNORED_RE;
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
+// 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
+// La sequenza di letterali consecutivi separati da virgola che inizia con
+// `'.github'` vale come il path unito con `/`.
+const segmentedAssetRe = /(['"])\.github\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
 // path letterale (`readFileSync(join(ROOT, 'AGENTS.md'))`,
@@ -493,7 +523,11 @@ function importsOf(file, fileSet, assets) {
   // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
   // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
   // gli sha256 ed e' nominato per esteso.
-  for (const [rawLiteral] of code.matchAll(assetLiteralRe)) {
+  const literals = [...code.matchAll(assetLiteralRe)].map((m) => m[0]);
+  for (const [sequence] of code.matchAll(segmentedAssetRe)) {
+    literals.push([...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]).join('/'));
+  }
+  for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
@@ -537,7 +571,9 @@ function loadGraph(files, assets) {
   // `version` lo copriva una volta sola. Ora l'insieme degli asset entra nella
   // chiave di validità: se cambia, il grafo si ricalcola. La versione 7 segna
   // gli archi verso i contratti di radice (`rootDocContracts`): una entry
-  // della versione 6 non li ha anche quando la firma del sorgente è invariata.
+  // della versione 6 non li ha anche quando la firma del sorgente è invariata. La
+  // versione 8 segna gli archi costruiti a segmenti (`path.join(ROOT, '.github',
+  // 'workflows')`): una entry della versione 7 non li ha.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -545,7 +581,7 @@ function loadGraph(files, assets) {
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
   } catch {}
-  const reusable = previousVersion === 7 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 8 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -560,7 +596,7 @@ function loadGraph(files, assets) {
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 7, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 8, assets: assetsDigest, files: graph }));
   return graph;
 }
 

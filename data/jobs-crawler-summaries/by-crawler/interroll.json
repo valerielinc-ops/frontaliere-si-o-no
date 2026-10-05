@@ -1,25 +1,26 @@
 {
   "key": "interroll",
   "label": "Interroll Group",
-  "generatedAt": "2026-10-04T09:20:45.852Z",
+  "generatedAt": "2026-10-04T21:19:58.017Z",
   "total": 0,
   "discovered": 40,
   "parsed": 0,
   "written": 0,
   "lastFetchOutcome": "filtered_empty",
   "abortKind": null,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2443,
-  "avgDurationMs": 2443,
+  "durationMs": 8768,
+  "avgDurationMs": 8768,
   "durationHistory": [
-    2443
+    8768
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

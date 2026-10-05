@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -125,6 +125,7 @@ import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanu
 import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
@@ -1029,14 +1030,11 @@ export function buildCompanyCityStats(opts: {
   // Canonical employer display name — take first job's company string.
   const employer = String(matching[0].company || '').trim();
 
-  // Sort by recency desc (postedDate/datePosted descending, missing last).
-  // First *parsable* date, not first truthy: a malformed `postedDate`
-  // ("30/05/26") is truthy and sorts lexically above ISO, floating a stale job
-  // to the top of the slice and dropping a fresh one from the indexed employer
-  // page. See firstParsableMs.
+  // Verified publication dates sort first; unknown and unmarked records remain
+  // available after them without borrowing observation clocks.
   const sorted = [...matching].sort((a, b) => {
-    const da = hasPostingDateProvenance(a) ? firstParsableMs(resolveReportedPostingDate(a)) : firstParsableMs(a.postedDate, a.datePosted);
-    const db = hasPostingDateProvenance(b) ? firstParsableMs(resolveReportedPostingDate(b)) : firstParsableMs(b.postedDate, b.datePosted);
+    const da = firstParsableMs(resolveReportedPostingDate(a));
+    const db = firstParsableMs(resolveReportedPostingDate(b));
     return db - da;
   });
 
@@ -4027,6 +4025,9 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
         const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
         if (!Array.isArray(jobs)) continue;
         for (const j of jobs as WeeklyCountableJob[]) {
+          // Held out of publication for translation (agency admission
+          // threshold): not on the site, so not in its counts either.
+          if (isHeldFromPublication(j)) continue;
           const key = String(j?.slug || (j as { id?: string })?.id || '');
           if (key && !seen.has(key)) {
             seen.add(key);

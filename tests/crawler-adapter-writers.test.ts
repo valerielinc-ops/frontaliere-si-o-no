@@ -299,12 +299,41 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
   const detail = 'https://jobs.raiffeisen.ch/posti-vacanti/consulente/e2c8937c-104e-4234-8353-3b21a3a51b46';
   const marker = '<html><title>Banca Raiffeisen Vedeggio Cassarate</title><main>vedeggio-cassarate raiffeisen</main>';
   it('requires both pages and deduplicates their shared vacancy identity', async () => {
-    const fetchImpl = async () => new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    const requestedUrls: string[] = [];
+    const fetchImpl = async (url: string) => {
+      requestedUrls.push(url);
+      return new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    };
     await expect(fetchRaiffeisenJobUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
       urls: [detail], pagesSucceeded: 2, duplicateIdentity: 1, sourceZero: false,
     });
+    expect(requestedUrls).toEqual([
+      'https://www.raiffeisen.ch/vedeggio-cassarate/it/chi-siamo/carriera/lavorare-banca-raiffeisen.html',
+      'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere-stellen.html',
+    ]);
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000, retries: 0 })).rejects.toThrow(/503/);
+  });
+
+  it('retries a transient careers-page fetch before applying the bilingual discovery guard', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) {
+        const error = new TypeError('fetch failed');
+        error.cause = { code: 'ECONNRESET' };
+        throw error;
+      }
+      return new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    };
+
+    await expect(fetchRaiffeisenJobUrls({
+      fetchImpl,
+      timeoutMs: 1000,
+      retries: 1,
+      retryBaseMs: 0,
+    })).resolves.toMatchObject({ urls: [detail], pagesSucceeded: 2 });
+    expect(attempts).toBe(3);
   });
 
   it('accepts zero only from both branded pages with a listing-count element', async () => {

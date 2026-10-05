@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usi-universita-della-svizzera-italiana",
-  "assembledAt": "2026-10-04T09:25:50.617Z",
+  "assembledAt": "2026-10-04T21:37:09.876Z",
   "jobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -37,7 +37,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:26.096Z",
+      "crawledAt": "2026-10-04T21:37:01.857Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -123,7 +123,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:26.428Z",
+      "crawledAt": "2026-10-04T21:37:02.129Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -205,7 +205,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:26.603Z",
+      "crawledAt": "2026-10-04T21:37:02.274Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -335,7 +335,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:26.807Z",
+      "crawledAt": "2026-10-04T21:37:02.441Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -430,7 +430,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:26.989Z",
+      "crawledAt": "2026-10-04T21:37:02.586Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -532,7 +532,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:27.176Z",
+      "crawledAt": "2026-10-04T21:37:02.736Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -563,8 +563,8 @@
         "posizioni-per-studenti-di-dottorato-usi-lugano",
         "stellen-fur-doktoranden-usi-universita-della-svizzera-italiana-lugano",
         "postes-de-doctorants-usi-lugano",
-        "doktorandenstellen-usi-lugano",
         "posizioni-di-dottorandi-usi-lugano",
+        "doktorandenstellen-usi-lugano",
         "promotionsstellen-usi-lugano",
         "postes-de-doctorant-usi-lugano"
       ],
@@ -657,7 +657,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:27.343Z",
+      "crawledAt": "2026-10-04T21:37:02.890Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -746,21 +746,21 @@
         "it": "Controller",
         "en": "Controllers",
         "de": "Controllers",
-        "fr": "Contrôleur"
+        "fr": ""
       },
       "slug": "controller-usi-lugano",
       "slugByLocale": {
         "it": "controller-usi-lugano",
         "en": "controllers-usi-lugano",
         "de": "controllers-usi-lugano",
-        "fr": "controleur-usi-lugano"
+        "fr": "controller-usi-lugano"
       },
       "department": "Servizio finanze e controlling",
       "category": "staff",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:27.514Z",
+      "crawledAt": "2026-10-04T21:37:03.038Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -770,6 +770,14 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c9466442ed83",
+      "previousSlugsByLocale": {
+        "fr": [
+          "controleur-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-usi-lugano"
+      ],
       "firstSeenAt": "2026-08-05T22:30:35.763Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -810,14 +818,14 @@
       "sourceLang": "it",
       "titleByLocale": {
         "it": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
-        "en": "Librarian specializing in electronic resources E-resources librarian",
+        "en": "Specialized librarian in electronic resources",
         "de": "Spezialisierte/r Bibliothekar/in für elektronische Ressourcen",
         "fr": "Bibliothécaire spécialisé/e en ressources électroniques"
       },
       "slug": "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi-lugano",
       "slugByLocale": {
         "it": "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi-lugano",
-        "en": "librarian-specializing-in-electronic-resources-e-resources-librarian-usi-lugano",
+        "en": "specialized-librarian-in-electronic-resources-usi-lugano",
         "de": "spezialisierte-r-bibliothekar-in-fur-elektronische-ressourcen-usi-lugano",
         "fr": "bibliothecaire-specialise-e-en-ressources-electroniques-usi-lugano"
       },
@@ -826,7 +834,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:27.704Z",
+      "crawledAt": "2026-10-04T21:37:03.201Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -849,8 +857,8 @@
         "library-or-specialized-in-electronic-resources-e-resources-librarian-usi-universita-della-svizzera-italiana-lugano",
         "bibliothecaire-specialise-e-en-ressources-electroniques-usi-lugano",
         "bibliothecaire-s-specialisee-s-dans-les-ressources-electroniques-e-ressources-librarian-us",
-        "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-lugano",
         "librarian-specializing-in-electronic-resources-e-resources-librarian-usi-lugano",
+        "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-lugano",
         "spezialisierte-r-bibliothekar-in-fur-elektronische-ressourcen-usi-lugano"
       ],
       "previousSlugsByLocale": {
@@ -940,7 +948,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:27.854Z",
+      "crawledAt": "2026-10-04T21:37:03.343Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1005,7 +1013,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:25:28.030Z",
+      "crawledAt": "2026-10-04T21:37:03.487Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",

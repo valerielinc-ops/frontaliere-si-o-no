@@ -29,6 +29,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to Umantis tenant
  *   - SEE_SPITAL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -355,7 +357,7 @@ export async function fetchAllSeeSpitalJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        throw err;
       }
       const pageListings = parseSeeSpitalListingPage(pageHtml);
       let added = 0;
@@ -390,10 +392,12 @@ export async function fetchAllSeeSpitalJobs() {
     // (Aufgaben / Profil / Wir bieten). Fetch + extract; fall back to the
     // listing snippet only on network failure or unexpected layout.
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     let deadDetail = false;
     try {
       const detail = await fetchUmantisDetailResult(BASE_URL, listing.vacancyId, { lang: 'ger' });
       deadDetail = detail.deadDetail;
+      postingDates = sourcePostingDateFields(deadDetail ? undefined : extractJobPostingField(detail.html, 'datePosted'));
       detailContent = deadDetail ? '' : extractSeeSpitalDetailDescription(detail.html);
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     } catch (err) {
@@ -464,7 +468,7 @@ export async function fetchAllSeeSpitalJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...postingDates,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

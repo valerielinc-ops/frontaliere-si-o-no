@@ -16,6 +16,7 @@ function job(overrides: Record<string, unknown> = {}) {
     location: 'Lugano',
     canton: 'TI',
     description: '',
+    postingDateSource: 'reported',
     postedDate: '2026-09-18T08:00:00.000Z',
     ...overrides,
   };

@@ -17,6 +17,8 @@
  * Stiftung entero runs 3 addiction-treatment sites in canton Aargau:
  *   Egliswil (5704), Niederlenz (5702), Neuenhof (5432).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -38,6 +40,16 @@ export const ENTERO_COMPANY_DOMAIN = 'entero.ch';
 export const ENTERO_CAREERS_URL = 'https://www.entero.ch/de/karriere';
 
 const DETAIL_DELAY_MS = 450;
+
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
 
 const ENTERO_SITES = [
   { match: /egliswil/i, city: 'Egliswil', postalCode: '5704' },
@@ -191,25 +203,31 @@ export async function fetchAllEnteroJobs() {
     listingHtml = await fetchHtml(ENTERO_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} listing rows parsed`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     let detail = { title: '', body: '', siteText: '' };
+    let posting = null;
     try {
       const html = await fetchHtml(row.url);
       detail = parseDetail(html);
+      posting = extractJobPostingLd(html);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
     const title = detail.title || row.title;
+    const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === title.toLowerCase();
+    let sameUrl = !posting?.url;
+    if (posting?.url) {
+      sameUrl = canonicalPostingUrl(posting.url, row.url) === canonicalPostingUrl(row.url, row.url);
+    }
     const site = resolveDetailSite(detail, title);
     // Our own foundation summary only stands in when the page gave no body;
     // it is not part of the posting and must not pad a real description.
@@ -255,7 +273,7 @@ export async function fetchAllEnteroJobs() {
       sector: 'Suchtmedizin / Psychiatrie',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : ''),
       applyUrl: row.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

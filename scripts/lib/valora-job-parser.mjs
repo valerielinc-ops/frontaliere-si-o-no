@@ -66,6 +66,7 @@
  * - isTrustedDomain() — Validate URLs belong to this company
  * - VALORA_KEY / VALORA_COMPANY_NAME / VALORA_COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -401,7 +402,7 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
     } catch (err) {
       console.warn(`  ⚠️ listing page fetch failed (${pageUrl}): ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const totalMatch = html.match(/(\d+)\s*entries/i);
@@ -485,9 +486,7 @@ export async function fetchAllValoraJobs() {
     const jobSlug = slugify(`${title} valora ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.employmentLabel || '');
-    const postedDate =
-      parseValoraDate(detail.publicationDateRaw) ||
-      new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(parseValoraDate(detail.publicationDateRaw));
 
     const job = {
       // ── Required fields ──
@@ -522,7 +521,7 @@ export async function fetchAllValoraJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: detail.referenceNumber || null,
       requirements: [],

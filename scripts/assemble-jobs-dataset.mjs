@@ -54,7 +54,7 @@ import {
 import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
-import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
+import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
@@ -81,9 +81,24 @@ import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawle
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
+import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
+import {
+  applyTranslationHold,
+  formatTranslationHoldSummary,
+  includeTranslationHeldFromEnv,
+  partitionHeldFromPublication,
+  summarizeTranslationHold,
+} from './lib/translation-publication-hold.mjs';
+import { countPopulationSlots } from './lib/job-locale-population.mjs';
+import {
+  dropSpuriousRetranslationFlags,
+  getRetranslationBaseline,
+  recordRetranslationBaseline,
+} from './lib/crawler-retranslation-baseline.mjs';
+import { isIncomplete } from './lib/translation-incomplete.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -877,15 +892,17 @@ function hashRepoFile(hasher, abs) {
 export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
+  const includeHeld = includeTranslationHeldFromEnv();
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
   // that stale file from cache instead of regenerating it. The active-only
   // mode likewise gets its own key because its snapshot intentionally omits
-  // the expired archive.
+  // the expired archive. The translate-pending projection (held agency jobs
+  // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
   };
 }
 
@@ -1016,6 +1033,10 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
     const jobs = data?.jobs || (Array.isArray(data) ? data : []);
+    // First read of the run = the previous run's committed slice: the
+    // baseline writeJobsCrawlerSlice judges this run's new flags against
+    // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
+    recordRetranslationBaseline(crawlerKey, jobs);
     if (jobs.length > 0) return jobs;
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
@@ -2539,6 +2560,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   }
   if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content${nearDupFlagged > 0 ? ` (${nearDupFlagged} near-duplicate titles, cap ${nearDupFlagCap}/run)` : ''}`);
 
+  // ── Crawler flags on unchanged, complete records (RETRANS-FLAG, 2026-10-04) ──
+  // Every flagger above and upstream (localization with SKIP_AI_TRANSLATION,
+  // hardenJobLocaleFields, the word-list gate just run) re-judges translations
+  // the previous crawl already published. translate-pending clears any flag on
+  // a record that passes isIncomplete() before translating it, so such a flag
+  // is erased unrepaired one run later and re-raised on the next crawl — 98,7%
+  // of the 9.223 flags of the 2026-09-26 wave had unchanged source text. Keep
+  // a flag only when it is not new, the source text changed, or the
+  // translations are incomplete; see lib/crawler-retranslation-baseline.mjs.
+  // The baseline is the slice as this process first read it, or an explicit
+  // `options.retranslationBaseline` (records or snapshot) from the caller.
+  {
+    const baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    if (baseline) {
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+      if (retrans.dropped > 0) {
+        console.log(
+          `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
+            + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `
+            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new)`,
+        );
+      }
+    }
+  }
+
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {
     const bpReport = detectBoilerplateDescriptions(jobs, crawlerKey);
@@ -2640,6 +2686,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  // The slice this process started from, kept untouched for the summary
+  // partition (scripts/lib/crawler-summary-partition.mjs). Only the first
+  // write of a key in a process defines it, so later writes skip the copy.
+  const beforeJobsForSummary = publishedSliceFor(crawlerKey)
+    ? null
+    : structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []);
   const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
     ? fs.readFileSync(slicePath, 'utf8')
     : null;
@@ -2815,6 +2867,20 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
+  // su disco, chi arriva non tradotto: resta nello slice (coda di
+  // translate-pending) ma l'assemblatore non lo pubblica finché i titoli non
+  // sono tradotti. I job già presenti non vengono mai ritirati. Vedi
+  // scripts/lib/translation-publication-hold.mjs.
+  const hold = applyTranslationHold(crawlerKey, finalJobs, existingSlice?.jobs || []);
+  if (hold.gated) {
+    console.log(
+      `  ⏸️  Soglia di ammissione: ${hold.held} job trattenuti in attesa di traduzione `
+        + `(${hold.newlyHeld} nuovi), ${hold.released} rilasciati, ${hold.admittedOnArrival} ammessi già tradotti`,
+    );
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -2852,8 +2918,28 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       candidateRaw: fs.readFileSync(slicePath, 'utf8'),
     });
   }
+  // `currentEntry.slice.jobs` is the array decontamination rewrote in place:
+  // exactly the jobs now in the slice file.
+  recordPublishedSlice(crawlerKey, { beforeJobs: beforeJobsForSummary, afterJobs: currentEntry.slice.jobs });
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
+}
+
+function publishedSliceForSummary(summaryKey, publishedSliceKeys) {
+  if (!Array.isArray(publishedSliceKeys)) return publishedSliceFor(summaryKey);
+  const beforeJobs = [];
+  const afterJobs = [];
+  for (const key of publishedSliceKeys) {
+    let record = publishedSliceFor(key);
+    if (!record) {
+      const onDisk = readJson(path.join(JOBS_SLICES_DIR, `${key}.json`), null);
+      const jobs = Array.isArray(onDisk?.jobs) ? onDisk.jobs : [];
+      record = { beforeJobs: jobs, afterJobs: jobs };
+    }
+    beforeJobs.push(...record.beforeJobs);
+    afterJobs.push(...record.afterJobs);
+  }
+  return { beforeJobs, afterJobs };
 }
 
 /**
@@ -2863,8 +2949,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
  * can be assembled without clobbering concurrent writes.
  *
  * @param {object} summaryEntry - Summary entry object (key, label, generatedAt, ...)
+ * @param {object} [options]
+ * @param {string[]} [options.publishedSliceKeys] - the job slices this summary
+ *   describes, when they are not just `summaryEntry.key` (an aggregate such as
+ *   `swatchgroup`, or a sub-brand whose slice write may have been refused).
+ *   A listed key this process did not write contributes its slice on disk as
+ *   unchanged: that is exactly what the run left published for it.
  */
-export function writeSummaryCrawlerSlice(summaryEntry) {
+export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
   _summaryWritten = true;
   if (!summaryEntry?.key || typeof summaryEntry.key !== 'string') {
     throw new TypeError('writeSummaryCrawlerSlice: summaryEntry.key must be a non-empty string');
@@ -2893,7 +2985,20 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   // `codeCommit`: il commit del checkout che ha prodotto questa summary (anche
   // quando la scrive la guardia di uscita, che passa da qui). Assente se non
   // determinabile.
-  const stripped = stampCodeCommit(summaryEntry);
+  // total/written and new+updated+unchanged describe ONE set: the slice this
+  // process published for the key, whatever set the caller computed its diff
+  // on (L3 Job Quality partition, issue 8407). Without a slice write in this
+  // process the declared values stay as they are.
+  let entryForSlice = summaryEntry;
+  const published = publishedSliceForSummary(summaryEntry.key, options.publishedSliceKeys);
+  if (published) {
+    const aligned = alignSummaryWithPublishedSlice(summaryEntry, published);
+    entryForSlice = aligned.summary;
+    if (aligned.changed.length > 0) {
+      console.log(`  🧮 Summary partition aligned with the published slice of ${summaryEntry.key}: ${aligned.changed.join(', ')}`);
+    }
+  }
+  const stripped = stampCodeCommit(entryForSlice);
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
@@ -3040,9 +3145,9 @@ async function assembleJobs() {
 
   // Merge baseline + slice jobs
   // Deduplicate across them: slice jobs take precedence over baseline
-  const sliceIdentities = new Set(sliceJobs.map(assemblerIdentity));
-  const baselineFiltered = baseline.filter((job) => !sliceIdentities.has(assemblerIdentity(job)));
-  const merged = [...baselineFiltered, ...sliceJobs];
+  // Publication evidence is independent of slice precedence; a baseline
+  // clock must not survive through the later sort/slug collision winner.
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
@@ -4007,12 +4112,23 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 /**
  * Generate data/jobs-meta.json from the assembled jobs array.
  */
-function generateMeta(jobCount) {
+function generateMeta(jobCount, holdSummary = null) {
   const existing = readJson(DATA_META, {});
   return {
     ...existing,
     lastUpdated: new Date().toISOString(),
     totalJobs: jobCount,
+    // Agency jobs kept out of publication until translated: still inventory
+    // (they stay in their slices), read by check-active-jobs-regression.mjs so
+    // the deploy gate counts published + held. Internal file, never served.
+    translationHold: {
+      held: holdSummary?.held || 0,
+      byCrawler: { ...(holdSummary?.byCrawler || {}) },
+      oldestHeldSince: holdSummary?.oldestHeldSince || null,
+      // Same slot filters as the job-locale ratchets: their population guard
+      // adds these back (tests/job-locale-consistency.test.ts).
+      populationSlots: { ...(holdSummary?.populationSlots || { titles: 0, descriptions: 0 }) },
+    },
     sources: {
       ...(existing.sources || {}),
       arbeitSwiss: 0,
@@ -4142,7 +4258,30 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   const priorJobsSnapshot = readJson(DATA_JOBS, []);
 
   // --- Jobs ---
-  const assembled = await assembleJobs();
+  const assembledAll = await assembleJobs();
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Il taglio della pubblicazione è QUI: data/jobs.json e public/data/jobs.json
+  // alimentano il build (jobsSeoPagesPlugin, hub, sitemap, conteggi), gli
+  // alert e i feed, quindi un job trattenuto che non c'è non genera niente a
+  // valle per costruzione. I pochi lettori diretti degli slice che pubblicano
+  // (mining degli slug, archivio scaduti, unioni slice dei plugin, fallback)
+  // applicano lo stesso predicato isHeldFromPublication. Restare negli slice lo tiene
+  // nella coda di translate-pending; translate-pending, che legge ANCHE
+  // data/jobs.json (fase 2b, marcatori), lo assembla con
+  // JOBS_INCLUDE_TRANSLATION_HELD=1. Le riconciliazioni con l'archivio degli
+  // scaduti girano sempre sui soli pubblicati: un job trattenuto non è mai
+  // stato pubblico e non deve assorbire né generare route storiche.
+  const includeHeld = includeTranslationHeldFromEnv();
+  let assembled = assembledAll;
+  let publishedJobs = assembledAll;
+  let holdSummary = null;
+  if (assembledAll !== null) {
+    const hold = partitionHeldFromPublication(assembledAll);
+    publishedJobs = hold.published;
+    if (!includeHeld) assembled = hold.published;
+    holdSummary = { ...summarizeTranslationHold(hold.held), populationSlots: countPopulationSlots(hold.held) };
+    console.log(`  ${formatTranslationHoldSummary(holdSummary)}${includeHeld ? ' — inclusi in data/jobs.json per translate-pending' : ''}`);
+  }
   if (assembled !== null) {
     // --- Auto slug-history tracking (translation/hash drift) ---
     const drift = trackSlugHistoryDrift(priorJobsSnapshot, assembled);
@@ -4288,9 +4427,10 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     }
 
     // --- Meta (derived from assembled jobs) ---
-    const meta = generateMeta(assembled.length);
+    // Meta counts what the site publishes, also in the translate-pending projection.
+    const meta = generateMeta(publishedJobs.length, holdSummary);
     writeJson(DATA_META, meta);
-    console.log(`✅ data/jobs-meta.json generated: ${assembled.length} total jobs`);
+    console.log(`✅ data/jobs-meta.json generated: ${publishedJobs.length} total jobs`);
   }
 
   // --- Expired jobs ---
@@ -4302,7 +4442,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     if (expiredJobs !== null) {
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
-        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, expiredJobs);
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
@@ -4336,7 +4476,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             // NON scrivono slice (l'opzione `writeSlices` non è implementata in
             // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
             // La persistenza canonica è il writeJson sotto, gated su mergedCount.
-            const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
+            const orphanResult = reconcileOrphanSlugs(publishedJobs, orphanSlugs, enrichedData, { dryRun: false });
             if (orphanResult.mergedCount > 0) {
               console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
               writeJson(DATA_JOBS, assembled, { compact: true });
@@ -4345,7 +4485,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           }
 
           // Reconcile expired slugs → merge into active jobs' previousSlugs
-          const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
+          const expResult = reconcileExpiredSlugs(publishedJobs, cleanedExpired, { dryRun: false });
           if (expResult.mergedCount > 0) {
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled, { compact: true });

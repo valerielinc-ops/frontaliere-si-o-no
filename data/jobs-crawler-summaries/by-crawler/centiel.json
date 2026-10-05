@@ -1,22 +1,24 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-10-04T09:21:24.009Z",
+  "generatedAt": "2026-10-04T21:19:18.614Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3673,
-  "avgDurationMs": 3673,
+  "unchangedCount": 8,
+  "durationMs": 3556,
+  "avgDurationMs": 3556,
   "durationHistory": [
-    3673
+    3556
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Product Manager – Critical Power",
-      "slug": "product-manager-critical-power-centiel-ticino",
+      "slug": "responsabile-prodotto-potenza-critica-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-EG-Product-Manager-Critical-Power.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-EG-Product-Manager-Critical-Power.pdf",
       "company": "Centiel",
@@ -57,7 +59,7 @@
     },
     {
       "title": "Specialista Ufficio Tecnico",
-      "slug": "specialista-ufficio-tecnico-centiel-ticino",
+      "slug": "specialista-ufficio-tecnico-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-IT-Specialista-ufficio-tecnico.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-IT-Specialista-ufficio-tecnico.pdf",
       "company": "Centiel",
@@ -98,7 +100,7 @@
     },
     {
       "title": "Operatore di produzione",
-      "slug": "operatore-di-produzione-centiel-ticino",
+      "slug": "operatore-di-produzione-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-operatore-di-produzione.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-operatore-di-produzione.pdf",
       "company": "Centiel",
@@ -139,7 +141,7 @@
     },
     {
       "title": "Tecnico Collaudatore",
-      "slug": "tecnico-collaudatore-centiel-ticino",
+      "slug": "tecnico-collaudatore-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-tecnico-collaudatore.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-tecnico-collaudatore.pdf",
       "company": "Centiel",
@@ -180,7 +182,7 @@
     },
     {
       "title": "Project Manager – Critical Power",
-      "slug": "project-manager-critical-power-centiel-ticino",
+      "slug": "project-manager-potenza-critica-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Project-Manager-Critical-Power.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Project-Manager-Critical-Power.pdf",
       "company": "Centiel",
@@ -221,7 +223,7 @@
     },
     {
       "title": "Pre-Sales Application Engineer – Critical Power",
-      "slug": "pre-sales-application-engineer-critical-power-centiel-ticino",
+      "slug": "ingegnere-di-applicazione-pre-sales-potere-critico-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Pre-sales-Application-Engineer-CP.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Pre-sales-Application-Engineer-CP.pdf",
       "company": "Centiel",
@@ -252,6 +254,7 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,7 +265,7 @@
     },
     {
       "title": "Research & Development Engineer",
-      "slug": "research-development-engineer-centiel-ticino",
+      "slug": "ricerca-development-ingegnere-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "company": "Centiel",
@@ -343,7 +346,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -1,4 +1,4 @@
-import { hasPostingDateProvenance, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
@@ -66,8 +66,10 @@ import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { getRetranslationBaseline, recordRetranslationBaseline } from './crawler-retranslation-baseline.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -1114,7 +1116,7 @@ async function runSharedCrawlerInProcess({ root, env }) {
   try {
     // Dynamic import to avoid loading 7k-line module at parse time
     const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env values
     for (const [key, value] of Object.entries(originals)) {
@@ -4572,7 +4574,22 @@ export async function runDedicatedBaseCrawler({
   // lafonte, … and the standard template) is covered without per-script seeds.
   seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
-  await runSharedCrawlerInProcess({ root, env });
+  return runSharedCrawlerInProcess({ root, env });
+}
+
+/**
+ * The jobs of a slice file as committed by the previous run, for the
+ * retranslation baseline. A missing or unreadable slice has no baseline: the
+ * crawler's flags on those records are then kept as they are.
+ */
+function readSliceJobsForBaseline(slicePath) {
+  try {
+    if (!fs.existsSync(slicePath)) return [];
+    const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    return Array.isArray(data?.jobs) ? data.jobs : (Array.isArray(data) ? data : []);
+  } catch {
+    return [];
+  }
 }
 
 /**
@@ -4604,7 +4621,14 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       byKey.get(key).push(job);
     }
     for (const [key, jobs] of byKey) {
-      writeJson(path.join(sliceDir, `${key}.json`), { jobs });
+      const slicePath = path.join(sliceDir, `${key}.json`);
+      // The slice is about to stop being the previous run's: keep its
+      // translation baseline first (crawler-retranslation-baseline.mjs), or
+      // every source change of this run would compare against itself.
+      if (!getRetranslationBaseline(key)) {
+        recordRetranslationBaseline(key, readSliceJobsForBaseline(slicePath));
+      }
+      writeJson(slicePath, { jobs });
     }
     // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
     // reseeded above (it never enters byKey), so its on-disk slice is left
@@ -5558,8 +5582,22 @@ export function isLikelyGenericCareerTitle(title = '') {
 export function isLikelyJobDetailUrl(rawUrl = '') {
   const url = String(rawUrl || '').toLowerCase();
   if (!url) return false;
+  let parsedUrl = null;
   let host = '';
-  try { host = new URL(url).hostname.toLowerCase(); } catch {}
+  try {
+    parsedUrl = new URL(url);
+    host = parsedUrl.hostname.toLowerCase();
+  } catch {}
+  // The Swiss Timing central board keeps the listing path
+  // (`/company/job-offers`) for detail pages and identifies the vacancy with
+  // `?company=<id>&job=<id>`. The path alone is still a listing; only the
+  // numeric detail query makes it a job page.
+  const isSwissTimingDetail =
+    (host === 'swisstiming.com' || host.endsWith('.swisstiming.com')) &&
+    /^\/company\/job-offers\/?$/.test(parsedUrl?.pathname || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('company') || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
+  if (isSwissTimingDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
@@ -7666,6 +7704,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
+    Object.assign(fresh, mergeSourcePostingDates(old || {}, fresh));
     if (!old) {
       const previous = sourceTitleBridge.get(fresh);
       if (previous) {
@@ -7889,35 +7928,6 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.firstSeenAt = old.firstSeenAt;
     }
 
-    // Preserve postedDate / datePosted — the original posting date is
-    // immutable. ~30 dedicated crawlers set `postedDate: new Date()` on
-    // every run, which used to mark every job in the dataset as "posted
-    // today" after each re-crawl (data audit Apr-2026 found 32 % of all
-    // jobs reporting postedDate within the last 1-3 days while only 4 %
-    // were actually first seen by us in that window — most of the
-    // dataset was 2-4 weeks old). Always keep the OLDER of the two
-    // dates: it's the closest proxy to the true employer posting date
-    // when the crawler can't read it from the page. Only let `fresh`
-    // win when it's actually older (rare; the crawler probably learned
-    // to read the real posting timestamp).
-    const preserveOlder = (key) => {
-      if (!old[key]) return;
-      if (!fresh[key]) { fresh[key] = old[key]; return; }
-      const oldD = new Date(old[key]);
-      const newD = new Date(fresh[key]);
-      if (
-        !Number.isNaN(oldD.getTime())
-        && (Number.isNaN(newD.getTime()) || oldD.getTime() < newD.getTime())
-      ) {
-        fresh[key] = old[key];
-      }
-    };
-    if (hasPostingDateProvenance(old) || hasPostingDateProvenance(fresh)) {
-      Object.assign(fresh, mergeSourcePostingDates(old, fresh));
-    } else {
-      preserveOlder('postedDate');
-      preserveOlder('datePosted');
-    }
 
     return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
@@ -7949,7 +7959,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
     if (missStreak > CRAWLER_GRACE_PERIOD_MAX_MISSES) continue;
-    retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
+    retainedJobs.push({ ...old, ...mergeSourcePostingDates({}, old), crawlerMissStreak: missStreak });
   }
 
   return retainedJobs.length ? [...mergedFresh, ...retainedJobs] : mergedFresh;
@@ -8493,15 +8503,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   else delete chosen.previousSlugs;
   if (mergedPreviousSlugsByLocale) chosen.previousSlugsByLocale = mergedPreviousSlugsByLocale;
   else delete chosen.previousSlugsByLocale;
-  // Posting date is immutable (#3843 item 3): the two colliding records are
-  // the SAME posting, so whichever side loses preferJob() must not take the
-  // older/sourced date down with it — and legacy records may carry it only on
-  // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
-  const mergedPostedDate = pickMergedPostedDate(a, b);
-  if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
-  if (hasPostingDateProvenance(a) || hasPostingDateProvenance(b)) {
-    Object.assign(chosen, mergeSourcePostingDates(a, b));
-  }
+  // A duplicate cannot turn an unverified legacy date into employer evidence.
+  // Keep the oldest validated reported tuple independently of quality scoring.
+  Object.assign(chosen, mergeSourcePostingDates(a, b));
   // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
   // the two colliding records are the SAME posting, so whichever side loses
   // preferJob() must not take the fresher "seen live" proof down with it —
@@ -8589,32 +8593,10 @@ export function isForeignAtsUrlLocation(rawUrl = '') {
   return isLocationExplicitlyForeign(locationPrefix);
 }
 
-// Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
-// ~30 legacy crawlers emit ONLY `datePosted` (never `postedDate`), so a
-// postedDate-only fallback chain never sees the true source posting date and
-// fabricates "today" instead. Each side falls back postedDate → datePosted,
-// then the two sides are combined with the same "posting date is immutable —
-// keep the OLDER" rule as mergePreserveLocaleData's preserveOlder(): a crawler
-// that stamps `new Date()` on every run must not churn the date forward, and
-// `next` only wins when it is actually older (it probably learned to read the
-// real posting timestamp from the page).
+// Only explicitly reported, validated publication evidence survives a merge.
+// A legacy timestamp or a crawl heartbeat does not establish publication.
 export function pickMergedPostedDate(prev = {}, next = {}) {
-  if (hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)) {
-    return mergeSourcePostingDates(prev, next).postedDate;
-  }
-  const prevVal = prev.postedDate || prev.datePosted || '';
-  const nextVal = next.postedDate || next.datePosted || '';
-  if (!prevVal) return nextVal;
-  if (!nextVal) return prevVal;
-  const prevD = new Date(prevVal);
-  const nextD = new Date(nextVal);
-  if (
-    !Number.isNaN(prevD.getTime())
-    && (Number.isNaN(nextD.getTime()) || prevD.getTime() < nextD.getTime())
-  ) {
-    return prevVal;
-  }
-  return nextVal;
+  return mergeSourcePostingDates(prev, next).postedDate;
 }
 
 // Pick the merged crawledAt for a duplicate pair. Semantics contract:
@@ -8644,7 +8626,6 @@ export function pickMergedCrawledAt(prev = {}, next = {}) {
 }
 
 export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
-  const nowIsoDate = dateOnly(Date.now());
   const nowIsoTs = new Date().toISOString();
   const map = new Map();
   const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
@@ -8684,6 +8665,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (!fp) continue;
     const normalized = {
       ...job,
+      ...mergeSourcePostingDates({}, job),
       ...(job?.companyKey ? { companyKey: resolveJobCompanyKey(job) } : {}),
       crawledAt: normalizeSpace(job.crawledAt || ''),
     };
@@ -8744,11 +8726,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (seenIncoming.has(fp)) {
       duplicateIncoming += 1;
       duplicateByCompany[raw.company] = (duplicateByCompany[raw.company] || 0) + 1;
+      const retained = map.get(fp);
+      if (retained) Object.assign(retained, mergeSourcePostingDates(retained, raw));
       continue;
     }
     seenIncoming.add(fp);
     const next = {
       ...raw,
+      ...mergeSourcePostingDates({}, raw),
       ...(raw?.companyKey ? { companyKey: resolveJobCompanyKey(raw) } : {}),
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
@@ -8786,9 +8771,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      ...(hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)
-        ? mergeSourcePostingDates(prev, next)
-        : { postedDate: pickMergedPostedDate(prev, next) || nowIsoDate }),
+      ...mergeSourcePostingDates(prev, next),
       // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
       // `next` was scraped THIS run (stamped nowIsoTs above), which proves
       // the posting is still up. The old `prev.crawledAt || …` order froze
@@ -8913,14 +8896,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     chosen.previousSlugs = mergedPreviousSlugsCapped;
     if (best.previousSlugsByLocale) chosen.previousSlugsByLocale = best.previousSlugsByLocale;
     else delete chosen.previousSlugsByLocale;
-    // Same bare-preferJob() discard pattern for the posting date (#3843
-    // item 3): `best.postedDate` already holds the sourced, older-wins date
-    // (including the legacy `datePosted` fallback ~30 crawlers emit). If
-    // preferJob returned `prev` wholesale, prev's missing/fabricated
-    // postedDate would silently win — force the merged date onto whichever
-    // side was picked.
-    chosen.postedDate = best.postedDate;
-    if (hasPostingDateProvenance(best)) Object.assign(chosen, mergeSourcePostingDates({}, best));
+    // Quality selection must not resurrect a legacy date or split its marker.
+    Object.assign(chosen, mergeSourcePostingDates({}, best));
     // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
     // already holds the newest-wins last-seen-live timestamp; if preferJob
     // returned `prev` wholesale (e.g. higher quality score), prev's stale
@@ -9039,6 +9016,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const slugRegistry = loadSlugRegistry();
+  // Agency admission threshold: the registry holds only admitted jobs. Judged
+  // against the agency slice on disk, not against this merge's inputs: in the
+  // crawler's localization pass (crawler-template Step 5) `existingJobs` is a
+  // scratch copy and a new arrival is not stamped until writeJobsCrawlerSlice.
+  const awaitingAdmission = createAwaitingAdmissionCheck(
+    options.translationHoldSlicesDir ? { slicesDir: options.translationHoldSlicesDir } : {},
+  );
   let registryHits = 0;
   let registryNewEntries = 0;
   let registryDemotions = 0;
@@ -9096,7 +9080,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // only the source-locale slug, so the other locales never get pinned and
       // churn every crawl → old per-locale URL stranded. Persisting the current
       // real translation makes the registry immutable per-locale going forward.
-      registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
+      if (!awaitingAdmission(job)) registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
       const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
       if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
@@ -9113,6 +9097,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
+    // A job held out of publication for translation, or a new agency arrival
+    // the slice writer is about to hold, has no public URL yet: pinning its
+    // source-language slug would freeze it before the translated title exists,
+    // and mine-all-job-slugs would turn the registry entry into an expired
+    // soft-landing for a route nobody was ever served — even after the job has
+    // left its slice. It is registered on the first pass after release.
+    if (awaitingAdmission(job)) continue;
     const sizeBefore = Object.keys(slugRegistry).length;
     registerJobSlug(job, slugRegistry);
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;

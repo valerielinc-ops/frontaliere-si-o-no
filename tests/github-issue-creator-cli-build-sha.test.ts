@@ -82,6 +82,29 @@ process.exit(0);
   return { dir };
 }
 
+function makeCreateCaptureGhStub() {
+  const dir = mkdtempSync(join(tmpdir(), 'gh-create-capture-stub-'));
+  dirs.push(dir);
+  const log = join(dir, 'calls.log');
+  writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
+const fs = require('fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify(args) + '\\n');
+if (args[0] === 'issue' && args[1] === 'list') {
+  process.stdout.write('[]');
+  process.exit(0);
+}
+if (args[0] === 'label' && args[1] === 'create') process.exit(0);
+if (args[0] === 'issue' && args[1] === 'create') {
+  process.stdout.write('https://github.com/o/r/issues/123');
+  process.exit(0);
+}
+process.exit(0);
+`, { mode: 0o755 });
+  chmodSync(join(dir, 'gh'), 0o755);
+  return { dir, log };
+}
+
 function runCreateFailureCli(stub: { dir: string }, strict: boolean) {
   return spawnSync(process.execPath, [
     SCRIPT,
@@ -171,6 +194,35 @@ describe('github-issue-creator CLI: strict owner persistence is opt-in', () => {
 
     const bestEffortStub = makeCreateFailureGhStub();
     expect(runCreateFailureCli(bestEffortStub, false).status).toBe(0);
+  });
+});
+
+describe('github-issue-creator CLI: --description-file avoids argv limits', () => {
+  it('accepts a multi-megabyte report and still applies the body cap', () => {
+    const stub = makeCreateCaptureGhStub();
+    const report = join(stub.dir, 'large-report.md');
+    writeFileSync(report, `BING-LARGE-DESCRIPTION-MARKER\n${'x'.repeat(3 * 1024 * 1024)}`);
+
+    const res = spawnSync(process.execPath, [
+      SCRIPT,
+      '--title', 'Large report persistence test',
+      '--description-file', report,
+      '--priority', '3',
+      '--label', 'Bug',
+      '--no-reopen',
+    ], {
+      encoding: 'utf8',
+      env: { ...process.env, PATH: `${stub.dir}:${process.env.PATH}`, GH_REPO: 'o/r' },
+    });
+
+    expect(res.status).toBe(0);
+    const calls: string[][] = readFileSync(stub.log, 'utf8')
+      .split('\n').filter(Boolean).map((line) => JSON.parse(line));
+    const create = calls.find((args) => args[0] === 'issue' && args[1] === 'create');
+    expect(create).toBeDefined();
+    const body = String(create![create!.indexOf('--body') + 1]);
+    expect(body).toContain('BING-LARGE-DESCRIPTION-MARKER');
+    expect(body.length).toBeLessThanOrEqual(60000);
   });
 });
 

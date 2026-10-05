@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-04T09:15:37.127Z",
+  "generatedAt": "2026-10-04T21:12:26.507Z",
   "total": 28,
   "newCount": 0,
-  "updatedCount": 28,
+  "updatedCount": 12,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11562,
-  "avgDurationMs": 11562,
+  "unchangedCount": 16,
+  "durationMs": 13737,
+  "avgDurationMs": 13737,
   "durationHistory": [
-    11562
+    13737
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.597Z",
+      "crawledAt": "2026-10-04T21:12:16.982Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -152,7 +152,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.593Z",
+      "crawledAt": "2026-10-04T21:12:16.979Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14T16:10:22+00:00",
@@ -289,7 +289,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.586Z",
+      "crawledAt": "2026-10-04T21:12:16.974Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -304,6 +304,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,7 +347,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.577Z",
+      "crawledAt": "2026-10-04T21:12:16.967Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13T15:55:36+00:00",
@@ -359,6 +360,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6413",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -401,7 +403,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.573Z",
+      "crawledAt": "2026-10-04T21:12:16.960Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
@@ -529,7 +531,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.569Z",
+      "crawledAt": "2026-10-04T21:12:16.955Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -545,6 +547,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -587,7 +590,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.565Z",
+      "crawledAt": "2026-10-04T21:12:16.951Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -603,6 +606,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -611,6 +615,476 @@
         "completeness": 25
       }
     },
+    {
+      "id": "efg-6490",
+      "slug": "digital-marketing-manager-campagne-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Digital Marketing Manager - Campaigns",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25T07:07:02+00:00",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6490",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Digital Marketing Manager - Campaign Specialist will be instrumental in shaping and delivering key components in EFG’s transformation of its digital ecosystem and presence across strategic digital marketing channels.",
+              "In your role you will work closely with members of the Digital and broader global marketing team to combine strategy, execution, and data analysis to ensure campaigns are client-centric, measurable, and compliant, focused on measurable demand generation and attributable to NNA growth for the broader business.",
+              "The successful candidate will bring deep channel expertise and be comfortable translating business priorities into strategic digital marketing activity that drives awareness, engagement, and measurable commercial outcomes. As EFG develops it’s digital ecosystem you will support the team to help implement connected and scalable solutions that deliver ROI across the business and support growth."
+            ],
+            "responsibilities": [
+              "Lead the end-to-end strategy, planning, execution, and optimisation of global digital demand generation campaigns across web, email, paid media, and social channels.",
+              "Collaborate with business experts across global Marketing, Sales, Product, and Investment teams to define target audiences across multiple regions and develop campaign strategies tailored to different markets and segments.",
+              "Build test-and-learn frameworks (A/B testing, multivariate testing) to continuously improve performance.",
+              "Ensure complex regulations such as cross border marketing compliance rules are met and safeguards are in place with auditable processes.",
+              "Ensure all campaigns are tracked, measured, and aligned with KPIs agreed by the business and focused on supporting meeting our 3-year objectives.",
+              "Accountable for commercially focused KPI’s (Qualified leads, channel conversions and other user activity insights that can drive new business opportunities.",
+              "Manage paid media budgets (Google Ads, LinkedIn, display networks) to maximise ROI and lead generation.",
+              "Drive organic growth through advanced SEO strategy (on-page, off-page, technical).",
+              "Ensure keyword strategies, landing page optimisation, and ad copy are data-led and aligned with brand tone.<br>",
+              "Work with skilled content creators and subject matter experts across the business to adapt investment insights and marketing collateral into engaging digital formats.",
+              "Support editorial calendars for digital channels and ensure content aligns with client journeys.",
+              "Support localisation and tailoring of content for different geographies and audiences.<br>",
+              "Maintain dashboards and regular reports for senior management and Marketing partners providing insights on campaign effectiveness, client engagement, and ROI.",
+              "Analyse audience behaviour to inform future campaign and content strategy.",
+              "Support regulatory and compliance reporting for marketing activity.<br>",
+              "Work closely with compliance to ensure all distribution of digital communications meet regulatory and brand standards."
+            ],
+            "requirements": [
+              "Bachelor’s degree in Marketing, Business, Communications or related field.",
+              "Professional marketing qualifications (e.g., CIM, Google, Analytics certifications) desirable.",
+              "5+ years’ digital marketing experience, ideally within Private Banking, investment management, financial services. Alternatively a background in targeting HNWI with a luxury services.",
+              "Proven track record of delivering successful, measurable campaigns across multiple digital channels.",
+              "Advanced knowledge of SEO, SEM, PPC, and campaign optimisation.",
+              "Strong knowledge of marketing automation platforms (e.g., Pardot, HubSpot, Marketo).",
+              "Experience working with Salesforce or other CRMs.",
+              "Strong analytical skills, with ability to interpret complex data and provide actionable insights.",
+              "Excellent project management skills; able to balance multiple campaigns across regions.",
+              "Skilled communicator able to explain digital concepts to non-specialist stakeholders and deliver results."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br><br><br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Lead the end-to-end strategy, planning, execution, and optimisation of global digital demand generation campaigns across web, email, paid media, and social channels.",
+              "Collaborate with business experts across global Marketing, Sales, Product, and Investment teams to define target audiences across multiple regions and develop campaign strategies tailored to different markets and segments.",
+              "Build test-and-learn frameworks (A/B testing, multivariate testing) to continuously improve performance.",
+              "Bachelor’s degree in Marketing, Business, Communications or related field.",
+              "Professional marketing qualifications (e.g., CIM, Google, Analytics certifications) desirable.",
+              "5+ years’ digital marketing experience, ideally within Private Banking, investment management, financial services. Alternatively a background in targeting HNWI with a luxury services.",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Bachelor’s degree in Marketing",
+              "Professional marketing qualifications (e.g.",
+              "5+ years’ digital marketing experience",
+              "Proven track record of delivering successful",
+              "Advanced knowledge of SEO",
+              "Lead the end-to-end strategy",
+              "Collaborate with business experts across global Marketing",
+              "Build test-and-learn frameworks (A/B testing",
+              "Ensure complex regulations such as cross border marketing compliance rules are met and safeguards are in place with auditable processes."
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 6
+          }
+        }
+      },
+      "crawledAt": "2026-10-04T21:12:16.927Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-25T07:07:02+00:00",
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "salarySource": "estimated",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-25T14:39:21.479Z",
+      "postingDateSource": "reported",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6531",
+      "slug": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Client Services Officer - Russian Speaker",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29T15:25:56+00:00",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6531",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Within the Private Banking Department, the <strong style=\"border: 0px solid rgb(51, 60, 64); box-sizing: border-box; font-weight: bolder; margin: 0px; outline-color: oklab(0.709229 0.0116 0.0345271 / 0.5); padding: 0px; scrollbar-color: auto;\">Client Support Officer Private Banking</strong> plays a key role in delivering a high‑quality service experience to our clients and supporting our Client Relationship Officers (CROs) in the day‑to‑day management of client relationships.",
+              "You will be responsible for the full range of administrative and operational activities linked to client accounts, ensuring that all instructions are executed accurately, efficiently and in line with internal policies and regulatory requirements. Working closely with CROs and key control functions, you will help prepare client meetings, maintain up‑to‑date documentation, and contribute to the promotion of digital and paperless solutions.",
+              "This position is suited to an experienced private banking professional who enjoys working in a dynamic environment, is comfortable with complex client requests and financial instruments, and is committed to delivering excellent service with a strong risk‑aware and compliance mindset. The role requires close interaction with Russian‑speaking clients and therefore a high level of proficiency in Russian.",
+              "· Provide proactive day‑to‑day support to one or more CROs in managing a portfolio of private banking clients, ensuring seamless coordination of all client‑related activities."
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 7
+          }
+        }
+      },
+      "crawledAt": "2026-10-04T21:12:16.888Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-29T15:25:56+00:00",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-29T21:12:54.926Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6210",
+      "slug": "servizi-generali-dipendenti-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "General Services Employee",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6210",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span lang=\"EN-GB\">Department: General Services</span></p><p><span lang=\"EN-GB\">Work time Percentage: 100%</span></p><p><span lang=\"EN-GB\">Location: Geneva</span></p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span>The General Services Assistant plays a key role in the daily management of logistics and administrative operations within our private bank site of Geneva. This individual coordinates shipments, manages inventory, and supports the optimization of internal processes while ensuring a smooth working environment that meets the company's quality standards.</span></p><p><span><strong>Main Responsibilities:</strong></span><span lang=\"EN-GB\"><strong>Shipment and Logistics Management: </strong></span></p><ul><li><p><span lang=\"EN-GB\">Oversee and manage postal shipments (letters, parcels, express deliveries, etc.), both nationally and internationally, using platforms such as UPS Campuship, Swiss Post, etc.</span></p></li><li><p><span lang=\"EN-GB\">Handle special shipments and related logistics (packaging, preparing shipments, tracking deliveries).</span></p><p><span lang=\"EN-GB\"><strong>Inventory and Procurement Management:</strong></span></p></li><li><p><span lang=\"EN-GB\">Order and manage consumables for various departments.</span></p></li><li><p><span lang=\"EN-GB\">Monitor stock levels and coordinate with suppliers to ensure the continuous availability of necessary supplies.</span></p><p><span lang=\"EN-GB\"><strong>Maintenance and Facility Management: </strong></span></p></li><li><p><span lang=\"EN-GB\">Monitor the condition of office spaces, identify maintenance needs, and coordinate with service providers to address issues promptly.</span></p></li><li><p><span lang=\"EN-GB\">Take the initiative to maintain a pleasant and functional working environment.</span></p><p><span lang=\"EN-GB\"><strong>Administrative Support and Project Management:</strong> </span></p></li><li><p><span lang=\"EN-GB\">Coordinate and follow up on various projects in collaboration with service providers and internal teams.</span></p></li><li><p><span lang=\"EN-GB\">Use tools such as Outlook, Excel, Word, PowerPoint to organize, plan, and track administrative tasks.</span></p></li><li><p><span lang=\"EN-GB\">Contribute to the continuous improvement of internal processes and implement solutions while adhering to company procedures.</span></p><p><span lang=\"EN-GB\"><strong>Versatility and Internal Support:</strong></span></p></li><li><p><span lang=\"EN-GB\">Provide versatile support within the General Services team, including managing internal communication through tools like Microsoft Teams and Webex.</span></p></li><li><p><span lang=\"EN-GB\">Act as a point of contact for internal logistics and workspace organization requests.</span></p></li><li><span>Job position is based in Geneva</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Skills and experience</strong></span></p><ul><li><span lang=\"EN-GB\">Degree in administration, logistics management, or equivalent.</span></li><li><span lang=\"EN-GB\">Previous experience in a similar role (banking environment or a mid-sized company preferred).</span></li><li><span lang=\"EN-GB\">Significant experience in a similar position within the private banking or wealth management sector, with a strong understanding of the nuances and complexities involved.</span></li><li><span lang=\"EN-GB\">Comfortable with digital tools and collaboration platforms (Outlook, Excel, Teams, etc.)</span></li><li><span lang=\"EN-GB\">Good knowledge of postal and logistics management platforms (UPS Campuship, Swiss Post).</span></li><li><span lang=\"EN-GB\">Ability to quickly adapt to new tools and applications.</span></li><li><span lang=\"EN-GB\">Autonomy, initiative, and the ability to manage priorities.</span></li><li><span lang=\"EN-GB\">Excellent organizational skills and the ability to work under pressure while meeting deadlines.</span></li><li><span lang=\"EN-GB\">Team spirit and excellent communication with various internal departments.</span></li><li><span lang=\"EN-GB\">Ability to be flexible and take on various tasks within the General Services department.</span></li><li><span lang=\"EN-GB\"><strong>Fluency in spoken English and good command of written English are required.</strong></span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Values</strong></span></p><p><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></p><p><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></p><p><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p> </p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-09-06T22:46:56.129Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "country": "CH",
+      "firstSeenAt": "2026-06-03T13:26:59.347Z",
+      "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "efg-4543",
+      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Group Financial Controller",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/4543",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "As we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations."
+            ],
+            "responsibilities": [
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.",
+              "Finance process an systems Optimisation",
+              "Coordinate with the Local CFOs and manage the Global CFO"
+            ],
+            "requirements": [
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Minimum of 8 to 10 years of experience ina similar role",
+              "Proven track record of managing complex projects and delivering results.",
+              "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
+              "Knowledge of regulatory requirements and Company Law.",
+              "Excellent project management skills, including planning, execution and monitoring.",
+              "Exceptional communication and interpersonal skills."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Minimum of 8 to 10 years of experience ina similar role",
+              "Proven track record of managing complex projects and delivering results.",
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Own the chart of accounts evolution process"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "General Info",
+                "paragraphs": [],
+                "bullets": [
+                  "Department: Corporate Finance",
+                  "Work time Percentage: 100%",
+                  "Location: Geneva"
+                ]
+              },
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Project Management",
+                "paragraphs": [],
+                "bullets": [
+                  "Lead and manage Finance related projects from initiation to completion",
+                  "Develop project plans, timelines and budgets",
+                  "Presentations to ExCO and GBC",
+                  "Monitor project progress and make adjustements as necessary to ensure successful project delivery."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Process Improvement",
+                "paragraphs": [],
+                "bullets": [
+                  "Identify opportunities for process improvements and recommend solutions.",
+                  "Process analysis (start-to-end); identifying and then targeting bottlenecks",
+                  "Holistic management of the ongoing developments"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-08-28T05:13:23.057Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.881Z",
+      "country": "CH",
+      "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "efg-5984",
+      "slug": "switchboard-operator-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-25T09:44:22.596Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "efg-5967",
       "slug": "responsabile-della-fondazione-efg-international-ag-zurich",
@@ -718,7 +1192,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T09:15:28.546Z",
+      "crawledAt": "2026-10-04T21:12:16.933Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -741,202 +1215,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6490",
-      "slug": "digital-marketing-manager-campagne-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Digital Marketing Manager - Campaigns",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25T07:07:02+00:00",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6490",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Digital Marketing Manager - Campaign Specialist will be instrumental in shaping and delivering key components in EFG’s transformation of its digital ecosystem and presence across strategic digital marketing channels.",
-              "In your role you will work closely with members of the Digital and broader global marketing team to combine strategy, execution, and data analysis to ensure campaigns are client-centric, measurable, and compliant, focused on measurable demand generation and attributable to NNA growth for the broader business.",
-              "The successful candidate will bring deep channel expertise and be comfortable translating business priorities into strategic digital marketing activity that drives awareness, engagement, and measurable commercial outcomes. As EFG develops it’s digital ecosystem you will support the team to help implement connected and scalable solutions that deliver ROI across the business and support growth."
-            ],
-            "responsibilities": [
-              "Lead the end-to-end strategy, planning, execution, and optimisation of global digital demand generation campaigns across web, email, paid media, and social channels.",
-              "Collaborate with business experts across global Marketing, Sales, Product, and Investment teams to define target audiences across multiple regions and develop campaign strategies tailored to different markets and segments.",
-              "Build test-and-learn frameworks (A/B testing, multivariate testing) to continuously improve performance.",
-              "Ensure complex regulations such as cross border marketing compliance rules are met and safeguards are in place with auditable processes.",
-              "Ensure all campaigns are tracked, measured, and aligned with KPIs agreed by the business and focused on supporting meeting our 3-year objectives.",
-              "Accountable for commercially focused KPI’s (Qualified leads, channel conversions and other user activity insights that can drive new business opportunities.",
-              "Manage paid media budgets (Google Ads, LinkedIn, display networks) to maximise ROI and lead generation.",
-              "Drive organic growth through advanced SEO strategy (on-page, off-page, technical).",
-              "Ensure keyword strategies, landing page optimisation, and ad copy are data-led and aligned with brand tone.<br>",
-              "Work with skilled content creators and subject matter experts across the business to adapt investment insights and marketing collateral into engaging digital formats.",
-              "Support editorial calendars for digital channels and ensure content aligns with client journeys.",
-              "Support localisation and tailoring of content for different geographies and audiences.<br>",
-              "Maintain dashboards and regular reports for senior management and Marketing partners providing insights on campaign effectiveness, client engagement, and ROI.",
-              "Analyse audience behaviour to inform future campaign and content strategy.",
-              "Support regulatory and compliance reporting for marketing activity.<br>",
-              "Work closely with compliance to ensure all distribution of digital communications meet regulatory and brand standards."
-            ],
-            "requirements": [
-              "Bachelor’s degree in Marketing, Business, Communications or related field.",
-              "Professional marketing qualifications (e.g., CIM, Google, Analytics certifications) desirable.",
-              "5+ years’ digital marketing experience, ideally within Private Banking, investment management, financial services. Alternatively a background in targeting HNWI with a luxury services.",
-              "Proven track record of delivering successful, measurable campaigns across multiple digital channels.",
-              "Advanced knowledge of SEO, SEM, PPC, and campaign optimisation.",
-              "Strong knowledge of marketing automation platforms (e.g., Pardot, HubSpot, Marketo).",
-              "Experience working with Salesforce or other CRMs.",
-              "Strong analytical skills, with ability to interpret complex data and provide actionable insights.",
-              "Excellent project management skills; able to balance multiple campaigns across regions.",
-              "Skilled communicator able to explain digital concepts to non-specialist stakeholders and deliver results."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br><br><br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Lead the end-to-end strategy, planning, execution, and optimisation of global digital demand generation campaigns across web, email, paid media, and social channels.",
-              "Collaborate with business experts across global Marketing, Sales, Product, and Investment teams to define target audiences across multiple regions and develop campaign strategies tailored to different markets and segments.",
-              "Build test-and-learn frameworks (A/B testing, multivariate testing) to continuously improve performance.",
-              "Bachelor’s degree in Marketing, Business, Communications or related field.",
-              "Professional marketing qualifications (e.g., CIM, Google, Analytics certifications) desirable.",
-              "5+ years’ digital marketing experience, ideally within Private Banking, investment management, financial services. Alternatively a background in targeting HNWI with a luxury services.",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Bachelor’s degree in Marketing",
-              "Professional marketing qualifications (e.g.",
-              "5+ years’ digital marketing experience",
-              "Proven track record of delivering successful",
-              "Advanced knowledge of SEO",
-              "Lead the end-to-end strategy",
-              "Collaborate with business experts across global Marketing",
-              "Build test-and-learn frameworks (A/B testing",
-              "Ensure complex regulations such as cross border marketing compliance rules are met and safeguards are in place with auditable processes."
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 6
-          }
-        }
-      },
-      "crawledAt": "2026-10-04T09:15:28.540Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-09-25T07:07:02+00:00",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-25T14:39:21.479Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "efg-6531",
-      "slug": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Client Services Officer - Russian Speaker",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29T15:25:56+00:00",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6531",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Within the Private Banking Department, the <strong style=\"border: 0px solid rgb(51, 60, 64); box-sizing: border-box; font-weight: bolder; margin: 0px; outline-color: oklab(0.709229 0.0116 0.0345271 / 0.5); padding: 0px; scrollbar-color: auto;\">Client Support Officer Private Banking</strong> plays a key role in delivering a high‑quality service experience to our clients and supporting our Client Relationship Officers (CROs) in the day‑to‑day management of client relationships.",
-              "You will be responsible for the full range of administrative and operational activities linked to client accounts, ensuring that all instructions are executed accurately, efficiently and in line with internal policies and regulatory requirements. Working closely with CROs and key control functions, you will help prepare client meetings, maintain up‑to‑date documentation, and contribute to the promotion of digital and paperless solutions.",
-              "This position is suited to an experienced private banking professional who enjoys working in a dynamic environment, is comfortable with complex client requests and financial instruments, and is committed to delivering excellent service with a strong risk‑aware and compliance mindset. The role requires close interaction with Russian‑speaking clients and therefore a high level of proficiency in Russian.",
-              "· Provide proactive day‑to‑day support to one or more CROs in managing a portfolio of private banking clients, ensuring seamless coordination of all client‑related activities."
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 7
-          }
-        }
-      },
-      "crawledAt": "2026-10-04T09:15:28.498Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-09-29T15:25:56+00:00",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-29T21:12:54.926Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
@@ -1209,6 +1487,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1342,6 +1621,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6175",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1464,6 +1744,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1594,63 +1875,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 17
-      }
-    },
-    {
-      "id": "efg-6210",
-      "slug": "servizi-generali-dipendenti-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "General Services Employee",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6210",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span lang=\"EN-GB\">Department: General Services</span></p><p><span lang=\"EN-GB\">Work time Percentage: 100%</span></p><p><span lang=\"EN-GB\">Location: Geneva</span></p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span>The General Services Assistant plays a key role in the daily management of logistics and administrative operations within our private bank site of Geneva. This individual coordinates shipments, manages inventory, and supports the optimization of internal processes while ensuring a smooth working environment that meets the company's quality standards.</span></p><p><span><strong>Main Responsibilities:</strong></span><span lang=\"EN-GB\"><strong>Shipment and Logistics Management: </strong></span></p><ul><li><p><span lang=\"EN-GB\">Oversee and manage postal shipments (letters, parcels, express deliveries, etc.), both nationally and internationally, using platforms such as UPS Campuship, Swiss Post, etc.</span></p></li><li><p><span lang=\"EN-GB\">Handle special shipments and related logistics (packaging, preparing shipments, tracking deliveries).</span></p><p><span lang=\"EN-GB\"><strong>Inventory and Procurement Management:</strong></span></p></li><li><p><span lang=\"EN-GB\">Order and manage consumables for various departments.</span></p></li><li><p><span lang=\"EN-GB\">Monitor stock levels and coordinate with suppliers to ensure the continuous availability of necessary supplies.</span></p><p><span lang=\"EN-GB\"><strong>Maintenance and Facility Management: </strong></span></p></li><li><p><span lang=\"EN-GB\">Monitor the condition of office spaces, identify maintenance needs, and coordinate with service providers to address issues promptly.</span></p></li><li><p><span lang=\"EN-GB\">Take the initiative to maintain a pleasant and functional working environment.</span></p><p><span lang=\"EN-GB\"><strong>Administrative Support and Project Management:</strong> </span></p></li><li><p><span lang=\"EN-GB\">Coordinate and follow up on various projects in collaboration with service providers and internal teams.</span></p></li><li><p><span lang=\"EN-GB\">Use tools such as Outlook, Excel, Word, PowerPoint to organize, plan, and track administrative tasks.</span></p></li><li><p><span lang=\"EN-GB\">Contribute to the continuous improvement of internal processes and implement solutions while adhering to company procedures.</span></p><p><span lang=\"EN-GB\"><strong>Versatility and Internal Support:</strong></span></p></li><li><p><span lang=\"EN-GB\">Provide versatile support within the General Services team, including managing internal communication through tools like Microsoft Teams and Webex.</span></p></li><li><p><span lang=\"EN-GB\">Act as a point of contact for internal logistics and workspace organization requests.</span></p></li><li><span>Job position is based in Geneva</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Skills and experience</strong></span></p><ul><li><span lang=\"EN-GB\">Degree in administration, logistics management, or equivalent.</span></li><li><span lang=\"EN-GB\">Previous experience in a similar role (banking environment or a mid-sized company preferred).</span></li><li><span lang=\"EN-GB\">Significant experience in a similar position within the private banking or wealth management sector, with a strong understanding of the nuances and complexities involved.</span></li><li><span lang=\"EN-GB\">Comfortable with digital tools and collaboration platforms (Outlook, Excel, Teams, etc.)</span></li><li><span lang=\"EN-GB\">Good knowledge of postal and logistics management platforms (UPS Campuship, Swiss Post).</span></li><li><span lang=\"EN-GB\">Ability to quickly adapt to new tools and applications.</span></li><li><span lang=\"EN-GB\">Autonomy, initiative, and the ability to manage priorities.</span></li><li><span lang=\"EN-GB\">Excellent organizational skills and the ability to work under pressure while meeting deadlines.</span></li><li><span lang=\"EN-GB\">Team spirit and excellent communication with various internal departments.</span></li><li><span lang=\"EN-GB\">Ability to be flexible and take on various tasks within the General Services department.</span></li><li><span lang=\"EN-GB\"><strong>Fluency in spoken English and good command of written English are required.</strong></span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Values</strong></span></p><p><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></p><p><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></p><p><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p> </p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-06T22:46:56.129Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1204",
-      "country": "CH",
-      "firstSeenAt": "2026-06-03T13:26:59.347Z",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
-      "postingDateSource": "unknown",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
       }
     },
     {
@@ -1990,216 +2214,6 @@
       }
     },
     {
-      "id": "efg-4543",
-      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Group Financial Controller",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/4543",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations."
-            ],
-            "responsibilities": [
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.",
-              "Finance process an systems Optimisation",
-              "Coordinate with the Local CFOs and manage the Global CFO"
-            ],
-            "requirements": [
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Minimum of 8 to 10 years of experience ina similar role",
-              "Proven track record of managing complex projects and delivering results.",
-              "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
-              "Knowledge of regulatory requirements and Company Law.",
-              "Excellent project management skills, including planning, execution and monitoring.",
-              "Exceptional communication and interpersonal skills."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Minimum of 8 to 10 years of experience ina similar role",
-              "Proven track record of managing complex projects and delivering results.",
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Own the chart of accounts evolution process"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "General Info",
-                "paragraphs": [],
-                "bullets": [
-                  "Department: Corporate Finance",
-                  "Work time Percentage: 100%",
-                  "Location: Geneva"
-                ]
-              },
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Project Management",
-                "paragraphs": [],
-                "bullets": [
-                  "Lead and manage Finance related projects from initiation to completion",
-                  "Develop project plans, timelines and budgets",
-                  "Presentations to ExCO and GBC",
-                  "Monitor project progress and make adjustements as necessary to ensure successful project delivery."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Process Improvement",
-                "paragraphs": [],
-                "bullets": [
-                  "Identify opportunities for process improvements and recommend solutions.",
-                  "Process analysis (start-to-end); identifying and then targeting bottlenecks",
-                  "Holistic management of the ongoing developments"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-28T05:13:23.057Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.881Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
-      "postingDateSource": "unknown",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "efg-5984",
-      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-25T09:44:22.596Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
-      "postingDateSource": "unknown",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "id": "efg-6046",
       "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
       "company": "EFG International AG",
@@ -2249,6 +2263,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6046",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2615,6 +2630,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6142",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2673,6 +2689,7 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6064",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2797,7 +2814,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

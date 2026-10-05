@@ -330,7 +330,10 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
     return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Otis Workday listings: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }

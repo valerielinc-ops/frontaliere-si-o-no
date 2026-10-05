@@ -48,6 +48,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -278,8 +280,11 @@ async function listSwissJobs() {
     try {
       html = await fetchHtml(pageUrl, { timeoutMs: 20000 });
     } catch (err) {
-      if (page === 0) console.warn(`⚠️ Failed to fetch Holcim search page: ${err.message}`);
-      break;
+      console.warn(`⚠️ Failed to fetch Holcim search page at page=${page}: ${err.message}`);
+      // A transport/server failure is not an empty listing. Let the standard
+      // crawler pipeline preserve the previous slice and record the real
+      // connection-level/HTTP failure instead of publishing no-jobs-parsed.
+      throw err;
     }
     const { rows, total } = parseSearchPage(html);
     if (page === 0) expectedTotal = total;
@@ -350,13 +355,7 @@ async function fetchJobDetail(detailUrl) {
   }
 
   const dateM = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
-  let postedDate = '';
-  if (dateM) {
-    const d = new Date(dateM[1]);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
-
-  return { descriptionHtml, postedDate };
+  return { descriptionHtml, ...successFactorsPostingDateFields(dateM?.[1] || '') };
 }
 
 /**
@@ -442,7 +441,7 @@ export async function fetchAllHolcimJobs() {
       sector: 'Materiali da costruzione / Cemento',
       currency: 'CHF',
       featured: false,
-      postedDate: (detail && detail.postedDate) || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

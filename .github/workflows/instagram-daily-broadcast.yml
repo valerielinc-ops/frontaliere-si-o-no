@@ -45,7 +45,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write  # commit data/instagram-posted.json
+  contents: write  # commit data/instagram-posted.json + data/instagram-queue.json
   issues: write
 
 jobs:
@@ -82,14 +82,24 @@ jobs:
       # Make the soft-skip visible: without INSTAGRAM_ACCESS_TOKEN (RC key
       # SERVER_INSTAGRAM_ACCESS_TOKEN, pending Meta App Review) every run was
       # green but posted nothing (data/instagram-posted.json never written).
+      # Without a token nothing reaches Instagram unless the robot publishes,
+      # and it publishes only with SOCIAL_ROBOT_MODE=live: in `off` (no queue)
+      # and in the default `dry` (queued, never pressed) the run stays visible.
       - name: Warn when Instagram credentials are absent
-        if: env.INSTAGRAM_ACCESS_TOKEN == ''
-        run: echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set — nothing will be posted this run (soft-skip)."
+        if: env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'
+        run: |
+          if [ "${SOCIAL_ROBOT_MODE:-}" = "off" ]; then
+            echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set and SOCIAL_ROBOT_MODE=off — nothing will be posted this run (soft-skip)."
+          else
+            echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set — the post is only queued for the Playwright robot, which publishes only with SOCIAL_ROBOT_MODE=live (now: ${SOCIAL_ROBOT_MODE:-absent, read as dry}). Nothing reaches Instagram this run."
+          fi
 
       # Only needed for the job slot — same reasoning as linkedin-member-daily.yml:
-      # without it the poster skips the job slot rather than guessing.
+      # without it the poster skips the job slot rather than guessing. Needed
+      # without a token too unless SOCIAL_ROBOT_MODE=off: the post then goes to
+      # the Playwright robot's queue (scripts/lib/social-publish-queue.mjs).
       - name: Assemble jobs dataset
-        if: env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != ''
+        if: env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
         run: node scripts/assemble-jobs-dataset.mjs --stats
         continue-on-error: true
 
@@ -117,16 +127,23 @@ jobs:
           # <path>` on a path that has never existed exits 128, not 0/1, so a
           # failed/skipped post (no ledger write yet) fell through into
           # `git add` on a missing pathspec and hard-failed the step.
-          if [ ! -f data/instagram-posted.json ]; then
-            echo "no ledger file written — nothing to commit"; exit 0
+          # The queue of the Playwright robot (SOCIAL_ROBOT_MODE dry/live, see
+          # scripts/lib/social-publish-queue.mjs) is written by the same step
+          # as the ledger and committed with it.
+          files=()
+          for f in data/instagram-posted.json data/instagram-queue.json; do
+            if [ -f "$f" ]; then files+=("$f"); fi
+          done
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no ledger or queue file written — nothing to commit"; exit 0
           fi
-          git add data/instagram-posted.json
+          git add "${files[@]}"
           if git diff --cached --quiet; then
             echo "no ledger changes"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(instagram): track posted carousel content [skip ci]"
+          git commit -m "chore(instagram): track posted and queued carousel content [skip ci]"
           bash scripts/lib/git-push-with-retry.sh \
             --max-attempts 20 || echo "ledger push skipped (non-fatal)"
 

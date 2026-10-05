@@ -37,6 +37,18 @@ function retentionAnchor(order) {
   return order?.cvUploadedAt ?? null;
 }
 
+/**
+ * When the purge below is due to delete the order's files and data (its anchor plus the retention days),
+ * or null when it never is (no anchor, the talent pool). The «inviata» e-mail's link to the candidate's
+ * documents lasts until then (owner decision 2026-10-03).
+ * @returns {number|null} epoch ms
+ */
+export function retentionPurgeDueAt(order, retentionDays = ASSISTED_APPLICATION_RETENTION_DAYS) {
+  if (order?.talentPoolConsent === true) return null;
+  const anchorMillis = timestampMillis(retentionAnchor(order));
+  return anchorMillis === null ? null : anchorMillis + retentionDays * 86400000;
+}
+
 function storageKeyForOrder(orderId, value) {
   const key = String(value || '');
   const prefix = `${ASSISTED_STORAGE_PREFIX}${orderId}/`;

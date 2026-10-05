@@ -120,6 +120,70 @@ describe('parseListingPage', () => {
     expect(jobs[0].location).toContain('Switzerland');
   });
 
+  it('keeps the country when the live card puts the department before it', () => {
+    const jobs = parseListingPage(`
+      <div class="job-listing-item">
+        <h3>Area Sales Manager Solutions</h3>
+        <p>Aussendienst | Germany</p>
+        <a href="/careers/jobs/job-detail/area-sales-manager">Details</a>
+      </div>
+      <div class="job-listing-item">
+        <h3>Area Sales Manager Solutions</h3>
+        <p>Kettering | United Kingdom</p>
+        <a href="/careers/jobs/job-detail/area-sales-manager-uk">Details</a>
+      </div>
+      <div class="job-listing-item">
+        <h3>Mechanical Design Engineer</h3>
+        <p>R&amp;D | Sant'Antonino | Switzerland</p>
+        <a href="/careers/jobs/job-detail/mechanical-design-ch">Details</a>
+      </div>
+    `);
+
+    expect(jobs.map((job) => job.location)).toEqual([
+      'Aussendienst | Germany',
+      'Kettering | United Kingdom',
+      "R&D | Sant'Antonino | Switzerland",
+    ]);
+  });
+
+  it('parses a USA foreign-only card as an authoritative filtered-empty board', () => {
+    const listings = parseListingPage(`
+      <div class="job-card">
+        <a href="/company/careers/jobs/job-detail/x">
+          <h3>X</h3>
+          <p>Operations | USA</p>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(1);
+    expect(listings[0].location).toBe('Operations | USA');
+    expect(classifyInterrollListings(listings)).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: true,
+      unclassifiedLocationCount: 0,
+    });
+  });
+
+  it('parses the German Austria marker as an authoritative filtered-empty board', () => {
+    const listings = parseListingPage(`
+      <div class="job-card">
+        <a href="/company/careers/jobs/job-detail/x">
+          <h3>X</h3>
+          <p>Operations | Österreich</p>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(1);
+    expect(listings[0].location).toBe('Operations | Österreich');
+    expect(classifyInterrollListings(listings)).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: true,
+      unclassifiedLocationCount: 0,
+    });
+  });
+
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
   });
@@ -134,7 +198,7 @@ describe('parseListingPage', () => {
 });
 
 describe('classifyInterrollListings', () => {
-  it('reports a reachable global board filtered to zero Swiss jobs', () => {
+  it('reports a reachable global board filtered to zero Swiss jobs with a proof', () => {
     const result = classifyInterrollListings([
       { title: 'Area Sales Manager', url: 'https://www.interroll.com/job-detail/sales', location: 'Germany' },
       { title: 'Service Techniker', url: 'https://www.interroll.com/job-detail/service', location: 'Austria' },
@@ -143,6 +207,33 @@ describe('classifyInterrollListings', () => {
     expect(result.discovered).toBe(2);
     expect(result.listings).toEqual([]);
     expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+    expect(result.unclassifiedLocationCount).toBe(0);
+  });
+
+  it('does not prove a filtered zero when any card has no recognized location', () => {
+    const result = classifyInterrollListings([
+      { title: 'Area Sales Manager', url: 'https://www.interroll.com/job-detail/sales', location: 'Germany' },
+      { title: 'Unknown role', url: 'https://www.interroll.com/job-detail/unknown', location: '' },
+    ]);
+
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+    expect(result.unclassifiedLocationCount).toBe(1);
+  });
+
+  it('recognizes a Swiss country after the department separator', () => {
+    const result = classifyInterrollListings([
+      {
+        title: 'Mechanical Design Engineer',
+        url: 'https://www.interroll.com/job-detail/mechanical-design',
+        location: 'R&D | Sant\'Antonino | Switzerland',
+      },
+    ]);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.lastFetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
   });
 
   it('keeps an empty fetched board fail-closed as a selector miss', () => {
@@ -168,6 +259,10 @@ describe('filtered-empty heartbeat wiring', () => {
     expect(INTERROLL_UPDATER).toContain(
       'lastFetchOutcome: counts.lastFetchOutcome',
     );
+    expect(INTERROLL_UPDATER).toContain(
+      'authoritativeEmptySnapshot: counts.authoritativeEmptySnapshot === true && sliceJobs.length === 0',
+    );
+    expect(INTERROLL_UPDATER).toContain('publishAuthoritativeEmptySnapshot');
   });
 });
 
