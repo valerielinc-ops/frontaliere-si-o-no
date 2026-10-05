@@ -1,18 +1,20 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-05T06:23:49.479Z",
-  "total": 9,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 10980,
-  "avgDurationMs": 10980,
+  "generatedAt": "2026-10-05T08:29:13.534Z",
+  "total": 8,
+  "newCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
+  "unchangedCount": 8,
+  "durationMs": 12134,
+  "avgDurationMs": 12134,
   "durationHistory": [
-    10980
+    12134
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
@@ -58,7 +60,7 @@
       }
     }
   ],
-  "updatedJobs": [
+  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
@@ -78,7 +80,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:40.856Z",
+      "crawledAt": "2026-10-05T08:29:03.841Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -101,10 +103,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -124,7 +123,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:39.643Z",
+      "crawledAt": "2026-10-05T08:29:03.793Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -167,7 +166,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:39.624Z",
+      "crawledAt": "2026-10-05T08:29:03.772Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -210,7 +209,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:38.526Z",
+      "crawledAt": "2026-10-05T08:29:02.439Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -253,7 +252,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:37.449Z",
+      "crawledAt": "2026-10-05T08:29:00.690Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -296,7 +295,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:36.367Z",
+      "crawledAt": "2026-10-05T08:28:59.394Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -339,7 +338,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:35.311Z",
+      "crawledAt": "2026-10-05T08:28:58.292Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -382,7 +381,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T06:23:34.219Z",
+      "crawledAt": "2026-10-05T08:28:57.025Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -407,5 +406,5 @@
       }
     }
   ],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "131f8bc1b80cde75f604ccd4dd8964fc1ef88621"
 }
