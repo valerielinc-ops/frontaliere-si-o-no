@@ -143,7 +143,7 @@ describe('Victorinox crawler parser', () => {
     it('includes every structured-data completeness field (Non-Negotiable #3)', () => {
       const structuredDataInputs = [
         'postalCode', 'streetAddress', 'title', 'description',
-        'addressLocality', 'addressCountry', 'employmentType', 'postedDate',
+        'addressLocality', 'addressCountry', 'employmentType',
       ];
       for (const field of structuredDataInputs) {
         expect(validJob[field]).toBeTruthy();
@@ -297,6 +297,18 @@ describe('Victorinox crawler parser', () => {
       expect(zermattJob.description).not.toMatch(/Bereich:|Standort:|Referenz:|Schweizer Familienunternehmen/);
     });
 
+    it('retains the full publication timestamp from a matching detail JobPosting', async () => {
+      const date = new Date(Date.now() - 86400000).toISOString();
+      const row = ROWS[0];
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => ({ ok: true, status: 200,
+        text: async () => String(url).includes('list-of-all-jobs.aspx') ? buildListingHtml([row])
+          : detailHtml(row.detail) + `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: row.title, url: PORTAL_BASE + row.href, datePosted: date, description: row.detail })}</script>`
+      })));
+      const jobs = await fetchAllVictorinoxJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    });
+
     it('includes structured-data completeness fields for every returned job (Non-Negotiable #3)', async () => {
       stubFetch(buildListingHtml(ROWS), ROWS);
 
@@ -313,18 +325,8 @@ describe('Victorinox crawler parser', () => {
           if (field === 'description' && (job as any).title === 'Sales Assistant - Zermatt m/w/d') continue;
           expect((job as any)[field]).toBeTruthy();
         }
-        // The fixture has no source publication metadata. The parser must
-        // expose publication fields while keeping them explicitly unknown
-        // instead of substituting the crawl date.
-        expect(job).toHaveProperty('datePosted');
-        expect(job).toHaveProperty('postedDate');
-        expect(job).toHaveProperty('postingDateSource');
-        if ((job as any).postingDateSource === 'unknown') {
-          expect((job as any).datePosted).toBe('');
-          expect((job as any).postedDate).toBe('');
-        } else {
-          expect((job as any).postedDate).toBeTruthy();
-        }
+        // These source fixtures contain no publication date, so they cannot emit dated schema.
+        expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
         // postalCode/streetAddress are safe-defaulted (never omitted) even
         // when a secondary site legitimately has no HQ street on record.
         expect(job).toHaveProperty('postalCode');
