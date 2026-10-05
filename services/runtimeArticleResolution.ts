@@ -396,26 +396,30 @@ function tableMarkdown(el: Element): string | null {
   return [...lines.slice(0, separatorAt), separator, ...lines.slice(separatorAt)].join('\n');
 }
 
-function blockMarkdown(el: Element): string | null {
+type HeadingRecoveryState = { previousLevel: number | null };
+
+function blockMarkdown(el: Element, headingState?: HeadingRecoveryState): string | null {
   const tag = el.tagName;
   if (tag === 'H2' || tag === 'H3' || tag === 'H4' || tag === 'H5' || tag === 'H6') {
     const text = inlineMarkdown(el).trim();
     if (!text) return null;
     if (tag === 'H2' && GENERIC_BODY_SECTION_LABELS.has(text.toLowerCase())) return null;
-    // Undo the static clamp instead of mirroring it. buildArticleBodyBlocks maps
-    // BOTH `#` and `##` onto <h3> and everything deeper onto <h4>, so the body's
-    // own `## Sezione` reaches the DOM as <h3>. Re-emitting it as `###` (what
-    // this did before) rendered day-one articles one heading level below the
-    // bundle's, under generic <h2>s the bundle does not have. h3 → `##`,
-    // h4 → `###` restores the source levels for the two the generator uses.
-    // Deep source headings carry their original markdown depth because the
-    // static renderer may demote an initial <h4> to <h3> to keep the outline
-    // contiguous. Older pages without the marker retain the tag fallback.
+    // Recover the source depth where the marker is available, but keep the
+    // effective level that survived static normalization as an upper bound.
+    // The marker is deliberately not authoritative: a source `####` may have
+    // been normalized to `<h3>` and restoring it unconditionally would make
+    // the SPA render an H2 followed by an H4 again.
     const sourceLevel = Number(el.getAttribute('data-source-heading-level'));
-    const level = Number.isInteger(sourceLevel) && sourceLevel >= 3
-      ? '#'.repeat(Math.min(sourceLevel, 4))
-      : tag === 'H2' || tag === 'H3' ? '##' : tag === 'H4' ? '###' : '####';
-    return `${level} ${text}`;
+    const requestedLevel = Number.isInteger(sourceLevel) && sourceLevel >= 3
+      ? Math.min(sourceLevel, 4)
+      : tag === 'H2' || tag === 'H3' ? 2 : tag === 'H4' ? 3 : 4;
+    const staticLevel = Number(tag.slice(1));
+    const recoveredLevel = Math.min(requestedLevel, staticLevel);
+    const level = headingState?.previousLevel == null
+      ? recoveredLevel
+      : Math.min(recoveredLevel, headingState.previousLevel + 1);
+    if (headingState) headingState.previousLevel = level;
+    return `${'#'.repeat(level)} ${text}`;
   }
   if (tag === 'TABLE') return tableMarkdown(el);
   if (tag === 'P') {
@@ -451,10 +455,11 @@ export function articleBodyPartsFromStaticArticle(article: Element | null): stri
     (el) => el.tagName === 'SECTION' && !el.getAttribute('class'),
   );
   const parts: string[] = [];
+  const headingState: HeadingRecoveryState = { previousLevel: null };
   for (const section of sections) {
     const blocks: string[] = [];
     for (const child of Array.from(section.children)) {
-      const block = blockMarkdown(child);
+      const block = blockMarkdown(child, headingState);
       if (block) blocks.push(block);
     }
     const text = blocks.join('\n\n').trim();

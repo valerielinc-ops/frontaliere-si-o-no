@@ -338,6 +338,16 @@ describe('articleBodyPartsFromStaticArticle', () => {
     ]);
   });
 
+  it('keeps recovered headings contiguous when ## is followed by ####', () => {
+    document.body.innerHTML = renderStaticArticle([
+      '## Sezione\nTesto.\n\n#### Dettaglio\nAltro testo.',
+    ]);
+
+    expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
+      '## Sezione\n\nTesto.\n\n### Dettaglio\n\nAltro testo.',
+    ]);
+  });
+
   it('keeps the descriptive headings of the SEO fallback sections', () => {
     // Only the three GENERIC positional labels are scaffolding. The fallback
     // sections ogPagesPlugin appends to thin bodies carry real headings.
