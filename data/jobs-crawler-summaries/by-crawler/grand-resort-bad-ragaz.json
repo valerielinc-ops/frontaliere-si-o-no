@@ -1,7 +1,7 @@
 {
   "key": "grand-resort-bad-ragaz",
   "label": "Grand Resort Bad Ragaz",
-  "generatedAt": "2026-10-04T21:18:29.208Z",
+  "generatedAt": "2026-10-05T09:17:04.075Z",
   "total": 31,
   "discovered": null,
   "parsed": 31,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 31,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 31,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3819,
-  "avgDurationMs": 3819,
+  "durationMs": 3324,
+  "avgDurationMs": 3324,
   "durationHistory": [
-    3819
+    3324
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-restaurantfachfrau-mann-efz-m-w-i/b0cc0197-1c18-44b2-881a-314a23a19c94",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.860Z",
+      "crawledAt": "2026-10-05T09:16:55.827Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -48,18 +50,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-restaurantfachfrau-mann-efz-m-w-i/b0cc0197-1c18-44b2-881a-314a23a19c94",
       "firstSeenAt": "2026-07-04T10:49:04.306Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -75,7 +79,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i/254fb6de-ba3e-4131-a86d-02218cb990fd",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.858Z",
+      "crawledAt": "2026-10-05T09:16:55.825Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -89,18 +93,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i/254fb6de-ba3e-4131-a86d-02218cb990fd",
       "firstSeenAt": "2026-07-19T22:56:41.987Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -116,7 +122,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/betriebselektriker-gebaeudetechniker-w-m-i/e330814a-9f49-49af-b48a-54f0b402dc64",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.856Z",
+      "crawledAt": "2026-10-05T09:16:55.823Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -130,18 +136,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/betriebselektriker-gebaeudetechniker-w-m-i/e330814a-9f49-49af-b48a-54f0b402dc64",
       "firstSeenAt": "2026-07-28T22:29:16.724Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -157,7 +165,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/officemitarbeiter-innerer-dienst-m-w-i/55409fe6-bb9d-41ef-a5ac-9fcd382c1a6e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.853Z",
+      "crawledAt": "2026-10-05T09:16:55.820Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -171,18 +179,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/officemitarbeiter-innerer-dienst-m-w-i/55409fe6-bb9d-41ef-a5ac-9fcd382c1a6e",
       "firstSeenAt": "2026-08-14T10:20:12.937Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -198,7 +208,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/controller-tamina-therme-ag-w-m-i/d4ce46b9-ad01-4bf3-9223-dbb514c3622c",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.851Z",
+      "crawledAt": "2026-10-05T09:16:55.818Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,18 +222,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/controller-tamina-therme-ag-w-m-i/d4ce46b9-ad01-4bf3-9223-dbb514c3622c",
       "firstSeenAt": "2026-08-14T21:52:37.245Z",
       "salaryMin": 31000,
       "salaryMax": 39000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -239,7 +251,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/masseur-m-w-i/79ce869d-7144-4337-93d7-916b564d956e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.848Z",
+      "crawledAt": "2026-10-05T09:16:55.811Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -253,18 +265,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/masseur-m-w-i/79ce869d-7144-4337-93d7-916b564d956e",
       "firstSeenAt": "2026-08-25T21:37:26.791Z",
       "salaryMin": 24800,
       "salaryMax": 31200,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -274,13 +288,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Bartender Supervisor (The Bar) 100% (w/m/i)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.844Z",
+      "crawledAt": "2026-10-05T09:16:55.805Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -294,18 +307,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
       "firstSeenAt": "2026-08-26T09:55:25.772Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -321,7 +336,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-partie-igniv-m-w-d/d59785d8-6048-447a-aca8-6ad6de7383ba",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.842Z",
+      "crawledAt": "2026-10-05T09:16:55.797Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -335,18 +350,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/chef-de-partie-igniv-m-w-d/d59785d8-6048-447a-aca8-6ad6de7383ba",
       "firstSeenAt": "2026-08-27T19:53:15.499Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -356,13 +373,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Sommelier IGNIV (m/w/d)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/sommelier-igniv-m-w-d/5f4ad90d-95f3-41df-b1af-3fab505d6f43",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.840Z",
+      "crawledAt": "2026-10-05T09:16:55.787Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -376,18 +392,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/sommelier-igniv-m-w-d/5f4ad90d-95f3-41df-b1af-3fab505d6f43",
       "firstSeenAt": "2026-08-27T19:53:15.490Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -403,7 +421,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-igniv-m-w-d/e070c860-402d-4df8-9aa6-6c36f6068083",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.837Z",
+      "crawledAt": "2026-10-05T09:16:55.784Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -417,18 +435,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-igniv-m-w-d/e070c860-402d-4df8-9aa6-6c36f6068083",
       "firstSeenAt": "2026-08-27T19:53:15.475Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -444,7 +464,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/commis-de-rang-igniv-m-w-d/ac42dcd4-e96b-4211-b19a-b1963564a9b1",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.835Z",
+      "crawledAt": "2026-10-05T09:16:55.780Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -458,18 +478,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/commis-de-rang-igniv-m-w-d/ac42dcd4-e96b-4211-b19a-b1963564a9b1",
       "firstSeenAt": "2026-08-27T19:53:15.495Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -485,7 +507,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/commis-de-cuisine-igniv-m-w-d/35ac55d4-f460-459c-8cdc-de67445ebe0b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.833Z",
+      "crawledAt": "2026-10-05T09:16:55.777Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -499,18 +521,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/commis-de-cuisine-igniv-m-w-d/35ac55d4-f460-459c-8cdc-de67445ebe0b",
       "firstSeenAt": "2026-08-27T19:53:15.493Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -526,7 +550,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-dezember-2026-w-m-i/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.831Z",
+      "crawledAt": "2026-10-05T09:16:55.773Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -540,18 +564,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-dezember-2026-w-m-i/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
       "firstSeenAt": "2026-08-19T09:50:37.153Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -561,13 +587,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "F&B Management Trainee Pop-up Restaurant 100% (w/m/i)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-pop-up-restaurant-w-m-i/b5c36ba8-6f79-4aca-b010-52afef4139e9",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.829Z",
+      "crawledAt": "2026-10-05T09:16:55.770Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -581,18 +606,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-pop-up-restaurant-w-m-i/b5c36ba8-6f79-4aca-b010-52afef4139e9",
       "firstSeenAt": "2026-09-02T13:34:39.827Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -602,13 +629,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Management Trainee Housekeeping 100% (m/w/i)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/management-trainee-housekeeping-m-w-i/8612f209-3045-4ba1-a64e-ed2edae20533",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.827Z",
+      "crawledAt": "2026-10-05T09:16:55.767Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -622,18 +648,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/management-trainee-housekeeping-m-w-i/8612f209-3045-4ba1-a64e-ed2edae20533",
       "firstSeenAt": "2026-09-02T13:34:39.815Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -649,7 +677,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/front-office-praktikant-m-w-i/39014632-8a0f-4483-bcb8-cb258a71e412",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.824Z",
+      "crawledAt": "2026-10-05T09:16:55.764Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -663,18 +691,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/front-office-praktikant-m-w-i/39014632-8a0f-4483-bcb8-cb258a71e412",
       "firstSeenAt": "2026-09-02T13:34:39.829Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -684,13 +714,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Projektmanager:in Gesundheitsrestaurant (Pre-Opening & Operations)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/projektmanager-in-gesundheitsrestaurant-pre-opening-operations/8c85f975-51ba-473d-a5e0-5ed42393d726",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.822Z",
+      "crawledAt": "2026-10-05T09:16:55.762Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -704,18 +733,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/projektmanager-in-gesundheitsrestaurant-pre-opening-operations/8c85f975-51ba-473d-a5e0-5ed42393d726",
       "firstSeenAt": "2026-09-06T22:48:47.257Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -731,7 +762,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.820Z",
+      "crawledAt": "2026-10-05T09:16:55.760Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -745,18 +776,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
       "firstSeenAt": "2026-09-11T13:36:12.048Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -772,7 +805,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/demi-chef-de-partie-patisserie-hauptkuechen-w-m-i/25162cfd-d75f-4604-acdb-3283b8376f25",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.816Z",
+      "crawledAt": "2026-10-05T09:16:55.757Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -786,18 +819,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/demi-chef-de-partie-patisserie-hauptkuechen-w-m-i/25162cfd-d75f-4604-acdb-3283b8376f25",
       "firstSeenAt": "2026-09-17T03:45:32.294Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -813,7 +848,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/diaetkoechin-diaetkoch-fuer-gesundheitskulinarik-in-den-grand-hotels/2dfd5096-1c5d-4545-9b12-a2a2450e968b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.813Z",
+      "crawledAt": "2026-10-05T09:16:55.755Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -827,18 +862,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/diaetkoechin-diaetkoch-fuer-gesundheitskulinarik-in-den-grand-hotels/2dfd5096-1c5d-4545-9b12-a2a2450e968b",
       "firstSeenAt": "2026-09-17T03:45:32.272Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -854,7 +891,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-als-coiffeuse-coiffeur-nach-vereinbarung/80a018c9-e217-4765-be00-2fbffd7fb517",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.810Z",
+      "crawledAt": "2026-10-05T09:16:55.752Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -868,18 +905,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-als-coiffeuse-coiffeur-nach-vereinbarung/80a018c9-e217-4765-be00-2fbffd7fb517",
       "firstSeenAt": "2026-09-18T23:13:45.698Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -889,13 +928,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "F&B Management Trainee Restaurants 100% (w/m/i) ab Juli 2027",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-juli-2027/2d5cfb53-0bf3-4152-bdd6-b8461c304673",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.808Z",
+      "crawledAt": "2026-10-05T09:16:55.750Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -909,18 +947,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-juli-2027/2d5cfb53-0bf3-4152-bdd6-b8461c304673",
       "firstSeenAt": "2026-09-02T13:34:39.833Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -930,13 +970,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "F&B Management Trainee Restaurants 100% (w/m/i) ab Januar 2027",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-januar-2027/732e733d-a7f0-4b22-aa6b-7caa4ba33ff8",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.805Z",
+      "crawledAt": "2026-10-05T09:16:55.748Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -950,18 +989,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-januar-2027/732e733d-a7f0-4b22-aa6b-7caa4ba33ff8",
       "firstSeenAt": "2026-09-02T13:34:39.831Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -971,13 +1012,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent 80-100%",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.800Z",
+      "crawledAt": "2026-10-05T09:16:55.745Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -991,18 +1031,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
       "firstSeenAt": "2026-09-21T16:02:52.234Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1018,7 +1060,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/masseur-w-m-i/89094b3b-1313-4add-ab05-87c56ec3e95a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.798Z",
+      "crawledAt": "2026-10-05T09:16:55.742Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1032,18 +1074,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/masseur-w-m-i/89094b3b-1313-4add-ab05-87c56ec3e95a",
       "firstSeenAt": "2026-10-01T09:16:28.142Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1059,7 +1103,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.796Z",
+      "crawledAt": "2026-10-05T09:16:55.736Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1073,18 +1117,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
       "firstSeenAt": "2026-09-23T23:36:28.018Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1094,13 +1140,12 @@
       "companyKey": "grand-resort-bad-ragaz",
       "companyDomain": "resortragaz.ch",
       "title": "Leiter Innere Dienste 100% (w/m/i)",
-      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-innere-dienste-w-m-i/6b37c49d-c50e-4aea-82a3-b371a4ee17b5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.793Z",
+      "crawledAt": "2026-10-05T09:16:55.733Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1114,18 +1159,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/leiter-innere-dienste-w-m-i/6b37c49d-c50e-4aea-82a3-b371a4ee17b5",
       "firstSeenAt": "2026-09-26T13:58:42.049Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1141,7 +1188,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-restaurants-grand-resort-bad-ragaz/b82d6688-800c-4291-8dba-a13d6d257296",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.791Z",
+      "crawledAt": "2026-10-05T09:16:55.730Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1155,18 +1202,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-restaurants-grand-resort-bad-ragaz/b82d6688-800c-4291-8dba-a13d6d257296",
       "firstSeenAt": "2026-09-29T21:16:18.833Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1182,7 +1231,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.788Z",
+      "crawledAt": "2026-10-05T09:16:55.728Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1196,18 +1245,20 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
       "firstSeenAt": "2026-09-30T21:15:29.572Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1223,7 +1274,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-in-hr-services/9806ecf4-94f3-4a40-9b55-e2489227312a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:20.785Z",
+      "crawledAt": "2026-10-05T09:16:55.725Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1237,22 +1288,24 @@
       "sector": "Turismo / Ospitalità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/leiter-in-hr-services/9806ecf4-94f3-4a40-9b55-e2489227312a",
       "firstSeenAt": "2026-10-03T09:14:05.826Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
