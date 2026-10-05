@@ -27,6 +27,10 @@ on:
 permissions:
   contents: read
   issues: write
+  # Prova CI degli item bloccati solo dalla guardia risorse locale (decisione
+  # I4 del 2026-10-05): PR, run e job di `tests.yml`, report e log di vitest.
+  actions: read
+  pull-requests: read
 
 concurrency:
   # Deve coincidere con post-merge-followup.yml e con il job `drain` di

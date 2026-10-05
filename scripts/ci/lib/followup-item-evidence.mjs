@@ -9,7 +9,10 @@
  * il campo `State` dell'item. Un marker dice cosa e' successo all'item, non
  * che l'item sia risolto: PR mergiata, commit su `main` e run verde provano
  * che la PR ESISTE, e il legame item↔PR resta il giudizio di un agente. Per
- * questo nessun marker di questo modulo equivale a `State: done`.
+ * questo nessun marker di questo modulo equivale a `State: done`, con UNA
+ * eccezione decisa dal proprietario (I4, 2026-10-05): `FU_ITEM_CI_SUITE`, la
+ * prova che la CI required della PR ha eseguito verde la suite di un item
+ * bloccato solo dalla guardia risorse locale (`followup-ci-suite-proof.mjs`).
  *
  * Modulo puro: nessuna I/O, nessun `gh`. Chi lo usa passa i commenti gia'
  * letti e il predicato che decide quali autori sono fidati.
@@ -25,6 +28,7 @@ export const ITEM_ATTEMPT_MARKER = 'FU_ITEM_ATTEMPT';
 export const ITEM_BLOCKED_MARKER = 'FU_ITEM_BLOCKED';
 export const ITEM_BORN_SATISFIED_MARKER = 'FU_ITEM_BORN_SATISFIED';
 export const ITEM_UNBLOCKED_MARKER = 'FU_ITEM_UNBLOCKED';
+export const ITEM_CI_SUITE_MARKER = 'FU_ITEM_CI_SUITE';
 // Un automatismo ha tolto `maybe-resolved` da un bucket perche' ha di nuovo
 // item `open`: azzera i flag del reconciler precedenti, quindi NON vale come
 // obiezione umana (`hasLiveReconcileFlag` in reconcile-followups.mjs). Conta
@@ -54,6 +58,7 @@ const MARKER_TYPES = Object.freeze({
   [ITEM_BLOCKED_MARKER]: 'blocked',
   [ITEM_BORN_SATISFIED_MARKER]: 'born-satisfied',
   [ITEM_UNBLOCKED_MARKER]: 'unblocked',
+  [ITEM_CI_SUITE_MARKER]: 'ci-suite',
 });
 const MARKER_RE = new RegExp(`<!--\\s*(${Object.keys(MARKER_TYPES).join('|')}):([^>]*?)-->`, 'gu');
 const OUTCOME_RE = /^[a-z][a-z0-9-]{0,63}$/u;
@@ -126,10 +131,25 @@ export function itemUnblockedMarker({ item, commit }) {
   return `<!-- ${ITEM_UNBLOCKED_MARKER}: item=${id} commit=${commit} -->`;
 }
 
+/**
+ * `<!-- FU_ITEM_CI_SUITE: item=FU-… pr=<N> commit=<sha> run=<id> job=<id> -->`:
+ * la run `run` (job `job`) di `tests.yml` sullo sha `commit` della PR `pr` ha
+ * eseguito verde la suite dell'item. Tutti i campi sono obbligatori.
+ */
+export function itemCiSuiteMarker({ item, pr, commit, run, job }) {
+  const id = itemIdOrThrow(item);
+  if (positiveInteger(pr) === null) throw new TypeError(`pr-invalida:${String(pr)}`);
+  if (!/^[0-9a-f]{40}$/u.test(String(commit ?? ''))) throw new TypeError(`commit-invalido:${String(commit)}`);
+  if (positiveInteger(run) === null) throw new TypeError(`run-invalida:${String(run)}`);
+  if (positiveInteger(job) === null) throw new TypeError(`job-invalido:${String(job)}`);
+  return `<!-- ${ITEM_CI_SUITE_MARKER}: item=${id} pr=${positiveInteger(pr)} commit=${commit} run=${positiveInteger(run)} job=${positiveInteger(job)} -->`;
+}
+
 const FIELD_PARSERS = Object.freeze({
   item: (value) => (FOLLOWUP_ITEM_ID_SINGLE_RE.test(value.toUpperCase()) ? value.toUpperCase() : undefined),
   pr: (value) => positiveInteger(value) ?? undefined,
   run: (value) => positiveInteger(value) ?? undefined,
+  job: (value) => positiveInteger(value) ?? undefined,
   commit: (value) => (SHA_RE.test(value) ? value : undefined),
   link: (value) => (ITEM_EVIDENCE_LINKS.includes(value) ? value : undefined),
   outcome: (value) => (OUTCOME_RE.test(value) ? value : undefined),
@@ -141,6 +161,7 @@ const REQUIRED_FIELDS = Object.freeze({
   blocked: ['item', 'reason'],
   'born-satisfied': ['item'],
   unblocked: ['item'],
+  'ci-suite': ['item', 'pr', 'commit', 'run', 'job'],
 });
 const ALLOWED_FIELDS = Object.freeze({
   evidence: ['item', 'pr', 'commit', 'run', 'link'],
@@ -148,6 +169,7 @@ const ALLOWED_FIELDS = Object.freeze({
   blocked: ['item', 'reason'],
   'born-satisfied': ['item'],
   unblocked: ['item', 'commit'],
+  'ci-suite': ['item', 'pr', 'commit', 'run', 'job'],
 });
 
 /** Un marker con chiavi ignote, duplicate o valori malformati non e' un marker. */
@@ -172,8 +194,8 @@ function parseMarkerFields(type, raw) {
  *
  * @param {Array<{body?: string, createdAt?: string}>} comments
  * @param {{isTrusted?: (comment: object) => boolean}} [options]
- * @returns {Array<{type: 'evidence'|'attempt'|'blocked'|'born-satisfied'|'unblocked', item: string,
- *   pr?: number, commit?: string, run?: number, link?: string, outcome?: string,
+ * @returns {Array<{type: 'evidence'|'attempt'|'blocked'|'born-satisfied'|'unblocked'|'ci-suite', item: string,
+ *   pr?: number, commit?: string, run?: number, job?: number, link?: string, outcome?: string,
  *   reason?: string, createdAt: string|null}>}
  */
 export function parseItemMarkers(comments, { isTrusted } = {}) {
