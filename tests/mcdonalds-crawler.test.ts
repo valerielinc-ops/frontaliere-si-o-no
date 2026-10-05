@@ -257,14 +257,15 @@ describe("McDonald's Switzerland crawler parser", () => {
     it('extracts JSON-LD JobPosting fields from the live detail page', () => {
       const parsed = parseMcdoDetailPage(
         detailHtml,
-        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1'
+        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1',
+        'Agent·e de Maintenance'
       )!;
       expect(parsed).not.toBeNull();
       expect(parsed.title).toBe('Agent·e de Maintenance');
       expect(parsed.city).toBe('KREUZLINGEN');
       expect(parsed.canton).toBe('TG');
       expect(parsed.jobReqId).toBe('P8-317484-1');
-      expect(parsed.datePosted).toBe('2026-07-10');
+      expect(parsed.datePosted).toBe('2026-07-10T08:12:10.733560+00:00');
     });
 
     it('falls back cleanly when employmentType/validThrough are absent, as on the live portal today', () => {
@@ -352,20 +353,18 @@ describe("McDonald's Switzerland crawler parser", () => {
   });
 
   describe('buildMcdoJob', () => {
-    const parsed = parseMcdoDetailPage(detailHtml)!;
+    const parsed = parseMcdoDetailPage(detailHtml,
+      'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1', 'Agent·e de Maintenance')!;
 
-    it('emits the canonical postedDate field (never datePosted)', () => {
+    it('preserves both publication aliases with source provenance and full precision', () => {
       const job = buildMcdoJob(parsed)!;
-      // #3843 item 5: the pipeline/consumers (JobBoard, sitemap, newsletter,
-      // assemble-jobs-dataset churn guard) read `postedDate`; the schema.org
-      // name `datePosted` must not leak into the built job object.
-      expect(job.postedDate).toBe('2026-07-10');
-      expect(job).not.toHaveProperty('datePosted');
+      expect(job).toMatchObject({ datePosted: '2026-07-10T08:12:10.733560+00:00',
+        postedDate: '2026-07-10', postingDateSource: 'reported' });
     });
 
-    it('falls back to today for postedDate when the source has no date', () => {
-      const job = buildMcdoJob({ ...parsed, datePosted: '' })!;
-      expect(job.postedDate).toBe(new Date().toISOString().split('T')[0]);
+    it('keeps publication unknown when the source has no date', () => {
+      const job = buildMcdoJob({ ...parsed, datePosted: '', postedDate: '', postingDateSource: 'unknown' })!;
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
 
     it('builds a stable slug and company identity', () => {

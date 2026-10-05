@@ -46,6 +46,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  * plus parseListPage()/parseDetailPage() for fixture tests.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -368,7 +370,7 @@ function balancedDivEnd(src, from) {
 /**
  * Parse a job detail page (language-independent CSS hooks).
  */
-export function parseDetailPage(html = '') {
+export function parseDetailPage(html = '', pageUrl = '', expectedTitle = '') {
   const src = String(html || '');
   const sections = {};
 
@@ -408,7 +410,10 @@ export function parseDetailPage(html = '') {
 
   const isOmegaBrand = src.includes(OMEGA_LOGO_MARKER);
 
-  return { title, sections, locationText, applyUrl, isOmegaBrand };
+  return { title, sections, locationText, applyUrl, isOmegaBrand,
+    ...(!title || title.toLowerCase() === normalizeSpace(expectedTitle).toLowerCase()
+      ? identifiedPostingPublication(src, pageUrl, expectedTitle) : sourcePostingDateFields()),
+  };
 }
 
 /**
@@ -467,13 +472,16 @@ export async function fetchAllOmegaJobs() {
     try {
       html = await fetchPage(listUrl(page));
     } catch (err) {
-      // A fetch failure is not an empty listing, on the first page or mid-crawl
-      // (a PARTIAL list would expire the jobs on the unfetched pages): let the
-      // crawler pipeline classify it (connection-level soft exit or HTTP error)
-      // instead of publishing a cause-less no-jobs-parsed abort. The previous
-      // slice stays live either way.
+      if (page === 0) {
+        console.error(`  ❌ Failed to fetch list page: ${err?.message || err}`);
+        console.warn('   The site may be blocking automated requests. Will retry next cycle.');
+        throw err;
+      }
+      // Mid-crawl failure: publishing a PARTIAL list would expire the jobs on
+      // the unfetched pages, so fail the run and preserve the prior snapshot.
       console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
-      throw err;
+      console.warn('   Aborting the crawl with an error (prior data preserved) — will retry next cycle.');
+      throw err instanceof Error ? err : new Error(String(err));
     }
 
     const { listings, cardCount } = parseListPage(html);
@@ -505,7 +513,7 @@ export async function fetchAllOmegaJobs() {
     let detail = { title: '', sections: {}, locationText: '', applyUrl: '', isOmegaBrand: true };
     try {
       const detailHtml = await fetchPage(listing.url);
-      detail = parseDetailPage(detailHtml);
+      detail = parseDetailPage(detailHtml, listing.url, listing.title);
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS)); // Rate limiting
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch detail page for "${listing.title}": ${err?.message || err}`);
@@ -567,7 +575,7 @@ export async function fetchAllOmegaJobs() {
       sector: 'Orologeria di lusso',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl,
 
       // ── Requirements ──

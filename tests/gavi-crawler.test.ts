@@ -43,6 +43,7 @@ function detailHtml({
   team = 'Some Team',
   contractLine = '5 year contract defined duration',
   datePosted = '2026-06-30',
+  sourceUrl,
   aboutRole = 'The role sits within the department and reports administratively to the CEO, working closely with the Board, Executive Leadership Team, staff, Legal, Internal Audit and relevant external counterparts to advance the mission.',
   keyResponsibilities = 'Advise senior leadership as principal counsel, supervise drafting and negotiation of agreements, provide strategic advice on risks, and manage a high-performing team aligned to organisational values.',
 }: {
@@ -51,6 +52,7 @@ function detailHtml({
   team?: string;
   contractLine?: string;
   datePosted?: string;
+  sourceUrl?: string;
   aboutRole?: string;
   keyResponsibilities?: string;
 }) {
@@ -62,6 +64,7 @@ function detailHtml({
     '@type': 'JobPosting',
     title,
     datePosted,
+    ...(sourceUrl ? { url: sourceUrl } : {}),
     jobLocation: {
       '@type': 'Place',
       address: {
@@ -227,7 +230,8 @@ describe('Gavi crawler parser', () => {
       expect(job.country).toBe('CH');
       expect(job.url).toBe(DETAIL_URL('VN2507'));
       expect(job.employmentType).toBe('FULL_TIME');
-      expect(job.postedDate).toBe('2026-06-30');
+      // This historical fixture has no explicit JobPosting URL identity.
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
       expect(job.description.length).toBeGreaterThanOrEqual(50);
       expect(job.postalCode).toBe('1218');
       expect(job.streetAddress).toBe('Chemin du Pommier 40');
@@ -356,7 +360,7 @@ describe('Gavi crawler parser', () => {
           return mockResponse(listingHtml([{ vacancyNo: 'VN0004', title: 'Structured Data Role', location: 'Geneva' }])) as any;
         }
         if (u === DETAIL_URL('VN0004')) {
-          return mockResponse(detailHtml({ title: 'Structured Data Role', location: 'Geneva' })) as any;
+          return mockResponse(detailHtml({ title: 'Structured Data Role', location: 'Geneva', sourceUrl: DETAIL_URL('VN0004') })) as any;
         }
         throw new Error(`Unexpected fetch: ${u}`);
       });

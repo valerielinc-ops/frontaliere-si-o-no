@@ -127,18 +127,14 @@ describe('PKB Private Bank crawler parser', () => {
     const url = 'https://careers.pkb.ch/job/view-job.php?id=123';
     const parsed = parsePkbDetailPage(DETAIL_HTML, url)!;
 
-    it('emits the canonical postedDate field (never datePosted)', () => {
+    it('preserves both publication aliases with source provenance', () => {
       const job = buildPkbJob(url, parsed)!;
-      // #3843 item 5: the pipeline/consumers (JobBoard, sitemap, newsletter,
-      // assemble-jobs-dataset churn guard) read `postedDate`; the Arca24
-      // microdata name `datePosted` must not leak into the built job object.
-      expect(job.postedDate).toBe('2026-07-09');
-      expect(job).not.toHaveProperty('datePosted');
+      expect(job).toMatchObject({ datePosted: '2026-07-09', postedDate: '2026-07-09', postingDateSource: 'reported' });
     });
 
-    it('falls back to today for postedDate when the source has no date', () => {
-      const job = buildPkbJob(url, { ...parsed, datePosted: '' })!;
-      expect(job.postedDate).toBe(new Date().toISOString().split('T')[0]);
+    it('keeps the date unknown when the source has no publication', () => {
+      const job = buildPkbJob(url, { ...parsed, datePosted: '', postedDate: '', postingDateSource: 'unknown' })!;
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
 
     it('fills HQ defaults and company identity', () => {
