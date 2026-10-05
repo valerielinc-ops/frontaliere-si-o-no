@@ -1,25 +1,75 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-10-04T21:37:47.552Z",
-  "total": 11,
+  "generatedAt": "2026-10-05T09:34:29.191Z",
+  "total": 12,
   "discovered": null,
-  "parsed": 11,
+  "parsed": 12,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 11,
+  "written": 12,
+  "resurrectedJobs": 1,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14355,
-  "avgDurationMs": 14355,
+  "durationMs": 11161,
+  "avgDurationMs": 11161,
   "durationHistory": [
-    14355
+    11161
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "huber-suhner-aa1bb70ac296",
+      "slug": "specialista-hlk-senior-huber-suhner-ag-pfaffikon",
+      "company": "Huber+Suhner AG",
+      "companyKey": "huber-suhner",
+      "companyDomain": "hubersuhner.com",
+      "title": "Senior HLK Spezialist Infrastruktur",
+      "needsRetranslation": true,
+      "location": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://recruiting.hubersuhner.com/Vacancies/7912/Description/1",
+      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:34:23.475Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8330",
+      "streetAddress": "Tumbelenstrasse 20",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "contractDuration": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7912/Application/CheckLogin/1",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-03T12:41:00.634Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "huber-suhner-9889439ecd19",
@@ -34,7 +84,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/6339/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:41.214Z",
+      "crawledAt": "2026-10-05T09:34:22.979Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -49,7 +99,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/6339/Application/CheckLogin/1",
       "pensumMin": 40,
       "pensumMax": 60,
@@ -58,12 +110,12 @@
       "salaryMin": 73000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -79,7 +131,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8179/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:40.331Z",
+      "crawledAt": "2026-10-05T09:34:22.489Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -94,7 +146,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8179/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -103,12 +157,12 @@
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -124,7 +178,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:39.396Z",
+      "crawledAt": "2026-10-05T09:34:21.883Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -139,18 +193,20 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8112/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-07T15:17:36.103Z",
       "salaryMin": 73000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -166,7 +222,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:38.823Z",
+      "crawledAt": "2026-10-05T09:34:21.270Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -181,7 +237,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8194/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -190,12 +248,12 @@
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -211,7 +269,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:38.246Z",
+      "crawledAt": "2026-10-05T09:34:20.641Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -226,7 +284,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7957/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -235,12 +295,12 @@
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -256,7 +316,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:37.200Z",
+      "crawledAt": "2026-10-05T09:34:20.004Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,7 +331,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7975/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -280,12 +342,12 @@
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -301,7 +363,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:36.184Z",
+      "crawledAt": "2026-10-05T09:34:19.364Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -316,7 +378,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7542/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -325,12 +389,12 @@
       "salaryMin": 118500,
       "salaryMax": 159500,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -346,7 +410,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:35.149Z",
+      "crawledAt": "2026-10-05T09:34:18.735Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -361,7 +425,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8259/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -370,12 +436,12 @@
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -391,7 +457,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8215/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:37:34.105Z",
+      "crawledAt": "2026-10-05T09:34:18.106Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -406,7 +472,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8215/Application/CheckLogin/2",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -415,12 +483,12 @@
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -436,7 +504,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8279/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:33.104Z",
+      "crawledAt": "2026-10-05T09:34:17.485Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -451,7 +519,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8279/Application/CheckLogin/1",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -460,12 +530,12 @@
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -481,7 +551,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:32.093Z",
+      "crawledAt": "2026-10-05T09:34:16.844Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -496,7 +566,9 @@
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7783/Application/CheckLogin/1",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -505,16 +577,16 @@
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

@@ -378,10 +378,12 @@ _publish_cdn_r2() {
     # from R2 — even one listed before the sync — would mark clean a key an
     # earlier run uploaded but never purged: R2 already holds the new bytes,
     # the edge still serves the old ones, and this run's upload log is empty.
-    # The price is one purge of the whole bundle the first time (~2,000 keys in
-    # batches of 30, under the purge time limit; source maps never purged), and
-    # no R2 listing at all on the push path. A run that dies before writing the
-    # ledger simply starts empty again next time.
+    # The price is a purge of the whole bundle the first time, and no R2 listing
+    # at all on the push path. Measured on deploy 37271618085: 27,177 keys, of
+    # which 12,570 fit in the 300 s purge limit (419 batches of 30, ~0.7 s
+    # each). The purge therefore runs under a budget below that limit and
+    # always writes the ledger with the keys it did purge: the bundle converges
+    # over two or three deploys instead of starting from zero on each one.
     printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
     _ledger_state=present
     echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
@@ -402,7 +404,10 @@ _publish_cdn_r2() {
     if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
       # Stateful: --stage-dir is valid R2 state only because the assets sync
       # exited 0 (see the script's header). The log still goes in (union).
-      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+      # The script's own budget ends 45 s before `timeout`, so it stops
+      # starting batches and still writes the ledger; the kill is the backstop.
+      CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
         --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
       if [ "$_prc" -ne 0 ]; then
@@ -419,7 +424,9 @@ _publish_cdn_r2() {
           || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      # Fallback (stage unavailable): this run's uploads only.
+      # Fallback (stage unavailable): this run's uploads only. No budget here:
+      # without a ledger, a key the budget left untried would be forgotten
+      # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
       timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
     elif [ "$assets_sync_ok" != 1 ]; then

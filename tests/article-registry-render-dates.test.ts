@@ -39,12 +39,44 @@ it('renders each article revision independently in all four locales', async () =
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
     const article = schemas.find(schema => ['Article','NewsArticle','BlogPosting'].includes(schema['@type']));
     expect(article).toBeDefined();
+    expect(article['@id']).toBe(`${article.url}#article`);
     const expected = output.articleId === 'ticino-rimborso-lpp-2024' ? '2026-10-03' : '2026-10-02';
     expect(article.dateModified.slice(0,10)).toBe(expected);
     expect(html).toContain(`itemprop="dateModified"`);
     expect(html).toContain(`datetime="${expected}"`);
     }
   }
+});
+
+it('scopes Event identity to the page URL', async () => {
+  const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-event-identity-fixture-'));
+  temporaryRoots.push(rootDir);
+  const write = (file: string, body: string) => {
+    const target = path.join(rootDir, file);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, body);
+  };
+  write('data/blog-articles-data.ts', `const RAW_ARTICLES = [
+    {id:'event-identity', category:'eventi', date:'2026-10-01'},
+  ];`);
+  write('services/seo/seo-blog.ts', `export const entries = {
+    'blog-event-identity': {
+      title: 'Mostra di prova', description: 'Un evento di prova per il test.',
+      canonicalPath: '/articoli-frontaliere/event-identity/',
+      structuredData: {"@context":"https://schema.org","@type":"Event",
+        "name":"Mostra di prova", "startDate":"2026-10-10T18:00:00+02:00"},
+    },
+  };`);
+  write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify({ 'event-identity': { it: 'event-identity', en: 'event-identity', de: 'event-identity', fr: 'event-identity' } })};`);
+  const distDir = path.join(rootDir, 'dist');
+  const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+  expect(result.entries).toHaveLength(1);
+  const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map(([, json]) => JSON.parse(json));
+  const event = schemas.find((schema) => schema['@type'] === 'Event');
+  expect(event).toBeDefined();
+  expect(event['@id']).toBe(`${event.url}#event`);
 });
 
 it.each([

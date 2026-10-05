@@ -74,6 +74,7 @@ export interface OrganizationCreator {
 
 export interface PersonCreator {
   '@type': 'Person';
+  '@id'?: string;
   name: string;
   url?: string;
 }

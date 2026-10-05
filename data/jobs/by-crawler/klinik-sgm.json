@@ -1,13 +1,13 @@
 {
   "crawlerKey": "klinik-sgm",
-  "assembledAt": "2026-10-04T21:19:46.963Z",
+  "assembledAt": "2026-10-05T09:17:33.880Z",
   "jobs": [
     {
       "id": "klinik-sgm-d4490d85d0ac",
       "slug": "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "it": "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal",
-        "en": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
+        "en": "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
         "de": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
         "fr": "ergotherapeute-ergotherapeute-temporaire-klinik-sgm-langenthal-langenthal"
       },
@@ -34,7 +34,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/ergotherapeutin-ergotherapeut-befristet/9ac1a12d-60af-4b8b-a26f-7440180f4f33",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.371Z",
+      "crawledAt": "2026-10-05T09:17:23.436Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,18 +54,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-        "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal",
-        "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
-        "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal"
+        "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-          "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal"
+          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal",
-          "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "fr": [
@@ -85,7 +81,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-13",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-16d1aaa38747",
@@ -119,7 +117,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/psychotherapeutin-psychotherapeut-ambulatorium-spiez/7bcae5c3-d28b-4242-959f-31281fc7d255",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.366Z",
+      "crawledAt": "2026-10-05T09:17:23.434Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -133,18 +131,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-30",
+      "postedDate": "2026-08-31",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1072",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-        "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez-8600b3"
+        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-          "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez-8600b3"
+          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
         ]
       },
       "firstSeenAt": "2026-08-25T21:57:55.229Z",
@@ -160,88 +156,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "klinik-sgm-c103d1cf5084",
-      "slug": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
-      "slugByLocale": {
-        "it": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
-        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
-        "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "fr": "medecin-superieur-medecin-superieur-psychiatrie-ambulatoire-spiez-klinik-sgm-langenthal-spiez-4ff272"
       },
-      "company": "Klinik SGM Langenthal",
-      "companyKey": "klinik-sgm",
-      "companyDomain": "klinik-sgm.ch",
-      "title": "Oberärztin / Oberarzt Psychiatrie, Ambulatorium Spiez",
-      "titleByLocale": {
-        "it": "Medico senior / Psichiatria senior, Ambulatorium Spiez",
-        "en": "Senior physician / Senior physician Psychiatry, Ambulatorium Spiez",
-        "de": "Oberärztin / Oberarzt Psychiatrie, Ambulatorium Spiez",
-        "fr": "Médecin supérieur / Médecin supérieur Psychiatrie, Ambulatoire Spiez"
-      },
-      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-      "descriptionByLocale": {
-        "it": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "en": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "fr": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur."
-      },
-      "needsRetranslation": true,
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/d693c810-ba33-402d-91f6-6ce24b8de42d",
-      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.361Z",
-      "addressLocality": "Spiez",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3700",
-      "streetAddress": "Seestrasse 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-13",
-      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1049",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-          "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272"
-        ],
-        "en": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:56:39.858Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
+      "datePosted": "2026-08-31",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-bbd740e6c1b4",
@@ -275,7 +192,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/551cd479-9938-45d8-ae63-0e62d5991e12",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.359Z",
+      "crawledAt": "2026-10-05T09:17:23.432Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -289,18 +206,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-13",
+      "postedDate": "2026-09-14",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1063",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal-eaa7e3"
+        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-          "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal-eaa7e3"
+          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
@@ -322,7 +237,90 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
+    },
+    {
+      "id": "klinik-sgm-c103d1cf5084",
+      "slug": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
+      "slugByLocale": {
+        "it": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
+        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272",
+        "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-ambulatoire-spiez-klinik-sgm-langenthal-spiez-4ff272"
+      },
+      "company": "Klinik SGM Langenthal",
+      "companyKey": "klinik-sgm",
+      "companyDomain": "klinik-sgm.ch",
+      "title": "Oberärztin / Oberarzt Psychiatrie, Ambulatorium Spiez",
+      "titleByLocale": {
+        "it": "Medico senior / Psichiatria senior, Ambulatorium Spiez",
+        "en": "Senior physician / Senior physician Psychiatry, Ambulatorium Spiez",
+        "de": "Oberärztin / Oberarzt Psychiatrie, Ambulatorium Spiez",
+        "fr": "Médecin supérieur / Médecin supérieur Psychiatrie, Ambulatoire Spiez"
+      },
+      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+      "descriptionByLocale": {
+        "it": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "en": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "fr": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Hauptaufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Vernetzungsarbeit mit lokalen und regionalen Partnerinstitutionen\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Ausgeprägte Beziehungsstärken in der Team- und Patientenarbeit\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur."
+      },
+      "needsRetranslation": true,
+      "location": "Spiez",
+      "canton": "BE",
+      "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/d693c810-ba33-402d-91f6-6ce24b8de42d",
+      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:17:23.432Z",
+      "addressLocality": "Spiez",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3700",
+      "streetAddress": "Seestrasse 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-14",
+      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1049",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:56:39.858Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-c5c20d30120a",
@@ -356,7 +354,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/73b83f0b-95be-4626-bcfc-e3880c832e4f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.353Z",
+      "crawledAt": "2026-10-05T09:17:23.430Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -370,18 +368,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-13",
+      "postedDate": "2026-09-14",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1050",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen-47d781"
+        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-          "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen-47d781"
+          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
@@ -403,88 +399,9 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "klinik-sgm-f874c3e5bcc6",
-      "slug": "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-      "slugByLocale": {
-        "it": "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-        "en": "specialist-psychiatry-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-        "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "fr": "specialiste-de-la-psychiatrie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal"
       },
-      "company": "Klinik SGM Langenthal",
-      "companyKey": "klinik-sgm",
-      "companyDomain": "klinik-sgm.ch",
-      "title": "Fachärztin / Facharzt Psychiatrie Ambulatorium Langenthal",
-      "titleByLocale": {
-        "it": "Specialista psichiatria ambulatorium Langenthal",
-        "en": "Specialist psychiatry ambulatorium Langenthal",
-        "de": "Fachärztin / Facharzt Psychiatrie Ambulatorium Langenthal",
-        "fr": "Spécialiste de la psychiatrie ambulateurium Langenthal"
-      },
-      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-      "descriptionByLocale": {
-        "it": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "en": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "fr": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur."
-      },
-      "needsRetranslation": true,
-      "location": "Langenthal",
-      "canton": "BE",
-      "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/1733aeff-e5a0-4953-b432-3009791467de",
-      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.236Z",
-      "addressLocality": "Langenthal",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4900",
-      "streetAddress": "Aarwangenstrasse 4",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-13",
-      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1043",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
-        ],
-        "en": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
-        ],
-        "fr": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:56:39.863Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-077f0e255b3c",
@@ -518,7 +435,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/5efd4837-24c4-4579-b953-b1fd8fde802a",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.235Z",
+      "crawledAt": "2026-10-05T09:17:23.417Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -532,18 +449,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-13",
+      "postedDate": "2026-09-14",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1054",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern-5bdf97"
+        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-          "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern-5bdf97"
+          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
@@ -565,7 +480,90 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
+    },
+    {
+      "id": "klinik-sgm-f874c3e5bcc6",
+      "slug": "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+      "slugByLocale": {
+        "it": "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "en": "specialist-psychiatry-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+        "fr": "specialiste-de-la-psychiatrie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal"
+      },
+      "company": "Klinik SGM Langenthal",
+      "companyKey": "klinik-sgm",
+      "companyDomain": "klinik-sgm.ch",
+      "title": "Fachärztin / Facharzt Psychiatrie Ambulatorium Langenthal",
+      "titleByLocale": {
+        "it": "Specialista psichiatria ambulatorium Langenthal",
+        "en": "Specialist psychiatry ambulatorium Langenthal",
+        "de": "Fachärztin / Facharzt Psychiatrie Ambulatorium Langenthal",
+        "fr": "Spécialiste de la psychiatrie ambulateurium Langenthal"
+      },
+      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+      "descriptionByLocale": {
+        "it": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "en": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "fr": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 60 - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem bio-psycho-sozio-spirituellen Modell an und integrieren auf Wunsch christliche Werte und Perspektiven in unsere Therapien. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\n\n## Ihre Aufgaben\n• Fachärztliche Verantwortung und Supervision von ärztlichen und psychologisch-psychotherapeutischen Behandlungen\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n• Eigenverantwortliche psychiatrisch-psychotherapeutische Behandlung von ambulanten Patientinnen und Patienten\n• Abklärungs- und Beratungsgespräche\n\n## Ihr Profil\n• Abgeschlossene oder weit fortgeschrittene Facharztausbildung für Psychiatrie und Psychotherapie (oder äquivalenter Abschluss) mit mehrjähriger Berufserfahrung\n• Motivation zur Arbeit mit einem ganzheitlichen Behandlungskonzept\n• Hohe Serviceorientierung und ausgeprägtes Qualitätsbewusstsein\n• Prozessorientiertes, unternehmerisches und ergebnisorientiertes Denken und Handeln\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur."
+      },
+      "needsRetranslation": true,
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/1733aeff-e5a0-4953-b432-3009791467de",
+      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:17:23.417Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "streetAddress": "Aarwangenstrasse 4",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-14",
+      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1043",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:56:39.863Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-d5d844ee1f06",
@@ -599,7 +597,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/3390fb44-a3f4-4cbd-8fb7-9e4d4c935c89",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.229Z",
+      "crawledAt": "2026-10-05T09:17:23.416Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -613,18 +611,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-13",
+      "postedDate": "2026-09-14",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1042",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal-9cf511"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal-9cf511"
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
@@ -646,7 +642,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-e069e1e25242",
@@ -680,7 +678,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/2ea70376-4dd3-44ab-96da-785fcc88c6cb",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.224Z",
+      "crawledAt": "2026-10-05T09:17:23.415Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -694,7 +692,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-22",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1075",
       "requirements": [],
       "requirementsByLocale": {},
@@ -745,7 +745,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/b12505c9-5be8-4636-af4e-8a9c33ae631e",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.218Z",
+      "crawledAt": "2026-10-05T09:17:23.414Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -759,7 +759,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1074",
       "requirements": [],
       "requirementsByLocale": {},
@@ -832,7 +834,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie/4f8d5c03-a013-41eb-ad7c-eec4de98fa82",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.212Z",
+      "crawledAt": "2026-10-05T09:17:23.413Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -846,19 +848,17 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1077",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
-        "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
-        "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal"
+        "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
-          "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal"
+          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
         ],
         "en": [
           "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
@@ -880,7 +880,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29",
+      "postingDateSource": "reported"
     },
     {
       "id": "klinik-sgm-432507c710f4",
@@ -914,7 +916,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-maennerinsel/1c975154-c904-4093-acb9-ba849f665c7f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:38.172Z",
+      "crawledAt": "2026-10-05T09:17:23.407Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -928,18 +930,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1076",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-mannerinsel-klinik-sgm-langenthal",
-        "infermieristica-specialista-hf-psichiatria-men-s-island-department-klinik-sgm-langenthal-langenthal"
+        "pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-mannerinsel-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-mannerinsel-klinik-sgm-langenthal",
-          "infermieristica-specialista-hf-psichiatria-men-s-island-department-klinik-sgm-langenthal-langenthal"
+          "pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-mannerinsel-klinik-sgm-langenthal"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-mannerinsel-klinik-sgm-langenthal"
@@ -961,7 +961,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29",
+      "postingDateSource": "reported"
     }
   ]
 }

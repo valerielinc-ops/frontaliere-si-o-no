@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-10-05T08:35:03.515Z",
+  "assembledAt": "2026-10-05T09:13:34.685Z",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.493Z",
+      "crawledAt": "2026-10-05T09:13:29.428Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -44,9 +44,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-13T02:00:00Z",
       "postedDate": "2026-09-13T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1416109733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -55,12 +53,10 @@
           "product-cybersecurity-expert-sonova-staefa"
         ],
         "it": [
-          "product-cybersecurity-expert-sonova-ch",
-          "prodotto-cybersecurity-expert-sonova-staefa"
+          "product-cybersecurity-expert-sonova-ch"
         ],
         "en": [
-          "product-cybersecurity-expert-sonova-ch",
-          "product-cybersecurity-manager-sonova-ch"
+          "product-cybersecurity-expert-sonova-ch"
         ]
       },
       "previousSlugs": [
@@ -82,7 +78,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-13T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-014e943d2e13",
@@ -115,7 +113,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.487Z",
+      "crawledAt": "2026-10-05T09:13:29.423Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -126,20 +124,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-14T00:00:00Z",
       "postedDate": "2026-09-14T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1436570633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "architect-charging-solutions-sonova-ch",
-        "architetto-charging-solutions-sonova-staefa"
+        "architect-charging-solutions-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architect-charging-solutions-sonova-ch",
-          "architetto-charging-solutions-sonova-staefa"
+          "architect-charging-solutions-sonova-ch"
         ],
         "de": [
           "architect-charging-solutions-sonova-ch"
@@ -161,7 +155,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-14T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-befc5732f81c",
@@ -194,7 +190,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:34:57.481Z",
+      "crawledAt": "2026-10-05T09:13:29.417Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -205,20 +201,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16T02:00:00Z",
       "postedDate": "2026-09-16T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1387283333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
-        "macchine-utensili-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
+        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
-          "macchine-utensili-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
+          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
         ],
         "en": [
           "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
@@ -239,7 +231,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-403b793762fb",
@@ -272,7 +266,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.476Z",
+      "crawledAt": "2026-10-05T09:13:29.413Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -283,20 +277,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-17T00:00:00Z",
       "postedDate": "2026-09-17T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1437852833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch",
-        "software-ingegnere-dsp-tools-and-infrastructure-m-f-d-sonova-staefa"
+        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch",
-          "software-ingegnere-dsp-tools-and-infrastructure-m-f-d-sonova-staefa"
+          "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
         ],
         "de": [
           "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
@@ -305,7 +295,6 @@
           "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -319,7 +308,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-17T00:00:00Z",
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-015d3cf3327f",
@@ -352,7 +344,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.470Z",
+      "crawledAt": "2026-10-05T09:13:29.409Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -363,20 +355,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1413688533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-manager-hearing-performance-sonova-ch",
-          "senior-manager-sound-quality-engineering-sonova-ch"
+          "senior-manager-hearing-performance-sonova-ch"
         ],
         "it": [
-          "senior-manager-hearing-performance-sonova-ch",
-          "senior-manager-performance-uditiva-sonova-staefa"
+          "senior-manager-hearing-performance-sonova-ch"
         ],
         "fr": [
           "senior-manager-hearing-performance-sonova-staefa"
@@ -384,9 +372,7 @@
       },
       "previousSlugs": [
         "senior-manager-hearing-performance-sonova-ch",
-        "senior-manager-hearing-performance-sonova-staefa",
-        "senior-manager-sound-quality-engineering-sonova-ch",
-        "senior-manager-performance-uditiva-sonova-staefa"
+        "senior-manager-hearing-performance-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
       "salaryMin": 101500,
@@ -401,7 +387,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-a77ade8c1fe1",
@@ -434,7 +422,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.464Z",
+      "crawledAt": "2026-10-05T09:13:29.406Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -445,20 +433,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1417571533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "power-management-engineer-80-100-m-f-d-sonova-ch",
-        "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
+        "power-management-engineer-80-100-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-management-engineer-80-100-m-f-d-sonova-ch",
-          "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
+          "power-management-engineer-80-100-m-f-d-sonova-ch"
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.907Z",
@@ -474,7 +458,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-374a65613887",
@@ -507,7 +493,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:34:57.458Z",
+      "crawledAt": "2026-10-05T09:13:29.402Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -518,20 +504,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-18T02:00:00Z",
       "postedDate": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+        "technical-specialist-production-tsp-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch",
-          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+          "technical-specialist-production-tsp-m-f-d-sonova-ch"
         ]
       },
       "salaryMin": 83000,
@@ -546,7 +528,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-65194a0b7ac7",
@@ -579,7 +563,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.452Z",
+      "crawledAt": "2026-10-05T09:13:29.399Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -590,9 +574,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-20T02:00:00Z",
       "postedDate": "2026-09-20T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1418818733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -601,14 +583,12 @@
         "practical-apprendista-power-management-m-f-d-sonova-stafa",
         "stage-pratique-gestion-de-l-energie-m-f-d-sonova-staefa-switzerland",
         "practical-trainee-power-management-m-w-d-sonova-staefa",
-        "practical-trainee-power-management-m-f-d-sonova-staefa",
-        "practical-apprendista-power-management-m-f-d-sonova-staefa"
+        "practical-trainee-power-management-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practical-trainee-power-management-m-f-d-sonova-ch",
-          "practical-apprendista-power-management-m-f-d-sonova-stafa",
-          "practical-apprendista-power-management-m-f-d-sonova-staefa"
+          "practical-apprendista-power-management-m-f-d-sonova-stafa"
         ],
         "de": [
           "practical-trainee-power-management-m-f-d-sonova-ch"
@@ -619,7 +599,6 @@
           "practical-trainee-power-management-m-f-d-sonova-staefa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -633,7 +612,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-20T02:00:00Z",
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-7467e53a621f",
@@ -666,7 +648,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.446Z",
+      "crawledAt": "2026-10-05T09:13:29.394Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -677,9 +659,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-21T00:00:00Z",
       "postedDate": "2026-09-21T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439444733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -687,14 +667,12 @@
         "interaction-designer-sonova-ch",
         "designer-di-interazione-sonova-staefa",
         "conception-de-l-interaction-sonova-staefa",
-        "interaction-designer-sonova-staefa",
-        "designer-di-interazione-sonova-staefa-switzerland"
+        "interaction-designer-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "interaction-designer-sonova-ch",
-          "designer-di-interazione-sonova-staefa",
-          "designer-di-interazione-sonova-staefa-switzerland"
+          "designer-di-interazione-sonova-staefa"
         ],
         "en": [
           "interaction-designer-sonova-staefa"
@@ -718,7 +696,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-ec78c23d0cf7",
@@ -751,7 +731,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.440Z",
+      "crawledAt": "2026-10-05T09:13:29.391Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -827,7 +807,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.433Z",
+      "crawledAt": "2026-10-05T09:13:29.387Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -838,20 +818,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-23T02:00:00Z",
       "postedDate": "2026-09-23T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1411716033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-quality-m-f-d-sonova-ch",
-        "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
+        "senior-manager-product-quality-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-quality-m-f-d-sonova-ch",
-          "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
+          "senior-manager-product-quality-m-f-d-sonova-ch"
         ]
       },
       "salaryMin": 101500,
@@ -866,13 +842,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-c8fcf54ac57e",
-      "slug": "audiology-innovation-manager-m-f-d-sonova-ch",
+      "slug": "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
-        "it": "audiology-innovation-manager-m-f-d-sonova-ch",
+        "it": "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa-switzerland",
         "en": "audiology-innovation-manager-m-f-d-sonova-ch",
         "de": "audiologie-innovationsmanager-m-w-d-sonova-staefa-switzerland",
         "fr": "audiology-innovation-manager-m-f-d-sonova-ch"
@@ -899,7 +877,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.427Z",
+      "crawledAt": "2026-10-05T09:13:29.383Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -910,21 +888,24 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-24T00:00:00Z",
       "postedDate": "2026-09-24T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1440786833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "audiologie-innovationsmanager-m-w-d-sonova-staefa"
+        "audiologie-innovationsmanager-m-w-d-sonova-staefa",
+        "audiology-innovation-manager-m-f-d-sonova-ch",
+        "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "de": [
           "audiologie-innovationsmanager-m-w-d-sonova-staefa"
+        ],
+        "it": [
+          "audiology-innovation-manager-m-f-d-sonova-ch",
+          "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:54.872Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -938,7 +919,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-8230e78b3493",
@@ -971,7 +954,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.417Z",
+      "crawledAt": "2026-10-05T09:13:29.377Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -982,20 +965,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-24T02:00:00Z",
       "postedDate": "2026-09-24T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1409309433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-        "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
+        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-          "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
+          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1012,7 +991,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-a02b2dce588a",
@@ -1045,7 +1026,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:34:57.411Z",
+      "crawledAt": "2026-10-05T09:13:29.373Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1056,22 +1037,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
-        "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
+        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
-          "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
+          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
@@ -1093,7 +1070,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-088c8bab41fe",
@@ -1126,7 +1105,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:34:57.402Z",
+      "crawledAt": "2026-10-05T09:13:29.369Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1137,22 +1116,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421326833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
-        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa",
-        "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland"
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
-          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa",
-          "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland"
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
@@ -1174,7 +1149,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-755bb818c5fe",
@@ -1207,7 +1184,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:34:57.394Z",
+      "crawledAt": "2026-10-05T09:13:29.364Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1218,20 +1195,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-27T02:00:00Z",
       "postedDate": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
         ],
         "en": [
           "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
@@ -1253,7 +1226,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-0e97616fe3f9",
@@ -1286,7 +1261,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.387Z",
+      "crawledAt": "2026-10-05T09:13:29.360Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1296,20 +1271,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-28T00:00:00Z",
       "postedDate": "2026-09-28T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
-        "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
+        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
-          "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
         ],
         "de": [
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
@@ -1318,7 +1289,6 @@
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1333,7 +1303,10 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-1f854815a19d",
@@ -1366,7 +1339,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.385Z",
+      "crawledAt": "2026-10-05T09:13:29.359Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1376,20 +1349,16 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-30T00:00:00Z",
       "postedDate": "2026-09-30T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-assurance-manager-sonova-ch",
-        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+        "quality-assurance-manager-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-assurance-manager-sonova-ch",
-          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+          "quality-assurance-manager-sonova-ch"
         ]
       },
       "firstSeenAt": "2026-09-30T21:10:37.776Z",
@@ -1406,7 +1375,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "datePosted": "2026-09-30T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-e7305ae7cb14",
@@ -1439,7 +1410,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:34:57.382Z",
+      "crawledAt": "2026-10-05T09:13:29.357Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1450,21 +1421,17 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-01T00:00:00Z",
       "postedDate": "2026-10-01T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1443245033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland",
-        "product-manager-hearing-aids-sonova-ch",
-        "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
+        "product-manager-hearing-aids-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-hearing-aids-sonova-ch",
-          "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
+          "product-manager-hearing-aids-sonova-ch"
         ],
         "de": [
           "product-manager-hearing-aids-sonova-ch"
@@ -1487,7 +1454,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     }
   ]
 }

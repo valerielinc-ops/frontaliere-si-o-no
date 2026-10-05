@@ -1,7 +1,7 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-10-04T21:14:28.537Z",
+  "generatedAt": "2026-10-05T09:16:33.845Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4778,
-  "avgDurationMs": 4778,
+  "durationMs": 4653,
+  "avgDurationMs": 4653,
   "durationHistory": [
-    4778
+    4653
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:19.317Z",
+      "crawledAt": "2026-10-05T09:16:26.425Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,18 +48,20 @@
       "sector": "Biotecnologie / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "firstSeenAt": "2026-07-27T12:32:19.008Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -72,7 +76,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:18.672Z",
+      "crawledAt": "2026-10-05T09:16:25.875Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,23 +89,25 @@
       "sector": "Biotecnologie / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T19:50:29.070Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

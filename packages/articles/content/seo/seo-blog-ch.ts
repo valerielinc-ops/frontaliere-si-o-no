@@ -98,16 +98,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-iniziative-casse-malati-2026': {
-    title: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    title: 'Casse malati 2026: iniziative e tempi dell\'entrata in vigore',
     description: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     keywords: 'frontalieri, ticino, svizzera, italia, iniziative, casse, malati, governo',
-    ogTitle: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    ogTitle: 'Casse malati 2026: iniziative e tempi dell\'entrata in vigore',
     ogDescription: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     canonicalPath: '/articoli-svizzera/iniziative-casse-malati-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Iniziative casse malati 2026: il governo non può bloccare l'entrata in vigore",
+      "headline": "Casse malati 2026: iniziative e tempi dell'entrata in vigore",
       "description": "Il Consiglio di Stato non può bloccare l'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l'impatto e le",
       "image": {
         "@type": "ImageObject",
@@ -254,16 +254,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cern-future-collider-ticino': {
-    title: 'Il CERN e il futuro del collider | Frontaliere Ticino',
+    title: 'CERN: il futuro del collider e i segreti dell\'universo',
     description: 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
     keywords: 'frontalieri, ticino, svizzera, italia, cern, futuro, collider, pianificando',
-    ogTitle: 'Il futuro collider del CERN: un balzo in avanti per svelare i segreti dell\'universo',
+    ogTitle: 'CERN: il futuro del collider e i segreti dell\'universo',
     ogDescription: 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
     canonicalPath: '/articoli-svizzera/cern-future-collider-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Il CERN e il futuro del collider",
+      "headline": "CERN: il futuro del collider e i segreti dell'universo",
       "description": "Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell'attuale LHC, per esplorare i misteri dell'universo.",
       "image": {
         "@type": "ImageObject",
@@ -546,16 +546,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-festivita-ticino-2026': {
-    title: 'Festività in Ticino 2026 | Frontaliere Ticino',
+    title: 'Festività in Ticino 2026: calendario e giorni festivi',
     description: 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, festività, scopri, principali, previste',
-    ogTitle: 'Festività in Ticino 2026',
+    ogTitle: 'Festività in Ticino 2026: calendario e giorni festivi',
     ogDescription: 'Tutte le informazioni sulle festività in Ticino nel 2026.',
     canonicalPath: '/articoli-svizzera/festivita-ticino-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Festività in Ticino 2026",
+      "headline": "Festività in Ticino 2026: calendario e giorni festivi",
       "description": "Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -658,16 +658,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-svizzera': {
-    title: 'Frontalieri in Svizzera | Frontaliere Ticino',
+    title: 'Frontalieri in Svizzera: guida a lavoro e permessi',
     description: 'Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, informazioni, pratiche, frontalieri-svizzera',
-    ogTitle: 'Frontalieri in Svizzera',
+    ogTitle: 'Frontalieri in Svizzera: guida a lavoro e permessi',
     ogDescription: 'Informazioni pratiche per frontalieri in Svizzera',
     canonicalPath: '/articoli-svizzera/frontalieri-svizzera/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri in Svizzera",
+      "headline": "Frontalieri in Svizzera: guida a lavoro e permessi",
       "description": "Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -1389,16 +1389,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-premi-di-cassa-malati-ticino': {
-    title: 'Parlamento spacchetta premi di cassa malati | Frontaliere Ticino',
+    title: 'Premi di cassa malati: tempi delle iniziative in Ticino',
     description: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, parlamento, spacchetta, premi, cassa',
-    ogTitle: 'Il Parlamento spacchetta le iniziative sui premi di cassa malati: ecco le tempistiche',
+    ogTitle: 'Premi di cassa malati: tempi delle iniziative in Ticino',
     ogDescription: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
     canonicalPath: '/articoli-svizzera/premi-di-cassa-malati-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Parlamento spacchetta premi di cassa malati",
+      "headline": "Premi di cassa malati: tempi delle iniziative in Ticino",
       "description": "Il Parlamento ticinese ha deciso di dividere l'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -1506,16 +1506,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-givaudan-licenziamenti': {
-    title: 'Givaudan licenza dipendenti | Frontaliere Ticino',
+    title: 'Givaudan a Vernier (Ginevra): licenziamenti',
     description: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, givaudan, licenza, dipendenti, leader',
-    ogTitle: 'Givaudan licenza dipendenti',
+    ogTitle: 'Givaudan a Vernier (Ginevra): licenziamenti',
     ogDescription: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta.',
     canonicalPath: '/articoli-svizzera/givaudan-licenziamenti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Givaudan licenza dipendenti",
+      "headline": "Givaudan a Vernier (Ginevra): licenziamenti",
       "description": "Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
@@ -3875,16 +3875,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-banca-svizzera-segreto': {
-    title: 'Banche svizzere: ancora rifugio per denaro sporco?',
+    title: 'Banche svizzere: segreto bancario e denaro sporco',
     description: 'Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, ancora, rifugio',
-    ogTitle: 'Le banche svizzere sono ancora un rifugio per denaro sporco o hanno fatto pulizia?',
+    ogTitle: 'Banche svizzere: segreto bancario e denaro sporco',
     ogDescription: 'Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti.',
     canonicalPath: '/articoli-svizzera/banca-svizzera-segreto/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Banche svizzere: ancora rifugio per denaro sporco?",
+      "headline": "Banche svizzere: segreto bancario e denaro sporco",
       "description": "Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -4375,16 +4375,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': {
-    title: 'Svizzera, scelta vincente per lavoro e tasse | Frontaliere Ticino',
+    title: 'Scegliere la Svizzera: lavoro, stipendio, tasse e traffico',
     description: 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera',
     keywords: 'frontalieri, ticino, svizzera, italia, scelta, vincente, lavoro, tasse',
-    ogTitle: 'Frontaliere? No, io ho scelto la Svizzera. Lavoro, stipendio, tasse, traffico: il confronto con l’Italia',
+    ogTitle: 'Scegliere la Svizzera: lavoro, stipendio, tasse e traffico',
     ogDescription: 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera',
     canonicalPath: '/articoli-svizzera/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Svizzera, scelta vincente per lavoro e tasse",
+      "headline": "Scegliere la Svizzera: lavoro, stipendio, tasse e traffico",
       "description": "Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera",
       "image": {
         "@type": "ImageObject",
@@ -4609,16 +4609,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-voto-elettronico-svizzeri-estero-nicolas-kolly': {
-    title: 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità per residenti',
+    title: 'Voto elettronico all\'estero: la proposta di Nicolas Kolly',
     description: 'Nicolas Kolly sostiene il voto elettronico per svizzeri all\'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.',
     keywords: 'frontalieri, ticino, svizzera, italia, voto, elettronico, svizzeri, estero',
-    ogTitle: 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità per residenti',
+    ogTitle: 'Voto elettronico all\'estero: la proposta di Nicolas Kolly',
     ogDescription: 'Nicolas Kolly sostiene il voto elettronico per svizzeri all\'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.',
     canonicalPath: '/articoli-svizzera/voto-elettronico-svizzeri-estero-nicolas-kolly/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Voto elettronico per svizzeri all'estero: Kolly propone priorità per residenti",
+      "headline": "Voto elettronico all'estero: la proposta di Nicolas Kolly",
       "description": "Nicolas Kolly sostiene il voto elettronico per svizzeri all'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.",
       "image": {
         "@type": "ImageObject",
@@ -5554,16 +5554,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-mc-27-mostra-lugano-2026': {
-    title: 'MC\'27 porta l\'art wear nel cuore di Lugano: l\'esposizione esclusiva a La Posta',
+    title: 'MC\'27 a Lugano: mostra di art wear a La Posta',
     description: 'Scopri l\'esposizione di MC\'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, porta, wear, cuore, lugano',
-    ogTitle: 'Esposizione MC\'27 Lugano 2026',
+    ogTitle: 'MC\'27 a Lugano: mostra di art wear a La Posta',
     ogDescription: 'Scopri l\'esposizione di MC\'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1',
     canonicalPath: '/articoli-svizzera/mc-27-mostra-lugano-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "MC'27 porta l'art wear nel cuore di Lugano: l'esposizione esclusiva a La Posta",
+      "headline": "MC'27 a Lugano: mostra di art wear a La Posta",
       "description": "Scopri l'esposizione di MC'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
@@ -7757,16 +7757,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-diritti-frontaliere-genitorialit': {
-    title: 'Diritti di Maternità e Paternità per Frontalieri',
+    title: 'Maternità e paternità per frontalieri: diritti',
     description: 'Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, diritti, maternità, paternità, confronto',
-    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogTitle: 'Maternità e paternità per frontalieri: diritti',
     ogDescription: 'Confronto tra le normative di maternità e paternità per frontalieri in Svizzera e Italia.',
     canonicalPath: '/articoli-svizzera/diritti-frontaliere-genitorialit/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Diritti di Maternità e Paternità per Frontalieri",
+      "headline": "Maternità e paternità per frontalieri: diritti",
       "description": "Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -7947,16 +7947,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-congedo-parentale-frontalieri': {
-    title: 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
+    title: 'Congedo parentale per frontalieri: guida pratica',
     description: 'Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, diritti, scopri',
-    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogTitle: 'Congedo parentale per frontalieri: guida pratica',
     ogDescription: 'Informazioni sui congedi parentali per frontalieri in Svizzera e Italia, con dettagli pratici e procedure.',
     canonicalPath: '/articoli-svizzera/congedo-parentale-frontalieri/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia",
+      "headline": "Congedo parentale per frontalieri: guida pratica",
       "description": "Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -9463,16 +9463,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-guess-stabio-lavoro-merchandiser': {
-    title: 'Guess Stabio: opportunità di lavoro come merchandiser',
+    title: 'Lavoro merchandiser a Stabio: opportunità da Guess',
     description: 'Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, guess, stabio, opportunità, lavoro',
-    ogTitle: 'Lavoro merchandiser a Stabio | Frontaliere Ticino',
+    ogTitle: 'Lavoro merchandiser a Stabio: opportunità da Guess',
     ogDescription: 'Offerta di lavoro come merchandiser a Stabio, vicino al confine italiano, con contratto a tempo determinato.',
     canonicalPath: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Guess Stabio: opportunità di lavoro come merchandiser",
+      "headline": "Lavoro merchandiser a Stabio: opportunità da Guess",
       "description": "Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -97115,686 +97115,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivi-energetici-zurigo-domanda/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-edilizia-zurigo-permesso-iter': {
-    title: 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
-    description: 'Autorizzazione edilizia nel Canton Zurigo: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori prima del permesso.',
-    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, canton, zurigo',
-    ogTitle: 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
-    ogDescription: 'Chi deve presentare un\'autorizzazione edilizia nel Canton Zurigo deve distinguere il ruolo di comune e cantone, preparare i documenti richiesti e considerare opposizioni o ricorsi. I lavori restano vietati prima del permesso.',
-    canonicalPath: '/articoli-svizzera/edilizia-zurigo-permesso-iter/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Autorizzazione edilizia Canton Zurigo: requisiti e procedura",
-      "description": "Autorizzazione edilizia nel Canton Zurigo: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori prima del permesso.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/edilizia-zurigo-permesso-iter.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Documenti e piani per un'autorizzazione edilizia in Svizzera"
-      },
-      "datePublished": "2026-10-04T18:35:23+00:00",
-      "dateModified": "2026-10-04T18:35:23+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/edilizia-zurigo-permesso-iter/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-axa-ue-svizzera-posizione': {
-    title: 'Bilaterali UE, il CEO AXA: «importanti, non decisivi»',
-    description: 'Thomas Buberl, CEO di AXA, giudica importanti ma non decisivi i bilaterali con l\'UE e indica flessibilità, pragmatismo e decentramento tra le forze svizzere.',
-    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, importanti, decisivi, thomas',
-    ogTitle: 'Bilaterali UE, il CEO AXA: «importanti, non decisivi»',
-    ogDescription: 'Thomas Buberl, numero uno di AXA, considera importanti ma non decisivi i bilaterali con l\'UE per la posizione della Svizzera. Il manager indica flessibilità, pragmatismo, vicinanza ai cittadini e decentramento come fattori del successo futuro.',
-    canonicalPath: '/articoli-svizzera/axa-ue-svizzera-posizione/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Bilaterali UE, il CEO AXA: «importanti, non decisivi»",
-      "description": "Thomas Buberl, CEO di AXA, giudica importanti ma non decisivi i bilaterali con l'UE e indica flessibilità, pragmatismo e decentramento tra le forze svizzere.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/axa-ue-svizzera-posizione.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Veduta di Lugano e del paesaggio svizzero in una giornata luminosa."
-      },
-      "datePublished": "2026-10-04T20:19:08+00:00",
-      "dateModified": "2026-10-04T20:19:08+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/axa-ue-svizzera-posizione/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-rita-fuhrer-consiglio-federale': {
-    title: 'Nessuna donna necessaria in Consiglio federale',
-    description: 'Rita Fuhrer: \'Deve semplicemente essere la persona più adatta\' per la successione di Parmelin, senza considerare il genere. Dati aggiornati 2026 per frontalieri',
-    keywords: 'frontalieri, ticino, svizzera, italia, nessuna, donna, necessaria, consiglio',
-    ogTitle: 'Nessuna donna necessaria in Consiglio federale',
-    ogDescription: 'Rita Fuhrer ritiene non necessario scegliere una donna per la successione di Guy Parmelin: \'Deve semplicemente essere la persona più adatta\'. Ex candidata UDC nel 2000.',
-    canonicalPath: '/articoli-svizzera/rita-fuhrer-consiglio-federale/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Nessuna donna necessaria in Consiglio federale",
-      "description": "Rita Fuhrer: 'Deve semplicemente essere la persona più adatta' per la successione di Parmelin, senza considerare il genere. Dati aggiornati 2026 per frontalieri",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rita-fuhrer-consiglio-federale.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Rita Fuhrer, ex consigliera di Stato zurighese, commenta la successione in Consiglio federale"
-      },
-      "datePublished": "2026-10-04T22:14:58+00:00",
-      "dateModified": "2026-10-04T22:14:58+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rita-fuhrer-consiglio-federale/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-rita-fuhrer-consiglio-federale-donne': {
-    title: 'Consiglio federale senza donne: l\'analisi di Rita Fuhrer',
-    description: 'L\'ex consigliera zurighese Rita Fuhrer commenta la successione in Consiglio federale, ricordando la sua candidatura UDC del 2000 e il dibattito sui criteri.',
-    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, senza, donne',
-    ogTitle: 'Rita Fuhrer: Nessun problema se in Consiglio federale non ci sono donne',
-    ogDescription: 'L\'ex consigliera di Stato zurighese Rita Fuhrer interviene sul dibattito della successione in Consiglio federale, ripercorrendo la sua candidatura UDC nel 2000 e ribadendo che il criterio principale deve essere l\'idoneità della persona.',
-    canonicalPath: '/articoli-svizzera/rita-fuhrer-consiglio-federale-donne/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Consiglio federale senza donne: l'analisi di Rita Fuhrer",
-      "description": "L'ex consigliera zurighese Rita Fuhrer commenta la successione in Consiglio federale, ricordando la sua candidatura UDC del 2000 e il dibattito sui criteri.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rita-fuhrer-consiglio-federale-donne.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Palazzo Federale a Berna con cielo sereno"
-      },
-      "datePublished": "2026-10-05T00:21:47+00:00",
-      "dateModified": "2026-10-05T00:21:47+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rita-fuhrer-consiglio-federale-donne/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-guida-voto-zurigo-referendum': {
-    title: 'Voto cantonale a Zurigo: guida a iniziative e referendum',
-    description: 'Voto cantonale a Zurigo: guida pratica a iniziative e referendum, calendario, aventi diritto e informazioni ufficiali per esprimere il voto in Svizzera.',
-    keywords: 'frontalieri, ticino, svizzera, italia, voto, cantonale, zurigo, iniziative',
-    ogTitle: 'Voto cantonale a Zurigo: iniziative e referendum',
-    ogDescription: 'Prima di una votazione nel Cantone di Zurigo, separa il piano cantonale da quello federale: quattro date federali annue, soglie diverse per iniziativa e referendum e doppia maggioranza per le modifiche costituzionali.',
-    canonicalPath: '/articoli-svizzera/guida-voto-zurigo-referendum/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Voto cantonale a Zurigo: guida a iniziative e referendum",
-      "description": "Voto cantonale a Zurigo: guida pratica a iniziative e referendum, calendario, aventi diritto e informazioni ufficiali per esprimere il voto in Svizzera.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guida-voto-zurigo-referendum.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Schede per il voto cantonale nel Cantone di Zurigo"
-      },
-      "datePublished": "2026-10-05T00:47:51+00:00",
-      "dateModified": "2026-10-05T00:47:51+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-voto-zurigo-referendum/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-elezioni-cantonali-zurigo-vademecum': {
-    title: 'Elezioni cantonali a Zurigo: guida a calendario e voto',
-    description: 'Guida alle elezioni cantonali a Zurigo: calendario, modalità di voto, liste e ufficio elettorale, con il confronto tra voto cantonale e regole federali.',
-    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, cantonali, zurigo, calendario',
-    ogTitle: 'Elezioni cantonali a Zurigo: guida a calendario e voto',
-    ogDescription: 'Il voto cantonale nel Cantone di Zurigo richiede di separare calendario, modalità, liste e ufficio elettorale dalle quattro date del voto federale. La guida collega questi passaggi alle competenze cantonali e comunali su fisco e servizi.',
-    canonicalPath: '/articoli-svizzera/elezioni-cantonali-zurigo-vademecum/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Elezioni cantonali a Zurigo: guida a calendario e voto",
-      "description": "Guida alle elezioni cantonali a Zurigo: calendario, modalità di voto, liste e ufficio elettorale, con il confronto tra voto cantonale e regole federali.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/elezioni-cantonali-zurigo-vademecum.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Materiale informativo per le elezioni cantonali nel Cantone di Zurigo"
-      },
-      "datePublished": "2026-10-05T01:17:29+00:00",
-      "dateModified": "2026-10-05T01:17:29+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elezioni-cantonali-zurigo-vademecum/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-protezione-civile-zurigo': {
-    title: 'Protezione civile Canton Zurigo: requisiti e indennità',
-    description: 'Protezione civile nel Cantone di Zurigo: requisiti, convocazioni e indennità nel quadro federale. Guida alle verifiche presso l\'autorità cantonale competente.',
-    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, canton, zurigo',
-    ogTitle: 'Protezione civile Canton Zurigo: requisiti e indennità',
-    ogDescription: 'Nel Cantone di Zurigo la protezione civile opera sotto coordinamento cantonale nell\'ambito della legge federale. Obblighi, convocazioni e indennità non vanno ricavati da importi generici: la verifica spetta all\'autorità competente.',
-    canonicalPath: '/articoli-svizzera/protezione-civile-zurigo/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Protezione civile Canton Zurigo: requisiti e indennità",
-      "description": "Protezione civile nel Cantone di Zurigo: requisiti, convocazioni e indennità nel quadro federale. Guida alle verifiche presso l'autorità cantonale competente.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/protezione-civile-zurigo.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Operatori della protezione civile davanti a un edificio pubblico svizzero"
-      },
-      "datePublished": "2026-10-05T01:48:52+00:00",
-      "dateModified": "2026-10-05T01:48:52+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/protezione-civile-zurigo/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-assicurazione-immobili-zurigo': {
-    title: 'Assicurazione immobili Canton Zurigo: obbligo e premi',
-    description: 'Guida all\'assicurazione immobili nel Canton Zurigo: obbligo secondo il Cantone, ente o assicuratore autorizzato, coperture, premi e sinistri da verificare.',
-    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, canton, zurigo',
-    ogTitle: 'Assicurazione edifici a Zurigo: obbligo e premi',
-    ogDescription: 'Nel Canton Zurigo l\'obbligo per l\'assicurazione degli edifici dipende dal Cantone. La guida separa ente cantonale e assicuratore autorizzato e offre una traccia pratica per verificare coperture, premi e procedura in caso di sinistro.',
-    canonicalPath: '/articoli-svizzera/assicurazione-immobili-zurigo/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Assicurazione immobili Canton Zurigo: obbligo e premi",
-      "description": "Guida all'assicurazione immobili nel Canton Zurigo: obbligo secondo il Cantone, ente o assicuratore autorizzato, coperture, premi e sinistri da verificare.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/assicurazione-immobili-zurigo.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Edificio residenziale nel Canton Zurigo per una guida sull'assicurazione immobili"
-      },
-      "datePublished": "2026-10-05T02:31:44+00:00",
-      "dateModified": "2026-10-05T02:31:44+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-immobili-zurigo/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-formazione-continua-zurigo-contributi': {
-    title: 'Formazione continua Canton Zurigo: requisiti e contributi',
-    description: 'Formazione continua nel Canton Zurigo: requisiti, programmi riconosciuti, termini della domanda e contributi da verificare presso la fonte ufficiale cantonale.',
-    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, canton, zurigo',
-    ogTitle: 'Canton Zurigo: requisiti per la formazione continua',
-    ogDescription: 'Nel Canton Zurigo la formazione continua non ha una procedura nazionale unica: requisiti, programmi riconosciuti, scadenze e importi vanno controllati presso l\'ufficio cantonale o l\'istituzione competente, distinguendo AFC/ESTV, UFAS/BSV e UST/BFS.',
-    canonicalPath: '/articoli-svizzera/formazione-continua-zurigo-contributi/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Formazione continua Canton Zurigo: requisiti e contributi",
-      "description": "Formazione continua nel Canton Zurigo: requisiti, programmi riconosciuti, termini della domanda e contributi da verificare presso la fonte ufficiale cantonale.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/formazione-continua-zurigo-contributi.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Aula svizzera per un corso di formazione continua con adulti al lavoro."
-      },
-      "datePublished": "2026-10-05T03:02:04+00:00",
-      "dateModified": "2026-10-05T03:02:04+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formazione-continua-zurigo-contributi/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-salario-minimo-berna-guida': {
-    title: 'Salario minimo Canton Berna: requisiti e applicazione',
-    description: 'Salario minimo nel Cantone di Berna: cosa cambia senza una soglia federale, come verificare eventuale disciplina cantonale, contratti collettivi, requisiti',
-    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, canton, berna',
-    ogTitle: 'Salario minimo Canton Berna: requisiti e applicazione',
-    ogDescription: 'Nel Cantone di Berna non esiste una soglia salariale federale automatica: la Svizzera non ha un salario minimo federale. La verifica passa da disciplina cantonale, contratti collettivi e impatto di contributi, imposte e LAMal sul bilancio.',
-    canonicalPath: '/articoli-svizzera/salario-minimo-berna-guida/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Salario minimo Canton Berna: requisiti e applicazione",
-      "description": "Salario minimo nel Cantone di Berna: cosa cambia senza una soglia federale, come verificare eventuale disciplina cantonale, contratti collettivi, requisiti",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salario-minimo-berna-guida.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Documenti salariali e calcolatrice su una scrivania in un ufficio svizzero"
-      },
-      "datePublished": "2026-10-05T03:32:04+00:00",
-      "dateModified": "2026-10-05T03:32:04+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-berna-guida/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-sostegno-sociale-berna-procedura': {
-    title: 'Assistenza sociale a Berna: requisiti e domanda',
-    description: 'Assistenza sociale nel Cantone di Berna: chi contattare, come orientarsi tra requisiti, documenti e termini e quali sistemi restano separati dalla domanda.',
-    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, sociale, berna, requisiti',
-    ogTitle: 'Assistenza sociale Berna: requisiti e domanda',
-    ogDescription: 'Nel Cantone di Berna l\'assistenza sociale è generalmente amministrata da Cantoni e comuni secondo il bisogno. La guida chiarisce a chi rivolgersi, quali verifiche fare sulla fonte ufficiale e come distinguere domanda, LAMal, previdenza e fisco.',
-    canonicalPath: '/articoli-svizzera/sostegno-sociale-berna-procedura/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Assistenza sociale a Berna: requisiti e domanda",
-      "description": "Assistenza sociale nel Cantone di Berna: chi contattare, come orientarsi tra requisiti, documenti e termini e quali sistemi restano separati dalla domanda.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sostegno-sociale-berna-procedura.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Sportello svizzero per una domanda di assistenza sociale cantonale"
-      },
-      "datePublished": "2026-10-05T04:05:06+00:00",
-      "dateModified": "2026-10-05T04:05:06+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sostegno-sociale-berna-procedura/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-veicoli-berna-calcolo-pratico': {
-    title: 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
-    description: 'Imposta sugli autoveicoli nel Cantone di Berna: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell\'indirizzo secondo le regole cantonali.',
-    keywords: 'frontalieri, ticino, svizzera, italia, imposta, sugli, autoveicoli, berna',
-    ogTitle: 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
-    ogDescription: 'Criteri di calcolo, pagamento e scadenze non si leggono con una regola nazionale: per Berna contano la fonte ufficiale del cantone e l\'ufficio della circolazione, soprattutto dopo un cambio di veicolo o di indirizzo.',
-    canonicalPath: '/articoli-svizzera/veicoli-berna-calcolo-pratico/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Imposta sugli autoveicoli a Berna: calcolo e pagamento",
-      "description": "Imposta sugli autoveicoli nel Cantone di Berna: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell'indirizzo secondo le regole cantonali.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/veicoli-berna-calcolo-pratico.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Documenti e auto per l'imposta cantonale sugli autoveicoli a Berna."
-      },
-      "datePublished": "2026-10-05T04:37:57+00:00",
-      "dateModified": "2026-10-05T04:37:57+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/veicoli-berna-calcolo-pratico/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-prezzi-pellet-ticino-aumenti': {
-    title: 'Prezzi pellet in Ticino: rincari e acquisti invernali',
-    description: 'Scopri i rincari del pellet in Ticino tra il 5% e il 10%, l\'impatto dei trasporti e del gasolio, e i consigli per gli acquisti prima dell\'inverno.',
-    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, pellet, rincari, acquisti',
-    ogTitle: 'Prezzi del pellet in Ticino: aumenti e consigli per l\'acquisto',
-    ogDescription: 'Analisi dei prezzi del pellet in Ticino con rincari stimati tra il 5% e il 10%, l\'impatto del gasolio e dei trasporti, e le indicazioni per rifornirsi prima dell\'inverno.',
-    canonicalPath: '/articoli-svizzera/prezzi-pellet-ticino-aumenti/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Prezzi pellet in Ticino: rincari e acquisti invernali",
-      "description": "Scopri i rincari del pellet in Ticino tra il 5% e il 10%, l'impatto dei trasporti e del gasolio, e i consigli per gli acquisti prima dell'inverno.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/prezzi-pellet-ticino-aumenti.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Deposito di pellet di legno in Ticino con sacchi e stoccaggio"
-      },
-      "datePublished": "2026-10-05T05:46:26+00:00",
-      "dateModified": "2026-10-05T05:46:26+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-pellet-ticino-aumenti/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-startup-ticinesi-top100-2026': {
-    title: 'Tre aziende ticinesi nella Top100 Swiss Startup Award 2026',
-    description: 'InkVivo, Jaipur Robotics e In Virtuo Laboratories sono state incluse tra le cento startup svizzere più promettenti nel Top100 Swiss Startup Award 2026.',
-    keywords: 'frontalieri, ticino, svizzera, italia, aziende, ticinesi, nella, top100',
-    ogTitle: 'Tre aziende ticinesi tra le migliori Startup della Svizzera',
-    ogDescription: 'Scopri le tre aziende ticinesi InkVivo, Jaipur Robotics e In Virtuo Laboratories inserite nella classifica Top100 Swiss Startup Award 2026 tra innovazione, farmaci e intelligenza artificiale.',
-    canonicalPath: '/articoli-svizzera/startup-ticinesi-top100-2026/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tre aziende ticinesi nella Top100 Swiss Startup Award 2026",
-      "description": "InkVivo, Jaipur Robotics e In Virtuo Laboratories sono state incluse tra le cento startup svizzere più promettenti nel Top100 Swiss Startup Award 2026.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/startup-ticinesi-top100-2026.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Tre startup ticinesi tra le cento più promettenti al Top100 Swiss Startup Award 2026"
-      },
-      "datePublished": "2026-10-05T06:15:18+00:00",
-      "dateModified": "2026-10-05T06:15:18+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/startup-ticinesi-top100-2026/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-autisti-uber-svizzera-condizioni': {
-    title: 'Settanta franchi per nove ore di lavoro: la protesta',
-    description: 'I conducenti di Uber in Svizzera chiedono tutele e condizioni migliori. Tariffe in calo, status dei lavoratori e differenze tra Zurigo e Ginevra.',
-    keywords: 'frontalieri, ticino, svizzera, italia, settanta, franchi, nove, lavoro',
-    ogTitle: 'Settanta franchi per nove ore: la protesta degli autisti Uber in Svizzera',
-    ogDescription: 'I conducenti Uber in Svizzera denunciano guadagni in calo e chiedono tutele. Analisi sulla qualificazione del rapporto di lavoro tra Zurigo, Ginevra e le richieste del sindacato Unia.',
-    canonicalPath: '/articoli-svizzera/autisti-uber-svizzera-condizioni/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Settanta franchi per nove ore di lavoro: la protesta",
-      "description": "I conducenti di Uber in Svizzera chiedono tutele e condizioni migliori. Tariffe in calo, status dei lavoratori e differenze tra Zurigo e Ginevra.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/autisti-uber-svizzera-condizioni.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Autisti di Uber in Svizzera chiedono condizioni di lavoro migliori"
-      },
-      "datePublished": "2026-10-05T06:45:07+00:00",
-      "dateModified": "2026-10-05T06:45:07+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/autisti-uber-svizzera-condizioni/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-allarme-aumento-affitti-svizzera': {
-    title: 'Affitti in Svizzera: +32% in vent\'anni, l\'allarme dell\'ASI',
-    description: 'L\'Associazione svizzera inquilini segnala un rincaro del 32,1% dal 2005. Sotto pressione i redditi bassi: chi guadagna meno di 4\'000 franchi spende il 37,8%',
-    keywords: 'frontalieri, ticino, svizzera, italia, affitti, vent, anni, allarme',
-    ogTitle: 'Affitti in Svizzera: +32% in vent\'anni, l\'allarme dell\'ASI',
-    ogDescription: 'L\'Associazione svizzera inquilini lancia l\'allarme: gli affitti sono cresciuti del 32,1% in vent\'anni. Particolarmente colpite le famiglie con redditi bassi, che destinano oltre il 37% del budget alla casa.',
-    canonicalPath: '/articoli-svizzera/allarme-aumento-affitti-svizzera/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Affitti in Svizzera: +32% in vent'anni, l'allarme dell'ASI",
-      "description": "L'Associazione svizzera inquilini segnala un rincaro del 32,1% dal 2005. Sotto pressione i redditi bassi: chi guadagna meno di 4'000 franchi spende il 37,8%",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/allarme-aumento-affitti-svizzera.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Edificio residenziale urbano in Svizzera"
-      },
-      "datePublished": "2026-10-05T07:13:59+00:00",
-      "dateModified": "2026-10-05T07:13:59+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/allarme-aumento-affitti-svizzera/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-affitti-svizzera-aumento-asi': {
-    title: 'Affitti in Svizzera: aumento del 32% in vent\'anni',
-    description: 'Gli affitti in Svizzera sono saliti del 32,1% tra il 2005 e il 2025. L\'ASI denuncia l\'impatto su redditi e inquilini. Scopri i dati e le richieste.',
-    keywords: 'frontalieri, ticino, svizzera, italia, affitti, aumento, vent, anni',
-    ogTitle: 'Affitti in Svizzera: +32% in vent\'anni e alloggi costosi',
-    ogDescription: 'L\'Associazione svizzera inquilini analizza i rincari del 32,1% tra il 2005 e il 2025. Impatto su famiglie a basso reddito, tassi di riferimento all\'1,25% e trasformazioni della proprietà immobiliare in Svizzera.',
-    canonicalPath: '/articoli-svizzera/affitti-svizzera-aumento-asi/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Affitti in Svizzera: aumento del 32% in vent'anni",
-      "description": "Gli affitti in Svizzera sono saliti del 32,1% tra il 2005 e il 2025. L'ASI denuncia l'impatto su redditi e inquilini. Scopri i dati e le richieste.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/affitti-svizzera-aumento-asi.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Palazzi di residenza in Svizzera con affitti in aumento"
-      },
-      "datePublished": "2026-10-05T07:50:21+00:00",
-      "dateModified": "2026-10-05T07:50:21+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-svizzera-aumento-asi/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-voto-iva-avs-novembre-2026': {
-    title: 'Voto IVA per AVS: data e dettagli della votazione federale',
-    description: 'Scopri i dettagli sul voto del 26 novembre 2026 per l aumento dell IVA destinato alla 13a mensilità AVS. Aliquote, scadenze e impatti finanziari in Svizzera.',
-    keywords: 'frontalieri, ticino, svizzera, italia, voto, data, dettagli, votazione',
-    ogTitle: 'Voto IVA per l AVS del 26 novembre 2026: guida completa alle aliquote e alla 13a mensilità',
-    ogDescription: 'Tutti i dettagli sulla votazione federale del 26 novembre 2026 per il finanziamento della 13a mensilità AVS tramite l aumento dell IVA. Analisi delle aliquote, delle riserve e delle scadenze ufficiali della Confederazione.',
-    canonicalPath: '/articoli-svizzera/voto-iva-avs-novembre-2026/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Voto IVA per AVS: data e dettagli della votazione federale",
-      "description": "Scopri i dettagli sul voto del 26 novembre 2026 per l aumento dell IVA destinato alla 13a mensilità AVS. Aliquote, scadenze e impatti finanziari in Svizzera.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Palazzo federale a Berna in primo piano per il voto sull IVA"
-      },
-      "datePublished": "2026-10-05T08:19:02+00:00",
-      "dateModified": "2026-10-05T08:19:02+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
-        "name": "Laura Bianchi",
-        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-iva-avs-novembre-2026/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-villa-principe-leopoldo-chiude': {
-    title: 'Villa Principe Leopoldo chiude per lavori e licenzia',
-    description: 'L\'Hotel Villa Principe Leopoldo a Collina d\'Oro chiude il 30 dicembre per lavori da 12 milioni. Previsti 76 licenziamenti su 81 dipendenti e riapertura',
-    keywords: 'frontalieri, ticino, svizzera, italia, villa, principe, leopoldo, chiude',
-    ogTitle: 'Villa Principe Leopoldo chiude per lavori e licenzia 76 persone',
-    ogDescription: 'L\'Hotel Villa Principe Leopoldo di Collina d\'Oro chiude temporaneamente dal 30 dicembre per un investimento di 12 milioni. Previsto il licenziamento di 76 dipendenti su 81 e riapertura a maggio.',
-    canonicalPath: '/articoli-svizzera/villa-principe-leopoldo-chiude/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Villa Principe Leopoldo chiude per lavori e licenzia",
-      "description": "L'Hotel Villa Principe Leopoldo a Collina d'Oro chiude il 30 dicembre per lavori da 12 milioni. Previsti 76 licenziamenti su 81 dipendenti e riapertura",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/villa-principe-leopoldo-chiude.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Hotel Villa Principe Leopoldo a Collina d'Oro"
-      },
-      "datePublished": "2026-10-05T08:50:48+00:00",
-      "dateModified": "2026-10-05T08:50:48+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/villa-principe-leopoldo-chiude/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-porte-aperte-login-ticino': {
-    title: 'Porte Aperte login Ticino: ferrovia, commercio e edifici',
-    description: 'Scopri l\'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici',
-    keywords: 'frontalieri, ticino, svizzera, italia, porte, aperte, login, ferrovia',
-    ogTitle: 'Porte Aperte login Ticino: ferrovia, commercio e AFC 2027',
-    ogDescription: 'L\'evento Porte Aperte login Ticino offre una giornata orientativa a Bellinzona il 10 ottobre dalle 09.00 alle 13.00. I partecipanti possono esplorare le professioni ferroviarie, il commercio al dettaglio e scoprire in anteprima la nuova formazione',
-    canonicalPath: '/articoli-svizzera/porte-aperte-login-ticino/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Porte Aperte login Ticino: ferrovia, commercio e edifici",
-      "description": "Scopri l'evento Porte Aperte login Ticino del 10 ottobre a Bellinzona: ferrovia, commercio e la nuova formazione AFC Informatico/a degli edifici",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/porte-aperte-login-ticino.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Visitatori alle Porte Aperte login Ticino osservano un elettrotreno e strumenti di automazione edilizia a Bellinzona"
-      },
-      "datePublished": "2026-10-05T09:48:17+00:00",
-      "dateModified": "2026-10-05T09:48:17+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/porte-aperte-login-ticino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

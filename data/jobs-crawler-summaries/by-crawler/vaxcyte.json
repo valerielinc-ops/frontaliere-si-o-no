@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-04T21:13:20.479Z",
+  "generatedAt": "2026-10-05T09:13:15.712Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5009,
-  "avgDurationMs": 5009,
+  "durationMs": 4444,
+  "avgDurationMs": 4444,
   "durationHistory": [
-    5009
+    4444
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:04.711Z",
+      "crawledAt": "2026-10-05T09:12:59.681Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -46,7 +48,9 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-25",
+      "datePosted": "2026-06-25T16:18:11-04:00",
+      "postedDate": "2026-06-25T16:18:11-04:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "department": "Global MSAT",
       "_targetScope": {
@@ -78,7 +82,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:04.700Z",
+      "crawledAt": "2026-10-05T09:12:59.675Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -91,7 +95,9 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "datePosted": "2026-09-11T14:38:08-04:00",
+      "postedDate": "2026-09-11T14:38:08-04:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "department": "Global MSAT",
       "_targetScope": {
@@ -123,7 +129,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:04.670Z",
+      "crawledAt": "2026-10-05T09:12:59.644Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -136,7 +142,9 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
+      "datePosted": "2026-06-22T11:58:37-04:00",
+      "postedDate": "2026-06-22T11:58:37-04:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "department": "Quality",
       "_targetScope": {
@@ -168,7 +176,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:13:04.664Z",
+      "crawledAt": "2026-10-05T09:12:59.636Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -181,7 +189,9 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "2026-06-30T18:40:29-04:00",
+      "postedDate": "2026-06-30T18:40:29-04:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "department": "Temporary Opportunities",
       "_targetScope": {
@@ -189,7 +199,6 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -204,5 +213,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

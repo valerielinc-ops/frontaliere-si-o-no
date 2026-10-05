@@ -1,6 +1,6 @@
 {
   "crawlerKey": "protectas",
-  "assembledAt": "2026-10-04T21:34:53.914Z",
+  "assembledAt": "2026-10-05T09:39:01.159Z",
   "jobs": [
     {
       "id": "protectas-01bf4e1f2262",
@@ -33,7 +33,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:34:48.821Z",
+      "crawledAt": "2026-10-05T09:38:56.097Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -45,7 +45,9 @@
       "sector": "Sicurezza fisica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "requirements": [
         "Rappresenti l'ordine e la sicurezza",

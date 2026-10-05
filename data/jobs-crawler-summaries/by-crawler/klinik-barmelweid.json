@@ -1,7 +1,7 @@
 {
   "key": "klinik-barmelweid",
   "label": "Klinik Barmelweid",
-  "generatedAt": "2026-10-04T21:14:53.178Z",
+  "generatedAt": "2026-10-05T09:18:52.914Z",
   "total": 33,
   "discovered": null,
   "parsed": 33,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 33,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 33,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 40431,
-  "avgDurationMs": 40431,
+  "durationMs": 40156,
+  "avgDurationMs": 40156,
   "durationHistory": [
-    40431
+    40156
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a268817b7e0168f08d561747e4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:45.631Z",
+      "crawledAt": "2026-10-05T09:18:44.642Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -47,18 +49,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a268817b7e0168f08d561747e4",
       "firstSeenAt": "2026-05-19T12:21:34.031Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181ed9d439b6b2c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:44.504Z",
+      "crawledAt": "2026-10-05T09:18:43.541Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -87,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181ed9d439b6b2c",
       "firstSeenAt": "2026-05-19T12:21:32.981Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +120,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181eddd0b376d64",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:43.426Z",
+      "crawledAt": "2026-10-05T09:18:42.477Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -127,18 +133,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181eddd0b376d64",
       "firstSeenAt": "2026-05-19T12:21:31.909Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +162,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb8966019173f53b8f4a57",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:42.350Z",
+      "crawledAt": "2026-10-05T09:18:41.387Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -167,18 +175,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb8966019173f53b8f4a57",
       "firstSeenAt": "2026-05-19T12:21:30.835Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +204,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e80de5ccf01814e033043117e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:41.267Z",
+      "crawledAt": "2026-10-05T09:18:40.296Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -207,18 +217,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e80de5ccf01814e033043117e",
       "firstSeenAt": "2026-05-19T12:21:18.932Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -234,7 +246,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e87c40f3e0188327aa6b32b55",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.182Z",
+      "crawledAt": "2026-10-05T09:18:39.224Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -247,18 +259,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e87c40f3e0188327aa6b32b55",
       "firstSeenAt": "2026-05-19T12:21:17.870Z",
       "salaryMin": 58000,
       "salaryMax": 99000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -274,7 +288,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e87c40f3e0188327d7c492b93",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:39.099Z",
+      "crawledAt": "2026-10-05T09:18:38.137Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -287,18 +301,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e87c40f3e0188327d7c492b93",
       "firstSeenAt": "2026-05-19T12:21:16.779Z",
       "salaryMin": 58000,
       "salaryMax": 99000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -314,7 +330,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb89660191556c2b5368a4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:38.004Z",
+      "crawledAt": "2026-10-05T09:18:37.037Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -327,18 +343,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb89660191556c2b5368a4",
       "firstSeenAt": "2026-05-19T12:20:55.521Z",
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -354,7 +372,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019dddf6c8d6176e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:36.217Z",
+      "crawledAt": "2026-10-05T09:18:35.958Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -367,18 +385,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019dddf6c8d6176e",
       "firstSeenAt": "2026-05-19T12:21:05.623Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -394,7 +414,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39ac6f43b019ae9b5d2981a20",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:35.144Z",
+      "crawledAt": "2026-10-05T09:18:34.833Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -407,18 +427,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39ac6f43b019ae9b5d2981a20",
       "firstSeenAt": "2026-05-19T12:21:28.675Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -434,7 +456,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ed0e0a7507901",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:34.048Z",
+      "crawledAt": "2026-10-05T09:18:33.744Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -447,18 +469,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ed0e0a7507901",
       "firstSeenAt": "2026-06-17T22:52:00.468Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -474,7 +498,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d8964ea019d9bb31dec69ee",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:32.979Z",
+      "crawledAt": "2026-10-05T09:18:32.658Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -487,18 +511,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d8964ea019d9bb31dec69ee",
       "firstSeenAt": "2026-05-19T12:21:08.899Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -514,7 +540,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019e3a161c9620da",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:31.885Z",
+      "crawledAt": "2026-10-05T09:18:31.593Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -527,18 +553,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019e3a161c9620da",
       "firstSeenAt": "2026-05-19T12:20:56.681Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -554,7 +582,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:30.782Z",
+      "crawledAt": "2026-10-05T09:18:30.555Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -567,18 +595,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961",
       "firstSeenAt": "2026-09-03T13:37:53.851Z",
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -594,7 +624,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b396a617590196aa10b8fa64a2",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:29.712Z",
+      "crawledAt": "2026-10-05T09:18:29.469Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -607,18 +637,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b396a617590196aa10b8fa64a2",
       "firstSeenAt": "2026-05-19T12:21:22.125Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -634,7 +666,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8b6d55b6018b95e3f8f65ed6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:28.632Z",
+      "crawledAt": "2026-10-05T09:18:28.387Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -647,18 +679,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8b6d55b6018b95e3f8f65ed6",
       "firstSeenAt": "2026-08-20T21:33:55.106Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -674,7 +708,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d1d8c74f37",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:27.547Z",
+      "crawledAt": "2026-10-05T09:18:27.331Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -687,18 +721,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d1d8c74f37",
       "firstSeenAt": "2026-08-31T17:07:05.175Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -714,7 +750,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39f9289ee019fcd294a4433dc",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:26.461Z",
+      "crawledAt": "2026-10-05T09:18:26.244Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -727,18 +763,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39f9289ee019fcd294a4433dc",
       "firstSeenAt": "2026-08-05T11:41:09.275Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -754,7 +792,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d6c6daa583d5c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:25.414Z",
+      "crawledAt": "2026-10-05T09:18:25.189Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -767,18 +805,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d6c6daa583d5c",
       "firstSeenAt": "2026-05-19T12:21:12.325Z",
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -794,7 +834,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8908887f018968e9bbe138e6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:24.328Z",
+      "crawledAt": "2026-10-05T09:18:24.106Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -807,18 +847,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8908887f018968e9bbe138e6",
       "firstSeenAt": "2026-06-24T11:34:43.067Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -834,7 +876,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ef8b0d4462241",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:23.212Z",
+      "crawledAt": "2026-10-05T09:18:23.017Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -847,18 +889,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ef8b0d4462241",
       "firstSeenAt": "2026-06-24T22:17:33.802Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -874,7 +918,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a26a538778016a53a0004200a8",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:22.120Z",
+      "crawledAt": "2026-10-05T09:18:21.958Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -887,18 +931,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a26a538778016a53a0004200a8",
       "firstSeenAt": "2026-05-19T12:21:29.729Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -914,7 +960,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a086e9acea2b9d",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:21.068Z",
+      "crawledAt": "2026-10-05T09:18:20.898Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -927,18 +973,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a086e9acea2b9d",
       "firstSeenAt": "2026-09-19T22:52:58.417Z",
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -954,7 +1002,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8998ab9d018a03555e2f5cac",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:19.992Z",
+      "crawledAt": "2026-10-05T09:18:19.791Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -967,18 +1015,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8998ab9d018a03555e2f5cac",
       "firstSeenAt": "2026-09-21T15:59:37.160Z",
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -994,7 +1044,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2aaac3b3f22",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:18.926Z",
+      "crawledAt": "2026-10-05T09:18:18.716Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1007,18 +1057,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2aaac3b3f22",
       "firstSeenAt": "2026-09-21T15:59:36.041Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1034,7 +1086,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e9374959a0193b47c881f64b7",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:17.840Z",
+      "crawledAt": "2026-10-05T09:18:17.650Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1047,18 +1099,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e9374959a0193b47c881f64b7",
       "firstSeenAt": "2026-09-21T15:59:33.842Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1074,7 +1128,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e6eb38d72016ecbe4cd3e3848",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:16.771Z",
+      "crawledAt": "2026-10-05T09:18:16.568Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1087,18 +1141,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e6eb38d72016ecbe4cd3e3848",
       "firstSeenAt": "2026-08-13T10:19:12.460Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1114,7 +1170,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2e71def3fde",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:15.696Z",
+      "crawledAt": "2026-10-05T09:18:15.472Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1127,18 +1183,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2e71def3fde",
       "firstSeenAt": "2026-09-21T15:59:34.949Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1154,7 +1212,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0e7e9d4e56634",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:14.615Z",
+      "crawledAt": "2026-10-05T09:18:14.357Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1167,18 +1225,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0e7e9d4e56634",
       "firstSeenAt": "2026-09-28T21:15:03.553Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1194,7 +1254,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a249cf10d2014a395e97a634cc",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:13.545Z",
+      "crawledAt": "2026-10-05T09:18:13.231Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1207,22 +1267,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a249cf10d2014a395e97a634cc",
       "firstSeenAt": "2026-05-19T12:21:35.133Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

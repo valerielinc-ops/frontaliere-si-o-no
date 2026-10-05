@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-10-04T21:38:41.150Z",
+  "assembledAt": "2026-10-05T09:35:20.600Z",
   "jobs": [
     {
       "id": "heineken-ch-864a717bd542",
@@ -43,12 +43,14 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-c-oder-c1-mw-arosa?jobid=164139",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:34.677Z",
+      "crawledAt": "2026-10-05T09:35:15.457Z",
       "previousSlugs": [
         "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
         "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa"
@@ -120,12 +122,14 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/sales-market-analyst-wmd?jobid=164368",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:26.234Z",
+      "crawledAt": "2026-10-05T09:35:07.154Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern",
         "sales-market-analista-w-m-d-heineken-switzerland-luzern"
@@ -197,12 +201,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/specialist-warehouse-mwd?jobid=164840",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:17.904Z",
+      "crawledAt": "2026-10-05T09:34:59.648Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp",
@@ -226,7 +230,6 @@
         "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
       ],
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -240,7 +243,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-0006bff573d9",
@@ -283,12 +288,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "postedDate": "",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/specialist-business-applications-operations-mwd?jobid=164826",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:10.101Z",
+      "crawledAt": "2026-10-05T09:34:51.642Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern",
         "specialista-business-applications-operations-m-w-d-heineken-switzerland-luzern"
@@ -303,7 +308,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -317,7 +321,9 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-420d6c1cd516",
@@ -360,12 +366,14 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-davos?jobid=162606",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:02.108Z",
+      "crawledAt": "2026-10-05T09:34:44.113Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-davos-heineken-ch-davos",
         "chauffeur-c-e-m-f-davos-heineken-switzerland-davos"
@@ -439,12 +447,14 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-chur?jobid=162775",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162775&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:53.776Z",
+      "crawledAt": "2026-10-05T09:34:35.230Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-chur-heineken-ch-chur",
         "chauffeur-c-e-m-f-chur-heineken-switzerland-chur"
@@ -518,12 +528,14 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-orion?jobid=127858",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:46.193Z",
+      "crawledAt": "2026-10-05T09:34:27.629Z",
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
@@ -645,12 +657,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:38.306Z",
+      "crawledAt": "2026-10-05T09:34:19.176Z",
       "previousSlugs": [
         "technician-dbo-m-w-d-heineken-ch-denges",
         "tecnico-dbo-m-f-d-heineken-switzerland-denges"
@@ -676,7 +688,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-7a06dccbe47a",
@@ -719,12 +733,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-cat-c-e?jobid=165660",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165660&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:37:30.269Z",
+      "crawledAt": "2026-10-05T09:34:11.428Z",
       "previousSlugs": [
         "chauffeur-cat-c-e-heineken-ch-denges",
         "conducente-cat-c-e-heineken-switzerland-denges"
@@ -756,7 +770,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "heineken-ch-d7d5efdbb829",
@@ -799,12 +815,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "",
       "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-mwd-80-100?jobid=162220",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:37:23.204Z",
+      "crawledAt": "2026-10-05T09:34:03.833Z",
       "previousSlugs": [
         "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
         "logistica-key-account-specialista-m-w-d-80-100-heineken-switzerland-luzern"
@@ -819,7 +835,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:24.739Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -833,7 +848,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

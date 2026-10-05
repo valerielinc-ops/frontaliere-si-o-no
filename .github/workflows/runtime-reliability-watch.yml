@@ -96,6 +96,7 @@ jobs:
             build-plugins/shared/cantonResolvers.mjs
             build-plugins/shared/articleSectionCore.mjs
             packages/articles/engine/shared/articleSectionCore.mjs
+            packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
           sparse-checkout-cone-mode: false
 
       # The ~24.7k article-body chunks behind blogBodyLoader.js are walked in

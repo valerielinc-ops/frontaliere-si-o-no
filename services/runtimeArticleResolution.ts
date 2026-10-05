@@ -408,7 +408,13 @@ function blockMarkdown(el: Element): string | null {
     // this did before) rendered day-one articles one heading level below the
     // bundle's, under generic <h2>s the bundle does not have. h3 → `##`,
     // h4 → `###` restores the source levels for the two the generator uses.
-    const level = tag === 'H2' || tag === 'H3' ? '##' : tag === 'H4' ? '###' : '####';
+    // Deep source headings carry their original markdown depth because the
+    // static renderer may demote an initial <h4> to <h3> to keep the outline
+    // contiguous. Older pages without the marker retain the tag fallback.
+    const sourceLevel = Number(el.getAttribute('data-source-heading-level'));
+    const level = Number.isInteger(sourceLevel) && sourceLevel >= 3
+      ? '#'.repeat(Math.min(sourceLevel, 4))
+      : tag === 'H2' || tag === 'H3' ? '##' : tag === 'H4' ? '###' : '####';
     return `${level} ${text}`;
   }
   if (tag === 'TABLE') return tableMarkdown(el);

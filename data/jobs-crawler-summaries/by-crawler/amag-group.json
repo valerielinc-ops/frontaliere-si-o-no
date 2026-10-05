@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-05T08:12:12.920Z",
+  "generatedAt": "2026-10-05T10:36:40.085Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 148186,
-  "avgDurationMs": 148186,
+  "durationMs": 152385,
+  "avgDurationMs": 152385,
   "durationHistory": [
-    148186
+    152385
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -164,7 +164,6 @@
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -204,7 +203,6 @@
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
       "datePosted": "2026-09-18",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -214,5 +212,5 @@
       }
     }
   ],
-  "codeCommit": "21813a55c13b693c6bc3b96ebf7755119b32c8ef"
+  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
 }

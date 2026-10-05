@@ -1,7 +1,7 @@
 {
   "key": "klinik-im-hasel",
   "label": "Klinik im Hasel",
-  "generatedAt": "2026-10-04T21:14:53.997Z",
+  "generatedAt": "2026-10-05T09:11:04.332Z",
   "total": 13,
   "discovered": null,
   "parsed": 13,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 13,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12692,
-  "avgDurationMs": 12692,
+  "durationMs": 13364,
+  "avgDurationMs": 13364,
   "durationHistory": [
-    12692
+    13364
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:46.527Z",
+      "crawledAt": "2026-10-05T09:10:56.461Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -48,18 +50,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/330/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T16:17:59.522Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -69,13 +73,12 @@
       "companyKey": "klinik-im-hasel",
       "companyDomain": "klinikimhasel.ch",
       "title": "Praktikum Kunsttherapie, Fachrichtung Gestaltungs- und Maltherapie (w/m/d), 50%",
-      "needsRetranslation": true,
       "location": "Gontenschwil",
       "canton": "AG",
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:45.878Z",
+      "crawledAt": "2026-10-05T09:10:55.790Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -89,18 +92,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/413/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T16:17:58.820Z",
       "salaryMin": 22300,
       "salaryMax": 41300,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -116,7 +121,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:45.243Z",
+      "crawledAt": "2026-10-05T09:10:55.061Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -129,18 +134,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/475/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-29T11:36:57.274Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -156,7 +163,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/470/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:44.637Z",
+      "crawledAt": "2026-10-05T09:10:54.372Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -169,18 +176,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/470/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-29T11:36:53.549Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -196,7 +205,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/476/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:44.035Z",
+      "crawledAt": "2026-10-05T09:10:53.696Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -210,18 +219,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/476/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-13T10:25:00.035Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -237,7 +248,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:43.430Z",
+      "crawledAt": "2026-10-05T09:10:52.936Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -250,18 +261,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/477/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-02T13:34:38.481Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -277,7 +290,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:42.823Z",
+      "crawledAt": "2026-10-05T09:10:52.457Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -290,18 +303,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/478/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-02T13:34:38.009Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -317,7 +332,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/479/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:42.214Z",
+      "crawledAt": "2026-10-05T09:10:51.725Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -331,18 +346,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/479/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-03T13:32:49.395Z",
       "salaryMin": 35600,
       "salaryMax": 66000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -358,7 +375,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/481/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:41.599Z",
+      "crawledAt": "2026-10-05T09:10:51.030Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -372,18 +389,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/481/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-19T22:49:40.786Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -399,7 +418,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/482/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.963Z",
+      "crawledAt": "2026-10-05T09:10:50.316Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -413,18 +432,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/482/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-19T22:49:40.134Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -440,7 +461,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/484/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:40.340Z",
+      "crawledAt": "2026-10-05T09:10:49.625Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -453,18 +474,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/484/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-23T23:38:00.138Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -480,7 +503,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/485/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:39.720Z",
+      "crawledAt": "2026-10-05T09:10:49.153Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -494,18 +517,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/485/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-23T23:37:59.450Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -521,7 +546,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/486/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:39.322Z",
+      "crawledAt": "2026-10-05T09:10:48.440Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -535,22 +560,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/486/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-29T21:15:01.427Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

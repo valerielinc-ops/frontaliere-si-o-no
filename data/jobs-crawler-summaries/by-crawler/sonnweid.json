@@ -1,7 +1,7 @@
 {
   "key": "sonnweid",
   "label": "Pflegezentrum Sonnweid",
-  "generatedAt": "2026-10-05T08:32:13.059Z",
+  "generatedAt": "2026-10-05T09:09:55.983Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8723,
-  "avgDurationMs": 8723,
+  "durationMs": 6721,
+  "avgDurationMs": 6721,
   "durationHistory": [
-    8723
+    6721
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:32:03.546Z",
+      "crawledAt": "2026-10-05T09:09:48.949Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-fuer-die-oase/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:32:02.819Z",
+      "crawledAt": "2026-10-05T09:09:48.151Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/dipl-pflegefachperson-hf/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:32:01.909Z",
+      "crawledAt": "2026-10-05T09:09:47.385Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/diplomierte-pflegefachperson-hf-als-leitung-nachtwache/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T08:32:01.173Z",
+      "crawledAt": "2026-10-05T09:09:46.712Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "131f8bc1b80cde75f604ccd4dd8964fc1ef88621"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
