@@ -308,9 +308,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1375697933/?locale=de_DE",
       "jobReqId": "1375697933",
       "requirements": [],
@@ -337,7 +335,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-1085922c4581",
@@ -544,9 +544,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1375698933/?locale=de_DE",
       "jobReqId": "1375698933",
       "requirements": [],
@@ -573,7 +571,9 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-23a4f950164d",
@@ -4153,9 +4153,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-07T00:00:00Z",
       "postedDate": "2026-09-07T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1434522833/?locale=de_DE",
       "jobReqId": "1434522833",
       "requirements": [],
@@ -4174,7 +4172,9 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-d481df04ee49",
@@ -5290,9 +5290,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1375693533/?locale=de_DE",
       "jobReqId": "1375693533",
       "requirements": [],
@@ -5321,7 +5319,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-fa85855567eb",
@@ -5366,15 +5366,27 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16T00:00:00Z",
       "postedDate": "2026-09-16T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1437587833/?locale=de_DE",
       "jobReqId": "1437587833",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:53:12.793Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
@@ -5388,20 +5400,7 @@
       },
       "previousSlugs": [
         "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
-      ],
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "schindler-f4560d050931",
@@ -5840,9 +5839,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1375696233/?locale=de_DE",
       "jobReqId": "1375696233",
       "requirements": [],
@@ -5869,7 +5866,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-2e6fe74b44d1",
@@ -6952,9 +6951,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1263540601/?locale=de_DE",
       "jobReqId": "1263540601",
       "requirements": [],
@@ -6983,7 +6980,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-e4356c2b5ab8",
@@ -7348,9 +7347,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1410236133/?locale=fr_FR",
       "jobReqId": "1410236133",
       "requirements": [],
@@ -7362,7 +7359,8 @@
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-sion",
           "cookie-einwilligungsmanager-schindler-sion",
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion"
+          "cookie-consent-manager-schindler-sion",
+          "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
         ],
         "en": [
           "polymechanical-cfc-elevator-mounter-learning-for-2027-schindler-sion",
@@ -7385,7 +7383,8 @@
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
         "cookie-consent-manager-schindler-sion",
         "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion",
-        "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion"
+        "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
+        "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
       ],
       "firstSeenAt": "2026-08-24T21:32:04.815Z",
       "salaryMin": 71000,
@@ -7400,7 +7399,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-a82d244bb274",
@@ -7955,9 +7956,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1410210233/?locale=de_DE",
       "jobReqId": "1410210233",
       "requirements": [],
@@ -7986,7 +7985,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-c039b22db38a",
@@ -8031,9 +8032,7 @@
       "sector": "Industrial",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
-      "postingDateSource": "reported",
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1410210633/?locale=de_DE",
       "jobReqId": "1410210633",
       "requirements": [],
@@ -8060,7 +8059,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "schindler-917d0b49b488",

@@ -807,14 +807,27 @@
       "sector": "Retail / Convenience Store",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-25T18:39:57+02:00",
       "postedDate": "2026-09-25T18:39:57+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/14d265d1-a23e-41b5-9482-06fc092a05b2",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:58:19.350Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "2026-09-25T18:39:57+02:00",
+      "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-schmerikon"
@@ -828,20 +841,7 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-schmerikon"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "migrolino-d194a0ebe388",

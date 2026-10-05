@@ -4370,9 +4370,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitaluster.ch/offene-stellen/teamleitung-arztsekretaer-in-pneumologie-gastroenterologie-und-weitere-fachbereiche-der-medizin/65331157-5f9f-4dd6-ab4d-030a5b0b3983",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4405,7 +4403,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-25",
+      "postingDateSource": "reported"
     },
     {
       "id": "spital-uster-dcf22e6b89a4",

@@ -4258,9 +4258,7 @@
       "sector": "Assicurazioni",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.mobiliar.ch/job/Aesch-KV-Lehrstelle-EFZ-2027-Generalagentur-Aesch/1165231155/",
       "pensum": "100%",
       "requirements": [
@@ -4288,7 +4286,6 @@
           "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:49.632Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -4302,7 +4299,9 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "mobiliar-3cdcb58273e0",

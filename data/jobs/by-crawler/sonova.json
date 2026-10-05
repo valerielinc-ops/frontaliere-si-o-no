@@ -910,9 +910,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-24T00:00:00Z",
       "postedDate": "2026-09-24T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1440786833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -928,7 +926,6 @@
           "audiology-innovation-manager-m-f-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:54.872Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -942,7 +939,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sonova-8230e78b3493",

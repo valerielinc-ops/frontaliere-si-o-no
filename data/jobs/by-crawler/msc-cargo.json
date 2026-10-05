@@ -220,12 +220,20 @@
       "requirementsByLocale": {
         "en": []
       },
-      "previousSlugs": [
-        "global-responsabile-crm-msc-group-geneva",
-        "global-leiter-crm-msc-group-geneva",
-        "global-responsable-crm-msc-group-geneva",
-        "global-head-of-crm-msc-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:42.538Z",
       "previousSlugsByLocale": {
         "it": [
           "global-responsabile-crm-msc-group-geneva",
@@ -242,20 +250,12 @@
           "global-head-of-crm-msc-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:42.538Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-responsabile-crm-msc-group-geneva",
+        "global-leiter-crm-msc-group-geneva",
+        "global-responsable-crm-msc-group-geneva",
+        "global-head-of-crm-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-c0a3fef0fd77",
@@ -477,12 +477,20 @@
       "jobReqId": "17779",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-responsable-brand-marketing-msc-group-geneva",
-        "global-leiter-brand-marketing-msc-group-geneva",
-        "global-head-of-brand-marketing-msc-geneva",
-        "global-responsabile-brand-marketing-msc-group-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:39.222Z",
       "previousSlugsByLocale": {
         "it": [
           "global-responsable-brand-marketing-msc-group-geneva",
@@ -497,20 +505,12 @@
           "global-head-of-brand-marketing-msc-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:39.222Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-responsable-brand-marketing-msc-group-geneva",
+        "global-leiter-brand-marketing-msc-group-geneva",
+        "global-head-of-brand-marketing-msc-geneva",
+        "global-responsabile-brand-marketing-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
@@ -723,7 +723,6 @@
           "manager-commercial-performance-and-optimisation-msc-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-04T09:20:22.976Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
@@ -873,21 +872,7 @@
       "jobReqId": "17631",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-        "responsabile-analisi-aziendale-retail-msc-group-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-          "responsabile-analisi-aziendale-retail-msc-group-geneva"
-        ],
-        "fr": [
-          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-04T21:27:32.138Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -900,7 +885,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-04T21:27:32.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+          "responsabile-analisi-aziendale-retail-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+        "responsabile-analisi-aziendale-retail-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1f1a72644d47",
