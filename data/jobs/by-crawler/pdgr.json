@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-05T09:31:59.468Z",
+  "assembledAt": "2026-10-05T21:40:04.953Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:55.128Z",
+      "crawledAt": "2026-10-05T21:39:57.573Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:54.076Z",
+      "crawledAt": "2026-10-05T21:39:56.531Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:52.991Z",
+      "crawledAt": "2026-10-05T21:39:55.483Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:51.843Z",
+      "crawledAt": "2026-10-05T21:39:54.421Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:50.733Z",
+      "crawledAt": "2026-10-05T21:39:53.374Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -439,7 +439,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:49.642Z",
+      "crawledAt": "2026-10-05T21:39:52.312Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -451,7 +451,9 @@
       "sector": "Sanità / Psichiatria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2023-05-22",
       "postedDate": "2023-05-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -498,9 +500,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "datePosted": "2023-05-22",
-      "postingDateSource": "reported"
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -533,7 +533,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:48.564Z",
+      "crawledAt": "2026-10-05T21:39:51.221Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -619,8 +619,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -644,7 +644,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:47.485Z",
+      "crawledAt": "2026-10-05T21:39:50.160Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -656,7 +656,9 @@
       "sector": "Sanità / Psichiatria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2024-03-25",
       "postedDate": "2024-03-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -674,15 +676,18 @@
           "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-pdgr-ch",
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur",
         "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
@@ -700,9 +705,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "datePosted": "2024-03-25",
-      "postingDateSource": "reported"
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -735,7 +738,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:46.395Z",
+      "crawledAt": "2026-10-05T21:39:49.111Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -747,7 +750,9 @@
       "sector": "Sanità / Psichiatria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2024-04-09",
       "postedDate": "2024-04-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -784,9 +789,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "datePosted": "2024-04-09",
-      "postingDateSource": "reported"
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-1229ad41add2",
@@ -819,7 +822,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:45.318Z",
+      "crawledAt": "2026-10-05T21:39:48.003Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -871,7 +874,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -897,7 +900,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:44.235Z",
+      "crawledAt": "2026-10-05T21:39:46.959Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -957,6 +960,7 @@
         "en": [
           "oberarztin-oberarzt-pdgr-ch",
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
           "senior-doctor-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
@@ -980,6 +984,7 @@
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -1029,7 +1034,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:43.145Z",
+      "crawledAt": "2026-10-05T21:39:45.930Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1141,7 +1146,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:42.062Z",
+      "crawledAt": "2026-10-05T21:39:44.899Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1243,7 +1248,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:40.989Z",
+      "crawledAt": "2026-10-05T21:39:43.856Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1348,7 +1353,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:39.819Z",
+      "crawledAt": "2026-10-05T21:39:42.797Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1449,7 +1454,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:37.691Z",
+      "crawledAt": "2026-10-05T21:39:40.694Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1562,7 +1567,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:36.582Z",
+      "crawledAt": "2026-10-05T21:39:39.626Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1670,9 +1675,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1696,7 +1701,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:34.383Z",
+      "crawledAt": "2026-10-05T21:39:37.548Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1728,16 +1733,20 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
           "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
           "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
         "senior-physician-psychiatrische-dienste-graubunden-chur",
         "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
@@ -1789,7 +1798,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:33.282Z",
+      "crawledAt": "2026-10-05T21:39:36.456Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1882,7 +1891,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:32.175Z",
+      "crawledAt": "2026-10-05T21:39:35.419Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1947,7 +1956,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1974,7 +1983,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:30.002Z",
+      "crawledAt": "2026-10-05T21:39:33.355Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2002,7 +2011,8 @@
         "cook-psychiatrische-dienste-graubunden-chur",
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2010,7 +2020,8 @@
           "cook-psychiatrische-dienste-graubunden-chur",
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -2047,7 +2058,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2071,7 +2082,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:27.832Z",
+      "crawledAt": "2026-10-05T21:39:31.267Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2096,7 +2107,8 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-pdgr-ch",
-        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2107,6 +2119,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
@@ -2161,7 +2174,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:26.740Z",
+      "crawledAt": "2026-10-05T21:39:30.216Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2245,7 +2258,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:25.639Z",
+      "crawledAt": "2026-10-05T21:39:29.197Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2327,7 +2340,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:24.576Z",
+      "crawledAt": "2026-10-05T21:39:28.168Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2411,7 +2424,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:22.426Z",
+      "crawledAt": "2026-10-05T21:39:26.065Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2495,7 +2508,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:21.334Z",
+      "crawledAt": "2026-10-05T21:39:25.039Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2583,7 +2596,7 @@
       "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:20.267Z",
+      "crawledAt": "2026-10-05T21:39:23.993Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2672,7 +2685,7 @@
       "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:19.186Z",
+      "crawledAt": "2026-10-05T21:39:22.919Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2757,7 +2770,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:18.086Z",
+      "crawledAt": "2026-10-05T21:39:21.877Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2817,7 +2830,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
+        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2843,7 +2856,7 @@
       "url": "https://www.pdgr.ch/jobs/kunsttherapeut-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:17.003Z",
+      "crawledAt": "2026-10-05T21:39:20.770Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2868,6 +2881,7 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
+        "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
@@ -2875,14 +2889,15 @@
           "kunsttherapeut-in-pdgr-ch"
         ],
         "en": [
+          "art-therapists-psychiatrische-dienste-graubunden-ilanz",
           "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "fr": [
           "kunsttherapeut-in-pdgr-ch"
         ]
       },
-      "firstSeenAt": "2026-09-18T23:20:49.979Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-18T23:20:49.979Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2929,7 +2944,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:15.880Z",
+      "crawledAt": "2026-10-05T21:39:19.668Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3015,7 +3030,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:14.781Z",
+      "crawledAt": "2026-10-05T21:39:18.541Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3099,7 +3114,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:13.697Z",
+      "crawledAt": "2026-10-05T21:39:17.519Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3185,7 +3200,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:12.632Z",
+      "crawledAt": "2026-10-05T21:39:16.457Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3262,7 +3277,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:10.471Z",
+      "crawledAt": "2026-10-05T21:39:14.309Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3284,6 +3299,20 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "pensum": "20%",
+      "previousSlugs": [
+        "logopade-in-pdgr-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logopade-in-pdgr-ch"
+        ],
+        "en": [
+          "logopade-in-pdgr-ch"
+        ],
+        "fr": [
+          "logopade-in-pdgr-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-28T21:25:32.282Z",
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -3298,21 +3327,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "it": [
-          "logopade-in-pdgr-ch"
-        ],
-        "en": [
-          "logopade-in-pdgr-ch"
-        ],
-        "fr": [
-          "logopade-in-pdgr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "logopade-in-pdgr-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-fe64dad4ad93",
@@ -3345,7 +3360,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:09.375Z",
+      "crawledAt": "2026-10-05T21:39:13.233Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3423,7 +3438,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:08.314Z",
+      "crawledAt": "2026-10-05T21:39:12.176Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3502,7 +3517,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:07.233Z",
+      "crawledAt": "2026-10-05T21:39:11.135Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3580,7 +3595,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:06.127Z",
+      "crawledAt": "2026-10-05T21:39:10.100Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3631,9 +3646,9 @@
       "id": "pdgr-6718300e4f28",
       "slug": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+        "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3641,16 +3656,16 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF",
         "it": "Dipl. Professionista HF",
         "en": "Dipl. Care professional HF",
+        "de": "Dipl. Pflegefachperson HF",
         "fr": "Dipl. Soins professionnels HF"
       },
       "description": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
         "it": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
         "en": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "de": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
         "fr": "Ihre Umgebung:\nSie arbeiten in einem engagierten Team am Psychiatrie-Zentrum Engadin in Samedan und Scuol sowie in der ambulanten psychiatrischen Spitex der Region. Dabei erwartet Sie ein vielseitiges Arbeitsumfeld mit enger Zusammenarbeit zwischen Klinik, Spitexorganisationen und regionalen Behandlungspartnern.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende Betreuung und Behandlung von psychisch erkrankten Menschen\n\n- Sie werden in der ambulanten psychiatrischen Spitex eingesetzt\n\n- Ihre Einsätze an den Standorten Samedan und Scuol des Psychiatrie-Zentrums Engadin können je nach Bedarf variieren und setzen eine entsprechende Flexibilität hinsichtlich des Arbeitsortes voraus\n\n- Sie stellen eine bedürfnisorientierte, bedarfs- und fachgerechte Pflege und Beratung der Patientinnen und Patienten unter Einbezug der Angehörigen und des sozialen Umfeldes sicher\n\n- Sie tragen die Verantwortung für den Pflegeprozess und dokumentieren diesen\n\n- Sie leiten und evaluieren verschiedene Therapiegruppen in der Tagesklinik\n\n- Sie vernetzen sich und arbeiten mit den Behandlungspartnern und Spitexorganisationen zusammen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben mehrjährige Erfahrung in psychiatrischer Pflege\n\n- Sie wenden ein aktuelles Pflegeverständnis für die prozessorientierte Umsetzung einer patientengerechten Pflege an\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz\n\n- Sie sind selbstständig, kreativ und flexibel\n\n- Es bereitet Ihnen Freude im Team zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance"
       },
       "location": "Samedan / Scuol",
@@ -3658,7 +3673,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:31:03.916Z",
+      "crawledAt": "2026-10-05T21:39:07.954Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3675,23 +3690,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Erwachsenenpsychiatrie",
       "facility": "Psychiatrie-Zentrum Engadin / Südbünden",
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-pdgr-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-pdgr-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:52:07.219Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -3705,8 +3719,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-05-17T10:52:07.219Z"
+      "addressRegion": "GR"
     }
   ]
 }
