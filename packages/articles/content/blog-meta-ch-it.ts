@@ -7727,6 +7727,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-pellet-ticino-aumenti.title': 'Prezzi pellet in Ticino: rincari e acquisti invernali',
     'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analisi dei prezzi del pellet in Ticino con rincari stimati tra il 5% e il 10% e raccomandazioni per gli acquisti prima dell\'inverno.',
     'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Deposito di pellet di legno in Ticino con sacchi e stoccaggio',
+    'blog.article.startup-ticinesi-top100-2026.title': 'Tre aziende ticinesi nella Top100 Swiss Startup Award 2026',
+    'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics e In Virtuo Laboratories rappresentano il Ticino nella classifica delle cento startup svizzere più promettenti del 2026.',
+    'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Tre startup ticinesi tra le cento più promettenti al Top100 Swiss Startup Award 2026',
 };
 
 export default blogMetaChIt;
