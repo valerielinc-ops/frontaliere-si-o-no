@@ -12592,6 +12592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.camion-avaria-san-nicolao.title': 'Camion in avaria nella galleria San Nicolao',
     'blog.article.camion-avaria-san-nicolao.excerpt': 'Un camion in avaria nella galleria San Nicolao crea disagi sull\'A2: corsia sinistra percorribile verso sud e ritardi fino a 20 minuti verso nord.',
     'blog.article.camion-avaria-san-nicolao.imageAlt': 'Camion in avaria nella galleria San Nicolao e disagi sull\'A2',
+    'blog.article.sequestri-contanti-brogeda.title': 'Contanti non dichiarati: sequestri a Brogeda',
+    'blog.article.sequestri-contanti-brogeda.excerpt': 'Due controlli al valico autostradale di Como-Brogeda hanno portato al sequestro di 128.500 e 113.450 euro, eccedenze oltre la soglia di 10.000 euro.',
+    'blog.article.sequestri-contanti-brogeda.imageAlt': 'Veicoli al valico autostradale di Como-Brogeda',
 };
 
 export default blogMetaIt;
