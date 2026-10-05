@@ -312,14 +312,15 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
   it('recovers the alternates the defect removed from sitemap-pages.xml', () => {
     const { entries } = collectLocaleVariantEntries(sources, () => true);
     const before = countAnnotations(readSeeded('sitemap-pages.xml'));
-    // 1550: the previous 1565 annotations minus the 15 retired utility-alias
-    // annotations. Previous growth: nine Grigioni/Vallese-Italy crossings (9 ×
+    // 830: the previous 1565 annotations minus 15 retired utility-alias
+    // annotations and 144 retired border-wait URL blocks (144 × 5 = 720).
+    // Previous growth: nine Grigioni/Vallese-Italy crossings (9 ×
     // it/en/de/fr/x-default = 45), plus the four locale entries of the Stabio
     // petition and the four locale entries for employers (4 × 5 = 20 each).
     // The tripwire is kept as an exact count on purpose — the committed sitemap
     // is a static file nothing rebuilds, so an UNEXPLAINED change to it is exactly
     // what this assertion exists to surface.
-    expect(before).toBe(1550);
+    expect(before).toBe(830);
 
     const withoutBackfill = sanitizeSitemapHreflangReciprocity(seeded);
     const withBackfill = sanitizeSitemapHreflangReciprocity([
