@@ -1,0 +1,101 @@
+name: Sync Eventfrog snapshot (private, Ticino)
+
+# Eventfrog Public API → private snapshot (owner decision D5 of 2026-10-05,
+# Eventfrog AGB v1.28 §17). See scripts/lib/private-event-snapshots.mjs for the
+# whole design. In short:
+#   - the snapshot goes to a PRIVATE Firebase Storage object, never to git:
+#     this repository, its Actions logs and the corpus' data API are public
+#     (§17(3)), so this job prints counts only and commits nothing;
+#   - every sync REPLACES the snapshot: an event Eventfrog no longer returns
+#     disappears from the next build (§17(5));
+#   - the deploy downloads it before the build (deploy.yml) and the events page
+#     builder ignores it once older than SNAPSHOT_MAX_AGE_HOURS (26 h).
+#
+# Its own workflow, not a step of crawl-events.yml: that job runs up to 120 min
+# with cancel-in-progress, and GitHub cron starts drift by 2.5-5.5 h, so a
+# once-a-day step there could leave the snapshot older than 26 h. Two slots a
+# day keep it fresh with two chances; each run costs a handful of the 2,000
+# daily API requests.
+#
+# Remote Config switch EVENTFROG_ENABLED (default absent = off) and key
+# EVENTFROG_PUBLIC_API_KEY: without either the sync is a no-op with a notice.
+
+on:
+  schedule:
+    - cron: '17 3,15 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-eventfrog
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot reach Remote Config or the private snapshot"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Remote Config (EVENTFROG_ENABLED, EVENTFROG_PUBLIC_API_KEY)
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
+
+      - name: Sync Eventfrog (private snapshot)
+        id: sync
+        run: node scripts/sync-eventfrog-snapshot.mjs
+
+      - name: Surface an expiring Eventfrog key
+        # The sync still ran; failing the job here routes the renewal reminder
+        # to the issue below, 14 days before the key stops working.
+        if: steps.sync.outputs.key_expiring == 'true'
+        run: |
+          echo "::error::The Eventfrog Public API key expires within 14 days: renew it on eventfrog.ch and update EVENTFROG_PUBLIC_API_KEY and EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT in Remote Config."
+          exit 1
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Sync Eventfrog fallito
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+
+          Il passo non pubblica dati: lo snapshot precedente resta nello storage privato e la build smette di usarlo dopo 26 h.
+
+          **Step outcomes:**
+          - Sync Eventfrog: ${{ steps.sync.outcome }}" \
+            --label "crawler" \
+            --workflow "${{ github.workflow }}" || true
