@@ -143,18 +143,27 @@ purpose/rollback. Rule 3 is the subject of this doc:
 
 ## Ruleset `http_request_firewall_custom` — managed rules
 
-### `cdn-source-maps-block` (managed by `scripts/cf-locale-failover-setup.mjs`)
+### `locale-bot-throttle-noindex-scrapers` (managed by `scripts/cf-locale-failover-setup.mjs`)
 
-- **Expression:** `(http.host eq "cdn.frontaliereticino.ch" and starts_with(http.request.uri.path, "/assets/") and ends_with(http.request.uri.path, ".map"))`
+- **Expression:** the managed block is the OR of the crawler-bot condition on
+  `frontaliereticino.ch` and `(http.host eq "cdn.frontaliereticino.ch" and
+  starts_with(http.request.uri.path, "/assets/") and
+  ends_with(http.request.uri.path, ".map"))`.
 - **Action:** block
 - **Purpose:** production builds no longer emit public Vite source maps, but
   the R2 asset sync is additive and an older `.map` object can remain until
-  the owner-gated janitor removes it. Blocking only `/assets/*.map` closes the
-  source disclosure immediately and leaves normal JavaScript/CSS delivery
-  untouched.
-- **Rollback:** remove the managed entry by reverting
-  `MANAGED_FIREWALL_RULES` and rerunning the setup script. A map object can then
-  be removed separately through the owner-gated CDN janitor.
+  the owner-gated janitor removes it. Keeping the CDN path in this existing
+  block closes the source disclosure immediately without adding a sixth rule
+  to a zone whose five-rule limit already includes two foreign rules. Normal
+  JavaScript/CSS delivery is untouched.
+- **Observability trade-off:** the normal public build leaves PostHog browser
+  error stacks minified because its source maps are deliberately not uploaded
+  to the CDN. If private symbolication is required, create a short-lived
+  `PUBLIC_SOURCEMAPS=1` artifact for the symbolication workflow and keep its
+  maps out of the public R2 sync.
+- **Rollback:** revert the combined expression in
+  `MANAGED_FIREWALL_RULES` and rerun the setup script. A map object can then be
+  removed separately through the owner-gated CDN janitor.
 
 ## Ruleset `ea906d4f1c7d46f099ad16c15864896b` — phase `http_response_headers_transform`
 
