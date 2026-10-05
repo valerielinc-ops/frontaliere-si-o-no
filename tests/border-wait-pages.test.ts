@@ -19,6 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+  BORDER_CROSSING_DISPLAY,
   BORDER_WAIT_CROSSINGS,
   BORDER_WAIT_LOCALES,
   BORDER_WAIT_REGIONS,
@@ -38,6 +39,7 @@ import {
   generateBorderWaitArchives,
   generateBorderWaitPages,
   buildEmbedWidgetSnapshot,
+  buildBorderWaitLeafTitle,
   renderFastestCrossingCard,
   type BorderWaitCurrent,
   type BorderWaitHistoryDay,
@@ -242,6 +244,53 @@ describe('borderWaitPagesPlugin — page generation', () => {
     for (const route of BORDER_WAIT_ROUTES) {
       expect(pages[route]).toBeDefined();
       expect(pages[route].length).toBeGreaterThan(500);
+    }
+  });
+
+  it('keeps each real road/checkpoint discriminator in leaf titles', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const allTitles = BORDER_WAIT_CROSSINGS.map((crossing) => (
+        buildBorderWaitLeafTitle(locale, BORDER_CROSSING_DISPLAY[crossing])
+      ));
+      expect(new Set(allTitles).size, `duplicate leaf title(s) for ${locale}`).toBe(
+        BORDER_WAIT_CROSSINGS.length,
+      );
+      for (const title of allTitles) {
+        expect([...title].length, `${locale}: ${title}`).toBeLessThanOrEqual(66);
+      }
+    }
+
+    const roadCrossings = [
+      'basel-weil-am-rhein-autostrada-a2-a5',
+      'basel-weil-am-rhein-freiburgerstrasse',
+      'basel-weil-am-rhein-hiltalingerstrasse',
+    ] as const;
+
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const titles = roadCrossings.map((crossing) => (
+        buildBorderWaitLeafTitle(locale, BORDER_CROSSING_DISPLAY[crossing])
+      ));
+      expect(new Set(titles).size).toBe(roadCrossings.length);
+      for (const title of titles) {
+        expect([...title].length).toBeLessThanOrEqual(66);
+      }
+      expect(titles.join('\n')).toContain('A2/A5');
+      expect(titles.join('\n')).toContain('Freiburgerstrasse');
+      expect(titles.join('\n')).toContain('Hiltalingerstrasse');
+    }
+  });
+
+  it('emits one final title per localized crossing leaf', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const titles = BORDER_WAIT_CROSSINGS.map((crossing) => {
+        const html = pages[buildOggiPath(locale, crossing)];
+        const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+        expect(title, `${locale}/${crossing}`).not.toBe('');
+        return title;
+      });
+      expect(new Set(titles).size, `duplicate rendered title(s) for ${locale}`).toBe(
+        BORDER_WAIT_CROSSINGS.length,
+      );
     }
   });
 

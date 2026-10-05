@@ -290,6 +290,32 @@ describe('buildEmployerHubTitle — employer hub', () => {
       expect(t).toContain(co);
     }
   });
+
+  it('keeps a real canton/city discriminator for scoped employer hubs', () => {
+    const longCrawlerName = 'KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)';
+    const bern = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const zurich = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Zurigo',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(bern).not.toBe(zurich);
+    expect(bern).toContain('Berna');
+    expect(zurich).toContain('Zurigo');
+    expect(bern).toContain('KSML');
+    expect(zurich).toContain('KSML');
+    expect(isValidTitleLength(bern), bern).toBe(true);
+    expect(isValidTitleLength(zurich), zurich).toBe(true);
+  });
 });
 
 describe('buildRecencyHubTitle — recency hub (last N days / since yesterday)', () => {
