@@ -12564,6 +12564,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.openjobmetis-scafati-vittoria-basket.title': 'Openjobmetis wins at Scafati: first official victory',
     'blog.article.openjobmetis-scafati-vittoria-basket.excerpt': 'Openjobmetis wins 78-85 at Scafati, securing its first official victory of the season and its second ever on the Campania court.',
     'blog.article.openjobmetis-scafati-vittoria-basket.imageAlt': 'Openjobmetis basketball match in Scafati',
+    'blog.article.storia-restauro-torre-velasca.title': 'Torre Velasca: history and restoration at Villa Recalcati',
+    'blog.article.storia-restauro-torre-velasca.excerpt': 'The Order of Architects of Varese recounts the 2021–2025 restoration and the history of Torre Velasca through architecture, design, and redevelopment.',
+    'blog.article.storia-restauro-torre-velasca.imageAlt': 'The Torre Velasca in Milan, an example of modern architecture and restoration.',
 };
 
 export default blogMetaEn;
