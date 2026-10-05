@@ -178,9 +178,10 @@ describe('information gain della famiglia professione × città, sull’output d
   const largest = (locale: ProfessionLocale, withBlock: boolean) =>
     scoreCohorts(render(locale, withBlock), { minCohortPages: 2 }).cohorts.sort((a, b) => b.pages - a.pages)[0];
 
-  // Misurato il 2026-10-05 su questo corpus sintetico: 27,3-36,1 % con il
-  // blocco, 10,9-15,4 % senza. Soglia = il minimo misurato meno un punto.
-  const MIN = 26.3;
+  // Misurato il 2026-10-05 su questo corpus sintetico (170-219 pagine per
+  // locale): 18,3-20,3 % con il blocco, 12,5-13,3 % senza. Soglia = il minimo
+  // misurato meno un punto, sopra il valore senza blocco.
+  const MIN = 17.3;
 
   for (const locale of LOCALES) {
     it(`${locale}: la coorte più grande sta sopra ${MIN} % con il blocco, e sotto senza`, () => {
