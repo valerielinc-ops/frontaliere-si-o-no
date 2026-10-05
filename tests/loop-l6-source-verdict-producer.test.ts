@@ -189,6 +189,26 @@ describe('selection from RAW_ARTICLES', () => {
     expect(rawArticlesBlock(typedFixture)).toContain("id: 'typed-entry'");
   });
 
+  it('reads typed literal chunks without double-counting the spread aggregator', () => {
+    const chunkedFixture = `const RAW_ARTICLES_CHUNK_01: Article[] = [
+  { id: 'chunk-one', category: 'novita', date: '2026-10-04' },
+];
+const RAW_ARTICLES_CHUNK_02: Article[] = [
+  { id: 'chunk-two', category: 'novita', date: '2026-10-05' },
+];
+const RAW_ARTICLES: Article[] = [
+  ...RAW_ARTICLES_CHUNK_01,
+  ...RAW_ARTICLES_CHUNK_02,
+  { id: 'appended-entry', category: 'novita', date: '2026-10-06' },
+] satisfies Article[];`;
+
+    expect(parseRawArticles(chunkedFixture).map((entry) => entry.id)).toEqual([
+      'chunk-one',
+      'chunk-two',
+      'appended-entry',
+    ]);
+  });
+
   const realData = path.join(ROOT, ARTICLES_DATA_PATH);
   const realPresent = fs.existsSync(realData);
   // The one live-data case of this file (LIVE_DATA_PARTIAL_TESTS): the article
@@ -210,6 +230,9 @@ describe('selection from RAW_ARTICLES', () => {
     // date must parse. selectArticles ranks the unknown ones last.
     expect(entries.filter((entry) => !entry.category || typeof entry.date !== 'string')).toEqual([]);
     expect(entries.filter((entry) => entry.date !== '' && !Number.isFinite(Date.parse(entry.date!)))).toEqual([]);
+    expect(entries.every((entry) => (
+      typeof entry.category === 'string' && entry.category.length > 0 && typeof entry.date === 'string'
+    ))).toBe(true);
     expect(entries.filter((entry) => entry.category === 'novita').length).toBeGreaterThan(0);
     expect(entries.every((entry) => (
       typeof entry.category === 'string' && entry.category.length > 0 && typeof entry.date === 'string'
