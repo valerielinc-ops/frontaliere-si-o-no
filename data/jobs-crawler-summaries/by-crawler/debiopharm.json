@@ -1,21 +1,19 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-04T21:21:16.959Z",
+  "generatedAt": "2026-10-05T09:22:18.487Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 3143,
-  "avgDurationMs": 3143,
+  "unchangedCount": 0,
+  "durationMs": 3278,
+  "avgDurationMs": 3278,
   "durationHistory": [
-    3143
+    3278
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "P2622 - Audit & CAPA Lead",
       "slug": "p2622-responsabilita-audit-e-capa-debiopharm-lausanne",
@@ -36,7 +34,7 @@
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-06",
+      "postedDate": "2026-09-07T00:00:00.000Z",
       "validThrough": "",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
@@ -54,7 +52,8 @@
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/0c581ccba8",
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
+      "datePosted": "2026-09-07T00:00:00.000Z",
+      "postingDateSource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,7 +82,7 @@
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-09-07T00:00:00.000Z",
       "validThrough": "",
       "benefits": [
         "International, highly dynamic environment with a long-term vision.",
@@ -103,6 +102,8 @@
       "postalCode": "",
       "streetAddress": "",
       "needsRetranslation": true,
+      "datePosted": "2026-09-07T00:00:00.000Z",
+      "postingDateSource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -131,7 +132,7 @@
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-30",
+      "postedDate": "2026-09-07T00:00:00.000Z",
       "validThrough": "",
       "benefits": [],
       "id": "debiopharm-60b50584043a",
@@ -143,7 +144,8 @@
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/d4af57df23",
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
+      "datePosted": "2026-09-07T00:00:00.000Z",
+      "postingDateSource": "reported",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -172,7 +174,7 @@
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-04",
+      "postedDate": "2026-09-07T00:00:00.000Z",
       "validThrough": "",
       "benefits": [],
       "id": "debiopharm-da23c8b1f25f",
@@ -184,7 +186,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/2ebaf3007d",
       "streetAddress": "",
-      "needsRetranslation": true,
+      "datePosted": "2026-09-07T00:00:00.000Z",
+      "postingDateSource": "reported",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -213,7 +216,7 @@
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-09-07T00:00:00.000Z",
       "validThrough": "",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
@@ -231,6 +234,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/6024013bc6",
       "streetAddress": "",
+      "datePosted": "2026-09-07T00:00:00.000Z",
+      "postingDateSource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -241,5 +246,7 @@
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
