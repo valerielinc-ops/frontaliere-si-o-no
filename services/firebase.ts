@@ -44,7 +44,7 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
  ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
- // jobgate-v3 (services/jobGateExperiment.ts): OFF by default, so a failed
+ // jobgate (services/jobGateExperiment.ts): OFF by default, so a failed
  // public-config fetch keeps every visitor on today's gate.
  JOBGATE_EXPERIMENT_ENABLED: 'false',
  JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
