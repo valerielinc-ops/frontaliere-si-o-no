@@ -59,7 +59,7 @@ describe('Temenos crawler parser', () => {
         total: 16,
         jobPostings: [],
         facets: [{
-          facetParameter: 'locationMainGroup',
+          facetParameter: 'locationCountry',
           values: [
             { id: 'paris', descriptor: 'Paris', count: 4 },
             { id: 'london', descriptor: 'London', count: 3 },
@@ -91,7 +91,7 @@ describe('Temenos crawler parser', () => {
         total: 16,
         jobPostings: [],
         facets: [{
-          facetParameter: 'locationMainGroup',
+          facetParameter: 'locationCountry',
           values: [
             { id: 'paris', descriptor: 'Paris', count: 4 },
             { id: 'london', descriptor: 'London', count: 3 },
