@@ -145,6 +145,7 @@ describe('buildJobPostingSchema — complete input', () => {
     const schemas = (['it', 'en', 'de', 'fr'] as const).map((locale) => buildJobPostingSchema(job, {
       locale,
       url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/acme/`,
+      knownSlugs: OPTS.knownSlugs,
     }));
     const organizations = schemas.map((schema) => schema!.hiringOrganization);
     expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
@@ -171,6 +172,7 @@ describe('buildJobPostingSchema — complete input', () => {
     }, {
       locale,
       url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/${companyKey}/`,
+      knownSlugs: OPTS.knownSlugs,
     })!.hiringOrganization);
 
     expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
