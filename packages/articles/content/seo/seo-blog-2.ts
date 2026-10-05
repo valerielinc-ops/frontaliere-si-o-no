@@ -848,16 +848,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-iniziativa-salari-ticino': {
- title: 'Iniziativa anti-dumping salariale: voto in Ticino',
+ title: 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
  description: 'L\'8 marzo 2026 il Ticino vota sull\'iniziativa anti-dumping. Controlli rafforzati e notifica contratti per contrastare salari bassi. Scopri le implicazioni per i',
  keywords: 'frontalieri, ticino, svizzera, italia, voto, iniziativa, contro, dumping',
- ogTitle: 'Iniziativa anti-dumping salariale: voto in Ticino',
+ ogTitle: 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
  ogDescription: 'Il Ticino, Cantone con i salari più bassi, si prepara a votare un\'iniziativa che vuole blindare le buste paga. Un\'analisi delle conseguenze per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iniziativa anti-dumping salariale: voto in Ticino",
+ "headline": "Iniziativa anti-dumping salariale in Ticino: voto decisivo per i",
  "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping. Controlli rafforzati e notifica contratti per contrastare salari bassi. Scopri le implicazioni per i",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-salari-ticino.webp`,
@@ -964,16 +964,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-iniziativa-anti-dumping-voto': {
- title: 'Iniziativa anti-dumping in Ticino: cosa prevede',
+ title: 'Ticino al voto sull\'iniziativa | Frontaliere Ticino',
  description: 'L\'8 marzo 2026 il Ticino vota sull\'iniziativa anti-dumping salariale. Scopri cosa prevede, l\'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano',
  keywords: 'frontalieri, ticino, svizzera, italia, voto, sull, iniziativa, anti-dumping',
- ogTitle: 'Iniziativa anti-dumping in Ticino: cosa prevede',
+ ogTitle: 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
  ogDescription: 'L\'8 marzo 2026 il Ticino vota per blindare i salari. Un\'analisi completa dell\'iniziativa anti-dumping e del suo impatto sui frontalieri e l\'economia cantonale.',
  canonicalPath: '/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iniziativa anti-dumping in Ticino: cosa prevede",
+ "headline": "Iniziativa anti-dumping salariale in Ticino al voto",
  "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping salariale. Scopri cosa prevede, l'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-anti-dumping-voto.webp`,
@@ -1747,16 +1747,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-mercato-auto-febbraio-2026': {
- title: 'Mercato dell\'auto in Ticino: dati di febbraio 2026',
+ title: 'A febbraio 2026 cresce il mercato | Frontaliere Ticino',
  description: 'Scopri l\'andamento del mercato automobilistico in Ticino a febbraio 2026 con dati e analisi. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, febbraio, cresce, mercato, dell',
- ogTitle: 'Mercato dell\'auto in Ticino: dati di febbraio 2026',
+ ogTitle: 'Mercato Auto a Febbraio 2026',
  ogDescription: 'Analisi del mercato automobilistico in Ticino con dati aggiornati a febbraio 2026.',
  canonicalPath: '/articoli-frontaliere/mercato-auto-febbraio-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Mercato dell'auto in Ticino: dati di febbraio 2026",
+ "headline": "A febbraio in crescita il mercato dell’auto",
  "description": "Scopri l'andamento del mercato automobilistico in Ticino a febbraio 2026 con dati e analisi. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lago-lugano.webp`,
