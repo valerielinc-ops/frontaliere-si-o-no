@@ -294,6 +294,12 @@ describe('repairLlmJson', () => {
     const parsed = JSON.parse(repairLlmJsonArray(raw));
     expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
   });
+
+  it('skips an unmatched object preamble before a balanced array payload', () => {
+    const raw = 'preamble {unbalanced [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
 });
 
 describe('describeJsonParseError', () => {

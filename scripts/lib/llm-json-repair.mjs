@@ -697,7 +697,7 @@ function nextRootStart(source, from, rootOpeners) {
   }, -1);
 }
 
-function collectJsonCandidates(source, rootOpeners) {
+function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {}) {
   const start = firstRootStart(source, rootOpeners);
   if (start === -1) return { start, candidates: [] };
 
@@ -711,11 +711,34 @@ function collectJsonCandidates(source, rootOpeners) {
     });
   };
 
+  const collectLaterBalancedCandidates = (from, { skipUnbalanced = false } = {}) => {
+    let nextStart = nextRootStart(source, from, rootOpeners);
+    let examined = 0;
+    while (nextStart !== -1 && examined < MAX_LATER_CANDIDATES) {
+      examined++;
+      const nextCloseIdx = findMatchingClose(source, nextStart, true);
+      if (nextCloseIdx === -1) {
+        if (!skipUnbalanced) break;
+        nextStart = nextRootStart(source, nextStart + 1, rootOpeners);
+        continue;
+      }
+      addCandidate(nextStart, nextCloseIdx, true);
+      nextStart = nextRootStart(source, nextCloseIdx + 1, rootOpeners);
+    }
+  };
+
   const opener = source[start];
   const firstCloseIdx = findMatchingClose(source, start, true);
   if (firstCloseIdx !== -1) {
     addCandidate(start, firstCloseIdx, true);
   } else {
+    // In array mode, a malformed object in a prose preamble can precede the
+    // real FAQ array. Keep the historical truncated fallback for retry/error
+    // diagnostics, but inspect later roots so a balanced preferred array is
+    // not hidden by that unmatched non-array opener.
+    if (preferredRoot && opener !== preferredRoot) {
+      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true });
+    }
     // Keep the historical truncated-payload fallback: callers can still
     // retry with a larger token budget.
     const closer = opener === '[' ? ']' : '}';
@@ -728,15 +751,7 @@ function collectJsonCandidates(source, rootOpeners) {
   // past each matching close prevents nested objects in an example consuming
   // the whole candidate budget before the real response is considered.
   if (firstCloseIdx !== -1) {
-    let nextStart = nextRootStart(source, firstCloseIdx + 1, rootOpeners);
-    let examined = 0;
-    while (nextStart !== -1 && examined < MAX_LATER_CANDIDATES) {
-      examined++;
-      const nextCloseIdx = findMatchingClose(source, nextStart, true);
-      if (nextCloseIdx === -1) break;
-      addCandidate(nextStart, nextCloseIdx, true);
-      nextStart = nextRootStart(source, nextCloseIdx + 1, rootOpeners);
-    }
+    collectLaterBalancedCandidates(firstCloseIdx + 1);
   }
 
   return { start, candidates };
@@ -781,7 +796,7 @@ function repairJsonDocument(raw, {
   validateCandidate = null,
 } = {}) {
   const c = insertMissingPropertyCommas(stripCodeFences(raw));
-  const { start, candidates } = collectJsonCandidates(c, rootOpeners);
+  const { start, candidates } = collectJsonCandidates(c, rootOpeners, { preferredRoot });
   if (start === -1) return normalizeJsonCandidate(c);
 
   const parseable = [];
