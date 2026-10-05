@@ -12580,6 +12580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castellanzese-vittoria-santangelo.title': 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
     'blog.article.castellanzese-vittoria-santangelo.excerpt': 'Terzo successo consecutivo per la formazione di Bolzoni, che espugna lo stadio Chiesa grazie alle reti di Chessa e Valmori.',
     'blog.article.castellanzese-vittoria-santangelo.imageAlt': 'Partita di calcio della Castellanzese allo stadio Chiesa',
+    'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcio: gianpaolo calzi nuovo area tecnica',
+    'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'La Solbiatese Calcio annuncia l\'ingresso di Gianpaolo Calzi come nuovo Responsabile dell\'Area Tecnica, puntando a rafforzare la struttura societaria.',
+    'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Stadio di calcio moderno in un contesto paesaggistico del Ticino.',
 };
 
 export default blogMetaIt;
