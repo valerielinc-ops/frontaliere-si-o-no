@@ -15,6 +15,7 @@ import {
   SWISS_CANTON_CODES,
   findWithholdingArchiveUrl,
   lookupWithholdingRate,
+  parseCapitalTaxExport,
   parseTaxBurdenExport,
   parseWithholdingAuthorityLinks,
   parseWithholdingTariffFile,
@@ -118,6 +119,14 @@ describe('parser delle pagine ESTV', () => {
     expect(() => parseTaxBurdenExport({}, { years: [2026], incomes: [30000] })).toThrow(/payload/);
     const dup = { payload: [json.payload[0], { ...json.payload[0], values: [3, 3] }] };
     expect(() => parseTaxBurdenExport(dup, { years: [2025, 2026], incomes: [30000, 60000] })).toThrow(/duplicata/);
+  });
+
+  it('imposta sul capitale: una riga per cantone e importo, duplicati rifiutati', () => {
+    const row = { bfsId: 5002, municipality: 'Bellinzona', canton: 'TI', income: 100000, values: [4397.4] };
+    expect(parseCapitalTaxExport({ payload: [row] }, { capitals: [100000] })).toEqual({
+      TI: { municipality: 'Bellinzona', bfsId: 5002, taxCHF: [4397] },
+    });
+    expect(() => parseCapitalTaxExport({ payload: [row, { ...row, values: [1] }] }, { capitals: [100000] })).toThrow(/duplicata/);
   });
 
   it('arrotonda come round(x, 2) di Python sul valore binario esatto', () => {

@@ -124,7 +124,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Oui. Le réseau tessinois de parcs-relais offre 12 sites principaux à Mendrisio, Chiasso, Balerna, Bellinzone et Lugano [source : TI.ch mobilité]. Abonnement annuel CHF 480 à Mendrisio CFF, CHF 720 à Lugano Cornaredo. Plateforme officielle de covoiturage : Hitchhiker.ch (gratuit) et BlaBlaCar sur Como-Lugano et Varese-Lugano. L'employeur peut organiser des navettes (CSCS Manno, AlpTransit Bodio) et bénéficier d'incitations fiscales cantonales. Dès 2026 la « Carte mobilité frontalière » offre 30 % de rabais sur les abonnements Arcobaleno (plan Mobilité 2030).",
     },
     sources: [
-      'https://www4.ti.ch/dt/dstm/mobilita/',
+      'https://www4.ti.ch/dt/dstm/divisione/',
     ],
   },
   {

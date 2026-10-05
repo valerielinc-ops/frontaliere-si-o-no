@@ -16,7 +16,7 @@
  *   {
  *     "source": "https://www4.ti.ch/index.php?id=147427",
  *     "fetchedAt": "2026-04-23T00:00:00.000Z",
- *     "count": 7,
+ *     "count": 6,
  *     "concorsi": [
  *       {
  *         "ref": "26/25",
@@ -24,7 +24,7 @@
  *         "organization": "OSC — Organizzazione sociopsichiatrica cantonale",
  *         "location": "Mendrisio",
  *         "deadline": "2026-10-31",
- *         "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4093"
+ *         "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094"
  *       }, …
  *     ]
  *   }
@@ -197,7 +197,7 @@ async function main() {
       fetchedAt: new Date().toISOString(),
       note:
         'Seeded snapshot — network scrape returned 0 rows. Data verified manually against https://www4.ti.ch/index.php?id=147427 on 2026-04-23.',
-      count: 7,
+      count: 6,
       concorsi: [
         {
           ref: '02/26',
@@ -222,14 +222,6 @@ async function main() {
           location: 'Mendrisio',
           deadline: '2026-12-31',
           url: "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
-        },
-        {
-          ref: '25/26',
-          title: 'Infermieri/e con specialità (salute mentale) e infermieri/e',
-          organization: 'Organizzazione sociopsichiatrica cantonale (OSC)',
-          location: 'Mendrisio',
-          deadline: '2026-10-31',
-          url: "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4093",
         },
         {
           ref: '26/26',
