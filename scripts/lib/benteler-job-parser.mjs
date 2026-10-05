@@ -32,6 +32,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -329,12 +331,6 @@ export function parseJobDetailHtml(html = '', url = '') {
     descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
   }
 
-  let postedDate = '';
-  if (dateM) {
-    // Tenant emits Java-style dates, e.g. "Wed Jun 17 02:01:00 UTC 2026".
-    const d = new Date(dateM[1]);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
 
   return {
     addresses,
@@ -342,7 +338,7 @@ export function parseJobDetailHtml(html = '', url = '') {
     addressRegion: best.addressRegion || '',
     postalCode: best.postalCode || '',
     addressCountry: best.addressCountry || '',
-    postedDate,
+    ...withLegacyPostingDay(successFactorsPostingDateFields(dateM?.[1] || '')),
     descriptionHtml,
     url,
   };
@@ -447,7 +443,7 @@ export async function fetchAllBentelerJobs() {
       sector: 'Automotive / Industria siderurgica',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
