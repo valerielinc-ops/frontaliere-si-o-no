@@ -21,6 +21,7 @@ import {
 } from '@/build-plugins/holidaysLandingsPlugin';
 import { MIN_INDEXABLE_WORDS } from '@/build-plugins/constants';
 import { expectIndexableWithLargePreview } from './helpers/robotsAssertions';
+import { SECTION_EDITORIAL } from '../build-plugins/editorialContent';
 
 const DATASET = JSON.parse(
   readFileSync(resolve(__dirname, '..', 'data', 'seo', 'frontaliere-holidays.json'), 'utf8'),
@@ -118,6 +119,12 @@ describe('holidays landings — render smoke', () => {
     const r = __renderHolidayPageForTest({ locale: 'it', page: 'ch-vs-it', dateStamp: '2026-07-19' });
     expect(r.html).toContain('Venerdì Santo');
     expect(r.html).toContain('Anniversario della Liberazione');
+  });
+
+  it('does not expose a null placeholder in the German editorial holiday copy', () => {
+    const copy = SECTION_EDITORIAL['/tasse-e-pensione/festivita-ticino'].de.join(' ');
+    expect(copy).toContain('keine Ferientage');
+    expect(copy).not.toContain('null Ferientage');
   });
 });
 

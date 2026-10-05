@@ -17,4 +17,11 @@ describe('plain-text FAQ sources', () => {
     expect(renderPlainTextLinks('A https://a.example/, B https://b.example/.')).toContain('</a>, B <a');
     expect(renderPlainTextLinks('Plain text & <em>markup</em>')).toBe('Plain text &amp; &lt;em&gt;markup&lt;/em&gt;');
   });
+  it('renders safe markdown source links without exposing the source syntax', () => {
+    expect(renderPlainTextLinks('Fonte: [SECO](https://www.seco.admin.ch). Consulta anche [il job board](/cerca-lavoro-ticino).'))
+      .toBe('Fonte: <a href="https://www.seco.admin.ch" rel="noopener noreferrer">SECO</a>. Consulta anche <a href="/cerca-lavoro-ticino" rel="noopener noreferrer">il job board</a>.');
+  });
+  it('keeps unsafe markdown destinations inert', () => {
+    expect(renderPlainTextLinks('[Evil](javascript:alert)')).toBe('Evil');
+  });
 });

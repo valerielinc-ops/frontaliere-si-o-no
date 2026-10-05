@@ -3031,6 +3031,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
  }
 
+ // The German article archive has a translated route but no separate SEO-map
+ // entry. Give it a descriptive title that names both the audience and the
+ // Switzerland–Italy context instead of title-casing the slug alone.
+ if (sourceCanonicalPath === '/articoli-frontaliere/' && locale === 'de') {
+  const title = buildTitleWithBrand('Grenzgänger-Artikel Schweiz-Italien');
+  const desc = 'Praktische Artikel und Ratgeber für Grenzgänger zwischen der Schweiz und Italien: Steuern, Arbeit, Vorsorge und Alltag.';
+  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
+ }
+
  // Keep the static head in lockstep with the SPA's localized Guide metadata.
  // The previous fallback title-cased the translated slug (for example,
  // "Unemployment Benefits | Frontaliere Ticino") and used a broad generic
@@ -3285,6 +3294,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
  let seo: SeoEntry | undefined = resolveLegalStaticSeo(url.path, /^\/privacy-policy\/?$/.test(url.path) ? 'en' : 'it') ?? resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
+ if (!seo && normalizedPath === '/articoli-svizzera') {
+ // This archive is a first-class index even when its route is not present in
+ // the Italian SEO registry. Keep the fallback useful for crawlers instead of
+ // deriving a short title and a generic one-line description from the slug.
+ const title = 'Articoli sulla Svizzera 2026 | Frontaliere Ticino';
+ const desc = 'Notizie, analisi e guide sulla Svizzera per frontalieri: tasse, lavoro, costo della vita e aggiornamenti cantonali.';
+ seo = { title, desc, ogT: title, ogD: desc };
+ }
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
