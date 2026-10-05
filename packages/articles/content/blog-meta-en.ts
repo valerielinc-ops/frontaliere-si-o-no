@@ -12582,6 +12582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcium: gianpaolo calzi new technical area',
     'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'Solbiatese Calcio announces the entry of Gianpaolo Calzi as the new Head of the Technical Area, aiming to strengthen the corporate structure.',
     'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Modern football stadium in a landscape setting in Ticino.',
+    'blog.article.sequestro-contanti-como-brogeda.title': 'Cash seizure in Como-Brogeda: over 240 thousand euro',
+    'blog.article.sequestro-contanti-como-brogeda.excerpt': 'More than 240.000 euro in cash seized at the Como-Brogeda border crossing by ADM and the Guardia di Finanza in two separate operations.',
+    'blog.article.sequestro-contanti-como-brogeda.imageAlt': 'Customs checks and cash seizure at Como-Brogeda border crossing',
 };
 
 export default blogMetaEn;
