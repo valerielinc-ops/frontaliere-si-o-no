@@ -83,12 +83,12 @@
     },
     {
       "id": "patek-philippe-d20884e1117f",
-      "slug": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+      "slug": "responsabile-officina-bracciale-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "it": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "en": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "de": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        "it": "responsabile-officina-bracciale-m-f-patek-philippe-plan-les-ouates",
+        "en": "head-of-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+        "de": "werkstattleiter-armband-m-w-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -149,7 +149,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:07:37.249Z"
+      "firstSeenAt": "2026-09-07T15:07:37.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates",
+          "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+          "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates",
+        "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+        "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-e2d4eb47555e",
@@ -871,7 +893,7 @@
       "slugByLocale": {
         "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -920,7 +942,6 @@
       "previousSlugs": [
         "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
         "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-        "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
@@ -932,7 +953,6 @@
         ],
         "de": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-          "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
           "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },

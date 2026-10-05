@@ -1,7 +1,7 @@
 name: Refresh thin-page promotions
 
 # Self-healing feedback loop for tiered emission (artifact-shrink Fase 1).
-# Polls PostHog + GA4 for `thin_page_view` events emitted by App.tsx when
+# Polls GA4 for `thin_page_view` events emitted by App.tsx when
 # window.__THIN_SHELL__ is set on a thinned static page, PLUS GSC
 # page-level impressions (issue #4407 — catches pages Google has shown
 # but that never got a click, which the click-based signals can never
@@ -16,10 +16,10 @@ name: Refresh thin-page promotions
 #
 # Secrets pattern mirrors build-evidence-and-tune.yml: the only GH-Actions
 # secret needed is FIREBASE_SERVICE_ACCOUNT_JSON (doubles as the GSC
-# credential — see project memory). All other env vars
-# (POSTHOG_PERSONAL_API_KEY, POSTHOG_PROJECT_ID, POSTHOG_HOST,
-# GA4_PROPERTY_ID) are loaded from Firebase Remote Config at workflow
-# runtime via scripts/load-rc-env.mjs, which writes them to $GITHUB_ENV.
+# credential — see project memory). GA4_PROPERTY_ID is loaded from
+# Firebase Remote Config at workflow runtime via scripts/load-rc-env.mjs,
+# which writes it to $GITHUB_ENV. PostHog is no longer polled (decisione
+# H9 del 2026-10-05: GA4 receives the same `thin_page_view`).
 
 on:
   schedule:
@@ -134,7 +134,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
 
-      # POSTHOG_* + GA4_PROPERTY_ID are populated via load-rc-env above.
+      # GA4_PROPERTY_ID is populated via load-rc-env above.
       # No explicit `env:` here — that would shadow RC values with empty
       # GitHub secret refs. FIREBASE_SERVICE_ACCOUNT_JSON / GOOGLE_APPLICATION_CREDENTIALS
       # already in env from the first step.
@@ -146,9 +146,9 @@ jobs:
         run: |
           set -uo pipefail
           # The script's own exit-code contract (see its header comment):
-          # 0 ok, 3 partial (one or more feeds — posthog/ga4/gsc —
-          # incomplete, observed promotions still written to disk), 2 fatal
-          # (all three errored, even if partial observations were saved). Capture rc without `set -e` aborting the
+          # 0 ok, 3 partial (one of the feeds — ga4/gsc — incomplete,
+          # observed promotions still written to disk), 2 fatal (both
+          # errored, even if partial observations were saved). Capture rc without `set -e` aborting the
           # step (same pattern as cf-otto-route-monitor.yml), because a
           # single feed's transient network blip (issue #5568: "gsc error:
           # page: fetch failed") is expected hourly noise, not a workflow
@@ -160,7 +160,7 @@ jobs:
             --window-hours="$INPUT_WINDOW_HOURS" \
             --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS" && rc=0 || rc=$?
           if [ "$rc" -eq 3 ]; then
-            echo "::warning title=thin-promotions partial feed failure::one or more of posthog/ga4/gsc are incomplete this run (see data/thin-page-promotions.jsonl 'errors' field) — observed promotions were retained and previous promotions were not expired."
+            echo "::warning title=thin-promotions partial feed failure::ga4 or gsc is incomplete this run (see data/thin-page-promotions.jsonl 'errors' field) — observed promotions were retained and previous promotions were not expired."
             exit 0
           fi
           exit "$rc"
@@ -203,7 +203,7 @@ jobs:
           # (5->10->15->25->40, #3784/#4026/#4190/#4562) without ending the
           # recurrence — the real defect isn't an insufficient attempt budget, it's
           # treating an exhausted push as job-fatal for data that is a rolling
-          # window (window-hours=24, re-derived hourly from GA4/GSC/PostHog): a
+          # window (window-hours=24, re-derived hourly from GA4/GSC): a
           # missed commit during the twice-daily crawler-dispatch convoy just
           # delays this run's delta by ~1h, the next run's overlapping 24h window
           # recaptures it. Warn + exit 0 instead of failing the job and reopening

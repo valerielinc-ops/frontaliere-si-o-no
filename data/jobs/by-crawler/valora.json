@@ -213,8 +213,7 @@
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
         ],
         "de": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
         ],
         "fr": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
@@ -569,7 +568,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -629,7 +628,6 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
           "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
@@ -637,7 +635,6 @@
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
         "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
@@ -886,7 +883,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg",
         "en": "seller-seller-k-kiosk-20-hours-valora-group-kandersteg",
-        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
         "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
@@ -933,8 +930,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -944,7 +940,6 @@
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
         ],
         "de": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
         ],
         "fr": [
@@ -1446,7 +1441,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:54.078Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2661,7 +2655,6 @@
           "business-partner-agenturen-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3081,12 +3074,12 @@
     },
     {
       "id": "valora-7c9ebb689322",
-      "slug": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+      "slug": "venditrice-avec-20-ore-valora-group-wangen-a",
       "slugByLocale": {
         "de": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "it": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "en": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "fr": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        "it": "venditrice-avec-20-ore-valora-group-wangen-a",
+        "en": "seller-avec-20-hours-valora-group-wangen-a",
+        "fr": "vendeur-avec-20-heures-valora-group-wangen-a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3146,7 +3139,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ],
+        "en": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ],
+        "fr": [
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+      ]
     }
   ]
 }
