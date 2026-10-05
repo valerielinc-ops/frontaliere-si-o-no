@@ -132,6 +132,7 @@ for (const r of results) {
     dead++;
     setStatus(store, c.key, 'dead', {
       reason: r.reason,
+      traceRetryable: false,
       domain: r.domain || undefined,
       traceRetryAt: null,
     });
@@ -161,6 +162,7 @@ for (const r of results) {
     selfHosted: r.trail.selfHosted,
     trailVia: r.trail.via,
     reason: null,
+    traceRetryable: null,
     traceRetryAt: null,
   });
   const tag = best ? `${best.host} (score ${best.score.toFixed(1)}, ${best.vacancyCount} annunci)` : 'sito proprio';

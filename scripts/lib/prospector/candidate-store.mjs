@@ -172,9 +172,10 @@ export function loadCandidates(file = CANDIDATES_PATH) {
 }
 
 /**
- * Whether a stored dead verdict is safe to reopen after a fresh discovery
- * sighting. Deterministic "no careers page" and explicit rejections stay
- * terminal; transport/domain failures are probed again.
+ * Legacy diagnostic classifier for trace reasons. It is retained for reports
+ * and compatibility, but it is deliberately not authorization to reopen a
+ * dead candidate: revival requires the persisted `traceRetryable: true`
+ * verdict below.
  *
  * @param {string} reason
  * @returns {boolean}
@@ -211,6 +212,7 @@ export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
   const attemptedAt = new Date(now).toISOString();
   return {
     reason,
+    traceRetryable: true,
     traceAttempts: attempts + 1,
     traceLastAttemptAt: attemptedAt,
     traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
@@ -219,9 +221,10 @@ export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
 
 /**
  * Reopen a retryable dead candidate when a new discovery source sees it again.
- * This is what lets an OSM/SECO sighting recover records written by an older
- * prospector version, including candidates whose homepage was down only during
- * the previous trace run.
+ * The explicit `traceRetryable` verdict is required: the human-readable
+ * reason is deliberately not authoritative, because old generic reasons such
+ * as "sito irraggiungibile" also described permanent 404 responses. A new
+ * careers URL remains an independent, stronger discovery signal.
  *
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {string} key
@@ -234,7 +237,7 @@ export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFi
   if (!candidate || candidate.status !== 'dead') return candidate || null;
   const hasNewCareerUrl = Boolean(incoming?.careersUrl)
     && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
-  if (!isRetryableTraceReason(candidate.reason) && !hasNewCareerUrl) return candidate;
+  if (candidate.traceRetryable !== true && !hasNewCareerUrl) return candidate;
   const revived = setStatus(store, key, 'new', {
     ...incoming,
     reason: 'riscontro dopo una nuova scoperta',

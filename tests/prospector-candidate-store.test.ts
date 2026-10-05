@@ -139,6 +139,7 @@ describe('prospector candidate store — retryable trace failures', () => {
 
     expect(patch).toMatchObject({
       reason: 'sito irraggiungibile',
+      traceRetryable: true,
       traceAttempts: 1,
       traceLastAttemptAt: new Date(now).toISOString(),
       traceRetryAt: new Date(now + DAY_MS).toISOString(),
@@ -156,6 +157,7 @@ describe('prospector candidate store — retryable trace failures', () => {
         name: 'MediaMarkt',
         domain: key,
         reason: 'sito irraggiungibile',
+        traceRetryable: true,
         firstSeenAt: OLD,
         updatedAt: OLD,
       },
@@ -164,6 +166,22 @@ describe('prospector candidate store — retryable trace failures', () => {
     const revived = reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
     expect(revived).toMatchObject({ status: 'new', reason: 'riscontro dopo una nuova scoperta' });
     expect(store.candidates[key].traceRetryAt).toBeNull();
+  });
+
+  it('does not revive a permanent dead response because its old reason sounds transient', () => {
+    const key = 'gone.example';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        domain: key,
+        reason: 'sito irraggiungibile',
+        traceRetryable: false,
+      },
+    });
+
+    reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    expect(store.candidates[key].status).toBe('dead');
   });
 
   it('reopens a non-retryable dead verdict only when a new careers URL arrives', () => {

@@ -12,6 +12,7 @@ import {
   extractLinks,
   isCareerLink,
   isJavascriptCareerSurface,
+  traceFromCareersUrl,
   traceCareers,
   verifyAtsHost,
 } from '../scripts/lib/prospector/careers-trail.mjs';
@@ -58,6 +59,28 @@ describe('prospector careers ownership trail', () => {
     const result = await traceCareers('transient.example');
 
     expect(result).toMatchObject({ reachable: false, retryable: true, failureStatuses: [503, 503] });
+  });
+
+  it.each([
+    [404, false],
+    [503, true],
+  ])('classifies a short known careers response by HTTP status (%i)', async (status, retryable) => {
+    const url = 'https://careers.example/jobs';
+    mocks.politeFetch.mockResolvedValue({
+      ok: false,
+      status,
+      url,
+      body: 'short response',
+      host: 'careers.example',
+    });
+
+    const result = await traceFromCareersUrl(url, 'employer.example');
+
+    expect(result).toMatchObject({
+      reachable: false,
+      retryable,
+      failureStatuses: [status],
+    });
   });
 
   it('retains a page-specific external ATS after vacancy verification', async () => {

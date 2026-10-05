@@ -413,7 +413,10 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   const page = await politeFetch(careersUrl);
   result.failureStatuses.push(Number(page.status) || 0);
   if (!page.ok || page.body.length < 300) {
-    result.retryable = isRetryableTraceStatus(page.status) || page.body.length < 300;
+    // A short body is not itself a transient verdict: a small 404 page is a
+    // durable absence, while a small 503 page is a transport failure. Carry
+    // the HTTP classification explicitly so TRACE cannot revive the former.
+    result.retryable = isRetryableTraceStatus(page.status);
     return result;
   }
   result.reachable = true;
@@ -466,7 +469,7 @@ export async function traceCareers(domain, opts = {}) {
     result.failureStatuses.push(Number(home.status) || 0);
   }
   if (!home.ok || home.body.length < 300) {
-    result.retryable = result.failureStatuses.some(isRetryableTraceStatus) || home.body.length < 300;
+    result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
     return result;
   }
   result.reachable = true;
@@ -501,7 +504,7 @@ export async function traceCareers(domain, opts = {}) {
     const page = await politeFetch(url);
     result.failureStatuses.push(Number(page.status) || 0);
     if (!page.ok || page.body.length < 300) {
-      if (page.body.length < 300) result.retryable = true;
+      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     result.careersUrls.push(page.url);
@@ -556,7 +559,7 @@ export async function traceCareers(domain, opts = {}) {
     result.failureStatuses.push(Number(page.status) || 0);
     if (!page.ok) continue;
     if (page.body.length < 300) {
-      result.retryable = true;
+      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
