@@ -12625,6 +12625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fairtiq-bonus-ticino-2026-2027.title': 'Plus vous voyagez, moins vous payez : avec FAIRTIQ, des réductions jusqu’à 20 %',
     'blog.article.fairtiq-bonus-ticino-2026-2027.excerpt': 'Bonus actif du 1er octobre 2026 au 31 mars 2027, avec des réductions automatiques jusqu\'à 20% sur les trajets suivants au Tessin. Seuils mensuels à 10, 50 et 100 francs.',
     'blog.article.fairtiq-bonus-ticino-2026-2027.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes, et un véhicule de transport public au premier plan.',
+    'blog.article.tifosi-azioni-ambri-evento.title': 'Ambrì-Piotta, des supporters unis pour devenir actionnaires',
+    'blog.article.tifosi-azioni-ambri-evento.excerpt': 'Samedi 17 octobre, dans le hangar à côté de la Gottardo Arena, loto, match projeté et fête : chaque franc récolté sera investi dans des actions de l’Hcap.',
+    'blog.article.tifosi-azioni-ambri-evento.imageAlt': 'Les fans de l’Ambrì-Piotta réunis pour l’événement près de la Gottardo Arena',
 };
 
 export default blogMetaFr;

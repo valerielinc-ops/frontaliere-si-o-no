@@ -39809,6 +39809,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tifosi-azioni-ambri-evento',
+ category: 'novita',
+ date: '2026-10-05T14:41:12.153Z',
+ image: '/images/blog/tifosi-azioni-ambri-evento.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
