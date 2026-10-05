@@ -8970,7 +8970,8 @@ ${staticAnalyticsHtml}
  const cDisplay = cantonDisplayLocalComp(canton, locale);
  const pageTitle = buildEmployerHubTitle({
  locale,
- companyDisplay: `${companyName} (${cDisplay})`,
+ companyDisplay: companyName,
+ location: cDisplay,
  count: companyJobs.length,
  year: new Date().getFullYear(),
  });
@@ -9064,7 +9065,8 @@ ${staticAnalyticsHtml}
  const year = new Date().getFullYear();
  const pageTitle = buildEmployerHubTitle({
  locale,
- companyDisplay: `${companyName} (${cDisplay})`,
+ companyDisplay: companyName,
+ location: cDisplay,
  count: companyJobs.length,
  year,
  });
@@ -9345,7 +9347,8 @@ ${staticAnalyticsHtml}
  const year = new Date().getFullYear();
  const pageTitle = buildEmployerHubTitle({
  locale,
- companyDisplay: `${companyName} (${cityDisplay})`,
+ companyDisplay: companyName,
+ location: cityDisplay,
  count: ccJobs.length,
  year,
  });
