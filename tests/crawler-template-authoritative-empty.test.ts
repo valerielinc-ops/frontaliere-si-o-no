@@ -306,6 +306,18 @@ describe('standard crawler authoritative-empty policy', () => {
     })).toBe(true);
   });
 
+  it('rejects localized conditional prose while keeping affirmative empty-state copy', () => {
+    const result = (text: string) => {
+      const document = new JSDOM(`<main><p>${text}</p></main>`).window.document;
+      return hasExplicitEmptyJobListing(document.querySelector('main'), { scopedToListing: true });
+    };
+
+    expect(result('Se non ci sono posizioni aperte, consulta le offerte.')).toBe(false);
+    expect(result('Attualmente non ci sono posizioni aperte')).toBe(true);
+    expect(result('Wenn es keine offenen Stellen gibt, informieren Sie sich über unsere Angebote.')).toBe(false);
+    expect(result('Derzeit haben wir keine offenen Stellen.')).toBe(true);
+  });
+
   it('does not use hidden or template empty-state copy as source evidence', () => {
     const hidden = new JSDOM(
       '<div id="listing"><div class="empty-state" style="display:none">No open positions are currently available.</div></div>',
