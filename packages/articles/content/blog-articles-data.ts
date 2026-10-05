@@ -37885,6 +37885,19 @@ const RAW_ARTICLES_CHUNK_22: Article[] = [
  },
 ];
 
+const RAW_ARTICLES_CHUNK_23: Article[] = [
+ {
+ id: 'pedemontana-avviso-truffa',
+ category: 'pratico',
+ date: '2026-10-05T12:20:02.699Z',
+ image: '/images/blog/pedemontana-avviso-truffa.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+];
+
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
@@ -37908,6 +37921,7 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_20,
  ...RAW_ARTICLES_CHUNK_21,
  ...RAW_ARTICLES_CHUNK_22,
+ ...RAW_ARTICLES_CHUNK_23,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

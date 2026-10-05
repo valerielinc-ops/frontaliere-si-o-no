@@ -12615,6 +12615,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-05.imageAlt': 'I numeri del giorno per i frontalieri – 5 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-10-05.seoDescription': 'Bollettino frontalieri del 5 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-10-05.ogDescription': 'I numeri del 5 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.pedemontana-avviso-truffa.title': 'Truffa Pedemontana: falso avviso da 6,95 euro',
+    'blog.article.pedemontana-avviso-truffa.excerpt': 'Circola un SMS su un presunto pedaggio non pagato: il link porta a un sito clone e punta ai dati bancari o della carta.',
+    'blog.article.pedemontana-avviso-truffa.imageAlt': 'Avviso falso di pagamento Pedemontana visualizzato su uno smartphone',
 };
 
 export default blogMetaIt;
