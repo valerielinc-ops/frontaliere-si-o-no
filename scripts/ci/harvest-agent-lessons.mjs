@@ -224,6 +224,10 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
 // authentication or capability evidence.
 const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
 
+// A canonical (canonicalPath, canonical URL) and its missing trailing slash in
+// the same finding line, in either order and in either review language.
+const CANONICAL_TRAILING_SLASH_RE = /\bcanonical\w*\b[^\n]{0,200}?(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)|(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)[^\n]{0,200}?\bcanonical\w*\b/i;
+
 const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
@@ -256,6 +260,16 @@ const TAXONOMY = [
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+  // Split out of `canonical-sitemap` by the RULE it violates, not by its words
+  // (issue 10112, triage of the 11 findings after the 2026-09-27 cutoff): an
+  // article canonicalPath written without the trailing slash the site's URL
+  // contract requires (AGENTS.md, "Trailing slash obbligatorio"). Two of the
+  // eleven (#11114, #10987) were this one rule, both on the SEO entries the
+  // corpus article generator writes; that generator now refuses a no-slash
+  // canonicalPath in its post-write validation, so this bucket measures that
+  // gate alone. The other nine stay in the topic bucket below: they share
+  // vocabulary, not a rule. Threshold unchanged.
+  { key: 'canonical-trailing-slash', re: CANONICAL_TRAILING_SLASH_RE, docKeys: ['trailing slash obbligatorio', 'trailing slash'] },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },

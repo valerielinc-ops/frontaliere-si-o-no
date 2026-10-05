@@ -441,3 +441,58 @@ describe('bucketFinding — adsense-thin-content richiede entrambi i segnali (#1
     expect(counts['adsense-thin-content']).toBe(2);
   });
 });
+
+// Verbatim (troncate dopo i token che decidono il bucket) dalle review degli 11
+// esempi dopo il cutoff della riapertura di 10112 del 2026-10-04. Due PR su
+// undici violano UNA regola, lo slash finale del canonicalPath che il generatore
+// di articoli del corpus scrive nelle voci SEO; le altre nove condividono solo il
+// lessico (sitemap, noindex, canonical) e restano nel bucket di argomento.
+const CANONICAL_TRAILING_SLASH_FINDINGS: Array<[string, string]> = [
+  ['#11114', "packages/articles/content/seo/seo-blog-5.ts:L98206, packages/articles/content/seo/seo-blog-5.ts:L98245, packages/articles/content/seo/seo-blog-5.ts:L98284: 🔴 Important: [regression] These 11 existing article `canonicalPath` values remove the required trailing slash, so the generated canonical URLs no longer match the slash-terminated URL contract and can create non-canonical duplicate variants."],
+  ['#11114', "packages/articles/content/seo/seo-blog-5.ts:L98635: 🔴 Important: [regression] The newly added `a2-coldrerio-incidente-camion` article also sets `canonicalPath` without the required trailing slash, so its generated canonical URL points at the non-canonical no-slash variant."],
+  ['#10987', "packages/articles/content/seo/seo-blog-5.ts:L98206: 🔴 Important: [funnel] Il `canonicalPath` del nuovo articolo S50 omette lo slash finale obbligatorio, mentre `mainEntityOfPage` e l’URL della rotta usano la forma con slash; il metadato può quindi pubblicare un canonical non canonico."],
+  ['#10987', "packages/articles/content/seo/seo-blog-5.ts:L98284: 🔴 Important: [funnel] Il nuovo articolo `tetto-italiano-carburanti` omette lo slash finale obbligatorio nel `canonicalPath`; la stessa classe è presente anche in `packages/articles/content/seo/seo-blog-5.ts:L98206`."],
+];
+
+const CANONICAL_SITEMAP_TOPIC_FINDINGS: Array<[string, string]> = [
+  ['#11002', "scripts/audit-404-risk.mjs:L957: 🔴 Important: [correctness] The new absence check consumes an incomplete `deployedSitemapPaths`: a child-sitemap fetch error is swallowed at `scripts/audit-404-risk.mjs:L908`, so a served hub can be classified as a 404 from a partial inventory and open a false issue. Make sitemap inventory completeness a fail-closed prerequisite"],
+  ['#10861', "scripts/ci/harvest-agent-lessons.mjs:L592: 🟡 Nit: il guard scarta una finding quando contiene un verbo di attività neutro ma non uno dei pochi difetti espliciti elencati, quindi formulazioni genuine come `sitemap coverage is incomplete`"],
+  ['#10819', "- .github/workflows/bing-seo-loop.yml:L493; .github/workflows/bing-seo-loop.yml:L588: 🔴 Important: [funnel] `tree-report` è gated solo su `tree-inventory` e aggiunge gli argomenti supplemental solo se il manifest della frontiera esiste; se `tree-discovered-inventory` fallisce prima dell’upload, il report può terminare `coverageOk=true` sul solo sitemap e dichiarare implicitamente verificata una frontiera mai crawled."],
+  ['#10721', "sync-articles-sitemaps.yml:L659, L779, L790, L826: 🔴 Important: [funnel] Quando l'helper crea o aggiorna la PR, `published-via-pr=true` salta la pubblicazione dei client chunks, della sitemap news, di tutti i feed RSS e del ticker; il run termina e il merge successivo non riavvia questi quattro publisher"],
+  ['#10595', "scripts/seo/bing-site-explorer-report.mjs:L273: 🟡 Nit La sezione `Conteggio per codice` stampa ancora `canonical-expected`, perché itera l’intero `summary.codeCounts` anche se il body dichiara che questi finding non entrano nel corpo dell’issue; filtrare la tabella con `ACTIONABLE_CODES`. Accettazione: un summary con soli `canonical-expected` non emette la riga `canonical-expected` in `Conteggio per codice`."],
+  ['#10531', "build-plugins/orphanQueryLandingPlugin.ts:L935: 🔴 Important: [funnel] The nursing alias bridge is appended to `routes`, the route collection used for orphan hub/sitemap publication, so `noindex` does not keep this historical URL out of indexable navigation and the PR's claimed exclusion is false."],
+  ['#10452', "scripts/plate-auctions/discover-sources.mjs:L337: 🔴 Important: [correctness] When `discoverGeSitemapListDocuments()` fails, the catch stores `sitemapError` but `classifyCantonDiscovery()` ignores it, so the probe still reports `blocked-until-official-list` and omits `ge` from `readyKeys`"],
+  ['#10412', "- scripts/lib/sitemap-loc.mjs:L12: 🔴 Important: [funnel] The shared decoder leaves valid numeric XML references for `&`, `<`, and `>` untouched even though its contract claims numeric references are supported, so a sitemap URL can be fetched with entity text and the vacancy is missed."],
+  ['#10177', "scripts/seo/bing-site-explorer-crawl.mjs:L260: 🔴 Important: [regression] The new unquoted branch searches the entire raw attribute string instead of tokenizing attribute names, so valid `data-name=robots data-content=noindex`, `data=\"name=robots content=noindex\"`, and `data-href=/fake` are misread as real SEO attributes or links"],
+];
+
+describe('bucketFinding — canonical-sitemap separa la regola dello slash finale dal lessico (10112)', () => {
+  for (const [pr, line] of CANONICAL_TRAILING_SLASH_FINDINGS) {
+    it(`${pr}: un canonicalPath senza slash finale va in canonical-trailing-slash`, () => {
+      expect(bucketFinding(line)).toBe('canonical-trailing-slash');
+    });
+  }
+
+  for (const [pr, line] of CANONICAL_SITEMAP_TOPIC_FINDINGS) {
+    it(`${pr}: un finding che condivide solo il lessico resta canonical-sitemap`, () => {
+      expect(bucketFinding(line)).toBe('canonical-sitemap');
+    });
+  }
+
+  it('la regola non scatta su uno slash finale senza canonical, né su un canonical senza slash', () => {
+    expect(bucketFinding('🔴 Important: il link della newsletter omette lo slash finale e finisce su un 301.')).not.toBe('canonical-trailing-slash');
+    expect(bucketFinding('🔴 Important: il canonical della pagina punta alla variante sbagliata (canonical mismatch).')).toBe('canonical-sitemap');
+  });
+
+  it('la tally conta le due classi separate, senza perdere un finding', () => {
+    const all = [...CANONICAL_TRAILING_SLASH_FINDINGS, ...CANONICAL_SITEMAP_TOPIC_FINDINGS];
+    const prs = all.map(([number, line], i) => ({
+      number: Number(number.slice(1)) * 100 + i,
+      mergedAt: '2026-10-04T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['canonical-trailing-slash']).toBe(CANONICAL_TRAILING_SLASH_FINDINGS.length);
+    expect(counts['canonical-sitemap']).toBe(CANONICAL_SITEMAP_TOPIC_FINDINGS.length);
+  });
+});
