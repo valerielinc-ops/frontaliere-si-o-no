@@ -251,7 +251,14 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_RUN_ID: ${{ github.event.workflow_run.id }}
+          # The gate reads the IT leg from the jobs of the DEPLOY run, not of
+          # this publish run. GitHub ignores any `env:` assignment to a default
+          # GITHUB_*/RUNNER_* variable, so `GITHUB_RUN_ID: <workflow_run.id>`
+          # here left the gate polling this run, where no `build-locale (it)`
+          # exists: phase 1 answered `unobservable` for its whole 3 h budget and
+          # every non-IT shard tail stayed unpublished (run 37255215160). The id
+          # travels under a free name and becomes GITHUB_RUN_ID only in `run:`.
+          CDN_IT_RUN_ID: ${{ github.event.workflow_run.id }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
@@ -262,7 +269,7 @@ jobs:
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
           CDN_JOB_DEADLINE_S: 21600
           CDN_JOB_FINISH_RESERVE_S: 180
-        run: bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
+        run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
       # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
       # Section shard push FIRST (before the offload below) so
       # push-section-shard.sh stages the RAW subtree and offloads its own
@@ -389,8 +396,10 @@ jobs:
           # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
           SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
-          GITHUB_SHA: ${{ github.event.workflow_run.head_sha }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
+          # The deploy's commit for the shard commit messages. Not GITHUB_SHA:
+          # GitHub ignores env assignments to default GITHUB_* variables, and in
+          # a workflow_run that one is main's tip (see the CDN gate above).
+          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
           # shard push stays unpublished. The job already grants `issues: write`.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -401,6 +410,7 @@ jobs:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
         run: |
           set -uo pipefail
+          export GITHUB_SHA="$DEPLOY_HEAD_SHA"
           # Wall-time della fase (#7301): `SECONDS` riparte da 0 a ogni step (ogni
           # `run:` e' una bash nuova) e il trap EXIT lo emette su OGNI uscita —
           # inclusa quella fatale sull'ordering qui sotto — cosi' la storia non
@@ -925,13 +935,15 @@ jobs:
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
-          GITHUB_SHA: ${{ github.event.workflow_run.head_sha }}
+          # Not GITHUB_SHA: env assignments to default GITHUB_* variables are
+          # ignored (see the CDN gate above).
+          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
           # script, che resta quello dello step.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
 
       - name: Upload advisory shard push verification report
         if: always() && vars.SHARD_PUSH_VERIFY == '1'
