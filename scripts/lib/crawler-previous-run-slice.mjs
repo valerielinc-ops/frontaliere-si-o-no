@@ -58,14 +58,15 @@ function recordKey(slicePath) {
 export function recordPreviousRunSlice(slicePath) {
   const key = recordKey(slicePath);
   if (!key || records.has(key)) return false;
-  let raw = null;
   try {
-    if (fs.existsSync(key)) raw = fs.readFileSync(key);
-  } catch {
-    return false;
+    const raw = fs.readFileSync(key);
+    records.set(key, raw);
+    return true;
+  } catch (error) {
+    if (error?.code !== 'ENOENT') return false;
+    records.set(key, null);
+    return true;
   }
-  records.set(key, raw);
-  return true;
 }
 
 /**
