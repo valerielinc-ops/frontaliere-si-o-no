@@ -98993,6 +98993,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gianpaolo-calzi-solbiatese': {
+    title: 'Solbiatese calcio: gianpaolo calzi nuovo area tecnica',
+    description: 'La Solbiatese Calcio nomina Gianpaolo Calzi come nuovo Responsabile dell\'Area Tecnica per rafforzare la struttura societaria e le strategie sportive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, solbiatese, calcio, gianpaolo, calzi',
+    ogTitle: 'Gianpaolo Calzi è il nuovo Responsabile Area Tecnica della Solbiatese',
+    ogDescription: 'Il club nerazzurro annuncia l\'ingresso di Gianpaolo Calzi nel quadro dirigenziale. Il Direttore Generale Carmine Gorrasi punta su esperienza e competenza per consolidare il progetto sportivo.',
+    canonicalPath: '/articoli-frontaliere/gianpaolo-calzi-solbiatese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Solbiatese calcio: gianpaolo calzi nuovo area tecnica",
+      "description": "La Solbiatese Calcio nomina Gianpaolo Calzi come nuovo Responsabile dell'Area Tecnica per rafforzare la struttura societaria e le strategie sportive.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gianpaolo-calzi-solbiatese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio moderno in un contesto paesaggistico del Ticino."
+      },
+      "datePublished": "2026-10-05T06:00:13+00:00",
+      "dateModified": "2026-10-05T06:00:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gianpaolo-calzi-solbiatese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -12578,6 +12578,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castellanzese-vittoria-santangelo.title': 'Serie D: Castellanzese gewinnt 2: 1 gegen Sant \'Angelo',
     'blog.article.castellanzese-vittoria-santangelo.excerpt': 'Dritter Erfolg in Folge für die Gründung von Bolzoni, der dank der Netze von Chessa und Valmori das Stadion Chiesa erobert.',
     'blog.article.castellanzese-vittoria-santangelo.imageAlt': 'Fußballspiel von Castellanzese im Stadion Chiesa',
+    'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcio: gianpaolo calzi neuer Leiter des technischen Bereichs',
+    'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'Die Solbiatese Calcio gibt bekannt, dass Gianpaolo Calzi als neuer Leiter des technischen Bereichs zum Verein stößt, um die Vereinsstruktur zu stärken.',
+    'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Modernes Fußballstadion in einer Landschaftsumgebung im Tessin.',
 };
 
 export default blogMetaDe;

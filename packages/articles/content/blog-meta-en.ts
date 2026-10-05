@@ -12579,6 +12579,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castellanzese-vittoria-santangelo.title': 'Serie D: Castellanzese beat Sant\'Angelo 2-1',
     'blog.article.castellanzese-vittoria-santangelo.excerpt': 'Third consecutive win for Bolzoni\'s side, which wins at Chiesa stadium thanks to goals from Chessa and Valmori.',
     'blog.article.castellanzese-vittoria-santangelo.imageAlt': 'Castellanzese football match at Chiesa stadium',
+    'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcium: gianpaolo calzi new technical area',
+    'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'Solbiatese Calcio announces the entry of Gianpaolo Calzi as the new Head of the Technical Area, aiming to strengthen the corporate structure.',
+    'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Modern football stadium in a landscape setting in Ticino.',
 };
 
 export default blogMetaEn;
