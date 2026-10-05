@@ -97697,6 +97697,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-iva-avs-novembre-2026': {
+    title: 'Voto IVA per AVS: data e dettagli della votazione federale',
+    description: 'Scopri i dettagli sul voto del 26 novembre 2026 per l aumento dell IVA destinato alla 13a mensilità AVS. Aliquote, scadenze e impatti finanziari in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, data, dettagli, votazione',
+    ogTitle: 'Voto IVA per l AVS del 26 novembre 2026: guida completa alle aliquote e alla 13a mensilità',
+    ogDescription: 'Tutti i dettagli sulla votazione federale del 26 novembre 2026 per il finanziamento della 13a mensilità AVS tramite l aumento dell IVA. Analisi delle aliquote, delle riserve e delle scadenze ufficiali della Confederazione.',
+    canonicalPath: '/articoli-svizzera/voto-iva-avs-novembre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto IVA per AVS: data e dettagli della votazione federale",
+      "description": "Scopri i dettagli sul voto del 26 novembre 2026 per l aumento dell IVA destinato alla 13a mensilità AVS. Aliquote, scadenze e impatti finanziari in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna in primo piano per il voto sull IVA"
+      },
+      "datePublished": "2026-10-05T08:19:02+00:00",
+      "dateModified": "2026-10-05T08:19:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-iva-avs-novembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

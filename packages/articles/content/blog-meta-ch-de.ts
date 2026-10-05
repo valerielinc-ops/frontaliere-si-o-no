@@ -7739,6 +7739,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-svizzera-aumento-asi.title': 'Mieten in der Schweiz: Anstieg um 32% in zwanzigJahren',
     'blog.article.affitti-svizzera-aumento-asi.excerpt': 'Der Schweizerische Mieterverband meldet Preissteigerungen von 32,1 Prozent zwischen 2005 und 2025. Druck auf niedrige und mittlere Einkommen und neue politische Forderungen.',
     'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Wohngebäude in der Schweiz mit steigenden Mieten',
+    'blog.article.voto-iva-avs-novembre-2026.title': 'MWST-Abstimmung für AHV: Datum und Details',
+    'blog.article.voto-iva-avs-novembre-2026.excerpt': 'Am 26. November 2026 wird über die Finanzierung des 13. AHV-Monatsgeldes mittels Mehrwertsteuererhöhung abgestimmt. Entdecken Sie Sätze, Fristen und Auswirkungen auf die Bilanz.',
+    'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Bundeshaus in Bern für die MWST-Abstimmung',
 };
 
 export default blogMetaChDe;
