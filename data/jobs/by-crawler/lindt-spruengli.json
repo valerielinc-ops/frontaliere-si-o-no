@@ -1,13 +1,13 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-10-05T09:19:19.861Z",
+  "assembledAt": "2026-10-05T21:37:20.042Z",
   "jobs": [
     {
       "id": "lindt-spruengli-481b4299ca0f",
       "slug": "elettricista-di-impianti-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "it": "elettricista-di-impianti-lindt-sprungli-kilchberg",
-        "en": "business-electrician-lindt-sprungli-kilchberg",
+        "en": "betriebselektriker-in-lindt-sprungli-kilchberg",
         "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
         "fr": "electricien-d-affaires-lindt-sprungli-kilchberg"
       },
@@ -33,7 +33,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:14.766Z",
+      "crawledAt": "2026-10-05T21:37:14.274Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -47,14 +47,17 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-04-07",
       "postedDate": "2026-04-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
       "jobReqId": "JR101051",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "betriebselektriker-in-lindt-sprungli-kilchberg"
+        "betriebselektriker-in-lindt-sprungli-kilchberg",
+        "business-electrician-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,6 +65,7 @@
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "en": [
+          "business-electrician-lindt-sprungli-kilchberg",
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "fr": [
@@ -82,9 +86,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-04-07",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -92,7 +94,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -117,7 +119,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:19:14.061Z",
+      "crawledAt": "2026-10-05T21:37:13.632Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -131,7 +133,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-05-28",
       "postedDate": "2026-05-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "jobReqId": "JR102189",
       "requirements": [],
@@ -148,6 +152,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
+        "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
@@ -170,6 +175,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
+          "unerbetene-anwendung-lindt-sprungli-kilchberg",
           "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
@@ -190,9 +196,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-05-28",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-0de5620d2090",
@@ -225,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:13.371Z",
+      "crawledAt": "2026-10-05T21:37:13.028Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -239,7 +243,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-01",
       "postedDate": "2026-07-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "jobReqId": "JR101256",
       "requirements": [],
@@ -271,9 +277,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-01",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-5a5fee130a48",
@@ -306,7 +310,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:12.674Z",
+      "crawledAt": "2026-10-05T21:37:12.411Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -320,7 +324,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-01",
       "postedDate": "2026-07-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "jobReqId": "JR102079",
       "requirements": [],
@@ -353,9 +359,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-01",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-1d27af7a35c9",
@@ -388,7 +392,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:11.967Z",
+      "crawledAt": "2026-10-05T21:37:11.778Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -402,7 +406,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-01",
       "postedDate": "2026-07-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "jobReqId": "JR102101",
       "requirements": [],
@@ -435,9 +441,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-01",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-abdfc7051173",
@@ -470,7 +474,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Altendorf---Plant/Befr-Mitarbeiter-in-Kommi---Lager_JR102524-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:11.263Z",
+      "crawledAt": "2026-10-05T21:37:11.165Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -484,7 +488,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-22",
       "postedDate": "2026-07-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Altendorf---Plant/Befr-Mitarbeiter-in-Kommi---Lager_JR102524-2",
       "jobReqId": "JR102524",
       "requirements": [],
@@ -516,9 +522,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-22",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-34b1650594ef",
@@ -551,7 +555,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:10.530Z",
+      "crawledAt": "2026-10-05T21:37:10.513Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -565,7 +569,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-13",
       "postedDate": "2026-08-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "jobReqId": "JR101237",
       "requirements": [],
@@ -578,8 +584,8 @@
           "experience-shop-manager-luzern-lindt-spruengli-luzern"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:25:35.277Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:25:35.277Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -592,9 +598,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-13",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-5310434cf717",
@@ -627,7 +631,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:09.818Z",
+      "crawledAt": "2026-10-05T21:37:09.849Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -641,7 +645,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-20",
       "postedDate": "2026-08-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "jobReqId": "JR102995",
       "requirements": [],
@@ -676,9 +682,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-20",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-589a5500e104",
@@ -711,7 +715,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:09.104Z",
+      "crawledAt": "2026-10-05T21:37:09.243Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -725,7 +729,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "jobReqId": "JR103256",
       "requirements": [],
@@ -757,9 +763,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-27",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-062cd7441d45",
@@ -792,7 +796,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Servicemitarbeiter-in-80-_JR103301-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:08.419Z",
+      "crawledAt": "2026-10-05T21:37:08.634Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -806,7 +810,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Servicemitarbeiter-in-80-_JR103301-1",
       "jobReqId": "JR103301",
       "requirements": [],
@@ -840,9 +846,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-01",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-a25af8ef76f5",
@@ -875,7 +879,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Basel-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop-Basel--50----60--_JR103262-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:07.738Z",
+      "crawledAt": "2026-10-05T21:37:08.022Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -889,7 +893,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Basel-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop-Basel--50----60--_JR103262-1",
       "jobReqId": "JR103262",
       "requirements": [],
@@ -930,9 +936,7 @@
           "maxValue": 68100,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-07",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-ba6443643dd5",
@@ -965,7 +969,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Praktikant-in-Controlling--1-Jahr-befristet-_JR101189-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:07.054Z",
+      "crawledAt": "2026-10-05T21:37:07.403Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -979,7 +983,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Praktikant-in-Controlling--1-Jahr-befristet-_JR101189-1",
       "jobReqId": "JR101189",
       "requirements": [],
@@ -1009,9 +1015,7 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-07",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-37e4eca47664",
@@ -1044,7 +1048,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Head-of-Group-Information-Security_JR103662-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:19:06.365Z",
+      "crawledAt": "2026-10-05T21:37:06.796Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1058,7 +1062,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Head-of-Group-Information-Security_JR103662-1",
       "jobReqId": "JR103662",
       "requirements": [],
@@ -1090,9 +1096,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-28",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-2cc2c1227110",
@@ -1125,7 +1129,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Caf-Team-Member--Aushilfe--mind-60-_JR103376",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:05.671Z",
+      "crawledAt": "2026-10-05T21:37:06.189Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1139,7 +1143,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Caf-Team-Member--Aushilfe--mind-60-_JR103376",
       "jobReqId": "JR103376",
       "requirements": [],
@@ -1171,9 +1177,7 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-28",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-32d73b8a52d4",
@@ -1206,7 +1210,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/INTL---CHE---HQ---Kilchberg/Intern-Global-Direct-to-Consumer--D2C----6-months--100--_JR101364-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:19:04.979Z",
+      "crawledAt": "2026-10-05T21:37:05.542Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1220,7 +1224,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/INTL---CHE---HQ---Kilchberg/Intern-Global-Direct-to-Consumer--D2C----6-months--100--_JR101364-1",
       "jobReqId": "JR101364",
       "requirements": [],
@@ -1252,9 +1258,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-28",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-66fdf4e58b0a",
@@ -1287,7 +1291,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:04.278Z",
+      "crawledAt": "2026-10-05T21:37:04.867Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1363,7 +1367,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:03.593Z",
+      "crawledAt": "2026-10-05T21:37:04.246Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1377,7 +1381,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "jobReqId": "JR103638",
       "requirements": [],
@@ -1403,9 +1409,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-10-02",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "lindt-spruengli-61e622c4ea2a",
@@ -1414,7 +1418,7 @@
         "it": "pasticcere-90-lindt-sprungli-kilchberg",
         "en": "patissian-90-lindt-sprungli-kilchberg",
         "de": "patissier-in-90-lindt-spruengli-kilchberg",
-        "fr": "patissien-90-lindt-sprungli-kilchberg"
+        "fr": "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1438,7 +1442,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Patissier-in-90-_JR102591-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:19:02.902Z",
+      "crawledAt": "2026-10-05T21:37:03.640Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1452,7 +1456,9 @@
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Patissier-in-90-_JR102591-1",
       "jobReqId": "JR102591",
       "requirements": [],
@@ -1461,6 +1467,7 @@
         "patissier-in-90-lindt-spruengli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
         "chef-de-partie-patissier-in-90-lindt-spruengli-kilchberg",
+        "patissien-90-lindt-sprungli-kilchberg",
         "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
@@ -1473,11 +1480,12 @@
         ],
         "fr": [
           "patissier-in-90-lindt-sprungli-kilchberg",
+          "patissien-90-lindt-sprungli-kilchberg",
           "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:12:41.906Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:12:41.906Z",
       "salaryMin": 68400,
       "salaryMax": 92300,
       "salarySource": "estimated",
@@ -1490,9 +1498,7 @@
           "maxValue": 92300,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-10-02",
-      "postingDateSource": "reported"
+      }
     }
   ]
 }
