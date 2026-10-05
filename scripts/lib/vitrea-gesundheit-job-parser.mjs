@@ -16,6 +16,7 @@
  * Detail pages live at `https://vamed-ag-ch.onlyfy.jobs/{lang}/job/{hash}` and
  * carry rich description sections (Aufgaben/Profil/Wir bieten).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -93,7 +94,6 @@ export async function fetchAllVitreaGesundheitJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
@@ -158,7 +158,7 @@ export async function fetchAllVitreaGesundheitJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

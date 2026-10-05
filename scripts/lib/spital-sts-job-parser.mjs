@@ -31,6 +31,7 @@
  *   - SPITAL_STS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
@@ -229,9 +230,6 @@ function pickPostalCode(city) {
   return '3600'; // Thun default
 }
 
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
-}
 
 /* ── Main entry ────────────────────────────────────────────── */
 
@@ -239,9 +237,8 @@ function parsePostedDate() {
  * Fetch all Spital STS AG jobs by scraping the SSR career page and (best
  * effort) hydrating each row with the matching detail-page description.
  *
- * Returns an array of ParsedJob objects (source-locale = de). Graceful
- * degradation: if the list fetch fails we return [] instead of throwing,
- * matching the contract that every dedicated crawler asserts.
+ * Returns an array of ParsedJob objects (source-locale = de). A failed list
+ * fetch is rethrown so the caller cannot publish a partial provider snapshot.
  */
 export async function fetchAllSpitalStsJobs() {
   console.log(`🏥 Fetching ${SPITAL_STS_COMPANY_NAME} jobs`);
@@ -252,10 +249,7 @@ export async function fetchAllSpitalStsJobs() {
   try {
     listHtml = await fetchHtml(CAREER_LIST_URL);
   } catch (err) {
-    console.warn(`  ⚠️ STS career list fetch failed: ${err?.message || err}.`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
+    console.warn(`  ⚠️ STS career list fetch failed: ${err?.message || err}. Rethrowing error.`);
     throw err;
   }
 
@@ -326,7 +320,8 @@ export async function fetchAllSpitalStsJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no attested original publication date.
+      ...sourcePostingDateFields(),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -26,6 +26,7 @@
  * Polite delay: 250 ms between detail-page fetches.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -144,9 +145,6 @@ async function fetchDetailDescription(detailUrl) {
   }
 }
 
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
-}
 
 export async function fetchAllSpitalAffolternJobs() {
   console.log(`🏥 Fetching ${SPITAL_AFFOLTERN_COMPANY_NAME} jobs`);
@@ -225,7 +223,8 @@ export async function fetchAllSpitalAffolternJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no attested original publication date.
+      ...sourcePostingDateFields(),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

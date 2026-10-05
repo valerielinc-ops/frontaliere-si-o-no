@@ -26,6 +26,7 @@
  * `https://www.susenbergklinik.ch/`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -145,16 +146,6 @@ function buildDescription(pdfText = '') {
 export const KLINIK_SUSENBERG_FABRICATED_DESCRIPTION_RE =
   /Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg|Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF\.|(?:^|\n)Stelleninserat \(PDF\): https?:/;
 
-function parsePostedDate(href = '') {
-  // PDFs frequently end with `_YYYY-MM-DD.pdf` — use that as the post date when present.
-  const m = String(href).match(/_(\d{4})-(\d{2})-(\d{2})\.pdf$/i);
-  if (m) {
-    const iso = `${m[1]}-${m[2]}-${m[3]}`;
-    if (!Number.isNaN(new Date(iso).getTime())) return iso;
-  }
-  return new Date().toISOString().slice(0, 10);
-}
-
 export async function fetchAllKlinikSusenbergJobs() {
   console.log(`🏥 Fetching ${KLINIK_SUSENBERG_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
@@ -176,7 +167,6 @@ export async function fetchAllKlinikSusenbergJobs() {
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_SUSENBERG_KEY} ${DEFAULT_CITY}`);
     const urlHash = createHash('sha1').update(r.url).digest('hex').slice(0, 12);
-    const postedDate = parsePostedDate(r.url);
 
     jobs.push({
       id: `${KLINIK_SUSENBERG_KEY}-${urlHash}`,
@@ -215,7 +205,8 @@ export async function fetchAllKlinikSusenbergJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      // A PDF filename date does not establish the publication date.
+      ...sourcePostingDateFields(),
       applyUrl: CAREER_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

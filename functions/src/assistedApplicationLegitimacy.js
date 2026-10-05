@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from './lib/jobPostingDate.js';
 /**
  * Posting legitimacy (extra "Legittimità dell'annuncio", owner decision
  * 2026-09-30), ported from career-ops' Block G (MIT, modes/_shared.md and
@@ -54,8 +55,12 @@ export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult
   const rolling = legitimacy.rolling === true;
 
   // Posting age (high): under 30 days good, 30-60 mixed, 60+ concerning.
-  const dateMs = toMs(posting.postedDate) ?? toMs(posting.firstSeenAt);
-  const ageDays = dateMs ? Math.max(0, Math.floor((nowMs - dateMs) / DAY_MS)) : null;
+  const dateMs = toMs(resolveReportedPostingDate(posting, new Date(nowMs)));
+  // Collection history is an observation, never a publication-age signal.
+  const observedMs = toMs(posting.firstSeenAt);
+  const observedAgeDays = observedMs !== null && observedMs <= nowMs
+    ? Math.floor((nowMs - observedMs) / DAY_MS) : null;
+  const ageDays = dateMs !== null ? Math.max(0, Math.floor((nowMs - dateMs) / DAY_MS)) : null;
   if (ageDays === null) add('age_unknown', 'neutral', 'high');
   else if (ageDays < 30) add('age', 'positive', 'high', `${ageDays}`);
   else if (rolling || (publicEmployer && ageDays <= 90) || ageDays <= 60) add('age', 'neutral', 'high', `${ageDays}`);
@@ -91,7 +96,7 @@ export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult
   else if (concerning.length >= 3) tier = 'suspicious';
   else if (concerning.length || ageDays === null || positive.length < 2) tier = 'caution';
   else tier = 'high_confidence';
-  return { tier, ageDays, signals, notes };
+  return { tier, ageDays, observedAgeDays, signals, notes };
 }
 
 export const LEGITIMACY_LABELS_IT = {
