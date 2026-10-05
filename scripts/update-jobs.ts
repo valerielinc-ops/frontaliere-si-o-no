@@ -44,6 +44,12 @@ interface JobListing {
   source?: string;
 }
 
+type PostingDateFields = Pick<JobListing, 'datePosted' | 'postedDate' | 'postingDateSource'>;
+
+function legacyPostingFields(raw?: string): PostingDateFields {
+  return withLegacyPostingDay(sourcePostingDateFields(raw)) as PostingDateFields;
+}
+
 type JobCategory = 'tech' | 'finance' | 'health' | 'engineering' | 'admin' | 'sales' | 'other';
 type ContractType = 'full-time' | 'part-time' | 'contract' | 'internship';
 
@@ -117,7 +123,7 @@ export async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              ...withLegacyPostingDay(sourcePostingDateFields(posting.datePosted)),
+              ...legacyPostingFields(posting.datePosted),
               url: posting.url,
               source: 'Job-Room.ch',
             });
@@ -567,7 +573,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              ...withLegacyPostingDay(sourcePostingDateFields(posting.datePosted)),
+              ...legacyPostingFields(posting.datePosted),
               url: appendReferral(posting.url),
               source: 'Migros/Denner',
             });
