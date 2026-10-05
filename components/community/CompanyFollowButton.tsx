@@ -202,7 +202,7 @@ export default function CompanyFollowButton({
     // on another device; the local one is the fallback when this write fails.
     const recorded = await recordIntent({
       email: requestedEmail,
-      companyKey: slug,
+      companyKey: companyKey ?? slug,
       company,
       locale: followLocale,
       sourceJobSlug: sourceJobSlug ?? null,

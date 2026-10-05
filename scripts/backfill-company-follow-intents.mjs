@@ -95,7 +95,9 @@ export function companyKeyFromFollowPage({ sourcePage, jobCompany, normalizeKey 
     const companyKey = normalizeKey(String(jobCompany || ''));
     const rawCompanySlug = String(jobCompany || '').toLowerCase().normalize('NFD')
       .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    if (companyKey && (leaf.includes(companyKey) || (rawCompanySlug && leaf.includes(rawCompanySlug)))) {
+    const leafWithBoundaries = `-${leaf}-`;
+    const matchesDelimitedCompany = (candidate) => candidate && leafWithBoundaries.includes(`-${candidate}-`);
+    if (companyKey && (matchesDelimitedCompany(companyKey) || matchesDelimitedCompany(rawCompanySlug))) {
       return { key: companyKey, basis: 'job_page_company_match', jobSlug: leaf };
     }
   }

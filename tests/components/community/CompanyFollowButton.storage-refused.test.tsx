@@ -20,14 +20,18 @@ async function submitAnonymousFollow(props: {
   onOptInRequested: (email: string) => void;
   onErrored: (error: unknown) => void;
   recordIntent?: (intent: unknown) => Promise<boolean>;
+  company?: string;
+  companyKey?: string | null;
 }) {
   const recordIntent = props.recordIntent || vi.fn(async () => false);
   const captureEmail = vi.fn(async () => undefined);
   const subscribe = vi.fn(async () => ({ id: 'unexpected' }) as never);
+  const company = props.company || 'Acme';
+  const companyKey = props.companyKey === undefined ? 'acme' : props.companyKey;
   render(
     <CompanyFollowButton
-      company="Acme"
-      companyKey="acme"
+      company={company}
+      companyKey={companyKey}
       userId={null}
       email={null}
       locale="it"
@@ -107,6 +111,26 @@ describe('CompanyFollowButton: parked follow gates the opt-in callback', () => {
       companyKey: 'acme',
       company: 'Acme',
       locale: 'it',
+    });
+  });
+
+  it('keeps a crawler company key distinct from the public profile slug', async () => {
+    const onOptInRequested = vi.fn();
+    const onErrored = vi.fn();
+    const recordIntent = vi.fn(async () => true);
+
+    await submitAnonymousFollow({
+      onOptInRequested,
+      onErrored,
+      recordIntent,
+      company: 'Route Co',
+      companyKey: 'canonical-co',
+    });
+
+    await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
+    expect(recordIntent.mock.calls[0][0]).toMatchObject({
+      company: 'Route Co',
+      companyKey: 'canonical-co',
     });
   });
 
