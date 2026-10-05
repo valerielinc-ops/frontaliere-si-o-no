@@ -12601,6 +12601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.osservatorio-varese-spettacolo-galileo.title': 'Osservatorio di Varese: arriva lo spettacolo Galileo',
     'blog.article.osservatorio-varese-spettacolo-galileo.excerpt': 'Sabato 17 ottobre l\'Osservatorio G.V. Schiaparelli ospita la pièce teatrale di Corrado D\'Elia seguita dall\'osservazione di Luna e Saturno.',
     'blog.article.osservatorio-varese-spettacolo-galileo.imageAlt': 'Osservatorio astronomico a Varese',
+    'blog.article.valuta-intercettata-brogeda.title': 'Doppio sequestro di valuta al valico di Brogeda',
+    'blog.article.valuta-intercettata-brogeda.excerpt': 'Al valico di Brogeda, in due operazioni distinte, doganieri e finanzieri di Ponte Chiasso hanno intercettato oltre 240mila euro nei giorni scorsi.',
+    'blog.article.valuta-intercettata-brogeda.imageAlt': 'Valico di Brogeda, teatro di due operazioni con oltre 240mila euro intercettati',
 };
 
 export default blogMetaIt;
