@@ -198,14 +198,24 @@ export function suiteResultsFromJobLog(text) {
   return out.length ? out : null;
 }
 
+// Il report JSON di vitest nomina i file col path assoluto del checkout del
+// runner (`$GITHUB_WORKSPACE` = `/home/runner/work/<repo>/<repo>/`).
+const RUNNER_WORKSPACE_RE = /^\/home\/runner\/work\/[^/]+\/[^/]+\//u;
+
+/** Il path di un file di test relativo alla radice del repository. */
+export function repoRelativeTestPath(file) {
+  return String(file ?? '').replace(RUNNER_WORKSPACE_RE, '').replace(/^\.\//u, '');
+}
+
 /**
  * Esito di UN file della suite nei risultati di una run:
  * `passed` (almeno un test passato, nessun fallito), `failed`, `missing`
- * (non eseguito, o solo test saltati).
+ * (non eseguito, o solo test saltati). Il confronto e' sul path esatto
+ * relativo al repository: `packages/x/tests/a.test.ts` non e' `tests/a.test.ts`.
  */
 export function suiteFileVerdict(results, file) {
   const own = (Array.isArray(results) ? results : [])
-    .filter((entry) => entry.file === file || String(entry.file).endsWith(`/${file}`));
+    .filter((entry) => repoRelativeTestPath(entry.file) === file);
   if (!own.length) return 'missing';
   if (own.some((entry) => entry.failed > 0)) return 'failed';
   return own.some((entry) => entry.passed > 0) ? 'passed' : 'missing';
@@ -342,13 +352,16 @@ export function planCiSuiteProof({ body, labels = [], readers, targetRepository 
   return { skipped: null, results };
 }
 
-/** Il corpo con gli item provati portati a `done`; solo item ancora `open`/`blocked`. */
+/**
+ * Il corpo con gli item provati portati a `done`: solo item ancora `open`/
+ * `blocked` e ancora bloccati SOLO dalla guardia locale (riclassificati qui).
+ */
 export function applyCiSuiteProof(body, ids = []) {
   let next = String(body ?? '');
   const applied = [];
   for (const id of ids) {
     const current = parseFollowupItems(next).find((item) => item.id === id);
-    if (!current || !CANDIDATE_STATES.has(current.state)) continue;
+    if (!current || !localGuardBlock(current).guardOnly) continue;
     const updated = updateFollowupItemState(next, id, 'done');
     if (updated && updated !== next) { next = updated; applied.push(id); }
   }

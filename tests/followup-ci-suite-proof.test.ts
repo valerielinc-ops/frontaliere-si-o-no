@@ -202,8 +202,10 @@ describe('esiti per file della run', () => {
     expect(suiteFileVerdict(results, 'tests/skip.test.ts')).toBe('missing');
     expect(suiteFileVerdict(results, 'tests/import-broken.test.ts')).toBe('failed');
     expect(suiteFileVerdict(results, 'tests/absent.test.ts')).toBe('missing');
-    // Un file con lo stesso suffisso ma un'altra cartella non conta.
+    // Confronto sul path esatto relativo al repository: suffissi e cartelle annidate non contano.
     expect(suiteFileVerdict(results, 'posthog-error-filter.test.ts')).toBe('missing');
+    const nested = suiteResultsFromVitestReport({ testResults: [{ name: `/home/runner/work/r/r/packages/articles/${SUITE[0]}`, status: 'passed', assertionResults: [{ status: 'passed' }] }] });
+    expect(suiteFileVerdict(nested, SUITE[0])).toBe('missing');
     expect(suiteResultsFromVitestReport({ nope: true })).toBeNull();
   });
 
