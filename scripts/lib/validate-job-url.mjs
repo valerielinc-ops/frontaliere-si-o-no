@@ -255,19 +255,41 @@ function hasTiChClosedSignal(htmlLower, url) {
 
 async function boundedBodyCleanup(cleanup) {
   if (typeof cleanup !== 'function') return;
-  let timer;
-  try {
-    await Promise.race([
-      Promise.resolve().then(cleanup),
-      new Promise((resolve) => {
-        timer = setTimeout(resolve, RESPONSE_BODY_CLEANUP_TIMEOUT_MS);
-      }),
-    ]);
-  } catch {
-    // A cleanup failure is non-definitive; the validator remains fail-open.
-  } finally {
-    if (timer !== undefined) clearTimeout(timer);
-  }
+  await new Promise((resolve) => {
+    let settled = false;
+    let timer;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve();
+    };
+    timer = setTimeout(finish, RESPONSE_BODY_CLEANUP_TIMEOUT_MS);
+    Promise.resolve()
+      .then(cleanup)
+      .then(finish, finish);
+  });
+}
+
+function settleBeforeDeadline(operation, deadlineSignal) {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const settle = (callback) => {
+      if (settled) return;
+      settled = true;
+      callback();
+    };
+    Promise.resolve()
+      .then(operation)
+      .then(
+        (value) => settle(() => resolve({ timedOut: false, value })),
+        (error) => settle(() => reject(error)),
+      );
+    deadlineSignal.then(
+      () => settle(() => resolve({ timedOut: true })),
+      (error) => settle(() => reject(error)),
+    );
+  });
 }
 
 async function readResponseText(response, setCleanup, deadlineSignal) {
@@ -287,9 +309,9 @@ async function readResponseText(response, setCleanup, deadlineSignal) {
     let text = '';
     while (true) {
       // eslint-disable-next-line no-await-in-loop
-      const next = await Promise.race([reader.read(), deadlineSignal]);
-      if (next === RESPONSE_TIMEOUT) return RESPONSE_TIMEOUT;
-      const { done, value } = next;
+      const next = await settleBeforeDeadline(() => reader.read(), deadlineSignal);
+      if (next.timedOut) return RESPONSE_TIMEOUT;
+      const { done, value } = next.value;
       if (done) break;
       text += decoder.decode(value, { stream: true });
     }
@@ -341,8 +363,8 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
   let bodyCleanup = null;
   let timedOut = false;
   // AbortController normally bounds fetch(), but a response body can ignore the
-  // abort and leave res.text() pending. Keep a cleanup handle for the body so
-  // one hostile portal cannot strand a live probe behind the crawler timeout.
+  // abort and leave a reader pending. Keep a cleanup handle for the body so one
+  // hostile portal cannot strand a live probe behind the crawler timeout.
   let resolveDeadline;
   const deadlineSignal = new Promise((resolve) => {
     resolveDeadline = resolve;
@@ -361,23 +383,25 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
 
   const validation = (async () => {
     try {
-      const fetchPromise = fetch(targetUrl, {
-        method: 'GET',
-        redirect: 'follow',
-        signal: controller.signal,
-        headers: {
-          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'User-Agent': ua,
-        },
-      }).then((res) => {
-        if (timedOut) {
-          void boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
-        }
-        return res;
-      });
-      const fetchResult = await Promise.race([fetchPromise, deadlineSignal]);
-      if (fetchResult === RESPONSE_TIMEOUT) return timeoutResult();
-      const res = fetchResult;
+      const fetchResult = await settleBeforeDeadline(
+        () => fetch(targetUrl, {
+          method: 'GET',
+          redirect: 'follow',
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'User-Agent': ua,
+          },
+        }).then((res) => {
+          if (timedOut) {
+            void boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
+          }
+          return res;
+        }),
+        deadlineSignal,
+      );
+      if (fetchResult.timedOut) return timeoutResult();
+      const res = fetchResult.value;
 
       // A fetch implementation may resolve after aborting. Do not start a
       // body read in that case; cancel the response that arrived too late.
@@ -409,7 +433,7 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
 
       // Read body for content-level signals. The deadline is part of this
       // read, so validation itself settles after cleanup rather than leaving
-      // an unobserved res.text() promise behind the caller.
+      // an unobserved body-read promise behind the caller.
       const text = await readResponseText(res, (cleanup) => {
         bodyCleanup = cleanup;
       }, deadlineSignal);
