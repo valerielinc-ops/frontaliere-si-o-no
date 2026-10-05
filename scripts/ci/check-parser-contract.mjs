@@ -67,27 +67,21 @@ export const RULES = {
 const MAX_EXPRESSION_LINES = 8;
 
 // ---------------------------------------------------------------------------
-// Lexer: due viste della sorgente con gli stessi offset.
-//  - `code`: commenti sostituiti da spazi (gli a-capo restano);
-//  - `masked`: come `code`, piu' il contenuto di stringhe, template e regex
-//    sostituito da `x` (i delimitatori restano: `''` resta `''`). Serve a
-//    contare parentesi e virgole senza farsi ingannare dal testo.
+// Lexer: una vista `masked` della sorgente con gli stessi offset (unita'
+// UTF-16) e gli stessi a-capo: commenti sostituiti da spazi, contenuto di
+// stringhe, template e regex sostituito da `x` (i delimitatori restano: `''`
+// resta `''`). Serve a cercare le forme e a contare parentesi e virgole
+// senza farsi ingannare da commenti e testo.
 // ---------------------------------------------------------------------------
 export function lexSource(source) {
   const src = String(source ?? '');
-  const code = src.split(''); // unita' UTF-16, come gli indici
   const masked = src.split('');
-  const blank = (i) => {
-    if (src[i] !== '\n') { code[i] = ' '; masked[i] = ' '; }
-  };
-  const mask = (i) => { if (src[i] !== '\n') masked[i] = 'x'; };
-  let lineStart = 0;
+  const blank = (i) => { if (src[i] !== '\n') masked[i] = ' '; };
+  const mask = (i) => { if (i < src.length && src[i] !== '\n') masked[i] = 'x'; };
   for (let i = 0; i < src.length; i += 1) {
     const c = src[i];
-    if (c === '\n') { lineStart = i + 1; continue; }
     if (c === '/' && src[i + 1] === '/') {
       while (i < src.length && src[i] !== '\n') { blank(i); i += 1; }
-      lineStart = i + 1;
       continue;
     }
     if (c === '/' && src[i + 1] === '*') {
@@ -109,7 +103,9 @@ export function lexSource(source) {
       continue;
     }
     if (c === '/') {
-      const line = src.slice(lineStart, src.indexOf('\n', i) === -1 ? src.length : src.indexOf('\n', i));
+      const lineStart = src.lastIndexOf('\n', i - 1) + 1;
+      const lineEnd = src.indexOf('\n', i);
+      const line = src.slice(lineStart, lineEnd === -1 ? src.length : lineEnd);
       if (isRegexLiteralStart(line, i - lineStart)) {
         let j = i + 1;
         let inClass = false;
@@ -124,7 +120,7 @@ export function lexSource(source) {
       }
     }
   }
-  return { code: code.join(''), masked: masked.join('') };
+  return { masked: masked.join('') };
 }
 
 const lineOfOffset = (starts, offset) => {
