@@ -1,5 +1,5 @@
 name: Articles Performance Snapshot
-# Weekly: pull GSC + GA4 + PostHog + AdSense for every blog article URL,
+# Weekly: pull GSC + GA4 + AdSense for every blog article URL (no PostHog since H9),
 # compute composite score, write data/article-performance.json. The next
 # scheduled article generator run reads this file and injects the
 # winnerFingerprint into its LLM prompt.
@@ -67,7 +67,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        # Maps SERVER_GA4_PROPERTY_ID / SERVER_POSTHOG_* / SERVER_ADSENSE_* /
+        # Maps SERVER_GA4_PROPERTY_ID / SERVER_ADSENSE_* /
         # SERVER_GSC_* (set in Firebase RC) to their unprefixed names in
         # $GITHUB_ENV so the fetcher script can read them via process.env.
         # No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set above.

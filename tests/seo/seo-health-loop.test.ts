@@ -151,8 +151,10 @@ describe('SEO health contract', () => {
     expect(afterGap.findings[`${finding.code}|${finding.url}`].consecutiveRuns).toBe(1);
   });
 
-  it('keeps the PostHog no-slash query time-bounded and locale-complete', () => {
-    expect(NOSLASH_SOURCE).toMatch(/AND \(\s*properties\.\$pathname LIKE '\/cerca-lavoro-%'[\s\S]*OR properties\.\$pathname LIKE '\/de\/jobs-in-%'[\s\S]*\)\s*AND timestamp/s);
+  it('reads no-slash traffic from GSC + GA4 only, time-bounded (PostHog retired by decisione H9 2026-10-05)', () => {
+    expect(NOSLASH_SOURCE).not.toMatch(/HogQLQuery|POSTHOG_|\/api\/projects\//);
+    expect(NOSLASH_SOURCE).toMatch(/dateRanges: \[\{ startDate, endDate \}\]/);
+    expect(NOSLASH_SOURCE).toMatch(/metrics: \[\{ name: 'screenPageViews' \}\]/);
   });
 
   it('keeps the autonomous workflow conservative and resolver-gated', () => {
