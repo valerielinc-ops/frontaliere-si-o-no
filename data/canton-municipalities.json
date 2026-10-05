@@ -588,7 +588,14 @@
         "Jegensdorf",
         "Gstaad",
         "Niederwangen",
-        "Worblaufen"
+        "Worblaufen",
+        "Biel",
+        "Bienne",
+        "Berne",
+        "Schönbühl",
+        "Schoenbuehl",
+        "Langnau i",
+        "Langnau Ilfis"
       ]
     },
     "BL": {
@@ -812,7 +819,10 @@
         "Vuisternens-devant-Romont",
         "Wünnewil-Flamatt"
       ],
-      "municipalityCount": 119
+      "municipalityCount": 119,
+      "aliases": [
+        "Charmey"
+      ]
     },
     "GE": {
       "municipalities": [
@@ -871,7 +881,12 @@
         "Champel",
         "Eaux-Vives",
         "Plainpalais",
-        "Servette"
+        "Servette",
+        "Geneva",
+        "Genf",
+        "Ginevra",
+        "Fusterie",
+        "Plan"
       ]
     },
     "GL": {
@@ -1019,7 +1034,10 @@
         "Haldenstein",
         "Sankt Moritz",
         "Bernina",
-        "Seewis"
+        "Seewis",
+        "Cuira",
+        "Domats-Ems",
+        "Mont Tendre"
       ]
     },
     "JU": {
@@ -1192,7 +1210,8 @@
       "municipalityCount": 24,
       "aliases": [
         "La Tène",
-        "Marin-Epagnier"
+        "Marin-Epagnier",
+        "Marin"
       ]
     },
     "NW": {
@@ -1304,7 +1323,8 @@
       "municipalityCount": 75,
       "aliases": [
         "Salez",
-        "Eggersriet SG"
+        "Eggersriet SG",
+        "Haag"
       ]
     },
     "SH": {
@@ -1336,7 +1356,11 @@
         "Trasadingen",
         "Wilchingen"
       ],
-      "municipalityCount": 26
+      "municipalityCount": 26,
+      "aliases": [
+        "Neuhausen",
+        "Neuhausen Posthof"
+      ]
     },
     "SO": {
       "municipalities": [
@@ -1480,7 +1504,12 @@
         "Wangen (SZ)",
         "Wollerau"
       ],
-      "municipalityCount": 30
+      "municipalityCount": 30,
+      "aliases": [
+        "Küssnacht am Rigi",
+        "Kuessnacht am Rigi",
+        "Küssnacht a"
+      ]
     },
     "TG": {
       "municipalities": [
@@ -2074,7 +2103,11 @@
         "Bussigny",
         "Villars-Ste-Croix",
         "Essert-s-Champvent",
-        "Villars-sur-Ollon"
+        "Villars-sur-Ollon",
+        "Mex",
+        "Les Diabterets",
+        "Saint Légier",
+        "Yverdon"
       ]
     },
     "VS": {
@@ -2255,7 +2288,8 @@
         "Eyholz",
         "Reckingen",
         "Ulrichen",
-        "Urswil"
+        "Urswil",
+        "Brig"
       ]
     },
     "ZG": {
@@ -2272,7 +2306,10 @@
         "Walchwil",
         "Zug"
       ],
-      "municipalityCount": 11
+      "municipalityCount": 11,
+      "aliases": [
+        "Rotkreuz (ZG)"
+      ]
     },
     "ZH": {
       "municipalities": [
@@ -2450,7 +2487,12 @@
         "Wollishofen",
         "Leimbach",
         "Glattbrugg",
-        "Zürich-Flughafen"
+        "Zürich-Flughafen",
+        "Zuerich",
+        "Staefa",
+        "Feldmeilen",
+        "Fehraltdorf",
+        "Räterschen"
       ]
     }
   }

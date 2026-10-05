@@ -59,7 +59,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -75,7 +75,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import { archiveFilteredJobsToSlices, archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -1937,9 +1937,29 @@ export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
 const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
 
 /**
+ * A location field can be an office list rather than the job's locality
+ * ("Paris, Geneva, London"). Once an English/French/German exonym is added to
+ * the Swiss whitelist, blindly extracting the first Swiss token would make
+ * that list look like a Swiss address. Keep the existing description-rescue
+ * path for such mixed lists; a single foreign segment is enough to make the
+ * field ambiguous, while "Geneva, Switzerland" remains a valid decorated
+ * Swiss locality.
+ */
+function locationFieldContainsForeignSegment(value = '') {
+  return String(value || '')
+    .split(/[,;|/]/)
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .some((segment) => isLocationExplicitlyForeign(segment));
+}
+
+/**
  * Foreign filter + Swiss-municipality whitelist of the assembly, as a pure
  * function over the deduped jobs. Mutates the locality of a job the whitelist
- * rescues (step 4) and returns the survivors with the per-reason counts.
+ * rescues (step 4) and returns the survivors with per-reason counts plus the
+ * full dropped rows. The dropped rows are retained by the caller for the
+ * expired archive; filtering an indexed job must never silently delete its
+ * soft-landing page.
  *
  * Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
  * should not appear on the Swiss job board, so they are dropped before they
@@ -1961,12 +1981,17 @@ const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Itali
  *      record OR a known Swiss city of ≥4 chars in description.
  *
  * @param {object[]} jobs
- * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number }}
+ * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number, dropped: Array<{ job: object, reason: string }> }}
  */
 export function applySwissLocationGate(jobs) {
+  const dropped = [];
   const foreignFiltered = jobs.filter((job) => {
     const loc = String(job.addressLocality || job.location || '');
-    return !isLocationExplicitlyForeign(loc);
+    if (isLocationExplicitlyForeign(loc)) {
+      dropped.push({ job, reason: 'foreign-location' });
+      return false;
+    }
+    return true;
   });
   const foreignCount = jobs.length - foreignFiltered.length;
 
@@ -1981,14 +2006,31 @@ export function applySwissLocationGate(jobs) {
     // if metadata fields claim Switzerland — those are likely forged.
     if (FOREIGN_ADDRESS_RE.test(haystack)) {
       droppedForeignAddress++;
+      dropped.push({ job, reason: 'foreign-address-in-description' });
       return false;
     }
 
     const primaryLoc = String(job.addressLocality || job.location || '').trim();
-    if (!primaryLoc) return false; // no location at all → drop
+    if (!primaryLoc) {
+      dropped.push({ job, reason: 'missing-locality' });
+      return false;
+    }
 
-    // (2) Strong positive: primary location names a known Swiss city.
-    if (isKnownSwissCity(primaryLoc)) return true;
+    // (2) Strong positive: primary location names a known Swiss city. The
+    // record's canton disambiguates BFS names stored as "City (XX)"
+    // (Bremgarten, Gossau, Altdorf, …); omitting it caused the false-negative
+    // class measured on 2026-10-05.
+    if (isKnownSwissCity(primaryLoc, job.canton)) {
+      // Official locality directories also contain quarters/sub-localities
+      // (e.g. Estavayer-le-Lac). Keep the published schema at the canonical
+      // municipality level, as the decorated-locality path already does.
+      const canonicalLocality = swissCityFromLocationField(primaryLoc, job.canton);
+      if (canonicalLocality) {
+        job.addressLocality = canonicalLocality;
+        job.location = canonicalLocality;
+      }
+      return true;
+    }
 
     // (3) Canton-only labels need a Swiss anchor.
     if (isCantonOnlyLabel(primaryLoc)) {
@@ -2000,15 +2042,48 @@ export function applySwissLocationGate(jobs) {
       // how "alle"/"rolle" descriptions anchored non-Swiss postings.
       if (rescueSwissCityFromText(haystack)) return true;
       droppedCantonOnlyNoCity++;
+      dropped.push({ job, reason: 'canton-only-without-anchor' });
       return false;
     }
 
     // (4) primaryLoc is neither a known city nor a canton-only label —
-    // likely garbage (e.g. a company name leaking through a free-text
-    // intake field instead of a real location). Give the structured
-    // `canton` field the same second chance as a canton-only label. When
-    // primaryLoc carries no Swiss signal it is unknown geography, and the
-    // description rescue runs with the foreign-context guards (#9846).
+    // likely a decorated locality or garbage (e.g. a company name leaking
+    // through a free-text intake field). A Swiss-signed decorated locality is
+    // authoritative on its own: `Switzerland (Mex)` must not depend on a
+    // description or postal code. Mixed office lists remain ambiguous so a
+    // Swiss exonym cannot mask a foreign segment.
+    const listedLocalityCity = swissCityFromLocationField(primaryLoc, job.canton);
+    const mixedForeignLocality = locationFieldContainsForeignSegment(primaryLoc);
+    const directLocalityCity = !mixedForeignLocality
+      && locationFieldHasSwissSignal(primaryLoc, job.canton)
+      ? listedLocalityCity
+      : '';
+    if (directLocalityCity) {
+      // A stale canton can coexist with a real Swiss locality in the field
+      // (the Roche replay has Rotkreuz on a BS record). If the description
+      // explicitly names a city owned by that record canton, retain the
+      // established rescue result; otherwise the authoritative field wins.
+      const localityBelongsToAnotherCanton = Boolean(job.canton)
+        && isKnownSwissCity(primaryLoc)
+        && !isKnownSwissCity(primaryLoc, job.canton);
+      if (localityBelongsToAnotherCanton) {
+        const cantonCity = rescueSwissCityFromText(haystack);
+        if (cantonCity && isKnownSwissCity(cantonCity, job.canton)) {
+          job.addressLocality = cantonCity;
+          job.location = cantonCity;
+          markLocationDerivedFromVacancyText(job);
+          return true;
+        }
+      }
+      job.addressLocality = directLocalityCity;
+      job.location = directLocalityCity;
+      return true;
+    }
+
+    // Give the structured `canton` field the same second chance as a
+    // canton-only label. When primaryLoc carries no Swiss signal it is
+    // unknown geography, and the description rescue runs with the
+    // foreign-context guards (#9846).
     const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode, job.canton);
     if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack, rescueOptions)) {
       // Sanitize: never ship the garbage primaryLoc verbatim — it would
@@ -2027,8 +2102,15 @@ export function applySwissLocationGate(jobs) {
       // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
       // or "Fully" is a location the author typed on purpose. The blocklist
       // exists for free-text description scanning only.
-      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
-      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack, rescueOptions);
+      const cityFromLocalityField = mixedForeignLocality ? '' : listedLocalityCity;
+      const cityFromVacancyText = cityFromLocalityField
+        ? ''
+        : rescueSwissCityFromText(haystack, {
+          ...rescueOptions,
+          ...(mixedForeignLocality && listedLocalityCity
+            ? { skipTokens: new Set([normalizeSwissTargetLocationText(listedLocalityCity)]) }
+            : {}),
+        });
       const rescuedCity = cityFromLocalityField || cityFromVacancyText;
       if (rescuedCity) {
         job.addressLocality = rescuedCity;
@@ -2042,9 +2124,10 @@ export function applySwissLocationGate(jobs) {
     // canton — likely a non-Swiss locality that escaped the explicit-
     // foreign blacklist (e.g. small Italian town).
     droppedBadSwissCity++;
+    dropped.push({ job, reason: 'unknown-locality' });
     return false;
   });
-  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress };
+  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress, dropped };
 }
 
 /**
@@ -3306,8 +3389,9 @@ async function assembleJobs() {
   }
 
   // ── Foreign filter + Swiss-municipality whitelist ───────────────────
-  // See applySwissLocationGate() for the rules; it is a pure function so the
-  // #9846 replay test runs the exact gate this assembly runs.
+  // See applySwissLocationGate() for the rules; the gate itself remains pure so
+  // replay tests run the exact filtering logic, while this assembly boundary
+  // preserves an expired route for every filtered job.
   const swissGate = applySwissLocationGate(deduped);
   let swissValidated = swissGate.jobs;
   const { foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress } = swissGate;
@@ -3317,6 +3401,10 @@ async function assembleJobs() {
   const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
+  }
+  const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
+  if (filteredArchive.added > 0) {
+    console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
   }
 
   // ── Publisher supersedes crawled (anti double-listing) ───────────────
