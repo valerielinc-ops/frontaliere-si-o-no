@@ -318,6 +318,8 @@ describe('il pull cabla davvero la preservazione delle voci', () => {
     const iRetirementFilter = src.lastIndexOf('dropLedgeredRetirements(preserveIdsForSnapshots');
     expect(iSeoKeys).toBeGreaterThan(-1);
     expect(iRetirementFilter).toBeGreaterThan(iSeoKeys);
+    expect(src).toContain('const ledgeredRetirementIds = new Set(');
+    expect(src).toContain('!ledgeredRetirementIds.has(key)');
   });
 
   it('ripristina una superficie locale quando il file SEO non esiste upstream', () => {
