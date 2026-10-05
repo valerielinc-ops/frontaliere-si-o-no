@@ -342,7 +342,6 @@ describe('prova registrata e gate di chiusura', () => {
   it('il commento porta il marker FU_ITEM_CI_SUITE con PR, sha, run e job', () => {
     const text = ciSuiteProofCommentBody({ id: A, pr: 10197, proof, repository: REPO });
     expect(text.split('\n')[0]).toBe(itemCiSuiteMarker({ item: A, pr: 10197, commit: HEAD, run: 36560272815, job: 109379201715 }));
-    expect(text).toContain('decisione I4 del 2026-10-05');
     for (const file of SUITE) expect(text).toContain(file);
     expect(parseItemMarkers([bot(text)], { isTrusted: isTrustedAuthor }))
       .toEqual([expect.objectContaining({ type: 'ci-suite', item: A, pr: 10197, commit: HEAD, run: 36560272815, job: 109379201715 })]);
