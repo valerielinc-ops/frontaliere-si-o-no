@@ -1,40 +1,192 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-04T10:42:14.782Z",
+  "lastRunAt": "2026-10-05T11:41:40.986Z",
   "findings": {
-    "cloudflare-5xx-persistent|https://gh-default.frontaliereticino.ch/github/webhook": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://gh-default.frontaliereticino.ch/github/webhook",
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-04T10:42:14.782Z",
-      "lastSeenAt": "2026-10-04T10:42:14.782Z",
-      "detail": "edge=524 count=60 live=502 surface=github-webhook-default"
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
     },
-    "cloudflare-5xx-persistent|https://gh-nanako.frontaliereticino.ch/github/webhook": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://gh-nanako.frontaliereticino.ch/github/webhook",
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-friburgo/medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-friburgo/medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-04T10:42:14.782Z",
-      "lastSeenAt": "2026-10-04T10:42:14.782Z",
-      "detail": "edge=524 count=5 live=502 surface=github-webhook-nanako"
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
     },
-    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
-      "code": "cloudflare-5xx-unverified",
-      "url": "source:cloudflare-5xx-unverified",
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-04T10:42:14.782Z",
-      "lastSeenAt": "2026-10-04T10:42:14.782Z",
-      "detail": "count=1577 sampled-out-or-unprobed; no live recovery asserted"
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
     },
-    "source-unavailable|source:ga4": {
-      "code": "source-unavailable",
-      "url": "source:ga4",
-      "consecutiveRuns": 3,
-      "firstSeenAt": "2026-10-02T10:37:30.370Z",
-      "lastSeenAt": "2026-10-04T10:42:14.782Z",
-      "detail": "GA4 incomplete or restricted response (100000/138894 rows); observed pages retained, absence is not zero traffic"
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-vallese/capi-cantiere-100-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa-martigny/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-vallese/capi-cantiere-100-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa-martigny/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-vallese/venditore-nel-settore-localsearch-visp/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-vallese/venditore-nel-settore-localsearch-visp/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-vaud/chef-capo-dipartimento-vini-bevande-m-f-d-coop-genossenschaft-ecublens/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-vaud/chef-capo-dipartimento-vini-bevande-m-f-d-coop-genossenschaft-ecublens/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-zurigo/capo-de-rang-50-60-zfv-unternehmungen-zurich/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/capo-de-rang-50-60-zfv-unternehmungen-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-zurigo/ingegnere-elettronico-tecnico-del-campo-di-prova-m-f-d-rheinmetall-air-defence-ag-zurich/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/ingegnere-elettronico-tecnico-del-campo-di-prova-m-f-d-rheinmetall-air-defence-ag-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-zurigo/mansioni-richieste-hirslanden-klinik-search-b923c8/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/mansioni-richieste-hirslanden-klinik-search-b923c8/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-zurigo/pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-im-tessin/devops-ingenieur-delvitech-sa-mendrisio/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/devops-ingenieur-delvitech-sa-mendrisio/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-freiburg/verkaufsberater-h-f-rituals-cosmetics-switzerland-avry-36438b/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-freiburg/verkaufsberater-h-f-rituals-cosmetics-switzerland-avry-36438b/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-zurich/underwriter-unternehmensgeschaft-alle-swica-winterthur/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/underwriter-unternehmensgeschaft-alle-swica-winterthur/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/vocational-trainer-in-nursing-bed-station-80-100-universitatsspital-zurich-usz-campus/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/vocational-trainer-in-nursing-bed-station-80-100-universitatsspital-zurich-usz-campus/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-berne/gestionnaire-de-projet-stadt-bern-bern/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-berne/gestionnaire-de-projet-stadt-bern-bern/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-fribourg/consultant-client-f-m-d-assurance-sense-oberland-temps-partiel-temps-plein-helvetia-versicherungen-dudingen/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-fribourg/consultant-client-f-m-d-assurance-sense-oberland-temps-partiel-temps-plein-helvetia-versicherungen-dudingen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-geneve/formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-tessin/emea-indirect-tax-senior-specialiste-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bwiih9/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/emea-indirect-tax-senior-specialiste-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bwiih9/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/supercomputing-senior-et-directeur-de-compte-de-l-enseignement-superieur-nvidia-ufficio-zurich-zurich/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/supercomputing-senior-et-directeur-de-compte-de-l-enseignement-superieur-nvidia-ufficio-zurich-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/vendeur-alimentation-produits-frais-coop-genossenschaft-zurich/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/vendeur-alimentation-produits-frais-coop-genossenschaft-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/ventes-administration-et-service-a-la-clientele-des-employes-coop-genossenschaft-zurich/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/ventes-administration-et-service-a-la-clientele-des-employes-coop-genossenschaft-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-05T11:41:40.986Z",
+      "lastSeenAt": "2026-10-05T11:41:40.986Z",
+      "detail": null
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
