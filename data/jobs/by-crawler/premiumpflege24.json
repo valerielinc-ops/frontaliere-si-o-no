@@ -1,15 +1,15 @@
 {
   "crawlerKey": "premiumpflege24",
-  "assembledAt": "2026-10-04T21:41:45.517Z",
+  "assembledAt": "2026-10-05T09:36:28.339Z",
   "jobs": [
     {
       "id": "premiumpflege24-7a7d139b5aeb",
-      "slug": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch",
+      "slug": "lavori-nell-assistenza-agli-anziani-premiumpflege24-premiumpflege24-gmbh-schweiz",
       "slugByLocale": {
-        "it": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch",
-        "en": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch",
+        "it": "lavori-nell-assistenza-agli-anziani-premiumpflege24-premiumpflege24-gmbh-schweiz",
+        "en": "jobs-in-senior-care-premiumpflege24-premiumpflege24-gmbh-schweiz",
         "de": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch",
-        "fr": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
+        "fr": "emplois-dans-les-soins-aux-personnes-agees-premiumpflege24-premiumpflege24-gmbh-schweiz"
       },
       "company": "PremiumPflege24 GmbH",
       "companyKey": "premiumpflege24",
@@ -33,7 +33,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:40.268Z",
+      "crawledAt": "2026-10-05T09:36:23.331Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -57,15 +57,31 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-10-30",
       "postedDate": "2025-10-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://premiumpflege24.ch/job-registrierung/",
       "requirements": [],
       "requirementsByLocale": {},
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:26:12.841Z"
+      "firstSeenAt": "2026-09-26T14:26:12.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
+        ],
+        "en": [
+          "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
+        ],
+        "fr": [
+          "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
+        ]
+      },
+      "previousSlugs": [
+        "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
+      ]
     }
   ]
 }
