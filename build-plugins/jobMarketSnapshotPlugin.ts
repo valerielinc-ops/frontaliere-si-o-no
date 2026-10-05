@@ -1631,7 +1631,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'WebPage',
     headline: h1,
     description: truncateAtWordBoundary(intro, 220),
     image: `${BASE_URL}/og-image.png`,
