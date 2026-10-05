@@ -21,12 +21,13 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -488,7 +489,7 @@ export async function fetchAllSwissLifeJobs() {
       sector: 'Assicurazioni / Previdenza',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

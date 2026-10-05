@@ -40,6 +40,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchWithRetry, RETRYABLE_STATUS } from './crawler-template.mjs';
@@ -449,8 +450,7 @@ export async function fetchAllSygnumJobs() {
     const jobSlug = slugify(`${title} sygnum ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = mapEmploymentType(detail.employmentTypeRaw, title);
-    const postedDate = (ld.datePosted && String(ld.datePosted).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateFields(ld.datePosted);
 
     const job = {
       // ── Required fields ──
@@ -485,7 +485,7 @@ export async function fetchAllSygnumJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId: row.vacancyNo || null,
       requirements: [],

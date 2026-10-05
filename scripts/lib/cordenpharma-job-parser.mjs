@@ -25,6 +25,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -221,8 +222,8 @@ async function fetchSiteListings(siteUrl) {
         location: opening.location || rawLocation?.name || '',
         language: pub.language || '',
         employmentLabel: (opening.workingTimes || []).map((w) => w.name).join(', '),
-        createdDate: opening.createdDate || '',
-        startDate: pub.startDate || '',
+        // d.vinci publication startDate is availability of this published vacancy.
+        ...sourcePostingDateFields(pub.startDate),
         rawLocation: {
           id: rawLocation?.id || '',
           name: rawLocation?.name || '',
@@ -308,9 +309,6 @@ export async function fetchAllCordenpharmaJobs() {
     const jobSlug = slugify(`${title} cordenpharma ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
-    const postedDate = (listing.createdDate && String(listing.createdDate).slice(0, 10))
-      || (listing.startDate && String(listing.startDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -345,7 +343,7 @@ export async function fetchAllCordenpharmaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
