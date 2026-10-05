@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-10-04T21:41:31.552Z",
+  "assembledAt": "2026-10-05T09:26:59.951Z",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-46f1a299d8b7",
@@ -33,7 +33,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/33dc539a4689-responsable-du-controle-de-gestion-financier-90-100-leiter-in-finanzcontrolling-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:26.520Z",
+      "crawledAt": "2026-10-05T09:26:53.910Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -80,7 +80,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-24",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-f9d7b29ca9ed",
@@ -114,7 +116,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:25.758Z",
+      "crawledAt": "2026-10-05T09:26:53.169Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -127,7 +129,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate",
       "requirements": [],
       "requirementsByLocale": {},
@@ -199,7 +203,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:41:25.008Z",
+      "crawledAt": "2026-10-05T09:26:52.521Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -241,7 +245,9 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-09-24",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-6419dccd40fc",
@@ -275,7 +281,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:24.254Z",
+      "crawledAt": "2026-10-05T09:26:51.679Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -288,7 +294,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-06-23",
       "postedDate": "2025-06-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "requirements": [],
       "requirementsByLocale": {
@@ -363,7 +371,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:23.483Z",
+      "crawledAt": "2026-10-05T09:26:50.827Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -376,7 +384,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-04-22",
       "postedDate": "2025-04-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "requirements": [],
       "requirementsByLocale": {},
@@ -443,7 +453,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:22.625Z",
+      "crawledAt": "2026-10-05T09:26:50.193Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -484,7 +494,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-05-07",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-d1d1dc288493",
@@ -517,7 +529,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:21.878Z",
+      "crawledAt": "2026-10-05T09:26:49.567Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -558,7 +570,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-09-01",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-ce162dc73d8b",
@@ -592,7 +606,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:21.127Z",
+      "crawledAt": "2026-10-05T09:26:48.929Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -605,7 +619,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80",
       "requirements": [],
       "requirementsByLocale": {},
@@ -685,7 +701,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:20.384Z",
+      "crawledAt": "2026-10-05T09:26:48.094Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -698,7 +714,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-12-01",
       "postedDate": "2025-12-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -744,7 +762,7 @@
       "titleByLocale": {
         "it": "Infermiere/Istruttore (ISO) o Tecnico/a di sala operatoria (TSO) (80-100%)",
         "en": "Surgical Instrument Nurse (SIN) or Operating Room Technician (ORT) (80-100%)",
-        "de": "Instrumentist Nurse (ISO) oder Operationstechniker (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)",
+        "de": "Infirmier-ère instrumentiste (ISO) ou  technicien-ne en salle d’opération (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)",
         "fr": "Infirmier-ère instrumentiste (ISO) ou technicien-ne en salle d’opération (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les blocs opératoires de l'HFR un-e\n\nInfirmier-ère instrumentiste (ISO) ou\n\ntechnicien-ne en salle d’opération (TSO)\n\n80 - 100 %\n\nVotre mission :\n\n• assurer l’instrumentation des interventions chirurgicales pluridisciplinaires\n\n• connaître et gérer le matériel inhérent aux interventions chirurgicales\n\n• appliquer et faire respecter les règles d’hygiène hospitalière\n\n• participer activement à la prise en charge des patients opérés en collaboration avec l’équipe pluridisciplinaire\n\n• participer à tous les horaires (piquets, horaire de nuits, week-ends et les jours fériés)\n\nVotre profil :\n\n• titulaire d’un diplôme d’infirmier-ère instrumentiste ou de TSO\n\n• connaissances de base en informatique\n\n• esprit dynamique et constructif\n\n• flexibilité et capacité à travailler en interdisciplinarité\n\n• résistance au stress\n\n• maîtrise de la langue française ou allemande\n\nEntrée en fonction :\nde suite ou à convenir\n\nRenseignements : Mme S. Rollez, Instrumentiste-cheffe des centres opératoires, Tél. +41 26 306 39 65\n\nRéf : HFR-M-220401\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion für den Operationstrakt am HFR eine\n\nPflegefachperson Operationsbereich oder\n\nFachperson Operationstechnik (TOA)\n\nAufgaben\n\n• Sie instrumentieren bei chirurgischen Eingriffen verschiedener Fachrichtungen\n\n• Sie kennen und verwalten das Material für chirurgische Eingriffe\n\n• Sie wenden die Spitalhygienevorschriften an und sorgen für deren Einhaltung\n\n• Sie beteiligen sich aktiv an der Betreuung der OP-Patientinnen und -Patienten in Zusammenarbeit mit dem interdisziplinären Team\n\n• Sie arbeiten in allen Schichten (Pikett, Nachtarbeit, Wochenenden und Feiertage)\n\nProfil\n\n• Dipl. Pflegefachfrau/-mann Operationsbereich oder Dipl. Fachfrau/-mann Operationstechnik (TOA)\n\n• Grundkenntnisse in Informatik\n\n• Dynamik, konstruktive Einstellung\n\n• Flexibilität, disziplinübergreifendes Arbeiten\n\n• Belastbarkeit\n\n• Deutsch oder Französisch\n\nStellenantritt : Sofort oder nach Vereinbarung\n\nAuskunft : Frau S. Rollez, Leiterin Instrumentierfachfrau Operationszentren, Tel. + +41 26 306 39 65\n\nRef.: HFR-M-220401",
@@ -754,12 +772,13 @@
         "de": "Um sein Team zu vervollständigen, sucht die medizinische Leitung des Krankenhauses Frebourgeois die Operationssäle des HFR.\n\nInstrumentist Nurse (ISO) oder\n\nOperationssaaltechniker (TSO)\n\n80 - 100 %\n\nIhre Mission:\n\n• Gewährleistung der Instrumentierung multidisziplinärer chirurgischer Verfahren\n\n• Kenntnisse und Management von chirurgischen Geräten\n\n• Anwendung und Durchsetzung der Krankenhaushygienevorschriften\n\n• aktive Teilnahme am Management von Patienten in Zusammenarbeit mit dem multidisziplinären Team\n\n• an allen Fahrplänen teilnehmen (Piquets, Nachtpläne, Wochenenden und Feiertage)\n\nIhr Profil:\n\n• Inhaber einer Instrumentistenkrankenschwester oder eines OSI-Diploms\n\n• grundlegende Computerkenntnisse\n\n• dynamischer und konstruktiver Geist\n\n• Flexibilität und Fähigkeit, in Interdisziplinarität zu arbeiten\n\n• Spannungsfestigkeit\n\n• Beherrschung der französischen oder deutschen Sprache\n\nAmtsantritt:\noder zu vereinbaren\n\nFür weitere Informationen wenden Sie sich bitte an: Frau S. Rollez, Instrumentist-cheffe of the Operations Centres, Tel. +41 26 306 39 65\n\nRef : HFR-M-220401\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion für den Operationstrakt am HFR\n\nPflegefachperson Operationsbereich\n\nFachperson Operationstechnik (TOA)\n\nAufgaben\n\n• Sie instrumentieren bei chirurgischen Eingriffen verschiedene Fachrichtungen\n\n• Sie wissen und verwalten das Material für chirurgische Eingriffe\n\n• Sie wenden die Spitalhygienevorschriften an und sorgen für deren Einhaltung\n\n• Sie beteiligen sich aktiv an der Betreuung der OP-Patientinnen und -Patienten in Zusammenarbeit mit dem interdisziplinären Team\n\n• Sie arbeiten in allen Schichten (Pikett, Nachtarbeit, Wochenenden und Feiertage)\n\nProfil\n\n• Dipl. Pflegefachfrau/-mann Operationsbereich oder Dipl. Fachfrau/-mann Operationstechnik (TOA)\n\n• Grundkenntnisse in der Informatik\n\n• Dynamik, konstruktive Einstellung\n\n• Flexibilität, disziplinübergreifende Arbeiten\n\n• Belastbarkeit\n\n• Deutsch oder Französisch\n\nStellenantritt : Sofort oder nach Vereinbarung\n\nAuskunft: Frau S. Rollez, Leiterin Instrumentierfachfrau Operationszentren, Tel. + +41 26 306 39 65",
         "fr": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les blocs opératoires de l'HFR un-e\n\nInfirmier-ère instrumentiste (ISO) ou\n\ntechnicien-ne en salle d’opération (TSO)\n\n80 - 100 %\n\nVotre mission :\n\n• assurer l’instrumentation des interventions chirurgicales pluridisciplinaires\n\n• connaître et gérer le matériel inhérent aux interventions chirurgicales\n\n• appliquer et faire respecter les règles d’hygiène hospitalière\n\n• participer activement à la prise en charge des patients opérés en collaboration avec l’équipe pluridisciplinaire\n\n• participer à tous les horaires (piquets, horaire de nuits, week-ends et les jours fériés)\n\nVotre profil :\n\n• titulaire d’un diplôme d’infirmier-ère instrumentiste ou de TSO\n\n• connaissances de base en informatique\n\n• esprit dynamique et constructif\n\n• flexibilité et capacité à travailler en interdisciplinarité\n\n• résistance au stress\n\n• maîtrise de la langue française ou allemande\n\nEntrée en fonction :\nde suite ou à convenir\n\nRenseignements : Mme S. Rollez, Instrumentiste-cheffe des centres opératoires, Tél. +41 26 306 39 65\n\nRéf : HFR-M-220401\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion für den Operationstrakt am HFR eine\n\nPflegefachperson Operationsbereich oder\n\nFachperson Operationstechnik (TOA)\n\nAufgaben\n\n• Sie instrumentieren bei chirurgischen Eingriffen verschiedener Fachrichtungen\n\n• Sie kennen und verwalten das Material für chirurgische Eingriffe\n\n• Sie wenden die Spitalhygienevorschriften an und sorgen für deren Einhaltung\n\n• Sie beteiligen sich aktiv an der Betreuung der OP-Patientinnen und -Patienten in Zusammenarbeit mit dem interdisziplinären Team\n\n• Sie arbeiten in allen Schichten (Pikett, Nachtarbeit, Wochenenden und Feiertage)\n\nProfil\n\n• Dipl. Pflegefachfrau/-mann Operationsbereich oder Dipl. Fachfrau/-mann Operationstechnik (TOA)\n\n• Grundkenntnisse in Informatik\n\n• Dynamik, konstruktive Einstellung\n\n• Flexibilität, disziplinübergreifendes Arbeiten\n\n• Belastbarkeit\n\n• Deutsch oder Französisch\n\nStellenantritt : Sofort oder nach Vereinbarung\n\nAuskunft : Frau S. Rollez, Leiterin Instrumentierfachfrau Operationszentren, Tel. + +41 26 306 39 65\n\nRef.: HFR-M-220401"
       },
+      "needsRetranslation": true,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:19.441Z",
+      "crawledAt": "2026-10-05T09:26:47.258Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -772,7 +791,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2022-01-28",
       "postedDate": "2022-01-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "requirements": [],
       "requirementsByLocale": {
@@ -843,7 +864,7 @@
       "titleByLocale": {
         "it": "Infermiera 60 %",
         "en": "Nurse 60 %",
-        "de": "Krankenpfleger/in 60% / Pflegefachfrau/Pflegefachmann 60%",
+        "de": "Infirmier-ère  60 % / Pflegefachfrau/Pflegefachmann 60 %",
         "fr": "Infirmier-ère 60 % / Pflegefachfrau/Pflegefachmann 60 %"
       },
       "description": "Afin de compléter son équipe, la direction des soins recherche pour le service de Gériatrie Aigue et de réadaptation Gériatrique de l’ HFR Riaz un/e\n\nInfirmier-ère\n 60%\n\nVotre mission :\n\n• Accueillir et soutenir les patient-e-s selon les normes professionnelles en vigueur et selon l’organisation du service\n\n• Prodiguer des soins techniques et de réadaptation de qualité\n\n• Participer à la mise en œuvre du projet thérapeutique avec le patient ou la patiente, en collaboration étroite avec l’équipe interdisciplinaire\n\n• Participer activement au bon fonctionnement du service en proposant des mesures d’amélioration\n\n• Encadrer, soutenir et conseiller les nouveaux membres de l’équipe ainsi que les personnes en formation et les étudiant-e-s\n\nVotre profil :\n\n• Diplôme d’infirmier-ère en soins généraux, niveau HES, ou formation jugée équivalente\n\n• Expérience en gériatrie et hospitalière, un atout\n\n• Maîtrise de la langue française\n\n• Maîtrise des outils informatiques usuels\n\n• Capacité à travailler en équipe pluridisciplinaire\n\nNous offrons :\n\n• Un travail varié\n\n• Une équipe de soins dynamique\n\n• Des opportunités de développement et de formation\n\nEntrée en fonction : 1 er janvier 2027\n\nRenseignements : Madame Soares Márcia, ICUS de Gériatrie Aigue et réadaptation gériatrique étage D, tél. +41 26 306 44 10\n\nDélai de postulation : 30.10.2026\n\nRéf : HFR-MTS-263901\n\nUm ihr Team zu ergänzen, sucht die Pflegedirektion für die Abteilung Akutgeriatrie und geriatrische Rehabilitation des HFR Riaz eine/n\n\nPflegefachfrau/Pflegefachmann\n 60 %\n\nAufgaben\n\n• Sie empfangen und unterstützen die Patientinnen und Patienten gemäss der Organisation der Abteilung und unter Einhaltung der geltenden Berufsstandards.\n\n• Sie führen hochwertige Pflege- und Rehabilitationsverrichtungen aus.\n\n• Sie helfen mit, gemeinsam mit der betreuten Person die individuelle Pflegeplanung umzusetzen, in enger Zusammenarbeit mit dem interdisziplinären Team.\n\n• Sie wirken aktiv am reibungslosen Ablauf der Abteilung mit und bringen Verbesserungsvorschläge ein.\n\n• Sie betreuen, unterstützen und beraten neue Teammitglieder, Auszubildende und Studierende.\n\nProfil\n\n• Dipl. Pflegefachperson FH oder gleichwertige Ausbildung\n\n• Erfahrung in der Geriatrie und im Spitalwesen von Vorteil\n\n• Französisch\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Fähigkeit zur Arbeit in einem interdisziplinären Team\n\nWir bieten\n\n• Eine vielseitige Tätigkeit\n\n• Ein dynamisches Pflegeteam\n\n• Möglichkeiten zur beruflichen Weiterbildung und Entwicklung\n\nStellenantritt: 1. Januar 2027\n\nAuskunft: Frau Márcia Soares, Stationsleiterin Akutgeriatrie und geriatrische Rehabilitation, Stockwerk D, T 026 306 44 10\n\nBewerbungsfrist: 30. Oktober 2026\n\nRef.: HFR-MTS-263901",
@@ -859,7 +880,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/39b47f127a1e-infirmier-ere-60-pflegefachfrau-pflegefachmann-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:18.491Z",
+      "crawledAt": "2026-10-05T09:26:46.601Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -872,7 +893,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23",
       "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/39b47f127a1e-infirmier-ere-60-pflegefachfrau-pflegefachmann-60",
       "requirements": [],
       "requirementsByLocale": {},
@@ -931,7 +954,7 @@
         "it": "HR Business Partner 80 - 100 %",
         "en": "HR Business Partner 80 - 100 %",
         "de": "Personalwesen Business Partner 80 - 100 % / Personalwesen Business Partner/in 80 - 100%",
-        "fr": "HR Business Partner 80 - 100 % / HR Business Partner 80 - 100 %"
+        "fr": "HR Business Partner 80 - 100 % / HR Business Partner/in 80 - 100%"
       },
       "description": "Afin de compléter son équipe, la direction des ressources humaines recherche un-e\n\nHR Business Partner\n 80 - 100 %\n\nVotre mission :\n\n• Assumer le rôle de partenaire et interlocuteur-trice pour toutes les questions RH de la population qui vous est dédiée\n\n• Accompagner et conseiller la ligne et les collaborateur-trice-s dans les processus RH clés du cycle de vie du collaborateur\n\n• Assumer un rôle important dans la gestion des conflits, dans l’accompagnement au changement, dans le développement des collaborateur-trice-s et dans la planification de la relève\n\n• Effectuer des diagnostics d’équipe et proposer des mesures avec le soutien du/de la HR Business Partner Responsable\n\n• Assurer et développer la formation des cadres\n\n• Traiter les cas ayant trait au droit du travail\n\n• Accompagner les responsables dans le cadre des processus de gestion d’absences, recrutement, licenciement et dans la gestion des cas complexes\n\n• Participer à divers projets pour la Direction RH\n\nVotre profil :\n\n• Titulaire d’un Bachelor (universitaire ou HES) ou formation jugée équivalente\n\n• Brevet fédéral de spécialiste en ressources humaines un atout\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l’autre langue\n\n• Expérience dans la gestion de projet et/ou le change management, un atout\n\n• Connaissance des législations en vigueur (Lpers / Rpers)\n\n• Aptitude à travailler de manière autonome, d’excellentes compétences organisationnelles et relationnelles, envers les collaborateurs et l’équipe, un sens des responsabilités et de la discrétion, une orientation client prononcée\n\n• Personnalité dynamique et convaincante qui sait prendre des initiatives et s’affirmer dans des situations difficiles\n\nEntrée en fonction : \t1er novembre 2026 ou à convenir\n\nRenseignements : Mme Annunziata Imperatrice, HR Business Partner Responsable, tél. 026 306 07 55\n\nDélai de postulation : 11 octobre 2026\n\nRéf : HFR-A-263902\n\nUm ihr Team zu ergänzen, sucht die Direktion Personal einen/eine\n\nHR Business Partner/in\n80 - 100%\n\nAufgaben\n\n• Sie treten als Partner/in und Ansprechperson für alle HR-Fragen der Ihnen zugeteilten Personen auf.\n\n• Sie begleiten und beraten die Vorgesetzten und die Mitarbeitenden bei den wichtigsten HR-Prozessen im Lebenszyklus der Mitarbeitenden.\n\n• Sie übernehmen eine wichtige Rolle im Umgang mit Konflikten und der Begleitung von Veränderungen, bei der Entwicklung der Mitarbeitenden und der Nachwuchsplanung.\n\n• Sie führen Standortbestimmungen der Teams durch und schlagen mit Unterstützung der Leiterin bzw. des Leiters HR Business Partner Verbesserungsmassnahmen vor.\n\n• Sie gewährleisten die Aus- und Weiterbildung der Kadermitarbeitenden und entwickeln sie weiter.\n\n• Sie bearbeiten arbeitsrechtliche Fälle.\n\n• Sie begleiten die Verantwortlichen bei den Verfahren für die Absenzenverwaltung, die Einstellung und Entlassung sowie in der Handhabung komplexer Fälle.\n\n• Sie wirken an verschiedenen Projekten für die Direktion Personal mit.\n\nProfil\n\n• Bachelor-Abschluss (Uni oder FH) bzw. gleichwertige Ausbildung\n\n• Abschluss als HR-Fachfrau/-Mann mit eidg. Fachausweis von Vorteil\n\n• Deutsch oder Französisch mit sehr guten Kenntnissen der anderen Sprache\n\n• Erfahrung in der Projektleitung und/oder im Veränderungsmanagement von Vorteil\n\n• Kenntnis der geltenden Gesetzgebung (StPG / StPR)\n\n• Selbstständiges, kundenorientiertes Arbeiten, ausgezeichnetes Organisationsvermögen, Sozialkompetenz im Team und gegenüber den Spitalmitarbeitenden, Verantwortungsbewusstsein und Diskretion\n\n• Dynamische und überzeugende Persönlichkeit mit Eigeninitiative und Durchsetzungsvermögen in schwierigen Situationen\n\nStellenantritt: \t1. November 2026 oder nach Vereinbarung\n\nAuskunft: \tAnnunziata Imperatrice, Leiterin HR Business Partner,\nT 026 306 07 55\n\nBewerbungsfrist: \t11. Oktober 2026\n\nRef.: HFR-A-263902",
       "descriptionByLocale": {
@@ -946,7 +969,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/13f68ca9d324-hr-business-partner-80-100-hr-business-partner-in-80--100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:17.553Z",
+      "crawledAt": "2026-10-05T09:26:45.958Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -959,7 +982,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/13f68ca9d324-hr-business-partner-80-100-hr-business-partner-in-80--100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1011,7 +1036,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:16.598Z",
+      "crawledAt": "2026-10-05T09:26:45.137Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1024,7 +1049,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-01-27",
       "postedDate": "2026-01-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "requirements": [],
       "requirementsByLocale": {
@@ -1123,7 +1150,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40-ergotherapeute-40",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:15.639Z",
+      "crawledAt": "2026-10-05T09:26:44.372Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1136,7 +1163,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40-ergotherapeute-40",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1231,7 +1260,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:14.678Z",
+      "crawledAt": "2026-10-05T09:26:43.719Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1244,7 +1273,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-01-27",
       "postedDate": "2026-01-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "requirements": [],
       "requirementsByLocale": {
@@ -1335,7 +1366,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/aa99fd7e1197-collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter-administration-auf-hoherer-stufe-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:13.921Z",
+      "crawledAt": "2026-10-05T09:26:42.833Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1348,7 +1379,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/aa99fd7e1197-collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter-administration-auf-hoherer-stufe-90-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1420,7 +1453,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/d70bf23869f0-collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter-technischer-dienst-und-instandhaltung-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:13.171Z",
+      "crawledAt": "2026-10-05T09:26:42.190Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1433,7 +1466,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/d70bf23869f0-collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter-technischer-dienst-und-instandhaltung-80-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1515,7 +1550,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "postedDate": "",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/04225fce3214-collaborateur-trice-intendance-50-60-horaire-du-soir",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1549,7 +1584,10 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hfr-hopital-fribourgeois-984c803dd531",
@@ -1583,7 +1621,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:11.281Z",
+      "crawledAt": "2026-10-05T09:26:41.319Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1596,7 +1634,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-21",
       "postedDate": "2026-07-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1660,7 +1700,7 @@
       "titleByLocale": {
         "it": "Capo della clinica o vice capo della clinica / medico senior o vice medico senior",
         "en": "Chief of Clinic or Deputy Chief of Clinic",
-        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretene/n Oberärztin/Oberarzt",
+        "de": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt",
         "fr": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt"
       },
       "description": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n 60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202",
@@ -1670,12 +1710,13 @@
         "de": "Um ihr Team zu vervollständigen, sucht die Medizinische Direktion nach der Abteilung für Akutgeriatrie/Geriatrische Rehabilitation der HFR Riaz: Leiter der Klinik oder stellvertretender Leiter der Klinik 60 - 100 % Ihre Mission:\n• Überwachung der Tätigkeit und Ausbildung von Assistenzärzten\n• Bereitstellung von vor- und postgradualer Ausbildung sowie für die kontinuierliche medizinische Weiterbildung\n• Mitwirken an der Entwicklung von Service- und wissenschaftlichen Projekten\n• Teilnahme an Kinderbetreuung vor Ort Ihr Profil:\n• Sie besitzen eine FMH-Qualifikation in Innerer oder Allgemeinmedizin oder befinden sich dabei, eine zu erwerben oder eine gleichwertige Ausbildung zu erhalten\n• Sie sprechen fließend Französisch\n• Sie sind motiviert, zu einer guten Arbeitsatmosphäre beizutragen und den kollegialen Austausch zu genießen Startdatum: 1. November 2026 wird vereinbart Informationen: Dr. A. Laszlo, Chefarzt, +41 26 306 44 30 HFR-M-260202",
         "fr": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202"
       },
+      "needsRetranslation": true,
       "location": "HFR Riaz",
       "canton": "FR",
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:10.338Z",
+      "crawledAt": "2026-10-05T09:26:40.472Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1688,7 +1729,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-01-07",
       "postedDate": "2026-01-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1754,7 +1797,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:41:09.361Z",
+      "crawledAt": "2026-10-05T09:26:39.638Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1812,7 +1855,9 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-05-26",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-9f31f7882911",
@@ -1846,7 +1891,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:08.407Z",
+      "crawledAt": "2026-10-05T09:26:38.881Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1859,7 +1904,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2022-11-09",
       "postedDate": "2022-11-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1938,7 +1985,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:07.451Z",
+      "crawledAt": "2026-10-05T09:26:38.210Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1951,7 +1998,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-11-20",
       "postedDate": "2025-11-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2012,7 +2061,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:06.505Z",
+      "crawledAt": "2026-10-05T09:26:37.369Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2071,7 +2120,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-01-05",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-7ba5bc452613",
@@ -2104,7 +2155,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:05.538Z",
+      "crawledAt": "2026-10-05T09:26:36.725Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2179,7 +2230,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2025-12-23",
+      "postingDateSource": "reported"
     },
     {
       "id": "hfr-hopital-fribourgeois-2aab7fd2d635",
@@ -2198,7 +2251,7 @@
         "it": "Assistente tecnica specializzata in sala operatoria (ATSSO) (90 - 100%) / Tecnico/a di sala operatoria (90-100%)",
         "en": "Assistant-eņ spécialisé-e en salle d,opération (ATSSO) (90 - 100%) / Technical Operations Assistant/Technical Operations Assistant (90-100%)",
         "de": "Assistent-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
-        "fr": "Assistant-e technique spécialisé-e en salle d'opération (ATSSO) (90 - 100%) / Assistant technique/Assistant technique (90-100%)"
+        "fr": "Assistant-e technique spécialisé-e en salle d’opération (ATSSO)  (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les centres opératoires de l'HFR un-e\n\nAssistant-e technique spécialisé-e en salle d’opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opératoire et les activités de circulant-e\n\n• Assister l’infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d’opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l’hygiène et la sécurité\n\n• Participer aux activités d’intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d’aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou disposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l’allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaires, sens de l’organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. Ivan Mellado, Coordinateur des ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion des freiburger spitals für die Operationszentren des HFR eine/n\n\nTechnische Operationsassistentin/Technischen Operationsassistenten\n\nAufgaben\n\n• Sie betreuen die Patientinnen und Patienten im Operationstrakt und bei den Springertätigkeiten.\n\n• Sie assistieren der Pflegefachperson Operationsbereich oder den Fachpersonen Operationstechnik bei allen chirurgischen Eingriffen.\n\n• Sie bereiten die Medizingeräte vor, legen sie bereit, reichen sie weiter und beteiligen sich an der Verwaltung.\n\n• Sie kümmern sich um die Arbeitsschritte im Zusammenhang mit der Hygiene und der Sicherheit.\n\n• Sie beteiligen sich an der Einarbeitung neuer Mitarbeitender und an der Weiterentwicklung der Abteilung.\n\nProfil\n\n• Abschluss als Assistent/in OP oder Pflegehelfer/in SRK bzw. gleichwertige Ausbildung und/oder französischsprachiges Zertifikat als technische/r Operationsassistentin/-assistent Stufe 1 bzw. Bereitschaft, dieses zu absolvieren\n\n• Berufserfahrung im Spitalwesen\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Französisch, gute Deutschkenntnisse von Vorteil\n\n• Mitarbeit in einem interdisziplinären Team, Organisationsvermögen, Selbstständigkeit und Verantwortungsbewusstsein, Kommunikationsgeschick\n\n• Ausgeprägte Belastbarkeit und Flexibilität\n\nStellenantritt : sofort oder nach Vereinbarung\n\nAuskunft : Herr Ivan Mellado, Koordinator der Operationsassistentinnen und -assistenten und der Mitarbeitenden für die biologische Reinigung\n\nT +41 26 306 05 6",
       "descriptionByLocale": {
@@ -2207,12 +2260,13 @@
         "de": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les centres opératoires de l'HFR un-e\n\nAssistant-e technique spécialisé-e en salle d’opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opératoire et les activités de circulant-e\n\n• Assister l’infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d’opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l’hygiène et la sécurité\n\n• Participer aux activités d’intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d’aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou disposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l’allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaires, sens de l’organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. Ivan Mellado, Coordinateur des ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion des freiburger spitals für die Operationszentren des HFR eine/n\n\nTechnische Operationsassistentin/Technischen Operationsassistenten\n\nAufgaben\n\n• Sie betreuen die Patientinnen und Patienten im Operationstrakt und bei den Springertätigkeiten.\n\n• Sie assistieren der Pflegefachperson Operationsbereich oder den Fachpersonen Operationstechnik bei allen chirurgischen Eingriffen.\n\n• Sie bereiten die Medizingeräte vor, legen sie bereit, reichen sie weiter und beteiligen sich an der Verwaltung.\n\n• Sie kümmern sich um die Arbeitsschritte im Zusammenhang mit der Hygiene und der Sicherheit.\n\n• Sie beteiligen sich an der Einarbeitung neuer Mitarbeitender und an der Weiterentwicklung der Abteilung.\n\nProfil\n\n• Abschluss als Assistent/in OP oder Pflegehelfer/in SRK bzw. gleichwertige Ausbildung und/oder französischsprachiges Zertifikat als technische/r Operationsassistentin/-assistent Stufe 1 bzw. Bereitschaft, dieses zu absolvieren\n\n• Berufserfahrung im Spitalwesen\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Französisch, gute Deutschkenntnisse von Vorteil\n\n• Mitarbeit in einem interdisziplinären Team, Organisationsvermögen, Selbstständigkeit und Verantwortungsbewusstsein, Kommunikationsgeschick\n\n• Ausgeprägte Belastbarkeit und Flexibilität\n\nStellenantritt : sofort oder nach Vereinbarung\n\nAuskunft : Herr Ivan Mellado, Koordinator der Operationsassistentinnen und -assistenten und der Mitarbeitenden für die biologische Reinigung\n\nT +41 26 306 05 6",
         "fr": "Afin de compléter son équipe, la direction médicale de l'Hôpital fribourgeois recherche pour les centres universitaires de l'HFR un-e\n\nAssistant-e technique spécialisée-e en salle d'opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opérationnel et les activités de circulant- e\n\n• Assistant l'infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d'opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l'hygiène et la sécurité\n\n• Participer aux activités d'intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d'aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou déposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l'allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaire, sens de l'organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à concevoir\n\nInformations : M. Ivan Mellado, Coordonnateur de l'ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nPour compléter son équipe, la direction médicale de l'hôpital de Fribourg est à la recherche\n\nAssistant(s) technique(s)\n\nTâches\n\n• Ils s'occupent des patients dans l'appareil chirurgical et dans les activités du pull.\n\n• Ils aident l'infirmière en chirurgie ou le spécialiste de la technologie chirurgicale dans toutes les interventions chirurgicales.\n\n• Ils préparent les dispositifs médicaux, les préparent, les transmettent et participent à l'administration.\n\n• Ils s'occupent des démarches liées à l'hygiène et à la sécurité.\n\n• Ils participent à la formation des nouveaux employés et au développement du Ministère.\n\nProfil\n\n• Diplôme d'assistant ou d'assistant infirmier ou de formation équivalente et/ou certificat de langue française en tant qu'assistant technique ou de niveau d'assistant 1 ou de préparation pour compléter ce\n\n• Expérience professionnelle des hôpitaux\n\n• Maîtriser les programmes informatiques communs\n\n• Français, bonnes compétences allemandes sont avantageuses\n\n• Collaboration dans une équipe interdisciplinaire, compétences organisationnelles, indépendance et sens des responsabilités, compétences en communication\n\n• Forte capacité de charge et flexibilité\n\nOuverture d'emploi: immédiatement ou par accord\n\nInformation : M. Ivan Mellado, coordinateur des assistants chirurgicaux et personnel de nettoyage biologique\n\nT +41 26 306 05 6"
       },
+      "needsRetranslation": true,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:04.569Z",
+      "crawledAt": "2026-10-05T09:26:35.204Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2225,7 +2279,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2024-02-22",
       "postedDate": "2024-02-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "requirements": [],
       "requirementsByLocale": {
@@ -2327,7 +2383,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/be2877a99f7b-adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-stellvertretende-n-verantwortliche-n-der-abteilung-tarife-vereinbarungen-und-fakturierung-80-100",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2362,7 +2418,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawlerMissStreak": 1
     }
   ]
 }
