@@ -1,9 +1,49 @@
 import { describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { officialPostalCodeForLocation } from '../scripts/lib/swiss-locality-directory.mjs';
+import { OSCAM_CASTELROTTO_ADDRESS } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+import { getCantonPostalFallback } from '../scripts/lib/canton-postal-fallback.mjs';
 import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 import {
   oscamCastelrottoMatchKey,
   parseOscamCastelrottoListing,
 } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+
+describe('OSCAM structured address', () => {
+  it('uses the official Ospedale Malcantonese address for every locale payload', () => {
+    expect(OSCAM_CASTELROTTO_ADDRESS).toEqual({
+      streetAddress: 'Nucleo 30',
+      addressLocality: 'Castelrotto',
+      addressRegion: 'TI',
+      postalCode: '6980',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('resolves named localities before any canton-capital fallback', () => {
+    expect(officialPostalCodeForLocation('Castelrotto', 'TI')).toEqual({
+      postalCode: '6980',
+      known: true,
+    });
+    expect(officialPostalCodeForLocation('Caslano', 'TI')).toEqual({
+      postalCode: '6987',
+      known: true,
+    });
+    expect(getCantonPostalFallback('TI', 'Castelrotto')).toBe('6980');
+    expect(getCantonPostalFallback('TI', 'Caslano')).toBe('6987');
+    expect(getCantonPostalFallback('TI', 'Bern')).toBe('');
+  });
+
+  it('archives stale source rows instead of deleting their SEO landing data', () => {
+    const runner = readFileSync(new URL('../scripts/update-oscam-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain("streetAddress: 'Nucleo 30'");
+    expect(runner).toContain("postalCode: '6980'");
+    expect(runner).toContain("streetAddress: 'Via Mera 9'");
+    expect(runner).toContain("postalCode: '6987'");
+    expect(runner).toContain("archiveRemovedJobsToSlice(removedJobs, COMPANY_KEY)");
+    expect(runner).toContain('Archived (stale)');
+  });
+});
 
 describe('oscamCastelrottoMatchKey', () => {
   it('matches the legacy anchor record with the fresh PDF record by listing id', () => {
