@@ -1486,7 +1486,6 @@
           "produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T09:56:24.342Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -2051,7 +2050,6 @@
           "lebensmitteltechnologe-login-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:46:14.335Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -2297,7 +2295,6 @@
           "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T22:36:35.201Z",
       "salaryMin": 127000,
       "salaryMax": 171000,
@@ -2905,7 +2902,6 @@
           "jedox-entwickler-jedox-entwicklerin-hilcona-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T12:29:56.836Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -3215,7 +3211,6 @@
           "apprendistato-2027-logistiker-in-efz-hugli-nahrmittel-ag-steinach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
       "salaryMin": 46500,
       "salaryMax": 63000,
@@ -3434,9 +3429,7 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-10-05T08:09:08.957Z",
@@ -3461,7 +3454,6 @@
         ]
       },
       "firstSeenAt": "2026-05-11T22:14:05.649Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -3476,7 +3468,10 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "hilcona-5a1869ffb472",
@@ -5416,7 +5411,6 @@
           "produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T21:51:15.148Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -5657,7 +5651,6 @@
           "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T21:51:14.258Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -5738,7 +5731,6 @@
           "initiativbewerbung-bell-schweiz-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:16.260Z",
       "salaryMin": 69500,
       "salaryMax": 93500,

@@ -1304,7 +1304,6 @@
         "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Gesamtverantwortung für den Küchenbetrieb, Menüplanung und Einkauf\n\n• Verantwortung und Führung eines Küchenteams aus 4 bis 5 Personen, inklusive einer lernenden Person in Zusammenarbeit mit der bildungsverantwortlichen Person\n\n• Zubereitung von kindergerechten, gesunden Mittagsmahlzeiten (ca. 400 pro Tag) für Kinder und Jugendliche im Alter zwischen 6 und 16 Jahren\n\n• Enge Zusammenarbeit mit dem Fachbereich Verpflegung, Umsetzung im Betrieb\n\n• Einhaltung von gesetzlichen Hygienevorschriften\n\nAnforderungen:\n• Ausbildung als Koch/Köchin mit eidg. Fähigkeitszeugnis (EFZ), idealerweise Weiterbildung als Chefköchin/Chefkoch EFA\n\n• Berufserfahrung und Kenntnisse in kindergerechter Ernährung, Freude an Kontakt mit Kindern und Jugendlichen\n\n• Gute schriftliche und mündliche Deutschkenntnisse (B2)\n\n• Prozessorientierte Arbeitsweise und fundierte EDV-Kenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets.\n\nTâches :\n• Responsabilité générale des opérations de cuisine, de la planification des menus et des achats\n\n• Responsabilité et direction d'une équipe de cuisine de 4 à 5 personnes, y compris une personne apprenante en coopération avec la personne responsable de l'éducation\n\n• Préparation de repas sains et adaptés aux enfants (environ 400 par jour) pour les enfants et les adolescents âgés de 6 à 16 ans\n\n• Coopération étroite avec le service de restauration, mise en œuvre dans l'entreprise\n\n• Respect des règles d'hygiène légales\n\nExigences\n• Formation en tant que cuisinier/chef titulaire d'un certificat fédéral d'aptitude (EFZ), idéalement formation continue en tant que cuisinier/chef EFA\n\n• Expérience professionnelle et connaissances dans le domaine de la nutrition adaptée aux enfants, de la jouissance du contact avec les enfants et les adolescents\n\n• Bonne connaissance écrite et orale de l'allemand (B2)\n\n• Méthodes de travail axées sur les processus et compétences informatiques solides\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
-      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
@@ -1324,13 +1323,26 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-26T13:55:20.656Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-koch-kochin-stadt-bern-bern"
@@ -1344,20 +1356,7 @@
       },
       "previousSlugs": [
         "leitende-r-koch-kochin-stadt-bern-bern"
-      ],
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "stadt-bern-f23472b5067a",

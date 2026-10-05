@@ -3925,9 +3925,7 @@
       "contract": "full-time",
       "employmentType": "100%",
       "featured": false,
-      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
-      "postingDateSource": "reported",
       "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8b0542e997ab071412f9322f2153af71/ATSANN0004936/params/language/fr",
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8b0542e997ab071412f9322f2153af71/ATSANN0004936/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
@@ -3942,20 +3940,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:20.235Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
-        ],
-        "en": [
-          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
-        ],
-        "de": [
-          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
-      ],
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -3970,7 +3954,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "datePosted": "2026-09-25",
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-service-pour-son-service-d-hematologie-a-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-57761e3dddf4",

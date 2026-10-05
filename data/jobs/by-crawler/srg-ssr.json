@@ -1811,9 +1811,7 @@
       "sector": "Media / Broadcasting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/fachspezialist-in-public-affairs/de58e2c4-0538-466a-a2c0-a3eef4373fde",
       "requirements": [
         "Ausgewiesene mehrjährige Erfahrung im Bereich Public Affairs in einem Unternehmen, einem Verband oder einer Agentur",
@@ -1849,7 +1847,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "datePosted": "2026-09-25",
+      "postingDateSource": "reported"
     },
     {
       "id": "srg-ssr-79793e4d072f",

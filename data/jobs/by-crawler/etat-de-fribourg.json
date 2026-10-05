@@ -156,7 +156,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:47.633Z",
-      "needsRetranslation": true,
       "salaryMin": 29500,
       "salaryMax": 54300,
       "salarySource": "estimated",
@@ -509,8 +508,7 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-ae4d9b23dc44",
@@ -519,7 +517,7 @@
         "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-a62cc2",
         "en": "scientific-collaborator-etat-de-fribourg-fribourg-a62cc2",
         "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-a62cc2",
-        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch-lc7u6n"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -591,7 +589,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -662,23 +659,31 @@
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
         "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-        "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5"
+        "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5",
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg-m7758m",
+        "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg-mqydns",
+        "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
           "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-          "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5"
+          "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5",
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg-m7758m",
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg-mqydns",
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
         ],
         "en": [
-          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
         ],
         "fr": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-09-11T13:52:46.924Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1268,7 +1273,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:10.813Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1843,7 +1847,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:07.632Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2680,7 +2683,6 @@
         "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:41:33.426Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3574,7 +3576,6 @@
       "pensumMin": 60,
       "pensumMax": 75,
       "pensum": "60-75%",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:13:05.094Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4049,7 +4050,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:01.479Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4239,7 +4239,7 @@
       "title": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure",
       "titleByLocale": {
         "it": "Informatico/a CFC - Gestione e infrastrutture",
-        "en": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure",
+        "en": "Information technology learning CFC - Operation and infrastructure",
         "de": "Informatiker/in CFC - Betrieb und Infrastruktur",
         "fr": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure"
       },
@@ -4325,7 +4325,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:50.973Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -4437,7 +4436,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.923Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4528,7 +4526,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.274Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4637,7 +4634,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:41.822Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4753,7 +4749,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:35.983Z",
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -4870,7 +4865,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:38.580Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5283,7 +5277,7 @@
       "id": "etat-de-fribourg-706d320b5c8a",
       "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
       "slugByLocale": {
-        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch-mqyeeh",
         "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
         "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
         "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
@@ -5351,6 +5345,9 @@
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch"
         ]
       },
@@ -6261,7 +6258,7 @@
       "id": "etat-de-fribourg-f2b3df497481",
       "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
       "slugByLocale": {
-        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch-m775zb",
         "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
         "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
         "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
@@ -6329,6 +6326,9 @@
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch"
         ]
       },
@@ -6639,7 +6639,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:15.153Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6721,7 +6720,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:19.324Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -7053,7 +7051,7 @@
       "id": "etat-de-fribourg-cad4bdd7108a",
       "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
       "slugByLocale": {
-        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch-lqk8a9",
         "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
         "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
         "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-4"
@@ -7121,6 +7119,9 @@
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch"
         ]
       },
