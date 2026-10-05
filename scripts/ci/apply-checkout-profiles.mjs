@@ -22,26 +22,31 @@ const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf
 const MARK = '# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs';
 const FULL_CHECKOUT_MARK = '# checkout profile: intentionally full';
 
-// `data/blog-articles-data.ts` is a symlink into the article package. A
-// typecheck profile must carry both names: Git checks out the symlink at the
-// first path, while the compiler resolves its target at the second one.
+// `data/blog-articles-data.ts` is a symlink into the article package and its
+// source imports `./blogImageCdnMirror`. TypeScript resolves that import from
+// the logical `data/` path, so a sparse typecheck must carry both the package
+// files and the matching `data/` symlink alias.
 export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/data/blog-articles-data.ts',
+  '/data/blogImageCdnMirror.ts',
   '/packages/articles/content/blog-articles-data.ts',
+  '/packages/articles/content/blogImageCdnMirror.ts',
 ];
 
 /**
  * Input letti dal build globale mentre gira nel job `vitest`.
  *
- * I primi due nomi sono symlink: Git deve materializzare sia il link sotto
- * `data/` sia il bersaglio reale nel package degli articoli. Gli altri file
- * sono sorgenti letti da Vite/build-plugin a runtime, quindi non bastano la
+ * I nomi `data/blog-articles-data.ts`, `data/blogImageCdnMirror.ts` e
+ * `data/swiss-articles-data.ts` sono symlink: Git deve materializzare sia i
+ * link sotto `data/` sia i bersagli reali nel package degli articoli. Gli altri
+ * file sono sorgenti letti da Vite/build-plugin a runtime, quindi non bastano la
  * chiusura degli import statici né un profilo che guarda solo il typecheck.
  * Tenere il contratto qui, accanto al generatore dei profili, evita che
  * `tests.yml`, il verifier e i test possano divergere.
  */
 export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
   '/data/blog-articles-data.ts',
+  '/data/blogImageCdnMirror.ts',
   '/data/swiss-articles-data.ts',
   '/data/fuel-prices.json',
   '/public/data/fuel-prices.json',
