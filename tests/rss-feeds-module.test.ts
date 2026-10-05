@@ -662,3 +662,42 @@ describe('RSS — credit of a Commons cover (P14)', () => {
     }
   });
 });
+
+// `date: ''` in the registry = publication date unknown (corpus PR 2082). A
+// feed item is a dated thing (`<pubDate>`, newest-first order), so such an
+// article never enters a feed — even when its SEO entry still carries a stale
+// `datePublished` literal — and a malformed literal never becomes the string
+// "Invalid Date" (`new Date('x').toUTCString()` does not throw).
+describe('rssFeeds — unknown and malformed publication dates', () => {
+  const feedsFor = (root: string, registry: Array<Record<string, string>>) =>
+    buildSectionFeeds({
+      repairSerpSnippet, fs, path, rootDir: root, section: RSS_SECTIONS[0], registry, layout: LAYOUT,
+    }).feeds;
+
+  it('keeps an article the registry marks date-unknown out of every feed', () => {
+    const root = makeFixture();
+    const feeds = feedsFor(root, [{ ...REGISTRY[0], date: '' }, { ...REGISTRY[1], date: '2026-03-01' }]);
+    expect(feeds.length).toBeGreaterThan(0);
+    for (const [, xml] of feeds) {
+      expect(xml).not.toContain('Alpha');
+      expect(xml).toContain('Beta');
+    }
+  });
+
+  it('does not treat a registry row without a date field as unknown', () => {
+    const root = makeFixture();
+    const it = feedsFor(root, REGISTRY).find(([n]) => n === 'rss-it.xml')![1];
+    expect(it).toContain('Alpha it');
+  });
+
+  it('drops an item whose datePublished does not parse instead of emitting "Invalid Date"', () => {
+    const root = makeFixture();
+    const seoFile = path.join(root, 'seo', RSS_SECTIONS[0].seoFiles[0]);
+    fs.writeFileSync(seoFile, fs.readFileSync(seoFile, 'utf8').replace('"datePublished": "2026-03-02"', '"datePublished": "not-a-date"'));
+    for (const [, xml] of feedsFor(root, REGISTRY)) {
+      expect(xml).not.toContain('Invalid Date');
+      expect(xml).not.toContain('Alpha');
+      expect(xml).toContain('Beta');
+    }
+  });
+});

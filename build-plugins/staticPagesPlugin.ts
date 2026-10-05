@@ -28,6 +28,7 @@ import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
+import { compareArticleSourceDates } from '../services/articleSourceDates';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -2257,9 +2258,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  let blogArticlesStatic: StaticArticle[] = [];
  try {
  const blogDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'blog-articles-data.ts'), 'utf-8');
- const articleBlocks = [...blogDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/gs)];
+ const articleBlocks = [...blogDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']*)',\s*image:\s*'([^']+)'/gs)];
  blogArticlesStatic = articleBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
- blogArticlesStatic.sort((a, b) => b.date.localeCompare(a.date));
+ blogArticlesStatic.sort(compareArticleSourceDates);
  if (blogArticlesStatic.length) {
  blogHeroImageStatic = blogArticlesStatic[0].image;
  }
@@ -2302,9 +2303,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  let swissHeroImageStatic = '';
  try {
  const swissDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'swiss-articles-data.ts'), 'utf-8');
- const swissBlocks = [...swissDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/gs)];
+ const swissBlocks = [...swissDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']*)',\s*image:\s*'([^']+)'/gs)];
  swissArticlesStatic = swissBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
- swissArticlesStatic.sort((a, b) => b.date.localeCompare(a.date));
+ swissArticlesStatic.sort(compareArticleSourceDates);
  if (swissArticlesStatic.length) {
  swissHeroImageStatic = swissArticlesStatic[0].image;
  }
