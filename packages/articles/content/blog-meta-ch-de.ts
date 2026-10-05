@@ -7721,6 +7721,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sostegno-sociale-berna-procedura.title': 'Sozialhilfe in Bern: Voraussetzungen und Antrag',
     'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Im Kanton Bern richtet sich die Sozialhilfe nach dem Bedarf: Antrag bei der zuständigen Stelle, Unterlagen und Fristen sind beim Kanton zu überprüfen.',
     'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Schweizer Schalter für einen Antrag auf kantonale Sozialhilfe',
+    'blog.article.veicoli-berna-calcolo-pratico.title': 'Motorfahrzeugsteuer in Bern: Berechnung und Zahlung',
+    'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Im Kanton Bern richten sich Kriterien, Fristen, Beträge und die Kfz-Steuerstelle nach den kantonalen Regelungen.',
+    'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Auto und Unterlagen zur kantonalen Motorfahrzeugsteuer in Bern.',
 };
 
 export default blogMetaChDe;
