@@ -1531,6 +1531,24 @@ const benignNormEntity = (acronym) => new RegExp(
 const FISCAL_LABOUR_CUE =
   /(?:tassazion|imposizion|impost[ae]\b|fiscal|tributar|reddit|frontalier|lavor|tirocin|apprendist|\btax|income|cross-border|border\s+work|labou?r\b|\bwork|apprentic|Steuer|Einkommen|Grenzg[äa]nger|grenzüberschreitend|Arbeit|\bLehr|imp[ôo]t|revenu|travail|apprentissage)/i;
 
+// Il traffico e i trasporti, nei quattro locali. Serve alla seconda famiglia
+// di `LTF` inventate (ED-FAB-3, 12 sorgenti it e 21 traduzioni): «legge
+// federale sul traffico (LTF)» al posto della LCStr (circolazione stradale,
+// RS 741.01, 19 dicembre 1958), e le sue varianti «sul traffico ferroviario»,
+// «sul trasporto ferroviario», «sul traffico aereo». Le traduzioni scrivono
+// «Federal Rail Transport Act … (LTF)», «Bundesgesetz über den Luftverkehr
+// (LTF)», «loi fédérale sur le trafic aérien (LTF)»: per questo il cue copre
+// anche ferrovia/trasporto/aereo, non solo la strada. `strad` copre
+// strada/stradale, `routi[eè]r` circulation routière, `Stra(?:ss|ß)e` i
+// composti tedeschi (Strassenverkehr, Straßenverkehrsgesetz).
+const TRANSPORT_TRAFFIC_CUE =
+  /(?:circolazion|traffic|trafic|strad[aei]|autostrad|motorway|Autobahn|autoroute|ferrovi|trasport|aere[oi]\b|automobilist|patente|ciclist|Verkehr|Stra(?:ss|ß)e|Eisenbahn|Fahrzeug|F[üu]hrerausweis|Radfahr|circulation|routi[eè]r|ferroviaire|a[ée]rien|cycliste|permis\s+de\s+conduire|transport|\broad\b|\brail|driving|driver|motorist|vehicle|cyclist)/i;
+
+// L'aggettivo federale nei quattro locali (legge federale, Bundesgesetz, loi
+// fédérale, Federal Act). Alle sigle senza omonimo federale reale basta questo
+// e il tema per dire che la citazione e' inventata.
+const FEDERAL_CUE = /(?:federal|Bundes|f[ée]d[ée]ral)/i;
+
 // Il Tribunale federale nominato nella stessa finestra: e' il contesto della
 // LTF vera, anche in una sentenza di assistenza amministrativa fiscale.
 const JUDICIAL_CUE =
@@ -1619,9 +1637,14 @@ export const FABRICATED_NORM_ACRONYMS = [
     // cioe' il contesto giudiziario anche quando il tema e' fiscale.
     acronym: 'LTF',
     re: /(?<![A-Za-z])LTF(?![A-Za-z])/i,
-    real: 'nessuna legge fiscale/sul lavoro si chiama LTF: la LTF vera è la Legge sul Tribunale federale (RS 173.110). Imposta federale diretta → LIFD (RS 642.11, 14 dicembre 1990); frontalieri italiani → Accordo Svizzera-Italia del 23 dicembre 2020; lavoro → LL (RS 822.11); tirocinio → LFPr (RS 412.10)',
-    context: FISCAL_LABOUR_CUE,
-    benign: /(?:\bart\.?\s*\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
+    real: 'nessuna legge fiscale, sul lavoro o sul traffico si chiama LTF: la LTF vera è la Legge sul Tribunale federale (RS 173.110). Imposta federale diretta → LIFD (RS 642.11, 14 dicembre 1990); frontalieri italiani → Accordo Svizzera-Italia del 23 dicembre 2020; lavoro → LL (RS 822.11); tirocinio → LFPr (RS 412.10); circolazione stradale → LCStr (RS 741.01, 19 dicembre 1958); ferrovie → Lferr (RS 742.101); trasporto viaggiatori → LTV (RS 745.1); aviazione → LNA (RS 748.0)',
+    // ED-FAB-3: la seconda famiglia di LTF inventate e' la «legge federale sul
+    // traffico (LTF)» (strada, ferrovia, aereo). Il tema dei trasporti si
+    // somma a quello fiscale/del lavoro; `veto` e `benign` restano gli stessi,
+    // quindi la LTF giudiziaria resta libera anche in una sentenza sulla
+    // circolazione («art. 84a LTF», «il Tribunale federale … secondo la LTF»).
+    context: new RegExp(`${FISCAL_LABOUR_CUE.source}|${TRANSPORT_TRAFFIC_CUE.source}`, 'i'),
+    benign: /(?:(?:\bart\.?\s*|\barticol[oi]\s+)\d+[a-z]*(?:\s*(?:cpv|al|Abs|para|let|lett|n|Ziff)\.?\s*\d+[a-z]*)*(?:\s*(?:segg?|ss|ff)\.)?(?:\s+(?:dell[ae']?|del|de la|du|des|der|of the))?|Tribunale\s+federale|Tribunal\s+f[ée]d[ée]ral|Bundesgericht\w*|Federal\s+(?:Supreme\s+)?Court(?:\s+Act)?)\s*\(?\s*LTF$/i,
     veto: JUDICIAL_CUE,
     vetoScope: 'statement',
     contextWindow: 120,
@@ -1663,6 +1686,52 @@ export const FABRICATED_NORM_ACRONYMS = [
       /\b(?:ordinanz[ae]|Verordnung|ordonnance|ordinance)\b/i,
       /(?:tassazion|imposizion|Besteuerung|imposition|taxation)/i,
     ),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sull'apprendistato (LFA) del 24 marzo 2017»,
+    // «… (LFA) del 1964», «legge federale sulle frontalieri (LFA) del 2007»,
+    // «Legge federale sugli stranieri (LFA)», «… sugli alimenti e le bevande
+    // (LFA)», «… sull'asilo (LFA)»: 20 file del corpus, una legge diversa a
+    // ogni giro e nessuna esiste con questa sigla. Il contesto chiede una
+    // citazione E l'aggettivo federale nella stessa frase: una «LFA» fuori
+    // da una legge federale (un'azienda, una sigla tecnica) resta libera.
+    acronym: 'LFA',
+    re: /(?<![A-Za-z])LFA(?![A-Za-z])/i,
+    real: "nessuna legge federale si chiama LFA: tirocinio → LFPr (RS 412.10); stranieri → LStrI (RS 142.20); asilo → LAsi (RS 142.31); derrate alimentari → LDerr (RS 817.0); assicurazione malattie → LAMal (RS 832.10)",
+    context: allOf(NORM_CITATION_CUE, FEDERAL_CUE),
+    benign: benignNormEntity('LFA'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sul salario minimo (LSM) del 17 giugno 2015»,
+    // «… (LSM) approvata il 28 settembre 2018», «… (LSM) del 1943»: la
+    // Svizzera non ha un salario minimo federale (l'iniziativa popolare fu
+    // respinta il 18 maggio 2014). La sigla da sola NON basta: in Ticino
+    // esiste una legge cantonale sul salario minimo, e `LSM` compare anche
+    // per altre leggi inventate di altri domini. Il contesto chiede quindi
+    // il salario minimo E l'aggettivo federale nella stessa frase.
+    acronym: 'LSM',
+    re: /(?<![A-Za-z])LSM(?![A-Za-z])/i,
+    real: "non esiste una legge federale sul salario minimo (l'iniziativa popolare è stata respinta il 18 maggio 2014): i salari minimi sono cantonali (Ticino, Neuchâtel, Giura, Ginevra, Basilea Città) o fissati dai contratti collettivi di lavoro",
+    context: allOf(FEDERAL_CUE, /(?:salari[oe]\s+minim|Mindestlohn|salaire\s+minim|minimum\s+wage)/i),
+    benign: benignNormEntity('LSM'),
+    contextScope: 'statement',
+    contextWindow: 120,
+  },
+  {
+    // ED-FAB-3. «legge federale sul commercio estero (LCE) del 10 ottobre
+    // 1977» che «regola le importazioni e le esportazioni»: non esiste. `LCE`
+    // resta libera fuori da questo tema, perche' altrove e' una sigla vera
+    // (la legge belga sulle comunicazioni elettroniche): il contesto chiede
+    // il commercio estero E l'aggettivo federale nella stessa frase.
+    acronym: 'LCE',
+    re: /(?<![A-Za-z])LCE(?![A-Za-z])/i,
+    real: "non esiste una legge federale sul commercio estero: importazioni ed esportazioni → legge federale sulle misure economiche esterne (RS 946.201) e legge sulle dogane (LD, RS 631.0)",
+    context: allOf(FEDERAL_CUE, /(?:commercio\s+ester|Au(?:ss|ß)enhandel|commerce\s+ext[ée]rieur|foreign\s+trade)/i),
+    benign: benignNormEntity('LCE'),
     contextScope: 'statement',
     contextWindow: 120,
   },

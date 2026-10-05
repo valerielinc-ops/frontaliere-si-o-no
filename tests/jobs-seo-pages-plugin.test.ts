@@ -79,6 +79,19 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
     expect(source).not.toContain('itemListElement: cappedJobs.slice(0, 10).map');
     expect(source).toContain('(${companyJobs.length})');
   });
+
+  it('keeps curated employer openings before the long-form sections', () => {
+    const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+    const curatedBody = source.slice(
+      source.indexOf('curatedBodyHtml = ['),
+      source.indexOf('// Apply curated meta overrides so brand-queried SERPs show branded titles.'),
+    );
+
+    expect(curatedBody).toContain('sectionHeadings.openRoles');
+    expect(curatedBody.indexOf('sectionHeadings.openRoles')).toBeLessThan(
+      curatedBody.indexOf('sectionHeadings.about'),
+    );
+  });
 });
 
 describe('capSearchStatsLandingTitle (#3589 sibling: same escape-unaware title-budget class as eventDetailMetaTitle)', () => {
