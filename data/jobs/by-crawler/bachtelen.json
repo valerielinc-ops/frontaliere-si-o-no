@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-10-04T21:36:18.994Z",
+  "assembledAt": "2026-10-05T09:34:35.693Z",
   "jobs": [
     {
       "id": "bachtelen-70710ada9371",
@@ -34,7 +34,7 @@
       "url": "https://www.bachtelen.ch/job/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.926Z",
+      "crawledAt": "2026-10-05T09:34:30.341Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-24",
+      "datePosted": "2026-03-24T13:38:23Z",
+      "postedDate": "2026-03-24T13:38:23Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/job/fruehlogopaedin-fruehlogopaede-50-70/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -117,7 +119,7 @@
       "url": "https://www.bachtelen.ch/job/praktikantinnen-schulsozialpaedagogik-70-75/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.922Z",
+      "crawledAt": "2026-10-05T09:34:30.340Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -130,7 +132,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "datePosted": "2026-06-17T07:49:53Z",
+      "postedDate": "2026-06-17T07:49:53Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/job/praktikantinnen-schulsozialpaedagogik-70-75/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -198,7 +202,7 @@
       "url": "https://www.bachtelen.ch/job/heilpaedagogische-klassenlehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.920Z",
+      "crawledAt": "2026-10-05T09:34:30.339Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -211,7 +215,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "datePosted": "2026-06-17T07:50:22Z",
+      "postedDate": "2026-06-17T07:50:22Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/job/heilpaedagogische-klassenlehrperson/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -275,7 +281,7 @@
       "url": "https://www.bachtelen.ch/job/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.918Z",
+      "crawledAt": "2026-10-05T09:34:30.338Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -288,7 +294,7 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "postedDate": "2026-08-04T09:16:52Z",
       "applyUrl": "https://www.bachtelen.ch/job/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -321,7 +327,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-04T09:16:52Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "bachtelen-7244394926f1",
@@ -354,7 +362,7 @@
       "url": "https://www.bachtelen.ch/job/stellvertretender-psychologin-60-90/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.916Z",
+      "crawledAt": "2026-10-05T09:34:30.337Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -367,7 +375,7 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "postedDate": "2026-08-13T06:46:51Z",
       "applyUrl": "https://www.bachtelen.ch/job/stellvertretender-psychologin-60-90/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -413,7 +421,9 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-13T06:46:51Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "bachtelen-5ef903ad106e",
@@ -446,7 +456,7 @@
       "url": "https://www.bachtelen.ch/job/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.914Z",
+      "crawledAt": "2026-10-05T09:34:30.336Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -459,7 +469,7 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "postedDate": "2026-09-08T06:30:32Z",
       "applyUrl": "https://www.bachtelen.ch/job/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -491,7 +501,9 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-08T06:30:32Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "bachtelen-3659a98137c9",
@@ -525,7 +537,7 @@
       "url": "https://www.bachtelen.ch/job/schulleitung-ad-interim-zyklus-1-50/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.897Z",
+      "crawledAt": "2026-10-05T09:34:30.320Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -538,7 +550,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "2026-09-08T12:44:31Z",
+      "postedDate": "2026-09-08T12:44:31Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/job/schulleitung-ad-interim-zyklus-1-50/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -605,7 +619,7 @@
       "url": "https://www.bachtelen.ch/job/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.895Z",
+      "crawledAt": "2026-10-05T09:34:30.319Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -618,7 +632,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "datePosted": "2026-09-17T11:09:54Z",
+      "postedDate": "2026-09-17T11:09:54Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/job/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -684,7 +700,7 @@
       "url": "https://www.bachtelen.ch/job/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:11.891Z",
+      "crawledAt": "2026-10-05T09:34:30.314Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -697,7 +713,7 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-21T06:25:55Z",
       "applyUrl": "https://www.bachtelen.ch/job/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -730,7 +746,9 @@
           "maxValue": 99600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-21T06:25:55Z",
+      "postingDateSource": "reported"
     }
   ]
 }
