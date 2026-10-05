@@ -7757,6 +7757,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Hausse de la TVA pour la 13e rente AVS',
     'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Le 29 novembre, un vote aura lieu sur l\'augmentation de la TVA de 8,1% à 8,5% pour financer la 13e rente AVS, qui nécessite 4,2 milliards de francs par an.',
     'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Palais fédéral à Berne, siège du gouvernement et du parlement suisses.',
+    'blog.article.lugano-trasparenza-partecipate.title': 'Lugano : l\'UDC propose davantage de transparence sur les rémunérations',
+    'blog.article.lugano-trasparenza-partecipate.excerpt': 'Une motion de l\'UDC demande la publication annuelle des rémunérations des CEO et des conseils d\'administration des sociétés détenues par la Ville de Lugano.',
+    'blog.article.lugano-trasparenza-partecipate.imageAlt': 'Le centre culturel LAC à Lugano surplombant le lac.',
 };
 
 export default blogMetaChFr;
