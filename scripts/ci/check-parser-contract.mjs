@@ -29,8 +29,8 @@
  *                         catena `||` o un campo `start*`, invece di
  *                         `sourcePostingDateCandidatesFields` (PR 11297, 11281).
  *   R5 corpo-senza-soglia `description =` assegnata da un estrattore in un file
- *                         che non importa la soglia di `source-body-floor.mjs`
- *                         e il cui runner non passa da
+ *                         che non applica alla descrizione la soglia di
+ *                         `source-body-floor.mjs` e il cui runner non passa da
  *                         `runStandardCrawlerPipeline`, che la applica prima
  *                         di scrivere (PR 10333).
  *
@@ -291,19 +291,38 @@ function enclosingFunctionName(masked, offset) {
   return last.name;
 }
 
-// La soglia di parole alla fonte, importata direttamente
-// (`source-body-floor.mjs`) o tramite gli helper di `stored-source-body.mjs`
-// che la applicano prima di scrivere, oppure la pipeline standard di
-// `crawler-template.mjs` (`runStandardCrawlerPipeline`), che filtra con
-// `meetsSourceBodyFloor` prima di scrivere la slice.
-const SOURCE_FLOOR_IMPORT_RE = /\bimport\s*\{[^}]*\b(?:meetsSourceBodyFloor|sourceBodyWordCount|MIN_SOURCE_BODY_WORDS|collectThinSourceJobsForQuarantine|keepStoredSourceBodies(?:ByKey)?|drop(?:Failed|Unreadable)SourceJobsWithoutValidBody)\b[^}]*\}\s*from\b/;
+// R5 e' soppressa solo da una soglia di parole APPLICATA al corpo emesso, non
+// dalla sua sola presenza (un import o una `MIN_TITLE_WORDS` per un altro
+// campo non proteggono la descrizione):
+//  - `runStandardCrawlerPipeline(...)`: filtra ogni job con
+//    `meetsSourceBodyFloor(sourceBodyForJob(job))` prima di scrivere la slice;
+//  - una chiamata agli helper di `stored-source-body.mjs` che applicano la
+//    stessa soglia a `sourceBodyForJob(job)` prima di scrivere;
+//  - `meetsSourceBodyFloor(...)` con un argomento che e' la descrizione
+//    (`description`, `x.description`, `sourceBodyForJob(job)`);
+//  - un confronto con una costante `MIN_*WORDS` su un valore che nomina la
+//    descrizione (`descriptionWordCount < MIN_DESCRIPTION_WORDS`).
 const STANDARD_PIPELINE_RE = /\brunStandardCrawlerPipeline\s*\(/;
-// Una soglia di parole scritta a mano (`const MIN_DESCRIPTION_WORDS = 50`):
-// e' una soglia, anche se duplicata invece che importata.
-const LOCAL_WORD_FLOOR_RE = /\bconst\s+MIN_[A-Z_]*WORDS\s*=/;
+const FLOOR_HELPER_CALL_RE = /(?<![\w$])(?:collectThinSourceJobsForQuarantine|keepStoredSourceBodies(?:ByKey)?|drop(?:Failed|Unreadable)SourceJobsWithoutValidBody)\s*\(/;
+const DESCRIPTION_REF_RE = /(?<![\w$])description\w*|\bsourceBodyForJob\s*\(/;
+const WORD_FLOOR_COMPARE_RE = /(?<![\w$])(?:[\w$]+\??\.)?description\w*[^;\n<>]*?(?<![=-])(?:<=?|>=?)\s*MIN_[A-Z_]*WORDS\b|\bMIN_[A-Z_]*WORDS\s*(?<![=-])(?:<=?|>=?)[^;\n]*?(?<![\w$])description/;
+
+/** `meetsSourceBodyFloor(...)` chiamata su un argomento che e' la descrizione. */
+function floorCallOnDescription(masked) {
+  for (const match of masked.matchAll(/(?<![\w$])meetsSourceBodyFloor\s*\(/g)) {
+    const arg = expressionAt(masked, match.index + match[0].length).text;
+    if (DESCRIPTION_REF_RE.test(arg)) return true;
+  }
+  return false;
+}
+
+/** Il testo applica una soglia di parole al corpo emesso? */
 export function hasBodyFloor(text) {
   const { masked } = lexSource(text);
-  return SOURCE_FLOOR_IMPORT_RE.test(masked) || STANDARD_PIPELINE_RE.test(masked) || LOCAL_WORD_FLOOR_RE.test(masked);
+  return STANDARD_PIPELINE_RE.test(masked)
+    || FLOOR_HELPER_CALL_RE.test(masked)
+    || floorCallOnDescription(masked)
+    || WORD_FLOOR_COMPARE_RE.test(masked);
 }
 // Un estrattore: chiamata o valore letto dalla sorgente, non un letterale.
 const LITERAL_ONLY_RE = /^\s*(?:(['"`])x*\1|null|undefined|\[\s*\]|\{\s*\}|0)\s*;?\s*$/;
@@ -370,8 +389,7 @@ export function scanParserSource(source, file = '', { centralBodyFloor = false }
   // R5 — corpo della vacancy senza soglia di parole alla fonte: solo il
   // percorso che scrive il corpo senza passare da nessuna soglia (ne' propria
   // ne' del runner, vedi `hasCentralBodyFloor`).
-  if (!centralBodyFloor && !SOURCE_FLOOR_IMPORT_RE.test(masked) && !STANDARD_PIPELINE_RE.test(masked)
-    && !LOCAL_WORD_FLOOR_RE.test(masked)) {
+  if (!centralBodyFloor && !hasBodyFloor(original)) {
     for (const emission of fieldEmissions(masked, 'description', { property: false })) {
       const value = emission.text;
       if (!value.trim() || LITERAL_ONLY_RE.test(value)) continue;
@@ -391,7 +409,9 @@ export function companionRunner(file) {
 
 /**
  * Il corpo scritto da questo file passa da una soglia di parole? Vero se il
- * file stesso o il suo runner la importano o chiamano la pipeline standard. `read(file)` ritorna il testo o lancia (file assente).
+ * file stesso o il suo runner la APPLICANO alla descrizione (vedi
+ * `hasBodyFloor`): l'import o una costante per un altro campo non bastano.
+ * `read(file)` ritorna il testo o lancia (file assente).
  */
 export function hasCentralBodyFloor(file, source, read) {
   if (hasBodyFloor(source)) return true;

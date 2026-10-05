@@ -85,9 +85,20 @@ describe('R5 corpo senza soglia di parole', () => {
     expect(rulesOf(body)).toEqual(['R5']);
   });
 
-  it('accetta il file che importa la soglia o il cui runner usa la pipeline standard', () => {
-    const imported = `import { meetsSourceBodyFloor } from './source-body-floor.mjs';\n${body}`;
-    expect(rulesOf(imported)).toEqual([]);
+  it('non si accontenta di un import o di una soglia per un altro campo', () => {
+    const missing = () => { throw Object.assign(new Error('missing'), { code: 'ENOENT' }); };
+    const source = 'import { meetsSourceBodyFloor } from "./other.mjs"; const MIN_TITLE_WORDS = 3; const description = extractBody(detail);';
+    const violations = scanParserFile('scripts/lib/x-job-parser.mjs', source, missing);
+    expect(violations.map((v: { rule: string }) => v.rule)).toEqual(['R5']);
+  });
+
+  it('accetta la soglia applicata alla descrizione o il runner con la pipeline standard', () => {
+    const applied = `import { meetsSourceBodyFloor } from './source-body-floor.mjs';\n${body}`
+      + `export function keep(job) {\n  if (!meetsSourceBodyFloor(job.description)) return null;\n  return job;\n}\n`;
+    expect(rulesOf(applied)).toEqual([]);
+    const compared = `const MIN_DESCRIPTION_WORDS = 50;\n${body}`
+      + `const thin = (description) => description.split(/\\s+/).length < MIN_DESCRIPTION_WORDS;\n`;
+    expect(rulesOf(compared)).toEqual([]);
     const runner = `await runStandardCrawlerPipeline({ fetchJobs });\n`;
     const read = (file: string) => {
       if (file === 'scripts/update-demo-jobs.mjs') return runner;

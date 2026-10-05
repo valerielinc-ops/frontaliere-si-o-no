@@ -3,7 +3,7 @@
   "totals": {
     "R3": 23,
     "R4": 18,
-    "R5": 114
+    "R5": 139
   },
   "files": {
     "scripts/lib/a-plus-plus-job-parser.mjs": {
@@ -44,6 +44,9 @@
     "scripts/lib/axa-job-parser.mjs": {
       "R5": 2
     },
+    "scripts/lib/baronie-job-parser.mjs": {
+      "R5": 1
+    },
     "scripts/lib/berit-klinik-job-parser.mjs": {
       "R5": 1
     },
@@ -52,6 +55,9 @@
     },
     "scripts/lib/burkhalter-job-parser.mjs": {
       "R5": 2
+    },
+    "scripts/lib/casale-job-parser.mjs": {
+      "R5": 1
     },
     "scripts/lib/cerbios-pharma-job-parser.mjs": {
       "R5": 2
@@ -96,8 +102,17 @@
     "scripts/lib/ksa-job-parser.mjs": {
       "R4": 1
     },
+    "scripts/lib/lafonte-job-parser.mjs": {
+      "R5": 1
+    },
+    "scripts/lib/lastminute-job-parser.mjs": {
+      "R5": 1
+    },
     "scripts/lib/lis-lugano-istituti-sociali-job-parser.mjs": {
       "R5": 2
+    },
+    "scripts/lib/lombardi-job-parser.mjs": {
+      "R5": 1
     },
     "scripts/lib/mcdonalds-job-parser.mjs": {
       "R3": 2,
@@ -109,11 +124,17 @@
     "scripts/lib/new-yorker-job-parser.mjs": {
       "R3": 1
     },
+    "scripts/lib/pemsa-job-parser.mjs": {
+      "R5": 1
+    },
     "scripts/lib/pkb-private-bank-job-parser.mjs": {
       "R5": 1
     },
     "scripts/lib/postauto-job-parser.mjs": {
       "R3": 1
+    },
+    "scripts/lib/prada-job-parser.mjs": {
+      "R5": 1
     },
     "scripts/lib/protectas-job-parser.mjs": {
       "R3": 1
@@ -167,6 +188,9 @@
     "scripts/lib/yousty-job-parser.mjs": {
       "R5": 1
     },
+    "scripts/lib/zurich-insurance-job-parser.mjs": {
+      "R5": 1
+    },
     "scripts/update-afry-jobs.mjs": {
       "R3": 1,
       "R5": 2
@@ -203,17 +227,24 @@
     "scripts/update-burkhalter-jobs.mjs": {
       "R5": 1
     },
+    "scripts/update-centiel-jobs.mjs": {
+      "R5": 1
+    },
     "scripts/update-citta-di-bellinzona-jobs.mjs": {
       "R3": 1
     },
     "scripts/update-citta-di-lugano-jobs.mjs": {
       "R5": 1
     },
+    "scripts/update-cler-jobs.mjs": {
+      "R5": 1
+    },
     "scripts/update-clinique-le-noirmont-jobs.mjs": {
       "R5": 1
     },
     "scripts/update-confederazione-jobs.mjs": {
-      "R4": 1
+      "R4": 1,
+      "R5": 6
     },
     "scripts/update-coop-jobs.mjs": {
       "R4": 1
@@ -258,11 +289,20 @@
     "scripts/update-lafonte-jobs.mjs": {
       "R5": 2
     },
+    "scripts/update-lastminute-jobs.mjs": {
+      "R5": 2
+    },
     "scripts/update-lis-jobs.mjs": {
       "R5": 2
     },
     "scripts/update-lwphr-jobs.mjs": {
       "R5": 1
+    },
+    "scripts/update-manor-jobs.mjs": {
+      "R5": 2
+    },
+    "scripts/update-medacta-jobs.mjs": {
+      "R5": 2
     },
     "scripts/update-mendrisio-jobs.mjs": {
       "R5": 3
@@ -318,6 +358,12 @@
     "scripts/update-vtg-jobs.mjs": {
       "R4": 1,
       "R5": 1
+    },
+    "scripts/update-zambon-jobs.mjs": {
+      "R5": 1
+    },
+    "scripts/update-zegna-jobs.mjs": {
+      "R5": 2
     }
   }
 }
