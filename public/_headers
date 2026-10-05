@@ -46,10 +46,6 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
 
-/.well-known/ai-plugin.json
-  Cache-Control: public, max-age=86400
-  Content-Type: application/json; charset=utf-8
-
 # IndexNow key — long cache
 /*.txt
   Cache-Control: public, max-age=2592000
