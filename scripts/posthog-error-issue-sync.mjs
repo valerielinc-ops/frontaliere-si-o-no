@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 /**
- * posthog-error-issue-sync.mjs — queries PostHog `$exception` events (same
- * HogQL shape as scripts/triage-app-errors.mjs' top-messages query) for the
- * top recurring client errors and opens/dedupes GitHub backlog issues for
- * the ones above threshold.
+ * posthog-error-issue-sync.mjs — weekly "top recurring client errors" feeder:
+ * reads GA4 `app_error` (with the standard `exception` mirror) for the
+ * production host and opens/dedupes GitHub backlog issues for the ones above
+ * threshold.
  *
- * Companion to app-error-issue-sync.mjs (GA4 source): kept as a separate
- * script because PostHog's `$exception` payload and GA4's `app_error`
- * custom-dimension payload aren't a 1:1 join, and either source can capture
- * an error the other misses (ad blockers / consent state / SDK differences).
+ * The file name is historical. Until decision H9 of the owner (2026-10-05,
+ * «rimpiazza PostHog con GA4») it read PostHog `$exception` autocapture with
+ * GA4 only as a fallback; PostHog is under quota by choice (2026-08-25), so it
+ * was the fallback that ran every week anyway. GA4 is now the only source,
+ * guarded by the GA4 vitality probe (scripts/lib/source-liveness.mjs) before
+ * any issue is synced. The name is kept so the workflow, the open issues'
+ * scheda and the history keep pointing at the same script.
  *
- * Report-only source: a PostHog API failure logs and exits 0 rather than
- * failing the workflow — this is a backlog feeder, not a gate.
+ * Report-only source: a GA4 failure is declared "non misurabile" and exits 0
+ * rather than failing the workflow — this is a backlog feeder, not a gate.
  */
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { extractStackFrameOrigins, hasActionableErrorMessage, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
@@ -31,20 +34,12 @@ export function truncate(value, n) {
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
 }
 
+export const SOURCE_LABEL = 'GA4 `app_error`/`exception` events (production host)';
+
 // Issue-creation deny-list (self-healed transients / confirmed-benign noise
-// kept in PostHog for dashboards but not worth a GitHub ticket) is shared
+// kept in telemetry for dashboards but not worth a GitHub ticket) is shared
 // with the GA4 feeder — see ISSUE_DENY_PATTERNS in ./lib/error-issue-sync.mjs
 // (#3762, #3758/#3759/#3761).
-
-async function hogql(host, pid, key, query) {
-  const r = await fetch(`${host}/api/projects/${pid}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!r.ok) throw new Error(`PH ${r.status}: ${(await r.text()).slice(0, 300)}`);
-  return r.json();
-}
 
 /** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
 export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', minCount = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5)) {
@@ -59,7 +54,7 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
       `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
       `**Resolved stack origins (sample):** ${originsText}`,
       '',
-      `_Source: ${e.sourceLabel || 'PostHog `$exception` autocapture events'}._`,
+      `_Source: ${e.sourceLabel || SOURCE_LABEL}._`,
       '',
       buildScheda({
         causa: [
@@ -76,16 +71,16 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
         metrica: `prima=${e.count} occorrenze in ${windowDays}d atteso=<${minCount} (sotto la soglia del feeder)`,
         comando: 'node scripts/posthog-error-issue-sync.mjs --dry-run',
         note: [
-          'Il comando rigira la stessa query PostHog e stampa le issue che coniera senza',
+          'Il comando rigira la stessa query GA4 e stampa le issue che coniera senza',
           "coniarle: la issue si chiude quando questa firma non compare piu' nell'output.",
-          'Vuole le credenziali PostHog — dalla root del workspace, `source bin/rc-env.sh`.',
+          'Vuole il service account GA4 (sola lettura) — dalla root del workspace, `source bin/rc-env.sh`.',
         ],
         osservatore: [
           '`.github/workflows/posthog-error-monitor.yml`, che rigira la misura e ricommenta',
           "sulla issue canonica finche' la firma resta sopra soglia. Non esiste un closer",
           "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
         ],
-        fallimento: `\`PostHog Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}\``,
+        fallimento: `\`GA4 Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}\``,
       }),
     ].join('\n');
 }
@@ -106,79 +101,45 @@ export async function fetchGa4ErrorFallback({
   return fetchGa4ErrorEntries({ token, startDate, endDate, fetchImpl });
 }
 
-export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
+export async function main({
+  ga4FallbackImpl = fetchGa4ErrorFallback,
+  checkLivenessImpl = checkGa4Liveness,
+} = {}) {
   // Read env lazily (not at module load) so importing this module for tests
-  // doesn't freeze stale/missing credentials — each run's env is fixed by
-  // the time main() is invoked, whether that's the CLI entrypoint below or
-  // a test calling main() directly.
-  const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
-  const PID = process.env.POSTHOG_PROJECT_ID;
-  const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
+  // doesn't freeze stale/missing settings — each run's env is fixed by the
+  // time main() is invoked, whether that's the CLI entrypoint below or a test
+  // calling main() directly.
   const WINDOW_DAYS = process.env.WINDOW_DAYS || '7';
   const MIN_COUNT = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5);
   const MAX_ISSUES = intFromEnv('POSTHOG_ERROR_MAX_ISSUES', 5);
 
-  if (!KEY || !PID) {
-    console.log('[posthog-error-issue-sync] POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — skip');
+  // Vitality guard (scripts/lib/source-liveness.mjs), on the same settled GA4
+  // window the report reads (lag 2 = ga4DateRange(windowDays, 2)). Without it,
+  // "no error above MIN_COUNT" reads identically whether the app threw nothing
+  // or the source ingested nothing — the second is what happened with PostHog
+  // for three weeks from 2026-07-23 and fed #5606/#5607/#5608.
+  const liveness = await checkLivenessImpl({ windowDays: Number(WINDOW_DAYS) });
+  if (!liveness?.alive) {
+    declareNotMeasurable('posthog-error-issue-sync', liveness);
     return;
   }
 
-  // Vitality guard (scripts/lib/source-liveness.mjs). Without it, "no
-  // $exception above MIN_COUNT" below reads identically whether the app threw
-  // nothing or PostHog ingested nothing — the second is what happened for the
-  // three weeks from 2026-07-23, and the resulting `$exception` counts fed
-  // #5606/#5607/#5608. Prefer the GA4 mirror rather than inventing a zero from
-  // a dead source; if both sources are unavailable, abstain.
-  const liveness = await checkPostHogLiveness({ windowDays: Number(WINDOW_DAYS) });
-  let sourceLabel = 'PostHog `$exception` autocapture events';
   let rows;
-
-  // `$exception` has a GA4 mirror through Analytics.trackAppError(). Use it
-  // only after the same-window PostHog liveness verdict says the primary
-  // source cannot be judged; a missing/failed GA4 fallback still abstains.
-  if (!liveness.alive) {
-    try {
-      const ga4Entries = await ga4FallbackImpl({ windowDays: Number(WINDOW_DAYS) });
-      if (!ga4Entries?.length) {
-        declareNotMeasurable('posthog-error-issue-sync', liveness);
-        return;
-      }
-      rows = ga4Entries;
-      sourceLabel = 'GA4 `app_error`/`exception` events (fallback — PostHog non misurabile)';
-    } catch (error) {
-      declareNotMeasurable('posthog-error-issue-sync', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
-      return;
-    }
-  } else {
-    const query = `
-      SELECT
-        properties.$exception_values.1 AS msg,
-        properties.$exception_types.1 AS type,
-        count() AS n,
-        count(DISTINCT $session_id) AS sessions,
-        any(properties.$current_url) AS sample_url,
-        any(properties.$exception_list) AS sample_exception_list
-      FROM events
-      WHERE event = '$exception'
-        AND timestamp > now() - INTERVAL ${WINDOW_DAYS} DAY
-      GROUP BY msg, type
-      ORDER BY n DESC
-      LIMIT 25
-    `.trim();
-
-    try {
-      const result = await hogql(HOST, PID, KEY, query);
-      rows = (result.results || []).map(([msg, type, n, sessions, sampleUrl, sampleExceptionList]) => ({
-        message: msg, type: type || 'exception', count: n, sessions, sampleUrl, sampleExceptionList,
-      }));
-    } catch (e) {
-      console.error(`[posthog-error-issue-sync] HogQL query failed: ${e.message}`);
-      return;
-    }
+  try {
+    rows = await ga4FallbackImpl({ windowDays: Number(WINDOW_DAYS) });
+  } catch (error) {
+    declareNotMeasurable('posthog-error-issue-sync', { ...liveness, alive: false, reason: `GA4 error report failed: ${error.message}` });
+    return;
+  }
+  // `null` = no service-account token: a report that could not run is not
+  // a clean week. An empty array on a live source is a real "no errors".
+  if (!Array.isArray(rows)) {
+    declareNotMeasurable('posthog-error-issue-sync', { ...liveness, alive: false, reason: 'GA4 error report unavailable (no service-account token)' });
+    return;
   }
 
   const entries = rows
-    .map((entry) => ({ ...entry, sourceLabel }))
+    .map((entry) => ({ ...entry, sourceLabel: SOURCE_LABEL }))
     .filter((e) => e.count >= MIN_COUNT)
     .filter((e) => hasActionableErrorMessage(e.message))
     // `cross_origin_script` is deliberately retained in telemetry, but its
@@ -188,7 +149,7 @@ export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
     .filter((e) => !isIssueDenied(e.message, e.type));
 
   if (!entries.length) {
-    console.log(`[posthog-error-issue-sync] no $exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — nothing to sync`);
+    console.log(`[posthog-error-issue-sync] no GA4 app_error/exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — nothing to sync`);
     return;
   }
 
@@ -197,15 +158,17 @@ export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
     dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
-    source: `${sourceLabel} — last ${WINDOW_DAYS}d`,
+    source: `${SOURCE_LABEL} — last ${WINDOW_DAYS}d`,
     priorityFor: (e) => (e.count >= MIN_COUNT * 10 ? 2 : 3),
-    titleFor: (e) => `${sourceLabel.startsWith('GA4') ? 'GA4' : 'PostHog'} Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
+    // `GA4 Exception:` is the prefix the issues opened by the old fallback
+    // branch already carry: keeping it keeps the dedup on the same titles.
+    titleFor: (e) => `GA4 Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
     bodyFor: (e) => buildIssueBody(e, WINDOW_DAYS, MIN_COUNT),
   });
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
-// importing main()/truncate() never triggers a live PostHog/gh call — same
+// importing main()/truncate() never triggers a live GA4/gh call — same
 // guard as scripts/dmarc-monitor.mjs.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const results = await main();
