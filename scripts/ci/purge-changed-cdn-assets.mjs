@@ -72,15 +72,21 @@
  * production deploy for hours (runs 37178543559, 37198287938; reverted by
  * #11489). The hours came from the MimeType that lsjson prints: rclone reads it
  * with one HEAD per object, in series (5,986 HEAD in 9 min on the production
- * bucket; 26 s for the same listing with --no-mimetype). It is not needed: after `rclone copy --checksum` of the stage exits
- * 0, every stage key holds in R2 exactly the stage file's bytes — that is what
- * the exit code certifies — so the MD5 of the local stage file IS the R2
- * fingerprint of that key (`fingerprintStageDir`, local disk only). Keys
- * outside the stage are not referenced by this build's HTML, and the additive
- * copy never rewrites them, so they need no fingerprint. The only R2 listing
- * left is the one-off SEED below, made before the sync when no ledger exists,
- * prefix-limited, without per-object HEADs (`list-objects-v2` returns each
- * ETag in the page itself) and under a wall-clock limit.
+ * bucket; 26 s for the same listing with --no-mimetype). It is not needed:
+ * after `rclone copy --checksum` of the stage exits 0, every stage key holds in
+ * R2 exactly the stage file's bytes — that is what the exit code certifies —
+ * so the MD5 of the local stage file IS the R2 fingerprint of that key
+ * (`fingerprintStageDir`, local disk only). Keys outside the stage are not
+ * referenced by this build's HTML, and the additive copy never rewrites them,
+ * so they need no fingerprint.
+ *
+ * NO LEDGER YET → START EMPTY (review of #11508). The caller then passes the
+ * ledger `{"version":1,"keys":{}}`: every stage key is dirty and takes its
+ * fingerprint only once its own batch succeeds. A baseline taken from R2, even
+ * one listed before the sync, would record as clean a key an earlier run
+ * uploaded but never purged: R2 already holds the new bytes, the edge still
+ * serves the old ones, and this run's log is empty. The price is one purge of
+ * the whole bundle the first time; the gain is no R2 listing at all.
  *
  * FAILURE POSTURE: always exits 0 in purge mode. A missed purge degrades to
  * "the edge serves the previous bytes until the next deploy retries it (ledger)
@@ -97,16 +103,12 @@
  *     --stage-dir        the local dir that `rclone copy` just synced, with exit
  *                        0. Without it, or without --ledger-in: log-only (the
  *                        pre-ledger behaviour) and no ledger is written.
- *     --ledger-in        the ledger as read from R2 (validated, or just seeded).
+ *     --ledger-in        the ledger as read from R2 (validated), or the empty one
+ *                        the caller writes when none exists yet.
  *     --ledger-out       where to write the new ledger; the caller uploads it.
  *
  *   node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in=<json>
  *     exit 0 only for a readable version-1 ledger.
- *
- *   node scripts/ci/purge-changed-cdn-assets.mjs --seed <key-prefix>
- *       --stage-dir=<dir> --seed-listing=<json> --ledger-out=<json>
- *     first-run baseline from a PRE-sync `aws s3api list-objects-v2` of the
- *     prefix; exit 1 (nothing written) when the listing is unusable.
  *
  * Env: CF_API_TOKEN (needs Zone→Cache Purge) — absent means nothing is purged
  *      and no key is marked clean. CDN_PURGE_BASE overrides the public origin
@@ -259,8 +261,6 @@ export function keyToUrl(key, base = DEFAULT_CDN_BASE) {
 export const LEDGER_KEY = 'purge-ledger/assets.json';
 export const LEDGER_VERSION = 1;
 
-const MD5_RE = /^[0-9a-f]{32}$/;
-
 /**
  * `{ "<prefix>/<path>": md5 }` for every file under the synced stage dir,
  * source maps left out (no page loads them, `selectPurgeKeys` never purges
@@ -291,85 +291,9 @@ export function fingerprintStageDir(dir, keyPrefix) {
 }
 
 /**
- * Fingerprint of an S3 `ETag` as `list-objects-v2` returns it (quoted). A
- * single-part upload's ETag is the MD5 of the bytes — measured 2026-10-04 on
- * the production bucket: 53,945 objects under `assets/`, zero composite ETags.
- * A composite (multipart) ETag cannot equal any MD5, so it is kept verbatim
- * with an `etag:` tag: the key then reads as dirty and is purged once, never
- * silently matched.
- *
- * @param {unknown} etag
- * @returns {string|null}
- */
-export function fingerprintFromEtag(etag) {
-  if (typeof etag !== 'string') return null;
-  const raw = etag.trim().replace(/^"+|"+$/g, '').toLowerCase();
-  if (!raw) return null;
-  return MD5_RE.test(raw) ? raw : `etag:${raw}`;
-}
-
-/**
- * Parse `aws s3api list-objects-v2 --query 'Contents[].{Key:Key,ETag:ETag}'`
- * output into `{ key: fingerprint }`, maps left out. aws prints `null` when
- * the prefix holds nothing, which reads as an empty listing here.
- *
- * @param {string} text
- * @returns {Record<string,string>|null} null when the output is not JSON
- */
-export function parseSeedListing(text) {
-  let entries;
-  try {
-    entries = JSON.parse(String(text || '').trim() || 'null');
-  } catch {
-    return null;
-  }
-  if (entries === null) return {};
-  if (!Array.isArray(entries)) return null;
-  /** @type {Record<string,string>} */
-  const out = {};
-  for (const entry of entries) {
-    const key = typeof entry?.Key === 'string' ? entry.Key.replace(/^\/+/, '') : '';
-    if (!key || SOURCE_MAP_KEY_RE.test(key)) continue;
-    const fp = fingerprintFromEtag(entry.ETag);
-    if (fp) out[key] = fp;
-  }
-  return out;
-}
-
-/**
- * First-run baseline, built from a listing taken BEFORE the assets sync: per
- * key of this build's stage, the bytes R2 held before this run touched it —
- * i.e. "the edge is as fresh as R2 was", exactly the assumption the log-only
- * purge has always made. Taking it before the sync is what keeps a partial
- * upload of THIS run dirty (review of #11318): a seed taken after it would
- * record those new bytes as already purged and lose the retry forever.
- *
- * Stage keys absent from R2 stay out of the seed, i.e. dirty: they are new
- * and this run uploads (and purges) them anyway. A listing that names fewer
- * than half the stage's keys is refused (null): seeding from it would leave
- * most of the bundle dirty and the next purge would hit ~2,000 URLs at once —
- * the cold-fill stampede against R2 this script exists to avoid.
- *
- * @param {Record<string,string>|null} listing parseSeedListing output
- * @param {Record<string,string>} stage      fingerprintStageDir output
- * @returns {{ version: number, keys: Record<string,string> }|null}
- */
-export function seedFromListing(listing, stage) {
-  if (!listing) return null;
-  const stageKeys = Object.keys(stage || {});
-  /** @type {Record<string,string>} */
-  const keys = {};
-  for (const key of stageKeys) {
-    if (Object.prototype.hasOwnProperty.call(listing, key)) keys[key] = listing[key];
-  }
-  if (stageKeys.length > 0 && Object.keys(keys).length * 2 < stageKeys.length) return null;
-  return { version: LEDGER_VERSION, keys };
-}
-
-/**
  * Parse a stored ledger. Anything that is not a version-1 ledger with a `keys`
- * object is treated as unusable (null) — the caller then reseeds, because a
- * ledger nobody can read would otherwise never be rewritten.
+ * object is treated as unusable (null) — the caller then starts from an empty
+ * ledger, because a ledger nobody can read would otherwise never be rewritten.
  *
  * @param {string} text
  * @returns {{ version: number, updatedAt?: string, build_id?: string, keys: Record<string,string> }|null}
@@ -455,8 +379,8 @@ export function mergeLedger({ previous, current, purgedKeys, buildId, now, keepU
  * Decide what to purge.
  *
  *   - no stage state or no ledger → `log-only`: this run's uploads, no ledger
- *     write. The caller lands here whenever the ledger read, the seed listing
- *     or the assets sync failed or ran out of time: the fail-open fallback.
+ *     write. The caller lands here whenever the ledger read or the assets
+ *     sync failed or ran out of time: the fail-open fallback.
  *   - otherwise                   → `ledger`: stage-vs-ledger diff ∪ this run's
  *     uploads; `truncated` when the stage names under half the ledger's keys.
  *
@@ -541,39 +465,12 @@ function readStage(dir, keyPrefix) {
   }
 }
 
-function seedMain(flags, keyPrefix) {
-  const stageDir = flags['stage-dir'];
-  const listingPath = flags['seed-listing'];
-  const out = flags['ledger-out'];
-  if (typeof stageDir !== 'string' || typeof listingPath !== 'string' || typeof out !== 'string') {
-    console.log(`::warning::${TAG} --seed needs --stage-dir, --seed-listing and --ledger-out — not seeding`);
-    return 1;
-  }
-  const stage = readStage(stageDir, keyPrefix);
-  const listing = parseSeedListing(readText(listingPath) ?? '');
-  const seed = stage ? seedFromListing(listing, stage) : null;
-  if (!seed) {
-    console.log(
-      `::warning::${TAG} pre-sync R2 listing unusable (${listing ? `${Object.keys(listing).length} key(s) for ${Object.keys(stage || {}).length} in the stage` : 'not JSON'}) — ledger not seeded`,
-    );
-    return 1;
-  }
-  writeFileSync(out, `${JSON.stringify(seed)}\n`);
-  const dirty = Object.keys(stage).length - Object.keys(seed.keys).length;
-  console.log(`::notice::${TAG} purge ledger seeded from the pre-sync R2 state: ${Object.keys(seed.keys).length} key(s), ${dirty} not yet in R2`);
-  return 0;
-}
-
 function main(argv) {
   const { positional, flags } = parseFlags(argv);
 
   if (flags['check-ledger'] === true) {
     const ok = typeof flags['ledger-in'] === 'string' && parseLedger(readText(flags['ledger-in']) ?? '') !== null;
     process.exitCode = ok ? 0 : 1;
-    return;
-  }
-  if (flags.seed === true) {
-    process.exitCode = seedMain(flags, positional[0] || 'assets');
     return;
   }
 

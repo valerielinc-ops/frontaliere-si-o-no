@@ -25,7 +25,7 @@ import { parse } from 'yaml';
  * Two observers:
  *   1. static: every rclone/aws invocation in the deploy scripts runs under
  *      coreutils `timeout`, and the CDN push step has `timeout-minutes`;
- *   2. behavioural: with a listing or a ledger read that never answers, the
+ *   2. behavioural: with a ledger read that never answers, the
  *      push finishes in seconds and purges from this run's upload log.
  */
 
@@ -213,8 +213,6 @@ exit 0
     join(bin, 'aws'),
     `#!/usr/bin/env bash
 echo "aws $*" >> "$STUB_CALLS"
-[ "\${STUB_LIST:-ok}" = hang ] && exec sleep 30
-printf '%s' "\${STUB_LISTING:-[]}"
 `,
   );
   chmodSync(join(bin, 'rclone'), 0o755);
@@ -287,7 +285,6 @@ function runPublish(name: string, env: Record<string, string>) {
         R2_BUCKET: 'bkt',
         DEPLOY_BUILD_ID: 'b-test',
         R2_TIMEOUT_OBJECT_S: '2',
-        R2_TIMEOUT_LIST_S: '2',
         R2_TIMEOUT_PURGE_S: '30',
         STUB_CALLS: calls,
         STUB_DIR: dir,
@@ -312,23 +309,13 @@ function runPublish(name: string, env: Record<string, string>) {
 const COPIED_A = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'a.js' });
 
 describe('behaviour: an R2 call that never answers does not hang the CDN push', () => {
-  it('ledger absent + pre-sync listing that never answers → bounded, purge falls back to the upload log', () => {
-    const r = runPublish('listing-hangs', { STUB_LEDGER: 'absent', STUB_LIST: 'hang', STUB_ASSETS_LOG: COPIED_A });
-    expect(r.code).toBe(0);
-    expect(r.seconds, 'the push must not wait out the stubbed 30 s listing').toBeLessThan(25);
-    expect(r.stdout).toMatch(/::warning::\[r2\] pre-sync listing of assets\/ failed or exceeded 2s \(exit 124\)/);
-    expect(r.stdout).toMatch(/log-only: purging the 1 key\(s\) this run uploaded/);
-    expect(r.stdout, 'the payload still publishes').toMatch(/✅ synced CDN payload to R2/);
-    expect(r.ledger, 'no ledger may be written from a run that could not seed one').toBeNull();
-  });
-
   it('ledger read that never answers → bounded, purge falls back to the upload log', () => {
     const r = runPublish('ledger-hangs', { STUB_LEDGER: 'hang', STUB_ASSETS_LOG: COPIED_A });
     expect(r.code).toBe(0);
     expect(r.seconds).toBeLessThan(25);
     expect(r.stdout).toMatch(/::warning::\[r2\] purge ledger read failed or exceeded 2s \(exit 124\)/);
     expect(r.stdout).toMatch(/log-only: purging the 1 key\(s\) this run uploaded/);
-    expect(r.calls.some((c) => / s3api list-objects-v2 .*Key:Key,ETag:ETag/.test(c)), 'no seed listing after a failed read').toBe(false);
+    expect(r.calls.some((c) => / s3api list-objects-v2 .*Key:Key,ETag:ETag/.test(c)), 'no R2 listing after a failed read').toBe(false);
     expect(r.ledger).toBeNull();
   });
 });
@@ -349,19 +336,19 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(listCalls, 'no listing when the ledger exists').toEqual([]);
   });
 
-  it('ledger absent + listing OK → seeded and persisted BEFORE the assets copy', () => {
-    const listing = JSON.stringify([
-      { Key: 'assets/a.js', ETag: `"${'0'.repeat(32)}"` },
-      { Key: 'assets/b.js', ETag: `"${md5('export const b = 1;\n')}"` },
-    ]);
-    const r = runPublish('seed', { STUB_LEDGER: 'absent', STUB_LISTING: listing, STUB_ASSETS_LOG: '' });
+  it('ledger absent → no R2 listing; it starts empty, every stage key is dirty and none is marked clean without a purge', () => {
+    const r = runPublish('ledger-absent', { STUB_LEDGER: 'absent', STUB_ASSETS_LOG: '' });
     expect(r.code).toBe(0);
-    expect(r.stdout).toMatch(/purge ledger seeded from the pre-sync R2 state: 2 key\(s\)/);
-    const persistAt = r.calls.findIndex((c) => /^rclone copyto \S+ :s3:bkt\/purge-ledger\/assets\.json /.test(c));
+    // The janitor's dry-run scan (after the marker) is the only aws call left;
+    // nothing lists R2 on the way to the assets copy.
     const assetsAt = r.calls.findIndex((c) => /^rclone copy \S+ :s3:bkt\/assets /.test(c));
-    expect(persistAt).toBeGreaterThan(-1);
-    expect(persistAt).toBeLessThan(assetsAt);
-    expect(r.stdout).toMatch(/ledger: 0 key\(s\) uploaded by this run, 1 more changed/);
+    expect(assetsAt).toBeGreaterThan(-1);
+    expect(r.calls.slice(0, assetsAt).filter((c) => /^aws /.test(c)), 'no R2 listing before the assets copy').toEqual([]);
+    expect(r.calls.some((c) => /Key:Key,ETag:ETag/.test(c)), 'no seed-style listing anywhere').toBe(false);
+    expect(r.stdout).toMatch(/no purge ledger yet — starting from an empty one/);
+    expect(r.stdout).toMatch(/ledger: 0 key\(s\) uploaded by this run, 2 more changed in R2/);
+    // No CF_API_TOKEN in the test: nothing is purged, so nothing may be marked clean.
+    expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
   });
 
   it('a later prefix failing: assets still purged, marker withheld (redflag fix of #11489)', () => {

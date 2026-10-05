@@ -214,7 +214,8 @@ _publish_cdn_r2() {
   #   copy assets 66-135 s → 420 · og 61-83 s → 300 · images 16-26 s → 120
   #   copy data 153-201 s, 1,622 s on a backlog → 1800 · job-canon 4-6 s → 120
   #   one object (index.html, marker, ledger) ~1 s → 60
-  #   list-objects-v2 of assets/ (54k objects) 42-53 s → 180
+  # No R2 listing runs on this path: a missing purge ledger starts empty (see
+  # below), so the only listing left is the janitor's dry-run scan.
   # data/ is sized on the backlog, not on a routine deploy: run 37237201212,
   # the first green deploy after 30 h of hung runs, rewrote 31,627 changed
   # files of data/ (152,729 objects, mostly data/job-detail/) at ~1,250 PUT/min.
@@ -223,12 +224,10 @@ _publish_cdn_r2() {
   # the deploy, so recovering from an outage would cost one more 3.5 h run per
   # missing 25k files. The copy is additive, so a cut one still resumes.
   # A call that runs out fails like any other failed call: a sync sets ok=0
-  # (marker withheld, the full prep retries the push), a ledger/listing call
-  # falls back to the log-only purge. The step itself has `timeout-minutes` in
-  # deploy.yml as the last backstop.
-  local _t_obj="${R2_TIMEOUT_OBJECT_S:-60}" _t_list="${R2_TIMEOUT_LIST_S:-180}" _t_purge="${R2_TIMEOUT_PURGE_S:-300}"
-  local AWS=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto"
-    aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
+  # (marker withheld, the full prep retries the push), a ledger read falls back
+  # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
+  # as the last backstop.
+  local _t_obj="${R2_TIMEOUT_OBJECT_S:-60}" _t_purge="${R2_TIMEOUT_PURGE_S:-300}"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
@@ -346,47 +345,24 @@ _publish_cdn_r2() {
     elif node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in="$_pdir/ledger-in.json"; then
       _ledger_state=present
     else
-      echo "::warning::[r2] stored purge ledger is not a readable v1 ledger — reseeding it"
+      echo "::warning::[r2] stored purge ledger is not a readable v1 ledger — starting from an empty one"
       _ledger_state=absent
     fi
   fi
   if [ "$_ledger_state" = absent ]; then
-    # First run (or unreadable ledger): seed it from what R2 holds NOW, before
-    # this run's upload can change it — a seed taken after the sync would
-    # record a partial upload as already purged (review of #11318). One
-    # prefix-limited list-objects-v2: the ETag of each object comes in the
-    # listing page itself, so no per-object HEAD (#11318's `lsjson -R --hash`
-    # wedged on the HEAD it sends per object to read the MimeType, not on the
-    # hashes, which come from the ETag too). Measured on the production bucket:
-    # 53,945 objects under assets/, 42-53 s on the runner (janitor scan of
-    # deploys 36088944074 / 37138892066), 43 s from a laptop (2026-10-04).
-    _rrc=0
-    if ! command -v aws >/dev/null 2>&1; then
-      echo "::warning::[r2] purge ledger absent and no aws CLI to seed it — purge falls back to this run's upload log"
-      _ledger_state=unreadable
-    else
-      timeout -k 10 "$_t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
-        --query 'Contents[].{Key:Key,ETag:ETag}' --output json \
-        > "$_pdir/seed-listing.json" 2> "$_pdir/seed-listing.err" || _rrc=$?
-      if [ "$_rrc" -ne 0 ]; then
-        echo "::warning::[r2] pre-sync listing of assets/ failed or exceeded ${_t_list}s (exit $_rrc) — purge ledger not seeded, purge falls back to this run's upload log: $(tail -c 300 "$_pdir/seed-listing.err" 2>/dev/null)"
-        _ledger_state=unreadable
-      elif node scripts/ci/purge-changed-cdn-assets.mjs --seed assets --stage-dir="$stage/assets" \
-             --seed-listing="$_pdir/seed-listing.json" --ledger-out="$_pdir/ledger-in.json"; then
-        _ledger_state=present
-        # Persist it now, so a run that dies mid-upload still leaves the
-        # next one a pre-upload baseline. Failing to persist only costs that.
-        if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-in.json" "$bkt/$_ledger_key" \
-             --header-upload "Content-Type: application/json; charset=utf-8" \
-             --header-upload "Cache-Control: no-store, max-age=0"; then
-          echo "::notice::[r2] purge ledger seed persisted before the assets/ sync"
-        else
-          echo "::warning::[r2] could not persist the purge ledger seed — this run still uses it"
-        fi
-      else
-        _ledger_state=unreadable
-      fi
-    fi
+    # First run (or a ledger nobody can read): start from an EMPTY ledger, so
+    # every key of this build's stage is dirty and takes its fingerprint only
+    # when its own purge batch succeeds (review of #11508). A baseline taken
+    # from R2 — even one listed before the sync — would mark clean a key an
+    # earlier run uploaded but never purged: R2 already holds the new bytes,
+    # the edge still serves the old ones, and this run's upload log is empty.
+    # The price is one purge of the whole bundle the first time (~2,000 keys in
+    # batches of 30, under the purge time limit; source maps never purged), and
+    # no R2 listing at all on the push path. A run that dies before writing the
+    # ledger simply starts empty again next time.
+    printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
+    _ledger_state=present
+    echo "::notice::[r2] no purge ledger yet — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
   fi
   _r2_sync 420 "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
   assets_sync_status=$?
@@ -421,7 +397,7 @@ _publish_cdn_r2() {
           || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      # Fallback (ledger unread, unseeded or timed out): this run's uploads only.
+      # Fallback (ledger read failed or timed out): this run's uploads only.
       timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
         || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
     elif [ "$assets_sync_ok" != 1 ]; then

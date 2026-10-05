@@ -10,16 +10,13 @@ import {
   MAX_KEYS_PER_RUN,
   PURGE_BATCH_SIZE,
   diffAgainstLedger,
-  fingerprintFromEtag,
   fingerprintStageDir,
   listingLooksTruncated,
   mergeLedger,
   parseLedger,
-  parseSeedListing,
   parseTransferredKeys,
   planPurge,
   purgeInBatches,
-  seedFromListing,
   selectPurgeKeys,
 } from '@/scripts/ci/purge-changed-cdn-assets.mjs';
 
@@ -47,6 +44,9 @@ const OLD = '0'.repeat(32);
 const NEW = 'f'.repeat(32);
 const SAME = 'a'.repeat(32);
 const NOW = new Date('2026-10-03T12:00:00Z');
+
+/** The ledger the prep script starts from when R2 holds none yet (read from the script itself). */
+const BOOTSTRAP_LEDGER = PREP.match(/printf '(\{"version":1,"keys":\{\}\})\\n' > "\$_pdir\/ledger-in\.json"/)?.[1] ?? '';
 
 const ledgerOf = (keys: Record<string, string>) => ({ version: 1, updatedAt: '2026-10-02T00:00:00Z', build_id: 'prev', keys });
 const stateOf = (entries: Record<string, string>) =>
@@ -127,19 +127,19 @@ describe('purge follows R2 state, not one run\'s upload log', () => {
     expect(runOnce({ logText, current, ledger }).selected).toEqual(['assets/router.js']);
   });
 
-  it('pre-sync seed keeps a partial first upload dirty until a purge succeeds (review of #11318)', () => {
-    // Run A: no ledger; R2 held OLD before the sync; the sync wrote NEW and the
-    // run died before purging. The seed was taken BEFORE the sync.
-    const seed = seedFromListing(parseSeedListing(JSON.stringify([{ Key: 'assets/a.js', ETag: `"${OLD}"` }])), stateOf({ 'a.js': NEW }));
-    expect(seed!.keys).toEqual({ 'assets/a.js': OLD });
+  it('no valid ledger: every stage key starts dirty and is recorded only after its batch succeeds (review of #11508)', () => {
+    // An earlier run uploaded NEW for a.js and its purge failed: R2 already
+    // holds NEW, the edge still serves OLD, and this run's upload log is empty.
+    // A baseline read from R2 would call a.js clean; the empty ledger does not.
+    const bootstrap = parseLedger(BOOTSTRAP_LEDGER);
+    expect(bootstrap, 'the prep script must start from an empty v1 ledger').toEqual({ version: 1, keys: {} });
 
-    // Run B: empty upload log, purge fails → still dirty.
-    const failedRetry = runOnce({ current: stateOf({ 'a.js': NEW }), ledger: seed, failBatch: () => true });
-    expect(failedRetry.selected).toEqual(['assets/a.js']);
-    expect(failedRetry.next!.keys['assets/a.js']).toBe(OLD);
+    const failed = runOnce({ current: stateOf({ 'a.js': NEW }), ledger: bootstrap, failBatch: () => true });
+    expect(failed.plan.mode).toBe('ledger');
+    expect(failed.selected).toEqual(['assets/a.js']);
+    expect(failed.next!.keys).not.toHaveProperty('assets/a.js');
 
-    // Run C: empty log again, purge succeeds → recorded clean.
-    const ok = runOnce({ current: stateOf({ 'a.js': NEW }), ledger: failedRetry.next });
+    const ok = runOnce({ current: stateOf({ 'a.js': NEW }), ledger: failed.next });
     expect(ok.selected).toEqual(['assets/a.js']);
     expect(ok.next!.keys['assets/a.js']).toBe(NEW);
   });
@@ -228,44 +228,9 @@ describe('stage fingerprints: the R2 state after a successful copy --checksum', 
       'assets/sub/font.woff2': md5('woff'),
     });
   });
-
-  it('compares equal to the R2 ETag of the same bytes (single-part upload)', () => {
-    const fp = fingerprintStageDir(dir, 'assets')['assets/App.js'];
-    expect(fingerprintFromEtag(`"${fp.toUpperCase()}"`)).toBe(fp);
-  });
 });
 
-describe('the one-off seed (ledger absent) from a pre-sync list-objects-v2', () => {
-  it('parses the aws output, maps left out, `null` = empty prefix', () => {
-    const text = JSON.stringify([
-      { Key: 'assets/App.js', ETag: `"${SAME}"` },
-      { Key: 'assets/App.js.map', ETag: `"${SAME}"` },
-      { Key: 'assets/big.bin', ETag: '"abc123-4"' },
-    ]);
-    expect(parseSeedListing(text)).toEqual({ 'assets/App.js': SAME, 'assets/big.bin': 'etag:abc123-4' });
-    expect(parseSeedListing('null')).toEqual({});
-    expect(parseSeedListing('not json')).toBeNull();
-  });
-
-  it('a composite (multipart) ETag never matches an MD5: that key reads dirty', () => {
-    const seed = seedFromListing({ 'assets/big.js': 'etag:abc-2' }, { 'assets/big.js': SAME });
-    expect(diffAgainstLedger({ 'assets/big.js': SAME }, seed)).toEqual(['assets/big.js']);
-  });
-
-  it('keeps only this build\'s keys; keys new to R2 stay out (dirty)', () => {
-    const listing = { 'assets/a.js': OLD, 'assets/b.js': SAME, 'assets/orphan.js': SAME };
-    const seed = seedFromListing(listing, stateOf({ 'a.js': NEW, 'b.js': SAME, 'new.js': NEW }));
-    expect(seed).toEqual({ version: 1, keys: { 'assets/a.js': OLD, 'assets/b.js': SAME } });
-  });
-
-  it('refuses an empty or short listing instead of seeding a bucket-wide purge', () => {
-    const stage = stateOf({ 'a.js': SAME, 'b.js': SAME, 'c.js': SAME, 'd.js': SAME });
-    expect(seedFromListing({}, stage)).toBeNull();
-    expect(seedFromListing({ 'assets/a.js': SAME }, stage)).toBeNull();
-    expect(seedFromListing(null, stage)).toBeNull();
-    expect(seedFromListing({ 'assets/a.js': SAME, 'assets/b.js': SAME }, stage)).not.toBeNull();
-  });
-
+describe('the stored ledger', () => {
   it('a stored ledger that is not v1 is not trusted', () => {
     expect(parseLedger('{"version":2,"keys":{}}')).toBeNull();
     expect(parseLedger('not json')).toBeNull();
@@ -337,16 +302,14 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(conds.some((c) => /"\$assets_sync_ok" = 1/.test(c) && /"\$_ledger_state" = present/.test(c))).toBe(true);
   });
 
-  it('reads the ledger and seeds it BEFORE the assets sync, never after', () => {
+  it('reads the ledger BEFORE the assets sync; a missing one starts empty, with no R2 listing and no seed', () => {
     const readAt = body.findIndex((l) => /copyto "\$bkt\/\$_ledger_key" "\$_pdir\/ledger-in\.json"/.test(l));
-    const seedAt = body.findIndex((l) => /purge-changed-cdn-assets\.mjs --seed assets/.test(l));
-    const listAt = body.findIndex((l) => /s3api list-objects-v2/.test(l));
+    const bootAt = body.findIndex((l) => l.includes(`printf '${BOOTSTRAP_LEDGER}\\n' > "$_pdir/ledger-in.json"`));
     const assetsAt = body.findIndex((l) => /^_r2_sync \d+ "\$stage\/assets"/.test(l));
-    expect(Math.min(readAt, seedAt, listAt, assetsAt)).toBeGreaterThan(-1);
-    expect(readAt).toBeLessThan(assetsAt);
-    expect(listAt).toBeLessThan(assetsAt);
-    expect(seedAt).toBeLessThan(assetsAt);
-    expect(body.slice(assetsAt).filter((l) => /--seed\b/.test(l)), 'a post-sync seed would mark a partial upload clean').toEqual([]);
+    expect(Math.min(readAt, bootAt, assetsAt)).toBeGreaterThan(-1);
+    expect(readAt).toBeLessThan(bootAt);
+    expect(bootAt).toBeLessThan(assetsAt);
+    expect(body.filter((l) => /list-objects-v2|--seed\b/.test(l)), 'no R2 listing or seed on the push path').toEqual([]);
   });
 
   it('fail-open: no `return` between the ledger read and the assets sync (the deploy never waits on the ledger)', () => {
