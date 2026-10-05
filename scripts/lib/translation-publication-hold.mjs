@@ -53,6 +53,7 @@ import {
 } from './job-locale-utils.mjs';
 import { hasUsableTitle } from './translation-quality.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { previousRunSliceJobs } from './crawler-previous-run-slice.mjs';
 
 /**
  * I crawler di agenzia ammessi solo a traduzione avvenuta. Un'unica lista:
@@ -252,7 +253,7 @@ export function findTranslationHoldPrior(job, priorByKey) {
  * job ha lasciato lo slice.
  *
  * @param {object} job
- * @param {Map<string, object>} priorByKey  indice dello slice su disco
+ * @param {Map<string, object>} priorByKey  indice dello slice del run precedente
  * @returns {boolean}
  */
 export function isAwaitingAdmission(job, priorByKey) {
@@ -273,9 +274,13 @@ const DEFAULT_SLICES_DIR = path.resolve(
 );
 
 /**
- * Indice dei job degli slice di agenzia su disco: l'autorità sull'ammissione,
- * perché è lì che writeJobsCrawlerSlice scrive il timbro. Uno slice assente o
- * illeggibile conta come vuoto (ogni arrivo non tradotto è in attesa).
+ * Indice dei job degli slice di agenzia: l'autorità sull'ammissione, perché è
+ * lì che writeJobsCrawlerSlice scrive il timbro. Conta lo slice del run
+ * precedente (crawler-previous-run-slice.mjs): nel percorso dei runner
+ * dedicati il seed ha già sostituito il file su disco con il working set di
+ * questo run, dove ogni arrivo nuovo sembrerebbe già ammesso. Senza quel
+ * record si legge il file. Uno slice assente o illeggibile conta come vuoto
+ * (ogni arrivo non tradotto è in attesa).
  *
  * @param {{ slicesDir?: string, keys?: string[] }} [opts]
  * @returns {Map<string, object>}
@@ -287,8 +292,14 @@ export function loadTranslationHoldPriorIndex({
   const jobs = [];
   for (const key of keys) {
     if (!isTranslationHoldCrawlerKey(key)) continue;
+    const slicePath = path.join(slicesDir, `${normalizeKey(key)}.json`);
+    const previousRun = previousRunSliceJobs(slicePath);
+    if (previousRun) {
+      jobs.push(...previousRun);
+      continue;
+    }
     try {
-      const data = JSON.parse(fs.readFileSync(path.join(slicesDir, `${normalizeKey(key)}.json`), 'utf8'));
+      const data = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
       const sliceJobs = Array.isArray(data) ? data : data?.jobs;
       if (Array.isArray(sliceJobs)) jobs.push(...sliceJobs);
     } catch { /* slice assente: nessun job ammesso da ritrovare */ }
@@ -335,9 +346,10 @@ export function publishedOnNextDeploy(jobs, { slicesDir } = {}) {
 /**
  * Timbra lo stato di ammissione al momento in cui il crawler scrive lo slice.
  *
- * - job già presente nello slice su disco e non trattenuto (pubblicato prima di
- *   questo cambio o già rilasciato): resta ammesso, anche se oggi il titolo è
- *   tornato una copia. Ritirare un URL già servito non è mai accettabile.
+ * - job già presente nello slice del run precedente e non trattenuto
+ *   (pubblicato prima di questo cambio o già rilasciato): resta ammesso, anche
+ *   se oggi il titolo è tornato una copia. Ritirare un URL già servito non è
+ *   mai accettabile.
  * - job già trattenuto: resta trattenuto (stesso timbro) finché la copia che
  *   sta per essere scritta ha i titoli tradotti, poi viene rilasciato. Una
  *   copia precedente tradotta non basta: se il nuovo titolo è tornato una
@@ -354,7 +366,7 @@ export function publishedOnNextDeploy(jobs, { slicesDir } = {}) {
  *
  * @param {string} crawlerKey
  * @param {object[]} nextJobs   job che stanno per essere scritti (mutati)
- * @param {object[]} existingJobs job dello slice su disco
+ * @param {object[]} existingJobs job dello slice del run precedente
  * @param {{ now?: string }} [opts]
  * @returns {{ gated: boolean, held: number, newlyHeld: number, released: number, admittedOnArrival: number }}
  */
