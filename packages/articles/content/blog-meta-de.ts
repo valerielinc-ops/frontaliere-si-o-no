@@ -12569,6 +12569,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellucci-finale-jingshan-2026.title': 'Mattia Bellucci verpasst den Titel in Jingshan',
     'blog.article.bellucci-finale-jingshan-2026.excerpt': 'Bellucci verliert das Finale der Jingshan Open gegen Harris im entscheidenden Tie-Break, nachdem er zwei Matchbälle nicht genutzt hat. Der Vareser steigt auf Platz 86 der ATP-Rangliste.',
     'blog.article.bellucci-finale-jingshan-2026.imageAlt': 'Mattia Bellucci in Aktion bei einem Challenger-Hartplatzturnier',
+    'blog.article.a2-rumore-galbisio.title': 'A2 und Lärm: Die Stadt plant die Terrasse von Galbisio',
+    'blog.article.a2-rumore-galbisio.excerpt': 'Die Stadt bekräftigt den Schutz von Galbisio vor den Lärm- und Landschaftsauswirkungen der A2. Für Lepori ist dies der erste formelle Schritt nach der Zustimmung des Pab5.',
+    'blog.article.a2-rumore-galbisio.imageAlt': 'A2 und Landschaft rund um Galbisio im Bellinzonese',
 };
 
 export default blogMetaDe;

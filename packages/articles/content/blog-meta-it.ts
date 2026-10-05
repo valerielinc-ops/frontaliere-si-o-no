@@ -12571,6 +12571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellucci-finale-jingshan-2026.title': 'Mattia Bellucci si ferma a un titolo da Jingshan',
     'blog.article.bellucci-finale-jingshan-2026.excerpt': 'Bellucci perde la finale dell\'Open di Jingshan contro Harris al tie-break decisivo dopo due match point non sfruttati. Il varesotto sale al numero 86 ATP.',
     'blog.article.bellucci-finale-jingshan-2026.imageAlt': 'Mattia Bellucci in azione durante un torneo Challenger su cemento',
+    'blog.article.a2-rumore-galbisio.title': 'A2 e rumore: Città pianifica la terrazza di Galbisio',
+    'blog.article.a2-rumore-galbisio.excerpt': 'La Città ribadisce la protezione di Galbisio dall’impatto fonico e paesaggistico dell’A2. Per Lepori è il primo passo formale dopo l’avallo del Pab5.',
+    'blog.article.a2-rumore-galbisio.imageAlt': 'A2 e paesaggio della frazione di Galbisio nel Bellinzonese',
 };
 
 export default blogMetaIt;
