@@ -307,7 +307,11 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(plugin).toContain('const jobListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
-    expect(plugin).toContain('value: companyJobs.length,');
+    // Open-offer totals belong to ItemList/page copy, not Organization's
+    // employee-count property (which would publish a false, volatile fact).
+    expect(plugin).not.toContain('numberOfEmployees');
+    expect(plugin).not.toContain('value: companyJobs.length,');
+    expect(plugin).not.toContain('value: ccJobs.length,');
     expect(plugin).not.toContain('COMPANY_CANTON_ITEMLIST_JOB_CAP');
     expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');

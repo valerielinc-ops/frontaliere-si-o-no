@@ -49,8 +49,10 @@ function assertComplete(schema: JobPostingSchema) {
   // 5. hiringOrganization.name
   expect(schema.hiringOrganization).toBeTruthy();
   expect(schema.hiringOrganization['@type']).toBe('Organization');
+  expect(schema.hiringOrganization['@id']).toMatch(/^https:\/\//);
   expect(schema.hiringOrganization.name).toBeTruthy();
   expect(schema.hiringOrganization.name.length).toBeGreaterThan(0);
+  expect(schema.hiringOrganization.url).toMatch(/^https:\/\//);
 
   // 6. jobLocation
   expect(schema.jobLocation).toBeTruthy();
@@ -114,6 +116,62 @@ describe('buildJobPostingSchema — complete input', () => {
     expect(schema.baseSalary.value.maxValue).toBe(96000);
     expect(schema.employmentType).toBe('FULL_TIME');
     expect(schema.identifier?.value).toBe('eoc-infermiere-123');
+    expect(schema.hiringOrganization['@id']).toBe(
+      'https://frontaliereticino.ch/aziende/eoc-ente-ospedaliero-cantonale/#organization',
+    );
+    expect(schema.hiringOrganization.url).toBe('https://frontaliereticino.ch/aziende/eoc-ente-ospedaliero-cantonale/');
+    expect(schema.hiringOrganization.sameAs).toBe('https://eoc.ch');
+  });
+
+  it('shares one first-party Organization identity across all locales', () => {
+    const job: JobInput = {
+      title: 'Software Engineer',
+      description: 'Ruolo di sviluppo software con responsabilità su prodotti digitali e automazione dei processi del team.',
+      company: 'Acme Corp',
+      companyKey: 'acme',
+      city: 'Lugano',
+      postingDateSource: 'reported',
+      postedDate: '2026-09-01',
+      companyDomain: 'acme.example',
+    };
+    const schemas = (['it', 'en', 'de', 'fr'] as const).map((locale) => buildJobPostingSchema(job, {
+      locale,
+      url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/acme/`,
+    }));
+    const organizations = schemas.map((schema) => schema!.hiringOrganization);
+    expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
+    expect(new Set(organizations.map((organization) => organization.url))).toHaveLength(1);
+    expect(organizations[0]['@id']).toBe('https://frontaliereticino.ch/aziende/acme-corp/#organization');
+    expect(organizations[0].url).toBe('https://frontaliereticino.ch/aziende/acme-corp/');
+    expect(organizations.every((organization) => organization.sameAs === 'https://acme.example')).toBe(true);
+  });
+
+  it.each([
+    { company: 'AXA Svizzera', companyKey: 'axa-svizzera', domain: 'www.axa.ch' },
+    { company: 'BKW', companyKey: 'bkw', domain: 'www.bkw.ch' },
+    { company: 'Coop Genossenschaft', companyKey: 'coop-ticino', domain: 'www.coop.ch' },
+  ])('keeps a corpus employer identity stable for $company', ({ company, companyKey, domain }) => {
+    const organizations = (['it', 'en', 'de', 'fr'] as const).map((locale) => buildJobPostingSchema({
+      title: 'Specialista',
+      description: `Posizione aperta presso ${company} con attività operative, collaborazione e responsabilità definite dal team aziendale.`,
+      company,
+      companyKey,
+      companyDomain: domain,
+      city: 'Lugano',
+      postingDateSource: 'reported',
+      postedDate: '2026-09-01',
+    }, {
+      locale,
+      url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/${companyKey}/`,
+    })!.hiringOrganization);
+
+    expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
+    expect(new Set(organizations.map((organization) => organization.url))).toHaveLength(1);
+    expect(organizations[0]['@id']).toBe(
+      `https://frontaliereticino.ch/aziende/${company.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/#organization`,
+    );
+    expect(organizations[0].url).toBe(organizations[0]['@id'].replace(/#organization$/, ''));
+    expect(organizations.every((organization) => organization.sameAs === `https://${domain}`)).toBe(true);
   });
 
   it('recovers a real title when the localized source contains an AI translation narrative', () => {
