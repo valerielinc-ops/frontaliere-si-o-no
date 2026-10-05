@@ -94,7 +94,7 @@ import { hasUsableContentText, hasUsableTranslatedText } from './lib/usable-cont
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics, repairLlmJson } from './lib/llm-json-repair.mjs';
 import { describePayloadRejection } from './lib/llm-payload-diagnostics.mjs';
 import {
   factCheckFingerprint,
@@ -4120,39 +4120,6 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
 // assertNoFabricatedStatistics() REMOVED — replaced by LLM-based fact-checking.
 // The LLM understands context ("73,2% dei frontalieri" is likely fabricated vs
 // "5,3% AVS" is a real rate) far better than regex pattern matching.
-
-// ── LLM JSON repair (handles common LLM output quirks) ────────────────
-// Why: GitHub Models / Groq / Mistral occasionally emit markdown bold
-// markers (`**` / `***`) between JSON properties instead of commas, or
-// wrap the payload in ```json fences, or stick a preamble before the
-// opening `{`, or echo a quoted phrase from the source text unescaped
-// (e.g. a title like `..."tassa sulla salute"...`) which desyncs naive
-// quote-toggle string tracking into `Unterminated string in JSON`. The
-// string-repair walk (preserve asterisks INSIDE quoted strings — markdown
-// bold in body1/body2 is load-bearing — replace stray `*` OUTSIDE strings
-// with a comma, escape unescaped inner quotes) lives in
-// ./lib/llm-json-repair.mjs, shared with batch-add-faq-to-articles.mjs's
-// repairJsonArray. Truncated payloads still throw — callers detect that
-// via `parseErr.message` and retry with a larger `maxTokens`.
-function repairLlmJson(raw) {
-  let c = stripCodeFences(raw);
-  const start = c.indexOf('{');
-  if (start !== -1) {
-    // Bracket-balanced extraction (mirrors repairJsonArray in batch-add-faq-to-articles.mjs)
-    // so trailing LLM prose or a foreign '}' from an interior nested object does not
-    // pull in the wrong boundary via lastIndexOf. Falls back to lastIndexOf when
-    // findMatchingClose returns -1 (e.g. raw truncated inside a string literal).
-    const closeIdx = findMatchingClose(c, start, true);
-    if (closeIdx !== -1) {
-      c = c.slice(start, closeIdx + 1);
-    } else {
-      const end = c.lastIndexOf('}');
-      if (end > start) c = c.slice(start, end + 1);
-    }
-  }
-  const out = fixJsonStringBody(c, { fixAsterisks: true });
-  return out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
-}
 
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
