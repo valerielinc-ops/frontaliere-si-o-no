@@ -16,11 +16,23 @@ describe('static Article JSON-LD safety net', () => {
       },
     }) as Record<string, any>;
 
+    expect(normalized['@type']).toBe('WebPage');
     expect(normalized.author.name).toBe('Frontaliere Ticino');
     expect(normalized.author.url).toBe('https://frontaliereticino.ch/');
     expect(normalized.publisher.name).toBe('Frontaliere Ticino');
     expect(normalized.publisher.logo['@type']).toBe('ImageObject');
     expect(normalized.image.contentUrl).toBe(normalized.image.url);
+  });
+
+  it('keeps Article semantics when an editorial publication date is present', () => {
+    const normalized = normalizeArticleStructuredData({
+      '@type': 'Article',
+      headline: 'Dated article',
+      datePublished: '2026-10-01',
+    }) as Record<string, any>;
+
+    expect(normalized['@type']).toBe('Article');
+    expect(normalized.datePublished).toBe('2026-10-01');
   });
 
   it.each([

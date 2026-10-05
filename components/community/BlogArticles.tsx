@@ -1640,6 +1640,7 @@ function BlogArticles({
  // only prefix the origin for same-origin relative paths (e.g. /images/places).
  const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
  const scriptId = 'blog-article-jsonld';
+ const schemaDates = articleSchemaDates(article);
  // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
  // to prevent duplicate schemas during SPA hydration
  document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
@@ -1656,11 +1657,13 @@ function BlogArticles({
  });
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'NewsArticle',
+ // An article without a documented publication date is an evergreen page,
+ // not a NewsArticle with an unknown timestamp.
+ '@type': schemaDates.datePublished ? 'NewsArticle' : 'WebPage',
  '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
- ...articleSchemaDates(article),
+ ...schemaDates,
  author: ldAuthorName
  ? {
  '@type': 'Person',
