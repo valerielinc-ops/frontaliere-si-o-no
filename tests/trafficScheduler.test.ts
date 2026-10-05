@@ -72,6 +72,16 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
     }
   });
 
+  it('carries the same canton as data/borderCrossings.ts for every crossing', () => {
+    // publish-border-wait-window.mjs tags the ranking window with this field;
+    // a drift here would file a crossing under the wrong canton's ranking.
+    const cantonByName = new Map(borderCrossings.map(c => [c.name, c.canton]));
+    const mismatches = SCHEDULER_CROSSINGS
+      .filter(c => c.canton !== cantonByName.get(c.name))
+      .map(c => `${c.name}: ${c.canton} != ${cantonByName.get(c.name)}`);
+    expect(mismatches).toEqual([]);
+  });
+
   it('has valid latitude/longitude for every crossing', () => {
     // Switzerland + immediately-adjacent border territory across all supported
     // neighbours (IT/FR/DE/AT/LI), not just the original Ticino-only scope:

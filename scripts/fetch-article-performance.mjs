@@ -1,7 +1,7 @@
 /**
  * fetch-article-performance.mjs
  *
- * Reads GSC + GA4 + PostHog + AdSense for each blog article URL,
+ * Reads GSC + GA4 + AdSense for each blog article URL,
  * computes composite performance score, writes data/article-performance.json.
  * Used by scripts/create-article.mjs to inject "winner fingerprint"
  * priors into the LLM generation prompt.
@@ -10,9 +10,6 @@
  *   FIREBASE_SERVICE_ACCOUNT_JSON  — for GSC + GA4 (same SA reused)
  *   GOOGLE_APPLICATION_CREDENTIALS — path to SA file (workflow writes it)
  *   GA4_PROPERTY_ID                — GA4 property id (e.g. "properties/123" or just "123")
- *   POSTHOG_PERSONAL_API_KEY       — PostHog read-only key
- *   POSTHOG_PROJECT_ID             — PostHog project id
- *   POSTHOG_HOST                   — default https://eu.posthog.com
  *   ADSENSE_CLIENT_ID, ADSENSE_CLIENT_SECRET, ADSENSE_REFRESH_TOKEN
  *                                  — see revenue-monitor.mjs for the
  *                                    inherited GSC_* fallback chain.
@@ -20,6 +17,15 @@
  *
  * When no source is configured, the script still exits 0, writes a
  * well-formed JSON with empty winners[]/losers[] and `sources.*.ok=false`.
+ *
+ * PostHog is no longer read (decisione H9 del 2026-10-05, «rimpiazza PostHog
+ * con GA4»): its per-page `pageviews` duplicated GA4 `screenPageViews`, and
+ * its `scrollP50` has no GA4 equivalent today — the client sends
+ * `scroll_depth` with `percent_scrolled` to GA4, but that parameter is not a
+ * registered GA4 dimension and the 50 EVENT dimensions are full (decisione
+ * H4). `scrollP50` therefore stays null, exactly as it already was while
+ * PostHog was under quota, and `composeScores` re-weights over the channels
+ * that are present.
  *
  * Spec: docs/superpowers/specs/2026-05-06-smarter-article-generator-design.md
  */
@@ -39,7 +45,6 @@ import { computeAverageWordCount } from './lib/perf-sources/wordCount.mjs';
 import { safe, pathnameFromUrl } from './lib/perf-sources/safe.mjs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import { fetchGa4ByPage } from './lib/perf-sources/ga4.mjs';
-import { fetchPostHogByPage } from './lib/perf-sources/posthog.mjs';
 import { fetchAdsenseChannelRevenue } from './lib/perf-sources/adsense.mjs';
 import {
   composeScores,
@@ -48,7 +53,6 @@ import {
 } from './lib/perf-sources/scoring.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
-import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
@@ -77,7 +81,6 @@ function daysSince(isoDate) {
  * sources.* shape:
  *   gsc:     { ok: true, rows, perPath: Map<path, {clicks, impressions, ctr, position}> }
  *   ga4:     { ok: true, rows, perPath: Map<path, {pageviews, engagementRate, ...}> }
- *   posthog: { ok: true, rows, perPath: Map<path, {pageviews, scrollP50}> }
  *   adsense: { ok: true, rows, totalRevenue, perChannel }
  *
  * articles: Array<{ slug, locale, url, title, excerpt }>
@@ -93,10 +96,9 @@ export function aggregate({
 }) {
   // 1) Build per-URL row blending all available signals.
   // Pageview share is needed to distribute AdSense revenue when AdSense is
-  // present (per-channel, distributed by GA4 pageviews → fall back to
-  // PostHog pageviews → fall back to GSC clicks).
+  // present (per-channel, distributed by GA4 pageviews → fall back to GSC
+  // clicks).
   const ga4PerPath = sources.ga4?.ok ? sources.ga4.perPath : new Map();
-  const phPerPath = sources.posthog?.ok ? sources.posthog.perPath : new Map();
   const gscPerPath = sources.gsc?.ok ? sources.gsc.perPath : new Map();
   const adsenseTotal = sources.adsense?.ok ? Number(sources.adsense.totalRevenue || 0) : 0;
 
@@ -109,7 +111,6 @@ export function aggregate({
       if (!p) continue;
       let views = 0;
       if (ga4PerPath.has(p)) views = Number(ga4PerPath.get(p).pageviews || 0);
-      else if (phPerPath.has(p)) views = Number(phPerPath.get(p).pageviews || 0);
       else if (gscPerPath.has(p)) views = Number(gscPerPath.get(p).clicks || 0);
       if (views > 0) candidates.push({ p, views });
     }
@@ -126,7 +127,6 @@ export function aggregate({
     if (!p) continue;
     const gsc = gscPerPath.get(p) || null;
     const ga4 = ga4PerPath.get(p) || null;
-    const ph = phPerPath.get(p) || null;
     const meta = seoMeta.get(a.slug) || { cluster: null, publishedAt: null };
     // articleSection is the preferred source; only ~10/2140 articles set it,
     // so for the rest we fall back to a heuristic over title+slug+excerpt.
@@ -147,14 +147,16 @@ export function aggregate({
     const clicks = gsc?.clicks ?? null;
     const impressions = gsc?.impressions ?? null;
     const ctr = gsc?.ctr ?? null;
-    const pageviews = ga4?.pageviews ?? ph?.pageviews ?? null;
+    const pageviews = ga4?.pageviews ?? null;
     const adsenseRevenue = viewShareMap?.has(p)
       ? Number((viewShareMap.get(p) * adsenseTotal).toFixed(4))
       : null;
     // Editorial proxy: channel revenue allocated by view share is an estimate,
     // never observed per-page earnings (including the all-channel fallback).
     const adsenseRevenueOrProxy = adsenseRevenue !== null ? adsenseRevenue : pageviews;
-    const scrollP50 = ph?.scrollP50 ?? null;
+    // No GA4 equivalent without a new dimension (see header): kept in the
+    // row shape so consumers and the score formula stay stable.
+    const scrollP50 = null;
 
     // Skip articles too young to evaluate.
     const ageDays = daysSince(meta.publishedAt);
@@ -228,13 +230,13 @@ export function aggregate({
     articleCount: articles.length,
     articlesScored: scored.length,
     filters: {
-      newsletter: { applied: true, method: 'utm_medium=newsletter (GA4 + PostHog); GSC is organic-only' },
+      newsletter: { applied: true, method: 'utm_medium=newsletter (GA4); GSC is organic-only' },
     },
     sources: serializeSources(sources),
     revenueAttribution: {
       method: 'editorial_proxy_view_share',
       measuredPerPage: false,
-      note: 'Channel totals are allocated by GA4/PostHog views or GSC clicks; all-channel fallback may include non-article revenue and overlapping URL channels. Partial source coverage remains a partial estimate.',
+      note: 'Channel totals are allocated by GA4 views or GSC clicks; all-channel fallback may include non-article revenue and overlapping URL channels. Partial source coverage remains a partial estimate.',
     },
     scoreFormula: '0.4*z(clicks) + 0.2*z(impressions) + 0.2*z(adsense_revenue||proxy) + 0.1*z(scroll_depth_p50) + 0.1*z(ctr)',
     winners: winners.map(toOutputRow),
@@ -409,21 +411,16 @@ async function main() {
   console.log(`[perf] seo-blog meta entries: ${seoMeta.size}`);
 
   // Each source is wrapped in safe() so the orchestrator never throws.
-  const [gsc, ga4, posthog, adsense] = await Promise.all([
+  const [gsc, ga4, adsense] = await Promise.all([
     safe('gsc', () => fetchGscByPage({ windowDays: WINDOW_DAYS })),
     safe('ga4', () => fetchGa4ByPage({
       windowDays: WINDOW_DAYS,
       getTokenImpl: () => getServiceAccountToken([GA4_READONLY_SCOPE]),
     })),
-    safe('posthog', async () => {
-      const liveness = await checkPostHogLiveness({ windowDays: WINDOW_DAYS });
-      if (!liveness.alive) throw new Error(`PostHog non misurabile: ${liveness.reason}`);
-      return fetchPostHogByPage({ windowDays: WINDOW_DAYS });
-    }),
     safe('adsense', () => fetchAdsenseChannelRevenue({ windowDays: WINDOW_DAYS })),
   ]);
 
-  for (const [name, s] of Object.entries({ gsc, ga4, posthog, adsense })) {
+  for (const [name, s] of Object.entries({ gsc, ga4, adsense })) {
     if (s.ok) {
       console.log(`[perf] ${name}: ok (${s.rows ?? 'n/a'} rows)`);
     } else {
@@ -434,7 +431,7 @@ async function main() {
   const output = aggregate({
     articles,
     seoMeta,
-    sources: { gsc, ga4, posthog, adsense },
+    sources: { gsc, ga4, adsense },
   });
 
   const outPath = path.join(ROOT, 'data', 'article-performance.json');

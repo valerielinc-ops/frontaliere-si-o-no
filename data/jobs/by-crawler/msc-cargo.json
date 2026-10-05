@@ -214,12 +214,20 @@
       "jobReqId": "17851",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-leiter-crm-msc-group-geneva",
-        "global-responsable-crm-msc-group-geneva",
-        "global-head-of-crm-msc-geneva",
-        "global-responsabile-crm-msc-group-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:42.538Z",
       "previousSlugsByLocale": {
         "it": [
           "global-leiter-crm-msc-group-geneva",
@@ -236,20 +244,12 @@
           "global-responsable-crm-msc-group-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:42.538Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-leiter-crm-msc-group-geneva",
+        "global-responsable-crm-msc-group-geneva",
+        "global-head-of-crm-msc-geneva",
+        "global-responsabile-crm-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-c0a3fef0fd77",
@@ -303,6 +303,24 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsable-product-category-watches-jewellery-msc-group-geneva",
+        "leiter-product-category-watches-jewellery-msc-group-geneva",
+        "responsabile-product-category-watches-jewellery-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-product-category-watches-jewellery-msc-group-geneva",
+          "leiter-product-category-watches-jewellery-msc-group-geneva",
+          "responsabile-product-category-watches-jewellery-msc-group-geneva"
+        ],
+        "de": [
+          "leiter-product-category-watches-jewellery-msc-group-geneva"
+        ],
+        "fr": [
+          "responsable-product-category-watches-jewellery-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
@@ -316,29 +334,7 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-product-category-watches-jewellery-msc-group-geneva",
-          "leiter-product-category-watches-jewellery-msc-group-geneva",
-          "responsabile-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ],
-        "de": [
-          "leiter-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ],
-        "fr": [
-          "responsable-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsable-product-category-watches-jewellery-msc-group-geneva",
-        "leiter-product-category-watches-jewellery-msc-group-geneva",
-        "responsabile-product-category-watches-jewellery-msc-group-geneva",
-        "head-of-product-category-watches-jewellery-msc-geneva"
-      ]
+      }
     },
     {
       "id": "msc-cargo-50d293b9d6b0",
@@ -472,12 +468,20 @@
       "jobReqId": "17779",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-leiter-brand-marketing-msc-group-geneva",
-        "global-responsable-brand-marketing-msc-group-geneva",
-        "global-head-of-brand-marketing-msc-geneva",
-        "global-responsabile-brand-marketing-msc-group-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:39.222Z",
       "previousSlugsByLocale": {
         "it": [
           "global-responsable-brand-marketing-msc-group-geneva",
@@ -494,39 +498,31 @@
           "global-responsable-brand-marketing-msc-group-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:39.222Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-leiter-brand-marketing-msc-group-geneva",
+        "global-responsable-brand-marketing-msc-group-geneva",
+        "global-head-of-brand-marketing-msc-geneva",
+        "global-responsabile-brand-marketing-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
-      "slug": "manager-cruise-development-and-execution-msc-geneva",
+      "slug": "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
       "slugByLocale": {
-        "it": "manager-cruise-development-and-execution-msc-geneva",
         "en": "manager-cruise-development-and-execution-msc-geneva",
-        "de": "manager-cruise-development-and-execution-msc-geneva",
-        "fr": "manager-cruise-development-and-execution-msc-geneva"
+        "it": "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
+        "de": "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
+        "fr": "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
       "companyDomain": "msc.com",
       "title": "Manager, Cruise Development and Execution",
       "titleByLocale": {
-        "it": "Manager, Cruise Development and Execution",
         "en": "Manager, Cruise Development and Execution",
-        "de": "Manager, Cruise Development and Execution",
-        "fr": "Manager, Cruise Development and Execution"
+        "it": "Manager, Sviluppo ed Esecuzione Crociere",
+        "de": "Manager, Entwicklung und Umsetzung der Kreuzfahrt",
+        "fr": "Responsable du développement et de l'exécution des croisières"
       },
       "description": "Where passion meets opportunity\n\nThe best of your adventures is the one you have yet to sail!\n\nYour Purpose\n\nTurn approved deployment plans into executable, commercially ready cruise itineraries. Drawing on your seagoing experience as a Chief Officer and your knowledge of our ships and ports, you will build detailed cruise schedules and ensure their accurate setup in planning, commercial and booking systems, supporting a smooth transition from itinerary development to sale opening and operational delivery.\n\nYour Impact\n\n-\nExecute detailed cruise itineraries based on approved deployment plans and the port availability and requirements provided by your manager, who leads port relations and availability coordination.\n\n-\nMatch MSC ships to suitable ports, taking into account vessel characteristics, nautical restrictions, port infrastructure and operational requirements.\n\n-\nBuild feasible cruise schedules, arrival and departure times, turnaround requirements and time available for shore experiences.\n\n-\nCreate and maintain itineraries in relevant commercial and booking systems, ensuring accurate and consistent ship assignments, port sequences, dates and timings.\n\n-\nTranslate confirmed port information and operational constraints into itinerary updates, coordinating changes with the relevant teams.\n\n-\nWork closely with Planning, Ports, Maritime, Revenue, Commercial, Marketing, Shore Excursions and IT to ensure itineraries are correctly configured and ready for sale.\n\n-\nTrack outstanding information, approvals and system dependencies; escalate feasibility issues or readiness gaps and follow corrective actions through to resolution.\n\n-\nPrepare accurate itinerary documentation and support operational handover, ensuring teams have the information needed to deliver the planned cruise.\n\n-\nReview itinerary performance and operational feedback to improve future schedules and reduce setup errors.\n\nYour Journey so far\n\n-\nPrevious seagoing experience as a Chief Officer is mandatory.\n\n-\nStrong practical knowledge of cruise itinerary planning, port operations and vessel operating requirements.\n\n-\nKnowledge of MSC ships and itineraries, including the operational suitability of individual vessels for specific ports.\n\n-\nExperience translating nautical and operational constraints into feasible voyage schedules.\n\n-\nExperience working with detailed planning data and coordinating implementation across multiple functions.\n\n-\nA qualification in Maritime Studies, Nautical Science or a related discipline.\n\nYour Essentials\n\n-\nAbility to assess ship–port compatibility, sailing-time feasibility and port-call requirements.\n\n-\nStrong attention to detail when creating, checking and updating itinerary data.\n\n-\nProficiency in itinerary planning and commercial or booking systems; familiarity with DTS is an advantage.\n\n-\nStrong coordination, problem-solving and organisational skills, with the ability to manage deadlines and follow actions through to completion.\n\n-\nFluent English, written and spoken.\n\nOur commitment\n\nWe are committed to building a future that values diverse perspectives, embraces the world beyond borders, and fosters an inclusive environment where every individual feels valued, respected and empowered to be their authentic selves. Our commitment extends to taking meaningful, measurable actions that have a long-term positive impact on our guests, our employees and our planet.\n\nReady to turn your passion into something extraordinary? Join us at MSC Cruises, where new opportunities await. Apply today to be part of a global team that is pushing boundaries and achieving something remarkable. Your journey starts here!",
       "descriptionByLocale": {
@@ -560,7 +556,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T11:33:51.809Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -573,7 +568,22 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-27T11:33:51.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ],
+        "de": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ],
+        "fr": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "manager-cruise-development-and-execution-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b97d5d608b1c",
@@ -962,7 +972,21 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsabile-marketing-al-dettaglio-msc-group-geneva",
+        "directeur-du-marketing-de-detail-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-marketing-al-dettaglio-msc-group-geneva",
+          "directeur-du-marketing-de-detail-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-du-marketing-de-detail-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-02T09:22:11.341Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -976,23 +1000,6 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:22:11.341Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-marketing-al-dettaglio-msc-group-geneva",
-          "directeur-du-marketing-de-detail-msc-group-geneva",
-          "retail-marketing-manager-msc-geneva"
-        ],
-        "fr": [
-          "directeur-du-marketing-de-detail-msc-group-geneva",
-          "retail-marketing-manager-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-marketing-al-dettaglio-msc-group-geneva",
-        "directeur-du-marketing-de-detail-msc-group-geneva",
-        "retail-marketing-manager-msc-geneva"
-      ],
       "crawlerMissStreak": 1
     },
     {
@@ -1126,17 +1133,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-        "retail-learning-development-manager-msc-geneva"
+        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,

@@ -163,6 +163,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-body-wordcount.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-fabrication-guard.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-frontaliere-density.test.ts', roots: ['services/locales/'] },
+  // Misura il peso del writer usando il record Lugano dello snapshot pubblicato
+  // e verifica che il parser conservi i campi aggiunti dal giro meteo. Il dato
+  // vivo e` quindi parte intenzionale dell'asserzione: il test va nel monitor,
+  // non nel gate riproducibile delle PR.
+  { file: 'tests/weather-canton-capitals.test.ts', roots: ['data/weather-snapshot.json'], since: '2026-10-05', evidence: 'review', runtime: true },
   // `runtime`: il percorso vivo e' costruito su `rootDir`, un alias della root
   // del checkout, e il file crea anche cartelle temporanee: a solo testo ha la
   // forma di una fixture. Traccia del 2026-10-03: sonda

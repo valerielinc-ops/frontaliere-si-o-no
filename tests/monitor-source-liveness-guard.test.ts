@@ -70,6 +70,8 @@ const {
   declareNotMeasurable,
   DEFAULT_MIN_EVENTS_PER_DAY,
   POSTHOG_MONITORS,
+  GA4_MONITORS,
+  GA4_DATA_MIRRORS,
 } = await import('../scripts/lib/source-liveness.mjs');
 
 /**
@@ -254,126 +256,117 @@ describe('declareNotMeasurable — abstention is loud, never silent', () => {
 // 2. THE LOAD-BEARING TESTS: real monitors, dead source, no judgement.
 // ---------------------------------------------------------------------------
 
-describe('cwv-monitor-check abstains on a dead source', () => {
-  it('opens NO issue when PostHog ingested ~5 events/day over the window', async () => {
-    // The $web_vitals rows are deliberately a screaming regression: CLS 3.0 on
-    // a 0.1-threshold page, twice over. If the guard is not consulted, this
-    // MUST open an issue — which is exactly what makes the assertion below
-    // meaningful rather than a tautology.
-    mockPostHog(DEAD_PER_DAY, [[3.0, 5000, 4000, 5000]]);
+/**
+ * GA4 verdicts injected into the monitors' `checkLivenessImpl`. Since
+ * decision H9 (2026-10-05) GA4 is the monitors' only source: the PostHog
+ * mock above stays only to prove they no longer query it.
+ */
+const GA4_DEAD = {
+  alive: false, reason: 'ga4 ingested < 500 events/day on 7 of 7 complete day(s)', windowDays: 7, floor: 500,
+  daysEvaluated: [], deadDays: [], totalEvents: 0, source: 'ga4',
+};
+const GA4_ALIVE = {
+  alive: true, reason: 'ga4 ingested >= 500 events on each of the 7 complete day(s)', windowDays: 7, floor: 500,
+  daysEvaluated: [], deadDays: [], totalEvents: 1554069, source: 'ga4',
+};
+
+describe('cwv-monitor-check abstains on a dead GA4 source', () => {
+  /** A screaming regression on every target page: CLS 3.0 against a 0.1 threshold. */
+  async function regressionRows() {
+    const { TARGET_PAGES } = await import('../scripts/cwv-monitor-check.mjs');
+    const rows: Array<Record<string, unknown>> = [];
+    for (const page of TARGET_PAGES as Array<{ path: string }>) {
+      rows.push({ path: page.path, device: 'mobile', metric: 'CLS', value: 3.0, count: 5000 });
+      rows.push({ path: page.path, device: 'mobile', metric: 'INP', value: 4000, count: 5000 });
+    }
+    return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
+  }
+
+  it('opens NO issue and never reads the measurement when GA4 is dead', async () => {
     process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-guard-should-never-be-written.json';
     process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
+    const rows = await regressionRows();
+    const ga4 = vi.fn(async () => rows);
 
     const { main } = await import('../scripts/cwv-monitor-check.mjs');
-    await main({ ga4FallbackImpl: async () => [] });
+    await main({ checkLivenessImpl: async () => GA4_DEAD, ga4FallbackImpl: ga4 });
 
     expect(syncErrorIssues).not.toHaveBeenCalled();
-    // And it never even ran the per-page measurement queries.
-    const measured = runHogQL.mock.calls.filter(([q]) => !isLivenessProbe(q as string));
-    expect(measured).toHaveLength(0);
+    expect(ga4).not.toHaveBeenCalled();
+    expect(runHogQL).not.toHaveBeenCalled();
   });
 
-  it('positive control: with a live source the same rows DO reach the issue sync', async () => {
-    mockPostHog(ALIVE_PER_DAY, [[3.0, 5000, 4000, 5000]]);
+  it('positive control: with GA4 alive the same rows ARE measured', async () => {
     process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-guard-live-control.json';
     process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
+    const rows = await regressionRows();
+    const ga4 = vi.fn(async () => rows);
 
     const { main } = await import('../scripts/cwv-monitor-check.mjs');
-    await main();
+    await main({ checkLivenessImpl: async () => GA4_ALIVE, ga4FallbackImpl: ga4 });
 
-    const measured = runHogQL.mock.calls.filter(([q]) => !isLivenessProbe(q as string));
-    expect(measured.length).toBeGreaterThan(0);
+    expect(ga4).toHaveBeenCalledTimes(1);
+    expect(runHogQL).not.toHaveBeenCalled();
   });
 });
 
-describe('posthog-error-issue-sync abstains on a dead source', () => {
-  const originalFetch = globalThis.fetch;
-  afterEach(() => { globalThis.fetch = originalFetch; });
+describe('posthog-error-issue-sync abstains on a dead GA4 source', () => {
+  const rows = [{
+    message: 'Boom', type: 'TypeError', count: 900, sessions: 400,
+    sampleUrl: 'https://x/', sampleExceptionList: [],
+  }];
 
-  it('opens NO issue when PostHog ingested ~5 events/day over the window', async () => {
-    mockPostHog(DEAD_PER_DAY);
-    // Its $exception query uses a raw fetch(), not the shared client. Rows far
-    // above MIN_COUNT=5 — an unguarded run would sync five issues from these.
-    const rawFetch = vi.fn(async () => ({
-      ok: true,
-      json: async () => ({ results: [['Boom', 'TypeError', 900, 400, 'https://x/']] }),
-    }));
-    globalThis.fetch = rawFetch as never;
-
+  it('opens NO issue when GA4 is dead, even with rows far above MIN_COUNT', async () => {
+    const ga4 = vi.fn(async () => rows);
     const { main } = await import('../scripts/posthog-error-issue-sync.mjs');
-    await main({ ga4FallbackImpl: async () => [] });
+    await main({ checkLivenessImpl: async () => GA4_DEAD, ga4FallbackImpl: ga4 });
 
     expect(syncErrorIssues).not.toHaveBeenCalled();
-    expect(rawFetch).not.toHaveBeenCalled();
+    expect(ga4).not.toHaveBeenCalled();
+    expect(runHogQL).not.toHaveBeenCalled();
   });
 
-  it('uses the GA4 mirror when PostHog is dead and the fallback is measurable', async () => {
-    mockPostHog(DEAD_PER_DAY);
-    const ga4Fallback = vi.fn(async () => [{
-      message: 'Boom', type: 'TypeError', count: 900, sessions: 400,
-      sampleUrl: 'https://x/', sampleExceptionList: [],
-    }]);
+  it('positive control: with GA4 alive the same rows DO reach the issue sync', async () => {
+    const ga4 = vi.fn(async () => rows);
     const { main } = await import('../scripts/posthog-error-issue-sync.mjs');
-    await main({ ga4FallbackImpl: ga4Fallback });
+    await main({ checkLivenessImpl: async () => GA4_ALIVE, ga4FallbackImpl: ga4 });
 
-    expect(ga4Fallback).toHaveBeenCalledTimes(1);
+    expect(ga4).toHaveBeenCalledTimes(1);
     expect(syncErrorIssues).toHaveBeenCalledTimes(1);
   });
 
-  it('positive control: with a live source the same rows DO reach the issue sync', async () => {
-    mockPostHog(ALIVE_PER_DAY);
-    globalThis.fetch = vi.fn(async () => ({
-      ok: true,
-      json: async () => ({ results: [['Boom', 'TypeError', 900, 400, 'https://x/']] }),
-    })) as never;
-
+  it('a GA4 report that cannot answer is an abstention, not zero errors', async () => {
     const { main } = await import('../scripts/posthog-error-issue-sync.mjs');
-    await main();
-
-    expect(syncErrorIssues).toHaveBeenCalledTimes(1);
+    await main({ checkLivenessImpl: async () => GA4_ALIVE, ga4FallbackImpl: async () => { throw new Error('GA4 503'); } });
+    expect(syncErrorIssues).not.toHaveBeenCalled();
   });
 });
 
-describe('campaign-goal-check abstains on a dead source', () => {
-  const matureState = {
-    goals: {}, // no prior state → every mature goal evaluates
-  };
+describe('campaign-goal-check abstains on a dead GA4 source', () => {
+  const PRODUCT_GOALS = ['alert_funnel_conversion', 'dead_clicks_reduction', 'error_rate', 'calc_deeplink_input_start'];
 
-  it('marks PostHog goals unmeasurable and opens NO "Campaign goal FAILED" issue', async () => {
+  it('marks the product goals unmeasurable and opens NO "Campaign goal FAILED" issue', async () => {
     const createIssue = vi.fn(async () => ({}));
     const { runCampaignGoalCheck } = await import('../scripts/campaign-goal-check.mjs');
 
     const { results } = await runCampaignGoalCheck({
       now: new Date(),
-      loadStateImpl: () => structuredClone(matureState),
+      loadStateImpl: () => ({ goals: {} }), // no prior state → every mature goal evaluates
       saveStateImpl: () => {},
       createIssueImpl: createIssue,
       dryRun: true,
-      checkLivenessImpl: async () => ({
-        alive: false, reason: 'dead', windowDays: 30, floor: 500,
-        daysEvaluated: [], deadDays: [], totalEvents: 0, source: 'posthog',
-        dailyCounts: new Map(uniformDays(DEAD_PER_DAY)),
-      }),
+      checkLivenessImpl: async () => ({ ...GA4_DEAD, windowDays: 30, dailyCounts: new Map() }),
     });
 
-    const posthogGoals = results.filter((r: { id: string }) =>
-      ['alert_funnel_conversion', 'dead_clicks_reduction', 'error_rate', 'calc_deeplink_input_start'].includes(r.id));
-    expect(posthogGoals.length).toBe(4);
-    // `alert_funnel_conversion` and `error_rate` declare a GA4 fallback
-    // (#6463): when PostHog is dead they legitimately compute a real
-    // verdict off GA4 instead, so any state is acceptable for them here.
-    // `dead_clicks_reduction` and `calc_deeplink_input_start` have no GA4
-    // equivalent (PostHog-native $dead_click autocapture, and a
-    // session-scoped multi-event funnel join) and must still never produce
-    // a pass/fail verdict computed off the dead PostHog source.
-    const noFallback = posthogGoals.filter((g: { id: string }) =>
-      ['dead_clicks_reduction', 'calc_deeplink_input_start'].includes(g.id));
-    for (const g of noFallback) {
+    const productGoals = results.filter((r: { id: string }) => PRODUCT_GOALS.includes(r.id));
+    expect(productGoals.length).toBe(PRODUCT_GOALS.length);
+    for (const g of productGoals) {
       // `observing` is fine (not yet mature); what must never happen is a
-      // pass/fail verdict computed off the dead source.
-      expect(['unmeasurable', 'observing']).toContain(g.state);
+      // pass/fail verdict computed off a dead source.
+      expect(['unmeasurable', 'observing'], g.id).toContain(g.state);
     }
     expect(createIssue).not.toHaveBeenCalled();
+    expect(runHogQL).not.toHaveBeenCalled();
   });
 
   it('honours a not-alive probe that carries no daily counts (per-window re-ruling must not swallow the verdict)', async () => {
@@ -385,17 +378,13 @@ describe('campaign-goal-check abstains on a dead source', () => {
     const { runCampaignGoalCheck } = await import('../scripts/campaign-goal-check.mjs');
 
     const { results } = await runCampaignGoalCheck({
-      goals: [{ id: 'ph', title: 'PH', source: 'posthog', windowDays: 14, matureAfterDays: 0, issueRef: '#1', evaluate }],
+      goals: [{ id: 'g', title: 'G', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 0, issueRef: '#1', evaluate }],
       now: new Date(),
       campaignStart: '2026-01-01',
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: () => {},
       createIssueImpl: createIssue,
-      checkLivenessImpl: async () => ({
-        alive: false, reason: 'probe failed', windowDays: 30, floor: 500,
-        daysEvaluated: [], deadDays: [], totalEvents: 0, source: 'posthog',
-        dailyCounts: new Map(), // empty on purpose
-      }),
+      checkLivenessImpl: async () => ({ ...GA4_DEAD, reason: 'probe failed', windowDays: 30, dailyCounts: new Map() }),
     });
 
     expect(evaluate).not.toHaveBeenCalled();
@@ -408,47 +397,51 @@ describe('campaign-goal-check abstains on a dead source', () => {
 // 3. Fleet coverage — what behaviour cannot check.
 // ---------------------------------------------------------------------------
 
-describe('the PostHog monitor fleet is fully declared', () => {
+describe('the monitor fleet is fully declared (GA4 since H9, 2026-10-05)', () => {
   const read = (p: string) => readFileSync(resolve(ROOT, p), 'utf8');
+  const POSTHOG_READ = /posthog-client\.mjs|posthog-search-terms\.mjs|perf-sources\/posthog\.mjs|evidence\/posthogFetcher\.mjs|HogQLQuery/;
 
-  it('the set of guarded monitors is pinned, so `guarded: false` cannot silently disable this check', () => {
+  it('the set of GA4 monitors is pinned, so `guarded: false` cannot silently disable this check', () => {
     // Found by mutation M18/M19: without this, flipping a monitor's `guarded`
     // flag to false makes the two structural checks below skip it and stay
     // green — the registry would become an escape hatch from its own guard.
     // De-registering a monitor must require editing this list, in the diff,
     // on purpose.
-    const guarded = POSTHOG_MONITORS.filter((m: { guarded: boolean }) => m.guarded).map((m: { path: string }) => m.path).sort();
+    const guarded = GA4_MONITORS.filter((m: { guarded: boolean }) => m.guarded).map((m: { path: string }) => m.path).sort();
     expect(guarded).toEqual([
-      'scripts/build-evidence-index.mjs',
       'scripts/campaign-goal-check.mjs',
       'scripts/cwv-monitor-check.mjs',
-      'scripts/fetch-article-performance.mjs',
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/profession-keyword-opportunities.mjs',
       'scripts/revenue-monitor.mjs',
     ]);
   });
 
-  it('every monitor marked guarded actually calls the guard, not merely imports it', () => {
-    const guarded = POSTHOG_MONITORS.filter((m: { guarded: boolean }) => m.guarded);
-    expect(guarded.length).toBeGreaterThan(0);
-    for (const m of guarded) {
+  it('every GA4 monitor calls the GA4 guard, not merely imports it, and no longer reaches PostHog', () => {
+    expect(GA4_MONITORS.length).toBeGreaterThan(0);
+    for (const m of GA4_MONITORS) {
       const src = read(m.path);
       expect(src, `${m.path} must import the guard`).toMatch(/from '\.\/lib\/source-liveness\.mjs'/);
-      expect(src, `${m.path} must CALL the guard`).toMatch(/abstainIfSourceDead\(|checkLivenessImpl\(|checkPostHogLiveness\(/);
+      expect(src, `${m.path} must default to the GA4 guard`).toMatch(/checkGa4Liveness/);
+      expect(src, `${m.path} must CALL the guard`).toMatch(/abstainIfSourceDead\(|checkLivenessImpl\(/);
+      // H9: PostHog is no longer a monitor source. A converted monitor that
+      // still reads it would bring back the abstention on a source the fleet
+      // no longer expects alive.
+      expect(src, `${m.path} must not read PostHog`).not.toMatch(POSTHOG_READ);
+      expect(src, `${m.path} must not probe PostHog`).not.toMatch(/checkPostHogLiveness/);
     }
   });
 
-  it('a guarded monitor consults the guard BEFORE it can open an issue', () => {
-    for (const m of POSTHOG_MONITORS.filter((x: { guarded: boolean }) => x.guarded)) {
+  it('a GA4 monitor consults the guard BEFORE it can open an issue', () => {
+    for (const m of GA4_MONITORS.filter((x: { guarded: boolean }) => x.guarded)) {
       const src = read(m.path);
       const guardAt = Math.min(
-        ...[/abstainIfSourceDead\(/, /posthogNotMeasurable\(/]
+        ...[/abstainIfSourceDead\(/, /checkLivenessImpl\(/, /sourceNotMeasurable\(/]
           .map((re) => src.search(re))
           .filter((i) => i >= 0),
       );
       const emitAt = Math.min(
-        ...[/syncErrorIssues\(\{/, /createIssueImpl\(\{/, /fetchOnsiteSearchTermsShared\(/]
+        ...[/syncErrorIssues\(\{/, /createIssueImpl\(\{/]
           .map((re) => src.search(re))
           .filter((i) => i >= 0),
       );
@@ -458,6 +451,29 @@ describe('the PostHog monitor fleet is fully declared', () => {
     }
   });
 
+  it('the data mirrors read GA4 and no longer reach PostHog', () => {
+    expect(GA4_DATA_MIRRORS.length).toBeGreaterThan(0);
+    for (const m of GA4_DATA_MIRRORS) {
+      const src = read(m.path);
+      expect(src, `${m.path} must read GA4`).toMatch(/analytics\.readonly|GA4_READONLY_SCOPE/);
+      expect(src, `${m.path} must not read PostHog`).not.toMatch(POSTHOG_READ);
+      expect(src, `${m.path} must not probe PostHog`).not.toMatch(/checkPostHogLiveness/);
+    }
+  });
+
+  it('every declared PostHog reader still reads PostHog, so the list can only shrink', () => {
+    for (const m of POSTHOG_MONITORS) {
+      expect(read(m.path), `${m.path} no longer reads PostHog: drop it from POSTHOG_MONITORS`).toMatch(POSTHOG_READ);
+    }
+  });
+
+  it('a monitor is either a GA4 monitor or a declared PostHog reader, never both', () => {
+    const ga4 = new Set(GA4_MONITORS.map((m: { path: string }) => m.path));
+    for (const m of GA4_DATA_MIRRORS) ga4.add(m.path);
+    const overlap = POSTHOG_MONITORS.map((m: { path: string }) => m.path).filter((p: string) => ga4.has(p));
+    expect(overlap).toEqual([]);
+  });
+
   it('no PostHog reader in scripts/ is missing from the registry', async () => {
     const { execSync } = await import('node:child_process');
     // Files that actually reach PostHog: they name a PostHog helper or POST a
@@ -465,8 +481,12 @@ describe('the PostHog monitor fleet is fully declared', () => {
     // emit no judgement — the registry only has to cover the monitors, so a
     // reader is allowed to be absent ONLY if it opens no issue and no workflow
     // runs it. Anything scheduled must be declared.
+    // Every workflow, not only those that mention PostHog: a workflow that
+    // runs a PostHog reader needs no PostHog text of its own (the reader
+    // loads its credentials itself), and filtering on that text hid
+    // adsense-format-ab-report.mjs and employer-traffic-report.mjs until H9.
     const scheduled = execSync(
-      `grep -rl "posthog\\|POSTHOG" ${JSON.stringify(resolve(ROOT, '.github/workflows'))} || true`,
+      `ls ${JSON.stringify(resolve(ROOT, '.github/workflows'))}/*.yml`,
       { encoding: 'utf8' },
     ).trim().split('\n').filter(Boolean);
     expect(scheduled.length).toBeGreaterThan(0);
@@ -480,7 +500,7 @@ describe('the PostHog monitor fleet is fully declared', () => {
         const script = match[1];
         let src = '';
         try { src = read(script); } catch { continue; }
-        const readsPostHog = /posthog-client\.mjs|posthog-search-terms\.mjs|perf-sources\/posthog\.mjs|evidence\/posthogFetcher\.mjs|HogQLQuery/.test(src);
+        const readsPostHog = POSTHOG_READ.test(src);
         // check-source-liveness.mjs is the reporter, not a monitor.
         if (readsPostHog && !declared.has(script) && script !== 'scripts/check-source-liveness.mjs') {
           missing.push(`${script} (scheduled by ${wf.split('/').pop()})`);
