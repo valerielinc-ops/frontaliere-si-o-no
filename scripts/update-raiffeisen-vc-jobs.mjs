@@ -76,6 +76,10 @@ const HQ = getCompanyDefaults('raiffeisen-vc');
 const RAIFF_COMPANY_NAME = 'Banca Raiffeisen Vedeggio Cassarate';
 const RAIFF_HOST = 'www.raiffeisen.ch';
 const RAIFF_JOBS_HOST = 'jobs.raiffeisen.ch';
+const RAIFF_PROSPECTIVE_API = 'https://ohws.prospective.ch/public/v1/medium/1950/jobs';
+const RAIFF_PROSPECTIVE_API_LANGS = ['it', 'de'];
+const RAIFF_PROSPECTIVE_PAGE_SIZE = 100;
+const RAIFF_PROSPECTIVE_QUERY = 'Vedeggio Cassarate';
 
 const CAREERS_URLS = [
   'https://www.raiffeisen.ch/vedeggio-cassarate/it/chi-siamo/carriera/lavorare-banca-raiffeisen.html',
@@ -169,9 +173,187 @@ export function buildRaiffeisenAuthoritativeEmptySnapshot(
 }
 
 /* ── Discovery ─────────────────────────────────────────────── */
+function addRaiffeisenDetailUrl(byIdentity, href) {
+  let parsed;
+  try {
+    parsed = new URL(String(href || ''));
+  } catch {
+    throw new Error(`Raiffeisen VC discovery invariant failed: invalid detail URL ${href}.`);
+  }
+  const detailMatch = parsed.pathname.match(
+    /^\/(posti-vacanti|offene-stellen|postes-vacants|open-positions)\/[^/]+\/([0-9a-f-]{20,})\/?$/i,
+  );
+  if (parsed.protocol !== 'https:' || parsed.hostname !== RAIFF_JOBS_HOST
+      || !detailMatch || parsed.search || parsed.hash) {
+    throw new Error(`Raiffeisen VC discovery invariant failed: non-canonical detail URL ${href}.`);
+  }
+  const identity = detailMatch[2].toLowerCase();
+  if (byIdentity.has(identity)) {
+    if (String(href).localeCompare(byIdentity.get(identity)) < 0) {
+      byIdentity.set(identity, String(href));
+    }
+    return { duplicate: true, identity };
+  }
+  byIdentity.set(identity, String(href));
+  return { duplicate: false, identity };
+}
+
+function isVerifiedRaiffeisenVCListing(listing) {
+  let haystack = '';
+  try {
+    haystack = JSON.stringify(listing || {}).toLowerCase();
+  } catch {
+    return false;
+  }
+  return haystack.includes('vedeggio') && haystack.includes('cassarate');
+}
+
+function prospectiveListingIdentity(listing) {
+  for (const value of [listing?.id, listing?.hk_id, listing?.viewkey, listing?.links?.directlink]) {
+    const normalized = String(value || '').trim();
+    if (normalized) return normalized;
+  }
+  return '';
+}
+
+async function fetchRaiffeisenProspectivePage(lang, offset, options = {}) {
+  const params = new URLSearchParams({
+    lang,
+    q: RAIFF_PROSPECTIVE_QUERY,
+    offset: String(offset),
+    limit: String(RAIFF_PROSPECTIVE_PAGE_SIZE),
+  });
+  const url = `${RAIFF_PROSPECTIVE_API}?${params}`;
+  let raw;
+  try {
+    raw = await fetchHtml(url, {
+      fetchImpl: options.fetchImpl || globalThis.fetch,
+      timeoutMs: options.timeoutMs,
+      headers: { Accept: 'application/json', 'User-Agent': UA },
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
+      label: `Raiffeisen VC Prospective API ${lang} offset=${offset}`,
+    });
+  } catch (err) {
+    throw new Error(
+      `Raiffeisen VC discovery failed: Prospective API ${lang} offset=${offset} fetch failed: ${err.message}`,
+      { cause: err },
+    );
+  }
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch (err) {
+    throw new Error(
+      `Raiffeisen VC discovery failed: Prospective API ${lang} offset=${offset} returned invalid JSON.`,
+      { cause: err },
+    );
+  }
+  const total = Number(data?.total);
+  if (!Number.isSafeInteger(total) || total < 0 || !Array.isArray(data?.jobs)) {
+    throw new Error(`Raiffeisen VC discovery failed: Prospective API ${lang} returned an invalid jobs payload.`);
+  }
+  return { total, jobs: data.jobs, url };
+}
+
+/**
+ * The local bilingual pages now link only to the JavaScript portal. The portal
+ * keeps the authoritative listings in the public Prospective medium API, so
+ * use its exact employer search as a fail-closed discovery fallback.
+ */
+async function fetchProspectiveDetailUrls(options = {}) {
+  const byIdentity = new Map();
+  let matchedListings = 0;
+  let apiResults = 0;
+
+  for (const lang of RAIFF_PROSPECTIVE_API_LANGS) {
+    let offset = 0;
+    let declaredTotal = null;
+    const seen = new Set();
+    let firstPage = true;
+
+    while (firstPage || offset < declaredTotal) {
+      firstPage = false;
+      const page = await fetchRaiffeisenProspectivePage(lang, offset, options);
+      apiResults += page.jobs.length;
+      if (declaredTotal !== null && page.total !== declaredTotal) {
+        throw new Error(
+          `Raiffeisen VC discovery failed: Prospective API ${lang} total changed `
+          + `${declaredTotal} → ${page.total} during pagination.`,
+        );
+      }
+      declaredTotal = page.total;
+
+      if (page.jobs.length === 0) {
+        if (seen.size !== declaredTotal) {
+          throw new Error(
+            `Raiffeisen VC discovery failed: Prospective API ${lang} pagination incomplete `
+            + `(${seen.size}/${declaredTotal}).`,
+          );
+        }
+        break;
+      }
+      if (page.jobs.length > RAIFF_PROSPECTIVE_PAGE_SIZE) {
+        throw new Error(`Raiffeisen VC discovery failed: Prospective API ${lang} returned an oversized page.`);
+      }
+
+      for (const [index, listing] of page.jobs.entries()) {
+        const identity = prospectiveListingIdentity(listing);
+        if (!identity) {
+          throw new Error(
+            `Raiffeisen VC discovery failed: Prospective API ${lang} listing ${index} has no stable identity.`,
+          );
+        }
+        seen.add(identity);
+        if (!isVerifiedRaiffeisenVCListing(listing)) continue;
+        matchedListings += 1;
+        const href = listing?.links?.directlink;
+        if (!href) {
+          throw new Error(
+            `Raiffeisen VC discovery failed: Prospective API ${lang} target listing ${identity} has no detail URL.`,
+          );
+        }
+        addRaiffeisenDetailUrl(byIdentity, href);
+      }
+
+      offset += page.jobs.length;
+      if (offset > declaredTotal) {
+        throw new Error(
+          `Raiffeisen VC discovery failed: Prospective API ${lang} pagination exceeded `
+          + `the declared total (${offset}/${declaredTotal}).`,
+        );
+      }
+      if (page.jobs.length < RAIFF_PROSPECTIVE_PAGE_SIZE && offset < declaredTotal) {
+        throw new Error(
+          `Raiffeisen VC discovery failed: Prospective API ${lang} pagination incomplete `
+          + `(${seen.size}/${declaredTotal}).`,
+        );
+      }
+    }
+
+    if (seen.size !== declaredTotal) {
+      throw new Error(
+        `Raiffeisen VC discovery failed: Prospective API ${lang} pagination incomplete `
+        + `(${seen.size}/${declaredTotal}).`,
+      );
+    }
+    console.log(`   ✅ Prospective ${lang}: ${declaredTotal} matching listing(s), ${byIdentity.size} unique detail URL(s)`);
+  }
+
+  if (apiResults > 0 && matchedListings === 0) {
+    throw new Error(
+      'Raiffeisen VC discovery failed: Prospective employer search returned listings, '
+      + 'but none carried a verified Vedeggio Cassarate identity marker.',
+    );
+  }
+  return { byIdentity, sourceZero: apiResults === 0, matchedListings };
+}
+
 /**
  * Scrape the Raiffeisen Vedeggio Cassarate careers pages for
- * jobs.raiffeisen.ch links (Prospective career center).
+ * jobs.raiffeisen.ch links (Prospective career center). The current pages are
+ * a client-rendered shell; when they expose no detail URLs, the public
+ * Prospective medium API is used as the source-backed fallback.
  */
 export async function fetchJobUrls(options = {}) {
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
@@ -209,19 +391,8 @@ export async function fetchJobUrls(options = {}) {
             href.includes('/offene-stellen/') ||
             href.includes('/postes-vacants/') ||
             href.includes('/open-positions/')) {
-          const parsed = new URL(href);
-          const detailMatch = parsed.pathname.match(/^\/(posti-vacanti|offene-stellen|postes-vacants|open-positions)\/[^/]+\/([0-9a-f-]{20,})\/?$/i);
-          if (parsed.protocol !== 'https:' || parsed.hostname !== RAIFF_JOBS_HOST
-              || !detailMatch || parsed.search || parsed.hash) {
-            throw new Error(`Raiffeisen VC discovery invariant failed: non-canonical detail URL ${href}.`);
-          }
-          const identity = detailMatch[2].toLowerCase();
-          if (byIdentity.has(identity)) {
-            duplicateIdentity += 1;
-            if (href.localeCompare(byIdentity.get(identity)) < 0) byIdentity.set(identity, href);
-          } else {
-            byIdentity.set(identity, href);
-          }
+          const { duplicate } = addRaiffeisenDetailUrl(byIdentity, href);
+          if (duplicate) duplicateIdentity += 1;
         }
       }
     } catch (err) {
@@ -233,18 +404,44 @@ export async function fetchJobUrls(options = {}) {
   if (pagesSucceeded !== CAREERS_URLS.length) {
     throw new Error(`Raiffeisen VC discovery incomplete: careers pages ${pagesSucceeded}/${CAREERS_URLS.length}.`);
   }
+  let apiQueried = false;
+  let apiSourceZero = false;
+  if (byIdentity.size === 0) {
+    console.log('🔍 Careers shell exposed no detail URLs; querying the Prospective employer feed…');
+    const apiDiscovery = await fetchProspectiveDetailUrls(options);
+    apiQueried = true;
+    apiSourceZero = apiDiscovery.sourceZero;
+    for (const [identity, href] of apiDiscovery.byIdentity) {
+      if (byIdentity.has(identity)) {
+        duplicateIdentity += 1;
+        if (href.localeCompare(byIdentity.get(identity)) < 0) byIdentity.set(identity, href);
+      } else {
+        byIdentity.set(identity, href);
+      }
+    }
+  }
+
   const urls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
-  if (urls.length === 0 && emptyStatePages !== CAREERS_URLS.length) {
+  const sourceZero = urls.length === 0
+    && (emptyStatePages === CAREERS_URLS.length || (apiQueried && apiSourceZero));
+  if (urls.length === 0 && !sourceZero) {
     throw new Error(
       'Raiffeisen VC discovery failed: both branded careers pages exposed no detail URLs '
-      + 'without an explicit zero-open-positions marker.',
+      + 'and neither the listing marker nor the Prospective employer feed proved zero open positions.',
     );
   }
   if (urls.length === 0) {
-    console.log(`✅ Both Raiffeisen VC careers pages explicitly report 0 open positions`);
+    console.log(`✅ Raiffeisen VC source explicitly reports 0 open positions`);
   }
   console.log(`✅ Discovered ${urls.length} Raiffeisen VC job detail URLs`);
-  return { urls, sourceZero: urls.length === 0, pagesSucceeded, duplicateIdentity, emptyStatePages };
+  return {
+    urls,
+    sourceZero,
+    pagesSucceeded,
+    duplicateIdentity,
+    emptyStatePages,
+    apiQueried,
+  };
 }
 
 /* ── Detail page fetching ──────────────────────────────────── */

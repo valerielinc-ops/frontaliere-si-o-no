@@ -9,13 +9,14 @@
  *   — published description was shorter than the full vacancy body
  *   — fix: extract intro + #tasksAndSkills directly from page HTML
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   parseRaiffeisenDetailPage,
   htmlToText,
   MIN_DESC_LENGTH,
 } from '@/scripts/lib/raiffeisen-vc-job-parser.mjs';
+import { fetchJobUrls } from '@/scripts/update-raiffeisen-vc-jobs.mjs';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 // Mirrors the actual HTML structure served by jobs.raiffeisen.ch on 2026-03-18.
@@ -305,5 +306,61 @@ describe('htmlToText', () => {
   it('returns empty string for empty input', () => {
     expect(htmlToText('')).toBe('');
     expect(htmlToText(null as any)).toBe('');
+  });
+});
+
+// ─── fetchJobUrls — client-rendered careers shell regression ────────────────
+
+describe('fetchJobUrls — Prospective API fallback', () => {
+  const CAREERS_SHELL = '<html><head><title>Raiffeisen</title></head><body>Vedeggio-Cassarate</body></html>';
+  const UUID = '11111111-1111-4111-8111-111111111111';
+
+  it('discovers the detail URL when both branded pages expose only the portal shell', async () => {
+    const fetchImpl = vi.fn(async (input: string) => {
+      const url = new URL(input);
+      if (url.hostname === 'www.raiffeisen.ch') {
+        return new Response(CAREERS_SHELL, { status: 200 });
+      }
+      const lang = url.searchParams.get('lang');
+      return new Response(JSON.stringify({
+        total: 1,
+        jobs: [{
+          id: 'vc-1',
+          title: 'Consulente clientela privata base',
+          szas: { sza_introduction: 'La Banca Raiffeisen Vedeggio Cassarate cerca una persona.' },
+          links: {
+            directlink: lang === 'it'
+              ? `https://jobs.raiffeisen.ch/posti-vacanti/consulente/${UUID}`
+              : `https://jobs.raiffeisen.ch/offene-stellen/consulente/${UUID}`,
+          },
+        }],
+      }), { status: 200, headers: { 'content-type': 'application/json' } });
+    });
+
+    const result = await fetchJobUrls({ fetchImpl, retries: 0, timeoutMs: 1000 });
+
+    expect(result.sourceZero).toBe(false);
+    expect(result.apiQueried).toBe(true);
+    expect(result.urls).toHaveLength(1);
+    expect(result.urls[0]).toContain(`/${UUID}`);
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
+  });
+
+  it('accepts an API-declared zero only after both language queries are complete', async () => {
+    const fetchImpl = vi.fn(async (input: string) => {
+      const url = new URL(input);
+      if (url.hostname === 'www.raiffeisen.ch') {
+        return new Response(CAREERS_SHELL, { status: 200 });
+      }
+      return new Response(JSON.stringify({ total: 0, jobs: [] }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      });
+    });
+
+    const result = await fetchJobUrls({ fetchImpl, retries: 0, timeoutMs: 1000 });
+
+    expect(result).toMatchObject({ urls: [], sourceZero: true, apiQueried: true });
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
   });
 });
