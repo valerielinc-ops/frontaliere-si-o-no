@@ -12600,6 +12600,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.osservatorio-varese-spettacolo-galileo.title': 'Varese Observatory: the Galileo show arrives',
     'blog.article.osservatorio-varese-spettacolo-galileo.excerpt': 'On Saturday, October 17, the G.V. Schiaparelli Observatory will host Corrado D\'Elia\'s play, followed by observation of the Moon and Saturn.',
     'blog.article.osservatorio-varese-spettacolo-galileo.imageAlt': 'Astronomical observatory in Varese',
+    'blog.article.valuta-intercettata-brogeda.title': 'Double currency seizure at the Brogeda border crossing',
+    'blog.article.valuta-intercettata-brogeda.excerpt': 'At the Brogeda border crossing, in two separate operations, customs officers and financial police officers from Ponte Chiasso intercepted over 240mila euro in recent days.',
+    'blog.article.valuta-intercettata-brogeda.imageAlt': 'Brogeda border crossing linked to two operations involving over 240,000 euros',
 };
 
 export default blogMetaEn;

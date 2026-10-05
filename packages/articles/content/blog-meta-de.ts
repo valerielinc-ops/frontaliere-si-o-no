@@ -12599,6 +12599,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.osservatorio-varese-spettacolo-galileo.title': 'Observatorium von Varese: Das Stück Galileo kommt',
     'blog.article.osservatorio-varese-spettacolo-galileo.excerpt': 'Samstag, 17. Oktober beherbergt das Observatorium G.V. Schiaparelli das Theaterstück von Corrado D\'Elia, gefolgt von der Beobachtung des Mondes und des Saturns.',
     'blog.article.osservatorio-varese-spettacolo-galileo.imageAlt': 'Astronomische Sternwarte in Varese',
+    'blog.article.valuta-intercettata-brogeda.title': 'Zweifache Beschlagnahmung von Devisen am Grenzübergang Brogeda',
+    'blog.article.valuta-intercettata-brogeda.excerpt': 'Am Grenzübergang Brogeda haben Zollbeamte und Finanzpolizisten aus Ponte Chiasso in zwei getrennten Vorgängen in den vergangenen Tagen über 240mila euro abgefangen.',
+    'blog.article.valuta-intercettata-brogeda.imageAlt': 'Grenzübergang Brogeda mit zwei Einsätzen und über 240.000 abgefangenen Euro',
 };
 
 export default blogMetaDe;
