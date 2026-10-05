@@ -14,6 +14,10 @@
  * The first two forms are read-only. Deletion is possible only with the
  * explicit --apply flag, and the process exits non-zero unless the final
  * zero-residual verification succeeds.
+ *
+ * NEWSLETTER_SECRET must be in the environment (it keys the pseudonymous
+ * job_email_affinity profile); without it the tool refuses to run:
+ *   eval "$(node scripts/load-rc-env.mjs)"
  */
 
 import path from 'node:path';

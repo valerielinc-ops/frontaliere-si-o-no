@@ -2541,6 +2541,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // The resumed click already holds the access: the offer shows only its
  // "open" card, since no click activation survives the reload.
  const [rewardedApplicationOpenCardOnly, setRewardedApplicationOpenCardOnly] = useState(false);
+ // The resumed click had already taken the free path of the paid choice: it
+ // goes straight to the Offerwall, and a failure never brings the choice back.
+ const [rewardedApplicationFreeChosen, setRewardedApplicationFreeChosen] = useState(false);
  // The reason of a direct hand-off (no ad, paid fallback off) whose new tab
  // waits for confirmation: the offer's "open" card retries that hand-off.
  const rewardedDirectHandoffReasonRef = useRef<string | null>(null);
@@ -2556,6 +2559,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (!rewardedApplicationJob) {
    setRewardedApplicationResumed(false);
    setRewardedApplicationOpenCardOnly(false);
+   setRewardedApplicationFreeChosen(false);
    rewardedDirectHandoffReasonRef.current = null;
   }
  }, [rewardedApplicationJob]);
@@ -3713,6 +3717,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => {
    unsubscribe();
  };
+ }, [shouldPreloadRewardedApplicationAd]);
+ // Load the application offers' code while the visitor reads the job: the
+ // "Candidati" click otherwise waited for these chunks with nothing on screen
+ // (live 2026-10-05, 4G and a 4x slower CPU: 1,007 ms from the click to the
+ // paid choice). The lazy components then resolve at once.
+ useEffect(() => {
+  if (!shouldPreloadRewardedApplicationAd) return undefined;
+  const warm = () => {
+   void import('@/components/community/RewardedApplicationOffer').catch(() => {});
+   void import('@/components/community/AssistedApplicationOffer').catch(() => {});
+  };
+  const idleWindow = window as Window & {
+   requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+   cancelIdleCallback?: (id: number) => void;
+  };
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+   const id = idleWindow.requestIdleCallback(warm, { timeout: 4000 });
+   return () => idleWindow.cancelIdleCallback?.(id);
+  }
+  const timer = window.setTimeout(warm, 2000);
+  return () => window.clearTimeout(timer);
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
@@ -7487,6 +7512,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
   trackAssistedApplicationEvent('rewarded_application_offer_resumed', context);
   applicationOfferOpenRef.current = true;
+  setRewardedApplicationFreeChosen(resume.choice === 'free');
   setRewardedApplicationResumed(true);
   setRewardedApplicationJob(selectedJob);
   // Checked once per page load, when the detail is ready.
@@ -7838,8 +7864,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ // On screen only while an offer's code is still arriving (it is loaded
+ // ahead, see above): a "Candidati" click never looks dead.
+ const applicationOfferCodeLoadingJsx = (
+  <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/55 px-4 backdrop-blur-sm" data-testid="application-offer-code-loading">
+   <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-stripe border border-edge bg-surface px-5 py-4 shadow-stripe-lg">
+    <Loader2 className="h-5 w-5 shrink-0 animate-spin text-accent motion-reduce:animate-none" aria-hidden="true" />
+    <p className="text-sm font-semibold text-heading">{t('jobBoard.rewardedOffer.loading')}</p>
+   </div>
+  </div>
+ );
+
  const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (
-  <Suspense fallback={null}>
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
     companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
@@ -7861,7 +7898,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) : null;
 
  const rewardedApplicationOfferJsx = rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
-  <Suspense fallback={null}>
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <RewardedApplicationOffer
     jobId={String(rewardedApplicationJob.id)}
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
@@ -7881,11 +7918,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
     // decision 2026-10-03), under the same Remote Config flag as the paid
     // fallback: ASSISTED_APPLICATION_OFFERWALL_FALLBACK off restores the
     // Offerwall-only click.
-    paidChoice={offerwallPaidFallbackEnabled ? {
+    paidChoice={offerwallPaidFallbackEnabled && !rewardedApplicationFreeChosen ? {
      onChoosePaid: () => startAssistedCheckout(rewardedApplicationJob, { trigger: 'offerwall_first' }),
      paidLoading: assistedCheckoutBusy,
      error: assistedCheckoutError,
     } : undefined}
+    paidOfferSeen={rewardedApplicationFreeChosen}
    />
   </Suspense>
  ) : null;

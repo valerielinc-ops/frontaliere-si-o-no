@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
+  OFFERWALL_DISCARD_WATCH_MS,
   OFFERWALL_DISCARDED_ATTR,
   OFFERWALL_ENTITLEMENT_GRACE_MS,
   OFFERWALL_REVEAL_GRACE_MS,
@@ -13,8 +14,10 @@ import {
   isOfferwallHeld,
   isOfferwallStaged,
   offerwallGateStatus,
+  parkedOfferwallRoot,
   releaseHeldOfferwall,
   revealStagedOfferwall,
+  showParkedOfferwall,
 } from '@/services/offerwallClickGate';
 
 function holdOfferwall(onRelease: () => void = () => {}): void {
@@ -486,17 +489,49 @@ describe('offerwallClickGate', () => {
       expect(document.body.style.overflow).toBe('auto');
     });
 
-    it('takes the stage down at the appear timeout when nothing renders after the choice closed', async () => {
+    it('takes the stage down once a late render can no longer come after the choice closed', async () => {
       holdOfferwall();
+      const controller = new AbortController();
+      void releaseHeldOfferwall({ staged: true, signal: controller.signal, appearTimeoutMs: 6000 });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+
+      // Longer than any appear timeout: a render after the stage came down would show uninvited.
+      await vi.advanceTimersByTimeAsync(OFFERWALL_DISCARD_WATCH_MS - 1000);
+      expect(isOfferwallStaged()).toBe(true);
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(isOfferwallStaged()).toBe(false);
+    });
+
+    it('shows a parked Offerwall again at once and follows it to its reward', async () => {
+      holdOfferwall(() => {
+        mountRoot('fc-message-root');
+      });
       const controller = new AbortController();
       void releaseHeldOfferwall({ staged: true, signal: controller.signal });
       await vi.advanceTimersByTimeAsync(400);
       controller.abort();
+      const parked = parkedOfferwallRoot();
+      expect(parked).not.toBeNull();
+      expect(window.getComputedStyle(parked as HTMLElement).display).toBe('none');
 
-      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS - 1000);
-      expect(isOfferwallStaged()).toBe(true);
-      await vi.advanceTimersByTimeAsync(1000);
-      expect(isOfferwallStaged()).toBe(false);
+      // A later "Candidati" click on the same page: the gate is released, the parked one is reused.
+      const onShown = vi.fn();
+      const pending = showParkedOfferwall({ onShown });
+      expect(parked?.hasAttribute(OFFERWALL_DISCARDED_ATTR)).toBe(false);
+      await vi.advanceTimersByTimeAsync(400);
+      expect(onShown).toHaveBeenCalledTimes(1);
+      expect(onShown.mock.calls[0][0]).toEqual({ shownMs: expect.any(Number), root: 'fc-message-root' });
+      expect(onShown.mock.calls[0][0].shownMs).toBeLessThan(400);
+
+      setEntitlement('granted-parked');
+      await vi.advanceTimersByTimeAsync(200);
+      await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'entitlement' });
+      expect(parkedOfferwallRoot()).toBeNull();
+    });
+
+    it('reports not_held when no Offerwall is parked', async () => {
+      await expect(showParkedOfferwall()).resolves.toEqual({ outcome: 'not_shown', reason: 'not_held' });
     });
   });
 });
