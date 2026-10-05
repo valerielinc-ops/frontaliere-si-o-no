@@ -116,7 +116,7 @@ export interface ProfessionJobsSnapshot {
   readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest featured (else freshest) jobs that match this profession. */
   readonly featured: readonly FeaturedJob[];
-  /** Complete valid live inventory for the legacy Ticino profession landing. */
+  /** Complete valid live inventory: legacy Ticino profession landing and profession × city landings. */
   readonly jobs?: readonly FeaturedJob[];
   /** Top 6 employers by job count for this profession. */
   readonly topEmployers: ReadonlyArray<{ name: string; count: number }>;
@@ -697,7 +697,10 @@ export function aggregateProfessionJobsByCity(
       : cantonJobs.filter((job) => jobMatchesChCity(job, def.display));
     const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
     for (const id of PROFESSION_IDS) {
-      perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now);
+      // `includeAllJobs`: the city landing names its real offers
+      // (professionCityInsights.ts, #11678), so it needs more than the 3
+      // featured ones. The renderer caps what it shows.
+      perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now, true);
     }
     out[def.key] = perProfession;
   }

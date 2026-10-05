@@ -68,7 +68,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
-import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
+import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 
@@ -902,6 +902,10 @@ async function main() {
   console.log('  HAS Healthcare Advanced Synthesis — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
+  // The crawler group marks this member relay-required: a failed Google
+  // ID-token step fails this crawler loudly instead of crawling without the
+  // only path that reaches e-lavoro.ch from CI.
+  assertSourceRelayReady();
 
   // Snapshot before
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
