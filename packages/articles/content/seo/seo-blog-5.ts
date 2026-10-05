@@ -99197,6 +99197,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-osservatorio-varese-spettacolo-galileo': {
+    title: 'Osservatorio di Varese: arriva lo spettacolo Galileo',
+    description: 'Sabato 17 ottobre l\'Osservatorio Schiaparelli di Varese ospita lo spettacolo teatrale Galileo, oltre le stelle, seguito dall\'osservazione di Luna e Saturno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, osservatorio, varese, arriva, spettacolo',
+    ogTitle: 'Osservatorio di Varese: arriva lo spettacolo Galileo',
+    ogDescription: 'Sabato 17 ottobre l\'Osservatorio Astronomico G.V. Schiaparelli a Varese Campo dei Fiori ospita la compagnia teatrale Corrado D\'Elia con lo spettacolo Galileo, oltre le stelle, seguito da un\'osservazione astronomica.',
+    canonicalPath: '/articoli-frontaliere/osservatorio-varese-spettacolo-galileo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Osservatorio di Varese: arriva lo spettacolo Galileo",
+      "description": "Sabato 17 ottobre l'Osservatorio Schiaparelli di Varese ospita lo spettacolo teatrale Galileo, oltre le stelle, seguito dall'osservazione di Luna e Saturno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/osservatorio-varese-spettacolo-galileo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Osservatorio astronomico a Varese"
+      },
+      "datePublished": "2026-10-05T09:15:25+00:00",
+      "dateModified": "2026-10-05T09:15:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/osservatorio-varese-spettacolo-galileo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
