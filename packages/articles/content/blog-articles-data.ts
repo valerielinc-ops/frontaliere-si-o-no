@@ -37688,6 +37688,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'novantaquattro-scatti-varese',
+ category: 'novita',
+ date: '2026-10-05T01:31:00.544Z',
+ image: '/images/blog/novantaquattro-scatti-varese.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
