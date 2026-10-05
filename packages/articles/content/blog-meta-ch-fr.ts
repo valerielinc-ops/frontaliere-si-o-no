@@ -7712,6 +7712,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-immobili-zurigo.title': 'Assurance des immeubles dans le canton de Zurich : obligation et primes',
     'blog.article.assicurazione-immobili-zurigo.excerpt': 'En Suisse, l\'assurance des bâtiments est obligatoire ou organisée différemment selon le canton : guide pratique pour Zurich sur les primes et les sinistres.',
     'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Immeuble résidentiel du canton de Zurich pour un guide d\'assurance',
+    'blog.article.formazione-continua-zurigo-contributi.title': 'Formation continue Canton de Zurich : exigences et cotisations',
+    'blog.article.formazione-continua-zurigo-contributi.excerpt': 'Dans le canton de Zurich, les programmes reconnus, les exigences, les délais et les contributions doivent être vérifiés auprès de la source cantonale officielle.',
+    'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Salle de formation suisse pour la formation continue d\'adultes.',
 };
 
 export default blogMetaChFr;

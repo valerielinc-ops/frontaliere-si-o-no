@@ -97391,6 +97391,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-continua-zurigo-contributi': {
+    title: 'Formazione continua Canton Zurigo: requisiti e contributi',
+    description: 'Formazione continua nel Canton Zurigo: requisiti, programmi riconosciuti, termini della domanda e contributi da verificare presso la fonte ufficiale cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, canton, zurigo',
+    ogTitle: 'Canton Zurigo: requisiti per la formazione continua',
+    ogDescription: 'Nel Canton Zurigo la formazione continua non ha una procedura nazionale unica: requisiti, programmi riconosciuti, scadenze e importi vanno controllati presso l\'ufficio cantonale o l\'istituzione competente, distinguendo AFC/ESTV, UFAS/BSV e UST/BFS.',
+    canonicalPath: '/articoli-svizzera/formazione-continua-zurigo-contributi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione continua Canton Zurigo: requisiti e contributi",
+      "description": "Formazione continua nel Canton Zurigo: requisiti, programmi riconosciuti, termini della domanda e contributi da verificare presso la fonte ufficiale cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/formazione-continua-zurigo-contributi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula svizzera per un corso di formazione continua con adulti al lavoro."
+      },
+      "datePublished": "2026-10-05T03:02:04+00:00",
+      "dateModified": "2026-10-05T03:02:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formazione-continua-zurigo-contributi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

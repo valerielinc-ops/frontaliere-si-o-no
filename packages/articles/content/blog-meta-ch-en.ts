@@ -7712,6 +7712,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-immobili-zurigo.title': 'Property insurance in the Canton of Zurich: obligation and premiums',
     'blog.article.assicurazione-immobili-zurigo.excerpt': 'In Switzerland, building insurance is mandatory or organized differently depending on the canton: a practical guide for Zurich on premiums and claims.',
     'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Residential building in Zurich canton for a property insurance guide',
+    'blog.article.formazione-continua-zurigo-contributi.title': 'Continuing education Canton Zurich: requirements and contributions',
+    'blog.article.formazione-continua-zurigo-contributi.excerpt': 'In the Canton of Zurich, recognized programs, requirements, deadlines and contributions must be verified at the official cantonal source.',
+    'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Swiss adult education classroom for continuing professional training.',
 };
 
 export default blogMetaChEn;
