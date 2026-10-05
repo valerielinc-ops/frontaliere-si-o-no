@@ -99265,6 +99265,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-unione-confronto-pilastro-ch-it': {
+    title: 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
+    description: 'L\'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro: il quadro per LPP, AVS e imposta alla fonte. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, unione, chiede',
+    ogTitle: 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
+    ogDescription: 'La richiesta dell\'Unione Frontalieri Italiani riporta il secondo pilastro al centro del confronto tra Italia e Svizzera. Per chi lavora in Canton Ticino, LPP, AVS, permesso G, imposta alla fonte e doppia imposizione restano piani distinti.',
+    canonicalPath: '/articoli-frontaliere/unione-confronto-pilastro-ch-it/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro: l'Unione chiede confronto CH-IT",
+      "description": "L'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro: il quadro per LPP, AVS e imposta alla fonte. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/unione-confronto-pilastro-ch-it.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sul secondo pilastro e una borsa da pendolare in Ticino"
+      },
+      "datePublished": "2026-10-05T10:48:06+00:00",
+      "dateModified": "2026-10-05T10:48:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unione-confronto-pilastro-ch-it/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -12603,6 +12603,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.valuta-intercettata-brogeda.title': 'Double currency seizure at the Brogeda border crossing',
     'blog.article.valuta-intercettata-brogeda.excerpt': 'At the Brogeda border crossing, in two separate operations, customs officers and financial police officers from Ponte Chiasso intercepted over 240mila euro in recent days.',
     'blog.article.valuta-intercettata-brogeda.imageAlt': 'Brogeda border crossing linked to two operations involving over 240,000 euros',
+    'blog.article.unione-confronto-pilastro-ch-it.title': 'Second pillar: the Union calls for a CH-IT comparison',
+    'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'The Unione Frontalieri Italiani calls for a comparison between Italy and Switzerland on the second pillar, a central issue for cross-border workers\' pension provision.',
+    'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Second-pillar documents and a commuter bag in Ticino',
 };
 
 export default blogMetaEn;
