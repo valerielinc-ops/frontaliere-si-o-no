@@ -157,7 +157,7 @@ describe('issue triage for #8839, #8840 and #10342', () => {
   });
 
   it('includes only URL-correlated origin/cache rows when hourly evidence is complete', () => {
-    const url = reports[2].url;
+    const url = reports.find((report) => report.surface === 'worker-shard')!.url;
     const shape = summarizeBursts([
       {
         status: 503,
