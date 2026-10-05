@@ -24,6 +24,7 @@
  * declared.
  */
 import { buildStableJobIdentity, jobsDiffer } from './job-identity.mjs';
+import { ambiguousJobIdentities } from './first-seen-history.mjs';
 
 /** Evidence lists in a summary are capped, the counts are not. */
 export const SUMMARY_LIST_CAP = 30;
@@ -39,10 +40,22 @@ export const SUMMARY_LIST_CAP = 30;
  * @param {object[]} afterJobs jobs this run wrote to the slice
  */
 export function computeSlicePartition(beforeJobs, afterJobs) {
+  // An identity shared by several postings names the listing page, not a
+  // posting (Galenica's `#job.id=` fragment is stripped, État de Vaud writes
+  // the bare listing URL): those jobs are told apart by their own id/slug,
+  // the same rule as scripts/lib/first-seen-history.mjs.
+  const shared = ambiguousJobIdentities(beforeJobs, afterJobs);
+  const keyOf = (job) => {
+    const identity = buildStableJobIdentity(job);
+    if (!identity || !shared.has(identity)) return identity;
+    const id = String(job?.id ?? '').trim();
+    const slug = String(job?.slug ?? '').trim().toLowerCase();
+    return `${identity}\u0000${id ? `id:${id}` : `slug:${slug}`}`;
+  };
   const before = new Map();
   for (const job of Array.isArray(beforeJobs) ? beforeJobs : []) {
     if (!job || typeof job !== 'object') continue;
-    const identity = buildStableJobIdentity(job);
+    const identity = keyOf(job);
     if (!before.has(identity)) before.set(identity, job);
   }
   const after = Array.isArray(afterJobs) ? afterJobs : [];
@@ -51,7 +64,7 @@ export function computeSlicePartition(beforeJobs, afterJobs) {
   const updatedJobs = [];
   const unchangedJobs = [];
   for (const job of after) {
-    const identity = job && typeof job === 'object' ? buildStableJobIdentity(job) : null;
+    const identity = job && typeof job === 'object' ? keyOf(job) : null;
     if (identity) afterIdentities.add(identity);
     const previous = identity ? before.get(identity) : undefined;
     if (!previous) newJobs.push(job);

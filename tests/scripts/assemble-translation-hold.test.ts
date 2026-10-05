@@ -374,6 +374,29 @@ describe('scrittore degli slice — confronti con il run precedente dopo il seed
     expect(routeSlugs(written).has('polymechaniker-in-cnc-fertigung-1-acme-zurich')).toBe(true);
   });
 
+  it('does not hand a new posting the firstSeenAt of a sibling that shares the listing URL', () => {
+    // Galenica writes `…/it/jobs/#job.id=<n>` for every role; the stable
+    // identity drops the fragment, so before this guard every new posting got
+    // the firstSeenAt of the last committed one (2026-10-05: 294/294 jobs on
+    // the crawler's first-run timestamp) and no CompanyAlert ever fired.
+    const old = daysAgo(170);
+    const listing = (n: number) => `https://jobs.example.invalid/acme/jobs/#job.id=88${n}`;
+    const committed = [1, 2].map((n) => acmeJob(n, { url: listing(n), firstSeenAt: old }));
+    const working = [1, 2, 3].map((n) => {
+      const reparsed = acmeJob(n, { url: listing(n) });
+      delete reparsed.firstSeenAt;
+      return reparsed;
+    });
+    const before = Date.now();
+    const { result } = seededWrite(committed, working);
+    expect(result.written).toBe(true);
+    const written = readJson('data/jobs/by-crawler/acme-carry.json').jobs as Job[];
+    const byId = new Map(written.map((job) => [job.id, job]));
+    expect(byId.get('acme-carry-1')?.firstSeenAt).toBe(old);
+    expect(byId.get('acme-carry-2')?.firstSeenAt).toBe(old);
+    expect(Date.parse(String(byId.get('acme-carry-3')?.firstSeenAt))).toBeGreaterThanOrEqual(before - 60_000);
+  });
+
   it('refuses a collapse against the previous run even though the seed already wrote the collapsed set', () => {
     const committed = Array.from({ length: 40 }, (_, i) => acmeJob(i + 1));
     const degraded = committed.slice(0, 5).map((job) => ({ ...job }));

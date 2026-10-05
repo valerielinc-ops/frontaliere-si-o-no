@@ -297,7 +297,11 @@ describe('the slug the card shows is the slug the follow writes', () => {
     // suite depend on a 447 KB generated file.
     const realSlugs = [
       'coop-genossenschaft',
-      'zurich-insurance-sede-ticino',
+      // `zurich-insurance-sede-ticino` was sampled here until 2026-10-05, when
+      // the crawler's label became «Zurich Insurance» and the old slug was
+      // declared an alias of it (brandCanonicalMap): the profile slug is now
+      // the canonical one.
+      'zurich-insurance',
       'eoc-ente-ospedaliero-cantonale',
       'hirslanden-klinik',
       'universita-della-svizzera-italiana',
