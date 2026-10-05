@@ -268,6 +268,50 @@ export function createFirstSeenMetadataIndex() {
   return { add, enrich, enrichActive };
 }
 
+function postingKey(record = {}) {
+  const id = String(record?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  const slug = String(record?.slug ?? '').trim().toLowerCase();
+  return slug ? `slug:${slug}` : '';
+}
+
+/**
+ * Source identities that name MORE THAN ONE posting inside a single list.
+ *
+ * `buildStableJobIdentity` strips the URL fragment and keeps whatever URL the
+ * crawler wrote, so a crawler whose only URL is the listing page gives every
+ * posting the same identity: Galenica writes `…/it/jobs/#job.id=<n>` for 294
+ * roles (all `url:https://jobs.galenica.com/it/jobs`), État de Vaud, Klinik
+ * Gut, Klinik Schützen and others write the bare listing URL. Such an identity
+ * names a page, not a posting; looking a new vacancy up by it returns some
+ * OTHER vacancy's history — measured 2026-10-05: 106 Galenica postings added in
+ * a month, all carrying the 2026-04-13 firstSeenAt of the crawler's first run,
+ * so no follower of Amavita/Sun Store/Coop Vitality could ever be alerted.
+ *
+ * Two records with the same identity and the same id/slug are the same posting
+ * seen twice (e.g. archived twice) and do not make it ambiguous.
+ *
+ * @param {...object[]} lists
+ * @returns {Set<string>}
+ */
+export function ambiguousJobIdentities(...lists) {
+  const ambiguous = new Set();
+  for (const list of lists) {
+    const postingsByIdentity = new Map();
+    for (const record of Array.isArray(list) ? list : []) {
+      if (!record || typeof record !== 'object') continue;
+      const identity = record.sourceIdentity || buildStableJobIdentity(record);
+      const posting = postingKey(record);
+      if (!identity || !posting) continue;
+      const postings = postingsByIdentity.get(identity) || new Set();
+      postings.add(posting);
+      postingsByIdentity.set(identity, postings);
+      if (postings.size > 1) ambiguous.add(identity);
+    }
+  }
+  return ambiguous;
+}
+
 /**
  * Carry a job's first-seen history across a temporary disappearance from its
  * crawler slice. The active slice is preferred; the expired slice is the
@@ -277,20 +321,27 @@ export function createFirstSeenMetadataIndex() {
  * slug still proves that the route was published before, so its fresh
  * firstSeenAt is removed rather than allowing a false immediate alert.
  *
+ * An identity shared by several postings ({@link ambiguousJobIdentities}) is
+ * never used as a match key: the posting's own `id` and route slugs decide.
+ *
  * @param {object[]} jobs Jobs about to be written to the active slice
  * @param {object} options
  * @param {object[]} [options.existingJobs] Prior active slice jobs
  * @param {object[]} [options.archivedJobs] Prior expired-slice entries
- * @returns {{restored: number, suppressed: number, suppressedJobs: Set<object>}}
+ * @returns {{restored: number, suppressed: number, suppressedJobs: Set<object>, ambiguousIdentities: Set<string>}}
  */
 export function carryForwardFirstSeenAt(
   jobs,
   { existingJobs = [], archivedJobs = [] } = {},
 ) {
+  const ambiguousIdentities = ambiguousJobIdentities(jobs, existingJobs, archivedJobs);
   const existingByIdentity = new Map();
   const existingBySlug = new Map();
+  const existingById = new Map();
   for (const job of Array.isArray(existingJobs) ? existingJobs : []) {
     addExistingHistory(job, existingByIdentity, existingBySlug);
+    const id = String(job?.id ?? '').trim();
+    if (id && usableTimestamp(job?.firstSeenAt)) indexEntry(existingById, id, job);
   }
 
   const archivedByIdentity = new Map();
@@ -305,10 +356,13 @@ export function carryForwardFirstSeenAt(
 
   for (const job of Array.isArray(jobs) ? jobs : []) {
     if (!job || typeof job !== 'object') continue;
-    const identity = buildStableJobIdentity(job);
+    const stableIdentity = buildStableJobIdentity(job);
+    const identity = ambiguousIdentities.has(stableIdentity) ? '' : stableIdentity;
     const slugs = [...routeSlugs(job)].map((slug) => `slug:${slug}`);
+    const id = String(job.id ?? '').trim();
 
-    const active = findMatchingEntry(existingByIdentity.get(identity), job)
+    const active = (identity ? findMatchingEntry(existingByIdentity.get(identity), job) : null)
+      || (id ? findMatchingEntry(existingById.get(id), job) : null)
       || slugs.map((key) => findMatchingEntry(existingBySlug.get(key), job)).find(Boolean);
     if (active) {
       const before = job.firstSeenAt;
@@ -317,7 +371,7 @@ export function carryForwardFirstSeenAt(
       continue;
     }
 
-    const archived = findMatchingEntry(archivedByIdentity.get(identity), job)
+    const archived = (identity ? findMatchingEntry(archivedByIdentity.get(identity), job) : null)
       || slugs.map((key) => findMatchingEntry(archivedBySlug.get(key), job)).find(Boolean);
     if (!archived) continue;
 
@@ -335,5 +389,5 @@ export function carryForwardFirstSeenAt(
     }
   }
 
-  return { restored, suppressed, suppressedJobs };
+  return { restored, suppressed, suppressedJobs, ambiguousIdentities };
 }
