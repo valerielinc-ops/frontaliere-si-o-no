@@ -145,8 +145,15 @@ function fmtRatio(r: number | null, locale: ComparisonsLocale): string {
 // ── Table renderers ──────────────────────────────────────────────
 
 function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[] | null, locale: ComparisonsLocale): string {
+  const unavailableRow = `<tr>
+        <td class="s-RgFW0A">${esc(copy.salaryUnavailable)}</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+      </tr>`;
   const tbody = rows === null
-    ? `<tr><td class="s-RgFW0A" colspan="5">${esc(copy.salaryUnavailable)}</td></tr>`
+    ? unavailableRow
     : rows.length > 0
     ? rows
         .map(
@@ -168,11 +175,11 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
       <caption class="sr-only">${esc(copy.tSalaryCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColObservations)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColCh)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColIt)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColRatio)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColObservations)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColRatio)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">
@@ -202,10 +209,10 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
       <caption class="sr-only">${esc(copy.tTaxCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColChTotal)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColItTotal)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColNetDelta)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColChTotal)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColItTotal)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColNetDelta)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -233,9 +240,9 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
       <caption class="sr-only">${esc(copy.tHealthCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColMonthly)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColAnnual)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tHealthColMonthly)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tHealthColAnnual)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${tbody}</tbody>
@@ -263,9 +270,9 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
       <caption class="sr-only">${esc(copy.tBenefitsCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColCh)}</th>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -292,9 +299,9 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
       <caption class="sr-only">${esc(copy.tCostCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tCostColCh)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tCostColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tCostColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tCostColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -475,7 +482,7 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,

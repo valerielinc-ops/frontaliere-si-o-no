@@ -41,7 +41,6 @@ import { sourceDateIso, formatSourceDate, borderReadingState } from '../services
 import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import fs from 'node:fs';
 import np from 'node:path';
-import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
   BUILD_ID,
@@ -96,7 +95,11 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  TITLE_MAX_CHARS,
+  truncateToClauseNonEmpty,
+} from './shared/titleSuffix';
 import {
   DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
   DECISION_MOMENT_SURFACE_ATTRIBUTE,
@@ -138,6 +141,90 @@ import {
 // updates automatically.
 
 type DiscoverMoreCta = { title: string; href: string };
+
+/**
+ * Split a crossing label into its corridor and the road/checkpoint token.
+ * The road token is the actual discriminator for several otherwise identical
+ * corridors (Basel–Weil am Rhein, Büsingen–Schaffhausen, etc.).
+ */
+function crossingTitleParts(crossingDisplay: string): { corridor: string; route: string } {
+  const value = String(crossingDisplay || '').replace(/\s+/g, ' ').trim();
+  const comma = value.indexOf(',');
+  if (comma < 0) return { corridor: value, route: '' };
+  return {
+    corridor: value.slice(0, comma).trim(),
+    route: value.slice(comma + 1).trim(),
+  };
+}
+
+/**
+ * Keep both ends of an overlong proper name so a capped fallback still
+ * carries a useful corridor/road discriminator.  Current registry labels fit
+ * without this rung; it protects future data and adversarial inputs without
+ * inventing a keyword.
+ */
+function compactBorderTitlePart(value: string, maxChars: number): string {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+  const chars = [...normalized];
+  if (chars.length <= maxChars) return normalized;
+  const headChars = Math.ceil((maxChars - 1) / 2);
+  const tailChars = Math.floor((maxChars - 1) / 2);
+  return `${chars.slice(0, headChars).join('')}…${chars.slice(-tailChars).join('')}`;
+}
+
+/**
+ * Build the leaf `<title>` without allowing a long corridor prefix to erase
+ * the road name. The previous implementation truncated the full H1 at a
+ * clause boundary, so three Basel routes all became “Basel – Weil am Rhein”.
+ * The route-first candidates retain the factual valico/strada discriminator;
+ * `buildTitleWithBrand` adds the publisher suffix afterwards when it fits.
+ */
+export function buildBorderWaitLeafTitle(
+  locale: BorderWaitLocale,
+  crossingDisplay: string,
+): string {
+  const { corridor, route } = crossingTitleParts(crossingDisplay);
+  const place = route ? `${route} — ${corridor}` : corridor;
+  const candidatesByLocale: Record<BorderWaitLocale, string[]> = {
+    it: route
+      ? [`Tempi attesa ${place}`, `Dogana ${place}`]
+      : [`Tempi attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi attesa ${place}`],
+    en: route
+      ? [`${place} border wait`, `Border crossing ${place}`]
+      : [`${place} border wait`, `Border crossing ${place}`, `Border wait ${place}`],
+    de: route
+      ? [`Wartezeit ${place}`, `Grenzübergang ${place}`]
+      : [`Wartezeit ${place}`, `Grenzübergang ${place}`, `Wartezeit ${corridor}`],
+    fr: route
+      ? [`Attente douane ${place}`, `Poste frontière ${place}`]
+      : [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${corridor}`],
+  };
+  const candidates = candidatesByLocale[locale];
+  const firstFit = candidates.find((candidate) => [...candidate].length <= TITLE_MAX_CHARS);
+  if (firstFit) return firstFit;
+
+  // Preserve a bounded corridor alongside the route in the final rung.  A
+  // route-only fallback made two long corridors with the same road token
+  // indistinguishable, while returning the raw candidate could exceed the
+  // shared title cap.
+  const compactRoute = compactBorderTitlePart(route, 28);
+  const compactCorridor = compactBorderTitlePart(corridor, 30);
+  const overflowFallback: Record<BorderWaitLocale, string> = {
+    it: route
+      ? `Dogana ${compactRoute} — ${compactCorridor}`
+      : `Dogana ${compactCorridor}`,
+    en: route
+      ? `Border wait ${compactRoute} — ${compactCorridor}`
+      : `Border wait ${compactCorridor}`,
+    de: route
+      ? `Grenze ${compactRoute} — ${compactCorridor}`
+      : `Grenze ${compactCorridor}`,
+    fr: route
+      ? `Douane ${compactRoute} — ${compactCorridor}`
+      : `Douane ${compactCorridor}`,
+  };
+  return truncateToClauseNonEmpty(overflowFallback[locale], TITLE_MAX_CHARS);
+}
 
 function buildDiscoverMoreCtas(locale: BorderWaitLocale): ReadonlyArray<DiscoverMoreCta> {
   const dieselHref =
@@ -2175,31 +2262,13 @@ function renderLeafPage(inp: LeafInputs): string {
       }))
     : '';
 
-  // Title — the h1 embeds an ISO date and a crossing name. Combined with
-  // the " | Frontaliere Ticino" suffix it can exceed the SERP-safe ~70 char
-  // budget. Truncation strategy:
-  //   1. If the full h1 fits TITLE_H1_MAX, use it as-is.
-  //   2. Otherwise, strip the " — <date suffix>" tail (date is already in
-  //      the URL /heute/, /today/ etc.) — preserves the crossing name in
-  //      full so multi-variant siblings (e.g. Maslianico-Pizzamiglio vs
-  //      Maslianico-Roggiana) emit distinct <title>s.
-  //   3. If still too long, fall back to a word-boundary truncation — the
-  //      shared `truncateToClauseNonEmpty` ladder, not an inline copy of it
-  //      (PR #5515 review: this was one of three hand-rolled duplicates). The
-  //      NonEmpty variant is required because `titleH1` feeds
-  //      `buildTitleWithBrand` right below, so a `''` refusal would emit a
-  //      brand-only `<title>` shared by every crossing — and h1 also seeds the
-  //      `differentiateH1FromTitle` comparison two lines down.
-  const TITLE_H1_MAX = 55;
-  const titleH1 = (() => {
-    if (h1.length <= TITLE_H1_MAX) return h1;
-    const dashIdx = h1.indexOf(' — ');
-    if (dashIdx > 0 && dashIdx <= TITLE_H1_MAX) return h1.slice(0, dashIdx);
-    return truncateToClauseNonEmpty(h1, TITLE_H1_MAX);
-  })();
-  // TITLE_H1_MAX (55) + brand suffix (22) can exceed the 66-char cap on its
-  // own — route through buildTitleWithBrand so the brand drops rather than
-  // overflowing.
+  // Keep the actual road/checkpoint token in the title.  The date is already
+  // represented by the /oggi/ (or localized equivalent) route, while a
+  // corridor can contain several distinct crossings whose labels share the
+  // same prefix (for example the three Basel–Weil am Rhein roads).
+  const titleH1 = buildBorderWaitLeafTitle(locale, crossingDisplay);
+  // The route-aware headline can use the full 66-character cap; route it
+  // through buildTitleWithBrand so the brand drops rather than overflowing.
   const title = buildTitleWithBrand(titleH1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
@@ -3126,9 +3195,10 @@ function renderArchivePage(inp: ArchiveInputs): string {
         <section>
           <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
           <table class="s-tbl" style="font-size:14px">
+            <caption class="sr-only">${esc(copy.hourlyTodayLabel)}</caption>
             <thead><tr>
-              <th class="s-thd">Ora</th>
-              <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+              <th scope="col" class="s-thd">Ora</th>
+              <th scope="col" class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>

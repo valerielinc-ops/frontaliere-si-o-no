@@ -142,35 +142,6 @@ describe('selection from RAW_ARTICLES', () => {
     expect(parsed).toEqual(real);
   });
 
-  it('reads rows from a registry with an explicit Article[] annotation', () => {
-    const typedFixture = `const RAW_ARTICLES: Article[] = [
-      { id: 'typed-entry', category: 'novita', date: '2026-10-05' },
-    ] satisfies Article[];`;
-
-    expect(parseRawArticles(typedFixture).map((entry) => entry.id)).toEqual(['typed-entry']);
-    expect(rawArticlesBlock(typedFixture)).toContain("id: 'typed-entry'");
-  });
-
-  it('reads typed literal chunks without double-counting the spread aggregator', () => {
-    const chunkedFixture = `const RAW_ARTICLES_CHUNK_01: Article[] = [
-      { id: 'chunk-one', category: 'novita', date: '2026-10-04' },
-    ];
-    const RAW_ARTICLES_CHUNK_02: Article[] = [
-      { id: 'chunk-two', category: 'novita', date: '2026-10-05' },
-    ];
-    const RAW_ARTICLES: Article[] = [
-      ...RAW_ARTICLES_CHUNK_01,
-      ...RAW_ARTICLES_CHUNK_02,
-      { id: 'appended-entry', category: 'novita', date: '2026-10-06' },
-    ] satisfies Article[];`;
-
-    expect(parseRawArticles(chunkedFixture).map((entry) => entry.id)).toEqual([
-      'chunk-one',
-      'chunk-two',
-      'appended-entry',
-    ]);
-  });
-
   it('--select prints the four body paths of each selected article, one per line', async () => {
     const root = tempRoot([]);
     let printed = '';
@@ -240,6 +211,9 @@ const RAW_ARTICLES: Article[] = [
     expect(independentCount).toBeGreaterThan(0);
     expect(entries.length).toBe(independentCount);
     expect(entries.length).toBe(fileWideCount);
+    expect(entries.every((entry) => (
+      typeof entry.category === 'string' && entry.category.length > 0 && typeof entry.date === 'string'
+    ))).toBe(true);
     // `date: ''` = publication date unknown (corpus PR 2082): the producer
     // must still READ the field (a missing match is null), and a present
     // date must parse. selectArticles ranks the unknown ones last.

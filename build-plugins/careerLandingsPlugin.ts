@@ -282,7 +282,7 @@ function renderFeaturedJobs(
     <h2 class="s-8dKmAe">${esc(title)}</h2>
     ${subtitleHtml}
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -395,6 +395,90 @@ function renderSources(sources: CareerLandingCopy['sources'], label: string): st
   return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul class="s-T1AdGR">${items}</ul></section>`;
 }
 
+const COMPETITION_SNAPSHOT_SECTION_TITLE: Record<CareerLocale, string> = {
+  it: 'I concorsi attualmente aperti (snapshot ufficiale)',
+  en: 'Currently open competitions (official snapshot)',
+  de: 'Aktuell offene Concorsi (offizielle Momentaufnahme)',
+  fr: 'Concorsi actuellement ouverts (instantané officiel)',
+};
+
+const COMPETITION_NOTICE_COPY: Record<CareerLocale, {
+  intro: string;
+  reference: string;
+  deadline: string;
+  noNotices: string;
+  verify: string;
+}> = {
+  it: {
+    intro: 'Nello snapshot ufficiale risultano questi bandi attivi',
+    reference: 'riferimento',
+    deadline: 'scadenza',
+    noNotices: 'Lo snapshot ufficiale non contiene al momento bandi con scadenza futura; verifica la fonte prima di candidarti.',
+    verify: 'Le informazioni sono uno snapshot: verifica sempre la scheda originale prima di candidarti.',
+  },
+  en: {
+    intro: 'The official snapshot currently contains these open notices',
+    reference: 'reference',
+    deadline: 'deadline',
+    noNotices: 'The official snapshot currently contains no notices with a future deadline; check the source before applying.',
+    verify: 'This is a snapshot: always check the original notice before applying.',
+  },
+  de: {
+    intro: 'Der offizielle Snapshot enthält derzeit diese offenen Ausschreibungen',
+    reference: 'Referenz',
+    deadline: 'Frist',
+    noNotices: 'Der offizielle Snapshot enthält derzeit keine Ausschreibung mit künftiger Frist; bitte vor der Bewerbung die Quelle prüfen.',
+    verify: 'Die Angaben sind ein Snapshot: Bitte vor der Bewerbung immer die Originalausschreibung prüfen.',
+  },
+  fr: {
+    intro: "L'instantané officiel contient actuellement ces avis ouverts",
+    reference: 'référence',
+    deadline: 'échéance',
+    noNotices: "L'instantané officiel ne contient actuellement aucun avis avec une échéance future ; vérifiez la source avant de postuler.",
+    verify: "Ces données sont un instantané : vérifiez toujours l'avis original avant de postuler.",
+  },
+};
+
+function formatCompetitionDeadline(deadline: string | null | undefined, locale: CareerLocale): string | null {
+  if (!deadline) return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(deadline);
+  if (!match) return deadline;
+  const [, year, month, day] = match;
+  return locale === 'en' ? `${month}/${day}/${year}` : `${day}.${month}.${year}`;
+}
+
+/**
+ * Build the editorial competition sentence from the same notice records used
+ * by the table below it. Keeping refs and deadlines out of hand-written locale
+ * copy prevents a removed source record from surviving in one locale.
+ */
+export function buildCompetitionNoticeNarrative(
+  locale: CareerLocale,
+  notices: readonly NonNullable<CareerJobsSnapshot['competitionNotices']>[number][],
+): string {
+  const labels = COMPETITION_NOTICE_COPY[locale];
+  if (notices.length === 0) return labels.noNotices;
+
+  const entries = notices.map((notice) => {
+    const reference = notice.ref ? `${labels.reference} ${notice.ref}` : null;
+    const title = notice.title?.trim() || '—';
+    const context = [notice.organization, notice.location]
+      .map((value) => value?.trim())
+      .filter((value): value is string => Boolean(value))
+      .join(', ');
+    const deadline = formatCompetitionDeadline(notice.deadline, locale);
+    const details = [
+      reference,
+      title,
+      context ? `(${context})` : null,
+      deadline ? `${labels.deadline} ${deadline}` : null,
+    ].filter((value): value is string => Boolean(value));
+    return details.join(' — ');
+  });
+
+  return `${labels.intro}: ${entries.join('; ')}. ${labels.verify}`;
+}
+
 /** Copy and original notices are tied to the same snapshot as the live cards. */
 export function buildCompetitionSummary(locale: CareerLocale, snapshot: CareerJobsSnapshot) {
   const labels = {
@@ -455,6 +539,11 @@ function renderPage(opts: {
   });
   const competitionSummary = id === 'concorsi-pubblici-lugano' ? buildCompetitionSummary(locale, snapshot) : null;
   if (competitionSummary) {
+    const snapshotSectionTitle = COMPETITION_SNAPSHOT_SECTION_TITLE[locale];
+    const noticeNarrative = buildCompetitionNoticeNarrative(locale, snapshot.competitionNotices ?? []);
+    copy.sections = copy.sections.map((section) => section.title === snapshotSectionTitle
+      ? { ...section, paragraphs: [noticeNarrative, ...section.paragraphs.slice(1)] }
+      : section);
     copy.title = competitionSummary.title;
     copy.h1 = ({ it: 'Concorsi pubblici a Lugano e in Ticino', en: 'Public-sector jobs in Lugano and Ticino', de: 'Öffentliche Stellen in Lugano und im Tessin', fr: 'Emplois publics à Lugano et au Tessin' })[locale];
     copy.description = competitionSummary.description;
@@ -510,7 +599,7 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,

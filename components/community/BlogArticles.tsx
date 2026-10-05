@@ -1640,13 +1640,20 @@ function BlogArticles({
  // only prefix the origin for same-origin relative paths (e.g. /images/places).
  const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
  const scriptId = 'blog-article-jsonld';
- // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
- // to prevent duplicate schemas during SPA hydration
+ const schemaDates = articleSchemaDates(article);
+ // Remove any pre-existing article JSON-LD from static HTML (ogPagesPlugin)
+ // to prevent duplicate schemas during SPA hydration. Undated articles emit
+ // WebPage from the static renderer, so its canonical article identity is part
+ // of this replacement set as well; generic WebPage schemas must stay put.
  document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
  if (el.id === scriptId) return;
  try {
  const data = JSON.parse(el.textContent || '');
- if (data['@type'] === 'BlogPosting' || data['@type'] === 'NewsArticle' || data['@type'] === 'Article') {
+ const isArticleSchema = data['@type'] === 'BlogPosting'
+ || data['@type'] === 'NewsArticle'
+ || data['@type'] === 'Article'
+ || (data['@type'] === 'WebPage' && data['@id'] === `${canonicalUrl}#article`);
+ if (isArticleSchema) {
  // P14: a static page rendered with the cover's credit carries it in this
  // ImageObject; keep it before the script goes, for when the fetch fails.
  staticCoverImageRef.current = creditedStaticImageObject(data.image, coverUrl) ?? staticCoverImageRef.current;
@@ -1656,11 +1663,13 @@ function BlogArticles({
  });
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'NewsArticle',
+ // An article without a documented publication date is an evergreen page,
+ // not a NewsArticle with an unknown timestamp.
+ '@type': schemaDates.datePublished ? 'NewsArticle' : 'WebPage',
  '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
- ...articleSchemaDates(article),
+ ...schemaDates,
  author: ldAuthorName
  ? {
  '@type': 'Person',

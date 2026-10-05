@@ -4,7 +4,8 @@ import { persistMailtrapEvent } from '../functions/src/newsletterMailtrapWebhook
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
  * seeded docs to come back so the sample count/hour computation runs.
@@ -51,12 +52,14 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            orderBy: () => ({
-              limit: () => ({
-                get: async () => {
-                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                  return { docs: seeded.map((d) => ({ data: () => d })) };
-                },
+            where: () => ({
+              orderBy: () => ({
+                limit: () => ({
+                  get: async () => {
+                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                    return { docs: seeded.map((d) => ({ data: () => d })) };
+                  },
+                }),
               }),
             }),
           };

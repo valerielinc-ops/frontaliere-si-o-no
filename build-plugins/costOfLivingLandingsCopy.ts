@@ -72,11 +72,9 @@ const istatData = JSON.parse(
 const FSO_CITIES = fsoData.cities;
 const ISTAT_PROVINCES = istatData.provinces;
 
-const FSO_URL =
-  'https://www.pxweb.bfs.admin.ch/pxweb/fr/px-x-0902030000_101/';
+const FSO_URL = 'https://stats.swiss/';
 const FSO_LABEL = 'FSO rent survey 2023';
-const ISTAT_URL =
-  'https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo';
+const ISTAT_URL = 'https://www.istat.it/statistiche-per-temi/economia/prezzi/';
 const OMI_URL =
   'https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
 
@@ -592,11 +590,12 @@ export function buildCitySections(
   ] as const;
   const rentTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.rentTableTitle(cityName)}</caption>
       <thead><tr>
         ${L.rentTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -632,11 +631,12 @@ export function buildCitySections(
   ] as const;
   const basketTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.basketTableTitle(province)}</caption>
       <thead><tr>
         ${L.basketTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -695,11 +695,12 @@ export function buildCitySections(
     );
     return `
       <table class="seo-table s-JN75g4">
+        <caption class="sr-only">${L.comparisonTitle(cityName, province)}</caption>
         <thead><tr>
-          <th class="t-h">${r.voice}</th>
-          <th class="t-h">${r.ch}</th>
-          <th class="t-h">${r.it}</th>
-          <th class="t-h">${r.delta}</th>
+          <th scope="col" class="t-h">${r.voice}</th>
+          <th scope="col" class="t-h">${r.ch}</th>
+          <th scope="col" class="t-h">${r.it}</th>
+          <th scope="col" class="t-h">${r.delta}</th>
         </tr></thead>
         <tbody>
           <tr>
