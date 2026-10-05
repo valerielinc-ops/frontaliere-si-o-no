@@ -2550,7 +2550,7 @@
       "slugByLocale": {
         "it": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
         "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-volketswil",
-        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil-nx24lc",
         "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-volketswil"
       },
       "titleByLocale": {
@@ -2571,6 +2571,9 @@
           "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
         ],
         "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        ],
+        "de": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
         ]
       },
@@ -2996,7 +2999,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -5268,7 +5272,7 @@
       "slugByLocale": {
         "it": "farmacista-m-f-d-galenica-galenica-zurich",
         "en": "pharmacist-m-f-d-galenica-galenica-zurich",
-        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich-nwm9ib",
         "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-zurich"
       },
       "titleByLocale": {
@@ -5289,6 +5293,9 @@
           "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
         ],
         "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "de": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
         ]
       },
@@ -12071,11 +12078,13 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ]
     },
     {

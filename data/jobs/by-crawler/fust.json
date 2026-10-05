@@ -1000,7 +1000,7 @@
       "slugByLocale": {
         "it": "servicetechniker-in-heimservice-fust-region-fribourg",
         "en": "servicetechniker-in-heimservice-fust-region-fribourg",
-        "de": "servicetechniker-in-heimservice-fust-region-fribourg",
+        "de": "servicetechniker-in-heimservice-fust-freiburg",
         "fr": "servicetechniker-in-heimservice-fust-region-fribourg"
       },
       "requirementsByLocale": {},
@@ -1024,6 +1024,8 @@
       },
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-heimservice-fust-freiburg"
@@ -1033,16 +1035,11 @@
         ],
         "fr": [
           "servicetechniker-in-heimservice-fust-freiburg"
-        ],
-        "de": [
-          "servicetechniker-in-heimservice-fust-freiburg"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-heimservice-fust-freiburg"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-w1ep66",
@@ -1085,7 +1082,7 @@
       "slugByLocale": {
         "it": "specialista-al-dettaglio-efz-scopri-di-esperienze-di-shopping-fust-oberburen",
         "en": "retail-specialist-efz-shape-of-shopping-experiences-fust-oberburen",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
         "fr": "specialiste-du-commerce-de-detail-efz-shape-of-shopping-experiences-fust-oberburen"
       },
       "requirementsByLocale": {},
@@ -1111,27 +1108,31 @@
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
+          "specialista-al-dettaglio-efz-scopri-di-esperienze-di-shopping-fust-chur"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66"
         ],
-        "de": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66"
-        ],
         "fr": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66"
+        ],
+        "de": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur",
+        "specialista-al-dettaglio-efz-scopri-di-esperienze-di-shopping-fust-chur"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-jvdgi4",
@@ -1175,7 +1176,7 @@
       "slugByLocale": {
         "it": "kundendienstmitarbeiter-in-service-fust-koniz",
         "en": "kundendienstmitarbeiter-in-service-fust-koniz",
-        "de": "kundendienstmitarbeiter-in-service-fust-niederwangen-be",
+        "de": "kundendienstmitarbeiter-in-service-fust-koniz-jvdgi4",
         "fr": "kundendienstmitarbeiter-in-service-fust-koniz"
       },
       "requirementsByLocale": {},
@@ -1200,14 +1201,10 @@
       "previousSlugsByLocale": {
         "it": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern"
-        ],
-        "de": [
-          "kundendienstmitarbeiter-in-service-fust-koniz-jvdgi4"
         ]
       },
       "previousSlugs": [
-        "kundendienstmitarbeiter-in-service-fust-koniz-bern",
-        "kundendienstmitarbeiter-in-service-fust-koniz-jvdgi4"
+        "kundendienstmitarbeiter-in-service-fust-koniz-bern"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
@@ -1255,7 +1252,7 @@
       "slugByLocale": {
         "it": "qualita-responsabile-r-consegna-a-domicilio-fust-koniz",
         "en": "quality-responsible-r-home-delivery-fust-koniz",
-        "de": "qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be",
+        "de": "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
         "fr": "qualite-responsable-livraison-a-domicile-fust-koniz"
       },
       "requirementsByLocale": {},
@@ -1279,20 +1276,24 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
+          "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
+          "qualita-responsabile-r-consegna-a-domicilio-fust-niederwangen-be"
         ],
         "en": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
         ],
-        "de": [
-          "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
-        ],
         "fr": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
+        ],
+        "de": [
+          "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
+          "qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be"
         ]
       },
       "previousSlugs": [
-        "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
+        "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
+        "qualita-responsabile-r-consegna-a-domicilio-fust-niederwangen-be",
+        "qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
@@ -1340,7 +1341,7 @@
       "slugByLocale": {
         "it": "tecnico-di-servizio-soluzioni-professionali-fust-oberburen",
         "en": "servicetechniker-in-professional-solutions-fust-region-zurich-basel",
-        "de": "servicetechniker-in-professional-solutions-fust-region-zurich-basel",
+        "de": "servicetechniker-in-professional-solutions-fust-oberburen",
         "fr": "technicien-de-services-solutions-professionnelles-fust-oberburen"
       },
       "requirementsByLocale": {},
@@ -1365,28 +1366,32 @@
       "previousSlugs": [
         "servicetechniker-in-professional-solutions-fust-oberburen",
         "servicetechniker-in-professional-solutions-fust-oberburen-2",
-        "technicien-de-services-solutions-professionnelles-fust-region-zurich-basel"
+        "technicien-de-services-solutions-professionnelles-fust-region-zurich-basel",
+        "servicetechniker-in-professional-solutions-fust-region-zurich-basel",
+        "tecnico-di-servizio-soluzioni-professionali-fust-region-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-professional-solutions-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-oberburen-2"
+          "servicetechniker-in-professional-solutions-fust-oberburen-2",
+          "tecnico-di-servizio-soluzioni-professionali-fust-region-zurich-basel"
+        ],
+        "fr": [
+          "servicetechniker-in-professional-solutions-fust-oberburen",
+          "technicien-de-services-solutions-professionnelles-fust-region-zurich-basel"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen"
         ],
         "de": [
-          "servicetechniker-in-professional-solutions-fust-oberburen"
-        ],
-        "fr": [
-          "servicetechniker-in-professional-solutions-fust-oberburen",
-          "technicien-de-services-solutions-professionnelles-fust-region-zurich-basel"
+          "servicetechniker-in-professional-solutions-fust-region-zurich-basel"
         ]
       },
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-vre2o9",
@@ -2090,7 +2095,7 @@
       "slugByLocale": {
         "it": "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
         "en": "assembly-assistant-for-home-delivery-of-electrical-household-appliances-fust-dubendorf",
-        "de": "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf",
+        "de": "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
         "fr": "assistant-a-l-assemblage-pour-la-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-dubendorf"
       },
       "requirementsByLocale": {},
@@ -2114,25 +2119,29 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
+          "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
         ],
         "en": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
         ],
         "de": [
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
         ],
         "fr": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
         ]
       },
       "previousSlugs": [
-        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf",
+        "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-p9hva3",
@@ -2175,7 +2184,7 @@
       "slugByLocale": {
         "it": "tecnico-di-consegna-a-domicilio-di-elettrodomestici-elettrici-per-la-casa-fust-dubendorf",
         "en": "home-delivery-technician-of-electrical-household-appliances-fust-dubendorf",
-        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-dubendorf",
+        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
         "fr": "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-dubendorf"
       },
       "requirementsByLocale": {},
@@ -2199,6 +2208,8 @@
       },
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "previousSlugsByLocale": {
         "it": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
@@ -2207,17 +2218,16 @@
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
         ],
         "de": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-dubendorf"
         ],
         "fr": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
         ]
       },
       "previousSlugs": [
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-dubendorf"
+      ]
     },
     {
       "id": "company-2q7nu2",
@@ -3340,7 +3350,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-heimservice-fust-visp"
+          "servicetechniker-in-heimservice-fust-visp",
+          "tecnico-di-assistenza-domiciliare-fust-region-oberwallis"
         ],
         "en": [
           "servicetechniker-in-heimservice-fust-visp"
@@ -3350,7 +3361,8 @@
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-heimservice-fust-visp"
+        "servicetechniker-in-heimservice-fust-visp",
+        "tecnico-di-assistenza-domiciliare-fust-region-oberwallis"
       ],
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
@@ -3832,18 +3844,21 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-bulach"
         ]
       },
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-yo2bxu",
@@ -4148,18 +4163,21 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-13",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-13",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-zug"
         ]
       },
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
       "salaryMin": 107500,
-      "salaryMax": 188500
+      "salaryMax": 188500,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-62f4iu",

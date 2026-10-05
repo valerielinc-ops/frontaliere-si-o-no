@@ -60083,12 +60083,38 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-montage-hinwil-dauerstelle-289014/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-montage-mit-kundenbetreuung-und-auslandseinsatzen-fachkraft-ch",
+          "polymechanic-assembly-with-customer-support-and-international-assignments-fachkraft-ch-gmbh-lugano",
+          "polymechanic-assembly-assembly-assembly-fachkraft-ch-gmbh-lugano",
+          "polymechanic-assembly-with-customer-service-fachkraft-ch-gmbh-hinwil-zurich",
+          "polymechaniker-in-montage-baugruppenmontage-fachkraft-ch-dag57t",
+          "polymecanique-assemblage-assemblage-fachkraft-ch-gmbh-lugano",
+          "polymecanique-montage-avec-service-a-la-clientele-fachkraft-ch-gmbh-hinwil-zurich",
+          "polymechaniker-in-montage-con-kundenbetreuung-e-auslandseinsatzen-fachkraft-ch-gmbh-lugano",
+          "polymecanique-assemblage-avec-support-client-et-missions-internationales-fachkraft-ch-gmbh-lugano",
+          "polymechaniker-in-montage-mit-lean-erfahrung-fachkraft-ch",
+          "polymechaniker-in-montage-mit-kundenservice-fachkraft-ch",
+          "polymechanic-montaggio-assemblaggio-fachkraft-ch-gmbh-lugano",
+          "polymechaniker-in-8211-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch",
+          "polymechanic-assemblaggio-con-lean-experience-fachkraft-ch-gmbh-hinwil-zurich",
+          "polymechanic-assembly-with-lean-experience-fachkraft-ch-gmbh-hinwil-zurich",
+          "polymecanique-assemblage-avec-l-experience-de-maigre-fachkraft-ch-gmbh-hinwil-zurich",
+          "polymechaniker-in-montage-mit-lean-erfahrung-hinwil-zurich-fachkraft-ch",
+          "polymechaniker-in-8211-montage-mit-lean-erfahrung-hinwil-zurich-fachkraft-ch",
+          "polymechaniker-in-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch",
+          "polymechaniker-in-montage-baugruppenmontage-fachkraft-ch-gmbh-hinwil"
+        ],
+        "de": [
+          "polymechaniker-in-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch"
+        ]
+      },
       "previousSlugs": [
         "polymechaniker-in-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch",
         "polymechaniker-in-montage-mit-lean-erfahrung-fachkraft-ch-dgms73",
@@ -60120,35 +60146,6 @@
         "polymechaniker-in-8211-montage-mit-lean-erfahrung-hinwil-zurich-fachkraft-ch",
         "polymechaniker-in-montage-baugruppenmontage-fachkraft-ch-gmbh-hinwil"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-montage-mit-kundenbetreuung-und-auslandseinsatzen-fachkraft-ch",
-          "polymechanic-assembly-with-customer-support-and-international-assignments-fachkraft-ch-gmbh-lugano",
-          "polymechanic-assembly-assembly-assembly-fachkraft-ch-gmbh-lugano",
-          "polymechanic-assembly-with-customer-service-fachkraft-ch-gmbh-hinwil-zurich",
-          "polymechaniker-in-montage-baugruppenmontage-fachkraft-ch-dag57t",
-          "polymecanique-assemblage-assemblage-fachkraft-ch-gmbh-lugano",
-          "polymecanique-montage-avec-service-a-la-clientele-fachkraft-ch-gmbh-hinwil-zurich",
-          "polymechaniker-in-montage-con-kundenbetreuung-e-auslandseinsatzen-fachkraft-ch-gmbh-lugano",
-          "polymecanique-assemblage-avec-support-client-et-missions-internationales-fachkraft-ch-gmbh-lugano",
-          "polymechaniker-in-montage-mit-lean-erfahrung-fachkraft-ch",
-          "polymechaniker-in-montage-mit-kundenservice-fachkraft-ch",
-          "polymechanic-montaggio-assemblaggio-fachkraft-ch-gmbh-lugano",
-          "polymechaniker-in-8211-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch",
-          "polymechanic-assemblaggio-con-lean-experience-fachkraft-ch-gmbh-hinwil-zurich",
-          "polymechanic-assembly-with-lean-experience-fachkraft-ch-gmbh-hinwil-zurich",
-          "polymecanique-assemblage-avec-l-experience-de-maigre-fachkraft-ch-gmbh-hinwil-zurich",
-          "polymechaniker-in-montage-mit-lean-erfahrung-hinwil-zurich-fachkraft-ch",
-          "polymechaniker-in-8211-montage-mit-lean-erfahrung-hinwil-zurich-fachkraft-ch",
-          "polymechaniker-in-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch",
-          "polymechaniker-in-montage-baugruppenmontage-fachkraft-ch-gmbh-hinwil"
-        ],
-        "de": [
-          "polymechaniker-in-montage-baugruppenmontage-hinwil-zurich-fachkraft-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:53:26.094Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -60161,7 +60158,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:53:26.094Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-9b4a30ab9abb",
@@ -62771,20 +62772,19 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-instandhaltung-zuerich-dauerstelle-295047/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "de": [
-          "polymechaniker-in-instandhaltung-zurich-zurich-fachkraft-ch",
-          "polymechaniker-in-instandhaltung-fachkraft-ch"
-        ],
         "it": [
           "polymechaniker-in-instandhaltung-zurich-zurich-fachkraft-ch",
           "polymechaniker-in-instandhaltung-fachkraft-ch-gmbh-zurich"
+        ],
+        "de": [
+          "polymechaniker-in-instandhaltung-zurich-zurich-fachkraft-ch",
+          "polymechaniker-in-instandhaltung-fachkraft-ch"
         ]
       },
       "previousSlugs": [
@@ -62792,8 +62792,6 @@
         "polymechaniker-in-instandhaltung-fachkraft-ch-gmbh-zurich",
         "polymechaniker-in-instandhaltung-fachkraft-ch"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:53:08.588Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -62806,7 +62804,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:53:08.588Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-ac8fde158338",
@@ -113107,20 +113109,11 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/landmaschinenmechaniker-in-pfaeffikon-dauerstelle-291276/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-pfaffikon-zurich-fachkraft-ch",
-        "meccanico-delle-macchine-agricole-tecnico-del-servizio-ingegnere-idraulico-fachkraft-ch-gmbh-lugano",
-        "agricultural-machinery-mechanic-servcie-technician-hydraulic-engineer-fachkraft-ch-gmbh-lugano",
-        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-fachkraft-ch-87x5y8",
-        "mecanicien-des-machines-agricoles-technicien-des-services-ingenieur-hydraulique-fachkraft-ch-gmbh-lugano",
-        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-fachkraft-ch-gmbh-pfaffikon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-pfaffikon-zurich-fachkraft-ch",
@@ -113134,8 +113127,14 @@
           "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-pfaffikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:48:02.677Z",
+      "previousSlugs": [
+        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-pfaffikon-zurich-fachkraft-ch",
+        "meccanico-delle-macchine-agricole-tecnico-del-servizio-ingegnere-idraulico-fachkraft-ch-gmbh-lugano",
+        "agricultural-machinery-mechanic-servcie-technician-hydraulic-engineer-fachkraft-ch-gmbh-lugano",
+        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-fachkraft-ch-87x5y8",
+        "mecanicien-des-machines-agricoles-technicien-des-services-ingenieur-hydraulique-fachkraft-ch-gmbh-lugano",
+        "landmaschinenmechaniker-in-servcietechniker-in-hydraulik-fachkraft-ch-gmbh-pfaffikon"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -113148,7 +113147,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:48:02.677Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-b46773495937",
@@ -257460,18 +257463,29 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/elektroinstallateur-in-winterthur-temporaer-300834/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
-        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
-          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur"
+          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur",
+          "installatori-elettrici-per-installazioni-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-winterthur-zurich",
+          "electrical-installers-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich",
+          "installateurs-electriques-pour-installations-a-courant-eleve-et-faible-fachkraft-ch-gmbh-winterthur-zurich"
+        ],
+        "en": [
+          "electrical-installers-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich"
+        ],
+        "fr": [
+          "installateurs-electriques-pour-installations-a-courant-eleve-et-faible-fachkraft-ch-gmbh-winterthur-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:41:03.014Z",
+      "previousSlugs": [
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
+        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur",
+        "installatori-elettrici-per-installazioni-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-winterthur-zurich",
+        "electrical-installers-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich",
+        "installateurs-electriques-pour-installations-a-courant-eleve-et-faible-fachkraft-ch-gmbh-winterthur-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -257484,7 +257498,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:41:03.014Z"
     },
     {
       "id": "fachkraft-89ec0ff176f5",

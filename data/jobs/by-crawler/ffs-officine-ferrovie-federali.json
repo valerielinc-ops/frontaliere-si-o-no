@@ -5282,9 +5282,7 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "datePosted": "2026-09-20T22:00:00Z",
       "postedDate": "2026-09-20T22:00:00Z",
-      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-04T21:23:07.244Z",
@@ -5317,7 +5315,9 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de",
+      "datePosted": "2026-09-20T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-bf2235b4fb69",
@@ -7752,9 +7752,7 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "datePosted": "2026-09-08T11:34:12Z",
       "postedDate": "2026-09-08T11:34:12Z",
-      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-04T21:23:27.234Z",
@@ -7796,7 +7794,9 @@
       },
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca",
+      "datePosted": "2026-09-08T11:34:12Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-e7d174521c16",
