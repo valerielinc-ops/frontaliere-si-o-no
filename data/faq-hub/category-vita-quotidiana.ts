@@ -126,7 +126,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
         "L'indice officiel des loyers (OCA, TI-USTAT 2024) : Lugano centre CHF 24/m²/mois (appartement 60 m² ≈ CHF 1 450/mois + CHF 200 charges), Mendrisio centre CHF 18/m² (60 m² ≈ CHF 1 090), Bellinzone CHF 16/m², Locarno CHF 19/m² [source : TI.ch USTAT loyers 2024]. Le frontalier peut louer en Suisse pour usage secondaire ou permis B. Bail régi par CO art. 253-274g. Caution max 3 mois sur compte bloqué. Annonces : homegate.ch, immoscout24.ch, comparis.ch. Préavis 3 mois. Charges énergie séparées (Nebenkosten, décompte annuel). Élargir à Capriasca ou Cadro pour loyers plus bas.",
     },
     sources: [
-      'https://www3.ti.ch/ustat/',
+      'https://www4.ti.ch/dfe/dr/ustat/ufficio/',
     ],
   },
   {
@@ -273,7 +273,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
         "Les amendes suisses se paient sous 30 jours par virement IBAN sur le bulletin joint ou via le site de la police cantonale [source : Ti.ch police]. Depuis 2024 la Suisse a ratifié la Convention UE sur la reconnaissance mutuelle des sanctions pécuniaires : les amendes impayées peuvent être perçues par l'Agenzia Entrate-Riscossione italienne (art. 10 accord coopération police-justice [source : Fedlex RS 0.360.268.1]). Amendes jusqu'à CHF 100 (disciplinaires, petits excès de vitesse, stationnement) : « Ordnungsbusse » sans notification personnelle. Au-delà de CHF 300 : contravention avec notification. Non-paiement : refus de renouvellement du permis ou interpellation à la prochaine entrée. Recours à la Pretura sous 20 jours.",
     },
     sources: [
-      'https://www4.ti.ch/di/polizia/',
+      'https://www4.ti.ch/di/pol-new/home/',
     ],
   },
 ];

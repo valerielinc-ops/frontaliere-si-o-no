@@ -13,7 +13,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
 import type { Plugin } from 'vite';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
-import { editorialModifiedDate } from './shared/editorialDates';
+import { editorialModifiedDate, synchronizeSitemapLastmods } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
 import { canonicalizeBorderWaitLinks } from './shared/borderWaitLegacyRedirects';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT, FAVICON_LINKS } from './constants';
@@ -3247,6 +3247,37 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  fr: 'Sujets connexes',
  };
 
+ // Locale sitemap entries use translated slugs, so a locale page cannot
+ // always be reduced to the Italian path by removing `/en/`, `/de/`, or
+ // `/fr/`. Use the declared hreflang group to resolve every alternate back to
+ // its Italian editorial entry and therefore one authoritative date.
+ const italianLocBySitemapLoc = new Map<string, string>();
+ for (const url of urls) {
+   const italianLoc = url.hreflangs.find((link) => link.lang === 'it')?.href ??
+     (/^\/(?:en|de|fr)(?:\/|$)/.test(url.path) ? undefined : url.loc);
+   if (!italianLoc) continue;
+   italianLocBySitemapLoc.set(url.loc, italianLoc);
+   for (const link of url.hreflangs) italianLocBySitemapLoc.set(link.href, italianLoc);
+ }
+
+ // Keep seeded sitemap freshness aligned with the same editorial date that
+ // is rendered in each page's `dateModified` metadata. Entries without an
+ // Article date remain unchanged so a missing date cannot become a build-time
+ // freshness signal.
+ const dateForSitemapLoc = (loc: string): string | undefined => {
+   const paths = [loc, italianLocBySitemapLoc.get(loc)]
+     .filter((candidate): candidate is string => Boolean(candidate))
+     .map((candidate) => candidate === BASE_URL ? '/' : candidate.startsWith(`${BASE_URL}/`) ? candidate.slice(BASE_URL.length) : '');
+   for (const path of paths) {
+     if (!path) continue;
+     const date = editorialModifiedDate(seoMap.get(seoKey(path))?.sd, JSON_LD_SCRIPT_SEPARATOR);
+     if (date) return date;
+   }
+   return undefined;
+ };
+ const normalizeSeededSitemap = (xml: string): string =>
+   synchronizeSitemapLastmods(xml, dateForSitemapLoc);
+
  let count = 0;
  let skipped = 0;
  // Dist-relative paths (no trailing slash) of the locale-variant pages THIS
@@ -3819,7 +3850,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Il calendario 2026 offre diversi ponti interessanti per i frontalieri che vogliono ottimizzare i giorni di ferie. I migliori sono: (1) Pasqua — Venerdì Santo 3 aprile + Pasquetta 6 aprile: bastano zero giorni di ferie per ottenere 4 giorni consecutivi. (2) Ascensione — giovedì 14 maggio, ponte con un giorno di ferie venerdì 15 maggio per 4 giorni consecutivi. (3) Corpus Domini — giovedì 4 giugno, ponte con venerdì 5 giugno per 4 giorni. (4) SS. Pietro e Paolo — lunedì 29 giugno, weekend lungo di 3 giorni senza usare ferie. (5) Immacolata — martedì 8 dicembre, ponte con lunedì 7 dicembre per 4 giorni consecutivi. Pianificando anticipatamente le ferie (rispettando il preavviso del CCL, generalmente 2 mesi per ferie estive) un frontaliere può ottenere fino a 25-28 giorni di vacanza effettiva usando solo 15-17 giorni del monte ferie.`,
  `<h2 class="s-FoMhWG">Giorni di ferie e festività: come si sommano?</h2>`,
  `Per il diritto svizzero (CO art. 329a) il minimo legale di ferie è 4 settimane (20 giorni lavorativi) all'anno per lavoratori adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi ticinesi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime. Un frontaliere con contratto MEM e 10 anni di anzianità ha quindi 25 giorni di ferie + circa 13 giorni festivi lavorativi (i 15 festivi meno quelli che nel 2026 cadono nel weekend) = 38 giorni pagati non lavorati all'anno. I frontalieri devono anche tenere presente che i festivi italiani non si applicano automaticamente in Svizzera: chi lavora in Ticino è soggetto al calendario svizzero e deve eventualmente concordare per iscritto con il datore di lavoro la possibilità di fruire dei festivi nazionali italiani (25 aprile, 2 giugno, Immacolata italiana) come giorni di ferie retribuite.`,
- `<p class="s-JBVO9H">Fonte: <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dfe/" rel="noopener">Dipartimento finanze ed economia Canton Ticino</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Legge cantonale sui giorni festivi ufficiali del Canton Ticino (RL 10.1.1.5) · Codice delle Obbligazioni svizzero (CO art. 110, 321, 329, 329a)</p>`,
+ `<p class="s-JBVO9H">Fonte: <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dipartimento/" rel="noopener">Dipartimento finanze ed economia Canton Ticino</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Legge cantonale sui giorni festivi ufficiali del Canton Ticino (RL 10.1.1.5) · Codice delle Obbligazioni svizzero (CO art. 110, 321, 329, 329a)</p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri')) {
  editorialBlocks.push(
@@ -4297,7 +4328,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<strong>Lugano e Sud Ticino</strong>: UBS, Credit Suisse, BSI, Vontobel, Banca dello Stato Ticino (finanza); Helsinn, IBSA, Mepha (pharma); Armasuisse, Swisscom, Softway (IT); VF International, Hugo Boss (fashion/retail); USI, SUPSI (università). <strong>Mendrisiotto</strong>: Schindler, Agie Charmilles, Husky Injection Molding (manifattura); FoxTown (retail); Regent (illuminazione). <strong>Bellinzonese e Tre Valli</strong>: Officine FFS, AET (azienda elettrica), Repower, Autopostale (trasporti e utilities). <strong>Locarnese</strong>: ospedale La Carità, Dadò Editore, turismo alberghiero. Per un elenco aggiornato e offerte attive consulta la <a href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a>.`,
  `<h2 class="s-o3IET6">Come candidarsi: canali e CV svizzero</h2>`,
  `Oltre il 80% delle assunzioni passa dai portali aziendali ufficiali (sezione "Carriere" / "Jobs" sui siti corporate), seguiti da LinkedIn, Jobup.ch, JobScout24 e agenzie di collocamento specializzate (Adecco, Manpower, Kelly Services). Il CV svizzero è strutturalmente diverso da quello italiano: include foto professionale, data di nascita (diversamente da UE/GDPR), referenze esplicite con contatti, certificati di lavoro dettagliati (Arbeitszeugnis) invece di semplici attestazioni. Per preparare una candidatura efficace consulta la <a href="/guida-frontaliere/primo-giorno-lavoro/">guida primo giorno di lavoro frontaliere</a> e il <a href="/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/">simulatore tasse nuovi frontalieri</a> per confrontare il netto reale di ogni offerta.`,
- `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www4.ti.ch/dfe/usl" rel="noopener">Ufficio di statistica Canton Ticino (USTAT)</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dr/ustat/ufficio/" rel="noopener">Ufficio di statistica Canton Ticino (USTAT)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/attrazioni-svizzera-italiana')) {
  // H.5: contenuto editoriale 500w + mappa
@@ -4314,7 +4345,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<strong>Locarno Film Festival</strong> (primi di agosto): storico festival internazionale del cinema, proiezioni nella Piazza Grande da 8.000 posti, ingressi accessibili. <strong>Isole di Brissago</strong>: giardino botanico sul Lago Maggiore, battello da Locarno, CHF 9 biglietto isole + CHF 20 battello. <strong>Valle Verzasca</strong>: ponte dei Salti di Lavertezzo, acque turchesi, il famoso salto di James Bond dalla diga (220 m — bungee jumping operativo in estate). <strong>Cardada</strong> e <strong>Cimetta</strong>: funivia da Orselina, trekking e paragliding. <strong>Centovalli</strong>: linea ferroviaria panoramica Domodossola-Locarno, paesaggi di castagni e cascate.`,
  `<h2 class="s-o3IET6">Come organizzare la visita</h2>`,
  `Per i frontalieri, il <strong>Ticino Ticket</strong> (gratuito per gli ospiti di hotel, campeggi e ostelli) copre tutti i trasporti pubblici, funicolari e battelli del cantone — valido per l'intera durata del soggiorno. Chi non pernotta può acquistare un biglietto giornaliero FFS/TILO a CHF 25 per muoversi in tutto il cantone. Molte attrazioni offrono sconti per famiglie (2 adulti + bambini fino a 16 anni) e abbonamenti annuali convenienti per chi vive vicino al confine. Per pianificare gli spostamenti in base ai tempi di attesa alle dogane consulta la <a href="/guida-frontaliere/mappa-confine/">mappa dei valichi</a> e la guida <a href="/vivere-in-ticino/trasporti-frontalieri/">trasporti frontalieri</a>.`,
- `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.ticino.ch" rel="noopener">Ticino Turismo</a> · <a class="s-OsohZU" href="https://whc.unesco.org" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a class="s-OsohZU" href="https://www.pardo.ch" rel="noopener">Locarno Film Festival</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.ticino.ch" rel="noopener">Ticino Turismo</a> · <a class="s-OsohZU" href="https://whc.unesco.org" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a class="s-OsohZU" href="https://www.locarnofestival.ch/" rel="noopener">Locarno Film Festival</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/confronta-asili-nido')) {
  // H.5: introduzione comparativa + metodologia
@@ -6059,6 +6090,23 @@ ${hrefTags}
  (hashSkipped > 0 ? ` (${hashSkipped} skipped by content hash)` : ''));
  console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
 
+ // Vite copies the public sitemap seeds before closeBundle. Update those
+ // emitted copies after the SEO map and page HTML are complete, before the
+ // post-build sitemap alias/sanitizer sees them.
+ let synchronizedSitemaps = 0;
+ for (const file of seededSitemapFiles) {
+   const target = np.join(distDir, file);
+   if (!fs.existsSync(target)) continue;
+   const original = fs.readFileSync(target, 'utf-8');
+   const normalized = normalizeSeededSitemap(original);
+   if (normalized === original) continue;
+   synchronizedSitemaps++;
+   fs.writeFileSync(target, normalized, 'utf-8');
+ }
+ if (synchronizedSitemaps > 0) {
+   console.log(`\x1b[36m[static-pages]\x1b[0m Synchronized editorial dates in ${synchronizedSitemaps} seeded sitemap(s)`);
+ }
+
  // Signal post-injection plugins (e.g. professionLandingsLinksPlugin) that
  // every queued write has landed on disk. Without this signal they race the
  // WriteCollector's background auto-flush and silently lose their patches —
@@ -6083,7 +6131,7 @@ ${hrefTags}
   */
  try {
    const seededSources = seededSitemapFiles.flatMap((f) =>
-     parseAnnotatedSitemapUrls(readSeededSitemap(f)),
+     parseAnnotatedSitemapUrls(normalizeSeededSitemap(readSeededSitemap(f))),
    );
    const { entries, skipped: variantSkips } = collectLocaleVariantEntries(
      seededSources,

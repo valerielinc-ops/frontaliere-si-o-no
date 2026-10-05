@@ -263,7 +263,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www3.ti.ch/ustat/',
+      'https://www4.ti.ch/dfe/dr/ustat/ufficio/',
     ],
   },
   {
