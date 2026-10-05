@@ -7742,6 +7742,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-iva-avs-novembre-2026.title': 'Vote sur la TVA pour l\'AVS : date et détails de la votation fédérale',
     'blog.article.voto-iva-avs-novembre-2026.excerpt': 'Le 26 novembre 2026, on vote sur le financement de la 13e mensualité de l\'AVS par l\'augmentation de la TVA. Découvrez les taux, les échéances et les répercussions sur le budget.',
     'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Palais fédéral à Berne pour le vote sur la TVA',
+    'blog.article.villa-principe-leopoldo-chiude.title': 'Villa Principe Leopoldo ferme pour travaux et licencie',
+    'blog.article.villa-principe-leopoldo-chiude.excerpt': 'L\'Hotel Villa Principe Leopoldo di Collina d\'Oro ferme à partir du 30 décembre pour des travaux de 12 millions. 76 licenciements prévus sur 81 employés et réouverture en mai.',
+    'blog.article.villa-principe-leopoldo-chiude.imageAlt': 'Hôtel Villa Principe Leopoldo à Collina d\'Oro',
 };
 
 export default blogMetaChFr;

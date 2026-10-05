@@ -7742,6 +7742,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-iva-avs-novembre-2026.title': 'MWST-Abstimmung für AHV: Datum und Details',
     'blog.article.voto-iva-avs-novembre-2026.excerpt': 'Am 26. November 2026 wird über die Finanzierung des 13. AHV-Monatsgeldes mittels Mehrwertsteuererhöhung abgestimmt. Entdecken Sie Sätze, Fristen und Auswirkungen auf die Bilanz.',
     'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Bundeshaus in Bern für die MWST-Abstimmung',
+    'blog.article.villa-principe-leopoldo-chiude.title': 'Villa Principe Leopoldo schließt wegen Bauarbeiten und entlässt',
+    'blog.article.villa-principe-leopoldo-chiude.excerpt': 'Das Hotel Villa Principe Leopoldo in Collina d\'Oro schließt ab dem 30. Dezember wegen Bauarbeiten für 12 Millionen. Vorgesehen sind 76 Entlassungen bei 81 Beschäftigten und eine Wiedereröffnung im Mai.',
+    'blog.article.villa-principe-leopoldo-chiude.imageAlt': 'Hotel Villa Principe Leopoldo in Collina d\'Oro',
 };
 
 export default blogMetaChDe;
