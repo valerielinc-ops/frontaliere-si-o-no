@@ -44,6 +44,7 @@ import { CANTON_DISPLAY } from '../build-plugins/shared/cantonDisplay';
 import { TOPIC_CLUSTERS } from '../packages/articles/engine/topicTaxonomy';
 import { corpusSectionCdnKey } from '../infra/cloudflare-worker/locale-router.js';
 import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
+import { ORGANIZATION_LD } from '../services/seo/organizationLd';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Loc = (typeof LOCALES)[number];
@@ -402,6 +403,7 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html.match(SVIZZERA_URL_RX)).toBeNull();
         const ld = jsonLd(html);
         expect(ld.map((x) => x['@type'])).toEqual(['BreadcrumbList', 'CollectionPage', 'Dataset']);
+        expect(ld[2].creator).toEqual(ORGANIZATION_LD);
         expect(ld[0].itemListElement.map((i: any) => i.item)).toEqual([
           `${BASE}/`, `${BASE}${landingPath(section, locale)}`, `${BASE}${paths[locale]}`,
         ]);
