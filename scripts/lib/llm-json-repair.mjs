@@ -742,7 +742,7 @@ function collectJsonCandidates(source, rootOpeners) {
   return { start, candidates };
 }
 
-function selectJsonCandidate(source, parseable) {
+function selectJsonCandidate(source, parseable, { preferredRoot = null } = {}) {
   const balanced = parseable.filter((candidate) => candidate.balanced);
   const pool = balanced.length > 0 ? balanced : parseable;
   const topLevel = pool
@@ -757,16 +757,29 @@ function selectJsonCandidate(source, parseable) {
   const markedAnswers = topLevel.filter((candidate) => cueBefore(source, candidate.start, ANSWER_CUE_RE));
   if (markedAnswers.length) return markedAnswers[markedAnswers.length - 1];
 
+  // Array-shaped callers must not let a parseable object preamble hide a
+  // later direct array payload. Keep wrapped object responses supported by
+  // falling back to the complete top-level candidate list when no preferred
+  // root is present.
+  const preferred = preferredRoot
+    ? topLevel.filter((candidate) => source[candidate.start] === preferredRoot)
+    : topLevel;
+  const selectionPool = preferred.length ? preferred : topLevel;
+
   // If the first candidate is explicitly an example, a later top-level
   // candidate is the only plausible answer. In every other case the first
   // valid candidate wins, so trailing examples cannot overwrite a response.
-  if (cueBefore(source, topLevel[0].start, EXAMPLE_CUE_RE)) {
-    return topLevel[1] ?? topLevel[0];
+  if (cueBefore(source, selectionPool[0].start, EXAMPLE_CUE_RE)) {
+    return selectionPool[1] ?? selectionPool[0];
   }
-  return topLevel[0];
+  return selectionPool[0];
 }
 
-function repairJsonDocument(raw, { rootOpeners = ['{'], validateCandidate = null } = {}) {
+function repairJsonDocument(raw, {
+  rootOpeners = ['{'],
+  preferredRoot = null,
+  validateCandidate = null,
+} = {}) {
   const c = insertMissingPropertyCommas(stripCodeFences(raw));
   const { start, candidates } = collectJsonCandidates(c, rootOpeners);
   if (start === -1) return normalizeJsonCandidate(c);
@@ -784,7 +797,7 @@ function repairJsonDocument(raw, { rootOpeners = ['{'], validateCandidate = null
     }
   }
 
-  const best = selectJsonCandidate(c, parseable);
+  const best = selectJsonCandidate(c, parseable, { preferredRoot });
   if (best !== null) return best.repaired;
   return normalizeJsonCandidate(candidates[0]?.input ?? c);
 }
@@ -801,6 +814,7 @@ export function repairLlmJson(raw) {
 export function repairLlmJsonArray(raw, { validateCandidate = null } = {}) {
   return repairJsonDocument(raw, {
     rootOpeners: ['[', '{'],
+    preferredRoot: '[',
     validateCandidate,
   });
 }

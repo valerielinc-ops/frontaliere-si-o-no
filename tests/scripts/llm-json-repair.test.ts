@@ -288,6 +288,12 @@ describe('repairLlmJson', () => {
     const parsed = JSON.parse(repairLlmJsonArray(raw));
     expect(parsed.faq).toEqual([{ q: 'Q', a: 'A' }]);
   });
+
+  it('prefers a later direct array over an earlier parseable object preamble', () => {
+    const raw = 'meta {"note":"x"} [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
 });
 
 describe('describeJsonParseError', () => {
