@@ -43,6 +43,7 @@ import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGroups.mjs';
 import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 import {
@@ -408,14 +409,17 @@ function normalizeCompanyToken(value) {
 
 /**
  * Company token for the PINNED-employer comparison, with declared brand aliases
- * folded onto their canonical employer key. Both sides are compared by exact
- * equality; crawler keys are intentionally not an identity fallback.
+ * folded onto their canonical employer key and follow-group members
+ * (build-plugins/shared/companyFollowGroups.mjs: «Coop» and «Coop
+ * Genossenschaft») folded onto their group key. Both sides are compared by
+ * exact equality; crawler keys are intentionally not an identity fallback.
  *
  * @param {string} value
  * @returns {string}
  */
 function canonicalCompanyToken(value) {
-  return normalizeCompanyToken(value);
+  const t = companyFollowGroupKey(canonicalCompanyProfileSlug(value, value)).replace(/-/g, '');
+  return t.length >= 3 ? t : '';
 }
 
 /**

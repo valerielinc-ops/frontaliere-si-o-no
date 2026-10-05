@@ -14,7 +14,7 @@
  * server-side.
  */
 import type { JobAlert } from '@/services/jobAlertService';
-import { companyAlertKey, getUserAlerts } from '@/services/jobAlertService';
+import { companyAlertKey, findCompanyAlertForKey, getUserAlerts } from '@/services/jobAlertService';
 
 let cachedUserAlerts: { userId: string; promise: Promise<JobAlert[]> } | null = null;
 
@@ -41,7 +41,7 @@ export async function findCompanyAlertCached(
   const key = companyAlertKey(company.name, company.companyKey || undefined);
   if (!key) return null;
   const alerts = await fetchUserAlertsCached(userId, getUserAlerts);
-  return alerts.find((alert) => alert.specificCompanyKey === key) || null;
+  return findCompanyAlertForKey(alerts, key);
 }
 
 /**

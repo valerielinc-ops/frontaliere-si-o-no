@@ -14,6 +14,7 @@
 
 import type { Firestore } from 'firebase/firestore';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { sameCompanyFollowGroup } from '../build-plugins/shared/companyFollowGroups.mjs';
 import {
   buildJobAlertConsentProof,
   planJobAlertConsentUpgrade,
@@ -396,6 +397,21 @@ export async function createAlert(
   });
   if (existingIdempotent) {
     return alertFromStoredData(existingIdempotent.id, existingIdempotent.data() as Record<string, any>, fallback);
+  }
+  // A follow group (build-plugins/shared/companyFollowGroups.mjs) is ONE
+  // follow: following `coop` while `coop-genossenschaft` is already followed
+  // returns that alert instead of creating a second one for the same jobs.
+  // The exact key keeps its idempotency-key semantics above.
+  const existingFollow = canonicalSpecificCompanyKey
+    ? findCompanyAlertForKey(
+      existing.docs
+        .map((d) => ({ doc: d, ...(d.data() as { specificCompanyKey?: string | null; active?: boolean }) }))
+        .filter((row) => row.specificCompanyKey !== canonicalSpecificCompanyKey),
+      canonicalSpecificCompanyKey,
+    )
+    : null;
+  if (existingFollow) {
+    return alertFromStoredData(existingFollow.doc.id, existingFollow.doc.data() as Record<string, any>, fallback);
   }
   // Two budgets, counted apart — see MAX_COMPANY_ALERTS_PER_USER. The read is
   // the same one document set either way, so this costs nothing extra.
@@ -911,6 +927,23 @@ export async function listFollowedCompanies(userId: string): Promise<JobAlert[]>
 }
 
 /**
+ * The alert that follows `key`: the exact pin first, then any pin of the same
+ * follow group (build-plugins/shared/companyFollowGroups.mjs), so a user who
+ * follows `coop-genossenschaft` sees «following» on the `coop` page too and the
+ * group keeps one follow. Inactive rows never count.
+ */
+export function findCompanyAlertForKey<T extends { specificCompanyKey?: string | null; active?: boolean }>(
+  alerts: readonly T[],
+  key: string,
+): T | null {
+  if (!key) return null;
+  const live = alerts.filter((a) => a.active !== false && Boolean(a.specificCompanyKey));
+  return live.find((a) => a.specificCompanyKey === key)
+    || live.find((a) => sameCompanyFollowGroup(String(a.specificCompanyKey), key))
+    || null;
+}
+
+/**
  * Find the user's active alert for a given company, if any. Reuses
  * `getUserAlerts` (no extra query, no extra index) so the follow button can
  * render its "already following" state.
@@ -922,7 +955,7 @@ export async function findCompanyAlert(
   const key = companyAlertKey(company.name, company.companyKey || undefined);
   if (!key) return null;
   const alerts = await getUserAlerts(userId);
-  return alerts.find((a) => a.specificCompanyKey === key) || null;
+  return findCompanyAlertForKey(alerts, key);
 }
 
 /**
