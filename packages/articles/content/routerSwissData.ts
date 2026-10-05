@@ -2600,6 +2600,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'prezzi-pellet-ticino-aumenti': { it: 'prezzi-pellet-ticino-aumenti', en: 'ticino-pellet-prices-increases', de: 'tessin-pelletpreise-eroehungen', fr: 'prix-pellets-tessin-augmentations' },
  'startup-ticinesi-top100-2026': { it: 'startup-ticinesi-top100-2026', en: 'ticino-startups-top100-2026', de: 'tessiner-start-ups-top100-2026', fr: 'start-up-tessinoises-top100-2026' },
  'autisti-uber-svizzera-condizioni': { it: 'autisti-uber-svizzera-condizioni', en: 'uber-drivers-switzerland-conditions', de: 'uber-fahrer-schweiz-bedingungen', fr: 'chauffeurs-uber-suisse-conditions' },
+ 'allarme-aumento-affitti-svizzera': { it: 'allarme-aumento-affitti-svizzera', en: 'rent-hike-alarm-switzerland', de: 'mieterhoehungen-alarm-schweiz', fr: 'hausse-loyers-alerte-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
