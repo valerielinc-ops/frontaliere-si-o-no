@@ -30,6 +30,7 @@ import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { compareArticleSourceDates } from '../services/articleSourceDates';
+import { EDITORIAL_TEAM_ID } from '../services/seo/organizationLd';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -5184,11 +5185,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Dropped the "Esperti in fiscalità e previdenza frontaliera" subtitle
  // (and locale equivalents) that read content-farm-y on every page.
  // Fix #7.
+ const authorItemId = EDITORIAL_TEAM_ID;
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">A cura di <a class="s-OsohZU" href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a></span></p>',
- en: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">By <a class="s-OsohZU" href="/en/about-us/" rel="author">Frontaliere Ticino Editorial Team</a></span></p>',
- de: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">Von <a class="s-OsohZU" href="/de/ueber-uns/" rel="author">Redaktion Frontaliere Ticino</a></span></p>',
- fr: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">Par <a class="s-OsohZU" href="/fr/a-propos/" rel="author">Rédaction Frontaliere Ticino</a></span></p>',
+ it: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">A cura di <a class="s-OsohZU" href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a></span></p>`,
+ en: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">By <a class="s-OsohZU" href="/en/about-us/" rel="author">Frontaliere Ticino Editorial Team</a></span></p>`,
+ de: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">Von <a class="s-OsohZU" href="/de/ueber-uns/" rel="author">Redaktion Frontaliere Ticino</a></span></p>`,
+ fr: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">Par <a class="s-OsohZU" href="/fr/a-propos/" rel="author">Rédaction Frontaliere Ticino</a></span></p>`,
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
