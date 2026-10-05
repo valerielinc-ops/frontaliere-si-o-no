@@ -35,6 +35,14 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.98.6',
+    date: '2026-10-05',
+    titleKey: 'whatsNew.v3986.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3986.classicAscona.title', descKey: 'whatsNew.v3986.classicAscona.desc', href: '/eventi/ticino/' },
+    ],
+  },
+  {
     version: '3.98.5',
     date: '2026-10-04',
     titleKey: 'whatsNew.v3985.title',
