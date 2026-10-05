@@ -98,16 +98,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-iniziative-casse-malati-2026': {
-    title: 'Casse malati 2026: iniziative e tempi dell\'entrata in vigore',
+    title: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
     description: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     keywords: 'frontalieri, ticino, svizzera, italia, iniziative, casse, malati, governo',
-    ogTitle: 'Casse malati 2026: iniziative e tempi dell\'entrata in vigore',
+    ogTitle: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
     ogDescription: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     canonicalPath: '/articoli-svizzera/iniziative-casse-malati-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Casse malati 2026: iniziative e tempi dell'entrata in vigore",
+      "headline": "Iniziative casse malati 2026: il governo non può bloccare l'entrata in vigore",
       "description": "Il Consiglio di Stato non può bloccare l'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l'impatto e le",
       "image": {
         "@type": "ImageObject",
@@ -254,16 +254,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cern-future-collider-ticino': {
-    title: 'CERN: il futuro del collider e i segreti dell\'universo',
+    title: 'Il CERN e il futuro del collider | Frontaliere Ticino',
     description: 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
     keywords: 'frontalieri, ticino, svizzera, italia, cern, futuro, collider, pianificando',
-    ogTitle: 'CERN: il futuro del collider e i segreti dell\'universo',
+    ogTitle: 'Il futuro collider del CERN: un balzo in avanti per svelare i segreti dell\'universo',
     ogDescription: 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
     canonicalPath: '/articoli-svizzera/cern-future-collider-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "CERN: il futuro del collider e i segreti dell'universo",
+      "headline": "Il CERN e il futuro del collider",
       "description": "Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell'attuale LHC, per esplorare i misteri dell'universo.",
       "image": {
         "@type": "ImageObject",
@@ -546,16 +546,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-festivita-ticino-2026': {
-    title: 'Festività in Ticino 2026: calendario e giorni festivi',
+    title: 'Festività in Ticino 2026 | Frontaliere Ticino',
     description: 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, festività, scopri, principali, previste',
-    ogTitle: 'Festività in Ticino 2026: calendario e giorni festivi',
+    ogTitle: 'Festività in Ticino 2026',
     ogDescription: 'Tutte le informazioni sulle festività in Ticino nel 2026.',
     canonicalPath: '/articoli-svizzera/festivita-ticino-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Festività in Ticino 2026: calendario e giorni festivi",
+      "headline": "Festività in Ticino 2026",
       "description": "Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -658,16 +658,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-svizzera': {
-    title: 'Frontalieri in Svizzera: guida a lavoro e permessi',
+    title: 'Frontalieri in Svizzera | Frontaliere Ticino',
     description: 'Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, informazioni, pratiche, frontalieri-svizzera',
-    ogTitle: 'Frontalieri in Svizzera: guida a lavoro e permessi',
+    ogTitle: 'Frontalieri in Svizzera',
     ogDescription: 'Informazioni pratiche per frontalieri in Svizzera',
     canonicalPath: '/articoli-svizzera/frontalieri-svizzera/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri in Svizzera: guida a lavoro e permessi",
+      "headline": "Frontalieri in Svizzera",
       "description": "Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -1389,16 +1389,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-premi-di-cassa-malati-ticino': {
-    title: 'Premi di cassa malati: tempi delle iniziative in Ticino',
+    title: 'Parlamento spacchetta premi di cassa malati | Frontaliere Ticino',
     description: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, parlamento, spacchetta, premi, cassa',
-    ogTitle: 'Premi di cassa malati: tempi delle iniziative in Ticino',
+    ogTitle: 'Il Parlamento spacchetta le iniziative sui premi di cassa malati: ecco le tempistiche',
     ogDescription: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
     canonicalPath: '/articoli-svizzera/premi-di-cassa-malati-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Premi di cassa malati: tempi delle iniziative in Ticino",
+      "headline": "Parlamento spacchetta premi di cassa malati",
       "description": "Il Parlamento ticinese ha deciso di dividere l'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -3875,16 +3875,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-banca-svizzera-segreto': {
-    title: 'Banche svizzere: segreto bancario e denaro sporco',
+    title: 'Banche svizzere: ancora rifugio per denaro sporco?',
     description: 'Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, ancora, rifugio',
-    ogTitle: 'Banche svizzere: segreto bancario e denaro sporco',
+    ogTitle: 'Le banche svizzere sono ancora un rifugio per denaro sporco o hanno fatto pulizia?',
     ogDescription: 'Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti.',
     canonicalPath: '/articoli-svizzera/banca-svizzera-segreto/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Banche svizzere: segreto bancario e denaro sporco",
+      "headline": "Banche svizzere: ancora rifugio per denaro sporco?",
       "description": "Analisi delle riforme del settore bancario svizzero e del segreto bancario. Scopri le implicazioni pratiche e i cambiamenti recenti. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -4375,16 +4375,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': {
-    title: 'Scegliere la Svizzera: lavoro, stipendio, tasse e traffico',
+    title: 'Svizzera, scelta vincente per lavoro e tasse | Frontaliere Ticino',
     description: 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera',
     keywords: 'frontalieri, ticino, svizzera, italia, scelta, vincente, lavoro, tasse',
-    ogTitle: 'Scegliere la Svizzera: lavoro, stipendio, tasse e traffico',
+    ogTitle: 'Frontaliere? No, io ho scelto la Svizzera. Lavoro, stipendio, tasse, traffico: il confronto con l’Italia',
     ogDescription: 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera',
     canonicalPath: '/articoli-svizzera/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Scegliere la Svizzera: lavoro, stipendio, tasse e traffico",
+      "headline": "Svizzera, scelta vincente per lavoro e tasse",
       "description": "Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico. Confronta i vantaggi e gli svantaggi di lavorare in Svizzera",
       "image": {
         "@type": "ImageObject",
@@ -4609,16 +4609,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-voto-elettronico-svizzeri-estero-nicolas-kolly': {
-    title: 'Voto elettronico all\'estero: la proposta di Nicolas Kolly',
+    title: 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità per residenti',
     description: 'Nicolas Kolly sostiene il voto elettronico per svizzeri all\'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.',
     keywords: 'frontalieri, ticino, svizzera, italia, voto, elettronico, svizzeri, estero',
-    ogTitle: 'Voto elettronico all\'estero: la proposta di Nicolas Kolly',
+    ogTitle: 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità per residenti',
     ogDescription: 'Nicolas Kolly sostiene il voto elettronico per svizzeri all\'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.',
     canonicalPath: '/articoli-svizzera/voto-elettronico-svizzeri-estero-nicolas-kolly/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Voto elettronico all'estero: la proposta di Nicolas Kolly",
+      "headline": "Voto elettronico per svizzeri all'estero: Kolly propone priorità per residenti",
       "description": "Nicolas Kolly sostiene il voto elettronico per svizzeri all'estero, con priorità per residenti. Scopri le implicazioni per la partecipazione politica.",
       "image": {
         "@type": "ImageObject",
@@ -5554,16 +5554,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-mc-27-mostra-lugano-2026': {
-    title: 'MC\'27 a Lugano: mostra di art wear a La Posta',
+    title: 'MC\'27 porta l\'art wear nel cuore di Lugano: l\'esposizione esclusiva a La Posta',
     description: 'Scopri l\'esposizione di MC\'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, porta, wear, cuore, lugano',
-    ogTitle: 'MC\'27 a Lugano: mostra di art wear a La Posta',
+    ogTitle: 'Esposizione MC\'27 Lugano 2026',
     ogDescription: 'Scopri l\'esposizione di MC\'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1',
     canonicalPath: '/articoli-svizzera/mc-27-mostra-lugano-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "MC'27 a Lugano: mostra di art wear a La Posta",
+      "headline": "MC'27 porta l'art wear nel cuore di Lugano: l'esposizione esclusiva a La Posta",
       "description": "Scopri l'esposizione di MC'27 a Lugano. Arte e moda dal 25 giugno al 9 luglio 2026 presso la Filiale postale di Lugano 1. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
@@ -7757,16 +7757,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-diritti-frontaliere-genitorialit': {
-    title: 'Maternità e paternità per frontalieri: diritti',
+    title: 'Diritti di Maternità e Paternità per Frontalieri',
     description: 'Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, diritti, maternità, paternità, confronto',
-    ogTitle: 'Maternità e paternità per frontalieri: diritti',
+    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
     ogDescription: 'Confronto tra le normative di maternità e paternità per frontalieri in Svizzera e Italia.',
     canonicalPath: '/articoli-svizzera/diritti-frontaliere-genitorialit/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Maternità e paternità per frontalieri: diritti",
+      "headline": "Diritti di Maternità e Paternità per Frontalieri",
       "description": "Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -7947,16 +7947,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-congedo-parentale-frontalieri': {
-    title: 'Congedo parentale per frontalieri: guida pratica',
+    title: 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
     description: 'Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, diritti, scopri',
-    ogTitle: 'Congedo parentale per frontalieri: guida pratica',
+    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
     ogDescription: 'Informazioni sui congedi parentali per frontalieri in Svizzera e Italia, con dettagli pratici e procedure.',
     canonicalPath: '/articoli-svizzera/congedo-parentale-frontalieri/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Congedo parentale per frontalieri: guida pratica",
+      "headline": "Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia",
       "description": "Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -9463,16 +9463,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-guess-stabio-lavoro-merchandiser': {
-    title: 'Lavoro merchandiser a Stabio: opportunità da Guess',
+    title: 'Guess Stabio: opportunità di lavoro come merchandiser',
     description: 'Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, guess, stabio, opportunità, lavoro',
-    ogTitle: 'Lavoro merchandiser a Stabio: opportunità da Guess',
+    ogTitle: 'Lavoro merchandiser a Stabio | Frontaliere Ticino',
     ogDescription: 'Offerta di lavoro come merchandiser a Stabio, vicino al confine italiano, con contratto a tempo determinato.',
     canonicalPath: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavoro merchandiser a Stabio: opportunità da Guess",
+      "headline": "Guess Stabio: opportunità di lavoro come merchandiser",
       "description": "Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
