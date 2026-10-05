@@ -98959,6 +98959,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-castellanzese-vittoria-santangelo': {
+    title: 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
+    description: 'Terzo successo consecutivo per la Castellanzese: 2-1 sul campo del Sant\'Angelo. Reti di Chessa e Valmori per la squadra di Bolzoni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, serie, castellanzese, vince, contro',
+    ogTitle: 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
+    ogDescription: 'La Castellanzese conquista il terzo successo consecutivo battendo il Sant\'Angelo 2-1 allo stadio Chiesa. Decisive le reti di Chessa e Valmori in una partita combattuta.',
+    canonicalPath: '/articoli-frontaliere/castellanzese-vittoria-santangelo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serie D: la Castellanzese vince 2-1 contro il Sant'Angelo",
+      "description": "Terzo successo consecutivo per la Castellanzese: 2-1 sul campo del Sant'Angelo. Reti di Chessa e Valmori per la squadra di Bolzoni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/castellanzese-vittoria-santangelo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di calcio della Castellanzese allo stadio Chiesa"
+      },
+      "datePublished": "2026-10-05T05:29:27+00:00",
+      "dateModified": "2026-10-05T05:29:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castellanzese-vittoria-santangelo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
