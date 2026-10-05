@@ -289,3 +289,95 @@ describe('soglia di ammissione agenzie — dopo il seed dei runner dedicati', ()
     });
   }
 });
+
+/**
+ * Stesso seed, gli altri controlli dello scrittore che confrontano il run con
+ * quello precedente. Misurato su 7 giorni di commit dei gruppi crawler mentre
+ * leggevano il file seminato: 1.789 firstSeenAt spostati e 1.527 postedDate
+ * spostati in avanti; e un crollo 40→5 passava la guardia anti-shrink. Lo
+ * slug pubblicato resta nella storia anche col codice precedente: il test lo
+ * tiene come invariante.
+ */
+describe('scrittore degli slice — confronti con il run precedente dopo il seed', () => {
+  function acmeJob(n: number, overrides: Job = {}): Job {
+    return agencyJob(n, {
+      id: `acme-carry-${n}`,
+      url: `https://jobs.example.invalid/acme/44${n}`,
+      slug: `polymechaniker-in-cnc-fertigung-${n}-acme-zurich`,
+      slugByLocale: {
+        it: `polymechaniker-in-cnc-fertigung-${n}-acme-zurich`,
+        en: `polymechaniker-in-cnc-fertigung-${n}-acme-zurich-en`,
+        de: `polymechaniker-in-cnc-fertigung-${n}-zurich-acme-ch`,
+        fr: `polymechaniker-in-cnc-fertigung-${n}-acme-zurich-fr`,
+      },
+      company: 'Acme',
+      companyKey: 'acme-carry',
+      ...overrides,
+    });
+  }
+
+  function seededWrite(committed: Job[], working: Job[]) {
+    writeJson('data/jobs/by-crawler/acme-carry.json', { crawlerKey: 'acme-carry', assembledAt: daysAgo(1), jobs: committed });
+    writeJson('acme-working-set.json', working);
+    fs.writeFileSync(path.join(tmpRoot, 'acme-seeded-write.mjs'), [
+      "import fs from 'node:fs';",
+      "import { readExistingCrawlerJobs, writeJobsCrawlerSlice } from './scripts/assemble-jobs-dataset.mjs';",
+      "import { seedCrawlerSlicesFromDataJobs } from './scripts/lib/dedicated-crawler-common.mjs';",
+      "readExistingCrawlerJobs('acme-carry');",
+      "seedCrawlerSlicesFromDataJobs(process.cwd(), ['acme-carry'], 'acme-working-set.json');",
+      "try {",
+      "  writeJobsCrawlerSlice('acme-carry', JSON.parse(fs.readFileSync('acme-working-set.json', 'utf8')), { deferShrinkGuardIssue: true });",
+      "  console.log('RESULT ' + JSON.stringify({ written: true }));",
+      "} catch (err) {",
+      "  console.log('RESULT ' + JSON.stringify({ written: false, code: err.code || null, prior: err.shrinkGuard?.priorCount ?? null }));",
+      "}",
+    ].join('\n'));
+    const log = runNode(['acme-seeded-write.mjs'], { SKIP_OWNERSHIP_GUARD: '1' });
+    const line = log.split('\n').find((row) => row.startsWith('RESULT '));
+    expect(line, log).toBeTruthy();
+    return { result: JSON.parse(String(line).slice('RESULT '.length)), log };
+  }
+
+  const routeSlugs = (job: Job) => {
+    const slugs = new Set<string>();
+    const add = (value: unknown) => { if (typeof value === 'string' && value) slugs.add(value); };
+    add(job.slug);
+    Object.values(job.slugByLocale || {}).forEach(add);
+    const previous = job.previousSlugs;
+    (Array.isArray(previous) ? previous : Object.values(previous || {}).flat()).forEach(add);
+    Object.values(job.previousSlugsByLocale || {}).flat().forEach(add);
+    return slugs;
+  };
+
+  it('carries firstSeenAt, the earlier postedDate and the published slug over from the previous run, not from the seeded copy', () => {
+    const firstSeenAt = daysAgo(12);
+    const postedDate = daysAgo(12).slice(0, 10);
+    const committed = acmeJob(1, { firstSeenAt, postedDate });
+    // The run's working set: the same vacancy re-parsed, without the history
+    // fields, with today's listing date and a re-derived slug.
+    const reparsed = acmeJob(1, {
+      postedDate: daysAgo(0).slice(0, 10),
+      slug: 'polymechaniker-in-cnc-fertigung-1-acme-zurich-neu',
+      slugByLocale: {
+        it: 'polymechaniker-in-cnc-fertigung-1-acme-zurich-neu',
+        en: 'polymechaniker-in-cnc-fertigung-1-acme-zurich-neu-en',
+        de: 'polymechaniker-in-cnc-fertigung-1-zurich-acme-ch-neu',
+        fr: 'polymechaniker-in-cnc-fertigung-1-acme-zurich-neu-fr',
+      },
+    });
+    delete reparsed.firstSeenAt;
+    const { result } = seededWrite([committed], [reparsed]);
+    expect(result.written).toBe(true);
+    const [written] = readJson('data/jobs/by-crawler/acme-carry.json').jobs as Job[];
+    expect(written.firstSeenAt).toBe(firstSeenAt);
+    expect(String(written.postedDate).slice(0, 10)).toBe(postedDate);
+    expect(routeSlugs(written).has('polymechaniker-in-cnc-fertigung-1-acme-zurich')).toBe(true);
+  });
+
+  it('refuses a collapse against the previous run even though the seed already wrote the collapsed set', () => {
+    const committed = Array.from({ length: 40 }, (_, i) => acmeJob(i + 1));
+    const degraded = committed.slice(0, 5).map((job) => ({ ...job }));
+    const { result } = seededWrite(committed, degraded);
+    expect(result).toEqual({ written: false, code: 'SHRINK_GUARD_REFUSAL', prior: 40 });
+  });
+});
