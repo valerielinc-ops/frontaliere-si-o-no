@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES: Article[] = [
+const RAW_ARTICLES = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -37758,7 +37758,17 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
+ {
+ id: 'gianpaolo-calzi-solbiatese',
+ category: 'novita',
+ date: '2026-10-05T06:00:13.674Z',
+ image: '/images/blog/gianpaolo-calzi-solbiatese.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
 // instead of the Pages artifact — see services/seo/blogImageCdn.ts. The raw
