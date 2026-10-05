@@ -1064,15 +1064,18 @@ jobs:
       # `pages-build-run` (cancel-in-progress: false) held every later deploy
       # behind them. Every R2 call in the script now has its own wall-clock
       # limit (tests/r2-calls-bounded.test.ts); this is the backstop for
-      # anything else. Measured: 449 s (37138892066) and 531 s (36088944074,
-      # a 3945-key code deploy) → 30 min is ~3.4x the slowest. On expiry the
-      # step fails, continue-on-error keeps the leg going, and "Deploy prep"
-      # below retries the push as it does for any failed early push.
+      # anything else. Measured: 449 s (37138892066), 531 s (36088944074, a
+      # 3945-key code deploy) and 33 min (37237201212, the first deploy after
+      # two days of hung runs, with that whole backlog of changed assets) →
+      # 45 min keeps a backlog push whole while still cutting a hang ~8x
+      # sooner than the 6 h job timeout. On expiry the step fails,
+      # continue-on-error keeps the leg going, and "Deploy prep" below
+      # retries the push as it does for any failed early push.
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         if: matrix.locale == 'it'
         continue-on-error: true
-        timeout-minutes: 30
+        timeout-minutes: 45
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
