@@ -21,6 +21,7 @@ const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_USER_AGENT =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 const RESPONSE_BODY_CLEANUP_TIMEOUT_MS = 1000;
+const RESPONSE_TIMEOUT = Symbol('response-timeout');
 
 // Fresh protection: jobs crawled within this many hours are never removed
 const DEFAULT_FRESH_PROTECTION_HOURS = 72;
@@ -269,14 +270,14 @@ async function boundedBodyCleanup(cleanup) {
   }
 }
 
-async function readResponseText(response, setCleanup) {
+async function readResponseText(response, setCleanup, deadlineSignal) {
   const body = response?.body;
   if (!body || typeof body.getReader !== 'function') {
     if (typeof body?.cancel === 'function') {
       setCleanup(() => body.cancel('job URL validation timeout'));
     }
     try {
-      return await response.text();
+      return await Promise.race([response.text(), deadlineSignal]);
     } finally {
       setCleanup(null);
     }
@@ -289,7 +290,9 @@ async function readResponseText(response, setCleanup) {
     let text = '';
     while (true) {
       // eslint-disable-next-line no-await-in-loop
-      const { done, value } = await reader.read();
+      const next = await Promise.race([reader.read(), deadlineSignal]);
+      if (next === RESPONSE_TIMEOUT) return RESPONSE_TIMEOUT;
+      const { done, value } = next;
       if (done) break;
       text += decoder.decode(value, { stream: true });
     }
@@ -343,22 +346,25 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
   // AbortController normally bounds fetch(), but a response body can ignore the
   // abort and leave res.text() pending. Keep a cleanup handle for the body so
   // one hostile portal cannot strand a live probe behind the crawler timeout.
-  const deadline = new Promise((resolve) => {
-    timeoutId = setTimeout(() => {
-      timedOut = true;
-      controller.abort();
-      const cleanup = bodyCleanup;
-      bodyCleanup = null;
-      void boundedBodyCleanup(cleanup).then(() => {
-        // Keep the validator fail-open: an unproven URL must never be archived.
-        resolve({ id, valid: true, status: 0, reason: 'network-timeout' });
-      });
-    }, timeout);
+  let resolveDeadline;
+  const deadlineSignal = new Promise((resolve) => {
+    resolveDeadline = resolve;
   });
+  const timeoutResult = () => ({ id, valid: true, status: 0, reason: 'network-timeout' });
+  timeoutId = setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+    const cleanup = bodyCleanup;
+    bodyCleanup = null;
+    void boundedBodyCleanup(cleanup).then(() => {
+      // Keep the validator fail-open: an unproven URL must never be archived.
+      resolveDeadline(RESPONSE_TIMEOUT);
+    });
+  }, timeout);
 
   const validation = (async () => {
     try {
-      const res = await fetch(targetUrl, {
+      const fetchPromise = fetch(targetUrl, {
         method: 'GET',
         redirect: 'follow',
         signal: controller.signal,
@@ -366,13 +372,21 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
           Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
           'User-Agent': ua,
         },
+      }).then((res) => {
+        if (timedOut) {
+          void boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
+        }
+        return res;
       });
+      const fetchResult = await Promise.race([fetchPromise, deadlineSignal]);
+      if (fetchResult === RESPONSE_TIMEOUT) return timeoutResult();
+      const res = fetchResult;
 
       // A fetch implementation may resolve after aborting. Do not start a
       // body read in that case; cancel the response that arrived too late.
       if (timedOut) {
         await boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
-        return { id, valid: true, status: 0, reason: 'network-timeout' };
+        return timeoutResult();
       }
 
       // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
@@ -396,10 +410,13 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
         return { id, valid: false, status: res.status, reason: 'redirect-to-generic-listing', definitive: true };
       }
 
-      // Read body for content-level signals
+      // Read body for content-level signals. The deadline is part of this
+      // read, so validation itself settles after cleanup rather than leaving
+      // an unobserved res.text() promise behind the caller.
       const text = await readResponseText(res, (cleanup) => {
         bodyCleanup = cleanup;
-      });
+      }, deadlineSignal);
+      if (text === RESPONSE_TIMEOUT) return timeoutResult();
       const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
 
       // Strong "job closed" phrases — definitive, bypasses fresh protection
@@ -431,12 +448,12 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
       return { id, valid: true, status: res.status, reason: 'ok' };
     } catch (err) {
       // Fail-open on network/timeout errors
-      return { id, valid: true, status: 0, reason: timedOut ? 'network-timeout' : 'network-error' };
+      return timedOut ? timeoutResult() : { id, valid: true, status: 0, reason: 'network-error' };
     }
   })();
 
   try {
-    return await Promise.race([validation, deadline]);
+    return await validation;
   } finally {
     clearTimeout(timeoutId);
   }
