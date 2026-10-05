@@ -47,6 +47,7 @@
  *   - isTrustedDomain()                 — Validate URLs belong to this company
  *   - STADTSPITAL_ZUERICH_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { parseListingTiles, fetchOfficialAdTexts } from './stadt-zuerich-job-parser.mjs';
@@ -216,9 +217,6 @@ export async function fetchAllStadtspitalZuerichJobs() {
       html = await fetchPage(url);
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch listing page ${page} (startrow=${startrow}): ${err.message}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
       throw err;
     }
     const rows = parseListingTiles(html).filter((r) => !seenIds.has(r.jobId));
@@ -252,10 +250,11 @@ export async function fetchAllStadtspitalZuerichJobs() {
 
   const sourceLang = 'de';
   const jobs = [];
+  const publicationByRef = new Map();
   const officialTexts = await fetchOfficialAdTexts(
     new Set(rows.map((r) => r.ref).filter(Boolean)),
     Math.min(delayMs, 300),
-    { unit: /stadtspital/i },
+    { unit: /stadtspital/i, publicationByRef },
   );
   let withoutText = 0;
 
@@ -311,7 +310,7 @@ export async function fetchAllStadtspitalZuerichJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, publicationByRef.get(String(row.ref))),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
