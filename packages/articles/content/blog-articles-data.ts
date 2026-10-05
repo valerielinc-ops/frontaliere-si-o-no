@@ -37708,6 +37708,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'storia-restauro-torre-velasca',
+ category: 'novita',
+ date: '2026-10-05T02:50:56.988Z',
+ image: '/images/blog/storia-restauro-torre-velasca.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
