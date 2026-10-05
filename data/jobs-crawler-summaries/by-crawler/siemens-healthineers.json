@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-04T21:22:06.297Z",
+  "generatedAt": "2026-10-05T09:30:21.695Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -9,19 +9,21 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2263,
-  "avgDurationMs": 2263,
+  "durationMs": 2628,
+  "avgDurationMs": 2628,
   "durationHistory": [
-    2263
+    2628
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
