@@ -12608,6 +12608,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.unione-confronto-pilastro-ch-it.title': 'Deuxième pilier : l\'Union demande une comparaison CH-IT',
     'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'L\'Union Frontalière Italienne demande une confrontation entre l\'Italie et la Suisse sur le deuxième pilier, thème central pour la prévoyance des frontaliers.',
     'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Documents sur le deuxième pilier et sac de pendulaire au Tessin',
+    'blog.article.avs-13a-rendita-iva-aumento.title': '13e rente AVS : le Conseil fédéral : «Voici pourquoi nous augmenterons la TVA»',
+    'blog.article.avs-13a-rendita-iva-aumento.excerpt': 'En décembre arrive la première 13e rente AVS pour 2,6 millions de retraités. Le Parlement a décidé une augmentation de la TVA pour financer la mesure, par un vote populaire le 29 novembre.',
+    'blog.article.avs-13a-rendita-iva-aumento.imageAlt': 'Le Château de Bellinzona sous un ciel clair, symbole de la gouvernance suisse.',
 };
 
 export default blogMetaFr;
