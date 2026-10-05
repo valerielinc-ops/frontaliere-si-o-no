@@ -118,6 +118,7 @@ import {
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
 import { detailDropFromSummary, detailDropAdvisoryReason } from './lib/crawler-detail-drop.mjs';
+import { flapFromSummary, flapAdvisoryReason } from './lib/crawler-flap.mjs';
 import {
   EMPTY_OK_CRAWLERS,
   LEGACY_SOURCE_PROVEN_EMPTY_CRAWLERS,
@@ -337,6 +338,8 @@ async function inspectCrawler(slug) {
       ? Number(summary.parsed)
       : null;
   const detailDrop = detailDropFromSummary(summary);
+  // Jobs back within days of being expired (issue 6109): a crawler flap.
+  const flap = flapFromSummary(summary);
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator. The
   // `sourceProvenEmpty` alias is retained only for summaries emitted by the
@@ -399,6 +402,7 @@ async function inspectCrawler(slug) {
     written,
     parsed,
     detailDrop,
+    flap,
     authoritativeEmpty,
     lastFetchOutcome,
     abortKind,
@@ -485,6 +489,8 @@ function corpusObservationFromPayloads(slug, data, summary) {
       ? summary.parsed
       : null;
   const detailDrop = detailDropFromSummary(summary);
+  // Jobs back within days of being expired (issue 6109): a crawler flap.
+  const flap = flapFromSummary(summary);
   const authoritativeEmpty = summaryHasAuthoritativeEmpty(slug, summary);
   // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
   // reason the counts above are: the corpus republishes the slice verbatim, and
@@ -518,6 +524,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     written,
     parsed,
     detailDrop,
+    flap,
     authoritativeEmpty,
     lastFetchOutcome,
     abortKind,
@@ -734,6 +741,7 @@ export function applyGenerationSummaryAbsence(observations, { groups, ledgerEntr
         written: null,
         parsed: null,
         detailDrop: null,
+        flap: null,
         authoritativeEmpty: false,
         lastFetchOutcome: null,
         abortKind: null,
@@ -1092,6 +1100,11 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     advisory = true;
     advisoryReason = detailDropReason;
   }
+  const flapReason = flapAdvisoryReason(observation.flap);
+  if (!advisory && flapReason !== null) {
+    advisory = true;
+    advisoryReason = flapReason;
+  }
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
@@ -1218,6 +1231,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedWrittenCount: observation.written ?? null,
       _lastObservedParsedCount: hasParsedSignal ? observation.parsed : null,
       _lastObservedDetailDrop: observation.detailDrop ?? null,
+      _lastObservedFlap: observation.flap ?? null,
       _autoFilteredEmpty: autoFilteredEmpty,
       _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,

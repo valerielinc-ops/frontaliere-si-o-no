@@ -18,7 +18,7 @@ import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
 import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './dns-lookup-gate.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, SNAPSHOT_VALIDATED_PARTIAL } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
@@ -636,7 +636,16 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
   if (!accountingIsComplete || (!stableCountIsVerified && !driftIsAccepted)) {
     throw new Error(`fachkraft authoritative snapshot proof missing or incomplete: ${JSON.stringify(audit || null)}`);
   }
-  return true;
+  if (stableCountIsVerified) return true;
+  // Drift accepted: the max-observed snapshot is published (DECISIONS.md
+  // 2026-09-23), but it is not proof that a stored job is gone. While the
+  // declared total moves, the listing order shifts between page requests: the
+  // same card shows up on two pages and another card on none. Measured on
+  // group 23, 28-09 → 04-10: 98-727 repeated URLs per run, 3307-3487 unique
+  // cards against 3786-3842 declared, and 277-538 live jobs retired per run
+  // that came back one or two runs later (issue 6109). Missing jobs therefore
+  // keep the ordinary miss grace instead of the authoritative retirement.
+  return SNAPSHOT_VALIDATED_PARTIAL;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
