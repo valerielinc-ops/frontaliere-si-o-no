@@ -66,9 +66,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
-import ts from 'typescript';
-
 import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
+import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
@@ -248,70 +247,9 @@ function mirrorTree(src, dst) {
 function splitBlogArticleRegistry() {
   const file = path.join(DEST, 'blog-articles-data.ts');
   const source = fs.readFileSync(file, 'utf8');
-  if (source.includes('const RAW_ARTICLES_CHUNK_01')) return 0;
-
-  const sourceFile = ts.createSourceFile(
-    file,
-    source,
-    ts.ScriptTarget.Latest,
-    true,
-    ts.ScriptKind.TS,
-  );
-  let declaration;
-  function visit(node) {
-    if (ts.isVariableDeclaration(node) && node.name.getText(sourceFile) === 'RAW_ARTICLES') {
-      declaration = node;
-    }
-    ts.forEachChild(node, visit);
-  }
-  visit(sourceFile);
-
-  let initializer = declaration?.initializer;
-  while (
-    initializer
-    && (ts.isSatisfiesExpression(initializer)
-      || ts.isAsExpression(initializer)
-      || ts.isParenthesizedExpression(initializer))
-  ) {
-    initializer = initializer.expression;
-  }
-  if (!declaration || !initializer || !ts.isArrayLiteralExpression(initializer)) {
-    throw new Error('[pull-articles-corpus] RAW_ARTICLES array not found in blog registry');
-  }
-
-  const elements = initializer.elements.map((element) =>
-    source.slice(element.getFullStart(), element.end).trim(),
-  );
-  const chunks = [];
-  for (let i = 0; i < elements.length; i += BLOG_REGISTRY_CHUNK_SIZE) {
-    chunks.push(elements.slice(i, i + BLOG_REGISTRY_CHUNK_SIZE));
-  }
-
-  const declarations = chunks.map((items, index) => {
-    const name = `RAW_ARTICLES_CHUNK_${String(index + 1).padStart(2, '0')}`;
-    return [
-      `const ${name}: Article[] = [`,
-      ...items.map((item) => ` ${item},`),
-      '];',
-    ].join('\n');
-  }).join('\n\n');
-  const aggregate = [
-    'const RAW_ARTICLES: Article[] = [',
-    ...chunks.map((_, index) =>
-      ` ...RAW_ARTICLES_CHUNK_${String(index + 1).padStart(2, '0')},`),
-    '] satisfies Article[];',
-  ].join('\n');
-
-  const statement = declaration.parent?.parent;
-  if (!statement || !ts.isVariableStatement(statement)) {
-    throw new Error('[pull-articles-corpus] RAW_ARTICLES declaration has no variable statement');
-  }
-  const replacement = `${declarations}\n\n${aggregate}`;
-  const next = source.slice(0, statement.getStart(sourceFile))
-    + replacement
-    + source.slice(statement.end);
-  if (next !== source) fs.writeFileSync(file, next);
-  return chunks.length;
+  const result = chunkBlogArticleRegistry(source, BLOG_REGISTRY_CHUNK_SIZE);
+  if (result.source !== source) fs.writeFileSync(file, result.source);
+  return result.chunkCount;
 }
 
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
