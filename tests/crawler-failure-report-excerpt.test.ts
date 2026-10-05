@@ -156,7 +156,7 @@ describe('generated group workflow — reporter receives the member log', () => 
   }
 
   it('the per-crawler reporter is handed the log that already holds the crawl error', () => {
-    const { log, seen } = runAsWorker(buildCrawlerShellBody(crawler(`echo '❌ fixture crawler failed: ${CSVP_ERROR_LINE}'; exit 1`)));
+    const { log, seen } = runAsWorker(buildCrawlerShellBody(crawler(`( echo '❌ fixture crawler failed: ${CSVP_ERROR_LINE}'; exit 1 )`)));
 
     expect(seen).toContain(`FILE=${log}`);
     expect(seen).toContain(CSVP_ERROR_LINE);
@@ -164,7 +164,7 @@ describe('generated group workflow — reporter receives the member log', () => 
 
   it('the target-timeout variant hands over the same log', () => {
     const { log, seen } = runAsWorker(buildCrawlerShellBody({
-      ...crawler(`echo '❌ fixture crawler failed: ${CSVP_ERROR_LINE}'; exit 1`),
+      ...crawler(`( echo '❌ fixture crawler failed: ${CSVP_ERROR_LINE}'; exit 1 )`),
       targetTimeoutMinutes: 30,
     }));
 
