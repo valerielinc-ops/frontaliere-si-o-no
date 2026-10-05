@@ -21,7 +21,7 @@ import {
  * slash. The live no-slash form answers 301 to exactly this URL.
  */
 const LIVE_CARD =
-  '<a href="/articoli-frontaliere/fondo-liberta-svizzera-multe/" aria-label="Multe sui mezzi pubblici: il fondo che paga per gli indigenti" class="ssg-art-card">'
+  '<a href="/articoli-frontaliere/fondo-liberta-svizzera-multe/" class="ssg-art-card">'
   + '<img src="https://cdn.frontaliereticino.ch/images/blog/fondo-liberta-svizzera-multe.webp" alt="Multe sui mezzi pubblici: il fondo che paga per gli indigenti" width="400" height="200" class="ssg-art-img" fetchpriority="high">'
   + '<div class="ssg-art-body"><span class="ssg-art-cat" style="background:#ecfdf5;color:#047857">Pratico</span>'
   + '<span class="ssg-art-date">29 lug 2026</span>'
@@ -65,6 +65,22 @@ describe('renderArticleHubCards', () => {
     });
     expect(html.match(/fetchpriority="high"/g)).toHaveLength(2);
     expect(html.match(/loading="lazy"/g)).toHaveLength(1);
+  });
+
+  it('keeps the accessible name aligned with all visible card text', () => {
+    const html = renderArticleHubCards({
+      articles: [ARTICLE],
+      locale: 'it',
+      sectionSlug: 'articoli-frontaliere',
+      localePrefix: '',
+      resolveSlug: (id) => id,
+      resolveMeta: () => META,
+    });
+    expect(html).not.toContain('aria-label=');
+    expect(html).toContain('ssg-art-cat');
+    expect(html).toContain('ssg-art-date');
+    expect(html).toContain('<h3 class="ssg-art-title">');
+    expect(html).toContain('ssg-art-desc');
   });
 
   it('falls back to a de-slugified id when the caller has no meta', () => {

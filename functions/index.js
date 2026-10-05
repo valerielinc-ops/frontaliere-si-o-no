@@ -2107,8 +2107,15 @@ export const syncNewsletterSubscriberAuth = onDocumentWritten(
 // rules deny delete on newsletter_subscribers, so the profile wipe cannot).
 export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolicy: true }).auth.user().onDelete(async (user) => {
  try {
- const result = await cleanupUserDataForDeletedAccount({ uid: user.uid, email: user.email });
- console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedApplicationIntents=${result.tombstonedApplicationIntents} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);
+ // NEWSLETTER_SECRET keys the pseudonymous click-affinity profile. A Remote
+ // Config failure throws here, and failurePolicy retries the whole cleanup.
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const result = await cleanupUserDataForDeletedAccount(
+  { uid: user.uid, email: user.email },
+  undefined,
+  { newsletterSecret },
+ );
+ console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedApplicationIntents=${result.tombstonedApplicationIntents} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert} affinityProfileErased=${result.affinityProfileErased}`);
  } catch (error) {
  console.error('[cleanupUserDataOnAccountDelete]', error instanceof Error ? error.message : String(error));
  throw error;

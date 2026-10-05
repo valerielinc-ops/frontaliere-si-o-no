@@ -61,6 +61,7 @@ import {
 import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import { fulfillCompanyFollowIntents } from './companyFollowIntents.js';
+import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 import {
  verifyAutologinCode,
  resolveAutologinPolicy,
@@ -142,6 +143,7 @@ async function fulfillFollowIntentsOnClick(db, normalizedEmail, uid, via) {
    email: normalizedEmail,
    uid,
    normalizeKey: normalizeCompanyAlertKey,
+   groupKey: companyFollowGroupKey,
    via,
   });
  } catch (err) {
@@ -452,6 +454,20 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'diakoniewerk-neumuenster': 'spital-zollikerberg',
  'capri-holdings-michael-kors-versace': 'michael-kors',
 });
+
+// Deployment-boundary mirror of build-plugins/shared/companyFollowGroups.mjs
+// (member slug → group key), parity-tested by tests/company-alert.test.ts.
+// Following one member follows the whole group, so a second pin on another
+// member of the same group returns the existing follow instead of a duplicate.
+const COMPANY_FOLLOW_GROUP_KEY = Object.freeze({
+ coop: 'coop',
+ 'coop-genossenschaft': 'coop',
+});
+
+export function companyFollowGroupKey(slug) {
+ const s = String(slug || '');
+ return COMPANY_FOLLOW_GROUP_KEY[s] || s;
+}
 
 export function normalizeCompanyAlertKey(value) {
  const norm = (x) => String(x || '')
@@ -1147,6 +1163,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...(desired ? {} : forensicFields),
  });
 
+ // `unsubscribed` ferma ogni canale (emailSuppression.js): e' la
+ // disiscrizione da tutto che cancella subito il profilo di affinita'.
+ if (!desired) await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return { status: 200, json: { success: true, subscribed: desired } };
  } catch (err) {
  console.error('[toggle_newsletter_subscription] Failed:', err?.message);
@@ -1559,6 +1579,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
     json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
    };
   }
+  // Same follow group, different member (`coop` vs `coop-genossenschaft`):
+  // one follow per group, like services/jobAlertService.ts createAlert.
+  if (companyPin) {
+   let groupFollow = null;
+   existing.forEach((d) => {
+    const data = d.data() || {};
+    if (groupFollow || data.active === false || !data.specificCompanyKey) return;
+    const stored = normalizeCompanyAlertKey(data.specificCompanyKey);
+    if (stored !== companyPin && companyFollowGroupKey(stored) === companyFollowGroupKey(companyPin)) groupFollow = d;
+   });
+   if (groupFollow) {
+    await clearCompanyFollowFollowupPending(db, normalizedEmail);
+    return {
+     status: 200,
+     json: { success: true, alert: serializeAlertDoc(groupFollow.id, groupFollow.data() || {}) },
+    };
+   }
+  }
   let activeCount = 0;
  existing.forEach((d) => {
  const data = d.data() || {};
@@ -1674,6 +1712,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...forensicFields,
  });
 
+ // Same cross-channel stop as above: the click-affinity profile goes now.
+ await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return {
  status: 200,
  html: buildResponseHtml({
@@ -1735,6 +1776,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
     occurred_at: new Date().toISOString(),
     ...forensicFields,
    });
+
+   await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
 
    return {
     status: 200,

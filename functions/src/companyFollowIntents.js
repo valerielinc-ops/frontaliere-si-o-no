@@ -33,7 +33,10 @@
  * `intent_<idempotency key>` computed with the SAME function, so the browser
  * replay that may still run after the confirmation finds this document and
  * returns it instead of writing a second one. An alert already present for the
- * same `specificCompanyKey` satisfies the intent without a write.
+ * same `specificCompanyKey` — or for another member of the same follow group
+ * (build-plugins/shared/companyFollowGroups.mjs, e.g. `coop` and
+ * `coop-genossenschaft`) — satisfies the intent without a write, exactly like
+ * `createAlert` and the `create_alert` action.
  */
 import { FieldValue } from 'firebase-admin/firestore';
 import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
@@ -181,6 +184,8 @@ export function buildCompanyFollowAlertDoc({ email, userId, intent, companyKey, 
  * @param {string} args.email Normalised address (document id).
  * @param {string} args.uid Firebase Auth uid the visitor signs in as.
  * @param {(value: string) => string} args.normalizeKey normalizeCompanyAlertKey.
+ * @param {(key: string) => string} [args.groupKey] companyFollowGroupKey: two
+ *   keys with the same group key are ONE follow.
  * @param {string} args.via `confirmation_link` | `login_link` | `backfill`.
  * @param {number} [args.nowMs]
  * @param {number} [args.ttlMs] Intents older than this are expired, not used.
@@ -193,6 +198,7 @@ export async function fulfillCompanyFollowIntents({
   email,
   uid,
   normalizeKey,
+  groupKey = (key) => key,
   via,
   nowMs = Date.now(),
   ttlMs = COMPANY_FOLLOW_INTENT_TTL_MS,
@@ -222,7 +228,8 @@ export async function fulfillCompanyFollowIntents({
   const subscriberSnap = await subscriberRef.get();
   const blockReason = companyFollowBlockReason(subscriberSnap.exists ? subscriberSnap.data() || {} : null);
 
-  // Newest intent per company wins (locale and provenance of the last click).
+  // Newest intent per follow group wins (locale, provenance and member key of
+  // the last click).
   const byKey = new Map();
   for (const intent of intents) {
     const created = toMillis(intent.data.created_at);
@@ -242,9 +249,10 @@ export async function fulfillCompanyFollowIntents({
       await mark(intent, { status: 'skipped', skip_reason: blockReason });
       continue;
     }
-    const group = byKey.get(key) || [];
-    group.push({ ...intent, createdMs: created });
-    byKey.set(key, group);
+    const followGroup = groupKey(key);
+    const group = byKey.get(followGroup) || [];
+    group.push({ ...intent, key, createdMs: created });
+    byKey.set(followGroup, group);
   }
   if (byKey.size === 0) return outcome;
 
@@ -254,13 +262,16 @@ export async function fulfillCompanyFollowIntents({
   alertsSnap.forEach((doc) => alerts.push({ id: doc.id, data: doc.data() || {} }));
   let activeCompanyAlerts = alerts.filter((a) => a.data.specificCompanyKey && a.data.active !== false).length;
 
-  for (const [key, group] of byKey) {
+  for (const [followGroup, group] of byKey) {
     group.sort((a, b) => b.createdMs - a.createdMs);
     const newest = group[0];
+    const key = newest.key;
     const finishAll = async (fields) => { for (const intent of group) await mark(intent, fields); };
     try {
-      const sameKey = alerts.filter((a) => a.data.specificCompanyKey === key);
-      const active = sameKey.find((a) => a.data.active !== false);
+      const sameKey = alerts.filter((a) => a.data.specificCompanyKey
+        && groupKey(String(a.data.specificCompanyKey)) === followGroup);
+      const active = sameKey.find((a) => a.data.specificCompanyKey === key && a.data.active !== false)
+        || sameKey.find((a) => a.data.active !== false);
       if (active) {
         outcome.existing += 1; bump('already_following');
         outcome.alertIds.push(active.id);

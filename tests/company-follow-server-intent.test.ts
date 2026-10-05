@@ -22,7 +22,7 @@ import {
   companyFollowBlockReason,
   fulfillCompanyFollowIntents,
 } from '../functions/src/companyFollowIntents.js';
-import { handleSubscriptionManagement, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
+import { companyFollowGroupKey, handleSubscriptionManagement, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
 import {
   companyKeyFromFollowPage,
   pageLocale,
@@ -208,6 +208,27 @@ describe('one alert, identical to the browser one', () => {
     expect(outcome).toMatchObject({ created: 0, existing: 1 });
     expect(Object.keys(db.sub[`job_alert_subscribers/${EMAIL}/alerts`])).toEqual(['existing']);
     expect(db.sub[`newsletter_subscribers/${EMAIL}/company_follow_intents`].i1).toMatchObject({ status: 'fulfilled', alert_id: 'existing' });
+  });
+
+  it('treats a follow group as ONE follow (coop ≡ coop-genossenschaft, #11709)', async () => {
+    const db = createDb({
+      subscribers: { [EMAIL]: confirmed },
+      alerts: { genossenschaft: { specificCompanyKey: 'coop-genossenschaft', active: true, userId: UID } },
+      intents: { i1: intent({ company_key: 'coop', company: 'Coop' }) },
+    });
+    const outcome = await run(db, { groupKey: companyFollowGroupKey });
+    expect(outcome).toMatchObject({ created: 0, existing: 1 });
+    expect(Object.keys(db.sub[`job_alert_subscribers/${EMAIL}/alerts`])).toEqual(['genossenschaft']);
+
+    const twoMembers = createDb({
+      subscribers: { [EMAIL]: confirmed },
+      intents: {
+        a: intent({ company_key: 'coop', created_at: minutesAgo(20) }),
+        b: intent({ company_key: 'coop-genossenschaft', created_at: minutesAgo(5) }),
+      },
+    });
+    expect((await run(twoMembers, { groupKey: companyFollowGroupKey })).created).toBe(1);
+    expect(Object.values(twoMembers.sub[`job_alert_subscribers/${EMAIL}/alerts`])).toHaveLength(1);
   });
 
   it('is idempotent: a second click reads no pending intent and writes nothing', async () => {
@@ -402,5 +423,12 @@ describe('backfill: the employer is reconstructed only from a page that names it
     expect(planSubscriberBackfill({ ...base, subscriber: proof, hasAuthUser: false }).reason).toBe('no_auth_user');
     expect(planSubscriberBackfill({ ...base, subscriber: proof, alerts: [{ specificCompanyKey: 'acme-sa', active: false }] }).reason).toBe('already_has_alert');
     expect(planSubscriberBackfill({ ...base, subscriber: proof, events: [followEvent('/cerca-lavoro-ticino/')] }).reason).toBe('unresolved_company');
+    // Follow group (#11709): an alert on another member already covers the follow.
+    expect(planSubscriberBackfill({
+      ...base,
+      subscriber: proof,
+      events: [followEvent('/aziende/coop/')],
+      alerts: [{ specificCompanyKey: 'coop-genossenschaft', active: true }],
+    }).reason).toBe('already_has_alert');
   });
 });

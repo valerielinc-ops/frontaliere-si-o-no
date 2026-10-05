@@ -46,7 +46,7 @@ import {
   fulfillCompanyFollowIntents,
   toMillis,
 } from '../functions/src/companyFollowIntents.js';
-import { normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
+import { companyFollowGroupKey, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
 import { hasConfirmationProof } from '../functions/src/lib/subscriberConsent.js';
 
 export const FOLLOW_EVENT_CTAS = new Set(['company_follow_button', 'company_follow_social']);
@@ -106,11 +106,16 @@ export function companyKeyFromFollowPage({ sourcePage, jobCompany, normalizeKey 
  * Decide one subscriber. Pure: the caller supplies the documents.
  * @returns {{ eligible: boolean, reason?: string, follows: Array<object>, unresolved: number, wouldCreate: string[], alreadyHas: string[] }}
  */
-export function planSubscriberBackfill({ subscriber, events, alerts, hasAuthUser, normalizeKey = normalizeCompanyAlertKey }) {
+export function planSubscriberBackfill({
+  subscriber, events, alerts, hasAuthUser,
+  normalizeKey = normalizeCompanyAlertKey,
+  groupKey = companyFollowGroupKey,
+}) {
   const plan = { eligible: false, follows: [], unresolved: 0, wouldCreate: [], alreadyHas: [] };
   const followEvents = (events || []).filter((e) => FOLLOW_EVENT_CTAS.has(String(e?.source_cta || '')));
   if (followEvents.length === 0) return { ...plan, reason: 'no_follow_event' };
 
+  // One follow per follow group (coop + coop-genossenschaft are ONE follow).
   const byKey = new Map();
   for (const event of followEvents) {
     const resolved = companyKeyFromFollowPage({
@@ -120,9 +125,9 @@ export function planSubscriberBackfill({ subscriber, events, alerts, hasAuthUser
     });
     if (!resolved) { plan.unresolved += 1; continue; }
     const clickedMs = toMillis(event.timestamp) ?? toMillis(event.occurred_at);
-    const previous = byKey.get(resolved.key);
+    const previous = byKey.get(groupKey(resolved.key));
     if (!previous || (clickedMs ?? 0) > (previous.clickedMs ?? 0)) {
-      byKey.set(resolved.key, {
+      byKey.set(groupKey(resolved.key), {
         ...resolved,
         clickedMs,
         sourcePage: String(event.source_page || '').slice(0, 500) || null,
@@ -139,9 +144,10 @@ export function planSubscriberBackfill({ subscriber, events, alerts, hasAuthUser
   if (plan.follows.length === 0) return { ...plan, reason: 'unresolved_company' };
   if (!hasAuthUser) return { ...plan, reason: 'no_auth_user' };
 
-  const keysWithAlert = new Set((alerts || []).map((a) => a?.specificCompanyKey).filter(Boolean));
+  const groupsWithAlert = new Set((alerts || [])
+    .map((a) => a?.specificCompanyKey).filter(Boolean).map((k) => groupKey(String(k))));
   for (const follow of plan.follows) {
-    if (keysWithAlert.has(follow.key)) plan.alreadyHas.push(follow.key);
+    if (groupsWithAlert.has(groupKey(follow.key))) plan.alreadyHas.push(follow.key);
     else plan.wouldCreate.push(follow.key);
   }
   if (plan.wouldCreate.length === 0) return { ...plan, reason: 'already_has_alert' };
@@ -244,6 +250,7 @@ export async function runBackfill({
         email,
         uid,
         normalizeKey: normalizeCompanyAlertKey,
+        groupKey: companyFollowGroupKey,
         via: 'backfill',
         ttlMs: Number.POSITIVE_INFINITY,
         skipIfAnyAlertForKey: true,
