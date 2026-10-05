@@ -118,7 +118,8 @@ import {
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
-import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { canonicalCompanyAlertKey, companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGroups.mjs';
 import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
@@ -510,6 +511,16 @@ export function companyAlertJobQuarantines(alert, jobs) {
  * An alert with no unsent match yields NO section, so it is never marked, never
  * counted and never named in the subject.
  *
+ * One recipient never receives the same job twice. Two of their alerts can
+ * match the same job: an exact duplicate pin (measured 2026-10-05: one address
+ * with two identical `citta-di-bellinzona` alerts) or two members of a follow
+ * group (build-plugins/shared/companyFollowGroups.mjs: `coop` and
+ * `coop-genossenschaft`). So a job already placed in an earlier section of
+ * this email is not placed again, and a job any alert of the same follow group
+ * already delivered counts as sent for every member — otherwise the alert that
+ * lost the claim would mail it on the next run. Each section's own `sentMap`
+ * is still the one that gets written back.
+ *
  * Ranking: freshest job first (that employer headlines the subject line), ties
  * broken by company name so a run is reproducible — a retry after a failed send
  * must compose the identical email, or the card budget would cut somewhere else
@@ -532,7 +543,23 @@ export function buildRecipientSections(
   allJobs = newJobs,
 ) {
   const sections = [];
+  const followGroupOf = (alert) => companyFollowGroupKey(canonicalCompanyAlertKey(alert?.specificCompanyKey));
+  // Delivery history shared by every alert of one follow group (union, latest
+  // timestamp wins), so the window check sees what ANY member already sent.
+  const sentByGroup = new Map();
   for (const alert of alerts || []) {
+    const group = followGroupOf(alert);
+    if (!group) continue;
+    const merged = sentByGroup.get(group) || {};
+    for (const [key, ms] of Object.entries(normalizeSentMap(alert?.sentJobIds))) {
+      if (!(merged[key] >= ms)) merged[key] = ms;
+    }
+    sentByGroup.set(group, merged);
+  }
+  // Stable claim order: a retry of a failed send must compose the same email.
+  const ordered = [...(alerts || [])].sort((a, b) => String(a?.id || '').localeCompare(String(b?.id || '')));
+  const claimed = new Set();
+  for (const alert of ordered) {
     // A truthy but unresolvable pin (for example `??`) is not a broad alert.
     // Keep it out of the matcher and let the caller persist/log the explicit
     // quarantine reason.
@@ -553,14 +580,16 @@ export function buildRecipientSections(
     const sentMap = normalizeSentMap(alert.sentJobIds);
     const unsent = filterUnsentJobs(
       matched,
-      sentMap,
+      sentByGroup.get(followGroupOf(alert)) || sentMap,
       nowMs,
       dedupWindowMs,
       alert.deliveryLedger,
       true,
     )
+      .filter((job) => !claimed.has(jobDedupKey(job)))
       .sort((a, b) => toMillis(b.firstSeenAt) - toMillis(a.firstSeenAt));
     if (unsent.length === 0) continue;
+    for (const job of unsent) claimed.add(jobDedupKey(job));
 
     sections.push({
       alert,

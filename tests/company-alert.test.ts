@@ -555,6 +555,35 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     expect(addDocMock).not.toHaveBeenCalled();
   });
 
+  it('a follow group keeps one follow: following Coop returns the existing Coop Genossenschaft alert', async () => {
+    // Owner decision 2026-10-05: «chi segue coop segue entrambi». A second pin
+    // on the other member would mail the same jobs from two alerts.
+    const legacy = {
+      userId: 'user-1',
+      email: 'foo@example.com',
+      specificCompanyKey: 'coop-genossenschaft',
+      frequency: 'immediate',
+      locale: 'it',
+      active: true,
+      createdAt: new Date(),
+    };
+    getDocsMock.mockResolvedValue({
+      size: 1,
+      docs: [{ id: 'legacy-coop-genossenschaft', data: () => legacy }],
+    });
+
+    const alert = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Coop' }, 'it', undefined, TEST_EMAIL_CONSENT);
+
+    expect(alert.id).toBe('legacy-coop-genossenschaft');
+    expect(alert.specificCompanyKey).toBe('coop-genossenschaft');
+    const coopWrites = setDocMock.mock.calls.filter((call) => {
+      const data = call[1] as Record<string, unknown> | undefined;
+      return typeof data?.specificCompanyKey === 'string';
+    });
+    expect(coopWrites).toHaveLength(0);
+    expect(addDocMock).not.toHaveBeenCalled();
+  });
+
   it('clears the server follow-up marker only after the alert write resolves', async () => {
     getDocMock
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
