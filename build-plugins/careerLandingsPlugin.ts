@@ -463,6 +463,12 @@ function renderPage(opts: {
   }
   const urlPath = buildCareerLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
+  // The competition snapshot is the source for Article.dateModified. Use the
+  // same timestamp in the visible page date so readers see the date attached
+  // to the data they are evaluating, rather than only the build timestamp.
+  const visibleDateStamp = id === 'concorsi-pubblici-lugano' && snapshot.dataCollectedAt
+    ? snapshot.dataCollectedAt.slice(0, 10)
+    : dateStamp;
 
   // Hreflang (4 locales + x-default), emitted only when every locale's page
   // for this landing id is actually written this build — otherwise nothing,
@@ -570,7 +576,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(visibleDateStamp, locale))}</p>
     ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
     ${id === 'stage-lugano' || id === 'contratti-lavoro-frontalieri' ? reportedSalaryNote(locale, snapshot.reportedSalary) : ''}
