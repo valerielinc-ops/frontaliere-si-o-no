@@ -34,6 +34,57 @@ export const DIGEST_ARTICLE_SLUGS = {
   de: 'wochenend-veranstaltungen-tessin',
   fr: 'evenements-week-end-tessin',
 };
+
+/**
+ * Evergreen identity and place phrase of the weekend digest of every OTHER
+ * canton URL group (P9a, sezioni cantonali): one stable article per group,
+ * `eventi-weekend-<it slug>`, with the per-locale slugs built on the same
+ * pattern as Ticino's from `data/canton-url-slugs.json` (a test pins the
+ * correspondence). Literal strings on purpose: no slug here comes from a
+ * model or from a runtime interpolation (prompt-placeholder guard, corpus
+ * issue 382). `place` is the "in <canton>" phrase each locale's copy uses —
+ * written per canton because the preposition and article are not derivable
+ * (nei Grigioni / im Aargau / in der Waadt / aux Grisons / dans le canton
+ * d'Uri). Ticino is NOT in this table: its digest keeps the original copy
+ * and identity above, byte for byte.
+ */
+export const CANTON_DIGEST_ARTICLES = {
+  AG: { id: 'eventi-weekend-argovia', slugs: { it: 'eventi-weekend-argovia', en: 'weekend-events-aargau', de: 'wochenend-veranstaltungen-aargau', fr: 'evenements-week-end-argovie' }, place: { it: 'in Argovia', en: 'in Aargau', de: 'im Aargau', fr: 'en Argovie' } },
+  APPENZELLO: { id: 'eventi-weekend-appenzello', slugs: { it: 'eventi-weekend-appenzello', en: 'weekend-events-appenzell', de: 'wochenend-veranstaltungen-appenzell', fr: 'evenements-week-end-appenzell' }, place: { it: 'in Appenzello', en: 'in Appenzell', de: 'im Appenzellerland', fr: 'en Appenzell' } },
+  BE: { id: 'eventi-weekend-berna', slugs: { it: 'eventi-weekend-berna', en: 'weekend-events-bern', de: 'wochenend-veranstaltungen-bern', fr: 'evenements-week-end-berne' }, place: { it: 'nel Canton Berna', en: 'in the canton of Bern', de: 'im Kanton Bern', fr: 'dans le canton de Berne' } },
+  BASILEA: { id: 'eventi-weekend-basilea', slugs: { it: 'eventi-weekend-basilea', en: 'weekend-events-basel', de: 'wochenend-veranstaltungen-basel', fr: 'evenements-week-end-bale' }, place: { it: 'nella regione di Basilea', en: 'in the Basel region', de: 'in der Region Basel', fr: 'dans la région bâloise' } },
+  FR: { id: 'eventi-weekend-friburgo', slugs: { it: 'eventi-weekend-friburgo', en: 'weekend-events-fribourg', de: 'wochenend-veranstaltungen-freiburg', fr: 'evenements-week-end-fribourg' }, place: { it: 'nel Canton Friburgo', en: 'in the canton of Fribourg', de: 'im Kanton Freiburg', fr: 'dans le canton de Fribourg' } },
+  GE: { id: 'eventi-weekend-ginevra', slugs: { it: 'eventi-weekend-ginevra', en: 'weekend-events-geneva', de: 'wochenend-veranstaltungen-genf', fr: 'evenements-week-end-geneve' }, place: { it: 'nel Canton Ginevra', en: 'in the canton of Geneva', de: 'im Kanton Genf', fr: 'dans le canton de Genève' } },
+  GL: { id: 'eventi-weekend-glarona', slugs: { it: 'eventi-weekend-glarona', en: 'weekend-events-glarus', de: 'wochenend-veranstaltungen-glarus', fr: 'evenements-week-end-glaris' }, place: { it: 'nel Canton Glarona', en: 'in the canton of Glarus', de: 'im Glarnerland', fr: 'dans le canton de Glaris' } },
+  GR: { id: 'eventi-weekend-grigioni', slugs: { it: 'eventi-weekend-grigioni', en: 'weekend-events-graubunden', de: 'wochenend-veranstaltungen-graubunden', fr: 'evenements-week-end-grisons' }, place: { it: 'nei Grigioni', en: 'in Graubünden', de: 'in Graubünden', fr: 'aux Grisons' } },
+  JU: { id: 'eventi-weekend-giura', slugs: { it: 'eventi-weekend-giura', en: 'weekend-events-jura', de: 'wochenend-veranstaltungen-jura', fr: 'evenements-week-end-jura' }, place: { it: 'nel Canton Giura', en: 'in the canton of Jura', de: 'im Kanton Jura', fr: 'dans le canton du Jura' } },
+  LU: { id: 'eventi-weekend-lucerna', slugs: { it: 'eventi-weekend-lucerna', en: 'weekend-events-lucerne', de: 'wochenend-veranstaltungen-luzern', fr: 'evenements-week-end-lucerne' }, place: { it: 'nel Canton Lucerna', en: 'in the canton of Lucerne', de: 'im Kanton Luzern', fr: 'dans le canton de Lucerne' } },
+  NE: { id: 'eventi-weekend-neuchatel', slugs: { it: 'eventi-weekend-neuchatel', en: 'weekend-events-neuchatel', de: 'wochenend-veranstaltungen-neuenburg', fr: 'evenements-week-end-neuchatel' }, place: { it: 'nel Canton Neuchâtel', en: 'in the canton of Neuchâtel', de: 'im Kanton Neuenburg', fr: 'dans le canton de Neuchâtel' } },
+  NW: { id: 'eventi-weekend-nidvaldo', slugs: { it: 'eventi-weekend-nidvaldo', en: 'weekend-events-nidwalden', de: 'wochenend-veranstaltungen-nidwalden', fr: 'evenements-week-end-nidwald' }, place: { it: 'nel Canton Nidvaldo', en: 'in Nidwalden', de: 'in Nidwalden', fr: 'à Nidwald' } },
+  OW: { id: 'eventi-weekend-obvaldo', slugs: { it: 'eventi-weekend-obvaldo', en: 'weekend-events-obwalden', de: 'wochenend-veranstaltungen-obwalden', fr: 'evenements-week-end-obwald' }, place: { it: 'nel Canton Obvaldo', en: 'in Obwalden', de: 'in Obwalden', fr: 'à Obwald' } },
+  SG: { id: 'eventi-weekend-san-gallo', slugs: { it: 'eventi-weekend-san-gallo', en: 'weekend-events-st-gallen', de: 'wochenend-veranstaltungen-st-gallen', fr: 'evenements-week-end-saint-gall' }, place: { it: 'nel Canton San Gallo', en: 'in the canton of St. Gallen', de: 'im Kanton St. Gallen', fr: 'dans le canton de Saint-Gall' } },
+  SH: { id: 'eventi-weekend-sciaffusa', slugs: { it: 'eventi-weekend-sciaffusa', en: 'weekend-events-schaffhausen', de: 'wochenend-veranstaltungen-schaffhausen', fr: 'evenements-week-end-schaffhouse' }, place: { it: 'nel Canton Sciaffusa', en: 'in the canton of Schaffhausen', de: 'im Kanton Schaffhausen', fr: 'dans le canton de Schaffhouse' } },
+  SO: { id: 'eventi-weekend-soletta', slugs: { it: 'eventi-weekend-soletta', en: 'weekend-events-solothurn', de: 'wochenend-veranstaltungen-solothurn', fr: 'evenements-week-end-soleure' }, place: { it: 'nel Canton Soletta', en: 'in the canton of Solothurn', de: 'im Kanton Solothurn', fr: 'dans le canton de Soleure' } },
+  SZ: { id: 'eventi-weekend-svitto', slugs: { it: 'eventi-weekend-svitto', en: 'weekend-events-schwyz', de: 'wochenend-veranstaltungen-schwyz', fr: 'evenements-week-end-schwytz' }, place: { it: 'nel Canton Svitto', en: 'in the canton of Schwyz', de: 'im Kanton Schwyz', fr: 'dans le canton de Schwytz' } },
+  TG: { id: 'eventi-weekend-turgovia', slugs: { it: 'eventi-weekend-turgovia', en: 'weekend-events-thurgau', de: 'wochenend-veranstaltungen-thurgau', fr: 'evenements-week-end-thurgovie' }, place: { it: 'in Turgovia', en: 'in Thurgau', de: 'im Thurgau', fr: 'en Thurgovie' } },
+  UR: { id: 'eventi-weekend-uri', slugs: { it: 'eventi-weekend-uri', en: 'weekend-events-uri', de: 'wochenend-veranstaltungen-uri', fr: 'evenements-week-end-uri' }, place: { it: 'nel Canton Uri', en: 'in the canton of Uri', de: 'im Kanton Uri', fr: "dans le canton d'Uri" } },
+  VD: { id: 'eventi-weekend-vaud', slugs: { it: 'eventi-weekend-vaud', en: 'weekend-events-vaud', de: 'wochenend-veranstaltungen-waadt', fr: 'evenements-week-end-vaud' }, place: { it: 'nel Canton Vaud', en: 'in the canton of Vaud', de: 'in der Waadt', fr: 'dans le canton de Vaud' } },
+  VS: { id: 'eventi-weekend-vallese', slugs: { it: 'eventi-weekend-vallese', en: 'weekend-events-valais', de: 'wochenend-veranstaltungen-wallis', fr: 'evenements-week-end-valais' }, place: { it: 'in Vallese', en: 'in Valais', de: 'im Wallis', fr: 'en Valais' } },
+  ZG: { id: 'eventi-weekend-zugo', slugs: { it: 'eventi-weekend-zugo', en: 'weekend-events-zug', de: 'wochenend-veranstaltungen-zug', fr: 'evenements-week-end-zoug' }, place: { it: 'nel Canton Zugo', en: 'in the canton of Zug', de: 'im Kanton Zug', fr: 'dans le canton de Zoug' } },
+  ZH: { id: 'eventi-weekend-zurigo', slugs: { it: 'eventi-weekend-zurigo', en: 'weekend-events-zurich', de: 'wochenend-veranstaltungen-zurich', fr: 'evenements-week-end-zurich' }, place: { it: 'nel Canton Zurigo', en: 'in the canton of Zurich', de: 'im Kanton Zürich', fr: 'dans le canton de Zurich' } },
+};
+
+/**
+ * Canton URL group of a digest request: `undefined`/`'TI'` is the original
+ * Ticino digest; any other value must be a known group (half-cantons map onto
+ * theirs, `BL` → `BASILEA`). An unknown value throws: a typo must never
+ * silently publish the Ticino article under another canton's name.
+ */
+export function resolveDigestCanton(canton = 'TI') {
+  const groupKey = resolveCantonUrlKey(canton);
+  if (groupKey === 'TI' || CANTON_DIGEST_ARTICLES[groupKey]) return groupKey;
+  throw new Error(`events digest: unknown canton "${canton}"`);
+}
 /** Caps keep the body reasonable regardless of how busy a weekend is. */
 const MAX_COMUNI = 15;
 const MAX_EVENTS_PER_COMUNE = 6;
@@ -178,6 +229,85 @@ const T = {
 };
 
 /**
+ * Copy of the digest of a non-Ticino canton group: same structure and the
+ * same facts as the Ticino copy above (count, weekend range, per-comune
+ * list, links to the live weekend/week pages of THAT canton), without the
+ * Ticino-only frontaliere links. `place` is the canton's "in <canton>"
+ * phrase, `base` its localized events base path.
+ */
+function cantonCopy(locale, place, base) {
+  const weekend = `${base}/${WEEKEND_SLUG[locale]}/`;
+  const week = `${base}/${WEEK_SLUG[locale]}/`;
+  const copy = {
+    it: {
+      title: (range) => `Eventi del weekend ${place}: cosa fare ${range ? `(${range})` : 'sabato e domenica'}`,
+      excerpt: () => `Eventi ${place} ogni weekend: concerti, mostre, feste e mercati, comune per comune. Agenda aggiornata ogni giorno.`,
+      imageAlt: `Eventi del weekend ${place}`,
+      h1: `Cosa fare questo weekend ${place}`,
+      intro: (n, range) => `Questo weekend${range ? ` (${range})` : ''} ${place} ci ${n === 1 ? 'è un evento' : `sono ${n} eventi`} tra concerti, mostre, feste e mercati. Qui sotto trovi l'agenda, comune per comune, con data e orario. La pagina viva e sempre aggiornata è [Eventi questo weekend ${place}](${weekend}).`,
+      none: `Questo weekend non risultano eventi pubblicati ${place} nelle agende che monitoriamo. Riprova tra qualche giorno: l'[agenda del weekend](${weekend}) e quella [della settimana](${week}) si aggiornano ogni giorno.`,
+      byComuneH: 'Gli eventi, comune per comune',
+      otherCantonsH: 'Eventi anche in altri cantoni',
+      howH: 'Come usare questa agenda',
+      how: `Questa agenda raccoglie gli eventi dalle agende ufficiali e turistiche del territorio e si aggiorna ogni giorno. Per il quadro completo consulta [gli eventi di questo weekend](${weekend}) o [tutta la settimana](${week}).`,
+      faq: (n, range) => [
+        { q: `Quali eventi ci sono questo weekend ${place}?`, a: `Questo weekend${range ? ` (${range})` : ''} ${place} ci ${n === 1 ? 'è un evento' : `sono ${n} eventi`} tra concerti, mostre, feste e mercati, elencati qui sopra comune per comune e aggiornati ogni giorno.` },
+        { q: 'Con che frequenza viene aggiornata l’agenda?', a: 'Ogni giorno: i nuovi eventi pubblicati dalle agende ufficiali entrano automaticamente nell’agenda del weekend e della settimana.' },
+      ],
+    },
+    en: {
+      title: (range) => `Weekend events ${place}: what to do ${range ? `(${range})` : 'Saturday & Sunday'}`,
+      excerpt: () => `Events ${place} every weekend: concerts, exhibitions, festivals and markets, municipality by municipality. Refreshed daily.`,
+      imageAlt: `Weekend events ${place}`,
+      h1: `What to do this weekend ${place}`,
+      intro: (n, range) => `This weekend${range ? ` (${range})` : ''} there ${n === 1 ? 'is one event' : `are ${n} events`} ${place} — concerts, exhibitions, festivals and markets. The agenda, municipality by municipality with date and time, is below. The always-current page is [Events this weekend ${place}](${weekend}).`,
+      none: `No events are currently published for this weekend ${place} in the agendas we track. Check back in a few days: the [weekend agenda](${weekend}) and the [week agenda](${week}) refresh daily.`,
+      byComuneH: 'Events, municipality by municipality',
+      otherCantonsH: 'Events in other cantons too',
+      howH: 'How to use this agenda',
+      how: `This agenda gathers events from the official and tourism agendas of the territory and refreshes daily. For the full picture see [this weekend's events](${weekend}) or [the whole week](${week}).`,
+      faq: (n, range) => [
+        { q: `What events are on this weekend ${place}?`, a: `This weekend${range ? ` (${range})` : ''} there ${n === 1 ? 'is one event' : `are ${n} events`} ${place} — concerts, exhibitions, festivals and markets, listed above municipality by municipality and refreshed daily.` },
+        { q: 'How often is the agenda updated?', a: 'Daily: new events published by the official agendas automatically flow into the weekend and week agendas.' },
+      ],
+    },
+    de: {
+      title: (range) => `Veranstaltungen am Wochenende ${place}: was tun ${range ? `(${range})` : 'Sa & So'}`,
+      excerpt: () => `Veranstaltungen ${place} an jedem Wochenende: Konzerte, Ausstellungen, Feste und Märkte, Gemeinde für Gemeinde. Täglich aktualisiert.`,
+      imageAlt: `Veranstaltungen am Wochenende ${place}`,
+      h1: `Was am Wochenende ${place} tun`,
+      intro: (n, range) => `An diesem Wochenende${range ? ` (${range})` : ''} ${n === 1 ? 'gibt es eine Veranstaltung' : `gibt es ${n} Veranstaltungen`} ${place} — Konzerte, Ausstellungen, Feste und Märkte. Die Agenda, Gemeinde für Gemeinde mit Datum und Uhrzeit, steht unten. Die stets aktuelle Seite ist [Veranstaltungen am Wochenende ${place}](${weekend}).`,
+      none: `Für dieses Wochenende sind ${place} in den von uns beobachteten Agenden derzeit keine Veranstaltungen veröffentlicht. Schauen Sie in ein paar Tagen wieder vorbei: Die [Wochenend-Agenda](${weekend}) und die [Wochen-Agenda](${week}) werden täglich aktualisiert.`,
+      byComuneH: 'Veranstaltungen, Gemeinde für Gemeinde',
+      otherCantonsH: 'Veranstaltungen auch in anderen Kantonen',
+      howH: 'So nutzen Sie diese Agenda',
+      how: `Diese Agenda sammelt Veranstaltungen aus den offiziellen und touristischen Agenden der Region und wird täglich aktualisiert. Für den vollen Überblick siehe [die Veranstaltungen dieses Wochenendes](${weekend}) oder [die ganze Woche](${week}).`,
+      faq: (n, range) => [
+        { q: `Welche Veranstaltungen gibt es am Wochenende ${place}?`, a: `An diesem Wochenende${range ? ` (${range})` : ''} ${n === 1 ? 'gibt es eine Veranstaltung' : `gibt es ${n} Veranstaltungen`} ${place} — Konzerte, Ausstellungen, Feste und Märkte, oben Gemeinde für Gemeinde aufgelistet und täglich aktualisiert.` },
+        { q: 'Wie oft wird die Agenda aktualisiert?', a: 'Täglich: neue von den offiziellen Agenden veröffentlichte Veranstaltungen fliessen automatisch in die Wochenend- und Wochen-Agenda ein.' },
+      ],
+    },
+    fr: {
+      title: (range) => `Événements du week-end ${place} : que faire ${range ? `(${range})` : 'samedi & dimanche'}`,
+      excerpt: () => `Événements ${place} chaque week-end : concerts, expositions, fêtes et marchés, commune par commune. Mis à jour chaque jour.`,
+      imageAlt: `Événements du week-end ${place}`,
+      h1: `Que faire ce week-end ${place}`,
+      intro: (n, range) => `Ce week-end${range ? ` (${range})` : ''}, il y a ${n === 1 ? 'un événement' : `${n} événements`} ${place} — concerts, expositions, fêtes et marchés. L'agenda, commune par commune avec date et heure, est ci-dessous. La page toujours à jour est [Événements ce week-end ${place}](${weekend}).`,
+      none: `Aucun événement n'est actuellement publié pour ce week-end ${place} dans les agendas que nous suivons. Revenez dans quelques jours : l'[agenda du week-end](${weekend}) et celui [de la semaine](${week}) sont mis à jour chaque jour.`,
+      byComuneH: 'Les événements, commune par commune',
+      otherCantonsH: 'Événements aussi dans d’autres cantons',
+      howH: 'Comment utiliser cet agenda',
+      how: `Cet agenda rassemble les événements depuis les agendas officiels et touristiques du territoire et se met à jour chaque jour. Pour le panorama complet, voir [les événements de ce week-end](${weekend}) ou [toute la semaine](${week}).`,
+      faq: (n, range) => [
+        { q: `Quels événements ce week-end ${place} ?`, a: `Ce week-end${range ? ` (${range})` : ''}, il y a ${n === 1 ? 'un événement' : `${n} événements`} ${place} — concerts, expositions, fêtes et marchés, listés ci-dessus commune par commune et mis à jour chaque jour.` },
+        { q: 'À quelle fréquence l’agenda est-il mis à jour ?', a: 'Chaque jour : les nouveaux événements publiés par les agendas officiels alimentent automatiquement l’agenda du week-end et de la semaine.' },
+      ],
+    },
+  };
+  return copy[locale];
+}
+
+/**
  * Render the per-comune section body (markdown) for one locale, deep-linking
  * each comune heading under `basePath` (the caller's canton, e.g. Ticino's
  * `BASE_PATH.it` or another canton's `eventsBasePathForCanton(canton)[locale]`
@@ -242,9 +372,17 @@ function renderOtherCantons(otherWeekend, locale) {
 
 /**
  * Build the full 4-locale article payload for the weekend digest.
- * @param {{ events: Array<object>, todayIso?: string }} params
+ *
+ * `canton` (P9a) selects whose digest: omitted or `'TI'` is the original
+ * Ticino article (id, slugs and copy unchanged); any other canton code or URL
+ * group builds that group's digest from `CANTON_DIGEST_ARTICLES`, counting
+ * only its own events (half-cantons included in their group) and listing the
+ * rest under "other cantons", exactly like the Ticino one does.
+ * @param {{ events: Array<object>, todayIso?: string, canton?: string }} params
  */
-export function buildWeekendDigestArticle({ events, todayIso }) {
+export function buildWeekendDigestArticle({ events, todayIso, canton }) {
+  const groupKey = resolveDigestCanton(canton);
+  if (groupKey !== 'TI') return buildCantonWeekendDigestArticle({ events, todayIso, groupKey });
   const { start, end } = weekendWindow(todayIso);
   const weekend = weekendEvents(events, todayIso);
   // The article's headline/FAQ/count stay Ticino-scoped (its original, still
@@ -291,6 +429,54 @@ export function buildWeekendDigestArticle({ events, todayIso }) {
   return {
     id: DIGEST_ARTICLE_ID,
     slugs: { ...DIGEST_ARTICLE_SLUGS },
+    imageAlt,
+    weekendStart: start,
+    weekendEnd: end,
+    eventCount: n,
+    content,
+  };
+}
+
+/** The non-Ticino digest (see `buildWeekendDigestArticle`). */
+function buildCantonWeekendDigestArticle({ events, todayIso, groupKey }) {
+  const identity = CANTON_DIGEST_ARTICLES[groupKey];
+  const basePaths = eventsBasePathForCanton(groupKey);
+  const { start, end } = weekendWindow(todayIso);
+  const weekend = weekendEvents(events, todayIso);
+  const inCanton = (e) => {
+    const code = String(e?.canton || '').trim();
+    return code !== '' && resolveCantonUrlKey(code) === groupKey;
+  };
+  const cantonWeekend = weekend.filter(inCanton);
+  const otherWeekend = weekend.filter((e) => !inCanton(e));
+  const byComune = groupByComune(cantonWeekend);
+  const n = cantonWeekend.length;
+
+  const content = {};
+  const imageAlt = {};
+  for (const locale of LOCALES) {
+    const t = cantonCopy(locale, identity.place[locale], basePaths[locale]);
+    const range = humanRange(start, end, locale);
+    const parts2 = [];
+    if (byComune.size > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, basePaths[locale])}`);
+    if (otherWeekend.length > 0) {
+      const others = renderOtherCantons(otherWeekend, locale);
+      if (others) parts2.push(`## ${t.otherCantonsH}\n\n${others}`);
+    }
+    content[locale] = {
+      title: t.title(''),
+      excerpt: t.excerpt(),
+      body1: `## ${t.h1}\n\n${n > 0 ? t.intro(n, range) : t.none}`,
+      body2: parts2.join('\n\n'),
+      body3: `## ${t.howH}\n\n${t.how}`,
+      faq: t.faq(n, range).map(({ q, a }) => ({ q, a })),
+    };
+    imageAlt[locale] = t.imageAlt;
+  }
+
+  return {
+    id: identity.id,
+    slugs: { ...identity.slugs },
     imageAlt,
     weekendStart: start,
     weekendEnd: end,
