@@ -161,6 +161,15 @@ describe('CSVP crawler — PDF-backed description', () => {
     expect(isCsvpPoschiavoAuthoritativeEmptyPage(notBlogView)).toBe(false);
   });
 
+  it('does not prove the Warp alert when a different category heading is visible', () => {
+    const otherCategory = LIVE_WARP_EMPTY_CATEGORY_HTML.replace(
+      '<main id="tm-content" class="tm-content">',
+      '<main id="tm-content" class="tm-content"><h2>Posti di tirocinio</h2>',
+    );
+    expect(otherCategory).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(otherCategory)).toBe(false);
+  });
+
   it('does not prove the Warp alert when it sits in a sidebar instead of #tm-content', () => {
     const alert = '<div class="uk-alert">Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</div>';
     const inSidebar = LIVE_WARP_EMPTY_CATEGORY_HTML
