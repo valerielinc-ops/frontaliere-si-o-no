@@ -90,9 +90,25 @@ function tiktokPage({
   afterPost = 'redirect',
   cookieBanner = false,
   contentChecks = false,
-  unknownDialog = false,
+  guidedTour = false,
+  unknownOverlay = false,
   prefilledCaption = 'video',
 } = {}) {
+  const cookieShadowMarkup = `
+    <style>
+      :host { display: block; position: fixed; inset: auto 0 0; z-index: 2000; height: 260px; background: #0aa; color: white; font: 16px sans-serif; }
+      section { box-sizing: border-box; height: 100%; padding: 24px 64px; }
+      .actions { display: flex; gap: 16px; justify-content: flex-end; }
+      button { background: white; border: 0; border-radius: 4px; color: #111; font: 600 16px sans-serif; padding: 14px 20px; }
+    </style>
+    <section aria-label="Consentire i cookie da TikTok su questo browser?">
+      <h2>Consentire i cookie da TikTok su questo browser?</h2>
+      <p>TikTok utilizza cookie e tecnologie simili per fornire, migliorare, proteggere e analizzare i nostri servizi.</p>
+      <div class="actions">
+        <button id="cookie-decline">Rifiuta i cookie opzionali</button>
+        <button id="cookie-accept">Consenti tutti</button>
+      </div>
+    </section>`;
   const after = {
     redirect: "location.href = '/tiktokstudio/content';",
     // The POST answers 200 and the page stays where it is: no toast, no redirect.
@@ -109,20 +125,35 @@ function tiktokPage({
     <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
-  ${cookieBanner ? '<tiktok-cookie-banner id="cookie-banner" role="banner" style="position:fixed;left:0;right:0;bottom:0;z-index:20;background:#0aa;padding:16px"><h2>Consentire i cookie da TikTok su questo browser?</h2><button id="cookie-decline">Rifiuta i cookie opzionali</button><button id="cookie-accept">Consenti tutti</button></tiktok-cookie-banner>' : ''}
-  ${contentChecks ? '<div id="content-checks" role="dialog" hidden style="position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Attivare i controlli automatici dei contenuti?</h2><p>Esamineremo automaticamente il tuo video per escludere problemi con il copyright e altre possibili violazioni.</p><label><input type="checkbox" checked>Controllo a campione dei contenuti</label><button id="content-cancel">Annulla</button><button id="content-activate">Attiva</button><button id="content-close" aria-label="Close">×</button></div>' : ''}
-  ${unknownDialog ? '<div id="unknown-dialog" role="dialog" hidden style="position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Conferma il tuo account creator</h2><button id="unknown-continue">Continua</button></div>' : ''}
+  ${cookieBanner ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script><tiktok-cookie-banner id="cookie-banner"></tiktok-cookie-banner>' : ''}
+  ${contentChecks ? '<div id="content-checks" role="dialog" hidden style="position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Attivare i controlli automatici dei contenuti?</h2><p>Esamineremo automaticamente il tuo video per escludere problemi con il copyright e altre possibili violazioni.</p><label><input type="checkbox" checked>Controllo a campione dei contenuti</label><button id="content-cancel">Annulla</button><button id="content-activate">Attiva</button><button id="content-close" aria-label="Close">×</button></div>' : ''}
+  ${guidedTour ? '<div id="react-joyride-portal" hidden><div class="react-joyride__overlay" data-test-id="overlay" role="presentation" style="position:fixed;inset:0;z-index:1001;pointer-events:auto;background:rgba(0,0,0,.5)"></div><div class="react-joyride__tooltip" role="alertdialog" aria-modal="true" style="position:fixed;left:50%;bottom:125px;z-index:1002;width:280px;transform:translateX(-50%);background:white;color:#111;padding:20px"><h2>Nuove funzionalità di editing aggiunte</h2><p>Ora è più facile che mai creare video professionali e coinvolgenti.</p><button id="tour-action">Ok</button></div></div>' : ''}
+  ${unknownOverlay ? '<div id="unknown-overlay" hidden style="position:fixed;inset:0;z-index:1100;pointer-events:auto;background:rgba(120,0,0,.25)"><h2>Conferma il tuo account creator</h2><button id="unknown-continue">Continua</button></div>' : ''}
 </main>`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 let popupEscapes = 0;
 let contentAction = 'none';
 let cookieAction = 'none';
-$('cookie-decline')?.addEventListener('click', () => { cookieAction = 'decline'; $('cookie-banner').hidden = true; });
-$('cookie-accept')?.addEventListener('click', () => { cookieAction = 'accept'; $('cookie-banner').hidden = true; });
+${cookieBanner ? `
+const cookie = $('cookie-banner');
+const cookieRoot = cookie.attachShadow({ mode: 'open' });
+cookieRoot.innerHTML = ${JSON.stringify(cookieShadowMarkup)};
+cookieRoot.getElementById('cookie-decline').addEventListener('click', () => { cookieAction = 'decline'; cookie.hidden = true; });
+cookieRoot.getElementById('cookie-accept').addEventListener('click', () => { cookieAction = 'accept'; cookie.hidden = true; });
+` : ''}
 $('content-cancel')?.addEventListener('click', () => { contentAction = 'cancel'; $('content-checks').hidden = true; });
 $('content-activate')?.addEventListener('click', () => { contentAction = 'activate'; $('content-checks').hidden = true; });
 $('content-close')?.addEventListener('click', () => { contentAction = 'close'; $('content-checks').hidden = true; });
+let tourStep = 0;
+$('tour-action')?.addEventListener('click', () => {
+  if (tourStep === 0) {
+    tourStep = 1;
+    $('tour-action').textContent = 'Last';
+  } else {
+    $('react-joyride-portal').remove();
+  }
+});
 $('file').onchange = () => {
   count = $('file').files.length;
   $('processing').hidden = false;
@@ -130,7 +161,8 @@ $('file').onchange = () => {
     $('editor').hidden = false;
     $('caption').innerText = ${JSON.stringify(prefilledCaption)};
     if (${contentChecks}) $('content-checks').hidden = false;
-    if (${unknownDialog}) $('unknown-dialog').hidden = false;
+    if (${guidedTour}) $('react-joyride-portal').hidden = false;
+    if (${unknownOverlay}) $('unknown-overlay').hidden = false;
   }, 400);
   setTimeout(() => { $('processing').hidden = true; $('post').disabled = false; }, 1200);
 };
@@ -183,8 +215,8 @@ function fakePlatforms() {
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
-      case '/tt-interstitials/tiktokstudio/upload': return send(200, tiktokPage({ cookieBanner: true, contentChecks: true }));
-      case '/tt-unknown/tiktokstudio/upload': return send(200, tiktokPage({ unknownDialog: true }));
+      case '/tt-interstitials/tiktokstudio/upload': return send(200, tiktokPage({ cookieBanner: true, contentChecks: true, guidedTour: true }));
+      case '/tt-unknown/tiktokstudio/upload': return send(200, tiktokPage({ unknownOverlay: true }));
       case '/tiktokstudio/content': return send(200, page('Manage posts', '<h1>Manage your posts</h1>'));
       default: return send(404, 'not found', 'text/plain');
     }
@@ -216,6 +248,7 @@ async function main() {
   const stateDir = path.join(work, 'state');
   const context = await openProfile({ stateDir, headless: true, launch: executablePath ? { executablePath, kind: 'explicit' } : { kind: 'playwright-default' } });
   const tab = context.pages()[0] || (await context.newPage());
+  tab.setDefaultTimeout(1_500);
 
   const run = async (channel, startUrl, { dryRun, label }) => {
     const dir = path.join(work, 'diagnostics', label);
