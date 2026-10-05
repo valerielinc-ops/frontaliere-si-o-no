@@ -262,9 +262,8 @@ const IT_CONCORSI: CareerLandingCopy = {
     {
       title: 'I concorsi attualmente aperti (snapshot ufficiale)',
       paragraphs: [
-        'Al momento dell\'ultimo aggiornamento da concorsi.ti.ch, sono aperti in particolare: il concorso 23/26 per Medico capo clinica in psichiatria all\'OSC di Mendrisio (scadenza 31.12.2026), il concorso 25/26 per Infermieri/e con specialità in salute mentale OSC Mendrisio (scadenza 31.10.2026), il concorso 26/26 per Personale ai servizi generali OSC Mendrisio (scadenza 31.10.2026), il concorso 30/26 per Medici assistenti OSC Mendrisio (scadenza 31.12.2026).',
-        'Sempre attivi il concorso 02/26 per Aiuto cucina all\'Ufficio della refezione e dei trasporti scolastici (DECS, Bellinzona, scadenza 31.12.2026) e il bando 04/26 per candidature spontanee a stage universitari e post-universitari nell\'Amministrazione cantonale (scadenza 31.12.2026). Il concorso 180/25 per Collaboratori amministrativi, addetti accoglienza, tassatori e simili chiude il 30.10.2026.',
-        'L\'elenco è uno snapshot: la pagina ufficiale www4.ti.ch/index.php?id=147427 è l\'unica fonte sempre aggiornata. Consigliamo di impostare un\'allerta mensile sul sito per non perdere nuovi bandi.',
+        'L\'elenco dei bandi aperti viene ricostruito a ogni pubblicazione a partire dallo snapshot ufficiale e mostra solo i record ancora presenti nella fonte. Per ogni posizione trovi titolo, ente, scadenza e collegamento alla scheda originale.',
+        'Le scadenze e i riferimenti possono cambiare: verifica sempre il bando prima di candidarti. La pagina ufficiale www4.ti.ch/index.php?id=147427 resta l\'unica fonte sempre aggiornata.',
       ],
     },
     {
@@ -725,8 +724,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Currently open competitions (official snapshot)',
         paragraphs: [
-          'At the last sync with concorsi.ti.ch the main open bids are: chief clinical psychiatrist at OSC Mendrisio (ref 23/26, deadline 31.12.2026), mental-health nurses at OSC Mendrisio (ref 25/26, 31.10.2026), general-service staff at OSC Mendrisio (ref 26/26, 31.10.2026), assistant doctors at OSC Mendrisio (ref 30/26, 31.12.2026).',
-          'Permanent-open bids: kitchen helper at the school catering office (ref 02/26, 31.12.2026), spontaneous internship applications (ref 04/26, 31.12.2026), administrative collaborators and reception staff (ref 180/25, 30.10.2026). Always verify at www4.ti.ch/index.php?id=147427 — it is the only always-current source.',
+          'The open-bid list is rebuilt at every publication from the official snapshot and includes only records still present in the source. Each row shows the title, employer, deadline and a link to the original notice.',
+          'Deadlines and references can change: check the notice before applying. The official page at www4.ti.ch/index.php?id=147427 remains the only always-current source.',
         ],
       },
       {
@@ -849,8 +848,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Aktuell offene Concorsi (offizielle Momentaufnahme)',
         paragraphs: [
-          'Zum letzten Sync mit concorsi.ti.ch sind die wichtigsten offenen Ausschreibungen: Chefarzt/-ärztin Psychiatrie OSC Mendrisio (Ref 23/26, Frist 31.12.2026), psychiatrische Pflegefachpersonen OSC (Ref 25/26, 31.10.2026), Servicepersonal OSC (Ref 26/26, 31.10.2026), Assistenzärzte OSC (Ref 30/26, 31.12.2026).',
-          'Dauerhaft offen: Küchenhilfe DECS Bellinzona (Ref 02/26, 31.12.2026), Spontanbewerbungen für Hochschulpraktika (Ref 04/26, 31.12.2026), Verwaltungsmitarbeitende und Empfangspersonal (Ref 180/25, 30.10.2026). Immer auch direkt auf www4.ti.ch/index.php?id=147427 prüfen — dort ist der aktuelle Stand.',
+          'Die Liste der offenen Ausschreibungen wird bei jeder Veröffentlichung aus dem offiziellen Snapshot aufgebaut und enthält nur Datensätze, die in der Quelle noch vorhanden sind. Jede Zeile zeigt Titel, Arbeitgeber, Frist und den Link zur Originalausschreibung.',
+          'Fristen und Referenzen können sich ändern: Bitte vor der Bewerbung die Ausschreibung prüfen. Die offizielle Seite www4.ti.ch/index.php?id=147427 bleibt die einzige stets aktuelle Quelle.',
         ],
       },
       {
@@ -972,8 +971,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Concorsi actuellement ouverts (instantané officiel)',
         paragraphs: [
-          "Au dernier sync avec concorsi.ti.ch, les principaux concours ouverts sont: médecin-chef clinique psychiatrie OSC Mendrisio (réf 23/26, délai 31.12.2026), infirmiers en santé mentale OSC (réf 25/26, 31.10.2026), personnel des services généraux OSC (réf 26/26, 31.10.2026), médecins assistants OSC (réf 30/26, 31.12.2026).",
-          "En permanence: aide-cuisine DECS Bellinzona (réf 02/26, 31.12.2026), candidatures spontanées pour stages universitaires (réf 04/26, 31.12.2026), collaborateurs administratifs et agents d'accueil (réf 180/25, 30.10.2026). Toujours vérifier sur www4.ti.ch/index.php?id=147427 — source unique toujours à jour.",
+          "La liste des concours ouverts est reconstruite à chaque publication depuis l'instantané officiel et ne contient que les données encore présentes dans la source. Chaque ligne indique le titre, l'employeur, l'échéance et le lien vers l'avis original.",
+          "Les échéances et les références peuvent changer : vérifiez l'avis avant de postuler. La page officielle www4.ti.ch/index.php?id=147427 reste la seule source toujours à jour.",
         ],
       },
       {
