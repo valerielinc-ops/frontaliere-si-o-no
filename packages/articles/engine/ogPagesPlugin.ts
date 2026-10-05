@@ -1296,6 +1296,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  ldObj = {
  '@context': 'https://schema.org',
  '@type': 'Event',
+ '@id': `${full}#event`,
  name: sdStr('name') || localizedTitle,
  // repairSerpSnippet anche qui: `localizedDesc` e' gia' riparata al punto di
  // definizione unico, ma questo fallback rilegge structuredData.description
@@ -1351,6 +1352,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  ldObj = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
+ '@id': `${full}#article`,
  headline: localizedTitle,
  description: localizedDesc,
  // ImageObject, not the bare URL string this used to be. Google's
