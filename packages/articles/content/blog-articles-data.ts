@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES: Article[] = [
+const RAW_ARTICLES = [
   ...([
  {
  id: 'stipendio-netto-2026',
@@ -9108,7 +9108,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-  ] as Article[]),
+  ] satisfies Article[]),
   ...([
   {
  id: 'verdi-ticino-cantonali-2026',
@@ -18110,7 +18110,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-  ] as Article[]),
+  ] satisfies Article[]),
   ...([
  {
  id: 'thun-vince-calcio-programmazione',
@@ -27134,7 +27134,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
-  ] as Article[]),
+  ] satisfies Article[]),
   ...([
  {
  id: 'trasferirsi-a-valsolda-da-frontaliere-pro-e-contro',
@@ -36374,7 +36374,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-  ] as Article[]),
+  ] satisfies Article[]),
   ...([
  {
  id: 'trenta-viaggiatori-gallarate-malpensa',
@@ -37788,7 +37788,7 @@ const RAW_ARTICLES: Article[] = [
  authorName: 'Redazione Frontaliere Ticino',
  },
 
-  ] as Article[]),
+  ] satisfies Article[]),
 ];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
