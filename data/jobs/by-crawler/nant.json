@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-10-05T09:09:02.630Z",
+  "assembledAt": "2026-10-05T21:23:06.293Z",
   "jobs": [
     {
       "id": "nant-466f15d99955",
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/PfepkyPQG",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:08:55.465Z",
+      "crawledAt": "2026-10-05T21:23:00.944Z",
       "addressLocality": "Château-d’Œx",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:08:55.461Z",
+      "crawledAt": "2026-10-05T21:23:00.943Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://app.beehire.com/invite/H-XsEq5iP",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:08:55.457Z",
+      "crawledAt": "2026-10-05T21:23:00.942Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "nant-cbef38e52fd0",
@@ -418,7 +418,7 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
