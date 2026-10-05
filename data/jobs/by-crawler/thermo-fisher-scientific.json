@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-10-05T09:27:15.558Z",
+  "assembledAt": "2026-10-05T21:37:09.394Z",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-bb57b4d1cc27",
@@ -33,7 +33,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01350882/project-support-associate-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:06.717Z",
+      "crawledAt": "2026-10-05T21:37:04.204Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -46,7 +46,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-05T00:00:00.000+00:00",
       "postedDate": "2026-08-05T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Project-Support-Associate---Distribution_R-01350882/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -76,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -88,9 +91,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-05T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-30653d8eec1b",
@@ -123,7 +124,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344620/associate-project-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:05.992Z",
+      "crawledAt": "2026-10-05T21:37:02.355Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -136,7 +137,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-08T00:00:00.000+00:00",
       "postedDate": "2026-07-08T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Associate-Project-Manager_R-01344620-1/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -207,9 +210,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-08T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-3665434cdc1d",
@@ -242,7 +243,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01359187/senior-ehs-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:04.319Z",
+      "crawledAt": "2026-10-05T21:37:00.682Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -255,7 +256,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-20T00:00:00.000+00:00",
       "postedDate": "2026-07-20T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Senior-EHS-specialist_R-01359187/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -286,9 +289,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-07-20T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-3a1d8abde88a",
@@ -296,7 +297,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -321,7 +322,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356104/demand-and-supply-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:02.557Z",
+      "crawledAt": "2026-10-05T21:36:57.538Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -334,7 +335,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18T00:00:00.000+00:00",
       "postedDate": "2026-09-18T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Demand-and-Supply-Manager_R-01356104/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -368,6 +371,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:58:50.159Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -380,9 +384,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-18T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-74a09b36227d",
@@ -415,7 +417,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01367007/goods-receipt-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:00.717Z",
+      "crawledAt": "2026-10-05T21:36:56.745Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -428,7 +430,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-24T00:00:00.000+00:00",
       "postedDate": "2026-09-24T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Goods-Receipt-Specialist_R-01367007/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -456,9 +460,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-24T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-e44422d2e22c",
@@ -491,7 +493,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01365003/material-handler-ii",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:59.571Z",
+      "crawledAt": "2026-10-05T21:36:55.949Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -504,7 +506,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-19T00:00:00.000+00:00",
       "postedDate": "2026-08-19T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Material-Handler-II_R-01365003/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -536,9 +540,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-19T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-30b1391cb568",
@@ -571,7 +573,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01366811/sr-qc-technician",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:57.867Z",
+      "crawledAt": "2026-10-05T21:36:54.178Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -584,7 +586,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-11T00:00:00.000+00:00",
       "postedDate": "2026-09-11T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Sr-QC-Technician_R-01366811/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -615,9 +619,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-11T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-bcfdb7173f77",
@@ -650,7 +652,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344621/senior-project-manager-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:26:56.205Z",
+      "crawledAt": "2026-10-05T21:36:53.392Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -663,7 +665,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-04-23T00:00:00.000+00:00",
       "postedDate": "2026-04-23T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Sr-Manager-Client-Services-Project_R-01344621-1/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -691,9 +695,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-04-23T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-2bde9b3bb4fa",
@@ -726,7 +728,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01347707/client-services-project-support-associate",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:26:54.638Z",
+      "crawledAt": "2026-10-05T21:36:51.906Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -739,7 +741,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-28T00:00:00.000+00:00",
       "postedDate": "2026-08-28T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Client-Services-Project-Support-Associate_R-01347707/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -771,9 +775,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-28T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-b47e3256edd9",
@@ -806,7 +808,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01367294/manager-operations-secondary-packaging",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:26:53.324Z",
+      "crawledAt": "2026-10-05T21:36:51.031Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -819,7 +821,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29T00:00:00.000+00:00",
       "postedDate": "2026-09-29T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Manager--Operations-Secondary-Packaging_R-01367294/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -850,9 +854,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-29T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-3bf1b93758db",
@@ -885,7 +887,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01355076/team-leader-in-process-inspection-operations-production-quality",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:26:52.060Z",
+      "crawledAt": "2026-10-05T21:36:49.374Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -898,7 +900,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23T00:00:00.000+00:00",
       "postedDate": "2026-09-23T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Team-Leader-IPI---Quality-Operations_R-01355076/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -922,9 +926,7 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-23T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "thermo-fisher-scientific-cdee167510fa",
@@ -957,7 +959,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01366825/maschinenbediener-in-druck",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:50.861Z",
+      "crawledAt": "2026-10-05T21:36:48.547Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -970,7 +972,9 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-09T00:00:00.000+00:00",
       "postedDate": "2026-09-09T00:00:00.000+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Maschinenbediener-in-Druck_R-01366825/apply",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1023,9 +1027,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-09T00:00:00.000+00:00",
-      "postingDateSource": "reported"
+      }
     }
   ]
 }

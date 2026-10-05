@@ -1,20 +1,23 @@
 /**
- * jobgate-v3 — typed browser facade over services/jobGateExperimentCore.mjs.
+ * jobgate — typed browser facade over services/jobGateExperimentCore.mjs.
  *
  * Holds the page-session assignment so telemetry emitters that have no React
- * context (Analytics.trackNewsletter) can tag the gate's subscribe event, and
- * the per-arm render knobs JobBoard reads. No imports beyond the pure core:
- * services/analytics.ts imports this module, so it must never import analytics
- * or firebase back. The Remote Config loader and React hook live in
- * hooks/useJobGateExperiment.ts.
+ * context (Analytics.trackNewsletter) can tag the gate's subscribe event. No
+ * imports beyond the pure core: services/analytics.ts imports this module, so
+ * it must never import analytics or firebase back. The Remote Config loader
+ * and React hook live in hooks/useJobGateExperiment.ts; the per-arm classes
+ * JobBoard renders live in components/community/jobGateSkin.ts.
  *
- * Arms (round history and hypotheses: docs/AUTHGATE-HEADLINE-EXPERIMENT.md):
- *   control        — today's gate, byte-identical.
- *   similar_alerts — value proposition: unlock + email alerts for similar jobs.
- *   social_first   — the email form starts collapsed; provider buttons lead.
- *   email_first    — the email form comes first, provider buttons below it.
- * (A longer teaser was already tested as `authgate-model-v1`/value_first and
- * dropped, so it is deliberately not an arm here.)
+ * Round 4 (`jobgate-v4`) tests the gate's visual treatment, copy unchanged
+ * (round history and hypotheses: docs/AUTHGATE-HEADLINE-EXPERIMENT.md):
+ *   control       — today's gate, byte-identical.
+ *   navy_panel    — the gate becomes a dark navy panel, so it no longer
+ *                   blends with the lavender employer card above it.
+ *   spotlight     — white elevated card with an accent ring; the preview
+ *                   fades into it; the email CTA is the only saturated
+ *                   control and never looks disabled.
+ *   actions_first — accent header band with the title, the sign-in buttons
+ *                   right under it, explanation and benefits after them.
  */
 
 import {
@@ -43,12 +46,12 @@ export {
   validateJobGateWeights,
 };
 
-export type JobGateArm = 'control' | 'similar_alerts' | 'social_first' | 'email_first';
+export type JobGateArm = 'control' | 'navy_panel' | 'spotlight' | 'actions_first';
 
 export interface JobGateAssignment {
   /** False until Remote Config answered (or the load timed out). */
   ready: boolean;
-  /** True only when the visitor counts for jobgate-v3 and events carry its tags. */
+  /** True only when the visitor counts for the experiment and events carry its tags. */
   enrolled: boolean;
   /** Always `control` when not enrolled, so the render falls back to today's gate. */
   arm: JobGateArm;
@@ -81,7 +84,7 @@ export function getJobGateTelemetryParams(): { experiment_id: string; variant: J
   return activeAssignment ? { experiment_id: JOBGATE_EXPERIMENT_ID, variant: activeAssignment.arm } : null;
 }
 
-/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v3:<arm>`), else null. */
+/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v4:<arm>`), else null. */
 export function getJobGateSubscriberVariant(assignment: JobGateAssignment | null = activeAssignment): string | null {
   return assignment && assignment.enrolled ? jobGateSubscriberVariant(assignment.arm) : null;
 }
@@ -93,16 +96,4 @@ export function getJobGateSubscriberVariant(assignment: JobGateAssignment | null
 export function jobGateNewsletterTags(sourceCta: string | undefined): { experiment_id: string; variant: string } | Record<string, never> {
   const params = getJobGateTelemetryParams();
   return params && isJobGateNewsletterCta(sourceCta) ? params : {};
-}
-
-// ── Per-arm render knobs ───────────────────────────────────────────────────
-
-/** `social_first` starts with the inline email form collapsed; everyone else sees it open. */
-export function jobGateEmailFormOpen(arm: JobGateArm): boolean {
-  return arm !== 'social_first';
-}
-
-/** `email_first` renders the inline email form above the provider buttons. */
-export function jobGateEmailFirst(arm: JobGateArm): boolean {
-  return arm === 'email_first';
 }

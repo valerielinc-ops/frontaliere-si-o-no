@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-10-05T09:17:31.035Z",
+  "assembledAt": "2026-10-05T21:29:47.293Z",
   "jobs": [
     {
       "id": "ipw-56c46c2af2f4",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Hauswirtschaft--4077416",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:25.895Z",
+      "crawledAt": "2026-10-05T21:29:42.870Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-BM--4074050",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:24.518Z",
+      "crawledAt": "2026-10-05T21:29:42.265Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4064521",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:23.734Z",
+      "crawledAt": "2026-10-05T21:29:41.624Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -220,7 +220,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4064521",
       "requirements": [],
       "requirementsByLocale": {},
@@ -265,9 +267,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-bd3eb38d7e85",
@@ -300,7 +300,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Leitende-Ärztin---Leitender-Arzt--4069468",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:23.038Z",
+      "crawledAt": "2026-10-05T21:29:40.998Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -313,7 +313,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Leitende-Ärztin---Leitender-Arzt--4069468",
       "requirements": [],
       "requirementsByLocale": {},
@@ -350,9 +352,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-b87bd34e115c",
@@ -386,7 +386,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-Berufsmatur--4070658",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:21.714Z",
+      "crawledAt": "2026-10-05T21:29:39.777Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,7 +470,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe---Mutterschaftsvertretung--4070417",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:20.996Z",
+      "crawledAt": "2026-10-05T21:29:39.190Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -555,7 +555,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073412",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:20.010Z",
+      "crawledAt": "2026-10-05T21:29:38.591Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -568,7 +568,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073412",
       "requirements": [],
       "requirementsByLocale": {},
@@ -637,9 +639,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-c14b13ddad95",
@@ -673,7 +673,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4069758",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:19.328Z",
+      "crawledAt": "2026-10-05T21:29:38.003Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -760,7 +760,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4073336",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:18.056Z",
+      "crawledAt": "2026-10-05T21:29:37.410Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -773,7 +773,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4073336",
       "requirements": [],
       "requirementsByLocale": {},
@@ -826,9 +828,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-41048dd04215",
@@ -862,7 +862,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4074811",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:17.219Z",
+      "crawledAt": "2026-10-05T21:29:36.823Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -948,7 +948,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4076961",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:16.562Z",
+      "crawledAt": "2026-10-05T21:29:36.228Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1046,7 +1046,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS---HMS-mit-BM--4075584",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:15.930Z",
+      "crawledAt": "2026-10-05T21:29:35.620Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1116,7 +1116,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Ausbildungsverantwortliche--Ausbildungsverantwortlicher--4069432",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:14.447Z",
+      "crawledAt": "2026-10-05T21:29:34.393Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1202,7 +1202,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Leiterin---Leiter-Controlling--4070538",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:13.783Z",
+      "crawledAt": "2026-10-05T21:29:33.793Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1290,7 +1290,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-HMS--4070753",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:13.063Z",
+      "crawledAt": "2026-10-05T21:29:33.197Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1377,7 +1377,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4064434",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:12.337Z",
+      "crawledAt": "2026-10-05T21:29:32.617Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1390,7 +1390,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4064434",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1431,9 +1433,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-e034b58a02a3",
@@ -1467,7 +1467,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Betreuung---Springer---Ferien--und-Krankheitsablösung--4057781",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:11.473Z",
+      "crawledAt": "2026-10-05T21:29:32.023Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1563,7 +1563,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-FH-HF--4070887",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:10.752Z",
+      "crawledAt": "2026-10-05T21:29:31.441Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1665,7 +1665,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Stv.-Stationsleiterin---Stationsleiter--4066023",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:10.069Z",
+      "crawledAt": "2026-10-05T21:29:30.857Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1766,7 +1766,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4074964",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:09.358Z",
+      "crawledAt": "2026-10-05T21:29:30.262Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1819,6 +1819,78 @@
       }
     },
     {
+      "id": "ipw-b073a3df317e",
+      "slug": "psychologin-psychologe-ipw-dielsdorf",
+      "slugByLocale": {
+        "de": "psychologin-psychologe-ipw-dielsdorf",
+        "it": "psychologin-psychologe-ipw-dielsdorf",
+        "en": "psychologin-psychologe-ipw-dielsdorf",
+        "fr": "psychologin-psychologe-ipw-dielsdorf"
+      },
+      "company": "Integrierte Psychiatrie Winterthur (ipw)",
+      "companyKey": "ipw",
+      "companyDomain": "ipw.ch",
+      "title": "Psychologin / Psychologe",
+      "titleByLocale": {
+        "de": "Psychologin / Psychologe",
+        "it": "Psychologin / Psychologe",
+        "en": "Psychologin / Psychologe",
+        "fr": "Psychologin / Psychologe"
+      },
+      "description": "Für unser Ambulatorium für Erwachsene in Dielsdorf suchen wir Sie Psychologin / Psychologe 80% Jetzt bewerben Das sind Ihre Aufgaben\n• Ambulante psychologische und psychotherapeutische Abklärungen und Behandlungen von Menschen im Alter von 18 bis 65 Jahren\n• Behandlung von Menschen mit dem ganzen Spektrum psychiatrischer Erkrankungen\n• Selbständige Arbeit im interprofessionellen Team unter Leitung der Oberpsychologin und des Oberarztes\n• Verlässliche Zusammenarbeit mit internen und externen Netzwerkpartnern\n• Sorgfältige Dokumentation und Berichterstellung gemäss klinikinternen Standards Das bringen Sie mit\n• Begonnene psychotherapeutische Weiterbildung in einem der zugelassenen Verfahren\n• Klinische Erfahrung in der Arbeit mit unterschiedlichen psychischen Krankheitsbildern\n• Fähigkeit zu selbständiger und reflektierter Tätigkeit im interprofessionellen Team\n• Teamfähigkeit, Sozialkompetenz, Humor und Belastbarkeit Das können Sie erwarten\n• Inspirierendes und von gegenseitigem Respekt getragenes Arbeitsklima in einem interprofessionellen und motivierten Team\n• Regelmässige Fallsupervision im Team und bedarfsspezifische Fort- und Weiterbildung\n• Interne Fort- und Weiterbildungsveranstaltungen sowie breite Supervisionsmöglichkeiten\n• SIWF zertifizierte Weiterbildungsstätte Kategorie A\n• Möglichkeit zum Bezug von Lunchchecks Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Frau Marija Milivojevic Pavlovic, Oberpsychologin, T +41 52 264 32 50 Herr Manuel Ackermann, Oberarzt, T +41 52 264 32 50 Frau Tina Riniker, Leitende Psychologin, T +41 52 264 32 50 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
+      "descriptionByLocale": {
+        "de": "Für unser Ambulatorium für Erwachsene in Dielsdorf suchen wir Sie Psychologin / Psychologe 80% Jetzt bewerben Das sind Ihre Aufgaben\n• Ambulante psychologische und psychotherapeutische Abklärungen und Behandlungen von Menschen im Alter von 18 bis 65 Jahren\n• Behandlung von Menschen mit dem ganzen Spektrum psychiatrischer Erkrankungen\n• Selbständige Arbeit im interprofessionellen Team unter Leitung der Oberpsychologin und des Oberarztes\n• Verlässliche Zusammenarbeit mit internen und externen Netzwerkpartnern\n• Sorgfältige Dokumentation und Berichterstellung gemäss klinikinternen Standards Das bringen Sie mit\n• Begonnene psychotherapeutische Weiterbildung in einem der zugelassenen Verfahren\n• Klinische Erfahrung in der Arbeit mit unterschiedlichen psychischen Krankheitsbildern\n• Fähigkeit zu selbständiger und reflektierter Tätigkeit im interprofessionellen Team\n• Teamfähigkeit, Sozialkompetenz, Humor und Belastbarkeit Das können Sie erwarten\n• Inspirierendes und von gegenseitigem Respekt getragenes Arbeitsklima in einem interprofessionellen und motivierten Team\n• Regelmässige Fallsupervision im Team und bedarfsspezifische Fort- und Weiterbildung\n• Interne Fort- und Weiterbildungsveranstaltungen sowie breite Supervisionsmöglichkeiten\n• SIWF zertifizierte Weiterbildungsstätte Kategorie A\n• Möglichkeit zum Bezug von Lunchchecks Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Frau Marija Milivojevic Pavlovic, Oberpsychologin, T +41 52 264 32 50 Herr Manuel Ackermann, Oberarzt, T +41 52 264 32 50 Frau Tina Riniker, Leitende Psychologin, T +41 52 264 32 50 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
+        "it": "Für unser Ambulatorium für Erwachsene in Dielsdorf suchen wir Sie Psychologin / Psychologe 80% Jetzt bewerben Das sind Ihre Aufgaben\n• Ambulante psychologische und psychotherapeutische Abklärungen und Behandlungen von Menschen im Alter von 18 bis 65 Jahren\n• Behandlung von Menschen mit dem ganzen Spektrum psychiatrischer Erkrankungen\n• Selbständige Arbeit im interprofessionellen Team unter Leitung der Oberpsychologin und des Oberarztes\n• Verlässliche Zusammenarbeit mit internen und externen Netzwerkpartnern\n• Sorgfältige Dokumentation und Berichterstellung gemäss klinikinternen Standards Das bringen Sie mit\n• Begonnene psychotherapeutische Weiterbildung in einem der zugelassenen Verfahren\n• Klinische Erfahrung in der Arbeit mit unterschiedlichen psychischen Krankheitsbildern\n• Fähigkeit zu selbständiger und reflektierter Tätigkeit im interprofessionellen Team\n• Teamfähigkeit, Sozialkompetenz, Humor und Belastbarkeit Das können Sie erwarten\n• Inspirierendes und von gegenseitigem Respekt getragenes Arbeitsklima in einem interprofessionellen und motivierten Team\n• Regelmässige Fallsupervision im Team und bedarfsspezifische Fort- und Weiterbildung\n• Interne Fort- und Weiterbildungsveranstaltungen sowie breite Supervisionsmöglichkeiten\n• SIWF zertifizierte Weiterbildungsstätte Kategorie A\n• Möglichkeit zum Bezug von Lunchchecks Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Frau Marija Milivojevic Pavlovic, Oberpsychologin, T +41 52 264 32 50 Herr Manuel Ackermann, Oberarzt, T +41 52 264 32 50 Frau Tina Riniker, Leitende Psychologin, T +41 52 264 32 50 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
+        "en": "Für unser Ambulatorium für Erwachsene in Dielsdorf suchen wir Sie Psychologin / Psychologe 80% Jetzt bewerben Das sind Ihre Aufgaben\n• Ambulante psychologische und psychotherapeutische Abklärungen und Behandlungen von Menschen im Alter von 18 bis 65 Jahren\n• Behandlung von Menschen mit dem ganzen Spektrum psychiatrischer Erkrankungen\n• Selbständige Arbeit im interprofessionellen Team unter Leitung der Oberpsychologin und des Oberarztes\n• Verlässliche Zusammenarbeit mit internen und externen Netzwerkpartnern\n• Sorgfältige Dokumentation und Berichterstellung gemäss klinikinternen Standards Das bringen Sie mit\n• Begonnene psychotherapeutische Weiterbildung in einem der zugelassenen Verfahren\n• Klinische Erfahrung in der Arbeit mit unterschiedlichen psychischen Krankheitsbildern\n• Fähigkeit zu selbständiger und reflektierter Tätigkeit im interprofessionellen Team\n• Teamfähigkeit, Sozialkompetenz, Humor und Belastbarkeit Das können Sie erwarten\n• Inspirierendes und von gegenseitigem Respekt getragenes Arbeitsklima in einem interprofessionellen und motivierten Team\n• Regelmässige Fallsupervision im Team und bedarfsspezifische Fort- und Weiterbildung\n• Interne Fort- und Weiterbildungsveranstaltungen sowie breite Supervisionsmöglichkeiten\n• SIWF zertifizierte Weiterbildungsstätte Kategorie A\n• Möglichkeit zum Bezug von Lunchchecks Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Frau Marija Milivojevic Pavlovic, Oberpsychologin, T +41 52 264 32 50 Herr Manuel Ackermann, Oberarzt, T +41 52 264 32 50 Frau Tina Riniker, Leitende Psychologin, T +41 52 264 32 50 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
+        "fr": "Für unser Ambulatorium für Erwachsene in Dielsdorf suchen wir Sie Psychologin / Psychologe 80% Jetzt bewerben Das sind Ihre Aufgaben\n• Ambulante psychologische und psychotherapeutische Abklärungen und Behandlungen von Menschen im Alter von 18 bis 65 Jahren\n• Behandlung von Menschen mit dem ganzen Spektrum psychiatrischer Erkrankungen\n• Selbständige Arbeit im interprofessionellen Team unter Leitung der Oberpsychologin und des Oberarztes\n• Verlässliche Zusammenarbeit mit internen und externen Netzwerkpartnern\n• Sorgfältige Dokumentation und Berichterstellung gemäss klinikinternen Standards Das bringen Sie mit\n• Begonnene psychotherapeutische Weiterbildung in einem der zugelassenen Verfahren\n• Klinische Erfahrung in der Arbeit mit unterschiedlichen psychischen Krankheitsbildern\n• Fähigkeit zu selbständiger und reflektierter Tätigkeit im interprofessionellen Team\n• Teamfähigkeit, Sozialkompetenz, Humor und Belastbarkeit Das können Sie erwarten\n• Inspirierendes und von gegenseitigem Respekt getragenes Arbeitsklima in einem interprofessionellen und motivierten Team\n• Regelmässige Fallsupervision im Team und bedarfsspezifische Fort- und Weiterbildung\n• Interne Fort- und Weiterbildungsveranstaltungen sowie breite Supervisionsmöglichkeiten\n• SIWF zertifizierte Weiterbildungsstätte Kategorie A\n• Möglichkeit zum Bezug von Lunchchecks Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Frau Marija Milivojevic Pavlovic, Oberpsychologin, T +41 52 264 32 50 Herr Manuel Ackermann, Oberarzt, T +41 52 264 32 50 Frau Tina Riniker, Leitende Psychologin, T +41 52 264 32 50 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%"
+      },
+      "needsRetranslation": true,
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4080099",
+      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T21:29:29.677Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8408",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Psychologin---Psychologe--4080099",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4080099",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T21:29:29.677Z"
+    },
+    {
       "id": "ipw-a340b9c98895",
       "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
       "slugByLocale": {
@@ -1849,7 +1921,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4070479",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:08.669Z",
+      "crawledAt": "2026-10-05T21:29:29.081Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1862,7 +1934,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4070479",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1901,9 +1975,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-6d68091f855f",
@@ -1936,7 +2008,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4074253",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:06.959Z",
+      "crawledAt": "2026-10-05T21:29:27.870Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1949,7 +2021,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4074253",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1986,9 +2060,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "ipw-912781777f28",
@@ -2022,7 +2094,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Sozialpädagogin---Sozialpädagoge-HF-FH--4070880",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:06.319Z",
+      "crawledAt": "2026-10-05T21:29:27.285Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",

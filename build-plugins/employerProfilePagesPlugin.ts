@@ -728,6 +728,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       }
       const profiles = dataset.profiles || [];
       const belowFloor = dataset.belowFloor || [];
+      const knownEmployerProfileSlugs = new Set(
+        [...profiles, ...belowFloor]
+          .map((record) => String(record.slug || '').trim())
+          .filter(Boolean),
+      );
       if (profiles.length === 0 && belowFloor.length === 0) {
         console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset — nothing to emit.');
         resolveEmployerProfilesFlushed([]);
@@ -874,6 +879,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             locale,
             baseUrl: BASE_URL,
             fallbackUrl: `${BASE_URL}${profilePath('it', slug)}`,
+            knownSlugs: knownEmployerProfileSlugs,
           });
           const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name), inlineScriptJson({
             '@context': 'https://schema.org',
