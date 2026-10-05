@@ -97255,6 +97255,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-voto-zurigo-referendum': {
+    title: 'Voto cantonale a Zurigo: guida a iniziative e referendum',
+    description: 'Voto cantonale a Zurigo: guida pratica a iniziative e referendum, calendario, aventi diritto e informazioni ufficiali per esprimere il voto in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, cantonale, zurigo, iniziative',
+    ogTitle: 'Voto cantonale a Zurigo: iniziative e referendum',
+    ogDescription: 'Prima di una votazione nel Cantone di Zurigo, separa il piano cantonale da quello federale: quattro date federali annue, soglie diverse per iniziativa e referendum e doppia maggioranza per le modifiche costituzionali.',
+    canonicalPath: '/articoli-svizzera/guida-voto-zurigo-referendum/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto cantonale a Zurigo: guida a iniziative e referendum",
+      "description": "Voto cantonale a Zurigo: guida pratica a iniziative e referendum, calendario, aventi diritto e informazioni ufficiali per esprimere il voto in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-voto-zurigo-referendum.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schede per il voto cantonale nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-05T00:47:51+00:00",
+      "dateModified": "2026-10-05T00:47:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-voto-zurigo-referendum/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

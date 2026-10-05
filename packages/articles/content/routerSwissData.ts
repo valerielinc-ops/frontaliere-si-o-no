@@ -2589,6 +2589,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'axa-ue-svizzera-posizione': { it: 'axa-ue-svizzera-posizione', en: 'axa-eu-switzerland-position', de: 'axa-eu-schweiz-position', fr: 'axa-ue-position-suisse' },
  'rita-fuhrer-consiglio-federale': { it: 'rita-fuhrer-consiglio-federale', en: 'rita-fuhrer-federal-council', de: 'rita-fuhrer-bundesrat', fr: 'rita-fuhrer-conseil-federal' },
  'rita-fuhrer-consiglio-federale-donne': { it: 'rita-fuhrer-consiglio-federale-donne', en: 'rita-fuhrer-federal-council-women', de: 'rita-fuhrer-bundesrat-frauen', fr: 'rita-fuhrer-conseil-federal-femmes' },
+ 'guida-voto-zurigo-referendum': { it: 'guida-voto-zurigo-referendum', en: 'zurich-cantonal-vote-guide', de: 'kantonale-abstimmung-zuerich-leitfaden', fr: 'guide-votation-canton-zurich' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
