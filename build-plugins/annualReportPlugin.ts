@@ -591,7 +591,11 @@ interface RenderedReport {
   wordCount: number;
 }
 
-function renderTable(headers: readonly string[], rows: readonly (readonly string[])[]): string {
+function renderTable(
+  headers: readonly string[],
+  rows: readonly (readonly string[])[],
+  accessibleName: string,
+): string {
   if (rows.length === 0) return '';
   const h = headers
     .map(
@@ -610,7 +614,7 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
       return `<tr>${tds}</tr>`;
     })
     .join('');
-  return `<div class="s-Itl8IE"><table class="s-wkGd-4"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="s-Itl8IE"><table class="s-wkGd-4" aria-label="${esc(accessibleName)}"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function buildHreflang(): string {
@@ -700,6 +704,7 @@ function renderReport(opts: {
   const sectorTable = renderTable(
     [copy.sectorColSector, copy.sectorColObs, copy.sectorColMedian, copy.sectorColAvg],
     sectorRows.map((r) => r.slice(1)), // drop rank cell for now to keep table tight
+    copy.sectorH2,
   );
 
   // Region table.
@@ -711,6 +716,7 @@ function renderReport(opts: {
   const regionTable = renderTable(
     [copy.regionColRegion, copy.regionColObs, copy.regionColMedian],
     regionRows,
+    copy.regionH2,
   );
 
   // JSON-LD scripts.
@@ -840,14 +846,14 @@ function renderReport(opts: {
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
-      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE}">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE}">ISTAT</a></p>
+      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">ISTAT</a></p>
     </section>
     <section class="s-ixDYj7">
       <h2 style="${H2_STYLE}">${esc(copy.relatedH2)}</h2>
       <ul class="s-zayQ-B">
-        <li><a href="${esc(related.report)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkReport)}</a></li>
-        <li><a href="${esc(related.fiscal)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkFiscal)}</a></li>
-        <li><a href="${esc(related.jobs)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinkJobs)}</a></li>
+        <li><a href="${esc(related.report)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${esc(copy.relatedLinkReport)}</a></li>
+        <li><a href="${esc(related.fiscal)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${esc(copy.relatedLinkFiscal)}</a></li>
+        <li><a href="${esc(related.jobs)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${esc(copy.relatedLinkJobs)}</a></li>
       </ul>
     </section>
   `;
