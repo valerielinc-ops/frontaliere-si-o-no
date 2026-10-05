@@ -270,6 +270,37 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
+      # Runner-class observer (ADVISORY, issue 11666). The mobile FCP/LCP of the
+      # SPA pages (/ and /cerca-lavoro-ticino/) is bimodal and the mode follows
+      # the GitHub runner, not the code: benchmarkIndex ~3,400 on 2026-10-04 →
+      # every page painted before DOMContentLoaded; ~2,400 on 02/03/05-10 → the
+      # SPA pages painted only after the app started, simulated FCP 8-13 s
+      # instead of 4.6 s. This prints benchmarkIndex, observed first paint, DCL
+      # and mode per run, so a regression issue says whether it came with a
+      # slower runner. It changes no threshold and cannot fail the job.
+      #
+      # It MUST run here, right after the first attempt: the first attempt
+      # dumps its LHRs to .lighthouseci/, and a retry's `lhci collect` empties
+      # that directory (on 2026-10-05 the upload step after the third attempt
+      # found nothing there).
+      - name: Record Lighthouse runner class (advisory)
+        id: runner-class
+        if: needs.probe.outputs.run_audit == 'true'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          out="$RUNNER_TEMP/lighthouse-runner-class.md"
+          node scripts/ci/lighthouse-runner-class.mjs --dir .lighthouseci --out "$out"
+          {
+            echo "### Lighthouse runner class (${{ matrix.form_factor }}, first attempt)"
+            echo
+            cat "$out"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Surface a missing runner-class record
+        if: needs.probe.outputs.run_audit == 'true' && steps.runner-class.outcome == 'failure'
+        run: echo "::warning title=Lighthouse runner class::the observer could not read .lighthouseci/ after the first attempt; the regression issue will not say which runner class measured it."
+
       # One retry when the FIRST attempt fails — not a genuine-vs-crash
       # distinction (the action gives us no way to tell them apart from YAML),
       # but a legitimate flaky-collection mitigation: the thresholds evaluated
@@ -362,6 +393,11 @@ jobs:
             schedule)     TRIGGER="scheduled daily audit (cron 17 4 * * *) — no triggering deploy" ;;
             *)            TRIGGER="manual dispatch — no triggering deploy" ;;
           esac
+          # Runner class of the first attempt (advisory observer above): a
+          # regression measured on a slower runner reads differently from one
+          # measured on the usual class (issue 11666).
+          RUNNER_CLASS="$(cat "$RUNNER_TEMP/lighthouse-runner-class.md" 2>/dev/null || true)"
+          [ -n "$RUNNER_CLASS" ] || RUNNER_CLASS="_not recorded: the runner-class observer had no Lighthouse result to read after the first attempt._"
           node scripts/lib/github-issue-creator.mjs \
             --title "Lighthouse regression on production (${{ matrix.form_factor }})" \
             --priority 2 \
@@ -379,6 +415,10 @@ jobs:
 
           **Audit run:** $RUN_URL (Lighthouse reports artifact attached to the run; public HTML report linked in the LHCI step log).
           **Triggered by:** ${TRIGGER}
+
+          **Runner class (first attempt):** mode \`slow\` = observed first paint after DOMContentLoaded. On / and /cerca-lavoro-ticino/ slow mode came with runners of benchmarkIndex ~2,400 and fast mode with ~3,400 (issue 11666): check this table before blaming a deploy.
+
+          ${RUNNER_CLASS}
 
           **Next step:** open the run, read the per-URL assertion failures (which template + which metric), reproduce locally / via audit replay, fix the root cause. This issue auto-closes when a later post-deploy audit passes again."
 
