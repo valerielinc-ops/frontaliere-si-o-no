@@ -7739,6 +7739,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-svizzera-aumento-asi.title': 'Loyers en Suisse : hausse de 32% en vingt ans',
     'blog.article.affitti-svizzera-aumento-asi.excerpt': 'L\'Association suisse des locataires signale des hausses de 32,1% entre 2005 et 2025. Pression sur les revenus faibles et moyens et nouvelles revendications politiques.',
     'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Immeubles résidentiels en Suisse avec des loyers en hausse',
+    'blog.article.voto-iva-avs-novembre-2026.title': 'Vote sur la TVA pour l\'AVS : date et détails de la votation fédérale',
+    'blog.article.voto-iva-avs-novembre-2026.excerpt': 'Le 26 novembre 2026, on vote sur le financement de la 13e mensualité de l\'AVS par l\'augmentation de la TVA. Découvrez les taux, les échéances et les répercussions sur le budget.',
+    'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Palais fédéral à Berne pour le vote sur la TVA',
 };
 
 export default blogMetaChFr;

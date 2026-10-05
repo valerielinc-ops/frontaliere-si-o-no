@@ -23266,6 +23266,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-iva-avs-novembre-2026',
+    category: 'pensione',
+    date: '2026-10-05T08:19:02.861Z',
+    image: '/images/blog/voto-iva-avs-novembre-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
