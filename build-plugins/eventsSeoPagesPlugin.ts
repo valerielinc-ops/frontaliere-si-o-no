@@ -184,7 +184,7 @@ function loadEventImageLibraryForBuild(): { assets: SiteEvent[] } {
   const filePath = path.resolve(process.cwd(), 'data/event-image-library.json');
   try {
     const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as { assets?: SiteEvent[] };
-    return Array.isArray(parsed.assets) ? parsed : { assets: [] };
+    return { assets: Array.isArray(parsed.assets) ? parsed.assets : [] };
   } catch {
     return { assets: [] };
   }
