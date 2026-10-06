@@ -53,6 +53,7 @@ function buildIssueBody(report) {
   const top = report.affectedCompanies.slice(0, TOP_N_IN_ISSUE);
   const rows = top.map((company) => {
     const example = company.examples.broken
+      || company.examples.pendingDeploy
       || company.examples.missing
       || company.examples.lowQuality
       || company.examples.qualityUnverified
@@ -77,10 +78,13 @@ ${acquisitionNote}
 |---|---:|---:|
 | missing | ${report.missing} | ${report.missingJobCount} |
 | broken | ${report.broken} | ${report.brokenJobCount} |
+| pending-deploy | ${report.pendingDeploy || 0} | ${report.pendingDeployJobCount || 0} |
 | partial | ${report.partial} | ${report.partialJobCount} |
 | low-quality | ${report.lowQuality} | ${report.lowQualityJobCount} |
 | quality-unverified | ${report.qualityUnverified} | ${report.qualityUnverifiedJobCount} |
 | unverified | ${report.unverified} | ${report.unverifiedJobCount} |
+
+\`pending-deploy\` significa che il riferimento locale esiste nel checkout ma il CDN non lo espone ancora: non conta come copertura valida e non viene nascosto come un \`broken\`.
 
 Il report completo è \`data/company-logos-missing.json\`; viene rigenerato dal workflow ogni domenica.
 
@@ -156,6 +160,7 @@ async function main() {
     resolveLogo: resolveCompanyLogoUrl,
     assetBaseUrl: process.env.COMPANY_LOGO_AUDIT_ASSET_BASE_URL || DEFAULT_ASSET_BASE_URL,
     timeoutMs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_TIMEOUT_MS', 8_000),
+    localAssetRoot: ROOT,
   });
   const payload = {
     generatedAt: new Date().toISOString(),
@@ -173,6 +178,7 @@ async function main() {
     `missing: ${payload.missing} (${payload.missingJobCount}),`,
     `broken: ${payload.broken} (${payload.brokenJobCount}),`,
     `partial: ${payload.partial} (${payload.partialJobCount}),`,
+    `pending-deploy: ${payload.pendingDeploy} (${payload.pendingDeployJobCount}),`,
     `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount}),`,
     `valid: ${payload.withLogo}. Scritto ${OUTPUT}`,
   ].join(' '));
