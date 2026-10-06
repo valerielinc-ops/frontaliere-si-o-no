@@ -162,21 +162,38 @@ describe('article corpus sync parser gate', () => {
     expect(replayStep('Recheck post-merge replay source before publication').run).toContain(
       'git checkout --detach --force origin/main',
     );
+    const edgeRecheck = replayStep('Recheck post-merge replay source before edge publication');
+    expect(edgeRecheck.run).toContain('git diff --name-only "$SOURCE_SHA" "$MAIN_SHA"');
+    expect(edgeRecheck.run).toContain('--changed-paths-file "$DIFF_PATHS"');
+    expect(edgeRecheck.run).toContain('GITHUB_STEP_SUMMARY');
+    expect(edgeRecheck.run).toContain('GITHUB_OUTPUT');
+    expect(edgeRecheck.run).toContain('MAX_REFRESH_ROUNDS=2');
+    expect(edgeRecheck.run).toContain('superseded');
+    expect(edgeRecheck.run).toContain('git checkout --detach --force origin/main');
+    expect(edgeRecheck.run).toContain('scripts/publish-article-chunks.mjs --strict --no-ticker');
+    expect(edgeRecheck.run).toContain('edge_publish=false');
+    expect(edgeRecheck.run).not.toContain(
+      'main advanced during client publication; refusing to publish stale edge surfaces',
+    );
     expect(replayStep('Publish client article chunks after article sync merge').run).toContain(
       'scripts/publish-article-chunks.mjs --strict --no-ticker',
     );
-    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+    const edgeReplay = replayStep('Replay article sitemap, RSS and ticker surfaces');
+    expect(edgeReplay.if).toContain("steps.recheck_replay_source_before_edge.outputs.verdict == 'current'");
+    expect(edgeReplay.if).toContain("steps.recheck_replay_source_before_edge.outputs.verdict == 'unrelated-advance'");
+    expect(edgeReplay.if).toContain("steps.recheck_replay_source_before_edge.outputs.edge_publish == 'true'");
+    expect(edgeReplay.run).toContain(
       'publish_edge_batch 1 news-sitemap --only=/sitemap-news.xml',
     );
-    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+    expect(edgeReplay.run).toContain(
       'publish_edge_batch 10 rss-feeds --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml',
     );
-    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+    expect(edgeReplay.run).toContain(
       'data/news-ticker-live.json "public, max-age=300, must-revalidate"',
     );
-    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+    expect(edgeReplay.run).toContain(
       'cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json',
     );
-    expect(replayStep('Replay article sitemap, RSS and ticker surfaces')['continue-on-error']).toBeUndefined();
+    expect(edgeReplay['continue-on-error']).toBeUndefined();
   });
 });
