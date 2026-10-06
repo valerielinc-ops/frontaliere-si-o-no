@@ -379,7 +379,7 @@ describe('runRobot', () => {
     expect(h.calls.flow).toHaveLength(1);
   });
 
-  it('never marks a post pressed without confirmation: unconfirmed, blocked, issue for a human', async () => {
+  it('keeps a sent publish click without confirmation as unconfirmed and blocked for a human', async () => {
     const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
     const out = await runRobot(h.deps());
     expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'confirmation-missing' });
@@ -388,6 +388,18 @@ describe('runRobot', () => {
     expect(h.calls.issues[0].labels).toContain('needs-human');
     await runRobot(h.deps());
     expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('records a publish click intercepted before dispatch as error and retries it', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('interstitial-unknown', 'Post click was intercepted', { step: 'publish', pressed: false }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.journal().attempts[0]).toMatchObject({ outcome: 'error', step: 'publish' });
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+
+    const retry = await runRobot(h.deps());
+    expect(retry.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.calls.flow).toHaveLength(2);
   });
 
   it('opens the issue with a stable title on any error, with the home folder hidden', async () => {
