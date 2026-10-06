@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-10-05T21:30:05.380Z",
+  "generatedAt": "2026-10-06T09:22:26.714Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 19391,
-  "avgDurationMs": 19391,
+  "durationMs": 18668,
+  "avgDurationMs": 18668,
   "durationHistory": [
-    19391
+    18668
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -127,12 +127,13 @@
       "firstSeenAt": "2026-09-01T23:14:50.545Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6512",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -165,12 +166,13 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6512",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -373,5 +375,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
