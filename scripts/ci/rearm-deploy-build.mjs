@@ -1,3 +1,4 @@
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * rearm-deploy-build.mjs — make "every HEAD eventually gets a successful build"
  * an invariant instead of a hope (#5349).
@@ -57,7 +58,6 @@
  * concurrency group, and never runs while the pipeline is moving on its own.
  */
 
-import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
@@ -462,7 +462,7 @@ async function main() {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {

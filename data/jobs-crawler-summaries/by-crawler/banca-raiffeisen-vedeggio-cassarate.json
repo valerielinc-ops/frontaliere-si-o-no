@@ -1,16 +1,16 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-10-05T21:23:15.126Z",
+  "generatedAt": "2026-10-06T09:13:07.244Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 17776,
-  "avgDurationMs": 17776,
+  "durationMs": 28850,
+  "avgDurationMs": 28850,
   "durationHistory": [
-    17776
+    28850
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-10-05T21:23:08.950Z",
+      "crawledAt": "2026-10-06T09:12:57.182Z",
       "firstSeenAt": "2026-10-05T08:33:26.460Z",
       "sourceLang": "it",
       "salarySource": "estimated",
@@ -49,14 +49,15 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "_qualityScore": 91,
+      "postalCode": "6929",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

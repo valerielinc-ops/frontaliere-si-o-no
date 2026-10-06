@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 /**
  * Durable, zero-Claude claims for the PR repair/review consumers.
@@ -13,7 +14,6 @@
 import { execFileSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import {
   normalizeReviewInputRevision,
@@ -694,6 +694,6 @@ function claimMain() {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   if (process.argv.includes('--claim')) claimMain();
 }

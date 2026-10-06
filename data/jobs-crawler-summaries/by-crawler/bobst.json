@@ -1,7 +1,7 @@
 {
   "key": "bobst",
   "label": "Bobst",
-  "generatedAt": "2026-10-05T21:38:31.067Z",
+  "generatedAt": "2026-10-06T09:36:40.709Z",
   "total": 18,
   "discovered": null,
   "parsed": 18,
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 16,
-  "durationMs": 43528,
-  "avgDurationMs": 43528,
+  "unchangedCount": 17,
+  "durationMs": 42168,
+  "avgDurationMs": 42168,
   "durationHistory": [
-    43528
+    42168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:17.214Z",
+      "crawledAt": "2026-10-06T09:36:24.129Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -56,55 +56,14 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
+      "postalCode": "4500",
       "addressRegion": "SO",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "bobst-d5cc3069bc1c",
-      "slug": "iot-technology-direttore-bobst-switzerland-mex",
-      "company": "Bobst",
-      "companyKey": "bobst",
-      "companyDomain": "bobst.com",
-      "title": "IoT Technology Director",
-      "needsRetranslation": true,
-      "location": "Switzerland (Mex)",
-      "canton": "VD",
-      "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
-      "source": "Bobst Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:14.779Z",
-      "addressLocality": "Switzerland (Mex)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-03",
-      "postedDate": "2026-07-03",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.bobst.com/Vacancies/9073/Description/2",
-      "department": "Research & Development (R&D)",
-      "firstSeenAt": "2026-09-26T14:13:53.862Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "addressRegion": "VD",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -123,7 +82,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:16.411Z",
+      "crawledAt": "2026-10-06T09:36:23.512Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -143,13 +102,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -165,7 +125,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:15.607Z",
+      "crawledAt": "2026-10-06T09:36:22.949Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,13 +145,57 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "bobst-d5cc3069bc1c",
+      "slug": "iot-technology-direttore-bobst-switzerland-mex",
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "IoT Technology Director",
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:36:22.104Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-03",
+      "postedDate": "2026-07-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9073/Description/2",
+      "department": "Research & Development (R&D)",
+      "firstSeenAt": "2026-09-26T14:13:53.862Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -207,7 +211,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:14.204Z",
+      "crawledAt": "2026-10-06T09:36:21.212Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,13 +231,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -249,7 +254,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:13.372Z",
+      "crawledAt": "2026-10-06T09:36:20.617Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,13 +274,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -291,7 +297,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:12.599Z",
+      "crawledAt": "2026-10-06T09:36:19.724Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -311,13 +317,14 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -333,7 +340,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:11.839Z",
+      "crawledAt": "2026-10-06T09:36:18.895Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,13 +360,14 @@
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -375,7 +383,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:10.980Z",
+      "crawledAt": "2026-10-06T09:36:18.054Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,13 +403,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -417,7 +426,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:10.155Z",
+      "crawledAt": "2026-10-06T09:36:17.209Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -437,13 +446,14 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -459,7 +469,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:09.344Z",
+      "crawledAt": "2026-10-06T09:36:16.370Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -479,13 +489,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -501,7 +512,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:08.554Z",
+      "crawledAt": "2026-10-06T09:36:15.513Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -521,13 +532,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -543,7 +555,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:07.752Z",
+      "crawledAt": "2026-10-06T09:36:14.635Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,13 +575,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -585,7 +598,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:06.982Z",
+      "crawledAt": "2026-10-06T09:36:13.785Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -605,13 +618,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -627,7 +641,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:06.180Z",
+      "crawledAt": "2026-10-06T09:36:12.906Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,13 +661,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -669,7 +684,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:05.409Z",
+      "crawledAt": "2026-10-06T09:36:12.016Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -689,13 +704,14 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -711,7 +727,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:04.637Z",
+      "crawledAt": "2026-10-06T09:36:11.122Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,13 +747,14 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -753,7 +770,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:38:03.788Z",
+      "crawledAt": "2026-10-06T09:36:10.238Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -773,15 +790,16 @@
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

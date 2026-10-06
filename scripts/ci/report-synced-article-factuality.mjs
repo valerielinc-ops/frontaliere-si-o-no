@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * report-synced-article-factuality.mjs — surface deterministic factuality-gate
  * findings for the article bodies `sync-articles-sitemaps.yml` has just pulled
@@ -100,7 +101,7 @@
 import { appendFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import path from 'node:path';
 import { createGithubIssue, searchSafePrefix } from '../lib/github-issue-creator.mjs';
@@ -535,7 +536,7 @@ export async function main({
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {

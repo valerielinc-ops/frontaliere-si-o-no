@@ -1,18 +1,19 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-05T21:28:43.982Z",
+  "generatedAt": "2026-10-06T09:14:11.000Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12293,
-  "avgDurationMs": 12293,
+  "durationMs": 11961,
+  "avgDurationMs": 11961,
   "durationHistory": [
-    12293
+    11961
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
@@ -37,26 +38,26 @@
         "location": "Cadempino"
       },
       "jobReqId": "JR100407",
-      "needsRetranslation": true,
-      "crawledAt": "",
       "id": "bracco-19deb22ed171",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:28:38.034Z",
+      "crawledAt": "",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-10-05T21:28:38.034Z",
-      "_qualityScore": 77,
+      "postalCode": "6814",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 16
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -93,14 +94,15 @@
       "salarySource": "estimated",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "_qualityScore": 82,
+      "postalCode": "6814",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

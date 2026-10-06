@@ -1,19 +1,21 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-05T21:39:11.947Z",
+  "generatedAt": "2026-10-06T09:14:32.804Z",
   "total": 31,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 30,
-  "durationMs": 5476,
-  "avgDurationMs": 5476,
+  "unchangedCount": 31,
+  "durationMs": 4917,
+  "avgDurationMs": 4917,
   "durationHistory": [
-    5476
+    4917
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4392?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4392?c=groupemutuel&lang=fr-FR",
@@ -45,19 +47,17 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4382?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4382?c=groupemutuel&lang=fr-FR",
@@ -89,14 +89,15 @@
       "salaryMax": 109000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1023",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -131,14 +132,15 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -173,14 +175,15 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -215,14 +218,15 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -257,14 +261,15 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -299,14 +304,15 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -341,14 +347,15 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -383,14 +390,15 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -425,14 +433,15 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "9500",
       "addressLocality": "Wil",
       "addressRegion": "SG",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -466,14 +475,15 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1630",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -507,14 +517,15 @@
       "salaryMax": 108500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "2800",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -549,14 +560,15 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -591,14 +603,15 @@
       "salaryMax": 111000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "5000",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -633,14 +646,15 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "4600",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -675,14 +689,15 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -717,14 +732,15 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -759,14 +775,15 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -801,14 +818,15 @@
       "salaryMax": 109000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -843,14 +861,15 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -885,14 +904,15 @@
       "salaryMax": 109000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -928,12 +948,14 @@
       "salarySource": "estimated",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
-      "_qualityScore": 84,
+      "crawlerMissStreak": 1,
+      "postalCode": "1400",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -967,14 +989,15 @@
       "salaryMax": 109000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1870",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1008,14 +1031,15 @@
       "salaryMax": 131000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "8400",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1050,14 +1074,15 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1091,14 +1116,15 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "7320",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1132,14 +1158,15 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "4500",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1173,14 +1200,15 @@
       "salaryMax": 108500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "2000",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1215,14 +1243,15 @@
       "salaryMax": 105000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -1256,57 +1285,17 @@
       "salaryMax": 109000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "1201",
       "addressLocality": "Genève",
       "addressRegion": "GE",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs- und Vorsorgeberater (m/w) 80- 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich",
-      "category": "insurance",
-      "datePosted": "2026-04-16",
-      "postedDate": "2026-04-16",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "jobReqId": "3980",
-      "id": "groupe-mutuel-1822825450f3",
-      "firstSeenAt": "2026-04-16T21:40:55.557Z",
-      "crawledAt": "",
-      "salaryMin": 79000,
-      "salaryMax": 131000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

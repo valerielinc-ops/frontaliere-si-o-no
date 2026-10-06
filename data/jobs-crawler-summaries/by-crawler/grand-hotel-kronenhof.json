@@ -1,16 +1,16 @@
 {
   "key": "grand-hotel-kronenhof",
   "label": "kronenhof",
-  "generatedAt": "2026-10-05T21:38:12.693Z",
+  "generatedAt": "2026-10-06T09:19:42.619Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 1,
-  "unchangedCount": 9,
-  "durationMs": 19119,
-  "avgDurationMs": 19119,
+  "updatedCount": 3,
+  "removedCount": 0,
+  "unchangedCount": 10,
+  "durationMs": 18368,
+  "avgDurationMs": 18368,
   "durationHistory": [
-    19119
+    18368
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.283Z",
+      "crawledAt": "2026-10-06T09:19:35.319Z",
       "id": "grand-hotel-kronenhof-316bbe8e5094",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81,7 +81,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.291Z",
+      "crawledAt": "2026-10-06T09:19:35.321Z",
       "id": "grand-hotel-kronenhof-0f6e9f0f07e2",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -92,12 +92,13 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-12-01T00:00:00.000000Z",
-      "_qualityScore": 85,
+      "postalCode": "7500",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -123,7 +124,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.294Z",
+      "crawledAt": "2026-10-06T09:19:35.322Z",
       "id": "grand-hotel-kronenhof-b9edf3226d82",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -143,97 +144,9 @@
         "translation": 21,
         "completeness": 23
       }
-    },
-    {
-      "title": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
-      "slug": "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-grand-hotel-kronenhof-pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies/723",
-      "applyUrl": "https://careers.kronenhof.com/en/vacancies/723",
-      "company": "Grand Hotel Kronenhof",
-      "companyKey": "grand-hotel-kronenhof",
-      "companyDomain": "kronenhof.com",
-      "location": "Pontresina",
-      "addressLocality": "Pontresina",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "source": "kronenhof-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "validThrough": "",
-      "contract": "permanent",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.299Z",
-      "id": "grand-hotel-kronenhof-ddcd8998f89e",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "firstSeenAt": "2026-08-24T10:21:16.086Z",
-      "salarySource": "estimated",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-02-01T00:00:00.000000Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
-      "slug": "partecipante-zimmerdame-roomboy-inizia-ora-m-w-d-grand-hotel-kronenhof-pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies/680",
-      "applyUrl": "https://careers.kronenhof.com/en/vacancies/680",
-      "company": "Grand Hotel Kronenhof",
-      "companyKey": "grand-hotel-kronenhof",
-      "companyDomain": "kronenhof.com",
-      "location": "Pontresina",
-      "addressLocality": "Pontresina",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "source": "kronenhof-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "validThrough": "",
-      "contract": "seasonal",
-      "employmentType": "full-time",
-      "contractType": "seasonal",
-      "crawledAt": "2026-10-05T09:24:39.609Z",
-      "id": "grand-hotel-kronenhof-a6ff93eb4057",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "firstSeenAt": "2026-09-23T23:44:56.634Z",
-      "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-07-15T00:00:00.000000Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Chef de Partie - Gardemanger (m/w/d)",
@@ -258,7 +171,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.282Z",
+      "crawledAt": "2026-10-06T09:19:35.318Z",
       "id": "grand-hotel-kronenhof-973a13071de9",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -302,7 +215,7 @@
       "contract": "fixed-term",
       "employmentType": "full-time",
       "contractType": "fixed-term",
-      "crawledAt": "2026-10-05T21:38:05.284Z",
+      "crawledAt": "2026-10-06T09:19:35.319Z",
       "id": "grand-hotel-kronenhof-d5e33078f286",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -346,7 +259,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.287Z",
+      "crawledAt": "2026-10-06T09:19:35.320Z",
       "id": "grand-hotel-kronenhof-c4e3e0a53660",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -389,7 +302,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.289Z",
+      "crawledAt": "2026-10-06T09:19:35.321Z",
       "id": "grand-hotel-kronenhof-baadf787802a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -432,7 +345,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.292Z",
+      "crawledAt": "2026-10-06T09:19:35.322Z",
       "id": "grand-hotel-kronenhof-4961bba81a84",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -442,12 +355,13 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-12-01T00:00:00.000000Z",
-      "_qualityScore": 89,
+      "postalCode": "7500",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -473,7 +387,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.292Z",
+      "crawledAt": "2026-10-06T09:19:35.322Z",
       "id": "grand-hotel-kronenhof-70bdd9442c3e",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -483,12 +397,13 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-12-01T00:00:00.000000Z",
-      "_qualityScore": 89,
+      "postalCode": "7500",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -514,7 +429,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-05T21:38:05.293Z",
+      "crawledAt": "2026-10-06T09:19:35.322Z",
       "id": "grand-hotel-kronenhof-5e8fcc0a578a",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -525,12 +440,13 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-11-24T00:00:00.000000Z",
-      "_qualityScore": 87,
+      "postalCode": "7500",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -556,7 +472,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.297Z",
+      "crawledAt": "2026-10-06T09:19:35.323Z",
       "id": "grand-hotel-kronenhof-2c8028cef372",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -566,12 +482,56 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-10-01T00:00:00.000000Z",
-      "_qualityScore": 91,
+      "postalCode": "7500",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
+      "slug": "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-grand-hotel-kronenhof-pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies/723",
+      "applyUrl": "https://careers.kronenhof.com/en/vacancies/723",
+      "company": "Grand Hotel Kronenhof",
+      "companyKey": "grand-hotel-kronenhof",
+      "companyDomain": "kronenhof.com",
+      "location": "Pontresina",
+      "addressLocality": "Pontresina",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "source": "kronenhof-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "",
+      "validThrough": "",
+      "contract": "permanent",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "crawledAt": "2026-10-06T09:19:35.323Z",
+      "id": "grand-hotel-kronenhof-ddcd8998f89e",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Maistra",
+      "postalCode": "7504",
+      "firstSeenAt": "2026-08-24T10:21:16.086Z",
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-02-01T00:00:00.000000Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -597,7 +557,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:38:05.300Z",
+      "crawledAt": "2026-10-06T09:19:35.323Z",
       "id": "grand-hotel-kronenhof-91d9b945d515",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -618,5 +578,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
