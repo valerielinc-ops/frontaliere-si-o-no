@@ -313,6 +313,19 @@ describe('repairLlmJson', () => {
     expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
   });
 
+  it('retains the later root from the review input after a mismatched closer', () => {
+    const raw = '{"bad":[1} [{"q":"ok"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'ok' }]);
+  });
+
+  it('uses the strict key boundary before a malformed q value', () => {
+    // If keyNext started at the closing quote instead of the index after it,
+    // the strict-key branch would miss the colon after "q". The permissive
+    // fallback then cannot close this malformed value and loses the later root.
+    const raw = '{"bad":[1} [{"q":}] [{"ok":"yes"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ ok: 'yes' }]);
+  });
+
   it('does not promote a nested array inside an unterminated response root', () => {
     const raw = '[{"q":"Q","tags":["a"]}';
     const repaired = repairLlmJsonArray(raw);
