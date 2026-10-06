@@ -5,12 +5,11 @@ import path from 'node:path';
 
 /**
  * Tier Codex Luna Max della cascata MT (decisione del proprietario del
- * 2026-09-25: «Quando deepl e azure translation sono fuori quota USA codex luna
- * Max»). Gemello di generator/tests/free-translate-codex-tier.test.mjs del
- * corpus.
+ * 2026-10-06: Codex è il primo provider, con fallback alla cascata MT storica).
+ * Gemello di generator/tests/free-translate-codex-tier.test.mjs del corpus.
  *
- * Pinna: il tier entra SOLO quando DeepL e Azure sono fuori gioco per la run
- * (chiavi esaurite), non quando falliscono su un testo solo; senza lane
+ * Pinna: il tier entra per primo quando il broker e' disponibile; timeout/quota/auth
+ * fanno scattare il circuito per run e la cascata prosegue; senza lane
  * (socket del broker assente) si salta in silenzio; il budget per processo e i
  * fallimenti consecutivi lo fermano con UNA riga di log; la risposta passa da
  * `tryTier`/`finalize` come ogni altro tier (eco della sorgente rifiutato e
@@ -19,9 +18,8 @@ import path from 'node:path';
  * `END_TEXT` resta intero; le richieste del processo non superano le sue
  * corsie (FREE_TRANSLATE_CODEX_LANES) ne' insieme il budget di tempo, e con le
  * corsie occupate i testi in coda partono insieme in una richiesta a id,
- * ognuno con la sua traduzione; con FREE_TRANSLATE_CODEX_TIER=last
- * (translate-pending, dopo Argos) il tier non prende il testo prima dei tier
- * senza quota e lo traduce in coda, solo quando ogni altro tier lo ha lasciato.
+ * ognuno con la sua traduzione; FREE_TRANSLATE_CODEX_TIER=last resta coperto
+ * come override legacy esplicito.
  *
  * Nessuna rete e nessun Codex vero: `fetch` e' uno stub (DeepL, Azure,
  * MyMemory) e la chiamata a Codex passa da `setCodexTranslateCallForTests`.
@@ -192,18 +190,18 @@ function codexAnswer(translate: (text: string) => string = translationOf) {
 }
 
 describe('freeTranslate — tier Codex Luna Max', () => {
-  it('DeepL sano: Codex non viene chiamato', async () => {
+  it('Codex primario: precede DeepL anche quando la chiave premium e\' sana', async () => {
     const calls = stubCodex(`CODEX ${EN}`);
-    expect(await tr()).toBe(`DEEPL ${EN}`);
-    expect(calls).toHaveLength(0);
+    expect(await tr()).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(1);
   });
 
-  it('DeepL e Azure giu\' su UN testo (5xx), chiavi non esaurite: niente Codex', async () => {
+  it('Codex primario: precede anche il fallback quando DeepL/Azure rispondono 5xx', async () => {
     premium.deepl = 500;
     premium.azure = 500;
     const calls = stubCodex(`CODEX ${EN}`);
-    expect(await tr()).toBe(`MYMEMORY ${EN}`);
-    expect(calls).toHaveLength(0);
+    expect(await tr()).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(1);
   });
 
   it('DeepL 456 e Azure 401: tier Codex, con il prompt stretto e la sola lane Codex', async () => {

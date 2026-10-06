@@ -1,13 +1,11 @@
 /**
  * Riserva Codex Luna Max di translate-pending: report per fase e verdetto.
  *
- * Decisione del proprietario H7 (2026-10-05): «utilizza codex luna max per le
- * traduzioni quando falliscono le chiavi». Nella fase 2b (cascata dei lavori)
- * il tier Codex di `free-translate.mjs` sta nella posizione di default: entra
- * quando DeepL e Azure non possono piu' servire la run (chiavi rifiutate,
- * quota esaurita o non configurate) e prima di Google Cloud e dei tier
- * gratuiti, entro il tetto per processo di FREE_TRANSLATE_CODEX_MAX_CALLS /
- * FREE_TRANSLATE_CODEX_MAX_MS. Le fasi 2d/2e lo tengono in coda (`last`).
+ * Decisione del proprietario 2026-10-06: Codex Luna Max è la prima corsia di
+ * ogni cascata di traduzione; DeepL, Azure, Google Cloud e i tier gratuiti
+ * restano ripieghi nell'ordine storico, entro il tetto per processo di
+ * FREE_TRANSLATE_CODEX_MAX_CALLS / FREE_TRANSLATE_CODEX_MAX_MS. `last` resta
+ * solo un override legacy esplicito.
  *
  * Ogni fase che traduce scrive, all'uscita del processo, un JSON con i
  * contatori del tier (`getCodexTierStats`) in TRANSLATE_CODEX_RESERVE_DIR. Due
@@ -44,7 +42,7 @@ export function buildCodexReserveReport(phase, codexStats, cascadeStats = {}, { 
     version: 1,
     phase: String(phase),
     writtenAt: now.toISOString(),
-    position: s.position === 'last' ? 'last' : 'after-premium',
+    position: s.position === 'last' ? 'last' : 'primary',
     lanePresent: s.lanePresent === true,
     premiumDown: s.premiumDown === true,
     calls: asCount(s.calls),
@@ -62,9 +60,8 @@ export function buildCodexReserveReport(phase, codexStats, cascadeStats = {}, { 
 /**
  * Esito della riserva in UNA fase:
  *   - `failed`: Codex ha ricevuto richieste e non ha tradotto niente, si e'
- *     fermato per fallimenti, oppure doveva entrare (DeepL e Azure giu', lane
- *     presente, testi passati dalla cascata) e non ha fatto nemmeno una
- *     chiamata;
+ *     fermato per fallimenti, oppure doveva entrare (lane presente, testi
+ *     passati dalla cascata) e non ha fatto nemmeno una chiamata;
  *   - `unavailable`: niente lane (broker assente o spento) o budget a zero;
  *   - `ready`: lane presente e nessun segno di guasto (ha tradotto, oppure non
  *     e' servita).
@@ -73,7 +70,7 @@ export function classifyCodexReserveReport(report) {
   if (!report || !report.lanePresent || report.maxCalls === 0) return 'unavailable';
   if (report.stopReason && FAILURE_STOP_RE.test(report.stopReason)) return 'failed';
   if (report.calls > 0 && report.accepted === 0) return 'failed';
-  if (report.position === 'after-premium' && report.premiumDown && report.calls === 0 && report.cascadeCalls > 0
+  if (report.position === 'primary' && report.calls === 0 && report.cascadeCalls > 0
     && !report.stopReason) return 'failed';
   return 'ready';
 }

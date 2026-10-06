@@ -4,20 +4,15 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 /**
- * Dove translate-pending usa Codex Luna Max. Due decisioni del proprietario:
- *   · 2026-09-25: «Per il translate pending aggiungi codex ma dopo argos e i
- *     sistemi che non consumano quota» → le fasi 2d/2e tengono Codex in coda
- *     alla cascata (FREE_TRANSLATE_CODEX_TIER=last);
- *   · H7, 2026-10-05: «utilizza codex luna max per le traduzioni quando
- *     falliscono le chiavi» → la cascata 2b riceve il socket con la posizione
- *     di default di free-translate.mjs: Codex entra quando DeepL e Azure non
- *     servono piu' la run (chiavi rifiutate o fuori quota) e prima dei tier
- *     gratuiti. Finche' DeepL risponde, Codex non viene chiamato.
+ * Dove translate-pending usa Codex Luna Max. Decisione del proprietario
+ * 2026-10-06: la corsia Codex è primaria in tutte le fasi; DeepL, Azure e i
+ * sistemi gratuiti restano ripieghi nell'ordine storico. `last` resta solo un
+ * override legacy esplicito e nessun workflow di produzione lo imposta.
  * Vale per la logica del sito e per l'artifact generato che gira sul pool del
  * corpus:
  *   · il broker parte dopo il passaggio Argos bulk (2a) e prima della 2b;
  *   · il socket arriva solo alle fasi 2b, 2d e 2e, ognuna con un budget per
- *     run ereditato dal resolver comune; la 2b senza `last`, la 2d/2e con `last`;
+ *     run ereditato dal resolver comune;
  *   · nessuno step imposta AI_MODELS_PREFER;
  *   · TTL del broker che copre la finestra delle fasi.
  */
@@ -87,12 +82,9 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(steps.some((step) => step.env && Object.prototype.hasOwnProperty.call(step.env, 'AI_MODELS_PREFER'))).toBe(false);
   });
 
-  it('nella 2b Codex e\' la riserva dei tier a chiave, nella 2d/2e l\'ultimo tier', () => {
-    const cascade = steps.find((step) => step.name === PHASE_2B);
-    // Posizione di default: Codex dopo DeepL e Azure, solo quando sono fuori gioco.
-    expect(cascade?.env?.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
-    for (const name of [PHASE_2D, PHASE_2E]) {
-      expect(steps.find((step) => step.name === name)?.env?.FREE_TRANSLATE_CODEX_TIER).toBe('last');
+  it('tutte le fasi usano il default Codex-primary senza override legacy', () => {
+    for (const name of [PHASE_2B, PHASE_2D, PHASE_2E]) {
+      expect(steps.find((step) => step.name === name)?.env?.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
     }
   });
 

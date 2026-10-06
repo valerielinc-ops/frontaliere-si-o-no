@@ -6,10 +6,12 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 
 import {
   AI_MODELS,
+  DEFAULT_CHAIN,
   __installScoreStoreForTests,
   callLLM,
   classifyExhaustionCause,
   getScoreBoard,
+  getPreferredModel,
   isModelAvailable,
   resetState,
 } from '../../scripts/lib/ai-models.mjs';
@@ -31,6 +33,8 @@ const ENV_KEYS = [
   'AI_MODELS_PREFER',
   'AI_MODELS_FORCE_CHAIN',
   'AI_MODELS_SCHEMA_MODE',
+  'GEMINI_API_KEY',
+  'CODEX_AUTH_JSON',
 ] as const;
 
 type Behavior = (client: net.Socket, request: Record<string, unknown>) => void;
@@ -112,6 +116,59 @@ describe('client del broker Codex', () => {
     return () => spy.mock.calls.map((args) => args.map(String).join(' ')).join('\n');
   };
 
+  it('Codex Luna Max e\' il primo della catena, ma senza broker resta il fallback storico', () => {
+    expect(DEFAULT_CHAIN[0]).toBe(CODEX);
+    process.env.GEMINI_API_KEY = 'gemini-test-key';
+    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(CODEX);
+
+    delete process.env.CODEX_AUTH_BROKER_SOCKET;
+    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(AI_MODELS.GEMINI_FLASH);
+  });
+
+  it('il kill-switch esistente esclude Codex senza cambiare la catena di ripiego', () => {
+    process.env.GEMINI_API_KEY = 'gemini-test-key';
+    process.env.ENABLE_CODEX_ARTICLE_FALLBACK = '0';
+    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(AI_MODELS.GEMINI_FLASH);
+  });
+
+  it('un timeout Codex apre il circuito per run e passa subito a Gemini', async () => {
+    const log = warnings();
+    process.env.GEMINI_API_KEY = 'gemini-test-key';
+    behavior = (client) => {
+      client.end(`${JSON.stringify({ ok: false, error: 'Codex CLI timed out after 15000ms' })}\n`);
+    };
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = async () => new Response(JSON.stringify({
+      candidates: [{ content: { parts: [{ text: 'FALLBACK' }] } }],
+    }), { status: 200 });
+    try {
+      const result = await callLLM(messages, {
+        model: CODEX,
+        chain: [CODEX, AI_MODELS.GEMINI_FLASH],
+        prefer: [CODEX],
+        bypassForceChain: true,
+        maxRetriesPerModel: 1,
+      });
+      expect(result).toBe('FALLBACK');
+      expect(isModelAvailable(CODEX)).toBe(false);
+      expect(log()).toMatch(/primary lane disabled for the rest of this run \(timeout\)/);
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+  });
+
+  it('una quota Codex apre il circuito senza persistere un ban del modello', async () => {
+    const log = warnings();
+    process.env.CODEX_AUTH_JSON = '{"access_token":"secret-codex-value"}';
+    behavior = (client) => {
+      client.end(`${JSON.stringify({ ok: false, error: 'request limit exhausted secret-codex-value' })}\n`);
+    };
+    await expect(callCodex()).rejects.toThrow(/request limit exhausted \[redacted\]/);
+    expect(isModelAvailable(CODEX)).toBe(false);
+    expect(codexScore()).toBe(0);
+    expect(log()).not.toMatch(/secret-codex-value/);
+  });
+
   it('chiede il segnale di avvio e toglie i byte di controllo prima della risposta', async () => {
     behavior = (client) => {
       // Ordine realistico: avvio subito, sonda del half-close subito dopo.
@@ -160,8 +217,10 @@ describe('client del broker Codex', () => {
     await expect(callCodex()).rejects.toThrow(/codex-cli\/gpt-5\.6-luna: skipped — Codex auth broker temporarily unavailable \(socket gone for this job\)/);
     expect(codexScore()).toBe(0);
 
-    // Un socket diverso (un altro broker) riapre la lane.
+    // Un socket diverso non riapre la lane nello stesso run.
     process.env.CODEX_AUTH_BROKER_SOCKET = path.join(tempDir, 'other.sock');
+    expect(isModelAvailable(CODEX)).toBe(false);
+    resetState();
     expect(isModelAvailable(CODEX)).toBe(true);
   });
 
@@ -192,7 +251,7 @@ describe('client del broker Codex', () => {
 
   // Un socket che esiste ma non si puo' aprire (permessi) e' un broker
   // configurato male: non si ripara al run successivo, quindi vota persistente
-  // e non spegne la lane come un broker sparito.
+  // e spegne la lane anche se il broker era configurato.
   it.skipIf(process.getuid?.() === 0)('un EACCES sul socket vota persistente, non transitorio', async () => {
     fs.chmodSync(socketPath, 0o000);
     let message = '';
@@ -201,7 +260,7 @@ describe('client del broker Codex', () => {
     const row = message.match(/Errors: (.*)$/s)?.[1] ?? message;
     const tally = classifyExhaustionCause([row]);
     expect({ transient: tally.transient, persistent: tally.persistent }, row).toEqual({ transient: 0, persistent: 1 });
-    expect(isModelAvailable(CODEX)).toBe(true);
+    expect(isModelAvailable(CODEX)).toBe(false);
     expect(codexScore()).toBe(0);
   });
 
@@ -220,6 +279,7 @@ describe('client del broker Codex', () => {
     await expect(callCodex()).rejects.toThrow(/Codex CLI timed out after 15000ms/);
     expect(codexScore()).toBe(0);
 
+    resetState();
     behavior = (client) => {
       client.end(`${JSON.stringify({ ok: false, error: 'Codex CLI exited with code 1: boom' })}\n`);
     };
