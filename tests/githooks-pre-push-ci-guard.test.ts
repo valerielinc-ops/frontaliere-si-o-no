@@ -111,7 +111,7 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
       'push',
       '-q',
       'origin',
-      `${marker ?? localHead}:refs/heads/legacy`,
+      `${localHead}:refs/heads/legacy`,
       `${rewrittenMain}:refs/heads/main`,
     ]);
     runGit(repo, ['update-ref', 'refs/heads/test-branch', localHead]);
