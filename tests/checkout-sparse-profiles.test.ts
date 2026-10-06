@@ -16,6 +16,7 @@
  * una scelta prudente scritta a mano), escludere DI PIU' no.
  */
 import { describe, it, expect } from 'vitest';
+import { builtinModules } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
@@ -32,10 +33,12 @@ import {
   BASELINE_MB,
   TREE_MB,
   CROSSOVER_MB,
+  checkoutEntryPoints,
   analyzeAll,
   inlineModuleEntryPoints,
   transitiveClosure,
 } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 import {
   computeProfiledText,
   GLOBAL_TESTS_REQUIRED_SPARSE_PATHS,
@@ -278,6 +281,51 @@ describe('profili di sparse-checkout', () => {
       stale,
       'profili sparse in ritardo — rigenerali con `node scripts/ci/apply-checkout-profiles.mjs` e rileggi il diff',
     ).toEqual([]);
+  }, TIMEOUT);
+});
+
+describe('dipendenze runtime dei job workflow', () => {
+  it('installa prima degli script ogni pacchetto importato dal job sync', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'sync-articles-sitemaps.yml'), 'utf8'), {
+      logLevel: 'silent',
+    });
+    const job = workflow.jobs.sync;
+    const steps = job.steps as Array<Record<string, unknown>>;
+    const packageJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const packageLock = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package-lock.json'), 'utf8'));
+    const stepEntries = steps.map((step) => checkoutEntryPoints(JSON.stringify(step), packageJson.scripts));
+    const firstRuntimeStep = stepEntries.findIndex((entries) => entries.length > 0);
+    const installStep = steps.findIndex((step) => typeof step.run === 'string'
+      && /(?:^|\n)\s*npm\s+(?:ci|install)(?:\s|$)/.test(step.run));
+    const entries = [...new Set(stepEntries.flat())];
+    const packageImports = new Map<string, string>();
+    for (const { rel, src } of transitiveClosure(entries)) {
+      for (const specifier of importSpecifiers(src)) {
+        if (specifier.startsWith('.') || specifier.startsWith('/')
+          || specifier.startsWith('node:') || builtinModules.includes(specifier)) continue;
+        if (!packageImports.has(specifier)) packageImports.set(specifier, rel);
+      }
+    }
+    const declared = new Set([
+      ...Object.keys(packageJson.dependencies ?? {}),
+      ...Object.keys(packageJson.devDependencies ?? {}),
+      ...Object.keys(packageJson.optionalDependencies ?? {}),
+    ]);
+    const packageName = (specifier: string) => specifier.startsWith('@')
+      ? specifier.split('/').slice(0, 2).join('/')
+      : specifier.split('/')[0];
+    const missing = [...packageImports.keys()].filter((specifier) => !declared.has(packageName(specifier)));
+    const unlocked = [...packageImports.keys()].filter((specifier) => {
+      const name = packageName(specifier);
+      return !packageLock.packages?.[`node_modules/${name}`]?.version;
+    });
+
+    expect(firstRuntimeStep).toBeGreaterThanOrEqual(0);
+    expect(installStep).toBeGreaterThanOrEqual(0);
+    expect(installStep).toBeLessThan(firstRuntimeStep);
+    expect([...packageImports.keys()]).toContain('typescript');
+    expect(missing).toEqual([]);
+    expect(unlocked).toEqual([]);
   }, TIMEOUT);
 });
 

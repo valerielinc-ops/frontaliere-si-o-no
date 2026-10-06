@@ -362,6 +362,7 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // stesso che scrive la scansione centrale: un solo thread, chiuso dal
       // reconciler al primo verde del cron giornaliero.
       'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
+      'sync-articles-sitemaps.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
     // post-job reporter as a second adoption. Compare file + closer pairs so
@@ -374,6 +375,7 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       ...Array.from({ length: 7 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
+      'sync-articles-sitemaps.yml\tclose-recovered-failure-issues',
       // settima adozione: la misura full-corpus del build jobs SEO (#9618),
       // uscita dal cammino bloccante del deploy dopo che un'invariante
       // sbagliata (#9754 → #9773) aveva fermato la pubblicazione. Come per i
