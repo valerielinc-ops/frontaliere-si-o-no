@@ -600,7 +600,7 @@ function renderTable(
   const h = headers
     .map(
       (x) =>
-        `<th class="s-thd">${esc(x)}</th>`,
+        `<th scope="col" class="s-thd">${esc(x)}</th>`,
     )
     .join('');
   const body = rows

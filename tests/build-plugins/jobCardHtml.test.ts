@@ -143,6 +143,8 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     // `.jc-card` atom in `index.css` (@layer components).
     expect(html.startsWith('<article class="jc-card')).toBe(true);
     expect(html).toContain('Full Stack .Net Sviluppatore');
+    expect(html).toContain('<h2 class="jc-title">Full Stack .Net Sviluppatore');
+    expect(html).not.toContain('<h3 class="jc-title">');
     expect(html).toContain('ALTEN Switzerland');
     // Salary chip
     expect(html).toContain('CHF 72k – 97k');
