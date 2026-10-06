@@ -21,7 +21,7 @@ import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCov
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
-import { pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
+import { pharmacyGoogleMapsSearchUrl, pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
 import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
@@ -245,6 +245,10 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
   const path = pharmacyPathForRecord(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
   const addressRegion = pharmacy.canton || pharmacy.province || pharmacy.region;
+  const googleMaps = pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) || pharmacyGoogleMapsSearchUrl(pharmacy);
+  const hasMap = pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
+    ? `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}`
+    : googleMaps;
   const sameAs = [...new Set([
     ...(website ? [website] : []),
     ...(pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) ? [pharmacyGoogleMapsUrl(pharmacy.googlePlaceId)!] : []),
@@ -279,7 +283,7 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
     ...(pharmacy.contactEmail ? { email: pharmacy.contactEmail } : {}),
     ...(sameAs.length ? { sameAs: sameAs.length === 1 ? sameAs[0] : sameAs } : {}),
-    ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? { hasMap: `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}` } : {}),
+    ...(hasMap ? { hasMap } : {}),
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
       ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } }
       : {}),
