@@ -18,7 +18,8 @@ const observerPath = '.github/corpus-workflows/observers/workflows/crawler-gener
 const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
 const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
-const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
+const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
+const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
 const shadowCascadeEnv = {
   SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
   SHADOW_RUN_ID: '${{ github.run_id }}',
@@ -280,14 +281,19 @@ describe('crawler generation PR B workflow wiring', () => {
       // Decisione del proprietario H7 (2026-10-05, DECISIONS.md), che supera
       // quella del 2026-09-25 («Codex solo dopo Argos»): Codex Luna Max entra
       // nella cascata 2b come riserva quando le chiavi falliscono, con un tetto
-      // per run. Il broker parte quindi prima della 2b; la 2b porta il tetto e
-      // mai la variante A/B invalidata.
+      // per run. Il broker parte quindi prima della 2b; il resolver comune
+      // propaga il tetto effettivo e la 2b non porta un override per-step.
       const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
       expect(setupIndex).toBeGreaterThan(-1);
       expect(setupIndex).toBeLessThan(cascade.index);
+      const resolver = findUniqueStep(steps, CODEX_BUDGET_RESOLVER);
+      expect(resolver.index).toBeLessThan(cascade.index);
+      expect(resolver.step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
+      expect(resolver.step.run).toContain('preserving effective setting');
+      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=30');
       const cascadeEnv = steps[cascade.index].env ?? {};
       expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
-      expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBe(CODEX_MAX_CALLS_EXPR);
+      expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
       const maxCalls = 30;
       expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
       expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();
