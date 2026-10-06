@@ -2339,16 +2339,16 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-omaggio-angeli-ponte-chiasso-2026': {
-    title: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    title: 'Angeli di Ponte Chiasso 2026: memoria e cerimonia',
     description: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
     keywords: 'frontalieri, ticino, svizzera, italia, omaggio, agli, angeli, ponte',
-    ogTitle: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    ogTitle: 'Angeli di Ponte Chiasso 2026: memoria e cerimonia',
     ogDescription: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
     canonicalPath: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti",
+      "headline": "Angeli di Ponte Chiasso 2026: memoria e cerimonia",
       "description": "Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/omaggio-angeli-ponte-chiasso-2026.webp`,
