@@ -124,7 +124,9 @@ workflow deliberately clamps it to 20 per run.
 
 The first command writes local bytes to `.cache/event-image-library/` and the
 versioned registry to `data/event-image-library.json`; the uploader publishes
-only `images/events/library/<assetId>.webp` to R2. The weekly workflow uses the
-same interface with the OAuth broker and opens a data PR. Article and place
+only `images/events/library/<assetId>.webp` to R2. When `--before-registry` is
+provided, unchanged records are retained only after an R2 existence check, so
+a deleted object is scheduled for repair. The weekly workflow uses the same
+interface with the OAuth broker and opens a data PR. Article and place
 generators are intentionally a follow-up corpus change; they must call the
 same `generateImageFromSpec()` contract rather than add a second provider path.

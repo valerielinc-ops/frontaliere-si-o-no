@@ -22,6 +22,19 @@ const beforeRegistryPath = process.argv.includes('--before-registry')
 const uploader = path.resolve('scripts/lib/upload-cdn-file.sh');
 const cacheControl = argument('--cache-control', 'public, max-age=31536000, immutable');
 
+function cdnKey(record) {
+  return `images/events/library/${record.assetId}.webp`;
+}
+
+function remoteObjectExists(key) {
+  const result = spawnSync('bash', [uploader, '--check', key], { encoding: 'utf8' });
+  const output = `${result.stdout || ''}${result.stderr || ''}`;
+  if (output.includes('✅ exists')) return true;
+  if (output.includes('❌ missing')) return false;
+  console.error(`${key}: CDN existence check was indeterminate; scheduling a defensive upload`);
+  return null;
+}
+
 if (!fs.existsSync(registryPath)) {
   console.error(`Registry not found: ${registryPath}`);
   process.exit(2);
@@ -51,7 +64,12 @@ if (beforeRegistryPath) {
 const assetsToUpload = beforeRegistryPath
   ? assets.filter((record) => {
     const previous = previousById.get(record?.assetId);
-    return !previous || previous.sha256 !== record.sha256;
+    if (!previous || previous.sha256 !== record.sha256) return true;
+    const key = cdnKey(record);
+    const exists = remoteObjectExists(key);
+    if (exists === true) return false;
+    if (exists === false) console.error(`${record.assetId}: CDN object is missing; scheduling a repair upload`);
+    return true;
   })
   : assets;
 
@@ -75,7 +93,7 @@ for (const record of assetsToUpload) {
     process.exitCode = 1;
     continue;
   }
-  const key = `images/events/library/${record.assetId}.webp`;
+  const key = cdnKey(record);
   const result = spawnSync('bash', [uploader, localFile, key, cacheControl], { encoding: 'utf8' });
   const output = `${result.stdout || ''}${result.stderr || ''}`;
   if (result.error || result.status !== 0 || !output.includes('✅ uploaded')) {
