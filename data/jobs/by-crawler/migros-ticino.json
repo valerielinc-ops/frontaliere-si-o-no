@@ -3127,7 +3127,7 @@
         "it": "allrounder-in-vendita-genossenschaft-migros-luzern-grkcs8",
         "en": "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
-        "fr": "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
+        "fr": "polyvalent-en-vente-genossenschaft-migros-luzern-luzern"
       },
       "requirementsByLocale": {
         "de": [
@@ -3151,12 +3151,16 @@
         "en": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
           "all-rounder-sales-genossenschaft-migros-luzern-luzern"
+        ],
+        "fr": [
+          "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
         ]
       },
       "previousSlugs": [
         "allrounder-in-verkauf-genossenschaft-migros-luzern",
         "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
-        "all-rounder-sales-genossenschaft-migros-luzern-luzern"
+        "all-rounder-sales-genossenschaft-migros-luzern-luzern",
+        "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
       ],
       "salarySource": "estimated",
       "baseSalary": {

@@ -3886,8 +3886,15 @@ ${staticAnalyticsHtml}
  <body>
  ${rootShell(hasSpaBundle)}
  <main class="seo-static-content static-job-page">
+ <div class="job-detail-top-row">
  <nav class="bn"><a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
- <article class="proposal">
+ <div class="job-detail-top-banner-reserve" aria-hidden="true"></div>
+ </div>
+ <div class="ft-rail-grid ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[var(--ft-rail-w-m-l,180px)_minmax(0,1fr)_var(--ft-rail-w-m-r,180px)] xl:gap-4 xlw:grid-cols-[var(--ft-rail-w-l,300px)_minmax(0,1fr)_var(--ft-rail-w-r,300px)] static-job-rail-shell">
+ <aside class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ <div class="static-job-rail-center">
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 static-job-inner-grid">
+ <article class="proposal lg:col-span-8">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
  <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
@@ -3904,6 +3911,10 @@ ${staticAnalyticsHtml}
  ${jobFaqHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords: [], esc })}
+ </div>
+ </div>
+ <aside class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ </div>
  ${(() => {
  const cSlugBanner = employerHubSlug;
  // Relative href — internal navigation resolves against canonical (absolute).

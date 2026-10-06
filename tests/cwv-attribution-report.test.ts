@@ -21,7 +21,13 @@ import {
   parseTemplateRows,
 } from '../scripts/lib/cwv-attribution.mjs';
 import { ga4DateRange, weightedQuantile } from '../scripts/lib/ga4-service-account.mjs';
-import { main, NO_EVENTS_MESSAGE, WINDOW_DAYS, LAG_DAYS } from '../scripts/cwv-attribution-report.mjs';
+import {
+  main,
+  NO_EVENTS_MESSAGE,
+  ATTRIBUTION_GAP_MESSAGE,
+  WINDOW_DAYS,
+  LAG_DAYS,
+} from '../scripts/cwv-attribution-report.mjs';
 
 /**
  * scripts/cwv-attribution-report.mjs reads the CWV field attribution emitted by
@@ -108,13 +114,24 @@ function fakeGh() {
   return { gh, comments };
 }
 
-async function run(argv: string[], rows: Partial<Record<Kind, Row[]>>, ghFake = fakeGh()) {
+// The clock of every run unless a test passes its own: a window that ends
+// before the attribution emitter went live, so the gap check stays out of the
+// way. Assertions on the requested window must use this same clock.
+const DEFAULT_NOW = new Date('2026-10-03T12:00:00Z');
+
+async function run(
+  argv: string[],
+  rows: Partial<Record<Kind, Row[]>>,
+  ghFake = fakeGh(),
+  now = DEFAULT_NOW,
+) {
   const { fetchImpl, bodies } = fakeGa4(rows);
   const out: string[] = [];
   const err: string[] = [];
   const code = await main({
     argv,
     env: {},
+    now,
     fetchImpl,
     getToken: async () => 'token',
     gh: ghFake.gh,
@@ -146,7 +163,7 @@ describe('GA4 requests', () => {
     const { code, bodies } = await run(['--dry-run'], FULL);
     expect(code).toBe(0);
     expect(bodies.map(kindOf)).toEqual(['attribution', 'selectors', 'template']);
-    const range = ga4DateRange(WINDOW_DAYS, LAG_DAYS);
+    const range = ga4DateRange(WINDOW_DAYS, LAG_DAYS, DEFAULT_NOW);
     for (const body of bodies) expect(body.dateRanges).toEqual([range]);
     const [a, b, c] = bodies;
 
@@ -238,6 +255,21 @@ describe('report', () => {
     const { code, out, gh } = await run(['--comment'], { template: TEMPLATE_ROWS });
     expect(code).toBe(0);
     expect(out).toContain(NO_EVENTS_MESSAGE);
+    expect(out).toContain('#### Primi bersagli INP');
+    expect(out).toContain('Bersagli INP senza selettore: 0 eventi.');
+    expect(gh).not.toHaveBeenCalled();
+  });
+
+  it('fails a post-2026-10-04 window with non-good samples but no attribution rows', async () => {
+    const { code, out, err, gh } = await run(
+      ['--dry-run'],
+      { template: TEMPLATE_ROWS },
+      fakeGh(),
+      new Date('2026-10-13T12:00:00Z'),
+    );
+    expect(code).toBe(1);
+    expect(out).toContain(ATTRIBUTION_GAP_MESSAGE);
+    expect(err).toContain(ATTRIBUTION_GAP_MESSAGE);
     expect(gh).not.toHaveBeenCalled();
   });
 
@@ -256,7 +288,11 @@ describe('report', () => {
     // (ii) the footer is the first CLS target, with ac3|cc1; INP rows are not CLS selectors.
     expect(out).toContain('| 1 | `footer>div.mt-8` | footer | 150 | 3.0 | 1.0 |');
     expect(out).toContain('| 2 | `ins.google-auto-placed` | auto_ad | 40 | 4.0 | 0.0 |');
-    expect(out).not.toContain('button.cta');
+    const clsSelectorsSection = out.slice(out.indexOf('#### Primi selettori CLS'), out.indexOf('#### Primi bersagli INP'));
+    expect(clsSelectorsSection).not.toContain('button.cta');
+    expect(out).toContain('#### Primi bersagli INP');
+    expect(out).toContain('| 1 | `button.cta` | main | 20 | 2.0 | 2.0 |');
+    expect(out).toContain('Bersagli INP senza selettore: 0 eventi.');
 
     // (iii) p75 per template, the most measured template first; equal to weightedQuantile.
     const jobDetail = parseTemplateRows({ rows: TEMPLATE_ROWS }).filter((r) => r.template === 'job_detail' && r.metric === 'CLS');
@@ -271,6 +307,17 @@ describe('report', () => {
     expect(order[1]).toBeGreaterThan(order[0]);
     expect(order[2]).toBeGreaterThan(order[1]);
     expect(out).toContain('| jobs_index | tutti | 0.215 | 453 |');
+  });
+
+  it('reports INP events whose interaction target is missing from attribution', async () => {
+    const missing = row(['/cerca-lavoro-ticino/', 'inp', 'main', 'pointer', '|ac1|cc0'], 3);
+    const { code, out } = await run(['--dry-run'], {
+      ...FULL,
+      selectors: [...SELECTOR_ROWS, missing],
+    });
+    expect(code).toBe(0);
+    expect(out).toContain('| 2 | `(vuoto)` | main | 3 | 1.0 | 0.0 |');
+    expect(out).toContain('Bersagli INP senza selettore: 3 eventi.');
   });
 
   it('--dry-run never invokes gh', async () => {

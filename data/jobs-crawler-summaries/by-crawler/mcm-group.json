@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-06T09:12:50.654Z",
+  "generatedAt": "2026-10-06T21:10:50.357Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6867,
-  "avgDurationMs": 6867,
+  "unchangedCount": 3,
+  "durationMs": 7350,
+  "avgDurationMs": 7350,
   "durationHistory": [
-    6867
+    7350
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "mcm-group-b46a4aa6f0c2",
       "slug": "assistente-di-pratica-mpa-al-100-malans-gr-medizinisches-center-bonaduz-malans",
@@ -35,7 +37,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:39.643Z",
+      "crawledAt": "2026-10-06T21:10:33.824Z",
       "addressLocality": "Malans",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -78,7 +80,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:39.642Z",
+      "crawledAt": "2026-10-06T21:10:33.820Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,10 +109,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "mcm-group-b8d76fe67ca5",
       "slug": "specialista-specialista-medicina-interna-generale-o-medico-pratico-medico-pratico-medizinisches-center-bonaduz-bonaduz",
@@ -123,7 +122,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:39.638Z",
+      "crawledAt": "2026-10-06T21:10:33.812Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

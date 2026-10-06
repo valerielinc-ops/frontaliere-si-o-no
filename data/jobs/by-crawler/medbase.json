@@ -11392,9 +11392,9 @@
     },
     {
       "id": "medbase-83c74e7aa6c7",
-      "slug": "physiotherapeut-in-a-80-100-medbase-zug",
+      "slug": "fisioterapista-in-a-80-100-medbase-zug",
       "slugByLocale": {
-        "it": "physiotherapeut-in-a-80-100-medbase-zug",
+        "it": "fisioterapista-in-a-80-100-medbase-zug",
         "en": "physiotherapist-a-80-100-medbase-zug",
         "de": "physiotherapeut-in-a-80-100-medbase-ch",
         "fr": "physiotherapeute-en-a-80-100-medbase-zug"
@@ -11442,11 +11442,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07829",
       "previousSlugs": [
-        "physiotherapeut-in-a-80-100-medbase-ch"
+        "physiotherapeut-in-a-80-100-medbase-ch",
+        "physiotherapeut-in-a-80-100-medbase-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-a-80-100-medbase-ch"
+          "physiotherapeut-in-a-80-100-medbase-ch",
+          "physiotherapeut-in-a-80-100-medbase-zug"
         ]
       },
       "firstSeenAt": "2026-09-07T15:10:50.530Z",
