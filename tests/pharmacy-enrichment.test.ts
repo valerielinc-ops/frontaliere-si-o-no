@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import enrichmentConfig from '../data/pharmacy-enrichment-sources.json';
 import enrichmentSnapshot from '../data/pharmacy-enrichment.json';
 import { buildPharmacyEnrichmentSnapshot, enrichPharmacyRecords, extractPdfFacts, parseItalianHours, validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from '../scripts/lib/pharmacy-enrichment.mjs';
+import { validatePharmacyEnrichmentConfig as validateDependencyFreeConfig, validatePharmacyEnrichmentSnapshot as validateDependencyFreeSnapshot } from '../scripts/lib/pharmacy-enrichment-validation.mjs';
 import { mergePharmacyEnrichment } from '../services/pharmacies/enrichment';
 import { pharmacyById } from '../services/pharmacies/data';
 import { buildPharmacyTitle, pharmacyNameForSeo } from '../services/pharmacies/title';
@@ -48,6 +49,8 @@ describe('pharmacy enrichment', () => {
   it('validates the checked-in registry and snapshot', () => {
     expect(validatePharmacyEnrichmentConfig(enrichmentConfig)).toEqual([]);
     expect(validatePharmacyEnrichmentSnapshot(enrichmentSnapshot)).toEqual([]);
+    expect(validateDependencyFreeConfig(enrichmentConfig)).toEqual([]);
+    expect(validateDependencyFreeSnapshot(enrichmentSnapshot)).toEqual([]);
     expect(enrichmentSnapshot.records['it-msal-3907']).toMatchObject({
       phone: '+39 0332 227362',
       contactEmail: 'farmaciadicasciago@enterpoint.it',
