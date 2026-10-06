@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pallas-kliniken",
-  "assembledAt": "2026-10-05T21:37:33.419Z",
+  "assembledAt": "2026-10-06T09:25:48.171Z",
   "jobs": [
     {
       "id": "pallas-kliniken-ca73a56c6513",
@@ -34,7 +34,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQikD2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:28.568Z",
+      "crawledAt": "2026-10-06T09:25:39.546Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,12 +101,12 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQgth2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:28.102Z",
+      "crawledAt": "2026-10-06T09:25:39.045Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3012",
+      "postalCode": "3004",
       "streetAddress": "Länggassstrasse 18",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
@@ -167,7 +167,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PF3Dh2AL",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:27.636Z",
+      "crawledAt": "2026-10-06T09:25:38.542Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -187,6 +187,20 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PF3Dh2AL",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ]
+      },
       "firstSeenAt": "2026-09-29T21:24:41.564Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -200,21 +214,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
-        ],
-        "en": [
-          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
-        ],
-        "fr": [
-          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-f5940200a0ef",
@@ -248,7 +248,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000O3j1B2AR",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:27.000Z",
+      "crawledAt": "2026-10-06T09:25:38.032Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -329,7 +329,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:26.355Z",
+      "crawledAt": "2026-10-06T09:25:36.729Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -386,7 +386,7 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Dipl. Orthoptist/-in HF",
       "titleByLocale": {
-        "it": "Ortottista dipl. HF",
+        "it": "Dipl. Orthoptist/-in HF",
         "en": "Dipl. Orthoptist HF",
         "de": "Dipl. Orthoptist/-in HF",
         "fr": "Dipl. Orthoptiste ES"
@@ -398,12 +398,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nUnser medizinisches Fachpersonal spielt eine unverzichtbare Rolle im Betreuungsprozess der Kundinnen und Kunden. Sie fungieren als direkte Ansprechpartner und übernehmen fachliche und individuelle Betreuung. Im Fokus steht stets das Wohlbefinden unserer Kundschaft. Durch die enge Zusammenarbeit mit dem unseren Spezialisten, gewährleisten wir eine ganzheitliche Versorgung. Unser Team zeichnet sich durch hohes Engagement, regelmässige Weiterbildungen und die Freude an der interdisziplinären Zusammenarbeit mit unserer Kundschaft aus.\n\nLiebst Du es, in einem engagierten, aufgestellten Team die orthoptische Betreuung sicherzustellen?\nUnsere modernen und grosszügigen Augenpraxen suchen Dich für unsere Standorte in der Region Aargau, Solothurn und Bern.\n\nUnsere modernen und grosszügigen Augenpraxen suchen Dich als\n\nDipl. Orthoptist/-in HF\n\n## Verantwortlichkeiten\n• Selbstständige Untersuchung, Behandlung, Betreuung sowie elektronische Dokumentation von strabologischen und neuroophthalmologischen Patient/-innen\n\n• Betreuung und Behandlung kleiner Amblyopiepatienten/-innen\n\n• Betreuung und Untersuchung prä- und postoperativer Strabismuspatienten/-innen\n\n• Auf Wunsch auch präoperative Untersuchung refraktiv-chirurgischer Patienten/-innen\n\n• Durchführung kinetischer Perimetrie (Goldmann oder elektronisch kinetisches Programm). Keine Betreuung von statischer Perimetrie\n\n• Durchführung und Interpretation von Hess (allenfalls auch Harmswand)\n\n• In enger Zusammenarbeit mit den zuständigen Ophthalmologen/-innen werden die C-Skias und die ophthalmologischen Untersuchungen durchgeführtSelbstständige Untersuchung, Behandlung, Betreuung sowie elektronische Dokumentation von strabologischen und neuroophthalmologischen Patient/-innen\n\n• In enger Zusammenarbeit mit den zuständigen Ophthalmologen/-innen werden die C-Skias und die ophthalmologischen Untersuchungen durchgeführt\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Orthoptist/-in HF (bei ausländischem Diplom ist die SRK-Anerkennung notwendig)\n\n• Deine exakte Arbeitsweise zeigt sich in der effizienten Untersuchung und Dokumentation\n\n• Empathisches Auftreten, verständliche Aufklärung sowie Belastbarkeit zählen ebenfalls zu deinen Stärken. Zudem giltst du gegenüber Patienten*innen und Ärzten als eine verantwortungsbewusste Ansprechperson\n\n• Erfahrung in Skiaskopie und Brillenverordnung von Vorteil\n\n## Vorteile\n• Unsere Orthoptisten/-innen geniessen eine grosszügige Patienten-Untersuchungszeit\n\n• Aufgrund unserer Grösse kannst du dich bei uns auf die reine Orthoptik-Sprechstunde fokussieren. Keine Terminvergabe, Vor- oder Diagnostikmessungen sowie weitere Arbeiten am Empfang\n\n• Durch eine grosse Flexibilität in der Planung der Ferien- und Sprechstundenzeiten sind Familie und Freizeit ideal mit der Orthoptik-Sprechstunde vereinbar\n\n• In der engen Zusammenarbeit mit den Ophthalmologen/-innen während den Sprechstunden erlebst du eine Kultur auf Augenhöhe\n\n• Für deine tägliche Arbeit stehen dir an den Standorten standardisierte, vielseitige orthoptische Arbeits-/Untersuchungsgeräte zur Verfügung\n\n• Bei Interesse Teilnahme am monatlichen internen Kolloquium\n\n• Der Besuch von externen Fort- und Weiterbildungen ist uns wichtig und wird finanziell unterstützt\n\n• Zudem sind unsere Standorte modern eingerichtet, setzen auf digitales Arbeiten und lassen sich aufgrund der Nähe zum Bahnhof bestens erreichen\nPensum, Arbeitstage und Zeiten vereinbaren wir gerne flexibel, so, dass es auch für Dich machbar ist. Wenn Du die Arbeit mit Kindern aber auch Erwachsenen magst, sollten wir uns kennenlernen.",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n\nNotre personnel médical joue un rôle indispensable dans le processus de soins à la clientèle. Ils agissent comme des contacts directs et fournissent un soutien professionnel et individuel. L'accent est toujours mis sur le bien-être de nos clients. Grâce à une collaboration étroite avec nos spécialistes, nous garantissons une offre globale. Notre équipe se caractérise par un engagement élevé, une formation régulière et le plaisir de la coopération interdisciplinaire avec nos clients.\n\nAimez-vous fournir des soins orthopédiques dans une équipe dévouée et établie?\nNos pratiques ophtalmiques modernes et généreuses sont à votre recherche dans nos endroits dans la région d'Argovie, Soleure et Berne.\n\nNos pratiques oculaires modernes et généreuses vous regardent comme\n\nDipl. Orthoptiste/en HF\n\n## Responsabilité\n• Examen indépendant, traitement, soins et documentation électronique des patients stratabologiques et neuroophtalmologiques\n\n• Soins et traitement des petits patients atteints d'amblyopie\n\n• Soins et examen des patients préopératoires et postopératoires\n\n• Sur demande également examen préopératoire des patients réfractaires chirurgicaux\n\n• Effectuer la périmétrie cinétique (homme or ou programme cinétique électronique). Aucun soin de la périmétrie statique\n\n• Mise en œuvre et interprétation de Hess (au mieux aussi Harmswand)\n\n• En étroite collaboration avec les ophtalmologistes responsables, les C-Skias et les examens ophtalmologiques sont effectués Examen indépendant, traitement, soins et documentation électronique des patients stratabologiques et neuroophtalmologiques\n\n• En étroite collaboration avec les ophtalmologistes compétents, les C-Skias et les examens ophtalmologiques sont effectués\n\n## Exigences\n• Vous avez terminé la formation en tant que Dipl. Orthoptiste/-en HF (pour un diplôme étranger, la reconnaissance SRC est nécessaire)\n\n• Votre méthode de travail exacte est reflétée dans l'examen et la documentation efficaces\n\n• L'apparence empathique, l'éducation compréhensible et la résilience sont également parmi vos forces. De plus, vous êtes considéré comme une personne-ressource responsable pour les patients et les médecins\n\n• L'expérience de la régulation de l'ascopie et des lunettes de ski est avantageuse\n\n## Avantages\n• Nos orthoptistes profitent d'un temps généreux d'examen des patients\n\n• En raison de notre taille, vous pouvez vous concentrer sur le temps de consultation Orthoptik pur. Pas de rendez-vous, mesures préliminaires ou diagnostiques et travaux ultérieurs sur la réception\n\n• Grâce à une grande flexibilité dans la planification des heures de vacances et de consultation, les temps de famille et de loisirs sont idéalement compatibles avec l'heure de consultation Orthoptik.\n\n• En étroite collaboration avec les ophtalmologistes pendant les heures de consultation, vous vivrez une culture au niveau des yeux\n\n• Pour votre travail quotidien, un équipement de travail/examen orthoptique normalisé et polyvalent est disponible sur place.\n\n• Si intéressé, participation au colloque interne mensuel\n\n• La visite de la formation continue externe est importante pour nous et est soutenue financièrement\n\n• En outre, nos emplacements sont modernes, dépendent du travail numérique et peuvent être facilement atteints en raison de la proximité de la station.\nNous sommes heureux d'organiser la charge de travail, les jours ouvrables et les temps de manière flexible, afin que cela soit également possible pour vous. Si vous aimez travailler avec des enfants mais aussi des adultes, nous devrions apprendre à nous connaître."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JW78H2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:25.890Z",
+      "crawledAt": "2026-10-06T09:25:36.230Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -423,6 +424,17 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JW78H2AT",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+        ]
+      },
       "firstSeenAt": "2026-09-29T21:24:40.057Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -436,18 +448,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
-        ],
-        "fr": [
-          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-orthoptist-in-hf-pallas-kliniken-olten"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-0e1d6dcb1b6e",
@@ -463,7 +464,7 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Dipl. Orthoptist/-in HF",
       "titleByLocale": {
-        "it": "Ortottista dipl. HF",
+        "it": "Dipl. Orthoptist/-in HF",
         "en": "Dipl. Orthoptist HF",
         "de": "Dipl. Orthoptist/-in HF",
         "fr": "Dipl. Orthoptiste ES"
@@ -475,12 +476,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nUnser medizinisches Fachpersonal spielt eine unverzichtbare Rolle im Betreuungsprozess der Kundinnen und Kunden. Sie fungieren als direkte Ansprechpartner und übernehmen fachliche und individuelle Betreuung. Im Fokus steht stets das Wohlbefinden unserer Kundschaft. Durch die enge Zusammenarbeit mit dem unseren Spezialisten, gewährleisten wir eine ganzheitliche Versorgung. Unser Team zeichnet sich durch hohes Engagement, regelmässige Weiterbildungen und die Freude an der interdisziplinären Zusammenarbeit mit unserer Kundschaft aus.\n\nLiebst Du es, in einem engagierten, aufgestellten Team die orthoptische Betreuung sicherzustellen?\nUnsere moderne und grosszügige Augenpraxis im Herzen von Grenchen sucht Dich als\n\nDipl. Orthoptist/-in HF\n\n## Verantwortlichkeiten\n• Selbstständige Untersuchung, Behandlung, Betreuung sowie elektronische Dokumentation von strabologischen und neuroophthalmologischen Patient/-innen\n\n• Betreuung und Behandlung kleiner Amblyopiepatienten/-innen\n\n• Betreuung und Untersuchung prä- und postoperativer Strabismuspatienten/-innen\n\n• Auf Wunsch auch präoperative Untersuchung refraktiv-chirurgischer Patienten/-innen\n\n• Durchführung kinetischer Perimetrie (Goldmann oder elektronisch kinetisches Programm). Keine Betreuung von statischer Perimetrie\n\n• Durchführung und Interpretation von Hess (allenfalls auch Harmswand)\n\n• In enger Zusammenarbeit mit den zuständigen Ophthalmologen/-innen werden die C-Skias und die ophthalmologischen Untersuchungen durchgeführt\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Orthoptist/-in HF (bei ausländischem Diplom ist die SRK-Anerkennung notwendig)\n\n• Deine exakte Arbeitsweise zeigt sich in der effizienten Untersuchung und Dokumentation\n\n• Empathisches Auftreten, verständliche Aufklärung sowie Belastbarkeit zählen ebenfalls zu deinen Stärken. Zudem giltst du gegenüber Patienten*innen und Ärzten als eine verantwortungsbewusste Ansprechperson\n\n• Erfahrung in Skiaskopie und Brillenverordnung von Vorteil\n\n## Vorteile\n• Unsere Orthoptisten/-innen geniessen eine grosszügige Patienten-Untersuchungszeit\n\n• Aufgrund unserer Grösse kannst du dich bei uns auf die reine Orthoptik-Sprechstunde fokussieren. Keine Terminvergabe, Vor- oder Diagnostikmessungen sowie weitere Arbeiten am Empfang\n\n• Durch eine grosse Flexibilität in der Planung der Ferien- und Sprechstundenzeiten sind Familie und Freizeit ideal mit der Orthoptik-Sprechstunde vereinbar\n\n• In der engen Zusammenarbeit mit den Ophthalmologen/-innen während den Sprechstunden erlebst du eine Kultur auf Augenhöhe\n\n• Für deine tägliche Arbeit stehen dir an den Standorten standardisierte, vielseitige orthoptische Arbeits-/Untersuchungsgeräte zur Verfügung\n\n• Bei Interesse Teilnahme am monatlichen internen Kolloquium\n\n• Der Besuch von externen Fort- und Weiterbildungen ist uns wichtig und wird finanziell unterstützt\n\n• Zudem sind unsere Standorte modern eingerichtet, setzen auf digitales Arbeiten und lassen sich aufgrund der Nähe zum Bahnhof bestens erreichen\nPensum, Arbeitstage und Zeiten vereinbaren wir gerne flexibel, so, dass es auch für Dich\nmachbar ist. Wenn Du die Arbeit mit Kindern aber auch Erwachsenen magst, sollten wir uns\nkennenlernen.\n\nBei Fragen zur Aufgabe gibt Dir Michaela Schray (Telefon 058 335 36 10) sehr gerne Auskunft.",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n\nNotre personnel médical joue un rôle indispensable dans le processus de soins à la clientèle. Ils agissent comme des contacts directs et fournissent un soutien professionnel et individuel. L'accent est toujours mis sur le bien-être de nos clients. Grâce à une collaboration étroite avec nos spécialistes, nous garantissons une offre globale. Notre équipe se caractérise par un engagement élevé, une formation régulière et le plaisir de la coopération interdisciplinaire avec nos clients.\n\nAimez-vous fournir des soins orthopédiques dans une équipe dévouée et établie?\nNotre pratique des yeux moderne et généreuse au cœur de Grenchen You\n\nDipl. Orthoptiste/en HF\n\n## Responsabilité\n• Examen indépendant, traitement, soins et documentation électronique des patients stratabologiques et neuroophtalmologiques\n\n• Soins et traitement des petits patients atteints d'amblyopie\n\n• Soins et examen des patients préopératoires et postopératoires\n\n• Sur demande également examen préopératoire des patients réfractaires chirurgicaux\n\n• Effectuer la périmétrie cinétique (homme or ou programme cinétique électronique). Aucun soin de la périmétrie statique\n\n• Mise en œuvre et interprétation de Hess (au mieux aussi Harmswand)\n\n• En étroite collaboration avec les ophtalmologistes compétents, les C-Skias et les examens ophtalmologiques sont effectués\n\n## Exigences\n• Vous avez terminé la formation en tant que Dipl. Orthoptiste/-en HF (pour un diplôme étranger, la reconnaissance SRC est nécessaire)\n\n• Votre méthode de travail exacte est reflétée dans l'examen et la documentation efficaces\n\n• L'apparence empathique, l'éducation compréhensible et la résilience sont également parmi vos forces. De plus, vous êtes considéré comme une personne-ressource responsable pour les patients et les médecins\n\n• L'expérience de la régulation de l'ascopie et des lunettes de ski est avantageuse\n\n## Avantages\n• Nos orthoptistes profitent d'un temps généreux d'examen des patients\n\n• En raison de notre taille, vous pouvez vous concentrer sur le temps de consultation Orthoptik pur. Pas de rendez-vous, mesures préliminaires ou diagnostiques et travaux ultérieurs sur la réception\n\n• Grâce à une grande flexibilité dans la planification des heures de vacances et de consultation, les temps de famille et de loisirs sont idéalement compatibles avec l'heure de consultation Orthoptik.\n\n• En étroite collaboration avec les ophtalmologistes pendant les heures de consultation, vous vivrez une culture au niveau des yeux\n\n• Pour votre travail quotidien, un équipement de travail/examen orthoptique normalisé et polyvalent est disponible sur place.\n\n• Si intéressé, participation au colloque interne mensuel\n\n• La visite de la formation continue externe est importante pour nous et est soutenue financièrement\n\n• En outre, nos emplacements sont modernes, dépendent du travail numérique et peuvent être facilement atteints en raison de la proximité de la station.\nNous sommes heureux d'organiser la charge de travail, les jours ouvrables et les temps de manière flexible, afin que ce soit aussi pour vous\nest faisable. Si vous aimez travailler avec des enfants mais aussi des adultes, nous devrions\nconnaissance.\n\nSi vous avez des questions sur la tâche, Michaela Schray (téléphone 058 335 36 10) sera heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Grenchen",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000I9Ldx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:25.418Z",
+      "crawledAt": "2026-10-06T09:25:34.875Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -500,6 +502,17 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000I9Ldx2AF",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+        ]
+      },
       "firstSeenAt": "2026-09-29T21:24:39.557Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -513,18 +526,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
-        ],
-        "fr": [
-          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-16b3fff6239b",
@@ -558,7 +560,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:24.943Z",
+      "crawledAt": "2026-10-06T09:25:33.396Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -639,7 +641,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG000004A6BV2A0",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:24.479Z",
+      "crawledAt": "2026-10-06T09:25:32.892Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -702,7 +704,7 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Dipl. Orthoptist/-in HF 10-20%",
       "titleByLocale": {
-        "it": "Ortottista dipl. HF 10-20%",
+        "it": "Dipl. Orthoptist/-in HF 10-20%",
         "en": "Dipl. Orthoptist HF 10-20%",
         "de": "Dipl. Orthoptist/-in HF 10-20%",
         "fr": "Dipl. orthoptiste ES 10-20 %"
@@ -714,17 +716,18 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nUnser medizinisches Fachpersonal spielt eine unverzichtbare Rolle im Betreuungsprozess der Kundinnen und Kunden. Sie fungieren als direkte Ansprechpartner und übernehmen fachliche und individuelle Betreuung. Im Fokus steht stets das Wohlbefinden unserer Kundschaft. Durch die enge Zusammenarbeit mit dem unseren Spezialisten, gewährleisten wir eine ganzheitliche Versorgung. Unser Team zeichnet sich durch hohes Engagement, regelmässige Weiterbildungen und die Freude an der interdisziplinären Zusammenarbeit mit unserer Kundschaft aus.\n\nZur Ergänzung unseres Teams in Bern suchen wir per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als\n\nDipl. Orthoptist/-in HF 10-20%\n\n## Verantwortlichkeiten\n• Selbstständige Untersuchung, Behandlung, Betreuung sowie elektronische Dokumentation von strabologischen und neuroophthalmologischen Patienten*innen\n\n• Betreuung und Behandlung kleiner Amblyopiepatienten/-innen\n\n• Betreuung und Untersuchung prä- und postoperativer Strabismuspatienten/-innen\n\n• Präoperative Untersuchung refraktiv-chirurgischer Patienten/-innen\n\n• Durchführung kinetischer Perimetrie (Goldmann oder elektronisch kinetisches Programm). Keine Betreuung von statischer Perimetrie\n\n• Durchführung und Interpretation von Hess und Harmswand\n\n• In enger Zusammenarbeit mit den zuständigen Ophthalmologen/-innen werden die C-Skias und die ophthalmologischen Untersuchungen durchgeführt\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Orthoptist/-in HF (bei ausländischem Diplom ist die SRK-Anerkennung notwendig)\n\n• Deine exakte Arbeitsweise zeigt sich in der effizienten Untersuchung und Dokumentation\n\n• Empathisches Auftreten, verständliche Aufklärung sowie Belastbarkeit zählen ebenfalls zu deinen Stärken. Zudem giltst du gegenüber Patienten*innen und Ärzten als eine verantwortungsbewusste Ansprechperson\n\n• Erfahrung in Skiaskopie und Brillenverordnung von Vorteil\n\n## Vorteile\n• Unsere Orthoptisten/-innen geniessen eine grosszügige Patienten-Untersuchungszeit\n\n• Aufgrund unserer Grösse kannst du dich bei uns auf die reine Orthoptik-Sprechstunde fokussieren. Keine Terminvergabe, Vor- oder Diagnostikmessungen sowie weitere Arbeiten am Empfang\n\n• Durch eine grosse Flexibilität in der Planung der Ferien- und Sprechstundenzeiten sind Familie und Freizeit ideal mit der Orthoptik-Sprechstunde vereinbar\n\n• In der engen Zusammenarbeit mit den Ophthalmologen/-innen während den Sprechstunden erlebst du eine Kultur auf Augenhöhe\n\n• Für deine tägliche Arbeit stehen dir an den Standorten standardisierte, vielseitige orthoptische Arbeits-/Untersuchungsgeräte zur Verfügung\n\n• Bei Interesse Teilnahme am monatlichen internen Kolloquium\n\n• Der Besuch von externen Fort- und Weiterbildungen ist uns wichtig und wird finanziell unterstützt\n\n• Zudem sind unsere Standorte modern eingerichtet, setzen auf digitales Arbeiten und lassen sich aufgrund der Nähe zum Bahnhof bestens erreichen\nHaben wir dein Interesse geweckt? Dann freuen wir uns, dich persönlich kennenzulernen!",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n\nNotre personnel médical joue un rôle indispensable dans le processus de soins à la clientèle. Ils agissent comme des contacts directs et fournissent un soutien professionnel et individuel. L'accent est toujours mis sur le bien-être de nos clients. Grâce à une collaboration étroite avec nos spécialistes, nous garantissons une offre globale. Notre équipe se caractérise par un engagement élevé, une formation régulière et le plaisir de la coopération interdisciplinaire avec nos clients.\n\nPour compléter notre équipe à Berne, nous recherchons une personnalité motivée dès que possible ou d'un commun accord.\n\nDipl. orthoptiste/en HF 10-20 %\n\n## Responsabilité\n• Examen indépendant, traitement, soins et documentation électronique des patients stratabologiques et neuroophtalmologiques\n\n• Soins et traitement des petits patients atteints d'amblyopie\n\n• Soins et examen des patients préopératoires et postopératoires\n\n• Examen préopératoire des patients réfractaires\n\n• Effectuer la périmétrie cinétique (homme or ou programme cinétique électronique). Aucun soin de la périmétrie statique\n\n• Mise en œuvre et interprétation de Hess et Harmswand\n\n• En étroite collaboration avec les ophtalmologistes compétents, les C-Skias et les examens ophtalmologiques sont effectués\n\n## Exigences\n• Vous avez terminé la formation en tant que Dipl. Orthoptiste/-en HF (pour un diplôme étranger, la reconnaissance SRC est nécessaire)\n\n• Votre méthode de travail exacte est reflétée dans l'examen et la documentation efficaces\n\n• L'apparence empathique, l'éducation compréhensible et la résilience sont également parmi vos forces. De plus, vous êtes considéré comme une personne-ressource responsable pour les patients et les médecins\n\n• L'expérience de la régulation de l'ascopie et des lunettes de ski est avantageuse\n\n## Avantages\n• Nos orthoptistes profitent d'un temps généreux d'examen des patients\n\n• En raison de notre taille, vous pouvez vous concentrer sur le temps de consultation Orthoptik pur. Pas de rendez-vous, mesures préliminaires ou diagnostiques et travaux ultérieurs sur la réception\n\n• Grâce à une grande flexibilité dans la planification des heures de vacances et de consultation, les temps de famille et de loisirs sont idéalement compatibles avec l'heure de consultation Orthoptik.\n\n• En étroite collaboration avec les ophtalmologistes pendant les heures de consultation, vous vivrez une culture au niveau des yeux\n\n• Pour votre travail quotidien, un équipement de travail/examen orthoptique normalisé et polyvalent est disponible sur place.\n\n• Si intéressé, participation au colloque interne mensuel\n\n• La visite de la formation continue externe est importante pour nous et est soutenue financièrement\n\n• En outre, nos emplacements sont modernes, dépendent du travail numérique et peuvent être facilement atteints en raison de la proximité de la station.\nOn a eu votre intérêt ? Alors nous avons hâte de vous rencontrer personnellement!"
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG000003qAft2AE",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:24.005Z",
+      "crawledAt": "2026-10-06T09:25:31.545Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3012",
+      "postalCode": "3004",
       "streetAddress": "Länggassstrasse 18",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
@@ -739,6 +742,17 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG000003qAft2AE",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+        ]
+      },
       "firstSeenAt": "2026-09-29T21:24:37.401Z",
       "salaryMin": 17000,
       "salaryMax": 23800,
@@ -752,18 +766,7 @@
           "maxValue": 23800,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
-        ],
-        "fr": [
-          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-4019a66c713b",
@@ -796,7 +799,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RI9tJ2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:23.359Z",
+      "crawledAt": "2026-10-06T09:25:29.242Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -816,6 +819,20 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RI9tJ2AT",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ]
+      },
       "firstSeenAt": "2026-09-29T21:24:36.901Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -829,21 +846,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
-        ],
-        "en": [
-          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
-        ],
-        "fr": [
-          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-776732c3bf58",
@@ -876,7 +879,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RI2bk2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:22.885Z",
+      "crawledAt": "2026-10-06T09:25:28.842Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -950,7 +953,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PETyF2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:22.415Z",
+      "crawledAt": "2026-10-06T09:25:28.447Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1017,7 +1020,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RKq4X2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:21.778Z",
+      "crawledAt": "2026-10-06T09:25:27.943Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1083,7 +1086,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PmTir2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:21.132Z",
+      "crawledAt": "2026-10-06T09:25:27.446Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1163,7 +1166,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:20.485Z",
+      "crawledAt": "2026-10-06T09:25:27.044Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1254,7 +1257,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:19.838Z",
+      "crawledAt": "2026-10-06T09:25:26.640Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1328,7 +1331,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:19.178Z",
+      "crawledAt": "2026-10-06T09:25:26.145Z",
       "addressLocality": "Wohlen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1419,7 +1422,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbKVS2A3",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:18.497Z",
+      "crawledAt": "2026-10-06T09:25:25.721Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1500,7 +1503,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbCXw2AN",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:17.839Z",
+      "crawledAt": "2026-10-06T09:25:25.320Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
