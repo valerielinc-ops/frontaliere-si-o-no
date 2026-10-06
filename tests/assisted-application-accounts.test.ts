@@ -14,6 +14,7 @@ import {
   portalPasswordLength,
   registrationOutcome,
   sameSite,
+  usesOtpAccountCreation,
   verificationOutcome,
 } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { handleAutomationAdminAction, loadAutomationForAdmin } from '../functions/src/assistedApplicationAutomationAdmin.js';
@@ -91,6 +92,13 @@ describe('portal account pages', () => {
     expect(portalPasswordLength('workday')).toBe(20);
     expect(() => newPortalPassword({ bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
     expect(() => newPortalPassword({ portal: 'career2.successfactors.eu', bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
+  });
+
+  it('limits the unverified-account registration recovery to SuccessFactors portals', () => {
+    expect(usesOtpAccountCreation('career5.successfactors.eu')).toBe(true);
+    expect(usesOtpAccountCreation('career5.sapsf.eu')).toBe(true);
+    expect(usesOtpAccountCreation('jobs.sap.com')).toBe(true);
+    expect(usesOtpAccountCreation('sunrise.wd3.myworkdayjobs.com')).toBe(false);
   });
 
   it('finds the create-account link and button of SuccessFactors in the four languages', () => {

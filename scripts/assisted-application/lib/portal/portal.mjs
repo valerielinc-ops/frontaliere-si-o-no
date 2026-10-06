@@ -23,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -774,7 +774,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-async function handleAuth({ page, snapshot, ctx }) {
+async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -783,6 +783,21 @@ async function handleAuth({ page, snapshot, ctx }) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
     await settle(page);
     return { snapshot: await extractFields(page) };
+  }
+
+  // With SuccessFactors' OTP verification the candidate is not an account
+  // yet until the code is accepted. A prior run may therefore have the
+  // encrypted password and `verifiedAt: null`, while the portal quite
+  // correctly answers a sign-in with its generic invalid-credentials page.
+  // Restart the registration flow with the same password so the portal can
+  // issue a fresh OTP; do not throw the credential away and try to create a
+  // second one.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account_verification' };
+    await settle(page);
+    const registration = await extractFields(page);
+    if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
+    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true });
   }
 
   if (kind === 'sign_in') {
@@ -804,7 +819,8 @@ async function handleAuth({ page, snapshot, ctx }) {
   }
 
   // Create-account page.
-  if (account) {
+  const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
+  if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: sign in instead.
     if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
     await settle(page);
@@ -812,12 +828,21 @@ async function handleAuth({ page, snapshot, ctx }) {
   }
   if (ctx.dryRun) return { dryRun: true };
   const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
-  const plan = await planPage({ snapshot: others, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const candidate = account
+    ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
+    : ctx.candidate;
+  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
   if (plan.missingRequired.length) return { questions: questionsFrom(plan.missingRequired) };
-  const password = newPortalPassword({ portal: host });
-  // Stored (encrypted) before the click: a run that dies afterwards still knows it.
-  await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
+  const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
+  if (retryingUnverifiedAccount) {
+    // Keep the existing encrypted password: the registration retry is the
+    // continuation of the same candidate account, not a new credential.
+    await ctx.accounts.mark(host, { status: 'pending' });
+  } else {
+    // Stored (encrypted) before the click: a run that dies afterwards still knows it.
+    await ctx.accounts.save(host, { email: candidate.identity.email, password });
+  }
   const passwordActions = snapshot.fields.filter((field) => field.inputType === 'password')
     .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
   await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
@@ -826,13 +851,16 @@ async function handleAuth({ page, snapshot, ctx }) {
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   const filled = await extractFields(page, NAVIGATION);
   if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
-    await ctx.accounts.discard(host, 'no_create_button');
+    // A retry is still the same unverified account: keep its encrypted
+    // password so the owner can retry after the portal exposes its button.
+    if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
     return noted({ handoff: 'account' });
   }
   await settle(page);
   const after = await extractFields(page);
   const outcome = registrationOutcome(after);
   if (outcome === 'refused') {
+    if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
     // No account exists: the next run creates it again instead of signing in.
     await ctx.accounts.discard(host, 'registration_refused');
     return noted({ handoff: 'account_create_refused' });

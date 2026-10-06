@@ -309,6 +309,7 @@ export default function JobAlertForm({
  useEffect(() => {
  const handler = (event: Event) => {
  const detail = (event as CustomEvent<{ keyword?: string; origin?: PendingJobAlertOrigin }>).detail;
+ consumeJobAlertOpen();
  if (detail?.keyword) setKeyword(detail.keyword);
  setCtaOrigin(detail?.origin ?? 'inline_card');
  setExpanded(true);

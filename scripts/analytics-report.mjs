@@ -4772,7 +4772,10 @@ async function main() {
   const { flushScoresBeforeExit } = await import('./lib/ai-models.mjs');
   await flushScoresBeforeExit();
 
-  process.exit(0);
+  // Let Node drain stdout before the process ends. `process.exit(0)` aborts
+  // pending pipe writes, so a large `--json` report can reach its caller as
+  // truncated JSON even though the report itself was built successfully.
+  return;
 }
 
 main();

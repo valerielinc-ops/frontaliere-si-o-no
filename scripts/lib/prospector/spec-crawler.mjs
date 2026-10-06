@@ -33,6 +33,8 @@ import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
 import { CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
+import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
+import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
 import { launchChromium } from '../ensure-chromium.mjs';
 import {
@@ -132,7 +134,7 @@ async function tryBrowserRescue(url, runtime) {
   }
 }
 
-const SPEC_FETCH_METADATA_KEYS = ['fetchOutcome', 'discoveredCount', 'fetchDetail'];
+const SPEC_FETCH_METADATA_KEYS = ['fetchOutcome', 'discoveredCount', 'fetchDetail', 'detailDrop'];
 
 /**
  * Keep a spec fetch verdict attached to the array without making it part of the
@@ -1297,6 +1299,36 @@ export async function runSpecInProduction(spec, runtime = {}) {
     reportDroppedRows(spec, detailCandidateDrops, rows.length,
       'identità tenant assente nella pagina dettaglio source-backed');
     const publishedRows = enriched.filter(Boolean);
+    const detailDrop = {
+      candidates: rows.length,
+      gone: detailCandidateDrops,
+      rejected: geographyDrops + descriptionDrops,
+      dropped: detailCandidateDrops + geographyDrops + descriptionDrops,
+    };
+    copySpecFetchMetadata(publishedRows, { detailDrop });
+    // A non-empty partial detail snapshot is just as dangerous as an empty
+    // one: the standard merge would age every dropped vacancy out and later
+    // report it as a resurrection. The shared 15% policy is the same grace
+    // used by detail-reuse and crawler-health; below it the surviving rows are
+    // publishable, above it the source/parser observation is not complete.
+    // Small sources keep their existing zero-row outcome semantics: one
+    // unavailable detail page must not turn a one-vacancy board into a new
+    // class of crash.
+    if (detailDrop.candidates >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
+      && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates)
+      && !(emptyOutcome && detailAntiBotFailures === rows.length)) {
+      const ratio = Math.round((detailDrop.dropped / detailDrop.candidates) * 100);
+      const error = new Error(
+        `[prospector:${spec.companyKey}] detail snapshot incompleto: `
+        + `${detailDrop.dropped}/${detailDrop.candidates} detail page(s) dropped `
+        + `(${ratio}% > 15%); refusing partial publication`,
+      );
+      Object.assign(error, {
+        specDetailDrop: detailDrop,
+        specDiscoveredCount: rows.length,
+      });
+      throw error;
+    }
     // A protected source can expose real listing links while blocking every
     // detail page. Without carrying the same explicit outcome used by the
     // zero-candidate rescue, the standard pipeline turns that proven outage
