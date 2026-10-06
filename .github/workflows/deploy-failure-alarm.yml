@@ -80,13 +80,11 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  # The Jobs API is read-only, but actions: write includes that read scope and
+  # is also required when the reporter dispatches targeted issue triage.
   actions: write
   contents: read
   issues: write
-  # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non
-  # attribuito» IN SILENZIO: un blocco `permissions:` esplicito azzera gli
-  # scope non elencati.
-  actions: read
 
 env:
   OBSERVED_WORKFLOW: Deploy to GitHub Pages

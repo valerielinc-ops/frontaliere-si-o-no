@@ -56,8 +56,8 @@ describe('automatic issue triage dispatch', () => {
       const second = await createGithubIssue({ title: 'Monitor failure two', description: 'second' } as any);
       const dispatches = ghCalls().filter((args) => args[0] === 'workflow' && args[1] === 'run');
 
-      expect(first?.created).toBe(true);
-      expect(second?.created).toBe(true);
+      expect(first?.persisted).toBe(true);
+      expect(second?.persisted).toBe(true);
       expect(dispatches).toHaveLength(1);
       expect(dispatches[0]).toEqual(expect.arrayContaining([
         'issue-triage.yml', '--ref', 'main', '--field', 'issue_number=123',

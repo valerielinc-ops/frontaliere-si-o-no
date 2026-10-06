@@ -50,7 +50,7 @@ jobs:
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+      actions: write    # dispatch triage; also covers download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v7
@@ -1673,9 +1673,8 @@ jobs:
     # runner E ritardando `publish`, che ha needs su validate-dist.
     timeout-minutes: 15
     permissions:
-      actions: write
+      actions: write      # dispatch triage; also covers Jobs API + job logs for the reporter
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
-      actions: read     # jobs API + job logs per il reporter diagnostico (#5414): un blocco permissions esplicito AZZERA gli scope non elencati, quindi senza questa riga ogni gh api actions/... risponde 403 e il reporter degrada a muto
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v7

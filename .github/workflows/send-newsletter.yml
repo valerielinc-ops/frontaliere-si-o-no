@@ -118,7 +118,6 @@ permissions:
   actions: write
   contents: read
   issues: write
-  actions: read
 
 jobs:
   newsletter:

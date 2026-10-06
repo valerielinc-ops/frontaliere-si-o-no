@@ -185,9 +185,8 @@ jobs:
       EFFECTIVE_DEPLOY_EVENT_NAME: ${{ github.event_name == 'workflow_dispatch' && 'workflow_dispatch' || inputs.deploy_event_name }}
       EFFECTIVE_DEPLOY_REF: ${{ github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.outputs.head_sha || inputs.deploy_ref }}
     permissions:
-      actions: write
+      actions: write     # for targeted triage dispatch and download-artifact same-run
       contents: write   # for git push in sync-previous-slug-winners
-      actions: read     # for download-artifact same-run
       issues: write     # for github-issue-creator on publish failure
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)

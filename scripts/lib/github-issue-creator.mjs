@@ -230,15 +230,17 @@ function claimIssueTriageDispatch() {
 }
 
 function requestIssueTriage(issueNumber) {
+  const number = Number(issueNumber);
+  if (!Number.isSafeInteger(number) || number <= 0) {
+    console.warn('[github-issue-creator] Cannot target issue triage: issue number is unavailable; scheduled triage remains the fallback.');
+    return false;
+  }
   if (!claimIssueTriageDispatch()) return false;
   const args = [
     'workflow', 'run', ISSUE_TRIAGE_WORKFLOW_FILE,
     '--ref', ISSUE_TRIAGE_REF,
+    '--field', `issue_number=${number}`,
   ];
-  const number = Number(issueNumber);
-  if (Number.isSafeInteger(number) && number > 0) {
-    args.push('--field', `issue_number=${number}`);
-  }
   args.push(...repoFlag());
   const dispatched = gh(args, { allowFailure: true });
   if (dispatched === null) {
@@ -249,7 +251,7 @@ function requestIssueTriage(issueNumber) {
     return false;
   }
   console.log(
-    `[github-issue-creator] Requested targeted triage for issue ${number > 0 ? `#${number}` : '(unknown number)'}.`,
+    `[github-issue-creator] Requested targeted triage for issue #${number}.`,
   );
   return true;
 }
@@ -1745,7 +1747,7 @@ export async function createGithubIssue({
     const m = url.match(/\/issues\/(\d+)/);
     const number = m ? Number(m[1]) : null;
     requestIssueTriage(number);
-    return { number, title, url, state: 'OPEN', created: true, persisted: true };
+    return { number, title, url, state: 'OPEN', persisted: true };
   } catch (err) {
     // Why: this helper runs in `if: failure()` reporter steps. If posting to
     // GH fails (missing GH_TOKEN, API outage, perms), we must NOT lose the
