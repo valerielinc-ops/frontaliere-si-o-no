@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-im-hasel",
-  "assembledAt": "2026-10-05T21:24:55.131Z",
+  "assembledAt": "2026-10-06T09:18:19.569Z",
   "jobs": [
     {
       "id": "klinik-im-hasel-b4882cfaff23",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:51.744Z",
+      "crawledAt": "2026-10-06T09:18:13.289Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:51.150Z",
+      "crawledAt": "2026-10-06T09:18:12.595Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:50.662Z",
+      "crawledAt": "2026-10-06T09:18:11.890Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/470/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:49.973Z",
+      "crawledAt": "2026-10-06T09:18:11.160Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -381,7 +381,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:49.387Z",
+      "crawledAt": "2026-10-06T09:18:10.575Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -461,7 +461,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:48.819Z",
+      "crawledAt": "2026-10-06T09:18:10.029Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -541,7 +541,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/479/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:48.091Z",
+      "crawledAt": "2026-10-06T09:18:09.302Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -622,7 +622,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/484/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:47.579Z",
+      "crawledAt": "2026-10-06T09:18:08.618Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -702,7 +702,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/485/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:46.857Z",
+      "crawledAt": "2026-10-06T09:18:07.900Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -783,7 +783,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/486/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:46.140Z",
+      "crawledAt": "2026-10-06T09:18:07.164Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -895,7 +895,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "klinik-im-hasel-8294c4e19b02",
@@ -977,7 +977,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "klinik-im-hasel-e4ef21954190",
@@ -1059,7 +1059,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
