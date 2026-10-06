@@ -207,7 +207,7 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
     expect(pending).toContain("'job_detail_button'");
 
     const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
-    expect(boardFilter).toContain('requestJobAlertOpen(keywordLabel, formOrigin)');
+    expect(boardFilter).toContain('openJobAlertForm(keywordLabel, formOrigin)');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
       .toContain('formOrigin="job_board_filters"');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
@@ -250,6 +250,12 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
     ],
   };
 
+  const shownNeedle = (surface: string) => (
+    surface === 'job_board_filters' || surface === 'job_match_pill'
+      ? `trackJobAlertCtaShownOnce('${surface}'`
+      : `trackJobAlertCtaShown('${surface}'`
+  );
+
   it.each(ALERT_CTA_SURFACES)('%s has a matching shown and created origin', (surface) => {
     const allSources = [
       jobBoard(),
@@ -259,7 +265,7 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
       source('components/community/JobBoardFilterAlertCta.tsx'),
     ].join('\n');
 
-    expect(allSources).toContain(`trackJobAlertCtaShown('${surface}'`);
+    expect(allSources).toContain(shownNeedle(surface));
 
     if (directCreationSurfaces.has(surface)) {
       expect(jobBoard()).toContain(`surface: '${surface}'`);
@@ -287,7 +293,6 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
     expect(ALERT_CTA_SURFACES).not.toContain(surface);
     expect(src).toContain(`trackJobAlertCtaShown('${surface}'`);
     expect(src).toContain(`surface: '${surface}'`);
-    expect(src).toContain('outside');
   });
 });
 

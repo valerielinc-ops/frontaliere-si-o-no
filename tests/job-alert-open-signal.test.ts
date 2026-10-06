@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   consumeJobAlertOpen,
   openJobAlertForm,
@@ -18,6 +18,7 @@ const FORM_HANDOFF_ORIGINS = [
 describe('job-alert cross-view handoff', () => {
   afterEach(() => {
     consumeJobAlertOpen();
+    vi.unstubAllGlobals();
   });
 
   it('preserves a detail-receipt origin for the form mounted after navigation', () => {
@@ -36,9 +37,17 @@ describe('job-alert cross-view handoff', () => {
   });
 
   it.each(FORM_HANDOFF_ORIGINS)('broadcasts and queues the %s origin through one helper', (origin) => {
+    // This file is intentionally a node test: SSG and other non-browser
+    // consumers import the helper too. The helper must queue without touching
+    // browser globals.
+    expect(() => openJobAlertForm('Tecnologia', origin)).not.toThrow();
+    expect(consumeJobAlertOpen()).toEqual({ keyword: 'Tecnologia', origin });
+
     const events: Event[] = [];
     const listener = (event: Event) => events.push(event);
-    window.addEventListener('openJobAlert', listener);
+    const eventTarget = new EventTarget();
+    vi.stubGlobal('window', eventTarget);
+    eventTarget.addEventListener('openJobAlert', listener);
 
     try {
       openJobAlertForm('Tecnologia', origin);
@@ -48,7 +57,7 @@ describe('job-alert cross-view handoff', () => {
       expect((events[0] as CustomEvent<{ keyword?: string; origin?: PendingJobAlertOrigin }>).detail)
         .toEqual({ keyword: 'Tecnologia', origin });
     } finally {
-      window.removeEventListener('openJobAlert', listener);
+      eventTarget.removeEventListener('openJobAlert', listener);
     }
   });
 });
