@@ -542,6 +542,25 @@ describe('corpus sitemaps: one regex rule against the closed set', () => {
     expect(cdnFetches().filter((url) => url.includes('sitemap-cantons.xml'))).toEqual([]);
   });
 
+  it('rejects a release base that names a different valid commit', async () => {
+    const name = 'sitemap-cantons.xml';
+    const releaseCommit = 'a'.repeat(40);
+    const otherCommit = 'b'.repeat(40);
+    mockFetch({
+      registry: registry({}, {
+        release: release([name], {
+          commit: releaseCommit,
+          base: `edge/sections/_releases/${otherCommit}/`,
+        }),
+      }),
+      objects: { [`/edge/sections/_releases/${otherCommit}/${name}`]: '<attacker/>' },
+    });
+    const res = await get('/sitemap-cantons.xml');
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(cdnFetches().filter((url) => url.includes(name))).toEqual([]);
+  });
+
   it('fails closed when the registry has no release, without reading a fixed sitemap key', async () => {
     mockFetch({
       registry: registry({}, {}),

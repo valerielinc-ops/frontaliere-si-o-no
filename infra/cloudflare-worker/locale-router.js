@@ -1705,8 +1705,10 @@ function isPlainObject(value) {
 export function parseCorpusSectionRelease(raw) {
   if (!isPlainObject(raw)) return null;
   if (typeof raw.commit !== 'string' || !CORPUS_COMMIT_RE.test(raw.commit)) return null;
+  const expectedBase = `${CORPUS_RELEASE_BASE_PREFIX}${raw.commit}/`;
   if (
     typeof raw.base !== 'string' ||
+    raw.base !== expectedBase ||
     !raw.base.startsWith(CORPUS_RELEASE_BASE_PREFIX) ||
     raw.base.includes('..') ||
     !CORPUS_RELEASE_BASE_RE.test(raw.base)
