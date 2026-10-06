@@ -79,6 +79,7 @@ import { currentPredicateVersion } from './lib/incomplete-predicate-version.mjs'
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
+import { readCodexReserveReports, summarizeCodexReserve } from './lib/codex-reserve-report.mjs';
 
 /**
  * Root of the tree being measured. The normal invocation leaves this empty
@@ -747,6 +748,7 @@ export function finalizeEntry(
     now = Date.now(),
     genderFormRepair = undefined,
     predicateVersion = null,
+    codexReserve = undefined,
   } = {},
 ) {
   const complete = counters.total - counters.incomplete;
@@ -827,6 +829,12 @@ export function finalizeEntry(
       complete: counters.freshCohortComplete || 0,
     },
     topPending,
+    // Codex Luna Max reserve of this run (owner decision H7, 2026-10-05):
+    // translations it made and answers the admission gates refused, summed
+    // over the phases that wrote a report (scripts/lib/codex-reserve-report.mjs).
+    // Only on `after` rows: absent before 2026-10-05 and on `before` rows,
+    // `null` when the run left no report (not measured).
+    ...(codexReserve === undefined ? {} : { codexReserve }),
   };
 }
 
@@ -869,6 +877,11 @@ export function formatReport(entry) {
       '(the map asks for every locale within 24h)');
   row('Predicate version:', entry.predicateVersion ?? 'not computed',
       '(rows with different versions are not comparable without a recount)');
+  if (entry.codexReserve !== undefined) {
+    const cr = entry.codexReserve;
+    row('Codex reserve:', cr ? `${cr.translated} translated, ${cr.rejected} rejected` : 'not measured',
+        cr ? `(${cr.calls} calls, ${cr.textsSent} texts sent, verdict ${cr.verdict})` : '(no phase wrote a report)');
+  }
 
   // Queue AGE. Printed unconditionally, including the `n/a` case, so a run that
   // stopped producing the metric is visible in the log instead of looking like
@@ -1088,6 +1101,7 @@ function main() {
     topPending: topCompanies.slice(0, 10),
     genderFormRepair,
     predicateVersion: predicateVersionOrNull(),
+    ...(isAfter ? { codexReserve: summarizeCodexReserve(readCodexReserveReports()) } : {}),
   });
 
   // The history is read BEFORE printing: the `after` row's cross-run window
