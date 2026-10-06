@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-10-06T09:44:26.654Z",
+  "generatedAt": "2026-10-06T21:41:54.413Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9478,
-  "avgDurationMs": 9478,
+  "durationMs": 6941,
+  "avgDurationMs": 6941,
   "durationHistory": [
-    9478
+    6941
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -51,7 +51,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:44:08.539Z",
+      "crawledAt": "2026-10-06T21:41:37.807Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 72500,
@@ -93,7 +93,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:44:08.008Z",
+      "crawledAt": "2026-10-06T21:41:37.261Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
@@ -135,7 +135,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:44:07.399Z",
+      "crawledAt": "2026-10-06T21:41:36.668Z",
       "jobReqId": "J-020112",
       "firstSeenAt": "2026-07-24T22:16:40.828Z",
       "salaryMin": 62000,
@@ -177,7 +177,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:44:06.775Z",
+      "crawledAt": "2026-10-06T21:41:36.107Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "salaryMin": 72500,
@@ -219,7 +219,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:44:05.686Z",
+      "crawledAt": "2026-10-06T21:41:35.127Z",
       "jobReqId": "J-019784",
       "firstSeenAt": "2026-09-08T23:39:26.585Z",
       "salaryMin": 68000,
@@ -236,5 +236,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }
