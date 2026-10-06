@@ -62,6 +62,23 @@ describe('Pizzarotti listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('recovers a missing Sede from the Pizzarotti teaser without treating an Italian province code as Swiss', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/aspp-ctg">ASPP - CTG</a></h3></div>
+        <div class="vacancy__description">L'Impresa Pizzarotti ricerca un* ASPP con sede a Campomorone (GE). Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('Campomorone');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('does not prove an empty target slice when a location is unknown', () => {
     const result = classifyPizzarottiListings([
       { href: '/jobs/unknown', title: 'Unknown role', location: 'A newly added place' },

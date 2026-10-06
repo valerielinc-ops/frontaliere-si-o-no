@@ -1262,7 +1262,7 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     // Pizzarotti's InRecruiting board returns these Italian localities without
     // a country suffix; they must still be positive foreign evidence for the
     // filtered-empty health proof.
-    for (const locality of ['Parma', 'Ponte Taro', 'Baragiano']) {
+    for (const locality of ['Parma', 'Ponte Taro', 'Baragiano', 'Campomorone']) {
       expect(isExplicitlyOutsideTarget(locality)).toBe(true);
       expect(isLocationExplicitlyForeign(locality)).toBe(true);
     }
