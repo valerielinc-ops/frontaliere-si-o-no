@@ -606,8 +606,15 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     expect(history.permissions?.issues).toBe('write');
     const resolver = history.steps.find((s: any) => s.name === 'Resolve build phase timing regression issue on green');
     expect(resolver, 'deploy.yml: manca la chiusura dell allarme sul verde').toBeDefined();
+    expect(resolver!.if).toContain("needs.build-locale.result == 'success'");
     expect(resolver!.run).toContain('--resolve');
     expect(resolver!.run).toContain('Build phase timing regression (+30% median)');
+    expect(resolver!.run).toContain('gh run list');
+    expect(resolver!.run).toContain('--recovery-ready');
+    expect(resolver!.env?.PHASE_TIMING_RUNS_FILE).toContain('phase-timing-runs.json');
+    expect(resolver!.env?.PHASE_TIMING_RECOVERY_RUNS).toBe('3');
+    const historyCheckout = history.steps.find((s: any) => s.name === 'Checkout build-history writer');
+    expect(historyCheckout?.with?.['sparse-checkout']).toContain('/scripts/ci/phase-timing-observer.mjs');
 
     const profileAppend = BUILD_LOCALE_STEPS.find((s) => s.name === 'Append post-build phase timings row');
     expect(profileAppend?.env?.ROW_BUILD_STATUS).toBe("${{ job.status }}");
