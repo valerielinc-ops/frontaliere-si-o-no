@@ -339,10 +339,13 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const scan = processPr.indexOf('const conflictScan = reportMainConflict(');
     const branch = processPr.indexOf('if (!nearMerge) {');
+    const generated = processPr.indexOf('tryGeneratedConflictBeforeHandoff(', branch);
     const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });');
     expect(scan).toBeGreaterThan(-1);
     expect(branch).toBeGreaterThan(scan);
+    expect(generated).toBeGreaterThan(branch);
     expect(call).toBeGreaterThan(branch);
+    expect(generated).toBeLessThan(call);
     expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })');
   });
 });
