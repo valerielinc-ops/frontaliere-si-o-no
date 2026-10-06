@@ -8,7 +8,7 @@ import {
 } from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
-// free-tier provider is daily-exhausted. These invariants guard the two things
+// provider (including the Codex primary) is unavailable. These invariants guard the two things
 // that make it safe: (1) it is INERT unless LOCAL_LLM_ENABLED, so it can never
 // change behaviour by default; (2) it sits at the very bottom of the chain, so
 // slow CPU inference never displaces a working remote API.
@@ -29,10 +29,10 @@ describe('local LLM fallback provider', () => {
     expect(AI_MODELS.LOCAL_FALLBACK).toBe('local/fallback');
   });
 
-  it('sits below every remote API, with only the opt-in OmniRoute fallback below it', () => {
+  it('Codex è primo, mentre local/ e OmniRoute restano in coda', () => {
+    expect(DEFAULT_CHAIN[0]).toBe(AI_MODELS.CODEX_CLI_PRIMARY);
     // The legacy Claude CLI provider remains available to compatibility tests,
-    // but it is no longer a member of the production DEFAULT_CHAIN. Codex is
-    // supplied explicitly by the workflow lane through AI_MODELS_PREFER.
+    // but it is no longer a member of the production DEFAULT_CHAIN.
     expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.OMNIROUTE_AUTO);
     expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.LOCAL_FALLBACK);
     // Each must appear exactly once.
