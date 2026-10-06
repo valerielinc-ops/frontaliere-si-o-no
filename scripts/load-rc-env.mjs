@@ -68,6 +68,10 @@ export const RC_TO_ENV = {
   // tooling, never written as a source or static HTML literal.
   FIREBASE_API_KEY:               ['FIREBASE_API_KEY', 'VITE_FIREBASE_API_KEY'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
+  // Optional German fuel overlay. Keep unset until the owner obtains a key
+  // through Tankerkönig's manual registration and confirms redistribution
+  // terms; the adapter is fail-closed without it.
+  TANKERKOENIG_API_KEY:           ['TANKERKOENIG_API_KEY'],
   // Google Routes is the current API surface. Keep the legacy Distance Matrix
   // key separately available so the mesh can fall back when Routes is disabled
   // in the project; the value itself is never exposed to the client here.
