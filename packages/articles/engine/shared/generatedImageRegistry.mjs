@@ -15,6 +15,7 @@ export const GENERATED_IMAGE_MAX_BYTES = 220 * 1024;
 
 export const GENERATED_IMAGE_SCOPES = Object.freeze([
   'event-library',
+  'editorial-profile',
   'article-hero',
   'place',
   'og',
@@ -83,6 +84,17 @@ function aspectRatio(width, height) {
   return `${width}:${height}`;
 }
 
+export function generatedImagePrefixForScope(scope) {
+  if (scope === 'event-library') return '/images/events/library/';
+  if (scope === 'editorial-profile') return '/images/authors/';
+  if (scope === 'place') return '/images/places/';
+  return '/images/generated/';
+}
+
+export function generatedImagePathForScope(scope, assetId) {
+  return `${generatedImagePrefixForScope(scope)}${assetId}.webp`;
+}
+
 /**
  * Normalize the public generation specification before it reaches a provider.
  * The returned object is also the canonical input for prompt hashing.
@@ -130,13 +142,19 @@ export function buildGeneratedImagePrompt(spec, { variation = '' } = {}) {
   const normalized = normalizeGeneratedImageSpec(spec);
   const policy = GENERATED_IMAGE_POLICY.map((rule) => `- ${rule}`).join('\n');
   const variationText = normalizeText(variation);
+  const ratio = normalized.format.width / normalized.format.height;
+  const composition = ratio > 1.3
+    ? 'landscape'
+    : ratio < 0.8
+      ? 'portrait'
+      : 'square';
   return [
     'Create one original editorial illustration for frontaliereticino.ch.',
     `Purpose: ${normalized.scope}.`,
     `Subject: ${normalized.subject}.`,
     `Area or visual context: ${normalized.area}.`,
     `Seasonal atmosphere: ${normalized.season}.`,
-    `Composition: landscape ${normalized.format.width}x${normalized.format.height}, clear subject separation, calm editorial composition, no cropped focal subject at the edges.`,
+    `Composition: ${composition} ${normalized.format.width}x${normalized.format.height}, clear subject separation, calm editorial composition, no cropped focal subject at the edges.`,
     'Style: warm, precise, contemporary Swiss editorial illustration with natural texture, restrained colors and a consistent art direction; not photorealistic.',
     'Mandatory safety policy:',
     policy,
@@ -156,7 +174,7 @@ export function generatedImagePromptInput(spec, options) {
 }
 
 export function isGeneratedImagePath(value) {
-  return typeof value === 'string' && /^\/images\/(?:events\/library|generated)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
 }
 
 export function generatedImageAssetIdFromPath(value) {
@@ -208,10 +226,14 @@ export function validateGeneratedImageRecord(record) {
     errors.push('vision gate verdict is missing or rejected');
   }
   if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a generated WebP path');
-  const expectedPrefix = record.scope === 'event-library' ? '/images/events/library/' : '/images/generated/';
+  const expectedPrefix = generatedImagePrefixForScope(record.scope);
   if (record.imageUrl && !record.imageUrl.startsWith(expectedPrefix)) errors.push('imageUrl does not match scope');
   if (record.imageUrl && generatedImageAssetIdFromPath(record.imageUrl) !== record.assetId) errors.push('imageUrl assetId mismatch');
-  if (record.width / record.height < 1.6 || record.width / record.height > 1.9) errors.push('image aspect ratio is outside the editorial range');
+  const ratio = record.width / record.height;
+  const ratioValid = record.scope === 'editorial-profile'
+    ? ratio >= 0.8 && ratio <= 1.25
+    : ratio >= 1.6 && ratio <= 1.9;
+  if (!ratioValid) errors.push('image aspect ratio is outside the editorial range');
   return { valid: errors.length === 0, errors };
 }
 

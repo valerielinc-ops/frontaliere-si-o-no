@@ -1302,6 +1302,9 @@ jobs:
             # tests/authors.test.ts is part of the test-tree lint whenever a PR
             # changes tests; keep its small runtime photo fixtures materialized.
             /public/images/authors/
+            # The generated-image registry gate validates the full published
+            # place catalog and its responsive thumbnails as well.
+            /public/images/places/
             /*.cjs
             /*.js
             /*.json
@@ -1781,6 +1784,7 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_GENERATED_SITE_IMAGES: ${{ steps.body_contract.outcome != 'failure' }}
           # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
           # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
           # cosi' il confronto copre tutti i commit della PR qualunque sia la
@@ -1815,6 +1819,9 @@ jobs:
           fi
           if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
             expected_labels+=(twin-imports)
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            expected_labels+=(generated-site-images)
           fi
           if [ "${#expected_labels[@]}" -eq 0 ]; then
             echo "::error::independent gate roster is empty"
@@ -1873,6 +1880,9 @@ jobs:
             # in background, dall'env dello step, non qui.
             # shellcheck disable=SC2016
             start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs ${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            start_gate generated-site-images 'npm run validate:generated-images'
           fi
 
       # ══════════════════════════════════════════════════════════════════════

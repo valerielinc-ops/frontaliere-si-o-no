@@ -130,3 +130,20 @@ a deleted object is scheduled for repair. The weekly workflow uses the same
 interface with the OAuth broker and opens a data PR. Article and place
 generators are intentionally a follow-up corpus change; they must call the
 same `generateImageFromSpec()` contract rather than add a second provider path.
+
+The site's editorial-profile and place catalogue uses the same boundary:
+
+```bash
+npm run generate:editorial-images -- --only authors
+npm run generate:editorial-images -- --only places
+npm run validate:generated-images
+```
+
+The generator writes four 400×400 illustrated profile avatars, sixteen
+1200×675 place views and their sixteen 480×270 thumbnails, keeping the
+existing filenames and recording each byte in
+`data/generated-image-registry.json`. The validator checks every file under
+`public/images/authors/` and `public/images/places/` against that registry,
+including the XMP/IPTC-marked WebP byte hash and dimensions. Author images are
+uploaded to the existing CDN during deployment; place images and thumbnails
+remain same-origin by contract.
