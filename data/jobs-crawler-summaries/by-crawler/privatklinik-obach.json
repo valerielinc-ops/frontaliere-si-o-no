@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-10-05T21:37:44.093Z",
+  "generatedAt": "2026-10-06T09:26:17.609Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6227,
-  "avgDurationMs": 6227,
+  "durationMs": 6046,
+  "avgDurationMs": 6046,
   "durationHistory": [
-    6227
+    6046
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:35.904Z",
+      "crawledAt": "2026-10-06T09:26:04.940Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:35.903Z",
+      "crawledAt": "2026-10-06T09:26:04.939Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:35.901Z",
+      "crawledAt": "2026-10-06T09:26:04.937Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:33.114Z",
+      "crawledAt": "2026-10-06T09:26:02.177Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

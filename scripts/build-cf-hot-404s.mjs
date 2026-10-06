@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * build-cf-hot-404s.mjs — bounded, traffic-targeted hot-list of non-Ticino
  * job-detail 404s for cfHot404BridgePlugin to recover.
@@ -30,7 +31,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
@@ -343,7 +344,7 @@ async function main() {
 
 // Run only when invoked directly (not when imported for unit tests of the pure
 // reconcileHotPaths helper — importing must not trigger the network sweep).
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error(`❌ ${err?.message || err}`);
     process.exit(1);

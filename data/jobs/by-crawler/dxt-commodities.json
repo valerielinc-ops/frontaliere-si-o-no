@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-05T16:19:48.511Z",
+  "assembledAt": "2026-10-06T09:15:12.517Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -22,7 +22,7 @@
         "it": "Quant Internship - Mercato del Potere",
         "en": "Junior Accountant",
         "de": "Quant Internship - Strommarkt",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slugByLocale": {
         "it": "quant-internship-mercato-del-potere-dxt-commodities-s-a-lugano",
@@ -45,23 +45,6 @@
         "location": "Lugano"
       },
       "id": "dxt-commodities-f60f8843492a",
-      "previousSlugsByLocale": {
-        "en": [
-          "quant-internship-power-market-dxt",
-          "junior-legal-dxt-commodities-s-a-lugano-3z6x3l",
-          "junior-power-analyst-dxt"
-        ],
-        "it": [
-          "quant-internship-power-market-dxt",
-          "junior-power-analyst-dxt",
-          "junior-legal-dxt",
-          "junior-accountant-dxt"
-        ],
-        "fr": [
-          "nombre-de-stagiaires-marche-de-l-electricite-dxt-commodities-s-a-lugano",
-          "junior-accountant-dxt-commodities-s-a-lugano"
-        ]
-      },
       "previousSlugs": [
         "quant-internship-power-market-dxt",
         "junior-power-analyst-dxt",
@@ -71,6 +54,23 @@
         "nombre-de-stagiaires-marche-de-l-electricite-dxt-commodities-s-a-lugano",
         "junior-accountant-dxt-commodities-s-a-lugano"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "quant-internship-power-market-dxt",
+          "junior-power-analyst-dxt",
+          "junior-legal-dxt",
+          "junior-accountant-dxt"
+        ],
+        "en": [
+          "quant-internship-power-market-dxt",
+          "junior-legal-dxt-commodities-s-a-lugano-3z6x3l",
+          "junior-power-analyst-dxt"
+        ],
+        "fr": [
+          "nombre-de-stagiaires-marche-de-l-electricite-dxt-commodities-s-a-lugano",
+          "junior-accountant-dxt-commodities-s-a-lugano"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
@@ -113,7 +113,7 @@
         "it": "Junior Contabile",
         "en": "Junior Accountant",
         "de": "Junior Buchhalter",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slugByLocale": {
         "it": "junior-contabile-dxt-commodities-s-a-lugano",
@@ -171,7 +171,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

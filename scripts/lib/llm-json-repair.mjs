@@ -85,6 +85,20 @@ let _memoSrc = null;
 let _memoFix = null;
 let _memoQuoteCloses = null;
 let _memoStringEnd = null;
+let _scanMetrics = null;
+
+/** Test-only counters; inactive unless a test explicitly enables them. */
+export function resetLlmJsonRepairScanMetrics() {
+  _scanMetrics = { charactersExamined: 0, scannerFallbacks: 0 };
+  _memoSrc = null;
+  _memoFix = null;
+  _memoQuoteCloses = null;
+  _memoStringEnd = null;
+}
+
+export function getLlmJsonRepairScanMetrics() {
+  return _scanMetrics ? { ..._scanMetrics } : { charactersExamined: 0, scannerFallbacks: 0 };
+}
 
 /**
  * Prepara (e riempie) il memo per `str`. Il riempimento e' DAL FONDO VERSO
@@ -110,6 +124,11 @@ let _memoStringEnd = null;
  * gia' registrati: il controllo di identita' le fa uscire subito, quindi il
  * riempimento non si ri-annida. Non serve un flag di reentrancy, serve
  * assegnare `_memoSrc`/`_memoFix` PRIMA del giro (ed e' fatto).
+ *
+ * Nello stesso passaggio, per ogni quote, viene memorizzato il primo quote
+ * recuperabile alla sua destra. Se non esiste, il valore -1 e' monotono verso
+ * destra fino a EOF: le chiamate successive non devono riesaminare il
+ * suffisso.
  */
 function _memoFor(str, fixAsterisks) {
   if (_memoSrc === str && _memoFix === fixAsterisks) return;
@@ -117,11 +136,17 @@ function _memoFor(str, fixAsterisks) {
   _memoFix = fixAsterisks;
   _memoQuoteCloses = new Map();
   _memoStringEnd = new Map();
+  let nextRecoverableQuote = -1;
   for (let q = str.length - 1; q >= 0; q--) {
-    if (str[q] !== '"' || isEscapedAt(str, q)) continue;
-    if (!_memoQuoteCloses.has(q)) {
-      _memoQuoteCloses.set(q, _decideQuoteCloses(str, q, fixAsterisks));
-    }
+    if (_scanMetrics) _scanMetrics.charactersExamined++;
+    if (str[q] !== '"') continue;
+
+    _memoStringEnd.set(q, nextRecoverableQuote === -1 ? -1 : nextRecoverableQuote + 1);
+    if (isEscapedAt(str, q)) continue;
+
+    const closes = _decideQuoteCloses(str, q, fixAsterisks);
+    _memoQuoteCloses.set(q, closes);
+    if (closes) nextRecoverableQuote = q;
   }
 }
 
@@ -333,8 +358,10 @@ function scanStringEnd(str, i, fixAsterisks) {
 }
 
 function _scanStringEnd(str, i, fixAsterisks) {
+  if (_scanMetrics) _scanMetrics.scannerFallbacks++;
   let j = i + 1;
   while (j < str.length) {
+    if (_scanMetrics) _scanMetrics.charactersExamined++;
     if (str[j] === '\\') { j += 2; continue; }
     if (str[j] === '"') {
       if (decideQuoteCloses(str, j, fixAsterisks)) return j + 1;
@@ -719,7 +746,6 @@ function isNestedRootCandidate(source, rootStart, candidate) {
 function scanStructuralRootCandidates(source, rootOpeners, start) {
   const targetOpeners = new Set(rootOpeners);
   const structuralStack = [];
-  const openFrames = { '{': [], '[': [] };
   const candidates = [];
   let firstRoot = null;
   let firstCloseIdx = -1;
@@ -773,7 +799,6 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
         prefixJsonLike: prefixJsonLike && !prefixInString,
       };
       structuralStack.push(frame);
-      openFrames[ch].push(frame);
 
       if (!firstRoot) firstRoot = frame;
       else if (targetOpeners.has(ch) && (firstClosed || recordedRoots < MAX_LATER_SCANNED_ROOTS)) {
@@ -784,10 +809,10 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
 
     if (ch !== '}' && ch !== ']') continue;
     const opener = ch === '}' ? '{' : '[';
-    const frame = openFrames[opener].pop();
-    if (!frame) continue;
+    const frame = structuralStack.at(-1);
+    if (!frame || frame.open !== opener) continue;
+    structuralStack.pop();
     frame.end = i;
-    if (structuralStack.at(-1) === frame) structuralStack.pop();
 
     if (frame === firstRoot) {
       firstCloseIdx = i;
@@ -795,8 +820,6 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
       candidates.length = 0;
       recordedRoots = 0;
       structuralStack.length = 0;
-      openFrames['{'].length = 0;
-      openFrames['['].length = 0;
       prefixJsonLike = true;
       prefixInString = false;
       prefixTokenEnd = i + 1;

@@ -1,3 +1,4 @@
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * report-shard-push-failure.mjs — turn a failed shard push into ONE deduplicated
  * issue per locale instead of a `::warning::` nobody reads.
@@ -18,7 +19,6 @@
  *   node scripts/ci/report-shard-push-failure.mjs --locale it --shards uri,vaud
  */
 
-import { pathToFileURL } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
@@ -133,7 +133,7 @@ async function main() {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {

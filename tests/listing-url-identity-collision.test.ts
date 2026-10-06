@@ -61,6 +61,38 @@ describe('computeCrawlDiff — postings that share the listing URL', () => {
     expect(diff.newJobs).toEqual([]);
   });
 
+  it('deduplicates one repeated posting while keeping two collided updates', () => {
+    const before = snapshotJobSlugs([galenica(1), galenica(2)]);
+    const afterJobs = [
+      galenica(1, { title: 'Farmacista 1 (80%)', location: 'Biel/Bienne' }),
+      galenica(1, { title: 'Farmacista 1 (80%)', location: 'Berne' }),
+      galenica(2, { title: 'Farmacista 2 (80%)' }),
+    ];
+    const diff = computeCrawlDiff(before, snapshotJobSlugs(afterJobs));
+    const partition = computeSlicePartition(
+      [galenica(1), galenica(2)],
+      afterJobs,
+    );
+
+    expect(diff.updatedJobs.map((job) => job.id)).toEqual(['galenica-1', 'galenica-2']);
+    expect(diff.updatedJobs[0].location).toBe('Biel/Bienne');
+    expect(partition.total).toBe(2);
+    expect(partition.updatedJobs.map((job) => job.id)).toEqual(['galenica-1', 'galenica-2']);
+  });
+
+  it('keeps every malformed posting without an id or slug', () => {
+    const afterJobs = [
+      { url: 'https://example.test/jobs', sourceUrl: 'https://example.test/jobs', title: 'a' },
+      { url: 'https://example.test/jobs', sourceUrl: 'https://example.test/jobs', title: 'b' },
+    ];
+    const diff = computeCrawlDiff(snapshotJobSlugs([]), snapshotJobSlugs(afterJobs));
+
+    expect(diff.newJobs).toEqual(afterJobs);
+    expect(diff.updatedJobs).toEqual([]);
+    expect(diff.removedJobs).toEqual([]);
+    expect(diff.unchangedCount).toBe(0);
+  });
+
   it('keeps the one-to-one lookup for ordinary per-posting URLs', () => {
     const job = (n: number) => ({ id: `x-${n}`, slug: `x-${n}`, url: `https://example.invalid/jobs/${n}`, title: `T${n}` });
     const diff = computeCrawlDiff(snapshotJobSlugs([job(1), job(2)]), snapshotJobSlugs([job(2), job(3)]));

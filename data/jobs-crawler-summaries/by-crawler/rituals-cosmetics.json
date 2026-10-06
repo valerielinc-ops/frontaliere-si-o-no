@@ -1,7 +1,7 @@
 {
   "key": "rituals-cosmetics",
   "label": "Rituals Cosmetics Switzerland",
-  "generatedAt": "2026-10-05T21:37:32.521Z",
+  "generatedAt": "2026-10-06T09:24:58.688Z",
   "total": 675,
   "discovered": null,
   "parsed": 665,
@@ -9,17 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 675,
-  "resurrectedJobs": 56,
+  "resurrectedJobs": 24,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 138,
-  "updatedCount": 61,
+  "newCount": 135,
+  "updatedCount": 57,
   "removedCount": 0,
-  "unchangedCount": 476,
-  "durationMs": 617982,
-  "avgDurationMs": 617982,
+  "unchangedCount": 483,
+  "durationMs": 637381,
+  "avgDurationMs": 637381,
   "durationHistory": [
-    617982
+    637381
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Solothurn-Hauptgasse/Mitarbeiter-Warenverrumung--m-w-d-_R2472",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:37.784Z",
+      "crawledAt": "2026-10-06T09:22:58.485Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -56,13 +56,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "4500",
       "firstSeenAt": "2026-07-03T22:49:46.996Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -79,7 +80,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Solothurn-Hauptgasse/Mitarbeiter-Warenverrumung--m-w-d-_R2471",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:37.020Z",
+      "crawledAt": "2026-10-06T09:22:57.725Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -99,13 +100,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "4500",
       "firstSeenAt": "2026-07-03T22:49:46.996Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -122,7 +124,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Solothurn-Hauptgasse/Mitarbeiter-Warenverrumung--m-w-d-_R2470",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:36.080Z",
+      "crawledAt": "2026-10-06T09:22:56.926Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -142,13 +144,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "4500",
       "firstSeenAt": "2026-07-03T22:49:46.996Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -165,7 +168,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-Freie-Strasse/Mitarbeiter-Warenverrumung--m-w-d-_R3306",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:16.755Z",
+      "crawledAt": "2026-10-06T09:21:31.408Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -185,13 +188,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -208,7 +212,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Luzern-SBB/Mitarbeiter-Warenverrumung--m-w-d-_R3300",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:12.204Z",
+      "crawledAt": "2026-10-06T09:21:26.397Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -228,13 +232,14 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
+      "postalCode": "6003",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -251,7 +256,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Bern-SBB/Mitarbeiter-Warenverrumung--m-w-d-_R3299",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:11.367Z",
+      "crawledAt": "2026-10-06T09:21:25.596Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -271,13 +276,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "3004",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -294,7 +300,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zuerich-Marktgasse/Mitarbeiter-Warenverrumung--m-w-d-_R3294",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:07.596Z",
+      "crawledAt": "2026-10-06T09:21:21.696Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -314,13 +320,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "firstSeenAt": "2026-07-03T22:48:21.870Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -337,7 +344,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Mitarbeiter-Warenverrumung--m-w-d-_R3292",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:05.980Z",
+      "crawledAt": "2026-10-06T09:21:20.138Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -357,13 +364,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "firstSeenAt": "2026-07-03T22:48:21.870Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -380,7 +388,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Mitarbeiter-Warenverrumung--m-w-d-_R3289",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:03.735Z",
+      "crawledAt": "2026-10-06T09:21:17.813Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -400,13 +408,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -423,7 +432,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zrich-Bahnhofstrae-69a/Mitarbeiter-Warenverrumung--m-w-d-_R3288",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:02.518Z",
+      "crawledAt": "2026-10-06T09:21:17.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,13 +452,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "firstSeenAt": "2026-07-03T22:48:21.068Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -466,7 +476,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Biel/Mitarbeiter-Warenverrumung--m-w-d-_R3285",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:34:00.194Z",
+      "crawledAt": "2026-10-06T09:21:14.717Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -509,7 +519,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Winterthur/Mitarbeiter-Warenverrumung--m-w-d-_R3283",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:33:58.737Z",
+      "crawledAt": "2026-10-06T09:21:12.791Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -529,13 +539,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8400",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -552,7 +563,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Bern-Spitalgasse/Mitarbeiter-Warenverrumung--m-w-d-_R3282",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:33:58.003Z",
+      "crawledAt": "2026-10-06T09:21:11.889Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -572,13 +583,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "3004",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -595,7 +607,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Grancia-Centro-Lugano-Sud/Mitarbeiter-Warenverrumung--m-w-d-_R3280",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:33:56.517Z",
+      "crawledAt": "2026-10-06T09:21:10.321Z",
       "addressLocality": "Grancia",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -615,13 +627,14 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
+      "postalCode": "6916",
       "firstSeenAt": "2026-07-03T22:47:58.706Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -638,7 +651,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Grancia-Centro-Lugano-Sud/Mitarbeiter-Warenverrumung--m-w-d-_R3279",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:33:55.773Z",
+      "crawledAt": "2026-10-06T09:21:09.532Z",
       "addressLocality": "Grancia",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -658,13 +671,14 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
+      "postalCode": "6916",
       "firstSeenAt": "2026-07-03T22:47:58.706Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -681,7 +695,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Grancia-Centro-Lugano-Sud/Mitarbeiter-Warenverrumung--m-w-d-_R3278",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:33:54.991Z",
+      "crawledAt": "2026-10-06T09:21:08.756Z",
       "addressLocality": "Grancia",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -701,13 +715,14 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
+      "postalCode": "6916",
       "firstSeenAt": "2026-07-03T22:47:58.706Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -724,7 +739,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zrich-Sihlcity/Mitarbeiter-Warenverrumung--m-w-d-_R3412",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:54.840Z",
+      "crawledAt": "2026-10-06T09:20:04.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -744,13 +759,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "firstSeenAt": "2026-07-03T22:48:21.068Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -767,7 +783,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-SBB/Mitarbeiter-Warenverrumung--m-w-d-_R3411",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:54.097Z",
+      "crawledAt": "2026-10-06T09:20:03.243Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -787,13 +803,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -810,7 +827,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Chur-Steinbock/Mitarbeiter-Warenverrumung--m-w-d-_R3409",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:53.356Z",
+      "crawledAt": "2026-10-06T09:20:02.318Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -830,13 +847,14 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
+      "postalCode": "7000",
       "firstSeenAt": "2026-07-03T22:48:21.870Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -853,7 +871,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/CLOSED-Jelmoli-Zrich/Mitarbeiter-Warenverrumung--m-w-d-_R3408",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:52.599Z",
+      "crawledAt": "2026-10-06T09:20:01.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -873,13 +891,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "firstSeenAt": "2026-07-03T22:48:21.068Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -896,7 +915,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Seedam-Center-Pfffikon/Mitarbeiter-Warenverrumung--m-w-d-_R3407",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:51.848Z",
+      "crawledAt": "2026-10-06T09:20:00.700Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -916,13 +935,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8330",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -939,7 +959,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Baden-Schlossbergplatz/Mitarbeiter-Warenverrumung--m-w-d-_R3406",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:51.103Z",
+      "crawledAt": "2026-10-06T09:19:59.900Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -959,13 +979,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "5400",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -982,7 +1003,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-Freie-Strasse/Mitarbeiter-Warenverrumung--m-w-d-_R3405",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:50.346Z",
+      "crawledAt": "2026-10-06T09:19:59.154Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1002,13 +1023,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "4001",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1025,7 +1047,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Emmen-Center/Mitarbeiter-Warenverrumung--m-w-d-_R3404",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:49.591Z",
+      "crawledAt": "2026-10-06T09:19:58.116Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1045,13 +1067,14 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
+      "postalCode": "6032",
       "firstSeenAt": "2026-07-03T22:48:21.870Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1068,7 +1091,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Bern-Westside/Mitarbeiter-Warenverrumung--m-w-d-_R3403",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:48.834Z",
+      "crawledAt": "2026-10-06T09:19:57.283Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1088,13 +1111,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "3004",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1111,7 +1135,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Luzern-Weggisgasse/Mitarbeiter-Warenverrumung--m-w-d-_R3402",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:48.001Z",
+      "crawledAt": "2026-10-06T09:19:56.549Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1131,13 +1155,14 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
+      "postalCode": "6003",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1154,7 +1179,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zug-Metalli/Mitarbeiter-Warenverrumung--m-w-d-_R3401",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:47.141Z",
+      "crawledAt": "2026-10-06T09:19:55.397Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1174,13 +1199,14 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
+      "postalCode": "6300",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1197,7 +1223,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Biel-Nidaugasse/Mitarbeiter-Warenverrumung--m-w-d-_R3400",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:46.407Z",
+      "crawledAt": "2026-10-06T09:19:54.642Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1240,7 +1266,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Luzern-SBB/Mitarbeiter-Warenverrumung--m-w-d-_R3399",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:45.668Z",
+      "crawledAt": "2026-10-06T09:19:53.890Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1260,13 +1286,14 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
+      "postalCode": "6003",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1283,7 +1310,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Bern-SBB/Mitarbeiter-Warenverrumung--m-w-d-_R3398",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:32:44.923Z",
+      "crawledAt": "2026-10-06T09:19:53.009Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1303,13 +1330,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "postalCode": "3004",
       "firstSeenAt": "2026-07-03T22:48:20.291Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -1326,7 +1354,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Stockiste--h-f-_R2392",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:10.790Z",
+      "crawledAt": "2026-10-06T09:24:37.516Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1347,12 +1375,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "2000",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1367,7 +1396,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Stockiste--h-f-_R2391",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:10.040Z",
+      "crawledAt": "2026-10-06T09:24:36.749Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1388,12 +1417,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1408,7 +1438,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Stockiste--h-f-_R2390",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:09.314Z",
+      "crawledAt": "2026-10-06T09:24:35.957Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1429,12 +1459,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1449,7 +1480,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Stockiste--h-f-_R2380",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:07.834Z",
+      "crawledAt": "2026-10-06T09:24:34.424Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1470,12 +1501,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1201",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1490,7 +1522,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Stockiste--h-f-_R2379",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:07.071Z",
+      "crawledAt": "2026-10-06T09:24:33.624Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1511,12 +1543,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1532,7 +1565,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Stockiste--h-f-_R2378",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:06.338Z",
+      "crawledAt": "2026-10-06T09:24:32.842Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1553,12 +1586,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1573,7 +1607,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Stockiste--h-f-_R2368",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:04.843Z",
+      "crawledAt": "2026-10-06T09:24:31.281Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1594,12 +1628,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1003",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1614,7 +1649,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Stockiste--h-f-_R2367",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:04.111Z",
+      "crawledAt": "2026-10-06T09:24:30.496Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1635,12 +1670,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1656,7 +1692,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Stockiste--h-f-_R2366",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:03.368Z",
+      "crawledAt": "2026-10-06T09:24:29.691Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1677,12 +1713,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1697,7 +1734,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Fribourg-Centre/Stockiste--h-f-_R2452",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:26.218Z",
+      "crawledAt": "2026-10-06T09:23:49.022Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1718,12 +1755,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1700",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1738,7 +1776,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Fribourg-Centre/Stockiste--h-f-_R2451",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:25.490Z",
+      "crawledAt": "2026-10-06T09:23:48.109Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1759,12 +1797,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1700",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1780,7 +1819,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Fribourg-Centre/Stockiste--h-f-_R2450",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:24.737Z",
+      "crawledAt": "2026-10-06T09:23:47.317Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1801,12 +1840,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1700",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1821,7 +1861,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Chavannes-de-Bogis-Centre-Manor/Stockiste--h-f-_R2440",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:23.259Z",
+      "crawledAt": "2026-10-06T09:23:45.482Z",
       "addressLocality": "Chavannes-de-Bogis",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1842,12 +1882,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1279",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1862,7 +1903,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Chavannes-de-Bogis-Centre-Manor/Stockiste--h-f-_R2439",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:22.461Z",
+      "crawledAt": "2026-10-06T09:23:44.563Z",
       "addressLocality": "Chavannes-de-Bogis",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1883,12 +1924,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1279",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1904,7 +1946,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Chavannes-de-Bogis-Centre-Manor/Stockiste--h-f-_R2438",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:21.710Z",
+      "crawledAt": "2026-10-06T09:23:43.797Z",
       "addressLocality": "Chavannes-de-Bogis",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1925,12 +1967,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1279",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1945,7 +1988,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Avry-Centre-Avry/Stockiste--h-f-_R2428",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:20.248Z",
+      "crawledAt": "2026-10-06T09:23:42.234Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1966,12 +2009,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1754",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1986,7 +2030,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Avry-Centre-Avry/Stockiste--h-f-_R2427",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:19.526Z",
+      "crawledAt": "2026-10-06T09:23:41.435Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2007,12 +2051,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1754",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2028,7 +2073,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Avry-Centre-Avry/Stockiste--h-f-_R2426",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:18.717Z",
+      "crawledAt": "2026-10-06T09:23:40.669Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2049,12 +2094,13 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1754",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2069,7 +2115,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Stockiste--h-f-_R2416",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:17.201Z",
+      "crawledAt": "2026-10-06T09:23:39.128Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2090,12 +2136,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1950",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2110,7 +2157,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Stockiste--h-f-_R2415",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:16.348Z",
+      "crawledAt": "2026-10-06T09:23:38.367Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2131,12 +2178,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1950",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2152,7 +2200,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Stockiste--h-f-_R2414",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:15.591Z",
+      "crawledAt": "2026-10-06T09:23:37.537Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2173,12 +2221,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1950",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2194,7 +2243,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Grancia-Centro-Lugano-Sud/Aushilfe-Verkaufsberater--m-w-d-_R3602",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:44.620Z",
+      "crawledAt": "2026-10-06T09:17:49.372Z",
       "addressLocality": "Grancia",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2215,94 +2264,13 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "6916",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "rituals-cosmetics-e6cbadb13dd4",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
-      "company": "Rituals Cosmetics Switzerland",
-      "companyKey": "rituals-cosmetics",
-      "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
-      "location": "Aarau",
-      "canton": "AG",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Assistant-Counter-Manager--m-w-d-_R3575",
-      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:23.216Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendite",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Cosmetica / Retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
-      "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Assistant-Counter-Manager--m-w-d-_R3575",
-      "jobReqId": "R3575",
-      "firstSeenAt": "2026-07-03T22:43:56.476Z",
-      "salaryMin": 103500,
-      "salaryMax": 159500,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "rituals-cosmetics-8aa144152e52",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
-      "company": "Rituals Cosmetics Switzerland",
-      "companyKey": "rituals-cosmetics",
-      "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
-      "location": "Aarau",
-      "canton": "AG",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Assistant-Counter-Manager--m-w-d-_R3574",
-      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:22.333Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendite",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Cosmetica / Retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
-      "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Assistant-Counter-Manager--m-w-d-_R3574",
-      "jobReqId": "R3574",
-      "firstSeenAt": "2026-07-03T22:43:48.929Z",
-      "salaryMin": 103500,
-      "salaryMax": 159500,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2319,7 +2287,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Assistant-Counter-Manager--m-w-d-_R3573",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:21.599Z",
+      "crawledAt": "2026-10-06T09:17:25.544Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2340,27 +2308,158 @@
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "postalCode": "5000",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "rituals-cosmetics-1d3e2dcb09a1",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
+      "id": "rituals-cosmetics-60cfa4904435",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-aarau",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3572",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3726",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:20.584Z",
+      "crawledAt": "2026-10-06T09:17:00.593Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Cosmetica / Retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3726",
+      "jobReqId": "R3726",
+      "firstSeenAt": "2026-07-03T22:43:28.562Z",
+      "salaryMin": 103500,
+      "salaryMax": 159500,
+      "salarySource": "estimated",
+      "postalCode": "5000",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "rituals-cosmetics-f68775c449ce",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-aarau-b71faa",
+      "company": "Rituals Cosmetics Switzerland",
+      "companyKey": "rituals-cosmetics",
+      "companyDomain": "rituals.com",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3725",
+      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T09:16:59.827Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Cosmetica / Retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3725",
+      "jobReqId": "R3725",
+      "firstSeenAt": "2026-07-03T22:43:14.034Z",
+      "salaryMin": 103500,
+      "salaryMax": 159500,
+      "salarySource": "estimated",
+      "postalCode": "5000",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "rituals-cosmetics-c8988519994d",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-aarau-14ef7f",
+      "company": "Rituals Cosmetics Switzerland",
+      "companyKey": "rituals-cosmetics",
+      "companyDomain": "rituals.com",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3724",
+      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T09:16:59.068Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Cosmetica / Retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Aarau/Counter-Manager--m-w-d-_R3724",
+      "jobReqId": "R3724",
+      "firstSeenAt": "2026-07-03T22:43:14.034Z",
+      "salaryMin": 103500,
+      "salaryMax": 159500,
+      "salarySource": "estimated",
+      "postalCode": "5000",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "rituals-cosmetics-4a199c27c9a7",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-basel",
+      "company": "Rituals Cosmetics Switzerland",
+      "companyKey": "rituals-cosmetics",
+      "companyDomain": "rituals.com",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3723",
+      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T09:16:58.302Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2372,37 +2471,38 @@
       "sector": "Cosmetica / Retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3572",
-      "jobReqId": "R3572",
-      "firstSeenAt": "2026-07-03T22:43:54.009Z",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3723",
+      "jobReqId": "R3723",
+      "firstSeenAt": "2026-07-03T22:43:26.222Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "4001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "rituals-cosmetics-149e3d659321",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
-      "slugDisambiguator": "r3571",
+      "id": "rituals-cosmetics-3c5da8b3b3a8",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-basel-798f4d",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3571",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3722",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:19.692Z",
+      "crawledAt": "2026-10-06T09:16:57.553Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2414,37 +2514,38 @@
       "sector": "Cosmetica / Retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3571",
-      "jobReqId": "R3571",
-      "firstSeenAt": "2026-07-03T22:43:48.929Z",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3722",
+      "jobReqId": "R3722",
+      "firstSeenAt": "2026-07-03T22:43:14.034Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "4001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "rituals-cosmetics-7396df170b4b",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
-      "slugDisambiguator": "r3570",
+      "id": "rituals-cosmetics-dd52dde457d9",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-basel-fd203e",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3570",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3721",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:18.798Z",
+      "crawledAt": "2026-10-06T09:16:56.807Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2456,36 +2557,38 @@
       "sector": "Cosmetica / Retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Assistant-Counter-Manager--m-w-d-_R3570",
-      "jobReqId": "R3570",
-      "firstSeenAt": "2026-07-03T22:43:48.929Z",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Basel-St-Jakob/Counter-Manager--m-w-d-_R3721",
+      "jobReqId": "R3721",
+      "firstSeenAt": "2026-07-03T22:43:14.034Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "4001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "rituals-cosmetics-fc3b5e546182",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
+      "id": "rituals-cosmetics-5419a8df26b3",
+      "slug": "contatore-m-f-d-rituals-cosmetics-switzerland-zuerich",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
+      "title": "Counter Manager (m/w/d)",
+      "needsRetranslation": true,
       "location": "Zuerich",
       "canton": "ZH",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Assistant-Counter-Manager--m-w-d-_R3569",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Counter-Manager--m-w-d-_R3720",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:18.051Z",
+      "crawledAt": "2026-10-06T09:16:56.067Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2497,62 +2600,22 @@
       "sector": "Cosmetica / Retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
+      "datePosted": "2026-04-08",
+      "postedDate": "2026-04-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Assistant-Counter-Manager--m-w-d-_R3569",
-      "jobReqId": "R3569",
-      "firstSeenAt": "2026-07-03T22:43:51.586Z",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Counter-Manager--m-w-d-_R3720",
+      "jobReqId": "R3720",
+      "firstSeenAt": "2026-07-03T22:43:23.727Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "rituals-cosmetics-4c7fa3ee2ac4",
-      "slug": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
-      "company": "Rituals Cosmetics Switzerland",
-      "companyKey": "rituals-cosmetics",
-      "companyDomain": "rituals.com",
-      "title": "Assistant Counter Manager (m/w/d)",
-      "location": "Zuerich",
-      "canton": "ZH",
-      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Assistant-Counter-Manager--m-w-d-_R3568",
-      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:17.092Z",
-      "addressLocality": "Zuerich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendite",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Cosmetica / Retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-17",
-      "postedDate": "2026-03-17",
-      "postingDateSource": "reported",
-      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Manor-Zuerich-Letzipark/Assistant-Counter-Manager--m-w-d-_R3568",
-      "jobReqId": "R3568",
-      "firstSeenAt": "2026-07-03T22:43:50.787Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -2570,7 +2633,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Stockiste--h-f-_R2404",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:13.794Z",
+      "crawledAt": "2026-10-06T09:24:40.598Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2591,12 +2654,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1227",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2611,7 +2675,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Stockiste--h-f-_R2403",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:13.027Z",
+      "crawledAt": "2026-10-06T09:24:39.832Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2632,12 +2696,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1227",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2652,7 +2717,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Stockiste--h-f-_R2402",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:12.291Z",
+      "crawledAt": "2026-10-06T09:24:39.035Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2673,12 +2738,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1227",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2693,7 +2759,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Stockiste--h-f-_R2401",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:11.551Z",
+      "crawledAt": "2026-10-06T09:24:38.272Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2714,12 +2780,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1227",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2735,7 +2802,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Stockiste--h-f-_R2389",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:08.552Z",
+      "crawledAt": "2026-10-06T09:24:35.196Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2756,12 +2823,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2777,7 +2845,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Stockiste--h-f-_R2377",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:05.584Z",
+      "crawledAt": "2026-10-06T09:24:32.064Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2798,12 +2866,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2819,7 +2888,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Stockiste--h-f-_R2365",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:02.624Z",
+      "crawledAt": "2026-10-06T09:24:28.892Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2840,12 +2909,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2861,7 +2931,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Stockiste--h-f-_R2356",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:01.743Z",
+      "crawledAt": "2026-10-06T09:24:28.039Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2882,12 +2952,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2903,7 +2974,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Stockiste--h-f-_R2355",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:00.895Z",
+      "crawledAt": "2026-10-06T09:24:27.269Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2924,12 +2995,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2945,7 +3017,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Stockiste--h-f-_R2354",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:37:00.153Z",
+      "crawledAt": "2026-10-06T09:24:26.507Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2966,12 +3038,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -2987,7 +3060,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Stockiste--h-f-_R2353",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:59.378Z",
+      "crawledAt": "2026-10-06T09:24:25.720Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3008,12 +3081,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3029,7 +3103,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Conseiller-de-Vente--h-f-_R2408",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:58.640Z",
+      "crawledAt": "2026-10-06T09:24:24.918Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3050,12 +3124,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1227",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3071,7 +3146,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Conseiller-de-Vente--h-f-_R2407",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:57.892Z",
+      "crawledAt": "2026-10-06T09:24:24.151Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3092,12 +3167,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1227",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3113,7 +3189,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Conseiller-de-Vente--h-f-_R2406",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:57.170Z",
+      "crawledAt": "2026-10-06T09:24:23.355Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3134,12 +3210,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1227",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3155,7 +3232,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Carouge-La-Praille/Conseiller-de-Vente--h-f-_R2405",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:56.386Z",
+      "crawledAt": "2026-10-06T09:24:22.556Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3176,12 +3253,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1227",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3197,7 +3275,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Conseiller-de-Vente--h-f-_R2396",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:55.646Z",
+      "crawledAt": "2026-10-06T09:24:21.764Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -3218,12 +3296,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3239,7 +3318,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Conseiller-de-Vente--h-f-_R2395",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:54.857Z",
+      "crawledAt": "2026-10-06T09:24:20.809Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -3260,12 +3339,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3281,7 +3361,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Conseiller-de-Vente--h-f-_R2394",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:54.135Z",
+      "crawledAt": "2026-10-06T09:24:20.023Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -3302,12 +3382,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3323,7 +3404,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Neuchatel/Conseiller-de-Vente--h-f-_R2393",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:53.414Z",
+      "crawledAt": "2026-10-06T09:24:19.170Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -3344,12 +3425,13 @@
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3365,7 +3447,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Conseiller-de-Vente--h-f-_R2384",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:52.683Z",
+      "crawledAt": "2026-10-06T09:24:18.354Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3386,12 +3468,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3407,7 +3490,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Conseiller-de-Vente--h-f-_R2383",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:51.949Z",
+      "crawledAt": "2026-10-06T09:24:17.550Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3428,12 +3511,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3449,7 +3533,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Conseiller-de-Vente--h-f-_R2382",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:51.223Z",
+      "crawledAt": "2026-10-06T09:24:16.774Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3470,12 +3554,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3491,7 +3576,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Genve-Rue-du-Marche/Conseiller-de-Vente--h-f-_R2381",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:50.455Z",
+      "crawledAt": "2026-10-06T09:24:15.907Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3512,12 +3597,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3533,7 +3619,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Conseiller-de-Vente--h-f-_R2372",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:49.689Z",
+      "crawledAt": "2026-10-06T09:24:15.109Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3554,12 +3640,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3575,7 +3662,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Conseiller-de-Vente--h-f-_R2371",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:48.927Z",
+      "crawledAt": "2026-10-06T09:24:14.327Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3596,12 +3683,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3617,7 +3705,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Conseiller-de-Vente--h-f-_R2370",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:48.215Z",
+      "crawledAt": "2026-10-06T09:24:13.547Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3638,12 +3726,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3659,7 +3748,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Lausanne/Conseiller-de-Vente--h-f-_R2369",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:47.434Z",
+      "crawledAt": "2026-10-06T09:24:12.515Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3680,12 +3769,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1003",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3701,7 +3791,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Conseiller-de-Vente--h-f-_R2360",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:46.697Z",
+      "crawledAt": "2026-10-06T09:24:11.481Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3722,12 +3812,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3743,7 +3834,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Conseiller-de-Vente--h-f-_R2359",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:45.965Z",
+      "crawledAt": "2026-10-06T09:24:10.627Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3764,12 +3855,13 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -3785,7 +3877,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Geneve-Centre-Balexert/Conseiller-de-Vente--h-f-_R2358",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:36:45.251Z",
+      "crawledAt": "2026-10-06T09:24:09.836Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3806,14 +3898,15 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1201",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

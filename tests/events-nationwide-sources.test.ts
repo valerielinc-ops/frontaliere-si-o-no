@@ -20,7 +20,7 @@ import {
   resolveComuneNationwide,
   haversineKm,
   resolveItalianFrontierComuni,
-  mirrorEventImage,
+  mirrorEventImage as mirrorEventImageImpl,
   resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
@@ -29,7 +29,11 @@ import {
   reverseGeocodeComune,
   enrichEventsWithGeoComune,
   EVENT_IMAGE_MAX_BYTES,
+  isEventImageSourceAllowed,
+  isEventImageSafeIdAllowed,
 } from '../scripts/lib/events-utils.mjs';
+
+const mirrorEventImage = (sourceUrl: string, stableId: string) => mirrorEventImageImpl(sourceUrl, stableId, 'openagenda');
 
 // Sanity-check margin for the noise fixtures below: derived from the real
 // mirrorEventImage reject cutoff (EVENT_IMAGE_MAX_BYTES) rather than a bare
@@ -45,6 +49,16 @@ describe('EVENT_SOURCES nationwide registry', () => {
     expect(EVENT_SOURCES.guidle.canton).toBeNull();
     expect(EVENT_SOURCES.myswitzerland.canton).toBeNull();
     expect(EVENT_SOURCES['tio-agenda'].canton).toBe('TI');
+  });
+});
+
+describe('event image licence allowlist', () => {
+  it('admits only the explicitly verified source and its mirrored filenames', () => {
+    expect(isEventImageSourceAllowed('openagenda')).toBe(true);
+    expect(isEventImageSourceAllowed('myswitzerland')).toBe(false);
+    expect(isEventImageSafeIdAllowed('openagenda-abc123')).toBe(true);
+    expect(isEventImageSafeIdAllowed('myswitzerland-abc123')).toBe(false);
+    expect(isEventImageSafeIdAllowed('openagendaabc123')).toBe(false);
   });
 });
 
@@ -407,6 +421,13 @@ describe('mirrorEventImage', () => {
 
   it('returns null for an empty stableId', async () => {
     expect(await mirrorEventImage('https://example.com/x.jpg', '')).toBeNull();
+  });
+
+  it('denies an unlicensed source before reading its manifest or fetching', async () => {
+    vi.stubGlobal('fetch', vi.fn());
+    expect(await mirrorEventImageImpl('https://example.com/photo.jpg', 'guidle:stale', 'guidle')).toBeNull();
+    expect(fetch).not.toHaveBeenCalled();
+    expect(existsSync(path.join(testImagesDir, 'guidle-stale.jpg'))).toBe(false);
   });
 
   // The 4-byte body below is deliberately NOT a decodable image, so this case

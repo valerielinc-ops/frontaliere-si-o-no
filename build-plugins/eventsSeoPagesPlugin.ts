@@ -82,6 +82,7 @@ import {
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
   cleanEventText,
+  isEventImageSourceAllowed,
 } from '../scripts/lib/events-utils.mjs';
 import { allEndedEvents, assignEventSlugsForHistory } from '../scripts/lib/events-retention.mjs';
 // Eventfrog (owner decision D5, AGB §17): ephemeral pages from a private
@@ -256,7 +257,9 @@ export function renderOpenAgendaAttribution(event: SiteEvent, locale: Locale): s
   const link = event.url
     ? `<a class="ev-lnk" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>`
     : esc(label);
-  const credit = event.imageCredit && event.imageUrl?.startsWith('/') ? ` · ${esc(copy.image)}: ${esc(event.imageCredit)}` : '';
+  const credit = isEventImageSourceAllowed(event.sourceKey) && event.imageCredit && event.imageUrl?.startsWith('/')
+    ? ` · ${esc(copy.image)}: ${esc(event.imageCredit)}`
+    : '';
   return `<p class="ev-p-sm" data-event-attribution="openagenda">${esc(copy.source)}: ${link}, ${esc(copy.updated)} <time datetime="${esc(updated.toISOString())}">${esc(day)}</time>${credit}</p>`;
 }
 
@@ -1428,18 +1431,15 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * being embedded as a hotlink in production JSON-LD. Event.image falls back
  * to the site-owned category catalog illustration when mirroring failed.
  *
- * License honesty: no per-image license is ever scraped from any event
- * source (tio.ch/biglietteria.ch flyers, Guidle, MySwitzerland all lack
- * stated reuse terms), so `license`/`acquireLicensePage`/`creator` are left
- * to imageObjectLd()'s defaults — our OWN site terms page + site
- * Organization, exactly like the third-party webcam images in
- * borderWaitPagesPlugin — never a fabricated third-party license.
- * `creditText` attributes the original source by name, which IS honestly
- * known from the crawl.
+ * License honesty: only an allowlisted source with an explicit open-image
+ * policy can reach this function. The current allowlist is OpenAgenda's
+ * Licence Ouverte 2.0, and the crawler separately rejects image records with
+ * a rights-reserved credit. Every other source is treated as no image even if
+ * stale data still carries a site-relative URL.
  */
 function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   const raw = event.imageUrl;
-  if (!raw || !raw.startsWith('/')) return null;
+  if (!isEventImageSourceAllowed(event.sourceKey) || !raw || !raw.startsWith('/')) return null;
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),
@@ -1566,7 +1566,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // <img> with width/height/alt) instead of a decorative div with no <img> at
   // all — see writeCatalogImages()/catalogImagePath() above.
   const media =
-    event.imageUrl && event.imageUrl.startsWith('/')
+    isEventImageSourceAllowed(event.sourceKey) && event.imageUrl && event.imageUrl.startsWith('/')
       ? `<img class="ev-img ev-imgz" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
       : `<img class="ev-img" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
   // `group` stays inline: it is a variant MARKER with no declarations of its
@@ -3297,25 +3297,14 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
 }
 
 function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string): string {
-  const hasEventImage = Boolean(event.imageUrl && event.imageUrl.startsWith('/'));
-  // MySwitzerland currently exposes a 222×222 catalogue thumbnail. Keep it as
-  // a soft colour cue in the backdrop, but never enlarge it into the
-  // meaningful foreground: crisp, site-owned typography is the honest fallback
-  // until the source provides a larger rendition.
-  const usesTypographicPoster = event.sourceKey === 'myswitzerland' && hasEventImage;
+  const hasEventImage = Boolean(isEventImageSourceAllowed(event.sourceKey) && event.imageUrl && event.imageUrl.startsWith('/'));
   const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
   const imageAlt = hasEventImage ? title : category;
   const venueOrPlace = event.venue || place;
   const eventMeta = `${when}${event.startTime ? ` · ${event.startTime}` : ''} · ${venueOrPlace}`;
-  const foreground = usesTypographicPoster
-    ? `<div class="ev-hero-poster" role="img" aria-label="${esc(title)}">
-        <span class="ev-hero-poster-kicker" aria-hidden="true">${esc(category)}</span>
-        <strong class="ev-hero-poster-title" aria-hidden="true">${esc(title)}</strong>
-        <span class="ev-hero-poster-meta" aria-hidden="true">${esc(eventMeta)}</span>
-      </div>`
-    : `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
+  const foreground = `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
   return `<figure class="ev-in ev-hero">
-    <div class="ev-hero-stage" data-hero-mode="${usesTypographicPoster ? 'poster' : 'image'}">
+    <div class="ev-hero-stage" data-hero-mode="image">
       <img class="ev-hero-backdrop" src="${esc(imageSrc)}" width="1200" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true">
       <div class="ev-hero-surface">
         ${foreground}
@@ -3372,12 +3361,9 @@ export function renderEventDetailPage(params: {
   const map = osmLink(event, displayComune);
   const description = localizedDescription(event, locale);
   const visual = categoryVisual(event.category);
-  // `imageUrl` only ever holds a mirrored site-relative path — see the same
-  // guard in `renderEventCard`/`mirroredEventImageObject`. The hero keeps a
-  // source flyer contained in a 16:9 stage instead of stretching it to the
-  // old `object-cover` banner. Known 222×222 MySwitzerland thumbnails become
-  // a crisp typographic poster in the foreground, with the source image only
-  // supplying the restrained tonal backdrop.
+  // `imageUrl` only ever holds a mirrored site-relative path from the image
+  // allowlist — see the same guard in `renderEventCard`/`mirroredEventImageObject`.
+  // Non-allowlisted sources use the existing site-owned category placeholder.
   const heroImage = renderEventHero(event, title, cat, when, displayComune);
   const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 

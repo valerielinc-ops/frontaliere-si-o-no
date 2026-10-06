@@ -297,18 +297,20 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.offers.url).toBe(EVENT.url);
   });
 
-  it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
-    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg', sourceName: 'Guidle' };
+  it('emits an ImageObject only for the allowlisted open-licence source', () => {
+    const withImage = {
+      ...EVENT,
+      sourceKey: 'openagenda',
+      sourceName: 'OpenAgenda',
+      imageUrl: '/images/events/openagenda-abc.jpg',
+    };
     const ld = eventLd(withImage as never, 'it') as Record<string, any>;
     expect(ld.image['@type']).toBe('ImageObject');
-    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
-    expect(ld.image.url).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
-    // Attribution IS honestly known (the crawl source) — credited.
-    expect(ld.image.creditText).toBe('Guidle');
-    // No third-party license is ever scraped (issue #3036 item 3) — never
-    // fabricate one; fall back to the site's OWN terms page + canonical
-    // Organization,
-    // never a claim of the third party's copyright.
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/openagenda-abc.jpg');
+    expect(ld.image.url).toBe('https://frontaliereticino.ch/images/events/openagenda-abc.jpg');
+    expect(ld.image.creditText).toBe('OpenAgenda');
+    // The image is admitted only because the source policy is explicit; the
+    // ImageObject still carries the site's own serving/copyright metadata.
     expect(ld.image.license).toBe(SITE_LICENSE_PAGE);
     expect(ld.image.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
     expect(ld.image.creator).toEqual({
@@ -333,6 +335,12 @@ describe('eventLd source attribution (#3125)', () => {
     // deterministic category image remains the safe fallback.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
+  });
+
+  it('falls back to the catalog image for a stale mirrored URL from a removed source', () => {
+    const stale = { ...EVENT, sourceKey: 'myswitzerland', imageUrl: '/images/events/myswitzerland-old.webp' };
+    const ld = eventLd(stale as never, 'it') as Record<string, any>;
     expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
   });
 });
@@ -455,7 +463,7 @@ describe('renderEventDetailPage', () => {
     expect(listPage.html).not.toContain('EVENTS_LIST_INFEED');
     expect(listPage.html).toContain('data-events-page=events_comune');
   });
-  it('uses a crisp typographic poster for the known 222×222 MySwitzerland thumbnail', () => {
+  it('uses the existing catalog placeholder for a stale MySwitzerland thumbnail', () => {
     const myswitzerlandEvent = {
       ...EVENT,
       id: 'myswitzerland:queen-basel',
@@ -479,10 +487,9 @@ describe('renderEventDetailPage', () => {
       distDir,
       detailHref: (() => null) as never,
     });
-    expect(myswitzerlandPage.html).toContain('data-hero-mode=poster');
-    expect(myswitzerlandPage.html).toContain('class=ev-hero-poster');
-    expect(myswitzerlandPage.html).toContain('The Music of QUEEN - Live');
-    expect(myswitzerlandPage.html).not.toContain('class="ev-heroimg"');
+    expect(myswitzerlandPage.html).toContain('data-hero-mode=image');
+    expect(myswitzerlandPage.html).toContain('/images/events/catalog/');
+    expect(myswitzerlandPage.html).not.toContain('/images/events/myswitzerland-queen-basel.webp');
 
     const guidlePage = renderEventDetailPage({
       locale: 'it',
@@ -495,7 +502,8 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     expect(guidlePage.html).toContain('data-hero-mode=image');
-    expect(guidlePage.html).toContain('class=ev-heroimg');
+    expect(guidlePage.html).toContain('/images/events/catalog/');
+    expect(guidlePage.html).not.toContain('/images/events/guidle-abc.jpg');
   });
   it('keeps historical detail pages indexable without stale Event JSON-LD', () => {
     const pastPage = renderEventDetailPage({

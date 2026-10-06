@@ -894,6 +894,7 @@ jobs:
           download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           download_main scripts/lib/github-issue-creator.mjs "$policy_root/scripts/lib/github-issue-creator.mjs"
+          download_main scripts/lib/is-invoked-directly.mjs "$policy_root/scripts/lib/is-invoked-directly.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
           download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
@@ -3646,6 +3647,7 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/lib/github-issue-creator.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/pr-body-closes-check.mjs \
             scripts/lib/pr-body-sections-check.mjs; do

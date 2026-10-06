@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-10-05T21:26:17.272Z",
+  "generatedAt": "2026-10-06T09:13:04.465Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4720,
-  "avgDurationMs": 4720,
+  "durationMs": 7154,
+  "avgDurationMs": 7154,
   "durationHistory": [
-    4720
+    7154
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "gavi-779c03b3dd09",
       "slug": "senior-manager-grants-design-gavi-le-grand-saconnex",
@@ -34,7 +35,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:05.940Z",
+      "crawledAt": "2026-10-06T09:12:50.314Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -54,21 +55,20 @@
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "jobReqId": "VN2509",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:26:05.940Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T21:26:05.940Z",
-      "_qualityScore": 84,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 23,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

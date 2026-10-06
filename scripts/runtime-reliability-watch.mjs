@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Runtime reliability watchdog for the public HTML/CDN build pair.
  *
@@ -24,7 +25,6 @@
 
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import {
   chunkGraphSignature,
   crawlChunkGraph,
@@ -613,7 +613,7 @@ async function main() {
   if (!result.ok) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`runtime-reliability-watch failed: ${error.message}`);
     process.exitCode = 1;

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * audit-listing-url-fallback.mjs — per-ATS-family loss of the
  * `listing.url || CAREER_URL` fallback (issue #9679).
@@ -23,7 +24,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { auditListingUrlFallback, formatMarkdown, PARSER_FILE_RE } from './lib/listing-url-fallback-audit.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -128,6 +129,6 @@ export function main(argv = process.argv.slice(2)) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   process.exitCode = main();
 }

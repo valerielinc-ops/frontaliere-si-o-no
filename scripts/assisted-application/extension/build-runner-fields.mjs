@@ -1,3 +1,4 @@
+import { isInvokedDirectly } from '../../lib/is-invoked-directly.mjs';
 /**
  * Writes extension/runner-fields.js: the portal runner's own field reading
  * (lib/portal/fields.mjs `extractFieldsInPage`, self-contained by design) as
@@ -27,7 +28,7 @@ export function renderRunnerFields() {
 `;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   if (process.argv.includes('--check')) {
     // The committed file must be what fields.mjs renders today.
     const current = await readFile(RUNNER_FIELDS_PATH, 'utf8').catch(() => '');

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * newsletter-confirmation-followups.mjs — the runner that CLOSES a double
  * opt-in nobody answered (#5692).
@@ -70,7 +71,6 @@
  * decision to reach them is a decision somebody makes on purpose, with the
  * number in front of them.
  */
-import { pathToFileURL } from 'node:url';
 import {
   decideConfirmationFollowup,
   buildConfirmationExpiryFields,
@@ -507,7 +507,7 @@ async function main() {
 // runner calls main() at module scope, and that is exactly why they can only
 // ever be source-scanned instead of driven.
 const invokedDirectly =
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+  isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('[confirmation-followups] fatal:', err?.stack || err?.message || err);
