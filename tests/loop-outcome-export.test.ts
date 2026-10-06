@@ -21,6 +21,7 @@ import {
   GoogleDataClient,
   L1_GA4_EVENT_CONTRACT,
   L4_GA4_RETURN_CONTRACT,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
   readDeliveryConsentEvidence,
   L5_DECISION_EVENT_CONTRACT,
   l5GatedDateRange,
@@ -36,7 +37,7 @@ function row(path: string, data: Record<string, unknown>) {
 }
 
 describe('read-only loop outcome exporters', () => {
-  it('requires consent evidence to be contemporaneous with the recorded send', () => {
+  it('accepts filter-time evidence inside the measured batch window and rejects older proof', () => {
     const sentAt = '2026-10-06T12:00:00.000Z';
     const proof = {
       consent_checked: true,
@@ -47,12 +48,16 @@ describe('read-only loop outcome exporters', () => {
 
     expect(readDeliveryConsentEvidence({
       ...proof,
-      consent_checked_at: '2026-10-05T12:00:00.000Z',
+      consent_checked_at: new Date(
+        Date.parse(sentAt) - L4_DELIVERY_CONSENT_WINDOW_MS - 1_000,
+      ).toISOString(),
     }, sentAt)).toEqual({ status: 'missing' });
 
     expect(readDeliveryConsentEvidence({
       ...proof,
-      consent_checked_at: '2026-10-06T11:56:00.000Z',
+      consent_checked_at: new Date(
+        Date.parse(sentAt) - L4_DELIVERY_CONSENT_WINDOW_MS + 1_000,
+      ).toISOString(),
     }, sentAt)).toMatchObject({ status: 'valid', basis: 'subscription' });
   });
 
@@ -470,6 +475,37 @@ describe('read-only loop outcome exporters', () => {
       export: {
         consentChecked: false,
         deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('refuses a delivery whose current consent was revoked after the filter proof', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'revoked-after-filter' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
         unattributedDeliveries: 1,
         unattributedDeliveryReasons: { consentNotAllowed: 1 },
       },
