@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * prune-cdn-assets.mjs — CDN assets/ GC janitor (zero-Claude, deterministico).
  *
@@ -60,7 +61,7 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { planJanitor } from './cdn-prune-plan.mjs';
 
 // Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
@@ -386,7 +387,7 @@ async function main() {
 
 // Run only when invoked directly (`node scripts/ci/prune-cdn-assets.mjs`), not
 // when imported by tests for the pure planJanitor helper.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch(err => {
     console.error('[janitor] fatal:', err.message);
     process.exit(1);

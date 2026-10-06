@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * jobgate-rc.mjs — prepare (and, with --apply, publish) the Remote Config
  * values of the jobgate auth-gate experiment (round: JOBGATE_EXPERIMENT_ID).
@@ -28,7 +29,6 @@
  * allowlist before a publish here has any effect.
  */
 
-import { pathToFileURL } from 'node:url';
 import {
   JOBGATE_ARMS,
   JOBGATE_EXPERIMENT_ID,
@@ -150,7 +150,7 @@ async function main() {
   console.log(`Published Remote Config version ${published.version?.versionNumber ?? '?'}.`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`jobgate-rc: ${error?.message || error}`);
     process.exit(1);

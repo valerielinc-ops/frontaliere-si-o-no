@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Load secrets from Firebase Remote Config → environment variables
  *
@@ -24,8 +25,6 @@
  *   • If Firebase auth fails, the script exits 0 with a warning (non-blocking)
  *     so workflows that don't have Firebase configured still work.
  */
-
-import { pathToFileURL } from 'node:url';
 
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
@@ -739,7 +738,7 @@ async function main() {
 }
 
 // Only run when executed directly (not when imported by tests).
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
     console.warn('   Falling back to environment variables / GH Secrets.');

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * dmarc-monitor.mjs — Autonomous DMARC health watchdog for frontaliereticino.ch.
  *
@@ -63,7 +64,6 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   cfGraphQL,
@@ -547,7 +547,7 @@ async function main() {
 // Run only when invoked directly (not when imported by the test suite), so
 // importing analyze()/isKnown()/nextEnforcementStep() never triggers a live
 // Cloudflare call.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     // Last-resort guard: still exit 0 (reporter contract).
     console.error(`DMARC monitor unexpected error (non-fatal): ${err.stack || err.message}`);
