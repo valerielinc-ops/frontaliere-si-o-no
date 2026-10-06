@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T18:23:08.067Z",
+  "generatedAt": "2026-10-06T23:45:49.669Z",
   "totalEvents": 11846,
   "events": [
     {
@@ -119242,7 +119242,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un concerto d’organo con brani di epoche diverse. Kristofer Kiesel, musicista della chiesa, li presenta sull’organo Kuhn.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un concerto d’organo con brani di epoche diverse. Kristofer Kiesel, musicista della chiesa, li presenta sull’organo Kuhn.",
+        "en": "The event takes the form of an organ concert featuring works from different periods. Church musician Kristofer Kiesel presents them on the Kuhn organ.",
+        "de": "Auf dem Programm stehen Orgelwerke aus verschiedenen Epochen. Kirchenmusiker Kristofer Kiesel stellt sie an der Kuhn-Orgel vor.",
+        "fr": "Le rendez-vous prend la forme d’un concert d’orgue consacré à des œuvres de différentes époques. Le musicien d’église Kristofer Kiesel les présente sur l’orgue Kuhn."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ddb963da3ed740d0b3189c9bea7c2bca",
@@ -121303,7 +121311,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La retrospettiva riunisce opere di Kaari Upson realizzate attraverso scultura, video, disegno e installazione. I lavori affrontano temi legati a identità, corpo, relazioni, malattia e perdita, e comprendono le serie del Larry Project e un’installazione di grandi dimensioni.",
+      "descriptionByLocale": {
+        "it": "La retrospettiva riunisce opere di Kaari Upson realizzate attraverso scultura, video, disegno e installazione. I lavori affrontano temi legati a identità, corpo, relazioni, malattia e perdita, e comprendono le serie del Larry Project e un’installazione di grandi dimensioni.",
+        "en": "The retrospective brings together works by Kaari Upson in sculpture, video, drawing and installation. It addresses identity, the body, relationships, illness and loss, and includes series connected with the Larry Project as well as a large-scale installation.",
+        "de": "Die Retrospektive versammelt Werke von Kaari Upson in Form von Skulpturen, Videos, Zeichnungen und Installationen. Sie widmet sich Identität, Körper, Beziehungen, Krankheit und Verlust und umfasst auch Serien im Zusammenhang mit dem Larry Project sowie eine grossformatige Installation.",
+        "fr": "La rétrospective rassemble des œuvres de Kaari Upson en sculpture, vidéo, dessin et installation. Elle aborde l’identité, le corps, les relations, la maladie et la perte, avec notamment des séries liées au Larry Project et une installation de grande dimension."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:10-petites-anarchistes-quil-coute-reinventer-monde",
@@ -124014,7 +124030,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Quasi dieci anni dopo il loro nuovo incontro a Parigi, Jesse e Céline sono sposati e hanno due figlie. L’appuntamento teatrale ricorrente si svolge alla Cinémathèque suisse di Lausanne.",
+      "descriptionByLocale": {
+        "it": "Quasi dieci anni dopo il loro nuovo incontro a Parigi, Jesse e Céline sono sposati e hanno due figlie. L’appuntamento teatrale ricorrente si svolge alla Cinémathèque suisse di Lausanne.",
+        "en": "Nearly ten years after Jesse and Céline met again in Paris, they are married and have two daughters. The recurring theatre event is held at the Cinémathèque suisse in Lausanne.",
+        "de": "Fast zehn Jahre nach ihrem Wiedersehen in Paris sind Jesse und Céline verheiratet und haben zwei Töchter. Die wiederkehrende Theaterveranstaltung findet in der Cinémathèque suisse in Lausanne statt.",
+        "fr": "Près de dix ans après leurs retrouvailles à Paris, Jesse et Céline sont mariés et ont deux filles. Cette manifestation théâtrale récurrente se tient à la Cinémathèque suisse, à Lausanne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:89788",
@@ -124139,7 +124163,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il trio riunisce Marcol Savoy alla batteria e Bugge Wesseltoft al pianoforte. L’appuntamento appartiene all’ambito del jazz elettronico e si svolge al Centre des Musiques Actuelles di Genève.",
+      "descriptionByLocale": {
+        "it": "Il trio riunisce Marcol Savoy alla batteria e Bugge Wesseltoft al pianoforte. L’appuntamento appartiene all’ambito del jazz elettronico e si svolge al Centre des Musiques Actuelles di Genève.",
+        "en": "The trio features Marcol Savoy on drums and Bugge Wesseltoft on piano. The event is associated with electronic jazz and takes place at Centre des Musiques Actuelles in Genève.",
+        "de": "Das Trio vereint Marcol Savoy am Schlagzeug und Bugge Wesseltoft am Klavier. Die Veranstaltung ist dem elektronischen Jazz zugeordnet und findet im Centre des Musiques Actuelles in Genève statt.",
+        "fr": "Le trio réunit Marcol Savoy à la batterie et Bugge Wesseltoft au piano. Le rendez-vous relève du jazz électronique et se déroule au Centre des Musiques Actuelles à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AKUUkdK",
@@ -124792,7 +124824,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento ricorrente ruota attorno a giochi e intrattenimento al Landvogteischloss. Il luogo indicato è l’Historisches Museum Baden.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente ruota attorno a giochi e intrattenimento al Landvogteischloss. Il luogo indicato è l’Historisches Museum Baden.",
+        "en": "The recurring event centres on games and entertainment at the Landvogteischloss. Its listed venue is the Historisches Museum Baden.",
+        "de": "Im Landvogteischloss dreht sich die wiederkehrende Veranstaltung um Spiele und Unterhaltung. Der angegebene Veranstaltungsort ist Historisches Museum Baden.",
+        "fr": "Au Landvogteischloss, l’événement récurrent associe activités ludiques et divertissement. Le lieu indiqué est Historisches Museum Baden."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64369",
@@ -125342,7 +125382,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento ricorrente si svolge presso Muri AG, nel comune di Alle. Il suo tema è mantenersi in forma durante l’inverno.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si svolge presso Muri AG, nel comune di Alle. Il suo tema è mantenersi in forma durante l’inverno.",
+        "en": "This recurring event is held at Muri AG in Alle. It focuses on staying fit during the winter.",
+        "de": "Die wiederkehrende Veranstaltung findet bei Muri AG in Alle statt. Inhaltlich geht es darum, im Winter fit zu bleiben.",
+        "fr": "Cet événement récurrent se déroule à Muri AG, à Alle. Il porte sur le maintien de la forme physique pendant l’hiver."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:forum-public-quartiers-solidaires-initiatives-vie-quartier",
@@ -125406,7 +125454,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto di Fredz si tiene all'Alhambra. L'evento è programmato a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto di Fredz si tiene all'Alhambra. L'evento è programmato a Ginevra.",
+        "en": "A concert by Fredz takes place at Alhambra. It is scheduled in Geneva.",
+        "de": "Das Konzert von Fredz findet im Alhambra statt. Die Veranstaltung ist in Genf angesetzt.",
+        "fr": "Le concert de Fredz se tient à l’Alhambra. L’événement est programmé à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:fredz-lenaig",
@@ -125442,7 +125498,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Fredz e Lenaïg sono in programma per un concerto all'Alhambra. L'evento si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Fredz e Lenaïg sono in programma per un concerto all'Alhambra. L'evento si svolge a Ginevra.",
+        "en": "Fredz and Lenaïg appear on the programme for a concert at Alhambra. The event takes place in Geneva.",
+        "de": "Fredz und Lenaïg stehen für ein Konzert im Alhambra auf dem Programm. Die Veranstaltung findet in Genf statt.",
+        "fr": "Le programme réunit Fredz et Lenaïg pour un concert à l’Alhambra. Il se déroule à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:fruits-farfelus-graines-rigolotes",
@@ -126815,7 +126879,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione ricorrente è una Metzgete e si svolge a Littau, nel comune di Luzern. È associata a Thorenberg.",
+      "descriptionByLocale": {
+        "it": "La manifestazione ricorrente è una Metzgete e si svolge a Littau, nel comune di Luzern. È associata a Thorenberg.",
+        "en": "A recurring Metzgete is held in Littau, in Luzern. The event is linked to Thorenberg.",
+        "de": "In Littau, im Gemeindegebiet von Luzern, findet wiederkehrend eine Metzgete statt. Der Anlass ist mit Thorenberg verbunden.",
+        "fr": "Cet événement récurrent est une Metzgete organisée à Littau, dans la commune de Luzern. Il est associé à Thorenberg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2a6672d301d648d29414aa79763c9da2",
@@ -127493,7 +127565,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il tema della conferenza-discussione è la storia delle persone intersessuali, nel contesto del mese della storia LGBTIQ+. La programmazione di ottobre comprende incontri e laboratori.",
+      "descriptionByLocale": {
+        "it": "Il tema della conferenza-discussione è la storia delle persone intersessuali, nel contesto del mese della storia LGBTIQ+. La programmazione di ottobre comprende incontri e laboratori.",
+        "en": "This discussion-based conference looks at the history of intersex people as part of the LGBTIQ+ history month programme. The October programme includes meetings and workshops.",
+        "de": "Im Mittelpunkt der Gesprächskonferenz steht die Geschichte intergeschlechtlicher Menschen im Rahmen des Monats der LGBTIQ+-Geschichte. Das Oktoberprogramm umfasst Begegnungen und Workshops.",
+        "fr": "Cette conférence-discussion porte sur l’histoire des personnes intersexes et s’inscrit dans le mois de l’histoire LGBTIQ+. Le programme d’octobre comprend des rencontres et des ateliers."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64342",
@@ -127885,7 +127965,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale sviluppa un'epopea che prende il nulla come punto di partenza. L'evento è programmato a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale sviluppa un'epopea che prende il nulla come punto di partenza. L'evento è programmato a Ginevra.",
+        "en": "The theatre piece follows an epic narrative that starts from nothing. It is scheduled in Geneva.",
+        "de": "Das Theaterstück entwickelt eine epische Geschichte aus dem Nichts. Die Veranstaltung findet in Genf statt.",
+        "fr": "La pièce de théâtre développe une épopée qui naît du rien. Elle est programmée à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:11de7475f37d45f0a04cb1bdebaa753d",
@@ -128087,7 +128175,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza di Francois Epars illustra l'intelligenza artificiale attraverso esempi concreti. È rivolta alle persone senior e si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "La conferenza di Francois Epars illustra l'intelligenza artificiale attraverso esempi concreti. È rivolta alle persone senior e si svolge a Ginevra.",
+        "en": "The conference by Francois Epars explains artificial intelligence through concrete examples. It is intended for seniors and takes place in Geneva.",
+        "de": "Die Konferenz von Francois Epars macht künstliche Intelligenz anhand konkreter Beispiele verständlicher. Sie richtet sich an Seniorinnen und Senioren und findet in Genf statt.",
+        "fr": "La conférence de Francois Epars présente l’intelligence artificielle à l’aide d’exemples concrets. Elle s’adresse aux seniors et a lieu à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:seniors-informer-former-decouvrons-nature-ensemble",
@@ -128650,7 +128746,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un mercato tradizionale. L’evento si svolge a Wattenwil.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un mercato tradizionale. L’evento si svolge a Wattenwil.",
+        "en": "This event is a traditional market. It takes place in Wattenwil.",
+        "de": "Die Veranstaltung ist ein traditioneller Markt. Sie findet in Wattenwil statt.",
+        "fr": "Il s’agit d’un marché traditionnel. L’événement se tient à Wattenwil."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:49cfa9be8efb442d8191e688e2b25d47",
@@ -128682,7 +128786,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Una giuria specializzata esamina numerose capre tipiche di Appenzell. Al termine, vengono premiate le capre considerate più belle del cantone Appenzell Innerrhoden.",
+      "descriptionByLocale": {
+        "it": "Una giuria specializzata esamina numerose capre tipiche di Appenzell. Al termine, vengono premiate le capre considerate più belle del cantone Appenzell Innerrhoden.",
+        "en": "A specialist jury assesses numerous typical Appenzeller goats in Appenzell. The event concludes by recognizing the goats judged most beautiful in the canton of Appenzell Innerrhoden.",
+        "de": "Eine Fachjury begutachtet in Appenzell zahlreiche typische Appenzeller Ziegen. Zum Abschluss werden die als schönste bewerteten Ziegen des Kantons Appenzell Innerrhoden ausgezeichnet.",
+        "fr": "À Appenzell, un jury spécialisé examine de nombreuses chèvres de type Appenzeller. À la fin, les chèvres jugées les plus belles du canton d’Appenzell Innerrhoden sont distinguées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:cafe-police-municipale-grottes-echanger-autour-cafe-coeur-quartiers",
