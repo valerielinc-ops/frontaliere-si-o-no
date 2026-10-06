@@ -354,6 +354,13 @@ describe('extractAddress', () => {
     });
   });
 
+  it('normalizes encoded address fields before publishing them', () => {
+    expect(extractAddress({ streetAddress: 'Hauptstrasse &amp; 1', postalCode: '6600' })).toEqual({
+      street: 'Hauptstrasse & 1',
+      postalCode: '6600',
+    });
+  });
+
   it('returns undefined when absent/empty', () => {
     expect(extractAddress(undefined)).toBeUndefined();
     expect(extractAddress({})).toBeUndefined();

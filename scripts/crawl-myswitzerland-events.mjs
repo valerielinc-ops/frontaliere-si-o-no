@@ -354,6 +354,14 @@ function cleanText(value) {
   return cleanEventText(value);
 }
 
+const REPLACEMENT_CHARACTER = '\uFFFD';
+
+/** Keep corrupt source bytes from entering the published event slice. */
+function cleanSourceField(value) {
+  const cleaned = cleanText(value);
+  return cleaned && !cleaned.includes(REPLACEMENT_CHARACTER) ? cleaned : undefined;
+}
+
 function extractGeo(hit) {
   const g = hit?._geoloc;
   if (!g || typeof g.lat !== 'number' || typeof g.lng !== 'number') return undefined;
@@ -534,10 +542,10 @@ export function mergePriceBackfillRecords(freshEvents, ...backfillGroups) {
 export function extractAddress(ld) {
   const addr = ld?.location?.address;
   if (!addr || typeof addr !== 'object') return undefined;
-  const street = typeof addr.streetAddress === 'string' && addr.streetAddress.trim() ? addr.streetAddress.trim() : undefined;
-  const postalCode = typeof addr.postalCode === 'string' && addr.postalCode.trim() ? addr.postalCode.trim() : undefined;
-  const locality = typeof addr.addressLocality === 'string' && addr.addressLocality.trim() ? addr.addressLocality.trim() : undefined;
-  const region = typeof addr.addressRegion === 'string' && addr.addressRegion.trim() ? addr.addressRegion.trim() : undefined;
+  const street = cleanSourceField(addr.streetAddress);
+  const postalCode = cleanSourceField(addr.postalCode);
+  const locality = cleanSourceField(addr.addressLocality);
+  const region = cleanSourceField(addr.addressRegion);
   if (!street && !postalCode && !locality && !region) return undefined;
   return { street, postalCode, locality, region };
 }
@@ -572,18 +580,18 @@ function matchesPersonField(name, field) {
 }
 
 function extractVenue(ld, fallbackPlace) {
-  const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) {
-    const trimmed = name.trim();
+  const name = cleanSourceField(ld?.location?.name);
+  const locality = cleanSourceField(ld?.location?.address?.addressLocality);
+  if (name) {
+    const trimmed = name;
     // Reject location.name that matches a performer or organizer name — implausible as a venue
     if (!matchesPersonField(trimmed, ld?.performer) && !matchesPersonField(trimmed, ld?.organizer)) {
       return trimmed;
     }
     // Implausible: fall back to addressLocality as a useful venue label
-    const locality = ld?.location?.address?.addressLocality;
-    if (typeof locality === 'string' && locality.trim()) return locality.trim();
+    if (locality) return locality;
   }
-  return fallbackPlace || undefined;
+  return cleanSourceField(fallbackPlace) || locality;
 }
 
 const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -686,8 +694,9 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit) continue;
-    if (typeof hit.title === 'string' && hit.title.trim()) titleByLocale[locale] = hit.title.trim();
-    const desc = cleanText(hit.leadText) || cleanText(hit.content);
+    const title = cleanSourceField(hit.title);
+    if (title) titleByLocale[locale] = title;
+    const desc = cleanSourceField(hit.leadText) || cleanSourceField(hit.content);
     if (desc) descriptionByLocale[locale] = desc;
   }
   const title = titleByLocale.it || titleByLocale.en || titleByLocale.de || titleByLocale.fr;
@@ -719,10 +728,10 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   const addressSource = ldAddress || htmlAddress || detailAddress;
   const address = addressSource
     ? {
-        street: ldAddress?.street || htmlAddress?.street || detailAddress?.street,
-        postalCode: ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode,
-        locality: ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality,
-        region: ldAddress?.region || htmlAddress?.region || detailAddress?.region,
+        street: cleanSourceField(ldAddress?.street || htmlAddress?.street || detailAddress?.street),
+        postalCode: cleanSourceField(ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode),
+        locality: cleanSourceField(ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality),
+        region: cleanSourceField(ldAddress?.region || htmlAddress?.region || detailAddress?.region),
       }
     : undefined;
   const imageSourceUrl =

@@ -409,10 +409,46 @@ describe('renderEventDetailPage', () => {
     });
     expect(cleanEventText('<p><b>Queen &amp; Friends</b><br>Live</p>')).toBe('Queen & Friends Live');
     expect(cleanEventText('Un &eacute;vénement &NotEqualTilde;')).toBe('Un événement ≂̸');
+    expect(cleanEventText('Treffpunkt: Mehrzweckplatz Zwischenb&auml;chen')).toBe('Treffpunkt: Mehrzweckplatz Zwischenbächen');
+    expect(cleanEventText('&amp;auml;')).toBe('ä');
+    expect(cleanEventText('_Fonte: Ticinonline, 24 febbraio 2026_')).toBe('Fonte: Ticinonline, 24 febbraio 2026');
+    expect(cleanEventText('*Huitante-Six*')).toBe('Huitante-Six');
+    expect(cleanEventText('# Concert annuel 2027 ### Concert annuel avant')).toBe('Concert annuel 2027 Concert annuel avant');
     expect(markedUpPage.html).toContain('The Music of Queen Live Valentin Findling');
     expect(markedUpPage.html).not.toContain('&lt;b&gt;');
     expect(markedUpPage.html).not.toContain('<b>');
     expect(markedUpPage.html).toContain('"description":"The Music of Queen Live Valentin Findling');
+  });
+  it('falls back from corrupt venue fields and cleans event markup in visible copy and schema', () => {
+    const corruptEvent = {
+      ...EVENT,
+      id: 'myswitzerland:glarona-corrupt',
+      title: '*Alpine Gouache*',
+      venue: 'Bergrestaurant Ch�mistube',
+      address: { street: 'Grotzenb�el', locality: 'Braunwald', postalCode: '8784' },
+      description: '## *Mostra alpina*',
+    };
+    const corruptPage = renderEventDetailPage({
+      locale: 'it',
+      event: corruptEvent as never,
+      comune: 'Glarus Süd',
+      eventSlug: slugifyEvent(corruptEvent),
+      sameComuneEvents: [corruptEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const schema = [...corruptPage.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, any>)
+      .find((entry) => entry['@type'] === 'Event') as Record<string, any>;
+    expect(corruptPage.html).toContain('Braunwald');
+    expect(corruptPage.html).toContain('Alpine Gouache');
+    expect(corruptPage.html).not.toContain('Ch�mistube');
+    expect(corruptPage.html).not.toContain('Grotzenb�el');
+    expect(corruptPage.html).not.toContain('*Alpine Gouache*');
+    expect(schema.location.name).toBe('Braunwald');
+    expect(schema.location.address.streetAddress).toBeUndefined();
+    expect(schema.location.address.addressLocality).toBe('Braunwald');
   });
   it('uses the art-directed hero and one contextual AdSense slot on indexable details', () => {
     expect(page.html).toContain('ev-hero-backdrop');

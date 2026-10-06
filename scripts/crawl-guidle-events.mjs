@@ -334,8 +334,8 @@ function text(el) {
 /** {street, postalCode} from a JSON-LD `location.address` (PostalAddress), or undefined. */
 export function extractAddress(address) {
   if (!address || typeof address !== 'object') return undefined;
-  const street = typeof address.streetAddress === 'string' && address.streetAddress.trim() ? address.streetAddress.trim() : undefined;
-  const postalCode = typeof address.postalCode === 'string' && address.postalCode.trim() ? address.postalCode.trim() : undefined;
+  const street = cleanText(address.streetAddress) || undefined;
+  const postalCode = cleanText(address.postalCode) || undefined;
   if (!street && !postalCode) return undefined;
   return { street, postalCode };
 }

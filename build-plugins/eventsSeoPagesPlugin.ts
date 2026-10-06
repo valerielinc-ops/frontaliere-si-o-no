@@ -264,14 +264,29 @@ export function renderOpenAgendaAttribution(event: SiteEvent, locale: Locale): s
 }
 
 function localizedTitle(event: SiteEvent, locale: Locale): string {
-  return cleanEventText(event.titleByLocale?.[locale] || event.title) || cleanEventText(event.title);
+  return cleanRenderableEventText(event.titleByLocale?.[locale] || event.title) || cleanRenderableEventText(event.title);
 }
 
 function localizedDescription(event: SiteEvent, locale: Locale): string | undefined {
-  const localized = cleanEventText(event.descriptionByLocale?.[locale]);
+  const localized = cleanRenderableEventText(event.descriptionByLocale?.[locale]);
   if (localized) return localized;
-  const fallback = cleanEventText(event.description);
+  const fallback = cleanRenderableEventText(event.description);
   return fallback || undefined;
+}
+
+const REPLACEMENT_CHARACTER = '\uFFFD';
+
+/** Text fields from public agendas must never expose a replacement glyph.
+ * A bad venue/address is omitted or replaced by a source-backed locality so a
+ * mojibake record cannot become visible copy or structured data. */
+function cleanRenderableEventText(value: unknown): string {
+  const text = cleanEventText(value);
+  return text.includes(REPLACEMENT_CHARACTER) ? '' : text;
+}
+
+function eventVenue(event: SiteEvent): string {
+  return cleanRenderableEventText(event.venue)
+    || cleanRenderableEventText(event.address?.locality);
 }
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -1336,8 +1351,13 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // on those — addressLocality falls back to the crawled venue (a town
   // name for those sources) and addressRegion is omitted when unknown.
   const cantonName = event.canton ? getCantonLabel(event.canton, locale as CantonLocale) : '';
-  const locality = event.address?.locality || event.comune || (event.canton ? cantonName : event.venue || 'Svizzera');
-  const venueName = event.venue || locality;
+  const addressLocality = cleanRenderableEventText(event.address?.locality);
+  const addressStreet = cleanRenderableEventText(event.address?.street);
+  const addressPostalCode = cleanRenderableEventText(event.address?.postalCode);
+  const addressRegion = cleanRenderableEventText(event.address?.region);
+  const comune = cleanRenderableEventText(event.comune);
+  const venueName = eventVenue(event);
+  const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
   // For a single-day timed event, endDate must NOT be the bare date (Google
@@ -1356,7 +1376,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const rawDescription = localizedDescription(event, locale);
   const description =
     rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
-  const eventWithDefaults = fillEventPeopleDefaults(event, eventSourceRecord(event.sourceKey)) as SiteEvent;
+  const eventWithDefaults = fillEventPeopleDefaults({ ...event, title, venue: venueName || undefined }, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
   // A minimum price (AggregateOffer.lowPrice, including Eventfrog's
@@ -1391,10 +1411,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       name: venueName,
       address: {
         '@type': 'PostalAddress',
-        ...(event.address?.street ? { streetAddress: event.address.street } : {}),
-        ...(event.address?.postalCode ? { postalCode: event.address.postalCode } : {}),
+        ...(addressStreet ? { streetAddress: addressStreet } : {}),
+        ...(addressPostalCode ? { postalCode: addressPostalCode } : {}),
         addressLocality: locality,
-        ...(event.address?.region || event.canton ? { addressRegion: event.address?.region || event.canton } : {}),
+        ...(addressRegion || event.canton ? { addressRegion: addressRegion || event.canton } : {}),
         addressCountry: 'CH',
       },
       ...(event.geo
@@ -1549,9 +1569,10 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   const visual = categoryVisual(event.category);
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
-  const place = event.venue ? `${esc(event.venue)}` : '';
+  const place = eventVenue(event);
   const cardTitle = localizedTitle(event, locale);
   const excerpt = cardExcerpt(event, locale);
+  const comune = cleanRenderableEventText(event.comune);
   // `after:absolute after:inset-0` (`.ev-a`) makes the whole card clickable
   // (stretched link) while the visible accessible name/href/rel/target stay
   // exactly the same as before — `article.relative` (`.ev-card`) below is its
@@ -1583,10 +1604,10 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
       </h3>
       <p class="ev-meta">
         <span class="ev-mi ev-when"><span aria-hidden="true">🕒</span>${esc(when)}${time}</span>
-        ${place ? `<span class="ev-mi"><span aria-hidden="true">📍</span>${esc(COPY[locale].at)} ${place}</span>` : ''}
+        ${place ? `<span class="ev-mi"><span aria-hidden="true">📍</span>${esc(COPY[locale].at)} ${esc(place)}</span>` : ''}
       </p>
       ${excerpt ? `<p class="ev-x">${esc(excerpt)}</p>` : ''}
-      ${event.comune ? `<p class="ev-com">${esc(event.comune)}</p>` : ''}
+      ${comune ? `<p class="ev-com">${esc(comune)}</p>` : ''}
     </div>
   </article>`;
 }
@@ -3250,11 +3271,15 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
  * third-party tracker/iframe: a `nofollow` outbound link, same policy as the
  * official-site CTA and the source attribution links. */
 function osmLink(event: SiteEvent, comune: string): { href: string; place: string } {
-  const place = event.venue || event.address?.street || comune;
+  const venue = eventVenue(event);
+  const street = cleanRenderableEventText(event.address?.street);
+  const postalCode = cleanRenderableEventText(event.address?.postalCode);
+  const displayComune = cleanRenderableEventText(comune);
+  const place = venue || street || displayComune;
   if (event.geo) {
     return { href: `https://www.openstreetmap.org/?mlat=${event.geo.lat}&mlon=${event.geo.lng}#map=16/${event.geo.lat}/${event.geo.lng}`, place };
   }
-  const query = [event.address?.street, event.address?.postalCode, comune].filter(Boolean).join(', ') || `${place}, ${comune}`;
+  const query = [street, postalCode, displayComune].filter(Boolean).join(', ') || `${place}, ${displayComune}`;
   return { href: `https://www.openstreetmap.org/search?query=${encodeURIComponent(query)}`, place };
 }
 
@@ -3269,8 +3294,10 @@ function priceLine(event: SiteEvent, dc: DetailCopy): string {
 }
 
 function addressLine(event: SiteEvent, dc: DetailCopy): string {
-  if (!event.address?.street && !event.address?.postalCode) return '';
-  const value = [event.address.street, event.address.postalCode].filter(Boolean).join(', ');
+  const street = cleanRenderableEventText(event.address?.street);
+  const postalCode = cleanRenderableEventText(event.address?.postalCode);
+  if (!street && !postalCode) return '';
+  const value = [street, postalCode].filter(Boolean).join(', ');
   return renderMetric(dc.addressLabel, esc(value));
 }
 
@@ -3280,9 +3307,10 @@ function addressLine(event: SiteEvent, dc: DetailCopy): string {
  * fabricated pin from a text search. Google Maps is never embedded (same
  * outbound-link policy as `osmLink`). */
 function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, map: { href: string; place: string }): string {
-  const addressText =
-    event.address?.street || event.address?.postalCode ? [event.address.street, event.address.postalCode].filter(Boolean).join(', ') : '';
-  const venueOrComune = event.venue || comune;
+  const street = cleanRenderableEventText(event.address?.street);
+  const postalCode = cleanRenderableEventText(event.address?.postalCode);
+  const addressText = street || postalCode ? [street, postalCode].filter(Boolean).join(', ') : '';
+  const venueOrComune = eventVenue(event) || cleanRenderableEventText(comune);
   const embed = event.geo
     ? `<div class="ev-locmap"><iframe src="${esc(osmEmbedSrc(event.geo.lat, event.geo.lng))}" width="100%" height="100%" style="border:0;display:block;width:100%;height:100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(dc.mapLinkLabel(map.place))}" aria-label="${esc(dc.mapLinkLabel(map.place))}"></iframe></div>`
     : '';
@@ -3300,7 +3328,7 @@ function renderEventHero(event: SiteEvent, title: string, category: string, when
   const hasEventImage = Boolean(isEventImageSourceAllowed(event.sourceKey) && event.imageUrl && event.imageUrl.startsWith('/'));
   const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
   const imageAlt = hasEventImage ? title : category;
-  const venueOrPlace = event.venue || place;
+  const venueOrPlace = eventVenue(event) || place;
   const eventMeta = `${when}${event.startTime ? ` · ${event.startTime}` : ''} · ${venueOrPlace}`;
   const foreground = `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
   return `<figure class="ev-in ev-hero">
@@ -3350,7 +3378,10 @@ export function renderEventDetailPage(params: {
   // (OTHER_EVENTS_SEGMENT, via pathFor/pathForEventDetail above), but every
   // user-visible string below must show an honest label — the canton's
   // display name — never the raw internal sentinel string.
-  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? cantonDisplayLabel(canton, locale) : comune;
+  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY
+    ? cantonDisplayLabel(canton, locale)
+    : cleanRenderableEventText(comune) || cantonDisplayLabel(canton, locale);
+  const venue = eventVenue(event);
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
@@ -3389,7 +3420,7 @@ export function renderEventDetailPage(params: {
         ${event.eventStatus ? `<span class="ev-tag2">${esc(EVENT_STATUS_LABEL[event.eventStatus][locale])}</span>` : ''}
       </div>
       <h1 class="ev-h1">${esc(title)}</h1>
-      <p class="ev-lede">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
+      <p class="ev-lede">${esc(dc.lede(when, time, venue, displayComune))}</p>
       ${description ? `<p class="ev-p-sm3">${esc(description)}</p>` : ''}
     </header>
 
@@ -3399,7 +3430,7 @@ export function renderEventDetailPage(params: {
 
     <dl class="ev-dl">
       ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
-      ${renderMetric(dc.whereLabel, esc(event.venue || displayComune))}
+      ${renderMetric(dc.whereLabel, esc(venue || displayComune))}
       ${renderMetric(dc.catLabel, esc(cat))}
       ${renderMetric(dc.comuneLabel, esc(displayComune))}
       ${priceLine(event, dc)}
@@ -3417,7 +3448,7 @@ export function renderEventDetailPage(params: {
 
     <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>
-      <p class="ev-lede">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
+      <p class="ev-lede">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, venue))}</p>
       ${description ? `<h3 class="ev-h3">${esc(dc.descriptionTitle)}</h3><p class="ev-p">${esc(description)}</p>` : ''}
     </section>
 
