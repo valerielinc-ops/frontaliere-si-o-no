@@ -19,7 +19,6 @@ Baseline divergente→ricostruisci. Drainer `sealed`+`open` senza PR-ID→`issue
 `decomposed:1` tracker: PARENT-DEQUEUE; PARENT-CLOSE dopo figlie dell’ultimo `DECOMPOSED_INTO`. Dopo `🔁 **Reopened**`/`🔁 Recurrence on workflow run.`, PARENT-REARM scrive `PARENT_REARM`, rimuove `decomposed:1`/`agent:triaged`/stale; `triage-sweep` App/PAT.
 
 Marker idempotente; max 2 riarmi/issue/30 giorni e 2/run; marker/date/stato illeggibili→fail-closed; nuovo `DECOMPOSED_INTO`→PARENT-CLOSE.
-
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
 `post-merge-followup.yml` gira su OGNI PR owner, **incluse le fix di follow-up**: anti-nipoti.
@@ -141,7 +140,7 @@ Tre livelli:
 - **Item-level**: fingerprint `target repository + target file + token/azione normalizzata`; match→`Sources`, non duplicare.
 - **In-flight PR overlap**: file-specifico; `gh pr list --state open --json number,title` + `gh pr diff <n> --name-only`; target modificato→**escludi** + log "in-flight in PR #N"; dubbio→non escludere.
 
-`is-followup-fix-pr.mjs`: marker (`Addresses` + `Follow-up item`)→finding padre, no issue.
+`scripts/ci/is-followup-fix-pr.mjs`: marker (`Addresses`+`Follow-up item`)→padre; no issue.
 
 ## Issue format
 
