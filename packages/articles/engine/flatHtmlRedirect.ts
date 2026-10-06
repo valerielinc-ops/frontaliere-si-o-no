@@ -55,6 +55,40 @@ function findTagEnd(html: string, start: number): number {
   return -1;
 }
 
+// An unquoted attribute value may contain `/` (for example
+// `<template data-src=/foo/>`), so the final-byte heuristic is not an HTML
+// conformant self-closing check. Consume attributes before deciding whether a
+// slash is the start-tag marker.
+function isSelfClosingStartTag(html: string, nameEnd: number, end: number): boolean {
+  let cursor = nameEnd;
+  while (cursor < end) {
+    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
+    if (cursor >= end) return false;
+    if (html[cursor] === '/') return true;
+
+    while (
+      cursor < end
+      && !/\s/.test(html[cursor])
+      && html[cursor] !== '='
+      && html[cursor] !== '/'
+    ) cursor += 1;
+    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
+    if (html[cursor] !== '=') continue;
+    cursor += 1;
+    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
+    if (html[cursor] === '"' || html[cursor] === "'") {
+      const quote = html[cursor];
+      cursor += 1;
+      while (cursor < end && html[cursor] !== quote) cursor += 1;
+      if (cursor < end) cursor += 1;
+    } else {
+      // `/` is part of an unquoted value until whitespace.
+      while (cursor < end && !/\s/.test(html[cursor])) cursor += 1;
+    }
+  }
+  return false;
+}
+
 function readTag(html: string, start: number): { closing: boolean; end: number; name: string; selfClosing: boolean } | null {
   if (html[start] !== '<') return null;
   const closing = html[start + 1] === '/';
@@ -70,7 +104,7 @@ function readTag(html: string, start: number): { closing: boolean; end: number; 
     closing,
     end,
     name: nameMatch[0].toLowerCase(),
-    selfClosing: !closing && /\/\s*$/.test(html.slice(nameStart, end)),
+    selfClosing: !closing && isSelfClosingStartTag(html, nameEnd, end),
   };
 }
 
