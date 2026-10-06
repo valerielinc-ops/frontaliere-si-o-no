@@ -138,7 +138,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle, esc } from './shared/seoContentTokens';
 import { renderPlainTextLinks } from './shared/plainTextLinks';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 // Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
 // definizione di "quanto e' larga davvero questa immagine", non due.
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
@@ -1596,7 +1596,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // to detect them — instead we parse the same source files to build a deterministic
  // skip set that covers ALL locales (IT + EN/DE/FR variants).
  //
- // ogPagesPlugin owns BOTH article sections (see its `SECTIONS` table):
+ // ogPagesPlugin owns the Pages-shard article sections (see its site-rendered
+ // descriptor table):
  // `frontaliere` (seo-blog*.ts → /articoli-frontaliere/) AND `svizzera`
  // (seo-blog-ch.ts → /articoli-svizzera/). The skip-set MUST list both: a
  // section omitted here falls through to the racy `fs.existsSync` check below,
@@ -1606,15 +1607,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (FR survives, IT/EN/DE vanish), surfacing as audit-hreflang [missingTarget]
  // on a freshly-published article (validate-dist failure 2026-06-23, run
  // 27998666257). This list used to be a hand-copied literal that had to be
- // kept in lockstep with ogPagesPlugin's `SECTIONS` table by hand; as of
- // issue #4881 Fase 6 it is derived from `ARTICLE_SECTION_DESCRIPTORS`, the
- // SAME shared descriptor `ogPagesPlugin.ts` reads for its own `SECTIONS`
- // table — so this skip-set can no longer drift from it by construction.
+ // kept in lockstep with ogPagesPlugin's site-rendered descriptor table by
+ // hand; as of issue #4881 Fase 6 it is derived from the SAME shared selector
+ // `SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS`, so the site never emits or
+ // validates a canton page that the corpus serves from R2.
  const ogSections: ReadonlyArray<{
  seoFiles: readonly string[];
  slugData: string;
  indexSlugs: Record<'en' | 'de' | 'fr', string>;
- }> = ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
+ }> = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
  seoFiles: sec.seoFiles,
  slugData: sec.slugData,
  indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
@@ -1707,7 +1708,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      * leaving one orphaned behind.
      */
     let skippedIndexes = 0;
-    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+    for (const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
       const isSvizzera = sec.seoFiles.some((f) => f.includes('-ch'));
       const skip = isSvizzera
         ? process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true'
