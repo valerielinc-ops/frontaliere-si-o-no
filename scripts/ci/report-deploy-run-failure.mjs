@@ -123,7 +123,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
-import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
 
 /** Conclusioni che sono un guasto del workflow osservato. */
 export const FAILING_CONCLUSIONS = new Set(['failure', 'timed_out', 'startup_failure']);
@@ -358,6 +358,44 @@ export const RUN_HISTORY_LIMIT = 100;
  */
 export const RUN_HISTORY_WINDOW_DAYS = 35;
 
+/**
+ * Conclusion populations that can decide this alarm. Splitting them server-side keeps
+ * queue cancellations from consuming the only page; `cancelled` remains transparent by
+ * construction in `consecutiveFailureStreak` and is not queried here.
+ */
+export const RUN_HISTORY_STATUS_FILTERS = Object.freeze([
+  'success',
+  'failure',
+  'timed_out',
+  'startup_failure',
+]);
+
+/** Pure argument builder for one server-filtered history population. */
+export function buildRunHistoryArgs(workflowName, status, nowMs = Date.now()) {
+  return [
+    'run', 'list', '-w', workflowName, '-b', 'main',
+    '--created', createdSinceFilter(RUN_HISTORY_WINDOW_DAYS, nowMs),
+    '--status', status,
+    '-L', String(RUN_HISTORY_LIMIT),
+    '--json', 'databaseId,status,conclusion,createdAt',
+  ];
+}
+
+/** Merge server-filtered pages without changing the streak's newest-first contract. */
+export function mergeRunHistoryRuns(results) {
+  if (!Array.isArray(results) || results.length === 0 || results.some((runs) => !Array.isArray(runs))) return [];
+  const byId = new Map();
+  results.flat().forEach((run) => {
+    const key = run?.databaseId == null
+      ? `${run?.createdAt ?? ''}\n${run?.conclusion ?? ''}`
+      : String(run.databaseId);
+    if (!byId.has(key)) byId.set(key, run);
+  });
+  return [...byId.values()].sort((a, b) => (
+    Date.parse(b?.createdAt ?? '') - Date.parse(a?.createdAt ?? '')
+  ));
+}
+
 function main() {
   const argv = process.argv.slice(2);
   const modeIdx = argv.indexOf('--mode');
@@ -432,23 +470,33 @@ function main() {
     }
   }
 
-  const listArgs = ['run', 'list', '-w', workflowName, '-b', 'main',
-    '--created', createdSinceFilter(RUN_HISTORY_WINDOW_DAYS), '-L', String(RUN_HISTORY_LIMIT),
-    '--json', 'databaseId,status,conclusion,createdAt'];
-  if (repo) listArgs.push('--repo', repo);
-  const listRaw = gh(listArgs);
   let streak = 0;
   let streakSaturated = false;
-  if (listRaw) {
-    try {
-      ({ streak, saturated: streakSaturated } = consecutiveFailureStreak(
-        // La serie si conta dalla run piu' recente: ordine locale, non quello
-        // della risposta.
-        newestFirst(JSON.parse(listRaw)), { fromRunId: runId || null, observedConclusion: conclusion || null },
-      ));
-    } catch {
-      console.error('[deploy-alarm] listing dello storico illeggibile: streak non calcolata.');
+  const historyPages = [];
+  let historyReadable = true;
+  for (const status of RUN_HISTORY_STATUS_FILTERS) {
+    const listArgs = buildRunHistoryArgs(workflowName, status);
+    if (repo) listArgs.push('--repo', repo);
+    const listRaw = gh(listArgs);
+    if (!listRaw) {
+      historyReadable = false;
+      continue;
     }
+    try {
+      const parsed = JSON.parse(listRaw);
+      if (!Array.isArray(parsed)) throw new Error('history non-array');
+      historyPages.push(parsed);
+    } catch {
+      historyReadable = false;
+    }
+  }
+  if (historyReadable) {
+    ({ streak, saturated: streakSaturated } = consecutiveFailureStreak(
+      mergeRunHistoryRuns(historyPages),
+      { fromRunId: runId || null, observedConclusion: conclusion || null },
+    ));
+  } else {
+    console.error('[deploy-alarm] listing dello storico illeggibile: streak non calcolata.');
   }
   // Lo storico può non contenere ancora QUESTA run (indicizzazione): la serie
   // è comunque almeno 1, perché il guasto che stiamo osservando esiste.
