@@ -1027,6 +1027,27 @@ shard_orphan_init() {
 # world-readable on a runner) and never in a `set -x` trace of the push.
 _SHARD_CRED_HELPER='!f() { test "$1" = get && printf "username=x-access-token\npassword=%s\n" "$SHARD_PUSH_TOKEN"; }; f'
 
+# Normalize the PAT fallback delay before it reaches `sleep` or arithmetic.
+# Bash 3.2 has integer-only arithmetic, while `sleep` accepts fractions; keep
+# the fractional value for the wait and use awk for the bounded doubling.
+shard_pat_retry_delay() {
+  local raw="${SHARD_PAT_RETRY_DELAY:-${SHARD_PUSH_RETRY_DELAY:-5}}"
+  awk -v raw="$raw" 'BEGIN {
+    if (raw !~ /^[0-9]+([.][0-9]+)?$/) { print "5.000"; exit }
+    value = raw + 0
+    if (value > 300) value = 300
+    printf "%.3f\n", value
+  }'
+}
+
+shard_pat_retry_delay_double() {
+  awk -v delay="$1" 'BEGIN {
+    value = (delay + 0) * 2
+    if (value > 300) value = 300
+    printf "%.3f\n", value
+  }'
+}
+
 # shard_https_push_url <shard_repo>
 # Maps a GitHub SSH remote to its HTTPS equivalent (git@github.com:o/r.git →
 # https://github.com/o/r.git; the ssh:// spelling too). An https:// remote is
@@ -1063,7 +1084,7 @@ shard_push_error_is_auth() {
 # rejected by the credential. Keep this in one helper because both the SSH
 # retry path and the PAT fallback need the same conservative classification.
 shard_push_error_is_transport() {
-  grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet' "$1"
+  grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet|HTTP/2 stream [0-9]+ was not closed cleanly' "$1"
 }
 
 # shard_push_error_is_transient <logfile>
@@ -1116,7 +1137,8 @@ shard_pat_push() {
   # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
   # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
-  local url out rc force_flag='' pat_delay="${SHARD_PAT_RETRY_DELAY:-${SHARD_PUSH_RETRY_DELAY:-5}}" pat_try
+  local url out rc force_flag='' pat_delay pat_try
+  pat_delay="$(shard_pat_retry_delay)"
   if [ "$force" = 1 ]; then force_flag='-f'; fi
   SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
   if [ -z "$SHARD_PUSH_TOKEN" ]; then
@@ -1164,7 +1186,7 @@ shard_pat_push() {
       echo "::warning::$label PAT push attempt $pat_try/3 failed with a transient remote/transport error — retrying in ${pat_delay}s"
       rm -f "$out"
       sleep "$pat_delay"
-      pat_delay=$(( pat_delay * 2 ))
+      pat_delay="$(shard_pat_retry_delay_double "$pat_delay")"
       continue
     fi
     rm -f "$out"

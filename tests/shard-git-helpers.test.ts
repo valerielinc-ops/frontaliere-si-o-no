@@ -436,17 +436,23 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       // statements in single quotes, so a quoted printf inside would be mangled.
       const authLog = join(root, 'classify-auth.log');
       const transientLog = join(root, 'classify-transient.log');
+      const http2Log = join(root, 'classify-http2-transient.log');
       writeFileSync(
         authLog,
         'ERROR: Permission to nanakokyobashi-rgb/frontaliere-uri-it.git denied to deploy key\n' +
           'fatal: Could not read from remote repository.\n',
       );
       writeFileSync(transientLog, 'fatal: early EOF\nfatal: index-pack failed\n');
+      writeFileSync(
+        http2Log,
+        'error: RPC failed; curl 92 HTTP/2 stream 3 was not closed cleanly: INTERNAL_ERROR\n',
+      );
       const out = runHelperScript(
         `shard_push_error_is_auth "${authLog}" && echo AUTH; ` +
-          `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT`,
+          `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT; ` +
+          `shard_push_error_is_transient "${http2Log}" && echo HTTP2`,
       );
-      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT']);
+      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT', 'HTTP2']);
       const reasons = runHelperScript(
         `shard_push_failure_reason "${authLog}"; echo; ` +
           `shard_push_failure_reason "${transientLog}"`,
@@ -571,7 +577,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
 
       const out = execSync(
         `env -u GITHUB_PAT SHARD_PUSH_PAT=dummy-token bash -c 'set -uo pipefail; source "${HELPERS}"; ` +
-          `SHARD_PUSH_RETRY_DELAY=0 SHARD_PAT_RETRY_DELAY=0 shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-uri-it.git" main uri-it; echo "RC=$?"'`,
+          `SHARD_PUSH_RETRY_DELAY=0 SHARD_PAT_RETRY_DELAY=0.5 shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-uri-it.git" main uri-it; echo "RC=$?"'`,
         { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 20_000 },
       );
       expect(out).toMatch(/PAT push attempt 1\/3 failed with a transient remote\/transport error/);

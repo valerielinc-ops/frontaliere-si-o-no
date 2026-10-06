@@ -133,7 +133,7 @@ function pushFailureOutput(error) {
 
 function isTransientPushFailure(error) {
   const output = pushFailureOutput(error);
-  return /closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet/iu.test(output)
+  return /closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet|HTTP\/2 stream \d+ was not closed cleanly/iu.test(output)
     || /remote:\s*(internal server error|service unavailable|bad gateway|gateway timeout)|returned error:\s*(429|5\d\d)/iu.test(output);
 }
 
@@ -151,7 +151,7 @@ function sleepSync(seconds) {
  * Throws the ORIGINAL error when no token is available or the fallback fails
  * too: this must never look like a successful prune.
  */
-function pushCdnMain(repoDir, sshEnv) {
+function pushCdnMain(repoDir, sshEnv, clonedTip) {
   try {
     execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
       { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -167,6 +167,10 @@ function pushCdnMain(repoDir, sshEnv) {
     console.warn('[janitor] deploy-key push refused — retrying over HTTPS with a PAT');
     let delay = PAT_PUSH_RETRY_DELAY_SECONDS;
     for (let attempt = 1; attempt <= PAT_PUSH_MAX_ATTEMPTS; attempt += 1) {
+      // The PAT fallback is also a force-push. Re-check the live tip before
+      // every attempt so a transient first failure cannot let attempt 2
+      // clobber a deploy that advanced the remote in the meantime.
+      assertFreshRemote(clonedTip, sshEnv);
       try {
         execFileSync('git', [
           '-C', repoDir,
@@ -352,7 +356,7 @@ async function main() {
         'commit', '-m', `chore(cdn-janitor): update age registry (no prune, ${reason})`,
       ]);
       assertFreshRemote(clonedTip, sshEnv);
-      pushCdnMain(repoDir, sshEnv);
+      pushCdnMain(repoDir, sshEnv, clonedTip);
       console.log(`[janitor] persisted age registry update (no prune, ${reason})`);
     };
 
@@ -410,7 +414,7 @@ async function main() {
     ]);
 
     assertFreshRemote(clonedTip, sshEnv);
-    pushCdnMain(repoDir, sshEnv);
+    pushCdnMain(repoDir, sshEnv, clonedTip);
 
     console.log(`[janitor] ✅ CDN updated — pruned ${toPrune.length} file(s), registered ${newCount} new`);
     if (toPrune.length > 0) {
