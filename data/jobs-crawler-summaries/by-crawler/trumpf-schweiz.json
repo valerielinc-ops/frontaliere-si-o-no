@@ -1,16 +1,16 @@
 {
   "key": "trumpf-schweiz",
   "label": "trumpf",
-  "generatedAt": "2026-10-05T21:35:45.822Z",
+  "generatedAt": "2026-10-06T09:32:27.121Z",
   "total": 15,
   "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
-  "unchangedCount": 12,
-  "durationMs": 8880,
-  "avgDurationMs": 8880,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 13,
+  "durationMs": 11529,
+  "avgDurationMs": 11529,
   "durationHistory": [
-    8880
+    11529
   ],
   "newJobs": [
     {
@@ -37,20 +37,21 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-05T21:35:36.705Z",
+      "crawledAt": "2026-10-06T09:32:15.594Z",
       "id": "trumpf-schweiz-76bd5be86c25",
       "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:04.876Z",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -77,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:31.003Z",
+      "crawledAt": "2026-10-06T09:32:07.801Z",
       "id": "trumpf-schweiz-90996f9fca6d",
       "salaryMin": 58500,
       "salaryMax": 103500,
@@ -87,95 +88,17 @@
       "datePosted": "2026-09-30",
       "postingDateSource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "postalCode": "7214",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Senior Software Engineer (C#) (m/w/d)",
-      "slug": "senior-software-ingegnere-c-m-w-d-trumpf-schweiz-ag-grusch",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Senior-Software-Engineer--C----m-w-d-_R00043822-1",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Senior-Software-Engineer--C----m-w-d-_R00043822-1",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-05",
-      "postedDate": "2026-10-05",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:34.282Z",
-      "id": "trumpf-schweiz-fb31ae15e82a",
-      "salaryMin": 92000,
-      "salaryMax": 140000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T09:33:13.329Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Systemtestingenieur Software (m/w/d)",
-      "slug": "software-di-test-del-sistema-m-f-d-trumpf-schweiz-ag-grusch",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Systemtestingenieur-Software--m-w-d-_R00042022-1",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Systemtestingenieur-Software--m-w-d-_R00042022-1",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "it",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-31",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-10-05T09:33:09.086Z",
-      "id": "trumpf-schweiz-69717fa9fa1a",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-31T22:18:25.461Z",
-      "datePosted": "2026-08-31",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "MES Project Engineer (w/m/d)",
@@ -199,13 +122,13 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:30.575Z",
+      "crawledAt": "2026-10-06T09:32:07.065Z",
       "id": "trumpf-schweiz-1d5e40360c3d",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "",
-      "postalCode": "8500",
+      "postalCode": "8598",
       "firstSeenAt": "2026-05-11T23:05:11.547Z",
       "salarySource": "reported",
       "datePosted": "2026-06-02",
@@ -240,7 +163,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:31.383Z",
+      "crawledAt": "2026-10-06T09:32:08.316Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -281,7 +204,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:31.813Z",
+      "crawledAt": "2026-10-06T09:32:09.042Z",
       "id": "trumpf-schweiz-7ae5c20dc8af",
       "needsRetranslation": true,
       "salaryMin": 79000,
@@ -291,12 +214,13 @@
       "firstSeenAt": "2026-09-30T21:26:41.794Z",
       "datePosted": "2026-09-30",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "7214",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -321,7 +245,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:32.240Z",
+      "crawledAt": "2026-10-06T09:32:09.522Z",
       "id": "trumpf-schweiz-a20911e9ec71",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -330,12 +254,13 @@
       "firstSeenAt": "2026-09-26T14:10:20.165Z",
       "datePosted": "2026-10-02",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "7214",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -360,7 +285,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:32.626Z",
+      "crawledAt": "2026-10-06T09:32:10.111Z",
       "id": "trumpf-schweiz-5899fea150e2",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -369,12 +294,13 @@
       "firstSeenAt": "2026-09-26T14:10:20.516Z",
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "7214",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -399,7 +325,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:33.069Z",
+      "crawledAt": "2026-10-06T09:32:10.591Z",
       "id": "trumpf-schweiz-d3594d050292",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -408,12 +334,13 @@
       "firstSeenAt": "2026-09-28T21:25:26.128Z",
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "7214",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -438,7 +365,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:33.462Z",
+      "crawledAt": "2026-10-06T09:32:11.051Z",
       "id": "trumpf-schweiz-fd5af7684016",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -447,12 +374,13 @@
       "firstSeenAt": "2026-09-29T21:27:43.035Z",
       "datePosted": "2026-10-02",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "7214",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -477,7 +405,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-05T21:35:33.844Z",
+      "crawledAt": "2026-10-06T09:32:11.877Z",
       "id": "trumpf-schweiz-94f4666784f7",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -486,12 +414,53 @@
       "firstSeenAt": "2026-09-29T21:27:43.576Z",
       "datePosted": "2026-10-02",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "7214",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Senior Software Engineer (C#) (m/w/d)",
+      "slug": "senior-software-ingegnere-c-m-w-d-trumpf-schweiz-ag-grusch",
+      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Senior-Software-Engineer--C----m-w-d-_R00043822-1",
+      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Senior-Software-Engineer--C----m-w-d-_R00043822-1",
+      "company": "TRUMPF Schweiz AG",
+      "companyKey": "trumpf-schweiz",
+      "companyDomain": "trumpf.com",
+      "location": "Grüsch",
+      "addressLocality": "Grüsch",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Tecnologia Industriale & Laser",
+      "source": "trumpf-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-10-06T09:32:12.534Z",
+      "id": "trumpf-schweiz-fb31ae15e82a",
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-05T09:33:13.329Z",
+      "postalCode": "7214",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -516,7 +485,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-05T21:35:34.683Z",
+      "crawledAt": "2026-10-06T09:32:13.221Z",
       "id": "trumpf-schweiz-36b915dcb2de",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -557,7 +526,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-05T21:35:35.211Z",
+      "crawledAt": "2026-10-06T09:32:13.748Z",
       "id": "trumpf-schweiz-78917d459fc1",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -598,7 +567,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-05T21:35:35.691Z",
+      "crawledAt": "2026-10-06T09:32:14.524Z",
       "id": "trumpf-schweiz-2d1e6fc71e7a",
       "salaryMin": 46500,
       "salaryMax": 70500,
@@ -640,7 +609,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-05T21:35:36.213Z",
+      "crawledAt": "2026-10-06T09:32:15.049Z",
       "id": "trumpf-schweiz-3db9093e29f6",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -648,14 +617,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-04-30T22:40:04.876Z",
       "retranslationAttempts": 0,
-      "_qualityScore": 89,
+      "postalCode": "7214",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

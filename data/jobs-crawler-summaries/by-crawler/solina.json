@@ -1,7 +1,7 @@
 {
   "key": "solina",
   "label": "Stiftung Solina",
-  "generatedAt": "2026-10-05T21:24:27.079Z",
+  "generatedAt": "2026-10-06T09:17:55.600Z",
   "total": 26,
   "discovered": null,
   "parsed": 26,
@@ -16,10 +16,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 22,
-  "durationMs": 17228,
-  "avgDurationMs": 17228,
+  "durationMs": 18294,
+  "avgDurationMs": 18294,
   "durationHistory": [
-    17228
+    18294
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,12 +36,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:15.177Z",
+      "crawledAt": "2026-10-06T09:17:40.944Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Formazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -57,12 +57,12 @@
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -78,12 +78,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-pn26ljh7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:12.341Z",
+      "crawledAt": "2026-10-06T09:17:37.809Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -99,12 +99,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -120,12 +120,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-embpvyh4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:08.291Z",
+      "crawledAt": "2026-10-06T09:17:33.332Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -141,12 +141,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -162,12 +162,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-6wryvsu8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:06.646Z",
+      "crawledAt": "2026-10-06T09:17:31.495Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -183,12 +183,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -207,12 +207,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:14.746Z",
+      "crawledAt": "2026-10-06T09:17:40.493Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -228,12 +228,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -249,12 +249,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-8ph7l588",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:14.346Z",
+      "crawledAt": "2026-10-06T09:17:40.046Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -270,12 +270,12 @@
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -291,12 +291,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-43ghowzt",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:13.946Z",
+      "crawledAt": "2026-10-06T09:17:39.598Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -312,12 +312,12 @@
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -333,12 +333,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betreuung-dahbks3c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:13.544Z",
+      "crawledAt": "2026-10-06T09:17:39.150Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -354,12 +354,12 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -375,12 +375,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-x959hdzq",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:13.144Z",
+      "crawledAt": "2026-10-06T09:17:38.704Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Formazione",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -396,12 +396,12 @@
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -416,12 +416,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-fax39qeg",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:12.742Z",
+      "crawledAt": "2026-10-06T09:17:38.256Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -437,12 +437,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -458,12 +458,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-tb2xa9yv",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:11.938Z",
+      "crawledAt": "2026-10-06T09:17:37.363Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -479,12 +479,12 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -500,12 +500,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-pc99jrf8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:11.536Z",
+      "crawledAt": "2026-10-06T09:17:36.915Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -521,12 +521,12 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -542,12 +542,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:11.134Z",
+      "crawledAt": "2026-10-06T09:17:36.469Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -563,12 +563,12 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -584,12 +584,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-f2mc96am",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:10.727Z",
+      "crawledAt": "2026-10-06T09:17:36.017Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -605,12 +605,12 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -626,12 +626,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-betreuung-3ca3t28y",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:10.316Z",
+      "crawledAt": "2026-10-06T09:17:35.570Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -647,12 +647,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -668,12 +668,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachperson-fachperson-gesundheit-nachtdienst-ja0t5x3v",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:09.914Z",
+      "crawledAt": "2026-10-06T09:17:35.124Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -689,12 +689,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -710,12 +710,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:09.503Z",
+      "crawledAt": "2026-10-06T09:17:34.677Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -731,12 +731,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -752,12 +752,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-qo6r5vk5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:09.100Z",
+      "crawledAt": "2026-10-06T09:17:34.229Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -773,12 +773,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -794,12 +794,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:08.697Z",
+      "crawledAt": "2026-10-06T09:17:33.781Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -815,12 +815,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -836,12 +836,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-gyd1ax2m",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:07.884Z",
+      "crawledAt": "2026-10-06T09:17:32.883Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -857,12 +857,12 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -878,12 +878,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-686aezy7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:07.482Z",
+      "crawledAt": "2026-10-06T09:17:32.433Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -899,12 +899,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -920,12 +920,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/hauptberufsbildnerin-ags-fage-hf-2gs8l0w4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:07.077Z",
+      "crawledAt": "2026-10-06T09:17:31.983Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -941,12 +941,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -962,12 +962,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-15lpybev",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:06.240Z",
+      "crawledAt": "2026-10-06T09:17:31.046Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -983,12 +983,12 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1004,12 +1004,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-jvvhh4o6",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:05.837Z",
+      "crawledAt": "2026-10-06T09:17:30.596Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1025,12 +1025,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1046,12 +1046,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/dipl-physiotherapeutin-hvg2ob2q",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:05.429Z",
+      "crawledAt": "2026-10-06T09:17:30.140Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1067,12 +1067,12 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1088,12 +1088,12 @@
       "url": "https://jobs.solina.ch/offene-stellen/hotellerie-gastronomie/mitarbeiterin-hauswirtschaft-5mlj7z2k",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:24:04.988Z",
+      "crawledAt": "2026-10-06T09:17:29.427Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3700",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1108,14 +1108,14 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-10-05T21:39:46.874Z",
+  "assembledAt": "2026-10-06T09:31:20.028Z",
   "jobs": [
     {
       "id": "barry-callebaut-c7e75d02d8f9",
@@ -33,7 +33,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:39:40.678Z",
+      "crawledAt": "2026-10-06T09:31:14.805Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -85,6 +85,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -118,7 +119,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Trader-8005/1435276200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:39:40.676Z",
+      "crawledAt": "2026-10-06T09:31:14.799Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +152,6 @@
           "cocoa-trader-barry-callebaut-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:27:29.052Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -166,7 +166,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "postalCode": "8001"
     },
     {
       "id": "barry-callebaut-799d5eeb0258",
@@ -199,7 +200,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:39:40.674Z",
+      "crawledAt": "2026-10-06T09:31:14.806Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,6 +245,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressRegion": "ZH"
     },
     {
@@ -277,7 +279,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:39:40.665Z",
+      "crawledAt": "2026-10-06T09:31:14.803Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -329,6 +331,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressRegion": "ZH"
     }
   ]

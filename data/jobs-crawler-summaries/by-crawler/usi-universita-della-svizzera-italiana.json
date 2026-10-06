@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-10-05T21:37:37.675Z",
+  "generatedAt": "2026-10-06T09:32:57.725Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10199,
-  "avgDurationMs": 10199,
+  "durationMs": 12576,
+  "avgDurationMs": 12576,
   "durationHistory": [
-    10199
+    12576
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:22.562Z",
+      "crawledAt": "2026-10-06T09:32:38.430Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -73,7 +73,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:22.872Z",
+      "crawledAt": "2026-10-06T09:32:38.782Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -116,7 +116,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:23.066Z",
+      "crawledAt": "2026-10-06T09:32:38.968Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -159,7 +159,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:23.272Z",
+      "crawledAt": "2026-10-06T09:32:39.315Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -205,7 +205,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:23.440Z",
+      "crawledAt": "2026-10-06T09:32:39.497Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -248,7 +248,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:23.673Z",
+      "crawledAt": "2026-10-06T09:32:39.702Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -291,7 +291,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:23.866Z",
+      "crawledAt": "2026-10-06T09:32:39.898Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -334,7 +334,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:24.040Z",
+      "crawledAt": "2026-10-06T09:32:40.083Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -378,7 +378,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:24.247Z",
+      "crawledAt": "2026-10-06T09:32:40.366Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -421,7 +421,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:24.581Z",
+      "crawledAt": "2026-10-06T09:32:40.729Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -438,12 +438,13 @@
       "salarySource": "estimated",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "_qualityScore": 82,
+      "postalCode": "6850",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 17
       }
     }
   ],
@@ -465,7 +466,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T21:37:24.413Z",
+      "crawledAt": "2026-10-06T09:32:40.546Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -493,5 +494,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
