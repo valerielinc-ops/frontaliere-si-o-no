@@ -106,6 +106,29 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
   });
 
+  it('risincronizza dopo un closer incompatibile prima di un root FAQ successivo', () => {
+    const cases = [
+      '{"bad":[1} [{"q":"Q","a":"A"}]',
+      '[1} [{"q":"Q","a":"A"}]',
+      '{"bad":1] [{"q":"Q","a":"A"}]',
+      '{"bad":{"deeper":{"deepest":[1} [{"q":"Q","a":"A"}]',
+    ];
+
+    for (const raw of cases) {
+      expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'Q', a: 'A' }]);
+    }
+  });
+
+  it('mantiene un closer incompatibile fuori da un root incompleto a EOF', () => {
+    const cases = ['[1}', '{"bad":1]'];
+
+    for (const raw of cases) {
+      const repaired = repairLlmJsonArray(raw);
+      expect(repaired).toBe(raw);
+      expect(() => JSON.parse(repaired)).toThrow(SyntaxError);
+    }
+  });
+
   it('ignora delimitatori ambigui dentro un valore quotato', () => {
     const raw = 'meta {"note":"prosa "chiave": [1,2] e } ancora"} [{"q":"real","a":"A"}]';
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
@@ -117,6 +140,16 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
     // By construction, the 25th later balanced root is outside the bounded
     // candidate scan; the first valid root remains the safe fallback.
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual({ q: 'noise-0', a: 'N' });
+  });
+
+  it('non consuma il budget dei root con gli opener annidati in un candidato laterale', () => {
+    const nestedOpenerCount = 96;
+    const lateralCandidate = `${'['.repeat(nestedOpenerCount + 1)}1${']'.repeat(nestedOpenerCount + 1)}`;
+    const raw = `{"meta":"noise"} ${lateralCandidate} [{"q":"real","a":"A"}]`;
+    const repaired = repairLlmJsonArray(raw, {
+      validateCandidate: (candidate) => candidate?.[0]?.q === 'real',
+    });
+    expect(JSON.parse(repaired)).toEqual([{ q: 'real', a: 'A' }]);
   });
 
   it('esamina linearmente il suffisso di quote malformate', () => {

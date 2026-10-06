@@ -377,8 +377,11 @@ function _scanStringEnd(str, i, fixAsterisks) {
  * field name and never legitimately contains its own embedded quote, so a
  * candidate that only "closes" by skipping past an embedded quote is
  * exactly the ambiguous prose shape afterSeparatorLooksValid's comma-branch
- * must reject, not a shortcut worth taking. */
-function scanKeyEnd(str, i) {
+ * must reject, not a shortcut worth taking.
+ * @returns {number} Index immediately after the key's closing quote, or -1 if
+ * the key is unterminated.
+ */
+function scanKeyEndAfterQuote(str, i) {
   let j = i + 1;
   while (j < str.length) {
     if (str[j] === '\\') { j += 2; continue; }
@@ -404,7 +407,7 @@ function scanKeyEnd(str, i) {
  * separator between bare VALUES, not just object entries (`["a","b"]`) —
  * rejecting outright here corrupted every bare string-array element
  * (issue #3602). But the fallback must reuse the SAME strict, no-retry
- * close (scanKeyEnd) rather than the permissive scanValueEnd/scanStringEnd
+ * close (scanKeyEndAfterQuote) rather than the permissive scanValueEnd/scanStringEnd
  * used for real values below: that permissive scanner is designed to skip
  * past an ambiguous embedded quote and keep looking for a later real
  * closer, which is exactly wrong for this candidate — it let a deliberate
@@ -486,12 +489,12 @@ function resolveLookahead(str, pos, mode, fixAsterisks) {
 
     // SEP_COMMA
     if (str[i] === '"') {
-      const keyEnd = scanKeyEnd(str, i);
-      if (keyEnd === -1) return false;
-      let k = keyEnd;
+      const afterKeyQuote = scanKeyEndAfterQuote(str, i);
+      if (afterKeyQuote === -1) return false;
+      let k = afterKeyQuote;
       while (k < str.length && /\s/.test(str[k])) k++;
       if (str[k] === ':') { p = k + 1; m = SEP_COLON; continue; }
-      p = keyEnd; m = CONTINUATION;
+      p = afterKeyQuote; m = CONTINUATION;
       continue;
     }
     const valueEnd = scanValueEnd(str, i, fixAsterisks);
@@ -626,9 +629,9 @@ function insertMissingPropertyCommas(input) {
     while (keyStart < input.length && /\s/.test(input[keyStart])) keyStart++;
     if (input[keyStart] !== '"') return false;
 
-    const keyEnd = scanKeyEnd(input, keyStart);
-    if (keyEnd === -1) return false;
-    let colon = keyEnd;
+    const afterKeyQuote = scanKeyEndAfterQuote(input, keyStart);
+    if (afterKeyQuote === -1) return false;
+    let colon = afterKeyQuote;
     while (colon < input.length && /\s/.test(input[colon])) colon++;
     if (input[colon] !== ':') return false;
 
@@ -750,25 +753,43 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
   let firstRoot = null;
   let firstCloseIdx = -1;
   let firstClosed = false;
-  let recordedRoots = 0;
+  let recordedTopLevelRoots = 0;
   let prefixJsonLike = true;
   let prefixInString = false;
   let prefixTokenEnd = start + 1;
 
   const recordCandidate = (frame) => {
+    // After the first root closes, depth zero is the top-level boundary for
+    // later candidates. The outer frame's `end` lets the collector skip all
+    // nested frames without spending the budget on them.
+    if (firstClosed && frame.depth > 0) return;
     // For an unbalanced first root, discard nested intervals before applying
     // the scan budget. This keeps deeply nested malformed containers from
     // hiding a later root that follows corrupted prose.
     if (!firstClosed && isNestedRootCandidate(source, start, frame)) return;
-    if (recordedRoots >= MAX_LATER_SCANNED_ROOTS) return;
+    if (recordedTopLevelRoots >= MAX_LATER_SCANNED_ROOTS) return;
     candidates.push(frame);
-    recordedRoots++;
+    recordedTopLevelRoots++;
   };
 
   for (let i = start; i < source.length; i++) {
     const ch = source[i];
     if (ch === '"' && !isEscapedAt(source, i)) {
-      const stringEnd = scanStringEnd(source, i, true);
+      // A malformed value must not make the lenient quote lookahead swallow
+      // the next object key (for example `"bad":[1} [{"q":...`). Keys are
+      // unambiguous here, so close them strictly before scanning values.
+      let stringEnd = -1;
+      const top = structuralStack.at(-1);
+      let previous = i - 1;
+      while (previous >= start && /\s/.test(source[previous])) previous--;
+      if (top?.open === '{' && ['{', ','].includes(source[previous])) {
+        const afterKeyQuote = scanKeyEndAfterQuote(source, i);
+        // afterKeyQuote è già oltre la virgoletta di chiusura: qui leggiamo il primo carattere dopo la chiave.
+        let afterKeyLookahead = afterKeyQuote;
+        while (afterKeyLookahead !== -1 && afterKeyLookahead < source.length && /\s/.test(source[afterKeyLookahead])) afterKeyLookahead++;
+        if (afterKeyQuote !== -1 && source[afterKeyLookahead] === ':') stringEnd = afterKeyQuote;
+      }
+      if (stringEnd === -1) stringEnd = scanStringEnd(source, i, true);
       if (stringEnd !== -1) {
         if (i > start) prefixInString = false;
         i = stringEnd - 1;
@@ -801,16 +822,25 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
       structuralStack.push(frame);
 
       if (!firstRoot) firstRoot = frame;
-      else if (targetOpeners.has(ch) && (firstClosed || recordedRoots < MAX_LATER_SCANNED_ROOTS)) {
-        recordCandidate(frame);
-      }
+      else if (targetOpeners.has(ch)) recordCandidate(frame);
       continue;
     }
 
     if (ch !== '}' && ch !== ']') continue;
     const opener = ch === '}' ? '{' : '[';
     const frame = structuralStack.at(-1);
-    if (!frame || frame.open !== opener) continue;
+    if (!frame || frame.open !== opener) {
+      if (!firstClosed) {
+        // The closer is corrupt relative to the current nested branch. Keep
+        // it outside the first-root boundary, but discard stale nested
+        // frames so a later root is not mistaken for another nested value.
+        structuralStack.length = firstRoot ? 1 : 0;
+        prefixJsonLike = false;
+        prefixInString = false;
+        prefixTokenEnd = i + 1;
+      }
+      continue;
+    }
     structuralStack.pop();
     frame.end = i;
 
@@ -818,7 +848,7 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
       firstCloseIdx = i;
       firstClosed = true;
       candidates.length = 0;
-      recordedRoots = 0;
+      recordedTopLevelRoots = 0;
       structuralStack.length = 0;
       prefixJsonLike = true;
       prefixInString = false;
