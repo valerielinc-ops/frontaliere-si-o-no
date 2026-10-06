@@ -110,7 +110,7 @@ const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
 
 /** SuccessFactors creates the external candidate only after its OTP succeeds. */
 export function usesOtpAccountCreation(portal = '') {
-  return /(?:successfactors|sapsf)\./i.test(String(portal));
+  return /(?:successfactors|sapsf)\.|jobs\.sap\.com/i.test(String(portal));
 }
 
 /**

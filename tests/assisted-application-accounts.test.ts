@@ -97,6 +97,7 @@ describe('portal account pages', () => {
   it('limits the unverified-account registration recovery to SuccessFactors portals', () => {
     expect(usesOtpAccountCreation('career5.successfactors.eu')).toBe(true);
     expect(usesOtpAccountCreation('career5.sapsf.eu')).toBe(true);
+    expect(usesOtpAccountCreation('jobs.sap.com')).toBe(true);
     expect(usesOtpAccountCreation('sunrise.wd3.myworkdayjobs.com')).toBe(false);
   });
 

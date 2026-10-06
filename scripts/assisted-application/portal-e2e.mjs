@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -329,7 +329,9 @@ function fakePortal() {
       return redirect('/apply', { 'set-cookie': `sid=${sid}; Path=/` });
     }
     if (route === 'GET /register') {
-      return send(page('Registrieren', form('/register', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label><button type="submit">Konto erstellen</button>')));
+      const submit = state.omitNextRegistrationSubmit ? '' : '<button type="submit">Konto erstellen</button>';
+      state.omitNextRegistrationSubmit = false;
+      return send(page('Registrieren', form('/register', `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submit}`)));
     }
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
@@ -587,6 +589,10 @@ async function main() {
     state.sessions.clear();
     state.unverifiedLoginStaysOnSignIn = true;
     saved.set(otpAccountHost, { ...saved.get(accountHost), verifiedAt: null });
+    state.omitNextRegistrationSubmit = true;
+    const missingRetryButton = await run({ applyUrl: `${otpBase}/job` });
+    check('a missing retry button hands off without discarding the saved credential', missingRetryButton.event.type === 'submit_handoff'
+      && missingRetryButton.event.reason === 'account' && Boolean(saved.get(otpAccountHost)?.password) && saved.get(otpAccountHost)?.verifiedAt === null);
     const recovered = await run({ applyUrl: `${otpBase}/job` });
     check('an unverified saved account restarts registration and verifies before applying', recovered.event.type === 'submit_succeeded' && state.verified.has(ALIAS) && Boolean(saved.get(otpAccountHost)?.verifiedAt) && state.applications.length === 3);
     state.unverifiedLoginStaysOnSignIn = false;

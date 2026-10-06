@@ -851,7 +851,9 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   const filled = await extractFields(page, NAVIGATION);
   if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
-    await ctx.accounts.discard(host, 'no_create_button');
+    // A retry is still the same unverified account: keep its encrypted
+    // password so the owner can retry after the portal exposes its button.
+    if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
     return noted({ handoff: 'account' });
   }
   await settle(page);
