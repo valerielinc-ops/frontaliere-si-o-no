@@ -6491,12 +6491,12 @@
     },
     {
       "id": "szb-chb-4718feafba53",
-      "slug": "fachfrau-mann-gesundheit-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "specialista-in-salute-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne",
+        "it": "specialista-in-salute-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "specialist-in-health-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne",
-        "fr": "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne"
+        "fr": "specialiste-en-sante-assc-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6542,10 +6542,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne"
+        "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne",
+        "fachfrau-mann-gesundheit-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne",
+          "fachfrau-mann-gesundheit-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne"
         ]
       },
@@ -6731,9 +6739,9 @@
       "slug": "collaboratore-trice-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "collaboratore-trice-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "mitarbeiter-in-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "kitchen-employee-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "mitarbeiter-in-kuche-70-szb-chb-biel-bienne",
-        "fr": "mitarbeiter-in-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "employe-de-cuisine-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6779,11 +6787,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kuche-70-szb-chb-biel-bienne"
+        "mitarbeiter-in-kuche-70-szb-chb-biel-bienne",
+        "mitarbeiter-in-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kuche-70-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "mitarbeiter-in-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "fr": [
+          "mitarbeiter-in-kuche-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-10-05T16:20:59.701Z",

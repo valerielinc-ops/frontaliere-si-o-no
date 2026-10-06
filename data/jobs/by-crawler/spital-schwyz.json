@@ -179,12 +179,12 @@
     },
     {
       "id": "spital-schwyz-8fb17fc180c5",
-      "slug": "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz",
+      "slug": "luogo-di-studio-dipl-expert-anesthesia-nursing-nds-hf-autunno-2028-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz",
-        "en": "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz",
+        "it": "luogo-di-studio-dipl-expert-anesthesia-nursing-nds-hf-autunno-2028-spital-schwyz-schwyz",
+        "en": "study-place-dipl-expert-anesthesia-nursing-nds-hf-autumn-2028-spital-schwyz-schwyz",
         "de": "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz",
-        "fr": "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz"
+        "fr": "lieu-d-etude-dipl-expert-en-anesthesie-infirmier-nds-hf-automne-2028-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -242,7 +242,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "studienplatz-dipl-expert-in-anasthesiepflege-nds-hf-herbst-2028-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-1a2e1ce62456",

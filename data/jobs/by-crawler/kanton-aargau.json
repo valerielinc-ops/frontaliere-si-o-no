@@ -1010,7 +1010,7 @@
       "slug": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
       "slugByLocale": {
         "it": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
-        "en": "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen",
+        "en": "middle-school-teacher-mathematics-50-kanton-aargau-zofingen",
         "de": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
         "fr": "professeur-d-ecole-secondaire-mathematiques-50-kanton-aargau-zofingen"
       },
@@ -1061,7 +1061,8 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen"
+        "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen",
+        "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1069,7 +1070,8 @@
         ],
         "en": [
           "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-          "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen"
+          "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen",
+          "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen"
         ],
         "fr": [
           "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
@@ -1679,7 +1681,7 @@
       "slug": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
       "slugByLocale": {
         "it": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
-        "en": "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg",
+        "en": "tradesperson-with-driving-licence-ce-100-kanton-aargau-lenzburg",
         "de": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
         "fr": "artisan-artisan-avec-permis-de-conduire-ce-100-kanton-aargau-lenzburg"
       },
@@ -1740,14 +1742,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg"
+      ]
     },
     {
       "id": "kanton-aargau-1b2ff706ade5",
       "slug": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
       "slugByLocale": {
         "it": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
-        "en": "craftsman-craftsman-80-100-kanton-aargau-wohlen",
+        "en": "craftswoman-80-100-kanton-aargau-wohlen",
         "de": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
         "fr": "artisan-artisan-80-100-kanton-aargau-wohlen"
       },
@@ -1797,14 +1807,16 @@
       "requirementsByLocale": {},
       "department": "Abteilung Tiefbau",
       "previousSlugs": [
-        "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        "handwerkerin-handwerker-80-100-kanton-aargau-ch",
+        "craftsman-craftsman-80-100-kanton-aargau-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "handwerkerin-handwerker-80-100-kanton-aargau-ch"
         ],
         "en": [
-          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch",
+          "craftsman-craftsman-80-100-kanton-aargau-wohlen"
         ],
         "fr": [
           "handwerkerin-handwerker-80-100-kanton-aargau-ch"
@@ -1830,7 +1842,7 @@
       "slug": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
       "slugByLocale": {
         "it": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen",
+        "en": "mathematics-teacher-60-80-kanton-aargau-wohlen",
         "de": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "fr": "professeur-de-mathematiques-60-80-kanton-aargau-wohlen"
       },
@@ -1881,7 +1893,8 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
-        "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+        "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
+        "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1889,7 +1902,8 @@
         ],
         "en": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
-          "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+          "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
         ],
         "fr": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
@@ -2245,9 +2259,9 @@
     },
     {
       "id": "kanton-aargau-70762918ed36",
-      "slug": "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen",
+      "slug": "insegnante-di-scuola-media-italiano-40-kanton-aargau-wettingen",
       "slugByLocale": {
-        "it": "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen",
+        "it": "insegnante-di-scuola-media-italiano-40-kanton-aargau-wettingen",
         "en": "secondary-school-teacher-italian-40-kanton-aargau-wettingen",
         "de": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
         "fr": "professeur-d-ecole-secondaire-italien-40-kanton-aargau-wettingen"
@@ -2299,12 +2313,14 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
-        "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen"
+        "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
+        "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
-          "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen"
+          "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
+          "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen"
         ],
         "en": [
           "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
@@ -2589,7 +2605,7 @@
         "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
         "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
+        "fr": "laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2638,7 +2654,8 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen",
+        "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2649,7 +2666,8 @@
         ],
         "fr": [
           "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen",
+          "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:59.638Z",
@@ -3421,10 +3439,10 @@
     },
     {
       "id": "kanton-aargau-436eab724312",
-      "slug": "mediothekarin-mediothekar-50-kanton-aargau-ch",
+      "slug": "medico-a-50-kanton-aargau-stein",
       "slugByLocale": {
-        "it": "mediothekarin-mediothekar-50-kanton-aargau-ch",
-        "en": "mediothekarin-mediothekar-50-kanton-aargau-ch",
+        "it": "medico-a-50-kanton-aargau-stein",
+        "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
         "fr": "mediothekarin-mediothekar-50-kanton-aargau-ch"
       },
@@ -3486,7 +3504,18 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mediothekarin-mediothekar-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "mediothekarin-mediothekar-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mediothekarin-mediothekar-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-608903e22df5",
@@ -4419,7 +4448,7 @@
         "it": "interno-legale-interno-legale-80-100-kanton-aargau-aarau-a40b12",
         "en": "legal-intern-legal-intern-80-100-kanton-aargau-aarau-a40b12",
         "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-l3fw79",
-        "fr": "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau-a40b12"
+        "fr": "stagiaire-en-droit-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4467,7 +4496,8 @@
       "department": "Kantonaler Sozialdienst",
       "previousSlugs": [
         "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
+        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
+        "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau-a40b12"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4481,7 +4511,8 @@
           "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
         ],
         "fr": [
-          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
+          "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau-a40b12"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:46.029Z",
@@ -5507,9 +5538,9 @@
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+      "slug": "esperto-di-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+        "it": "esperto-di-strategia-politica-80-kanton-aargau-aarau",
         "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
@@ -5561,12 +5592,14 @@
       "department": "Strategie und Aussenbeziehungen",
       "previousSlugs": [
         "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
         ],
         "en": [
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
@@ -5760,7 +5793,7 @@
       "slug": "istruttore-di-classe-evk-ciclo-1-60-kanton-aargau-wettingen",
       "slugByLocale": {
         "it": "istruttore-di-classe-evk-ciclo-1-60-kanton-aargau-wettingen",
-        "en": "class-instructor-evk-cycle-1-60-kanton-aargau-wettingen",
+        "en": "class-teacher-evk-basic-level-60-kanton-aargau-wettingen",
         "de": "klassenlehrperson-evk-basisstufe-60-kanton-aargau-ch",
         "fr": "instructeur-de-classe-evk-cycle-1-60-kanton-aargau-wettingen"
       },
@@ -5811,7 +5844,8 @@
       "department": "Kantonaler Sozialdienst",
       "previousSlugs": [
         "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
-        "klassenlehrperson-evk-basisstufe-60-kanton-aargau-ch"
+        "klassenlehrperson-evk-basisstufe-60-kanton-aargau-ch",
+        "class-instructor-evk-cycle-1-60-kanton-aargau-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5819,7 +5853,8 @@
           "klassenlehrperson-evk-basisstufe-60-kanton-aargau-ch"
         ],
         "en": [
-          "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+          "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
+          "class-instructor-evk-cycle-1-60-kanton-aargau-wettingen"
         ],
         "de": [
           "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
@@ -5845,12 +5880,12 @@
     },
     {
       "id": "kanton-aargau-8a6b32c33416",
-      "slug": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
+      "slug": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
       "slugByLocale": {
-        "it": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
+        "it": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
+        "en": "legal-trainee-kanton-aargau-muri-und-zofingen",
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        "fr": "stagiaire-en-droit-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5910,7 +5945,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-39ef2a609d54",

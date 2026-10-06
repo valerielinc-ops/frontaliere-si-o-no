@@ -309,9 +309,9 @@
     },
     {
       "id": "spital-sts-2a6b37120a79",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+      "slug": "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+        "it": "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
         "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
@@ -359,11 +359,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
@@ -392,9 +394,9 @@
       "slug": "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
       "slugByLocale": {
         "it": "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
-        "en": "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
+        "en": "ward-assistant-housekeeping-incl-service-and-patient-contact-spital-sts-thun",
         "de": "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
-        "fr": "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
+        "fr": "assistant-e-de-service-d-entretien-menager-service-et-contact-avec-les-patients-inclus-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -443,6 +445,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
+        ],
+        "en": [
+          "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
+        ],
+        "fr": [
           "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
         ]
       },
@@ -626,9 +634,9 @@
       "slug": "dipl-biomedizinische-r-analytiker-in-hf-o-biomedizinische-r-labordiagnostiker-in-spital-sts-thun",
       "slugByLocale": {
         "it": "dipl-biomedizinische-r-analytiker-in-hf-o-biomedizinische-r-labordiagnostiker-in-spital-sts-thun",
-        "en": "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital",
+        "en": "dipl-biomedical-analyst-hf-or-biomedical-laboratory-diagnostician-spital-sts-thun",
         "de": "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital",
-        "fr": "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital"
+        "fr": "analyste-biomedical-dipl-hf-ou-diagnosticien-de-laboratoire-biomedical-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -677,6 +685,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital"
+        ],
+        "en": [
+          "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital"
+        ],
+        "fr": [
           "dipl-biomedizinische-r-analytiker-in-hf-oder-biomedizinische-r-labordiagnostiker-in-spital"
         ]
       },

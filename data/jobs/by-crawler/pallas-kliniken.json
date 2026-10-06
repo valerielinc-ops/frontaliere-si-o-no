@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pallas-kliniken-ca73a56c6513",
-      "slug": "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken",
+      "slug": "dirigente-assistente-di-ambulatorio-medico-80-100-medicina-estetica-pallas-kliniken-winterthur",
       "slugByLocale": {
-        "it": "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken",
-        "en": "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken",
+        "it": "dirigente-assistente-di-ambulatorio-medico-80-100-medicina-estetica-pallas-kliniken-winterthur",
+        "en": "senior-medical-practice-assistant-80-100-aesthetic-medicine-pallas-kliniken-winterthur",
         "de": "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken",
-        "fr": "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+        "fr": "assistant-e-medical-e-principal-e-80-100-medecine-esthetique-pallas-kliniken-winterthur"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -67,16 +67,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+        ],
+        "en": [
+          "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+        ],
+        "fr": [
+          "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+      ]
     },
     {
       "id": "pallas-kliniken-a5c6577a24c2",
-      "slug": "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern",
+      "slug": "assistente-di-ambulatorio-medico-80-100-area-oftalmologia-pallas-kliniken-bern",
       "slugByLocale": {
-        "it": "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern",
-        "en": "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern",
+        "it": "assistente-di-ambulatorio-medico-80-100-area-oftalmologia-pallas-kliniken-bern",
+        "en": "medical-practice-assistant-80-100-ophthalmology-department-pallas-kliniken-bern",
         "de": "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern",
-        "fr": "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        "fr": "assistant-e-medical-e-80-100-domaine-de-l-ophtalmologie-pallas-kliniken-bern"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -134,7 +148,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+      ]
     },
     {
       "id": "pallas-kliniken-35994d4d2552",

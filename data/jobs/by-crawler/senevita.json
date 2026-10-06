@@ -7990,7 +7990,7 @@
       "slug": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
       "slugByLocale": {
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
-        "en": "hr-mitarbeiter-in-50-senevita-bl-lausen",
+        "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
         "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
@@ -8045,6 +8045,9 @@
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
+          "hr-mitarbeiter-in-50-senevita-bl-lausen"
+        ],
+        "en": [
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ]
       },
@@ -8388,7 +8391,7 @@
       "slug": "cucina-chef-senevita-ag-wohlen",
       "slugByLocale": {
         "it": "cucina-chef-senevita-ag-wohlen",
-        "en": "koch-kochin-senevita-ag-wohlen",
+        "en": "cook-senevita-ag-wohlen",
         "de": "koch-kochin-senevita-ag-wohlen",
         "fr": "cuisson-chef-senevita-ag-wohlen"
       },
@@ -8444,7 +8447,8 @@
           "koch-kochin-senevita-ag-wohlen"
         ],
         "en": [
-          "cook-chef-senevita-ag-wohlen"
+          "cook-chef-senevita-ag-wohlen",
+          "koch-kochin-senevita-ag-wohlen"
         ],
         "fr": [
           "koch-kochin-senevita-ag-wohlen"
@@ -11139,9 +11143,9 @@
       "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-ag-spreitenbach",
       "slugByLocale": {
         "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-ag-spreitenbach",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach",
+        "en": "apprenticeship-as-a-specialist-in-operational-maintenance-efz-senevita-ag-spreitenbach",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach"
+        "fr": "apprenti-e-specialiste-entretien-d-entreprise-cfc-senevita-ag-spreitenbach"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11191,6 +11195,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-ag-spreitenbach"
         ]
       },
@@ -14943,12 +14953,12 @@
     },
     {
       "id": "senevita-451f666d4b45",
-      "slug": "pflegehelfer-in-srk-senevita-zh-herrliberg",
+      "slug": "assistente-sanitario-crs-senevita-zh-herrliberg",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-senevita-zh-herrliberg",
-        "en": "pflegehelfer-in-srk-senevita-zh-herrliberg",
+        "it": "assistente-sanitario-crs-senevita-zh-herrliberg",
+        "en": "nursing-assistant-m-f-senevita-zh-herrliberg",
         "de": "pflegehelfer-in-srk-senevita-zh-herrliberg",
-        "fr": "pflegehelfer-in-srk-senevita-zh-herrliberg"
+        "fr": "aide-soignant-crs-senevita-zh-herrliberg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -15006,7 +15016,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-senevita-zh-herrliberg"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-senevita-zh-herrliberg"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-senevita-zh-herrliberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-senevita-zh-herrliberg"
+      ]
     },
     {
       "id": "senevita-7e8d890a1823",
@@ -16527,9 +16551,9 @@
     },
     {
       "id": "senevita-4127b0846e86",
-      "slug": "sous-chef-senevita-zh-dietikon",
+      "slug": "sottocuoco-senevita-zh-dietikon",
       "slugByLocale": {
-        "it": "sous-chef-senevita-zh-dietikon",
+        "it": "sottocuoco-senevita-zh-dietikon",
         "en": "sous-chef-senevita-zh-dietikon",
         "de": "sous-chef-senevita-zh-dietikon",
         "fr": "sous-chef-senevita-zh-dietikon"
@@ -16590,7 +16614,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-senevita-zh-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-senevita-zh-dietikon"
+      ]
     },
     {
       "id": "senevita-f85febd5af72",

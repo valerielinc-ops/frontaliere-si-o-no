@@ -14018,9 +14018,9 @@
       "slug": "psychologe-in-con-abgeschlossener-o-fortgeschrittener-therapieweiterbildung-spital-thurgau-stgag-weinfelden",
       "slugByLocale": {
         "it": "psychologe-in-con-abgeschlossener-o-fortgeschrittener-therapieweiterbildung-spital-thurgau-stgag-weinfelden",
-        "en": "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch",
+        "en": "psychologist-with-completed-or-advanced-therapy-training-spital-thurgau-stgag-weinfelden",
         "de": "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch",
-        "fr": "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch"
+        "fr": "psychologue-avec-formation-continue-en-therapie-achevee-ou-avancee-spital-thurgau-stgag-weinfelden"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14070,6 +14070,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch"
+        ],
+        "en": [
+          "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch"
+        ],
+        "fr": [
           "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch"
         ]
       },
@@ -14174,12 +14180,12 @@
     },
     {
       "id": "spital-thurgau-5caf957c7d75",
-      "slug": "abteilungsleiter-in-tarife-ibi-care-stgag-ch",
+      "slug": "responsabile-di-reparto-tariffe-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-tarife-ibi-care-stgag-ch",
-        "en": "abteilungsleiter-in-tarife-ibi-care-stgag-ch",
+        "it": "responsabile-di-reparto-tariffe-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "head-of-department-tariffs-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "abteilungsleiter-in-tarife-ibi-care-stgag-ch",
-        "fr": "abteilungsleiter-in-tarife-ibi-care-stgag-ch"
+        "fr": "chef-fe-de-service-tarifs-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14238,16 +14244,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-tarife-ibi-care-stgag-ch"
+        ],
+        "en": [
+          "abteilungsleiter-in-tarife-ibi-care-stgag-ch"
+        ],
+        "fr": [
+          "abteilungsleiter-in-tarife-ibi-care-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-tarife-ibi-care-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-9638dd9e47e8",
-      "slug": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch",
+      "slug": "segretario-a-medico-a-urologia-presso-la-sede-di-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch",
-        "en": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch",
+        "it": "segretario-a-medico-a-urologia-presso-la-sede-di-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "medical-secretary-urology-at-the-munsterlingen-site-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch",
-        "fr": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch"
+        "fr": "secretaire-medical-en-urologie-sur-le-site-de-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14306,16 +14326,30 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch"
+        ],
+        "en": [
+          "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-45ca5a1c104d",
-      "slug": "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "infermiera-di-posizionamento-chirurgico-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "it": "infermiera-di-posizionamento-chirurgico-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "surgical-positioning-nurse-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "op-lagerungspfleger-in-stgag-ch",
-        "fr": "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "fr": "infirmiere-en-positionnement-chirurgical-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14361,11 +14395,19 @@
       "department": "Med.-technisches & Med.-therapeutisches Personal",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "op-lagerungspfleger-in-stgag-ch"
+        "op-lagerungspfleger-in-stgag-ch",
+        "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "op-lagerungspfleger-in-stgag-ch"
+          "op-lagerungspfleger-in-stgag-ch",
+          "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "en": [
+          "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "fr": [
+          "op-lagerungspfleger-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "needsRetranslation": true,

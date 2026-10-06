@@ -25111,7 +25111,7 @@
         "it": "techniker-in-betrieb-instandhaltung-warmeanlagen-alle-bkw-ch",
         "en": "techniker-in-betrieb-instandhaltung-warmeanlagen-alle-bkw-ch",
         "de": "techniker-in-betrieb-instandhaltung-warmeanlagen-alle-bkw-ch",
-        "fr": "techniker-in-betrieb-instandhaltung-warmeanlagen-alle-bkw-ch"
+        "fr": "technicien-en-exploitation-et-maintenance-des-systemes-de-chauffage-tous-bkw-solothurn"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25514,7 +25514,7 @@
       "slug": "responsabile-risorse-umane-business-partner-alle-bkw-urdorf",
       "slugByLocale": {
         "it": "responsabile-risorse-umane-business-partner-alle-bkw-urdorf",
-        "en": "leiter-in-hr-business-partner-alle-bkw-ch",
+        "en": "head-of-hr-business-partner-all-bkw-urdorf",
         "de": "leiter-in-hr-business-partner-alle-bkw-ch",
         "fr": "leiter-in-hr-business-partner-alle-bkw-ch"
       },
@@ -25566,6 +25566,9 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-hr-business-partner-alle-bkw-ch"
+        ],
+        "en": [
+          "leiter-in-hr-business-partner-alle-bkw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -25589,9 +25592,9 @@
       "slug": "responsabile-netznutzungsmanagement-alle-bkw-nidau",
       "slugByLocale": {
         "it": "responsabile-netznutzungsmanagement-alle-bkw-nidau",
-        "en": "leiter-in-netznutzungsmanagement-alle-bkw-ch",
+        "en": "grid-utilization-management-manager-all-bkw-nidau",
         "de": "leiter-in-netznutzungsmanagement-alle-bkw-ch",
-        "fr": "leiter-in-netznutzungsmanagement-alle-bkw-ch"
+        "fr": "responsable-de-la-gestion-de-l-utilisation-du-reseau-tous-bkw-nidau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25641,6 +25644,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-netznutzungsmanagement-alle-bkw-ch"
+        ],
+        "en": [
+          "leiter-in-netznutzungsmanagement-alle-bkw-ch"
+        ],
+        "fr": [
+          "leiter-in-netznutzungsmanagement-alle-bkw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -25664,7 +25673,7 @@
       "slug": "responsabile-risorse-umane-services-alle-bkw-urdorf",
       "slugByLocale": {
         "it": "responsabile-risorse-umane-services-alle-bkw-urdorf",
-        "en": "leiter-in-hr-services-alle-bkw-ch",
+        "en": "head-of-hr-services-all-bkw-urdorf",
         "de": "leiter-in-hr-services-alle-bkw-ch",
         "fr": "leiter-in-hr-services-alle-bkw-ch"
       },
@@ -25715,6 +25724,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-hr-services-alle-bkw-ch"
+        ],
+        "en": [
           "leiter-in-hr-services-alle-bkw-ch"
         ]
       },
@@ -25813,9 +25825,9 @@
       "slug": "servicetechniker-in-e-sachbearbeiter-in-luftung-klima-alle-bkw-langenthal",
       "slugByLocale": {
         "it": "servicetechniker-in-e-sachbearbeiter-in-luftung-klima-alle-bkw-langenthal",
-        "en": "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch",
+        "en": "service-technician-and-clerk-ventilation-air-conditioning-all-bkw-langenthal",
         "de": "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch",
-        "fr": "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch"
+        "fr": "technicien-de-service-et-employe-ventilation-climatisation-tous-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25864,6 +25876,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch"
+        ],
+        "en": [
+          "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch"
+        ],
+        "fr": [
           "servicetechniker-in-und-sachbearbeiter-in-luftung-klima-alle-bkw-ch"
         ]
       },
