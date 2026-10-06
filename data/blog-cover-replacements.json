@@ -14114,6 +14114,26 @@
         }
       ]
     },
+    "bollettino-frontaliere-2026-10-06": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
+      "toCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-06.json",
+      "proofLevel": 6,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-06",
+          "category": "novita",
+          "date": "2026-10-06T11:53:20.937Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ]
+    },
     "bollini-rossi-traffico-san-gottardo-2026": {
       "mode": "fallback",
       "status": "applied",
@@ -104379,7 +104399,8 @@
     "deloitte-previsione-cambi-cassa-malati",
     "deposito-cauzionale-basilea",
     "deposito-modulo-conciliazione",
-    "deputazione-ticinese-doppia-imposizione"
+    "deputazione-ticinese-doppia-imposizione",
+    "bollettino-frontaliere-2026-10-06"
   ],
   "temporaryAllowlist": [
     {
@@ -105152,6 +105173,12 @@
     },
     {
       "key": "deputazione-ticinese-doppia-imposizione",
+      "proofLevel": 6,
+      "reason": "inferred historical cover queued for article-hero regeneration",
+      "createdAt": "2026-10-06"
+    },
+    {
+      "key": "bollettino-frontaliere-2026-10-06",
       "proofLevel": 6,
       "reason": "inferred historical cover queued for article-hero regeneration",
       "createdAt": "2026-10-06"
