@@ -384,6 +384,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     // radice `packages/articles/`, che copre anche questo sottoalbero.
     ['tests/article-hub-archive-assets.test.ts', ['packages/articles/'], 'legge il sorgente packages/articles/engine/articleHubPagesPlugin.ts, codice del package e non corpus'],
     ['tests/build-emit-skip-gate.test.ts', ['packages/articles/'], 'legge il sorgente packages/articles/engine/ogPagesPlugin.ts, codice del package e non corpus'],
+    ['tests/site-rendered-article-sections.test.ts', ['packages/articles/'], 'scansiona esclusivamente sorgenti del package sotto packages/articles/engine, build-plugins e scripts; non legge il corpus packages/articles/content'],
     // Chunk di interfaccia `services/locales/{it,en,de,fr}-<chunk>.ts`: sono
     // sotto la radice `services/locales/` ma non sono dato vivo. Misura del
     // 2026-10-03 sulla storia di `origin/main`, 120 giorni: zero commit diretti
