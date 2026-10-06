@@ -75,10 +75,12 @@ export function computeSlicePartition(beforeJobs, afterJobs) {
   const shared = ambiguousJobIdentities(beforeJobs, afterJobs);
   const keyOf = (job) => {
     const identity = buildStableJobIdentity(job);
-    if (!identity || !shared.has(identity)) return identity;
     const id = String(job?.id ?? '').trim();
     const slug = String(job?.slug ?? '').trim().toLowerCase();
-    return `${identity}\u0000${id ? `id:${id}` : `slug:${slug}`}`;
+    const postingKey = id ? `id:${id}` : slug ? `slug:${slug}` : '';
+    if (!postingKey) return '';
+    if (!identity || !shared.has(identity)) return identity;
+    return `${identity}\u0000${postingKey}`;
   };
   const before = new Map();
   for (const job of deduplicateJobsByKey(beforeJobs, keyOf)) {
