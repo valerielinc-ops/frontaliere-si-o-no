@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-05T21:55:42.026Z",
+  "generatedAt": "2026-10-06T09:47:24.953Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4770,
-  "avgDurationMs": 4770,
+  "durationMs": 3178,
+  "avgDurationMs": 3178,
   "durationHistory": [
-    4770
+    3178
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:55:32.126Z",
+      "crawledAt": "2026-10-06T09:47:12.873Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -80,7 +80,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:55:32.719Z",
+      "crawledAt": "2026-10-06T09:47:13.280Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -122,7 +122,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:55:32.533Z",
+      "crawledAt": "2026-10-06T09:47:13.147Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -164,7 +164,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:55:32.321Z",
+      "crawledAt": "2026-10-06T09:47:13.016Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -195,5 +195,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

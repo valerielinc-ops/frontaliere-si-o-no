@@ -1,7 +1,7 @@
 {
   "key": "nvidia-zurich",
   "label": "NVIDIA (ufficio Zurich)",
-  "generatedAt": "2026-10-05T21:43:04.401Z",
+  "generatedAt": "2026-10-06T09:23:22.984Z",
   "total": 13,
   "discovered": null,
   "parsed": 13,
@@ -13,59 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 43160,
-  "avgDurationMs": 43160,
+  "unchangedCount": 13,
+  "durationMs": 44153,
+  "avgDurationMs": 44153,
   "durationHistory": [
-    43160
+    44153
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "nvidia-zurich-d0a1fc2cfd4d",
-      "slug": "ai-compiler-formal-verification-tirocinante-nvidia-ufficio-zurich-zurich",
-      "company": "NVIDIA (ufficio Zurich)",
-      "companyKey": "nvidia-zurich",
-      "companyDomain": "nvidia.com",
-      "title": "AI Compiler Formal Verification Intern",
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
-      "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:23.250Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Tecnologia / Semiconduttori",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-05",
-      "postedDate": "2026-10-05",
-      "postingDateSource": "reported",
-      "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
-      "jobReqId": "JR2027025",
-      "firstSeenAt": "2026-10-05T09:20:47.433Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +37,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Architect--GPU-Networking-Research_JR2016906",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:55.891Z",
+      "crawledAt": "2026-10-06T09:23:06.403Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,12 +58,13 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -122,7 +80,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:48.914Z",
+      "crawledAt": "2026-10-06T09:22:58.793Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,12 +101,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -163,7 +122,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Research-Scientist--AI-RL-and-LLMs_JR2023706",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:48.067Z",
+      "crawledAt": "2026-10-06T09:22:58.050Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,12 +143,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -205,7 +165,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-and-AI-Network-Software-Architect_JR2022878",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:47.245Z",
+      "crawledAt": "2026-10-06T09:22:57.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -226,12 +186,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -247,7 +208,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Solutions-Architect--Higher-Education-and-Research--Multimodal-and-Physical-AI_JR2024873",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:46.425Z",
+      "crawledAt": "2026-10-06T09:22:56.664Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,12 +229,13 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -289,7 +251,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Supercomputing-and-Higher-Education-Account-Manager_JR2024073",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:44.863Z",
+      "crawledAt": "2026-10-06T09:22:55.317Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -310,12 +272,13 @@
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -330,7 +293,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Developer_JR2008695",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:43.435Z",
+      "crawledAt": "2026-10-06T09:22:53.999Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -351,12 +314,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -372,7 +336,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineer--Energy_JR2018521",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:42.558Z",
+      "crawledAt": "2026-10-06T09:22:53.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -393,12 +357,13 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -414,7 +379,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-AI-Cluster-Engineer_JR2018385",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:41.721Z",
+      "crawledAt": "2026-10-06T09:22:52.612Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -435,12 +400,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -455,7 +421,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-GPU-Networking-Architect_JR2015083",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:32.804Z",
+      "crawledAt": "2026-10-06T09:22:44.358Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -476,12 +442,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -497,7 +464,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:27.673Z",
+      "crawledAt": "2026-10-06T09:22:38.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,12 +485,13 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -539,7 +507,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineering-Intern---Compute-Performance_JR2026775",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:42:25.192Z",
+      "crawledAt": "2026-10-06T09:22:35.577Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,14 +528,58 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "nvidia-zurich-d0a1fc2cfd4d",
+      "slug": "ai-compiler-formal-verification-tirocinante-nvidia-ufficio-zurich-zurich",
+      "company": "NVIDIA (ufficio Zurich)",
+      "companyKey": "nvidia-zurich",
+      "companyDomain": "nvidia.com",
+      "title": "AI Compiler Formal Verification Intern",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
+      "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:22:33.673Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Tecnologia / Semiconduttori",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
+      "jobReqId": "JR2027025",
+      "firstSeenAt": "2026-10-05T09:20:47.433Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

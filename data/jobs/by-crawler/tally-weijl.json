@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-10-05T21:35:25.300Z",
+  "assembledAt": "2026-10-06T09:20:25.254Z",
   "jobs": [
     {
       "id": "tally-weijl-7934e67f86db",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pkc9/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:18.507Z",
+      "crawledAt": "2026-10-06T09:20:18.008Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,6 +80,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5000",
       "addressRegion": "AG"
     },
     {
@@ -113,7 +114,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:17.939Z",
+      "crawledAt": "2026-10-06T09:20:17.514Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,6 +160,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3004",
       "addressRegion": "BE"
     },
     {
@@ -192,7 +194,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0vblw/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:17.382Z",
+      "crawledAt": "2026-10-06T09:20:16.969Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,6 +241,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3600",
       "addressRegion": "BE"
     },
     {
@@ -272,7 +275,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:16.857Z",
+      "crawledAt": "2026-10-06T09:20:16.395Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -348,6 +351,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4500",
       "addressRegion": "SO"
     },
     {
@@ -381,7 +385,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:16.334Z",
+      "crawledAt": "2026-10-06T09:20:15.892Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -459,6 +463,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4001",
       "addressRegion": "BS"
     },
     {
@@ -492,7 +497,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:15.749Z",
+      "crawledAt": "2026-10-06T09:20:15.388Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,6 +575,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3004",
       "addressRegion": "BE"
     },
     {
@@ -603,7 +609,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:15.172Z",
+      "crawledAt": "2026-10-06T09:20:14.754Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -649,6 +655,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2502",
       "addressRegion": "BE"
     },
     {
@@ -666,7 +673,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -682,7 +689,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:14.623Z",
+      "crawledAt": "2026-10-06T09:20:14.129Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -743,6 +750,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -756,6 +764,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5000",
       "addressRegion": "AG"
     },
     {
@@ -773,7 +782,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -789,7 +798,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:14.111Z",
+      "crawledAt": "2026-10-06T09:20:13.566Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -848,6 +857,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -861,6 +871,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3600",
       "addressRegion": "BE"
     },
     {
@@ -878,7 +889,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -894,7 +905,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:13.590Z",
+      "crawledAt": "2026-10-06T09:20:13.042Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -954,6 +965,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -967,6 +979,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4600",
       "addressRegion": "SO"
     },
     {
@@ -984,7 +997,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -1000,7 +1013,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:13.084Z",
+      "crawledAt": "2026-10-06T09:20:12.408Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1060,6 +1073,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1073,6 +1087,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6003",
       "addressRegion": "LU"
     },
     {
@@ -1090,7 +1105,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistenza flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Assistance souple"
       },
@@ -1106,7 +1121,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:12.565Z",
+      "crawledAt": "2026-10-06T09:20:11.829Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1136,6 +1151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:01:48.556Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1149,6 +1165,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
       "addressRegion": "ZH"
     },
     {
@@ -1166,7 +1183,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Aiuto flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Auchifte flexible"
       },
@@ -1182,7 +1199,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:12.058Z",
+      "crawledAt": "2026-10-06T09:20:11.192Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1215,6 +1232,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1228,6 +1246,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5400",
       "addressRegion": "AG"
     },
     {
@@ -1245,7 +1264,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Aiuto flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Auchifte flexible"
       },
@@ -1261,7 +1280,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:11.475Z",
+      "crawledAt": "2026-10-06T09:20:10.697Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1294,6 +1313,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1307,6 +1327,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "7000",
       "addressRegion": "GR"
     },
     {
@@ -1324,7 +1345,7 @@
       "title": "FLEXIBLE AUSHILFE",
       "titleByLocale": {
         "it": "AIUTI FLESSIBILE",
-        "en": "FLEXIBLE AID",
+        "en": "FLEXIBLE AUSHILFE",
         "de": "FLEXIBLE AUSHILFE",
         "fr": "AIDES FLEXIBLES"
       },
@@ -1340,7 +1361,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:10.919Z",
+      "crawledAt": "2026-10-06T09:20:10.132Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1377,6 +1398,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:35:19.101Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1390,6 +1412,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3004",
       "addressRegion": "BE"
     },
     {
@@ -1407,7 +1430,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistenza flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Assistance souple"
       },
@@ -1423,7 +1446,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:10.353Z",
+      "crawledAt": "2026-10-06T09:20:09.628Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1456,6 +1479,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:07.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1469,6 +1493,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2502",
       "addressRegion": "BE"
     },
     {
@@ -1486,7 +1511,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistenza flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Assistance souple"
       },
@@ -1502,7 +1527,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:09.860Z",
+      "crawledAt": "2026-10-06T09:20:09.122Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1546,6 +1571,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3004",
       "addressRegion": "BE"
     },
     {
@@ -1563,7 +1589,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistente flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Assistant flexible"
       },
@@ -1579,7 +1605,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:09.312Z",
+      "crawledAt": "2026-10-06T09:20:08.619Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1649,6 +1675,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1662,6 +1689,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5000",
       "addressRegion": "AG"
     },
     {
@@ -1679,7 +1707,7 @@
       "title": "Filialleiter / Store Manager (w/m/d) TW Thun",
       "titleByLocale": {
         "it": "Branch Manager / Store Manager (f/m/d) TW Thun",
-        "en": "Branch Manager / Store Manager (m/f/d) TW Thun",
+        "en": "Filialleiter / Store Manager (w/m/d) TW Thun",
         "de": "Filialleiter / Store Manager (w/m/d) TW Thun",
         "fr": "Gestionnaire de branche / Gestionnaire de magasin (f/m/d) TW Thun"
       },
@@ -1695,7 +1723,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:08.811Z",
+      "crawledAt": "2026-10-06T09:20:08.070Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1714,6 +1742,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-06T15:31:43.670Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1727,6 +1756,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3600",
       "addressRegion": "BE"
     },
     {
@@ -1744,7 +1774,7 @@
       "title": "STORE MANAGER (h/f)",
       "titleByLocale": {
         "it": "RESPONSABILE NEGOZIO (m/f)",
-        "en": "STORE MANAGER (m/f)",
+        "en": "STORE MANAGER (h/f)",
         "de": "FILIALENLEITER (m/w)",
         "fr": "STORE MANAGER (h/f)"
       },
@@ -1760,7 +1790,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:35:08.260Z",
+      "crawledAt": "2026-10-06T09:20:07.444Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1826,6 +1856,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1839,6 +1870,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1964",
       "addressRegion": "VS"
     },
     {
@@ -1872,7 +1904,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z8sn/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:35:07.646Z",
+      "crawledAt": "2026-10-06T09:20:06.880Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1916,6 +1948,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4001",
       "addressRegion": "BS"
     },
     {
@@ -1935,7 +1968,7 @@
         "it": "Controllore del Gruppo & Tesoro",
         "en": "Group Controller & Treasury",
         "de": "Group Controller und Treasury",
-        "fr": "Contrôleur de groupe & Trésorerie"
+        "fr": "Group Controller & Treasury"
       },
       "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years.\n\nToday we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels.\n\nGroup Controller & Treasury Manager\n\nLocation: Basel, Switzerland\nOn-site: Monday to Friday\n\nAbout the Role\n\nWe are looking for a Group Controller & Treasury Manager to lead our Finance operations and ensure the smooth running of all controlling and treasury activities at group level. This is a key, hands-on leadership role that combines financial control, cash management, and business partnering.The ideal candidate is a highly analytical and business-minded finance professional with strong treasury knowledge and proven experience managing a small finance team in an international retail environment.\n\nYour \n• Responsibilities\n\n· - Oversee all financial controlling activities, including budgeting, forecasting, variance analysis, and management reporting.\n\n· - Lead treasury operations, ensuring effective cash flow management, liquidity planning, and bank relationships.\n\n· - Prepare consolidated group financial statements and monthly reporting packages.\n\n· - Monitor KPIs and support management with data-driven insights to guide strategic decisions.\n\n· - Manage and coach a small team within the finance department.\n\n· - Partner with cross-functional teams to ensure financial accuracy, efficiency, and compliance.\n\n· - Develop and maintain internal controls and financial processes to safeguard company assets.\n\n· - Coordinate with external auditors, tax advisors, and financial institutions.\n\n· - Contribute to strategic planning by providing actionable financial analysis and business recommendations.\n\nYour \n• Profile\n\n· - Proven experience in controlling and treasury within an international company (ideally retail or fashion).\n\n· - Strong understanding of financial reporting, liquidity management, and forecasting.\n\n· - Excellent command of accounting principles (Swiss GAAP / IFRS a plus).\n\n· - Strategic mindset with a hands-on approach.\n\n· - Strong leadership, communication, and influencing skills.\n\n· - Highly organized, analytical, and detail-oriented.\n\n· - Advanced Excel skills and experience with ERP systems (SAP)\n\n· - Fluent in English (German or French a plus).\n\nWhat We Offer\n\n· - A key leadership role in a dynamic, international fashion company.\n\n· - Direct impact on financial performance and strategic direction.\n\n· - An empowering and collaborative culture in our Basel headquarters.\n\n· - Competitive compensation and benefits package.\n\nWould you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
       "descriptionByLocale": {
@@ -1949,7 +1982,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhbs/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:35:07.006Z",
+      "crawledAt": "2026-10-06T09:20:06.316Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1975,6 +2008,7 @@
           "group-controller-amp-treasury-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1988,6 +2022,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4001",
       "addressRegion": "BS"
     },
     {
@@ -2005,7 +2040,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE VENDITE FLESSIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT(E) VENTES FLEXIBLE (m/w/d)"
       },
@@ -2021,7 +2056,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:35:06.484Z",
+      "crawledAt": "2026-10-06T09:20:05.794Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2084,6 +2119,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2097,13 +2133,14 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8200",
       "addressRegion": "SH"
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
       "slug": "fitting-models-tally-weijl-basel",
       "slugByLocale": {
-        "it": "moduli-di-montaggio-tally-weijl-basel",
+        "it": "fitting-models-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -2113,7 +2150,7 @@
       "companyDomain": "tally-weijl.com",
       "title": "Fitting MODELS",
       "titleByLocale": {
-        "it": "Moduli di montaggio",
+        "it": "Fitting MODELS",
         "en": "Fitting MODELS",
         "de": "Passformmodell",
         "fr": "Modèle d'Essayage"
@@ -2130,7 +2167,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:35:05.981Z",
+      "crawledAt": "2026-10-06T09:20:05.192Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2181,7 +2218,8 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel",
+        "moduli-di-montaggio-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2189,9 +2227,13 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "moduli-di-montaggio-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2205,6 +2247,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4001",
       "addressRegion": "BS"
     },
     {
@@ -2238,7 +2281,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z81w/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:35:05.365Z",
+      "crawledAt": "2026-10-06T09:20:04.672Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2284,6 +2327,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1950",
       "addressRegion": "VS"
     },
     {
@@ -2317,7 +2361,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:35:04.793Z",
+      "crawledAt": "2026-10-06T09:20:04.101Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressCountry": "CH",
       "country": "CH",
@@ -2362,6 +2406,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1400",
       "addressRegion": "VD"
     },
     {
@@ -2395,7 +2440,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:35:04.224Z",
+      "crawledAt": "2026-10-06T09:20:03.592Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2440,6 +2485,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2000",
       "addressRegion": "NE"
     }
   ]
