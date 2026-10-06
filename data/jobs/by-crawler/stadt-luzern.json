@@ -2195,12 +2195,12 @@
     },
     {
       "id": "stadt-luzern-2d425ee054f1",
-      "slug": "praktikant-in-stadtarchiv-80-stadt-luzern-luzern",
+      "slug": "tirocinante-presso-l-archivio-comunale-80-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "praktikant-in-stadtarchiv-80-stadt-luzern-luzern",
-        "en": "praktikant-in-stadtarchiv-80-stadt-luzern-luzern",
+        "it": "tirocinante-presso-l-archivio-comunale-80-stadt-luzern-luzern",
+        "en": "traineecity-archives-80-stadt-luzern-luzern",
         "de": "praktikant-in-stadtarchiv-80-stadt-luzern-luzern",
-        "fr": "praktikant-in-stadtarchiv-80-stadt-luzern-luzern"
+        "fr": "stagiaire-aux-archives-municipales-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2257,7 +2257,21 @@
           "maxValue": 71200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-stadtarchiv-80-stadt-luzern-luzern"
+        ],
+        "en": [
+          "praktikant-in-stadtarchiv-80-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "praktikant-in-stadtarchiv-80-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-stadtarchiv-80-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-c26c78718a03",

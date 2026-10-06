@@ -13894,12 +13894,12 @@
     },
     {
       "id": "spital-thurgau-9364ec6e9c60",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "infermiere-a-diplomato-a-hf-fh-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch",
+        "it": "infermiere-a-diplomato-a-hf-fh-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "qualified-nursing-specialist-hf-fh-medical-diagnostics-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch"
+        "fr": "dipl-infirmier-infirmiere-es-hes-diagnostic-medical-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13945,10 +13945,18 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch"
+        "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch"
         ]
       },
@@ -14127,12 +14135,12 @@
     },
     {
       "id": "spital-thurgau-a94d20dea829",
-      "slug": "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen",
+      "slug": "responsabile-del-team-trasporti-in-cucina-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen",
-        "en": "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen",
+        "it": "responsabile-del-team-trasporti-in-cucina-spital-thurgau-stgag-munsterlingen",
+        "en": "kitchen-transport-team-leader-spital-thurgau-stgag-munsterlingen",
         "de": "teamleiter-in-kuchentransporte-stgag-ch",
-        "fr": "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen"
+        "fr": "chef-d-equipe-transports-de-cuisine-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14178,11 +14186,19 @@
       "department": "Hotellerie",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "teamleiter-in-kuchentransporte-stgag-ch"
+        "teamleiter-in-kuchentransporte-stgag-ch",
+        "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-kuchentransporte-stgag-ch"
+          "teamleiter-in-kuchentransporte-stgag-ch",
+          "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "teamleiter-in-kuchentransporte-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-10-01T09:16:54.228Z",

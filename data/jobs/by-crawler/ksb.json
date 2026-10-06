@@ -7566,12 +7566,12 @@
     },
     {
       "id": "ksb-b442b657acc2",
-      "slug": "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch",
+      "slug": "assistente-a-alla-gestione-dei-respingimenti-20-con-retribuzione-oraria-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch",
-        "en": "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch",
+        "it": "assistente-a-alla-gestione-dei-respingimenti-20-con-retribuzione-oraria-kantonsspital-baden-ksb-baden",
+        "en": "rejection-management-assistant-20-in-hourly-wage-kantonsspital-baden-ksb-baden",
         "de": "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch",
-        "fr": "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch"
+        "fr": "assistant-e-en-gestion-des-renvois-20-du-salaire-horaire-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7627,16 +7627,30 @@
           "maxValue": 24600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch"
+        ],
+        "en": [
+          "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch"
+        ],
+        "fr": [
+          "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-ruckweisungsmanagement-20-im-stundenlohn-ksb-ch"
+      ]
     },
     {
       "id": "ksb-a3523aad5995",
       "slug": "radiologiefachfrau-mann-per-mammografie-screening-60-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "radiologiefachfrau-mann-per-mammografie-screening-60-100-kantonsspital-baden-ksb-baden",
-        "en": "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch",
+        "en": "radiologist-man-for-mammography-screening-60-100-kantonsspital-baden-ksb-baden",
         "de": "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch",
-        "fr": "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch"
+        "fr": "specialiste-en-radiologie-homme-pour-mammographie-depistage-60-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7686,6 +7700,12 @@
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch"
+        ],
+        "en": [
+          "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch"
+        ],
+        "fr": [
+          "radiologiefachfrau-mann-fur-mammografie-screening-60-100-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-09-30T21:25:49.109Z",
@@ -7705,12 +7725,12 @@
     },
     {
       "id": "ksb-6c5c29eca4d3",
-      "slug": "stv-leiter-in-fakturierung-100-kantonsspital-baden-ksb-baden",
+      "slug": "responsabile-supplente-in-fatturazione-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "stv-leiter-in-fakturierung-100-kantonsspital-baden-ksb-baden",
-        "en": "stv-leiter-in-fakturierung-100-ksb-ch",
+        "it": "responsabile-supplente-in-fatturazione-100-kantonsspital-baden-ksb-baden",
+        "en": "deputy-head-of-invoicing-100-kantonsspital-baden-ksb-baden",
         "de": "stv-leiter-in-fakturierung-100-ksb-ch",
-        "fr": "stv-leiter-in-fakturierung-100-ksb-ch"
+        "fr": "responsable-adjoint-de-la-facturation-a-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7754,10 +7774,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leiter-in-fakturierung-100-ksb-ch"
+        "stv-leiter-in-fakturierung-100-ksb-ch",
+        "stv-leiter-in-fakturierung-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-fakturierung-100-ksb-ch",
+          "stv-leiter-in-fakturierung-100-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "stv-leiter-in-fakturierung-100-ksb-ch"
+        ],
+        "fr": [
           "stv-leiter-in-fakturierung-100-ksb-ch"
         ]
       },
@@ -7778,12 +7806,12 @@
     },
     {
       "id": "ksb-3c08cf16e48f",
-      "slug": "teamleiter-in-transportlogistik-100-ksb-ch",
+      "slug": "responsabile-del-team-in-logistica-dei-trasporti-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "teamleiter-in-transportlogistik-100-ksb-ch",
-        "en": "teamleiter-in-transportlogistik-100-ksb-ch",
+        "it": "responsabile-del-team-in-logistica-dei-trasporti-100-kantonsspital-baden-ksb-baden",
+        "en": "transport-logistics-team-leader-100-kantonsspital-baden-ksb-baden",
         "de": "teamleiter-in-transportlogistik-100-ksb-ch",
-        "fr": "teamleiter-in-transportlogistik-100-ksb-ch"
+        "fr": "chef-d-equipe-en-logistique-de-transport-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7839,16 +7867,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-transportlogistik-100-ksb-ch"
+        ],
+        "en": [
+          "teamleiter-in-transportlogistik-100-ksb-ch"
+        ],
+        "fr": [
+          "teamleiter-in-transportlogistik-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-transportlogistik-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-aac33c67f4e0",
-      "slug": "teamleiter-in-leistungsmanagement-100-ksb-ch",
+      "slug": "team-leader-nella-gestione-delle-prestazioni-al-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "teamleiter-in-leistungsmanagement-100-ksb-ch",
-        "en": "teamleiter-in-leistungsmanagement-100-ksb-ch",
+        "it": "team-leader-nella-gestione-delle-prestazioni-al-100-kantonsspital-baden-ksb-baden",
+        "en": "team-leader-performance-management-100-kantonsspital-baden-ksb-baden",
         "de": "teamleiter-in-leistungsmanagement-100-ksb-ch",
-        "fr": "teamleiter-in-leistungsmanagement-100-ksb-ch"
+        "fr": "chef-d-equipe-gestion-des-performances-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7904,7 +7946,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-leistungsmanagement-100-ksb-ch"
+        ],
+        "en": [
+          "teamleiter-in-leistungsmanagement-100-ksb-ch"
+        ],
+        "fr": [
+          "teamleiter-in-leistungsmanagement-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-leistungsmanagement-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-6e1801da23c5",

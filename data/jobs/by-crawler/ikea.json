@@ -1578,9 +1578,9 @@
     },
     {
       "id": "ikea-7e134a4f82e3",
-      "slug": "visual-merchandiser-activity-manager-100-ikea-ch",
+      "slug": "visual-merchandiser-responsabile-attivita-100-ikea-dietlikon-zurich",
       "slugByLocale": {
-        "it": "visual-merchandiser-activity-manager-100-ikea-ch",
+        "it": "visual-merchandiser-responsabile-attivita-100-ikea-dietlikon-zurich",
         "en": "visual-merchandiser-activity-manager-100-ikea-ch",
         "de": "visual-merchandiser-aktivitatsmanager-100-ikea-dietlikon",
         "fr": "visual-merchandiser-gestionnaire-d-activite-100-ikea-dietlikon-zurich"
@@ -1639,7 +1639,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "visual-merchandiser-activity-manager-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "visual-merchandiser-activity-manager-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-82b613a3426d",

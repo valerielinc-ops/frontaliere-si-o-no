@@ -3275,9 +3275,9 @@
       "slug": "impiegata-impiegato-in-logistica-wareneingang-80-100-siemens-volketswil",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-wareneingang-80-100-siemens-volketswil",
-        "en": "logistiker-in-wareneingang-80-100-siemens-volketswil",
+        "en": "logistics-incoming-goods-80-100-siemens-volketswil",
         "de": "logistiker-in-wareneingang-80-100-siemens-volketswil",
-        "fr": "logistiker-in-wareneingang-80-100-siemens-volketswil"
+        "fr": "logisticien-en-reception-de-marchandises-80-100-siemens-volketswil"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3328,6 +3328,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-wareneingang-80-100-siemens-volketswil"
+        ],
+        "en": [
+          "logistiker-in-wareneingang-80-100-siemens-volketswil"
+        ],
+        "fr": [
           "logistiker-in-wareneingang-80-100-siemens-volketswil"
         ]
       },

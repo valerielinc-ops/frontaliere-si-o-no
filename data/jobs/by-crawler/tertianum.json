@@ -16597,7 +16597,6 @@
         ],
         "fr": [
           "kochin-koch-60-tertianum-solothurn",
-          "cuisson-chef-60-tertianum-solothurn",
           "cuisinier-cuisiniere-60-tertianum-solothurn"
         ]
       },
@@ -17479,9 +17478,9 @@
       "slug": "responsabile-pflege-e-betreuung-100-tertianum-bern",
       "slugByLocale": {
         "it": "responsabile-pflege-e-betreuung-100-tertianum-bern",
-        "en": "leiter-in-pflege-und-betreuung-100-tertianum-bern",
+        "en": "head-of-nursing-and-care-100-tertianum-bern",
         "de": "leiter-in-pflege-und-betreuung-100-tertianum-bern",
-        "fr": "leiter-in-pflege-und-betreuung-100-tertianum-bern"
+        "fr": "responsable-des-soins-et-de-l-encadrement-100-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -17530,6 +17529,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-pflege-und-betreuung-100-tertianum-bern"
+        ],
+        "en": [
+          "leiter-in-pflege-und-betreuung-100-tertianum-bern"
+        ],
+        "fr": [
           "leiter-in-pflege-und-betreuung-100-tertianum-bern"
         ]
       },

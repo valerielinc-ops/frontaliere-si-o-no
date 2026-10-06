@@ -1648,9 +1648,9 @@
         "de": "Internship NETAdvance – Mobile Analytics",
         "fr": "Stage NETAdvance – Mobile Analytics"
       },
-      "slug": "internship-netadvance-mobile-analytics-swisscom-bern-drxdng",
+      "slug": "tirocinio-netadvance-analisi-mobile-swisscom-bern",
       "slugByLocale": {
-        "it": "internship-netadvance-mobile-analytics-swisscom-bern-drxdng",
+        "it": "tirocinio-netadvance-analisi-mobile-swisscom-bern",
         "en": "internship-netadvance-mobile-analytics-swisscom-bern-drxdng",
         "de": "internship-netadvance-mobile-analytics-swisscom-bern-drxdng",
         "fr": "stage-netadvance-mobile-analytics-swisscom-bern"
@@ -1688,7 +1688,15 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-netadvance-mobile-analytics-swisscom-bern-drxdng"
+        ]
+      },
+      "previousSlugs": [
+        "internship-netadvance-mobile-analytics-swisscom-bern-drxdng"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Internship-NETAdvance---ONIS-AI-DevOps_R-0006550",
@@ -1872,9 +1880,9 @@
         "de": "Internship NETAdvance – Datacenter Network",
         "fr": "Stage NETAdvance – Réseau Datacenter"
       },
-      "slug": "internship-netadvance-datacenter-network-swisscom-zurich-drxcu7",
+      "slug": "stage-netadvance-rete-di-datacenter-swisscom-bern",
       "slugByLocale": {
-        "it": "internship-netadvance-datacenter-network-swisscom-zurich-drxcu7",
+        "it": "stage-netadvance-rete-di-datacenter-swisscom-bern",
         "en": "internship-netadvance-datacenter-network-swisscom-bern",
         "de": "internship-netadvance-datacenter-network-swisscom-zurich-drxcu7",
         "fr": "stage-netadvance-reseau-datacenter-swisscom-zurich"
@@ -1897,11 +1905,13 @@
       "id": "swisscom-sede-ticino-4196cad1281d",
       "previousSlugsByLocale": {
         "it": [
-          "internship-netadvance-datacenter-network-swisscom-bern-drxcu7"
+          "internship-netadvance-datacenter-network-swisscom-bern-drxcu7",
+          "internship-netadvance-datacenter-network-swisscom-zurich-drxcu7"
         ]
       },
       "previousSlugs": [
-        "internship-netadvance-datacenter-network-swisscom-bern-drxcu7"
+        "internship-netadvance-datacenter-network-swisscom-bern-drxcu7",
+        "internship-netadvance-datacenter-network-swisscom-zurich-drxcu7"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:22:28.448Z",

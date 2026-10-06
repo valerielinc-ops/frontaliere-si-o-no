@@ -7472,9 +7472,9 @@
       "slug": "maschinenfuhrer-in-jogurt-emmi-ostermundigen",
       "slugByLocale": {
         "it": "maschinenfuhrer-in-jogurt-emmi-ostermundigen",
-        "en": "maschinenfuhrer-in-jogurt-emmi-ostermundigen",
+        "en": "yogurt-machine-operator-emmi-ostermundigen-bern",
         "de": "maschinenfuhrer-in-jogurt-emmi-ch",
-        "fr": "maschinenfuhrer-in-jogurt-emmi-ostermundigen"
+        "fr": "conducteur-de-machine-en-yaourt-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7884,11 +7884,21 @@
         ]
       },
       "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T21:32:05.413Z",
       "previousSlugsByLocale": {
-        "de": [
-          "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
-          "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
-        ],
         "it": [
           "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
           "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
@@ -7898,6 +7908,10 @@
           "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
           "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
           "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern"
+        ],
+        "de": [
+          "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
+          "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
         ],
         "fr": [
           "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
@@ -7911,21 +7925,7 @@
         "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen",
         "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern",
         "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern"
-      ],
-      "firstSeenAt": "2026-10-05T21:32:05.413Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "emmi-df055a8a1cf3",

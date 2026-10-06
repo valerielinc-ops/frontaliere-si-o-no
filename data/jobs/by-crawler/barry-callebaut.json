@@ -53,8 +53,7 @@
       "previousSlugs": [
         "director-digital-finance-co-barry-callebaut-ch",
         "directeur-finances-numeriques-co-barry-callebaut-zurich",
-        "directeur-des-finances-numeriques-co-barry-callebaut-zurich",
-        "director-digital-finance-co-barry-callebaut-zurich"
+        "directeur-des-finances-numeriques-co-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,8 +65,7 @@
         "fr": [
           "director-digital-finance-co-barry-callebaut-ch",
           "directeur-finances-numeriques-co-barry-callebaut-zurich",
-          "directeur-des-finances-numeriques-co-barry-callebaut-zurich",
-          "director-digital-finance-co-barry-callebaut-zurich"
+          "directeur-des-finances-numeriques-co-barry-callebaut-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -85,8 +83,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "postalCode": "8001"
     },
     {
       "id": "barry-callebaut-a9871ff11912",
@@ -94,7 +92,7 @@
       "slugByLocale": {
         "it": "commerciante-di-cacao-barry-callebaut-zurich",
         "en": "cocoa-trader-barry-callebaut-ch",
-        "de": "cocoa-trader-barry-callebaut-zurich",
+        "de": "kakaohandler-barry-callebaut-zurich",
         "fr": "marchand-de-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -138,7 +136,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cocoa-trader-barry-callebaut-ch",
-        "kakaohandler-barry-callebaut-zurich"
+        "cocoa-trader-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -146,7 +144,7 @@
         ],
         "de": [
           "cocoa-trader-barry-callebaut-ch",
-          "kakaohandler-barry-callebaut-zurich"
+          "cocoa-trader-barry-callebaut-zurich"
         ],
         "fr": [
           "cocoa-trader-barry-callebaut-ch"

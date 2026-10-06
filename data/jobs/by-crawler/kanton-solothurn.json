@@ -1222,9 +1222,9 @@
       "slug": "collaboratore-trice-in-reinigung-80-kanton-solothurn",
       "slugByLocale": {
         "it": "collaboratore-trice-in-reinigung-80-kanton-solothurn",
-        "en": "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn",
+        "en": "employee-cleaning-80-kanton-solothurn-solothurn",
         "de": "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn",
-        "fr": "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn"
+        "fr": "employe-e-nettoyage-80-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1274,6 +1274,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "mitarbeiter-in-reinigung-80-kanton-solothurn-solothurn"
         ]
       },
@@ -1380,7 +1386,7 @@
         "it": "collaboratore-trice-in-reinigung-50-kanton-solothurn",
         "en": "employee-cleaning-50-kanton-solothurn-solothurn",
         "de": "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-        "fr": "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn"
+        "fr": "employe-e-nettoyage-50-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1433,6 +1439,9 @@
           "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn"
         ],
         "en": [
+          "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn"
         ]
       },
@@ -1943,12 +1952,12 @@
     },
     {
       "id": "kanton-solothurn-bec573934de1",
-      "slug": "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn",
+      "slug": "cancelliere-a-della-corte-d-appello-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn",
-        "en": "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn",
+        "it": "cancelliere-a-della-corte-d-appello-80-100-kanton-solothurn-solothurn",
+        "en": "court-clerk-of-the-supreme-court-80-100-kanton-solothurn-solothurn",
         "de": "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn",
-        "fr": "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn"
+        "fr": "greffier-greffiere-de-la-cour-supreme-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2005,7 +2014,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtsschreiber-in-des-obergerichts-80-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-08ae605d8c10",

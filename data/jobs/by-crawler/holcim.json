@@ -791,9 +791,9 @@
       "slug": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
       "slugByLocale": {
         "it": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
-        "en": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
+        "en": "gravel-machinist-allrounder-holcim-group-kehrsiten",
         "de": "kieswerkmaschinist-in-allrounder-in-holcim-ch",
-        "fr": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten"
+        "fr": "machinistede-gravieres-polyvalente-holcim-group-kehrsiten"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -862,9 +862,9 @@
     },
     {
       "id": "holcim-1c2b6ce2f56b",
-      "slug": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens",
+      "slug": "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
       "slugByLocale": {
-        "it": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens",
+        "it": "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
         "en": "multipurpose-worker-industrial-maintenance-holcim-group-eclepens",
         "de": "mehrzweckarbeiter-industrielle-instandhaltung-holcim-group-eclepens",
         "fr": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
@@ -911,12 +911,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
-        "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens"
+        "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
-          "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens"
+          "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+          "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
         ],
         "en": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"

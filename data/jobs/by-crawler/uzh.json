@@ -7939,12 +7939,12 @@
     },
     {
       "id": "uzh-9630cd96d95f",
-      "slug": "tierpfleger-in-uzh-zurich",
+      "slug": "guardiano-a-di-animali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tierpfleger-in-uzh-zurich",
-        "en": "tierpfleger-in-uzh-zurich",
+        "it": "guardiano-a-di-animali-universitat-zurich-zurich",
+        "en": "animal-keeper-universitat-zurich-zurich",
         "de": "tierpfleger-in-uzh-zurich",
-        "fr": "tierpfleger-in-uzh-zurich"
+        "fr": "soignant-e-animalier-e-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8001,7 +8001,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "tierpfleger-in-uzh-zurich"
+        ],
+        "en": [
+          "tierpfleger-in-uzh-zurich"
+        ],
+        "fr": [
+          "tierpfleger-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "tierpfleger-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-b15b25bda7b9",
@@ -8091,9 +8105,9 @@
       "slug": "fachspezialist-in-zulassung-uzh-zurich",
       "slugByLocale": {
         "it": "fachspezialist-in-zulassung-uzh-zurich",
-        "en": "fachspezialist-in-zulassung-uzh-zurich",
+        "en": "subject-matter-specialist-approval-universitat-zurich-zurich",
         "de": "fachspezialist-in-zulassung-uzh-zurich",
-        "fr": "fachspezialist-in-zulassung-uzh-zurich"
+        "fr": "specialiste-en-admission-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

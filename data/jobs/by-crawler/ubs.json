@@ -2900,9 +2900,9 @@
     },
     {
       "id": "ubs-fab525d945e9",
-      "slug": "2027-graduate-talent-program-asset-servicing-structuring-sales-zh-ubs-zurich",
+      "slug": "programma-talenti-laureati-2027-strutturazione-della-gestione-degli-asset-vendite-zh-ubs-zurich",
       "slugByLocale": {
-        "it": "2027-graduate-talent-program-asset-servicing-structuring-sales-zh-ubs-zurich",
+        "it": "programma-talenti-laureati-2027-strutturazione-della-gestione-degli-asset-vendite-zh-ubs-zurich",
         "en": "2027-graduate-talent-program-asset-servicing-structuring-sales-zh-ubs-zurich",
         "de": "2027-graduate-talent-programm-asset-servicing-strukturierung-verkauf-zh-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-services-d-actifs-structure-ventes-zh-ubs-zurich"
@@ -2970,7 +2970,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-asset-servicing-structuring-sales-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-asset-servicing-structuring-sales-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-c517f19be3c1",

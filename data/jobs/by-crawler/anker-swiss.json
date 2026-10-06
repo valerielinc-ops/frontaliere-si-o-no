@@ -13364,9 +13364,9 @@
     },
     {
       "id": "anker-swiss-06367fc0f807",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
+        "it": "carpentiere-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
         "en": "carpenter-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
         "de": "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0"
@@ -13427,14 +13427,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-veltheim-ag-06367fc0"
+      ]
     },
     {
       "id": "anker-swiss-daeeada9930e",
       "slug": "tuttofare-giardino-al-100-anker-swiss-ticino-ag-balsthal-daeeada9",
       "slugByLocale": {
         "it": "tuttofare-giardino-al-100-anker-swiss-ticino-ag-balsthal-daeeada9",
-        "en": "allrounder-garten-100-anker-swiss-ticino-ag-balsthal-daeeada9",
+        "en": "all-rounder-garden-100-anker-swiss-ticino-ag-balsthal-daeeada9",
         "de": "allrounder-garten-100-anker-swiss-ticino-ag-balsthal-daeeada9",
         "fr": "polivalent-jardin-a-100-anker-swiss-ticino-ag-balsthal-daeeada9"
       },
@@ -13489,6 +13497,9 @@
           "allrounder-garten-100-anker-swiss-ticino-ag-balsthal-daeeada9"
         ],
         "fr": [
+          "allrounder-garten-100-anker-swiss-ticino-ag-balsthal-daeeada9"
+        ],
+        "en": [
           "allrounder-garten-100-anker-swiss-ticino-ag-balsthal-daeeada9"
         ]
       },
@@ -13748,10 +13759,10 @@
     },
     {
       "id": "anker-swiss-19dbe88e97cb",
-      "slug": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e",
+      "slug": "idraulica-100-anker-swiss-ticino-ag-thun-19dbe88e",
       "slugByLocale": {
-        "it": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e",
-        "en": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e",
+        "it": "idraulica-100-anker-swiss-ticino-ag-thun-19dbe88e",
+        "en": "plunger-100-anker-swiss-ticino-ag-thun-19dbe88e",
         "de": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e",
         "fr": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
       },
@@ -13812,7 +13823,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
+      ]
     },
     {
       "id": "anker-swiss-a159b92b93fc",

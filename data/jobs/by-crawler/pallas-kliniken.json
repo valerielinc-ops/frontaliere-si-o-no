@@ -990,12 +990,12 @@
     },
     {
       "id": "pallas-kliniken-c2ce72189bcc",
-      "slug": "klinikleiter-in-100-pallas-kliniken-olten",
+      "slug": "direttore-direttrice-della-clinica-100-pallas-kliniken-olten",
       "slugByLocale": {
-        "it": "klinikleiter-in-100-pallas-kliniken-olten",
-        "en": "klinikleiter-in-100-pallas-kliniken-olten",
+        "it": "direttore-direttrice-della-clinica-100-pallas-kliniken-olten",
+        "en": "clinic-manager-100-pallas-kliniken-olten",
         "de": "klinikleiter-in-100-pallas-kliniken-olten",
-        "fr": "klinikleiter-in-100-pallas-kliniken-olten"
+        "fr": "chef-fe-de-clinique-100-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -1052,7 +1052,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "klinikleiter-in-100-pallas-kliniken-olten"
+        ],
+        "en": [
+          "klinikleiter-in-100-pallas-kliniken-olten"
+        ],
+        "fr": [
+          "klinikleiter-in-100-pallas-kliniken-olten"
+        ]
+      },
+      "previousSlugs": [
+        "klinikleiter-in-100-pallas-kliniken-olten"
+      ]
     },
     {
       "id": "pallas-kliniken-30367910756a",
