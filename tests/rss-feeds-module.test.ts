@@ -529,7 +529,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     expect(xml).toContain('xmlns:dc="http://purl.org/dc/elements/1.1/"');
 
     const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
-    expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Editorial profile]]></dc:creator>');
   });
 
   it('emette <dc:creator> anche per un autore reale Person', () => {
@@ -538,7 +538,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     const source = fs.readFileSync(seoFile, 'utf8').replace(
       '"@type": "Organization", "@id": "https://frontaliereticino.ch/autori/editorial-profile/#profile"',
       '"@type": "Person", "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person"',
-    );
+    ).replace('"name": "Editorial profile"', '"name": "Samuele Valente"');
     fs.writeFileSync(seoFile, source);
     const [section] = buildAllRssFeeds({
       repairSerpSnippet,
@@ -550,7 +550,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     });
     const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
     const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
-    expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Samuele Valente]]></dc:creator>');
   });
 
   it('non ripete la Redazione in <dc:creator> quando l\'autore e\' l\'Organization', () => {

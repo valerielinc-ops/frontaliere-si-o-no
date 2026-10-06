@@ -47,7 +47,7 @@ type ArticleAuthorIdentity = ArticleAuthor & {
 
 function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
   return author?.kind === 'real-author'
-    || (!author?.kind && Boolean(author.uid || author.cvPath || author.social?.linkedin));
+    || (!author?.kind && Boolean(author?.uid || author?.cvPath || author?.social?.linkedin));
 }
 
 /**

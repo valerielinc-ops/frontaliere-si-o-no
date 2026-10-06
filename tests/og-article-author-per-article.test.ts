@@ -139,7 +139,7 @@ describe('editorial transparency disclosure matches how the article was produced
 
     // ...and it sits in the false branch of the human-contributor check.
     expect(src).toMatch(
-      /isHumanContributor[\s\S]{0,400}bozza assistita da intelligenza artificiale/,
+      /isHumanContributor\s*\?[^:]+:\s*['`]bozza assistita da intelligenza artificiale/,
     );
     // ...and the gate reads the article's provenance, not the author's `uid`
     // directly. A bare `Boolean(bylineAuthor?.uid)` here is the assumption

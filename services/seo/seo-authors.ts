@@ -10,7 +10,7 @@
  * public identity fields from the registry, including their `sameAs` links.
  */
 
-import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor, type Author } from '../../data/authors';
+import { AUTHORS, getAuthorBySlug, isRealAuthor, type Author } from '../../data/authors';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '../../data/authorLocales';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_ID } from './organizationLd';
 
@@ -146,9 +146,7 @@ export function buildAuthorSeo(authorOrSlug: string | Author, locale: AuthorLoca
   const ogImage = `${BASE_URL}${author.photoPath}`;
   const jsonLd = isRealAuthor(author)
     ? buildRealAuthorJsonLd(author, canonical)
-    : isEditorialProfile(author)
-      ? buildEditorialProfileJsonLd(author, canonical, locale)
-      : (() => { throw new Error(`buildAuthorSeo: unsupported author kind for "${author.slug}"`); })();
+    : buildEditorialProfileJsonLd(author, canonical, locale);
   return { title, description, canonical, ogImage, jsonLd };
 }
 
