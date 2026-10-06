@@ -825,7 +825,7 @@ async function main() {
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     await cleanStoredJobsOnSoftExit();
-    if (SUMMARY_COUNTS.authoritativeEmptySnapshot) writeAilSummary(crawlDiff);
+    SUMMARY_COUNTS.authoritativeEmptySnapshot && writeAilSummary(crawlDiff);
     return;
   }
 
