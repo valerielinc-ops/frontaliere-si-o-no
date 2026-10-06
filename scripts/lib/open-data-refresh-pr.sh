@@ -13,6 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
+#     [--optional-path public/images/example] \
 #     [--force] [--resolve-symlinks] [--reconcile-main] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
@@ -30,9 +31,15 @@ RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
 RECONCILE_MAIN=false
 PATHS=()
+OPTIONAL_PATHS=()
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
+    --optional-path)
+      [ "$#" -ge 2 ] || { echo "::error::--optional-path requires a value"; exit 2; }
+      OPTIONAL_PATHS+=("$2")
+      shift 2
+      ;;
     --path)
       [ "$#" -ge 2 ] || { echo "::error::--path requires a value"; exit 2; }
       PATHS+=("$2")
@@ -90,6 +97,25 @@ done
   echo "::error::--body-file must point to an existing file"
   exit 2
 }
+
+# An optional path is one the producer may not have created yet — typically a
+# directory that gets its first file only when the upstream starts publishing
+# that artifact. `git add` aborts on a pathspec that matches nothing (run
+# 37515283217: `fatal: pathspec 'public/images/generated' did not match any
+# files`, and the whole article sync was lost with it). Stage it only when it
+# exists on disk or is already tracked: a tracked path that disappeared must
+# still be staged, as a deletion. A required `--path` keeps failing loudly —
+# a typo there must not turn into a silent, empty refresh.
+if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
+  for optional_path in "${OPTIONAL_PATHS[@]}"; do
+    if [ -e "$optional_path" ] || [ -L "$optional_path" ] \
+      || git ls-files --error-unmatch -- "$optional_path" > /dev/null 2>&1; then
+      PATHS+=("$optional_path")
+    else
+      echo "::notice::Optional refresh path absent and untracked, nothing to stage: $optional_path"
+    fi
+  done
+fi
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
