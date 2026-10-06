@@ -33,6 +33,7 @@ import {
   buildFrRecords,
   buildFuelCantonsDataset,
   buildItRecords,
+  DE_SOURCE_ATTRIBUTION,
   validateFuelCantonsDataset,
 } from './lib/fuel-cantons-dataset.mjs';
 import {
@@ -110,7 +111,12 @@ export async function buildFromInput(input, { fetchers = {}, now = new Date() } 
       },
       FR: sourceSummary(fr, { provider: 'prix-carburants.gouv.fr', url: FR_INSTANT_FEED_URL }),
       AT: sourceSummary(at, { provider: 'E-Control Spritpreisrechner', url: AT_ECONTROL_BY_REGION_URL }),
-      DE: sourceSummary(de, { provider: 'Tankerkönig', url: DE_TANKERKOENIG_LIST_URL }),
+      DE: sourceSummary(de, {
+        provider: 'Tankerkönig / MTS-K',
+        url: DE_TANKERKOENIG_LIST_URL,
+        license: 'CC BY 4.0',
+        attribution: DE_SOURCE_ATTRIBUTION,
+      }),
     },
     records,
   });
@@ -135,7 +141,12 @@ async function main() {
   const dataset = await buildFromInput(fs.existsSync(inputPath) ? readJson(inputPath) : {});
   const verdict = validateFuelCantonsDataset(dataset);
   for (const [side, info] of Object.entries(dataset.sources)) {
-    log(`source ${side}: ${info.status}${info.reason ? ` — ${info.reason}` : ''}`);
+    const health = dataset.health?.[side.toLowerCase()] || 'failed:unknown';
+    if (side === 'DE' && health !== 'ok') {
+      console.warn(`::warning::[build-fuel-cantons] source DE skipped (${health})${info.reason ? ` — ${info.reason}` : ''}; the dataset continues with the other sources`);
+    } else {
+      log(`source ${side}: ${info.status}${info.reason ? ` — ${info.reason}` : ''}`);
+    }
   }
   log(`records: ${dataset.records.length}; expected cantons with data: ${dataset.coverage.expectedCantonsWithData.length}/${dataset.coverage.expectedCantons.length} (ratio ${verdict.coverageRatio}, floor ${dataset.coverage.minExpectedCoverage}); cantons with any data: ${dataset.coverage.cantonsWithData.join(' ')}`);
   if (!verdict.ok) {

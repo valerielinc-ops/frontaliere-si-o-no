@@ -18,12 +18,13 @@
 //   AT  E-Control Spritpreisrechner API, by Bundesland. The API publishes only
 //       the cheapest stations of a region, so `coverage` says so.
 //   DE  Tankerkönig (MTS-K, CC BY 4.0), OPTIONAL: skipped when the API key is
-//       not configured.
+//       absent or rejected; its health never gates the Swiss baseline.
 
 export const FUEL_CANTONS_SCHEMA_VERSION = 1;
 export const FUELS = Object.freeze(['sp95', 'diesel']);
 export const SIDES = Object.freeze(['CH', 'FR', 'AT', 'IT', 'DE']);
 export const GRANULARITIES = Object.freeze(['station', 'region', 'national']);
+export const DE_SOURCE_ATTRIBUTION = 'Tankerkönig / MTS-K — CC BY 4.0 (https://creativecommons.tankerkoenig.de)';
 export const CANONICAL_CANTON_GROUPS = Object.freeze([
   'AG', 'APPENZELLO', 'BASILEA', 'BE', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
   'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
@@ -54,15 +55,16 @@ export const AT_REGIONS_BY_CANTON = Object.freeze({
   GR: [8, 7],
 });
 
-/** DE side (optional): Tankerkönig radius search around the main crossings. */
+/** DE side (optional): one Tankerkönig radius search per border group. */
 export const DE_POINTS_BY_CANTON = Object.freeze({
-  BASILEA: [{ label: 'Weil am Rhein', lat: 47.594, lng: 7.621 }],
+  BASILEA: [{ label: 'Lörrach', lat: 47.6156, lng: 7.6614 }],
   AG: [{ label: 'Waldshut-Tiengen', lat: 47.623, lng: 8.214 }],
-  ZH: [{ label: 'Jestetten', lat: 47.654, lng: 8.573 }],
   SH: [{ label: 'Gottmadingen', lat: 47.735, lng: 8.776 }],
   TG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
+  ZH: [{ label: 'Jestetten', lat: 47.654, lng: 8.573 }],
+  SG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
 });
-export const DE_SEARCH_RADIUS_KM = 10;
+export const DE_SEARCH_RADIUS_KM = 5;
 
 /** Sides whose absence is tolerated (no credential configured). */
 export const OPTIONAL_SIDES = Object.freeze(['DE']);
@@ -90,6 +92,18 @@ export function round(value, digits = 3) {
 export function isPlausiblePrice(value) {
   return typeof value === 'number' && Number.isFinite(value)
     && value >= PRICE_BOUNDS.min && value <= PRICE_BOUNDS.max;
+}
+
+/**
+ * Public health value for one source. Foreign-source failures are deliberately
+ * strings rather than booleans so the published dataset explains why an
+ * optional overlay is absent without making that absence a dataset error.
+ */
+export function sourceHealth(result) {
+  if (result?.status === 'ok') return 'ok';
+  if (result?.status === 'skipped') return 'skipped';
+  const reason = String(result?.reason || 'unknown').replace(/\s+/g, ' ').trim().slice(0, 240);
+  return `failed:${reason || 'unknown'}`;
 }
 
 export function median(values) {
@@ -620,7 +634,7 @@ export function buildDeRecords({ germanByCanton, observedAt }) {
       pushRecord(records, summarizePrices({
         canton, side: 'DE', fuel, currency: 'EUR',
         observations: stations.map((s) => ({ id: s.id, price: s[fuel], observedAt })),
-        source: 'Tankerkönig / MTS-K (CC BY 4.0)',
+        source: DE_SOURCE_ATTRIBUTION,
         area: points.map((p) => `DE-${p.label} ${DE_SEARCH_RADIUS_KM} km`).join(','),
         coverage: 'radius',
         granularity: 'region',
@@ -673,6 +687,7 @@ export function buildFuelCantonsDataset({
       ? { provider: 'ECB', chfPerEur: round(exchangeRate.chfPerEur, 6), eurPerChf: round(exchangeRate.eurPerChf, 6) }
       : null,
     sources: sourceStatus,
+    health: Object.fromEntries(Object.entries(sourceStatus || {}).map(([side, result]) => [side.toLowerCase(), sourceHealth(result)])),
     coverage: {
       expectedCantons: expected,
       cantonsWithData: withData,
