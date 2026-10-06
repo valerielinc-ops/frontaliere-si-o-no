@@ -535,7 +535,7 @@ describe('robot helpers', () => {
       ? new Response(video.body, { status: 200, headers: { 'content-type': 'video/mp4' } })
       : new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
     const files = await downloadEntryFiles(videoEntry, dir, { fetchImpl: fetchImpl as typeof fetch });
-    expect(files.map((file: string) => path.basename(file))).toEqual(['video.mp4']);
+    expect(files.map((file: string) => path.basename(file))).toEqual(['article-2026-10-03.mp4']);
     await expect(downloadEntryFiles({ ...videoEntry, video: { ...video, bytes: video.bytes + 1 } }, dir, { fetchImpl: fetchImpl as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
     const wrongType = async () => new Response(video.body, { status: 200, headers: { 'content-type': 'image/jpeg' } });
     await expect(downloadEntryFiles(videoEntry, dir, { fetchImpl: wrongType as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });

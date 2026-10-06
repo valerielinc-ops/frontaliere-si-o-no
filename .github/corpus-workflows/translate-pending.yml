@@ -654,6 +654,11 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+      - name: Re-assemble dataset after Phase 2c mop-up
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        env:
+          JOBS_SKIP_RECONCILIATION: "1"
+        run: node scripts/assemble-jobs-dataset.mjs
       - name: Commit translations
         id: commit_translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
