@@ -39,11 +39,12 @@ function document(id: string) {
   };
 }
 
-function queryWith(docs: object[]) {
+function queryWith(docs: object[], documentReference?: object) {
   const query = {
     where: () => query,
     orderBy: () => query,
     limit: () => query,
+    doc: () => documentReference,
     get: async () => ({ docs }),
     stream: () => {
       const stream = new PassThrough({ objectMode: true });
@@ -61,11 +62,26 @@ function queryWith(docs: object[]) {
 }
 
 function fakeFirestore(docs: object[]) {
-  const query = queryWith(docs);
+  const childQuery = queryWith(docs);
+  const documentReference = {
+    get: async () => document('top-level'),
+    set: async () => {},
+    collection: () => childQuery,
+  };
+  const query = queryWith(docs, documentReference);
   return {
+    doc: () => documentReference,
     collection: () => query,
     collectionGroup: () => query,
     getAll: async (...refs: object[]) => refs.map((ref) => ({ ref, exists: true })),
+    runTransaction: async (updateFunction: (transaction: {
+      get: (ref: object) => Promise<object>,
+      getAll: (...refs: object[]) => Promise<object[]>,
+    }) => unknown) => updateFunction({
+      get: async () => document('transaction'),
+      getAll: async (...refs: object[]) => refs.map((ref) => ({ ref, exists: true })),
+    }),
+    batch: () => ({ commit: async () => [] }),
   };
 }
 
@@ -94,6 +110,49 @@ describe('Firestore read accounting', () => {
 
     expect(streamed).toHaveLength(3);
     expect(counter.reads).toBe(11);
+  });
+
+  it('counts a top-level document read', async () => {
+    const counter = createFirestoreReadCounter({ caller: 'document' });
+    const db = instrumentFirestore(fakeFirestore([]), counter);
+
+    await db.doc('a/b').get();
+
+    expect(counter.reads).toBe(1);
+  });
+
+  it('counts documents returned by a collection below a top-level document reference', async () => {
+    const counter = createFirestoreReadCounter({ caller: 'nested-collection' });
+    const db = instrumentFirestore(fakeFirestore([document('a'), document('b')]), counter);
+
+    await db.doc('a/b').collection('c').get();
+
+    expect(counter.reads).toBe(2);
+  });
+
+  it('does not double-wrap the same document reference across entry points', async () => {
+    const counter = createFirestoreReadCounter({ caller: 'same-reference' });
+    const db = instrumentFirestore(fakeFirestore([]), counter);
+    const direct = db.doc('a/b');
+    const throughCollection = db.collection('items').doc('a/b');
+
+    expect(throughCollection).toBe(direct);
+    await direct.get();
+
+    expect(counter.reads).toBe(1);
+  });
+
+  it('counts transaction reads and leaves write batches uncounted', async () => {
+    const counter = createFirestoreReadCounter({ caller: 'transaction' });
+    const db = instrumentFirestore(fakeFirestore([]), counter);
+
+    await db.runTransaction(async (transaction) => {
+      await transaction.get({ id: 'a' });
+      await transaction.getAll({ id: 'b' }, { id: 'c' });
+    });
+    await db.batch().commit();
+
+    expect(counter.reads).toBe(3);
   });
 
   it('counts an empty query as one read', async () => {

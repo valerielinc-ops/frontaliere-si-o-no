@@ -239,6 +239,9 @@ function createFirestoreWrapperContext(counter) {
             return snapshots;
           });
         }
+        if (property === 'doc') {
+          return (...args) => wrapDocument(value.apply(firestore, unwrapArgs(args)));
+        }
         if (property === 'collection' || property === 'collectionGroup') {
           return (...args) => wrapQuery(value.apply(firestore, unwrapArgs(args)));
         }
