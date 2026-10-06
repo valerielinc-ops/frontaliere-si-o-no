@@ -20,6 +20,22 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
   '.github/workflows/sync-articles-sitemaps.yml',
 ]);
 
+// The scripts the replay runs to build and upload what it publishes. A change
+// to one of them alters the published objects even when no article surface
+// moved, so a source checked out before that change is stale too. This is a
+// separate list on purpose: the one above answers "which merged change needs
+// a replay" and stays equal to the push trigger, this one answers "which
+// change makes a replay already in flight stale". The freshness test keeps it
+// complete from both ends: every script the publishing steps of the workflow
+// invoke must be listed here, and every file esbuild reads for a published
+// chunk must be covered by one of the two lists.
+export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
+  'scripts/publish-article-chunks.mjs',
+  'scripts/publish-edge-files.mjs',
+  'scripts/lib/upload-cdn-file.sh',
+  'scripts/cf-purge-cache.mjs',
+]);
+
 export const PUBLISH_SOURCE_VERDICTS = Object.freeze({
   CURRENT: 'current',
   UNRELATED_ADVANCE: 'unrelated-advance',
@@ -52,10 +68,21 @@ function globToRegExp(pattern) {
 }
 
 const ARTICLE_SURFACE_REGEXES = ARTICLE_SURFACE_PATHS.map(globToRegExp);
+const ARTICLE_PUBLISHER_CODE_REGEXES = ARTICLE_PUBLISHER_CODE_PATHS.map(globToRegExp);
 
 export function isArticleSurfacePath(changedPath) {
   return typeof changedPath === 'string'
     && ARTICLE_SURFACE_REGEXES.some((pattern) => pattern.test(changedPath));
+}
+
+/**
+ * True for every path whose change alters what the replay publishes: the
+ * article surfaces themselves and the code that builds and uploads them.
+ */
+export function isArticlePublishInputPath(changedPath) {
+  return isArticleSurfacePath(changedPath)
+    || (typeof changedPath === 'string'
+      && ARTICLE_PUBLISHER_CODE_REGEXES.some((pattern) => pattern.test(changedPath)));
 }
 
 /**
@@ -70,9 +97,9 @@ export function isCurrentPublishSource(sourceSha, mainSha) {
 
 /**
  * Classifies a source snapshot against main and the paths changed between the
- * two commits. A non-current source is safe only when no triggered article
- * surface changed; a missing path list is an error rather than an optimistic
- * answer.
+ * two commits. A non-current source is safe only when neither an article
+ * surface nor the publisher code changed; a missing path list is an error
+ * rather than an optimistic answer.
  */
 export function classifyPublishSource(sourceSha, mainSha, changedPaths) {
   const source = requireSha(sourceSha, 'source SHA');
@@ -81,7 +108,7 @@ export function classifyPublishSource(sourceSha, mainSha, changedPaths) {
   if (!Array.isArray(changedPaths) || changedPaths.some((changedPath) => typeof changedPath !== 'string')) {
     throw new Error('[article-chunk-publish-freshness] changed paths must be an array of strings');
   }
-  return changedPaths.some(isArticleSurfacePath)
+  return changedPaths.some(isArticlePublishInputPath)
     ? PUBLISH_SOURCE_VERDICTS.SUPERSEDED
     : PUBLISH_SOURCE_VERDICTS.UNRELATED_ADVANCE;
 }

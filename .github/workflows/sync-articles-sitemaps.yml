@@ -1210,6 +1210,21 @@ jobs:
             echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
           }
 
+          write_lock_failure() {
+            local source_verdict="$1"
+            local source_sha="$2"
+            local main_sha="$3"
+            {
+              echo '### Post-merge replay source freshness'
+              echo "- Verdict: \`lock-lost\` (source was \`$source_verdict\`, but the section lock was no longer held; publication refused)"
+              echo "- Source SHA: \`$source_sha\`"
+              echo "- main SHA: \`$main_sha\`"
+              echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo 'verdict=lock-lost' >> "$GITHUB_OUTPUT"
+            echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+          }
+
           while :; do
             SOURCE_SHA="$(git rev-parse HEAD)"
             git fetch --no-tags --depth=1 origin main
@@ -1230,7 +1245,16 @@ jobs:
 
             case "$VERDICT" in
               current|unrelated-advance)
-                echo "::notice::Replay source verdict $VERDICT from $SOURCE_SHA to $MAIN_SHA; no article surface changed"
+                # The fetch and the diff above took time. The verdict below is
+                # what lets the edge step publish, so the lease must still be
+                # held here: a renewer that failed meanwhile means another
+                # writer may already own the section.
+                if ! verify_replay_lock; then
+                  echo "::error::article chunk section lock was lost before the replay source verdict ($VERDICT); refusing edge publication"
+                  write_lock_failure "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
+                  exit 1
+                fi
+                echo "::notice::Replay source verdict $VERDICT from $SOURCE_SHA to $MAIN_SHA; no article surface or publisher code changed"
                 write_verdict "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
                 break
                 ;;
