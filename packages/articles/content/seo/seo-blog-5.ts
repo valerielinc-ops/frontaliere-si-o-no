@@ -46415,16 +46415,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-valtellina-lavorare-grigioni-frontaliere': {
-    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    title: 'Vivere in Valtellina e lavorare nei Grigioni: accordo fiscale',
     description: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l\'imposta alla fonte in',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
-    ogTitle: 'Nuovo accordo fiscale per frontalieri',
+    ogTitle: 'Vivere in Valtellina e lavorare nei Grigioni: accordo fiscale',
     ogDescription: 'Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024.',
     canonicalPath: '/articoli-frontaliere/vivere-valtellina-lavorare-grigioni-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "headline": "Vivere in Valtellina e lavorare nei Grigioni: accordo fiscale",
       "description": "Il nuovo accordo fiscale per frontalieri entra in vigore il 1° gennaio 2024. Questo significa che i frontalieri dovranno pagare l'imposta alla fonte in",
       "image": {
         "@type": "ImageObject",
@@ -53981,16 +53981,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trip-progetto-treni-retici-in-progress': {
     title: 'TRIP: sviluppo mobilità tra Lombardia e Grigioni',
-    description: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Il progetto TRIP collega Lombardia e Grigioni: obiettivi, rete ferroviaria e prospettive della mobilità transfrontaliera.',
     keywords: 'frontalieri, ticino, svizzera, italia, trip, sviluppo, mobilità, lombardia',
     ogTitle: 'Il progetto TRIP per lo sviluppo della mobilità transfrontaliera tra Lombardia e Grigioni.',
-    ogDescription: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni.',
+    ogDescription: 'Il progetto TRIP collega Lombardia e Grigioni: obiettivi, rete ferroviaria e prospettive della mobilità transfrontaliera.',
     canonicalPath: '/articoli-frontaliere/trip-progetto-treni-retici-in-progress',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "TRIP: sviluppo mobilità tra Lombardia e Grigioni",
-      "description": "Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Il progetto TRIP collega Lombardia e Grigioni: obiettivi, rete ferroviaria e prospettive della mobilità transfrontaliera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -73419,16 +73419,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-simulatore-busta-paga-ticino-frontalieri': {
-    title: 'Come calcolare l\'imposta alla fonte in Ticino | Frontaliere Ticino',
+    title: 'Busta paga dei frontalieri: simulare l\'imposta alla fonte',
     description: 'Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7\'500–€10\'000, credito d\'imposta italiano e simulatore passo passo. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, calcolare, imposta, alla, fonte',
-    ogTitle: 'Come calcolare l\'imposta alla fonte in Ticino',
+    ogTitle: 'Busta paga dei frontalieri: simulare l\'imposta alla fonte',
     ogDescription: 'Frontalieri Ticino–Italia: come calcolare l\'imposta alla fonte sulla busta paga svizzera 2026. Guida con aliquote, esenzioni (€7\'500 vecchi / €10\'000 nuovi), credito d\'imposta e simulatore interattivo. Passo passo per il 730.',
     canonicalPath: '/articoli-frontaliere/simulatore-busta-paga-ticino-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Come calcolare l'imposta alla fonte in Ticino",
+      "headline": "Busta paga dei frontalieri: simulare l'imposta alla fonte",
       "description": "Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7'500–€10'000, credito d'imposta italiano e simulatore passo passo. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
@@ -83562,16 +83562,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-lavoro-remoto-estero-vacanza': {
-    title: 'Remoto dall\'estero in vacanza: le tasse del frontaliere',
+    title: 'Telelavoro in vacanza all\'estero: imposte per frontalieri',
     description: 'Lavoro remoto da un terzo paese durante vacanza: fiscalità, LAMal, cosa comunicare al datore. Guida pratica per frontalieri Ticino-Italia. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, remoto, dall, estero, vacanza',
-    ogTitle: 'Lavoro remoto estero: la fiscalità del frontaliere',
+    ogTitle: 'Telelavoro in vacanza all\'estero: imposte per frontalieri',
     ogDescription: 'Scopri come funziona la fiscalità quando lavori da remoto da un paese straniero durante la vacanza. Imposta alla fonte, credito d\'imposta italiano, LAMal, comunicazione al datore — guida completa per frontalieri Ticino-Italia.',
     canonicalPath: '/articoli-frontaliere/lavoro-remoto-estero-vacanza',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Remoto dall'estero in vacanza: le tasse del frontaliere",
+      "headline": "Telelavoro in vacanza all'estero: imposte per frontalieri",
       "description": "Lavoro remoto da un terzo paese durante vacanza: fiscalità, LAMal, cosa comunicare al datore. Guida pratica per frontalieri Ticino-Italia. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
