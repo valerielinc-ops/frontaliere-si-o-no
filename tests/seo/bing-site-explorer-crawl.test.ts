@@ -15,11 +15,20 @@ import {
   partitionFor,
 } from '../../scripts/seo/bing-site-explorer-crawl.mjs';
 import {
+  BING_FRONTIER_CANONICAL_DRIFT,
+  BING_FRONTIER_CANONICAL_EXPECTED,
+  BING_FRONTIER_HTTP_ERROR,
+  BING_FRONTIER_NOINDEX,
+  BING_FRONTIER_NOINDEX_BRIDGE,
+  BING_FRONTIER_REDIRECT,
+} from '../../scripts/seo/bing-finding-codes.mjs';
+import {
   aggregateCrawlReports,
   buildIssueBody,
   readPartitionReports,
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
+import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -119,6 +128,50 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(nonHtmlNoindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
   });
 
+  it('classifies the same document according to sitemap or internal-frontier scope', () => {
+    const bridgeUrl = `${BASE}/en/find-jobs-geneva/old-slug/`;
+    const bridgeHtml = `<title>Bridge</title><link rel="canonical" href="${BASE}/en/find-jobs-geneva/new-slug/"><meta name="robots" content="noindex,follow"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge dichiarato nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const sitemapBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'sitemap', html: bridgeHtml });
+    const frontierBridge = classifyDocument({ url: bridgeUrl, status: 200, scope: 'discovered-frontier', html: bridgeHtml });
+
+    expect(sitemapBridge.findings.map((item) => item.code)).toEqual(expect.arrayContaining(['noindex-in-sitemap', 'canonical-expected']));
+    expect(frontierBridge.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+      BING_FRONTIER_NOINDEX_BRIDGE,
+      BING_FRONTIER_CANONICAL_EXPECTED,
+    ]));
+    expect(frontierBridge.findings.map((item) => item.code)).not.toContain('noindex-in-sitemap');
+
+    const nonBridge = classifyDocument({
+      url: `${BASE}/frontiera-noindex/`,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Noindex</title><link rel="canonical" href="${BASE}/frontiera-noindex/"><meta name="robots" content="noindex,follow">`,
+    });
+    expect(nonBridge.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+
+    const sitemapDrift = classifyDocument({
+      url: `${BASE}/sitemap-drift/`,
+      status: 200,
+      scope: 'sitemap',
+      html: `<title>Drift</title><link rel="canonical" href="${BASE}/other/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il drift nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    const frontierDrift = classifyDocument({
+      url: `${BASE}/frontiera-drift/`,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Drift</title><link rel="canonical" href="${BASE}/other/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il drift nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    expect(sitemapDrift.findings.map((item) => item.code)).toContain('canonical-drift');
+    expect(frontierDrift.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    for (const status of [301, 404]) {
+      const sitemap = classifyDocument({ url: `${BASE}/status-${status}/`, status, scope: 'sitemap', finalUrl: `${BASE}/target/` });
+      const frontier = classifyDocument({ url: `${BASE}/frontier-status-${status}/`, status, scope: 'discovered-frontier', finalUrl: `${BASE}/target/` });
+      expect(sitemap.findings[0].code).toBe(status === 301 ? 'redirect' : 'http-error');
+      expect(frontier.findings[0].code).toBe(status === 301 ? BING_FRONTIER_REDIRECT : BING_FRONTIER_HTTP_ERROR);
+    }
+  });
+
   it('keeps expected canonical consolidations out of the actionable issue body', () => {
     const expectedUrl = `${BASE}/blog/vecchio-slug/`;
     const driftUrl = `${BASE}/blog/old/`;
@@ -163,7 +216,7 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.actionableCount).toBe(1);
     expect(issueBody).toContain('### canonical-drift (1)');
     expect(issueBody).not.toContain('### canonical-expected');
-    expect(issueBody).not.toContain('`canonical-expected`');
+    expect(issueBody).toContain('| `canonical-expected` | informativo | 1 |');
     expect(issueBody).toContain('| `/blog/` | 2 | 0 | 1 |');
   });
 
@@ -366,6 +419,44 @@ describe('Bing-compatible full-tree crawler', () => {
     ]);
   });
 
+  it('stores compact referrer and template indexes for discovered links', async () => {
+    const source = `${BASE}/en/find-jobs-geneva/source/`;
+    const target = `${BASE}/en/find-jobs-geneva/target/`;
+    const report = await crawlPartition({
+      manifest: { kind: 'sitemap', baseUrl: BASE, urls: [source] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => new Response(`<a href="${target}">target</a>`, {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      }),
+    });
+
+    expect(report.scope).toBe('sitemap');
+    expect(report.discoveredOutOfSitemap).toEqual([target]);
+    expect(report.discoveredReferrers).toEqual([[[0, templateIndexFor(source)]]]);
+
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [source] },
+      reports: [report],
+    });
+    expect(frontier.urls).toEqual([target]);
+    expect(frontier.referrerRefs).toEqual([[[0, templateIndexFor(source)]]]);
+    expect(frontier.templateTable).toEqual(BING_TEMPLATE_TABLE);
+
+    const capped = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [source] },
+      reports: [{
+        discoveredOutOfSitemap: [target, target, target, target],
+        discoveredReferrers: [[[3, 0]], [[2, 0]], [[1, 0]], [[0, 0]]],
+      }],
+    });
+    expect(capped.referrerRefs[0]).toHaveLength(3);
+  });
+
   it('builds a bounded second frontier and keeps dynamic or malformed links as evidence', () => {
     const frontier = collectDiscoveredInventory({
       manifest: { baseUrl: BASE, urls: [`${BASE}/in-sitemap/`] },
@@ -438,6 +529,83 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.scopes.map((scope) => scope.name)).toEqual(['sitemap', 'frontiera interna']);
     expect(summary.actionableCount).toBe(2);
     expect(buildIssueBody(summary)).toContain('Frontiera interna crawlable: **1 URL**');
+    expect(summary.findings.every((item) => item.scope === 'sitemap' || item.scope === 'discovered-frontier')).toBe(true);
+  });
+
+  it('separates frontier actionability and attributes findings to the referrer template', () => {
+    const source = `${BASE}/en/find-jobs-geneva/source/`;
+    const bridge = `${BASE}/en/find-jobs-geneva/bridge/`;
+    const redirect = `${BASE}/en/find-jobs-geneva/redirect/`;
+    const sourceTemplate = templateIndexFor(source);
+    const targetTemplate = templateIndexFor(bridge);
+    const sitemapReport = {
+      schemaVersion: 1,
+      scope: 'sitemap',
+      baseUrl: BASE,
+      manifestCount: 1,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: 1,
+      checkedCount: 1,
+      codeCounts: {},
+      statusCounts: { 200: 1 },
+      folderStats: { '/en/': { checked: 1, statuses: { 200: 1 }, findings: {} } },
+      findings: [],
+      discoveredOutOfSitemap: [],
+    };
+    const frontierReport = {
+      schemaVersion: 2,
+      scope: 'discovered-frontier',
+      baseUrl: BASE,
+      manifestCount: 2,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: 2,
+      checkedCount: 2,
+      codeCounts: {
+        [BING_FRONTIER_NOINDEX_BRIDGE]: 1,
+        [BING_FRONTIER_REDIRECT]: 1,
+      },
+      statusCounts: { 200: 1, 301: 1 },
+      folderStats: { '/en/': { checked: 2, statuses: { 200: 1, 301: 1 }, findings: {
+        [BING_FRONTIER_NOINDEX_BRIDGE]: 1,
+        [BING_FRONTIER_REDIRECT]: 1,
+      } } },
+      findings: [
+        { code: BING_FRONTIER_NOINDEX_BRIDGE, url: bridge, root: '/en/', status: 200, detail: 'bridge dichiarato' },
+        { code: BING_FRONTIER_REDIRECT, url: redirect, root: '/en/', status: 301, detail: 'redirect' },
+      ],
+      discoveredOutOfSitemap: [],
+    };
+    const frontierUrls = [bridge, redirect].sort();
+    const summary = aggregateCrawlReports([sitemapReport], {
+      baseUrl: BASE,
+      sitemapCount: 1,
+      manifestCount: 1,
+      urls: [source],
+    }, {
+      supplementalReports: [frontierReport],
+      supplementalManifest: {
+        baseUrl: BASE,
+        kind: 'discovered-frontier',
+        manifestCount: frontierUrls.length,
+        urls: frontierUrls,
+        referrerRefs: frontierUrls.map(() => [[0, sourceTemplate]]),
+        templateTable: BING_TEMPLATE_TABLE,
+      },
+    });
+
+    expect(summary.actionableCount).toBe(1);
+    expect(summary.scopeSummaries.find((scope) => scope.kind === 'discovered-frontier')).toMatchObject({
+      findingCount: 2,
+      actionableCount: 1,
+      informativeCount: 1,
+    });
+    const row = summary.frontierAttribution.rows.find((item) => item.code === BING_FRONTIER_REDIRECT);
+    expect(row).toMatchObject({ referrerTemplate: sourceTemplate, targetTemplate });
+    expect(row.samples).toEqual([[source, redirect]]);
+    expect(buildIssueBody(summary)).toContain('### Template referente della frontiera interna');
+    expect(buildIssueBody(summary)).toContain(`\`${source}\` → \`${redirect}\``);
   });
 
   it('reads the frontier partition filename prefix used by the workflow artifacts', () => {
