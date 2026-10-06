@@ -32,7 +32,6 @@ import {
   categoryLabel,
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
-import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
 
@@ -303,16 +302,19 @@ describe('eventLd source attribution (#3125)', () => {
       sourceKey: 'openagenda',
       sourceName: 'OpenAgenda',
       imageUrl: '/images/events/openagenda-abc.jpg',
+      imageCredit: 'OpenAgenda',
+      imageLicense: 'Licence Ouverte 2.0',
+      imageLicenseUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
     };
     const ld = eventLd(withImage as never, 'it') as Record<string, any>;
     expect(ld.image['@type']).toBe('ImageObject');
     expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/openagenda-abc.jpg');
     expect(ld.image.url).toBe('https://frontaliereticino.ch/images/events/openagenda-abc.jpg');
     expect(ld.image.creditText).toBe('OpenAgenda');
-    // The image is admitted only because the source policy is explicit; the
-    // ImageObject still carries the site's own serving/copyright metadata.
-    expect(ld.image.license).toBe(SITE_LICENSE_PAGE);
-    expect(ld.image.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
+    // The image is admitted only with per-image evidence; structured data
+    // points to OpenAgenda's terms, never to a fictitious site-owned licence.
+    expect(ld.image.license).toBe('https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/');
+    expect(ld.image.acquireLicensePage).toBe('https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/');
     expect(ld.image.creator).toEqual({
       '@type': 'Organization',
       '@id': 'https://frontaliereticino.ch/#organization',
@@ -458,6 +460,33 @@ describe('renderEventDetailPage', () => {
     expect(page.html.match(/data-ad-slot=["']?5196931137/g)).toHaveLength(1);
     expect(page.html).toContain('data-events-page=event_detail');
     expect(page.html).toContain('data-events-lifecycle=active');
+  });
+
+  it('renders a generated library image with localized disclosure and provider terms', () => {
+    const generatedEvent = {
+      ...EVENT,
+      id: 'event-library:music',
+      imageUrl: '/images/events/library/event-musica-ticino-confine-primavera-estate.webp',
+      imageAssetId: 'event-musica-ticino-confine-primavera-estate',
+      imageLicense: 'generated-provider',
+      imageLicenseUrl: 'https://openai.com/policies/terms-of-use/',
+      imageCredit: 'frontaliereticino.ch',
+      imageProvider: 'openai-codex',
+    };
+    const generatedPage = renderEventDetailPage({
+      locale: 'it',
+      event: generatedEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(generatedEvent),
+      sameComuneEvents: [generatedEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(generatedPage.html).toContain('/images/events/library/event-musica-ticino-confine-primavera-estate.webp');
+    expect(generatedPage.html).toContain('Immagine illustrativa generata con IA');
+    expect(generatedPage.html).toContain('https://openai.com/policies/terms-of-use/');
+    expect(generatedPage.html).toContain('image/webp');
   });
 
   it('uses a German single-event title and a concrete search description', () => {

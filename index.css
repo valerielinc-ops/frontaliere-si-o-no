@@ -1427,6 +1427,7 @@ input[type=number] { -moz-appearance: textfield; }
   .ev-img { @apply h-full w-full object-cover; }
   .ev-imgz { @apply transition-transform duration-300 group-hover:scale-105; }
   .ev-chip { @apply pointer-events-none absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-surface/95; }
+  .ev-img-note { @apply pointer-events-none absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-md border border-edge bg-surface/95 px-2 py-1 text-xs font-semibold leading-tight text-heading; }
   .ev-t { @apply font-display text-base font-semibold leading-snug text-heading line-clamp-2; }
   .ev-a { @apply static after:absolute after:inset-0; }
   .ev-meta { @apply mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body; }
@@ -1631,6 +1632,11 @@ input[type=number] { -moz-appearance: textfield; }
     font-size: .6875rem;
     letter-spacing: .1em;
     text-transform: uppercase;
+  }
+  .ev-hero-image-note {
+    color: color-mix(in srgb, var(--_on-accent) 72%, transparent);
+    font-size: .6875rem;
+    line-height: 1.35;
   }
   .ev-head {
     margin-top: clamp(1rem, 2.5vw, 2rem);
