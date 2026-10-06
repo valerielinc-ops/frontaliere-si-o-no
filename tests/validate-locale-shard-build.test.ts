@@ -13,6 +13,7 @@
 // it=1 en=822192 on the EN leg, symmetric on de/fr — while the immediately
 // preceding build (pre-#5363) read it=0 and passed. Nothing leaked.
 import { describe, it, expect } from 'vitest';
+import { minifyHtml } from '../build-plugins/shared/htmlMinify';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -44,11 +45,11 @@ function write(root: string, rel: string, body = PAGE): void {
  * Build a throwaway `dist/` from the given dist-relative paths and run the real
  * validator over it with BUILD_LOCALE=<locale>.
  */
-function runValidator(locale: string, files: string[]): RunResult {
+function runValidator(locale: string, files: string[], body = PAGE): RunResult {
   const root = mkdtempSync(join(tmpdir(), 'locale-shard-val-'));
   const dist = join(root, 'dist');
   mkdirSync(dist, { recursive: true });
-  for (const rel of files) write(dist, rel);
+  for (const rel of files) write(dist, rel, body);
 
   let status = 0;
   let output = '';
@@ -162,5 +163,49 @@ describe('validate-locale-shard-build.mjs — `dist/<loc>.html` belongs to <loc>
     const gate = readFileSync(resolve('scripts/ci/validate-locale-shard-build.mjs'), 'utf8');
     expect(gate).toMatch(/\^\(en\|de\|fr\)\\\.html\$/);
     expect(gate).toContain('localeOfDistPath');
+  });
+});
+
+
+describe('locale shard hreflang completeness after HTML minification', () => {
+  it.each([
+    ['en', 'en/ticino-job-market/index.html'],
+    ['de', 'de/wartezeit-grenze/index.html'],
+  ])('accepts the actual minifier output for %s', (locale, sample) => {
+    const html = minifyHtml(PAGE);
+    expect(html).toContain('hreflang=en');
+    expect(html).not.toContain('hreflang="en"');
+    const result = runValidator(locale, [sample], html);
+    expect(result.output).toContain('complete hreflang (it/en/de/fr + x-default)');
+    expect(result.status).toBe(0);
+  });
+
+  it('accepts single-quoted alternate attributes', () => {
+    const html = PAGE.replaceAll('"', "'");
+    expect(runValidator('de', ['de/wartezeit-grenze/index.html'], html).status).toBe(0);
+  });
+
+  it.each(['it', 'en', 'de', 'fr', 'x-default'])('rejects a genuinely missing %s alternate after minification', (locale) => {
+    const html = minifyHtml(PAGE.replace(new RegExp(`<link[^>]*hreflang="${locale}"[^>]*>`), ''));
+    const result = runValidator('en', ['en/ticino-job-market/index.html'], html);
+    expect(result.status).toBe(1);
+    expect(result.output).toContain('incomplete hreflang');
+  });
+
+  it.each([
+    ['a language prefix', 'hreflang="fr-CH"'],
+    ['a data attribute', 'data-hreflang="fr"'],
+    ['an empty value', 'hreflang=""'],
+    ['an unmatched quote', `hreflang="fr'`],
+  ])('rejects %s in place of the required locale', (_label, attribute) => {
+    const html = minifyHtml(PAGE.replace('hreflang="fr"', attribute));
+    const result = runValidator('en', ['en/ticino-job-market/index.html'], html);
+    expect(result.status).toBe(1);
+    expect(result.output).toContain('missing locales [fr]');
+  });
+
+  it('rejects a locale link without a target', () => {
+    const html = minifyHtml(PAGE.replace('hreflang="fr" href="https://frontaliereticino.ch/fr/"', 'hreflang="fr" href=""'));
+    expect(runValidator('en', ['en/ticino-job-market/index.html'], html).status).toBe(1);
   });
 });
