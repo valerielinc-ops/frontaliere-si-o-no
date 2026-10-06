@@ -139,8 +139,8 @@ ${cookieBanner ? `
 const cookie = $('cookie-banner');
 const cookieRoot = cookie.attachShadow({ mode: 'open' });
 cookieRoot.innerHTML = ${JSON.stringify(cookieShadowMarkup)};
-cookieRoot.getElementById('cookie-decline').addEventListener('click', () => { cookieAction = 'decline'; cookie.hidden = true; });
-cookieRoot.getElementById('cookie-accept').addEventListener('click', () => { cookieAction = 'accept'; cookie.hidden = true; });
+cookieRoot.getElementById('cookie-decline').addEventListener('click', () => { cookieAction = 'decline'; cookie.hidden = true; cookie.style.display = 'none'; });
+cookieRoot.getElementById('cookie-accept').addEventListener('click', () => { cookieAction = 'accept'; cookie.hidden = true; cookie.style.display = 'none'; });
 ` : ''}
 $('content-cancel')?.addEventListener('click', () => { contentAction = 'cancel'; $('content-checks').hidden = true; });
 $('content-activate')?.addEventListener('click', () => { contentAction = 'activate'; $('content-checks').hidden = true; });
@@ -323,10 +323,13 @@ async function main() {
     check(normalized(state.ttPosts.at(-1).caption) === normalized(CAPTION), 'the pre-filled TikTok caption was replaced exactly, hashtags included');
     check(state.ttPosts.at(-1).contentAction === 'cancel' && state.ttPosts.at(-1).cookieAction === 'decline', 'known interstitials used only safe actions');
 
+    const unknownStarted = Date.now();
     r = await run('tiktok', `${base}/tt-unknown/tiktokstudio/upload`, { dryRun: false, label: 'tt-unknown' });
-    check(r.error?.errorClass === 'interstitial-unknown', `an unknown dialog stops without a guessed click (${r.error?.errorClass || r.error?.message})`);
-    check(state.ttPosts.length === beforeInterstitials + 1, 'the unknown-dialog scenario never posted');
-    check(existsSync(path.join(r.dir, 'interstitial-unknown.png')), 'the unknown dialog leaves a dedicated screenshot');
+    const unknownElapsed = Date.now() - unknownStarted;
+    check(r.error?.errorClass === 'interstitial-unknown' && r.error?.step === 'caption', `an unknown overlay stops before the caption click (${r.error?.errorClass || r.error?.message})`);
+    check(unknownElapsed < 10_000, `the unknown overlay fails closed without the long click timeout (${unknownElapsed}ms)`);
+    check(state.ttPosts.length === beforeInterstitials + 1, 'the unknown-overlay scenario never posted');
+    check(existsSync(path.join(r.dir, 'interstitial-unknown.png')), 'the unknown overlay leaves a dedicated screenshot');
 
     console.log('runRobot, persistent profile');
     const entry = buildQueueEntry({
