@@ -1,7 +1,9 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { applySwissLocationGate } from '../scripts/assemble-jobs-dataset.mjs';
+import { archiveFilteredJobsToSlices, readExpiredSlice } from '../scripts/lib/expired-jobs-archive.mjs';
 import { isExplicitlyOutsideTarget, isLocationExplicitlyForeign } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { isCantonRelevant, locationFieldHasSwissSignal } from '../scripts/lib/target-swiss-locations.mjs';
 
@@ -130,5 +132,105 @@ describe('#9846 toponyms are whole words, never substrings', () => {
   it('does not read Como inside the Italian "comodo"', () => {
     expect(isCantonRelevant('un posto di lavoro comodo', 'TI')).toBe(false);
     expect(isCantonRelevant('a pochi minuti da Como', 'TI')).toBe(true);
+  });
+});
+
+describe('Swiss locality variants and canton-scoped homonyms', () => {
+  const realSwissRows = [
+    ['Bremgarten', 'AG'],
+    ['Geneva', 'GE'],
+    ['Küssnacht am Rigi', 'SZ'],
+    ['Gossau', 'SG'],
+    ['Bienne', 'BE'],
+  ] as const;
+
+  it('keeps the real Swiss localities that the current slices expose', () => {
+    for (const [locality, canton] of realSwissRows) {
+      const job = {
+        location: locality,
+        addressLocality: locality,
+        canton,
+        postalCode: '',
+        description: '',
+      };
+      const result = applySwissLocationGate([job]);
+      expect(result.jobs, `${locality} (${canton})`).toHaveLength(1);
+    }
+  });
+
+  it('keeps both canton owners of an ambiguous bare municipality', () => {
+    for (const canton of ['SG', 'ZH']) {
+      const job = { location: 'Gossau', addressLocality: 'Gossau', canton, description: '' };
+      expect(applySwissLocationGate([job]).jobs, `Gossau (${canton})`).toHaveLength(1);
+    }
+  });
+
+  it('keeps official Swiss localities even when the source canton is stale or absent', () => {
+    const cases = [
+      ['Le Crêt-Du-Locle', 'GE'], // official locality in NE; source carries GE
+      ['Nussbaumen', 'FR'],       // official localities in AG/TG; source carries FR
+      ['Wohlen', ''],             // AG/BE homonym with no structured canton
+      ['Feldmeilen', 'ZH'],
+      ['Haag', 'SG'],
+    ] as const;
+    for (const [locality, canton] of cases) {
+      const job = {
+        location: locality,
+        addressLocality: locality,
+        canton,
+        postalCode: '',
+        description: '',
+      };
+      expect(applySwissLocationGate([job]).jobs, `${locality} (${canton || 'missing canton'})`).toHaveLength(1);
+    }
+  });
+
+  it('keeps the additional real variants found by the slice audit', () => {
+    const variants = [
+      'Charmey', 'Cuira', 'Domats-Ems', 'Fehraltdorf', 'Fusterie',
+      'Küssnacht a', 'Langnau Ilfis', 'Les Diabterets', 'Marin', 'Neuhausen Posthof',
+      'Plan', 'Räterschen', 'Saint Légier', 'Yverdon',
+    ];
+    for (const locality of variants) {
+      const job = { location: locality, addressLocality: locality, description: '' };
+      expect(applySwissLocationGate([job]).jobs, locality).toHaveLength(1);
+    }
+  });
+
+  it('keeps a true foreign locality out of active publication', () => {
+    const job = {
+      companyKey: 'colin-cie',
+      location: 'Munsbach, Luxembourg',
+      addressLocality: 'Munsbach, Luxembourg',
+      canton: '',
+      description: '',
+    };
+    const result = applySwissLocationGate([job]);
+    expect(result.jobs).toHaveLength(0);
+    expect(result.dropped[0]?.reason).toBe('foreign-location');
+  });
+
+  it('archives a gate exclusion once and preserves its expired route', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-gate-expired-'));
+    const job = {
+      companyKey: 'colin-cie',
+      slug: 'test-munsbach-luxembourg',
+      title: 'Test foreign posting',
+      company: 'Colin & Cie',
+      location: 'Munsbach, Luxembourg',
+      addressLocality: 'Munsbach, Luxembourg',
+      descriptionByLocale: { it: 'Test' },
+    };
+    try {
+      expect(archiveFilteredJobsToSlices([{ job, reason: 'foreign-location' }], { dir }).added).toBe(1);
+      const first = readExpiredSlice('colin-cie', { dir });
+      expect(first).toHaveLength(1);
+      expect(first[0].slug).toBe(job.slug);
+      const expiredAt = first[0].expiredAt;
+      expect(archiveFilteredJobsToSlices([{ job, reason: 'foreign-location' }], { dir }).added).toBe(0);
+      expect(readExpiredSlice('colin-cie', { dir })[0].expiredAt).toBe(expiredAt);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

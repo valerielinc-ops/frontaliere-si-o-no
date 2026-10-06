@@ -400,6 +400,61 @@ export function localeRouteKeys(job = {}) {
   return routes;
 }
 
+/**
+ * Archive jobs removed by a publication-time filter.
+ *
+ * Unlike a source-slice disappearance, a Swiss gate drop happens after the
+ * crawler has already handed the job to assembly. Keep the same SEO contract:
+ * the active record may disappear, but its expired detail route must remain.
+ * Existing slugs/routes are skipped before calling the normal archive writer
+ * so a repeated assembly does not refresh `expiredAt` on every run.
+ *
+ * @param {Array<{job?: object, reason?: string}|object>} droppedRows
+ * @param {{ dir?: string }} [opts]
+ * @returns {{ added: number, skipped: number, byCrawler: Record<string, number> }}
+ */
+export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
+  if (!Array.isArray(droppedRows) || droppedRows.length === 0) {
+    return { added: 0, skipped: 0, byCrawler: {} };
+  }
+
+  const grouped = new Map();
+  let skipped = 0;
+  for (const row of droppedRows) {
+    const job = row?.job && typeof row.job === 'object' ? row.job : row;
+    // Legacy baseline rows can lack companyKey. They still have a public slug,
+    // so keep them in a dedicated assembly slice instead of silently deleting
+    // their expired page at the filter boundary.
+    const crawlerKey = String(job?.companyKey || job?.crawlerKey || 'assembly-filtered').trim();
+    if (!job?.slug || isHeldFromPublication(job)) {
+      skipped++;
+      continue;
+    }
+    if (!grouped.has(crawlerKey)) grouped.set(crawlerKey, []);
+    grouped.get(crawlerKey).push(job);
+  }
+
+  let added = 0;
+  const byCrawler = {};
+  for (const [crawlerKey, jobs] of grouped) {
+    const existing = readExpiredSlice(crawlerKey, opts);
+    const existingSlugs = new Set(existing.map((entry) => entry?.slug).filter(Boolean));
+    const existingRoutes = new Set(existing.flatMap((entry) => [...localeRouteKeys(entry)]));
+    const candidates = jobs.filter((job) => {
+      if (existingSlugs.has(job.slug)) return false;
+      const routes = localeRouteKeys(job);
+      return ![...routes].some((route) => existingRoutes.has(route));
+    });
+    const count = archiveRemovedJobsToSlice(candidates, crawlerKey, opts);
+    if (count > 0) {
+      added += count;
+      byCrawler[crawlerKey] = count;
+    }
+  }
+
+  return { added, skipped, byCrawler };
+}
+
 /** Preserve every route known by `removed` on `survivor`. */
 export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
   if (removed?.previousSlugs != null && !Array.isArray(removed.previousSlugs)) {
