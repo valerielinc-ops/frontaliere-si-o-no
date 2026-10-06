@@ -226,7 +226,8 @@ describe('collector parity (TS ≡ inline)', () => {
     ['TCF API alone = Funding Choices loaded', () => { w.__tcfapi = () => undefined; }, false, { fc_loaded: 1 }],
     ['bridge-only googlefc = not loaded', () => { w.googlefc = { callbackQueue: [] }; }, false, { fc_loaded: 0 }],
     ['held without release reads absent', () => { w.__ftOfferwallGate = { state: 'held' }; }, false, { gate_status: 'absent' }],
-    ['idle reads absent', () => { w.__ftOfferwallGate = { state: 'idle' }; }, false, { gate_status: 'absent' }],
+    // The gate waits after an SPA entry from an off-board page (as offerwallGateStatus reads it).
+    ['idle reads off_board', () => { w.__ftOfferwallGate = { state: 'idle' }; }, false, { gate_status: 'off_board' }],
     ['off_board', () => { w.__ftOfferwallGate = { state: 'off_board' }; }, false, { gate_status: 'off_board' }],
     ['ad blocker', () => { w.__ftAdBlock = { blocked: true }; }, false, { ad_blocked: 1 }],
     ['anchor status is sanitised', () => { document.body.innerHTML = '<ins data-anchor-status="Ready To Display!"></ins>'; }, false, { anchor_status: 'readytodisplay' }],

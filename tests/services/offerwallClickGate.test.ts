@@ -72,13 +72,28 @@ describe('offerwallClickGate', () => {
     expect(isOfferwallHeld()).toBe(true);
   });
 
-  it('clears a stale off-board state after SPA entry into the job board', () => {
+  it('clears a stale off-board state after SPA entry into the job board, and keeps it recoverable', () => {
     window.history.replaceState({}, '', '/cerca-lavoro-ticino/azienda-esempio/offerta/');
     window.__ftOfferwallGate = { state: 'off_board' };
 
-    expect(offerwallGateStatus()).toBe('absent');
+    // The gate waits for a fresh callback (`idle`), but the click gets the
+    // off-board recovery reload, not the no-Offerwall path of `absent`.
+    expect(offerwallGateStatus()).toBe('off_board');
     expect(window.__ftOfferwallGate?.state).toBe('idle');
     expect(isOfferwallHeld()).toBe(false);
+  });
+
+  it('reads a gate still waiting after SPA entry from an off-board page as off_board', () => {
+    // The inline gate's reacquire: Funding Choices does not call again without
+    // a page load (live 2026-10-06, still `idle` 28 s after the navigation).
+    window.history.replaceState({}, '', '/cerca-lavoro-zurigo/azienda-esempio/offerta/');
+    window.__ftOfferwallGate = { state: 'idle' };
+    expect(offerwallGateStatus()).toBe('off_board');
+    expect(isOfferwallHeld()).toBe(false);
+
+    // A callback that does come still holds the Offerwall as usual.
+    holdOfferwall();
+    expect(offerwallGateStatus()).toBe('held');
   });
 
   it('reports not_held when Funding Choices never held an Offerwall on this page', async () => {
