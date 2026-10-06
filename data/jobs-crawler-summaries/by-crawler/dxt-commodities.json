@@ -1,16 +1,16 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-10-06T09:15:18.025Z",
-  "total": 2,
+  "generatedAt": "2026-10-06T21:17:14.354Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4101,
-  "avgDurationMs": 4101,
+  "durationMs": 4735,
+  "avgDurationMs": 4735,
   "durationHistory": [
-    4101
+    4735
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,9 +38,9 @@
         "location": "Lugano"
       },
       "id": "dxt-commodities-f60f8843492a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -49,14 +49,16 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_2#offset_20897_2",
       "applyUrl": "https://dxt.com/careers/",
@@ -92,7 +94,6 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -102,7 +103,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

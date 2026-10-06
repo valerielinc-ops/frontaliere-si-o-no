@@ -8,10 +8,12 @@
  * small static import graph on disk, updates only changed files, walks it in
  * reverse from changed sources, and passes the resulting test files directly
  * to Vitest. It stays related-only for ordinary imports, with a conservative
- * full-test fallback only when the changed-path collector cannot prove a
- * complete diff. Runtime/configuration files are not treated as global Vitest
- * dependencies by default: the root `vitest.config.ts` is the explicit
- * exception because it configures every test project, while CI and TypeScript
+ * full-test run only when the changed file is the global Vitest config.
+ * An incomplete diff or an unmodelled source edge fails fast instead of
+ * turning uncertainty into a full suite. Runtime/configuration files are not
+ * treated as global Vitest dependencies by default: the root
+ * `vitest.config.ts` is the explicit exception because it configures every
+ * test project, while CI and TypeScript
  * configuration stay outside this policy. `scripts/ci/run-related-tests.mjs`
  * has an explicit, bounded regression-test allow-list because its consumers
  * read it by path instead of importing it. Test-tree lints (tests that scan
@@ -31,10 +33,13 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
-import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
+import {
+  listCiGeneratedDataTests,
+  shouldSkipCiGeneratedDataTests,
+} from './ci-generated-data-tests.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
@@ -46,12 +51,16 @@ const selectionOnly = process.argv.includes('--select-only');
 const sourceRe = GRAPH_SOURCE_RE;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const runnerPath = 'scripts/ci/run-related-tests.mjs';
+const generatedDataPolicyPath = 'scripts/ci/ci-generated-data-tests.mjs';
 const globalVitestConfigPaths = new Set(['vitest.config.ts']);
+const ciGeneratedDataTests = shouldSkipCiGeneratedDataTests()
+  ? new Set(listCiGeneratedDataTests())
+  : new Set();
 // These tests exercise the runner through its real subprocess seam or pin its
 // CI wiring. They are deliberately explicit: broadening every `scripts/` or
 // `.github/` change into a full suite would undo the related-test bound.
 const runnerRegressionTests = new Set([
-  'tests/run-related-tests-github-assets.test.ts',
+  'tests/run-related-tests-selection.test.ts',
   'tests/run-related-tests-doc-contracts.test.ts',
   'tests/run-related-tests-sparse.test.ts',
   'tests/ci-vitest-check-name.test.ts',
@@ -347,7 +356,12 @@ const ignoredRe = GRAPH_IGNORED_RE;
 // finche' non l'ha ereditato una PR estranea (#7514, #7580).
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
-const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// Asset paths are only dependencies when the path starts a quoted/template
+// literal.  Matching `.github/workflows` in the middle of an explanatory
+// string (for example a live-data guard message) expands that one phrase to
+// every workflow asset and turns a one-file workflow diff into hundreds of
+// unrelated tests.
+const assetLiteralRe = /(?<=['"`])(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 // La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
 // 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
@@ -432,6 +446,21 @@ function parseNameStatusZ(fields) {
 const changed = readFileSync(changedPathFile, 'utf8').split(/\r?\n/).map((p) => normalize(p.trim())).filter(Boolean);
 let changedStatus = 'complete';
 try { changedStatus = readFileSync(changedStatusFile, 'utf8').trim() || 'error'; } catch {}
+
+function stopWithoutFullSuite(reason) {
+  console.error(`BLOCKED: related-test selection is not provable: ${reason}`);
+  console.error('The conservative full-suite fallback is disabled; add/update an impacted test or repair the changed-path input.');
+  if (selectionOnly) {
+    // The workflow's scheduling probe must not turn a selection error into an
+    // expensive Assemble + migrate. The real Vitest invocation repeats the
+    // same decision and exits non-zero immediately.
+    if (process.env.GITHUB_OUTPUT) {
+      appendFileSync(process.env.GITHUB_OUTPUT, 'required=false\nselection_failed=true\n');
+    }
+    process.exit(0);
+  }
+  process.exit(2);
+}
 
 function stripComments(source) {
   let out = '';
@@ -557,6 +586,12 @@ function importsOf(file, fileSet, assets) {
   }
   const deps = new Set();
   const code = stripComments(source);
+  // A directory literal is a dependency only when the file actually scans a
+  // directory.  `path.join(ROOT, '.github', 'workflows', WORKFLOW_FILE)` has
+  // only the two quoted directory segments available to this static parser;
+  // treating those segments as a wildcard makes every workflow test depend on
+  // every workflow.  Exact quoted filenames remain precise below.
+  const hasDirectoryScan = /\b(?:readdirSync|readdir|globSync|glob)\s*\(/.test(code);
   for (const match of code.matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
@@ -570,15 +605,18 @@ function importsOf(file, fileSet, assets) {
   // gli sha256 ed e' nominato per esteso.
   const literals = [...code.matchAll(assetLiteralRe)].map((m) => m[0]);
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
-    literals.push([...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]).join('/'));
+    const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
+    const literal = segments.join('/');
+    if (segments.length >= 3 || hasDirectoryScan) literals.push(literal);
   }
   for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = rawLiteral.replace(/\/+$/, '');
+    const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
     for (const asset of assets) {
-      if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
+      if (asset === literal || (directoryLiteral && asset.startsWith(`${literal}/`))) deps.add(asset);
     }
   }
   // I contratti di radice si nominano per esteso: niente directory da
@@ -603,6 +641,14 @@ function loadGraph(files, assets) {
   let previous = {};
   let previousVersion = 0;
   let previousAssets = null;
+  let previousRevision = '';
+  let currentRevision = '';
+  try {
+    currentRevision = execFileSync('git', ['rev-parse', 'HEAD'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {}
   // Gli archi verso gli asset `.github/**` vivono nella entry del file
   // SORGENTE che li nomina, e la validità di quella entry dipendeva solo dalla
   // firma del sorgente. Un workflow AGGIUNTO (o rinominato) non cambia la
@@ -618,42 +664,72 @@ function loadGraph(files, assets) {
   // gli archi verso i contratti di radice (`rootDocContracts`): una entry
   // della versione 6 non li ha anche quando la firma del sorgente è invariata. La
   // versione 8 segna gli archi costruiti a segmenti (`path.join(ROOT, '.github',
-  // 'workflows')`): una entry della versione 7 non li ha.
+  // 'workflows')`: una entry della versione 7 non li ha. La versione 9 lega
+  // inoltre la cache alla revisione del checkout: senza questo confine una
+  // cache ripristinata da un'altra PR potrebbe riusare archi di sorgenti che
+  // non erano nel suo `changed-paths.txt`. La versione 10 invalida le entry
+  // costruite dal vecchio scanner di asset, che poteva scambiare testo
+  // descrittivo per una lettura di directory. La versione 11 conserva wildcard
+  // solo per i file che dimostrano una scansione directory reale.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
     previous = cached.files || {};
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
+    previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 8 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 11
+    && previousAssets === assetsDigest
+    && currentRevision !== ''
+    && previousRevision === currentRevision;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
   // to import it. Stale entries are harmless because only existing tests are
   // passed to Vitest below.
   const graph = { ...previous };
+  const changedFiles = new Set(changed);
   for (const file of files) {
-    const sig = signature(file);
     const old = previous[file];
+    // `changed-paths.txt` is the completeness boundary for this cache. On a
+    // complete diff, an unchanged tracked file cannot have changed since the
+    // previous graph snapshot, so re-hashing thousands of files on every
+    // selector subprocess is wasted work. Changed files are always re-read;
+    // an asset-set change already makes `reusable` false and rebuilds every
+    // edge that can point at it.
+    if (reusable && !changedFiles.has(file) && old?.signature) {
+      graph[file] = old;
+      continue;
+    }
+    const sig = signature(file);
     graph[file] = reusable && old?.signature === sig
       ? old
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 8, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({
+    version: 11,
+    revision: currentRevision,
+    assets: assetsDigest,
+    files: graph,
+  }));
   return graph;
 }
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
     && (sourceRe.test(file) || isRelatedAsset(file))
-    && !alwaysExcludedTests.has(file)))];
-const forceFull = changedStatus !== 'complete';
+    && !alwaysExcludedTests.has(file)
+    && !ciGeneratedDataTests.has(file)))];
 const runnerChanged = changed.includes(runnerPath);
+const runnerInfrastructureChanged = runnerChanged || changed.includes(generatedDataPolicyPath);
 const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths.has(file));
-const fullSuiteRequired = forceFull || globalVitestConfigChanged;
+const fullSuiteRequired = globalVitestConfigChanged;
 rejectDryRunInCi();
+if (changedStatus !== 'complete') {
+  stopWithoutFullSuite(`changed-paths status is ${changedStatus}`);
+}
 requireFullCheckoutForVerdict();
 const triggeredSourceTreeLints = sourceTreeLintsFor(changed);
 // Un diff senza candidati per il grafo esce qui solo se non rientra nemmeno nel
@@ -732,7 +808,10 @@ if (unreadable.length > 0) {
     process.exit(2);
   }
 }
-const isRunnableTest = (file) => testRe.test(file) && !corpusWideTests.has(file) && !alwaysExcludedTests.has(file);
+const isRunnableTest = (file) => testRe.test(file)
+  && !corpusWideTests.has(file)
+  && !alwaysExcludedTests.has(file)
+  && !ciGeneratedDataTests.has(file);
 const allTests = tracked.filter(isRunnableTest);
 const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
@@ -742,16 +821,14 @@ for (const [file, entry] of Object.entries(graph)) {
   }
 }
 const related = new Set(fullSuiteRequired ? allTests : candidates.filter(isRunnableTest));
-if (forceFull) {
-  console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
-} else if (globalVitestConfigChanged) {
+if (globalVitestConfigChanged) {
   console.log('vitest.config.ts changed → running all tracked tests because it configures the complete Vitest suite.');
 }
-if (runnerChanged && !fullSuiteRequired) {
+if (runnerInfrastructureChanged && !fullSuiteRequired) {
   for (const test of runnerRegressionTests) {
     if (isRunnableTest(test)) related.add(test);
   }
-  console.log('run-related-tests.mjs changed → running its explicit regression-test suite.');
+  console.log('related-test runner/policy changed → running its explicit regression-test suite.');
 }
 if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   for (const test of testTreeLintTests) {
@@ -759,7 +836,10 @@ if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   }
   console.log('test file(s) changed → running the test-tree lints.');
 }
-let usedFullFallback = fullSuiteRequired;
+// `selectMaxWorkers` keeps the historical argument name for compatibility;
+// after this fix it is true only for the explicit global-config run, never for
+// an unmodelled dependency.
+const usedFullFallback = fullSuiteRequired;
 const assetCandidate = isRelatedAsset;
 const assetScopeAllows = (test, asset) => {
   const scope = relatedAssetFileScopes.get(test);
@@ -793,36 +873,30 @@ while (queue.length) {
     }
   }
 }
-// Never report success with zero tests for a source change: an unmodelled
-// dependency is safer as a full run than as a silent no-op — UNLESS every
-// changed file is a genuine leaf (zero importers anywhere in the repo, not
-// just no test importer), in which case nothing could ever reach it through
-// an import and the full run protects nothing (see lib/orphan-fallback.mjs).
-// Il fallback si decide sui soli candidati SORGENTE. Un asset non-sorgente che
-// nessun test nomina non ha blind spot da coprire — non e' importabile, quindi
-// non esiste l'import mancato che il fallback esiste per proteggere — e farlo
-// ricadere sulla suite intera farebbe pagare ~1900 file a ogni PR di soli
-// workflow, che oggi ne paga zero. La politica related-only di `tests.yml`
-// resta invariata.
-const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
-if (!fullSuiteRequired && related.size === 0 && sourceCandidates.length > 0) {
-  if (shouldSkipFullSuiteFallback(sourceCandidates, reverse)) {
-    console.log('No static related edge found, and every changed file has zero importers anywhere in the repo (standalone CLI script) → nothing to run, as expected.');
-  } else {
-    for (const test of allTests) related.add(test);
-    usedFullFallback = true;
-    console.log('No static related edge found → running all tracked tests conservatively.');
-  }
-}
-// I lint dell'albero dei sorgenti entrano DOPO la decisione sul fallback, mai
-// prima: il perimetro del gate dei segreti copre quasi ogni sorgente, quindi
-// aggiunti prima renderebbero `related.size` sempre almeno 1 e il fallback
-// conservativo qui sopra non scatterebbe più per nessun sorgente senza test.
-// Un lint che enumera l'albero non dice nulla su chi importa il file cambiato.
+// Source-tree lints are real, bounded coverage for changes whose dependency is
+// discovered by scanning a directory rather than importing a file. Admit them
+// before deciding whether the graph is empty; they are not a license to add
+// the full suite.
 if (!fullSuiteRequired) {
   for (const test of triggeredSourceTreeLints) {
-    if (isRunnableTest(test)) related.add(test);
+    if (isRunnableTest(test) && tracked.includes(test)) related.add(test);
   }
+}
+// Never report success with zero tests for a source change. The old
+// conservative full-suite fallback made an unmodelled dependency safe only by
+// launching thousands of unrelated files; the incident that motivated this
+// runner showed that this turns one missing edge into a 40-minute PR gate.
+// A complete diff with no statically related runnable test is now a fast,
+// actionable selection failure. The author must add/update the impacted test
+// or declare a scoped tree-lint dependency; CI never silently pays the full
+// suite for an unknown edge.
+const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
+if (!fullSuiteRequired
+  && related.size === 0
+  && sourceCandidates.length > 0) {
+  stopWithoutFullSuite(
+    `no statically related runnable test for ${sourceCandidates.join(', ')}`,
+  );
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
 const githubCandidateCount = candidates.filter((file) => githubAssetRe.test(file)).length;
@@ -841,7 +915,7 @@ if (selectionOnly) {
 }
 if (tests.length === 0) process.exit(0);
 // Seam per ispezionare la SELEZIONE senza pagare la corsa: stampa l'elenco qui
-// sopra ed esce. Usato da tests/run-related-tests-github-assets.test.ts e utile
+// sopra ed esce. Usato da tests/run-related-tests-selection.test.ts e utile
 // a mano per capire perche' un file seleziona (o non seleziona) un test.
 //
 // Il seam serve in locale e nel sottoprocesso dell'osservatore, mai nel gate.

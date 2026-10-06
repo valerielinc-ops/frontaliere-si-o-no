@@ -213,6 +213,15 @@ describe('push-article-shard-incremental.sh invariants', () => {
     // loser must re-clone and rebuild rather than clobber a concurrent writer.
     expect(script).not.toMatch(/push\s+(-f|--force)\b/);
   });
+
+  it('keeps a bounded retry window for repeated remote-tip races', () => {
+    expect(script).toContain(
+      'retry_max_attempts="${SHARD_INCREMENTAL_PUSH_MAX_ATTEMPTS:-6}"',
+    );
+    expect(script).toContain('for ((try = 1; try <= retry_max_attempts; try++)); do');
+    expect(script).toContain('attempt $try/$retry_max_attempts failed');
+    expect(script).toContain('re-clone to pick up any concurrent push');
+  });
 });
 
 describe('wait-for-live-article-shards.mjs invariants', () => {

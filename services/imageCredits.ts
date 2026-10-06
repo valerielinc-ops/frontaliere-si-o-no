@@ -9,11 +9,13 @@
  * upload, `public,max-age=600`):
  *
  *   data/image-credits-<section>.json (corpus section indexes)
- *   data/image-credits-blog.json (site-owned generated/fallback bridge)
+ *   data/image-credits-blog.json (site-owned generated/inferred bridge)
  *   { schema: 1, commit, section,
  *     files:  { <Commons title>: { pageUrl, author{name,url,type}, attribution,
  *                                  licence{name,url,family,attributionRequired}, fetchedAt } },
- *     covers: { <cover key>: { file: <Commons title>, modified } } }
+ *     covers: { <cover key>: { file: <Commons title>, modified } |
+ *                              { evidence: 'inferred', provider: null,
+ *                                verifiedAt, status: 'no-credit' } } }
  *
  * Fetched in the background, so a credit added to a fresh article reaches the
  * page within minutes instead of waiting for a site deploy. For one cover this
@@ -122,7 +124,12 @@ export function imageCreditFromIndex(index: ImageCreditsIndex, cover: string | n
   const key = coverKey(cover);
   if (!key || typeof cover !== 'string') return null;
   const entry = ownValue(index.covers, key);
-  if (!isPlainObject(entry) || typeof entry.file !== 'string') return null;
+  if (!isPlainObject(entry)) return null;
+  if (entry.evidence === 'inferred' && entry.status === 'no-credit') {
+    // A valid audit record, deliberately not a public credit claim.
+    return null;
+  }
+  if (typeof entry.file !== 'string') return null;
   const file = ownValue(index.files, entry.file);
   if (!isPlainObject(file) || !isPlainObject(file.author) || !isPlainObject(file.licence)) return null;
   // The site path of this cover, whatever host or query the caller's URL had.
@@ -197,7 +204,7 @@ export async function fetchImageCredit(
   const sectionRecord = imageCreditFromIndex(index, cover);
   if (sectionRecord) return sectionRecord;
   // The historical section indexes are published by the corpus. The unified
-  // blog index is the site-owned bridge for generated/fallback records and is
+  // blog index is the site-owned bridge for generated/inferred records and is
   // deliberately consulted only when the section surface has no usable entry.
   const blogIndex = await fetchImageCredits('blog');
   return blogIndex ? imageCreditFromIndex(blogIndex, cover) : null;

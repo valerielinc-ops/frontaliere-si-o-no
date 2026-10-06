@@ -1,7 +1,7 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-10-06T09:37:50.988Z",
+  "generatedAt": "2026-10-06T21:32:34.885Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6054,
-  "avgDurationMs": 6054,
+  "durationMs": 5673,
+  "avgDurationMs": 5673,
   "durationHistory": [
-    6054
+    5673
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:37.491Z",
+      "crawledAt": "2026-10-06T21:32:24.889Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:37.071Z",
+      "crawledAt": "2026-10-06T21:32:24.450Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:36.649Z",
+      "crawledAt": "2026-10-06T21:32:23.886Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:36.227Z",
+      "crawledAt": "2026-10-06T21:32:23.446Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:35.806Z",
+      "crawledAt": "2026-10-06T21:32:23.008Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:37:35.382Z",
+      "crawledAt": "2026-10-06T21:32:22.567Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -284,5 +284,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }
