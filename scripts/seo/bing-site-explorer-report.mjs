@@ -12,20 +12,28 @@ import {
   classifyDiscoveredUrl,
   folderFor,
   probeWithRetries,
+  rememberReferrerPair,
+  scopeForManifest,
   writeJsonStreaming,
 } from './bing-site-explorer-crawl.mjs';
-import { buildTemplateInventory } from './bing-template-inventory.mjs';
-import { BING_META_DESCRIPTION_TOO_SHORT, BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
+import {
+  BING_TEMPLATE_TABLE,
+  buildFrontierAttribution,
+  buildTemplateInventory,
+  templateIndexFor,
+} from './bing-template-inventory.mjs';
+import {
+  BING_ACTIONABLE_FINDING_CODES,
+  BING_FRONTIER_FINDING_DEFINITIONS,
+  BING_META_DESCRIPTION_TOO_SHORT,
+  BING_TITLE_TOO_LONG,
+  isBingActionableCode,
+} from './bing-finding-codes.mjs';
 
 // Re-exported so callers of the report module keep a single import.
 export { writeJsonStreaming };
 
-const ACTIONABLE_CODES = new Set([
-  'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
-  'canonical-missing', 'canonical-drift', 'soft-404', 'title-missing',
-  BING_TITLE_TOO_LONG, 'meta-description-missing', BING_META_DESCRIPTION_TOO_SHORT,
-  'internal-link-malformed',
-]);
+const ACTIONABLE_CODES = new Set(BING_ACTIONABLE_FINDING_CODES);
 
 // The report job has a 15-minute Actions timeout. Leave room for artifact
 // downloads, summary serialization and issue mutation after the rescue pass.
@@ -77,7 +85,30 @@ export function readPartitionReports(reportsDir, prefix = 'partition-') {
     .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
 }
 
-function applyRescueResult(report, url, result, manifestSet) {
+function mergeDiscoveredReferrers(report, sourceUrl, links, manifest, manifestSet) {
+  const known = new Map();
+  const discoveredUrls = report.discoveredOutOfSitemap || [];
+  const discoveredReferrers = report.discoveredReferrers || [];
+  for (let index = 0; index < discoveredUrls.length; index += 1) {
+    const refs = new Map();
+    for (const pair of discoveredReferrers[index] || []) rememberReferrerPair(refs, pair);
+    known.set(discoveredUrls[index], refs);
+  }
+  const sourceIndex = (manifest?.urls || []).indexOf(sourceUrl);
+  const referrerTemplate = templateIndexFor(sourceUrl);
+  for (const link of links || []) {
+    if (manifestSet.has(link)) continue;
+    const refs = known.get(link) || new Map();
+    if (sourceIndex >= 0) rememberReferrerPair(refs, [sourceIndex, referrerTemplate]);
+    known.set(link, refs);
+  }
+  const urls = [...known.keys()].sort();
+  report.discoveredOutOfSitemap = urls;
+  report.discoveredReferrers = urls.map((link) => [...(known.get(link)?.values() || [])]
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1]));
+}
+
+function applyRescueResult(report, url, result, manifest, manifestSet) {
   const oldFindings = (report.findings || []).filter((item) => item.url === url);
   if (oldFindings.length === 0) return;
   const root = oldFindings[0].root || folderFor(url);
@@ -105,9 +136,7 @@ function applyRescueResult(report, url, result, manifestSet) {
   }
   report.findings.push(...nextFindings);
 
-  const discovered = new Set(report.discoveredOutOfSitemap || []);
-  for (const link of result.links || []) if (!manifestSet.has(link)) discovered.add(link);
-  report.discoveredOutOfSitemap = [...discovered].sort();
+  mergeDiscoveredReferrers(report, url, result.links || [], manifest, manifestSet);
 }
 
 /**
@@ -158,6 +187,7 @@ export async function rescueTransientReports(reports, manifest, {
         timeoutMs,
         maxBodyBytes,
         deadlineAt,
+        scope: scopeForManifest(manifest),
       });
       outcomes.push({ url, result });
     }
@@ -166,7 +196,7 @@ export async function rescueTransientReports(reports, manifest, {
 
   for (const { url, result } of outcomes) {
     const report = reports.find((item) => (item.findings || []).some((finding) => finding.url === url));
-    if (report) applyRescueResult(report, url, result, manifestSet);
+    if (report) applyRescueResult(report, url, result, manifest, manifestSet);
   }
   const deadlineSkipped = Math.max(0, queued.length - outcomes.length);
   const transientRemaining = outcomes.filter(({ result }) => isTransientStatus(result.status)).length;
@@ -244,6 +274,7 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
   const excludedDiscoveryCounts = {};
   const excludedDiscoverySamples = {};
   for (const scope of scopes) {
+    const kind = scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier');
     for (const url of scope.manifest?.urls || []) verified.add(url);
     for (const [reason, count] of Object.entries(scope.manifest?.excludedByReason || {})) {
       increment(excludedDiscoveryCounts, reason, Number(count) || 0);
@@ -256,7 +287,8 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
       }
     }
     for (const item of scope.manifest?.findings || []) {
-      findingMap.set(`${item.code}\u0000${item.url}`, item);
+      const scopedItem = { ...item, scope: item.scope || kind };
+      findingMap.set(`${kind}\u0000${item.code}\u0000${item.url}`, scopedItem);
       increment(codeCounts, item.code);
       const root = item.root || folderFor(item.url);
       const target = folderStats[root] || (folderStats[root] = { checked: 0, statuses: {}, findings: {} });
@@ -271,7 +303,10 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
         mergeCounters(target.statuses, stats.statuses);
         mergeCounters(target.findings, stats.findings);
       }
-      for (const item of report.findings || []) findingMap.set(`${item.code}\u0000${item.url}`, item);
+      for (const item of report.findings || []) {
+        const scopedItem = { ...item, scope: item.scope || kind };
+        findingMap.set(`${kind}\u0000${item.code}\u0000${item.url}`, scopedItem);
+      }
       for (const url of report.discoveredOutOfSitemap || []) discovered.add(url);
     }
   }
@@ -284,9 +319,41 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     increment(unverifiedByReason, reason);
     if (reason === 'crawl') unverified.push(url);
   }
-  const findings = [...findingMap.values()].sort((a, b) => `${a.code}${a.url}`.localeCompare(`${b.code}${b.url}`));
-  const actionableFindings = findings.filter((item) => ACTIONABLE_CODES.has(item.code));
+  const findings = [...findingMap.values()].sort((a, b) => `${a.scope}\u0000${a.code}${a.url}`.localeCompare(`${b.scope}\u0000${b.code}${b.url}`));
+  const actionableFindings = findings.filter((item) => isBingActionableCode(item.code));
+  const scopeSummaries = scopes.map((scope) => {
+    const kind = scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier');
+    const scopeFindings = findings.filter((item) => item.scope === kind);
+    const scopedCodeCounts = {};
+    const scopedActionableCodeCounts = {};
+    for (const item of scopeFindings) {
+      increment(scopedCodeCounts, item.code);
+      if (isBingActionableCode(item.code)) increment(scopedActionableCodeCounts, item.code);
+    }
+    const structural = {
+      name: scope.name,
+      kind,
+      manifestCount: scope.manifestCount,
+      checkedCount: scope.checkedCount,
+      partitionTotal: scope.partitionTotal,
+      expectedPartitions: scope.expectedPartitions,
+    };
+    return {
+      ...structural,
+      findingCount: scopeFindings.length,
+      actionableCount: scopeFindings.filter((item) => isBingActionableCode(item.code)).length,
+      informativeCount: scopeFindings.filter((item) => !isBingActionableCode(item.code)).length,
+      codeCounts: scopedCodeCounts,
+      actionableCodeCounts: scopedActionableCodeCounts,
+    };
+  });
   const templateInventory = buildTemplateInventory(actionableFindings);
+  const frontierScope = scopes.find((scope) =>
+    (scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier')) === 'discovered-frontier');
+  const frontierAttribution = buildFrontierAttribution(findings, {
+    frontierManifest: frontierScope?.manifest || null,
+    sitemapManifest: primary.manifest || manifest || null,
+  });
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
     checkedAt: new Date().toISOString(),
@@ -312,9 +379,10 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     codeCounts,
     folderStats,
     findings,
-    actionableFindings,
     actionableCount: actionableFindings.length,
+    scopeSummaries,
     templateInventory,
+    frontierAttribution,
     discoveredOutOfSitemap: [...discovered].sort(),
     discoveredOutOfSitemapCount: discovered.size,
     unverifiedOutOfSitemap: unverified.sort(),
@@ -332,7 +400,37 @@ function formatUrlList(items, maxSamples) {
   }).join('\n');
 }
 
+function scopeTitle(kind) {
+  return kind === 'sitemap' ? 'Sitemap' : 'Frontiera interna';
+}
+
+function findingClass(code) {
+  const definition = BING_FRONTIER_FINDING_DEFINITIONS[code];
+  if (definition) return definition.actionable ? 'azionabile' : 'informativo';
+  return isBingActionableCode(code) ? 'azionabile' : 'informativo';
+}
+
+function findingReason(code) {
+  return BING_FRONTIER_FINDING_DEFINITIONS[code]?.reason
+    || (isBingActionableCode(code) ? 'Codice sitemap/HTTP già azionabile nel contratto esistente.' : 'Codice informativo già escluso dal conteggio azionabile.');
+}
+
+function templateLabel(table, index) {
+  const family = Number.isInteger(index) ? table?.[index] : null;
+  if (!family) return 'Template non classificato';
+  return `T${index} **${family.label}** (\`${family.id}\`)`;
+}
+
 export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
+  const actionableFindings = (summary.findings || []).filter((item) => isBingActionableCode(item.code));
+  const scopeSummaries = summary.scopeSummaries || (summary.scopes || []).map((scope) => ({
+    ...scope,
+    findingCount: 0,
+    actionableCount: 0,
+    informativeCount: 0,
+    codeCounts: {},
+    actionableCodeCounts: {},
+  }));
   const lines = [
     '## Bing-compatible full-tree crawl',
     '',
@@ -342,6 +440,7 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
     `- Frontiera interna crawlable: **${summary.supplementalManifestCount || 0} URL**`,
     `- Copertura totale: **${summary.checkedCount}/${summary.manifestCount}** URL, ${summary.coverageOk ? 'completa' : 'INCOMPLETA'}`,
     `- Finding azionabili: **${summary.actionableCount}**`,
+    ...scopeSummaries.map((scope) => `- ${scopeTitle(scope.kind)}: **${scope.findingCount} finding**, **${scope.actionableCount} azionabili**, **${scope.informativeCount} informativi**`),
     `- URL interne fuori sitemap osservate: **${summary.discoveredOutOfSitemapCount}**`,
     `- Route HTML ancora non verificate: **${summary.unverifiedOutOfSitemapCount || 0}**`,
     `- Verifica: ${summary.checkedAt}`,
@@ -350,10 +449,39 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
   if (summary.coverageErrors.length > 0) {
     lines.push('', '### Copertura da riparare', '', ...summary.coverageErrors.map((error) => `- ${error}`));
   }
-  lines.push('', '### Conteggio per codice', '');
-  for (const [code, count] of Object.entries(summary.codeCounts)
-    .filter(([code]) => ACTIONABLE_CODES.has(code))
-    .sort((a, b) => b[1] - a[1])) lines.push(`- \`${code}\`: **${count}**`);
+  for (const scope of scopeSummaries) {
+    lines.push(
+      '',
+      `### Conteggio ${scopeTitle(scope.kind).toLowerCase()}`,
+      '',
+      '| Codice | Classe | Conteggio | Motivo |',
+      '|---|---|---:|---|',
+    );
+    for (const [code, count] of Object.entries(scope.codeCounts || {}).sort((a, b) => b[1] - a[1])) {
+      lines.push(`| \`${code}\` | ${findingClass(code)} | ${count} | ${findingReason(code)} |`);
+    }
+  }
+
+  const frontierAttribution = summary.frontierAttribution;
+  if (frontierAttribution?.findingCount > 0) {
+    const table = frontierAttribution.templateTable || BING_TEMPLATE_TABLE;
+    lines.push(
+      '',
+      '### Template referente della frontiera interna',
+      '',
+      'Formato compatto: gli artifact conservano un indice nella tabella dei template e le righe aggregano `template referente → famiglia bersaglio → codice`; ogni riga mostra al massimo tre campioni.',
+      '',
+      `- Finding di frontiera attribuiti: **${frontierAttribution.findingsWithReferrer}**`,
+      `- Finding senza referente disponibile: **${frontierAttribution.unreferencedFindings}**`,
+      '',
+      '| Template referente | Famiglia bersaglio | Codice | Classe | Finding | Campioni pagina → bersaglio |',
+      '|---|---|---|---|---:|---|',
+    );
+    for (const row of frontierAttribution.rows || []) {
+      const samples = (row.samples || []).map(([from, to]) => `\`${from}\` → \`${to}\``).join('<br>') || '—';
+      lines.push(`| ${templateLabel(table, row.referrerTemplate)} | ${templateLabel(table, row.targetTemplate)} | \`${row.code}\` | ${findingClass(row.code)} | ${row.findingCount} | ${samples} |`);
+    }
+  }
   const templateInventory = summary.templateInventory;
   if (templateInventory?.findingCount > 0) {
     lines.push(
@@ -377,7 +505,7 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
     }
   }
   const byCode = new Map();
-  for (const item of summary.actionableFindings) {
+  for (const item of actionableFindings) {
     const items = byCode.get(item.code) || [];
     items.push(item);
     byCode.set(item.code, items);

@@ -49,7 +49,6 @@ function largeSummary(findingCount: number, urlCount: number) {
     codeCounts: { 'meta-description-too-short': findingCount / 2, 'title-too-long': findingCount / 2 },
     folderStats: { '/en/': { checked: urlCount, statuses: { 200: urlCount }, findings: { 'title-too-long': 1 } } },
     findings,
-    actionableFindings: findings,
     actionableCount: findings.length,
     discoveredOutOfSitemap: Array.from({ length: urlCount }, (_, index) => `${BASE}/de/jobs-im-tessin/stelle-${index}/`),
     discoveredOutOfSitemapCount: urlCount,
@@ -196,12 +195,26 @@ describe('Bing full-tree report artifact writer', () => {
     // Exit code 1 is the workflow's "findings present" signal and must survive.
     expect(ok.status).toBe(1);
     const summary = JSON.parse(readFileSync(okOut, 'utf8'));
-    expect(summary.actionableCount).toBe(summary.actionableFindings.length);
+    expect(summary.actionableCount).toBeGreaterThan(0);
+    expect(summary).not.toHaveProperty('actionableFindings');
     expect(summary.discoveredOutOfSitemap).toEqual([`${BASE}/fuori-sitemap/`]);
     // The summary goes through the streaming writer: each finding is one compact
     // line, never the multi-line form of `JSON.stringify(summary, null, 2)`.
     const written = readFileSync(okOut, 'utf8');
     expectCompactArrayLine(written, summary.findings[0]);
     expect(written).not.toMatch(/^ {6}"code": "title-too-long",?$/m);
+  });
+
+  it('does not serialize the actionable finding list a second time', () => {
+    const summary = {
+      findings: [{ code: 'title-too-long', url: `${BASE}/`, detail: 'titolo lungo' }],
+      actionableCount: 1,
+    };
+    const file = join(tempDir(), 'summary.json');
+    writeJsonStreaming(file, summary);
+    const written = readFileSync(file, 'utf8');
+    const parsed = JSON.parse(written);
+    expect(parsed).toEqual(summary);
+    expect(written).not.toContain('actionableFindings');
   });
 });
