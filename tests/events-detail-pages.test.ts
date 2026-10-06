@@ -246,10 +246,14 @@ describe('eventLd source attribution (#3125)', () => {
     });
   });
 
-  it('prefers a real crawled description over the synthesized one when long enough', () => {
+  it('uses a validated rewrite in Event JSON-LD when the locale is available', () => {
     const withDescription = {
       ...EVENT,
-      description: 'Una serata di grande musica sinfonica con orchestra internazionale al LAC di Lugano.',
+      sourceDescriptionHash: 'a'.repeat(64),
+      description: 'L’appuntamento propone musica sinfonica al LAC. La serata si svolge a Lugano.',
+      descriptionByLocale: {
+        it: 'L’appuntamento propone musica sinfonica al LAC. La serata si svolge a Lugano.',
+      },
     };
     const ld = eventLd(withDescription as never, 'it') as Record<string, any>;
     expect(ld.description).toBe(withDescription.description);
@@ -392,12 +396,24 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
-  it('cleans escaped crawler HTML in visible copy and Event JSON-LD', () => {
+  it('keeps the detail page factual and indexable while the rewrite is pending', () => {
+    const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
+      .find((schema) => schema['@type'] === 'Event');
+    expect(eventSchema?.description).toBeUndefined();
+    expect(page.html).toContain('Data, orario, luogo e link al sito ufficiale dell’evento.');
+    expect(page.html).toContain('LAC Lugano Arte e Cultura');
+    expect(page.html).not.toContain('Descrizione reale raccolta dal crawler');
+  });
+  it('cleans escaped rewrite HTML in visible copy and Event JSON-LD', () => {
     const markedUpEvent = {
       ...EVENT,
       id: 'myswitzerland:queen',
       title: 'The Music of QUEEN - Live',
-      description: '&lt;b&gt;The Music of Queen Live Valentin Findling bringt die Magie von Freddie Mercury auf Europas Bühnen&lt;/b&gt;',
+      description: '&lt;b&gt;L’exposition présente un programme musical. La séance se déroule à Bâle.&lt;/b&gt;',
+      descriptionByLocale: {
+        fr: '&lt;b&gt;L’exposition présente un programme musical. La séance se déroule à Bâle.&lt;/b&gt;',
+      },
     };
     const markedUpPage = renderEventDetailPage({
       locale: 'fr',
@@ -416,10 +432,10 @@ describe('renderEventDetailPage', () => {
     expect(cleanEventText('_Fonte: Ticinonline, 24 febbraio 2026_')).toBe('Fonte: Ticinonline, 24 febbraio 2026');
     expect(cleanEventText('*Huitante-Six*')).toBe('Huitante-Six');
     expect(cleanEventText('# Concert annuel 2027 ### Concert annuel avant')).toBe('Concert annuel 2027 Concert annuel avant');
-    expect(markedUpPage.html).toContain('The Music of Queen Live Valentin Findling');
+    expect(markedUpPage.html).toContain('L’exposition présente un programme musical. La séance se déroule à Bâle.');
     expect(markedUpPage.html).not.toContain('&lt;b&gt;');
     expect(markedUpPage.html).not.toContain('<b>');
-    expect(markedUpPage.html).toContain('"description":"The Music of Queen Live Valentin Findling');
+    expect(markedUpPage.html).toContain('"description":"L’exposition présente un programme musical. La séance se déroule à Bâle.');
   });
   it('falls back from corrupt venue fields and cleans event markup in visible copy and schema', () => {
     const corruptEvent = {
@@ -807,14 +823,18 @@ describe('router recognises per-event detail URLs (staticOverlay)', () => {
   });
 });
 
-// #3125 Task C: price / address / map / recurring / real description rendered
+// #3125 Task C: price / address / map / recurring / rewritten description rendered
 // VISIBLY in the detail page body, not only inside the Event JSON-LD.
 describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
   const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-detail-fields-'));
   const richEvent = {
     ...EVENT,
     id: 'guidle:rich',
-    description: 'Descrizione reale raccolta dal crawler, con dettagli sul programma della serata.',
+    sourceDescriptionHash: 'b'.repeat(64),
+    description: 'L’evento propone un programma musicale. La serata si svolge al LAC.',
+    descriptionByLocale: {
+      it: 'L’evento propone un programma musicale. La serata si svolge al LAC.',
+    },
     price: { amount: 25, currency: 'CHF', isFree: false, priceSource: 'guidle', priceField: 'offers.price' },
     address: { street: 'Piazza Bernardino Luini 6', postalCode: '6900' },
     geo: { lat: 46.005, lng: 8.951 },
@@ -860,10 +880,10 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     expect(page.html).toContain('Evento ricorrente');
   });
 
-  it('renders the real crawled description as visible prose, alongside the synthesized paragraph', () => {
-    expect(page.html).toContain('Descrizione reale raccolta dal crawler');
+  it('renders the validated rewrite as visible prose, alongside the factual paragraph', () => {
+    expect(page.html).toContain('L’evento propone un programma musicale. La serata si svolge al LAC.');
     expect(page.html).toContain('Descrizione'); // descriptionTitle
-    // The synthesized dc.about(...) paragraph is still present (never removed).
+    // The factual dc.about(...) paragraph is still present (never removed).
     expect(page.html).toContain('è un evento di tipo');
   });
 
@@ -1204,12 +1224,11 @@ describe('events schema data quality (#3508)', () => {
     };
     const ld = eventLd(glarus as never, 'it') as {
       location: { address: Record<string, unknown> };
-      description: string;
+      description?: string;
     };
     expect(ld.location.address.addressLocality).toBe('Niederurnen');
     expect(ld.location.address.addressRegion).toBeUndefined();
-    // Validator contract: description stays >= 30 chars without a canton name.
-    expect(String(ld.description).trim().length).toBeGreaterThanOrEqual(30);
+    expect(ld.description).toBeUndefined();
   });
 
   it('eventLd keeps comune + canton for canton-resolved events', () => {

@@ -1361,6 +1361,10 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: ./.github/actions/ci-npm-setup
 
+      - name: Gate — event descriptions come only from rewrite cache
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        run: npm run validate:event-descriptions
+
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}

@@ -36,6 +36,7 @@
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay, isEventImageSourceAllowed } from './lib/events-utils.mjs';
 import { parseEventPriceText } from './lib/event-metadata.mjs';
 
@@ -321,7 +322,7 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const { events } = await crawler.crawl({ dryRun });
   if (dryRun) {
-    console.log(JSON.stringify(events.slice(0, 3), null, 2));
+    console.log(JSON.stringify(events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
   }
 }
 

@@ -20,7 +20,7 @@
  *   - schema.org/Event JSON-LD on indexable live event-detail pages; historical
  *     archive pages remain indexable but omit stale Event rich-result markup
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
- *     description≥30) — deploy-blocking; image, organizer and performer use
+ *     and, when available, the rewritten description) — deploy-blocking; image, organizer and performer use
  *     source-backed values or deterministic defaults, while offers are emitted
  *     only when the source provides a confident price signal.
  *     Aggregate pages expose an ItemList of event URLs,
@@ -156,12 +156,13 @@ interface SiteEvent {
   // resolveItalianFrontierComuni in events-utils.mjs) — attached at assemble
   // time so a frontaliere on the Italian side can find "eventi vicino a te".
   italianFrontierComuni?: string[];
-  // Some sources (guidle, myswitzerland — #3125) expose real per-locale
-  // translations instead of a single source-language string. Optional and
-  // partial: any locale missing from the map falls back to `title`/
-  // `description` via localizedTitle/localizedDescription below.
+  // The assembler exposes per-locale text only after an exact validated
+  // rewrite-cache hit. Optional and partial input still falls back to the
+  // factual title/description helpers below.
   titleByLocale?: Partial<Record<Locale, string>>;
   descriptionByLocale?: Partial<Record<Locale, string>>;
+  /** SHA-256 of the private source description used to select a rewrite. */
+  sourceDescriptionHash?: string;
   /** Routes emitted by an earlier crawl/build for this stable event id. */
   previousRoutes?: Array<{ canton?: string; comune?: string; slug: string }>;
   // OpenAgenda (Licence Ouverte 2.0): the agenda the record was read from and
@@ -1426,8 +1427,9 @@ export function zurichOffset(isoDate: string): string {
 /**
  * schema.org/Event object for one agenda entry.
  *
- * Source values remain authoritative. Older and partial slices are completed
- * at detail-page render time with deterministic catalog/venue/image defaults.
+ * The description is optional until the rewrite cache has an exact
+ * id+sourceDescriptionHash hit. Older and partial slices are completed at
+ * detail-page render time with deterministic catalog/venue/image defaults.
  * Detail pages also emit an Offer shell when the source has no verifiable
  * price, so the page still exposes its source URL and availability without
  * fabricating a zero or other amount. Direct callers only get that fallback
@@ -1452,18 +1454,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // reads it as midnight → "endDate before startDate"): mirror startIso.
   const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
   const endIso = hasMultiDay ? (event.endDate as string) : startIso;
-  const cat = categoryLabel(event.category, locale);
-  const when = humanDate(event.startDate, locale);
   const title = localizedTitle(event, locale);
-  const synthDescription =
-    `${title} — ${cat} ${COPY[locale].at} ${venueName} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}` +
-    `${event.startTime ? ` ${event.startTime}` : ''}. ${event.sourceName}.`;
-  // Nationwide sources (guidle, myswitzerland) crawl a real description —
-  // prefer it over the synthesized one when it clears the >=30 char gate
-  // validate-structured-data-completeness.mjs enforces.
-  const rawDescription = localizedDescription(event, locale);
-  const description =
-    rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
+  const description = localizedDescription(event, locale)?.trim();
   const eventWithDefaults = fillEventPeopleDefaults({ ...event, title, venue: venueName || undefined }, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
@@ -1509,7 +1501,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         ? { geo: { '@type': 'GeoCoordinates', latitude: event.geo.lat, longitude: event.geo.lng } }
         : {}),
     },
-    description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
+    ...(description ? { description } : {}),
     image: eventImage,
     organizer: normalizeEventPeople(eventWithDefaults.organizer, event.url, event.url),
     performer: eventWithDefaults.performer,
@@ -1640,22 +1632,20 @@ const OVERFLOW_ROWS_PER_PAGE = 300;
  * Why the card carries prose at all. Before this, a card showed title + date +
  * venue + comune — ~90 B of text inside 1 423 B of markup. A reader scanning
  * "altri eventi a Lugano" had no way to tell a chamber concert from a
- * children's workshop without opening each one; the summary that answers that
- * is already in the dataset (94.1 % of upcoming events carry a description,
- * with per-locale translations from guidle/myswitzerland) and was simply not
- * rendered outside the detail page. Same correction shape as the FAQ-hub
+ * children's workshop without opening each one; a validated rewrite, when
+ * available, provides that summary without exposing acquired source prose.
+ * Same correction shape as the FAQ-hub
  * per-question pages, where each sibling link grew the opening of its own
  * answer.
  *
- * Returns '' for the ~6 % of events with no description (tio-agenda ships
- * none — see the `venue` note on DetailCopy.about) and the card degrades to
- * exactly its previous shape.
+ * Returns '' while an event has no validated rewrite, and the card degrades
+ * to exactly its factual-only shape.
  */
 function cardExcerpt(event: SiteEvent, locale: Locale): string {
   const raw = localizedDescription(event, locale);
   if (!raw) return '';
-  // Sources ship newlines/tabs and runs of spaces inside descriptions; collapse
-  // before measuring so the cap counts real characters, not layout whitespace.
+  // Cached rewrites may still contain line breaks; collapse before measuring so
+  // the cap counts real characters, not layout whitespace.
   const flat = String(raw).replace(/\s+/g, ' ').trim();
   if (!flat) return '';
   return truncateHeadline(flat, CARD_EXCERPT_CHARS);
