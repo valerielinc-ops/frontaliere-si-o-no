@@ -1230,7 +1230,8 @@ describe('events schema data quality (#3508)', () => {
     };
     expect(ld.location.address.addressLocality).toBe('Niederurnen');
     expect(ld.location.address.addressRegion).toBeUndefined();
-    expect(ld.description).toBeUndefined();
+    expect(ld.description).toContain('Niederurnen');
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
   });
 
   it('eventLd keeps comune + canton for canton-resolved events', () => {
