@@ -184,12 +184,12 @@
     },
     {
       "id": "flury-stiftung-2736465a21b7",
-      "slug": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+      "slug": "assistente-medico-mpa-60-100-flury-stiftung-klosters",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
-        "en": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+        "it": "assistente-medico-mpa-60-100-flury-stiftung-klosters",
+        "en": "medical-practice-assistant-mpa-60-100-flury-stiftung-klosters",
         "de": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
-        "fr": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        "fr": "assistant-e-medical-e-mpa-60-100-flury-stiftung-klosters"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -250,7 +250,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-1e6940acb70a",
@@ -1517,9 +1531,9 @@
       "slug": "collaboratore-trice-in-hauswirtschaft-60-flury-stiftung-schiers",
       "slugByLocale": {
         "it": "collaboratore-trice-in-hauswirtschaft-60-flury-stiftung-schiers",
-        "en": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch",
+        "en": "housekeeping-employee-60-flury-stiftung-schiers",
         "de": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch",
-        "fr": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+        "fr": "employe-e-de-menage-60-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1570,6 +1584,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
         ]
       },

@@ -146,12 +146,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-5c7600370115",
-      "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+      "slug": "custode-pp-parsenn-esterno-td-parsenn-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "it": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "it": "custode-pp-parsenn-esterno-td-parsenn-davos-klosters-bergbahnen-ag-davos",
         "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        "fr": "concierge-pp-parsenn-ext-td-parsenn-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -207,7 +207,18 @@
       "postalCode": "7270",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3944420",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-03T09:25:09.791Z"
+      "firstSeenAt": "2026-10-03T09:25:09.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-bcf42938f9ac",

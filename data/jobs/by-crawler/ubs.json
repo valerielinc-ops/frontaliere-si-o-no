@@ -9993,12 +9993,12 @@
     },
     {
       "id": "ubs-74b8ae91eedd",
-      "slug": "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad",
+      "slug": "consulente-clienti-privati-affluent-gstaad-60-100-ubs-gstaad",
       "slugByLocale": {
-        "it": "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad",
-        "en": "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad",
+        "it": "consulente-clienti-privati-affluent-gstaad-60-100-ubs-gstaad",
+        "en": "private-client-advisor-affluent-gstaad-60-100-ubs-gstaad",
         "de": "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad",
-        "fr": "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad"
+        "fr": "conseiller-ere-clientele-privee-affluent-gstaad-60-100-ubs-gstaad"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10064,7 +10064,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad"
+        ],
+        "en": [
+          "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad"
+        ],
+        "fr": [
+          "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-affluent-gstaad-60-100-ubs-gstaad"
+      ]
     },
     {
       "id": "ubs-1f882b0073a4",
@@ -10412,12 +10426,12 @@
     },
     {
       "id": "ubs-2c7a7db5903a",
-      "slug": "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich",
+      "slug": "consulente-per-clienti-privati-dietikon-benestante-80-100-ubs-zurich",
       "slugByLocale": {
-        "it": "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich",
-        "en": "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich",
+        "it": "consulente-per-clienti-privati-dietikon-benestante-80-100-ubs-zurich",
+        "en": "private-client-advisor-affluent-dietikon-80-100-ubs-zurich",
         "de": "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich",
-        "fr": "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich"
+        "fr": "conseiller-en-particulier-dietetique-aise-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10483,7 +10497,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich"
+        ],
+        "en": [
+          "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich"
+        ],
+        "fr": [
+          "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-affluent-dietikon-80-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-212381ff14c8",

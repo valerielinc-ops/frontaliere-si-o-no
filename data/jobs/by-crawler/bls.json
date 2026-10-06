@@ -824,7 +824,7 @@
       "companyDomain": "bls.ch",
       "title": "Fachperson Reinigung und Unterhalt",
       "titleByLocale": {
-        "it": "Fachperson Reinigung e Unterhalt",
+        "it": "Professionista della pulizia e della manutenzione",
         "en": "Specialist cleaning and maintenance",
         "de": "Fachperson Reinigung und Unterhalt",
         "fr": "Nettoyage et entretien spécialisés"
@@ -1590,9 +1590,9 @@
       "slug": "dispatcher-in-betriebszentrale-spiez-bls-ch",
       "slugByLocale": {
         "it": "dispatcher-in-betriebszentrale-spiez-bls-ch",
-        "en": "dispatcher-in-betriebszentrale-spiez-bls-ch",
+        "en": "dispatcherat-spiez-operations-centre-bls-ag-spiez",
         "de": "dispatcher-in-betriebszentrale-spiez-bls-ch",
-        "fr": "dispatcher-in-betriebszentrale-spiez-bls-ch"
+        "fr": "dispatcher-a-la-centrale-d-exploitation-de-spiez-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1674,9 +1674,9 @@
       "slug": "automatiker-in-stv-berufsbildner-in-bls-ch",
       "slugByLocale": {
         "it": "automatiker-in-stv-berufsbildner-in-bls-ch",
-        "en": "automatiker-in-stv-berufsbildner-in-bls-ch",
+        "en": "automated-vocational-trainer-bls-ag-spiez",
         "de": "automatiker-in-stv-berufsbildner-in-bls-ch",
-        "fr": "automatiker-in-stv-berufsbildner-in-bls-ch"
+        "fr": "automaticien-ne-assistant-e-formateur-trice-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1755,12 +1755,12 @@
     },
     {
       "id": "bls-8593c1a6b583",
-      "slug": "kassier-in-autoverlad-brig-bls-ch",
+      "slug": "tesoriere-della-prigione-per-il-trasporto-di-auto-bls-ag-bern",
       "slugByLocale": {
-        "it": "kassier-in-autoverlad-brig-bls-ch",
-        "en": "kassier-in-autoverlad-brig-bls-ch",
+        "it": "tesoriere-della-prigione-per-il-trasporto-di-auto-bls-ag-bern",
+        "en": "treasurer-car-transport-brig-bls-ag-bern",
         "de": "kassier-in-autoverlad-brig-bls-ch",
-        "fr": "kassier-in-autoverlad-brig-bls-ch"
+        "fr": "tresorier-de-la-brigade-de-transport-de-voitures-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1834,16 +1834,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "kassier-in-autoverlad-brig-bls-ch"
+        ],
+        "en": [
+          "kassier-in-autoverlad-brig-bls-ch"
+        ],
+        "fr": [
+          "kassier-in-autoverlad-brig-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kassier-in-autoverlad-brig-bls-ch"
+      ]
     },
     {
       "id": "bls-ac53bdc7f3a2",
-      "slug": "kassier-in-autoverlad-kandersteg-bls-ch",
+      "slug": "tesoriere-trasporto-auto-kandersteg-bls-ag-kandersteg",
       "slugByLocale": {
-        "it": "kassier-in-autoverlad-kandersteg-bls-ch",
-        "en": "kassier-in-autoverlad-kandersteg-bls-ch",
+        "it": "tesoriere-trasporto-auto-kandersteg-bls-ag-kandersteg",
+        "en": "treasurer-car-transport-kandersteg-bls-ag-kandersteg",
         "de": "kassier-in-autoverlad-kandersteg-bls-ch",
-        "fr": "kassier-in-autoverlad-kandersteg-bls-ch"
+        "fr": "tresorier-du-transport-de-voitures-kandersteg-bls-ag-kandersteg"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1915,7 +1929,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "kassier-in-autoverlad-kandersteg-bls-ch"
+        ],
+        "en": [
+          "kassier-in-autoverlad-kandersteg-bls-ch"
+        ],
+        "fr": [
+          "kassier-in-autoverlad-kandersteg-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kassier-in-autoverlad-kandersteg-bls-ch"
+      ]
     },
     {
       "id": "bls-f6c9b5452c5c",

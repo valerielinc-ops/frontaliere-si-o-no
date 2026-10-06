@@ -108,6 +108,7 @@ import {
   resolveJobCanton,
   type CantonLocale,
 } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import type { Locale } from '../services/i18n';
 import {
   COPY,
@@ -1693,6 +1694,27 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 }
 
 /**
+ * Select the "Ricerche correlate" anchors without linking to a below-floor
+ * cluster that this same build will emit as a noindex bridge. The floor check
+ * deliberately goes through isClusterBelowFloor: the link selector and the
+ * renderer must share the exact exemption for substantive enrichment.
+ */
+export function selectRelatedClusterLinks(
+  ctx: ClusterContext,
+  sameCityList: ReadonlyArray<ClusterContext>,
+  enriched: Readonly<Record<string, EnrichedEntry | undefined>>,
+): Array<{ keyword: string; url: string }> {
+  return sameCityList
+    .filter((other) => other.candidate.slug !== ctx.candidate.slug)
+    .filter((other) => !isClusterBelowFloor(other, enriched[`${other.candidate.locale}::${other.candidate.slug}`]))
+    .slice(0, 8)
+    .map((other) => ({
+      keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
+      url: `${BASE_URL}${buildClusterPath(other.candidate.locale, other.candidate.slug, other.cantonGroup)}`,
+    }));
+}
+
+/**
  * True when an AI-enriched entry carries a substantive intro — i.e. one that
  * can stand in for matching jobs as the cluster's claim to being worth
  * indexing and clears the shared content-quality floor.
@@ -2450,15 +2472,8 @@ function reapplyRetiredManifestFiles(
  * resolution mirrors the emit side.
  */
 function jobLocalizedUrl(job: RawJob, locale: Locale): string {
-  const prefix = LOCALE_PREFIX[locale];
-  const jobCantonGroup = resolveJobCanton(job);
-  const section = resolveCantonSection(locale as CantonLocale, jobCantonGroup);
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  // Collapse only the path portion — a naive replace on the whole URL
-  // would turn `https://` into `https:/` (the original prior-to-call bug
-  // was masked because no caller exercised this helper).
-  const collapsedPath = `${prefix}/${section}/${slug ? `${slug}/` : ''}`.replace(/\/+/g, '/');
-  return `${BASE_URL}${collapsedPath}`;
+  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
 // Locale-specific preposition used to join keyword + city ("Globus a
@@ -5008,13 +5023,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
         const cityIdx = byLocaleCity.get(locale);
         const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
-        const related = sameCityList
-          .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-          .slice(0, 8)
-          .map((other) => ({
-            keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug, other.cantonGroup)}`,
-          }));
+        const related = selectRelatedClusterLinks(ctx, sameCityList, enriched);
 
         const enrichedKey = `${locale}::${ctx.candidate.slug}`;
         const out = renderClusterPage({

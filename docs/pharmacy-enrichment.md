@@ -11,6 +11,12 @@ solo da fonti esplicitamente registrate in
 - Pagine HTML ufficiali allow-listate, come la scheda del Comune di Casciago.
   Il parser pubblica un fatto solo dopo avere verificato città, via, numero
   civico e un token del nome della farmacia.
+- PDF ufficiali allow-listati, come l’elenco farmacie di ATS Insubria. Il
+  testo viene estratto in memoria, la riga viene verificata con città, strada,
+  numero civico e token del nome, e vengono conservati solo i campi dichiarati
+  dalla sorgente (per esempio il telefono). Il PDF non viene salvato nel
+  repository e l’edizione pubblicata, quando riconoscibile, resta nella
+  provenienza come `sourceUpdatedAt`.
 - Google Places API (New), tramite `GOOGLE_MAPS_API_KEY`. Ogni farmacia deve
   essere inserita esplicitamente nella lista `pharmacyIds`; il codice non legge
   pagine di risultati Google o Maps e non salva rating, numero di recensioni,

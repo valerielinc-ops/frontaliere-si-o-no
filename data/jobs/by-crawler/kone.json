@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "kone-5845ef254b6b",
-      "slug": "servicetechniker-in-aufzuge-gebiet-luzern-kone-bruttisellen",
+      "slug": "tecnico-di-assistenza-ascensori-area-lucerna-kone-bruttisellen",
       "slugByLocale": {
-        "it": "servicetechniker-in-aufzuge-gebiet-luzern-kone-bruttisellen",
-        "en": "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch",
+        "it": "tecnico-di-assistenza-ascensori-area-lucerna-kone-bruttisellen",
+        "en": "elevator-service-technician-lucerne-area-kone-bruttisellen",
         "de": "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch",
-        "fr": "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch"
+        "fr": "technicien-en-service-d-ascenseurs-dans-la-region-de-lucerne-kone-bruttisellen"
       },
       "company": "KONE",
       "companyKey": "kone",
@@ -54,10 +54,18 @@
       "requirementsByLocale": {},
       "jobReqId": "R0662101",
       "previousSlugs": [
-        "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch"
+        "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch",
+        "servicetechniker-in-aufzuge-gebiet-luzern-kone-bruttisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch",
+          "servicetechniker-in-aufzuge-gebiet-luzern-kone-bruttisellen"
+        ],
+        "en": [
+          "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch"
+        ],
+        "fr": [
           "servicetechniker-in-aufzuge-gebiet-luzern-kone-ch"
         ]
       },
@@ -84,7 +92,7 @@
         "it": "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch",
         "en": "hr-people-communications-generalist-50-kone-bruttisellen",
         "de": "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch",
-        "fr": "ressources-humaines-et-communications-generaliste-50-kone-bruttisellen"
+        "fr": "commis-en-rh-personnes-communication-generaliste-50-kone-bruttisellen"
       },
       "company": "KONE",
       "companyKey": "kone",
@@ -142,7 +150,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8306"
+      "postalCode": "8306",
+      "previousSlugsByLocale": {
+        "fr": [
+          "ressources-humaines-et-communications-generaliste-50-kone-bruttisellen"
+        ]
+      },
+      "previousSlugs": [
+        "ressources-humaines-et-communications-generaliste-50-kone-bruttisellen"
+      ]
     },
     {
       "id": "kone-8cc5f02244f1",
@@ -196,13 +212,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R0663874",
       "previousSlugs": [
-        "verkaufsberater-in-neuanlagen-region-bern-kone-ch",
-        "consulenti-di-vendita-in-nuovi-impianti-regione-di-berna-kone-bern"
+        "verkaufsberater-in-neuanlagen-region-bern-kone-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-neuanlagen-region-bern-kone-ch",
-          "consulenti-di-vendita-in-nuovi-impianti-regione-di-berna-kone-bern"
+          "verkaufsberater-in-neuanlagen-region-bern-kone-ch"
         ],
         "en": [
           "verkaufsberater-in-neuanlagen-region-bern-kone-ch"
@@ -279,13 +293,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R0664487",
       "previousSlugs": [
-        "aufzugsmonteur-in-region-luzern-kone-ch",
-        "ascensore-fitter-in-regione-di-lucerna-kone-bruttisellen"
+        "aufzugsmonteur-in-region-luzern-kone-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsmonteur-in-region-luzern-kone-ch",
-          "ascensore-fitter-in-regione-di-lucerna-kone-bruttisellen"
+          "aufzugsmonteur-in-region-luzern-kone-ch"
         ],
         "en": [
           "aufzugsmonteur-in-region-luzern-kone-ch"
@@ -362,13 +374,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R0665148",
       "previousSlugs": [
-        "conseiller-ere-de-vente-modernisation-suisse-romande-kone-ch",
-        "consiglieri-salute-modernizzazione-svizzera-occidentale-kone-lausanne"
+        "conseiller-ere-de-vente-modernisation-suisse-romande-kone-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-modernisation-suisse-romande-kone-ch",
-          "consiglieri-salute-modernizzazione-svizzera-occidentale-kone-lausanne"
+          "conseiller-ere-de-vente-modernisation-suisse-romande-kone-ch"
         ],
         "en": [
           "conseiller-ere-de-vente-modernisation-suisse-romande-kone-ch"

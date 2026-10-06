@@ -79,12 +79,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-4552c0ef9e8c",
-      "slug": "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "tirocinante-a-amministrazione-pazienti-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "tirocinante-a-amministrazione-pazienti-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -142,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-9f9817e7042b",

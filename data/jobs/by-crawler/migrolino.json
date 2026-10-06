@@ -986,12 +986,12 @@
     },
     {
       "id": "migrolino-73030952d52d",
-      "slug": "verkaufsmitarbeiter-in-migrolino-altdorf",
+      "slug": "addetto-a-alle-vendite-migrolino-altdorf",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-migrolino-altdorf",
-        "en": "verkaufsmitarbeiter-in-migrolino-altdorf",
+        "it": "addetto-a-alle-vendite-migrolino-altdorf",
+        "en": "sales-associate-migrolino-altdorf",
         "de": "verkaufsmitarbeiter-in-migrolino-altdorf",
-        "fr": "verkaufsmitarbeiter-in-migrolino-altdorf"
+        "fr": "employe-e-de-vente-migrolino-altdorf"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -1048,7 +1048,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-altdorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-altdorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-altdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-altdorf"
+      ]
     }
   ]
 }

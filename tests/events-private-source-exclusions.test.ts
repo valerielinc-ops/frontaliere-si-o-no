@@ -28,6 +28,11 @@ import {
   PRIVATE_EVENTS_STORAGE_PREFIX,
   uploadSnapshot,
 } from '../scripts/lib/private-event-snapshots.mjs';
+import {
+  EVENT_DESCRIPTION_BACKLOG_OBJECT,
+  PRIVATE_EVENT_DESCRIPTION_STORAGE_PREFIX,
+  uploadPrivateEventDescriptionSources,
+} from '../scripts/lib/private-event-description-sources.mjs';
 import { assemble } from '../scripts/assemble-events-dataset.mjs';
 import { run as runFbPoster } from '../scripts/schedule-fb-events-daily.mjs';
 
@@ -152,11 +157,23 @@ describe('where the snapshot may live', () => {
     expect(EVENTFROG_SNAPSHOT_OBJECT.startsWith(PRIVATE_EVENTS_STORAGE_PREFIX)).toBe(true);
     const block = new RegExp(`match /${prefix}/\\{allPaths=\\*\\*\\} \\{\\s*allow read, write: if false;\\s*\\}`);
     expect(rules).toMatch(block);
+
+    const descriptionPrefix = PRIVATE_EVENT_DESCRIPTION_STORAGE_PREFIX.replace(/\/$/, '');
+    expect(EVENT_DESCRIPTION_BACKLOG_OBJECT.startsWith(PRIVATE_EVENT_DESCRIPTION_STORAGE_PREFIX)).toBe(true);
+    const descriptionBlock = new RegExp(`match /${descriptionPrefix}/\\{allPaths=\\*\\*\\} \\{\\s*allow read, write: if false;\\s*\\}`);
+    expect(rules).toMatch(descriptionBlock);
   });
 
   it('uploadSnapshot refuses an object outside the private prefix', async () => {
     const bucket = { file: () => ({ save: async () => undefined }) };
     await expect(uploadSnapshot(bucket, { events: [] }, 'public/eventfrog.json')).rejects.toThrow(/outside private-event-snapshots/);
+  });
+
+  it('the rewrite backlog upload refuses an object outside its private prefix', async () => {
+    const bucket = { file: () => ({ save: async () => undefined }) };
+    await expect(uploadPrivateEventDescriptionSources(bucket, Buffer.from(''), 'public/events.jsonl')).rejects.toThrow(
+      /outside private-event-description-sources/,
+    );
   });
 
   it('the sync workflow commits nothing and uploads no artifact; the deploy fetches before building', () => {

@@ -87,12 +87,12 @@
     },
     {
       "id": "saint-gobain-weber-isover-71f389ea1914",
-      "slug": "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur",
+      "slug": "manutentore-trice-80-100-saint-gobain-weber-ag-winterthur",
       "slugByLocale": {
-        "it": "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur",
-        "en": "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur",
+        "it": "manutentore-trice-80-100-saint-gobain-weber-ag-winterthur",
+        "en": "maintenance-technician-80-100-saint-gobain-weber-ag-winterthur",
         "de": "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur",
-        "fr": "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        "fr": "maintenance-80-100-saint-gobain-weber-ag-winterthur"
       },
       "company": "Saint-Gobain Weber AG",
       "companyKey": "saint-gobain-weber-isover",
@@ -150,7 +150,21 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ],
+        "en": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ],
+        "fr": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+      ]
     }
   ]
 }

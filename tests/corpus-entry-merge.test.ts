@@ -306,7 +306,7 @@ describe('il pull cabla davvero la preservazione delle voci', () => {
     const iSnapshot = src.indexOf('localOnlyIds({');
     const iMirror = src.indexOf('mirrorTree(src, DEST');
     const iMerge = src.indexOf('mergeEntries(');
-    const iChunk = src.lastIndexOf('splitBlogArticleRegistry()');
+    const iChunk = src.lastIndexOf('splitArticleRegistries()');
     expect(iSnapshot).toBeGreaterThan(-1);
     expect(iMirror).toBeGreaterThan(iSnapshot);
     expect(iMerge).toBeGreaterThan(iMirror);
