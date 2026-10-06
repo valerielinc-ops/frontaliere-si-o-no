@@ -89,3 +89,21 @@ describe('title repair queue admission', () => {
     ]);
   });
 });
+
+describe('fix-untranslated-titles.mjs imports what it calls', () => {
+  it('binds every job-locale-utils helper used in the script', async () => {
+    // The script runs its main on import, so the binding is checked on the
+    // source: a helper called but dropped from the import is a ReferenceError
+    // on the first cascade result (review of PR 11898).
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'fix-untranslated-titles.mjs'), 'utf8');
+    const imported = /import \{([^}]+)\} from '\.\/lib\/job-locale-utils\.mjs';/.exec(source)?.[1]
+      .split(',').map((name) => name.trim()) ?? [];
+    for (const helper of ['isTitleSourceCopy', 'titleContainsLlmReasoning', 'titleLooksUntranslated']) {
+      const used = new RegExp(`\\b${helper}\\(`).test(source);
+      if (used) expect(imported, helper).toContain(helper);
+    }
+    expect(source).toMatch(/titleContainsLlmReasoning\(translated\)/);
+  });
+});
