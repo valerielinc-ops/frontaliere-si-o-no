@@ -219,6 +219,22 @@ describe('the unified blog index carries generated article heroes', () => {
     expect(fn).toHaveBeenCalledTimes(2);
     expect(String(fn.mock.calls[1][0])).toContain('/data/image-credits-blog.json');
   });
+
+  it('treats an inferred index entry as explicit no-credit without an error', () => {
+    const index = payload({
+      section: 'blog',
+      files: {},
+      covers: {
+        'fixture-cover': {
+          evidence: 'inferred',
+          provider: null,
+          verifiedAt: '2026-10-07',
+          status: 'no-credit',
+        },
+      },
+    });
+    expect(imageCreditFromIndex(index as never, COVER)).toBeNull();
+  });
 });
 
 describe('fetchImageCredit — the cover is matched by file, whatever the host (CDN URL → key)', () => {
