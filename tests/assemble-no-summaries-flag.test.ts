@@ -115,7 +115,7 @@ describe('404-risk audit: active dataset only', () => {
 describe('translate-pending: every re-assemble keeps the full summary population', () => {
   it('does not pass --no-summaries in the source workflow', () => {
     const runs = assembleRunLines(LOGIC_WORKFLOW);
-    expect(runs.length).toBeGreaterThanOrEqual(3);
+    expect(runs.length).toBeGreaterThanOrEqual(4);
     expect(runs.filter((flags) => flags.includes('--no-summaries'))).toHaveLength(0);
   });
 
@@ -127,9 +127,10 @@ describe('translate-pending: every re-assemble keeps the full summary population
     expect(runLine).not.toContain('--no-summaries');
   });
 
-  it('leaves the true-final re-assemble rebuilding summaries', () => {
+  it('leaves the Phase 2c and true-final re-assembles rebuilding summaries', () => {
     const yaml = fs.readFileSync(LOGIC_WORKFLOW, 'utf8');
     for (const stepName of [
+      '- name: Re-assemble dataset after Phase 2c mop-up',
       '- name: Re-assemble true-final translation dataset',
     ]) {
       const at = yaml.indexOf(stepName);

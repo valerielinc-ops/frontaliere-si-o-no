@@ -71,9 +71,7 @@ describe('translation observability workflow', () => {
     const before = workflow.indexOf('Capture translation observability baseline');
     const marker = workflow.indexOf('Flag wrong-language job titles');
     const mopup = workflow.indexOf('Phase 2c mop-up');
-    // Phase 2c writes slices only; the true-final re-assemble is the single
-    // persistence barrier (the post-2c re-assemble was a duplicate of it).
-    const persist = workflow.indexOf('Re-assemble true-final translation dataset');
+    const persist = workflow.indexOf('Re-assemble dataset after Phase 2c mop-up');
     const titleFix = workflow.indexOf('Fix untranslated titles (free cascade)');
     const titleCommit = workflow.indexOf('Commit title fixes');
     const descriptionFix = workflow.indexOf('Phase 2e: Fix untranslated descriptions (free cascade)');
@@ -93,8 +91,7 @@ describe('translation observability workflow', () => {
     expect(descriptionCommit).toBeGreaterThan(descriptionFix);
     expect(trueFinal).toBeGreaterThan(descriptionFix);
     expect(trueFinal).toBeGreaterThan(descriptionCommit);
-    expect(workflow).not.toContain('Re-assemble dataset after Phase 2c mop-up');
-    expect(commit).toBeGreaterThan(mopup);
+    expect(commit).toBeGreaterThan(persist);
     expect(commit).toBeLessThan(titleFix);
     expect(statsAfter).toBeGreaterThan(trueFinal);
     expect(statsAfter).toBeGreaterThan(titleCommit);
@@ -110,17 +107,10 @@ describe('translation observability workflow', () => {
 
     const steps: any[] = YAML.parse(workflow).jobs.translate.steps;
     const mopupIndex = steps.findIndex((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
-    const trueFinalIndex = steps.findIndex((step) => step.name === 'Re-assemble true-final translation dataset');
-    expect(trueFinalIndex).toBeGreaterThan(mopupIndex);
-    expect(steps[trueFinalIndex]).toMatchObject({
-      if: expect.stringContaining('always()'),
+    expect(steps[mopupIndex + 1]).toMatchObject({
+      name: 'Re-assemble dataset after Phase 2c mop-up',
       run: 'node scripts/assemble-jobs-dataset.mjs',
     });
-    // Nothing between the mop-up and the true-final barrier reads the
-    // assembled dataset: every step there runs a slice-only script.
-    for (const step of steps.slice(mopupIndex + 1, trueFinalIndex)) {
-      expect(String(step.run || ''), step.name).not.toContain('assemble-jobs-dataset.mjs');
-    }
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
     expect(titleFixScript).toContain('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
