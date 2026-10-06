@@ -55,36 +55,55 @@ function findTagEnd(html: string, start: number): number {
   return -1;
 }
 
-// An unquoted attribute value may contain `/` (for example
-// `<template data-src=/foo/>`), so the final-byte heuristic is not an HTML
-// conformant self-closing check. Consume attributes before deciding whether a
-// slash is the start-tag marker.
+function isHtmlWhitespace(char: string | undefined): boolean {
+  return char === ' ' || char === '\t' || char === '\n' || char === '\r' || char === '\f';
+}
+
+const HTML_VOID_ELEMENTS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
+  'param', 'source', 'track', 'wbr',
+]);
+// `<title>` and `<textarea>` are active document content at the top level;
+// they are raw-text only while nested in a template. Keeping the sets apart
+// prevents the metadata bridge from masking the page's real title.
+const HTML_INACTIVE_RAW_TEXT_ELEMENTS = new Set([
+  'script', 'style', 'noscript', 'iframe', 'xmp', 'noembed', 'noframes',
+]);
+const HTML_TEMPLATE_RAW_TEXT_ELEMENTS = new Set([
+  ...HTML_INACTIVE_RAW_TEXT_ELEMENTS, 'textarea', 'title',
+]);
+
 function isSelfClosingStartTag(html: string, nameEnd: number, end: number): boolean {
-  let cursor = nameEnd;
-  while (cursor < end) {
-    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
-    if (cursor >= end) return false;
-    if (html[cursor] === '/') return true;
+  let index = nameEnd;
+  while (index < end) {
+    while (index < end && isHtmlWhitespace(html[index])) index += 1;
+    if (index >= end) return false;
+    if (html[index] === '/') {
+      return index + 1 === end;
+    }
 
     while (
-      cursor < end
-      && !/\s/.test(html[cursor])
-      && html[cursor] !== '='
-      && html[cursor] !== '/'
-    ) cursor += 1;
-    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
-    if (html[cursor] !== '=') continue;
-    cursor += 1;
-    while (cursor < end && /\s/.test(html[cursor])) cursor += 1;
-    if (html[cursor] === '"' || html[cursor] === "'") {
-      const quote = html[cursor];
-      cursor += 1;
-      while (cursor < end && html[cursor] !== quote) cursor += 1;
-      if (cursor < end) cursor += 1;
-    } else {
-      // `/` is part of an unquoted value until whitespace.
-      while (cursor < end && !/\s/.test(html[cursor])) cursor += 1;
+      index < end &&
+      !isHtmlWhitespace(html[index]) &&
+      html[index] !== '=' &&
+      html[index] !== '/' &&
+      html[index] !== '>'
+    ) index += 1;
+    if (html[index] !== '=') continue;
+
+    index += 1;
+    while (index < end && isHtmlWhitespace(html[index])) index += 1;
+    if (index >= end) return false;
+    const quote = html[index];
+    if (quote === '"' || quote === "'") {
+      index += 1;
+      while (index < end && html[index] !== quote) index += 1;
+      if (index >= end) return false;
+      index += 1;
+      continue;
     }
+    // In HTML's unquoted attribute-value state `/` belongs to the value.
+    while (index < end && !isHtmlWhitespace(html[index]) && html[index] !== '>') index += 1;
   }
   return false;
 }
@@ -100,11 +119,13 @@ function readTag(html: string, start: number): { closing: boolean; end: number; 
   if (boundary && !/[\s/>]/.test(boundary)) return null;
   const end = findTagEnd(html, start);
   if (end < 0) return null;
+  const name = nameMatch[0].toLowerCase();
   return {
     closing,
     end,
-    name: nameMatch[0].toLowerCase(),
-    selfClosing: !closing && isSelfClosingStartTag(html, nameEnd, end),
+    name,
+    selfClosing: !closing && HTML_VOID_ELEMENTS.has(name)
+      && isSelfClosingStartTag(html, nameEnd, end),
   };
 }
 
@@ -144,7 +165,7 @@ function skipTemplateElement(html: string, afterOpening: number): number {
       } else if (!tag.selfClosing) {
         depth += 1;
       }
-    } else if (!tag.closing && !tag.selfClosing && (tag.name === 'script' || tag.name === 'style')) {
+    } else if (!tag.closing && !tag.selfClosing && HTML_TEMPLATE_RAW_TEXT_ELEMENTS.has(tag.name)) {
       const afterRawText = skipRawTextElement(html, tag.end + 1, tag.name);
       if (afterRawText < 0) return html.length;
       cursor = afterRawText;
@@ -161,9 +182,10 @@ function skipTemplateElement(html: string, afterOpening: number): number {
  * of the rendered page but would otherwise be copied into the redirect
  * bridge. Template depth is tracked so nested templates remain inactive.
  */
-function maskInactiveMarkup(html = '') {
+function maskInactiveMarkup(html = '', options: { maskRcdata?: boolean } = {}) {
   const source = String(html || '');
   const output = source.split('');
+  const maskRcdata = options.maskRcdata === true;
   const blank = (start: number, end: number) => {
     for (let index = start; index < end; index += 1) output[index] = ' ';
   };
@@ -186,7 +208,9 @@ function maskInactiveMarkup(html = '') {
       cursor = start + 1;
       continue;
     }
-    if (!tag.closing && !tag.selfClosing && (tag.name === 'script' || tag.name === 'style')) {
+    const isRcdata = maskRcdata && (tag.name === 'title' || tag.name === 'textarea');
+    if (!tag.closing && !tag.selfClosing
+      && (HTML_INACTIVE_RAW_TEXT_ELEMENTS.has(tag.name) || isRcdata)) {
       const afterRawText = skipRawTextElement(source, tag.end + 1, tag.name);
       const afterInactive = afterRawText < 0 ? source.length : afterRawText;
       blank(start, afterInactive);
@@ -225,7 +249,10 @@ export function extractOgTags(indexHtml: string): string {
   const metaRx = /<meta\b[^>]*\/?>/gi;
   const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
   let match: RegExpExecArray | null;
-  while ((match = metaRx.exec(maskInactiveMarkup(indexHtml)))) {
+  // RCDATA is rendered as text, so a literal `<meta>` inside the page title
+  // or a textarea is not active metadata. Title extraction below uses the
+  // default mask and therefore still sees the real document title.
+  while ((match = metaRx.exec(maskInactiveMarkup(indexHtml, { maskRcdata: true })))) {
     const tag = match[0];
     attrRx.lastIndex = 0;
     const attrs: Record<string, string> = {};

@@ -312,7 +312,7 @@ const translations: Record<string, string> = {
  'blog.contentType.news': 'Notizia',
  'blog.byline': 'Redazione Frontaliere Ticino',
  'blog.bylinePrefix': 'Di',
- 'blog.authorBio': 'Esperto di fiscalità transfrontaliera Svizzera-Italia dal 2020. Specializzato nel calcolo dello stipendio netto, tassazione frontalieri e previdenza sociale svizzera. Dati verificati con fonti ufficiali BFS, Agenzia delle Entrate e Canton Ticino.',
+ 'blog.authorBio': 'Profilo editoriale della redazione di frontaliereticino.ch. La copertura combina fonti ufficiali, guide pratiche e verifiche redazionali sui temi del lavoro transfrontaliero.',
  'blog.newsBanner.title': 'Notizia di attualità',
  'blog.newsBanner.desc': 'Questo articolo riporta una novità recente. Scopri anche le nostre guide pratiche sempre aggiornate per frontalieri.',
  'blog.seoTitle': 'Tutto quello che un frontaliere deve sapere',

@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -153,6 +153,42 @@ describe('company-logo-audit', () => {
       status: 'broken',
       reason: 'not-an-image',
     }));
+  });
+
+  it('reports checkout assets pending CDN deployment without counting coverage as valid', async () => {
+    const root = await mkdtemp(path.join(os.tmpdir(), 'company-logo-pending-'));
+    try {
+      await mkdir(path.join(root, 'public/images/brands'), { recursive: true });
+      await writeFile(path.join(root, 'public/images/brands/pending.png'), pngBytes(128, 128));
+      const jobUrl = 'https://pending.test/job/1';
+      const report = await auditCompanyLogos([
+        { companyKey: 'pending', company: 'Pending AG', url: jobUrl },
+      ], {
+        resolveLogo: () => '/images/brands/pending.png',
+        assetBaseUrl: 'https://cdn.test',
+        localAssetRoot: root,
+        fetchImpl: async () => imageResponse(404),
+      });
+
+      expect(report.withLogo).toBe(0);
+      expect(report.broken).toBe(0);
+      expect(report.pendingDeploy).toBeGreaterThan(0);
+      expect(report.pendingDeployJobCount).toBeGreaterThan(0);
+      expect(report.affectedCompanies[0]).toMatchObject({
+        companyKey: 'pending',
+        status: 'pending-deploy',
+        pendingDeployJobCount: 1,
+        examples: { pendingDeploy: jobUrl },
+      });
+      expect(report.references[0]).toEqual(expect.objectContaining({
+        status: 'pending-deploy',
+        reason: 'asset-present-in-checkout',
+        cdnStatus: 'broken',
+        localPath: '/images/brands/pending.png',
+      }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
   });
 
   it('reports low-quality logos separately from missing and broken coverage', async () => {

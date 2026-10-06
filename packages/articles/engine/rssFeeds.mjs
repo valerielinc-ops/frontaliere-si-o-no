@@ -31,7 +31,10 @@
  * been mirrored to the deploying checkout no longer silently degrades to the
  * app icon in the feed.
  */
-import { ARTICLE_SECTION_CORE_LIST } from './shared/articleSectionCore.mjs';
+import {
+  registerActiveArticleSections,
+  SITE_RENDERED_ARTICLE_SECTIONS,
+} from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
@@ -167,11 +170,25 @@ export function rssSectionFor(core) {
 }
 
 /**
- * Section table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
- * core order (frontaliere, svizzera). Inactive canton sections are not in the
- * list, so the ten feeds are unchanged.
+ * Publisher table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
+ * core order (frontaliere, svizzera, then activated cantons). Inactive canton
+ * sections are not in the list. The corpus/API publisher uses this active
+ * table because canton feeds are served from R2.
  */
-export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
+export const RSS_SECTIONS = [];
+
+function refreshRssSections(entries) {
+  RSS_SECTIONS.splice(0, RSS_SECTIONS.length, ...entries.map(rssSectionFor));
+}
+
+registerActiveArticleSections(refreshRssSections);
+
+/**
+ * RSS rows that a monolith site build may render. Keep this as a projection of
+ * the core selector rather than filtering `RSS_SECTIONS` at each call site:
+ * the latter is the active publisher table and intentionally includes cantons.
+ */
+export const SITE_RSS_SECTIONS = SITE_RENDERED_ARTICLE_SECTIONS.map(rssSectionFor);
 
 /**
  * RSS table row of ANY known section id, active or not (throws on an unknown
@@ -255,12 +272,18 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
       // Per-article byline, from the same `"author"` object the page's JSON-LD
-      // and visible byline are built from. Only a Person is carried over: an
-      // Organization author is the Redazione, which the channel title already
-      // states, and repeating it as <dc:creator> would say nothing.
+      // and visible byline are built from. Carry only a named real Person or
+      // editorial-profile Organization: the newsroom fallback is the channel
+      // title and repeating it as <dc:creator> would say nothing.
       const authorBlock = block.match(/"author":\s*\{[^}]*\}/)?.[0];
+      const isNamedAuthor =
+        authorBlock &&
+        ((/"@type":\s*"Organization"/.test(authorBlock) &&
+          (/"@id":\s*"[^"]+#profile"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock)))
+          || (/(?:"@type":\s*"Person")/.test(authorBlock) &&
+            (/"@id":\s*"[^"]+#person"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock))));
       const authorName =
-        authorBlock && /"@type":\s*"Person"/.test(authorBlock)
+        isNamedAuthor
           ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
           : '';
 
@@ -430,12 +453,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
     );
 
     // Per-item byline. Without it a feed reader has nothing but the channel
-    // title to attribute the piece to, so every article — guest-authored
-    // ones included — syndicates as written by the Redazione, the same
-    // defect `article:author` had in ogPagesPlugin.ts. The Person here is
-    // the one content/seo/** already declares, i.e. the one the page byline
-    // and the JSON-LD show; an Organization author yields no <dc:creator>
-    // because the channel already says that.
+    // title to attribute the piece to, so a named editorial profile would be
+    // syndicated as written by the Redazione. The newsroom Organization yields
+    // no <dc:creator> because the channel already says that.
     const creator = article.authorName || '';
 
     items.push({
@@ -612,9 +632,13 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   return { id: section.id, articleCount: articles.size, slugCount: slugs.size, feeds };
 }
 
-/** Build every feed of every section. `registries` is keyed by section id. */
-export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet }) {
-  return RSS_SECTIONS.map((section) =>
+/**
+ * Build every feed in `sections`. `registries` is keyed by section id.
+ * Defaults to the active publisher table for the corpus/R2 caller; a site
+ * emitter must pass `SITE_RSS_SECTIONS` explicitly.
+ */
+export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet, sections = RSS_SECTIONS }) {
+  return sections.map((section) =>
     buildSectionFeeds({
       fs,
       path,

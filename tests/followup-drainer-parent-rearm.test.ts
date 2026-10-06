@@ -103,6 +103,85 @@ describe('PARENT-REARM: i quattro padri misurati rientrano una sola volta', () =
     }
   });
 
+  it('riconosce il marker scritto nello stesso secondo della ricorrenza', () => {
+    // I timestamp dei commenti hanno precisione al secondo: ricorrenza e marker
+    // possono avere lo stesso istante. Il marker identifica comunque l'evento.
+    const parent = realCases[0];
+    const sameSecond = [
+      ...commentsFor(parent),
+      {
+        body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+        createdAt: parent.reopenedAt,
+      },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: sameSecond,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'already-rearmed' });
+
+    // Un marker datato prima della ricorrenza che dichiara non la copre.
+    const before = [
+      ...commentsFor(parent),
+      {
+        body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+        createdAt: new Date(Date.parse(parent.reopenedAt) - 1000).toISOString(),
+      },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: before,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+  });
+
+  it('a parità di secondo decide l\'ultima decomposizione, come nel PARENT-CLOSE', () => {
+    // Due marker DECOMPOSED_INTO nello stesso secondo: il secondo aggiunge una
+    // figlia ancora aperta. `decomposedChildNumbers` usa l'ultimo commento; la
+    // decisione di riarmo deve guardare lo stesso insieme, non il primo.
+    const parent = realCases[1];
+    const extraChild = 9999;
+    const comments = [
+      { body: decomposedBody(parent.children), createdAt: parent.decomposedAt },
+      { body: decomposedBody([...parent.children, extraChild]), createdAt: parent.decomposedAt },
+      { body: reopenedBody(parent.number), createdAt: parent.reopenedAt },
+    ];
+    const decision = decideParentRearm({
+      parentState: 'OPEN',
+      comments,
+      childStates: [...closedChildren(parent.children), { number: extraChild, state: 'OPEN' }],
+      now: NOW,
+    });
+    expect(decision).toMatchObject({ action: 'skip', reason: 'child-open' });
+  });
+
+  it('una ricorrenza nello stesso secondo della decomposizione conta solo se viene dopo nel thread', () => {
+    const parent = realCases[1];
+    const after = [
+      { body: decomposedBody(parent.children), createdAt: parent.decomposedAt },
+      { body: reopenedBody(parent.number), createdAt: parent.decomposedAt },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: after,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+
+    const before = [
+      { body: reopenedBody(parent.number), createdAt: parent.decomposedAt },
+      { body: decomposedBody(parent.children), createdAt: parent.decomposedAt },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: before,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'not-reopened' });
+  });
+
   it('non riarma se almeno una figlia è ancora aperta', () => {
     const parent = realCases[0];
     const states = closedChildren(parent.children);
