@@ -1027,11 +1027,20 @@ export function failureRunScope(issue, comments = []) {
     ...(Array.isArray(comments) ? comments.map((comment) => comment?.body) : []),
   ].filter((text) => typeof text === 'string');
   const workflow = String(issue?.workflow ?? issue?.title?.replace(TITLE_RE, '$1') ?? '').trim();
+  const readField = (text, labels) => {
+    const labelsPattern = labels.join('|');
+    const match = text.match(new RegExp(
+      `(?:^|\\n)\\s*(?:[-*]\\s+)?(?:\\*\\*)?(?:${labelsPattern})(?::(?:\\*\\*)?|(?:\\*\\*)?:)\\s*([^\\r\\n]*)`,
+      'i',
+    ));
+    const value = match?.[1]?.trim();
+    return value?.replace(/^`([^`]*)`$/, '$1').trim() || null;
+  };
   for (const text of texts.reverse()) {
     const declaredWorkflow = text.match(/\*\*Workflow:\*\*\s+(.+)/)?.[1]?.trim();
     if (declaredWorkflow && workflow && declaredWorkflow !== workflow) continue;
-    const branch = text.match(/(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:Branch|Ref)(?:\*\*)?:\s+`([^`\n]+)`/i)?.[1]?.trim() || null;
-    const event = text.match(/(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:Evento|Trigger)(?:\*\*)?:\s+`([^`\n]+)`/i)?.[1]?.trim() || null;
+    const branch = readField(text, ['Branch', 'Ref']);
+    const event = readField(text, ['Evento', 'Trigger']);
     if (branch || event) {
       // A PR workflow is healthy when the workflow's recent PR observations are healthy;
       // requiring the exact branch from the old failure would make a closed PR pin the
@@ -2443,6 +2452,7 @@ function main() {
     let history = null;
     let run = null;
     let comments = null;
+    let commentsRead = false;
     let branchEvidence = null;
     let branchProofInsufficient = false;
     let historyIssueKind = null;
@@ -2472,6 +2482,7 @@ function main() {
         // latest failure scope (body or recurrence comment) prevents a green PR from a
         // different branch/event from pretending to repair this issue.
         comments = fetchIssueComments(it.number);
+        commentsRead = true;
         const scope = failureRunScope(it, comments);
         if (!canUseBranchRecovery(scope)) {
           // A main-only failure must not be closed by an unrelated branch green. The
@@ -2515,8 +2526,23 @@ function main() {
         }
       } else {
         historyIssueKind = mainHistory.kind;
-        comments = fetchIssueComments(it.number);
       }
+    }
+
+    // LC-03: per i soli workflow del registro, le rosse più recenti si leggono job per job
+    // e quelle di solo verdetto escono dalla storia (vedi `markVerdictOnlyRuns`).
+    const verdictEntry = historySource ? verdictStepEntryForWorkflowName(it.workflow) : null;
+    history = verdictEntry
+      ? markVerdictOnlyRuns(rawHistory, verdictEntry.workflowPath, (databaseId) => readRunJobs(
+        databaseId, historySource.repo, crawlerRunToken(historySource.repo),
+      ))
+      : rawHistory;
+    if (!run) run = decidingRun({ history });
+
+    const decidingRunKind = classifyDecidingRun({ issue: it, run });
+    if (!commentsRead && (historyIssueKind || decidingRunKind === 'recovered')) {
+      comments = fetchIssueComments(it.number);
+      commentsRead = true;
     }
 
     if (historyIssueKind) {
@@ -2542,7 +2568,7 @@ function main() {
         action: 'keep',
         reason: historyIssueKind,
         runId: null,
-        runRepo: historySource?.repo || REPO || null,
+        runRepo: null,
       });
       notifyHistoryUnavailable(it, historyIssueKind, comments);
       skipped++;
@@ -2551,34 +2577,22 @@ function main() {
 
     if (branchProofInsufficient) {
       console.log(`  #${it.number} "${it.workflow}" — no qualifying branch recovery (${branchEvidence.reason}) — keep open`);
+      const branchRunId = branchEvidence.run?.databaseId ?? null;
       verdicts.push({
         number: it.number,
         title: it.title,
         action: 'keep',
         reason: 'branch-proof-insufficient',
-        runId: branchEvidence.run?.databaseId ?? null,
-        runRepo: historySource?.repo || REPO || null,
+        runId: branchRunId,
+        runRepo: branchRunId === null ? null : historySource?.repo || REPO || null,
       });
       kept++;
       continue;
     }
 
-    // LC-03: per i soli workflow del registro, le rosse più recenti si leggono job per job
-    // e quelle di solo verdetto escono dalla storia (vedi `markVerdictOnlyRuns`).
-    const verdictEntry = historySource ? verdictStepEntryForWorkflowName(it.workflow) : null;
-    history = verdictEntry
-      ? markVerdictOnlyRuns(rawHistory, verdictEntry.workflowPath, (databaseId) => readRunJobs(
-        databaseId, historySource.repo, crawlerRunToken(historySource.repo),
-      ))
-      : rawHistory;
-    if (!run) run = decidingRun({ history });
-
     // I commenti si leggono solo per una issue che sta per chiudersi (#5454: il verde
     // risponde a «il sintomo è tornato?», non a «il guasto è stato corretto?»). Negli
     // altri rami la decisione non li guarda, e la lettura non si paga.
-    if (comments === null && classifyDecidingRun({ issue: it, run }) === 'recovered') {
-      comments = fetchIssueComments(it.number);
-    }
     const verdict = decideFailureIssueClose({
       issue: it,
       run,
