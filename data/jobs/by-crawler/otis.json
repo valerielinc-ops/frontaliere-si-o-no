@@ -143,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.649Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -223,7 +222,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -436,7 +434,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-06T09:44:35.780Z",
       "firstSeenAt": "2026-09-01T10:16:05.174Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -508,7 +505,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:32:16.023Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -588,7 +584,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:19:02.274Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -1772,7 +1767,7 @@
       "id": "otis-df95b6c3ce48",
       "slug": "gestore-conto-m-f-d-otis-sa-wallisellen",
       "slugByLocale": {
-        "it": "gestore-conto-m-f-d-otis-sa-wallisellen",
+        "it": "account-manager-m-w-d-otis-wallisellen",
         "en": "account-manager-m-w-d-otis-wallisellen",
         "de": "account-manager-m-w-d-otis-dietlikon",
         "fr": "gestionnaire-de-comptes-h-f-d-otis-sa-dietlikon"
@@ -1817,11 +1812,13 @@
           "account-manager-m-w-d-otis-wallisellen"
         ],
         "it": [
-          "account-manager-m-w-d-otis-wallisellen"
+          "account-manager-m-w-d-otis-wallisellen",
+          "gestore-conto-m-f-d-otis-sa-wallisellen"
         ]
       },
       "previousSlugs": [
-        "account-manager-m-w-d-otis-wallisellen"
+        "account-manager-m-w-d-otis-wallisellen",
+        "gestore-conto-m-f-d-otis-sa-wallisellen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:03.721Z",
@@ -1992,7 +1989,6 @@
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-13T10:19:36.343Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -2076,7 +2072,6 @@
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-11T21:48:39.808Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",

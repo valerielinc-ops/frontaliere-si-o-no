@@ -10195,7 +10195,7 @@
       "id": "jumbo-eb925fca-c40",
       "slug": "consulente-commerciale-do-it-jumbo-kusnacht",
       "slugByLocale": {
-        "de": "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
+        "de": "verkaufsberater-in-do-it-jumbo-kusnacht",
         "it": "consulente-commerciale-do-it-jumbo-kusnacht",
         "en": "sales-consultant-do-it-jumbo-kusnacht",
         "fr": "consultant-en-ventes-do-it-jumbo-kusnacht"
@@ -10258,7 +10258,8 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-kusnacht",
-        "consulente-commerciale-in-do-it-jumbo-kusnacht"
+        "consulente-commerciale-in-do-it-jumbo-kusnacht",
+        "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10272,7 +10273,7 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
+          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.114Z",
@@ -11957,7 +11958,16 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-7838935b-ab3",
@@ -12429,7 +12439,16 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-kusnacht"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-8b53c4cb-edc",
@@ -14340,7 +14359,7 @@
       "id": "jumbo-64ce681a-c01",
       "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur",
         "en": "sales-consultant-deco-jumbo-chur",
         "fr": "consultant-commercial-deco-jumbo-chur"
@@ -14401,14 +14420,16 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur",
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
