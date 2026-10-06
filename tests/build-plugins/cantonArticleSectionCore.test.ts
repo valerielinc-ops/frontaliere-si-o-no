@@ -6,7 +6,8 @@
  *    `scripts/generate-canton-article-sections.mjs` su `data/canton-url-slugs.json`
  *    (stessa forma di `tests/canton-url-slugs-parity.test.ts`: due copie dello
  *    stesso dato non possono divergere in silenzio).
- * 2. Forma: 24 gruppi URL, slug derivati dalla formula, nessuno attivo.
+ * 2. Forma: 24 gruppi URL e slug derivati dalla formula; lo stato operativo
+ *    resta vuoto nel sito e viene coperto dal test di iniezione del core.
  * 3. Collisioni: i 96 `indexSlug` non coincidono con nessuna route nota (tabella
  *    degli slug del router, sezioni del Worker, shard di sezione, hub esistenti)
  *    e gli slug riservati degli hub tematici non coincidono con i figli già
@@ -81,9 +82,11 @@ describe('sezioni cantonali: forma delle voci', () => {
     expect(CANTON_ARTICLE_SECTION_CORE['canton-basilea'].canton).toBe('BASILEA');
   });
 
-  it('nessuna sezione cantonale è attiva', () => {
-    expect(ACTIVE_CANTON_SECTIONS).toEqual([]);
+  it('D22: il sito non committa mai lo stato attivo dei cantoni', () => {
+    // L insieme chiuso vive nel sito; l attivazione viene iniettata dall host
+    // del corpus, così accendere un cantone non richiede una PR del sito.
     expect(ACTIVE_CANTON_CODES).toEqual([]);
+    expect(ACTIVE_CANTON_SECTIONS).toEqual([]);
   });
 
   it('ogni voce segue la formula degli slug (D1) e dei path per sezione (D14)', () => {

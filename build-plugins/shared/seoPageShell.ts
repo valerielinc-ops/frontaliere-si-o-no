@@ -66,6 +66,7 @@ import {
   WEBSITE_ID,
   TICINO_CUSTOMS_DEPARTMENT_ID,
   TICINO_CUSTOMS_DEPARTMENT_NAME,
+  stableOrganizationId,
 } from '../../services/seo/organizationLd';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
@@ -137,6 +138,14 @@ export function normalizeStaticJsonLdScripts(
         }
         if (record.url !== TICINO_CUSTOMS_DEPARTMENT_ID) {
           record.url = TICINO_CUSTOMS_DEPARTMENT_ID;
+          changed = true;
+        }
+      }
+
+      if (hasSchemaType(record, 'Organization')) {
+        const stableId = stableOrganizationId(record);
+        if (stableId && record['@id'] !== stableId) {
+          record['@id'] = stableId;
           changed = true;
         }
       }

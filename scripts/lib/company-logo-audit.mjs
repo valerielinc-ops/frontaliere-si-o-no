@@ -345,6 +345,18 @@ function buildCheckUrl(reference, assetBaseUrl) {
   return reference.reference;
 }
 
+function localCheckoutAsset(reference, localAssetRoot) {
+  if (reference.kind !== 'local' || !localAssetRoot) return null;
+  const value = String(reference.reference || '');
+  const segments = value.split('/');
+  if (!value.startsWith('/images/brands/') || segments.includes('..') || value.includes('\\')) return null;
+  const repoRoot = path.resolve(localAssetRoot);
+  const publicRoot = path.join(repoRoot, 'public');
+  const file = path.resolve(publicRoot, value.slice(1));
+  if (!file.startsWith(`${publicRoot}${path.sep}`) || !existsSync(file)) return null;
+  return { path: value, file };
+}
+
 export async function validateLogoReference(reference, options = {}) {
   const { kind, reference: value } = reference;
   if (kind === 'missing' || kind === 'initials') {
@@ -370,7 +382,22 @@ export async function validateLogoReference(reference, options = {}) {
 
   try {
     const result = await fetchVerifiedLogo(url, options);
-    if (result.status !== 'valid') return { ...result, reference: value, url };
+    if (result.status !== 'valid') {
+      const localAsset = localCheckoutAsset(reference, options.localAssetRoot);
+      if (localAsset) {
+        return {
+          ...result,
+          status: 'pending-deploy',
+          reference: value,
+          url,
+          reason: 'asset-present-in-checkout',
+          cdnStatus: result.status,
+          cdnReason: result.reason || null,
+          localPath: localAsset.path,
+        };
+      }
+      return { ...result, reference: value, url };
+    }
     return {
       status: 'valid',
       reference: value,
@@ -406,9 +433,14 @@ function firstExample(records, predicate) {
 }
 
 function statusForRecords(records) {
-  const counts = { valid: 0, missing: 0, initials: 0, broken: 0, unverified: 0 };
-  for (const record of records) counts[record.validation.status] = (counts[record.validation.status] || 0) + 1;
-  const invalid = counts.missing + counts.initials + counts.broken + counts.unverified;
+  const counts = { valid: 0, missing: 0, initials: 0, broken: 0, pendingDeploy: 0, unverified: 0 };
+  for (const record of records) {
+    const statusKey = record.validation.status === 'pending-deploy'
+      ? 'pendingDeploy'
+      : record.validation.status;
+    counts[statusKey] = (counts[statusKey] || 0) + 1;
+  }
+  const invalid = counts.missing + counts.initials + counts.broken + counts.pendingDeploy + counts.unverified;
   const qualityCounts = { goodQuality: 0, lowQuality: 0, qualityUnverified: 0 };
   for (const record of records) {
     if (record.validation.qualityStatus === 'good') qualityCounts.goodQuality++;
@@ -426,8 +458,10 @@ function statusForRecords(records) {
         : 'ok';
   let coverageStatus = 'ok';
   if (counts.valid === 0) {
-    if (counts.broken > 0 && counts.missing + counts.initials + counts.unverified === 0) coverageStatus = 'broken';
-    else if (counts.unverified > 0 && counts.missing + counts.initials + counts.broken === 0) coverageStatus = 'unverified';
+    const uncovered = counts.missing + counts.initials + counts.unverified;
+    if (counts.pendingDeploy > 0 && counts.broken + uncovered === 0) coverageStatus = 'pending-deploy';
+    else if (counts.broken > 0 && uncovered + counts.pendingDeploy === 0) coverageStatus = 'broken';
+    else if (counts.unverified > 0 && counts.missing + counts.initials + counts.broken + counts.pendingDeploy === 0) coverageStatus = 'unverified';
     else coverageStatus = 'missing';
   } else if (invalid > 0) {
     coverageStatus = 'partial';
@@ -453,6 +487,7 @@ function statusForRecords(records) {
 function companyEntry(companyKey, records, counts) {
   const missingRecords = records.filter((r) => r.validation.status === 'missing' || r.validation.status === 'initials');
   const brokenRecords = records.filter((r) => r.validation.status === 'broken');
+  const pendingDeployRecords = records.filter((r) => r.validation.status === 'pending-deploy');
   const lowQualityRecords = records.filter((r) => r.validation.qualityStatus === 'low-quality');
   const qualityUnverifiedRecords = records.filter((r) => r.validation.qualityStatus === 'unverified');
   const sourceCrawlers = [...new Set(records.map((r) => sourceCrawlerForJob(r.job)).filter(Boolean))].sort();
@@ -462,6 +497,7 @@ function companyEntry(companyKey, records, counts) {
     jobCount: records.length,
     missingJobCount: counts.missing + counts.initials,
     brokenJobCount: counts.broken,
+    pendingDeployJobCount: counts.pendingDeploy,
     unverifiedJobCount: counts.unverified,
     lowQualityJobCount: counts.lowQuality,
     qualityUnverifiedJobCount: counts.qualityUnverified,
@@ -474,6 +510,7 @@ function companyEntry(companyKey, records, counts) {
     examples: {
       missing: firstExample(missingRecords, (r) => r.job?.url),
       broken: firstExample(brokenRecords, (r) => r.job?.url),
+      pendingDeploy: firstExample(pendingDeployRecords, (r) => r.job?.url),
       lowQuality: firstExample(lowQualityRecords, (r) => r.job?.url),
       qualityUnverified: firstExample(qualityUnverifiedRecords, (r) => r.job?.url),
     },
@@ -491,6 +528,7 @@ export async function auditCompanyLogos(jobs, {
   assetBaseUrl = DEFAULT_ASSET_BASE_URL,
   fetchImpl = globalThis.fetch,
   timeoutMs = DEFAULT_FETCH_TIMEOUT_MS,
+  localAssetRoot,
 } = {}) {
   if (typeof resolveLogo !== 'function') throw new Error('auditCompanyLogos requires resolveLogo(job)');
   const groups = new Map();
@@ -533,6 +571,7 @@ export async function auditCompanyLogos(jobs, {
           assetBaseUrl,
           fetchImpl,
           timeoutMs,
+          localAssetRoot,
         }));
       }
       refRecord.validation = validationCache.get(cacheKey);
@@ -557,6 +596,7 @@ export async function auditCompanyLogos(jobs, {
   const unverifiedCompanies = companies.filter((c) => c.status === 'unverified');
   const lowQualityCompanies = companies.filter((c) => c.lowQualityJobCount > 0);
   const qualityUnverifiedCompanies = companies.filter((c) => c.qualityUnverifiedJobCount > 0);
+  const pendingDeployCompanies = companies.filter((c) => c.pendingDeployJobCount > 0);
   const affectedCompanies = companies.filter((c) => c.status !== 'ok');
   const referencesOutput = [...references.values()].map((r) => ({
     reference: r.reference,
@@ -569,6 +609,7 @@ export async function auditCompanyLogos(jobs, {
   const problemReferences = referencesOutput.filter(
     (reference) => reference.status === 'broken'
       || reference.status === 'unverified'
+      || reference.status === 'pending-deploy'
       || reference.qualityStatus === 'low-quality'
       || reference.qualityStatus === 'unverified',
   );
@@ -585,6 +626,8 @@ export async function auditCompanyLogos(jobs, {
     missingJobCount: noLogoCompanies.reduce((sum, c) => sum + c.missingJobCount, 0),
     broken: brokenCompanies.length,
     brokenJobCount: brokenCompanies.reduce((sum, c) => sum + c.brokenJobCount, 0),
+    pendingDeploy: pendingDeployCompanies.length,
+    pendingDeployJobCount: pendingDeployCompanies.reduce((sum, c) => sum + c.pendingDeployJobCount, 0),
     partial: partialCompanies.length,
     partialJobCount: partialCompanies.reduce((sum, c) => sum + c.invalid, 0),
     unverified: unverifiedCompanies.length,
@@ -603,6 +646,7 @@ export async function auditCompanyLogos(jobs, {
     unverifiedCompanies,
     lowQualityCompanies,
     qualityUnverifiedCompanies,
+    pendingDeployCompanies,
     references: problemReferences,
   };
 }

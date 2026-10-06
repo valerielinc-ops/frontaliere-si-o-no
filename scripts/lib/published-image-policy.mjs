@@ -31,6 +31,8 @@ export const RECORDED_CDN_IMAGE_PREFIXES = Object.freeze([
   `${IMAGE_CDN_ORIGIN}/images/blog/`,
   `${IMAGE_CDN_ORIGIN}/images/events/library/`,
   `${IMAGE_CDN_ORIGIN}/images/generated/`,
+  `${IMAGE_CDN_ORIGIN}/images/authors/`,
+  `${IMAGE_CDN_ORIGIN}/images/places/`,
 ]);
 
 /**
@@ -46,9 +48,6 @@ export const SITE_OWNED_OG_IMAGE_ALLOWLIST = Object.freeze([
   `${IMAGE_CDN_ORIGIN}/og/jobs/`,
   `${IMAGE_CDN_ORIGIN}/og/seo/`,
   `${IMAGE_CDN_ORIGIN}/og/border-wait/`,
-  `${SITE_ORIGIN}/images/authors/`,
-  `${IMAGE_CDN_ORIGIN}/images/authors/`,
-  `${SITE_ORIGIN}/images/places/`,
   `${SITE_ORIGIN}/images/events/catalog/`,
   `${IMAGE_CDN_ORIGIN}/images/events/catalog/`,
 ]);
@@ -98,7 +97,7 @@ function validGeneratedRecord(url, record, expectedPath) {
   }
   return {
     valid: true,
-    source: 'generated-registry',
+    source: record.license === 'private-grant' ? 'private-grant-registry' : 'generated-registry',
     url: String(url),
     path: expectedPath,
     record,
@@ -139,7 +138,10 @@ export function checkPublishedImageUrl(
     return failure('third-party-image-url', imageUrl, { host: url.hostname });
   }
 
-  const generatedPrefix = pathname.startsWith('/images/events/library/') || pathname.startsWith('/images/generated/');
+  const generatedPrefix = pathname.startsWith('/images/events/library/')
+    || pathname.startsWith('/images/generated/')
+    || pathname.startsWith('/images/authors/')
+    || pathname.startsWith('/images/places/');
   if (generatedPrefix) {
     const record = recordsByPath(records).get(pathname);
     return validGeneratedRecord(imageUrl, record, pathname);

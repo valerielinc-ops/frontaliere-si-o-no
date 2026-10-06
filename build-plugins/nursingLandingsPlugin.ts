@@ -488,7 +488,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing main landmark. Keep
+  // the template layout class on a neutral wrapper so nursing landings do
+  // not nest a second main inside the shared SEO shell.
+  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const jsonLdScripts = [breadcrumbLd, faqLd, articleLd];
   if (itemListLd) jsonLdScripts.push(itemListLd);

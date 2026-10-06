@@ -34,7 +34,7 @@ import {
   TOPIC_LOCALES,
   type TopicLocale,
 } from '../packages/articles/engine/topicTaxonomy';
-import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 
 export type TopicHubLocale = TopicLocale;
 export type TopicHubSection = 'frontaliere' | 'svizzera';
@@ -65,8 +65,9 @@ const LOCALE_PREFIX: Record<TopicHubLocale, string> = {
 };
 
 function sectionIndexSlug(section: TopicHubSection, locale: TopicHubLocale): string {
-  return (ARTICLE_SECTION_CORE as Record<string, { indexSlug: Record<string, string> }>)[section]
-    .indexSlug[locale];
+  const entry = SITE_RENDERED_ARTICLE_SECTIONS.find((candidate) => candidate.section === section);
+  if (!entry) throw new Error(`topicClusterHubsData: sezione non resa dal sito "${section}"`);
+  return entry.indexSlug[locale];
 }
 
 /**

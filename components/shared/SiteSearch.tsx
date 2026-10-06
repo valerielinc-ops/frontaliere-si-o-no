@@ -46,6 +46,9 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
  resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => {
  setBlogArticleIds(m.ARTICLES.map(a => a.id as BlogArticleId));
+ }).catch(() => {
+ // Search remains usable without article IDs; consume the terminal rejection
+ // after resilientImport has exhausted its bounded stale-chunk recovery.
  });
  }, [isOpen]);
 

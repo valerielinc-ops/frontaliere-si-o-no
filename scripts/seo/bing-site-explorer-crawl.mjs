@@ -17,9 +17,21 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
-import { BING_META_DESCRIPTION_TOO_SHORT, BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
+import {
+  BING_FRONTIER_CANONICAL_DRIFT,
+  BING_FRONTIER_CANONICAL_EXPECTED,
+  BING_FRONTIER_HTTP_ERROR,
+  BING_FRONTIER_NOINDEX,
+  BING_FRONTIER_NOINDEX_BRIDGE,
+  BING_FRONTIER_REDIRECT,
+  BING_META_DESCRIPTION_TOO_SHORT,
+  BING_TITLE_TOO_LONG,
+} from './bing-finding-codes.mjs';
+import { BING_TEMPLATE_TABLE, templateIndexFor } from './bing-template-inventory.mjs';
 
-export const CRAWLER_SCHEMA_VERSION = 1;
+export const CRAWLER_SCHEMA_VERSION = 2;
+export const SITEMAP_SCOPE = 'sitemap';
+export const FRONTIER_SCOPE = 'discovered-frontier';
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
 export const DEFAULT_SITEMAP_URL = `${DEFAULT_BASE_URL}/sitemap.xml`;
 export const CRAWLER_USER_AGENT = 'frontaliere-bing-tree-crawler/1.0 (+https://frontaliereticino.ch/)';
@@ -40,9 +52,27 @@ export const DEFAULT_RESCUE_DELAY_MS = 3_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
 export const DISCOVERY_SAMPLE_LIMIT = 100;
+export const REFERRER_REF_LIMIT = 3;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
 const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
+
+export function scopeForManifest(manifest) {
+  return manifest?.kind === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
+}
+
+export function rememberReferrerPair(refs, pair) {
+  if (!Array.isArray(pair) || pair.length < 2) return;
+  const sourceIndex = Number(pair[0]);
+  const templateIndex = Number(pair[1]);
+  if (!Number.isInteger(sourceIndex) || !Number.isInteger(templateIndex)) return;
+  refs.set(`${sourceIndex}:${templateIndex}`, [sourceIndex, templateIndex]);
+  const compact = [...refs.values()]
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+    .slice(0, REFERRER_REF_LIMIT);
+  refs.clear();
+  for (const value of compact) refs.set(`${value[0]}:${value[1]}`, value);
+}
 
 function decodeXmlEntities(value) {
   return String(value || '')
@@ -265,6 +295,7 @@ export async function collectSitemapInventory({
   }
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
+    kind: SITEMAP_SCOPE,
     generatedAt: new Date().toISOString(),
     baseUrl: originFor(baseUrl),
     sitemap: root,
@@ -320,17 +351,25 @@ export function collectDiscoveredInventory({
 } = {}) {
   if (!manifest || !Array.isArray(manifest.urls)) throw new Error('manifest.urls mancante');
   const manifestSet = new Set(manifest.urls);
-  const discovered = new Set();
+  const discovered = new Map();
+  const rememberReferrers = (target, refs) => {
+    const current = discovered.get(target) || new Map();
+    for (const pair of refs || []) rememberReferrerPair(current, pair);
+    discovered.set(target, current);
+  };
   for (const report of reports) {
-    for (const url of report?.discoveredOutOfSitemap || []) {
-      if (!manifestSet.has(url)) discovered.add(url);
+    const links = report?.discoveredOutOfSitemap || [];
+    const referrerRefs = report?.discoveredReferrers || [];
+    for (let index = 0; index < links.length; index += 1) {
+      const url = links[index];
+      if (!manifestSet.has(url)) rememberReferrers(url, referrerRefs[index]);
     }
   }
   const urls = [];
   const excludedByReason = {};
   const excludedSamplesByReason = {};
   const frontierFindings = [];
-  for (const value of [...discovered].sort()) {
+  for (const value of [...discovered.keys()].sort()) {
     const classified = classifyDiscoveredUrl(value, baseUrl);
     if (classified.reason === 'crawl') {
       urls.push(classified.url);
@@ -368,6 +407,12 @@ export function collectDiscoveredInventory({
     sourceDiscoveredCount: discovered.size,
     manifestCount: uniqueUrls.length,
     urls: uniqueUrls,
+    // Aligned with `urls`; every pair is [parent sitemap URL index, template
+    // table index]. The source URL is recovered from the immutable sitemap
+    // manifest, so the frontier manifest does not repeat it 904k times.
+    referrerRefs: uniqueUrls.map((url) => [...(discovered.get(url)?.values() || [])]
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1])),
+    templateTable: BING_TEMPLATE_TABLE,
     folders,
     partitions: partitionCounts,
     excludedByReason,
@@ -498,7 +543,18 @@ function finding(code, url, detail, extra = {}) {
 }
 
 /** Pure classification used by the crawler and its unit tests. */
-export function classifyDocument({ url, status, finalUrl = url, headers = {}, contentType = '', html = '' }) {
+export function classifyDocument({
+  url,
+  status,
+  finalUrl = url,
+  headers = {},
+  contentType = '',
+  html = '',
+  scope = SITEMAP_SCOPE,
+}) {
+  const documentScope = scope === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
+  const isFrontier = documentScope === FRONTIER_SCOPE;
+  const scopeLabel = isFrontier ? 'nella frontiera interna' : 'in sitemap';
   const findings = [];
   const statusNumber = Number(status) || 0;
   const xRobots = typeof headers.get === 'function' ? headers.get('x-robots-tag') || '' : headers['x-robots-tag'] || '';
@@ -507,26 +563,32 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
     return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber >= 300 && statusNumber < 400) {
-    findings.push(finding('redirect', url, `HTTP ${statusNumber} verso ${finalUrl}.`, { status: statusNumber }));
+    findings.push(finding(isFrontier ? BING_FRONTIER_REDIRECT : 'redirect', url, `HTTP ${statusNumber} verso ${finalUrl}.`, { status: statusNumber }));
     return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber < 200 || statusNumber >= 400) {
-    findings.push(finding('http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
+    findings.push(finding(isFrontier ? BING_FRONTIER_HTTP_ERROR : 'http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
     return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   const normalizedContentType = String(contentType || '').toLowerCase();
   const headerNoindex = /\bnoindex\b/i.test(xRobots);
   if (normalizedContentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(normalizedContentType)) {
-    if (headerNoindex) findings.push(finding('noindex-in-sitemap', url, 'La risorsa pubblicata in sitemap dichiara noindex.'));
+    if (headerNoindex) findings.push(finding(
+      isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap',
+      url,
+      isFrontier ? 'La risorsa raggiunta da un link interno dichiara noindex.' : 'La risorsa pubblicata in sitemap dichiara noindex.',
+    ));
     return { findings, title: '', description: '', canonical: '', noindex: headerNoindex, soft404: false };
   }
   const title = findTitle(html);
   const description = findMetaDescription(html);
   const canonical = findCanonical(html, url);
   const metaRobots = findMetaRobots(html).join(',');
-  const noindex = /\bnoindex\b/i.test(`${xRobots},${metaRobots}`);
+  const robots = `${xRobots},${metaRobots}`;
+  const noindex = /\bnoindex\b/i.test(robots);
+  const followableNoindex = noindex && !/\bnofollow\b/i.test(robots);
   const soft404 = isSoft404(html, title);
-  if (!title) findings.push(finding('title-missing', url, 'La pagina in sitemap non contiene un <title>.'));
+  if (!title) findings.push(finding('title-missing', url, `La pagina ${scopeLabel} non contiene un <title>.`));
   else if (title.length > TITLE_MAX_CHARS && !hasNewsArticleTitleInvariant(html, title)) {
     findings.push(finding(
       BING_TITLE_TOO_LONG,
@@ -535,7 +597,7 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
     ));
   }
   if (!description) {
-    findings.push(finding('meta-description-missing', url, 'La pagina in sitemap non contiene una meta description.'));
+    findings.push(finding('meta-description-missing', url, `La pagina ${scopeLabel} non contiene una meta description.`));
   } else if (description.length < META_DESCRIPTION_MIN_CHARS) {
     findings.push(finding(
       BING_META_DESCRIPTION_TOO_SHORT,
@@ -543,19 +605,35 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
       `La meta description misura ${description.length} caratteri; minimo ${META_DESCRIPTION_MIN_CHARS}.`,
     ));
   }
-  if (noindex) findings.push(finding('noindex-in-sitemap', url, 'La pagina pubblicata in sitemap dichiara noindex.'));
+  const canonicalMismatch = canonical && normalizeUrl(canonical) !== normalizeUrl(finalUrl || url);
+  const exemption = canonicalMismatch
+    ? classifyCanonicalMismatch({ url: finalUrl || url, canonical, html })
+    : null;
+  if (noindex) {
+    const isDeclaredBridge = isFrontier && followableNoindex && canonicalMismatch && exemption;
+    const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
+    const detail = isDeclaredBridge
+      ? `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${exemption}).`
+      : isFrontier
+        ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
+        : 'La pagina pubblicata in sitemap dichiara noindex.';
+    findings.push(finding(noindexCode, url, detail));
+  }
   if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
-  else if (normalizeUrl(canonical) !== normalizeUrl(finalUrl || url)) {
-    const exemption = classifyCanonicalMismatch({ url: finalUrl || url, canonical, html });
+  else if (canonicalMismatch) {
     if (exemption) {
       findings.push(finding(
-        'canonical-expected',
+        isFrontier ? BING_FRONTIER_CANONICAL_EXPECTED : 'canonical-expected',
         url,
         `Canonical ${canonical} consolidato correttamente (${exemption}).`,
         { exemption },
       ));
     } else {
-      findings.push(finding('canonical-drift', url, `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`));
+      findings.push(finding(
+        isFrontier ? BING_FRONTIER_CANONICAL_DRIFT : 'canonical-drift',
+        url,
+        `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`,
+      ));
     }
   }
   if (soft404) findings.push(finding('soft-404', url, 'La risposta è 200 ma il titolo/H1 identifica una pagina non trovata.'));
@@ -566,6 +644,7 @@ async function probeOnce(url, {
   fetchImpl = globalThis.fetch,
   timeoutMs = DEFAULT_TIMEOUT_MS,
   maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
+  scope = SITEMAP_SCOPE,
 } = {}) {
   let response;
   try {
@@ -591,6 +670,7 @@ async function probeOnce(url, {
     headers: response.headers,
     contentType,
     html: body.text,
+    scope,
   });
   return {
     url,
@@ -663,8 +743,10 @@ export async function crawlPartition({
   const part = Number(partition);
   const totalPartitions = Number(partitions);
   if (!Number.isInteger(part) || part < 0 || part >= totalPartitions) throw new Error(`partition non valida: ${partition}/${partitions}`);
+  const scope = scopeForManifest(manifest);
   const selected = manifest.urls.filter((url) => partitionFor(url, totalPartitions) === part);
   const manifestSet = new Set(manifest.urls);
+  const manifestIndexes = new Map(manifest.urls.map((url, index) => [url, index]));
   const entries = selected.map((url, index) => ({ url, index }));
   const results = new Array(selected.length);
 
@@ -680,6 +762,7 @@ export async function crawlPartition({
           timeoutMs,
           retries: attemptRetries,
           maxBodyBytes,
+          scope,
         });
       }
     };
@@ -705,10 +788,10 @@ export async function crawlPartition({
   }
 
   const findings = [];
-  const discovered = new Set();
   const statusCounts = {};
   const codeCounts = {};
   const folderStats = {};
+  const discovered = new Map();
   for (let index = 0; index < selected.length; index += 1) {
     const url = selected[index];
     const result = results[index] || {
@@ -727,10 +810,24 @@ export async function crawlPartition({
       increment(codeCounts, item.code);
       increment(stats.findings, item.code);
     }
-    for (const link of result.links || []) if (!manifestSet.has(link)) discovered.add(link);
+    const links = result.links || [];
+    if (links.length > 0) {
+      const sourceIndex = manifestIndexes.get(url);
+      const templateIndex = templateIndexFor(url);
+      for (const link of links) {
+        if (manifestSet.has(link)) continue;
+        const refs = discovered.get(link) || new Map();
+        if (Number.isInteger(sourceIndex) && Number.isInteger(templateIndex)) {
+          rememberReferrerPair(refs, [sourceIndex, templateIndex]);
+        }
+        discovered.set(link, refs);
+      }
+    }
   }
+  const discoveredUrls = [...discovered.keys()].sort();
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
+    scope,
     checkedAt: new Date().toISOString(),
     baseUrl: manifest.baseUrl,
     manifestCount: manifest.urls.length,
@@ -742,7 +839,9 @@ export async function crawlPartition({
     codeCounts,
     folderStats,
     findings,
-    discoveredOutOfSitemap: [...discovered].sort(),
+    discoveredOutOfSitemap: discoveredUrls,
+    discoveredReferrers: discoveredUrls.map((url) => [...(discovered.get(url)?.values() || [])]
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1])),
   };
 }
 
@@ -824,6 +923,7 @@ async function main() {
       // of disappearing before the reporter gets a chance to run.
       const fallback = {
         schemaVersion: CRAWLER_SCHEMA_VERSION,
+        kind: SITEMAP_SCOPE,
         generatedAt: new Date().toISOString(),
         baseUrl,
         sitemap: sitemapUrl,

@@ -12,9 +12,9 @@
  * transposed onto the client-rendered surface.
  *
  * The registry (`authorSlug` → `data/authors.ts`) is the source of truth, exactly as
- * on the static side. The blob's Person node is only a FALLBACK, for entries whose
+ * on the static side. The blob's named Person or editorial Organization node is only a FALLBACK, for entries whose
  * article carries no resolvable `authorSlug`; a blob that names nobody falls through
- * to the team page, which is the same URL the Organization JSON-LD branch emits.
+ * to the team page, which is the same URL the fallback Organization branch emits.
  * Drift between the two can no longer produce a wrong tag: the loser is the fallback.
  *
  * Deliberately static-registry, NOT `getEffectiveArticleByline`: an admin
@@ -44,7 +44,7 @@ export function resolveArticleAuthorUrl(
 ): string {
   const resolved = article?.authorSlug ? getAuthorBySlug(article.authorSlug) : undefined;
   if (resolved) return authorPageUrl(resolved.slug);
-  if (blobAuthor?.['@type'] === 'Person' && typeof blobAuthor.url === 'string' && blobAuthor.url) {
+  if ((blobAuthor?.['@type'] === 'Organization' || blobAuthor?.['@type'] === 'Person') && typeof blobAuthor.url === 'string' && blobAuthor.url) {
     return blobAuthor.url;
   }
   return ORG_AUTHOR_URL;

@@ -191,7 +191,9 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'comuni-di-frontiera',
-    minMedian: 14, // misurato 15,6 % (era 11,5-15,4 %)
+    // Issue #11873 target: the local peer-ranked prose turns the existing
+    // municipal figures into page-specific facts instead of masked cells.
+    minMedian: 40,
     render: () =>
       MUNICIPALITIES.filter((m) => TICINO_VITA_CORRIDOR_PROVINCES.has(m.province))
         .slice(0, 40)

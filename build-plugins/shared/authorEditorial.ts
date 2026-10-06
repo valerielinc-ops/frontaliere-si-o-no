@@ -1,7 +1,7 @@
 import { inlineScriptJson } from './inlineJsonScript';
 import { resolveAuthorProfileMetadata } from '../../services/seo/authorProfileMetadata';
-import { AUTHORS, getAuthorBySlug } from '../../data/authors';
-import { localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
+import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../../data/authors';
+import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '../../services/authorPageCopy';
 import { buildAuthorSeo } from '../../services/seo/seo-authors';
 import { buildPath } from '../../services/router';
@@ -18,15 +18,27 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
   const copy = AUTHOR_PAGE_COPY[locale];
   const peers = AUTHORS.filter(peer => peer.slug !== author.slug).map(peer => {
     const translated = localizeAuthor(peer, locale);
-    return `<li><a href="${escape(buildAuthorSeo(peer, locale).canonical)}" rel="author">${escape(peer.name)}</a> — ${escape(translated.role)}</li>`;
+    const peerRole = isEditorialProfile(translated)
+      ? translated.role.replace(/^(?:Profilo editoriale|Editorial profile|Redaktionelles Profil|Profil éditorial)\s+—\s+/, '')
+      : translated.role;
+    return `<li><a href="${escape(buildAuthorSeo(peer, locale).canonical)}" rel="author">${escape(peer.name)}</a> — ${escape(peerRole)}</li>`;
   }).join('');
-  const social = author.social.linkedin ? `<a href="${escape(author.social.linkedin)}" rel="noopener me" target="_blank">LinkedIn</a>` : '';
+  const editorialProfile = isEditorialProfile(author);
+  const realAuthor = isRealAuthor(author) ? author : undefined;
+  const publicProfile = realAuthor
+    ? `<h2>${escape(copy.publicProfile)}</h2><p>${realAuthor.social.linkedin ? `<a href="${escape(realAuthor.social.linkedin)}" rel="noopener noreferrer me">${escape(copy.linkedin)}</a>` : ''}${realAuthor.email ? ` <a href="mailto:${escape(realAuthor.email)}">${escape(realAuthor.email)}</a>` : ''}${realAuthor.cvPath ? ` <a href="${escape(realAuthor.cvPath)}" rel="noopener noreferrer">${escape(copy.openCv)}</a>` : ''}</p>`
+    : '';
+  const organizationProfile = editorialProfile && author.linkedin
+    ? `<p><a href="${escape(author.linkedin)}" rel="noopener noreferrer">${escape(copy.linkedin)}</a></p>`
+    : '';
   return [
     `<h2>${escape(author.name)} — ${escape(author.role)}</h2>`,
+    ...(editorialProfile ? [`<p>${escape(EDITORIAL_PROFILE_DISCLOSURE[locale])}</p>`] : []),
     `<p>${escape(author.bio)}</p>`,
     `<h2>${escape(copy.expertise)}</h2><ul>${author.expertise.map(topic => `<li>${escape(topic)}</li>`).join('')}</ul>`,
-    `<h2>${escape(copy.publicProfile)}</h2><p>${social}${author.email ? ` <a href="mailto:${escape(author.email)}">${escape(author.email)}</a>` : ''}</p>`,
-    `<h2>${escape(copy.otherAuthors)}</h2><ul>${peers}</ul>`,
+    publicProfile,
+    organizationProfile,
+    `<h2>${escape(editorialProfile ? copy.editorialOtherAuthors : copy.otherAuthors)}</h2><ul>${peers}</ul>`,
     `<p><a href="${buildPath({ activeTab: 'chi-siamo' }, locale)}">${escape(copy.about)}</a> · <a href="${buildPath({ activeTab: 'correzioni' }, locale)}">${escape(copy.corrections)}</a></p>`,
   ];
 }
