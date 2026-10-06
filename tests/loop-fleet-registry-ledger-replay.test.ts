@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 // Import reale: e' l'arco che fa scegliere questo test alla selezione related
 // quando cambia il validatore. Il registry e il ledger sono dati, non import:
 // li collega la voce in `sourceTreeLintTests` di scripts/ci/run-related-tests.mjs,
-// verificata per comportamento in tests/run-related-tests-github-assets.test.ts.
+// verificata per comportamento in tests/run-related-tests-selection.test.ts.
 import {
   buildLifecycleEvent,
   validateActionClassAgainstPolicy,
