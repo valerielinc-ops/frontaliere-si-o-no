@@ -31,8 +31,8 @@ type Messages = Array<{ role: string; content: string }>;
 
 const WORKFLOW = '.github/workflows/translate-pending-logic.yml';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
+const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const SOCKET_EXPR = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
-const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
 
 const IT = 'Cerchiamo un impiegato amministrativo con esperienza nella contabilita\' per il nostro ufficio di Lugano.';
 const EN = 'We are looking for an administrative clerk with accounting experience for our Lugano office.';
@@ -42,21 +42,33 @@ const SOCKET = path.join(tmp, 'broker.sock');
 fs.writeFileSync(SOCKET, '');
 const RUNNER_TEMP = path.join(tmp, 'runner');
 
-/** L'env della fase 2b dal workflow, con le vars GitHub Actions renderizzate. */
-function phase2bEnv(workflowVars: Record<string, string> = {}): Record<string, string> {
+/** L'env effettivo della fase 2b, con resolver e vars GitHub Actions renderizzati. */
+function phase2bEnv(
+  workflowVars: Record<string, string> = {},
+  inheritedEnv: Record<string, string> = {},
+): Record<string, string> {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), WORKFLOW), 'utf8')) as {
-    jobs: Record<string, { steps: Array<{ name?: string; env?: Record<string, unknown> }> }>;
+    jobs: Record<string, { steps: Array<{ name?: string; env?: Record<string, unknown>; run?: string }> }>;
   };
   const step = workflow.jobs.translate.steps.find((candidate) => candidate.name === PHASE_2B);
   if (!step?.env) throw new Error(`${PHASE_2B} senza env`);
-  const env: Record<string, string> = {};
+  if (Object.prototype.hasOwnProperty.call(step.env, 'FREE_TRANSLATE_CODEX_MAX_CALLS')) {
+    throw new Error(`${PHASE_2B} sovrascrive il budget Codex invece di ereditarlo`);
+  }
+  const resolver = workflow.jobs.translate.steps.find((candidate) => candidate.name === CODEX_BUDGET_RESOLVER);
+  if (!resolver?.run?.includes('FREE_TRANSLATE_CODEX_MAX_CALLS')) {
+    throw new Error(`${CODEX_BUDGET_RESOLVER} mancante o senza pass-through del budget`);
+  }
+  const env: Record<string, string> = { ...inheritedEnv };
   for (const [key, raw] of Object.entries(step.env)) {
     const value = String(raw);
     if (value === SOCKET_EXPR) env[key] = SOCKET;
     else if (value.startsWith('${{ runner.temp }}')) env[key] = value.replace('${{ runner.temp }}', RUNNER_TEMP);
-    else if (value === CODEX_MAX_CALLS_EXPR) env[key] = workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS ?? '30';
     else if (!value.includes('${{')) env[key] = value;
   }
+  env.FREE_TRANSLATE_CODEX_MAX_CALLS = env.FREE_TRANSLATE_CODEX_MAX_CALLS
+    || workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS
+    || '30';
   return env;
 }
 
