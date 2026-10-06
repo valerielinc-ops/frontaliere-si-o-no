@@ -155,20 +155,22 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(retryBody).toMatch(/if \(!consent\.allowed\)/);
   });
 
-  it('persists send-time consent proof with every job-alert delivery record', () => {
+  it('persists filter-time consent proof with every job-alert delivery record', () => {
     const source = read('scripts/send-job-alerts.mjs');
     expect(source).toMatch(/const consentProof = item\.meta\?\.consentProof \|\| null/);
     expect(source).toMatch(/consent_checked:\s*consentProof \? true : null/);
     expect(source).toMatch(/consent_allowed:\s*consentProof \? consentProof\.allowed === true : null/);
-    expect(source).toMatch(/const consentCheckedAt = consentProof \? sentAt\.toISOString\(\) : null/);
+    expect(source).toMatch(/const consentCheckedAt = consentProof\?\.checkedAt \|\| null/);
+    expect(source).not.toMatch(/consentProof \? sentAt\.toISOString\(\)/);
     expect(source).toMatch(/consent_checked_at:\s*consentCheckedAt/);
     expect(source).toMatch(/outcome_contract_version:\s*1/);
     expect(source).toMatch(/consentProof:\s*e\.consentProof/);
   });
 
-  it('renews a delayed audience proof at the persisted send boundary', async () => {
+  it('retains a delayed audience proof at the persisted send boundary', async () => {
     const { db, sets } = createDeliveryFakeDb();
     __setFirestoreAdminForTest(db);
+    const checkedAt = new Date(Date.now() - 60_000).toISOString();
 
     await persistJobAlertDelivery({
       recipient: { email: 'seeker@example.test' },
@@ -177,13 +179,14 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
         consentProof: {
           allowed: true,
           basis: 'subscription',
-          checkedAt: '2026-10-05T12:00:00.000Z',
+          checkedAt,
         },
       },
     }, { provider: 'maileroo', messageId: 'ref-delayed' });
 
     const written = sets[0].data;
-    expect(written.consent_checked_at).toBe((written.sent_at as Date).toISOString());
+    expect(written.consent_checked_at).toBe(checkedAt);
+    expect(written.consent_checked_at).not.toBe((written.sent_at as Date).toISOString());
     expect(readDeliveryConsentEvidence(written, written.sent_at)).toMatchObject({
       status: 'valid',
       basis: 'subscription',
