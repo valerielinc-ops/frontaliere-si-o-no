@@ -31,7 +31,10 @@
  * been mirrored to the deploying checkout no longer silently degrades to the
  * app icon in the feed.
  */
-import { ARTICLE_SECTION_CORE_LIST } from './shared/articleSectionCore.mjs';
+import {
+  registerActiveArticleSections,
+  SITE_RENDERED_ARTICLE_SECTIONS,
+} from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
@@ -167,11 +170,25 @@ export function rssSectionFor(core) {
 }
 
 /**
- * Section table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
- * core order (frontaliere, svizzera). Inactive canton sections are not in the
- * list, so the ten feeds are unchanged.
+ * Publisher table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
+ * core order (frontaliere, svizzera, then activated cantons). Inactive canton
+ * sections are not in the list. The corpus/API publisher uses this active
+ * table because canton feeds are served from R2.
  */
-export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
+export const RSS_SECTIONS = [];
+
+function refreshRssSections(entries) {
+  RSS_SECTIONS.splice(0, RSS_SECTIONS.length, ...entries.map(rssSectionFor));
+}
+
+registerActiveArticleSections(refreshRssSections);
+
+/**
+ * RSS rows that a monolith site build may render. Keep this as a projection of
+ * the core selector rather than filtering `RSS_SECTIONS` at each call site:
+ * the latter is the active publisher table and intentionally includes cantons.
+ */
+export const SITE_RSS_SECTIONS = SITE_RENDERED_ARTICLE_SECTIONS.map(rssSectionFor);
 
 /**
  * RSS table row of ANY known section id, active or not (throws on an unknown
@@ -612,9 +629,13 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   return { id: section.id, articleCount: articles.size, slugCount: slugs.size, feeds };
 }
 
-/** Build every feed of every section. `registries` is keyed by section id. */
-export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet }) {
-  return RSS_SECTIONS.map((section) =>
+/**
+ * Build every feed in `sections`. `registries` is keyed by section id.
+ * Defaults to the active publisher table for the corpus/R2 caller; a site
+ * emitter must pass `SITE_RSS_SECTIONS` explicitly.
+ */
+export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet, sections = RSS_SECTIONS }) {
+  return sections.map((section) =>
     buildSectionFeeds({
       fs,
       path,

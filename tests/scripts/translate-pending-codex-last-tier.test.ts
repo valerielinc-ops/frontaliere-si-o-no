@@ -4,20 +4,15 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 /**
- * Dove translate-pending usa Codex Luna Max. Due decisioni del proprietario:
- *   · 2026-09-25: «Per il translate pending aggiungi codex ma dopo argos e i
- *     sistemi che non consumano quota» → le fasi 2d/2e tengono Codex in coda
- *     alla cascata (FREE_TRANSLATE_CODEX_TIER=last);
- *   · H7, 2026-10-05: «utilizza codex luna max per le traduzioni quando
- *     falliscono le chiavi» → la cascata 2b riceve il socket con la posizione
- *     di default di free-translate.mjs: Codex entra quando DeepL e Azure non
- *     servono piu' la run (chiavi rifiutate o fuori quota) e prima dei tier
- *     gratuiti. Finche' DeepL risponde, Codex non viene chiamato.
+ * Dove translate-pending usa Codex Luna Max. Decisione del proprietario
+ * 2026-10-06: la corsia Codex è primaria in tutte le fasi; DeepL, Azure e i
+ * sistemi gratuiti restano ripieghi nell'ordine storico. `last` resta solo un
+ * override legacy esplicito e nessun workflow di produzione lo imposta.
  * Vale per la logica del sito e per l'artifact generato che gira sul pool del
  * corpus:
  *   · il broker parte dopo il passaggio Argos bulk (2a) e prima della 2b;
  *   · il socket arriva solo alle fasi 2b, 2d e 2e, ognuna con un budget per
- *     run ereditato dal resolver comune; la 2b senza `last`, la 2d/2e con `last`;
+ *     run ereditato dal resolver comune;
  *   · nessuno step imposta AI_MODELS_PREFER;
  *   · TTL del broker che copre la finestra delle fasi.
  */
@@ -32,7 +27,7 @@ const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
-const DEFAULT_CODEX_MAX_CALLS = 30;
+const DEFAULT_CODEX_MAX_CALLS = 180;
 
 function stepsOf(rel: string): Step[] {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), rel), 'utf8')) as {
@@ -50,9 +45,15 @@ function expectBudget(step: Step) {
   const calls = effectiveMaxCalls();
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
   expect(calls, step.name).toBe(DEFAULT_CODEX_MAX_CALLS);
-  expect(calls, step.name).toBeLessThanOrEqual(40);
+  // Decisione del proprietario del 2026-10-06 («alza le chiamate»): 180 per
+  // fase al posto di 30. Il tetto resta scritto: un valore piu' alto passa da
+  // una nuova decisione, non da un refuso.
+  expect(calls, step.name).toBeLessThanOrEqual(180);
   expect(ms, step.name).toBeGreaterThan(0);
-  expect(ms, step.name).toBeLessThanOrEqual(15 * 60 * 1000);
+  // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
+  // riparazione partono con almeno 15 minuti residui (gate) e restano a 15.
+  const maxMs = step.name === PHASE_2B ? 25 * 60 * 1000 : 15 * 60 * 1000;
+  expect(ms, step.name).toBeLessThanOrEqual(maxMs);
 }
 
 describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
@@ -88,12 +89,9 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(steps.some((step) => step.env && Object.prototype.hasOwnProperty.call(step.env, 'AI_MODELS_PREFER'))).toBe(false);
   });
 
-  it('nella 2b Codex e\' la riserva dei tier a chiave, nella 2d/2e l\'ultimo tier', () => {
-    const cascade = steps.find((step) => step.name === PHASE_2B);
-    // Posizione di default: Codex dopo DeepL e Azure, solo quando sono fuori gioco.
-    expect(cascade?.env?.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
-    for (const name of [PHASE_2D, PHASE_2E]) {
-      expect(steps.find((step) => step.name === name)?.env?.FREE_TRANSLATE_CODEX_TIER).toBe('last');
+  it('tutte le fasi usano il default Codex-primary senza override legacy', () => {
+    for (const name of [PHASE_2B, PHASE_2D, PHASE_2E]) {
+      expect(steps.find((step) => step.name === name)?.env?.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
     }
   });
 

@@ -1612,9 +1612,9 @@
     },
     {
       "id": "kanton-solothurn-16a7037ef985",
-      "slug": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
+      "slug": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
+        "it": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
         "en": "tax-specialist-private-individuals-80-100-kanton-solothurn-solothurn",
         "de": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
         "fr": "specialiste-fiscal-particuliers-80-100-kanton-solothurn-solothurn"
@@ -1663,12 +1663,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-        "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
+        "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-          "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
+          "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
@@ -2092,9 +2092,9 @@
       "slug": "responsabile-tagungszentrum-80-100-kanton-solothurn",
       "slugByLocale": {
         "it": "responsabile-tagungszentrum-80-100-kanton-solothurn",
-        "en": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn",
+        "en": "head-of-conference-centre-80-100-kanton-solothurn-solothurn",
         "de": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn",
-        "fr": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        "fr": "responsable-du-centre-de-conference-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2145,6 +2145,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:58.829Z",
@@ -2164,12 +2170,12 @@
     },
     {
       "id": "kanton-solothurn-738a6b2819a3",
-      "slug": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
+      "slug": "addetto-a-apma-40-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
-        "en": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
+        "it": "addetto-a-apma-40-kanton-solothurn-solothurn",
+        "en": "kesb-clerk-40-kanton-solothurn-solothurn",
         "de": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
-        "fr": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        "fr": "responsable-apea-40-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2227,26 +2233,40 @@
           "maxValue": 47600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-f2a825b14d29",
-      "slug": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+      "slug": "ufficiale-del-registro-immobiliare-80-100-kanton-solothurn-thal-gau",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
-        "en": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+        "it": "ufficiale-del-registro-immobiliare-80-100-kanton-solothurn-thal-gau",
+        "en": "land-registry-officer-80-100-kanton-solothurn-thal-gau",
         "de": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
-        "fr": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        "fr": "officier-du-registre-foncier-80-100-kanton-solothurn-thal-gau"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
       "companyDomain": "so.ch",
       "title": "Sachbearbeiter/-in Grundbuch, 80-100%",
       "titleByLocale": {
-        "it": "Sachbearbeiter/-in Grundbuch, 80-100%",
-        "en": "Sachbearbeiter/-in Grundbuch, 80-100%",
+        "it": "Ufficiale del Registro Immobiliare, 80-100%",
+        "en": "Land Registry Officer, 80-100%",
         "de": "Sachbearbeiter/-in Grundbuch, 80-100%",
-        "fr": "Sachbearbeiter/-in Grundbuch, 80-100%"
+        "fr": "Officier du registre foncier, 80-100 %"
       },
       "description": "Das Grundbuchamt der Amtschreiberei Thal-Gäu nimmt Aufgaben in der Vorbereitung und Durchführung von öffentlichen Beurkundungen betreffend Rechtsgeschäften über Grundstücke sowie die Grundbuchführung wahr. Für das Grundbuchamt Thal-Gäu suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Grundbuch, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind zuständig für die Vorbereitung öffentlicher Urkunden über Rechtsgeschäfte an Grundstücken wie Kauf-, Dienstbarkeits- und Pfandverträge sowie für die Prüfung externer Grundbuchanmeldungen und tragen diese im Grundbuch ein.\n\n• Sämtliche administrativen Tätigkeiten im Zusammenhang mit der Erstellung öffentlicher Urkunden sowie der Prüfung externer Grundbuchanmeldungen werden von Ihnen erledigt.\n\n• Sie beraten unsere Kundschaft am Schalter, telefonisch und elektronisch und erteilen Auskünfte.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung. Idealerweise bringen Sie einige Jahre Berufserfahrung mit und besitzen Kenntnisse im Sachen-, Grundbuch- und Obligationenrecht.\n\n• Exaktes und selbstständiges Arbeiten, eine speditive und strukturierte Arbeitsweise sowie stilsicheres Deutsch in Wort und Schrift sind für Sie selbstverständlich.\n\n• Sie arbeiten kunden- und dienstleistungsorientiert und verfügen über sehr gute IT-Kenntnisse. Ihre ausgeprägte Sozialkompetenz und Kommunikationsstärke zeichnet Sie aus.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nBernhard Meister\nAmtschreiber\n062 311 90 22\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
@@ -2294,7 +2314,21 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ],
+        "en": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+      ]
     },
     {
       "id": "kanton-solothurn-d9e383691665",
@@ -2311,7 +2345,7 @@
       "title": "Lehrstelle als Informatiker/-in EFZ, Plattformentwicklung",
       "titleByLocale": {
         "de": "Lehrstelle als Informatiker/-in EFZ, Plattformentwicklung",
-        "it": "Apprendistato come Informatiker/-in CFC, Plattformentwicklung",
+        "it": "Apprendistato come informatico/a AFC, sviluppo di piattaforme",
         "en": "Apprenticeship as a computer scientist EFZ, platform development",
         "fr": "Place d'apprentissage en tant qu'informaticien/ne CFC, développement de plateformes"
       },

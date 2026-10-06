@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-b10zar",
-      "slug": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
+      "slug": "ingegnere-a-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Ingenieur/-in Luftwaffe C2Air System (FLORAKO)",
       "location": "Dübendorf",
@@ -42,8 +42,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
-        "en": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
+        "it": "ingegnere-a-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
+        "en": "engineer-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
         "de": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
         "fr": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
       },
@@ -54,10 +54,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
-          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
         ],
         "en": [
-          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
         ],
         "de": [
           "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
@@ -68,7 +70,8 @@
       },
       "previousSlugs": [
         "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
-        "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+        "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+        "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -128,9 +131,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
-        "en": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
+        "en": "training-as-an-ict-systems-specialist-junior-at-the-ict-warrior-academy-starts-in-march-2027-swiss-armed-forces-vtg-bern",
         "de": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
-        "fr": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
+        "fr": "formation-en-tant-que-specialiste-des-systemes-tic-junior-a-l-ict-warrior-academy-debut-en-mars-2027-swiss-armed-forces"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -146,14 +149,16 @@
         ],
         "en": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-          "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern"
+          "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
         ],
         "de": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
         ],
         "fr": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-          "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
+          "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027",
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
         ]
       },
       "previousSlugs": [
@@ -161,7 +166,8 @@
         "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
         "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
         "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
-        "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
+        "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027",
+        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -221,9 +227,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "spezialist-in-feuerwehr-e-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
-        "en": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
+        "en": "specialist-in-fire-and-rescue-services-sdis-swiss-armed-forces-vtg-payerne",
         "de": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
-        "fr": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
+        "fr": "specialiste-des-services-d-incendie-et-de-secours-sdis-swiss-armed-forces-vtg-payerne"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -234,10 +240,17 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne"
+        ],
+        "en": [
+          "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
+        ],
+        "fr": [
+          "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne"
+        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne",
+        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -297,9 +310,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "logistikfachmann-frau-stv-chef-in-magazzino-swiss-armed-forces-vtg-gundlischwand",
-        "en": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
+        "en": "logistics-specialist-deputy-warehouse-manager-swiss-armed-forces-vtg-gundlischwand",
         "de": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
-        "fr": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
+        "fr": "specialiste-en-logistique-responsable-adjoint-de-l-entrepot-swiss-armed-forces-vtg-gundlischwand"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -315,13 +328,15 @@
           "logistikfachmann-frau-stv-chef-in-magazzino-confederazione-svizzera-gundlischwand"
         ],
         "en": [
-          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
         ],
         "de": [
           "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
         ],
         "fr": [
-          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
         ]
       },
       "previousSlugs": [
@@ -3995,10 +4010,10 @@
         "fr": "vehicules-utilitaires-mecatroniques-automobiles-swiss-armed-forces-vtg-bern-ctjnel"
       },
       "titleByLocale": {
-        "it": "Automobil-Mechatroniker/-in Nutzfahrzeuge",
-        "en": "Automobil-Mechatroniker/-in Nutzfahrzeuge",
+        "it": "Tecnico di Meccatronica Automobilistica Veicoli Commerciali",
+        "en": "Automotive Mechatronics Technician Commercial Vehicles",
         "de": "Automobil-Mechatroniker/-in Nutzfahrzeuge",
-        "fr": "Automobil-Mechatroniker/-in Nutzfahrzeuge"
+        "fr": "Technicien en mécatronique automobile véhicules utilitaires"
       },
       "descriptionByLocale": {
         "it": "## Metti al punto\n\nSei affascinato da motori e trasmissioni e vorresti beneficiare di un sacco di qualità di vita nel tuo lavoro? Insieme come squadra, vi aiuterà a garantire che i nostri veicoli blindati e commerciali per l'esercito svizzero sono operativi e pronti per la distribuzione.\n\n- Data di entrata: d'accordo\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20089\n- Ubicazione: Amp-Strasse 12, 9552 Bronschhofen\n\nPuoi dare questo contributo\n\n- Condurre la diagnostica, le riparazioni e le regolazioni di motori, assiemi di azionamento, freni, sistemi di sterzo, telaio, sottomontaggi e sicurezza/comfort electronics\n\n- Controllo e riparazione difetti e riparazioni su veicoli\n\n- Effettuare lavori di manutenzione e scadenze su veicoli e veicoli blindati\n\n- Fornire supporto tecnico per i trasferimenti di materiale e i ritorni di materiale per quanto riguarda la sicurezza di guida, la prevenzione degli incidenti, la manutenzione, la pulizia e l'inventario del veicolo nella nostra zona\n\n- Acquisire messaggi di difetto e parti di ricambio nel sistema SAP\n\n- Cura per gli studenti\n\nQuesto ti rende unico\n\n- Formazione professionale completata come specialista di meccatronica automobilistica, specializzazione in veicoli commerciali o professioni correlate\n\n- Carrelli elevatori Cat C, Cat CE e SUVA\n\n- Metodi di lavoro autonomi e avanzati con buone capacità organizzative\n\n- Buona comprensione delle relazioni tecniche e capacità analitiche\n\n- Concetto di servizio pronunciato a contatto con e nel consigliare i clienti, ad esempio la troop\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Attraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell'esercito svizzero con i suoi circa 3'500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convincetevi di Army.ch/vantages.\nLe offerte dei reclutatori non sono prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",

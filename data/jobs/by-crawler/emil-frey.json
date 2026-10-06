@@ -6102,7 +6102,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Automobil-Mechatroniker/-in oder Automobil-Fachmann/-frau",
       "titleByLocale": {
-        "it": "Automobil-Mechatroniker/-in o Automobil-Fachmann/-frau",
+        "it": "Meccatronico/a d'automobili o tecnico/a d'automobili",
         "en": "Automotive mechatronics technician or automotive specialist",
         "de": "Automobil-Mechatroniker/-in oder Automobil-Fachmann/-frau",
         "fr": "Mécatronicien/ne d'automobile ou professionnel/ne de l'automobile"
@@ -6193,12 +6193,12 @@
     },
     {
       "id": "emil-frey-b75140bbf909",
-      "slug": "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil",
+      "slug": "diagnostico-a-automobilistico-a-mercedes-benz-emil-frey-au-wadenswil",
       "slugByLocale": {
-        "it": "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil",
-        "en": "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil",
+        "it": "diagnostico-a-automobilistico-a-mercedes-benz-emil-frey-au-wadenswil",
+        "en": "automotive-diagnostician-mercedes-benz-emil-frey-au-wadenswil",
         "de": "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil",
-        "fr": "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil"
+        "fr": "diagnosticien-ne-automobile-mercedes-benz-emil-frey-au-wadenswil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6255,7 +6255,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil"
+        ],
+        "en": [
+          "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil"
+        ],
+        "fr": [
+          "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "automobildiagnostiker-in-mercedes-benz-emil-frey-au-wadenswil"
+      ]
     },
     {
       "id": "emil-frey-79b12771bbe6",
@@ -6339,7 +6353,7 @@
         "it": "carrosseriespengler-in-cfc-emil-frey-samstagern",
         "en": "carrosseriespengler-in-efz-emil-frey-samstagern",
         "de": "carrosseriespengler-in-efz-emil-frey-samstagern",
-        "fr": "carrosseriespengler-in-efz-emil-frey-samstagern"
+        "fr": "distributeur-distributrice-de-carrosseries-cfc-emil-frey-samstagern"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6389,6 +6403,9 @@
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-in-efz-emil-frey-samstagern"
+        ],
+        "fr": [
+          "carrosseriespengler-in-efz-emil-frey-samstagern"
         ]
       },
       "needsRetranslation": true,
@@ -6421,7 +6438,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Automobil-Mechatroniker/-in EFZ",
       "titleByLocale": {
-        "it": "Automobil-Mechatroniker/-in CFC",
+        "it": "Meccatronico/a di automobili AFC",
         "en": "EFZ as automotive mechatronics technician",
         "de": "Automobil-Mechatroniker/-in EFZ",
         "fr": "Mécatronicien/ne automobile CFC"
@@ -6732,7 +6749,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Logistiker/-in Kleinteilelager mit Stellvertretungsfunktion",
       "titleByLocale": {
-        "it": "Impiegato/a in logistica Kleinteilelager con Stellvertretungsfunktion",
+        "it": "Logista/a Magazzino minuteria con funzione di supplenza",
         "en": "Logistics technician Small parts warehouse with deputy function",
         "de": "Logistiker/-in Kleinteilelager mit Stellvertretungsfunktion",
         "fr": "Logisticien/ne entrepôt de petites pièces avec fonction de remplacement"
@@ -6798,22 +6815,22 @@
     },
     {
       "id": "emil-frey-dc00ad4e8344",
-      "slug": "kundendienstassistent-in-emil-frey-zurich",
+      "slug": "assistente-al-servizio-clienti-emil-frey-zurich",
       "slugByLocale": {
-        "it": "kundendienstassistent-in-emil-frey-zurich",
-        "en": "kundendienstassistent-in-emil-frey-zurich",
+        "it": "assistente-al-servizio-clienti-emil-frey-zurich",
+        "en": "customer-service-assistant-emil-frey-zurich",
         "de": "kundendienstassistent-in-emil-frey-zurich",
-        "fr": "kundendienstassistent-in-emil-frey-zurich"
+        "fr": "assistant-au-service-client-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
       "companyDomain": "emilfrey.ch",
       "title": "Kundendienstassistent/in",
       "titleByLocale": {
-        "it": "Kundendienstassistent/in",
-        "en": "Kundendienstassistent/in",
+        "it": "Assistente al Servizio Clienti",
+        "en": "Customer Service Assistant",
         "de": "Kundendienstassistent/in",
-        "fr": "Kundendienstassistent/in"
+        "fr": "Assistant au service client"
       },
       "description": "Was Sie über uns wissen sollten Die Emil Frey Gruppe ist nicht nur ein Schweizer Familienunternehmen mit über 100 Jahren Erfahrung, sondern auch eine der führenden Firmen der Automobilbranche. Qualität, Tradition, Innovation und Kundenorientierung sind die tragenden Pfeiler des Unternehmens. Dabei liegt der Fokus der Aktivitäten auf dem Import von Automarken, dem Betrieb von Garagen, der Logistik von Ersatz- und Zubehörteilen sowie der Erbringung von Finanzdienstleistungen. Die Emil Frey AG Zürich-Nord , die legendäre blaue Garage, erstrahlt als Neubau. Wir laden Sie ein, Teil davon zu sein. Gemeinsam möchten wir die Dienstleistungen rund um das Automobil weiterentwickeln. Mit unseren 21 Marken - Abarth, Alfa Romeo, Citroën, Defender, Discovery, DS, Fiat, Jaguar, Jeep, Kia, Leapmotor, Lexus, Mitsubishi, Opel, Peugeot, Range Rover, Subaru, Suzuki, Toyota, Volvo und Zeekr - bieten wir unserer Kundschaft das grösste Markenangebot in und um Zürich. Unser Ziel ist es, die Kundschaft stets in den Mittelpunkt unseres Denkens und Handelns zu stellen. Ihre Aufgaben\n• Kundenbetreuung auf hohem Serviceniveau, von der Terminvereinbarung bis zur Rechnungsstellung\n• Erstellung von Kostenvoranschlägen sowie Abrechnung der Werkstattarbeiten\n• Planung, Steuerung und Überwachung der Werkstattauslastung sowie Sicherstellung der Termineinhaltung\n• Fahrzeugannahme und -rückgabe inklusive Erläuterung der Rechnungen\n• Unterstützung bei der Prüfung und Bearbeitung von Garantiefällen in Zusammenarbeit mit dem Werkstattleiter und Importeur\n• Sicherstellung einer fachgerechten Arbeitsausführung und Sauberkeit der Kundenfahrzeuge Ihr Profil\n• Abgeschlossene Ausbildung im automobilen Bereich mit EFZ und dem Wunsch, sich im Kundendienst weiterzuentwickeln\n• Kaufmännische Affinität sowie Interesse an administrativen und organisatorischen Aufgaben; Bereitschaft zur entsprechenden Weiterbildung von Vorteil\n• Freude am Kontakt mit Kundinnen und Kunden sowie an einer serviceorientierten Tätigkeit\n• Strukturierte, zuverlässige und unterstützende Arbeitsweise\n• Teamorientierte, flexible und kommunikative Persönlichkeit\n• Sicherer Umgang mit gängigen IT-Anwendungen (MS Office), Offenheit für neue Systeme\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil Was wir Ihnen bieten Sie finden bei uns eine neue Herausforderung mit spannenden Aufgaben und vielem mehr:\n• Zahlreiche Vergünstigungen (Neuwagen, Servicearbeiten und Ersatzteile, Fahrzeug- und Krankenversicherungen, Tankkarten, Hotels und vieles mehr)\n• Eine eigene, attraktive Pensionskasse als unabhängige Vorsorgeeinrichtung\n• Eine langfristige Unternehmensperspektive\n• Individuelle Weiterbildungs- und Entwicklungs-Möglichkeiten\n• Mindestens 25 Tage Ferien Wie Sie uns kontaktieren können Silas Steinmetz, Regionaler Personalverantwortlicher freut sich auf die vollständige Bewerbung (u.a. Lebenslauf, Arbeitszeugnisse, etc.) via des Links \"Jetzt bewerben!\". Aus Gründen der besseren Lesbarkeit wird auf die gleichzeitige Verwendung der Sprachformen männlich, weiblich und divers (m/w/d) verzichtet. Weibliche und anderweitige Geschlechteridentitäten werden dabei ausdrücklich mitgemeint. Diversität bedeutet für uns auch, dass Menschen in Teams zusammenarbeiten, die durch ihre Einzigartigkeit und Unterschiedlichkeit die bestmöglichen Ergebnisse erzielen. Wir sind davon überzeugt, dass eine vielfältige Belegschaft, sowie eine integrative Kultur es uns ermöglichen, unser volles Potenzial auszuschöpfen.\n• Kundenbetreuung auf hohem Serviceniveau, von der Terminvereinbarung bis zur Rechnungsstellung\n• Erstellung von Kostenvoranschlägen sowie Abrechnung der Werkstattarbeiten\n• Planung, Steuerung und Überwachung der Werkstattauslastung sowie Sicherstellung der Termineinhaltung\n• Fahrzeugannahme und -rückgabe inklusive Erläuterung der Rechnungen\n• Unterstützung bei der Prüfung und Bearbeitung von Garantiefällen in Zusammenarbeit mit dem Werkstattleiter und Importeur\n• Sicherstellung einer fachgerechten Arbeitsausführung und Sauberkeit der Kundenfahrzeuge\n• Abgeschlossene Ausbildung im automobilen Bereich mit EFZ und dem Wunsch, sich im Kundendienst weiterzuentwickeln\n• Kaufmännische Affinität sowie Interesse an administrativen und organisatorischen Aufgaben; Bereitschaft zur entsprechenden Weiterbildung von Vorteil\n• Freude am Kontakt mit Kundinnen und Kunden sowie an einer serviceorientierten Tätigkeit\n• Strukturierte, zuverlässige und unterstützende Arbeitsweise\n• Teamorientierte, flexible und kommunikative Persönlichkeit\n• Sicherer Umgang mit gängigen IT-Anwendungen (MS Office), Offenheit für neue Systeme\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil",
       "descriptionByLocale": {
@@ -6861,7 +6878,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundendienstassistent-in-emil-frey-zurich"
+        ],
+        "en": [
+          "kundendienstassistent-in-emil-frey-zurich"
+        ],
+        "fr": [
+          "kundendienstassistent-in-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kundendienstassistent-in-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-cf1ef08fed35",

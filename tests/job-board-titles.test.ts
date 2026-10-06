@@ -234,6 +234,26 @@ describe('buildCityHubTitle — per-city hub', () => {
     }
     expect(titles.size).toBe(CITIES.length);
   });
+
+  it('keeps a repeated city unique across non-TI cantons', () => {
+    const lucerne = buildCityHubTitle({
+      locale: 'it',
+      cityDisplay: 'Eschenbach',
+      count: 3,
+      year: YEAR,
+      cantonDisplay: 'Lucerna',
+    });
+    const stGallen = buildCityHubTitle({
+      locale: 'it',
+      cityDisplay: 'Eschenbach',
+      count: 3,
+      year: YEAR,
+      cantonDisplay: 'San Gallo',
+    });
+    expect(lucerne).not.toBe(stGallen);
+    expect(lucerne).toContain('Lucerna');
+    expect(stGallen).toContain('San Gallo');
+  });
 });
 
 describe('buildRoleHubTitle — per-role hub (sector / role landing)', () => {
@@ -340,6 +360,29 @@ describe('buildEmployerHubTitle — employer hub', () => {
     expect(beta).toContain('International');
     expect(isValidTitleLength(alpha), alpha).toBe(true);
     expect(isValidTitleLength(beta), beta).toBe(true);
+  });
+
+  it('keeps long scoped employer fallback titles distinct when counts differ', () => {
+    const company = 'Arsanté (Clinique de Carouge)';
+    const three = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: company,
+      location: 'Ginevra',
+      count: 3,
+      year: YEAR,
+    });
+    const six = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: company,
+      location: 'Ginevra',
+      count: 6,
+      year: YEAR,
+    });
+    expect(three).not.toBe(six);
+    expect(three).toContain('3');
+    expect(six).toContain('6');
+    expect(isValidTitleLength(three), three).toBe(true);
+    expect(isValidTitleLength(six), six).toBe(true);
   });
 });
 

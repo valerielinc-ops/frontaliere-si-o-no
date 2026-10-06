@@ -57,6 +57,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
   const { t, locale } = useTranslation();
   const { user } = useAuth();
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const shownTrackedRef = useRef(false);
   const completingPendingRef = useRef(false);
   // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
   // the pending alert, keep it here. The visitor stays on this card for both
@@ -76,7 +77,17 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
   const threshold = floorToHundred(netMonthlyCHF);
   const alertLocale = (locale as 'it' | 'en' | 'de' | 'fr') || 'it';
 
+  const trackShown = useCallback(() => {
+    if (shownTrackedRef.current) return;
+    shownTrackedRef.current = true;
+    // This is a calculator-specific salary-alert funnel, not one of the seven
+    // surfaces in alert_funnel_conversion; keep the raw GA4 pair observable
+    // without changing that campaign's denominator.
+    Analytics.trackJobAlertCtaShown('calculator_results');
+  }, []);
+
   const persistCreatedAlert = useCallback(async (uid: string, email: string, config: ReturnType<typeof buildSalaryAlertConfig>) => {
+    trackShown();
     await subscribeSalaryAlert(uid, email, {
       profession: config.keywords[0] || null,
       cantonCode: config.cantonFilter?.[0] || null,
@@ -94,7 +105,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       /* storage unavailable */
     }
     setStatus('success');
-  }, [alertLocale]);
+  }, [alertLocale, trackShown]);
 
   // Social sign-in and the email magic-link flow both update the global user.
   // Replay the exact criteria once, and put it back if the Firestore write
@@ -135,6 +146,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
         for (const entry of entries) {
           if (!entry.isIntersecting || fired) continue;
           fired = true;
+          trackShown();
           Analytics.trackFunnelStep('salary_alert_view', { funnel: 'salary_alert' });
           try {
             sessionStorage.setItem(VIEW_SESSION_KEY, '1');
@@ -148,10 +160,11 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [trackShown]);
 
   const handleAccept = useCallback(async () => {
     if (status === 'submitting' || status === 'success') return;
+    trackShown();
     Analytics.trackCtaClick(CTA_ID, {
       component: 'SalaryAlertCTA',
       section: 'calculator_results',
@@ -193,7 +206,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     } catch {
       setStatus('error');
     }
-  }, [alertLocale, persistCreatedAlert, stashPendingAlert, status, threshold, user]);
+  }, [alertLocale, persistCreatedAlert, stashPendingAlert, status, threshold, trackShown, user]);
 
   const handleCaptureSubmit = useCallback(async (event: React.FormEvent) => {
     event.preventDefault();

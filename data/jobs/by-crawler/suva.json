@@ -84,9 +84,9 @@
     },
     {
       "id": "suva-f0fe7a62479d",
-      "slug": "spezialist-in-public-affairs-80-100-suva-luzern",
+      "slug": "specialista-in-affari-pubblici-80-100-suva-luzern",
       "slugByLocale": {
-        "it": "spezialist-in-public-affairs-80-100-suva-luzern",
+        "it": "specialista-in-affari-pubblici-80-100-suva-luzern",
         "en": "spezialist-in-public-affairs-80-100-suva-luzern",
         "de": "spezialist-in-public-affairs-80-100-suva-luzern",
         "fr": "affaires-publiques-specialisees-80-100-suva-luzern"
@@ -96,8 +96,8 @@
       "companyDomain": "suva.ch",
       "title": "Spezialist:in Public Affairs 80 - 100 %",
       "titleByLocale": {
-        "it": "Spezialist:in Public Affairs 80 - 100 %",
-        "en": "Spezialist:in Public Affairs 80 - 100 %",
+        "it": "Specialista in Affari Pubblici 80 - 100%",
+        "en": "Public Affairs Specialist 80 - 100%",
         "de": "Spezialist:in Public Affairs 80 - 100 %",
         "fr": "Affaires publiques spécialisées 80 - 100%"
       },
@@ -147,7 +147,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-public-affairs-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-public-affairs-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-1c1dc7212b87",
@@ -163,8 +171,8 @@
       "companyDomain": "suva.ch",
       "title": "Business Content Manager:in 80 - 100 %",
       "titleByLocale": {
-        "it": "Business Content Manager:in 80 - 100 %",
-        "en": "Business Content Manager:in 80 - 100 %",
+        "it": "Business Content Manager 80 - 100%",
+        "en": "Business Content Manager 80 - 100%",
         "de": "Business Content Manager:in 80 - 100 %",
         "fr": "Gestionnaire de contenu d'entreprise 80 - 100%"
       },

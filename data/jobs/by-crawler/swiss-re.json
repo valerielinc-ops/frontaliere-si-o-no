@@ -626,9 +626,9 @@
     },
     {
       "id": "swiss-re-c779ef2c62f1",
-      "slug": "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch",
+      "slug": "responsabile-eventi-ed-esperienza-degli-ospiti-m-f-x-d-80-100-swiss-re-ruschlikon-ch",
       "slugByLocale": {
-        "it": "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch",
+        "it": "responsabile-eventi-ed-esperienza-degli-ospiti-m-f-x-d-80-100-swiss-re-ruschlikon-ch",
         "en": "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch",
         "de": "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch",
         "fr": "gestionnaire-d-experience-evenement-invite-m-f-x-j-80-100-swiss-re-ruschlikon-ch"
@@ -688,7 +688,15 @@
         }
       },
       "postalCode": "8803",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "event-guest-experience-manager-m-f-x-d-80-100-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-d3f8744f4633",
@@ -704,7 +712,7 @@
       "companyDomain": "swissre.com",
       "title": "Senior Project Manager (Hybrid; m/f/x/d; 80-100%)",
       "titleByLocale": {
-        "it": "Senior Project Manager (Hybrid; m/f/x/d; 80-100%)",
+        "it": "Senior Project Manager (Ibrido; m/f/x/d; 80-100%)",
         "en": "Senior Project Manager (Hybrid; m/f/x/d; 80-100%)",
         "de": "Senior Projektmanager (Hybrid; m/w/x/d; 80-100%)",
         "fr": "Gestionnaire de projet principal (Hybrid; h/f/x/j; 80-100%)"

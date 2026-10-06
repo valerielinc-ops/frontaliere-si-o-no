@@ -48750,16 +48750,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-prestazioni-uri-cassa': {
-    title: 'AVS e prestazioni complementari nel canton Uri',
+    title: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
-    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
+    ogTitle: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
     canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari nel canton Uri",
+      "headline": "AVS Uri: cassa di compensazione e prestazioni complementari",
       "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
       "image": {
         "@type": "ImageObject",

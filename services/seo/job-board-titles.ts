@@ -322,9 +322,15 @@ export function buildCityHubTitle({
   let base: string;
   switch (locale) {
     case 'it':
-      base = n > 0
-        ? `Lavoro ${city} ${year} — ${n} offerte aggiornate oggi`
-        : `Lavoro ${city} ${year} — Offerte aggiornate ogni giorno`;
+      // City slugs repeat across cantons. Per-canton callers pass the real
+      // canton so the title remains unique after the same city/count/year
+      // combination is rendered in more than one section.
+      {
+        const scopedCity = cantonDisplay ? `${city} — ${cantonDisplay}` : city;
+        base = n > 0
+          ? `Lavoro ${scopedCity} ${year} — ${n} offerte aggiornate oggi`
+          : `Lavoro ${scopedCity} ${year} — Offerte aggiornate ogni giorno`;
+      }
       break;
     case 'en':
       base = n > 0
@@ -480,7 +486,9 @@ export function buildEmployerHubTitle({
             n > 0
               ? `${shortCo}: offerte di lavoro a ${place} — ${n} posizioni aperte`
               : `${shortCo}: offerte di lavoro a ${place} — Candidature aperte`,
-            `Offerte di lavoro a ${place}: ${shortCo} — Candidati oggi`,
+            n > 0
+              ? `Offerte a ${place}: ${shortCo} — ${n} posti`
+              : `Offerte di lavoro a ${place}: ${shortCo} — Candidati oggi`,
           ];
         case 'en':
           return [
@@ -490,7 +498,9 @@ export function buildEmployerHubTitle({
             n > 0
               ? `${shortCo}: jobs in ${place} — ${n} open roles`
               : `${shortCo}: jobs in ${place} — Open roles updated`,
-            `Jobs in ${place}: ${shortCo} — Apply today`,
+            n > 0
+              ? `Jobs ${place}: ${shortCo} — ${n} roles`
+              : `Jobs in ${place}: ${shortCo} — Apply today`,
           ];
         case 'de':
           return [
@@ -500,7 +510,9 @@ export function buildEmployerHubTitle({
             n > 0
               ? `${shortCo}: offene Stellen in ${place} — ${n} Jobs`
               : `${shortCo}: offene Stellen in ${place} — Bewerben`,
-            `Jobs in ${place}: ${shortCo} — Jetzt bewerben`,
+            n > 0
+              ? `Jobs ${place}: ${shortCo} — ${n} Stellen`
+              : `Jobs in ${place}: ${shortCo} — Jetzt bewerben`,
           ];
         case 'fr':
           return [
@@ -510,7 +522,9 @@ export function buildEmployerHubTitle({
             n > 0
               ? `${shortCo} : offres d’emploi à ${place} — ${n} postes`
               : `${shortCo} : offres d’emploi à ${place} — Postuler`,
-            `Emplois à ${place} : ${shortCo} — Postulez`,
+            n > 0
+              ? `Emplois ${place} : ${shortCo} — ${n} postes`
+              : `Emplois à ${place} : ${shortCo} — Postulez`,
           ];
       }
     })();

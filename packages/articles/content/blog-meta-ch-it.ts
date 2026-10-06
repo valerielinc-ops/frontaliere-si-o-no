@@ -3853,7 +3853,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.irlanda-dublinanti-asilo-italia.title': 'Anche l\'Irlanda rimanda i dublinanti in Italia',
     'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'L\'Irlanda aderisce alla politica di rimpatrio dei richiedenti asilo. Settimo Paese europeo, dopo Svizzera, a adottare questa strategia.',
     'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Vista del lago di Lugano sullo sfondo delle Alpi svizzere, simbolo della posizione geografica della Svizzera in Europa.',
-    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS e prestazioni complementari nel canton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS Uri: cassa di compensazione e prestazioni complementari',
     'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Cassa di compensazione, calcolo della rendita e lacune contributive nel primo pilastro: come funzionano le prestazioni complementari a Uri',
     'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Ufficio della cassa di compensazione cantonale Uri: gestione rendite AVS e prestazioni complementari',
     'blog.article.avs-prestazioni-complementari-uri.title': 'AVS e prestazioni complementari nel Canton Uri',

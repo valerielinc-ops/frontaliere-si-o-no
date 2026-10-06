@@ -106,6 +106,27 @@ const AMBIGUOUS_FAMILY = Object.freeze({
   sourcePaths: Object.freeze([]),
 });
 
+/**
+ * Stable compact family table shared by the crawl artifacts.
+ *
+ * Referrer records store only `[sitemapUrlIndex, templateIndex]`; labels and
+ * source paths live here once instead of being repeated for every frontier
+ * URL. Keep the order append-only so an artifact can be inspected alongside
+ * the code version that produced it.
+ */
+export const BING_TEMPLATE_TABLE = Object.freeze([
+  ...FAMILY_DEFINITIONS,
+  UNKNOWN_FAMILY,
+  AMBIGUOUS_FAMILY,
+].map(({ matches: _matcher, ...family }) => Object.freeze({
+  id: family.id,
+  label: family.label,
+  sourcePaths: Object.freeze([...family.sourcePaths]),
+})));
+
+const TEMPLATE_INDEX_BY_ID = new Map(BING_TEMPLATE_TABLE.map((family, index) => [family.id, index]));
+const UNKNOWN_TEMPLATE_INDEX = TEMPLATE_INDEX_BY_ID.get(UNKNOWN_FAMILY.id);
+
 function pathnameFor(value) {
   try {
     const parsed = new URL(String(value || ''), 'https://frontaliereticino.ch');
@@ -132,6 +153,12 @@ export function classifyBingTemplate(value) {
   }
   if (matches.length > 1) return { ...AMBIGUOUS_FAMILY, pathname, reason: 'multiple-route-families' };
   return { ...UNKNOWN_FAMILY, pathname, reason: 'no-route-family' };
+}
+
+/** Return the stable compact index for a page's classified template family. */
+export function templateIndexFor(value) {
+  const id = classifyBingTemplate(value).id;
+  return TEMPLATE_INDEX_BY_ID.get(id) ?? UNKNOWN_TEMPLATE_INDEX;
 }
 
 function emptyCodeCounts() {
@@ -199,6 +226,77 @@ export function buildTemplateInventory(findings, { sampleLimit = 3 } = {}) {
     classifiedFindings,
     unclassifiedFindings: relevant.length - classifiedFindings,
     families,
+  };
+}
+
+/**
+ * Attribute frontier findings to the page template that emitted each link.
+ *
+ * `frontierManifest.referrerRefs` is aligned with `frontierManifest.urls` and
+ * contains compact `[sitemapUrlIndex, templateIndex]` pairs. The output keeps
+ * the same table once, then emits bounded rows and URL samples for the issue.
+ */
+export function buildFrontierAttribution(findings, {
+  frontierManifest = null,
+  sitemapManifest = null,
+  sampleLimit = 3,
+} = {}) {
+  const limit = Math.max(0, Math.floor(Number(sampleLimit) || 0));
+  const frontierUrls = frontierManifest?.urls || [];
+  const referrerRefs = frontierManifest?.referrerRefs || [];
+  const refsByTarget = new Map(frontierUrls.map((url, index) => [url, referrerRefs[index] || []]));
+  const rows = new Map();
+  let findingsWithReferrer = 0;
+
+  for (const item of findings || []) {
+    if (item?.scope !== 'discovered-frontier') continue;
+    const targetTemplate = templateIndexFor(item.url);
+    const refs = (refsByTarget.get(item.url) || [])
+      .filter((pair) => Array.isArray(pair) && pair.length >= 2)
+      .map(([sourceIndex, referrerTemplate]) => [Number(sourceIndex), Number(referrerTemplate)])
+      .filter(([sourceIndex, referrerTemplate]) => Number.isInteger(sourceIndex) && Number.isInteger(referrerTemplate));
+    const effectiveRefs = refs.length > 0 ? refs : [[-1, UNKNOWN_TEMPLATE_INDEX]];
+    if (refs.length > 0) findingsWithReferrer += 1;
+
+    for (const [sourceIndex, referrerTemplate] of effectiveRefs) {
+      const key = `${referrerTemplate}\u0000${targetTemplate}\u0000${item.code}`;
+      const current = rows.get(key) || {
+        referrerTemplate,
+        targetTemplate,
+        code: item.code,
+        findingCount: 0,
+        samples: [],
+        sampleKeys: new Set(),
+        findingKeys: new Set(),
+      };
+      if (!current.findingKeys.has(item.url)) {
+        current.findingKeys.add(item.url);
+        current.findingCount += 1;
+      }
+      const sourceUrl = sitemapManifest?.urls?.[sourceIndex] || '';
+      if (sourceUrl && current.samples.length < limit) {
+        const sampleKey = `${sourceUrl}\u0000${item.url}`;
+        if (!current.sampleKeys.has(sampleKey)) {
+          current.sampleKeys.add(sampleKey);
+          current.samples.push([sourceUrl, item.url]);
+        }
+      }
+      rows.set(key, current);
+    }
+  }
+
+  return {
+    version: 1,
+    templateTable: frontierManifest?.templateTable || BING_TEMPLATE_TABLE,
+    findingCount: (findings || []).filter((item) => item?.scope === 'discovered-frontier').length,
+    findingsWithReferrer,
+    unreferencedFindings: (findings || []).filter((item) => item?.scope === 'discovered-frontier' && !(refsByTarget.get(item.url) || []).length).length,
+    rows: [...rows.values()]
+      .map(({ sampleKeys: _sampleKeys, findingKeys: _findingKeys, ...row }) => row)
+      .sort((a, b) => b.findingCount - a.findingCount
+        || a.referrerTemplate - b.referrerTemplate
+        || a.targetTemplate - b.targetTemplate
+        || a.code.localeCompare(b.code)),
   };
 }
 

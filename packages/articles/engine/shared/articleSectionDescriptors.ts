@@ -43,7 +43,10 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { ARTICLE_SECTION_CORE_LIST } from './articleSectionCore.mjs';
+import {
+ registerActiveArticleSections,
+ SITE_RENDERED_ARTICLE_SECTIONS,
+} from './articleSectionCore.mjs';
 import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
 // @ts-ignore The site symlink can make tsc resolve this shared source from
 // build-plugins/shared, where this engine-local sibling is not visible at the
@@ -147,12 +150,27 @@ function descriptorFor(core: CoreEntry): OgSection {
 
 /**
  * One descriptor per ACTIVE section, in core order (frontaliere, svizzera,
- * then any activated canton). Derived from `ARTICLE_SECTION_CORE_LIST`, so
- * while no canton is active this is exactly the two hand-written entries it
- * replaced.
+ * then any activated canton). This is the publisher/engine descriptor set:
+ * the corpus needs active canton rows to render and publish their R2 pages.
  */
-export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] =
- (ARTICLE_SECTION_CORE_LIST as unknown as CoreEntry[]).map(descriptorFor);
+export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [];
+
+function refreshArticleSectionDescriptors(entries: readonly CoreEntry[]): void {
+ ARTICLE_SECTION_DESCRIPTORS.splice(0, ARTICLE_SECTION_DESCRIPTORS.length, ...entries.map(descriptorFor));
+}
+
+registerActiveArticleSections(refreshArticleSectionDescriptors);
+
+/**
+ * Descriptors for static pages emitted by the monolith site build.
+ *
+ * Keep this separate from `ARTICLE_SECTION_DESCRIPTORS`: the latter is also
+ * mirrored into the corpus and must include active canton sections, while a
+ * canton page is served by the corpus/R2 boundary and is never emitted by the
+ * site build. The core selector is the only source for this projection.
+ */
+export const SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS: OgSection[] =
+ (SITE_RENDERED_ARTICLE_SECTIONS as unknown as CoreEntry[]).map(descriptorFor);
 
 /**
  * Find every `'blog-<slug>': {` entry-key position in a `seoFiles` source

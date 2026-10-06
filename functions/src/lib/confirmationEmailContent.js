@@ -34,6 +34,7 @@
  */
 import { t, htmlLang, normalizeLocale } from '../emailI18n.js';
 import { dataControllerFooterLine } from './dataControllerIdentity.js';
+import { buildConfirmationCopyCampaignId } from './confirmationCopyExperiment.js';
 
 export const CONFIRMATION_BASE_URL = 'https://frontaliereticino.ch';
 export const CONFIRMATION_FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
@@ -483,17 +484,31 @@ export function confirmationConfirmUrl({ email, token, sourcePath, mode }) {
  *
  * `jobContext` (lib/confirmationJobContext.js) is ignored for a login link —
  * an access email is not a consent request and names no offer — and, when it
- * is used, adds a `context: job` tag so the provider-side numbers can tell the
- * two variants apart without a second system.
+ * is used, adds a `context: job` tag. An active copy experiment adds an
+ * allowlisted campaign id containing the arm, source CTA and locale; the
+ * provider/webhook path then carries the arm into the weekly monitor.
  *
- * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null, login?: boolean, jobContext?: object|null}} args
+ * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null, login?: boolean, jobContext?: object|null, copyVariant?: 'generic'|'contextual'|null, sourceCta?: string|null}} args
  * @returns {{subject: string, html: string, tags: Array<{name: string, value: string}>, frame: string}}
  */
-export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, firstSentAt, login = false, jobContext = null } = {}) {
+export function buildConfirmationRequestEmail({
+  locale,
+  confirmUrl,
+  frame,
+  firstSentAt,
+  login = false,
+  jobContext = null,
+  copyVariant = null,
+  sourceCta = null,
+} = {}) {
   const lang = normalizeLocale(locale);
   const resolved = login ? 'login' : (frame || CONFIRMATION_FRAMES.FIRST);
   const withJob = !login && !!confirmationJobSubject(lang, jobContext);
   const context = withJob ? jobContext : null;
+  const experimentCampaignId = !login
+    ? buildConfirmationCopyCampaignId({ variant: copyVariant, sourceCta, locale: lang })
+    : null;
+  const hasExperimentLabel = Boolean(experimentCampaignId);
   return {
     frame: resolved,
     subject: login ? t(lang, 'loginSubject') : confirmationEmailSubject(lang, { frame: resolved, jobContext: context }),
@@ -501,11 +516,15 @@ export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, first
       ? buildNewsletterLoginEmailHtml(confirmUrl, lang)
       : buildNewsletterConfirmationEmailHtml(confirmUrl, lang, { frame: resolved, firstSentAt, jobContext: context }),
     tags: [
-      { name: 'campaign_id', value: login ? 'newsletter_login' : 'confirmation' },
+      { name: 'campaign_id', value: login ? 'newsletter_login' : (experimentCampaignId || 'confirmation') },
       { name: 'type', value: 'transactional' },
       { name: 'locale', value: lang },
       { name: 'frame', value: resolved },
-      ...(withJob ? [{ name: 'context', value: 'job' }] : []),
+      ...(withJob || hasExperimentLabel ? [{ name: 'context', value: 'job' }] : []),
+      ...(hasExperimentLabel ? [
+        { name: 'copy_variant', value: copyVariant },
+        { name: 'source_cta', value: sourceCta },
+      ] : []),
     ],
   };
 }

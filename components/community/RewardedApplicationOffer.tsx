@@ -26,6 +26,7 @@ import {
   type OfferwallGateStatus,
   type OfferwallReleaseResult,
 } from '@/services/offerwallClickGate';
+import { reportOfferwallGateAbsent } from '@/services/offerwallGateDiag';
 import {
   markOfferwallResume,
   offerwallConsentState,
@@ -661,6 +662,14 @@ export default function RewardedApplicationOffer({
       ...offerwallContext(),
       reason: notShownReason(decision),
     });
+    // Funding Choices never reached the gate: say how far it got, now and a
+    // little later (the context is taken now, the offer may be gone by then).
+    if (decision.status === 'absent') {
+      const context = offerwallContext();
+      reportOfferwallGateAbsent((eventName, params) => {
+        trackAssistedApplicationEvent(eventName, { ...context, ...params });
+      });
+    }
   };
 
   // Reload once to resume this click where only a fresh page load can hold

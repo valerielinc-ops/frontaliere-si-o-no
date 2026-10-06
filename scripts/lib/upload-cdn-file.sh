@@ -217,13 +217,19 @@ RC=(rclone
   # redundant-PUT cost to guard against.
   --ignore-times)
 bkt=":s3:$R2_BUCKET"
+# One limit for every per-object R2 call in this script, resolved once: the
+# lookup below and the upload further down. Keeping it in a variable is also
+# what lets tests/r2-calls-bounded.test.ts read the bound in front of each
+# call — a limit written as a nested command substitution was not recognised,
+# and the lookup added with the governed image engine looked unbounded.
+r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 
 if [ "$check_mode" -eq 1 ]; then
   # `lsf` returns no rows for a missing object on R2. A non-zero result is a
   # transport/authentication failure, so the caller must upload defensively.
   check_output=""
   check_status=0
-  check_output="$(timeout -k 10 "$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)" \
+  check_output="$(timeout -k 10 "$r2_timeout_object_s" \
     "${RC[@]}" lsf --files-only "$bkt/$cdn_key" 2>/dev/null)" || check_status=$?
   if [ "$check_status" -ne 0 ]; then
     echo "⚠️ check indeterminate for $cdn_key: R2 lookup failed (exit $check_status)"
@@ -240,7 +246,6 @@ fi
 # run-28599750786): a single-shot upload with no fallback previously failed
 # the whole deploy prep step on a bare connection reset even though nothing
 # else was wrong. Still never fatal — see header "Failure posture".
-r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 attempt_ok=0
 for try in 1 2; do
   if timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \

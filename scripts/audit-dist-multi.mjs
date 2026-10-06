@@ -829,9 +829,11 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing "${field}"` });
     }
   }
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+  if (schema.description !== undefined) {
+    const desc = String(schema.description || '').trim();
+    if (desc.length < 30) {
+      errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+    }
   }
   if (!schema.location || typeof schema.location !== 'object') {
     errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });

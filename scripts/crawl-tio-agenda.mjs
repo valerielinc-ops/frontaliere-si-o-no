@@ -63,6 +63,7 @@ import {
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 import { mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -599,13 +600,14 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
   // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
   // invocation never pollutes the tracked cache files with speculative data.
   saveGeocodeCache(geocodeCache);
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
 
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);

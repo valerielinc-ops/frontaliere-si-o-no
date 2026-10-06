@@ -8,7 +8,7 @@
  * painted until React had rendered: observed first paint 1.3-2.4 s instead of
  * ~0.3 s, simulated mobile FCP 8-13 s instead of 4.6 s (Lighthouse runs of
  * 2026-10-02..05). The mount now waits for one presented frame of the static
- * HTML (a paint timing entry; bounded, and skipped for hidden documents)
+ * HTML (a first-contentful-paint timing entry; bounded, and skipped for hidden documents)
  * before the first hide. Runner traces (run 37337515121): first main frame at
  * 1.27-1.37 s, hide at ~1.0 s, first contentful paint at 2.29-2.36 s.
  */
@@ -30,11 +30,17 @@ function fakePaint(alreadyPainted = false) {
   const listeners: Array<() => void> = [];
   const timers: Array<{ cb: () => void; ms: number }> = [];
   let unsubscribed = 0;
+  let entries: Array<{ name: string }> = alreadyPainted
+    ? [{ name: 'first-contentful-paint' }]
+    : [];
   return {
-    paintEntries: () => (alreadyPainted ? [{ name: 'first-paint' }] : []),
+    paintEntries: () => entries,
     observePaint: (cb: () => void) => { listeners.push(cb); return () => { unsubscribed += 1; }; },
     setTimer: (cb: () => void, ms: number) => { timers.push({ cb, ms }); },
-    paint: () => { for (const cb of listeners.splice(0)) cb(); },
+    paint: (name: string = 'first-contentful-paint') => {
+      entries = [...entries, { name }];
+      for (const cb of [...listeners]) cb();
+    },
     fireTimers: () => { for (const t of timers.splice(0)) t.cb(); },
     timers,
     unsubscribed: () => unsubscribed,
@@ -52,12 +58,14 @@ async function settled(promise: Promise<void>): Promise<boolean> {
 const visible = { visibilityState: 'visible' } as const;
 
 describe('waitForStaticFirstPaint', () => {
-  it('waits for the first paint entry, not for a frame callback', async () => {
+  it('waits for first-contentful-paint and ignores an earlier non-contentful paint', async () => {
     const f = fakePaint();
     const wait = waitForStaticFirstPaint({ doc: visible, ...f });
 
     expect(await settled(wait)).toBe(false);
-    f.paint();
+    f.paint('first-paint');
+    expect(await settled(wait)).toBe(false);
+    f.paint('first-contentful-paint');
     expect(await settled(wait)).toBe(true);
     expect(f.unsubscribed()).toBe(1);
   });

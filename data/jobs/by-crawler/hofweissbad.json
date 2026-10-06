@@ -94,7 +94,7 @@
       "companyDomain": "hofweissbad.ch",
       "title": "Mitarbeiter/-in Etage (Aushilfe in flexiblem Pensum | m/w/d) 10 - 20%",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Etage (Aushilfe in flexiblem Pensum | m/w/d) 10 - 20%",
+        "it": "Piano dipendente (ausiliario a carico flessibile | m/f/d) 10 - 20%",
         "en": "Employee floor (temporary employee in flexible workload | m/f/d) 10 - 20%",
         "de": "Mitarbeiter/-in Etage (Aushilfe in flexiblem Pensum | m/w/d) 10 - 20%",
         "fr": "Employé (e) à l'étage (assistant (e) à un taux d'occupation flexible | h/f/d) 10 - 20 %"
@@ -751,9 +751,9 @@
       "slug": "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "it": "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad",
-        "en": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
+        "en": "employee-planning-administration-health-centre-80-100-m-f-d-hof-weissbad-ag-weissbad",
         "de": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
-        "fr": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        "fr": "employe-e-de-planification-et-d-administration-du-centre-de-sante-80-100-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -803,6 +803,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        ],
+        "en": [
+          "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        ],
+        "fr": [
+          "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
         ]
       },
       "firstSeenAt": "2026-10-01T09:29:26.605Z",
@@ -825,9 +831,9 @@
       "slug": "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "it": "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad",
-        "en": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
+        "en": "deputy-head-of-reception-reservation-100-m-f-d-hof-weissbad-ag-weissbad",
         "de": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
-        "fr": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        "fr": "responsable-adjoint-de-la-reception-et-de-la-reservation-100-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -876,6 +882,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        ],
+        "en": [
+          "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        ],
+        "fr": [
           "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
         ]
       },

@@ -3763,12 +3763,12 @@
     },
     {
       "id": "lindenhofgruppe-d99e189d5cac",
-      "slug": "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "responsabile-del-reparto-amministrazione-centro-di-emergenza-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch",
-        "en": "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch",
+        "it": "responsabile-del-reparto-amministrazione-centro-di-emergenza-lindenhofgruppe-lindenhofspital",
+        "en": "head-of-department-administration-emergency-centre-lindenhofgruppe-lindenhofspital",
         "de": "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch",
-        "fr": "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch"
+        "fr": "chef-fe-de-service-administration-centre-d-urgence-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3825,7 +3825,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-administration-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-b76719a1be79",

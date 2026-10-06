@@ -74,13 +74,13 @@ export function adoptStaticFallbackIntoRoot(
 export const STATIC_HANDOFF_HIDE_MARK = 'ft:static-handoff-hide';
 
 /**
- * Upper bound on how long the mount waits for the static HTML's first paint.
- * Measured on the GitHub Lighthouse runner (run 37337515121, 5/5 loads of
- * /cerca-lavoro-ticino/): the browser produced its first main frame 0.9 s
- * after DOMContentLoaded, ~0.4 s after the mount started. 1 s covers that and
- * bounds the worst case when no paint ever comes.
+ * Upper bound on how long the mount waits for the static HTML's first
+ * contentful paint. The slow Lighthouse runner observed on issue 11666
+ * produced that paint 1.3–2.35 s after navigation on
+ * /cerca-lavoro-ticino/, so the bound leaves measured headroom while keeping
+ * a page with no paint from holding the SPA handoff forever.
  */
-export const STATIC_FIRST_PAINT_TIMEOUT_MS = 1000;
+export const STATIC_FIRST_PAINT_TIMEOUT_MS = 3000;
 
 export interface StaticFirstPaintEnv {
   doc?: Pick<Document, 'visibilityState'>;
@@ -111,8 +111,11 @@ const defaultObservePaint = (onPaint: () => void): (() => void) => {
   }
 };
 
+const hasFirstContentfulPaint = (entries: ReadonlyArray<{ name: string }>): boolean =>
+  entries.some((entry) => entry.name === 'first-contentful-paint');
+
 /**
- * Resolve once the browser has PAINTED the static HTML (a `first-paint` /
+ * Resolve once the browser has PAINTED content from the static HTML (a
  * `first-contentful-paint` entry exists), or after `timeoutMs`.
  *
  * Why: the SPA mount hides the static HTML (`opacity: 0` on `#root`, see
@@ -123,7 +126,11 @@ const defaultObservePaint = (onPaint: () => void): (() => void) => {
  * at ~2.3 s: simulated mobile FCP 8.7-9.1 s on 5/5 loads (issue 11666). An
  * animation-frame wait does not help: animation frames are deferred with the
  * main frame, so a short timeout would hide before the paint anyway. The
- * paint timing entry is the signal that the static HTML reached the screen.
+ * A `first-paint` entry is not enough here: the hub shell deliberately starts
+ * with an empty header-height reserve in `#root`, so that first frame can be
+ * non-contentful while the crawler-facing HTML is still waiting to paint.
+ * `first-contentful-paint` is the signal that something useful reached the
+ * screen before the handoff.
  *
  * Bounded: a hidden document (background tab, speculation-rules prerender)
  * does not paint, so it does not wait at all; a visible one waits at most
@@ -133,7 +140,8 @@ export function waitForStaticFirstPaint(env: StaticFirstPaintEnv = {}): Promise<
   const doc = env.doc ?? document;
   if (doc.visibilityState !== 'visible') return Promise.resolve();
   const paintEntries = env.paintEntries ?? defaultPaintEntries;
-  if (paintEntries().length > 0) return Promise.resolve();
+  const hasPaintedContent = () => hasFirstContentfulPaint(paintEntries());
+  if (hasPaintedContent()) return Promise.resolve();
   const observePaint = env.observePaint ?? defaultObservePaint;
   const setTimer = env.setTimer ?? ((cb: () => void, ms: number) => window.setTimeout(cb, ms));
   const timeoutMs = env.timeoutMs ?? STATIC_FIRST_PAINT_TIMEOUT_MS;
@@ -146,7 +154,14 @@ export function waitForStaticFirstPaint(env: StaticFirstPaintEnv = {}): Promise<
       unsubscribe();
       resolve();
     };
-    unsubscribe = observePaint(finish);
+    const finishIfContentfulPainted = () => {
+      if (hasPaintedContent()) finish();
+    };
+    unsubscribe = observePaint(finishIfContentfulPainted);
+    // Close the small race where FCP is recorded between the initial check and
+    // PerformanceObserver registration (the observer's buffered delivery is
+    // asynchronous in Chromium).
+    finishIfContentfulPainted();
     if (done) unsubscribe();
     setTimer(finish, timeoutMs);
   });

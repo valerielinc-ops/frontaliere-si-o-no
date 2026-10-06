@@ -6,12 +6,24 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/stellenpartner-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  loadSpec,
+  normalizeSpecPagination,
+  readDeclaredListingTotal,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Stellenpartner AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(STELLENPARTNER_KEY).toBe('stellenpartner');
     expect(STELLENPARTNER_COMPANY_NAME).toBe('Stellenpartner AG');
+  });
+
+  it('proves the paginated source total before accepting a snapshot', () => {
+    const spec = loadSpec(STELLENPARTNER_KEY);
+    const pagination = normalizeSpecPagination(spec);
+
+    expect(readDeclaredListingTotal('<span>786</span> Resultate', pagination, spec)).toBe(786);
   });
 
   // ── isCompanyJob ──

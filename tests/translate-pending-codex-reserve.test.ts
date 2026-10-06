@@ -19,7 +19,7 @@ import YAML from 'yaml';
  *   · Codex che rifiuta o va in errore lascia l'esito `incomplete`;
  *   · il tetto per run del workflow e' rispettato;
  *   · una chiave DeepL rifiutata (403) conta come una chiave esaurita;
- *   · con DeepL che risponde, Codex non viene chiamato;
+ *   · Codex è primario anche quando DeepL risponde;
  *   · il report della fase dice quante traduzioni ha fatto la riserva e quante
  *     ne ha rifiutate, e il verdetto per l'allarme delle credenziali.
  * Nessuna rete e nessun Codex vero: `fetch` e' uno stub e la chiamata a Codex
@@ -31,6 +31,8 @@ type Messages = Array<{ role: string; content: string }>;
 
 const WORKFLOW = '.github/workflows/translate-pending-logic.yml';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
+const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
+const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const SOCKET_EXPR = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
 
@@ -68,7 +70,7 @@ function phase2bEnv(
   }
   env.FREE_TRANSLATE_CODEX_MAX_CALLS = env.FREE_TRANSLATE_CODEX_MAX_CALLS
     || workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS
-    || '30';
+    || '180';
   return env;
 }
 
@@ -162,6 +164,27 @@ afterEach(() => {
 });
 
 describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () => {
+  it('180 chiamate, 3 corsie e batch da 10 nelle fasi 2b/2d/2e; 25 minuti alla 2b, 15 alle corsie di riparazione', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), WORKFLOW), 'utf8')) as {
+      jobs: { translate: { steps: Array<{ id?: string; name?: string; env?: Record<string, unknown> }> } };
+    };
+    const steps = workflow.jobs.translate.steps;
+    expect(phase2bEnv().FREE_TRANSLATE_CODEX_MAX_CALLS).toBe('180');
+    for (const phase of [PHASE_2B, PHASE_2D, PHASE_2E]) {
+      const step = steps.find((candidate) => candidate.name === phase);
+      expect(step?.env).toMatchObject({
+        FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000',
+        // La 2b ha una finestra di 30 minuti; 2d/2e partono con almeno 15
+        // minuti residui (gate) e non devono essere saltate piu' spesso.
+        FREE_TRANSLATE_CODEX_MAX_MS: phase === PHASE_2B ? '1500000' : '900000',
+        FREE_TRANSLATE_CODEX_LANES: '3',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+      });
+    }
+    const gate = steps.find((candidate) => candidate.id === 'repair_lane_budget');
+    expect(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe('900000');
+  });
+
   it('senza la riserva (la 2b com\'era) i tre tier a chiave giu\' danno `incomplete`', async () => {
     quiet();
     const ft = await loadCascade({ withoutReserve: true });
@@ -182,7 +205,7 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
     expect(out).toBe(EN);
     expect(calls).toHaveLength(1);
     const stats = ft.getCodexTierStats();
-    expect(stats).toMatchObject({ position: 'after-premium', lanePresent: true, premiumDown: true, calls: 1, accepted: 1, rejected: 0 });
+    expect(stats).toMatchObject({ position: 'primary', lanePresent: true, premiumDown: false, calls: 1, accepted: 1, rejected: 0 });
     ft.setCodexTranslateCallForTests(null);
   });
 
@@ -244,13 +267,13 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
     ft.setCodexTranslateCallForTests(null);
   });
 
-  it('con DeepL che risponde Codex non viene chiamato', async () => {
+  it('con DeepL che risponde Codex resta primario', async () => {
     quiet();
     deeplStatus = 200;
     const ft = await loadCascade();
     const calls = stubCodex(ft, (messages) => translatedAnswer(messages));
-    expect(await translate(ft)).toBe(`DEEPL ${EN}`);
-    expect(calls).toHaveLength(0);
+    expect(await translate(ft)).toBe(EN);
+    expect(calls).toHaveLength(1);
     expect(ft.getCodexTierStats().premiumDown).toBe(false);
     ft.setCodexTranslateCallForTests(null);
   });
@@ -279,29 +302,27 @@ describe('report della riserva per la storia e per l\'allarme', () => {
 
   it('il rosso vero: Codex che non traduce niente, lane assente o nessun report', async () => {
     const report = await import('../scripts/lib/codex-reserve-report.mjs');
-    const base = { lanePresent: true, premiumDown: true, position: 'after-premium', maxCalls: 30, maxMs: 900000 };
+    const base = { lanePresent: true, premiumDown: false, position: 'primary', maxCalls: 180, maxMs: 1500000 };
     const failed = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 3, accepted: 0, rejected: 3, stopReason: '3 fallimenti consecutivi' }, { calls: 40 });
     expect(report.codexReserveCoverage([failed]).verdict).toBe('codex-failed');
-    // Doveva entrare (DeepL e Azure giu', testi passati dalla cascata) e non ha chiamato.
+    // La lane primaria doveva entrare e non ha chiamato.
     const silent = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 0, accepted: 0 }, { calls: 40 });
     expect(report.codexReserveCoverage([silent]).verdict).toBe('codex-failed');
     const noLane = report.buildCodexReserveReport('2b-cascade', { ...base, lanePresent: false }, { calls: 40 });
     expect(report.codexReserveCoverage([noLane]).verdict).toBe('codex-unavailable');
     expect(report.codexReserveCoverage([]).verdict).toBe('unknown');
     // Budget speso dopo aver tradotto: non e' un guasto.
-    const spent = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 30, accepted: 41, stopReason: 'budget di 30 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)' }, { calls: 900 });
+    const spent = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 180, accepted: 41, stopReason: 'budget di 180 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)' }, { calls: 900 });
     expect(report.codexReserveCoverage([spent]).verdict).toBe('covered');
-    // Una fase in coda (`last`) che non e' servita non accusa la lane.
-    const idleLast = report.buildCodexReserveReport('2e-descriptions', { ...base, position: 'last', calls: 0 }, { calls: 12 });
-    expect(report.codexReserveCoverage([spent, idleLast]).verdict).toBe('covered');
-    expect(report.summarizeCodexReserve([spent, idleLast])).toMatchObject({ calls: 30, translated: 41, rejected: 0 });
+    expect(report.codexReserveCoverage([spent]).verdict).toBe('covered');
+    expect(report.summarizeCodexReserve([spent])).toMatchObject({ calls: 180, translated: 41, rejected: 0 });
   });
 
   it('il report si scrive all\'uscita della fase e si rilegge dalla cartella', async () => {
     const report = await import('../scripts/lib/codex-reserve-report.mjs');
     const dir = path.join(tmp, 'reports');
     fs.mkdirSync(dir, { recursive: true });
-    const phase = report.buildCodexReserveReport('2b-cascade', { lanePresent: true, calls: 2, accepted: 2, maxCalls: 30 }, { calls: 5 });
+    const phase = report.buildCodexReserveReport('2b-cascade', { lanePresent: true, calls: 2, accepted: 2, maxCalls: 180 }, { calls: 5 });
     fs.writeFileSync(path.join(dir, '2b-cascade.json'), JSON.stringify(phase));
     fs.writeFileSync(path.join(dir, 'rotto.json'), '{');
     expect(report.readCodexReserveReports(dir).map((entry: { phase: string }) => entry.phase)).toEqual(['2b-cascade']);
