@@ -130,3 +130,24 @@ a deleted object is scheduled for repair. The weekly workflow uses the same
 interface with the OAuth broker and opens a data PR. Article and place
 generators are intentionally a follow-up corpus change; they must call the
 same `generateImageFromSpec()` contract rather than add a second provider path.
+
+The historical blog-cover repair lane uses the same contract with
+`scope: 'article-hero'`: its verified bytes live at
+`public/images/blog/<assetId>.webp`, while the matching `generated-provider`
+record is written to
+`packages/articles/content/image-credits/blog/`. The audit and queue scripts
+are deliberately sparse-checkout friendly:
+
+```bash
+node scripts/audit/blog-cover-ledger.mjs --write data/blog-cover-ledger.json
+node scripts/audit/materialize-blog-cover-ledger.mjs
+node scripts/audit/generate-blog-cover-queue.mjs --limit 20
+node scripts/audit/build-blog-image-credits-index.mjs
+npm run validate:blog-cover-ledger
+```
+
+The queue has a hard 150-asset budget, prioritizes level-5 historical
+replacements and then level-6 inferred covers by traffic/recency, and publishes
+remaining work only through the scheduled data-PR workflow. The SPA consumes
+the site-owned `data/image-credits-blog.json` bridge when a section index does
+not yet contain a generated article-hero record.
