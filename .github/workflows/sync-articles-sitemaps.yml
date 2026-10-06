@@ -349,10 +349,11 @@ jobs:
       # opened the stable issue (the third skip), request one rebuild of the
       # publisher's public surface. The helper finds the issue again, so the
       # first two ledger-only failures do nothing, and its 36h marker prevents
-      # a stuck publisher from being hammered by every retry. A manual
-      # workflow_dispatch is intentionally not used here: this is a recovery
-      # nudge only; the normal attested push dispatch or the schedule remains
-      # the path that consumes the rebuilt surface.
+      # a stuck publisher from being hammered by every retry. This does not
+      # dispatch the consumer workflow or admit an unverified event: the
+      # publisher's manual rebuild is only a nudge, while the normal attested
+      # push dispatch or the schedule remains the path that consumes the
+      # rebuilt surface.
       - name: Request bounded publisher recovery after persistent skip
         if: steps.gate.outputs.skipped == 'true' && github.event_name != 'workflow_dispatch'
         continue-on-error: true
