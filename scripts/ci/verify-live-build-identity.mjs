@@ -9,7 +9,7 @@
  * exact build-id match and fails closed on every missing or malformed input.
  */
 
-import { readFile } from 'node:fs/promises';
+import { appendFile, readFile } from 'node:fs/promises';
 import { realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { fetchLiveBuildId } from '../wait-for-pages-propagation.mjs';
@@ -27,6 +27,18 @@ export function isExactBuildId(expectedBuildId, liveBuildId) {
   const expected = String(expectedBuildId ?? '').trim();
   const live = String(liveBuildId ?? '').trim();
   return BUILD_ID_RE.test(expected) && BUILD_ID_RE.test(live) && expected === live;
+}
+
+/**
+ * A newer live build means another serialized publisher won the Pages lock
+ * while this source was waiting. That race is a safe no-op for this run, but
+ * an older live build is still an unexpected identity failure.
+ */
+export function isNewerBuildId(expectedBuildId, liveBuildId) {
+  const expected = String(expectedBuildId ?? '').trim();
+  const live = String(liveBuildId ?? '').trim();
+  if (!BUILD_ID_RE.test(expected) || !BUILD_ID_RE.test(live)) return false;
+  return BigInt(live) > BigInt(expected);
 }
 
 /**
@@ -49,6 +61,7 @@ export async function verifyLiveBuildIdentity({
   if (!COMMIT_SHA_RE.test(ref)) {
     return {
       ok: false,
+      kind: 'invalid',
       expected,
       live: null,
       sourceRef: ref,
@@ -58,6 +71,7 @@ export async function verifyLiveBuildIdentity({
   if (!BUILD_ID_RE.test(expected)) {
     return {
       ok: false,
+      kind: 'invalid',
       expected,
       live: null,
       sourceRef: ref,
@@ -72,6 +86,7 @@ export async function verifyLiveBuildIdentity({
     const detail = error instanceof Error ? error.message : String(error || 'unknown error');
     return {
       ok: false,
+      kind: 'fetch-failure',
       expected,
       live: null,
       sourceRef: ref,
@@ -85,6 +100,7 @@ export async function verifyLiveBuildIdentity({
     const status = Number.isInteger(statusCode) && statusCode > 0 ? `HTTP ${statusCode}` : 'no HTTP response';
     return {
       ok: false,
+      kind: 'fetch-failure',
       expected,
       live,
       sourceRef: ref,
@@ -92,16 +108,26 @@ export async function verifyLiveBuildIdentity({
     };
   }
   if (!isExactBuildId(expected, live)) {
+    const newerLive = isNewerBuildId(expected, live);
     return {
       ok: false,
+      kind: newerLive ? 'stale' : 'mismatch',
       expected,
       live,
       sourceRef: ref,
-      reason: `stale publisher source: live build-id "${live}" does not exactly match source build-id "${expected}"`,
+      reason: newerLive
+        ? `stale publisher source: live build-id "${live}" does not exactly match source build-id "${expected}"`
+        : `live build-id "${live}" does not match source build-id "${expected}"`,
     };
   }
 
-  return { ok: true, expected, live, sourceRef: ref };
+  return { ok: true, kind: 'match', expected, live, sourceRef: ref };
+}
+
+async function writeStatus(status) {
+  const outputFile = String(process.env.GITHUB_OUTPUT || '').trim();
+  if (!outputFile) return;
+  await appendFile(outputFile, `status=${status}\n`, 'utf8');
 }
 
 function parseArgs(argv) {
@@ -118,9 +144,17 @@ async function main() {
   const expectedFile = args['expected-file'];
   const liveBuildIdUrl = args['live-url'] || DEFAULT_LIVE_BUILD_ID_URL;
   const sourceRef = args['source-ref'] || '';
+  const stalePolicy = args['stale-policy'] || 'fail';
+
+  if (!['fail', 'skip'].includes(stalePolicy)) {
+    console.error(`::error::unsupported --stale-policy=${stalePolicy}; expected fail or skip`);
+    await writeStatus('error');
+    return 1;
+  }
 
   if (!expectedFile) {
     console.error('::error::live build identity check requires --expected-file');
+    await writeStatus('error');
     return 1;
   }
 
@@ -130,6 +164,7 @@ async function main() {
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error || 'unknown error');
     console.error(`::error::cannot read source build-id.txt at ${expectedFile}: ${detail}`);
+    await writeStatus('error');
     return 1;
   }
 
@@ -139,10 +174,17 @@ async function main() {
     liveBuildIdUrl,
   });
   if (!verdict.ok) {
+    if (verdict.kind === 'stale' && stalePolicy === 'skip') {
+      await writeStatus('stale');
+      console.log(`::notice::${verdict.reason}; skipping post-deploy side effects because a newer live build already won the publisher race`);
+      return 0;
+    }
+    await writeStatus('error');
     console.error(`::error title=Post-deploy source is stale::${verdict.reason}; source_ref=${verdict.sourceRef || '<missing>'}; expected=${verdict.expected || '<missing>'}; live=${verdict.live || '<missing>'}`);
     return 1;
   }
 
+  await writeStatus('match');
   console.log(`✅ [publish] live build-id "${verdict.live}" matches source build ${verdict.sourceRef}`);
   return 0;
 }
