@@ -1,10 +1,10 @@
 # Issue Automation Instructions
 
-Contratto: `issue-triage.yml` (route **deterministico, senza agente**), `issue-fix.yml` (fix → PR); companion `/fix-issue N` (`.claude/commands/fix-issue.md`).
+Contratto: `issue-triage.yml` (**deterministico, senza agente**), `issue-fix.yml` (fix → PR), `/fix-issue N` (`.claude/commands/fix-issue.md`).
 
 ## Scopo
 
-Issue monitor: classifica/risk policy; automatizza solo categoria/path/rischio verificati. F1/F7, control-plane, ignoti → deny. Tecnico → `automation-deferred`; owner → `needs-human`. PR: check/review.
+Flussi:
 
 **Dedup a MONTE:** `scripts/lib/github-issue-creator.mjs`, **titolo stabile** + 🔁. `post-merge-followup`/`FOLLOWUP.md`: bucket `Europe/Zurich` per target; sito/corpus separati. Triage: **`scripts/lib/classify-issue.mjs` + shell, zero agente/quota**.
 
@@ -24,8 +24,6 @@ Issue monitor: classifica/risk policy; automatizza solo categoria/path/rischio v
 | `other` | nessun match | catch-all, natura eterogenea |
 
 ## Triage flow (`issue-triage.yml`, on `issues: opened`) — deterministico, senza agente
-
-Step shell `Classify and route` + helper Node testabile, zero modello:
 
 1. **Classifica** via regex su titolo+label → UNA categoria (revenue/tracker prima, per evitare collisioni di nomi azienda). Vedi tabella "Categorie".
 2. **Valuta la risk policy** con `scripts/ci/lib/automation-risk-policy.mjs`: su issue surface F1/F7, control-plane, path sconosciuti, metadata non verificabili e issue non note bloccano il routing; la decisione è fail-closed.
@@ -54,7 +52,7 @@ Nessun dedup-close/lettura issue aperte. Misclassificazione → `other`; senza l
 
 ### Frugalità quota (no ANTHROPIC_API_KEY)
 
-AGENTS.md: fixer `CODEX_AUTH_JSON`/Codex Luna Max, non Anthropic; triage zero-agent, max-turns integri, OPEN, `cancel-in-progress: false`, pool bounded; `follow-up`: bucket/repo/giorno, un item/run, `tests.yml`+`## LGTM`+native auto-merge.
+Quota: fixer `CODEX_AUTH_JSON`/Codex Luna Max; triage zero-agent; follow-up bounded.
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
@@ -143,7 +141,7 @@ Per HIGH-risk/manuale in coda: worktree-first; approvazione pre-push solo con `O
 
 ## Segnalazione umana di un difetto di contenuto crawlato
 
-Segnala un difetto **visto a occhio** live senza sessione:
+Segnala un difetto:
 
 ```bash
 node scripts/report-crawler-content-error.mjs <crawler-key|url-del-job> "<cosa c'è che non va>"
@@ -155,11 +153,7 @@ Pipeline: `issue-triage` → `issue-fix` → PR → `tests.yml` → review Codex
 
 Senza flag → `other`; senza segnale → `route='none'`. `--urgent` aggiunge `parser-broken` → `crawler` → `agent:fix` immediato se consentito (opt-in).
 
-
-
 ## Contratto minimo per issue auto-generate (`## Segnali`, opt-in)
-
-Il solo sintomo non dà riproduzione/evidenza. `issue-decompose.yml` usa `## Scheda`; reporter zero-agente: `signals` opt-in.
 
 `signals` in `createGithubIssue()` (`scripts/lib/github-issue-creator.mjs`, `formatSignalsBlock`) = fatti raccolti, NON diagnosi.
 
@@ -180,7 +174,7 @@ CLI (`github-issue-creator.mjs` subprocess):
 
 Renderizza `## Segnali (raccolti automaticamente)` prima di `description`; senza `signals` body invariato; `issue-fix.yml` salta la scoperta.
 
-Caller ricchi (`report-validate-dist-failure.mjs`, `send-job-alerts.mjs`): niente `## Segnali`; eccezione `reconcile-here-usage.mjs`.
+Caller (`report-validate-dist-failure.mjs`, `send-job-alerts.mjs`): niente `## Segnali`; eccezione `reconcile-here-usage.mjs`.
 
 ## Kill-switch
 
