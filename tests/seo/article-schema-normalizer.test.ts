@@ -109,7 +109,7 @@ describe('static Article JSON-LD safety net', () => {
     }) as Record<string, any>;
 
     expect(normalized.image.creator['@id']).toBe(
-      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe',
+      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe-9c3bd3af9176f96b',
     );
     expect(normalized.about[0]['@id']).toBe('https://www.eoc.ch/');
     expect(normalized.about[1]['@id']).toBe(normalized.about[0]['@id']);
@@ -132,6 +132,35 @@ describe('static Article JSON-LD safety net', () => {
     };
     const normalized = normalizeStructuredData({ '@type': 'NewsArticle', creator: external }) as Record<string, any>;
     expect(normalized.creator).toEqual(external);
+  });
+
+  it('gives different name-only organizations different ids even when their readable slug is the same', () => {
+    // The slug folds accents, punctuation and `&`: without the hash these pairs
+    // shared one `@id` and the identity pass merged two entities into one node.
+    for (const [first, second, slug] of [
+      ['A & B', 'A and B', 'a-and-b'],
+      ['Müller AG', 'Muller AG', 'muller-ag'],
+      ['Foo, Inc.', 'Foo Inc', 'foo-inc'],
+    ]) {
+      const firstId = stableOrganizationId({ name: first });
+      const secondId = stableOrganizationId({ name: second });
+      const shape = new RegExp(`^https://frontaliereticino\\.ch/#organization-${slug}-[0-9a-f]{16}$`);
+      expect(firstId, first).toMatch(shape);
+      expect(secondId, second).toMatch(shape);
+      expect(firstId, `${first} / ${second}`).not.toBe(secondId);
+    }
+  });
+
+  it('treats letter case, spacing and Unicode composition as the same name', () => {
+    const reference = stableOrganizationId({ name: 'Müller AG' });
+    expect(reference).toBe('https://frontaliereticino.ch/#organization-muller-ag-d75b10ed063cefa7');
+    expect(stableOrganizationId({ name: '  MÜLLER   ag ' })).toBe(reference);
+    expect(stableOrganizationId({ name: 'Mu\u0308ller AG' })).toBe(reference);
+  });
+
+  it('leaves a name without letters or digits anonymous', () => {
+    expect(stableOrganizationId({ name: '!!!' })).toBeUndefined();
+    expect(stableOrganizationId({ name: ' — ' })).toBeUndefined();
   });
 
   it('keeps long name-only organizations distinct after the readable key limit', () => {
