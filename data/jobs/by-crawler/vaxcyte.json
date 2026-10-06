@@ -58,13 +58,11 @@
         "location": "Visp"
       },
       "previousSlugs": [
-        "staff-engineer-drug-substance-msat-vaxcyte-ch",
-        "staff-ingegnere-drug-substance-msat-vaxcyte-visp"
+        "staff-engineer-drug-substance-msat-vaxcyte-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-engineer-drug-substance-msat-vaxcyte-ch",
-          "staff-ingegnere-drug-substance-msat-vaxcyte-visp"
+          "staff-engineer-drug-substance-msat-vaxcyte-ch"
         ],
         "de": [
           "staff-engineer-drug-substance-msat-vaxcyte-ch"
@@ -146,13 +144,11 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch",
-          "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
+          "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch"
         ],
         "it": [
           "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch",
-          "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch",
-          "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp"
+          "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch"
         ],
         "de": [
           "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch"
@@ -163,8 +159,7 @@
       },
       "previousSlugs": [
         "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch",
-        "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch",
-        "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp"
+        "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:06:18.703Z",
@@ -184,10 +179,10 @@
     },
     {
       "id": "vaxcyte-dfe11ab55bc0",
-      "slug": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch",
+      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
       "slugByLocale": {
         "en": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch",
-        "it": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch",
+        "it": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
         "de": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch",
         "fr": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch"
       },
@@ -253,7 +248,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:25:46.217Z"
+      "firstSeenAt": "2026-10-05T21:25:46.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch"
+      ]
     },
     {
       "id": "vaxcyte-f57d2d8f4e2b",
@@ -311,13 +314,11 @@
         "location": "Visp"
       },
       "previousSlugs": [
-        "senior-manager-quality-assurance-vaxcyte-ch",
-        "senior-manager-assicurazione-qualita-vaxcyte-visp"
+        "senior-manager-quality-assurance-vaxcyte-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-quality-assurance-vaxcyte-ch",
-          "senior-manager-assicurazione-qualita-vaxcyte-visp"
+          "senior-manager-quality-assurance-vaxcyte-ch"
         ],
         "de": [
           "senior-manager-quality-assurance-vaxcyte-ch"
@@ -326,7 +327,7 @@
           "senior-manager-quality-assurance-vaxcyte-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -340,7 +341,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -398,13 +400,11 @@
         "location": "Visp"
       },
       "previousSlugs": [
-        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch",
-        "senior-manager-manufacturing-systems-operations-readiness-contrattore-vaxcyte-visp"
+        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch",
-          "senior-manager-manufacturing-systems-operations-readiness-contrattore-vaxcyte-visp"
+          "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
         ],
         "de": [
           "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"

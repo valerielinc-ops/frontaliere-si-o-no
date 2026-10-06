@@ -8628,8 +8628,8 @@
     },
     "da267cec19bda44dab28a4704fa62caf08c930f771a4ab2c93310cf39886b929": {
       "decision": "skip:source-copy",
-      "createdAt": "2026-09-29T03:26:33.991Z",
-      "expiresAt": "2026-10-06T00:26:13.173Z"
+      "createdAt": "2026-10-06T00:43:44.240Z",
+      "expiresAt": "2026-10-12T21:43:23.422Z"
     },
     "31a38e7264c3227ffce6b80cd0f589056825da04861d9a60749dc9a427e3fbc4": {
       "decision": "skip:source-copy",
@@ -15738,13 +15738,13 @@
     },
     "5be002608b3ccaf0e226c054d45dc2d788273e67557d55b8e34928f6777f3321": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T11:10:01.693Z",
-      "expiresAt": "2026-10-04T08:42:59.566Z"
+      "createdAt": "2026-10-06T00:43:42.534Z",
+      "expiresAt": "2026-10-12T22:16:40.407Z"
     },
     "9a60d3508109ef8d602dae3f25a20e987571ab4a272e93246aaa11072a7e906e": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T11:10:01.693Z",
-      "expiresAt": "2026-10-04T15:47:57.848Z"
+      "createdAt": "2026-10-06T00:43:42.534Z",
+      "expiresAt": "2026-10-13T05:21:38.689Z"
     },
     "f8880b37d91f674ae5b55ac13310ce1c82b610497cb519b2d25410026d03180d": {
       "decision": "skip:candidate-untranslated",
@@ -18443,8 +18443,8 @@
     },
     "bd90016bb7c0f2bf1efee672e7ffb5ec3c6af19408ba80763d84ca3f72792c97": {
       "decision": "skip:source-copy",
-      "createdAt": "2026-09-28T21:17:42.515Z",
-      "expiresAt": "2026-10-05T23:45:04.258Z"
+      "createdAt": "2026-10-06T00:43:47.002Z",
+      "expiresAt": "2026-10-13T03:11:08.745Z"
     },
     "f7767533e05a38b15897fb2803bd7155a460a0f696eff60f0aa9fd5818e96641": {
       "decision": "skip:candidate-untranslated",
@@ -18458,8 +18458,8 @@
     },
     "4c63170607cd202d9df1f9a94a536ce77c465c4206f14394a8318e76e8058cd4": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-28T21:17:48.519Z",
-      "expiresAt": "2026-10-06T00:24:54.680Z"
+      "createdAt": "2026-10-06T00:43:48.670Z",
+      "expiresAt": "2026-10-13T03:50:54.831Z"
     },
     "b1090731cadee8a86ce90f0e133a5f962f36eb98aad208a7508e4c4bfbc607c0": {
       "decision": "skip:source-copy",
@@ -30310,6 +30310,91 @@
       "decision": "skip:candidate-untranslated",
       "createdAt": "2026-10-05T23:16:50.599Z",
       "expiresAt": "2026-10-12T21:38:31.895Z"
+    },
+    "a5ccab205a58a0166cd417df8ca4ee52169ea2709e0cdfa1cb8904ea490dacef": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:10.207Z",
+      "expiresAt": "2026-10-13T04:23:17.825Z"
+    },
+    "a2d0cbbb8610ca7c40540f9c4c76a0cc4a76ae1e8613dc84fc74828630991ee5": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:10.208Z",
+      "expiresAt": "2026-10-13T00:49:59.358Z"
+    },
+    "d018b7a42fb7394f10af1a117bfca1b907549639478c58b08527dc5448747b4a": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:27.945Z",
+      "expiresAt": "2026-10-13T02:56:47.297Z"
+    },
+    "911ac1e7b70a5fb721041fb8111398e978316d9060cadb9754a6d91ef0acdf57": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:27.945Z",
+      "expiresAt": "2026-10-12T20:44:51.353Z"
+    },
+    "4e61f570f85deebe941bc56577ec488aebf8dbf8eca01ee90128709c70866215": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:41.778Z",
+      "expiresAt": "2026-10-13T03:54:10.463Z"
+    },
+    "49421f470e0fac0a378cf094d10b715662d2a46cb671fd3934b273657d0c78a5": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:41.778Z",
+      "expiresAt": "2026-10-12T23:01:23.189Z"
+    },
+    "1ca3f06be853a3a902787c51bc6f204b8a4949b63234211e99d10d245ecea7c0": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:41.860Z",
+      "expiresAt": "2026-10-12T23:52:01.990Z"
+    },
+    "2b3d2650fe81ecbb16a816a799cfa2d64468c47819fd02ede2f77cfb4c3229f6": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:42.265Z",
+      "expiresAt": "2026-10-13T03:07:30.645Z"
+    },
+    "cbf1173b9f2fe57c09259a97ac5ac6d16a2388f2f9c2d242c94b0fa17033c4c4": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.044Z",
+      "expiresAt": "2026-10-13T04:39:50.791Z"
+    },
+    "8719d7b740e24de9f87a58071015d6d1e6f532dff27e8b10c7b1045f9dbd152d": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.044Z",
+      "expiresAt": "2026-10-13T05:30:00.761Z"
+    },
+    "b813e241833adfeadfba47dd73f87d09e8ffb58cbc7ea77c3094b9d25c72de0c": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.123Z",
+      "expiresAt": "2026-10-13T03:22:03.603Z"
+    },
+    "9adc35a391158799cf4ca3a8f833736680068e63a7f5a31da5f93f6259278456": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.124Z",
+      "expiresAt": "2026-10-13T02:05:00.984Z"
+    },
+    "479d5d850ce8262973ce8ffe465fcb45ea4067363bf759cc30e1d3216fb2a1a6": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.762Z",
+      "expiresAt": "2026-10-12T21:58:37.096Z"
+    },
+    "f8ba5b6d77b71ba8675babd41a51e8d80380e9d1e58b47f1b37d13f302a18df9": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.763Z",
+      "expiresAt": "2026-10-13T02:17:14.112Z"
+    },
+    "76c8432022c3c71d1041c468eaa75017ea0f163feef178d8e34330419e5dc75d": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.763Z",
+      "expiresAt": "2026-10-13T03:00:27.499Z"
+    },
+    "a46194fd0901919304337a99bb990e191b720da092c46817c49971a9df3ddb49": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-10-06T00:43:43.763Z",
+      "expiresAt": "2026-10-12T22:13:26.630Z"
+    },
+    "cdb6a9c374f02dc9a041117b974feb461c7c83525ef13cdd9a71df2105ddf982": {
+      "decision": "skip:source-copy",
+      "createdAt": "2026-10-06T00:43:47.915Z",
+      "expiresAt": "2026-10-12T22:58:37.222Z"
     }
   }
 }

@@ -17607,20 +17607,15 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.stadt-zuerich.ch/job/Kindheitsp%C3%A4dagogin-HF/1370575257/",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51457",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "de": [
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
-        ],
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
           "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
@@ -17628,6 +17623,10 @@
           "kindheitspadagog-in-hf-stadt-zurich",
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
           "educazione-dell-infanzia-hf-stadt-zurich-zurich"
+        ],
+        "de": [
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
         ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
@@ -17648,8 +17647,6 @@
         "childhood-education-hf-stadt-zurich-zurich",
         "childhoodeducator-hf-stadt-zurich"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:28:23.273Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17662,7 +17659,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:28:23.273Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "stadt-zuerich-8b9423137fb3",
@@ -23837,9 +23837,9 @@
       "slug": "sozialarbeiter-in-kindesschutz-befristet-stadt-zurich",
       "slugByLocale": {
         "it": "sozialarbeiter-in-kindesschutz-befristet-stadt-zurich",
-        "en": "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777",
+        "en": "temporary-child-protection-social-worker-stadt-zurich-zurich",
         "de": "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777",
-        "fr": "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777"
+        "fr": "travailleur-e-social-le-de-la-protection-de-l-enfant-pour-une-duree-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23890,9 +23890,14 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777"
+        ],
+        "en": [
+          "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kindesschutz-befristet-stadt-zuerich-zurigo-51777"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:33:48.360Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -23912,9 +23917,9 @@
     },
     {
       "id": "stadt-zuerich-fda74a2abf96",
-      "slug": "fachspezialist-in-infrastruktur-stadt-zuerich-zurigo-51731",
+      "slug": "specialista-in-infrastrutture-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-in-infrastruktur-stadt-zuerich-zurigo-51731",
+        "it": "specialista-in-infrastrutture-stadt-zurich-zurich",
         "en": "specialist-infrastructure-stadt-zurich-zurich",
         "de": "fachspezialist-in-infrastruktur-stadt-zuerich-zurigo-51731",
         "fr": "infrastructure-specialisee-stadt-zurich-zurich"
@@ -23964,7 +23969,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Sportamt",
       "referenceNumber": "51731",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:33:48.360Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -23978,7 +23982,15 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-infrastruktur-stadt-zuerich-zurigo-51731"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-infrastruktur-stadt-zuerich-zurigo-51731"
+      ]
     },
     {
       "id": "stadt-zuerich-a6a69235ee1e",

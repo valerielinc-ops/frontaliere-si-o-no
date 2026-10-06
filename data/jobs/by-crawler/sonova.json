@@ -296,7 +296,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1289,7 +1288,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1457,12 +1455,12 @@
     },
     {
       "id": "sonova-18480b67cece",
-      "slug": "senior-strategic-campaign-lead-sonova-ch",
+      "slug": "leader-della-campagna-strategica-senior-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "senior-strategic-campaign-lead-sonova-ch",
-        "it": "senior-strategic-campaign-lead-sonova-ch",
+        "it": "leader-della-campagna-strategica-senior-sonova-staefa-switzerland",
         "de": "senior-strategic-campaign-lead-sonova-ch",
-        "fr": "senior-strategic-campaign-lead-sonova-ch"
+        "fr": "chef-de-campagne-strategique-principal-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1519,7 +1517,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:24:09.705Z"
+      "firstSeenAt": "2026-10-05T21:24:09.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-strategic-campaign-lead-sonova-ch"
+        ],
+        "fr": [
+          "senior-strategic-campaign-lead-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-strategic-campaign-lead-sonova-ch"
+      ]
     }
   ]
 }

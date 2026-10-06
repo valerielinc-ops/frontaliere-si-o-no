@@ -11040,7 +11040,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:14:35.730Z",
       "salaryMin": 74000,
@@ -17104,7 +17103,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:14:35.625Z",
       "salaryMin": 68500,
@@ -17341,7 +17339,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:14:35.620Z",
       "salaryMin": 68500,
@@ -17591,7 +17588,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:14:35.616Z",
       "salaryMin": 79000,
@@ -21637,7 +21633,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:14:35.560Z",
       "salaryMin": 73500,
@@ -24777,8 +24772,8 @@
       "slugByLocale": {
         "de": "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount",
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-munsingen",
-        "en": "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount",
-        "fr": "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount"
+        "en": "retail-specialist-efz-designing-shopping-experiences-interdiscount-munsingen",
+        "fr": "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-interdiscount-munsingen"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24841,6 +24836,12 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount"
+        ],
+        "fr": [
           "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount"
         ]
       },

@@ -678,12 +678,12 @@
     },
     {
       "id": "ksml-e83edb3426bf",
-      "slug": "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413",
+      "slug": "ciclo-1-vice-primo-grado-13-lezioni-dal-lunedi-al-mercoledi-nella-casa-di-scuola-di-wittigkofen-almeno-31-gennaio-40413",
       "slugByLocale": {
         "de": "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413",
-        "it": "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413",
-        "en": "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413",
-        "fr": "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413"
+        "it": "ciclo-1-vice-primo-grado-13-lezioni-dal-lunedi-al-mercoledi-nella-casa-di-scuola-di-wittigkofen-almeno-31-gennaio-40413",
+        "en": "cycle-1-deputy-1st-grade-13-lessons-from-monday-to-wednesday-in-the-wittigkofen-school-house-until-at-least-31-40413",
+        "fr": "cycle-1-1ere-annee-adjoint-13-lecons-du-lundi-au-mercredi-dans-la-maison-scolaire-de-wittikkofen-jusqu-au-moins-31-40413"
       },
       "slugDisambiguator": "40413",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -744,7 +744,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:02.811Z"
+      "firstSeenAt": "2026-10-05T21:37:02.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413"
+        ],
+        "en": [
+          "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413"
+        ],
+        "fr": [
+          "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413"
+        ]
+      },
+      "previousSlugs": [
+        "zyklus-1-stellvertretung-1-klasse-13-lektionen-von-montag-bis-mittwoch-im-schulhaus-40413"
+      ]
     },
     {
       "id": "ksml-9535249c4152",
@@ -1829,7 +1843,7 @@
         "it": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-butzberg",
         "en": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
         "de": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "fr": "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
+        "fr": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
       },
       "slugDisambiguator": "40105",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1889,7 +1903,6 @@
       "previousSlugs": [
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105",
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
         "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
       ],
       "previousSlugsByLocale": {
@@ -1901,7 +1914,6 @@
           "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105"
         ],
         "fr": [
-          "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
           "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
         ]
       },
@@ -2006,7 +2018,7 @@
       "slug": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
       "slugByLocale": {
         "it": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
-        "en": "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
+        "en": "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "de": "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-schule-kallnach-kallnach-36735",
         "fr": "temps-partiel-psychomotricite-therapie-par-le-mouvement-2-3-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-un-36735"
       },
@@ -2093,7 +2105,6 @@
         "partial-course-psychomotor-movement-therapy-2-3-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
-        "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
       ],
       "previousSlugsByLocale": {
@@ -2109,7 +2120,6 @@
           "partial-course-psychomotor-movement-therapy-2-3-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
           "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
           "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
-          "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
           "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
         ],
         "fr": [
@@ -2709,7 +2719,7 @@
         "it": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
         "en": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289",
         "de": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289",
-        "fr": "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
+        "fr": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
       },
       "slugDisambiguator": "40289",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -2756,7 +2766,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289",
-        "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289",
         "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
       ],
       "previousSlugsByLocale": {
@@ -2764,7 +2773,6 @@
           "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289"
         ],
         "fr": [
-          "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289",
           "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
         ]
       },
@@ -2975,7 +2983,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.852Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3777,12 +3784,12 @@
     },
     {
       "id": "ksml-4eb2383fb6f7",
-      "slug": "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
+      "slug": "vice-insegnante-di-scuola-materna-30-11-26-02-07-27-27-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40402",
       "slugByLocale": {
         "de": "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-schulen-belp-40402",
-        "it": "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
-        "en": "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-ksml-kantonaler-stellenmarkt-fur-40402",
-        "fr": "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-ksml-kantonaler-stellenmarkt-fur-40402"
+        "it": "vice-insegnante-di-scuola-materna-30-11-26-02-07-27-27-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40402",
+        "en": "deputy-class-teacher-kindergarten-30-11-26-02-07-27-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40402",
+        "fr": "ecole-maternelle-des-enseignants-adjoints-30-11-26-02-07-27-27-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40402"
       },
       "slugDisambiguator": "40402",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3832,11 +3839,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-schulen-belp-40402"
+          "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-schulen-belp-40402",
+          "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp"
+        ],
+        "en": [
+          "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-ksml-kantonaler-stellenmarkt-fur-40402"
+        ],
+        "fr": [
+          "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-ksml-kantonaler-stellenmarkt-fur-40402"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-schulen-belp-40402"
+        "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-schulen-belp-40402",
+        "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
+        "stellvertretung-klassenlehrperson-kindergarten-30-11-26-02-07-27-27-lektionen-ksml-kantonaler-stellenmarkt-fur-40402"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -4755,12 +4771,12 @@
     },
     {
       "id": "ksml-dc52f7410e57",
-      "slug": "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414",
+      "slug": "vice-in-seconda-classe-3-lezioni-di-giovedi-pomeriggio-15-10-2026-28-01-2027-ksml-kantonaler-stellenmarkt-fur-40414",
       "slugByLocale": {
         "de": "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414",
-        "it": "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414",
-        "en": "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414",
-        "fr": "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414"
+        "it": "vice-in-seconda-classe-3-lezioni-di-giovedi-pomeriggio-15-10-2026-28-01-2027-ksml-kantonaler-stellenmarkt-fur-40414",
+        "en": "deputy-in-a-2nd-class-3-lessons-on-thursday-afternoon-15-10-2026-28-01-2027-ksml-kantonaler-stellenmarkt-fur-40414",
+        "fr": "adjoint-en-2eme-classe-3-lecons-le-jeudi-apres-midi-15-10-2026-28-01-2027-ksml-kantonaler-stellenmarkt-fur-40414"
       },
       "slugDisambiguator": "40414",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -4821,13 +4837,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:02.803Z"
+      "firstSeenAt": "2026-10-05T21:37:02.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414"
+        ],
+        "en": [
+          "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414"
+        ],
+        "fr": [
+          "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-an-einer-2-klasse-3-lektionen-am-donnerstagnachmittag-15-10-2026-28-01-40414"
+      ]
     },
     {
       "id": "ksml-491a048989b4",
-      "slug": "stellvertretung-englisch-zyklus-3-lektionen-befristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munchenbuchsee",
+      "slug": "inglese-aggiunto-ciclo-3-3-lezioni-temporaneo-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328",
       "slugByLocale": {
-        "it": "stellvertretung-englisch-zyklus-3-lektionen-befristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munchenbuchsee",
+        "it": "inglese-aggiunto-ciclo-3-3-lezioni-temporaneo-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328",
         "en": "deputy-english-cycle-3-3-lessons-temporary-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328",
         "de": "stellvertretung-englisch-zyklus-3-3-lektionen-befristet-schule-munchenbuchsee-40328",
         "fr": "anglais-adjoint-cycle-3-3-lecons-temporaire-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328"
@@ -4878,13 +4908,11 @@
       "previousSlugs": [
         "stellvertretung-englisch-zyklus-3-3-lektionen-befristet-schule-munchenbuchsee-40328",
         "stellvertretung-englisch-zyklus-3-3-lektionen-befristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40328",
-        "inglese-aggiunto-ciclo-3-3-lezioni-temporaneo-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328",
         "stellvertretung-englisch-zyklus-3-lektionen-befristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-englisch-zyklus-3-3-lektionen-befristet-schule-munchenbuchsee-40328",
-          "inglese-aggiunto-ciclo-3-3-lezioni-temporaneo-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40328",
           "stellvertretung-englisch-zyklus-3-lektionen-befristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munchenbuchsee"
         ],
         "en": [
@@ -4915,8 +4943,8 @@
       "slugByLocale": {
         "de": "heilpadagogin-heilpadagoge-zyklus-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzen-38018",
         "it": "insegnante-di-guarigione-ciclo-di-insegnante-di-guarigione-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf",
-        "en": "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf",
-        "fr": "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
+        "en": "healing-teacher-healing-teacher-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38018",
+        "fr": "enseignant-en-guerison-enseignant-en-guerison-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38018"
       },
       "slugDisambiguator": "38018",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -4972,16 +5000,15 @@
           "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-schule-untere-emme-utzenstorf-38018"
         ],
         "en": [
-          "healing-teacher-healing-teacher-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38018"
+          "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
         ],
         "fr": [
-          "enseignant-en-guerison-enseignant-en-guerison-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38018"
+          "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
         ]
       },
       "previousSlugs": [
         "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-schule-untere-emme-utzenstorf-38018",
-        "healing-teacher-healing-teacher-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38018",
-        "enseignant-en-guerison-enseignant-en-guerison-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38018"
+        "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -5415,12 +5442,12 @@
     },
     {
       "id": "ksml-aee27f1f5a3b",
-      "slug": "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+      "slug": "deputato-18-24-lezioni-a-1-2-classe-mista-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-40404",
       "slugByLocale": {
         "de": "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-primarschule-schonau-hohmad-thun-40404",
-        "it": "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
-        "en": "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40404",
-        "fr": "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40404"
+        "it": "deputato-18-24-lezioni-a-1-2-classe-mista-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-40404",
+        "en": "deputy-18-24-lessons-at-a-1-2-mixed-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-40404",
+        "fr": "adjoint-18-24-lecons-au-1-2-classe-mixte-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-40404"
       },
       "slugDisambiguator": "40404",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -5470,11 +5497,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-primarschule-schonau-hohmad-thun-40404"
+          "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-primarschule-schonau-hohmad-thun-40404",
+          "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
+        ],
+        "en": [
+          "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40404"
+        ],
+        "fr": [
+          "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40404"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-primarschule-schonau-hohmad-thun-40404"
+        "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-primarschule-schonau-hohmad-thun-40404",
+        "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+        "stellvertretung-18-24-lektionen-an-einer-1-2-mischklasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40404"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -8490,7 +8526,7 @@
         "de": "logopadin-logopade-20-24-lektionen-das-pensum-kann-aufgeteilt-werden-volksschule-burgdorf-39394",
         "it": "speech-pediatra-20-24-lezioni-la-quantita-puo-essere-divisa-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf",
         "en": "speech-pediatrician-speech-pediatrician-20-24-lessons-the-amount-can-be-divided-ksml-kantonaler-stellenmarkt-fur-39394",
-        "fr": "logopadin-logopade-20-22-lektionen-das-pensum-kann-aufgeteilt-werden-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf"
+        "fr": "pediatre-du-discours-pediatre-du-discours-20-24-lecons-le-montant-peut-etre-divise-ksml-kantonaler-stellenmarkt-39394"
       },
       "slugDisambiguator": "39394",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8545,12 +8581,12 @@
           "logopadin-logopade-20-22-lektionen-das-pensum-kann-aufgeteilt-werden-volksschule-burgdorf-39394"
         ],
         "fr": [
-          "pediatre-du-discours-pediatre-du-discours-20-24-lecons-le-montant-peut-etre-divise-ksml-kantonaler-stellenmarkt-39394"
+          "logopadin-logopade-20-22-lektionen-das-pensum-kann-aufgeteilt-werden-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf"
         ]
       },
       "previousSlugs": [
         "logopadin-logopade-20-22-lektionen-das-pensum-kann-aufgeteilt-werden-volksschule-burgdorf-39394",
-        "pediatre-du-discours-pediatre-du-discours-20-24-lecons-le-montant-peut-etre-divise-ksml-kantonaler-stellenmarkt-39394"
+        "logopadin-logopade-20-22-lektionen-das-pensum-kann-aufgeteilt-werden-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -8898,7 +8934,6 @@
         "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-jan-juli-2027-perspektive-36578",
         "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-jan-juli-2027-perspektive-zur-36578"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:56:21.615Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -11562,7 +11597,7 @@
         "it": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf",
         "en": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297",
         "de": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "fr": "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
+        "fr": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
       },
       "slugDisambiguator": "40297",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -11609,7 +11644,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297",
         "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
       ],
       "previousSlugsByLocale": {
@@ -11617,7 +11651,6 @@
           "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297"
         ],
         "fr": [
-          "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297",
           "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
         ]
       },
@@ -12237,14 +12270,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
+          "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889",
+          "integrative-forderung-im-zyklus-3-4-6-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
         ],
         "de": [
           "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
         ]
       },
       "previousSlugs": [
-        "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
+        "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889",
+        "integrative-forderung-im-zyklus-3-4-6-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -12341,7 +12376,7 @@
       "slug": "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
       "slugByLocale": {
         "it": "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
-        "en": "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
+        "en": "kindergarten-teacher-8-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
         "de": "kindergartenlehrperson-8-12-lektionen-kindergarten-und-primarschule-hasle-b-b-hasle-b-b-40074",
         "fr": "professeur-de-maternelle-8-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
       },
@@ -12415,8 +12450,7 @@
         "deputy-kindergarten-teacher-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss-39784",
         "stellvertretung-kindergartenlehrperson-27-lektionen-schule-stegmatt-lyss-39784",
         "professeur-adjoint-de-maternelle-27-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39784",
-        "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
-        "kindergarten-teacher-8-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
+        "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12430,7 +12464,6 @@
         "en": [
           "deputy-kindergarten-teacher-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss-39784",
           "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
-          "kindergarten-teacher-8-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
           "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b"
         ],
         "de": [
@@ -12974,8 +13007,8 @@
       "slugByLocale": {
         "de": "heilpadagogin-heilpadagoge-27-28-lektionen-kindergarten-und-primarschule-uettligen-40201",
         "it": "professore-di-guarigione-27-28-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen",
-        "en": "heilpadagogin-heilpadagoge-27-28-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen",
-        "fr": "heilpadagogin-heilpadagoge-27-28-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen"
+        "en": "healing-teacher-27-28-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201",
+        "fr": "professeur-de-guerison-27-28-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201"
       },
       "slugDisambiguator": "40201",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13028,16 +13061,15 @@
           "heilpadagogin-heilpadagoge-27-28-lektionen-kindergarten-und-primarschule-uettligen-40201"
         ],
         "en": [
-          "healing-teacher-27-28-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201"
+          "heilpadagogin-heilpadagoge-27-28-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen"
         ],
         "fr": [
-          "professeur-de-guerison-27-28-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201"
+          "heilpadagogin-heilpadagoge-27-28-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen"
         ]
       },
       "previousSlugs": [
         "heilpadagogin-heilpadagoge-27-28-lektionen-kindergarten-und-primarschule-uettligen-40201",
-        "healing-teacher-27-28-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201",
-        "professeur-de-guerison-27-28-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen-40201"
+        "heilpadagogin-heilpadagoge-27-28-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-uettligen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -13239,12 +13271,12 @@
     },
     {
       "id": "ksml-b42f2336e1fb",
-      "slug": "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nathalie-stiftung-gumligen",
+      "slug": "guarigione-pedagogue-guarigione-pedagogue-al-60-madre-chat-rappresentazione-ksml-kantonaler-stellenmarkt-fur-40407",
       "slugByLocale": {
         "de": "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-nathalie-stiftung-nathalie-40407",
-        "it": "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nathalie-stiftung-gumligen",
-        "en": "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40407",
-        "fr": "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40407"
+        "it": "guarigione-pedagogue-guarigione-pedagogue-al-60-madre-chat-rappresentazione-ksml-kantonaler-stellenmarkt-fur-40407",
+        "en": "healing-pedagogue-healing-pedagogue-to-60-mother-chat-representation-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40407",
+        "fr": "pedagogue-de-guerison-pedagogue-de-guerison-a-60-representation-de-la-mere-chat-ksml-kantonaler-stellenmarkt-fur-40407"
       },
       "slugDisambiguator": "40407",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13294,11 +13326,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-nathalie-stiftung-nathalie-40407"
+          "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-nathalie-stiftung-nathalie-40407",
+          "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nathalie-stiftung-gumligen"
+        ],
+        "en": [
+          "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40407"
+        ],
+        "fr": [
+          "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40407"
         ]
       },
       "previousSlugs": [
-        "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-nathalie-stiftung-nathalie-40407"
+        "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-nathalie-stiftung-nathalie-40407",
+        "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nathalie-stiftung-gumligen",
+        "heilpadagogin-heilpadagogen-zu-60-mutterschatsvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40407"
       ],
       "salaryMin": 35400,
       "salaryMax": 65100,
@@ -13317,12 +13358,12 @@
     },
     {
       "id": "ksml-500af33fb192",
-      "slug": "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410",
+      "slug": "insegnante-di-guarigione-insegnanti-di-guarigione-al-60-75-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40410",
       "slugByLocale": {
         "de": "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410",
-        "it": "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410",
-        "en": "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410",
-        "fr": "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410"
+        "it": "insegnante-di-guarigione-insegnanti-di-guarigione-al-60-75-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40410",
+        "en": "healing-teacher-healing-teachers-at-60-75-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40410",
+        "fr": "professeur-de-guerison-professeurs-de-guerison-a-60-75-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40410"
       },
       "slugDisambiguator": "40410",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13383,7 +13424,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:02.781Z"
+      "firstSeenAt": "2026-10-05T21:37:02.781Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410"
+        ],
+        "en": [
+          "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410"
+        ],
+        "fr": [
+          "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410"
+        ]
+      },
+      "previousSlugs": [
+        "heilpadagogin-heilpadagogen-zu-60-75-nathalie-stiftung-gumligen-nathalie-stiftung-40410"
+      ]
     },
     {
       "id": "ksml-896257324b20",
@@ -14874,12 +14929,12 @@
     },
     {
       "id": "ksml-4bd0eb21efb2",
-      "slug": "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343",
+      "slug": "istruttore-specializzato-3-4-classe-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-37343",
       "slugByLocale": {
         "de": "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343",
-        "it": "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343",
-        "en": "fachlehrperson-3-4-klasse-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-batterkinden-37343",
-        "fr": "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343"
+        "it": "istruttore-specializzato-3-4-classe-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-37343",
+        "en": "specialist-instructor-3-4-class-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-37343",
+        "fr": "instructeur-specialise-3-4-classe-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-37343"
       },
       "slugDisambiguator": "37343",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14940,7 +14995,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:02.779Z"
+      "firstSeenAt": "2026-10-05T21:37:02.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343"
+        ],
+        "en": [
+          "fachlehrperson-3-4-klasse-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-batterkinden-37343"
+        ],
+        "fr": [
+          "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-3-4-klasse-13l-schule-untere-emme-batterkinden-37343",
+        "fachlehrperson-3-4-klasse-13l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-batterkinden-37343"
+      ]
     },
     {
       "id": "ksml-2865765cc296",
@@ -16482,12 +16552,12 @@
     },
     {
       "id": "ksml-cf5b794e175e",
-      "slug": "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
+      "slug": "5-lezioni-if-in-matematica-a-3-5-6-classe-dal-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40408",
       "slugByLocale": {
         "de": "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408",
-        "it": "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
-        "en": "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40408",
-        "fr": "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408"
+        "it": "5-lezioni-if-in-matematica-a-3-5-6-classe-dal-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40408",
+        "en": "5-lessons-if-in-mathematics-at-3-5-6-class-from-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40408",
+        "fr": "5-lecons-if-en-mathematiques-a-3-5-6-cours-a-partir-du-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40408"
       },
       "slugDisambiguator": "40408",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16537,11 +16607,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408",
+          "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen"
+        ],
+        "en": [
+          "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40408"
+        ],
+        "fr": [
           "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408"
         ]
       },
       "previousSlugs": [
-        "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408"
+        "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-schule-aefligen-40408",
+        "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
+        "5-lektionen-if-im-fach-mathematik-an-der-3-5-6-klasse-ab-01-11-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40408"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -16828,12 +16907,12 @@
     },
     {
       "id": "ksml-5602161ddd77",
-      "slug": "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
+      "slug": "2-lezioni-di-sport-al-5-6-classe-02-11-2026-al-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40409",
       "slugByLocale": {
         "de": "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409",
-        "it": "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
-        "en": "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409",
-        "fr": "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409"
+        "it": "2-lezioni-di-sport-al-5-6-classe-02-11-2026-al-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40409",
+        "en": "2-lessons-of-sport-at-the-5-6-class-02-11-2026-to-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40409",
+        "fr": "2-lecons-de-sport-au-5-6-classe-02-11-2026-au-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40409"
       },
       "slugDisambiguator": "40409",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16883,11 +16962,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409",
+          "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen"
+        ],
+        "en": [
+          "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409"
+        ],
+        "fr": [
           "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409"
         ]
       },
       "previousSlugs": [
-        "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409"
+        "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-schule-aefligen-aefligen-40409",
+        "2-lektionen-sport-an-der-5-6-klasse-02-11-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -18888,7 +18975,7 @@
       "slug": "insegnante-musicale-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225",
       "slugByLocale": {
         "it": "insegnante-musicale-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225",
-        "en": "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare",
+        "en": "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
         "de": "musiklehrperson-5-6-klasse-schule-wangen-an-der-aare-standort-wangen-wangen-an-der-aare-40225",
         "fr": "professeur-de-musique-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225"
       },
@@ -18936,8 +19023,7 @@
       "previousSlugs": [
         "musiklehrperson-5-6-klasse-schule-wangen-an-der-aare-standort-wangen-wangen-an-der-aare-40225",
         "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare",
-        "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
-        "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225"
+        "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18946,7 +19032,6 @@
         ],
         "en": [
           "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
-          "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
           "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare"
         ],
         "fr": [

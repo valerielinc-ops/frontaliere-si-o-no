@@ -1722,9 +1722,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16T00:00:00Z",
       "postedDate": "2026-09-16T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "requirements": [
         "Life Sciences - Quality Management",
@@ -1771,7 +1769,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "coopers-d8d4d0e6a1af",
@@ -4945,7 +4945,7 @@
       "slug": "senior-immobilien-vermogensverwalter-in-m-w-d-coopers-basel-stadt",
       "slugByLocale": {
         "it": "senior-immobilien-vermogensverwalter-in-m-w-d-coopers-basel-stadt",
-        "en": "senior-immobilien-vermogensverwalter-in-m-w-d-coopers-basel-stadt",
+        "en": "senior-real-estate-asset-manager-m-f-d-coopers-group-ag-basel-stadt",
         "de": "senior-immobilien-vermogensverwalter-in-m-w-d-coopers-basel-stadt",
         "fr": "senior-immobilien-vermogensverwalter-in-m-w-d-coopers-basel-stadt"
       },

@@ -248,9 +248,9 @@
     },
     {
       "id": "nord-anglia-bc57a0eab6be",
-      "slug": "driver-nord-anglia-villars-sur-ollon",
+      "slug": "autista-nord-anglia-education-switzerland-villars-sur-ollon",
       "slugByLocale": {
-        "it": "driver-nord-anglia-villars-sur-ollon",
+        "it": "autista-nord-anglia-education-switzerland-villars-sur-ollon",
         "en": "driver-nord-anglia-villars-sur-ollon",
         "de": "fahrer-nord-anglia-education-switzerland-villars-sur-ollon",
         "fr": "conducteur-nord-anglia-education-switzerland-villars-sur-ollon"
@@ -298,7 +298,6 @@
       "jobReqId": "1440179333",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:23:19.903Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -312,7 +311,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "driver-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "driver-nord-anglia-villars-sur-ollon"
+      ]
     },
     {
       "id": "nord-anglia-cf2711bee3fd",

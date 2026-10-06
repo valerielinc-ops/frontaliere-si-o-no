@@ -33,7 +33,6 @@ const WORKFLOW = '.github/workflows/translate-pending-logic.yml';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const SOCKET_EXPR = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
-const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
 
 const IT = 'Cerchiamo un impiegato amministrativo con esperienza nella contabilita\' per il nostro ufficio di Lugano.';
 const EN = 'We are looking for an administrative clerk with accounting experience for our Lugano office.';

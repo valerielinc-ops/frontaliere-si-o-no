@@ -4800,7 +4800,8 @@
         "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r13v9m",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4809,7 +4810,8 @@
           "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
         ],
         "en": [
           "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen"
@@ -13820,12 +13822,12 @@
     },
     {
       "id": "spital-thurgau-25142392b85b",
-      "slug": "praktikant-in-kita-stgag-ch",
+      "slug": "tirocinante-a-all-asilo-nido-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "praktikant-in-kita-stgag-ch",
-        "en": "praktikant-in-kita-stgag-ch",
+        "it": "tirocinante-a-all-asilo-nido-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "trainee-daycare-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "praktikant-in-kita-stgag-ch",
-        "fr": "praktikant-in-kita-stgag-ch"
+        "fr": "stagiaire-creche-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13870,7 +13872,6 @@
       "requirementsByLocale": {},
       "department": "Soziale Berufe",
       "contractDuration": "fixed-term",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:24:08.922Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -13884,7 +13885,21 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-kita-stgag-ch"
+        ],
+        "en": [
+          "praktikant-in-kita-stgag-ch"
+        ],
+        "fr": [
+          "praktikant-in-kita-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-kita-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-9364ec6e9c60",

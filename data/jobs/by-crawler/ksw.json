@@ -428,7 +428,7 @@
           "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T22:27:59.395Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -442,7 +442,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksw-b24044f1e140",
@@ -616,7 +617,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -683,7 +684,6 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -3073,12 +3073,12 @@
     },
     {
       "id": "ksw-e1b7ca53ba39",
-      "slug": "leitende-arztin-leitender-arzt-geriatrie-ksw-ch",
+      "slug": "medico-senior-chief-physician-geriatrics-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-geriatrie-ksw-ch",
-        "it": "leitende-arztin-leitender-arzt-geriatrie-ksw-ch",
-        "en": "leitende-arztin-leitender-arzt-geriatrie-ksw-ch",
-        "fr": "leitende-arztin-leitender-arzt-geriatrie-ksw-ch"
+        "it": "medico-senior-chief-physician-geriatrics-kantonsspital-winterthur-ksw-winterthur",
+        "en": "senior-physician-chief-physician-geriatrics-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-principal-chef-medecin-geriatrique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3137,7 +3137,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:22:17.595Z"
+      "firstSeenAt": "2026-10-05T21:22:17.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-geriatrie-ksw-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-geriatrie-ksw-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-geriatrie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-geriatrie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-1ff4e15327eb",
@@ -4551,12 +4565,12 @@
     },
     {
       "id": "ksw-0399bb8ba325",
-      "slug": "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch",
+      "slug": "assistente-medico-assistente-medico-nel-curriculum-familiare-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch",
-        "it": "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch",
-        "en": "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch",
-        "fr": "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch"
+        "it": "assistente-medico-assistente-medico-nel-curriculum-familiare-kantonsspital-winterthur-ksw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-in-the-family-curriculum-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-assistant-medecin-assistant-dans-le-programme-familial-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4615,7 +4629,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:22:17.592Z"
+      "firstSeenAt": "2026-10-05T21:22:17.592Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-im-hausarztcurriculum-ksw-ch"
+      ]
     },
     {
       "id": "ksw-ccc6e1d74dec",

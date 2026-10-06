@@ -568,7 +568,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -628,7 +628,6 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
           "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
@@ -636,7 +635,6 @@
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
         "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
@@ -885,7 +883,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg",
         "en": "seller-seller-k-kiosk-20-hours-valora-group-kandersteg",
-        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
         "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
@@ -932,8 +930,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -943,7 +940,6 @@
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
         ],
         "de": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
         ],
         "fr": [
@@ -1526,7 +1522,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:54.078Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2660,7 +2655,6 @@
           "business-partner-agenturen-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2979,7 +2973,6 @@
           "marketing-assistent-100-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:12:24.630Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
@@ -3080,12 +3073,12 @@
     },
     {
       "id": "valora-35c346078c8f",
-      "slug": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
+      "slug": "venditore-avec-25-ore-valora-group-muttenz",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "it": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "en": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
-        "fr": "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        "it": "venditore-avec-25-ore-valora-group-muttenz",
+        "en": "seller-avec-25-hours-valora-group-muttenz",
+        "fr": "vendeur-avec-25-heures-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3146,7 +3139,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:28:58.236Z"
+      "firstSeenAt": "2026-10-05T21:28:58.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+      ]
     },
     {
       "id": "valora-7c9ebb689322",

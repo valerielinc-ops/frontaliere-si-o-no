@@ -155,7 +155,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -386,7 +385,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -500,7 +498,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1204,7 +1201,6 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1224,7 +1220,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
+        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -1301,7 +1297,6 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
-        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
@@ -1311,7 +1306,6 @@
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -1483,7 +1477,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1566,7 +1559,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1762,7 +1754,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1945,12 +1936,12 @@
     },
     {
       "id": "sfs-group-c9d7f2a8063f",
-      "slug": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+      "slug": "manutentore-automatico-nel-modello-a-turni-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
-        "en": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "it": "manutentore-automatico-nel-modello-a-turni-m-f-d-sfs-group-heerbrugg",
+        "en": "automated-maintenance-in-shift-model-m-f-d-sfs-group-heerbrugg",
         "de": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
-        "fr": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "fr": "automaticien-ne-maintenance-dans-le-modele-de-travail-poste-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -1996,7 +1987,6 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:26:21.420Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -2010,7 +2000,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ],
+        "fr": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+      ]
     },
     {
       "id": "sfs-group-d28e368a8b5c",

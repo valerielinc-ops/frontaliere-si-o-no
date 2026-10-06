@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:17:23.769Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -4958,12 +4957,12 @@
     },
     {
       "id": "hopital-du-valais-c40e3961d1fc",
-      "slug": "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny",
+      "slug": "cucina-dietetica-al-100-per-il-sito-martigny-hopital-du-valais-martigny",
       "slugByLocale": {
         "fr": "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny",
-        "it": "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny",
-        "en": "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny",
-        "de": "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny"
+        "it": "cucina-dietetica-al-100-per-il-sito-martigny-hopital-du-valais-martigny",
+        "en": "100-dietary-cooking-for-the-martigny-site-hopital-du-valais-martigny",
+        "de": "100-diatetische-kuche-fur-die-martigny-website-hopital-du-valais-martigny"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5023,7 +5022,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-05T21:24:36.092Z"
+      "firstSeenAt": "2026-10-05T21:24:36.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny"
+        ],
+        "en": [
+          "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny"
+        ],
+        "de": [
+          "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-ere-dietetique-a-100-pour-le-site-de-martigny-hopital-du-valais-martigny"
+      ]
     },
     {
       "id": "hopital-du-valais-cccd105e312e",
