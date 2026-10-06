@@ -37,7 +37,7 @@ describe('classificazione della TAXONOMY: regola o argomento, col motivo', () =>
     }
   });
 
-  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads'])('%s e\' argomento', (key) => {
+  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads', 'sibling-tooling'])('%s e\' argomento', (key) => {
     expect(bucketEscalationKind('reviewer-finding', key)).toBe('topic');
     expect(isTopicOnlyBucket('reviewer-finding', key)).toBe(true);
   });
@@ -106,6 +106,22 @@ describe('considerBuckets: un argomento sopra soglia non escala, una regola si',
     // La tally non cambia: entrambi misurati per il self-heal.
     expect(bucketMeasures.get('reviewer-finding/canonical-sitemap').effectiveCount).toBe(9);
     expect(bucketMeasures.get('reviewer-finding/canonical-trailing-slash').effectiveCount).toBe(7);
+  });
+
+  it('sibling-tooling sopra soglia resta nel report e non riapre il processo', () => {
+    const examples = examplesFor(6, 14000);
+    const [cluster] = considerBuckets({
+      source: 'reviewer-finding',
+      counts: { 'sibling-tooling': examples.length },
+      examples: { 'sibling-tooling': examples },
+      corpus: 'sibling checker e check-sibling-patterns sono documentati.',
+      threshold: 3,
+    });
+    expect(cluster.escalationKind).toBe('topic');
+    expect(cluster.effectiveCount).toBe(examples.length);
+    expect(cluster.topicAboveLimit).toBe(true);
+    expect(cluster.recurringDespiteRule).toBe(false);
+    expect(clusterReportTag(cluster)).toBe('TOPIC-REPORT-ONLY');
   });
 
   it('sotto soglia un argomento non e\' marcato sopra soglia', () => {
