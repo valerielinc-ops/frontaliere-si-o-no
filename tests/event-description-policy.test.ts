@@ -52,6 +52,7 @@ describe('event description publication policy', () => {
       },
     };
     expect(sanitizeEventForPublication(rewritten).sourceDescriptionHash).toBe(sourceHash);
+    expect(sanitizeEventForPublication({ ...rewritten, descriptionRewriteValidated: true }).descriptionRewriteValidated).toBeUndefined();
   });
 
   it('applies a rewrite only for the exact event id and source hash', () => {
@@ -75,6 +76,7 @@ describe('event description publication policy', () => {
       description: entry.description,
       descriptionByLocale: entry.descriptionByLocale,
       sourceDescriptionHash: hash,
+      descriptionRewriteValidated: true,
     });
     expect(applyDescriptionRewrite(EVENT, { entries: { [rewriteCacheKey(EVENT.id, 'wrong')]: entry } }).description).toBeUndefined();
   });

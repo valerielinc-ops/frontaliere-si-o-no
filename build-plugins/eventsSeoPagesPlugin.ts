@@ -163,6 +163,8 @@ interface SiteEvent {
   descriptionByLocale?: Partial<Record<Locale, string>>;
   /** SHA-256 of the private source description used to select a rewrite. */
   sourceDescriptionHash?: string;
+  /** True only when the assembler applied an exact, structurally valid rewrite-cache entry. */
+  descriptionRewriteValidated?: boolean;
   /** Routes emitted by an earlier crawl/build for this stable event id. */
   previousRoutes?: Array<{ canton?: string; comune?: string; slug: string }>;
   // OpenAgenda (Licence Ouverte 2.0): the agenda the record was read from and
@@ -352,6 +354,7 @@ function localizedTitle(event: SiteEvent, locale: Locale): string {
 }
 
 function localizedDescription(event: SiteEvent, locale: Locale): string | undefined {
+  if (event.descriptionRewriteValidated !== true) return undefined;
   const localized = cleanRenderableEventText(event.descriptionByLocale?.[locale]);
   if (localized) return localized;
   const fallback = cleanRenderableEventText(event.description);
@@ -1461,7 +1464,9 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const title = localizedTitle(event, locale);
   const factualDescription = `${title} — ${cat} ${COPY[locale].at} ${venueName || locality || 'Svizzera'} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}`
     + `${event.startTime ? ` ${event.startTime}` : ''}.`;
-  const rewriteDescription = event.sourceDescriptionHash ? localizedDescription(event, locale)?.trim() : undefined;
+  const rewriteDescription = event.descriptionRewriteValidated === true
+    ? localizedDescription(event, locale)?.trim()
+    : undefined;
   const description = rewriteDescription && rewriteDescription.length >= 30
     ? rewriteDescription
     : factualDescription;

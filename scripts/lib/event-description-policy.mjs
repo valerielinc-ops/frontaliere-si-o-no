@@ -176,6 +176,7 @@ export function sanitizeEventForPublication(event) {
   const {
     description: _description,
     descriptionByLocale: _descriptionByLocale,
+    descriptionRewriteValidated: _descriptionRewriteValidated,
     sourceDescription: _sourceDescription,
     sourceDescriptionByLocale: _sourceDescriptionByLocale,
     ...withoutSourceText
@@ -237,6 +238,7 @@ export function applyDescriptionRewrite(event, cache) {
     ...factual,
     description: descriptionByLocale.it,
     descriptionByLocale,
+    descriptionRewriteValidated: true,
   };
 }
 

@@ -251,6 +251,7 @@ describe('eventLd source attribution (#3125)', () => {
     const withDescription = {
       ...EVENT,
       sourceDescriptionHash: 'a'.repeat(64),
+      descriptionRewriteValidated: true,
       description: 'L’appuntamento propone musica sinfonica al LAC. La serata si svolge a Lugano.',
       descriptionByLocale: {
         it: 'L’appuntamento propone musica sinfonica al LAC. La serata si svolge a Lugano.',
@@ -426,6 +427,7 @@ describe('renderEventDetailPage', () => {
       id: 'myswitzerland:queen',
       title: 'The Music of QUEEN - Live',
       description: '&lt;b&gt;L’exposition présente un programme musical. La séance se déroule à Bâle.&lt;/b&gt;',
+      descriptionRewriteValidated: true,
       descriptionByLocale: {
         fr: '&lt;b&gt;L’exposition présente un programme musical. La séance se déroule à Bâle.&lt;/b&gt;',
       },
@@ -846,6 +848,7 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     ...EVENT,
     id: 'guidle:rich',
     sourceDescriptionHash: 'b'.repeat(64),
+    descriptionRewriteValidated: true,
     description: 'L’evento propone un programma musicale. La serata si svolge al LAC.',
     descriptionByLocale: {
       it: 'L’evento propone un programma musicale. La serata si svolge al LAC.',

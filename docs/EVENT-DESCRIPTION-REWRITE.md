@@ -14,7 +14,11 @@ di scrivere una slice, `scripts/lib/crawl-checkpoint.mjs`:
 `data/events-description-rewrites.json` contiene esclusivamente testi prodotti
 da noi. La chiave è `id::sourceDescriptionHash`; ogni voce conserva le quattro
 lingue, `model`, `promptVersion` e `rewrittenAt`. L’assembler applica una voce
-solo quando id e hash coincidono e tutte le quattro lingue sono valide.
+solo quando id e hash coincidono e tutte le quattro lingue sono valide. Nei due
+dataset assemblati aggiunge anche `descriptionRewriteValidated: true`, un
+marker tecnico senza testo che consente ai renderer di distinguere una hit
+esatta della cache da un eventuale record legacy: ogni descrizione priva del
+marker viene ignorata e ricade sul contenuto fattuale.
 
 Anche i preview `--dry-run` dei crawler passano dal sanitizzatore prima di
 essere stampati nei log: il testo acquisito non viene scritto in una slice,

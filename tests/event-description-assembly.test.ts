@@ -64,6 +64,7 @@ describe('event description assembly boundary', () => {
       expect(byId.get(sourceEvent.id)).toMatchObject({
         description: 'La mostra riunisce opere locali. L’appuntamento si tiene al museo civico.',
         sourceDescriptionHash: rewrittenHash,
+        descriptionRewriteValidated: true,
       });
       expect(byId.get(sourceEvent.id)?.descriptionByLocale?.en).toContain('exhibition');
       expect(byId.get(pendingEvent.id)?.description).toBeUndefined();

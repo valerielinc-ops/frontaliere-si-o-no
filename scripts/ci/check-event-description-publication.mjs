@@ -42,6 +42,9 @@ function checkSliceFiles() {
       if (event.sourceDescriptionHash !== undefined && !isValidSourceDescriptionHash(event.sourceDescriptionHash)) {
         errors.push(fail('invalid-source-description-hash-in-source-slice', { file, id: event.id }));
       }
+      if (event.descriptionRewriteValidated !== undefined) {
+        errors.push(fail('rewrite-marker-in-source-slice', { file, id: event.id }));
+      }
     }
   }
   return errors;
@@ -58,6 +61,12 @@ function checkDatasets(cache) {
       }
       if (event.sourceDescriptionHash !== undefined && !isValidSourceDescriptionHash(event.sourceDescriptionHash)) {
         errors.push(fail('invalid-source-description-hash-in-dataset', { file: path.relative(ROOT, filePath), id: event.id }));
+      }
+      if (event.description && event.descriptionRewriteValidated !== true) {
+        errors.push(fail('description-without-rewrite-marker', { file: path.relative(ROOT, filePath), id: event.id }));
+      }
+      if (!event.description && event.descriptionRewriteValidated !== undefined) {
+        errors.push(fail('rewrite-marker-without-description', { file: path.relative(ROOT, filePath), id: event.id }));
       }
       if (event.descriptionByLocale && !event.description) {
         errors.push(fail('locale-description-without-default', { file: path.relative(ROOT, filePath), id: event.id }));
