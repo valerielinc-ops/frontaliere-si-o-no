@@ -94,4 +94,43 @@ describe('static Article JSON-LD safety net', () => {
 
     expect(normalized.isPartOf).not.toHaveProperty('@id', WEBSITE_ID);
   });
+
+  it('consolidates repeated external organizations by URL or exact name', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'NewsArticle',
+      image: {
+        '@type': 'ImageObject',
+        creator: { '@type': 'Organization', name: 'European Commission (Christophe Licoppe)' },
+      },
+      about: [
+        { '@type': 'Organization', name: 'EOC', url: 'https://www.eoc.ch' },
+        { '@type': 'Organization', name: 'EOC', url: 'https://www.eoc.ch' },
+      ],
+    }) as Record<string, any>;
+
+    expect(normalized.image.creator['@id']).toBe(
+      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe',
+    );
+    expect(normalized.about[0]['@id']).toBe('https://www.eoc.ch/');
+    expect(normalized.about[1]['@id']).toBe(normalized.about[0]['@id']);
+  });
+
+  it('collapses first-party locale URLs onto the canonical publisher id', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: 'https://frontaliereticino.ch/de/',
+    }) as Record<string, any>;
+    expect(normalized['@id']).toBe('https://frontaliereticino.ch/#organization');
+  });
+
+  it('preserves a same-name external newsroom when it has an explicit id', () => {
+    const external = {
+      '@type': 'Organization',
+      '@id': 'https://example.com/#newsroom',
+      name: 'Frontaliere Ticino',
+    };
+    const normalized = normalizeStructuredData({ '@type': 'NewsArticle', creator: external }) as Record<string, any>;
+    expect(normalized.creator).toEqual(external);
+  });
 });
