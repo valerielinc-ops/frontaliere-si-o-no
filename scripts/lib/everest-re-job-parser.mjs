@@ -27,6 +27,12 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '8001',
   sector: 'Assicurazioni / Riassicurazione',
   defaultSourceLang: 'en',
+  // Everest's live board currently exposes only the nested `locationMainGroup`
+  // display facet and its complete listings are outside Switzerland. The
+  // shared factory may stamp an empty result only after every primary country
+  // was read from a complete board and proved foreign; a Swiss primary remains
+  // publishable through the normal location gate.
+  proveForeignOnlyBoardEmpty: true,
 });
 
 export const fetchAllEverestReJobs = parser.fetchAllJobs;
