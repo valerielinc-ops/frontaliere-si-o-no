@@ -24,8 +24,9 @@
  * `packages/articles/content/image-credits/…` once pulled into the site). The
  * key is the hero path the renderers already resolve, so a cover reused by
  * another article inherits its credit and an `/og-image.png` fallback gets
- * none. A cover with no record renders exactly as before: the site defaults
- * of `imageObjectLd` and no visible line.
+ * none. An inferred record is an explicit no-credit decision: it keeps the
+ * audit trail without claiming a provider or licence, and renders exactly as
+ * before (the site defaults of `imageObjectLd` and no visible line).
  *
  * ── An unknown author ─────────────────────────────────────────────────────
  * `author.name === null`. Allowed only for CC0, public domain and Flickr
@@ -59,9 +60,12 @@ export const IMAGE_CREDIT_SCHEMA_VERSION = 1;
 export const IMAGE_CREDIT_SOURCE = 'wikimedia-commons';
 /** The source used by the shared generated-image engine. */
 export const IMAGE_CREDIT_GENERATED_SOURCE = 'generated-provider';
+/** An explicit record for a cover whose provider/licence is not demonstrated. */
+export const IMAGE_CREDIT_INFERRED_SOURCE = 'inferred';
 export const IMAGE_CREDIT_SOURCES = Object.freeze([
   IMAGE_CREDIT_SOURCE,
   IMAGE_CREDIT_GENERATED_SOURCE,
+  IMAGE_CREDIT_INFERRED_SOURCE,
 ]);
 
 /** Licence families a record may carry. Anything else is rejected. */
@@ -136,16 +140,19 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  * @typedef {{
  *   schema: 1,
  *   cover: string,
- *   source: 'wikimedia-commons' | 'generated-provider',
- *   commons: ImageCreditCommons,
- *   author: ImageCreditAuthor,
- *   attribution: string | null,
- *   licence: ImageCreditLicence,
- *   restrictions: string[],
- *   modified: 'cropped' | 'resized',
- *   fetchedAt: string,
+ *   source: 'wikimedia-commons' | 'generated-provider' | 'inferred',
+ *   commons?: ImageCreditCommons,
+ *   author?: ImageCreditAuthor,
+ *   attribution?: string | null,
+ *   licence?: ImageCreditLicence,
+ *   restrictions?: string[],
+ *   modified?: 'cropped' | 'resized',
+ *   fetchedAt?: string,
  *   status: 'ok' | 'review',
- *   curation: ImageCreditCuration | null,
+ *   curation?: ImageCreditCuration | null,
+ *   evidence?: 'inferred',
+ *   provider?: null,
+ *   verifiedAt?: string,
  *   generated?: object,
  * }} ImageCreditRecord
  * @typedef {{
@@ -404,6 +411,7 @@ export function isAllowedAuthorUrl(url) {
 const TOP_LEVEL_KEYS = new Set([
   'schema', 'cover', 'source', 'commons', 'author', 'attribution', 'licence',
   'restrictions', 'modified', 'fetchedAt', 'status', 'curation', 'generated',
+  'evidence', 'provider', 'verifiedAt',
 ]);
 const COMMONS_KEYS = new Set(['title', 'pageUrl', 'pageId', 'width', 'height', 'revision', 'aliases']);
 const AUTHOR_KEYS = new Set(['text', 'name', 'url', 'type']);
@@ -485,9 +493,24 @@ export function validateImageCreditRecord(record) {
   if (typeof record.cover !== 'string' || !COVER_FIELD_RX.test(record.cover) || coverKey(record.cover) === null) {
     errors.push('cover must be a site path /images/blog/<file>');
   }
+  const inferredSource = record.source === IMAGE_CREDIT_INFERRED_SOURCE;
   const generatedSource = record.source === IMAGE_CREDIT_GENERATED_SOURCE;
   if (!IMAGE_CREDIT_SOURCES.includes(record.source)) {
     errors.push(`source must be one of ${IMAGE_CREDIT_SOURCES.join(', ')}`);
+  }
+
+  // Inferred records are deliberately minimal. They document that the cover
+  // is published but its provider/licence is not demonstrated; no renderer is
+  // allowed to turn this into a public credit claim.
+  if (inferredSource) {
+    if (record.evidence !== 'inferred') errors.push('evidence must be "inferred" for inferred records');
+    if (record.provider !== null) errors.push('provider must be null for inferred records');
+    if (typeof record.verifiedAt !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(record.verifiedAt)) {
+      errors.push('verifiedAt must be a YYYY-MM-DD date for inferred records');
+    }
+    if (record.status !== 'review') errors.push('status must be "review" for inferred records');
+    if (record.generated !== undefined) errors.push('generated is not allowed for inferred records');
+    return { valid: errors.length === 0, errors };
   }
 
   if (generatedSource) {
@@ -727,6 +750,10 @@ export function createImageCreditReader(fs, candidateDirs, options = {}) {
         warn(`[image-credits] ${file}: cover ${record.cover} does not match the file name — cover rendered without credit`);
         return null;
       }
+      if (record.source === IMAGE_CREDIT_INFERRED_SOURCE) {
+        // The audit record is valid but intentionally carries no public credit.
+        return null;
+      }
       if (record.status !== 'ok') {
         warn(`[image-credits] ${file}: status "${record.status}" is not publishable — cover rendered without credit`);
         return null;
@@ -783,6 +810,11 @@ function isGeneratedRecord(record) {
   return record?.source === IMAGE_CREDIT_GENERATED_SOURCE;
 }
 
+/** @param {ImageCreditRecord | null | undefined} record */
+function isInferredRecord(record) {
+  return record?.source === IMAGE_CREDIT_INFERRED_SOURCE;
+}
+
 /**
  * Whether the credited name already names Wikimedia Commons — a credit line the
  * licensor wrote as «© Yann Forget / Wikimedia Commons». Shown verbatim (the
@@ -813,6 +845,7 @@ function namesWikimediaCommons(name) {
  * @returns {ImageCreditImageObjectFields}
  */
 export function imageObjectCreditFields(record) {
+  if (isInferredRecord(record)) return {};
   const pageUrl = isGeneratedRecord(record) ? record.generated.licenseUrl : record.commons.pageUrl;
   const authorName = record.author.name;
   const credited = creditedName(record) ?? UNKNOWN_AUTHOR_NAME;
@@ -883,6 +916,7 @@ function segment(kind, text, extra = {}) {
  * @returns {boolean}
  */
 export function hasVisibleImageCredit(record) {
+  if (isInferredRecord(record)) return false;
   const licence = record?.licence;
   if (!licence) return true;
   return !(NO_VISIBLE_CREDIT_FAMILIES.has(String(licence.family)) && licence.attributionRequired !== true);
@@ -911,6 +945,7 @@ export function hasVisibleImageCredit(record) {
  * @returns {ImageCreditParts | null}
  */
 export function imageCreditParts(record, locale) {
+  if (isInferredRecord(record)) return null;
   const loc = resolveLocale(locale);
   const copy = IMAGE_CREDIT_COPY[loc];
   const pageUrl = httpsUrlOrNull(isGeneratedRecord(record) ? record?.generated?.licenseUrl : record?.commons?.pageUrl);
@@ -1002,6 +1037,7 @@ export function renderImageCreditHtml(record, locale) {
  * @returns {string}
  */
 export function mediaRssCreditXml(record, locale) {
+  if (isInferredRecord(record)) return '';
   const loc = resolveLocale(locale);
   const credited = creditedName(record);
   const credit = credited

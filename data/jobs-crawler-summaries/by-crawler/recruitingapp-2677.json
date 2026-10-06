@@ -1,29 +1,27 @@
 {
+  "detailCandidates": 16,
+  "detailGone": 0,
+  "detailRejected": 16,
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-10-06T09:20:04.740Z",
+  "generatedAt": "2026-10-06T21:28:40.945Z",
   "total": 0,
   "discovered": 16,
   "parsed": 0,
-  "lastFetchOutcome": null,
+  "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
+  "abortKind": "source-extraction-failed",
   "written": 0,
-  "resurrectedJobs": 0,
-  "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19356,
-  "avgDurationMs": 19356,
-  "durationHistory": [
-    19356
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "earlyExit": true,
+  "exitCode": 0,
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

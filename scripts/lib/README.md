@@ -166,9 +166,11 @@ npm run validate:blog-cover-ledger
 
 The queue has a hard 150-asset budget, prioritizes level-5 historical
 replacements and then level-6 inferred covers by traffic/recency, and publishes
-remaining work only through the scheduled data-PR workflow. The SPA consumes
-the site-owned `data/image-credits-blog.json` bridge when a section index does
-not yet contain a generated article-hero record.
+remaining work only through the scheduled data-PR workflow. Level-6 covers
+remain on their article URL with an explicit `inferred`/`no-credit` entry until
+generation completes. The SPA consumes the site-owned
+`data/image-credits-blog.json` bridge when a section index does not yet contain
+a generated article-hero record.
 
 ## published-image-policy.mjs — no unrecorded image leaves the site
 

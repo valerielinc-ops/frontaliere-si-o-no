@@ -1,7 +1,7 @@
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   classifyDocument,
@@ -385,6 +385,71 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(inventory.sitemapCount).toBe(0);
     expect(inventory.errors).toHaveLength(1);
     expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
+  });
+
+  it('cancels an invalid streamed sitemap chunk before recording the read error', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '<urlset>' }),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader) },
+    };
+    const fetchImpl = vi.fn().mockResolvedValue(response);
+    const inventory = await collectSitemapInventory({
+      baseUrl: 'https://example.test',
+      sitemapUrl: 'https://example.test/sitemap.xml',
+      fetchImpl,
+    });
+    expect(inventory.errors).toHaveLength(1);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
+  });
+
+  it('reads a sitemap streamed as bare ArrayBuffer chunks that the producer reuses', async () => {
+    const xml = '<urlset><url><loc>https://example.test/a/</loc></url><url><loc>https://example.test/b/</loc></url></urlset>';
+    const bytes = new TextEncoder().encode(xml);
+    const half = Math.ceil(bytes.byteLength / 2);
+    const parts = [bytes.subarray(0, half), bytes.subarray(half)];
+    // One buffer for every read, as a pooling producer does: a chunk kept as a
+    // view on it would be rewritten by the next read.
+    const shared = new ArrayBuffer(half);
+    let index = 0;
+    const reader = {
+      read: vi.fn(async () => {
+        if (index >= parts.length) return { done: true, value: undefined };
+        const view = new Uint8Array(shared);
+        view.fill(0x20);
+        view.set(parts[index]);
+        index += 1;
+        return { done: false, value: shared };
+      }),
+      cancel: vi.fn().mockResolvedValue(undefined),
+      releaseLock: vi.fn(),
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader) },
+    };
+    const inventory = await collectSitemapInventory({
+      baseUrl: 'https://example.test',
+      sitemapUrl: 'https://example.test/sitemap.xml',
+      fetchImpl: vi.fn().mockResolvedValue(response),
+    });
+
+    expect(inventory.errors).toEqual([]);
+    expect(inventory.urls).toEqual(['https://example.test/a/', 'https://example.test/b/']);
+    expect(reader.cancel).not.toHaveBeenCalled();
+    expect(reader.releaseLock).toHaveBeenCalledTimes(1);
   });
 
   it('keeps same-site link evidence while excluding externals and router actions', () => {
