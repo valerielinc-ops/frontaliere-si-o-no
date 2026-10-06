@@ -5,6 +5,7 @@ import {
   credentialAlertTitle,
   formatCredentialAlert,
   formatReadinessTable,
+  planCredentialAlerts,
   probeAzure,
   probeDeepL,
   probeGoogleCloud,
@@ -163,12 +164,68 @@ describe('translation provider readiness probe', () => {
     const probe = steps[load + 1];
     expect(String(probe['continue-on-error'])).toBe('true');
     expect(probe.run).toContain('scripts/translation-provider-readiness.mjs');
-    const alert = steps[load + 2];
-    expect(alert.name).toBe('Alert on rejected translation credentials (dedup, zero-Claude)');
+    // The alert reads the Codex reserve reports (owner decision H7,
+    // 2026-10-05), so it runs after every phase that can write one, also when
+    // one of them failed.
+    const alertAt = names.indexOf('Alert on rejected translation credentials (dedup, zero-Claude)');
+    const alert = steps[alertAt];
+    expect(alert.if).toContain('always()');
     expect(alert.if).toContain("steps.provider_readiness.outcome == 'success'");
     expect(alert.if).toContain('inputs.dry_run != true');
+    expect(alert.run).toContain('--codex-reserve-dir "$RUNNER_TEMP/translation-codex-reserve"');
+    for (const phase of [
+      'Phase 2b: Translate pending jobs (cascade top-up)',
+      'Phase 2d: Fix untranslated titles (free cascade)',
+      'Phase 2e: Fix untranslated descriptions (free cascade)',
+    ]) {
+      expect(names.indexOf(phase), phase).toBeGreaterThan(load);
+      expect(names.indexOf(phase), phase).toBeLessThan(alertAt);
+    }
 
     const artifact = readFileSync(new URL('../.github/corpus-workflows/translate-pending.yml', import.meta.url), 'utf8');
     expect(artifact).toContain('Probe translation provider readiness');
+  });
+});
+
+describe('credential alert with the Codex reserve (owner decision H7, 2026-10-05)', () => {
+  const azureRejected = [
+    { provider: 'deepl', credential: 'DEEPL_API_KEY', verdict: 'quota-exhausted', detail: 'HTTP 456' },
+    { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'auth-failed', detail: 'HTTP 401 (401001)' },
+    { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY_2', verdict: 'auth-failed', detail: 'HTTP 401 (401001)' },
+    { provider: 'google-cloud', credential: 'service-account', verdict: 'auth-failed', detail: 'HTTP 403' },
+  ];
+  const actionOf = (plan: Array<{ provider: string; action: string }>, provider: string) =>
+    plan.find((entry) => entry.provider === provider)?.action;
+
+  it('without the reserve verdict a rejected provider still alerts, as before', () => {
+    const plan = planCredentialAlerts(azureRejected, null);
+    expect(actionOf(plan, 'azure')).toBe('alert');
+    expect(actionOf(plan, 'google-cloud')).toBe('alert');
+    expect(actionOf(plan, 'deepl')).toBe('none');
+  });
+
+  it('a rejected Azure key covered by Codex is degraded, not a needs-human issue', () => {
+    const plan = planCredentialAlerts(azureRejected, { verdict: 'covered', detail: '2b-cascade: ready' });
+    expect(actionOf(plan, 'azure')).toBe('covered');
+    expect(actionOf(plan, 'google-cloud')).toBe('covered');
+    expect(plan.some((entry) => entry.action === 'alert')).toBe(false);
+  });
+
+  it('the real red: Codex failed, unavailable or not measured', () => {
+    for (const verdict of ['codex-failed', 'codex-unavailable', 'unknown']) {
+      expect(actionOf(planCredentialAlerts(azureRejected, { verdict, detail: '' }), 'azure'), verdict).toBe('alert');
+    }
+  });
+
+  it('a recovered provider still closes its alert with the reserve in place', () => {
+    const recovered = [{ provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'ok' }];
+    expect(actionOf(planCredentialAlerts(recovered, { verdict: 'covered', detail: '' }), 'azure')).toBe('resolve');
+  });
+
+  it('the issue body says what the reserve did', () => {
+    const body = formatCredentialAlert('azure', azureRejected, {
+      codexReserve: { verdict: 'codex-failed', detail: '2b-cascade: failed, 0 translated / 3 rejected in 3/30 calls' },
+    });
+    expect(body).toContain('Codex reserve: codex-failed — 2b-cascade: failed');
   });
 });

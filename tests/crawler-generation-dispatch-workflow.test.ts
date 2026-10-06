@@ -18,6 +18,7 @@ const observerPath = '.github/corpus-workflows/observers/workflows/crawler-gener
 const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
 const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
+const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
 const shadowCascadeEnv = {
   SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
   SHADOW_RUN_ID: '${{ github.run_id }}',
@@ -276,12 +277,20 @@ describe('crawler generation PR B workflow wiring', () => {
       const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       expect(steps.some((step: any) => step.name === 'Upload thinking A/B rows')).toBe(false);
       expect(mopUp.index).toBeGreaterThan(cascade.index);
-      // Il broker Codex rientra solo come ultimo tier delle fasi 2d/2e, dopo
-      // Argos (decisione del proprietario del 2026-09-25): mai nella cascata
-      // 2b, dove viveva l'A/B invalidato.
+      // Decisione del proprietario H7 (2026-10-05, DECISIONS.md), che supera
+      // quella del 2026-09-25 («Codex solo dopo Argos»): Codex Luna Max entra
+      // nella cascata 2b come riserva quando le chiavi falliscono, con un tetto
+      // per run. Il broker parte quindi prima della 2b; la 2b porta il tetto e
+      // mai la variante A/B invalidata.
       const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
-      expect(setupIndex).toBeGreaterThan(mopUp.index);
-      expect(steps[cascade.index].env?.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
+      expect(setupIndex).toBeGreaterThan(-1);
+      expect(setupIndex).toBeLessThan(cascade.index);
+      const cascadeEnv = steps[cascade.index].env ?? {};
+      expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
+      expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBe(CODEX_MAX_CALLS_EXPR);
+      const maxCalls = 30;
+      expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
+      expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();
       // The experiment is intentionally declared as an opt-in input by the
       // companyServed observation PR; only an unconditional enablement would
       // reactivate it on scheduled translation runs.
