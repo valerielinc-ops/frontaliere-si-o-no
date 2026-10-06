@@ -245,7 +245,7 @@
         "it": "stv-oberarztin-oberarzt-per-tirocinante-onkologische-e-visz-chirurgische-rehabilitation-80-zurzach-care-basel",
         "en": "stv-senior-physician-for-internal-oncological-and-surgical-rehabilitation-80-zurzach-care-basel",
         "de": "stv-oberarztin-oberarzt-fur-intern-onkologische-und-visz-chirurgische-rehabilitation-80",
-        "fr": "stv-oberarztin-oberarzt-fur-intern-onkologische-und-visz-chirurgische-rehabilitation-80"
+        "fr": "suppleant-medecin-chef-en-reeducation-oncologique-et-visco-chirurgicale-interne-80-zurzach-care-basel"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -312,7 +312,8 @@
           "oberarztin-oberarzt-fur-allgemeine-innere-medizin-80-tagdienst-zurzach-care-basel"
         ],
         "fr": [
-          "stv-oberarztin-oberarzt-fur-intern-onkologische-und-chirurgische-fruh-rehabilitation-80"
+          "stv-oberarztin-oberarzt-fur-intern-onkologische-und-chirurgische-fruh-rehabilitation-80",
+          "stv-oberarztin-oberarzt-fur-intern-onkologische-und-visz-chirurgische-rehabilitation-80"
         ]
       },
       "firstSeenAt": "2026-07-14T10:53:33.662Z",
@@ -2905,7 +2906,7 @@
       "slug": "apprendistato-kauffrau-kaufmann-kv-cfc-start-2027-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "it": "apprendistato-kauffrau-kaufmann-kv-cfc-start-2027-zurzach-care-bad-zurzach",
-        "en": "lehrstelle-kauffrau-kaufmann-kv-efz-start-2027-zurzach-care-bad-zurzach",
+        "en": "apprenticeship-as-a-businesswoman-businessman-kv-efz-start-2027-zurzach-care-bad-zurzach",
         "de": "lehrstelle-kauffrau-kaufmann-kv-efz-start-2027-zurzach-care-bad-zurzach",
         "fr": "apprentissage-kauffrau-kaufmann-kv-efz-debut-2027-zurzach-care-bad-zurzach"
       },
@@ -2958,6 +2959,9 @@
           "lehrstelle-kauffrau-kaufmann-kv-efz-start-2027-zurzach-care-bad-zurzach"
         ],
         "fr": [
+          "lehrstelle-kauffrau-kaufmann-kv-efz-start-2027-zurzach-care-bad-zurzach"
+        ],
+        "en": [
           "lehrstelle-kauffrau-kaufmann-kv-efz-start-2027-zurzach-care-bad-zurzach"
         ]
       },

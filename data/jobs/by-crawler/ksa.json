@@ -67,15 +67,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -88,7 +86,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e64a36808add",
@@ -4463,7 +4462,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Nursing specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "infirmière / Infirmier"
@@ -4512,7 +4511,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4753,7 +4751,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 88000,
       "salaryMax": 123000,

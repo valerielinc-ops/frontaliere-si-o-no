@@ -4765,7 +4765,7 @@
       "slugByLocale": {
         "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "sagw-lehrling-pflege-und-gesundheitsassistent-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4811,7 +4811,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
+        "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4821,7 +4822,8 @@
           "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
         ],
         "de": [
-          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
+          "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.962Z",
@@ -4998,11 +5000,11 @@
     },
     {
       "id": "ehc-vd-9a045c66fdaf",
-      "slug": "apprenti-ghi-hotel-e-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "apprendista-ghi-hospitality-manager-intendenza-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "apprenti-ghi-hotel-e-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "apprenti-ghi-hotel-and-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "apprenti-ghi-hotel-und-stewardship-manager-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "apprendista-ghi-hospitality-manager-intendenza-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "ghi-apprentice-hospitality-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "auszubildender-ghi-hotelmanagement-manager-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -5049,18 +5051,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges",
-        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "apprenti-ghi-hotel-e-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "apprenti-ghi-hotel-and-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "apprenti-ghi-hotel-und-stewardship-manager-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges",
-          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "apprenti-ghi-hotel-e-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges",
+          "apprenti-ghi-hotel-and-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
-          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+          "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges",
+          "apprenti-ghi-hotel-und-stewardship-manager-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.943Z",
