@@ -67,9 +67,8 @@ jobs:
     outputs:
       failure_kind: ${{ steps.classify.outputs.failure_kind }}
     permissions:
-      actions: write
+      actions: write      # dispatch triage; also covers download-artifact same-run
       contents: read    # read-only — winners git push moved to publish.yml
-      actions: read     # for download-artifact same-run
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)

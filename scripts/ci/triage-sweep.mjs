@@ -271,7 +271,7 @@ function main() {
       issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
         '--limit', '300', '--json', 'number,title,body,labels']);
     }
-  } catch (e) { console.error(`gh issue list fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
+  } catch (e) { console.error(`gh issue list/view fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
 
   // Orfane = open senza agent:triaged. Più vecchie prima (numero crescente).
   const allOrphans = issues
@@ -454,7 +454,7 @@ function main() {
       allTriaged = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
         '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,body,labels']);
     }
-  } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
+  } catch (e) { console.error(`gh issue list/view (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
   // I vetati non entrano in `unrouted`, ma si contano e si loggano: un ramo
   // muto sarebbe indistinguibile da un buco del router.
