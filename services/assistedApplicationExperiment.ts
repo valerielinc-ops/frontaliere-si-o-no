@@ -120,6 +120,10 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_consent_decided',
   'rewarded_offerwall_consent_declined',
   'rewarded_offerwall_staged',
+  // Why the gate was absent at the click, and its status a little later
+  // (services/offerwallGateDiag.ts).
+  'rewarded_offerwall_gate_absent',
+  'rewarded_offerwall_gate_late',
   'external_apply_redirected',
   // New-tab hand-off after the reward (RewardedApplicationOffer). Distinct
   // names instead of a parameter: GA4 reads them without a custom dimension.
