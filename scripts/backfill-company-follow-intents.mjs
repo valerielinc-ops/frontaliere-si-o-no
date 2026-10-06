@@ -38,7 +38,6 @@
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/backfill-company-follow-intents.mjs
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/backfill-company-follow-intents.mjs --apply
  */
-import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import {
   COMPANY_FOLLOW_INTENTS_SUBCOLLECTION,
@@ -48,6 +47,7 @@ import {
 } from '../functions/src/companyFollowIntents.js';
 import { companyFollowGroupKey, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
 import { hasConfirmationProof } from '../functions/src/lib/subscriberConsent.js';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 export const FOLLOW_EVENT_CTAS = new Set(['company_follow_button', 'company_follow_social']);
 const COMPANY_FOLLOW_CHANNELS = ['company_follow_button', 'company_follow_unified'];
@@ -160,18 +160,8 @@ export function planSubscriberBackfill({
 let _admin = null;
 async function getAdmin() {
   if (_admin) return _admin;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
   const { getAuth } = await import('firebase-admin/auth');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    initializeApp({ credential: cert(cred), projectId: cred.project_id });
-  }
-  _admin = { db: getFirestore(), auth: getAuth() };
+  _admin = { db: await getFirestoreDb(), auth: getAuth() };
   return _admin;
 }
 

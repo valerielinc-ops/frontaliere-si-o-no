@@ -32,7 +32,6 @@
  * Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA).
  */
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isJobAlertExcluded } from '../services/emailSuppression.mjs';
@@ -47,20 +46,14 @@ import {
 } from './lib/jobAlertCadence.mjs';
 import { JOB_ALERT_CLICK_EVIDENCE, jobAlertClickEvidence } from './lib/jobAlertEngagementTier.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BATCH_SIZE = 400;
 const LOOKUP_CHUNK_SIZE = 200;
 
 async function getFirestoreAdmin() {
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    initializeApp({ credential: cert(JSON.parse(fs.readFileSync(credPath, 'utf-8'))) });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 /**

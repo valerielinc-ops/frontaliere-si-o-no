@@ -17,11 +17,11 @@
  * idempotent because repaired rows are no longer selected.
  */
 
-import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
-import { FieldValue, getFirestore } from 'firebase-admin/firestore';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { ADDRESS_SUPPRESSED_STATUSES } from '../services/emailSuppression.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 const EVENT_TYPE = 'opt_out_integrity_repaired';
@@ -81,12 +81,8 @@ function previousFlag(value) {
   return value === true ? 'true' : value === false ? 'false' : 'missing';
 }
 
-function initFirebase() {
-  if (getApps().length > 0) return;
-  initializeApp({
-    credential: applicationDefault(),
-    projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-  });
+async function initFirebase() {
+  return getFirestoreDb();
 }
 
 async function loadPlans(db) {
@@ -165,8 +161,7 @@ export async function applyPlans(db, plans, { fieldValue = FieldValue } = {}) {
 }
 
 async function main() {
-  initFirebase();
-  const db = getFirestore();
+  const db = await initFirebase();
   const { total, plans } = await loadPlans(db);
   printPlanSummary(total, plans);
   if (!APPLY) {
