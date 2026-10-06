@@ -145,13 +145,16 @@ export function collectAdPageDiag(
     typeof win.__tcfapi === 'function';
   const gate = win.__ftOfferwallGate;
   const gateState = gate ? gate.state : undefined;
+  // `idle` reads `off_board`, as for the click (offerwallGateStatus): the gate
+  // waits after an SPA entry from an off-board page for a callback that
+  // Funding Choices does not send without a page load.
   const gateStatus: AdDiagGateStatus =
     (gateState === 'held' && typeof gate?.release === 'function') ||
     gateState === 'released' ||
     gateState === 'suppressed' ||
     gateState === 'off_board'
       ? (gateState as AdDiagGateStatus)
-      : 'absent';
+      : gateState === 'idle' ? 'off_board' : 'absent';
 
   let total = 0;
   let filled = 0;

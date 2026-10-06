@@ -232,7 +232,8 @@ export interface ReleaseHeldOfferwallOptions {
  * Offerwall for this page view (no stored consent decision yet).
  * `off_board`: Funding Choices reached the gate on a page outside the
  * job-board sections, where the Offerwall is always dropped; the visitor
- * then navigated to a job in the SPA without a new page load.
+ * then navigated to a job in the SPA without a new page load (the gate may
+ * read `idle` meanwhile, waiting for a callback that does not come).
  * `absent`: Funding Choices never reached the gate on this page view.
  */
 export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'off_board' | 'absent';
@@ -254,6 +255,15 @@ export function offerwallGateStatus(win: Window = window): OfferwallGateStatus {
   reconcileStaleOffBoardGate(win, gate);
   if (gate?.state === 'held' && typeof gate.release === 'function') return 'held';
   if (gate?.state === 'released' || gate?.state === 'suppressed' || gate?.state === 'off_board') return gate.state;
+  // A gate lasts `idle` only while it waits for the callback of a job-board
+  // section entered in the SPA from an off-board page (the inline gate's
+  // reacquire, or the reset above). Funding Choices does not call again
+  // without a page load: live on 2026-10-06 the gate was still `idle` 28 s
+  // after the navigation, and as `absent` every such click lost the Offerwall
+  // with no recovery (GA4 04-06/10: `not_held` on 45% of the clicks of
+  // visits that landed off the job board, 11% otherwise). It is the
+  // off-board case, which the recovery reload resumes on a fresh page load.
+  if (gate?.state === 'idle') return 'off_board';
   return 'absent';
 }
 
