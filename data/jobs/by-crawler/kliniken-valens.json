@@ -8252,12 +8252,12 @@
     },
     {
       "id": "kliniken-valens-3aae08177aba",
-      "slug": "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich",
+      "slug": "terapista-occupazionale-m-f-a-50-100-kliniken-valens-zurich",
       "slugByLocale": {
-        "it": "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich",
-        "en": "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich",
+        "it": "terapista-occupazionale-m-f-a-50-100-kliniken-valens-zurich",
+        "en": "occupational-therapist-m-f-a-50-100-kliniken-valens-zurich",
         "de": "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich",
-        "fr": "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich"
+        "fr": "ergotherapeute-h-f-a-50-100-kliniken-valens-zurich"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8315,7 +8315,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich"
+        ],
+        "en": [
+          "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich"
+        ],
+        "fr": [
+          "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-m-w-a-50-100-kliniken-valens-zurich"
+      ]
     },
     {
       "id": "kliniken-valens-20995b3e4986",

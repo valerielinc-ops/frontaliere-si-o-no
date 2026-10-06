@@ -2061,12 +2061,12 @@
     },
     {
       "id": "claraspital-6ccd866476bd",
-      "slug": "urotherapeut-in-in-der-gynakologie-claraspital-basel",
+      "slug": "uroterapista-in-ginecologia-st-claraspital-basel",
       "slugByLocale": {
-        "it": "urotherapeut-in-in-der-gynakologie-claraspital-basel",
-        "en": "urotherapeut-in-in-der-gynakologie-claraspital-basel",
+        "it": "uroterapista-in-ginecologia-st-claraspital-basel",
+        "en": "urotherapist-in-gynecology-st-claraspital-basel",
         "de": "urotherapeut-in-in-der-gynakologie-claraspital-basel",
-        "fr": "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+        "fr": "urotherapeute-en-gynecologie-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2124,7 +2124,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+        ],
+        "en": [
+          "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+        ],
+        "fr": [
+          "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+      ]
     },
     {
       "id": "claraspital-ab7ff70e786a",

@@ -4870,9 +4870,9 @@
       "slug": "abteilungsleiter-in-werkstatten-e-bauten-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "it": "abteilungsleiter-in-werkstatten-e-bauten-etat-de-fribourg-mont-vully",
-        "en": "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch",
+        "en": "head-of-department-workshops-and-buildings-etat-de-fribourg-mont-vully",
         "de": "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch",
-        "fr": "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch"
+        "fr": "chef-fe-de-service-ateliers-et-constructions-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4923,6 +4923,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "abteilungsleiter-in-werkstatten-und-bauten-etat-de-fribourg-ch"
         ]
       },
@@ -5197,12 +5203,12 @@
     },
     {
       "id": "etat-de-fribourg-2ec8474124cc",
-      "slug": "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch",
+      "slug": "assistente-sociale-scolastico-ps-bosingen-etat-de-fribourg-bosingen",
       "slugByLocale": {
-        "it": "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch",
-        "en": "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch",
+        "it": "assistente-sociale-scolastico-ps-bosingen-etat-de-fribourg-bosingen",
+        "en": "school-social-worker-ps-bosingen-etat-de-fribourg-bosingen",
         "de": "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch",
-        "fr": "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch"
+        "fr": "travailleur-social-scolaire-ps-bosingen-etat-de-fribourg-bosingen"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5263,16 +5269,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schulsozialarbeiter-in-ps-bosingen-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-dc93fd9ba0de",
-      "slug": "fachlaborant-in-etat-de-fribourg-ch",
+      "slug": "tecnico-di-laboratorio-etat-de-fribourg-givisiez",
       "slugByLocale": {
-        "it": "fachlaborant-in-etat-de-fribourg-ch",
-        "en": "fachlaborant-in-etat-de-fribourg-ch",
+        "it": "tecnico-di-laboratorio-etat-de-fribourg-givisiez",
+        "en": "specialist-laboratory-technician-etat-de-fribourg-givisiez",
         "de": "fachlaborant-in-etat-de-fribourg-ch",
-        "fr": "fachlaborant-in-etat-de-fribourg-givisiez"
+        "fr": "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5333,7 +5353,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlaborant-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "fachlaborant-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "fachlaborant-in-etat-de-fribourg-givisiez"
+        ]
+      },
+      "previousSlugs": [
+        "fachlaborant-in-etat-de-fribourg-ch",
+        "fachlaborant-in-etat-de-fribourg-givisiez"
+      ]
     },
     {
       "id": "etat-de-fribourg-e6fc3832ebb7",
@@ -5421,12 +5456,12 @@
     },
     {
       "id": "etat-de-fribourg-08ae7c71e0f1",
-      "slug": "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch",
+      "slug": "ispettore-a-della-sorveglianza-sul-mercato-del-lavoro-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch",
-        "en": "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch",
+        "it": "ispettore-a-della-sorveglianza-sul-mercato-del-lavoro-etat-de-fribourg-fribourg",
+        "en": "inspector-of-labour-market-surveillance-etat-de-fribourg-fribourg",
         "de": "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch",
-        "fr": "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch"
+        "fr": "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5488,7 +5523,21 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "inspektor-in-der-arbeitsmarktuberwachung-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-9a1d497b999c",
@@ -6038,9 +6087,9 @@
       "slug": "schulsozialarbeiter-in-ps-e-os-kerzers-etat-de-fribourg-kerzers",
       "slugByLocale": {
         "it": "schulsozialarbeiter-in-ps-e-os-kerzers-etat-de-fribourg-kerzers",
-        "en": "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch",
+        "en": "school-social-worker-ps-and-os-kerzers-etat-de-fribourg-kerzers",
         "de": "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch",
-        "fr": "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch"
+        "fr": "travailleur-social-de-l-ecole-ps-et-os-kerzers-etat-de-fribourg-kerzers"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6091,6 +6140,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "schulsozialarbeiter-in-ps-und-os-kerzers-etat-de-fribourg-ch"
         ]
       },
@@ -6279,12 +6334,12 @@
     },
     {
       "id": "etat-de-fribourg-a2e2fe83f8d0",
-      "slug": "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+      "slug": "incaricato-a-amministrativo-a-superiore-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "en": "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "it": "incaricato-a-amministrativo-a-superiore-etat-de-fribourg-fribourg",
+        "en": "senior-administrative-officer-etat-de-fribourg-fribourg-6688f2",
         "de": "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "fr": "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "fr": "charge-e-administratif-e-superieur-e-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6346,7 +6401,21 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hohere-r-verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-8b58bd9c7368",
@@ -6682,12 +6751,12 @@
     },
     {
       "id": "etat-de-fribourg-0a5cd0264bd8",
-      "slug": "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch",
+      "slug": "ispettore-a-dei-servizi-sociali-regionali-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch",
-        "en": "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch",
+        "it": "ispettore-a-dei-servizi-sociali-regionali-etat-de-fribourg-fribourg",
+        "en": "regional-social-services-inspector-etat-de-fribourg-fribourg",
         "de": "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch",
-        "fr": "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch"
+        "fr": "inspecteur-trice-des-services-sociaux-regionaux-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6749,7 +6818,21 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "inspektor-in-der-regionalen-sozialdienste-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-cad4bdd7108a",
@@ -7108,12 +7191,12 @@
     },
     {
       "id": "etat-de-fribourg-9066cf1a7882",
-      "slug": "jurist-in-etat-de-fribourg-ch",
+      "slug": "giurista-etat-de-fribourg-granges-paccot",
       "slugByLocale": {
-        "it": "jurist-in-etat-de-fribourg-ch",
-        "en": "jurist-in-etat-de-fribourg-ch",
+        "it": "giurista-etat-de-fribourg-granges-paccot",
+        "en": "lawyer-etat-de-fribourg-granges-paccot",
         "de": "jurist-in-etat-de-fribourg-ch",
-        "fr": "jurist-in-etat-de-fribourg-ch"
+        "fr": "juriste-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7160,11 +7243,21 @@
       "pensumMax": 60,
       "pensum": "55-60%",
       "previousSlugs": [
-        "jurist-in-etat-de-fribourg-granges-paccot"
+        "jurist-in-etat-de-fribourg-granges-paccot",
+        "jurist-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "jurist-in-etat-de-fribourg-granges-paccot"
+        ],
+        "it": [
+          "jurist-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "jurist-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "jurist-in-etat-de-fribourg-ch"
         ]
       },
       "needsRetranslation": true,

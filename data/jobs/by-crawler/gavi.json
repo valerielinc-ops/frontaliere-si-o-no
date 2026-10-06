@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "gavi-779c03b3dd09",
-      "slug": "senior-manager-grants-design-gavi-le-grand-saconnex",
+      "slug": "senior-manager-progettazione-dei-grant-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
-        "it": "senior-manager-grants-design-gavi-le-grand-saconnex",
+        "it": "senior-manager-progettazione-dei-grant-gavi-the-vaccine-alliance-le-grand-saconnex",
         "en": "senior-manager-grants-design-gavi-le-grand-saconnex",
-        "de": "senior-manager-grants-design-gavi-le-grand-saconnex",
+        "de": "senior-manager-zuschussgestaltung-gavi-the-vaccine-alliance-le-grand-saconnex",
         "fr": "gestionnaire-principal-conception-des-subventions-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
@@ -68,7 +68,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-grants-design-gavi-le-grand-saconnex"
+        ],
+        "de": [
+          "senior-manager-grants-design-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-grants-design-gavi-le-grand-saconnex"
+      ]
     }
   ]
 }

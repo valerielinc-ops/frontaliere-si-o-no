@@ -1139,9 +1139,9 @@
       "slug": "responsabile-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez",
       "slugByLocale": {
         "it": "responsabile-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez",
-        "en": "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez",
+        "en": "head-of-basic-training-technology-ffs-officine-ferrovie-federali-olten-und-spiez",
         "de": "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez",
-        "fr": "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez"
+        "fr": "responsable-de-la-technologie-de-formation-de-base-ffs-officine-ferrovie-federali-olten-und-spiez"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1199,6 +1199,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez"
+        ],
+        "en": [
+          "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez"
+        ],
+        "fr": [
           "leiter-in-basisausbildung-technik-ffs-officine-ferrovie-federali-olten-und-spiez"
         ]
       },
@@ -1603,12 +1609,12 @@
     },
     {
       "id": "sbb-5b419badbaf2",
-      "slug": "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten",
+      "slug": "rappresentante-clienti-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten",
-        "en": "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten",
+        "it": "rappresentante-clienti-ffs-officine-ferrovie-federali-olten",
+        "en": "client-representative-ffs-officine-ferrovie-federali-olten",
         "de": "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten",
-        "fr": "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten"
+        "fr": "representant-client-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1686,7 +1692,21 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauherrenvertreter-in/ad1ff747-6d6f-41ae-afdd-5bc90b5c188e"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauherrenvertreter-in/ad1ff747-6d6f-41ae-afdd-5bc90b5c188e",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "bauherrenvertreter-in-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-06155381c6e6",
@@ -2053,9 +2073,9 @@
       "slug": "cambio-carriera-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
         "it": "cambio-carriera-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
-        "en": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
+        "en": "lateral-entry-as-a-customer-companion-ffs-officine-ferrovie-federali-st-gallen",
         "de": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
-        "fr": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
+        "fr": "entree-laterale-en-tant-que-compagnon-client-ffs-officine-ferrovie-federali-st-gallen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2117,6 +2137,12 @@
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
+        ],
+        "en": [
+          "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
+        ],
+        "fr": [
+          "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
         ]
       },
       "needsRetranslation": true,
@@ -2141,12 +2167,12 @@
     },
     {
       "id": "sbb-ff42a1e7fee0",
-      "slug": "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten",
+      "slug": "dispatcher-nel-trasporto-merci-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten",
-        "en": "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten",
+        "it": "dispatcher-nel-trasporto-merci-ffs-officine-ferrovie-federali-olten",
+        "en": "dispatcher-in-freight-transport-ffs-officine-ferrovie-federali-olten",
         "de": "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten",
-        "fr": "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten"
+        "fr": "repartiteur-dans-le-transport-de-marchandises-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2219,7 +2245,21 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/disponent-in-gueterverkehr/a9504509-92d3-42c1-9a60-f7d46c17f80d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/disponent-in-gueterverkehr/a9504509-92d3-42c1-9a60-f7d46c17f80d",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-guterverkehr-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-a9949717cdbf",
@@ -11922,12 +11962,12 @@
     },
     {
       "id": "sbb-6b092c7bf6b8",
-      "slug": "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz",
+      "slug": "catenaria-capo-montatore-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
-        "it": "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz",
+        "it": "catenaria-capo-montatore-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "chief-fitter-catenary-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "maitre-de-la-catenaire-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11986,7 +12026,21 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitung/849e9868-857b-4a00-ba41-36d11a055fef"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitung/849e9868-857b-4a00-ba41-36d11a055fef",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "en": [
+          "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "fr": [
+          "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-deutschschweiz"
+      ]
     },
     {
       "id": "sbb-ec3be44a2864",

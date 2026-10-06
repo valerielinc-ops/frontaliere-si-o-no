@@ -151,8 +151,7 @@
         "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -168,8 +167,7 @@
           "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -203,7 +201,7 @@
       "slugByLocale": {
         "it": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
         "en": "nurse-cdi-80-to-100-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "krankenpfleger-in-unbefristet-80-100-pole-sante-pays-d-enhaut-chateau-d-oex",
         "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -250,18 +248,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-          "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
         ],
         "en": [
           "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
         ],
         "de": [
-          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+          "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex"
         ]
       },
       "firstSeenAt": "2026-10-03T09:12:43.483Z",
@@ -331,14 +329,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"

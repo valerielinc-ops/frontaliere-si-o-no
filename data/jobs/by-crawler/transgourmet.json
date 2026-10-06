@@ -2101,10 +2101,10 @@
     },
     {
       "id": "transgourmet-13c1ccbe-b88",
-      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-belp",
+      "slug": "autista-cat-c-transgourmet-belp",
       "slugByLocale": {
-        "it": "chauffeuse-chauffeur-kat-c-transgourmet-belp",
-        "en": "chauffeuse-chauffeur-kat-c-transgourmet-belp",
+        "it": "autista-cat-c-transgourmet-belp",
+        "en": "driver-cat-c-transgourmet-belp",
         "de": "chauffeuse-chauffeur-kat-c-transgourmet-belp",
         "fr": "chauffeuse-chauffeur-kat-c-transgourmet-belp"
       },
@@ -2180,7 +2180,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-belp"
+        ],
+        "en": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-belp"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeuse-chauffeur-kat-c-transgourmet-belp"
+      ]
     },
     {
       "id": "transgourmet-9dff2c26-9fa",

@@ -1174,9 +1174,9 @@
     },
     {
       "id": "lindt-spruengli-66fdf4e58b0a",
-      "slug": "assistant-shop-manager-60-80-lindt-spruengli-landquart",
+      "slug": "assistente-responsabile-officina-60-80-lindt-sprungli-landquart",
       "slugByLocale": {
-        "it": "assistant-shop-manager-60-80-lindt-spruengli-landquart",
+        "it": "assistente-responsabile-officina-60-80-lindt-sprungli-landquart",
         "en": "assistant-shop-manager-60-80-lindt-spruengli-landquart",
         "de": "assistant-shop-manager-60-80-lindt-spruengli-landquart",
         "fr": "gestionnaire-adjoint-de-magasin-60-80-lindt-sprungli-landquart"
@@ -1225,11 +1225,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-adjoint-de-la-boutique-60-80-lindt-sprungli-landquart"
+        "directeur-adjoint-de-la-boutique-60-80-lindt-sprungli-landquart",
+        "assistant-shop-manager-60-80-lindt-spruengli-landquart"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "directeur-adjoint-de-la-boutique-60-80-lindt-sprungli-landquart"
+        ],
+        "it": [
+          "assistant-shop-manager-60-80-lindt-spruengli-landquart"
         ]
       },
       "needsRetranslation": true,

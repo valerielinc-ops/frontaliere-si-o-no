@@ -219,23 +219,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "talent-acquisition-specialist-temporary-6-months-msc-geneva",
-        "talent-acquisition-specialista-temporary-6-months-msc-group-geneva",
-        "talent-acquisition-spezialist-temporary-6-months-msc-group-geneva",
-        "talent-acquisition-specialiste-temporary-6-months-msc-group-geneva"
+        "talent-acquisition-specialist-temporary-6-months-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-temporary-6-months-msc-geneva",
-          "talent-acquisition-specialista-temporary-6-months-msc-group-geneva"
+          "talent-acquisition-specialist-temporary-6-months-msc-geneva"
         ],
         "de": [
-          "talent-acquisition-specialist-temporary-6-months-msc-geneva",
-          "talent-acquisition-spezialist-temporary-6-months-msc-group-geneva"
+          "talent-acquisition-specialist-temporary-6-months-msc-geneva"
         ],
         "fr": [
-          "talent-acquisition-specialist-temporary-6-months-msc-geneva",
-          "talent-acquisition-specialiste-temporary-6-months-msc-group-geneva"
+          "talent-acquisition-specialist-temporary-6-months-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-09-30T21:18:24.182Z",
@@ -518,7 +512,7 @@
         "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "en": "jewellery-product-development-senior-manager-msc-geneva",
         "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "fr": "jewellery-product-development-senior-manager-msc-geneva"
+        "fr": "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -571,6 +565,9 @@
           "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "de": [
+          "jewellery-product-development-senior-manager-msc-geneva"
+        ],
+        "fr": [
           "jewellery-product-development-senior-manager-msc-geneva"
         ]
       },
@@ -728,8 +725,7 @@
           "manager-commercial-performance-and-optimisation-msc-geneva"
         ],
         "de": [
-          "manager-commercial-performance-and-optimisation-msc-geneva",
-          "manager-commercial-performance-und-optimierung-msc-group-geneva"
+          "manager-commercial-performance-and-optimisation-msc-geneva"
         ],
         "fr": [
           "manager-commercial-performance-and-optimisation-msc-geneva"
@@ -803,18 +799,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "revenue-management-senior-business-analyste-msc-group-geneva",
-        "revenue-management-senior-business-analyst-msc-geneva",
-        "revenue-management-senior-business-analista-msc-group-geneva"
+        "revenue-management-senior-business-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "revenue-management-senior-business-analyste-msc-group-geneva",
-          "revenue-management-senior-business-analyst-msc-geneva",
-          "revenue-management-senior-business-analista-msc-group-geneva"
+          "revenue-management-senior-business-analyst-msc-geneva"
         ],
         "fr": [
-          "revenue-management-senior-business-analyst-msc-geneva",
-          "revenue-management-senior-business-analyste-msc-group-geneva"
+          "revenue-management-senior-business-analyst-msc-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -840,7 +833,7 @@
       "slugByLocale": {
         "it": "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "en": "retail-business-analytics-manager-msc-geneva",
-        "de": "retail-business-analytics-manager-msc-geneva",
+        "de": "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
         "fr": "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -894,6 +887,9 @@
           "retail-business-analytics-manager-msc-geneva"
         ],
         "fr": [
+          "retail-business-analytics-manager-msc-geneva"
+        ],
+        "de": [
           "retail-business-analytics-manager-msc-geneva"
         ]
       },
@@ -1004,7 +1000,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "fr": "directeur-rh-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1049,7 +1045,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-director-msc-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva"
+        "directeur-des-ressources-humaines-msc-group-geneva",
+        "hr-director-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1059,7 +1056,8 @@
           "hr-director-msc-geneva"
         ],
         "fr": [
-          "directeur-des-ressources-humaines-msc-group-geneva"
+          "directeur-des-ressources-humaines-msc-group-geneva",
+          "hr-director-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,

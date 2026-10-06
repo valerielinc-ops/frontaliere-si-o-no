@@ -4450,9 +4450,9 @@
       "slug": "collaboratore-trice-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich",
-        "en": "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich",
+        "en": "employee-accounting-vz-pension-foundations-vz-vermogenszentrum-zurich-zurich",
         "de": "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch",
-        "fr": "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
+        "fr": "employe-e-comptabilite-vz-fondations-de-prevoyance-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4513,11 +4513,18 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch",
+        "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,

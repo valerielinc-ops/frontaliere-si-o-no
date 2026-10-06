@@ -453,20 +453,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-software-engineer-80-100-six-group-zurich",
-        "senior-software-engineer-80-100-six-group-zurich-2",
-        "senior-software-ingegnere-80-100-six-group-zurich",
         "senior-software-ingenieur-80-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-80-100-six-group-zurich",
-          "senior-software-ingegnere-80-100-six-group-zurich"
+          "senior-software-engineer-80-100-six-group-zurich"
         ],
         "de": [
           "senior-software-engineer-80-100-six-group-zurich"
         ],
         "fr": [
-          "senior-software-engineer-80-100-six-group-zurich-2",
           "senior-software-ingenieur-80-100-six-group-zurich"
         ]
       },
@@ -1403,11 +1399,11 @@
     },
     {
       "id": "six-group-2203cc791722",
-      "slug": "incident-problem-manager-80-100-six-group-zurich",
+      "slug": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "incident-problem-manager-80-100-six-group-zurich",
+        "it": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
         "en": "incident-problem-manager-80-100-six-group-zurich",
-        "de": "incident-problem-manager-80-100-six-group-zurich",
+        "de": "vorfall-und-problemmanager-80-100-six-group-zurich",
         "fr": "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
       },
       "company": "SIX Group",
@@ -1465,7 +1461,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "incident-problem-manager-80-100-six-group-zurich"
+        ],
+        "de": [
+          "incident-problem-manager-80-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "incident-problem-manager-80-100-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-cf4cb8123866",

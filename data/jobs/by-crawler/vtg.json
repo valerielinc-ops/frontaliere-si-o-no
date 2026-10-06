@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-b10zar",
-      "slug": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
+      "slug": "ingegnere-a-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Ingenieur/-in Luftwaffe C2Air System (FLORAKO)",
       "location": "Dübendorf",
@@ -42,8 +42,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
-        "en": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
+        "it": "ingegnere-a-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
+        "en": "engineer-air-force-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
         "de": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar",
         "fr": "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
       },
@@ -54,10 +54,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
-          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
         ],
         "en": [
-          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
         ],
         "de": [
           "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
@@ -68,7 +70,8 @@
       },
       "previousSlugs": [
         "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
-        "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+        "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf",
+        "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf-b10zar"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -128,9 +131,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
-        "en": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
+        "en": "training-as-an-ict-systems-specialist-junior-at-the-ict-warrior-academy-starts-in-march-2027-swiss-armed-forces-vtg-bern",
         "de": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8",
-        "fr": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
+        "fr": "formation-en-tant-que-specialiste-des-systemes-tic-junior-a-l-ict-warrior-academy-debut-en-mars-2027-swiss-armed-forces"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -146,14 +149,16 @@
         ],
         "en": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-          "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern"
+          "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
         ],
         "de": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
         ],
         "fr": [
           "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-          "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
+          "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027",
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
         ]
       },
       "previousSlugs": [
@@ -161,7 +166,8 @@
         "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
         "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
         "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
-        "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
+        "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027",
+        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern-pwipp8"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -221,9 +227,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "spezialist-in-feuerwehr-e-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
-        "en": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
+        "en": "specialist-in-fire-and-rescue-services-sdis-swiss-armed-forces-vtg-payerne",
         "de": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s",
-        "fr": "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
+        "fr": "specialiste-des-services-d-incendie-et-de-secours-sdis-swiss-armed-forces-vtg-payerne"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -234,10 +240,17 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne"
+        ],
+        "en": [
+          "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
+        ],
+        "fr": [
+          "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne"
+        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne",
+        "spezialist-in-feuerwehr-und-rettungsdienst-sdis-swiss-armed-forces-vtg-payerne-xu2r4s"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -297,9 +310,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "logistikfachmann-frau-stv-chef-in-magazzino-swiss-armed-forces-vtg-gundlischwand",
-        "en": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
+        "en": "logistics-specialist-deputy-warehouse-manager-swiss-armed-forces-vtg-gundlischwand",
         "de": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
-        "fr": "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
+        "fr": "specialiste-en-logistique-responsable-adjoint-de-l-entrepot-swiss-armed-forces-vtg-gundlischwand"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -315,13 +328,15 @@
           "logistikfachmann-frau-stv-chef-in-magazzino-confederazione-svizzera-gundlischwand"
         ],
         "en": [
-          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
         ],
         "de": [
           "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
         ],
         "fr": [
-          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
         ]
       },
       "previousSlugs": [

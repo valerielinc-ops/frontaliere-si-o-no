@@ -149,9 +149,9 @@
     },
     {
       "id": "holmes-place-d268418edb73",
-      "slug": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich",
+      "slug": "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich",
       "slugByLocale": {
-        "it": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich",
+        "it": "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich",
         "en": "group-fitness-instructor-m-f-d-holmes-place-zurich",
         "de": "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
         "fr": "instructeur-de-fitness-de-groupe-h-f-d-holmes-place-zurich"
@@ -200,13 +200,13 @@
       "previousSlugs": [
         "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
         "gruppenfitness-instruktor-m-w-d-holmes-place-zurich",
-        "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich"
+        "gruppenfitness-instruktor-m-f-d-holmes-place-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d",
           "gruppenfitness-instruktor-m-w-d-holmes-place-zurich",
-          "istruttore-di-fitness-di-gruppo-m-f-d-holmes-place-zurich"
+          "gruppenfitness-instruktor-m-f-d-holmes-place-zurich"
         ],
         "en": [
           "gruppenfitness-instruktor-m-f-d-holmes-place-zurich-jel-gruppenfitness-instruktor-m-f-d"
@@ -233,9 +233,9 @@
     },
     {
       "id": "holmes-place-b8b2af941323",
-      "slug": "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d",
+      "slug": "responsabile-della-fitness-m-f-d-holmes-place-oberrieden",
       "slugByLocale": {
-        "it": "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d",
+        "it": "responsabile-della-fitness-m-f-d-holmes-place-oberrieden",
         "en": "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d",
         "de": "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d",
         "fr": "gestionnaire-de-fitness-h-f-d-holmes-place-oberrieden"
@@ -295,7 +295,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
+        ]
+      },
+      "previousSlugs": [
+        "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
+      ]
     },
     {
       "id": "holmes-place-17daf32eef8e",

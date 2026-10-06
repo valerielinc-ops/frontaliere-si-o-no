@@ -1351,9 +1351,9 @@
     },
     {
       "id": "abbott-ef6c14c49b31",
-      "slug": "epd-product-flows-expert-abbott-ch",
+      "slug": "esperto-di-flussi-di-prodotto-epd-abbott-allschwil",
       "slugByLocale": {
-        "it": "epd-product-flows-expert-abbott-ch",
+        "it": "esperto-di-flussi-di-prodotto-epd-abbott-allschwil",
         "en": "epd-product-flows-expert-abbott-ch",
         "de": "epd-product-flows-experte-abbott-allschwil",
         "fr": "expert-en-flux-de-produits-epd-abbott-allschwil"
@@ -1413,7 +1413,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4123"
+      "postalCode": "4123",
+      "previousSlugsByLocale": {
+        "it": [
+          "epd-product-flows-expert-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "epd-product-flows-expert-abbott-ch"
+      ]
     },
     {
       "id": "abbott-dc565529ba1b",

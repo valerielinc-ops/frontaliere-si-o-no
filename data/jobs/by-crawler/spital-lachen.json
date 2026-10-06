@@ -3182,12 +3182,12 @@
     },
     {
       "id": "spital-lachen-488bc834df74",
-      "slug": "ernahrungsberater-in-40-100-spital-lachen-lachen",
+      "slug": "nutrizionista-40-100-spital-lachen-lachen",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-40-100-spital-lachen-lachen",
-        "en": "ernahrungsberater-in-40-100-spital-lachen-lachen",
+        "it": "nutrizionista-40-100-spital-lachen-lachen",
+        "en": "nutritionist-40-100-spital-lachen-lachen",
         "de": "ernahrungsberater-in-40-100-spital-lachen-lachen",
-        "fr": "ernahrungsberater-in-40-100-spital-lachen-lachen"
+        "fr": "nutritionniste-40-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3244,7 +3244,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-40-100-spital-lachen-lachen"
+        ],
+        "en": [
+          "ernahrungsberater-in-40-100-spital-lachen-lachen"
+        ],
+        "fr": [
+          "ernahrungsberater-in-40-100-spital-lachen-lachen"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-40-100-spital-lachen-lachen"
+      ]
     }
   ]
 }

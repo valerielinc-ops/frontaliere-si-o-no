@@ -4895,12 +4895,12 @@
     },
     {
       "id": "spital-buelach-97ea1eb11a75",
-      "slug": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
+      "slug": "dipl-esperto-di-anestesia-in-infermieristica-nds-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
-        "en": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
+        "it": "dipl-esperto-di-anestesia-in-infermieristica-nds-spital-bulach-bulach",
+        "en": "dipl-expert-anesthesia-nursing-nds-spital-bulach-bulach",
         "de": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
-        "fr": "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+        "fr": "dipl-expert-en-anesthesie-en-soins-infirmiers-nds-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4958,7 +4958,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-01c3cb704fd7",

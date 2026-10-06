@@ -6795,12 +6795,12 @@
     },
     {
       "id": "kanton-st-gallen-bd1cdb76c175",
-      "slug": "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch",
+      "slug": "addetto-a-amministrazione-sanzioni-fiscali-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch",
-        "en": "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch",
+        "it": "addetto-a-amministrazione-sanzioni-fiscali-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "clerk-administration-tax-penalties-m-f-d-kanton-st-gallen-st-gallen",
         "de": "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch",
-        "fr": "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        "fr": "responsable-administratif-penalites-fiscales-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6859,16 +6859,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-fc65e09eca80",
-      "slug": "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch",
+      "slug": "addetto-a-ufficio-legale-sanzioni-fiscali-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch",
-        "en": "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch",
+        "it": "addetto-a-ufficio-legale-sanzioni-fiscali-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "clerk-legal-department-tax-penalties-m-f-d-kanton-st-gallen-st-gallen",
         "de": "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch",
-        "fr": "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        "fr": "responsable-du-service-juridique-penalites-fiscales-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6927,7 +6941,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-rechtsabteilung-steuerstrafen-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-18743fe6b75e",

@@ -10744,9 +10744,9 @@
     },
     {
       "id": "raiffeisen-15f1cbf4925c",
-      "slug": "collaborateur-trice-back-office-raiffeisen-nyon",
+      "slug": "collaboratore-back-office-raiffeisen-nyon",
       "slugByLocale": {
-        "it": "collaborateur-trice-back-office-raiffeisen-nyon",
+        "it": "collaboratore-back-office-raiffeisen-nyon",
         "en": "collaborator-back-office-raiffeisen-nyon",
         "de": "mitarbeiter-back-office-raiffeisen-nyon",
         "fr": "collaborateur-trice-back-office-raiffeisen-nyon"
@@ -10794,11 +10794,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratore-back-office-raiffeisen-nyon"
+        "collaborateur-trice-back-office-raiffeisen-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-back-office-raiffeisen-nyon"
+          "collaborateur-trice-back-office-raiffeisen-nyon"
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:41.762Z",
@@ -12960,7 +12960,7 @@
         "it": "assistenti-clienti-aziendali-raiffeisen-liestal",
         "en": "assistant-corporate-clients-raiffeisen-liestal",
         "de": "assistent-in-firmenkunden-raiffeisen-liestal",
-        "fr": "assistent-in-firmenkunden-raiffeisen-liestal"
+        "fr": "assistant-client-corporatif-raiffeisen-liestal"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -13013,6 +13013,9 @@
           "assistent-in-firmenkunden-raiffeisen-liestal"
         ],
         "en": [
+          "assistent-in-firmenkunden-raiffeisen-liestal"
+        ],
+        "fr": [
           "assistent-in-firmenkunden-raiffeisen-liestal"
         ]
       },

@@ -3943,12 +3943,12 @@
     },
     {
       "id": "tether-0bf772e02880",
-      "slug": "senior-technical-product-manager-keet-100-remote-tether-ch",
+      "slug": "responsabile-tecnico-prodotto-senior-keet-100-remoto-tether-operations-lugano-ticino",
       "slugByLocale": {
-        "it": "senior-technical-product-manager-keet-100-remote-tether-ch",
+        "it": "responsabile-tecnico-prodotto-senior-keet-100-remoto-tether-operations-lugano-ticino",
         "en": "senior-technical-product-manager-keet-100-remote-tether-ch",
         "de": "senior-technical-product-manager-keet-100-remote-tether-ch",
-        "fr": "senior-technical-product-manager-keet-100-remote-tether-ch"
+        "fr": "chef-de-produit-technique-senior-keet-100-a-distance-tether-operations-lugano-ticino"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -4007,7 +4007,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-technical-product-manager-keet-100-remote-tether-ch"
+        ],
+        "fr": [
+          "senior-technical-product-manager-keet-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-technical-product-manager-keet-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-a9da09c6c8ba",
