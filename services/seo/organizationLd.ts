@@ -34,15 +34,30 @@ const ORGANIZATION_ID_PREFIX = `${SITE}/#organization-`;
  * keeping the key derived from that name makes the identity stable across
  * locales and builds without inventing a page URL for the external entity.
  */
+function organizationNameHash(name: string): string {
+  // Two independent 32-bit lanes provide a compact 64-bit suffix without
+  // requiring a platform crypto API. Hash the complete original name so two
+  // names with the same readable prefix cannot share the fallback identity.
+  let first = 0x811c9dc5;
+  let second = 0x9e3779b9;
+  for (let index = 0; index < name.length; index += 1) {
+    const code = name.charCodeAt(index);
+    first = Math.imul(first ^ code, 0x01000193);
+    second = Math.imul(second ^ (code + index), 0x85ebca6b);
+  }
+  return `${(first >>> 0).toString(16).padStart(8, '0')}${(second >>> 0).toString(16).padStart(8, '0')}`;
+}
+
 function organizationNameKey(name: string): string {
-  return name
+  const normalized = name
     .normalize('NFKD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 96);
+    .replace(/^-+|-+$/g, '');
+  const readable = normalized.slice(0, 96);
+  return normalized.length > 96 ? `${readable}-${organizationNameHash(name)}` : readable;
 }
 
 function httpUrl(value: unknown): string | undefined {
