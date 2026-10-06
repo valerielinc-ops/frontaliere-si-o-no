@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28",
+  "generatedAt": "2026-10-05",
   "source": "BFS AGV Communes API (www.agvchapp.bfs.admin.ch)",
   "sourceUrl": "https://www.agvchapp.bfs.admin.ch/api/communes/snapshot",
   "totalMunicipalities": 2110,
@@ -695,7 +695,10 @@
         "Bettingen",
         "Riehen"
       ],
-      "municipalityCount": 3
+      "municipalityCount": 3,
+      "aliases": [
+        "Basle"
+      ]
     },
     "FR": {
       "municipalities": [
@@ -1178,7 +1181,10 @@
         "Wolhusen",
         "Zell (LU)"
       ],
-      "municipalityCount": 79
+      "municipalityCount": 79,
+      "aliases": [
+        "Lucerne"
+      ]
     },
     "NE": {
       "municipalities": [
@@ -2489,6 +2495,7 @@
         "Glattbrugg",
         "Zürich-Flughafen",
         "Zuerich",
+        "Zurich",
         "Staefa",
         "Feldmeilen",
         "Fehraltdorf",

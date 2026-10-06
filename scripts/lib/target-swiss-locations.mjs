@@ -192,7 +192,6 @@ function getCantonScopedBareTokens(cantonCode) {
   const entry = MUNICIPALITY_DATA.cantons?.[cantonCode];
   const municipalities = entry?.municipalities || [];
   const aliases = entry?.aliases || [];
-  const all = [...new Set([...municipalities, ...aliases])];
   // Track which distinct BFS entries produce each bare token before
   // committing anything to the returned Set. Two DIFFERENT municipalities
   // in the SAME canton could in principle share a bare name (BFS
@@ -206,14 +205,30 @@ function getCantonScopedBareTokens(cantonCode) {
   // AMBIGUOUS_LOCATION_WORD_TOKENS above. Regression-guarded by
   // tests/swiss-municipality-whitelist.test.ts.
   const sourcesByToken = new Map();
-  for (const city of all) {
+  const canonicalTokens = new Set();
+  const addSource = (city) => {
     const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
     const bareToken = normalizeToken(disambiguated?.[1] || city);
     // A raw municipality that is ambiguous in prose is authoritative here:
     // the caller already supplied the canton and therefore disambiguated it.
-    if (!bareToken) continue;
+    if (!bareToken) return '';
     if (!sourcesByToken.has(bareToken)) sourcesByToken.set(bareToken, new Set());
     sourcesByToken.get(bareToken).add(city);
+    return bareToken;
+  };
+  for (const city of municipalities) {
+    const bareToken = addSource(city);
+    if (bareToken) canonicalTokens.add(bareToken);
+  }
+  for (const alias of aliases) {
+    const bareToken = normalizeToken(alias.match(/^(.+?)\s*\([a-z]{2}\)$/i)?.[1] || alias);
+    // A translated/spelling alias such as `Zurich` for the canonical
+    // municipality `Zürich` is the same municipality after normalization. It
+    // must not manufacture an intra-canton collision and make the source
+    // unusable for callers that require exactly one canton. Distinct
+    // municipalities still remain separate sources and stay fail-closed.
+    if (canonicalTokens.has(bareToken)) continue;
+    addSource(alias);
   }
 
   const tokens = new Set();
@@ -557,6 +572,29 @@ export function normalizeCantonCode(raw = '') {
   return '';
 }
 
+/**
+ * Normalize a structured Swiss canton field without treating a municipality
+ * or a representative city alias as a canton. Some schema.org producers put
+ * the country code next to the canton (`ZH,CH`, `CH-ZH`); that pair is still
+ * Swiss subdivision evidence even when `addressCountry` is absent.
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function normalizeSwissCantonCode(raw = '') {
+  const normalized = normalizeSwissTargetLocationText(raw);
+  if (!normalized) return '';
+  const upper = normalized.toUpperCase();
+  if (Object.hasOwn(SWISS_CANTONS, upper)) return upper;
+  const paired = /^(?:CH\s+([A-Z]{2})|([A-Z]{2})\s+CH)$/.exec(upper);
+  const pairedCode = paired?.[1] || paired?.[2] || '';
+  if (pairedCode && Object.hasOwn(SWISS_CANTONS, pairedCode)) return pairedCode;
+  for (const [code, names] of Object.entries(CANTON_EXPLICIT_NAMES)) {
+    if (names.some((name) => normalizeSwissTargetLocationText(name) === normalized)) return code;
+  }
+  return '';
+}
+
 // ─── Target location check ────────────────────────────────────────────────
 
 export function isTargetSwissLocation(text = '', {
@@ -684,6 +722,25 @@ const _strictSwissCityTokens = (() => {
   for (const token of _uniqueOfficialLocalityTokens) tokens.add(token);
   return tokens;
 })();
+
+// The generated municipality snapshot also carries a small set of English
+// exonyms used by structured source fields (Geneva, Lucerne, Berne, Basle).
+// They are valid source evidence when the field itself establishes a
+// Swiss/work-mode context. In free text, a sole exonym is also usable rescue
+// evidence, but a competing foreign/multi-site signal must still block it:
+// selecting Geneva from "Paris, Geneva, London" would overwrite the real
+// description rescue. `Zurich` is intentionally not listed: normalizeToken()
+// folds it to the same token as canonical `Zürich`, so excluding it would also
+// discard the canonical form.
+const STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES = new Map([
+  ['geneva', 'Genève'],
+  ['lucerne', 'Luzern'],
+  ['berne', 'Bern'],
+  ['basle', 'Basel'],
+]);
+const STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS = new Set(
+  STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.keys(),
+);
 
 // Token set of canton-only labels (names + 2-letter codes). Used to detect
 // when a `location` field is canton-level rather than city-level.
@@ -890,12 +947,15 @@ export function canonicalSwissCityName(value = '') {
  * for a real city before deciding to drop the record.
  *
  * @param {string} text
- * @param {{ skipTokens?: Set<string>, cantonHint?: string, allowOfficialLocality?: boolean }} [options] - tokens to ignore. A
+ * @param {{ skipTokens?: Set<string>, cantonHint?: string, allowOfficialLocality?: boolean, includeEnglishExonyms?: boolean }} [options] - tokens to ignore. A
  *   skipped token does NOT abort the scan: the search continues so that a
  *   description reading "alle Mitarbeitenden in Winterthur" still resolves to
  *   Winterthur instead of the village of Alle (JU). Callers scanning free-form
  *   description text should pass TEXT_RESCUE_AMBIGUOUS_TOKENS — or, better,
- *   just call rescueSwissCityFromText(), which does it for them.
+ *   just call rescueSwissCityFromText(), which does it for them. English
+ *   exonyms are excluded here unless a structured source-field caller opts in;
+ *   rescueSwissCityFromText() accepts a sole exonym and rejects it only when
+ *   the text supplies a competing foreign/multi-site signal.
  */
 function isKnownSwissLocationFieldToken(candidate, cantonHint = '') {
   if (isKnownSwissCity(candidate, cantonHint)) return true;
@@ -905,14 +965,23 @@ function isKnownSwissLocationFieldToken(candidate, cantonHint = '') {
   // canton is missing or stale (Nussbaumen, Wohlen, Le Crêt-du-Locle). The
   // field is authoritative, while description prose keeps the stricter
   // global/canton-scoped whitelist below.
-  return _officialLocalityCantonsByToken.has(token)
-    || swissMunicipalityCantons(candidate).length > 0;
+  const owners = _officialLocalityCantonsByToken.get(token);
+  return Boolean(owners && (
+    owners.size === 1
+    || (cantonHint && owners.has(normalizeCantonCode(cantonHint)))
+  ));
 }
 
-export function findSwissCityInText(text = '', { skipTokens, cantonHint = '', allowOfficialLocality = false } = {}) {
+export function findSwissCityInText(text = '', {
+  skipTokens,
+  cantonHint = '',
+  allowOfficialLocality = false,
+  includeEnglishExonyms = false,
+} = {}) {
   if (!text || typeof text !== 'string') return '';
   const norm = normalizeToken(text);
   if (!norm) return '';
+  const hasSwissFieldContext = /\b(?:switzerland|schweiz|suisse|svizzera|swiss)\b/i.test(text);
   // Tokenise on whitespace; bigrams + trigrams catch multi-word cities
   // like "La Chaux-de-Fonds", "Saint-Gall".
   const words = norm.split(' ').filter((w) => w.length >= 2);
@@ -920,6 +989,7 @@ export function findSwissCityInText(text = '', { skipTokens, cantonHint = '', al
     for (let i = 0; i + n <= words.length; i++) {
       const candidate = words.slice(i, i + n).join(' ');
       if (skipTokens?.has(candidate)) continue;
+      if (!includeEnglishExonyms && !hasSwissFieldContext && STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)) continue;
       if (allowOfficialLocality
         ? isKnownSwissLocationFieldToken(candidate, cantonHint)
         : isKnownSwissCity(candidate, cantonHint)) return candidate;
@@ -1163,9 +1233,21 @@ export function rescueSwissCityFromText(text = '', { foreignContext = false, isF
     for (let i = 0; i + n <= words.length; i++) {
       const j = i + n - 1;
       const candidate = words.slice(i, j + 1).map((word) => word.folded).join(' ');
-      if (skipTokens?.has(candidate) || TEXT_RESCUE_AMBIGUOUS_TOKENS.has(candidate) || !_strictSwissCityTokens.has(candidate)) continue;
+      const englishExonymHasCompetingSignal = STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)
+        && (isInsideForeignCompound(words, i, j)
+          || isInForeignSiteList(
+            text,
+            words[i].start,
+            words[j].end,
+            isForeignPlace,
+          ));
+      if (TEXT_RESCUE_AMBIGUOUS_TOKENS.has(candidate)
+        || englishExonymHasCompetingSignal
+        || skipTokens?.has(candidate)
+        || !_strictSwissCityTokens.has(candidate)) continue;
       if (candidate.length < 4) return '';
-      const canonicalName = canonicalSwissCityName(candidate);
+      const canonicalName = STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.get(candidate)
+        || canonicalSwissCityName(candidate);
       if (foreignContext) {
         const start = words[i].start;
         const end = words[j].end;
@@ -1201,12 +1283,111 @@ export function rescueSwissCityFromText(text = '', { foreignContext = false, isF
  * Exists so neither behaviour is expressed by inlining
  * canonicalSwissCityName(findSwissCityInText(...)) at a call site, where the
  * choice of blocklist-or-not becomes invisible and drifts.
+ *
+ * @param {string} value
+ * @param {{ allowUnqualifiedEnglishExonyms?: boolean }} [options]
  */
-export function swissCityFromLocationField(value = '', cantonHint = '') {
-  if (isKnownSwissLocationFieldToken(value, cantonHint)) {
-    return canonicalSwissCityName(value);
+const SWISS_CANTON_CODE_MARKER_SOURCE = `(?:${ALL_CANTON_CODES.join('|')})`;
+const SWISS_CANTON_CODE_MARKER_RE = new RegExp(
+  `\\b${SWISS_CANTON_CODE_MARKER_SOURCE}\\b`,
+  'gi',
+);
+const SWISS_LOCATION_FIELD_MARKER_RE = new RegExp(
+  `\\b(?:${SWISS_CANTON_CODE_MARKER_SOURCE}|CH|CHE|756)\\b`,
+  'i',
+);
+
+function locationCantonMarkers(raw = '') {
+  return [...String(raw || '').matchAll(SWISS_CANTON_CODE_MARKER_RE)]
+    .map(([marker]) => marker.toUpperCase());
+}
+
+function stripLocationCantonMarker(city = '') {
+  return String(city || '')
+    .replace(new RegExp(`\\s*\\(?${SWISS_CANTON_CODE_MARKER_SOURCE}\\)?$`, 'i'), '')
+    .trim();
+}
+
+function hasMatchingCantonMarker(raw, city) {
+  const markers = locationCantonMarkers(raw);
+  if (!markers.length) return true;
+  const cityCantons = swissMunicipalityCantons(stripLocationCantonMarker(city));
+  return markers.every((marker) => cityCantons.includes(marker));
+}
+
+function findSwissCityInCantonText(text = '', canton = '') {
+  const normalized = normalizeToken(text);
+  if (!normalized || !canton) return '';
+  const words = normalized.split(' ').filter((word) => word.length >= 2);
+  for (let n = 3; n >= 1; n -= 1) {
+    for (let i = 0; i + n <= words.length; i += 1) {
+      const candidate = words.slice(i, i + n).join(' ');
+      if (isKnownSwissMunicipalityInCanton(candidate, canton)) return candidate;
+    }
   }
-  return canonicalSwissCityName(findSwissCityInText(value, { cantonHint, allowOfficialLocality: true }));
+  return '';
+}
+
+function canonicalLocationFieldCity(city, markers) {
+  const canonical = canonicalSwissCityName(city);
+  if (markers.length !== 1 || /\\([A-Z]{2}\\)$/i.test(canonical)) return canonical;
+  const bareCity = stripLocationCantonMarker(city);
+  if (swissMunicipalityCantons(bareCity).length <= 1) return canonical;
+  return canonicalSwissCityName(`${bareCity} ${markers[0]}`);
+}
+
+function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExonyms = false) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const candidate = findSwissCityInText(raw, { includeEnglishExonyms: true });
+  if (!candidate || !STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)) return '';
+
+  // An exact field, an explicit Swiss marker, or a work-mode decoration is a
+  // source-backed location shape. A bare English token embedded in an
+  // unqualified multi-site list is not: `Paris, Geneva, London` must not win
+  // over an independently rescued city from the vacancy text.
+  const withoutWorkMode = raw.replace(WORK_MODE_TOKEN_RE, '$1 ');
+  const hasWorkMode = withoutWorkMode !== raw;
+  const hasSwissMarker = SWISS_COUNTRY_RE.test(raw) || SWISS_LOCATION_FIELD_MARKER_RE.test(raw);
+  if (hasSwissMarker && !hasMatchingCantonMarker(raw, candidate)) return '';
+  return allowUnqualifiedEnglishExonyms
+    || normalizeSwissTargetLocationText(raw) === candidate
+    || hasWorkMode
+    || hasSwissMarker
+    ? candidate
+    : '';
+}
+
+export function swissCityFromLocationField(value = '', cantonHintOrOptions = '') {
+  const raw = String(value || '').trim();
+  const options = cantonHintOrOptions && typeof cantonHintOrOptions === 'object'
+    ? cantonHintOrOptions
+    : {};
+  const cantonHint = typeof cantonHintOrOptions === 'string' ? cantonHintOrOptions : '';
+  const allowUnqualifiedEnglishExonyms = options.allowUnqualifiedEnglishExonyms === true;
+  if (!raw) return '';
+  const markers = locationCantonMarkers(raw);
+  const directFieldCity = isKnownSwissLocationFieldToken(raw, cantonHint) ? raw : '';
+  const scopedCity = markers.length === 1
+    ? findSwissCityInCantonText(raw, markers[0])
+    : '';
+  const hintedCity = cantonHint
+    ? findSwissCityInText(raw, {
+      cantonHint,
+      allowOfficialLocality: true,
+      includeEnglishExonyms: true,
+    })
+    : '';
+  const city = directFieldCity
+    || scopedCity
+    || hintedCity
+    || findSwissCityInText(raw, {
+      allowOfficialLocality: true,
+      includeEnglishExonyms: true,
+    })
+    || englishExonymFromLocationField(value, allowUnqualifiedEnglishExonyms);
+  if (!city || !hasMatchingCantonMarker(raw, city)) return '';
+  return canonicalLocationFieldCity(city, markers);
 }
 
 // A work mode written where a city would go: EN/DE/FR/IT forms seen on
