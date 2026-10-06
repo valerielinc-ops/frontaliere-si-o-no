@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   TARGET_WORKFLOW_ID,
   TARGET_WORKFLOW_PATH,
@@ -88,5 +88,34 @@ describe('translate successor guard', () => {
         });
       },
     })).rejects.toThrow('successor_guard_claim_mismatch');
+  });
+
+  it('cancels an invalid streamed workflow chunk before preserving the verdict', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '{"invalid":true}' }),
+      cancel,
+      releaseLock,
+    };
+    const responseWithInvalidChunk = {
+      status: 200,
+      ok: true,
+      headers: { get: () => null },
+      body: { getReader: vi.fn(() => reader) },
+    };
+    const fetchImpl = vi.fn().mockResolvedValue(responseWithInvalidChunk);
+    await expect(verifyRecoverySuccessor({
+      apiUrl: 'https://api.github.com',
+      token: 'test-token',
+      runId: RUN_ID,
+      runAttempt: '2',
+      headSha: HEAD_SHA,
+      eventName: 'workflow_dispatch',
+      fetchImpl,
+    })).rejects.toThrow('successor_guard_invalid_json');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
   });
 });

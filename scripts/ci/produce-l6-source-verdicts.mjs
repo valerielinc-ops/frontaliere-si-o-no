@@ -184,6 +184,10 @@ async function discardBody(response) {
   }
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 async function readCapped(response, maxBytes) {
   if (!response.body || typeof response.body.getReader !== 'function') {
     const buffer = Buffer.from(await response.arrayBuffer());
@@ -193,19 +197,25 @@ async function readCapped(response, maxBytes) {
   const reader = response.body.getReader();
   const chunks = [];
   let total = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    total += value.byteLength;
-    if (total > maxBytes) {
-      await reader.cancel().catch(() => {});
-      throw new SourceError('fetch-failed', `source larger than ${maxBytes} bytes`);
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > maxBytes) {
+        throw new SourceError('fetch-failed', `source larger than ${maxBytes} bytes`);
+      }
+      // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+      // shares the producer's memory, which a reader may reuse (#7483).
+      chunks.push(Buffer.from(value instanceof ArrayBuffer
+        ? value.slice(0)
+        : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
-    // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
-    // shares the producer's memory, which a reader may reuse (#7483).
-    chunks.push(Buffer.from(value instanceof ArrayBuffer
-      ? value.slice(0)
-      : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    throw error;
+  } finally {
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
   return Buffer.concat(chunks);
 }

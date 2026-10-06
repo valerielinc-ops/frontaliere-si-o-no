@@ -119,6 +119,10 @@ function apiBaseUrl(value) {
   return parsed.toString().replace(/\/$/, '');
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 /**
  * The cap is applied while the body streams (#9729): `response.text()` and a
  * size check afterwards would download a chunked response in full first.
@@ -142,7 +146,6 @@ async function readJson(response) {
       if (done) break;
       if (!ArrayBuffer.isView(value)) throw new Error('successor_guard_invalid_json');
       if (value.byteLength > MAX_RESPONSE_BYTES - size) {
-        try { await reader.cancel(); } catch { /* the size verdict stays authoritative */ }
         throw tooLarge();
       }
       // A copy, not a view over `value.buffer`: a reader may hand back the
@@ -150,6 +153,9 @@ async function readJson(response) {
       chunks.push(Buffer.from(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
       size += value.byteLength;
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    throw error;
   } finally {
     // Cleanup must never replace the verdict: older WHATWG streams throw here.
     try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }

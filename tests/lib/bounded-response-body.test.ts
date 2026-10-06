@@ -70,6 +70,22 @@ function responseWithThrowingRelease(chunks: Uint8Array[], headers = new Headers
   return { response, state };
 }
 
+function responseWithInvalidChunk() {
+  const state = { cancelled: 0, released: 0 };
+  const reader = {
+    read: vi.fn(async () => ({ done: false, value: '{"ok":1}' as unknown as Uint8Array })),
+    cancel: vi.fn(async () => { state.cancelled += 1; }),
+    releaseLock: vi.fn(() => { state.released += 1; }),
+  };
+  const response = {
+    ok: true,
+    status: 200,
+    headers: new Headers(),
+    body: { getReader: () => reader, cancel: vi.fn(async () => {}) },
+  };
+  return { response, state };
+}
+
 const json = (value: unknown) => new TextEncoder().encode(JSON.stringify(value));
 
 /**
@@ -257,6 +273,12 @@ describe('consumers that checked the cap only after downloading the body', () =>
 });
 
 describe('releaseLock() that throws in the other bounded GitHub readers', () => {
+  it('githubWorkflowDispatch cancels an invalid chunk before releasing the reader', async () => {
+    const { response, state } = responseWithInvalidChunk();
+    await expect(readBoundedJsonResponse(response, 1_000)).rejects.toThrow();
+    expect(state).toEqual({ cancelled: 1, released: 1 });
+  });
+
   it('githubWorkflowDispatch keeps a fully read body', async () => {
     const { response } = responseWithThrowingRelease([json({ workflow_run_id: 1 })]);
     await expect(readBoundedJsonResponse(response, 1_000)).resolves.toEqual({ workflow_run_id: 1 });
@@ -277,6 +299,19 @@ describe('releaseLock() that throws in the other bounded GitHub readers', () => 
     });
     await expect(request({ method: 'GET', path: '/repos/o/r/actions/runs/1' }))
       .resolves.toMatchObject({ status: 200, body: { ok: 1 } });
+  });
+
+  it('crawler-generation-dispatch cancels an invalid chunk before releasing the reader', async () => {
+    const { response, state } = responseWithInvalidChunk();
+    const fetchImpl = vi.fn(async () => response);
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test',
+      token: 't',
+      fetchImpl,
+    });
+    await expect(request({ method: 'GET', path: '/repos/o/r/actions/runs/1' })).rejects.toThrow();
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(state).toEqual({ cancelled: 1, released: 1 });
   });
 
   it('crawler-generation-dispatch keeps the oversize verdict', async () => {
