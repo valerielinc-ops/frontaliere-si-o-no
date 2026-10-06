@@ -2390,7 +2390,7 @@
       "slug": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
-        "en": "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich",
+        "en": "transport-expert-kantonale-verwaltung-zurich-zurich",
         "de": "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "fr": "specialiste-des-transports-kantonale-verwaltung-zurich-zurich"
       },
@@ -2443,7 +2443,6 @@
       "previousSlugs": [
         "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-        "transport-expert-kantonale-verwaltung-zurich-zurich",
         "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2453,7 +2452,6 @@
         ],
         "en": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-          "transport-expert-kantonale-verwaltung-zurich-zurich",
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
         ],
         "fr": [
@@ -2835,8 +2833,7 @@
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "en": [
-          "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf",
-          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+          "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
@@ -2864,7 +2861,7 @@
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2914,10 +2911,14 @@
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "polizeiaspirant-in-kanton-zuerich-zurich"
+        "polizeiaspirant-in-kanton-zuerich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4373,7 +4374,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
+        "fr": "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4423,7 +4424,7 @@
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4431,7 +4432,7 @@
         ],
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -5888,9 +5889,9 @@
     },
     {
       "id": "kanton-zuerich-014e7479c2f0",
-      "slug": "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur",
+      "slug": "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
-        "it": "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur",
+        "it": "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
         "en": "1-2-teachers-mba-subject-german-kantonale-verwaltung-zurich-winterthur",
         "de": "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
         "fr": "1-2-enseignants-mba-sujet-allemand-kantonale-verwaltung-zurich-winterthur"
@@ -5942,13 +5943,11 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
-        "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
         "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
-          "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
           "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur"
         ],
         "en": [
@@ -7049,7 +7048,7 @@
         "it": "sviluppo-di-applicazione-sviluppo-di-applicazione-kantonale-verwaltung-zurich-8050-zurich",
         "en": "application-development-application-development-fire-kantonale-verwaltung-zurich-8050-zurich",
         "de": "applikationsentwickler-applikationsentwicklerin-feuerwehr-kanton-zuerich-8050-zurich",
-        "fr": "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
+        "fr": "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7099,8 +7098,7 @@
       "pensum": "80%",
       "previousSlugs": [
         "applikationsentwickler-applikationsentwicklerin-feuerwehr-kanton-zuerich-8050-zurich",
-        "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich",
-        "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich"
+        "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7111,7 +7109,6 @@
           "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
         ],
         "fr": [
-          "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich",
           "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
         ]
       },
@@ -8796,9 +8793,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich-affoltern-am-albis",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich-affoltern-am-albis",
-        "en": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis",
+        "en": "qualified-nurse-man-hf-kantonale-verwaltung-zurich-affoltern-am-albis",
         "de": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis",
-        "fr": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis"
+        "fr": "dipl-infirmiere-infirmier-es-kantonale-verwaltung-zurich-affoltern-am-albis"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8850,6 +8847,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-kanton-zuerich-affoltern-am-albis"
         ]
       },
@@ -10368,7 +10371,7 @@
         "it": "system-e-requirements-ingegnere-input-outputmanagement-kantonale-verwaltung-zurich",
         "en": "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich",
         "de": "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich",
-        "fr": "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
+        "fr": "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10418,7 +10421,6 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich",
-        "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich",
         "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
@@ -10426,7 +10428,6 @@
           "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich"
         ],
         "fr": [
-          "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich",
           "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
         ]
       },
@@ -12836,12 +12837,12 @@
     },
     {
       "id": "kanton-zuerich-5df1706cd4b0",
-      "slug": "hauswart-in-kanton-zuerich-winterthur-wulflingen",
+      "slug": "custode-kantonale-verwaltung-zurich-winterthur-wulflingen",
       "slugByLocale": {
-        "it": "hauswart-in-kanton-zuerich-winterthur-wulflingen",
-        "en": "hauswart-in-kanton-zuerich-winterthur-wulflingen",
+        "it": "custode-kantonale-verwaltung-zurich-winterthur-wulflingen",
+        "en": "caretaker-kantonale-verwaltung-zurich-winterthur-wulflingen",
         "de": "hauswart-in-kanton-zuerich-winterthur-wulflingen",
-        "fr": "hauswart-in-kanton-zuerich-winterthur-wulflingen"
+        "fr": "concierge-e-kantonale-verwaltung-zurich-winterthur-wulflingen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12901,7 +12902,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-kanton-zuerich-winterthur-wulflingen"
+        ],
+        "en": [
+          "hauswart-in-kanton-zuerich-winterthur-wulflingen"
+        ],
+        "fr": [
+          "hauswart-in-kanton-zuerich-winterthur-wulflingen"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-kanton-zuerich-winterthur-wulflingen"
+      ]
     },
     {
       "id": "kanton-zuerich-a2f4a6af1bc7",

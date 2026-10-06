@@ -24234,8 +24234,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-o-hebamme-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem"
+        "en": "dipl-nursing-professional-dipl-nurse-or-midwife-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "dipl-infirmiere-ou-sage-femme-a-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24283,6 +24283,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-oder-hebamme-a-80-100-hirslanden-hirslanden-salem"
         ]
       },

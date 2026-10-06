@@ -2563,8 +2563,8 @@
       "slugByLocale": {
         "fr": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
         "it": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
-        "en": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
-        "de": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f"
+        "en": "legal-counsel-specializing-in-company-and-contract-law-m-f-d-srg-ssr-geneve-8",
+        "de": "rechtsberater-spezialisiert-auf-gesellschafts-und-vertragsrecht-m-w-d-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2737,12 +2737,12 @@
     },
     {
       "id": "srg-ssr-704bd07eb509",
-      "slug": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
+      "slug": "giurista-titolare-del-brevetto-dell-avvocato-e-srg-ssr-lausanne",
       "slugByLocale": {
         "fr": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
-        "it": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
-        "en": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
-        "de": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+        "it": "giurista-titolare-del-brevetto-dell-avvocato-e-srg-ssr-lausanne",
+        "en": "jurist-holder-of-the-lawyer-s-patent-e-srg-ssr-lausanne",
+        "de": "jurist-inhaber-des-patents-des-anwalts-e-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2820,16 +2820,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-05T21:23:09.586Z"
+      "firstSeenAt": "2026-10-05T21:23:09.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+        ],
+        "en": [
+          "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+        ],
+        "de": [
+          "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-1ced9200a5bc",
       "slug": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
       "slugByLocale": {
         "it": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
-        "en": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
-        "de": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
-        "fr": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne"
+        "en": "lawyer-lawyer-s-patent-holder-srg-ssr-lausanne",
+        "de": "rechtsanwalt-patentinhaber-srg-ssr-lausanne",
+        "fr": "avocat-titulaire-du-brevet-d-avocat-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

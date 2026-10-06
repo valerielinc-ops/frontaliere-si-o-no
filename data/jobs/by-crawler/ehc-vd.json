@@ -478,7 +478,7 @@
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
       },
@@ -544,7 +544,6 @@
       "previousSlugs": [
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
@@ -553,7 +552,6 @@
         ],
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
@@ -1852,7 +1850,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1921,7 +1919,6 @@
       "previousSlugs": [
         "medecin-generaliste-ehc-vd-morges",
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
@@ -1930,7 +1927,6 @@
         ],
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
@@ -2204,11 +2200,11 @@
     },
     {
       "id": "ehc-vd-04180f4034c1",
-      "slug": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne",
+      "slug": "cucina-apprendista-afp-o-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
-        "it": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne",
-        "en": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne",
-        "de": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne",
+        "it": "cucina-apprendista-afp-o-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "apprentice-cook-afp-or-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "auszubildender-koch-afp-oder-cfc-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "fr": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -2266,15 +2262,29 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
+          "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-acf7d6aa0a7f",
-      "slug": "apprenti-employe-de-commerce-f-h-ehc-vd-morges",
+      "slug": "apprenti-dipendente-commerciale-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "apprenti-employe-de-commerce-f-h-ehc-vd-morges",
-        "en": "apprenti-employe-de-commerce-f-h-ehc-vd-morges",
-        "de": "apprenti-employe-de-commerce-f-h-ehc-vd-morges",
+        "it": "apprenti-dipendente-commerciale-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "apprenti-commercial-employee-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "lehrling-kaufmannische-mitarbeiter-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -2332,7 +2342,21 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-2688c1b4b572",
@@ -2652,7 +2676,7 @@
       "slugByLocale": {
         "it": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "nurse-acute-care-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-soins-aigus-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -2699,7 +2723,6 @@
       "previousSlugs": [
         "infirmier-soins-aigus-f-h-ehc-vd-morges",
         "akutpfleger-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
@@ -2712,7 +2735,6 @@
         "de": [
           "infirmier-soins-aigus-f-h-ehc-vd-morges",
           "akutpfleger-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
           "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
@@ -4575,7 +4597,7 @@
       "slugByLocale": {
         "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "surgical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4621,7 +4643,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-en-chirurgie-f-h-ehc-vd-morges",
-        "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4632,7 +4654,7 @@
         ],
         "de": [
           "infirmier-en-chirurgie-f-h-ehc-vd-morges",
-          "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.245Z",

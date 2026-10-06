@@ -78,12 +78,12 @@
     },
     {
       "id": "zfv-unternehmungen-838532a35e87",
-      "slug": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
+      "slug": "aiuto-alimentare-zfv-unternehmungen-lausanne-ecublens",
       "slugByLocale": {
         "fr": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
-        "it": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
-        "en": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
-        "de": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
+        "it": "aiuto-alimentare-zfv-unternehmungen-lausanne-ecublens",
+        "en": "cooking-aid-zfv-unternehmungen-lausanne-ecublens",
+        "de": "kochhilfe-zfv-unternehmungen-lausanne-ecublens"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -142,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:29:25.438Z"
+      "firstSeenAt": "2026-10-05T21:29:25.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
+        ],
+        "en": [
+          "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
+        ],
+        "de": [
+          "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
+      ]
     },
     {
       "id": "zfv-unternehmungen-4dba8f1babba",
@@ -1018,15 +1032,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-b-director-zfv-unternehmungen-zurich",
-        "directeur-f-b-zfv-unternehmungen-zurich"
+        "f-b-director-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "directeur-f-b-zfv-unternehmungen-zurich",
           "f-b-director-zfv-unternehmungen-zurich"
         ]
       },
@@ -1792,7 +1804,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -1839,15 +1851,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
-        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
@@ -2194,7 +2204,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-baden",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "kochin-koch-zfv-unternehmungen-baden",
+        "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
         "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
@@ -2241,15 +2251,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-zfv-unternehmungen-baden",
-        "cook-cook-zfv-unternehmungen-baden"
+        "kochin-koch-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
-          "cook-cook-zfv-unternehmungen-baden",
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
@@ -2631,8 +2639,7 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel",
-        "cook-cook-70-80-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2654,7 +2661,6 @@
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "cook-cook-70-80-zfv-unternehmungen-basel",
           "kochin-koch-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
@@ -2732,15 +2738,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-bern",
-        "cook-cook-80-zfv-unternehmungen-bern"
+        "kochin-koch-80-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-bern",
           "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "fr": [
@@ -2769,7 +2773,7 @@
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
         "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
-        "fr": "cuire-80-zfv-unternehmungen-adliswil"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2819,7 +2823,8 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
+        "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2840,7 +2845,8 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
+          "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
       "firstSeenAt": "2026-07-18T22:01:28.657Z",
@@ -5627,7 +5633,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5680,14 +5686,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -6909,8 +6913,8 @@
       "slugByLocale": {
         "de": "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
         "it": "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
-        "en": "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "fr": "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+        "en": "system-catering-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
+        "fr": "specialiste-en-gastronomie-des-systemes-cfc-poste-d-apprentissage-2027-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6958,6 +6962,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ]
       },
