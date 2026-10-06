@@ -51,11 +51,16 @@ describe('promotions yield to Google overlays without suppressing ads', () => {
  it('keeps the application offer dialogs clear of the anchor', () => {
   const hook = readFileSync(resolve(process.cwd(), 'components/community/useApplicationOfferAdClearance.ts'), 'utf8');
   expect(hook).toContain('observeGoogleAdEdgeInsets(setInsets)');
-  for (const file of ['AssistedApplicationOffer.tsx', 'RewardedApplicationOffer.tsx']) {
+  // Every card gets the reduced max height and scrolls, so a long one never runs under the anchor.
+  for (const [file, cards] of [['AssistedApplicationOffer.tsx', 1], ['RewardedApplicationOffer.tsx', 3]] as const) {
    const src = readFileSync(resolve(process.cwd(), 'components/community', file), 'utf8');
    expect(src, file).toContain('useApplicationOfferAdClearance()');
    expect(src, file).toContain('style={adClearance.overlayStyle}');
+   expect(src.split('style={adClearance.cardStyle}').length - 1, file).toBe(cards);
+   expect(src.split('role="dialog"').length - 1, `${file}: one clearance per dialog card`).toBe(cards);
   }
+  expect(readFileSync(resolve(process.cwd(), 'components/community/RewardedApplicationOffer.tsx'), 'utf8'))
+   .toMatch(/const cardClass = '[^']*overflow-y-auto/);
  });
  it('keeps Auto Ads selectors out of modal suppression CSS and JS', () => {
   const css = readFileSync(resolve(process.cwd(), 'index.css'), 'utf8');

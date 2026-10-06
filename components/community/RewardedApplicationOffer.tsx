@@ -1104,7 +1104,9 @@ export default function RewardedApplicationOffer({
   // Under Google's consent message too: its own dialog covers the page.
   const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'handoff';
 
-  const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
+  // Scrollable, so a long card stays inside the room left above Google's anchor
+  // ad (adClearance.cardStyle) instead of running under it.
+  const cardClass = 'w-full max-w-sm space-y-4 overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
   const primaryButtonClass = 'inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
   const secondaryButtonClass = 'inline-flex min-h-[44px] w-full items-center justify-center rounded-stripe px-4 py-2 text-sm font-semibold text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
 
@@ -1140,6 +1142,7 @@ export default function RewardedApplicationOffer({
           aria-modal="true"
           aria-labelledby="rewarded-application-offer-title"
           className={phase === 'gpt_ready' ? cardClass : 'hidden'}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-opt-in"
         >
           <div>
@@ -1184,6 +1187,7 @@ export default function RewardedApplicationOffer({
           aria-modal="true"
           aria-labelledby="rewarded-application-offer-retry-title"
           className={cardClass}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-retry"
         >
           <p id="rewarded-application-offer-retry-title" className="text-sm leading-relaxed text-body">
@@ -1217,6 +1221,7 @@ export default function RewardedApplicationOffer({
           aria-labelledby="rewarded-application-handoff-title"
           aria-describedby="rewarded-application-handoff-text"
           className={cardClass}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-handoff"
         >
           <div>
