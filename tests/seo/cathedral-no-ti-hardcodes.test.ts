@@ -131,7 +131,14 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/validate-spa-render.mjs': 5,
   'scripts/verify-post-deploy-seo.mjs': 4,
   'services/analyticsPageContext.ts': 4,
-  'services/seo/seo-pages.ts': 9,
+  // 9 → 10 con #11769: l'`@id` del nodo WebSite della job board deve
+  // coincidere con la `url` TI della riga accanto. Qui il marker inline NON e'
+  // esprimibile: `staticPagesPlugin` legge questo file via regex (jsToJson) e
+  // un commento `//` dentro `structuredData` fa cadere in silenzio l'intero
+  // array JSON-LD della voce (vedi tests/static-pages-seo-entry-lookup.test.ts).
+  // Nemmeno `SECTION_LEGACY_TI_PATH` lo e': un binding importato non viene
+  // risolto da quel parser. Il numero resta un ratchet: puo' solo scendere.
+  'services/seo/seo-pages.ts': 10,
   'services/seoService.ts': 1,
 };
 

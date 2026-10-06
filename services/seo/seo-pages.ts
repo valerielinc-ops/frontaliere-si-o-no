@@ -3596,7 +3596,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "WebSite",
- "@id": `${BASE_URL}/cerca-lavoro-ticino/#website`, // cathedral-allow: identita' WebSite (#11769) ancorata alla `url` TI della riga sotto, gia' nell'inventario congelato
+ "@id": `${BASE_URL}/cerca-lavoro-ticino/#website`,
  "name": "Offerte di Lavoro Ticino \u2014 Frontaliere Ticino",
  "url": `${BASE_URL}/cerca-lavoro-ticino/`,
  "potentialAction": {
