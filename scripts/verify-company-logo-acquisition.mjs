@@ -58,7 +58,7 @@ async function verifyTarget(target) {
   if (!publicPath.startsWith('/images/brands/') || relative.includes('..')) {
     return failureResult(target, 'asset-path-not-allowed');
   }
-  const file = path.join(ROOT, relative);
+  const file = path.join(ROOT, 'public', relative);
   if (!existsSync(file)) return failureResult(target, 'asset-not-written');
 
   let body;

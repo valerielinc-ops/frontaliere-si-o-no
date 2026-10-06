@@ -101,7 +101,7 @@ const DOMAIN_OVERRIDES = {
   // Issue #6504: these are employer-owned domains, never ATS or directory
   // hosts. yellowshark is first because it covers most of the affected jobs.
   yellowshark: ['yellowshark.com'],
-  bucherer: ['bucherer.com'],
+  bucherer: ['bucherer.com', 'bucherer.ch'],
   'nord-anglia': ['nordangliaeducation.com'],
   grischapersonal: ['grischapersonal.ch'],
   brefispersonal: ['brefis.ch'],
@@ -129,6 +129,18 @@ const DOMAIN_OVERRIDES = {
   'mueller-steinmaur': ['mueller-steinmaur.ch'],
   'protectas-sa': ['protectas.com'],
 };
+
+// These 28 keys came from issue #6504. Once a key has an explicit employer
+// domain, guessed `key.ch`/`key.com` hosts are forbidden: a favicon from an
+// unrelated homonym must never become a committed company logo.
+const STRICT_OFFICIAL_DOMAIN_KEYS = new Set([
+  'yellowshark', 'bucherer', 'nord-anglia', 'grischapersonal', 'brefispersonal',
+  'parmag', 'endeso', 'integra-biosciences', 'benu', 'pantr-ch', 'kone', 'fisba',
+  'schweizerhof-flims', 'blatters-hotel', 'mcm-group', 'christinavassalli',
+  'clariant', 'neoproconseils', '1a-hunkeler', 'anicura', 'apply', 'artificialy',
+  'atec-personal', 'buersten-technik', 'elprom',
+  'farmacia-internazionale-dr-merloni', 'mueller-steinmaur', 'protectas-sa',
+]);
 
 function slugify(value = '') {
   return String(value || '')
@@ -201,6 +213,8 @@ function domainCandidates(key, metadata = {}) {
   for (const domain of metadata.urlHosts || []) {
     if (!isAtsDomain(domain)) add(domain);
   }
+
+  if (STRICT_OFFICIAL_DOMAIN_KEYS.has(key)) return candidates;
 
   const stripped = stripSuffixes(key);
   const firstWord = key.split('-')[0];
@@ -424,6 +438,43 @@ function extractIconLinks(html, baseUrl) {
   return links.slice(0, 8);
 }
 
+function extractOfficialLogoImages(html, baseUrl, domain) {
+  const links = [];
+  const seen = new Set();
+  const officialHost = (value) => {
+    const host = normalizeDomain(value);
+    return host === domain || host.endsWith(`.${domain}`);
+  };
+  const addOfficial = (src) => {
+    try {
+      const absolute = new URL(src.replaceAll('\\/', '/').replaceAll('&amp;', '&'), baseUrl).href;
+      if (!/^https?:$/i.test(new URL(absolute).protocol)
+        || !officialHost(absolute)
+        || seen.has(absolute)) return;
+      seen.add(absolute);
+      links.push(absolute);
+    } catch { /* ignore malformed markup */ }
+  };
+  for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
+    const marker = tag;
+    if (!/(?:logo|brand|wordmark|logotype)/i.test(marker)) continue;
+    const src = tag.match(/\b(?:src|data-src)\s*=\s*["']([^"']+)["']/i)?.[1]
+      || tag.match(/\bsrcset\s*=\s*["']([^"']+)["']/i)?.[1]?.split(/\s+/)[0];
+    if (!src) continue;
+    addOfficial(src);
+  }
+  // WordPress/Yoast JSON-LD often carries the real logo while the favicon is
+  // only 32px; it remains an official URL because the host check above is
+  // applied before it can be probed.
+  const structuredHtml = html.replaceAll('\\"', '"');
+  for (const block of structuredHtml.matchAll(/"logo"\s*:\s*\{([\s\S]{0,1200}?)\}/gi)) {
+    for (const match of block[1].matchAll(/"(?:url|contentUrl)"\s*:\s*"([^"]+)"/gi)) {
+      addOfficial(match[1]);
+    }
+  }
+  return links.slice(0, 8);
+}
+
 async function tryHtmlIcon(domain) {
   const pageUrl = `https://${domain}/`;
   const controller = new AbortController();
@@ -455,7 +506,12 @@ async function tryHtmlIcon(domain) {
     const bytes = await readBoundedResponseBytes(response, MAX_LOGO_BODY_BYTES);
     if (bytes === null) return { ...lastFailure, reason: 'body-too-large' };
     const html = new TextDecoder().decode(bytes);
-    for (const url of extractIconLinks(html, response.url || pageUrl)) {
+    const baseUrl = response.url || pageUrl;
+    const iconUrls = [
+      ...extractIconLinks(html, baseUrl),
+      ...extractOfficialLogoImages(html, baseUrl, domain),
+    ];
+    for (const url of iconUrls) {
       try {
         const result = await readImageUrl(url, 'official-html-icon', domain);
         if (result.accepted) return result;
@@ -582,6 +638,16 @@ async function main() {
   }
 
   await mkdir(OUT_DIR, { recursive: true });
+  if (options.force && options.fromAudit) {
+    // A forced audit refresh may be correcting an old guessed-domain result.
+    // Remove that target's previous local candidate before the new official
+    // source is tried, so a failed refresh cannot leave an unverified logo in
+    // the manifest or as a stale variant on disk.
+    for (const { key, manifestAliases = [key] } of toDownload) {
+      for (const alias of manifestAliases) delete manifest[alias];
+      await removeStaleVariants(slugify(key) || key, '');
+    }
+  }
   let downloaded = 0;
   let failed = 0;
   let qualityRejected = 0;
