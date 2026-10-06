@@ -179,11 +179,18 @@ export function loadEphemeralEvents({ publicEvents, dateStamp, env = process.env
     log('eventfrog: EVENTFROG_ENABLED is not true — no ephemeral pages');
     return [];
   }
-  if (!fs.existsSync(file)) {
+  let raw;
+  try {
+    if (!fs.existsSync(file)) {
+      log('eventfrog: no private snapshot on this runner — no ephemeral pages');
+      return [];
+    }
+    raw = fs.readFileSync(file, 'utf8');
+  } catch {
     log('eventfrog: no private snapshot on this runner — no ephemeral pages');
     return [];
   }
-  const doc = parseSnapshot(fs.readFileSync(file, 'utf8'));
+  const doc = parseSnapshot(raw);
   if (!doc) {
     log('eventfrog: private snapshot unreadable — no ephemeral pages');
     return [];

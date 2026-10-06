@@ -87,6 +87,18 @@ describe('freshness (aggiornamento giornaliero)', () => {
     fs.writeFileSync(bad, '{"schemaVersion":1,"source":"other","events":[]}');
     expect(loadEphemeralEvents({ publicEvents: [], dateStamp: TODAY, env: ON, file: bad })).toEqual([]);
   });
+
+  it('treats an existing but unreadable snapshot path as missing', () => {
+    const file = fs.mkdtempSync(path.join(os.tmpdir(), 'eventfrog-unreadable-'));
+    const lines: string[] = [];
+    let events: ReturnType<typeof loadEphemeralEvents> | undefined;
+
+    expect(() => {
+      events = loadEphemeralEvents({ publicEvents: [], dateStamp: TODAY, env: ON, file, log: (line) => lines.push(line) });
+    }).not.toThrow();
+    expect(events).toEqual([]);
+    expect(lines).toContain('eventfrog: no private snapshot on this runner — no ephemeral pages');
+  });
 });
 
 describe('snapshot scope', () => {
