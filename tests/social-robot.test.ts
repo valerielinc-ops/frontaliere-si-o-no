@@ -559,6 +559,124 @@ describe('robot helpers', () => {
 describe('Mac host launch agent', () => {
   const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
 
+  type LaunchFixture = {
+    root: string;
+    repo: string;
+    state: string;
+    installed: string;
+    stateLauncher: string;
+    logs: string;
+    runLog: string;
+    sha: string;
+    extraPath: string;
+  };
+
+  function gitFixture(repo: string, args: string[]) {
+    execFileSync('git', ['-C', repo, ...args], { stdio: 'ignore' });
+  }
+
+  function createLaunchFixture({
+    missingDependency = false,
+    runBody,
+  }: { missingDependency?: boolean; runBody?: string } = {}): LaunchFixture {
+    const root = tempDir();
+    const repo = path.join(root, 'repo');
+    const scriptsDir = path.join(repo, 'scripts');
+    const socialDir = path.join(scriptsDir, 'social-robot');
+    const libDir = path.join(scriptsDir, 'lib');
+    fs.mkdirSync(socialDir, { recursive: true });
+    fs.mkdirSync(libDir, { recursive: true });
+
+    const launcherSource = fs.readFileSync(script, 'utf8');
+    const declared = (launcherSource.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
+    const extraPath = 'scripts/lib/social-robot-test-dependency.mjs';
+    const destinationPaths = missingDependency ? declared : [...declared, extraPath];
+    const destinationLauncher = launcherSource.replace(
+      /^snapshot_paths="[^"]+"/m,
+      `snapshot_paths="${destinationPaths.join(' ')}"`,
+    );
+    fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.writeFileSync(
+      path.join(socialDir, 'run.mjs'),
+      runBody ?? [
+        `import '../lib/${path.basename(extraPath)}';`,
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    );
+    for (const rel of destinationPaths) {
+      if (rel === 'scripts/social-robot') continue;
+      const file = path.join(repo, rel);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      if (!fs.existsSync(file)) fs.writeFileSync(file, 'export const fixture = true;\n');
+    }
+    if (!missingDependency) fs.writeFileSync(path.join(repo, extraPath), 'export const fixture = true;\n');
+
+    gitFixture(repo, ['init', '-q', '-b', 'main']);
+    gitFixture(repo, ['config', 'user.email', 'test@example.invalid']);
+    gitFixture(repo, ['config', 'user.name', 'social-robot-test']);
+    gitFixture(repo, ['add', '.']);
+    gitFixture(repo, ['commit', '-qm', 'social robot snapshot fixture']);
+    const sha = execFileSync('git', ['-C', repo, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+
+    const state = path.join(root, 'state');
+    const stateLauncher = path.join(state, 'launchd.sh');
+    const installed = path.join(root, 'installed-launchd.sh');
+    fs.mkdirSync(state, { recursive: true });
+    fs.writeFileSync(installed, launcherSource);
+    fs.writeFileSync(stateLauncher, launcherSource);
+
+    return {
+      root,
+      repo,
+      state,
+      stateLauncher,
+      installed,
+      logs: path.join(root, 'logs'),
+      runLog: path.join(root, 'run.log'),
+      sha,
+      extraPath,
+    };
+  }
+
+  function launchEnv(fixture: LaunchFixture, overrides: Record<string, string> = {}) {
+    return {
+      ...process.env,
+      HOME: path.join(fixture.root, 'home'),
+      PATH: process.env.PATH,
+      SR_SITE_REPO: fixture.repo,
+      SR_REF: fixture.sha,
+      SR_LOG_DIR: fixture.logs,
+      SOCIAL_ROBOT_STATE_DIR: fixture.state,
+      SR_SERVICE_ACCOUNT: path.join(fixture.root, 'missing-service-account.json'),
+      SOCIAL_ROBOT_RUN_LOG: fixture.runLog,
+      GH_REPO: 'valerielinc-ops/frontaliere-si-o-no',
+      ...overrides,
+    };
+  }
+
+  function runLauncher(fixture: LaunchFixture, env: Record<string, string>, launcher = fixture.installed) {
+    return execFileSync('bash', [launcher, 'run'], { env, encoding: 'utf8' });
+  }
+
+  function fakeGh(root: string, existingIssue = '', exitCode = 0) {
+    const bin = path.join(root, 'bin');
+    const calls = path.join(root, 'gh-calls.log');
+    fs.mkdirSync(bin, { recursive: true });
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/bin/sh',
+      'printf "%s\\n" "$*" >> "$GH_CALLS"',
+      'if [ "$1" = "issue" ] && [ "$2" = "list" ]; then',
+      existingIssue ? `  printf '%s\\n' '${existingIssue}'` : '  :',
+      'fi',
+      `exit ${exitCode}`,
+      '',
+    ].join('\n'));
+    fs.chmodSync(path.join(bin, 'gh'), 0o755);
+    return { bin, calls };
+  }
+
   it('writes a plist with one calendar entry per window that runs the copy in the state folder', () => {
     const dir = tempDir();
     const env = { ...process.env, SR_NO_LAUNCHCTL: '1', SR_LAUNCH_AGENTS_DIR: path.join(dir, 'agents'), SR_LOG_DIR: path.join(dir, 'logs'), SOCIAL_ROBOT_STATE_DIR: path.join(dir, 'state'), SR_WINDOWS: '09:05 17:45' };
@@ -590,6 +708,60 @@ describe('Mac host launch agent', () => {
     walk('scripts/load-rc-env.mjs');
     const missing = [...seen].filter((rel) => !covered(rel));
     expect(missing).toEqual([]);
+  });
+
+  it('uses the destination SHA snapshot list even when the installed copy is old', () => {
+    const fixture = createLaunchFixture();
+    expect(fs.readFileSync(fixture.installed, 'utf8')).not.toContain(fixture.extraPath);
+    runLauncher(fixture, launchEnv(fixture));
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
+    expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('does not cache or execute an incomplete snapshot and alerts through gh', () => {
+    const fixture = createLaunchFixture({
+      missingDependency: true,
+      runBody: [
+        "import '../lib/missing-social-robot-dependency.mjs';",
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '9876');
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    expect(fs.existsSync(fixture.runLog)).toBe(false);
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha))).toBe(false);
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue list');
+    expect(calls).toContain('issue comment 9876');
+  });
+
+  it('alerts on a non-zero robot exit without letting gh failure fail cmd_run', () => {
+    const fixture = createLaunchFixture({
+      runBody: [
+        "import '../lib/social-robot-test-dependency.mjs';",
+        "console.error('Error: TOKEN=SECRET');",
+        'process.exit(7);',
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '', 1);
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue create');
+    expect(calls).not.toContain('SECRET');
+  });
+
+  it('writes the verification marker and reuses the cached snapshot', () => {
+    const fixture = createLaunchFixture();
+    runLauncher(fixture, launchEnv(fixture));
+    const cachedRun = path.join(fixture.state, 'runner', fixture.sha, 'scripts', 'social-robot', 'run.mjs');
+    fs.appendFileSync(cachedRun, "\nappendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'cached\\n');\n");
+    runLauncher(fixture, launchEnv(fixture), fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('cached');
+    expect(fs.readFileSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'), 'utf8').trim()).toBe(fixture.sha);
   });
 });
 
