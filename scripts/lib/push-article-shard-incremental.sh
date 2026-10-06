@@ -68,7 +68,7 @@
 #       deploy-key secret is not provisioned for this section+locale yet)
 #   1 — bad usage, a source relpath is missing on disk, the shard repo has no
 #       commits on main yet (needs push-section-shard.sh to seed it first), or
-#       the push failed after 3 retries
+#       the push failed after the bounded retry budget
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
@@ -130,6 +130,20 @@ printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
 export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
 
 stage="$RUNNER_TEMP/article-shard-$section-$loc"
+# A concurrent full deploy can keep moving the shard tip for longer than the
+# original three-attempt window. Run 37533981133 observed exactly that shape:
+# all three non-fast-forward retries saw a newer remote tip. Keep the retry
+# budget bounded, but leave enough time for the competing publisher to finish.
+retry_max_attempts="${SHARD_INCREMENTAL_PUSH_MAX_ATTEMPTS:-6}"
+retry_delay="${SHARD_INCREMENTAL_PUSH_RETRY_DELAY:-5}"
+if ! [[ "$retry_max_attempts" =~ ^[1-9][0-9]*$ ]]; then
+  echo "::error::SHARD_INCREMENTAL_PUSH_MAX_ATTEMPTS must be a positive integer" >&2
+  exit 1
+fi
+if ! [[ "$retry_delay" =~ ^[0-9]+$ ]]; then
+  echo "::error::SHARD_INCREMENTAL_PUSH_RETRY_DELAY must be a non-negative integer" >&2
+  exit 1
+fi
 # Incident #4734 was an unfreed-staging-dir class (runner disk exhaustion) —
 # a script-level EXIT trap covers every return path (success, retry-exhausted
 # failure, bad usage exit above already returned before this point anyway),
@@ -223,14 +237,13 @@ _attempt() {
 }
 
 ok=0
-delay=5
-for try in 1 2 3; do
+for ((try = 1; try <= retry_max_attempts; try++)); do
   if _attempt; then ok=1; break; fi
   if [ "$permanent_fail" = 1 ]; then break; fi
-  if [ "$try" -lt 3 ]; then
-    echo "::warning::$section-$loc article shard push attempt $try/3 failed — retrying in ${delay}s (re-clone to pick up any concurrent push)"
-    sleep "$delay"
-    delay=$((delay * 2))
+  if [ "$try" -lt "$retry_max_attempts" ]; then
+    echo "::warning::$section-$loc article shard push attempt $try/$retry_max_attempts failed — retrying in ${retry_delay}s (re-clone to pick up any concurrent push)"
+    sleep "$retry_delay"
+    retry_delay=$((retry_delay * 2))
   fi
 done
 
@@ -247,7 +260,7 @@ fi
 
 if [ "$ok" != 1 ]; then
   if [ "$permanent_fail" != 1 ]; then
-    echo "::error::$section-$loc article shard push failed after 3 attempts (+ PAT fallback)" >&2
+    echo "::error::$section-$loc article shard push failed after $retry_max_attempts attempts (+ PAT fallback)" >&2
   fi
   exit 1
 fi
