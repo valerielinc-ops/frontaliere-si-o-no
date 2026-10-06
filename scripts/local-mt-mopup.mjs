@@ -44,6 +44,7 @@
  *   LOCAL_MT_TIME_BUDGET_MS    — per-step wall-clock ceiling (default 280*60*1000)
  *   LOCAL_MT_MOPUP_DEADLINE_MS — run-wide deadline from run start (default 320*60*1000)
  *   LOCAL_MT_PYTHON            — python interpreter (default 'python3')
+ *   LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE — texts per embedding warm-up batch (default 64)
  *   LOCAL_MT_DRY_RUN=1         — scan + report only, no Python call, no writes
  */
 
@@ -69,8 +70,11 @@ import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_
 import { isModelMetaAnswer, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import {
+  DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX,
+  DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
   interpretSemanticVerdict,
   judgeLocalMtMeaning,
+  prewarmLocalMtMeaning,
   SEMANTIC_VERDICT,
 } from './lib/local-mt-semantic-judge.mjs';
 import {
@@ -114,6 +118,32 @@ const WRITE_GUARD_DECISIONS = [
   'skip:no-op',
   'skip:structure-flattened',
 ];
+const SEMANTIC_PREWARM_BATCH_SIZE = Math.max(
+  1,
+  Number.isFinite(Number(process.env.LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE))
+    ? Math.floor(Number(process.env.LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE))
+    : DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
+);
+
+/**
+ * Keep every candidate's two texts resident until its verdict is consumed.
+ * The semantic judge's cache is bounded by text, so a block of half the cache
+ * capacity is safe even when every source and candidate is unique. Duplicate
+ * texts only make the block cheaper; the consumer order remains unchanged.
+ */
+export function semanticCandidateBlocks(candidates, cacheMax = DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX) {
+  const requestedMax = Number(cacheMax);
+  const maxEntries = Number.isFinite(requestedMax)
+    ? Math.max(1, Math.floor(requestedMax))
+    : DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX;
+  const blockSize = Math.max(1, Math.floor(maxEntries / 2));
+  const list = Array.isArray(candidates) ? candidates : [];
+  const blocks = [];
+  for (let offset = 0; offset < list.length; offset += blockSize) {
+    blocks.push(list.slice(offset, offset + blockSize));
+  }
+  return blocks;
+}
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
@@ -1546,6 +1576,7 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
 
     let fileChanged = false;
     const touchedJobs = new Set();
+    const semanticCandidates = [];
 
     for (const { id, jobIdx, locale, field, text, protectedTokens, negativeCacheKey } of edits) {
       const job = data.jobs[jobIdx];
@@ -1639,28 +1670,51 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
 
       // Semantic gate (#9675): the structural chain cannot tell
       // `Gefängnisseelsorger → Cappellano carcerario` from
-      // `Gefängnisseelsorger → Prigionieri`. Compare source and finalized
-      // candidate before the write; a mismatch or an unavailable score keeps
-      // the stored value. An overwrite of a stored value also passes the
-      // #9676 policy (meaning guards + calibrated cutoff + run rollback). Not
-      // negative-cached on purpose: the fill threshold is still a bootstrap
-      // value and the overwrite cutoff rests on a small synthetic dataset, so a
-      // cached verdict would park the slot for a week on a provisional number.
-      const committed = await commitMopupCandidate({
-        job,
-        locale,
-        field,
-        candidate: finalCandidate,
-        rollout,
-        rollbackGuard: overwriteRollback,
-      });
-      semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
-      if (!committed.written) continue;
+      // `Gefängnisseelsorger → Prigionieri`. Keep candidates in the original
+      // edit order, warm their exact finalized texts in batches, then consume
+      // the verdicts sequentially below. The semantic policy and the rollout
+      // rollback/cap therefore still observe the same order as before.
+      //
+      // Not negative-cached on purpose: the fill threshold is still a
+      // bootstrap value and the overwrite cutoff rests on a small synthetic
+      // dataset, so a cached verdict would park the slot for a week on a
+      // provisional number.
+      semanticCandidates.push({ job, jobIdx, locale, field, candidate: finalCandidate, languageDriven });
+    }
 
-      fileChanged = true;
-      fieldsFilled++;
-      if (languageDriven) languageFieldsRewritten++;
-      touchedJobs.add(jobIdx);
+    for (const semanticBlock of semanticCandidateBlocks(semanticCandidates)) {
+      const semanticTexts = [];
+      for (const { candidate } of semanticBlock) {
+        semanticTexts.push(candidate.normalizedSourceText, candidate.incoming);
+      }
+      try {
+        const warmup = await prewarmLocalMtMeaning(semanticTexts, {
+          batchSize: SEMANTIC_PREWARM_BATCH_SIZE,
+        });
+        if (warmup.failed > 0) {
+          console.warn(`⚠️  [local-mt] Semantic embedding warm-up failed for ${warmup.failed} text(s); falling back to one-text judge calls.`);
+        }
+      } catch (error) {
+        console.warn(`⚠️  [local-mt] Semantic embedding warm-up unavailable (${error?.message || 'unknown error'}); falling back to one-text judge calls.`);
+      }
+
+      for (const { job, jobIdx, locale, field, candidate, languageDriven } of semanticBlock) {
+        const committed = await commitMopupCandidate({
+          job,
+          locale,
+          field,
+          candidate,
+          rollout,
+          rollbackGuard: overwriteRollback,
+        });
+        semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
+        if (!committed.written) continue;
+
+        fileChanged = true;
+        fieldsFilled++;
+        if (languageDriven) languageFieldsRewritten++;
+        touchedJobs.add(jobIdx);
+      }
     }
 
     // Clear needsRetranslation ONLY when the job is now actually complete.

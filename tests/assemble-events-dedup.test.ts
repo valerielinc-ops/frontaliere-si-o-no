@@ -76,8 +76,19 @@ describe('event image licence policy', () => {
       sourceKey: 'openagenda',
       imageUrl: '/images/events/openagenda-event.webp',
       imageCredit: 'OpenAgenda',
+      imageLicense: 'Licence Ouverte 2.0',
+      imageLicenseUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
     });
     expect(stripUnauthorizedEventImage(licensed)).toEqual(licensed);
+  });
+
+  it('strips an OpenAgenda mirror when the per-image licence fields are absent', () => {
+    const incomplete = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+    });
+    expect(stripUnauthorizedEventImage(incomplete)).not.toHaveProperty('imageUrl');
   });
 });
 

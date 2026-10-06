@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * fix-untranslated-titles.mjs — One-shot batch fix for jobs with source-copy titles.
+ * fix-untranslated-titles.mjs — One-shot batch fix for untranslated title slots.
  *
- * Finds jobs where titleByLocale[locale] is an exact copy of the source title
- * and translates them using the free-translate cascade (DeepL → MyMemory → etc).
+ * Finds jobs where titleByLocale[locale] is an exact copy or a
+ * marker-backed partial copy of the source title and translates them using the
+ * free-translate cascade (DeepL → MyMemory → etc).
  *
  * Does NOT use AI/LLM — only the free cascade. Fast, cheap, reliable.
  * Does NOT modify descriptions, slugs, or needsRetranslation flags.
@@ -27,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import { isTitleRepairQueueVerdict } from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -102,7 +104,7 @@ async function main() {
           company: job.company || '',
           location: job.addressLocality || job.location || '',
         });
-        if (verdict.reason !== 'source-copy' && verdict.reason !== 'llm-reasoning') continue;
+        if (!isTitleRepairQueueVerdict(verdict)) continue;
         const key = titleFixAttemptKey(file, job, jobIdx, locale);
         candidates.push({
           file,
@@ -148,9 +150,15 @@ async function main() {
     const tbl = job.titleByLocale || {};
     const existing = String(tbl[candidate.locale] || '').trim();
     if (!sourceTitle || !existing) continue;
-    const stillBroken = candidate.reason === 'llm-reasoning'
-      ? titleContainsLlmReasoning(existing)
-      : isTitleSourceCopy(existing, sourceTitle);
+    const currentVerdict = titleLooksUntranslated({
+      title: existing,
+      sourceTitle,
+      sourceLang: sl,
+      targetLocale: candidate.locale,
+      company: job.company || '',
+      location: job.addressLocality || job.location || '',
+    });
+    const stillBroken = isTitleRepairQueueVerdict(currentVerdict);
     if (!stillBroken) continue;
 
     const translated = await freeTranslateWithRetry({
