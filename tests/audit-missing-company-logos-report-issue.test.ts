@@ -20,6 +20,8 @@ function report(affectedCompanies: Array<Record<string, unknown>>) {
     partialJobCount: 0,
     lowQuality: 0,
     lowQualityJobCount: 0,
+    pendingDeploy: 0,
+    pendingDeployJobCount: 0,
     qualityUnverified: 0,
     qualityUnverifiedJobCount: 0,
     unverified: 0,
@@ -68,6 +70,34 @@ describe('audit-missing-company-logos reportIssue', () => {
     expect(args.workflow).toBe('audit-missing-company-logos');
     expect(args.description).toContain('`yellowshark`');
     expect(outcome).toBe('reported');
+  });
+
+  it('publishes pending-deploy separately from genuinely broken references', async () => {
+    const createIssue = vi.fn();
+    const pendingCompany = {
+      companyKey: 'pending',
+      companyName: 'Pending AG',
+      status: 'pending-deploy',
+      affectedJobCount: 2,
+      pendingDeployJobCount: 2,
+      examples: {
+        pendingDeploy: 'https://jobs.example.ch/job/pending',
+        broken: null,
+        missing: null,
+        lowQuality: null,
+        qualityUnverified: null,
+      },
+    };
+    const pendingReport = report([pendingCompany]);
+    pendingReport.pendingDeploy = 1;
+    pendingReport.pendingDeployJobCount = 2;
+
+    await reportIssue(pendingReport, { createIssue, resolveIssue: vi.fn() });
+
+    const [args] = createIssue.mock.calls[0];
+    expect(args.description).toContain('| pending-deploy |');
+    expect(args.description).toContain('non conta come copertura valida');
+    expect(args.description).toContain('https://jobs.example.ch/job/pending');
   });
 
   it('does not swallow a close that GitHub refused', async () => {

@@ -43,9 +43,11 @@ describe('editorial-article section matcher', () => {
     expect(classifyFeature(rel(p))).toBe('blog');
   });
 
-  // Every CURRENT canonical hub slug from ARTICLE_SECTIONS[*].indexSlug must
-  // match — the sync invariant that prevents the svizzera (and any future
-  // section/locale) drift from recurring.
+  // Every CURRENT site-rendered hub slug from the shared site selector must
+  // match — the sync invariant that prevents the svizzera (and future
+  // Pages-shard section/locale) drift from recurring. Canton R2 prefixes are
+  // intentionally recognized by their closed route tables, not this static
+  // site classifier.
   const canonicalHubSlugs = [
     'articoli-frontaliere', 'cross-border-articles', 'grenzgaenger-artikel', 'articles-frontalier',
     'articoli-svizzera', 'swiss-articles', 'schweiz-artikel', 'articles-suisse',

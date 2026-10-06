@@ -42,6 +42,7 @@ async function main() {
     resolveLogo: resolveCompanyLogoUrl,
     assetBaseUrl: process.env.COMPANY_LOGO_AUDIT_ASSET_BASE_URL || DEFAULT_ASSET_BASE_URL,
     timeoutMs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_TIMEOUT_MS', 8_000),
+    localAssetRoot: ROOT,
   });
   const brokenReferences = audit.references
     .filter((reference) => reference.status === 'broken')
@@ -69,6 +70,19 @@ async function main() {
       width: entry.width,
       height: entry.height,
     }));
+  const pendingDeployReferences = audit.references
+    .filter((reference) => reference.status === 'pending-deploy')
+    .map(({ reference, kind, jobs, companyKeys, url, reason, cdnStatus, cdnReason, localPath }) => ({
+      reference,
+      kind,
+      jobs,
+      companyKeys,
+      url,
+      reason,
+      cdnStatus,
+      cdnReason,
+      localPath,
+    }));
   const payload = {
     generatedAt: new Date().toISOString(),
     source: {
@@ -80,6 +94,9 @@ async function main() {
     qualityOk: audit.qualityOkReferenceCount,
     broken: brokenReferences.length,
     brokenJobCount: audit.brokenJobCount,
+    pendingDeploy: audit.pendingDeploy,
+    pendingDeployJobCount: audit.pendingDeployJobCount,
+    pendingDeployUrls: pendingDeployReferences,
     missing: audit.missing,
     missingJobCount: audit.missingJobCount,
     partial: audit.partial,
@@ -100,6 +117,7 @@ async function main() {
     `[verify-company-logos] ${payload.source.jobCount} annunci — riferimenti verificati: ${payload.checked}, `
     + `ok: ${payload.ok}, quality-ok: ${payload.qualityOk}, `
     + `broken: ${payload.broken} (${payload.brokenJobCount} annunci), `
+    + `pending-deploy: ${payload.pendingDeployJobCount} annunci (${pendingDeployReferences.length} riferimenti), `
     + `missing: ${payload.missing} (${payload.missingJobCount} annunci), `
     + `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount} annunci). Scritto ${OUTPUT}`,
   );

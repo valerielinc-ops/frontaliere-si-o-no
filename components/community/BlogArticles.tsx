@@ -31,7 +31,11 @@ import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, 
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
-import { EDITORIAL_TEAM_ID, WEBSITE_ID } from '@/services/seo/organizationLd';
+import {
+ EDITORIAL_TEAM_ID,
+ WEBSITE_ID,
+ normalizeOrganizationIdentities,
+} from '@/services/seo/organizationLd';
 
 // Re-export the parser predicates for the focused renderer tests and existing
 // callers; the implementation lives in the shared, JSX-free module so the
@@ -1715,7 +1719,7 @@ function BlogArticles({
  el.type = 'application/ld+json';
  document.head.appendChild(el);
  }
- el.textContent = JSON.stringify(jsonLd);
+ el.textContent = JSON.stringify(normalizeOrganizationIdentities(jsonLd));
 
  // FAQ schema for evergreen (non-novita) articles with question-like H2 headings.
  // Skip if a static FAQPage JSON-LD already exists (from ogPagesPlugin) to avoid

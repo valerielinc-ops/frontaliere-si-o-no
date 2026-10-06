@@ -57,10 +57,16 @@ export const DOMAIN_OVERRIDES = {
   'recruitingapp-1154': ['sgkb.ch'],
   // Issue #6504: these are employer-owned domains, never ATS or directory
   // hosts. yellowshark is first because it covers most of the affected jobs.
+  answerconsulting: ['answerconsulting.ch'],
   yellowshark: ['yellowshark.com'],
   bucherer: ['bucherer.com', 'bucherer.ch'],
+  'comadur-swatch-group': ['swatchgroup.com'],
+  'edmond-de-rothschild': ['edmond-de-rothschild.com'],
   'nord-anglia': ['nordangliaeducation.com'],
   grischapersonal: ['grischapersonal.ch'],
+  'gim-architekten': ['gim.ch'],
+  imerys: ['imerys.com'],
+  mediamarkt: ['mediamarkt.ch'],
   brefispersonal: ['brefis.ch'],
   parmag: ['parmag.ch'],
   endeso: ['endeso.ch'],
@@ -98,7 +104,7 @@ export function normalizeDomain(value) {
   return raw.replace(/^www\./, '').replace(/\.$/, '');
 }
 
-function isAtsDomain(domain) {
+export function isAtsDomain(domain) {
   const value = normalizeDomain(domain);
   return !value
     || value === 'frontaliereticino.ch'
@@ -179,6 +185,7 @@ const AUDIT_STATUS_REASONS = {
   missing: 'nessun dominio ufficiale dichiarato',
   broken: 'sorgente ufficiale irraggiungibile o riferimento rotto',
   partial: 'copertura parziale',
+  'pending-deploy': 'asset presente nel checkout, in attesa del deploy CDN',
   'low-quality': 'qualità insufficiente',
   'quality-unverified': 'qualità non verificabile',
   unverified: 'sorgente non verificabile',
@@ -190,7 +197,10 @@ const ACQUISITION_REASON_LABELS = {
 
 export function selectAuditCandidates(entries = []) {
   return entries.filter((entry) => (
-    entry?.status === 'missing' && String(entry?.companyKey || '').trim()
+    (entry?.status === 'missing'
+      || entry?.status === 'low-quality'
+      || Number(entry?.lowQualityJobCount || 0) > 0)
+    && String(entry?.companyKey || '').trim()
   ));
 }
 
@@ -227,6 +237,8 @@ export function buildResidualReport(report, acquisition = {}) {
     missingJobCount: countJobs('missingJobCount', 'missing'),
     broken: countCompanies('broken'),
     brokenJobCount: countJobs('brokenJobCount', 'broken'),
+    pendingDeploy: residual.filter((company) => Number(company.pendingDeployJobCount || 0) > 0).length,
+    pendingDeployJobCount: countJobs('pendingDeployJobCount'),
     partial: countCompanies('partial'),
     partialJobCount: countJobs('affectedJobCount', 'partial'),
     lowQuality: residual.filter((company) => Number(company.lowQualityJobCount || 0) > 0).length,

@@ -9,8 +9,8 @@
  * piu' `canton` (codice di gruppo) e `topicHubs` (slug riservati dei 6 hub
  * tematici). Modulo puro, senza import: lo carica `articleSectionCore.mjs`.
  *
- * Le voci sono dati: una sezione diventa attiva solo se il suo id compare
- * in `ACTIVE_CANTON_SECTIONS`.
+ * Le voci sono dati: una sezione diventa attiva solo quando l'host del
+ * corpus passa il suo codice a `configureActiveCantonSections()`.
  */
 
 /** Hub tematici di ogni sezione cantonale: id del tema -> slug per locale. */
@@ -342,5 +342,5 @@ export const CANTON_ARTICLE_SECTION_CORE = {
   },
 };
 
-/** Lista di attivazione: id delle sezioni cantonali attive (vuota = nessuna). */
+/** Default del sito: nessuna sezione cantonale attiva; l'host inietta il corpus. */
 export const ACTIVE_CANTON_SECTIONS = [];

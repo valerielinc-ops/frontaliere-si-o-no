@@ -19,7 +19,7 @@ import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
-import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
+import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
@@ -1870,7 +1870,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  articolisvizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
  };
  const results: Array<{ name: string; skipped: boolean; written: number; entries: number }> = [];
- for (const descriptor of ARTICLE_SECTION_DESCRIPTORS) {
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
  if (descriptor.shardKey === null) continue;
  if (!Object.prototype.hasOwnProperty.call(emitSkipByShard, descriptor.shardKey)) {
  throw new Error(`[og-pages] nessun flag BUILD_EMIT_SKIP per lo shard "${descriptor.shardKey}" (sezione ${descriptor.name})`);

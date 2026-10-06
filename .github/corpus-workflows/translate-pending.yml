@@ -468,7 +468,7 @@ jobs:
           elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
             printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
           else
-            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=30\n' >> "$GITHUB_ENV"
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=180\n' >> "$GITHUB_ENV"
           fi
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
@@ -598,7 +598,9 @@ jobs:
           AZURE_TRANSLATOR_KEY_2: ""
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
-          FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          FREE_TRANSLATE_CODEX_MAX_MS: "1500000"
+          FREE_TRANSLATE_CODEX_LANES: "3"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -695,6 +697,8 @@ jobs:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          FREE_TRANSLATE_CODEX_LANES: "3"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
@@ -717,6 +721,8 @@ jobs:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          FREE_TRANSLATE_CODEX_LANES: "3"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes

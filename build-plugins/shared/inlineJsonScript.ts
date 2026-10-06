@@ -10,6 +10,8 @@
 // one definition instead of copy-pasting the regex (AGENTS.md §6 — a literal
 // regex duplicated across ≥2 files becomes drift-prone).
 
+import { normalizeOrganizationIdentities } from '../../services/seo/organizationLd';
+
 /** Neutralise `<` in an ALREADY-serialized JSON/JSON-LD string so it is safe
  * inside an inline `<script>` (incl. `<script type="application/ld+json">`).
  * `<` → `<` is valid JSON and parses identically (Google accepts it). */
@@ -19,5 +21,20 @@ export function escapeInlineScript(json: string): string {
 
 /** JSON-encode `value` and neutralise `<` so it is safe inside an inline <script>. */
 export function inlineScriptJson(value: unknown): string {
-  return escapeInlineScript(JSON.stringify(value));
+  // Article-engine emitters use this host-provided serializer through the
+  // SiteShellContract. Normalize only payloads that actually contain an
+  // Organization node so arbitrary window data keeps its original shape.
+  const normalized = containsOrganizationNode(value)
+    ? normalizeOrganizationIdentities(value)
+    : value;
+  return escapeInlineScript(JSON.stringify(normalized));
+}
+
+function containsOrganizationNode(value: unknown): boolean {
+  if (Array.isArray(value)) return value.some(containsOrganizationNode);
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Record<string, unknown>;
+  const type = record['@type'];
+  if (type === 'Organization' || (Array.isArray(type) && type.includes('Organization'))) return true;
+  return Object.values(record).some(containsOrganizationNode);
 }
