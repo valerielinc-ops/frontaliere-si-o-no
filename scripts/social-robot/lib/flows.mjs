@@ -31,6 +31,9 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
   optional: 3_000, // a dialog that may or may not be there
 });
 
+/** Bound the wait for TikTok to upgrade its cookie banner and attach its action. */
+export const TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS = 1_000;
+
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
 const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
 const escapeRegExp = (text) => String(text).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
@@ -106,21 +109,22 @@ export function timeoutForTikTokVideo(video, fallback = DEFAULT_TIMEOUTS.upload)
   return Math.min(10 * 60_000, Math.max(60_000, 30_000 + transferMs + durationMs));
 }
 
-/** Steps at or after the press of the publish button: the post may be online. */
-export const PRESSED_STEPS = Object.freeze(['publish', 'confirmation']);
+/** The confirmation step is entered only after the publish click was sent. */
+export const PRESSED_STEPS = Object.freeze(['confirmation']);
 
 /**
- * Run `afterPress` — the press itself and the wait for the confirmation — and
- * mark ANY error it throws as `pressed`, keeping its class: a challenge or a
- * login wall that appears after the press still pauses the platform, but the
- * post is then also `unconfirmed` and never pressed again on its own.
+ * Run the publish click and wait for confirmation. The flow calls the marker
+ * immediately after Playwright accepts the publish click; an intercepted or
+ * blocked click therefore remains retryable instead of becoming unconfirmed.
  */
 async function pressed(afterPress) {
+  let pressSent = false;
+  const markPressed = () => { pressSent = true; };
   try {
-    return await afterPress();
+    return await afterPress(markPressed);
   } catch (err) {
     const e = classifyError(err);
-    e.pressed = true;
+    e.pressed = pressSent;
     throw e;
   }
 }
@@ -185,6 +189,16 @@ async function saveInterstitialDiagnostic(snap, label = 'interstitial-unknown') 
   } catch {
     // A diagnostic failure must not mask the fail-closed error.
   }
+}
+
+async function observeCookieBanner(root) {
+  return root.evaluate((host) => {
+    const defined = Boolean(customElements.get('tiktok-cookie-banner')) && host.matches(':defined');
+    if (!defined) return { cookieBannerState: 'not-defined', shadowRootMode: 'not-defined' };
+    return host.shadowRoot
+      ? { cookieBannerState: 'defined-open', shadowRootMode: 'open' }
+      : { cookieBannerState: 'defined-closed', shadowRootMode: 'closed' };
+  }).catch(() => ({ cookieBannerState: 'unknown', shadowRootMode: 'unknown' }));
 }
 
 const isClickIntercepted = (err) => /intercepts pointer events|not receiving events|another element.*receives pointer events/i.test(String(err?.message || err));
@@ -533,11 +547,10 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
         // CSS locators pierce open shadow roots; keep this before role lookup.
         root.locator('button').filter({ hasText: entry.name }),
         root.getByRole('button', { name: entry.name }),
-      ], { timeout: 0 });
+      ], { timeout: isCookieHost ? Math.min(Math.max(timeout, 0), TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS) : 0 });
       if (!action) {
         if (isCookieHost) {
-          const shadowRootMode = await root.evaluate((host) => (host.shadowRoot === null ? 'closed' : 'open')).catch(() => 'closed');
-          return { root, action: null, unreachable: { shadowRootMode } };
+          return { root, action: null, unreachable: await observeCookieBanner(root) };
         }
         continue;
       }
@@ -619,12 +632,12 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
         tourSteps += 1;
       }
       if (target.unreachable) {
-        const { shadowRootMode } = target.unreachable;
-        addDiagnosticMetadata(page, { shadowRootMode });
+        const { cookieBannerState, shadowRootMode } = target.unreachable;
+        addDiagnosticMetadata(page, { cookieBannerState, shadowRootMode });
         await saveInterstitialDiagnostic(snap, 'cookie-banner-unreachable');
         throw new RobotError(
           'cookie-banner-unreachable',
-          `TikTok cookie banner is visible but its "Rifiuta i cookie opzionali" control is unreachable (shadow root ${shadowRootMode}). The owner must reject optional cookies once in the robot profile via VNC.`,
+          `TikTok cookie banner is visible but its "Rifiuta i cookie opzionali" control is unreachable after the bounded wait (state ${cookieBannerState}, shadow root ${shadowRootMode}). The owner must reject optional cookies once in the robot profile via VNC.`,
           { step: step.get() },
         );
       }
@@ -666,13 +679,15 @@ async function required(step, name, candidates, opts) {
   return loc;
 }
 
+const FAIL_CLOSED_INTERSTITIAL_ERRORS = Object.freeze(['interstitial-unknown', 'cookie-banner-unreachable']);
+
 async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, guard, page, platform, step, snap, label = 'optional control' } = {}) {
   const loc = await findFirst(candidates, { timeout, guard });
   if (loc) {
     try {
       await clickChecked(page, loc, { step, snap, platform, label });
     } catch (err) {
-      if (err instanceof RobotError && err.errorClass === 'interstitial-unknown') throw err;
+      if (err instanceof RobotError && FAIL_CLOSED_INTERSTITIAL_ERRORS.includes(err.errorClass)) throw err;
     }
   }
   return Boolean(loc);
@@ -745,9 +760,10 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   if (dryRun) return { status: 'dry-run', step: 'share-button' };
 
   step.set('publish');
-  return pressed(async () => {
+  return pressed(async (markPressed) => {
     await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
     await clickChecked(page, share, { step, snap, platform: 'instagram', label: 'Instagram Share control' });
+    markPressed();
     step.set('confirmation');
     const confirmation = await findFirst([page.getByText(RX.igConfirm)], { timeout: t.confirm, guard });
     if (!confirmation) {
@@ -802,11 +818,12 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   if (dryRun) return { status: 'dry-run', step: 'post-button' };
 
   step.set('publish');
-  return pressed(async () => {
+  return pressed(async (markPressed) => {
     await post.scrollIntoViewIfNeeded();
     await sleep(Math.min(250, t.optional));
     await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
     await clickChecked(page, post, { step, snap, platform: 'tiktok', label: 'TikTok Post control' });
+    markPressed();
     // TikTok may ask once more ("content check still running — post now?").
     await optionalClick([page.getByRole('button', { name: RX.ttPostNow })], { page, platform: 'tiktok', step, snap, guard, timeout: 5_000, label: 'TikTok Post now control' });
     step.set('confirmation');
