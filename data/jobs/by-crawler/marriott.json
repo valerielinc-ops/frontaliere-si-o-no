@@ -942,7 +942,7 @@
       "slugByLocale": {
         "it": "cucina-di-pasticceria-inverno-26-27-marriott-international-verbier",
         "en": "pastry-cook-long-term-w-verbier-marriott-verbier",
-        "de": "pastry-cook-long-term-w-verbier-marriott-international-verbier",
+        "de": "konditoreikoch-langfristig-w-verbier-marriott-international-verbier",
         "fr": "patisserie-hiver-26-27-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -999,7 +999,6 @@
         "pastry-cook-winter-26-27-marriott-verbier",
         "pastry-cook-long-term-w-verbier-marriott-verbier",
         "geback-winter-26-27-marriott-international-verbier",
-        "konditoreikoch-langfristig-w-verbier-marriott-international-verbier",
         "pastry-cook-long-term-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -1013,7 +1012,6 @@
         "de": [
           "pastry-cook-winter-26-27-marriott-verbier",
           "geback-winter-26-27-marriott-international-verbier",
-          "konditoreikoch-langfristig-w-verbier-marriott-international-verbier",
           "pastry-cook-long-term-w-verbier-marriott-international-verbier"
         ],
         "fr": [
@@ -1303,12 +1301,12 @@
     },
     {
       "id": "marriott-8f3a0398f26c",
-      "slug": "human-resources-coordinator-marriott-zurich",
+      "slug": "risorse-umane-coordinatore-marriott-international-zurich",
       "slugByLocale": {
         "en": "human-resources-coordinator-marriott-zurich",
-        "it": "human-resources-coordinator-marriott-zurich",
-        "de": "human-resources-coordinator-marriott-zurich",
-        "fr": "human-resources-coordinator-marriott-zurich"
+        "it": "risorse-umane-coordinatore-marriott-international-zurich",
+        "de": "personalwesen-koordinator-marriott-international-zurich",
+        "fr": "ressources-humaines-coordinateur-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1376,7 +1374,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T21:48:04.829Z"
+      "firstSeenAt": "2026-10-05T21:48:04.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-coordinator-marriott-zurich"
+        ],
+        "de": [
+          "human-resources-coordinator-marriott-zurich"
+        ],
+        "fr": [
+          "human-resources-coordinator-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-coordinator-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-3a9db4979293",
@@ -1673,12 +1685,12 @@
     },
     {
       "id": "marriott-875e3568d606",
-      "slug": "concierge-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "concierge-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "concierge-winter-26-27-w-verbier-marriott-verbier",
-        "it": "concierge-winter-26-27-w-verbier-marriott-verbier",
+        "it": "concierge-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "concierge-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "concierge-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "concierge-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1747,7 +1759,18 @@
         }
       },
       "addressRegion": "WALLI",
-      "firstSeenAt": "2026-10-05T21:48:04.821Z"
+      "firstSeenAt": "2026-10-05T21:48:04.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "concierge-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "concierge-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "concierge-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-533553381a65",

@@ -102,7 +102,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
+        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -177,13 +177,11 @@
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
           "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
@@ -995,9 +993,9 @@
       "slug": "collaboratore-trice-restaurant-a-60-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "collaboratore-trice-restaurant-a-60-kantonsspital-obwalden-sarnen",
-        "en": "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen",
+        "en": "employee-restaurant-a-60-kantonsspital-obwalden-sarnen",
         "de": "mitarbeiter-in-restaurant-a-60-ksow-sarnen",
-        "fr": "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen"
+        "fr": "employe-e-de-restaurant-a-60-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1041,11 +1039,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-restaurant-a-60-ksow-sarnen"
+        "mitarbeiter-in-restaurant-a-60-ksow-sarnen",
+        "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-restaurant-a-60-ksow-sarnen"
+        ],
+        "en": [
+          "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:10.055Z",

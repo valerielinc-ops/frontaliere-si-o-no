@@ -247,7 +247,7 @@
       "slugByLocale": {
         "it": "infermiera-dipl-universitare-psychiatrische-dienste-bern-upd-biel",
         "en": "nurse-dipl-universitare-psychiatrische-dienste-bern-upd-biel",
-        "de": "infirmiere-infirmier-dipl-upd-biel",
+        "de": "pflegefachfrau-pflegefachmann-universitare-psychiatrische-dienste-bern-upd-biel",
         "fr": "infirmiere-infirmier-dipl-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
@@ -300,6 +300,9 @@
           "infirmiere-infirmier-dipl-upd-biel"
         ],
         "en": [
+          "infirmiere-infirmier-dipl-upd-biel"
+        ],
+        "de": [
           "infirmiere-infirmier-dipl-upd-biel"
         ]
       },
@@ -1612,7 +1615,7 @@
       "slug": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
         "fr": "doctorat-etudiant-doctorat-etudiant-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -1661,7 +1664,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
-        "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
@@ -1670,7 +1672,6 @@
         ],
         "en": [
           "doktorandin-doktorand-psychologie-upd-bern",
-          "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
           "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
@@ -7354,9 +7355,9 @@
       "slug": "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "it": "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen",
+        "en": "apprenticeship-as-a-specialist-in-the-hotel-industry-housekeeping-efz-universitare-psychiatrische-dienste-bern-upd",
         "de": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen",
-        "fr": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen"
+        "fr": "poste-d-apprenti-en-hotellerie-menager-cfc-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -7406,6 +7407,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-upd-munsingen"
         ]
       },

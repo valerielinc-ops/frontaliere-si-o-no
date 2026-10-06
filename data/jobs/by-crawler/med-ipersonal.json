@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "med-ipersonal-29b18d7dcc47",
-      "slug": "akquisiteur-in-per-grundstucke-m-w-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon",
+      "slug": "akquisiteur-in-per-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
       "slugByLocale": {
         "de": "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
-        "it": "akquisiteur-in-per-grundstucke-m-w-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon",
+        "it": "akquisiteur-in-per-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich"
       },
@@ -53,11 +53,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich"
+          "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
+          "akquisiteur-in-per-grundstucke-m-w-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon"
         ]
       },
       "previousSlugs": [
-        "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich"
+        "akquisiteur-in-fur-grundstucke-w-m-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon-zurich",
+        "akquisiteur-in-per-grundstucke-m-w-d-region-illnau-effretikon-ipersonal-ag-illnau-effretikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -76,12 +78,12 @@
     },
     {
       "id": "med-ipersonal-ee2bcc5e2755",
-      "slug": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich",
+      "slug": "camion-autista-adr-chauffeur-cat-c-e-m-f-d-merci-pericolose-i-vostri-compiti-regione-egg-b-zurigo-ipersonal-ag-egg-b",
       "slugByLocale": {
-        "de": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich",
-        "it": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich",
-        "en": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich",
-        "fr": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        "de": "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b",
+        "it": "camion-autista-adr-chauffeur-cat-c-e-m-f-d-merci-pericolose-i-vostri-compiti-regione-egg-b-zurigo-ipersonal-ag-egg-b",
+        "en": "truck-chauffeur-adr-chauffeur-cat-c-e-m-f-d-dangerous-goods-your-tasks-region-egg-b-zurich-ipersonal-ag-egg-b",
+        "fr": "chauffeur-de-camion-adr-chauffeur-cat-c-e-h-f-d-marchandises-dangereuses-vos-taches-region-egg-b-zurich-ipersonal-ag-egg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -134,16 +136,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:14.754Z"
+      "firstSeenAt": "2026-10-05T21:54:14.754Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        ],
+        "en": [
+          "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        ],
+        "de": [
+          "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        ],
+        "fr": [
+          "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-adr-chauffeur-kat-c-e-m-w-d-gefahrgut-ihre-aufgaben-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-62adf21f2431",
-      "slug": "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern",
+      "slug": "camion-autista-chauffeur-springer-regione-beromunster-ipersonal-ag-beromunster-luzern",
       "slugByLocale": {
         "de": "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern",
-        "it": "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern",
-        "en": "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern",
-        "fr": "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
+        "it": "camion-autista-chauffeur-springer-regione-beromunster-ipersonal-ag-beromunster-luzern",
+        "en": "truck-chauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern",
+        "fr": "chauffeur-de-camion-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -197,16 +216,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:14.453Z"
+      "firstSeenAt": "2026-10-05T21:54:14.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
+        ],
+        "en": [
+          "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
+        ],
+        "fr": [
+          "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-chauffeur-springer-region-beromunster-ipersonal-ag-beromunster-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-217788872320",
-      "slug": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen",
+      "slug": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-rebstein-ipersonal-ag-rebstein-st-gallen",
       "slugByLocale": {
         "de": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen",
-        "it": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen",
-        "en": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen",
-        "fr": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
+        "it": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-rebstein-ipersonal-ag-rebstein-st-gallen",
+        "en": "truck-chauffeur-silo-chauffeur-cat-c-e-from-dietikon-m-f-d-region-rebstein-ipersonal-ag-rebstein-st-gallen",
+        "fr": "chauffeur-de-camion-silo-chauffeur-cat-c-e-de-dietikon-h-f-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -260,16 +293,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:14.153Z"
+      "firstSeenAt": "2026-10-05T21:54:14.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
+        ],
+        "en": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-rebstein-ipersonal-ag-rebstein-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-c925ffb0a90a",
-      "slug": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
+      "slug": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
       "slugByLocale": {
         "de": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
-        "it": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
-        "en": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
-        "fr": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
+        "it": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
+        "en": "truck-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen",
+        "fr": "recyclage-du-chauffeur-de-camion-chauffeur-c-e-springer-h-f-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -323,7 +370,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:13.852Z"
+      "firstSeenAt": "2026-10-05T21:54:13.852Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
+        ],
+        "en": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-ebnat-kappel-ipersonal-ag-ebnat-kappel-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-8492affa4f72",
@@ -331,8 +392,8 @@
       "slugByLocale": {
         "de": "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers",
         "it": "reifenpraktiker-100-per-la-region-tafers-stellenangebot-ipersonal-ag-tafers",
-        "en": "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers",
-        "fr": "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers"
+        "en": "tire-practitioners-100-for-the-tafers-region-job-offer-ipersonal-ag-tafers",
+        "fr": "pratiques-de-pneus-100-pour-la-region-de-tafers-offre-d-emploi-ipersonal-ag-tafers"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -377,6 +438,12 @@
       "previousSlugsByLocale": {
         "it": [
           "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers"
+        ],
+        "en": [
+          "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers"
+        ],
+        "fr": [
+          "reifenpraktiker-100-fur-die-region-tafers-stellenangebot-ipersonal-ag-tafers"
         ]
       },
       "previousSlugs": [
@@ -399,12 +466,12 @@
     },
     {
       "id": "med-ipersonal-6df628fae65e",
-      "slug": "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz",
+      "slug": "automaticians-regione-di-oberiberg-ipersonal-ag-oberiberg-schwyz",
       "slugByLocale": {
         "de": "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz",
-        "it": "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz",
-        "en": "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz",
-        "fr": "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz"
+        "it": "automaticians-regione-di-oberiberg-ipersonal-ag-oberiberg-schwyz",
+        "en": "automaticians-oberiberg-region-ipersonal-ag-oberiberg-schwyz",
+        "fr": "automaticiens-region-d-oberiberg-ipersonal-ag-oberiberg-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -458,16 +525,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:13.250Z"
+      "firstSeenAt": "2026-10-05T21:54:13.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz"
+        ],
+        "en": [
+          "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz"
+        ],
+        "fr": [
+          "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-oberiberg-ipersonal-ag-oberiberg-schwyz"
+      ]
     },
     {
       "id": "med-ipersonal-388099e62d88",
-      "slug": "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach",
+      "slug": "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach-solothurn",
       "slugByLocale": {
         "de": "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn",
-        "it": "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach",
-        "en": "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn",
-        "fr": "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        "it": "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach-solothurn",
+        "en": "electrical-installer-trimbach-region-ipersonal-ag-trimbach-solothurn",
+        "fr": "installation-electrique-region-de-trimbach-ipersonal-ag-trimbach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -510,11 +591,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-trimbach-jobangebot/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn",
+          "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach"
+        ],
+        "en": [
+          "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        ],
+        "fr": [
           "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        "elektroinstallateur-region-trimbach-ipersonal-ag-trimbach-solothurn",
+        "installatore-trice-elettrico-a-region-trimbach-ipersonal-ag-trimbach"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -533,10 +622,10 @@
     },
     {
       "id": "med-ipersonal-7946863636ff",
-      "slug": "akquisiteur-in-per-grundstucke-m-w-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh",
+      "slug": "akquisiteur-in-per-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
       "slugByLocale": {
         "de": "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
-        "it": "akquisiteur-in-per-grundstucke-m-w-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh",
+        "it": "akquisiteur-in-per-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich"
       },
@@ -582,11 +671,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich"
+          "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
+          "akquisiteur-in-per-grundstucke-m-w-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh"
         ]
       },
       "previousSlugs": [
-        "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich"
+        "akquisiteur-in-fur-grundstucke-w-m-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh-zurich",
+        "akquisiteur-in-per-grundstucke-m-w-d-region-kusnacht-zh-ipersonal-ag-kusnacht-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -605,12 +696,12 @@
     },
     {
       "id": "med-ipersonal-1a80453cc56b",
-      "slug": "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
+      "slug": "automatico-regione-di-bottighofen-ipersonal-ag-bottighofen-thurgau",
       "slugByLocale": {
         "de": "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
-        "it": "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
-        "en": "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
-        "fr": "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        "it": "automatico-regione-di-bottighofen-ipersonal-ag-bottighofen-thurgau",
+        "en": "automatic-bottighofen-region-ipersonal-ag-bottighofen-thurgau",
+        "fr": "automatique-region-de-bottighofen-ipersonal-ag-bottighofen-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -664,7 +755,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:54:12.345Z"
+      "firstSeenAt": "2026-10-05T21:54:12.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        ],
+        "en": [
+          "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        ],
+        "fr": [
+          "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+      ]
     },
     {
       "id": "med-ipersonal-5946565232ee",
@@ -745,12 +850,12 @@
     },
     {
       "id": "med-ipersonal-504fd7727d49",
-      "slug": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil",
+      "slug": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil-st-gallen",
       "slugByLocale": {
         "de": "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
-        "it": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil",
-        "en": "electrical-planner-region-flawil-ipersonal-ag-flawil",
-        "fr": "planificateur-trice-electrique-region-flawil-ipersonal-ag-flawil"
+        "it": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "en": "electrical-planner-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "fr": "planificateur-trice-electrique-region-flawil-ipersonal-ag-flawil-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -793,11 +898,21 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-flawil-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
-          "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
+          "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
+          "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil"
+        ],
+        "en": [
+          "electrical-planner-region-flawil-ipersonal-ag-flawil"
+        ],
+        "fr": [
+          "planificateur-trice-electrique-region-flawil-ipersonal-ag-flawil"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
+        "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil",
+        "electrical-planner-region-flawil-ipersonal-ag-flawil",
+        "planificateur-trice-electrique-region-flawil-ipersonal-ag-flawil"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,

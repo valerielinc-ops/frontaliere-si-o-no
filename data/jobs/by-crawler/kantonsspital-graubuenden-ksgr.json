@@ -25,12 +25,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-05T21:46:26.568Z",
-      "slug": "ict-applikationsmanager-in-kantonsspital-graubunden-samedan",
+      "slug": "ict-application-manager-kantonsspital-graubunden-samedan",
       "slugByLocale": {
         "de": "ict-applikationsmanager-in-kantonsspital-graubunden-samedan",
-        "it": "ict-applikationsmanager-in-kantonsspital-graubunden-samedan",
+        "it": "ict-application-manager-kantonsspital-graubunden-samedan",
         "en": "ict-applikationsmanager-in-kantonsspital-graubunden-samedan",
-        "fr": "ict-applikationsmanager-in-kantonsspital-graubunden-samedan"
+        "fr": "gestionnaire-des-applications-tic-kantonsspital-graubunden-samedan"
       },
       "titleByLocale": {
         "de": "ICT-Applikationsmanager:in",
@@ -61,7 +61,18 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-05T21:46:26.568Z"
+      "firstSeenAt": "2026-10-05T21:46:26.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-applikationsmanager-in-kantonsspital-graubunden-samedan"
+        ],
+        "fr": [
+          "ict-applikationsmanager-in-kantonsspital-graubunden-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "ict-applikationsmanager-in-kantonsspital-graubunden-samedan"
+      ]
     },
     {
       "id": "10212523",
@@ -190,15 +201,7 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-03T09:23:27.856Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-10-03T09:23:27.856Z"
     },
     {
       "id": "10209576",
@@ -3993,15 +3996,7 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",

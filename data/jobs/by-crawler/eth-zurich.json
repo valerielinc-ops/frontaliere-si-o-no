@@ -238,7 +238,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -282,7 +282,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
@@ -290,7 +289,6 @@
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
           "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
@@ -7231,7 +7229,7 @@
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
@@ -7275,16 +7273,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "en": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "fr": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
@@ -8349,12 +8345,12 @@
     },
     {
       "id": "eth-zurich-148eae6b0cd5",
-      "slug": "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch",
+      "slug": "posizione-del-dottorato-in-determinanti-delle-prestazioni-umane-in-esecuzione-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch",
-        "it": "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch",
-        "de": "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch",
-        "fr": "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch"
+        "it": "posizione-del-dottorato-in-determinanti-delle-prestazioni-umane-in-esecuzione-eth-zurich-zurich",
+        "de": "phd-position-in-determinanten-der-menschlichen-leistung-im-laufen-eth-zurich-zurich",
+        "fr": "poste-de-phd-dans-les-determinants-de-la-performance-humaine-en-course-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8411,16 +8407,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T21:52:41.051Z"
+      "firstSeenAt": "2026-10-05T21:52:41.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-determinants-of-human-performance-in-running-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-a64f3aae4a82",
-      "slug": "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-nel-monitoraggio-del-carico-e-del-recupero-negli-atleti-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch",
-        "it": "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch",
-        "de": "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch",
-        "fr": "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch"
+        "it": "posizione-post-dottorale-nel-monitoraggio-del-carico-e-del-recupero-negli-atleti-eth-zurich-zurich",
+        "de": "postdoc-position-bei-der-uberwachung-von-belastung-und-erholung-bei-athleten-eth-zurich-zurich",
+        "fr": "position-postdoctorale-en-surveillance-de-la-charge-et-du-retablissement-chez-les-athletes-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8477,16 +8487,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T21:52:40.524Z"
+      "firstSeenAt": "2026-10-05T21:52:40.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-monitoring-load-and-recovery-in-athletes-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-27bbaa29cab4",
-      "slug": "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch",
+      "slug": "posizione-del-dottorato-in-dinamica-sperimentale-non-lineare-e-nanomechanics-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch",
-        "it": "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch",
-        "de": "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch",
-        "fr": "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch"
+        "it": "posizione-del-dottorato-in-dinamica-sperimentale-non-lineare-e-nanomechanics-eth-zurich-zurich",
+        "de": "phd-position-in-experimenteller-nichtlinearer-dynamik-und-nanomechanik-eth-zurich-zurich",
+        "fr": "position-au-doctorat-en-dynamique-non-lineaire-experimentale-et-nanomecanique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8543,7 +8567,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T21:52:39.998Z"
+      "firstSeenAt": "2026-10-05T21:52:39.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-experimental-nonlinear-dynamics-and-nanomechanics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-db3b861dff3c",
@@ -8614,12 +8652,12 @@
     },
     {
       "id": "eth-zurich-90d81469d170",
-      "slug": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
+      "slug": "phd-posizione-nei-metodi-computazionali-per-i-gemelli-digitali-dello-sviluppo-embrionale-e-delle-malattie-eth-zurich",
       "slugByLocale": {
         "en": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
-        "it": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
+        "it": "phd-posizione-nei-metodi-computazionali-per-i-gemelli-digitali-dello-sviluppo-embrionale-e-delle-malattie-eth-zurich",
         "de": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
-        "fr": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease"
+        "fr": "doctorat-en-methodes-de-calcul-pour-les-jumeaux-numeriques-de-developpement-embryonnaire-et-maladie-eth-zurich-basel"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8677,16 +8715,27 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-05T21:52:38.954Z"
+      "firstSeenAt": "2026-10-05T21:52:38.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease"
+        ],
+        "fr": [
+          "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease"
+      ]
     },
     {
       "id": "eth-zurich-0df61e50ccfa",
-      "slug": "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch",
+      "slug": "phd-posizione-in-gemelli-digitali-di-sviluppo-embrionale-eth-zurich-basel",
       "slugByLocale": {
         "en": "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch",
-        "it": "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch",
-        "de": "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch",
-        "fr": "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch"
+        "it": "phd-posizione-in-gemelli-digitali-di-sviluppo-embrionale-eth-zurich-basel",
+        "de": "phd-position-in-digitalen-zwillingen-der-embryonalen-entwicklung-eth-zurich-basel",
+        "fr": "doctorat-en-jumelles-numeriques-de-developpement-embryonnaire-eth-zurich-basel"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8743,7 +8792,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-05T21:52:38.427Z"
+      "firstSeenAt": "2026-10-05T21:52:38.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-digital-twins-of-embryonic-development-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-7991b34fb0fc",
@@ -8752,7 +8815,7 @@
         "en": "robotx-phd-fellowship-2027-eth-zurich-ch",
         "it": "robotx-phd-fellowship-2027-eth-zurich-ch",
         "de": "robotx-phd-fellowship-2027-eth-zurich-ch",
-        "fr": "robotx-phd-fellowship-2027-eth-zurich-ch"
+        "fr": "bourse-de-doctorat-robotx-2027-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8819,7 +8882,7 @@
         "en": "robotx-postdoctoral-fellowship-eth-zurich-ch",
         "it": "robotx-postdoctoral-fellowship-eth-zurich-ch",
         "de": "robotx-postdoctoral-fellowship-eth-zurich-ch",
-        "fr": "robotx-postdoctoral-fellowship-eth-zurich-ch"
+        "fr": "bourse-de-recherche-postdoctorale-robotx-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",

@@ -5603,12 +5603,12 @@
     },
     {
       "id": "epfl-fe16908ec7cc",
-      "slug": "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne",
+      "slug": "phd-dinamici-di-scambio-e-ribaltamento-nelle-transizioni-urbane-all-epfl-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne",
-        "it": "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne",
-        "de": "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne",
-        "fr": "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne"
+        "it": "phd-dinamici-di-scambio-e-ribaltamento-nelle-transizioni-urbane-all-epfl-epfl-lausanne",
+        "de": "phd-trade-off-und-kippdynamik-in-urbanen-ubergangen-an-der-epfl-epfl-lausanne",
+        "fr": "doctorat-dynamique-de-compromis-et-de-basculement-dans-les-transitions-urbaines-a-l-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5668,16 +5668,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-05T21:35:25.249Z"
+      "firstSeenAt": "2026-10-05T21:35:25.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne"
+        ],
+        "de": [
+          "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-trade-off-and-tipping-dynamics-in-urban-transitions-at-epfl-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-ed412469e7dd",
-      "slug": "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel",
+      "slug": "ricercatore-post-dottorato-in-avanzato-flexure-mechanism-design-m-f-epfl-neuchatel",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel",
-        "it": "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel",
+        "it": "ricercatore-post-dottorato-in-avanzato-flexure-mechanism-design-m-f-epfl-neuchatel",
         "de": "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel",
-        "fr": "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel"
+        "fr": "chercheur-postdoctoral-en-conception-avancee-de-flexure-mecanisme-h-f-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5737,7 +5751,18 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-10-05T21:35:24.578Z"
+      "firstSeenAt": "2026-10-05T21:35:24.578Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-advanced-flexure-mechanism-design-w-m-epfl-neuchatel"
+      ]
     }
   ]
 }

@@ -2063,8 +2063,8 @@
       "slugByLocale": {
         "en": "machine-quality-senior-specialist-nestle-ch",
         "it": "machine-quality-senior-specialist-nestle-ch",
-        "de": "machine-quality-senior-specialist-nestle-ch",
-        "fr": "machine-quality-senior-specialist-nestle-ch"
+        "de": "machine-qualitat-senior-spezialist-nestle-orbe",
+        "fr": "machine-qualite-senior-specialiste-nestle-orbe"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4583,12 +4583,12 @@
     },
     {
       "id": "nestle-1442382033",
-      "slug": "nestep-in-packaging-innovation-nestle-ch",
+      "slug": "nestep-nell-innovazione-del-packaging-nestle-orbe",
       "slugByLocale": {
-        "it": "nestep-in-packaging-innovation-nestle-ch",
+        "it": "nestep-nell-innovazione-del-packaging-nestle-orbe",
         "en": "nestep-in-packaging-innovation-nestle-ch",
         "de": "nestep-in-verpackungsinnovation-nestle-orbe",
-        "fr": "nestep-in-packaging-innovation-nestle-ch"
+        "fr": "nestep-dans-l-innovation-en-matiere-d-emballage-nestle-orbe"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4643,7 +4643,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "nestep-in-packaging-innovation-nestle-ch"
+        ],
+        "fr": [
+          "nestep-in-packaging-innovation-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nestep-in-packaging-innovation-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1271549401",
@@ -5814,9 +5825,9 @@
       "slug": "polymechaniker-in-cfc-nestle-konolfingen",
       "slugByLocale": {
         "it": "polymechaniker-in-cfc-nestle-konolfingen",
-        "en": "polymechaniker-in-efz-nestle-ch",
+        "en": "polymechanic-efz-nestle-konolfingen",
         "de": "polymechaniker-in-efz-nestle-ch",
-        "fr": "polymechaniker-in-efz-nestle-ch"
+        "fr": "polymecanicien-ne-cfc-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -5862,6 +5873,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-efz-nestle-ch"
+        ],
+        "en": [
+          "polymechaniker-in-efz-nestle-ch"
+        ],
+        "fr": [
           "polymechaniker-in-efz-nestle-ch"
         ]
       },
@@ -6857,7 +6874,7 @@
         "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
         "de": "rechtswidrige-handlungen-nestle-vevey",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6900,7 +6917,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-paralegal-nestle-ch",
-        "societe-parajuridique-nestle-vevey",
         "corporate-paralegal-nestle-vevey"
       ],
       "previousSlugsByLocale": {
@@ -6911,7 +6927,6 @@
           "corporate-paralegal-nestle-ch"
         ],
         "fr": [
-          "societe-parajuridique-nestle-vevey",
           "corporate-paralegal-nestle-vevey"
         ]
       },

@@ -1848,12 +1848,12 @@
     },
     {
       "id": "kanton-solothurn-4ed1ee959301",
-      "slug": "fachsekretar-in-kesb-80-kanton-solothurn-solothurn",
+      "slug": "segretario-tecnico-a-apma-80-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "fachsekretar-in-kesb-80-kanton-solothurn-solothurn",
-        "en": "fachsekretar-in-kesb-80-kanton-solothurn-solothurn",
+        "it": "segretario-tecnico-a-apma-80-kanton-solothurn-solothurn",
+        "en": "specialist-secretary-kesb-80-kanton-solothurn-solothurn",
         "de": "fachsekretar-in-kesb-80-kanton-solothurn-solothurn",
-        "fr": "fachsekretar-in-kesb-80-kanton-solothurn-solothurn"
+        "fr": "secretaire-specialise-apea-80-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1910,7 +1910,21 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachsekretar-in-kesb-80-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "fachsekretar-in-kesb-80-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "fachsekretar-in-kesb-80-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "fachsekretar-in-kesb-80-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-b903ac3d8091",
