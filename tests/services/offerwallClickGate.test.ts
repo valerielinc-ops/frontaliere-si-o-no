@@ -459,10 +459,53 @@ describe('offerwallClickGate', () => {
       const offerwall = document.querySelector('.fc-message-root') as HTMLElement;
       expect(offerwall.hasAttribute(OFFERWALL_DISCARDED_ATTR)).toBe(true);
       expect(window.getComputedStyle(offerwall).display).toBe('none');
+      expect(offerwall.style.getPropertyValue('display')).toBe('none');
+      expect(offerwall.style.getPropertyPriority('display')).toBe('important');
       // ...and the stage no longer hides any other Funding Choices message.
       expect(isOfferwallStaged()).toBe(false);
       const otherMessage = mountRoot('fc-ab-root');
       expect(window.getComputedStyle(otherMessage).display).not.toBe('none');
+    });
+
+    it('keeps the parked Offerwall hidden against Funding Choices\' own display rule', async () => {
+      // Live 2026-10-06: `div.fc-message-root{display:flex!important}` outranked a bare
+      // attribute rule, and the parked Offerwall stayed on screen over the page.
+      const googleStyle = document.createElement('style');
+      googleStyle.textContent = 'div.fc-message-root{display:flex!important}';
+      holdOfferwall(() => {
+        mountRoot('fc-message-root');
+        document.head.appendChild(googleStyle);
+      });
+      const controller = new AbortController();
+      void releaseHeldOfferwall({ staged: true, signal: controller.signal });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+
+      const offerwall = document.querySelector('.fc-message-root') as HTMLElement;
+      // Inline and important: no stylesheet outranks it.
+      expect(offerwall.style.getPropertyValue('display')).toBe('none');
+      expect(offerwall.style.getPropertyPriority('display')).toBe('important');
+      expect(window.getComputedStyle(offerwall).display).toBe('none');
+      // The rule is as specific as the stage one (0,3,0), above Google's (0,1,1).
+      expect(document.getElementById('ft-offerwall-discarded')?.textContent)
+        .toBe(`[class*="fc-"][class*="-root"][${OFFERWALL_DISCARDED_ATTR}]{display:none!important}`);
+      googleStyle.remove();
+    });
+
+    it('puts back the root\'s own inline display when the parked Offerwall is shown again', async () => {
+      holdOfferwall(() => {
+        mountRoot('fc-message-root').style.setProperty('display', 'block');
+      });
+      const controller = new AbortController();
+      void releaseHeldOfferwall({ staged: true, signal: controller.signal });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+      const parked = parkedOfferwallRoot() as HTMLElement;
+      expect(parked.style.getPropertyValue('display')).toBe('none');
+
+      void showParkedOfferwall();
+      expect(parked.style.getPropertyValue('display')).toBe('block');
+      expect(parked.style.getPropertyPriority('display')).toBe('');
     });
 
     it('hides an Offerwall Google renders after the choice closed, and puts back the scroll it locks', async () => {
@@ -519,6 +562,7 @@ describe('offerwallClickGate', () => {
       const onShown = vi.fn();
       const pending = showParkedOfferwall({ onShown });
       expect(parked?.hasAttribute(OFFERWALL_DISCARDED_ATTR)).toBe(false);
+      expect(parked?.style.getPropertyValue('display')).toBe('');
       await vi.advanceTimersByTimeAsync(400);
       expect(onShown).toHaveBeenCalledTimes(1);
       expect(onShown.mock.calls[0][0]).toEqual({ shownMs: expect.any(Number), root: 'fc-message-root' });
