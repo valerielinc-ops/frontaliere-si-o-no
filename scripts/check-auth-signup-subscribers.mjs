@@ -58,6 +58,7 @@ import {
   UNCOVERED_SHARE_WARN,
 } from './lib/authSignupSubscriberMetrics.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -102,19 +103,8 @@ const log = (...a) => { if (!JSON_ONLY) console.log(...a); };
 /* ── Firebase Admin (lazy, stessa forma di check-unsubscribe-credential-rate.mjs) ── */
 
 async function initAdmin() {
-  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) initializeApp({ credential: cert(cred) });
-    else initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-  }
-  const { getFirestore } = await import('firebase-admin/firestore');
   const { getAuth } = await import('firebase-admin/auth');
-  return { db: getFirestore(), auth: getAuth() };
+  return { db: await getFirestoreDb(), auth: getAuth() };
 }
 
 /* ── Letture ────────────────────────────────────────────────── */

@@ -49,6 +49,7 @@ import {
   suppressionReason,
   SUPPRESSION_COLLECTIONS,
 } from './lib/suppressionDecay.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const REPORT_PATH = 'data/suppression-invariant-report.json';
 const MAX_OFFENDERS_PER_COLLECTION = 50; // the issue body needs a sample, not a mailing list
@@ -56,15 +57,7 @@ const MAX_OFFENDERS_PER_COLLECTION = 50; // the issue body needs a sample, not a
 let db;
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = getFirestore();
+  db = await getFirestoreDb();
 }
 
 /**

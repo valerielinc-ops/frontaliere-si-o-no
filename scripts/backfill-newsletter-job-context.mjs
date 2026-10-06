@@ -15,6 +15,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -319,17 +320,9 @@ function maskEmail(email) {
 }
 
 async function getFirestoreAdmin() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
   return {
-    db: getFirestore(),
-    FieldValue,
+    db: await getFirestoreDb(),
+    FieldValue: (await import('firebase-admin/firestore')).FieldValue,
   };
 }
 
