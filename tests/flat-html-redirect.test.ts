@@ -173,6 +173,29 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('Stale comment title');
   });
 
+  it('masks nested inactive templates in bridge title and OG extraction', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><template>' +
+        '<meta property="og:title" content="inner-stale">' +
+        '</template><meta property="og:title" content="outer-stale">' +
+        '<title>outer-stale</title></template>' +
+        '<meta property="og:title" content="active">' +
+        '<title>active</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<meta property="og:title" content="active">');
+    expect(bridge).toContain('<title>active</title>');
+    expect(bridge).not.toContain('inner-stale');
+    expect(bridge).not.toContain('outer-stale');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing

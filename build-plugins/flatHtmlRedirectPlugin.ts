@@ -51,7 +51,7 @@ import {
   extractOgTags,
   maskInactiveMarkup,
 } from '../packages/articles/engine/flatHtmlRedirect.ts';
-export { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags };
+export { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags, maskInactiveMarkup };
 
 
 interface FlatRedirectOptions {
