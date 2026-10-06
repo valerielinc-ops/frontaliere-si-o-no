@@ -669,6 +669,8 @@ function normalizeJsonCandidate(input) {
 
 /** Maximum number of later top-level candidate roots inspected after the first one. */
 const MAX_LATER_CANDIDATES = 24;
+/** Extra bound for malformed/unbalanced openers that are discarded. */
+const MAX_LATER_SCANNED_ROOTS = MAX_LATER_CANDIDATES * 4;
 
 /**
  * The only safe reason to skip a valid first payload is an explicit response
@@ -690,38 +692,6 @@ function firstRootStart(source, rootOpeners) {
   }, -1);
 }
 
-function nextRootStart(source, from, rootOpeners) {
-  return rootOpeners.reduce((next, opener) => {
-    const start = source.indexOf(opener, from);
-    return start === -1 ? next : next === -1 ? start : Math.min(next, start);
-  }, -1);
-}
-
-function hasJsonPrefixSyntax(source, from, to) {
-  let inString = false;
-  for (let i = from; i < to; i++) {
-    const ch = source[i];
-    if (ch === '"' && !isEscapedAt(source, i)) {
-      inString = !inString;
-      continue;
-    }
-    if (inString || /\s/.test(ch) || '{}[],:'.includes(ch)) continue;
-
-    const number = /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(source.slice(i));
-    if (number) {
-      i += number[0].length - 1;
-      continue;
-    }
-    const literal = /^(?:true|false|null)\b/.exec(source.slice(i));
-    if (literal) {
-      i += literal[0].length - 1;
-      continue;
-    }
-    return false;
-  }
-  return !inString;
-}
-
 /**
  * An unmatched preferred root may contain complete nested containers that are
  * not response roots (for example `tags: ["a"]` in a truncated FAQ object).
@@ -731,47 +701,117 @@ function hasJsonPrefixSyntax(source, from, to) {
  * nested only when the prefix still has JSON structural context, while
  * allowing an opener that follows the prose of a malformed preamble through.
  */
-function isNestedRootCandidate(source, rootStart, candidateStart) {
-  const stack = [source[rootStart]];
-  let inString = false;
+function isNestedRootCandidate(source, rootStart, candidate) {
+  if (candidate.depth > 1) return true;
+  if (!candidate.prefixJsonLike) return false;
 
-  for (let i = rootStart + 1; i < candidateStart; i++) {
+  let previous = candidate.start - 1;
+  while (previous > rootStart && /\s/.test(source[previous])) previous--;
+  return source[rootStart] === '[' || [':', '[', '{', ','].includes(source[previous]);
+}
+
+/**
+ * Scan structural bracket intervals once. Recoverable quoted strings are
+ * skipped as a whole, so openers in their contents never become candidates.
+ * An unclosed/non-recoverable string is left as prose: later roots remain
+ * discoverable through the historical fallback path.
+ */
+function scanStructuralRootCandidates(source, rootOpeners, start) {
+  const targetOpeners = new Set(rootOpeners);
+  const structuralStack = [];
+  const openFrames = { '{': [], '[': [] };
+  const candidates = [];
+  let firstRoot = null;
+  let firstCloseIdx = -1;
+  let firstClosed = false;
+  let recordedRoots = 0;
+  let prefixJsonLike = true;
+  let prefixInString = false;
+  let prefixTokenEnd = start + 1;
+
+  const recordCandidate = (frame) => {
+    if (recordedRoots >= MAX_LATER_SCANNED_ROOTS) return;
+    candidates.push(frame);
+    recordedRoots++;
+  };
+
+  for (let i = start; i < source.length; i++) {
     const ch = source[i];
     if (ch === '"' && !isEscapedAt(source, i)) {
-      inString = !inString;
+      const stringEnd = scanStringEnd(source, i, true);
+      if (stringEnd !== -1) {
+        if (i > start) prefixInString = false;
+        i = stringEnd - 1;
+        continue;
+      }
+      if (i > start) prefixInString = !prefixInString;
       continue;
     }
-    if (inString) continue;
+
+    if (i > start && i >= prefixTokenEnd && !prefixInString && prefixJsonLike) {
+      if (/\s/.test(ch) || '{}[],:'.includes(ch)) {
+        // JSON structural punctuation and whitespace are valid prefix syntax.
+      } else {
+        const number = /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(source.slice(i));
+        const literal = /^(?:true|false|null)\b/.exec(source.slice(i));
+        if (number) prefixTokenEnd = i + number[0].length;
+        else if (literal) prefixTokenEnd = i + literal[0].length;
+        else prefixJsonLike = false;
+      }
+    }
 
     if (ch === '{' || ch === '[') {
-      stack.push(ch);
-    } else if (ch === '}' || ch === ']') {
-      const opener = ch === '}' ? '{' : '[';
-      if (stack.at(-1) === opener) stack.pop();
+      const frame = {
+        open: ch,
+        start: i,
+        end: -1,
+        depth: structuralStack.length,
+        prefixJsonLike: prefixJsonLike && !prefixInString,
+      };
+      structuralStack.push(frame);
+      openFrames[ch].push(frame);
+
+      if (!firstRoot) firstRoot = frame;
+      else if (targetOpeners.has(ch) && (firstClosed || recordedRoots < MAX_LATER_SCANNED_ROOTS)) {
+        recordCandidate(frame);
+      }
+      continue;
+    }
+
+    if (ch !== '}' && ch !== ']') continue;
+    const opener = ch === '}' ? '{' : '[';
+    const frame = openFrames[opener].pop();
+    if (!frame) continue;
+    frame.end = i;
+    if (structuralStack.at(-1) === frame) structuralStack.pop();
+
+    if (frame === firstRoot) {
+      firstCloseIdx = i;
+      firstClosed = true;
+      candidates.length = 0;
+      recordedRoots = 0;
+      structuralStack.length = 0;
+      openFrames['{'].length = 0;
+      openFrames['['].length = 0;
+      prefixJsonLike = true;
+      prefixInString = false;
+      prefixTokenEnd = i + 1;
     }
   }
 
-  if (inString || stack.length > 1) return true;
-
-  let previous = candidateStart - 1;
-  while (previous > rootStart && /\s/.test(source[previous])) previous--;
-  return [':', '[', '{', ','].includes(source[previous])
-    && hasJsonPrefixSyntax(source, rootStart + 1, candidateStart);
+  return { firstCloseIdx, candidates };
 }
 
 function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {}) {
   const start = firstRootStart(source, rootOpeners);
   if (start === -1) return { start, candidates: [] };
 
-  // If the preferred root itself is unterminated, later object roots are
-  // normally its still-complete elements, not independent response roots.
-  // Inspecting them as candidates makes a truncated array of FAQ objects
-  // select the first object and discards the rest before the caller's salvage
-  // path can recover them. A later preferred root can still be a real payload
-  // after an unmatched preamble, so keep scanning that root shape only.
-  const laterRootOpeners = preferredRoot && source[start] === preferredRoot
-    ? [preferredRoot]
-    : rootOpeners;
+  const opener = source[start];
+  const { firstCloseIdx, candidates: laterRootCandidates } = scanStructuralRootCandidates(
+    source,
+    rootOpeners,
+    start,
+  );
 
   const candidates = [];
   const addCandidate = (candidateStart, candidateEnd, balanced) => {
@@ -784,28 +824,29 @@ function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {
   };
 
   const collectLaterBalancedCandidates = (from, { skipUnbalanced = false, skipNested = false } = {}) => {
-    let nextStart = nextRootStart(source, from, laterRootOpeners);
+    let cursor = from;
+    let scanned = 0;
     let examined = 0;
-    while (nextStart !== -1 && examined < MAX_LATER_CANDIDATES) {
-      examined++;
-      const nextCloseIdx = findMatchingClose(source, nextStart, true);
-      if (skipNested && isNestedRootCandidate(source, start, nextStart)) {
-        const nextFrom = nextCloseIdx === -1 ? nextStart + 1 : nextCloseIdx + 1;
-        nextStart = nextRootStart(source, nextFrom, laterRootOpeners);
+    for (const candidate of laterRootCandidates) {
+      if (candidate.start < cursor || candidate.start < from) continue;
+      if (scanned >= MAX_LATER_SCANNED_ROOTS || examined >= MAX_LATER_CANDIDATES) break;
+      scanned++;
+
+      if (skipNested && isNestedRootCandidate(source, start, candidate)) {
+        cursor = candidate.end === -1 ? candidate.start + 1 : candidate.end + 1;
         continue;
       }
-      if (nextCloseIdx === -1) {
+      if (candidate.end === -1) {
         if (!skipUnbalanced) break;
-        nextStart = nextRootStart(source, nextStart + 1, laterRootOpeners);
+        cursor = candidate.start + 1;
         continue;
       }
-      addCandidate(nextStart, nextCloseIdx, true);
-      nextStart = nextRootStart(source, nextCloseIdx + 1, laterRootOpeners);
+      examined++;
+      addCandidate(candidate.start, candidate.end, true);
+      cursor = candidate.end + 1;
     }
   };
 
-  const opener = source[start];
-  const firstCloseIdx = findMatchingClose(source, start, true);
   if (firstCloseIdx !== -1) {
     addCandidate(start, firstCloseIdx, true);
   } else {
@@ -813,14 +854,14 @@ function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {
     // real FAQ array. Keep the historical truncated fallback for retry/error
     // diagnostics, but inspect later roots so a balanced preferred array is
     // not hidden by that unmatched opener (including an unmatched array).
-    if (preferredRoot) {
-      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true, skipNested: true });
-    }
-    // Keep the historical truncated-payload fallback: callers can still
-    // retry with a larger token budget.
+    // Keep it first: if every later candidate fails validation, the fallback
+    // path must still return the original truncated payload.
     const closer = opener === '[' ? ']' : '}';
     const end = source.lastIndexOf(closer);
     addCandidate(start, end > start ? end : source.length - 1, false);
+    if (preferredRoot) {
+      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true, skipNested: true });
+    }
   }
 
   // A later root can be the real response after an example in a prose
