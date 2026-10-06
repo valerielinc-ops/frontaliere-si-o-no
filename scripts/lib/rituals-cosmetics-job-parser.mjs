@@ -37,7 +37,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { appendSlugDisambiguator, detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -104,8 +104,9 @@ function cleanRitualsLocation(raw = '') {
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
   const stripped = trimmed.replace(/^\s*(manor|coop|migros|globus|jelmoli)\s+/i, '').trim() || trimmed;
-  const cityToken = findSwissCityInText(stripped) || findSwissCityInText(trimmed);
-  if (cityToken) return canonicalSwissCityName(cityToken) || cityToken;
+  const city = swissCityFromLocationField(stripped, { allowUnqualifiedEnglishExonyms: true })
+    || swissCityFromLocationField(trimmed, { allowUnqualifiedEnglishExonyms: true });
+  if (city) return city;
   return stripped.split(/\s+/)[0] || trimmed.split(/\s+/)[0] || '';
 }
 
