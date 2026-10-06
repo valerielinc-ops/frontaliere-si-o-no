@@ -1,18 +1,62 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-05T21:28:00.561Z",
-  "total": 10,
+  "generatedAt": "2026-10-06T09:14:49.644Z",
+  "total": 11,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 8432,
-  "avgDurationMs": 8432,
+  "unchangedCount": 10,
+  "durationMs": 7814,
+  "avgDurationMs": 7814,
   "durationHistory": [
-    8432
+    7814
   ],
   "newJobs": [
+    {
+      "title": "Technische/r Mitarbeiter/in - Abwaschküche",
+      "slug": "technische-r-collaboratore-trice-abwaschkuche-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/technische-r-mitarbeiter-in-abwaschkueche/f5ff8a14-c4d8-4cdf-ac9b-a7e8e59910ad",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20553",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-06T09:00:06Z",
+      "postedDate": "2026-10-06T09:00:06Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-61101aa18510",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-06T09:14:40.752Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Postdoktorand/-in zum Thema \"Metaboliten von Pflanzenschutzmitteln im Grundwasser\"",
       "slug": "postdoktorand-in-zum-thema-metaboliten-von-pflanzenschutzmitteln-im-grundwasser-agroscope-wadenswil",
@@ -23,7 +67,7 @@
       "companyDomain": "admin.ch",
       "location": "Wädenswil",
       "addressLocality": "Wädenswil",
-      "postalCode": "",
+      "postalCode": "8820",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -45,18 +89,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T21:27:52.359Z",
-      "_qualityScore": 82,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 19
+        "translation": 20,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Sanitär- und Heizungstechniker/in",
       "slug": "sanitar-e-heizungstechniker-in-agroscope-posieux",
@@ -67,7 +107,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -90,12 +130,12 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -108,7 +148,7 @@
       "companyDomain": "admin.ch",
       "location": "Nyon",
       "addressLocality": "Nyon",
-      "postalCode": "",
+      "postalCode": "1260",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "canton": "VD",
@@ -131,12 +171,12 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/technisch-wissenschaftliche-r-mitarbeiter-in-im-bereich-pflanzenpathologie/d5204047-e4d2-401a-891e-c8cbb0667ea9",
       "datePosted": "2026-09-25T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -149,7 +189,7 @@
       "companyDomain": "admin.ch",
       "location": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
       "addressLocality": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
-      "postalCode": "",
+      "postalCode": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -172,12 +212,12 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
       "datePosted": "2026-09-22T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -208,17 +248,17 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
-      "postalCode": "",
+      "postalCode": "8001",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-entscheidungsunterstuetzung-landwirtschaftliches-wassermanagement/8956961b-b686-4d77-986d-0912616e26df",
       "needsRetranslation": true,
       "datePosted": "2026-09-15T14:24:35Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -249,17 +289,17 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
-      "postalCode": "",
+      "postalCode": "1260",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-zu-wertschoepfungsketten-fuer-huelsenfruechte-in-der-schweiz/f81977d9-6003-49d6-84ba-8397a36e8d31",
       "needsRetranslation": true,
       "datePosted": "2026-09-14T12:54:23Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -313,7 +353,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -336,12 +376,12 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -354,7 +394,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -377,12 +417,12 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
       "datePosted": "2026-09-09T08:05:21Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -413,19 +453,19 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T13:27:18.232Z",
-      "postalCode": "",
+      "postalCode": "8820",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/1b44425b-ad7c-4a43-9795-972b21b47f66",
       "needsRetranslation": true,
       "datePosted": "2026-09-03T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
