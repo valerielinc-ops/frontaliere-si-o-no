@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-06T09:12:45.877Z",
+  "generatedAt": "2026-10-06T21:11:01.296Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,64 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 4132,
-  "avgDurationMs": 4132,
+  "unchangedCount": 5,
+  "durationMs": 4213,
+  "avgDurationMs": 4213,
   "durationHistory": [
-    4132
+    4213
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "vaxcyte-dfe11ab55bc0",
-      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Senior Manager, Quality Control Operations, Global Analytics",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:21.177Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3930",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-05T14:39:10-04:00",
-      "postedDate": "2026-10-05T14:39:10-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
-      "department": "Analytical",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:25:46.217Z",
-      "salaryMin": 120000,
-      "salaryMax": 162000,
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +37,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:21.202Z",
+      "crawledAt": "2026-10-06T21:10:38.121Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -132,7 +84,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:21.200Z",
+      "crawledAt": "2026-10-06T21:10:38.116Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,6 +120,53 @@
       }
     },
     {
+      "id": "vaxcyte-dfe11ab55bc0",
+      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Senior Manager, Quality Control Operations, Global Analytics",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T21:10:38.087Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3930",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05T14:39:10-04:00",
+      "postedDate": "2026-10-05T14:39:10-04:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
+      "department": "Analytical",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:25:46.217Z",
+      "salaryMin": 120000,
+      "salaryMax": 162000,
+      "salarySource": "estimated",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "id": "vaxcyte-f57d2d8f4e2b",
       "slug": "senior-manager-assicurazione-qualita-vaxcyte-visp",
       "company": "Vaxcyte",
@@ -179,7 +178,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:21.174Z",
+      "crawledAt": "2026-10-06T21:10:38.082Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -226,7 +225,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:21.170Z",
+      "crawledAt": "2026-10-06T21:10:38.075Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -261,5 +260,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }
