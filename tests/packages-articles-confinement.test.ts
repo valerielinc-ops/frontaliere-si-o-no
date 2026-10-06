@@ -34,8 +34,9 @@ const NODE_BUILTINS = new Set(['fs', 'path', 'node:fs', 'node:path']);
 // Bare (non-relative) package deps the engine is allowed to import — must
 // also be declared in packages/articles/package.json so a standalone
 // consumer's `npm install` resolves them. Vite supplies the Plugin type;
-// html-entities decodes source text for article excerpts and shared renderers.
-const ALLOWED_EXTERNAL_DEPS = new Set(['vite', 'html-entities']);
+// html-entities decodes source text for article excerpts and shared renderers;
+// sharp normalizes generated image bytes at the shared provider boundary.
+const ALLOWED_EXTERNAL_DEPS = new Set(['vite', 'html-entities', 'sharp']);
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

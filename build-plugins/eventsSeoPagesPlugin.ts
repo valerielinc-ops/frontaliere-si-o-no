@@ -82,6 +82,7 @@ import {
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
   cleanEventText,
+  EVENT_IMAGE_LICENSES,
   isEventImageSourceAllowed,
 } from '../scripts/lib/events-utils.mjs';
 import { allEndedEvents, assignEventSlugsForHistory } from '../scripts/lib/events-retention.mjs';
@@ -94,6 +95,7 @@ import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 import { fillEventPeopleDefaults, normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
+import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -129,6 +131,10 @@ interface SiteEvent {
   canton: string;
   url: string;
   imageUrl?: string;
+  imageAssetId?: string;
+  imageLicense?: string;
+  imageLicenseUrl?: string;
+  imageProvider?: string;
   sourceKey: string;
   sourceName: string;
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
@@ -174,6 +180,83 @@ function isEphemeralEvent(event: SiteEvent): boolean {
   return event.ephemeral === true;
 }
 
+function loadEventImageLibraryForBuild(): { assets: SiteEvent[] } {
+  const filePath = path.resolve(process.cwd(), 'data/event-image-library.json');
+  try {
+    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as { assets?: SiteEvent[] };
+    return Array.isArray(parsed.assets) ? parsed : { assets: [] };
+  } catch {
+    return { assets: [] };
+  }
+}
+
+function hasLicensedSourceEventImage(event: SiteEvent): boolean {
+  const openAgendaEvidence = event.sourceKey === 'openagenda'
+    && typeof event.imageUrl === 'string'
+    && event.imageUrl.startsWith('/images/events/openagenda-')
+    && typeof event.imageCredit === 'string'
+    && event.imageCredit.trim()
+    && typeof event.imageLicense === 'string'
+    && event.imageLicense.trim()
+    && typeof event.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(event.imageLicenseUrl);
+  const allowlistedSourceEvidence = isEventImageSourceAllowed(event.sourceKey)
+    && typeof event.imageUrl === 'string'
+    && event.imageUrl.startsWith(`/images/events/${event.sourceKey}-`)
+    && typeof event.imageCredit === 'string'
+    && event.imageCredit.trim()
+    && typeof event.imageLicense === 'string'
+    && event.imageLicense.trim()
+    && typeof event.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(event.imageLicenseUrl);
+  return Boolean(
+    (openAgendaEvidence || allowlistedSourceEvidence)
+    && typeof event.imageUrl === 'string'
+    && event.imageUrl.startsWith('/')
+    && (openAgendaEvidence || allowlistedSourceEvidence),
+  );
+}
+
+function eventImageLicenseUrl(event: SiteEvent): string | undefined {
+  if (typeof event.imageLicenseUrl === 'string' && /^https:\/\//i.test(event.imageLicenseUrl)) return event.imageLicenseUrl;
+  return event.sourceKey === 'openagenda' ? EVENT_IMAGE_LICENSES.openagenda.termsUrl : undefined;
+}
+
+function eventImageMimeType(imageUrl: string): string {
+  const extension = /\.([a-z0-9]+)(?:[?#].*)?$/i.exec(imageUrl)?.[1]?.toLowerCase();
+  return extension === 'png' ? 'image/png'
+    : extension === 'jpg' || extension === 'jpeg' ? 'image/jpeg'
+      : extension === 'avif' ? 'image/avif'
+        : 'image/webp';
+}
+
+function isGeneratedEventImage(event: SiteEvent): boolean {
+  return Boolean(
+    event.imageLicense === 'generated-provider'
+    && event.imageAssetId
+    && typeof event.imageUrl === 'string'
+    && event.imageUrl.startsWith('/images/events/library/')
+    && event.imageUrl.endsWith('.webp')
+    && typeof event.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(event.imageLicenseUrl)
+    && typeof event.imageCredit === 'string'
+    && event.imageCredit.trim().length > 0
+    && typeof event.imageProvider === 'string'
+    && event.imageProvider.trim().length > 0,
+  );
+}
+
+function hasPublishedEventImage(event: SiteEvent): boolean {
+  return isGeneratedEventImage(event) || hasLicensedSourceEventImage(event);
+}
+
+/** Materialize the shared assignment for both fresh and pre-library snapshots. */
+export function materializeEventImageLibrary(events: SiteEvent[], registry = loadEventImageLibraryForBuild()): SiteEvent[] {
+  return events.map((event) => assignEventImageAsset(event, registry, {
+    sourceImageAllowed: hasLicensedSourceEventImage,
+  }) as SiteEvent);
+}
+
 /** Attribution record of an event's source (public registry, then private). */
 function eventSourceRecord(sourceKey: string): { key: string; label: string; homepage: string } {
   return EVENT_SOURCES[sourceKey] || (PRIVATE_EVENT_SOURCES as Record<string, { key: string; label: string; homepage: string }>)[sourceKey] || SOURCE;
@@ -206,8 +289,8 @@ export function partitionEventsForBuild(
   ephemeralEvents: SiteEvent[],
   dateStamp: string,
 ): { all: SiteEvent[]; pastEvents: SiteEvent[] } {
-  const publicEvents = withoutPrivateEvents(datasetEvents) as SiteEvent[];
-  const ephemeral = ephemeralEvents.filter(isEphemeralEvent);
+  const publicEvents = materializeEventImageLibrary(withoutPrivateEvents(datasetEvents) as SiteEvent[]);
+  const ephemeral = materializeEventImageLibrary(ephemeralEvents.filter(isEphemeralEvent));
   return {
     all: upcomingEvents([...publicEvents, ...ephemeral], dateStamp) as SiteEvent[],
     pastEvents: allEndedEvents(publicEvents, dateStamp) as SiteEvent[],
@@ -408,6 +491,7 @@ interface Copy {
   eventsIn: (c: string) => string;
   noEventsSoon: string;
   at: string;
+  generatedImageLabel: string;
   exploreMore: string;
   methodologyTitle: string;
   methodology: string;
@@ -464,6 +548,7 @@ const COPY: Record<Locale, Copy> = {
     eventsIn: (c) => `Prossimi eventi a ${c}`,
     noEventsSoon: 'Nessun evento in agenda nei prossimi giorni. Torna a trovarci: l\'agenda si aggiorna ogni giorno.',
     at: 'presso',
+    generatedImageLabel: 'Immagine illustrativa generata con IA',
     exploreMore: 'Esplora anche',
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology: 'Gli eventi sono raccolti automaticamente dalle agende pubbliche del Ticino e aggiornati ogni giorno. Ogni evento è attribuito al comune in base al luogo o alla regione indicata dalla fonte. Verifica sempre data, orario e luogo sulla pagina originale dell\'organizzatore prima di metterti in viaggio: orari e disponibilità possono cambiare.',
@@ -513,6 +598,7 @@ const COPY: Record<Locale, Copy> = {
     eventsIn: (c) => `Upcoming events in ${c}`,
     noEventsSoon: 'No events in the agenda for the coming days. Check back soon: the agenda refreshes daily.',
     at: 'at',
+    generatedImageLabel: 'Illustrative image generated with AI',
     exploreMore: 'Explore also',
     methodologyTitle: 'How we collect events',
     methodology: 'Events are gathered automatically from public Ticino agendas and refreshed every day. Each event is attributed to a municipality based on the venue or the region given by the source. Always verify date, time and venue on the organiser\'s original page before travelling: times and availability can change.',
@@ -562,6 +648,7 @@ const COPY: Record<Locale, Copy> = {
     eventsIn: (c) => `Kommende Veranstaltungen in ${c}`,
     noEventsSoon: 'Keine Veranstaltungen in den nächsten Tagen. Schau bald wieder vorbei: Die Agenda wird täglich aktualisiert.',
     at: 'im',
+    generatedImageLabel: 'Illustrative KI-generierte Abbildung',
     exploreMore: 'Ebenfalls entdecken',
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology: 'Die Veranstaltungen werden automatisch aus öffentlichen Tessiner Agenden gesammelt und täglich aktualisiert. Jeder Anlass wird anhand des Veranstaltungsorts oder der angegebenen Region einer Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters: Zeiten und Verfügbarkeit können sich ändern.',
@@ -611,6 +698,7 @@ const COPY: Record<Locale, Copy> = {
     eventsIn: (c) => `Prochains événements à ${c}`,
     noEventsSoon: 'Aucun événement à l\'agenda dans les prochains jours. Revenez bientôt: l\'agenda se met à jour chaque jour.',
     at: 'à',
+    generatedImageLabel: 'Image illustrative générée par IA',
     exploreMore: 'À explorer aussi',
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology: 'Les événements sont recueillis automatiquement dans les agendas publics du Tessin et actualisés chaque jour. Chaque événement est attribué à une commune selon le lieu ou la région indiquée par la source. Vérifiez toujours date, horaire et lieu sur la page d\'origine de l\'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.',
@@ -1417,7 +1505,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
 }
 
 /**
- * Event flyer image → schema.org ImageObject with the GSC licensable-image
+ * Event or generated-library image → schema.org ImageObject with the GSC licensable-image
  * quintet (services/seo/imageObjectLd.ts — acquireLicensePage, copyrightNotice,
  * license, creator, creditText), or `null` when there is no image to show.
  *
@@ -1431,19 +1519,34 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * being embedded as a hotlink in production JSON-LD. Event.image falls back
  * to the site-owned category catalog illustration when mirroring failed.
  *
- * License honesty: only an allowlisted source with an explicit open-image
- * policy can reach this function. The current allowlist is OpenAgenda's
- * Licence Ouverte 2.0, and the crawler separately rejects image records with
- * a rights-reserved credit. Every other source is treated as no image even if
- * stale data still carries a site-relative URL.
+ * License honesty: a generated-library record or an allowlisted source with
+ * an explicit open-image policy can reach this function. The current source
+ * allowlist is OpenAgenda's Licence Ouverte 2.0, and the crawler separately
+ * rejects image records with a rights-reserved credit. Every other source is
+ * treated as no image even if stale data still carries a site-relative URL.
  */
 function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   const raw = event.imageUrl;
-  if (!isEventImageSourceAllowed(event.sourceKey) || !raw || !raw.startsWith('/')) return null;
+  if (!raw || !raw.startsWith('/') || !hasPublishedEventImage(event)) return null;
+  const generated = isGeneratedEventImage(event);
+  const licenseUrl = eventImageLicenseUrl(event);
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),
     creditText: event.imageCredit || event.sourceName,
+    width: 1200,
+    height: 675,
+    ...(licenseUrl
+      ? {
+        license: licenseUrl,
+        // This points to the provider's terms, never to a fictitious
+        // acquisition page for a generated or OpenAgenda asset.
+        acquireLicensePage: licenseUrl,
+        copyrightNotice: generated
+          ? `Generated by ${event.imageProvider || 'the image provider'}; provider terms apply.`
+          : `${event.imageCredit || event.sourceName}; provider licence applies.`,
+      }
+      : {}),
   });
 }
 
@@ -1565,10 +1668,12 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // No direct photo → per-category catalog SVG (real, site-owned, same-origin
   // <img> with width/height/alt) instead of a decorative div with no <img> at
   // all — see writeCatalogImages()/catalogImagePath() above.
-  const media =
-    isEventImageSourceAllowed(event.sourceKey) && event.imageUrl && event.imageUrl.startsWith('/')
-      ? `<img class="ev-img ev-imgz" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
-      : `<img class="ev-img" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
+  const hasImage = hasPublishedEventImage(event);
+  const generated = isGeneratedEventImage(event);
+  const imageAlt = generated ? `${cardTitle} — ${COPY[locale].generatedImageLabel}` : cardTitle;
+  const media = hasImage && event.imageUrl
+    ? `<img class="ev-img ev-imgz" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(imageAlt)}">`
+    : `<img class="ev-img" src="${esc(catalogImagePath(event.category))}" width="480" height="270" loading="lazy" alt="${esc(cat)}">`;
   // `group` stays inline: it is a variant MARKER with no declarations of its
   // own (`@apply group` is not expressible), and `.ev-imgz`'s
   // `group-hover:scale-105` needs it on the ancestor.
@@ -1576,6 +1681,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
     <div class="ev-media">
       ${media}
       <span class="ev-chip ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
+      ${generated ? `<span class="ev-img-note">${esc(COPY[locale].generatedImageLabel)}</span>` : ''}
     </div>
     <div class="p-4">
       <h3 class="ev-t">
@@ -3296,10 +3402,11 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
   </section>`;
 }
 
-function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string): string {
-  const hasEventImage = Boolean(isEventImageSourceAllowed(event.sourceKey) && event.imageUrl && event.imageUrl.startsWith('/'));
+function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string, generatedImageLabel: string): string {
+  const hasEventImage = hasPublishedEventImage(event);
+  const generated = isGeneratedEventImage(event);
   const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
-  const imageAlt = hasEventImage ? title : category;
+  const imageAlt = generated ? `${title} — ${generatedImageLabel}` : hasEventImage ? title : category;
   const venueOrPlace = event.venue || place;
   const eventMeta = `${when}${event.startTime ? ` · ${event.startTime}` : ''} · ${venueOrPlace}`;
   const foreground = `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
@@ -3312,6 +3419,7 @@ function renderEventHero(event: SiteEvent, title: string, category: string, when
       <figcaption class="ev-hero-caption">
         <span class="ev-hero-caption-kicker">${esc(category)}</span>
         <span>${esc(eventMeta)}</span>
+        ${generated ? `<span class="ev-hero-image-note">${esc(generatedImageLabel)}</span>` : ''}
       </figcaption>
     </div>
   </figure>`;
@@ -3364,7 +3472,7 @@ export function renderEventDetailPage(params: {
   // `imageUrl` only ever holds a mirrored site-relative path from the image
   // allowlist — see the same guard in `renderEventCard`/`mirroredEventImageObject`.
   // Non-allowlisted sources use the existing site-owned category placeholder.
-  const heroImage = renderEventHero(event, title, cat, when, displayComune);
+  const heroImage = renderEventHero(event, title, cat, when, displayComune, copy.generatedImageLabel);
   const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3" data-events-page="event_detail" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="${isPast ? 'past' : 'active'}">
@@ -3492,6 +3600,15 @@ export function renderEventDetailPage(params: {
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
     robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
+    ...(hasPublishedEventImage(event) && event.imageUrl
+      ? {
+        ogImage: `${BASE_URL}${event.imageUrl}`,
+        ogImageWidth: 1200,
+        ogImageHeight: 675,
+        ogImageType: eventImageMimeType(event.imageUrl),
+        ogImageAlt: isGeneratedEventImage(event) ? `${title} — ${copy.generatedImageLabel}` : title,
+      }
+      : {}),
     bodyHtml,
     jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
@@ -3777,7 +3894,7 @@ export function buildSitemap(
     ladders?: Array<{ comune: string | undefined; pages: number[] }>;
   }>,
   dateStamp: string,
-  detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
+  detailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [],
 ): string {
   // National index hub (issue #3645, F3) — always included: this function
   // only runs when the plugin's own `all.length === 0` early-return in
@@ -3800,19 +3917,22 @@ export function buildSitemap(
     }
   }
   // Per-event detail pages, including the indexable historical archive.
-  for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
+  for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
-  return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
+  return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`);
 }
 
-function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string): string {
+function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string, imageUrl?: string): string {
   const alternates = LOCALES.map(
     (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForEventDetail(locale, comune, slug, canton)}" />`,
   )
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n    <priority>0.4</priority>\n  </url>`;
+  const image = imageUrl && (imageUrl.startsWith('/images/events/library/') || imageUrl.startsWith('/images/events/openagenda-'))
+    ? `    <image:image><image:loc>${BASE_URL}${imageUrl}</image:loc></image:image>\n`
+    : '';
+  return `  <url>\n    <loc>${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}</loc>\n${alternates}\n${image}    <changefreq>weekly</changefreq>\n    <priority>0.4</priority>\n  </url>`;
 }
 
 function digestSitemapUrl(canton: string, slug: Record<Locale, string>, dateStamp: string): string {
@@ -4142,7 +4262,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // so two different cantons sharing a comune name never share a dedup
       // bucket. Built once (locale-independent), then resolved per locale into
       // a full href for the event cards.
-      const detailSlugs = new Map<string, { canton: string; comune: string; slug: string }>();
+      const detailSlugs = new Map<string, { canton: string; comune: string; slug: string; imageUrl?: string }>();
       const liveSlugMigrations: EventSlugMigration[] = [];
       const byCantonComune = new Map<string, Map<string, SiteEvent[]>>();
       // `groupByComune()` drops events with `comune == null` (intentional,
@@ -4162,7 +4282,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           liveSlugMigrations.push(...changedEventSlugMigrations(publicList, canton, comune, slugs));
           liveSlugMigrations.push(...historicalEventSlugMigrations(publicList, canton, comune, slugs));
           for (const ev of list) {
-            detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
+            detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)!, imageUrl: ev.imageUrl });
           }
         }
 
@@ -4174,7 +4294,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           liveSlugMigrations.push(...changedEventSlugMigrations(publicOther, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
           liveSlugMigrations.push(...historicalEventSlugMigrations(publicOther, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
           for (const ev of otherEvents) {
-            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
+            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)!, imageUrl: ev.imageUrl });
           }
         }
       }
@@ -4418,7 +4538,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // sitemap below, while their stale Event JSON-LD remains omitted. Outbound
       // links from the page itself (to whatever is currently live in the same
       // comune) are still fine.
-      const historicalDetailEntries: Array<{ canton: string; comune: string; slug: string }> = [];
+      const historicalDetailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [];
       const pastEventsByCanton = new Map<string, SiteEvent[]>();
       for (const ev of pastEvents) {
         // #3715: same group-key resolution as the live `byCanton` pass above
@@ -4456,7 +4576,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const ev of list) {
             const slug = pastSlugFor.get(ev.id)!;
-            historicalDetailEntries.push({ canton, comune, slug });
+            historicalDetailEntries.push({ canton, comune, slug, imageUrl: ev.imageUrl });
             for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, slug, canton));
           }
           const pastSlugMigrations = changedEventSlugMigrations(list, canton, comune, pastSlugFor, reservedBaseSlugs);

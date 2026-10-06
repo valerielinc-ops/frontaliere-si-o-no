@@ -56,6 +56,7 @@ import { pathToFileURL } from 'node:url';
 import {
   EVENT_SOURCES,
   EVENTS_SLICE_DIR,
+  EVENT_IMAGE_LICENSES,
   cleanEventText,
   eventStableId,
   loadCantonComuni,
@@ -344,7 +345,14 @@ export function mapOpenAgendaEvent(raw, agenda) {
     ...(organizerName
       ? { organizer: { '@type': 'Organization', name: organizerName, ...(organizerUrl ? { url: organizerUrl } : {}) } }
       : {}),
-    ...(imageSourceUrl ? { imageUrl: imageSourceUrl, imageCredit: credit } : {}),
+    ...(imageSourceUrl
+      ? {
+        imageUrl: imageSourceUrl,
+        imageCredit: credit,
+        imageLicense: EVENT_IMAGE_LICENSES.openagenda.name,
+        imageLicenseUrl: EVENT_IMAGE_LICENSES.openagenda.termsUrl,
+      }
+      : {}),
     sourceAgenda: agenda.title,
     sourceAgendaUid: agenda.uid,
     ...(typeof raw.updatedAt === 'string' && !Number.isNaN(Date.parse(raw.updatedAt))
@@ -510,7 +518,13 @@ export async function crawlOpenAgenda({
       if (mirrored) {
         withImage.imageUrl = mirrored;
       } else {
-        const { imageUrl: _dropped, imageCredit: _credit, ...rest } = withImage;
+        const {
+          imageUrl: _dropped,
+          imageCredit: _credit,
+          imageLicense: _license,
+          imageLicenseUrl: _licenseUrl,
+          ...rest
+        } = withImage;
         withImage = rest;
       }
     }

@@ -84,3 +84,47 @@ Scripts that read `data/` JSON files committed to the repo (baselines —
 NOT need the resolver: the file is always at `<repo>/data/<file>` because
 checkout populates it. If a baseline is ever moved to be runtime-generated
 (gitignored), the corresponding audit MUST switch to the resolver.
+
+## generated-image-engine.mjs — governed generated imagery
+
+`packages/articles/engine/shared/generatedImageRegistry.mjs` is the provider-
+independent contract mirrored to the corpus. It owns the prompt policy,
+registry validation and `verifyPublishedEventImages()` gate. The mirrored Node
+adapter `packages/articles/engine/shared/generatedImageEngine.mjs` is the only
+provider boundary; `scripts/lib/generated-image-engine.mjs` is a site-side
+compatibility re-export:
+
+- `generateImageFromSpec(spec, options)` accepts `scope`, `subject`, `area`,
+  `season` and a WebP format, then returns `{ filePath, record, prompt }`.
+- The primary transport is `codex exec --enable image_generation`, using the
+  Codex OAuth broker when `CODEX_AUTH_BROKER_SOCKET` is present. The broker
+  copies the generated file from its private `CODEX_HOME/generated_images/`
+  directory to the requested workspace output. Without the broker, the local
+  CLI uses the same command and resolves the image under
+  `$CODEX_HOME/generated_images/<thread-id>/`.
+- The bounded fallback is Gemini `gemini-3.1-flash-image` via `GEMINI_API_KEY`.
+  Secrets are loaded by Remote Config and never belong in the registry or PR.
+- Every result is converted to 1200×675 WebP (≤220 KiB), marked with
+  `trainedAlgorithmicMedia` plus the site credit, vision-checked and returned
+  with its registry record. A record is the permission to publish the bytes.
+- Provider attempts are bounded to three per asset and the event-library
+  process has a hard 150-attempt budget; callers may still choose a lower
+  `maxAttempts` for article, place or OG work.
+
+The event-library CLI is:
+
+```bash
+node scripts/generate-event-image-library.mjs --limit 20
+node scripts/upload-event-image-library-cdn.mjs --before-registry /tmp/previous.json
+node scripts/verify-event-images.mjs
+```
+
+`--limit` is a count of new verified assets (the CLI accepts 0–150); the
+workflow deliberately clamps it to 20 per run.
+
+The first command writes local bytes to `.cache/event-image-library/` and the
+versioned registry to `data/event-image-library.json`; the uploader publishes
+only `images/events/library/<assetId>.webp` to R2. The weekly workflow uses the
+same interface with the OAuth broker and opens a data PR. Article and place
+generators are intentionally a follow-up corpus change; they must call the
+same `generateImageFromSpec()` contract rather than add a second provider path.
