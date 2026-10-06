@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-06T09:18:10.669Z",
+  "assembledAt": "2026-10-06T21:17:30.549Z",
   "jobs": [
     {
       "id": "spital-sts-4824fd554b8e",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f8aaa339-770b-4789-a160-62d37f28cc96/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:03.292Z",
+      "crawledAt": "2026-10-06T21:17:24.869Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:02.839Z",
+      "crawledAt": "2026-10-06T21:17:24.430Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:02.386Z",
+      "crawledAt": "2026-10-06T21:17:24.003Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:01.887Z",
+      "crawledAt": "2026-10-06T21:17:23.546Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -309,9 +309,9 @@
     },
     {
       "id": "spital-sts-2a6b37120a79",
-      "slug": "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
         "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
@@ -321,7 +321,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermiere diplomato/Infermiere diplomato",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
@@ -339,7 +339,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:01.433Z",
+      "crawledAt": "2026-10-06T21:17:23.118Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -359,13 +359,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+        "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+          "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
@@ -421,7 +423,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:00.966Z",
+      "crawledAt": "2026-10-06T21:17:22.683Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -500,7 +502,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:00.516Z",
+      "crawledAt": "2026-10-06T21:17:22.236Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -580,7 +582,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:59.910Z",
+      "crawledAt": "2026-10-06T21:17:21.788Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -660,7 +662,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:59.446Z",
+      "crawledAt": "2026-10-06T21:17:21.339Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -712,9 +714,9 @@
       "id": "spital-sts-16556a0f6a53",
       "slug": "responsabile-kardiologie-spital-sts-thun",
       "slugByLocale": {
-        "de": "leiter-in-kardiologie-spital-sts-thun",
         "it": "responsabile-kardiologie-spital-sts-thun",
         "en": "leiter-in-kardiologie-spital-sts-thun",
+        "de": "leiter-in-kardiologie-spital-sts-thun",
         "fr": "leiter-in-kardiologie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -722,16 +724,16 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Leiter:in Kardiologie",
       "titleByLocale": {
-        "de": "Leiter:in Kardiologie",
         "it": "Responsabile Kardiologie",
         "en": "Leiter:in Kardiologie",
+        "de": "Leiter:in Kardiologie",
         "fr": "Leiter:in Kardiologie"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nDie Kardiologie im Spital Thun ist eine anerkannte Weiterbildungsstätte und gehört als eigener Fachbereich zur Medizinischen Klinik. Es werden Patienten/-innen aus dem ganzen Spektrum des Fachgebiets betreut, im Bereich der interventionellen Kardiologie besteht eine enge Zusammenarbeit mit dem Zentrumspital. Als Leiter:in verantworten Sie die fachliche, personelle und organisatorische Führung des Fachbereichs Kardiologie. Sie gestalten die strategische Weiterentwicklung der Abteilung, arbeiten aktiv in der Patientenversorgung mit, führen Konsiliardienste durch und engagieren sich in der Weiterbildung der Assistenzärztinnen und -ärzte innerhalb der Kardiologie und der Medizinischen Klinik\n\nDas wartet auf Sie\n\n• Modernes Kardiologie-Zentrum mit sehr guter Infrastruktur\n\n• Breites und spannendes kardiologisches Patientenspektrum aus einem grossen Einzugsgebiet\n\n• Enge Einbettung in eine breit aufgestellte Medizinische Klink\n\n• Spannendes strategisches Umfeld mit der Möglichkeit, die Weiterentwicklung des Fachbereichs aktiv mitzugestalten\n\n• Engagiertes, interprofessionelles Team mit kollegialer Kultur und sehr guter interdisziplinärer Zusammenarbeit\n\n• Attraktiver Arbeitsplatz in landschaftlich und kulturell reizvoller Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Kardiologie\n\n• Breite Fachkompetenzen als Generalist im Fachgebiet, verbunden mit langjähriger Berufs- und Führungserfahrung\n\n• Teamfähigkeit, Kommunikationsstärke und Engagement in der Interdisziplinären und interprofessionellen Zusammenarbeit",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nDie Kardiologie im Spital Thun ist eine anerkannte Weiterbildungsstätte und gehört als eigener Fachbereich zur Medizinischen Klinik. Es werden Patienten/-innen aus dem ganzen Spektrum des Fachgebiets betreut, im Bereich der interventionellen Kardiologie besteht eine enge Zusammenarbeit mit dem Zentrumspital. Als Leiter:in verantworten Sie die fachliche, personelle und organisatorische Führung des Fachbereichs Kardiologie. Sie gestalten die strategische Weiterentwicklung der Abteilung, arbeiten aktiv in der Patientenversorgung mit, führen Konsiliardienste durch und engagieren sich in der Weiterbildung der Assistenzärztinnen und -ärzte innerhalb der Kardiologie und der Medizinischen Klinik\n\nDas wartet auf Sie\n\n• Modernes Kardiologie-Zentrum mit sehr guter Infrastruktur\n\n• Breites und spannendes kardiologisches Patientenspektrum aus einem grossen Einzugsgebiet\n\n• Enge Einbettung in eine breit aufgestellte Medizinische Klink\n\n• Spannendes strategisches Umfeld mit der Möglichkeit, die Weiterentwicklung des Fachbereichs aktiv mitzugestalten\n\n• Engagiertes, interprofessionelles Team mit kollegialer Kultur und sehr guter interdisziplinärer Zusammenarbeit\n\n• Attraktiver Arbeitsplatz in landschaftlich und kulturell reizvoller Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Kardiologie\n\n• Breite Fachkompetenzen als Generalist im Fachgebiet, verbunden mit langjähriger Berufs- und Führungserfahrung\n\n• Teamfähigkeit, Kommunikationsstärke und Engagement in der Interdisziplinären und interprofessionellen Zusammenarbeit",
         "it": "Un lavoro con prospettive: oltre all'infrastruttura all'avanguardia e ad una vasta gamma di attività nell'ambiente familiare, ci si può anche aspettare la possibilità di svago flessibile nella regione naturale e lacustre circostante. Siete alla ricerca di significato, ma anche di correttezza? Allora sei proprio qui.\n\nCardiologia a Spital Thun è un istituto di formazione riconosciuto e appartiene come un dipartimento separato per la clinica medica. I pazienti di tutto lo spettro del campo sono curati, nel campo della cardiologia interventistica c'è una stretta collaborazione con l'Ospedale Centro. Come capo: siete responsabili per la gestione professionale, personale e organizzativa del Dipartimento di Cardiologia. Formano lo sviluppo strategico del dipartimento, lavorano attivamente nella cura dei pazienti, effettuano servizi di consulenza e sono coinvolti nell'ulteriore formazione di medici assistenti all'interno della cardiologia e della clinica medica.\n\nTi sta aspettando.\n\n• Moderno centro cardiologia con ottime infrastrutture\n\n• spettro ampio ed emozionante di pazienti cardiologici da una grande area di cattura\n\n• Chiudere l'integrazione in un Klink Medico\n\n• Ambiente strategico emozionante con l'opportunità di plasmare attivamente l'ulteriore sviluppo del dipartimento\n\n• Engaged, team interprofessionale con una cultura collegiale e una buona cooperazione interdisciplinare\n\n• Posto di lavoro attraente in un ambiente panoramico e culturalmente attraente\n\nDiventa parte del nostro team\n\n• Titolo specialistico Cardiologia\n\n• Ampia esperienza come generalista nel campo, combinato con molti anni di esperienza professionale e manageriale\n\n• Lavoro di squadra, forza di comunicazione e impegno nella collaborazione interdisciplinare e interprofessionale",
         "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a wide range of activities in the family environment, you can also expect the possibility of flexible leisure in the surrounding natural and lake region. Are you looking for meaningfulness, but also fairness? Then you are right here.\n\nCardiology at Spital Thun is a recognized training institution and belongs as a separate department to the medical clinic. Patients from the whole spectrum of the field are looked after, in the field of interventional cardiology there is a close cooperation with the Center Hospital. As head: you are responsible for the professional, personnel and organizational management of the Department of Cardiology. They shape the strategic development of the department, work actively in patient care, carry out consultancy services and are involved in the further training of assistant doctors within cardiology and the medical clinic.\n\nThis is waiting for you\n\n• Modern cardiology center with very good infrastructure\n\n• Broad and exciting spectrum of cardiological patients from a large catchment area\n\n• Close embedding in a broad-based Medical Klink\n\n• Exciting strategic environment with the opportunity to actively shape the further development of the department\n\n• Engaged, interprofessional team with a collegial culture and very good interdisciplinary cooperation\n\n• Attractive workplace in a scenic and culturally attractive environment\n\nBecome part of our team\n\n• Specialist title Cardiology\n\n• Broad expertise as a generalist in the field, combined with many years of professional and managerial experience\n\n• Teamwork, communication strength and commitment in interdisciplinary and interprofessional collaboration",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nDie Kardiologie im Spital Thun ist eine anerkannte Weiterbildungsstätte und gehört als eigener Fachbereich zur Medizinischen Klinik. Es werden Patienten/-innen aus dem ganzen Spektrum des Fachgebiets betreut, im Bereich der interventionellen Kardiologie besteht eine enge Zusammenarbeit mit dem Zentrumspital. Als Leiter:in verantworten Sie die fachliche, personelle und organisatorische Führung des Fachbereichs Kardiologie. Sie gestalten die strategische Weiterentwicklung der Abteilung, arbeiten aktiv in der Patientenversorgung mit, führen Konsiliardienste durch und engagieren sich in der Weiterbildung der Assistenzärztinnen und -ärzte innerhalb der Kardiologie und der Medizinischen Klinik\n\nDas wartet auf Sie\n\n• Modernes Kardiologie-Zentrum mit sehr guter Infrastruktur\n\n• Breites und spannendes kardiologisches Patientenspektrum aus einem grossen Einzugsgebiet\n\n• Enge Einbettung in eine breit aufgestellte Medizinische Klink\n\n• Spannendes strategisches Umfeld mit der Möglichkeit, die Weiterentwicklung des Fachbereichs aktiv mitzugestalten\n\n• Engagiertes, interprofessionelles Team mit kollegialer Kultur und sehr guter interdisziplinärer Zusammenarbeit\n\n• Attraktiver Arbeitsplatz in landschaftlich und kulturell reizvoller Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Kardiologie\n\n• Breite Fachkompetenzen als Generalist im Fachgebiet, verbunden mit langjähriger Berufs- und Führungserfahrung\n\n• Teamfähigkeit, Kommunikationsstärke und Engagement in der Interdisziplinären und interprofessionellen Zusammenarbeit",
         "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'un large éventail d'activités en milieu familial, vous pouvez également vous attendre à la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là.\n\nCardiologie chez Spital Thun est un établissement de formation reconnu et fait partie d'un département distinct de la clinique médicale. Les patients de toute la gamme du domaine sont pris en charge, dans le domaine de la cardiologie interventionnelle il y a une coopération étroite avec l'hôpital du Centre. En tant que chef : vous êtes responsable de la gestion professionnelle, du personnel et organisationnelle du Département de cardiologie. Ils façonnent le développement stratégique du département, travaillent activement dans les soins aux patients, assurent des services de conseil et participent à la formation continue des médecins adjoints au sein de la cardiologie et de la clinique médicale.\n\nÇa vous attend.\n\n• Centre de cardiologie moderne avec très bonne infrastructure\n\n• Large et passionnant spectre de patients cardiologiques provenant d'un vaste bassin versant\n\n• Fermer l'intégration dans un Klink médical large\n\n• Un environnement stratégique passionnant avec la possibilité de façonner activement le développement du Ministère\n\n• Équipe interprofessionnelle engagée avec une culture collégiale et une très bonne coopération interdisciplinaire\n\n• Un milieu de travail attrayant dans un environnement pittoresque et culturellement attrayant\n\nDevenez membre de notre équipe\n\n• Titre du spécialiste Cardiologie\n\n• Grande expertise en tant que généraliste sur le terrain, associée à de nombreuses années d'expérience professionnelle et de gestion\n\n• Travail d'équipe, force de communication et engagement dans la collaboration interdisciplinaire et interprofessionnelle"
       },
       "needsRetranslation": true,
@@ -740,7 +742,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:59.002Z",
+      "crawledAt": "2026-10-06T21:17:20.886Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -758,17 +760,16 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7c5e571c-823b-467d-8386-a2a8e2947e3e",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-kardiologie-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-kardiologie-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-kardiologie-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-10-06T09:17:59.002Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -781,8 +782,7 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-06T09:17:59.002Z"
+      }
     },
     {
       "id": "spital-sts-60fb76404183",
@@ -862,168 +862,6 @@
           "@type": "QuantitativeValue",
           "minValue": 115000,
           "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "spital-sts-9d1a00acea99",
-      "slug": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
-      "slugByLocale": {
-        "it": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
-        "en": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
-        "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
-        "fr": "psychologue-fsp-sbap-triage-ambulatoire-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
-      "titleByLocale": {
-        "it": "Psicologo FSP/SBAP Triage/Ambulatorium",
-        "en": "Psychologist FSP/SBAP Triage/Ambulatorium",
-        "de": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
-        "fr": "Psychologue FSP/SBAP Triage/Ambulatoire"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nInsieme a infermieri e psicologi, guidano l'ufficio centrale di triage del PDT. Questo assicura un semplice telefono o chiarificazione personale e il monitoraggio delle prossime fasi di trattamento nell'ambientazione ambulatoria, semistazione o visita per tutti i ricercatori durante il giorno. Come persona aperta e orientata al servizio, sono la persona di contatto per i pazienti e gli arbitri. Offrono anche interventi di crisi psicoterapeutica. Nella squadra di triage, elaborano le registrazioni e la distribuzione dei casi per l'imboscatario psichiatrico generale e di età.\nInoltre, lavorano in uno dei nostri laboratori ambulatoriale e assumono i trattamenti psicoterapeutici di pazienti provenienti da tutto lo spettro diagnostico (compresa la diagnosi, la pianificazione della terapia e la corrispondenza a terzi come referenti e assicuratori).\nIngresso al 1° gennaio 2027 o per accordo.\n\nQuesto ti aspetta\n\n• Cooperazione aperta e orientata ai dipendenti in tutte le aree\n\n• Ambito d'azione\n\n• Ambiente di lavoro costruttivo\n\n• Modello gratuito per le vacanze e i fondi pensione\n\n• Buone opportunità di formazione, istruzione e formazione\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\nDiventa parte del nostro team\n\n• Laurea in psicologia clinica e formazione psicoterapeutica avanzata o già completata\n\n• Alta competenza sociale e resilienza, personalità decisionale\n\n• Gioia dei trattamenti di emergenza\n\n• Interessi in stretta collaborazione con le varie istituzioni sociali e sanitarie\n\n• Gioia della cooperazione interdisciplinare\n\n• Gioia di adattare le proprie conoscenze e competenze alla situazione di trattamento individuale e utilizzarle proficuamente",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nTogether with nurses and psychologists, they lead the central triage office of the PDT. This ensures uncomplicated telephone or personal clarification and tracking of the next treatment steps in the ambulatory, semi-stationary or visiting setting for all seekers during the day. As an open and service-oriented person, they are the contact person for patients and referees. They also offer psychotherapeutic crisis interventions. In the triage team, they process the registrations and the case distribution for the general and age psychiatric ambulatories.\nIn addition, they work in one of our outpatient laboratories and take over the psychotherapeutic treatments of patients from the entire diagnostic spectrum (including diagnosis, therapy planning and correspondence to third parties such as referees and insurers).\nEntry as of January 1, 2027 or by arrangement.\n\nThis is waiting for you\n\n• Open patient- and employee-oriented cooperation across all areas\n\n• Broad scope for action\n\n• Constructive working atmosphere\n\n• Freely selectable holiday and pension fund model\n\n• Good training, education and training opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\nBecome part of our team\n\n• Degree in clinical psychology and advanced or already completed psychotherapeutic training\n\n• High social competence and resilience, decision-making personality\n\n• Joy of Emergency Treatments\n\n• Interest in close cooperation with the various social and health institutions\n\n• Joy of interdisciplinary cooperation\n\n• Joy of adapting your own knowledge and skills to the individual treatment situation and using them profitably",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
-        "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nAvec les infirmières et les psychologues, ils dirigent le bureau central de triage de la PDT. Cela permet d'obtenir des éclaircissements téléphoniques ou personnels et de suivre les prochaines étapes de traitement dans le cadre ambulatoire, semi-stationnaire ou de visite pour tous les demandeurs pendant la journée. En tant que personne ouverte et axée sur le service, ils sont la personne-ressource pour les patients et les arbitres. Ils offrent également des interventions de crise psychothérapeutiques. Dans l'équipe de triage, ils traitent les enregistrements et la distribution des cas pour les ambulatoires psychiatriques générales et d'âge.\nDe plus, ils travaillent dans un de nos laboratoires ambulatoires et prennent en charge les traitements psychothérapeutiques des patients de l'ensemble du spectre diagnostique (y compris le diagnostic, la planification thérapeutique et la correspondance à des tiers tels que les arbitres et les assureurs).\nEntrée au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Coopération ouverte axée sur les patients et les employés dans tous les domaines\n\n• Grandes possibilités d'action\n\n• Ambiance de travail constructive\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Diplôme en psychologie clinique et formation psychothérapeutique avancée ou déjà achevée\n\n• Haute compétence sociale et résilience, personnalité décisionnelle\n\n• Joy des traitements d'urgence\n\n• Intérêt pour une coopération étroite avec les différentes institutions sociales et sanitaires\n\n• Joy de la coopération interdisciplinaire\n\n• Joy d'adapter vos propres connaissances et compétences à la situation de traitement individuelle et de les utiliser avec profit"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:10.338Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/b0c03a03-b14d-4f8f-9b06-c1891cfefebe",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-08T13:40:05.038Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spital-sts-a2024755541f",
-      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
-        "en": "dipl-nursing-specialist-medicine-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
-        "fr": "dipl-medecine-specialisee-en-soins-infirmiers-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau/-mann Medizin",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Medizin",
-        "en": "Dipl. Nursing specialist medicine",
-        "de": "Dipl. Pflegefachfrau/-mann Medizin",
-        "fr": "Dipl. Médecine spécialisée en soins infirmiers"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nKomme an Bord unserer sanierten Station A3 Nord mit topmoderner Infrastruktur und Schwerpunkt Innere Medizin. Du arbeitest mit dem Pflegewagen und im Tandem mit einer Studierenden, Lernenden oder Assistenzperson. Du legst Wert auf eine professionelle, kompetente und individuelle Betreuung und Behandlung der Patienten/-innen. Elektronische Hilfsmittel unterstützen dich im Berufsalltag.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n\n• Dipl. Pflegefachfrau/-mann mit Berufserfahrung im Akutbereich\n\nSo wirst du Teil unseres Teams\n\n• Belastbar, flexibel und teamfähig\n\n• Inspirierend, engagiert, verantwortungsvoll und professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nVieni a bordo della nostra stazione A3 Nord rinnovata con infrastrutture all'avanguardia e un focus sulla medicina interna. Si lavora con l'auto cura e in tandem con uno studente, studente o assistente. Si attribuisce importanza alla cura e al trattamento professionale, competente e individuale dei pazienti. Gli strumenti elettronici ti supportano nel lavoro quotidiano.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• sfide emozionanti con la propria area di responsabilità\n\n• Buona collaborazione con il team e la gestione della stazione\n\n• Dipl. Infermieristica professionale con esperienza professionale nella cura acuta\n\nDiventa parte del nostro team\n\n• Resiliente, flessibile e capace di lavoro di squadra\n\n• Ispiranti, impegnati, responsabili e professionali – i nostri valori STS ospedalieri che sono importanti per noi",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nCome on board our refurbished station A3 Nord with state-of-the-art infrastructure and a focus on internal medicine. You work with the care car and in tandem with a student, learner or assistant. You attach importance to professional, competent and individual care and treatment of patients. Electronic tools support you in everyday work.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• Exciting challenges with their own area of responsibility\n\n• Good cooperation with the team and the station management\n\n• Dipl. Nursing professional with professional experience in acute care\n\nBecome part of our team\n\n• Resilient, flexible and capable of teamwork\n\n• Inspiring, committed, responsible and professional – our hospital STS values that are important to us",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nKomme an Bord unserer sanierten Station A3 Nord mit topmoderner Infrastruktur und Schwerpunkt Innere Medizin. Du arbeitest mit dem Pflegewagen und im Tandem mit einer Studierenden, Lernenden oder Assistenzperson. Du legst Wert auf eine professionelle, kompetente und individuelle Betreuung und Behandlung der Patienten/-innen. Elektronische Hilfsmittel unterstützen dich im Berufsalltag.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n\n• Dipl. Pflegefachfrau/-mann mit Berufserfahrung im Akutbereich\n\nSo wirst du Teil unseres Teams\n\n• Belastbar, flexibel und teamfähig\n\n• Inspirierend, engagiert, verantwortungsvoll und professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVenez à bord de notre station rénovée A3 Nord avec une infrastructure de pointe et un accent sur la médecine interne. Vous travaillez avec la voiture de soins et en tandem avec un étudiant, un apprenant ou un assistant. Vous attachez de l'importance aux soins et au traitement professionnels, compétents et individuels des patients. Les outils électroniques vous accompagnent dans le travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Des défis passionnants avec leur propre domaine de responsabilité\n\n• Bonne coopération avec l'équipe et la direction de la station\n\n• Dipl. Professionnel infirmier ayant une expérience professionnelle en soins actifs\n\nDevenez membre de notre équipe\n\n• Résilient, flexible et capable de travailler en équipe\n\n• Inspirant, engagé, responsable et professionnel, notre hôpital STS valeurs qui sont importantes pour nous"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:09.768Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/cd19526d-68be-4e8f-8eb4-801b4e12c98a",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-per-fruh-e-spatdienst-nachtdienst-optional-spital-sts-thun",
-        "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
-        "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
-        "dipl-nursing-specialist-spital-sts-thun",
-        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
-        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-medizin-per-fruh-e-spatdienst-nachtdienst-optional-spital-sts-thun",
-          "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
-          "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
-          "dipl-nursing-specialist-spital-sts-thun",
-          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
-          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts"
-        ],
-        "fr": [
-          "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T23:11:23.158Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },

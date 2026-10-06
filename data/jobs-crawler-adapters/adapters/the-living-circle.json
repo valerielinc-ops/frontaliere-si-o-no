@@ -11,7 +11,7 @@
     "https://jobs.thelivingcircle.ch/#jobs"
   ],
   "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.",
-  "updatedAt": "2026-10-06T09:17:27.070Z",
+  "updatedAt": "2026-10-06T21:16:37.338Z",
   "seedMetaByUrl": {
     "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/": {
       "location": "Thalwil",
@@ -43,14 +43,6 @@
       "company": "The Living Circle",
       "datePosted": "2026-07-13T14:13:38.754+02:00",
       "postedDate": "2026-07-13T14:13:38.754+02:00",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.thelivingcircle.ch/jobs/66115513/Servicepraktikant-Widder-Wonder-Garden-100%25-all-genders-/": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "The Living Circle",
-      "datePosted": "2026-07-16T08:13:32.060+02:00",
-      "postedDate": "2026-07-16T08:13:32.060+02:00",
       "postingDateSource": "reported"
     },
     "https://jobs.thelivingcircle.ch/jobs/66115898/Praktikant-Service-Widder-Bar-100%25-all-genders-/": {
@@ -141,7 +133,7 @@
       "postedDate": "2026-09-18T14:43:39.430+02:00",
       "postingDateSource": "reported"
     },
-    "https://jobs.thelivingcircle.ch/jobs/67535647/Room-Attendant-60%25-all-genders-/": {
+    "https://jobs.thelivingcircle.ch/jobs/67535647/Room-Attendant-60-80%25-all-genders-/": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "The Living Circle",
@@ -283,6 +275,14 @@
       "company": "The Living Circle",
       "datePosted": "2026-10-02T15:37:39.439+02:00",
       "postedDate": "2026-10-02T15:37:39.439+02:00",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67911112/Front-Office-Agent-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "datePosted": "2026-10-06T14:55:25.608+02:00",
+      "postedDate": "2026-10-06T14:55:25.608+02:00",
       "postingDateSource": "reported"
     }
   }
