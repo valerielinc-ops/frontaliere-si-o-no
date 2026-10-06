@@ -92,6 +92,17 @@ const crawlerGenerationRuntimePaths = new Set([
   ...CRAWLER_GENERATION_RUNTIME_PATHS,
   'scripts/lib/crawler-generation-runtime-paths.mjs',
 ]);
+// `tests/social-robot.test.ts` walks the launchd snapshot closure from disk,
+// so the reverse import graph cannot select it when one of those files changes.
+// Keep the non-directory leaves in step with the closure test; the whole robot
+// directory is covered by construction because launchd snapshots it as a unit.
+const socialRobotClosurePaths = new Set([
+  'scripts/lib/github-issue-creator.mjs',
+  'scripts/lib/google-service-account-token.mjs',
+  'scripts/lib/social-carousel-video.mjs',
+  'scripts/lib/social-publish-queue.mjs',
+  'scripts/load-rc-env.mjs',
+]);
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
@@ -198,6 +209,7 @@ const sourceTreeLintTests = new Map([
   // nessun altro sorgente sotto scripts/.
   ['tests/myswitzerland-browser-ua-confinement.test.ts', (file) => /^scripts\//.test(file) && file !== runnerPath],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  ['tests/social-robot.test.ts', (file) => /^scripts\/social-robot\//.test(file) || socialRobotClosurePaths.has(file)],
   // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
   // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
   // nuovo non importa il test, quindi senza questa voce entrerebbe senza
