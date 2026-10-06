@@ -31,6 +31,45 @@ function pluginNames(): string[] {
 }
 
 /**
+ * Return closeBundle hooks in the order Vite/Rollup actually executes them.
+ * Vite first groups user plugins by `enforce`; Rollup then applies any
+ * ObjectHook `order` barrier. Checking the raw config array misses a deadlock
+ * when a normal consumer appears before an `enforce: 'post'` producer.
+ */
+function closeBundlePluginNames(): string[] {
+  const prev = process.env.FAST_BUILD;
+  delete process.env.FAST_BUILD;
+  try {
+    const resolved = typeof viteConfig === 'function'
+      ? viteConfig({ command: 'build', mode: 'production' })
+      : viteConfig;
+    const plugins = (Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [])
+      .filter((plugin): plugin is { name: string; enforce?: string; closeBundle?: unknown } =>
+        isNamedPlugin(plugin) && Boolean((plugin as { closeBundle?: unknown }).closeBundle));
+    const viteOrdered = [
+      ...plugins.filter((plugin) => plugin.enforce === 'pre'),
+      ...plugins.filter((plugin) => plugin.enforce !== 'pre' && plugin.enforce !== 'post'),
+      ...plugins.filter((plugin) => plugin.enforce === 'post'),
+    ];
+    const rollupPre: typeof viteOrdered = [];
+    const rollupNormal: typeof viteOrdered = [];
+    const rollupPost: typeof viteOrdered = [];
+    for (const plugin of viteOrdered) {
+      const hook = plugin.closeBundle;
+      const order = typeof hook === 'object' && hook !== null && 'order' in hook
+        ? (hook as { order?: string }).order
+        : undefined;
+      if (order === 'pre') rollupPre.push(plugin);
+      else if (order === 'post') rollupPost.push(plugin);
+      else rollupNormal.push(plugin);
+    }
+    return [...rollupPre, ...rollupNormal, ...rollupPost].map((plugin) => plugin.name);
+  } finally {
+    if (prev !== undefined) process.env.FAST_BUILD = prev;
+  }
+}
+
+/**
  * Every plugin name declared in a build-plugins/*.ts source, keyed by file.
  * Matches the `name: 'x', apply: 'build'` head of a returned Vite plugin —
  * the shape every SSG plugin in this repo uses.
@@ -145,7 +184,7 @@ describe('build plugin ordering', () => {
   });
 
   it('derives every buildSignals edge from source and keeps each consumer after its producer', () => {
-    const names = pluginNames();
+    const names = closeBundlePluginNames();
     const edges = signalEdges();
 
     // Guard the derivation itself: a regex that stops matching would turn this

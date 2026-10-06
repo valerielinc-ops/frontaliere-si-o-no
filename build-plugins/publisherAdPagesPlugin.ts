@@ -368,6 +368,13 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'publisher-ad-pages',
     apply: 'build',
+    // employerProfilePagesPlugin owns the signal this emitter awaits below.
+    // Keep this hook in Vite's post group so the producer runs before the
+    // sequential production profile reaches this consumer. Without the
+    // group barrier, the consumer runs with the normal hooks while the
+    // producer is deferred by enforce:'post'; the unresolved signal lets
+    // Node exit 0 before staticPagesPlugin emits the critical IT landings.
+    enforce: 'post',
     async closeBundle() {
       if (process.env.SKIP_PUBLISHER_AD_PAGES === '1') {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m Skipped (SKIP_PUBLISHER_AD_PAGES=1)');
