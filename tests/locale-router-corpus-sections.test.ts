@@ -27,6 +27,7 @@ import {
 
 const {
   CORPUS_CANTON_SECTION_SLUGS,
+  CORPUS_RELEASE_CACHE_CONTROL,
   CORPUS_SECTION_ROUTES,
   CORPUS_NOT_FOUND_CACHE_CONTROL,
   CORPUS_PAGE_CACHE_CONTROL,
@@ -43,6 +44,8 @@ const APEX = 'https://frontaliereticino.ch';
 const CDN = 'https://cdn.frontaliereticino.ch';
 const REGISTRY_URL = `${CDN}/edge/sections/registry.json`;
 const COMMIT = 'e351f2d7f1a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4';
+const RELEASE_BASE = `edge/sections/_releases/${COMMIT}/`;
+const RELEASE_SHA256 = 'a'.repeat(64);
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 
 type Section = { status: string; redirects?: Record<string, string>; gone?: string[] };
@@ -60,6 +63,20 @@ let fetched: string[];
 function registry(sections: Record<string, Section>, extra: Record<string, unknown> = {}) {
   return { schema: 1, commit: COMMIT, sections, ...extra };
 }
+
+function release(
+  names: string[] = ['sitemap-cantons.xml'],
+  overrides: Record<string, unknown> = {},
+) {
+  return {
+    commit: COMMIT,
+    base: RELEASE_BASE,
+    files: Object.fromEntries(names.map((name) => [name, { sha256: RELEASE_SHA256, bytes: 42 }])),
+    ...overrides,
+  };
+}
+
+const releaseKey = (name: string) => `/${RELEASE_BASE}${name}`;
 
 function mockFetch(plan: FetchPlan) {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
@@ -429,18 +446,23 @@ describe('registry memo and last-known-good', () => {
 
   it('keeps serving the last-known-good registry when a refresh fails or is invalid', async () => {
     const t0 = 1_800_000_000_000;
-    mockFetch({ registry: registry({ 'canton-ti': { status: 'live' } }) });
-    expect((await loadCorpusSectionRegistry(t0))?.sections['canton-ti'].status).toBe('live');
+    const name = 'sitemap-cantons.xml';
+    mockFetch({ registry: registry({ 'canton-ti': { status: 'live' } }, { release: release([name]) }) });
+    const initial = await loadCorpusSectionRegistry(t0);
+    expect(initial?.sections['canton-ti'].status).toBe('live');
+    expect(initial?.release?.base).toBe(RELEASE_BASE);
 
     vi.restoreAllMocks();
     mockFetch({ registry: 500 });
     const afterError = await loadCorpusSectionRegistry(t0 + CORPUS_REGISTRY_TTL_MS + 1);
     expect(afterError?.sections['canton-ti'].status).toBe('live');
+    expect(afterError?.release?.files[name]).toBeTruthy();
 
     vi.restoreAllMocks();
-    mockFetch({ registry: { schema: 99 } });
+    mockFetch({ registry: registry({}, { release: release([name], { base: 'edge/sections/_releases/../bad/' }) }) });
     const afterInvalid = await loadCorpusSectionRegistry(t0 + 10 * CORPUS_REGISTRY_TTL_MS);
     expect(afterInvalid?.sections['canton-ti'].status).toBe('live');
+    expect(afterInvalid?.release?.base).toBe(RELEASE_BASE);
   });
 
   it('picks up a newer valid registry once the TTL expires (draft → live)', async () => {
@@ -456,9 +478,9 @@ describe('registry memo and last-known-good', () => {
 
 describe('corpus sitemaps: one regex rule against the closed set', () => {
   it('maps the index and the per-section sitemaps, nothing else', () => {
-    expect(corpusEdgeFileForPath('/sitemap-cantons.xml')).toEqual({ cdnKey: '/edge/sitemap-cantons.xml', section: null });
+    expect(corpusEdgeFileForPath('/sitemap-cantons.xml')).toEqual({ name: 'sitemap-cantons.xml', section: null });
     expect(corpusEdgeFileForPath('/sitemap-articles-canton-ti.xml')).toEqual({
-      cdnKey: '/edge/sitemap-articles-canton-ti.xml',
+      name: 'sitemap-articles-canton-ti.xml',
       section: 'canton-ti',
     });
     expect(corpusEdgeFileForPath('/sitemap-articles-canton-xx.xml')).toBeNull();
@@ -466,27 +488,101 @@ describe('corpus sitemaps: one regex rule against the closed set', () => {
     expect(corpusEdgeFileForPath('/sitemap-articles-canton-ti.xml.bak')).toBeNull();
   });
 
-  it('serves the index from R2 when published, 404 short TTL when not (robots.txt-safe)', async () => {
-    mockFetch({ objects: { '/edge/sitemap-cantons.xml': '<sitemapindex/>' } });
+  it('serves the index from the versioned release, never the former fixed key', async () => {
+    const name = 'sitemap-cantons.xml';
+    mockFetch({
+      registry: registry({}, { release: release([name]) }),
+      objects: { [releaseKey(name)]: '<sitemapindex/>' },
+    });
     const res = await get('/sitemap-cantons.xml');
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Type')).toBe('application/xml; charset=utf-8');
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_RELEASE_CACHE_CONTROL);
     expect(await res.text()).toBe('<sitemapindex/>');
+    expect(cdnFetches()).toContain(`${CDN}${releaseKey(name)}`);
+    expect(cdnFetches()).not.toContain(`${CDN}/edge/${name}`);
 
     vi.restoreAllMocks();
-    mockFetch({});
+    __resetCorpusRegistryForTests();
+    mockFetch({ registry: registry({}, { release: release([name]) }) });
     const missing = await get('/sitemap-cantons.xml');
     expect(missing.status).toBe(404);
     expect(missing.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
   });
 
+  it('returns a real short-TTL 404 when the release does not list the requested name', async () => {
+    const name = 'sitemap-articles-canton-ti.xml';
+    mockFetch({
+      registry: registry({ 'canton-ti': { status: 'live' } }, { release: release() }),
+      objects: {
+        [releaseKey(name)]: '<urlset/>',
+        '/edge/sitemap-articles-canton-ti.xml': '<legacy-urlset/>',
+      },
+    });
+    const res = await get(`/${name}`);
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(cdnFetches().filter((url) => url.includes('sitemap-articles-canton-ti.xml'))).toEqual([]);
+  });
+
+  it('rejects a release base with traversal before composing a CDN URL', async () => {
+    const name = 'sitemap-cantons.xml';
+    mockFetch({
+      registry: registry({}, {
+        release: release([name], { base: 'edge/sections/_releases/../attacker/' }),
+      }),
+      objects: {
+        '/edge/sitemap-cantons.xml': '<legacy-sitemapindex/>',
+        '/edge/sections/_releases/../attacker/sitemap-cantons.xml': '<attacker/>',
+      },
+    });
+    const res = await get('/sitemap-cantons.xml');
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(cdnFetches().filter((url) => url.includes('sitemap-cantons.xml'))).toEqual([]);
+  });
+
+  it('rejects a release base that names a different valid commit', async () => {
+    const name = 'sitemap-cantons.xml';
+    const releaseCommit = 'a'.repeat(40);
+    const otherCommit = 'b'.repeat(40);
+    mockFetch({
+      registry: registry({}, {
+        release: release([name], {
+          commit: releaseCommit,
+          base: `edge/sections/_releases/${otherCommit}/`,
+        }),
+      }),
+      objects: { [`/edge/sections/_releases/${otherCommit}/${name}`]: '<attacker/>' },
+    });
+    const res = await get('/sitemap-cantons.xml');
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(cdnFetches().filter((url) => url.includes(name))).toEqual([]);
+  });
+
+  it('fails closed when the registry has no release, without reading a fixed sitemap key', async () => {
+    mockFetch({
+      registry: registry({}, {}),
+      objects: { '/edge/sitemap-cantons.xml': '<legacy-sitemapindex/>' },
+    });
+    const res = await get('/sitemap-cantons.xml');
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(cdnFetches().filter((url) => url.includes('/edge/sitemap-cantons.xml'))).toEqual([]);
+  });
+
   it('serves a section sitemap only while that section is live', async () => {
-    const objects = { '/edge/sitemap-articles-canton-ti.xml': '<urlset/>' };
+    const name = 'sitemap-articles-canton-ti.xml';
+    const objects = { [releaseKey(name)]: '<urlset/>' };
     mockFetch({ registry: registry({ 'canton-ti': { status: 'draft' } }), objects });
     expect((await get('/sitemap-articles-canton-ti.xml')).status).toBe(404);
     __resetCorpusRegistryForTests();
     vi.restoreAllMocks();
-    mockFetch({ registry: registry({ 'canton-ti': { status: 'live' } }), objects });
+    mockFetch({
+      registry: registry({ 'canton-ti': { status: 'live' } }, { release: release([name]) }),
+      objects,
+    });
     const res = await get('/sitemap-articles-canton-ti.xml');
     expect(res.status).toBe(200);
     expect(await res.text()).toBe('<urlset/>');
@@ -529,7 +625,9 @@ describe('wrangler routes and purge mapping', () => {
     expect(corpusEdgeUrlForApexUrl(new URL(`${APEX}/en/ticino-articles/x/`))).toBe(
       `${CDN}/edge/sections/en/ticino-articles/x/index.html`,
     );
-    expect(corpusEdgeUrlForApexUrl(new URL(`${APEX}/sitemap-cantons.xml`))).toBe(`${CDN}/edge/sitemap-cantons.xml`);
+    // Sitemap keys are release-versioned; the static purge helper cannot
+    // derive the current R2 key without reading the registry.
+    expect(corpusEdgeUrlForApexUrl(new URL(`${APEX}/sitemap-cantons.xml`))).toBeNull();
     expect(corpusEdgeUrlForApexUrl(new URL(`${APEX}/articoli-frontaliere/`))).toBeNull();
   });
 
