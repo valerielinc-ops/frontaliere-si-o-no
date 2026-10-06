@@ -7835,6 +7835,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.luna-opportunita-aziende-svizzere.title': 'Industrialiser la Lune : des opportunités pour les entreprises suisses',
     'blog.article.luna-opportunita-aziende-svizzere.excerpt': 'La filière spatiale suisse réalise un chiffre d\'affaires de ~330 mln CHF, emploie près de 3000 personnes dans 120 entreprises et l\'économie lunaire pourrait valoir 343-566 mld USD d\'ici 2050.',
     'blog.article.luna-opportunita-aziende-svizzere.imageAlt': 'Ingénieurs suisses travaillant sur des composants pour des missions lunaires dans un atelier d\'Aigle',
+    'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Suisse : 10\'500 porcs tués pour cause de pneumonie enzootique',
+    'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Urgence sanitaire dans 14 cantons : plus de 10\'500 porcs mis à mort ou envoyés à l\'abattoir pour enrayer la propagation d\'une infection pulmonaire contagieuse.',
+    'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Paysage rural suisse avec des installations agricoles modernes',
 };
 
 export default blogMetaChFr;

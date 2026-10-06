@@ -7835,6 +7835,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.luna-opportunita-aziende-svizzere.title': 'Den Mond industrialisieren: Chancen für Schweizer Unternehmen',
     'blog.article.luna-opportunita-aziende-svizzere.excerpt': 'Die Schweizer Raumfahrtkette rechnet mit ~330 Mio. CHF, beschäftigt fast 3000 Mitarbeiter in 120 Unternehmen und die Mondwirtschaft könnte bis 2050 einen Wert von 343-566 Mrd. USD haben.',
     'blog.article.luna-opportunita-aziende-svizzere.imageAlt': 'Schweizer Ingenieure arbeiten an Komponenten für Mondmissionen in einer Werkstatt in Aigle',
+    'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Schweiz: 10\'500 Schweine wegen enzootischer Pneumonie getötet',
+    'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Gesundheitsnotstand in 14 Kantonen: Über 10\'500 Schweine getötet oder geschlachtet, um die Ausbreitung einer ansteckenden Lungeninfektion zu stoppen.',
+    'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Schweizer Landwirtschaftliche Einrichtungen und Landschaft',
 };
 
 export default blogMetaChDe;

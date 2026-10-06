@@ -7835,6 +7835,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.luna-opportunita-aziende-svizzere.title': 'Industrializing the Moon: opportunities for Swiss companies',
     'blog.article.luna-opportunita-aziende-svizzere.excerpt': 'The Swiss space supply chain has a turnover of ~330 million CHF, employs nearly 3000 people in 120 companies, and the lunar economy could be worth 343-566 billion USD by 2050.',
     'blog.article.luna-opportunita-aziende-svizzere.imageAlt': 'Swiss engineers working on lunar mission components in an Aigle workshop',
+    'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Switzerland: 10\'500 pigs killed due to enzootic pneumonia',
+    'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Health emergency in 14 cantons: over 10\'500 pigs culled or slaughtered to stop the spread of a contagious lung infection.',
+    'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Swiss rural landscape with modern agricultural facilities',
 };
 
 export default blogMetaChEn;

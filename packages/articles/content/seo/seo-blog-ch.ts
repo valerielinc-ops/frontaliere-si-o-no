@@ -98785,6 +98785,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maiali-polmonite-enzootica-svizzera': {
+    title: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    description: 'Emergenza sanitaria suinicola in Svizzera: oltre 10\'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l\'uomo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, maiali, uccisi, polmonite, enzootica',
+    ogTitle: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    ogDescription: 'Un\'epidemia di polmonite enzootica ha colpito 60 allevamenti in 14 Cantoni svizzeri. Oltre 10\'500 suini sono stati abbattuti o macellati per fermare il contagio.',
+    canonicalPath: '/articoli-svizzera/maiali-polmonite-enzootica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: 10'500 maiali uccisi per polmonite enzootica",
+      "description": "Emergenza sanitaria suinicola in Svizzera: oltre 10'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l'uomo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maiali-polmonite-enzootica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio rurale svizzero con strutture agricole own modern own"
+      },
+      "datePublished": "2026-10-06T17:19:31+00:00",
+      "dateModified": "2026-10-06T17:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maiali-polmonite-enzootica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

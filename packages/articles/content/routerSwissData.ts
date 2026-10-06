@@ -2634,6 +2634,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rickli-tempo-candidatura-federal': { it: 'rickli-tempo-candidatura-federal', en: 'rickli-takes-time-federal-candidacy', de: 'rickli-nimmt-zeit-bundeskandidatur', fr: 'rickli-prend-temps-candidature-federale' },
  'nuovi-progetti-chiave-digitali': { it: 'nuovi-progetti-chiave-digitali', en: 'new-key-digital-projects', de: 'neue-key-digital-projekte', fr: 'nouveaux-projets-cles-numeriques' },
  'luna-opportunita-aziende-svizzere': { it: 'luna-opportunita-aziende-svizzere', en: 'moon-opportunity-swiss-companies', de: 'mond-chance-schweizer-unternehmen', fr: 'lune-opportunite-entreprises-suisses' },
+ 'maiali-polmonite-enzootica-svizzera': { it: 'maiali-polmonite-enzootica-svizzera', en: 'switzerland-pigs-enzootic-pneumonia', de: 'schweiz-schweine-enzootische-lunge', fr: 'suisse-porcs-pneumonie-enzootique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

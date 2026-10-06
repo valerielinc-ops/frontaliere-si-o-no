@@ -7835,6 +7835,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.luna-opportunita-aziende-svizzere.title': 'Industrializzare la Luna: opportunità per le aziende svizzere',
     'blog.article.luna-opportunita-aziende-svizzere.excerpt': 'La filiera spaziale svizzera fattura ~330 mln CHF, impiega quasi 3000 addetti in 120 aziende e l\'economia lunare potrebbe valere 343-566 mld USD entro il 2050.',
     'blog.article.luna-opportunita-aziende-svizzere.imageAlt': 'Ingegneri svizzeri che lavorano su componenti per missioni lunari in un\'officina di Aigle',
+    'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Emergenza sanitaria in 14 Cantoni: oltre 10\'500 suini abbattuti o macellati per fermare il contagio di un\'infezione polmonare contagiosa.',
+    'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Paesaggio rurale svizzero con strutture agricole own modern own',
 };
 
 export default blogMetaChIt;
