@@ -482,7 +482,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     );
   });
 
-  it('allows a factual-only Event JSON-LD record before its rewrite-cache hit', () => {
+  it('keeps Event JSON-LD factual before its rewrite-cache hit', () => {
     const ld = eventLd(
       {
         id: 'guidle:pending-description',
@@ -499,7 +499,8 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       },
       'it',
     ) as Record<string, any>;
-    expect(ld.description).toBeUndefined();
+    expect(String(ld.description)).toContain('Mostra civica');
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
     expect(ld.name).toBe('Mostra civica');
     expect(ld.location.address.addressLocality).toBe('Lugano');
   });

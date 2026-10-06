@@ -401,7 +401,8 @@ describe('renderEventDetailPage', () => {
     const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.description).toBeUndefined();
+    expect(String(eventSchema?.description)).toContain('Concerto sinfonico al LAC');
+    expect(String(eventSchema?.description).length).toBeGreaterThanOrEqual(30);
     expect(page.html).toContain("Data, orario, luogo e link al sito ufficiale dell'evento.");
     expect(page.html).toContain('LAC Lugano Arte e Cultura');
     expect(page.html).not.toContain('Descrizione reale raccolta dal crawler');
