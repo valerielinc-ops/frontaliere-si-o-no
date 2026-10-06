@@ -1657,15 +1657,6 @@
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-Procurement-Manager-Contract-Manufacturing/1441859833/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-procurement-manager-contract-manufacturing-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-procurement-manager-contract-manufacturing-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:43:11.311Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
@@ -1680,7 +1671,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-procurement-manager-contract-manufacturing-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-procurement-manager-contract-manufacturing-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1429961333",
@@ -2787,21 +2786,6 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-%28probiotische-Produkte%29/1441914833/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
-        ],
-        "en": [
-          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
-        ],
-        "fr": [
-          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:43:03.335Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2816,7 +2800,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1416095233",

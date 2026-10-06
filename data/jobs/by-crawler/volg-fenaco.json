@@ -4372,7 +4372,8 @@
       },
       "firstSeenAt": "2026-09-30T21:14:58.805Z",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Leitung Brauteam (w/m/d)",
@@ -8721,7 +8722,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:11:57.552Z",
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -8950,7 +8950,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-oberwil-lieli"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -9617,7 +9618,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-m-f-d-volg-bern",
         "en": "seller-m-f-d-volg-bern",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-84fcve",
         "fr": "vendeuse-vendeur-h-f-d-volg-bern"
       },
       "crawledAt": "2026-10-05T21:31:40.627Z",
@@ -9632,6 +9633,9 @@
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ],
         "fr": [
+          "verkauferin-verkaufer-m-w-d-volg-bern"
+        ],
+        "de": [
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ]
       },
@@ -20687,7 +20691,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-76eeab",
         "en": "seller-seller-m-f-d-volg-bern-76eeab",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-pthavz",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-76eeab"
       },
       "crawledAt": "2026-10-05T21:31:40.628Z",
@@ -20764,7 +20768,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-1d4233",
         "en": "seller-seller-m-f-d-volg-bern-1d4233",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-igly0n",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-1d4233"
       },
       "crawledAt": "2026-10-05T21:31:40.628Z",

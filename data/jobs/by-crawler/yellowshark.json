@@ -16434,7 +16434,6 @@
           "controller-m-w-80-100-yellowshark-ag-dubendorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.675Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18231,7 +18230,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa067559/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.664Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -25279,7 +25277,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa067723/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.596Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -28820,9 +28817,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-07T00:00:00+02:00",
       "postedDate": "2026-09-07T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.yellowshark.com/job/sa067775/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -28847,7 +28842,6 @@
           "konstrukteur-projektleiter-m-w-regensdorf-zh-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.570Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -28861,7 +28855,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-07T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "yellowshark-79d179b596f2",
@@ -29886,21 +29882,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa067728/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
-        ],
-        "en": [
-          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
-        ],
-        "fr": [
-          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.565Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -29914,7 +29895,21 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
+        ],
+        "en": [
+          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-einkaufer-in-100-winterthur-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-28506cf06b45",
@@ -38758,9 +38753,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-12T00:00:00+02:00",
       "postedDate": "2026-09-12T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.yellowshark.com/job/sa067826/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -38779,7 +38772,6 @@
           "controller-m-w-80-100-yellowshark-ag-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.521Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -38793,7 +38785,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-12T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "yellowshark-ccd1ade5807b",

@@ -35294,12 +35294,14 @@
       "previousSlugs": [
         "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch-q5hm87",
         "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch",
-        "production-mechanic-maintenance-permanent-employment-fachkraft-ch-gmbh-st-gallen"
+        "production-mechanic-maintenance-permanent-employment-fachkraft-ch-gmbh-st-gallen",
+        "meccanico-di-produzione-impiego-permanente-per-la-manutenzione-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch-q5hm87",
-          "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch"
+          "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch",
+          "meccanico-di-produzione-impiego-permanente-per-la-manutenzione-fachkraft-ch-gmbh-st-gallen"
         ],
         "en": [
           "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch",
@@ -35320,7 +35322,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-30dd2cc0d1b0",
@@ -35702,7 +35705,8 @@
         "produktionsmechaniker-in-cnc-fertigung-mit-entwicklungsperspektive-fachkraft-ch",
         "meccanico-di-produzione-produzione-cnc-con-competenze-di-programmazione-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "produktionsmechaniker-in-cnc-fertigung-mastercam-fachkraft-ch-gmbh-romanshorn",
-        "production-mechanic-cnc-manufacturing-mastercam-fachkraft-ch-gmbh-romanshorn"
+        "production-mechanic-cnc-manufacturing-mastercam-fachkraft-ch-gmbh-romanshorn",
+        "meccanico-di-produzione-produzione-cnc-mastercam-fachkraft-ch-gmbh-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35725,7 +35729,8 @@
           "produktionsmechaniker-in-cnc-fertigung-mastercam-romanshorn-thurgau-fachkraft-ch",
           "produktionsmechaniker-in-8211-cnc-fertigung-meilen-zurich-fachkraft-ch",
           "produktionsmechaniker-in-cnc-fertigung-mastercam-fachkraft-ch-gmbh-romanshorn",
-          "produktionsmechaniker-in-cnc-fertigung-mit-technischem-verstandnis-bremgarten-aargau"
+          "produktionsmechaniker-in-cnc-fertigung-mit-technischem-verstandnis-bremgarten-aargau",
+          "meccanico-di-produzione-produzione-cnc-mastercam-fachkraft-ch-gmbh-romanshorn"
         ],
         "en": [
           "produktionsmechaniker-in-cnc-fertigung-mastercam-fachkraft-ch-gmbh-romanshorn",
@@ -35746,7 +35751,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-909037d7e9d6",
@@ -68805,25 +68811,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-appenzell-dauerstelle-301528/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fpxj3o",
-        "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fpxj3o",
-          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
-        ],
-        "it": [
-          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
-        ],
-        "en": [
-          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
-        ],
-        "fr": [
-          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
-        ]
-      },
       "firstSeenAt": "2026-09-26T15:25:37.736Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -68837,7 +68824,26 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
+        ],
+        "de": [
+          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fpxj3o",
+          "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fpxj3o",
+        "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
+      ]
     },
     {
       "id": "fachkraft-24d02e759729",
@@ -69103,19 +69109,36 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-buelach-dauerstelle-290587/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch"
+          "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch",
+          "operatore-di-macchine-cnc-fresatura-fachkraft-ch-gmbh-bulach",
+          "operatore-di-macchine-cnc-fresatura-fachkraft-ch-gmbh-bulach-zurich"
         ],
         "de": [
           "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch",
+          "polymechanic-cnc-production-milling-fachkraft-ch-gmbh-bulach",
+          "polymechanic-cnc-production-milling-fachkraft-ch-gmbh-bulach-zurich"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch",
+          "polymecanicien-ne-fabrication-cnc-fraisage-fachkraft-ch-gmbh-bulach",
+          "polymecanicien-ne-fabrication-cnc-fraisage-fachkraft-ch-gmbh-bulach-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:50:29.678Z",
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch",
+        "operatore-di-macchine-cnc-fresatura-fachkraft-ch-gmbh-bulach",
+        "operatore-di-macchine-cnc-fresatura-fachkraft-ch-gmbh-bulach-zurich",
+        "polymechanic-cnc-production-milling-fachkraft-ch-gmbh-bulach",
+        "polymechanic-cnc-production-milling-fachkraft-ch-gmbh-bulach-zurich",
+        "polymecanicien-ne-fabrication-cnc-fraisage-fachkraft-ch-gmbh-bulach",
+        "polymecanicien-ne-fabrication-cnc-fraisage-fachkraft-ch-gmbh-bulach-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -69128,7 +69151,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-23T21:50:29.678Z"
     },
     {
       "id": "fachkraft-9ed4d7c8df1c",
@@ -108704,7 +108728,6 @@
           "heizungsinstallateur-in-servicemonteur-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T22:03:38.145Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -116289,7 +116312,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-buelach-dauerstelle-304631/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T10:54:32.138Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -178194,31 +178216,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/malerpraktiker-in-wil-sg-temporaer-304260/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
-        "praticante-pittore-lavori-di-pittura-versatili-piccoli-lavori-di-gessatura-fachkraft-ch-gmbh-wil-sg",
-        "painter-practitioner-versatile-painting-work-minor-plaster-work-fachkraft-ch-gmbh-wil-sg",
-        "peintre-praticien-travaux-de-peinture-polyvalents-petits-travaux-de-platrier-fachkraft-ch-gmbh-wil-sg",
-        "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen-zgu2nj"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
-          "praticante-pittore-lavori-di-pittura-versatili-piccoli-lavori-di-gessatura-fachkraft-ch-gmbh-wil-sg"
-        ],
-        "en": [
-          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
-          "painter-practitioner-versatile-painting-work-minor-plaster-work-fachkraft-ch-gmbh-wil-sg"
-        ],
-        "de": [
-          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen-zgu2nj",
-          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen"
-        ],
-        "fr": [
-          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
-          "peintre-praticien-travaux-de-peinture-polyvalents-petits-travaux-de-platrier-fachkraft-ch-gmbh-wil-sg"
-        ]
-      },
       "firstSeenAt": "2026-09-26T15:25:37.410Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -178232,7 +178229,32 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
+          "praticante-pittore-lavori-di-pittura-versatili-piccoli-lavori-di-gessatura-fachkraft-ch-gmbh-wil-sg"
+        ],
+        "en": [
+          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
+          "painter-practitioner-versatile-painting-work-minor-plaster-work-fachkraft-ch-gmbh-wil-sg"
+        ],
+        "fr": [
+          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
+          "peintre-praticien-travaux-de-peinture-polyvalents-petits-travaux-de-platrier-fachkraft-ch-gmbh-wil-sg"
+        ],
+        "de": [
+          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen-zgu2nj",
+          "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen",
+        "praticante-pittore-lavori-di-pittura-versatili-piccoli-lavori-di-gessatura-fachkraft-ch-gmbh-wil-sg",
+        "painter-practitioner-versatile-painting-work-minor-plaster-work-fachkraft-ch-gmbh-wil-sg",
+        "peintre-praticien-travaux-de-peinture-polyvalents-petits-travaux-de-platrier-fachkraft-ch-gmbh-wil-sg",
+        "malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen-zgu2nj"
+      ]
     },
     {
       "id": "fachkraft-b3ed75356020",
@@ -185151,16 +185173,28 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/montage-elektriker-in-baden-temporaer-304846/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-baden-aargau-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-baden-aargau-fachkraft-ch"
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-baden-aargau-fachkraft-ch",
+          "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-baden-aargau"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-baden",
+          "assembly-electricians-for-high-and-low-current-installations-fachkraft-ch-gmbh-baden-aargau"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-baden",
+          "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-fachkraft-ch-gmbh-baden-aargau"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-08T23:50:31.718Z",
+      "previousSlugs": [
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-baden-aargau-fachkraft-ch",
+        "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-baden-aargau",
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-baden",
+        "assembly-electricians-for-high-and-low-current-installations-fachkraft-ch-gmbh-baden-aargau",
+        "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-fachkraft-ch-gmbh-baden-aargau"
+      ],
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -185173,7 +185207,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-08T23:50:31.718Z"
     },
     {
       "id": "fachkraft-ab7fc67ca36e",
@@ -185509,16 +185544,25 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/montage-elektriker-in-horgen-temporaer-300890/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-fachkraft-ch"
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-fachkraft-ch",
+          "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-horgen-zurich"
+        ],
+        "en": [
+          "assembly-electricians-for-high-and-low-current-installations-fachkraft-ch-gmbh-horgen-zurich"
+        ],
+        "fr": [
+          "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-fachkraft-ch-gmbh-horgen-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-08T23:50:31.718Z",
+      "previousSlugs": [
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-fachkraft-ch",
+        "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-horgen-zurich",
+        "assembly-electricians-for-high-and-low-current-installations-fachkraft-ch-gmbh-horgen-zurich",
+        "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-fachkraft-ch-gmbh-horgen-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -185531,7 +185575,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-08T23:50:31.718Z"
     },
     {
       "id": "fachkraft-37b0284b2205",
@@ -202086,23 +202131,30 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/schreiner-in-luzern-temporaer-299871/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch",
-        "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch"
+          "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch",
+          "schreiner-in-per-innenausbau-e-montage-fachkraft-ch-gmbh-luzern"
         ],
         "en": [
-          "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern"
+          "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern",
+          "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch",
+          "carpenter-for-interior-construction-and-assembly-fachkraft-ch-gmbh-luzern-luzern"
         ],
         "fr": [
-          "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern"
+          "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern",
+          "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch",
+          "charpentier-pour-la-construction-et-l-assemblage-d-interieurs-fachkraft-ch-gmbh-luzern-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:34:47.003Z",
+      "previousSlugs": [
+        "schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch",
+        "schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern",
+        "schreiner-in-per-innenausbau-e-montage-fachkraft-ch-gmbh-luzern",
+        "carpenter-for-interior-construction-and-assembly-fachkraft-ch-gmbh-luzern-luzern",
+        "charpentier-pour-la-construction-et-l-assemblage-d-interieurs-fachkraft-ch-gmbh-luzern-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -202115,7 +202167,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-10T23:34:47.003Z"
     },
     {
       "id": "fachkraft-74d3b38fe745",
@@ -203214,7 +203267,6 @@
           "sanitarinstallateur-in-temporar-egerkingen-solothurn-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T10:54:31.937Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -215451,25 +215503,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/zimmermann-zimmerin-winterthur-tryhire-302556/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich-8zz47o",
-        "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich-8zz47o",
-          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
-        ],
-        "it": [
-          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
-        ],
-        "en": [
-          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
-        ],
-        "fr": [
-          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
-        ]
-      },
       "firstSeenAt": "2026-09-26T15:25:37.480Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -215483,7 +215516,26 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
+        ],
+        "de": [
+          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich-8zz47o",
+          "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich-8zz47o",
+        "zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich"
+      ]
     },
     {
       "id": "fachkraft-c7060300d2d2",
@@ -233999,7 +234051,6 @@
           "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-andelfingen-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T22:03:37.957Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -262529,7 +262580,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "retranslationAttempts": 1
     },
     {
       "id": "fachkraft-4c1a279d7ada",

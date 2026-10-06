@@ -1804,17 +1804,6 @@
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169212-1",
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-05T21:52:17.881Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "account-manager-m-w-d-otis-wallisellen"
-        ],
-        "it": [
-          "account-manager-m-w-d-otis-wallisellen"
-        ]
-      },
-      "previousSlugs": [
-        "account-manager-m-w-d-otis-wallisellen"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:03.721Z",
       "salaryMin": 134000,
@@ -1831,7 +1820,20 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169212-1",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "de": [
+          "account-manager-m-w-d-otis-wallisellen"
+        ],
+        "it": [
+          "account-manager-m-w-d-otis-wallisellen",
+          "gestore-conto-m-f-d-otis-sa-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-m-w-d-otis-wallisellen",
+        "gestore-conto-m-f-d-otis-sa-wallisellen"
+      ]
     },
     {
       "id": "otis-135db566d431",
