@@ -2459,12 +2459,33 @@ export function normalizeIssuePage(raw) {
     }
     const body = item.body == null ? '' : item.body;
     if (typeof body !== 'string') return null;
+    // `state` fa parte della proiezione: il PARENT-REARM decide sullo stato del
+    // padre letto da GitHub e resta fail-closed quando manca. Senza questo
+    // campo ogni padre riaperto risultava «unreadable» e nessuno veniva
+    // riarmato (misurato il 2026-10-06 nella run 37544637026: 3 padri saltati a
+    // ogni tick). L'endpoint REST lo porta sempre; una riga che non lo ha resta
+    // valida per gli altri pool, uno `state` che non e' una stringa e' una
+    // risposta malformata.
+    const state = item.state;
+    if (state !== undefined && state !== null && typeof state !== 'string') return null;
     // The REST issues endpoint is shared with pull requests. A PR is a valid
     // API row, but it is not an issue in any of the drainer pools.
     if (item.pull_request) continue;
-    rows.push({ number, title, body, labels: normalizedLabels, createdAt, updatedAt });
+    rows.push({
+      number, title, body, labels: normalizedLabels, createdAt, updatedAt,
+      ...(state ? { state } : {}),
+    });
   }
   return { rows, pageLength: raw.length };
+}
+
+/**
+ * Stato di una issue come lo porta la riga dello snapshot. `null` significa
+ * che la PROIEZIONE non lo contiene: e' un difetto di cablaggio da segnalare,
+ * non una issue illeggibile da ritentare al tick successivo.
+ */
+export function snapshotIssueState(row) {
+  return typeof row?.state === 'string' && row.state ? row.state : null;
 }
 
 /**
@@ -4113,8 +4134,17 @@ export function runDrain() {
         // delle view di stato delle figlie la decisione pura verifica marker,
         // idempotenza e tetto, quindi un padre non riaperto non paga letture.
         if (reopenedAfterDecomposition(comments)) {
+          const parentState = snapshotIssueState(p);
+          if (parentState === null) {
+            // Senza lo stato la decisione risponderebbe «unreadable» per sempre:
+            // lo si dice una volta, con un nome diverso, invece di ritentare a
+            // vuoto e leggere le figlie a ogni tick.
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'parent-state-missing' });
+            console.log(`::warning::parent-rearm: lo snapshot non porta lo stato del padre #${p.number} — difetto di cablaggio della proiezione, non un padre illeggibile; nessun riarmo finche' non torna.`);
+            continue;
+          }
           const rearmOptions = {
-            parentState: p.state,
+            parentState,
             comments,
             now: Date.now(),
             maxRearms: PARENT_REARM_MAX_PER_WINDOW,
