@@ -21,6 +21,7 @@ import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCov
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
+import { pharmacyFaqStructuredData } from './faq';
 import { pharmacyGoogleMapsSearchUrl, pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
@@ -500,9 +501,11 @@ export function resolvePharmacySeoMetadata(
             : collectionStructuredData(path, title, collectionPharmacies)
           : undefined;
   const breadcrumb = indexable ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
-  const structuredData = primaryStructuredData && breadcrumb
-    ? [primaryStructuredData, breadcrumb]
-    : primaryStructuredData || breadcrumb;
+  const pharmacyFaq = pharmacy && indexable
+    ? pharmacyFaqStructuredData(pharmacy, locale, `${BASE_URL}${canonicalPath}`)
+    : undefined;
+  const structuredDataItems = [primaryStructuredData, pharmacyFaq, breadcrumb].filter(Boolean) as Record<string, any>[];
+  const structuredData = structuredDataItems.length > 0 ? structuredDataItems : undefined;
   return {
     title,
     description,

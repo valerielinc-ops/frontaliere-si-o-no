@@ -605,6 +605,8 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // `recordOverwriteRollback` leggono/scrivono il marker del rollback solo
     // quando sono chiamate; all'import calcolano soltanto il percorso.
     // `writeReserveMs` e' aritmetica sul budget della fase.
+    // `semanticCandidateBlocks` divide i candidati in blocchi che stanno nella
+    // cache del giudice: funzione pura.
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
@@ -627,6 +629,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'readOverwriteRollback',
       'recordOverwriteRollback',
       'rescueMopupRejects',
+      'semanticCandidateBlocks',
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
       'writeReserveMs',

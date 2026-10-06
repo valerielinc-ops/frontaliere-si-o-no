@@ -85,6 +85,21 @@ import { preserveEventHistory, publishedEventRoutes } from './lib/events-retenti
 import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
 import { eventDateIssues } from './lib/events-date-quality.mjs';
 import { assertNoPrivateEvents, isPrivateEventRecord } from './lib/private-event-sources.mjs';
+import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
+
+const EVENT_IMAGE_LIBRARY_PATH = process.env.EVENT_IMAGE_LIBRARY_PATH
+  ? path.resolve(process.env.EVENT_IMAGE_LIBRARY_PATH)
+  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'event-image-library.json');
+
+export function loadEventImageLibrary(filePath = EVENT_IMAGE_LIBRARY_PATH) {
+  if (!existsSync(filePath)) return { assets: [] };
+  try {
+    const parsed = JSON.parse(readFileSync(filePath, 'utf-8'));
+    return Array.isArray(parsed.assets) ? parsed : { ...parsed, assets: [] };
+  } catch {
+    return { assets: [] };
+  }
+}
 
 function readSlices(sliceDir = EVENTS_SLICE_DIR) {
   if (!existsSync(sliceDir)) return [];
@@ -151,6 +166,35 @@ function eventSourceKey(ev) {
   return ev.sourceKey || String(ev.id || '').split(':')[0];
 }
 
+function hasOpenAgendaImageEvidence(ev) {
+  return ev
+    && eventSourceKey(ev) === 'openagenda'
+    && typeof ev.imageUrl === 'string'
+    && ev.imageUrl.startsWith('/images/events/openagenda-')
+    && typeof ev.imageCredit === 'string'
+    && ev.imageCredit.trim()
+    && typeof ev.imageLicense === 'string'
+    && ev.imageLicense.trim()
+    && typeof ev.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(ev.imageLicenseUrl);
+}
+
+function hasAllowedMirroredSourceImage(ev) {
+  const sourceKey = eventSourceKey(ev);
+  return Boolean(
+    ev
+      && isEventImageSourceAllowed(sourceKey)
+      && typeof ev.imageUrl === 'string'
+      && ev.imageUrl.startsWith(`/images/events/${sourceKey}-`)
+      && typeof ev.imageCredit === 'string'
+      && ev.imageCredit.trim()
+      && typeof ev.imageLicense === 'string'
+      && ev.imageLicense.trim()
+      && typeof ev.imageLicenseUrl === 'string'
+      && /^https:\/\//i.test(ev.imageLicenseUrl),
+  );
+}
+
 /**
  * Image policy backstop for old slices and hand-edited snapshots. A source
  * can remain a valid event-facts source while its images are unlicensed; in
@@ -158,10 +202,30 @@ function eventSourceKey(ev) {
  * record cannot win a richer-record tie or reach a public dataset.
  */
 export function stripUnauthorizedEventImage(ev) {
-  if (!ev || isEventImageSourceAllowed(eventSourceKey(ev))) return ev;
-  if (!Object.prototype.hasOwnProperty.call(ev, 'imageUrl') && !Object.prototype.hasOwnProperty.call(ev, 'imageCredit')) return ev;
-  const { imageUrl: _imageUrl, imageCredit: _imageCredit, ...withoutImage } = ev;
+  const hasImageFields = ev && [
+    'imageUrl', 'imageCredit', 'imageLicense', 'imageLicenseUrl', 'imageAssetId', 'imageProvider',
+  ].some((field) => Object.prototype.hasOwnProperty.call(ev, field));
+  const licensedSourceImage = ev
+    && (hasOpenAgendaImageEvidence(ev) || hasAllowedMirroredSourceImage(ev));
+  if (!hasImageFields || licensedSourceImage) return ev;
+  const {
+    imageUrl: _imageUrl,
+    imageCredit: _imageCredit,
+    imageLicense: _imageLicense,
+    imageLicenseUrl: _imageLicenseUrl,
+    imageAssetId: _imageAssetId,
+    imageProvider: _imageProvider,
+    ...withoutImage
+  } = ev;
   return withoutImage;
+}
+
+export function assignGeneratedEventImages(events, registry = loadEventImageLibrary()) {
+  return events.map((event) => assignEventImageAsset(event, registry, {
+    sourceImageAllowed: (candidate) => Boolean(
+      hasOpenAgendaImageEvidence(candidate) || hasAllowedMirroredSourceImage(candidate),
+    ),
+  }));
 }
 
 function sourcePriorityRank(ev) {
@@ -705,7 +769,8 @@ export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DAT
   const cantonlessBefore = deduped.filter((event) => !(typeof event.canton === 'string' && event.canton.trim())).length;
   const cantonFromGeo = attachCantonFromGeo(deduped);
   const frontierAttached = attachItalianFrontierComuni(deduped);
-  const withHistory = deduped.map((event) => {
+  const withLibraryImages = assignGeneratedEventImages(deduped);
+  const withHistory = withLibraryImages.map((event) => {
     const prior = priorById.get(event.id);
     const priorRoute = priorRoutes.get(event.id);
     if (!prior || !priorRoute) return event;

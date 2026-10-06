@@ -195,10 +195,10 @@ describe('client del broker Codex', () => {
     expect(codexScore()).toBe(0);
   });
 
-  it('dopo il segnale di avvio lo scadere del budget e\' un timeout del socket, sempre di trasporto', async () => {
+  it('dopo il segnale di avvio lo scadere del budget e\' un timeout di esecuzione, sempre di trasporto', async () => {
     const log = warnings();
     behavior = (client) => { client.write('\x01'); };
-    await expect(callCodex({ deadlineMs: Date.now() + 1500 })).rejects.toThrow(/Codex auth broker socket timed out/);
+    await expect(callCodex({ deadlineMs: Date.now() + 1500 })).rejects.toThrow(/Codex auth broker execution timed out after \d+s/);
     expect(log()).toMatch(/guasto di trasporto, score invariato/);
     expect(codexScore()).toBe(0);
   });

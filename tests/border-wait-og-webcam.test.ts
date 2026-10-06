@@ -7,6 +7,7 @@
  *  - 404 / timeout / invalid bytes are SKIPPED — never throws, never blocks
  *    the build, falls back to site default OG image.
  *  - Crossings without `webcams[]` are skipped silently (no noise).
+ *  - Link-only webcam sources are never fetched or archived.
  *  - Duplicates by slug are de-duplicated (one snapshot per crossing).
  *  - `borderWaitPagesPlugin.generateBorderWaitPages` emits the correct
  *    per-page `<meta property="og:image">` tag when a snapshot exists, and
@@ -110,6 +111,20 @@ const CROSSING_WITHOUT_WEBCAM = {
   trafficLevel: 'low',
   peak: 'border.peak.lowTraffic',
   tips: 'border.tips.drezzoPedrinate',
+} as any;
+
+const CROSSING_WITH_LINK_ONLY_WEBCAM = {
+  ...CROSSING_WITHOUT_WEBCAM,
+  name: 'Basel–Saint-Louis (A35)',
+  webcams: [
+    {
+      label: 'A35 – Saint-Louis',
+      imageUrl: 'https://inforoute.alsace.eu/webcamDIR/SAINTLOUIS_1/lastimage.jpeg?size=LARGE',
+      sourceName: 'Collectivité européenne d’Alsace — Inforoute',
+      sourceUrl: 'https://inforoute.alsace.eu/',
+      embedAllowed: false,
+    },
+  ],
 } as any;
 
 // ── slugifyName parity test ──────────────────────────────────────
@@ -228,6 +243,24 @@ describe('snapshotWebcamsForOg', () => {
     expect(res.total).toBe(0);
     expect(res.snapshotted).toBe(0);
     // No file written
+    expect(readdirSync(tmp)).toEqual([]);
+  });
+
+  it('does not fetch or archive a link-only webcam source', async () => {
+    let fetchCount = 0;
+    const fake = fakeFetchFactory(async () => {
+      fetchCount++;
+      return makeResponse(await makeFakeJpeg());
+    });
+    const res = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_LINK_ONLY_WEBCAM],
+      outDir: tmp,
+      fetchFn: fake,
+      log: () => {},
+    });
+    expect(res.total).toBe(0);
+    expect(res.snapshotted).toBe(0);
+    expect(fetchCount).toBe(0);
     expect(readdirSync(tmp)).toEqual([]);
   });
 

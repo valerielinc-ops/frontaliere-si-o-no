@@ -111,7 +111,7 @@ async function loadCascade({
     'DEEPL_API_KEY_2', 'GOOGLE_APPLICATION_CREDENTIALS', 'HF_TOKEN', 'HUGGINGFACE_API_KEY',
     'LIBRETRANSLATE_SELF_HOSTED_URL', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
     'FREE_TRANSLATE_CODEX_TIER', 'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS',
-    'CODEX_AUTH_BROKER_SOCKET', 'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS',
+    'CODEX_AUTH_BROKER_SOCKET', 'FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS', 'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS',
   ]) vi.stubEnv(key, '');
   // Le chiavi che Remote Config carica nella run (Azure la 2b la svuota da se').
   vi.stubEnv('DEEPL_API_KEY', 'deepl-finta');
@@ -175,6 +175,7 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
 
   it('con l\'env della 2b del workflow Codex traduce, prima dei tier gratuiti', async () => {
     quiet();
+    expect(phase2bEnv().FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS).toBe('480000');
     const ft = await loadCascade();
     const calls = stubCodex(ft, (messages) => translatedAnswer(messages));
     const out = await translate(ft);

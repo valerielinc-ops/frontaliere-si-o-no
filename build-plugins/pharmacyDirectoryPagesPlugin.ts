@@ -32,6 +32,7 @@ import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
+import { pharmacyFaqHeading, pharmacyFaqItems, pharmacyFaqStructuredData } from '../services/pharmacies/faq';
 import {
   DECISION_MOMENT_COMPLETED_ATTRIBUTE,
   DECISION_MOMENT_ID_ATTRIBUTE,
@@ -448,6 +449,11 @@ function renderServices(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
   if (!pharmacy.services?.length) return `<p style="${BODY_STYLE}">${esc(copy.servicesUnavailable)}</p>`;
   return `<ul style="${BODY_STYLE}">${pharmacy.services.map((service) => `<li>${esc(service)}</li>`).join('')}</ul>`;
+}
+
+function renderPharmacyFaq(pharmacy: Pharmacy, locale: Locale): string {
+  const items = pharmacyFaqItems(pharmacy, locale);
+  return `<section aria-label="${esc(pharmacyFaqHeading(locale))}"><h2 style="${H2_STYLE}">${esc(pharmacyFaqHeading(locale))}</h2>${items.map((item) => `<details style="${BODY_STYLE}"><summary>${esc(item.question)}</summary><p style="${BODY_STYLE}">${esc(item.answer)}</p></details>`).join('')}</section>`;
 }
 
 function renderPharmacyFacts(pharmacy: Pharmacy, locale: Locale, maps?: { osm?: string; google?: string }): string {
@@ -894,7 +900,7 @@ function renderBody(
       google: pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) || pharmacyGoogleMapsSearchUrl(pharmacy),
     };
     const parent = pharmacy.country === 'IT' ? cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug) : cityPath('CH', locale, pharmacyCitySlug(pharmacy.city));
-    sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><p data-pharmacy-answer="true" style="${LEDE_STYLE}">${esc(pharmacyAnswerSummary(pharmacy, locale))}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2>${renderPharmacyFacts(pharmacy, locale, maps)}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></section>`;
+    sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><p data-pharmacy-answer="true" style="${LEDE_STYLE}">${esc(pharmacyAnswerSummary(pharmacy, locale))}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2>${renderPharmacyFacts(pharmacy, locale, maps)}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section>${renderPharmacyFaq(pharmacy, locale)}<section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></section>`;
   } else {
     const pharmacies = pagePharmacies(descriptor, dataset, now);
     const directory = descriptor.kind === 'area'
@@ -983,6 +989,11 @@ function cantonCollectionJsonLd(pathValue: PharmacyPath, title: string, cities: 
   });
 }
 
+function pharmacyFaqJsonLd(pharmacy: Pharmacy, locale: Locale): string {
+  const pathValue = pharmacyPath(pharmacy, locale);
+  return JSON.stringify(pharmacyFaqStructuredData(pharmacy, locale, `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`));
+}
+
 function jsonLd(
   descriptor: PageDescriptor,
   locale: Locale,
@@ -993,7 +1004,7 @@ function jsonLd(
 ): string[] {
   const pathValue = descriptorPath(descriptor, locale);
   const title = pageTitle(descriptor.kind, locale, descriptor);
-  if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
+  if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), pharmacyFaqJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-week' && descriptor.country === 'IT') {
     const model = italyDutyWeekModel(descriptor.weekStart, now);
