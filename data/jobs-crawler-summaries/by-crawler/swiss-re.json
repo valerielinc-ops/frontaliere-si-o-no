@@ -1,27 +1,113 @@
 {
   "key": "swiss-re",
   "label": "Swiss Re",
-  "generatedAt": "2026-10-05T21:26:58.429Z",
-  "total": 14,
+  "generatedAt": "2026-10-06T09:19:23.216Z",
+  "total": 16,
   "discovered": null,
-  "parsed": 14,
+  "parsed": 16,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 14,
+  "written": 16,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 48601,
-  "avgDurationMs": 48601,
+  "durationMs": 54186,
+  "avgDurationMs": 54186,
   "durationHistory": [
-    48601
+    54186
   ],
   "newJobs": [
+    {
+      "id": "swiss-re-146d8c55276a",
+      "slug": "responsible-investing-analyst-hybrid-m-f-x-d-swiss-re-ch",
+      "company": "Swiss Re",
+      "companyKey": "swiss-re",
+      "companyDomain": "swissre.com",
+      "title": "Responsible Investing Analyst (Hybrid; m/f/x/d)",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://www.swissre.com/careers/job/Responsible-Investing-Analyst-Hybrid-m-f-x-d-/1444634433",
+      "source": "Swiss Re Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:18:28.999Z",
+      "addressLocality": "Zurich, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.swissre.com/careers/job/Responsible-Investing-Analyst-Hybrid-m-f-x-d-/1444634433",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-06T09:18:28.999Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "swiss-re-4f4dcfd0158d",
+      "slug": "real-estate-investment-analyst-hybrid-m-f-x-d-swiss-re-ch",
+      "company": "Swiss Re",
+      "companyKey": "swiss-re",
+      "companyDomain": "swissre.com",
+      "title": "Real Estate Investment Analyst (Hybrid; m/f/x/d )",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://www.swissre.com/careers/job/Real-Estate-Investment-Analyst-Hybrid-m-f-x-d-/1444612533",
+      "source": "Swiss Re Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:18:27.914Z",
+      "addressLocality": "Zurich, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.swissre.com/careers/job/Real-Estate-Investment-Analyst-Hybrid-m-f-x-d-/1444612533",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-06T09:18:27.914Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "swiss-re-d3f8744f4633",
       "slug": "senior-project-manager-hybrid-m-f-x-d-80-100-swiss-re-ch",
@@ -34,7 +120,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Project-Manager-Hybrid-m-f-x-d-80-100-/1441240133",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:20.633Z",
+      "crawledAt": "2026-10-06T09:18:43.826Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,21 +136,21 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.swissre.com/careers/job/Senior-Project-Manager-Hybrid-m-f-x-d-80-100-/1441240133",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:26:20.633Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T21:26:20.633Z",
-      "_qualityScore": 78,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -79,7 +165,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Structurer-Credit-and-Surety-Hybrid-80-100-/1426628933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:47.097Z",
+      "crawledAt": "2026-10-06T09:19:10.151Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,13 +185,14 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -120,7 +207,7 @@
       "url": "https://www.swissre.com/careers/job/Sous-Chef-de-Cuisine-m-f-x-d-80-100/1431057633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:26:43.088Z",
+      "crawledAt": "2026-10-06T09:19:04.813Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,13 +226,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -160,7 +248,7 @@
       "url": "https://www.swissre.com/careers/job/Lehrstelle-Entwickler-in-digitales-Business-EFZ-2027/1420965533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:26:40.052Z",
+      "crawledAt": "2026-10-06T09:19:03.406Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -179,13 +267,14 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -200,7 +289,7 @@
       "url": "https://www.swissre.com/careers/job/Financial-Reporting-Analyst-Graduate/1437841033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:34.387Z",
+      "crawledAt": "2026-10-06T09:18:58.498Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -219,13 +308,14 @@
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -240,7 +330,7 @@
       "url": "https://www.swissre.com/careers/job/SST-Reporting-Analyst-Graduate/1437841533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:33.247Z",
+      "crawledAt": "2026-10-06T09:18:57.312Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -259,13 +349,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -280,7 +371,7 @@
       "url": "https://www.swissre.com/careers/job/Financial-Analyst-Group-Finance-Capital-Markets-Graduate/1439461033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:27.198Z",
+      "crawledAt": "2026-10-06T09:18:51.965Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -299,13 +390,14 @@
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -320,7 +412,7 @@
       "url": "https://www.swissre.com/careers/job/Group-Strategy-Graduate/1439448933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:26.067Z",
+      "crawledAt": "2026-10-06T09:18:50.862Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -340,13 +432,14 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -361,7 +454,7 @@
       "url": "https://www.swissre.com/careers/job/Group-Financial-Performance-Management-and-Planning-Graduate/1439468933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:24.519Z",
+      "crawledAt": "2026-10-06T09:18:46.631Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -380,13 +473,14 @@
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -401,7 +495,7 @@
       "url": "https://www.swissre.com/careers/job/Event-and-Guest-Experience-Manager-m-f-x-d-80-100-/1441318733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:26:21.699Z",
+      "crawledAt": "2026-10-06T09:18:45.133Z",
       "addressLocality": "Rüschlikon, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -421,13 +515,14 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
+      "postalCode": "8803",
       "addressRegion": "ZH",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 19,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -442,7 +537,7 @@
       "url": "https://www.swissre.com/careers/job/Lehrstelle-Mediamatiker-in-EFZ-2027/1420961933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:26:18.531Z",
+      "crawledAt": "2026-10-06T09:18:41.172Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,13 +557,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -483,7 +579,7 @@
       "url": "https://www.swissre.com/careers/job/Captive-Centre-of-Excellence-Intern-Hybrid-m-f-x-d-80-100-/1442458333",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:17.113Z",
+      "crawledAt": "2026-10-06T09:18:39.691Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,13 +598,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -523,7 +620,7 @@
       "url": "https://www.swissre.com/careers/job/Intern-P-and-C-Underwriting-Transformation-Advance-with-AI-4-6-months-m-f-x-d-80-100-/1443368133",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:15.986Z",
+      "crawledAt": "2026-10-06T09:18:38.232Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -543,13 +640,14 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -564,7 +662,7 @@
       "url": "https://www.swissre.com/careers/job/Underwriting-Governance-Project-Assistant-12-months-temporary-contract-Hybrid-m-f-x-d-/1443855233",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:26:10.774Z",
+      "crawledAt": "2026-10-06T09:18:33.267Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -584,15 +682,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-10-05T21:47:42.582Z",
+  "generatedAt": "2026-10-06T09:36:08.533Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,57 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 10876,
-  "avgDurationMs": 10876,
+  "unchangedCount": 9,
+  "durationMs": 11020,
+  "avgDurationMs": 11020,
   "durationHistory": [
-    10876
+    11020
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "stryker-b91369d6d475",
-      "slug": "lean-specialista-m-w-d-process-improvement-stryker-selzach",
-      "company": "Stryker",
-      "companyKey": "stryker",
-      "companyDomain": "stryker.com",
-      "title": "Lean Specialist (m/w/d) - Process Improvement",
-      "location": "Selzach",
-      "canton": "SO",
-      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
-      "source": "Stryker Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:34.113Z",
-      "addressLocality": "Selzach",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Medtech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-09",
-      "postedDate": "2026-07-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
-      "jobReqId": "R566531",
-      "firstSeenAt": "2026-07-09T12:28:38.174Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
     {
       "id": "stryker-526944234199",
       "slug": "internship-risorse-umane-hr-project-management-stryker-selzach",
@@ -77,7 +36,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-Human-Resources---HR-Projektmanagement_R573133",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:31.346Z",
+      "crawledAt": "2026-10-06T09:35:46.079Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -98,28 +57,31 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "stryker-2636fa728ff0",
-      "slug": "produzione-di-apprendisti-stryker-selzach",
+      "id": "stryker-b91369d6d475",
+      "slug": "lean-specialista-m-w-d-process-improvement-stryker-selzach",
       "company": "Stryker",
       "companyKey": "stryker",
       "companyDomain": "stryker.com",
-      "title": "Apprentice Manufacturing",
-      "needsRetranslation": true,
+      "title": "Lean Specialist (m/w/d) - Process Improvement",
       "location": "Selzach",
       "canton": "SO",
-      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
+      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:27.265Z",
+      "crawledAt": "2026-10-06T09:35:48.581Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -127,30 +89,28 @@
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
+      "experienceLevel": "mid",
       "sector": "Medtech / Dispositivi medici",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-05",
-      "postedDate": "2026-10-05",
+      "datePosted": "2026-07-09",
+      "postedDate": "2026-07-09",
       "postingDateSource": "reported",
-      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
-      "jobReqId": "R568815",
-      "firstSeenAt": "2026-09-08T23:34:49.375Z",
-      "salaryMin": 53000,
-      "salaryMax": 80500,
+      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
+      "jobReqId": "R566531",
+      "firstSeenAt": "2026-07-09T12:28:38.174Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "stryker-17b94b8f21af",
       "slug": "instandhaltungsmechaniker-m-w-d-per-cnc-anlagen-medizintechnik-stryker-selzach",
@@ -164,7 +124,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:33.448Z",
+      "crawledAt": "2026-10-06T09:35:47.960Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -185,12 +145,13 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "2545",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -206,7 +167,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:47:32.737Z",
+      "crawledAt": "2026-10-06T09:35:47.339Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -227,12 +188,13 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "2545",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -248,7 +210,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Quality-Engineering--m-w-d-_R573349",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:32.031Z",
+      "crawledAt": "2026-10-06T09:35:46.729Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -269,12 +231,13 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -290,7 +253,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Internship-in-Product-Development---March-2027-for-6-9-months_R573870",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:47:30.685Z",
+      "crawledAt": "2026-10-06T09:35:45.472Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -311,12 +274,13 @@
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -331,7 +295,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Internship-Research---Development-Biomechanics-Test-Laboratory---from-February-March-2027-for-6-months_R573232",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:47:29.988Z",
+      "crawledAt": "2026-10-06T09:35:44.852Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -352,12 +316,13 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -373,7 +338,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:47:28.667Z",
+      "crawledAt": "2026-10-06T09:35:44.012Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -394,12 +359,13 @@
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -414,7 +380,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Intern--m-f-d--Divisional-Back-Office---Training-Operations_R574836",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:47:27.983Z",
+      "crawledAt": "2026-10-06T09:35:43.364Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -435,14 +401,58 @@
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "2545",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "stryker-2636fa728ff0",
+      "slug": "produzione-di-apprendisti-stryker-selzach",
+      "company": "Stryker",
+      "companyKey": "stryker",
+      "companyDomain": "stryker.com",
+      "title": "Apprentice Manufacturing",
+      "needsRetranslation": true,
+      "location": "Selzach",
+      "canton": "SO",
+      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
+      "source": "Stryker Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T09:35:42.708Z",
+      "addressLocality": "Selzach",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Medtech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
+      "jobReqId": "R568815",
+      "firstSeenAt": "2026-09-08T23:34:49.375Z",
+      "salaryMin": 53000,
+      "salaryMax": 80500,
+      "salarySource": "estimated",
+      "postalCode": "2545",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-05T21:24:10.305Z",
+  "generatedAt": "2026-10-06T09:17:38.133Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 1742,
-  "avgDurationMs": 1742,
+  "durationMs": 1569,
+  "avgDurationMs": 1569,
   "durationHistory": [
-    1742
+    1569
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,12 +44,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -83,19 +84,20 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "postalCode": "6612",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "title": "Senior Techniker 100% (all genders)",
-      "slug": "tecnico-senior-100-tutti-i-sessi-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/67764052/Senior-Techniker-100%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67764052/Senior-Techniker-100%25-all-genders-/",
+      "title": "Commis de Rang - Soï 28 by Stefan Heilemann 80-100% (all genders)",
+      "slug": "commis-de-rang-soi-28-di-stefan-heilemann-80-100-tutti-i-generi-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67757892/Commis-de-Rang---So%C3%AF-28-by-Stefan-Heilemann-80-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67757892/Commis-de-Rang---So%C3%AF-28-by-Stefan-Heilemann-80-100%25-all-genders-/",
       "company": "The Living Circle",
       "companyKey": "the-living-circle",
       "companyDomain": "thelivingcircle.ch",
@@ -109,24 +111,26 @@
       "sector": "Hotellerie & Ospitalità",
       "source": "living-circle-dedicated-crawler",
       "sourceLang": "de",
-      "datePosted": "2026-09-29T16:59:42.218+02:00",
-      "postedDate": "2026-09-29T16:59:42.218+02:00",
+      "datePosted": "2026-09-29T14:40:28.192+02:00",
+      "postedDate": "2026-09-29T14:40:28.192+02:00",
       "postingDateSource": "reported",
-      "employmentType": "full-time",
+      "employmentType": "other",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "the-living-circle-4a2c08ebe333",
+      "id": "the-living-circle-6c8ec4da57ed",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:16:31.084Z",
-      "salaryMin": 97500,
-      "salaryMax": 122500,
+      "salaryMin": 73000,
+      "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 19
+        "translation": 23,
+        "completeness": 22
       }
     }
   ],
@@ -162,12 +166,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8800",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -200,12 +205,13 @@
       "salaryMax": 36600,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -238,12 +244,13 @@
       "salaryMax": 36600,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -276,12 +283,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -314,12 +322,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -353,12 +362,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -391,12 +401,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -430,12 +441,13 @@
       "salaryMax": 122500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -468,12 +480,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -506,12 +519,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -544,13 +558,14 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "8001",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -584,12 +599,13 @@
       "salaryMax": 84500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "3818",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -623,12 +639,13 @@
       "salaryMax": 84500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "3818",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -662,12 +679,13 @@
       "salaryMax": 113500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "3818",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -700,12 +718,13 @@
       "salaryMax": 54900,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -738,13 +757,14 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "8001",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -777,13 +797,14 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "8001",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -816,12 +837,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -855,12 +877,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -893,12 +916,13 @@
       "salaryMax": 73200,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -932,12 +956,13 @@
       "salaryMax": 54900,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -971,12 +996,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1010,12 +1036,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1048,12 +1075,13 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1086,51 +1114,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Commis de Rang - Soï 28 by Stefan Heilemann 80-100% (all genders)",
-      "slug": "commis-de-rang-soi-28-di-stefan-heilemann-80-100-tutti-i-generi-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/67757892/Commis-de-Rang---So%C3%AF-28-by-Stefan-Heilemann-80-100%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67757892/Commis-de-Rang---So%C3%AF-28-by-Stefan-Heilemann-80-100%25-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-09-29T14:40:28.192+02:00",
-      "postedDate": "2026-09-29T14:40:28.192+02:00",
-      "postingDateSource": "reported",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-6c8ec4da57ed",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:16:31.084Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1164,12 +1154,13 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8800",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1203,12 +1194,52 @@
       "salaryMax": 73200,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8800",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Senior Techniker 100% (all genders)",
+      "slug": "tecnico-senior-100-tutti-i-sessi-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67764052/Senior-Techniker-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67764052/Senior-Techniker-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-09-29T16:59:42.218+02:00",
+      "postedDate": "2026-09-29T16:59:42.218+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-4a2c08ebe333",
+      "firstSeenAt": "2026-09-29T21:16:31.084Z",
+      "salaryMin": 97500,
+      "salaryMax": 122500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1242,12 +1273,13 @@
       "salaryMax": 122500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "postalCode": "8001",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1281,14 +1313,15 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
