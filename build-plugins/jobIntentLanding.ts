@@ -181,8 +181,15 @@ function buildJobHref(
   locale: JobLandingLocale,
   job: JobLike,
   jobSlug: string,
+  legacySectionSlug: string,
 ): string {
-  return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(locale, job, jobSlug)}`;
+  return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
+    locale,
+    job,
+    jobSlug,
+    undefined,
+    legacySectionSlug,
+  )}`;
 }
 
 function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
@@ -207,7 +214,13 @@ function toLinkedJobs(
       title: normalizeSpace(localizedTitles && typeof localizedTitles[locale] === 'string' ? localizedTitles[locale] : job.title || 'Offerta lavoro'),
       company: normalizeSpace(job.company),
       location: normalizeSpace(job.location),
-      href: buildJobHref(options.baseUrl, locale, job, options.localizedSlug(job, locale)),
+      href: buildJobHref(
+        options.baseUrl,
+        locale,
+        job,
+        options.localizedSlug(job, locale),
+        options.sectionSlug,
+      ),
       postingDateSource: job.postingDateSource,
       datePosted: freshnessDate(job, now)?.toISOString(),
       titleByLocale: Object.fromEntries(Object.entries(localizedTitles || {}).filter(([, value]) => typeof value === 'string')) as Partial<Record<JobLandingLocale, string>>,

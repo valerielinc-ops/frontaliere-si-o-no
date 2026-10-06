@@ -455,11 +455,14 @@ function buildJobDetailHref(
   locale: JobLandingLocale,
   job: JobLike,
   slug: string,
+  legacySectionSlug: string,
 ): string {
   return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
     locale,
     job as CanonicalJobDetailJob,
     slug,
+    undefined,
+    legacySectionSlug,
   )}`;
 }
 
@@ -505,7 +508,7 @@ export function buildJobRecencyLandingModel(options: {
     const titleByLocale = (j.titleByLocale as Record<string, unknown> | undefined) || {};
     const localized = String(titleByLocale[locale] || j.title || 'Offerta lavoro');
     const rawSlug = options.localizedSlug(job, locale);
-    const href = buildJobDetailHref(baseUrl, locale, job, rawSlug);
+    const href = buildJobDetailHref(baseUrl, locale, job, rawSlug, options.sectionSlug);
     const posted = getJobFreshnessDate(job as JobLike, now);
     const titleByLocaleTyped = Object.fromEntries(
       Object.entries(titleByLocale).filter(([, v]) => typeof v === 'string'),

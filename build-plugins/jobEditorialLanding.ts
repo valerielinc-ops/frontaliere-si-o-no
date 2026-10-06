@@ -1380,8 +1380,20 @@ function buildSearchHref(baseUrl: string, localePrefix: string, sectionSlug: str
  return ensureTrailingSlash(`${baseUrl}${`${localePrefix}/${sectionSlug}/${searchSlug}`.replace(/\/+/g, '/')}`);
 }
 
-function buildJobHref(baseUrl: string, locale: JobLandingLocale, job: JobLike, slug: string): string {
- return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(locale, job, slug)}`;
+function buildJobHref(
+ baseUrl: string,
+ locale: JobLandingLocale,
+ job: JobLike,
+ slug: string,
+ legacySectionSlug: string,
+): string {
+ return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
+  locale,
+  job,
+  slug,
+  undefined,
+  legacySectionSlug,
+ )}`;
 }
 
 function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
@@ -1437,7 +1449,13 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
     : j.title || 'Offerta lavoro')),
    company: normalizeSpace(typeof j.company === 'string' ? j.company : ''),
    location: normalizeSpace(typeof j.location === 'string' ? j.location : ''),
-   href: buildJobHref(options.baseUrl, locale, job, options.localizedSlug(job, locale)),
+   href: buildJobHref(
+    options.baseUrl,
+    locale,
+    job,
+    options.localizedSlug(job, locale),
+    options.sectionSlug,
+   ),
    postingDateSource: job.postingDateSource,
    datePosted,
    titleByLocale: titleByLocaleTyped,
