@@ -161,7 +161,7 @@ describe('scripts/ci/prune-cdn-assets.mjs — PAT fallback shape', () => {
   });
 
   it('classifies the Git HTTP/2 transport interruption as transient', () => {
-    expect(script).toMatch(/HTTP\\\/2 stream \\d+ was not closed cleanly/);
+    expect(script).toContain(String.raw`HTTP\/2 stream \d+ was not closed cleanly`);
   });
 });
 
