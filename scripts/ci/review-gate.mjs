@@ -432,7 +432,7 @@ export function classifyReview(body, {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
       continue;
     }
-    if (isBodyAnchoredFinding(finding)) {
+    if (isStaleBodyFinding(finding, prBody)) {
       const bodyCitation = extractBodyCitation(finding.text);
       const normalizedCitation = bodyCitation
         ? normalizeBodyCitationText(bodyCitation)
@@ -541,26 +541,26 @@ export function classifyReview(body, {
 export function prBodyFindingLine(finding) {
   const fromText = prBodyAnchor(finding?.text);
   if (fromText !== null) return fromText;
-  const match = String(finding?.line || '').match(/`?PR body[:#]L?([1-9]\d*)/iu);
-  return match ? Number(match[1]) : null;
+  return prBodyAnchor(finding?.line);
 }
 
 // Claims the contract cannot judge (REVIEW.md step 7: perf/optimization claim
-// without a baseline) keep blocking even when anchored on the body.
-const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|claim)\w*/iu;
+// without a baseline) keep blocking while the current anchored body line still
+// contains the claim; the finding prose may describe text that is now gone.
+const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|capacit|claim)\w*/iu;
 
 /**
  * A 🔴 anchored only on `PR body:L<n>`, on a line inside `## Non implementato`
  * (the section the deterministic contract validates), about a contract rule.
- * Anything else — a line elsewhere in the body, a perf claim, no body text to
- * prove the position — stays blocking.
+ * Anything else — a line elsewhere in the body, a current perf/capacity claim,
+ * no body text to prove the position — stays blocking.
  */
 export function isContractDomainBodyFinding(finding, prBody) {
   const line = prBodyFindingLine(finding);
   if (line === null || typeof prBody !== 'string' || !prBody) return false;
-  if (NON_CONTRACT_BODY_RE.test(String(finding?.text || ''))) return false;
   const lines = prBody.split(/\r?\n/u);
   if (line > lines.length) return false;
+  if (NON_CONTRACT_BODY_RE.test(lines[line - 1] || '')) return false;
   let section = null;
   for (let index = 0; index < line; index += 1) {
     const heading = lines[index].match(/^\s{0,3}#{2,3}\s+(.+?)\s*$/u);
@@ -1911,6 +1911,11 @@ export const SCOPE_EXITS = Object.freeze({
 /** Il 🔴 non nomina nessun file e si ancora al body della PR. */
 export function isBodyAnchoredFinding(finding) {
   return (finding?.citations?.length ?? 0) === 0 && prBodyFindingLine(finding) !== null;
+}
+
+/** Il filtro del contratto e' parte della prova stale, non un post-filtro. */
+function isStaleBodyFinding(finding, prBody) {
+  return isBodyAnchoredFinding(finding) && isContractDomainBodyFinding(finding, prBody);
 }
 
 /**

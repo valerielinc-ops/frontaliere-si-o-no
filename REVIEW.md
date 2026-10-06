@@ -119,12 +119,12 @@ PR body DEVE avere:
 
 ### Una sola fonte di verità sul body
 
-`scripts/lib/pr-body-sections-check.mjs` valida sezioni, stati, `Motivo`,
-`Prossimo passo`, placeholder e `Closes`; bundle: `## Deterministic body contract`.
-Un 🔴 `PR body:L<n>` richiede `Body citation: "<JSON string>"` (≤240, estratto
-del body). Se manca dopo normalizzazione spazi/Markdown →
-`DECLASSIFIED-STALE-BODY`; senza quote resta bloccante. Claim perf senza
-baseline (step 7) resta 🔴; nuove regole vanno nel contratto.
+`scripts/lib/pr-body-sections-check.mjs` valida il body; bundle: `## Deterministic body contract`.
+🔴 `PR body:L<n>` come prefisso della prima riga richiede `Body citation: "<JSON string>"` ≤240.
+Testo assente dopo
+normalizzazione → `DECLASSIFIED-STALE-BODY`; citazione mancante/malformata o
+presente resta 🔴. `NON_CONTRACT_BODY_RE` blocca claim perf/capacità senza
+baseline finché nella riga; se rimosso, stale.
 
 ### Reviewer behavior
 

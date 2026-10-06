@@ -27,7 +27,6 @@ const PR_BODY = [
   '## Non implementato (ancora)', '',
   '- production-deploy — blocked: configurazione owner-only del ruleset',
 ].join('\n');
-const PERF_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L13`: 🔴 Important: claim perf senza baseline pre-merge.\nBody citation: "claim perf senza baseline rimosso"\n';
 const IMPL_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L3`: 🔴 Important: la voce non corrisponde al diff.\n';
 const files = { files: ['scripts/lib/foo.mjs'], complete: true, prBody: PR_BODY };
 
@@ -52,6 +51,22 @@ const CURRENT_BODY_WITHOUT_CITATION = [
   '',
   '- Nessuno.',
 ].join('\n');
+const LOOSE_BODY_FINDING = [
+  '## Findings (Important: 1, Nit: 0)',
+  '',
+  'nota `PR body:L13`: 🔴 Important: il claim non è più presente nel body.',
+  'Body citation: "testo rimosso dal body corrente"',
+].join('\n');
+const PERFORMANCE_BODY = CURRENT_BODY_WITHOUT_CITATION.replace(
+  '- Nessuno.',
+  '- capacità dichiarata senza baseline pre-merge.',
+);
+const PERFORMANCE_STALE_FINDING = [
+  '## Findings (Important: 1, Nit: 0)',
+  '',
+  '`PR body:L13`: 🔴 Important: la capacità dichiarata non ha una baseline.',
+  'Body citation: "vecchia capacità dichiarata"',
+].join('\n');
 
 describe('the deterministic body contract is the single source of truth', () => {
   it('does not declassify a body-anchored 🔴 without textual-citation proof', () => {
@@ -72,7 +87,11 @@ describe('the deterministic body contract is the single source of truth', () => 
   });
 
   it('keeps blocking body findings the contract cannot judge', () => {
-    const perf = classifyReview(PERF_RED, { ...files, bodyContractPassed: true });
+    const perf = classifyReview(PERFORMANCE_STALE_FINDING, {
+      ...files,
+      bodyContractPassed: true,
+      prBody: PERFORMANCE_BODY,
+    });
     expect(perf.blocking).toBe(true);
     expect(perf.staleBodyDeclassified).toHaveLength(0);
     expect(classifyReview(IMPL_RED, { ...files, bodyContractPassed: true }).blocking).toBe(true);
@@ -128,6 +147,32 @@ describe('stale PR-body findings require a current textual citation', () => {
 
     expect(result.blocking).toBe(true);
     expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
+
+  it('requires the PR-body anchor at the start of the finding first line', () => {
+    const result = classifyReview(LOOSE_BODY_FINDING, {
+      ...files,
+      prBody: CURRENT_BODY_WITHOUT_CITATION,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
+
+  it('keeps the contract filter while the performance claim exists, then declassifies its removal', () => {
+    const stillPresent = classifyReview(PERFORMANCE_STALE_FINDING, {
+      ...files,
+      prBody: PERFORMANCE_BODY,
+    });
+    expect(stillPresent.blocking).toBe(true);
+    expect(stillPresent.staleBodyDeclassified).toHaveLength(0);
+
+    const removed = classifyReview(PERFORMANCE_STALE_FINDING, {
+      ...files,
+      prBody: CURRENT_BODY_WITHOUT_CITATION,
+    });
+    expect(removed.blocking).toBe(false);
+    expect(removed.staleBodyDeclassified).toHaveLength(1);
   });
 
   it('normalizes spaces and markdown before deciding that a citation is present', () => {
