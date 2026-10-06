@@ -3203,9 +3203,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stationsleiter-a/cd7d4c2d-cfec-428b-9284-62ed43d98914",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3216,8 +3214,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3227,8 +3224,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "de": [
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
@@ -3251,7 +3247,9 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "ksbl-b348af8f17ef",
