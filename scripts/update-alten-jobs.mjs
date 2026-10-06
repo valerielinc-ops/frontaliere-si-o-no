@@ -38,6 +38,7 @@ import {
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
 import { detectJinaErrorBody, fetchViaJinaWithRetry } from './lib/jina-proxy.mjs';
+import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -250,12 +251,31 @@ function buildAltenListings(html, source = 'browser', { stableSourceSnapshot = s
 
 async function fetchViaAltenEgress(url, label) {
   const timeoutMs = Math.min(Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000, 30000);
-  const response = await fetchViaJinaWithRetry(url, { timeoutMs, format: 'html' });
-  if (!response?.ok) throw new Error(`ALTEN ${label} egress proxy returned HTTP ${response?.status ?? 'unknown'}`);
-  const html = await response.text();
-  const proxyError = detectJinaErrorBody(html);
-  if (proxyError) throw new Error(`ALTEN ${label} egress proxy returned an unusable page (${proxyError})`);
-  return html;
+  let jinaError;
+  try {
+    const response = await fetchViaJinaWithRetry(url, { timeoutMs, format: 'html' });
+    if (!response?.ok) throw new Error(`ALTEN ${label} egress proxy returned HTTP ${response?.status ?? 'unknown'}`);
+    const html = await response.text();
+    const proxyError = detectJinaErrorBody(html);
+    if (proxyError) throw new Error(`ALTEN ${label} egress proxy returned an unusable page (${proxyError})`);
+    return html;
+  } catch (error) {
+    jinaError = error;
+  }
+
+  // ALTEN's WAF blocks the GitHub/Jina egress pool by reputation. The
+  // authenticated relay provides a separate clean egress while preserving
+  // the same raw HTML contract for the existing parser. It is optional for
+  // local runs, but the generated CI launch marks this crawler relay-required
+  // and main() fails closed if its credentials were not delivered.
+  const relayed = await fetchSourceViaRelay(url, { timeoutMs });
+  if (relayed?.status >= 200 && relayed.status < 300) {
+    const proxyError = detectJinaErrorBody(relayed.text);
+    if (!proxyError) return relayed.text;
+    throw new Error(`ALTEN ${label} source relay returned an unusable page (${proxyError})`);
+  }
+  if (relayed) console.warn(`  ⚠️ ALTEN ${label} source relay returned HTTP ${relayed.status}`);
+  throw jinaError;
 }
 
 function assertCompleteAltenSnapshot(jobs = []) {
@@ -538,6 +558,10 @@ function validateLocales(authoritativeEmptySnapshot = false) {
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'ALTEN Switzerland', CRAWL_STATE);
+  // The crawler group marks ALTEN relay-required: a failed Google ID-token
+  // step must fail this crawler loudly instead of losing its only clean-IP
+  // path to the source and reporting a misleading zero-job soft exit.
+  assertSourceRelayReady();
   console.log('═══════════════════════════════════════════════');
   console.log('  ALTEN Switzerland — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

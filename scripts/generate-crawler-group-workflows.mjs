@@ -298,7 +298,7 @@ const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
 const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
-// Private Firebase relay for the two sources that refuse CI egress (FU-015,
+// Private Firebase relay for the three sources that refuse CI egress (FU-015,
 // site 10831; function in functions/src/jobsSourceRelay.js, PR 10631). The
 // owner provisioned Workload Identity Federation on 2026-10-05: pool
 // `github-actions`, provider `github` (repository condition: the corpus and
@@ -309,7 +309,7 @@ const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 // Google-generated `run.app` URL (configuring/custom-audiences). The
 // cloudfunctions.net alias is not documented as an audience, so the relay is
 // both called and targeted through its run.app URL.
-export const SOURCE_RELAY_CRAWLER_SLUGS = Object.freeze(['stadt-chur', 'has-healthcare']);
+export const SOURCE_RELAY_CRAWLER_SLUGS = Object.freeze(['stadt-chur', 'has-healthcare', 'alten']);
 export const SOURCE_RELAY_URL = 'https://jobssourcerelay-cekssc5eoa-oa.a.run.app';
 export const SOURCE_RELAY_WORKLOAD_IDENTITY_PROVIDER =
   'projects/957502085858/locations/global/workloadIdentityPools/github-actions/providers/github';
