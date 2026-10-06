@@ -24,7 +24,8 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
+import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -219,4 +220,5 @@ async function main() {
   logCascadeSummary();
 }
 
+installCodexReserveReport('2d-titles', () => ({ codex: getCodexTierStats(), cascade: getCascadeStats() }));
 main().catch(err => { console.error('❌', err.message); process.exit(1); });
