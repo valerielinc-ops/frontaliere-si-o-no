@@ -21,6 +21,8 @@
  *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
  *     keeps its class, pressed = true — the post may be online;
  *   - login wall, challenge, and a video-only upload field with processing;
+ *   - an Instagram SVG-only create fallback whose hit target is its button;
+ *     and a non-actionable TikTok cookie config beside an unrelated banner;
  *   - one whole runRobot() publish through the persistent profile: the confirm
  *     dispatch happens after the confirmation, never in a dry run.
  */
@@ -40,13 +42,16 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false } = {}) {
   const createMenuMarkup = createMenu ? `
 <div id="menu" hidden>
   <a href="#" id="post-item" role="link"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></a>
   <a href="#"><span>Video in diretta</span><svg aria-label="Video in diretta" role="img"><title>Video in diretta</title></svg></a>
   <a href="#"><span>Inserzione</span><svg aria-label="Inserzione" role="img"><title>Inserzione</title></svg></a>
 </div>` : '';
+  const createMarkup = fallbackCreate
+    ? '<button type="button" id="create" aria-label="Open composer"><svg aria-label="New post" role="img" width="24" height="24"></svg></button>'
+    : '<a href="#" id="create" role="link">Crea</a>';
   const dialogContent = `
   <h2>Crea nuovo post</h2>
   <div id="pick"><form enctype="multipart/form-data"><input id="file" type="file" accept="image/jpeg,image/png,image/heic" multiple style="display:none"></form><button type="button">Seleziona dal computer</button></div>
@@ -61,7 +66,7 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true } = 
   const createAction = createMenu ? "$('menu').hidden = false;" : openDialog;
   const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };` : '';
   return page('Instagram', `
-<nav><a href="#" id="create" role="link">Crea</a><a href="/">Home</a></nav>
+<nav>${createMarkup}<a href="/">Home</a></nav>
 ${createMenuMarkup}
 ${dialogMarkup}`, `
 const $ = (id) => document.getElementById(id);
@@ -89,6 +94,8 @@ function tiktokPage({
   captchaAfterPost = false,
   afterPost = 'redirect',
   cookieBanner = false,
+  cookieConfig = false,
+  unrelatedBanner = false,
   contentChecks = false,
   guidedTour = false,
   unknownOverlay = false,
@@ -125,7 +132,9 @@ function tiktokPage({
     <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
-  ${cookieBanner ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script><tiktok-cookie-banner id="cookie-banner"></tiktok-cookie-banner>' : ''}
+  ${(cookieBanner || cookieConfig) ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script>' : ''}
+  ${cookieBanner ? '<tiktok-cookie-banner id="cookie-banner"></tiktok-cookie-banner>' : ''}
+  ${unrelatedBanner ? '<div id="unrelated-banner" role="banner">Account navigation</div>' : ''}
   ${contentChecks ? '<div id="content-checks" role="dialog" hidden style="position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Attivare i controlli automatici dei contenuti?</h2><p>Esamineremo automaticamente il tuo video per escludere problemi con il copyright e altre possibili violazioni.</p><label><input type="checkbox" checked>Controllo a campione dei contenuti</label><button id="content-cancel">Annulla</button><button id="content-activate">Attiva</button><button id="content-close" aria-label="Close">×</button></div>' : ''}
   ${guidedTour ? '<div id="react-joyride-portal" hidden><div class="react-joyride__overlay" data-test-id="overlay" role="presentation" style="position:fixed;inset:0;z-index:1001;pointer-events:auto;background:rgba(0,0,0,.5)"></div><div class="react-joyride__tooltip" role="alertdialog" aria-modal="true" style="position:fixed;left:50%;bottom:125px;z-index:1002;width:280px;transform:translateX(-50%);background:white;color:#111;padding:20px"><h2>Nuove funzionalità di editing aggiunte</h2><p>Ora è più facile che mai creare video professionali e coinvolgenti.</p><button id="tour-action">Ok</button></div></div>' : ''}
   ${unknownOverlay ? '<div id="unknown-overlay" hidden style="position:fixed;inset:0;z-index:1100;pointer-events:auto;background:rgba(120,0,0,.25)"><h2>Conferma il tuo account creator</h2><button id="unknown-continue">Continua</button></div>' : ''}
@@ -204,6 +213,7 @@ function fakePlatforms() {
     switch (url.pathname) {
       case '/ig/': return send(200, instagramPage());
       case '/ig-direct/': return send(200, instagramPage({ createMenu: false }));
+      case '/ig-svg-fallback/': return send(200, instagramPage({ createMenu: false, fallbackCreate: true }));
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
       case '/challenge/': return send(200, page('Instagram', '<h1>Help us confirm it\'s you</h1>'));
@@ -215,6 +225,7 @@ function fakePlatforms() {
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
+      case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
       case '/tt-interstitials/tiktokstudio/upload': return send(200, tiktokPage({ cookieBanner: true, contentChecks: true, guidedTour: true }));
       case '/tt-unknown/tiktokstudio/upload': return send(200, tiktokPage({ unknownOverlay: true }));
       case '/tiktokstudio/content': return send(200, page('Manage posts', '<h1>Manage your posts</h1>'));
@@ -272,6 +283,9 @@ async function main() {
     r = await run('instagram', `${base}/ig-direct/`, { dryRun: true, label: 'ig-direct-dry' });
     check(r.result?.status === 'dry-run', `legacy direct dialog remains supported (${r.error?.message || 'ok'})`);
 
+    r = await run('instagram', `${base}/ig-svg-fallback/`, { dryRun: true, label: 'ig-svg-fallback' });
+    check(r.result?.status === 'dry-run', `an SVG-only create fallback clicks through its button parent (${r.error?.message || 'ok'})`);
+
     r = await run('instagram', `${base}/ig/`, { dryRun: false, label: 'ig-publish' });
     check(r.result?.status === 'published' && /condiviso/i.test(r.result.evidence), `publish returns only with the confirmation (${r.result?.evidence || r.error?.message})`);
     check(state.igShares.length === 1 && state.igShares[0].files === files.length, 'one share with every slide');
@@ -295,6 +309,9 @@ async function main() {
     check(r.result?.status === 'dry-run', `dry run waits for the Post button to enable and stops (${r.error?.message || 'ok'})`);
     check(existsSync(path.join(r.dir, 'ready-to-publish.png')), 'dry run leaves a screenshot of the ready post');
     check(state.ttPosts.length === 0, 'dry run posts nothing');
+
+    r = await run('tiktok', `${base}/tt-cookie-config-no-action/tiktokstudio/upload`, { dryRun: true, label: 'tt-cookie-config-no-action' });
+    check(r.result?.status === 'dry-run', `a non-actionable cookie config does not block upload (${r.error?.message || 'ok'})`);
 
     r = await run('tiktok', `${base}/tiktokstudio/upload`, { dryRun: false, label: 'tt-publish' });
     check(r.result?.status === 'published', `publish returns with the redirect to the content page (${r.result?.evidence || r.error?.message})`);

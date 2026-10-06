@@ -198,7 +198,11 @@ async function ensureClickable(page, locator, { step, snap, label }) {
       const top = document.elementFromPoint(coordinates.x, coordinates.y);
       const root = node.getRootNode();
       const shadowHost = root && root.host ? root.host : null;
-      const isTarget = top === node || Boolean(top && node.contains(top)) || top === shadowHost;
+      const clickableAncestor = node.closest?.('button, a, [role="button"], [role="link"]');
+      const isTarget = top === node
+        || Boolean(top && node.contains(top))
+        || top === shadowHost
+        || top === clickableAncestor;
       if (isTarget) return { ok: true };
       if (!top) return { ok: false, obstacle: 'no element at its center' };
       const text = String(top.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 120);
@@ -486,6 +490,7 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
         root.locator('button').filter({ hasText: entry.name }),
         root.getByRole('button', { name: entry.name }),
       ], { timeout: 0 });
+      if (!action) continue;
       return { root, action };
     }
     return null;
