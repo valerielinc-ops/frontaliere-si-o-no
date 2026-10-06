@@ -117,6 +117,31 @@ function git(dir, args, extraEnv = {}) {
 const CRED_HELPER =
   '!f() { test "$1" = get && printf "username=x-access-token\\npassword=%s\\n" "$SHARD_PUSH_TOKEN"; }; f';
 
+const PAT_PUSH_MAX_ATTEMPTS = 3;
+const PAT_PUSH_RETRY_DELAY_SECONDS = (() => {
+  const raw = process.env.SHARD_PAT_RETRY_DELAY ?? process.env.SHARD_PUSH_RETRY_DELAY;
+  if (raw === undefined || raw === '') return 5;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : 5;
+})();
+
+function pushFailureOutput(error) {
+  return [error?.stderr, error?.stdout, error?.message]
+    .map((part) => (Buffer.isBuffer(part) ? part.toString('utf8') : String(part ?? '')))
+    .join('\n');
+}
+
+function isTransientPushFailure(error) {
+  const output = pushFailureOutput(error);
+  return /closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet/iu.test(output)
+    || /remote:\s*(internal server error|service unavailable|bad gateway|gateway timeout)|returned error:\s*(429|5\d\d)/iu.test(output);
+}
+
+function sleepSync(seconds) {
+  if (seconds <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
+}
+
 /**
  * Force-push `main` to the CDN repo. The deploy key is a single point of
  * failure — read-only, revoked or (for shard repos) a secret shadowed by the
@@ -140,21 +165,33 @@ function pushCdnMain(repoDir, sshEnv) {
     const httpsUrl = CDN_REPO_SSH.replace(/^git@github\.com:/, 'https://github.com/');
     console.log(`::add-mask::${token}`);
     console.warn('[janitor] deploy-key push refused — retrying over HTTPS with a PAT');
-    try {
-      execFileSync('git', [
-        '-C', repoDir,
-        '-c', 'credential.helper=',
-        '-c', `credential.helper=${CRED_HELPER}`,
-        'push', '-f', httpsUrl, 'main',
-      ], {
-        env: { ...process.env, SHARD_PUSH_TOKEN: token },
-        stdio: ['ignore', 'pipe', 'pipe'],
-      });
-      console.warn(
-        '[janitor] ⚠️  pushed via the PAT fallback — CDN_DEPLOY_KEY is broken (read-only or revoked). Fix the key.',
-      );
-    } catch {
-      throw err;
+    let delay = PAT_PUSH_RETRY_DELAY_SECONDS;
+    for (let attempt = 1; attempt <= PAT_PUSH_MAX_ATTEMPTS; attempt += 1) {
+      try {
+        execFileSync('git', [
+          '-C', repoDir,
+          '-c', 'credential.helper=',
+          '-c', `credential.helper=${CRED_HELPER}`,
+          'push', '-f', httpsUrl, 'main',
+        ], {
+          env: { ...process.env, SHARD_PUSH_TOKEN: token },
+          stdio: ['ignore', 'pipe', 'pipe'],
+        });
+        console.warn(
+          '[janitor] ⚠️  pushed via the PAT fallback — CDN_DEPLOY_KEY is broken (read-only or revoked). Fix the key.',
+        );
+        return;
+      } catch (fallbackError) {
+        if (attempt < PAT_PUSH_MAX_ATTEMPTS && isTransientPushFailure(fallbackError)) {
+          console.warn(
+            `[janitor] PAT push attempt ${attempt}/${PAT_PUSH_MAX_ATTEMPTS} failed with a transient remote/transport error — retrying in ${delay}s`,
+          );
+          sleepSync(delay);
+          delay *= 2;
+          continue;
+        }
+        throw err;
+      }
     }
   }
 }

@@ -137,6 +137,17 @@ describe('scripts/lib/shard-git-helpers.sh — shape', () => {
   });
 });
 
+describe('scripts/ci/prune-cdn-assets.mjs — PAT fallback shape', () => {
+  const script = read('scripts/ci/prune-cdn-assets.mjs');
+
+  it('retries only bounded transient PAT failures and preserves the original failure otherwise', () => {
+    expect(script).toMatch(/const PAT_PUSH_MAX_ATTEMPTS = 3/);
+    expect(script).toMatch(/attempt < PAT_PUSH_MAX_ATTEMPTS && isTransientPushFailure\(fallbackError\)/);
+    expect(script).toMatch(/function isTransientPushFailure\(error\)/);
+    expect(script).toMatch(/throw err;/);
+  });
+});
+
 describe('SSH deploy paths — transport keepalive', () => {
   for (const path of SSH_TRANSPORT_SCRIPTS) {
     it(`${path} keeps long-running SSH operations alive`, () => {

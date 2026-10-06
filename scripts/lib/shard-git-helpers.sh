@@ -1058,6 +1058,24 @@ shard_push_error_is_auth() {
   grep -qEi 'denied to (deploy key|user)|permission denied \(publickey\)|permission to .+ denied|repository not found|403 forbidden' "$1"
 }
 
+# shard_push_error_is_transport <logfile>
+# True when a push was interrupted by the network/remote transport rather than
+# rejected by the credential. Keep this in one helper because both the SSH
+# retry path and the PAT fallback need the same conservative classification.
+shard_push_error_is_transport() {
+  grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet' "$1"
+}
+
+# shard_push_error_is_transient <logfile>
+# True only for failures where repeating the same idempotent push can recover:
+# transport interruptions and GitHub's transient HTTP 429/5xx responses. An
+# unclassified or authorization failure stays fail-closed instead of consuming
+# the retry budget on a credential that cannot succeed.
+shard_push_error_is_transient() {
+  shard_push_error_is_transport "$1" \
+    || grep -qEi 'remote: (internal server error|service unavailable|bad gateway|gateway timeout)|returned error: (429|5[0-9][0-9])' "$1"
+}
+
 # shard_push_failure_reason <logfile>
 # Classifies the last SSH push failure for the PAT fallback's warning. Keep
 # this deliberately narrower than shard_push_error_is_auth: a generic git
@@ -1067,7 +1085,7 @@ shard_push_failure_reason() {
   local logfile="$1"
   if shard_push_error_is_auth "$logfile"; then
     printf '%s' 'deploy-key authentication/authorization failure'
-  elif grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet' "$logfile"; then
+  elif shard_push_error_is_transport "$logfile"; then
     printf '%s' 'transient SSH transport failure'
   else
     printf '%s' 'unclassified SSH push failure'
@@ -1098,7 +1116,7 @@ shard_pat_push() {
   # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
   # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
-  local url out rc force_flag=''
+  local url out rc force_flag='' pat_delay="${SHARD_PAT_RETRY_DELAY:-${SHARD_PUSH_RETRY_DELAY:-5}}" pat_try
   if [ "$force" = 1 ]; then force_flag='-f'; fi
   SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
   if [ -z "$SHARD_PUSH_TOKEN" ]; then
@@ -1114,34 +1132,47 @@ shard_pat_push() {
   echo "::add-mask::$SHARD_PUSH_TOKEN"
   export SHARD_PUSH_TOKEN
   echo "$label: retrying over HTTPS with a PAT after $reason"
-  out="$(mktemp)"
-  # stderr (where git writes the whole push transcript) is captured for
-  # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
-  # function does not change which stream a caller reads the transcript from.
-  # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
-  # runs under `set -e` whenever the caller chain is bare.
-  rc=0
-  # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
-  git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
-    push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
-  sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
-  rm -f "$out"
+  for pat_try in 1 2 3; do
+    out="$(mktemp)"
+    # stderr (where git writes the whole push transcript) is captured for
+    # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
+    # function does not change which stream a caller reads the transcript from.
+    # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
+    # runs under `set -e` whenever the caller chain is bare.
+    rc=0
+    # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
+    git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+      push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
+    sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
+    if [ "$rc" -eq 0 ]; then
+      rm -f "$out"
+      unset SHARD_PUSH_TOKEN
+      case "$reason" in
+        deploy-key*)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — fix or rotate the deploy key; the fallback is a safety net, not the intended path."
+          ;;
+        transient*)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — the deploy key is not classified as broken; investigate recurring transport failures."
+          ;;
+        *)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — inspect the SSH failure above; the deploy key is not automatically classified as broken."
+          ;;
+      esac
+      return 0
+    fi
+    if [ "$pat_try" -lt 3 ] && shard_push_error_is_transient "$out"; then
+      echo "::warning::$label PAT push attempt $pat_try/3 failed with a transient remote/transport error — retrying in ${pat_delay}s"
+      rm -f "$out"
+      sleep "$pat_delay"
+      pat_delay=$(( pat_delay * 2 ))
+      continue
+    fi
+    rm -f "$out"
+    unset SHARD_PUSH_TOKEN
+    echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
+    return 1
+  done
   unset SHARD_PUSH_TOKEN
-  if [ "$rc" -eq 0 ]; then
-    case "$reason" in
-      deploy-key*)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — fix or rotate the deploy key; the fallback is a safety net, not the intended path."
-        ;;
-      transient*)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — the deploy key is not classified as broken; investigate recurring transport failures."
-        ;;
-      *)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — inspect the SSH failure above; the deploy key is not automatically classified as broken."
-        ;;
-    esac
-    return 0
-  fi
-  echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
   return 1
 }
 
