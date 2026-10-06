@@ -92,7 +92,7 @@ const AJAX_URL =
   'https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true';
 const BASE_URL = 'https://www.ail.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const AIL_EMPTY_SOURCE_RE = /al momento\s+non ci sono\s+posizioni\s+aperte/i;
+const AIL_EMPTY_SOURCE_RE = /^al momento\s+non ci sono\s+posizioni\s+aperte[.!]?$/i;
 const SUMMARY_COUNTS = {
   discovered: null,
   parsed: null,
@@ -332,8 +332,13 @@ export function parseListingPage(html) {
  */
 export function classifyAilListingHtml(html = '') {
   const listings = parseListingPage(html);
-  const visibleText = decodeHtmlEntities(html).replace(/<[^>]*>/g, ' ');
-  const authoritativeEmptySnapshot = listings.length === 0 && AIL_EMPTY_SOURCE_RE.test(visibleText);
+  const emptyStateBlocks = html.matchAll(
+    /<div\b[^>]*\bclass\s*=\s*["'][^"']*\binner-title\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi,
+  );
+  const authoritativeEmptySnapshot = listings.length === 0 && [...emptyStateBlocks].some(([, content]) => {
+    const visibleText = normalizeSpace(decodeHtmlEntities(content).replace(/<[^>]*>/g, ' '));
+    return AIL_EMPTY_SOURCE_RE.test(visibleText);
+  });
   return {
     listings,
     authoritativeEmptySnapshot,

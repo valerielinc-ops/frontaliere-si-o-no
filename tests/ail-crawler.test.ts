@@ -188,6 +188,15 @@ describe('AIL crawler listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(false);
   });
 
+  it('requires the official empty marker context, not just matching words', () => {
+    const result = classifyAilListingHtml(
+      '<script>const message = "Al momento non ci sono posizioni aperte";</script>',
+    );
+
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
   it('recognises a job article as a successful non-empty response', () => {
     const html = [
       '<article class="job-position">',
