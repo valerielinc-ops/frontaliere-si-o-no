@@ -1,4 +1,37 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+const { confirmationCopyConfigRead, cascade } = vi.hoisted(() => ({
+  confirmationCopyConfigRead: vi.fn(async () => {
+    throw new Error('Remote Config unavailable');
+  }),
+  cascade: { sent: [] as any[] },
+}));
+
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+  },
+}));
+
+vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({
+  getAdminDb: () => { throw new Error('injected database required'); },
+}));
+
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
+  bridgeEmailCascadeCredentialsToEnv: async () => {},
+  getNewsletterTokenPolicyConfig: async () => ({}),
+  getNewsletterConfirmationCopyConfig: (...args: unknown[]) => confirmationCopyConfigRead(...args),
+}));
+
+vi.mock('../functions/src/emailCascade.js', () => ({
+  sendEmailCascade: async (items: any[]) => {
+    cascade.sent.push(...items);
+    return { sent: items.map((item, index) => ({ ...item, messageId: `copy-ab-${index}` })), failed: [] };
+  },
+  PROVIDERS: [{ id: 'fake' }],
+  isProviderConfigured: () => true,
+}));
+
 import {
   assignConfirmationCopyVariant,
   buildConfirmationCopyCampaignId,
@@ -19,6 +52,7 @@ import {
   findIdentifierLeaks,
 } from '../scripts/report-confirmation-copy-experiment.mjs';
 import { campaignIdFromTags, makeMailerooRefOnSent } from '../functions/src/lib/mailerooRef.js';
+import { sendNewsletterConfirmationEmail } from '../functions/src/newsletterConfirmationEmail.js';
 
 const JOB = {
   source: 'job_gate:Acme SA:Developer',
@@ -52,6 +86,51 @@ describe('confirmation copy assignment', () => {
       pseudonymousConfirmationSubscriberId('person@example.com'),
     );
     expect(pseudonymousConfirmationSubscriberId('person@example.com')).not.toContain('@');
+  });
+
+  it('keeps contextual copy and still sends when Remote Config cannot be read', async () => {
+    cascade.sent.length = 0;
+    confirmationCopyConfigRead.mockClear();
+    const recent = new Date(Date.now() - 30 * 60 * 1000).toISOString();
+    const data = {
+      ...JOB,
+      email: 'rc-failure@example.com',
+      status: 'pending',
+      isActive: false,
+      created_at: recent,
+      confirmation_cycle_started_at: recent,
+    };
+    const subscriberRef: any = {
+      get: async () => ({ exists: true, data: () => data }),
+      collection: () => ({ doc: () => ({}) }),
+    };
+    const db: any = {
+      collection: () => ({ doc: () => subscriberRef }),
+      runTransaction: async (fn: (tx: any) => Promise<unknown>) => fn({
+        get: async () => ({ exists: true, data: () => data }),
+        update: () => {},
+        set: () => {},
+      }),
+    };
+
+    const result = await sendNewsletterConfirmationEmail({
+      email: data.email,
+      locale: 'it',
+      sourcePath: '/it/offerte/',
+      secret: 'test-secret',
+      db,
+      purpose: 'confirm',
+    });
+
+    expect(confirmationCopyConfigRead).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ success: true, messageId: 'copy-ab-0' });
+    expect(result).not.toHaveProperty('error');
+    expect(cascade.sent).toHaveLength(1);
+    const { payload } = cascade.sent[0];
+    expect(payload.subject).toContain('Developer');
+    expect(payload.html).toContain('Acme SA');
+    expect(payload.tags).toContainEqual({ name: 'campaign_id', value: 'confirmation' });
+    expect(payload.tags).not.toContainEqual(expect.objectContaining({ name: 'copy_variant' }));
   });
 });
 

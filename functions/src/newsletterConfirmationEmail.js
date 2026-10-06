@@ -37,7 +37,7 @@ import {
   confirmationConfirmUrl,
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
-import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
+import { makeDeliveryRefOnSent as makeMailerooRefOnSent } from './lib/deliveryReference.js';
 import {
   confirmationJobContextForSend,
   resolveConfirmationJobContext,
@@ -262,7 +262,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // Remote Config failure is fail-safe (current contextual copy), while a
  // stored snapshot remains authoritative for requests #2/#3.
  let copyConfig = CONFIRMATION_COPY_DEFAULTS;
- if (isCycleSend && typeof getNewsletterConfirmationCopyConfig === 'function') {
+ if (isCycleSend) {
    try {
      copyConfig = readConfirmationCopyConfig(await getNewsletterConfirmationCopyConfig());
    } catch (copyErr) {

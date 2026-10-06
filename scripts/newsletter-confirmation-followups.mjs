@@ -100,7 +100,7 @@ import {
   resolveConfirmationJobContext,
   sanitizeConfirmationReturnPath,
 } from '../functions/src/lib/confirmationJobContext.js';
-import { makeMailerooRefOnSent } from '../functions/src/lib/mailerooRef.js';
+import { makeDeliveryRefOnSent } from '../functions/src/lib/deliveryReference.js';
 import { getRemoteConfigValue } from '../functions/src/remoteConfigSecrets.js';
 import {
   assignConfirmationCopyVariant,
@@ -334,11 +334,11 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
   const items = due.map((it) => buildFollowupRequest(it, { secret, tokenPolicy, copyConfig }));
   // This runner imports the base cascade directly because a confirmation has
   // no unsubscribe link and is not a mass-email channel. It still needs the
-  // same Maileroo lookup as the Cloud Function sender: without the campaign
-  // id persisted beside the provider reference, Maileroo's open/click
-  // webhook cannot attribute a follow-up to its frozen copy arm.
+  // same delivery-reference hook as the Cloud Function sender: without the
+  // campaign id persisted beside the provider message reference, engagement
+  // events cannot attribute a follow-up to its frozen copy arm.
   const { sent, failed } = await sendEmailCascade(items, {
-    onSent: makeMailerooRefOnSent(async () => db, {
+    onSent: makeDeliveryRefOnSent(async () => db, {
       defaultCampaignId: 'confirmation',
       isJobAlert: false,
     }),
