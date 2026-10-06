@@ -1,4 +1,5 @@
-// Network fetchers for the foreign side of `data/fuel-prices-cantons.json`.
+// Network fetchers for the Swiss baseline and foreign overlays of
+// `data/fuel-prices-cantons.json`.
 // Each fetcher is failure-isolated: it returns `{ status, reason?, data }`
 // instead of throwing, so one foreign source being down degrades the dataset
 // (and is published as such in `sources`) instead of losing all of it. The
@@ -10,10 +11,14 @@
 //   is the distribution endpoint the Ministry documents for reuse (Licence
 //   Ouverte). `data.economie.gouv.fr/robots.txt` disallows `/api/` for `*`,
 //   so its Opendatasoft API copy of the same dataset is NOT used.
+// - CH: the BFS/UST LIK monthly workbook is OPEN-BY with mandatory attribution;
+//   the stable DAM asset URL is used directly, not a web page scrape.
 // - AT: the public E-Control Spritpreisrechner API; no robots.txt on
-//   api.e-control.at.
-// - DE: Tankerkönig (MTS-K data, CC BY 4.0) requires a personal API key; the
-//   source is skipped when `TANKERKOENIG_API_KEY` is not set.
+//   api.e-control.at (the API is publicly documented, but no separate open-data
+//   licence was found; keep the provider attribution in the output).
+// - DE: Tankerkönig/MTS-K has CC BY data but requires a manually approved
+//   personal API key and its redistribution terms are not suitable for this
+//   public cache; the optional adapter is skipped without that key.
 // One plain request per source per day (the daily run of
 // update-fuel-prices.yml), honest User-Agent, no header spoofing.
 
@@ -24,13 +29,16 @@ import {
   DE_POINTS_BY_CANTON,
   DE_SEARCH_RADIUS_KM,
   FR_DEPARTMENTS_BY_CANTON,
+  MAX_NATIONAL_PRICE_AGE_DAYS,
   extractSingleZipEntry,
+  parseBfsFuelXlsx,
   parseEControStations,
   parseFrenchInstantXml,
   parseTankerkoenigStations,
 } from './fuel-cantons-dataset.mjs';
 
 export const FR_INSTANT_FEED_URL = 'https://donnees.roulez-eco.fr/opendata/instantane';
+export const BFS_FUEL_PRICES_URL = 'https://dam-api.bfs.admin.ch/hub/api/dam/assets/orderNr:su-d-05.02.91/master';
 export const AT_ECONTROL_BY_REGION_URL = 'https://api.e-control.at/sprit/1.0/search/gas-stations/by-region';
 export const DE_TANKERKOENIG_LIST_URL = 'https://creativecommons.tankerkoenig.de/json/list.php';
 const USER_AGENT = 'FrontaliereTicino/1.0 (+https://frontaliereticino.ch/)';
@@ -73,6 +81,33 @@ export async function fetchFrenchStations({ fetchImpl, retries } = {}) {
   }
 }
 
+export async function fetchSwissNationalFuelPrices({ fetchImpl, retries, now = new Date() } = {}) {
+  try {
+    const workbook = await fetchWithRetry(BFS_FUEL_PRICES_URL, { as: 'buffer', fetchImpl, retries });
+    const prices = parseBfsFuelXlsx(workbook, inflateRawSync);
+    if (!prices.sp95 || !prices.diesel) {
+      return { status: 'failed', reason: 'BFS LIK workbook is missing SP95 or diesel', data: {} };
+    }
+    const observedMonths = [prices.sp95.observedAt, prices.diesel.observedAt].sort();
+    const newestObservedMs = Date.parse(observedMonths[observedMonths.length - 1] || '');
+    if (!Number.isFinite(newestObservedMs)
+      || now.getTime() - newestObservedMs > MAX_NATIONAL_PRICE_AGE_DAYS * 86_400_000) {
+      return {
+        status: 'failed',
+        reason: `BFS LIK latest month is older than ${MAX_NATIONAL_PRICE_AGE_DAYS} days`,
+        data: {},
+      };
+    }
+    return {
+      status: 'ok',
+      observedMonth: observedMonths[observedMonths.length - 1]?.slice(0, 7) || null,
+      data: prices,
+    };
+  } catch (err) {
+    return { status: 'failed', reason: String(err?.message || err), data: {} };
+  }
+}
+
 export async function fetchAustrianStations({ fetchImpl, retries } = {}) {
   const regions = [...new Set(Object.values(AT_REGIONS_BY_CANTON).flat())];
   const fuelTypes = { sp95: 'SUP', diesel: 'DIE' };
@@ -101,7 +136,11 @@ export async function fetchAustrianStations({ fetchImpl, retries } = {}) {
 
 export async function fetchGermanStations({ apiKey = process.env.TANKERKOENIG_API_KEY, fetchImpl, retries } = {}) {
   if (!apiKey) {
-    return { status: 'skipped', reason: 'TANKERKOENIG_API_KEY not configured (Remote Config)', data: {} };
+    return {
+      status: 'skipped',
+      reason: 'blocked: manual registration at https://onboarding.tankerkoenig.de/ is required; Remote Config parameter TANKERKOENIG_API_KEY is intentionally unset',
+      data: {},
+    };
   }
   const byCanton = {};
   const failures = [];
