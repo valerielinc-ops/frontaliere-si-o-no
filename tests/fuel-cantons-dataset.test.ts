@@ -329,6 +329,31 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     });
     expect(stale).toMatchObject({ status: 'failed' });
     expect(stale.reason).toMatch(/older than/);
+
+    const splitFreshnessSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46244</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitFreshness = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-01T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitFreshnessSheet)), true)) as any,
+    });
+    expect(splitFreshness).toMatchObject({ status: 'ok' });
+
+    const splitStaleSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46204</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitStale = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-06T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitStaleSheet)), true)) as any,
+    });
+    expect(splitStale).toMatchObject({ status: 'failed', data: {} });
+    expect(splitStale.reason).toMatch(/diesel/);
   });
 });
 

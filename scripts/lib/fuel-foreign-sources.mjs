@@ -88,19 +88,25 @@ export async function fetchSwissNationalFuelPrices({ fetchImpl, retries, now = n
     if (!prices.sp95 || !prices.diesel) {
       return { status: 'failed', reason: 'BFS LIK workbook is missing SP95 or diesel', data: {} };
     }
-    const observedMonths = [prices.sp95.observedAt, prices.diesel.observedAt].sort();
-    const newestObservedMs = Date.parse(observedMonths[observedMonths.length - 1] || '');
-    if (!Number.isFinite(newestObservedMs)
-      || now.getTime() - newestObservedMs > MAX_NATIONAL_PRICE_AGE_DAYS * 86_400_000) {
+    const observedMonths = Object.entries(prices)
+      .map(([fuel, observation]) => ({ fuel, observedAt: observation.observedAt }))
+      .sort((a, b) => a.observedAt.localeCompare(b.observedAt));
+    const staleFuel = observedMonths.find(({ observedAt }) => {
+      const observedMs = Date.parse(observedAt || '');
+      return !Number.isFinite(observedMs)
+        || now.getTime() - observedMs > MAX_NATIONAL_PRICE_AGE_DAYS * 86_400_000
+        || observedMs > now.getTime() + 3_600_000;
+    });
+    if (staleFuel) {
       return {
         status: 'failed',
-        reason: `BFS LIK latest month is older than ${MAX_NATIONAL_PRICE_AGE_DAYS} days`,
+        reason: `BFS LIK ${staleFuel.fuel} month is older than ${MAX_NATIONAL_PRICE_AGE_DAYS} days or is invalid`,
         data: {},
       };
     }
     return {
       status: 'ok',
-      observedMonth: observedMonths[observedMonths.length - 1]?.slice(0, 7) || null,
+      observedMonth: observedMonths[observedMonths.length - 1]?.observedAt?.slice(0, 7) || null,
       data: prices,
     };
   } catch (err) {
