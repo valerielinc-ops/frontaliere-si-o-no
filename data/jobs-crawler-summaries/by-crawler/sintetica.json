@@ -1,18 +1,63 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-06T09:09:57.332Z",
-  "total": 8,
-  "newCount": 0,
-  "updatedCount": 2,
+  "generatedAt": "2026-10-06T21:10:27.398Z",
+  "total": 9,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 10293,
-  "avgDurationMs": 10293,
+  "unchangedCount": 7,
+  "durationMs": 9578,
+  "avgDurationMs": 9578,
   "durationHistory": [
-    10293
+    9578
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
+      "title": "Local Regulatory Affairs Manager (Area US) - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-sintetica",
+      "category": "pharma",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-06T21:10:11.330Z",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "id": "sintetica-68c6c1916cca",
+      "salaryMin": 101500,
+      "salaryMax": 169000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-06T21:10:11.330Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
@@ -33,7 +78,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:38.637Z",
+      "crawledAt": "2026-10-06T21:10:11.358Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -56,7 +101,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -76,7 +124,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:38.558Z",
+      "crawledAt": "2026-10-06T21:10:10.492Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -99,10 +147,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
@@ -122,7 +167,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:38.521Z",
+      "crawledAt": "2026-10-06T21:10:10.459Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -165,7 +210,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:37.202Z",
+      "crawledAt": "2026-10-06T21:10:09.666Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -208,7 +253,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:36.304Z",
+      "crawledAt": "2026-10-06T21:10:08.875Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -251,7 +296,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:35.300Z",
+      "crawledAt": "2026-10-06T21:10:07.982Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -294,7 +339,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:34.443Z",
+      "crawledAt": "2026-10-06T21:10:07.127Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -337,7 +382,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:09:33.528Z",
+      "crawledAt": "2026-10-06T21:10:06.228Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -362,5 +407,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }
