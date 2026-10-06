@@ -1,35 +1,67 @@
 /**
- * Editorial profile registry.
+ * Author registry — Google News E-E-A-T compliance (FASE 1, A1).
  *
- * The four stable signatures are newsroom profiles, not biographies of
- * identifiable people. The registry intentionally contains only the public
- * editorial identity needed by bylines, profile pages and topic assignment;
- * it has no contact, social, CV, authentication or employment history fields.
+ * The registry distinguishes editorial signatures from real authors. Editorial
+ * profiles describe the newsroom's coverage without personal identity fields;
+ * real authors may carry the public identity and attribution fields needed for
+ * a Person entity and uid-based bylines.
  */
 
-export interface Author {
+export type AuthorKind = 'editorial-profile' | 'real-author';
+
+export interface AuthorBase {
   /** Stable kebab-case slug used in URLs (`/autori/{slug}/`). */
   slug: string;
-  /** Display name of the editorial signature. */
+  /** Display name of the signature or author. */
   name: string;
-  /** Short editorial area shown under the signature. */
+  /** Short role descriptor shown under the name. */
   role: string;
-  /** Italian editorial description, plain text and without personal claims. */
+  /** Italian biography or editorial description, plain text and without HTML. */
   bio: string;
-  /** Generated illustrated avatar under /public. */
+  /** Public path under /public. */
   photoPath: string;
   /** Topical keywords used by {@link pickAuthorForTopic}. */
   expertise: string[];
 }
 
-/**
- * Frozen registry of editorial profiles. Order matters: {@link
- * pickAuthorForTopic} walks the array in declared order before falling back to
- * round-robin, so the most specialised profile for a topic should be listed
- * first.
- */
+/** Public social identity fields used by real authors' structured data. */
+export interface AuthorSocial {
+  /** Public LinkedIn profile URL. */
+  linkedin?: string;
+  twitter?: string;
+  mastodon?: string;
+  /** Wikidata QID (e.g. `Q12345`). */
+  wikidataId?: string;
+}
+
+/** A newsroom signature with no personal identity or attribution fields. */
+export interface EditorialProfile extends AuthorBase {
+  kind: 'editorial-profile';
+  /** Organization LinkedIn URL; currently used by the Redazione team only. */
+  linkedin?: string;
+}
+
+/** A real author whose public identity may be represented as a schema.org Person. */
+export interface RealAuthor extends AuthorBase {
+  kind: 'real-author';
+  /** Optional public contact email. */
+  email?: string;
+  /** Firebase Auth uid used for trusted byline attribution. */
+  uid: string;
+  /** Optional downloadable CV. */
+  cvPath?: string;
+  /** Social fields, including the author's public LinkedIn URL. */
+  social: AuthorSocial;
+  /** ISO 8601 join date. */
+  joinedAt: string;
+}
+
+export type Author = EditorialProfile | RealAuthor;
+
+/** Frozen registry of editorial profiles and real authors. */
 export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
   {
+    kind: 'editorial-profile',
     slug: 'marco-ferrari',
     name: 'Marco Ferrari',
     role: 'Profilo editoriale — fiscalità frontaliera',
@@ -44,6 +76,7 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
     ],
   },
   {
+    kind: 'editorial-profile',
     slug: 'laura-bianchi',
     name: 'Laura Bianchi',
     role: 'Profilo editoriale — previdenza svizzera',
@@ -58,11 +91,13 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
     ],
   },
   {
+    kind: 'editorial-profile',
     slug: 'redazione',
     name: 'Redazione Frontaliere Ticino',
     role: 'Profilo editoriale — attualità ticinese',
     bio: 'Questo profilo editoriale copre i temi quotidiani dei lavoratori frontalieri italiani in Canton Ticino: mercato del lavoro, salari per settore, contratti collettivi svizzeri, mobilità transfrontaliera e dogana ai principali valichi. La redazione verifica i comunicati di SECO, USTAT, Cantone Ticino, Comuni di confine, INPS e Agenzia delle Entrate, confrontando le fonti giornalistiche regionali con le statistiche ufficiali e coordinando i contenuti che non rientrano negli altri ambiti editoriali.',
     photoPath: '/images/authors/redazione.webp',
+    linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
     expertise: [
       'lavoro frontaliere',
       'salari',
@@ -71,11 +106,17 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
     ],
   },
   {
+    kind: 'real-author',
     slug: 'samuele-valente',
     name: 'Samuele Valente',
-    role: 'Profilo editoriale — fiscalità transfrontaliera',
-    bio: 'Questo profilo editoriale raccoglie analisi sulla fiscalità internazionale e transfrontaliera tra Italia e Svizzera. I contenuti seguono la prassi dell’Agenzia delle Entrate e l’accordo Italia-Svizzera sui lavoratori frontalieri, con approfondimenti su risposte a interpello, requisiti dell’area di frontiera, residenza fiscale e meccanismi di imposizione concorrente per il Canton Ticino e le regioni italiane di confine.',
+    uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
+    role: 'Autore ospite — fiscalità transfrontaliera',
+    bio: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera. Collabora con Frontaliere Ticino come autore ospite, proponendo analisi e commenti sulla prassi dell'Agenzia delle Entrate e sull'applicazione del nuovo Accordo tra Italia e Svizzera sui lavoratori frontalieri, entrato in vigore dal 1° gennaio 2024. Nei suoi contributi approfondisce in particolare le risposte a interpello, i requisiti dell'area di frontiera, la nozione di residenza fiscale e i meccanismi di imposizione concorrente che riguardano i frontalieri del Canton Ticino e delle regioni italiane di confine. Il suo obiettivo è tradurre la normativa e i documenti di prassi in indicazioni chiare e operative per i lavoratori e le imprese interessati dalla disciplina convenzionale.",
     photoPath: '/images/authors/samuele-valente.webp',
+    cvPath: '/documents/authors/samuele-valente-cv.pdf',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/samuele-valente-9b8a4335b/',
+    },
     expertise: [
       'fiscalità transfrontaliera',
       'accordo Italia-Svizzera',
@@ -83,28 +124,35 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
       'residenza fiscale',
       'frontalieri',
     ],
+    joinedAt: '2026-06-30',
   },
 ]);
 
-/** Returns the editorial profile with the given slug, or `undefined`. */
+export function isEditorialProfile(author: Author): author is EditorialProfile {
+  return author.kind === 'editorial-profile';
+}
+
+export function isRealAuthor(author: Author): author is RealAuthor {
+  return author.kind === 'real-author';
+}
+
+/** Returns the registered signature with the given slug, or `undefined`. */
 export function getAuthorBySlug(slug: string): Author | undefined {
   return AUTHORS.find((author) => author.slug === slug);
 }
 
-/** Returns the frozen editorial-profile registry. */
+/** Returns the real author associated with a Firebase Auth uid. */
+export function getAuthorByUid(uid: string): RealAuthor | undefined {
+  return AUTHORS.find((author): author is RealAuthor => isRealAuthor(author) && author.uid === uid);
+}
+
 export function getAllAuthors(): ReadonlyArray<Author> {
   return AUTHORS;
 }
 
 let _roundRobinIdx = 0;
 
-/**
- * Picks the editorial profile best suited for the given topical keywords.
- *
- * The function scores case-insensitive substring overlap and uses a
- * round-robin tie-breaker so generic articles still receive a stable profile
- * assignment without inventing a personal author identity.
- */
+/** Picks the registered author best suited to the given topical keywords. */
 export function pickAuthorForTopic(keywords: string[]): Author {
   const normalized = keywords.map((keyword) => keyword.toLowerCase());
   const scored = AUTHORS.map((author) => {

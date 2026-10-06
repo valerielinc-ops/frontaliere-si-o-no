@@ -16,11 +16,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REGISTRY_PATH = path.join(ROOT, 'data', 'generated-image-registry.json');
 const PUBLIC_PATH = path.join(ROOT, 'public');
 
-const AUTHORS = [
+// Samuele Valente is a real guest author: his original portrait is covered by
+// the private-grant registry record and must never enter the image generator.
+const GENERATED_AUTHORS = [
   ['marco-ferrari', 'fiscalità frontaliera e accordo Italia-Svizzera'],
   ['laura-bianchi', 'previdenza svizzera e assicurazioni sociali per frontalieri'],
   ['redazione', 'attualità ticinese, lavoro e mobilità transfrontaliera'],
-  ['samuele-valente', 'fiscalità internazionale e lavoratori frontalieri'],
 ];
 
 const PLACES = [
@@ -54,7 +55,7 @@ function readRegistry() {
 }
 
 function descriptors(scope) {
-  const authorAssets = AUTHORS.map(([slug, subject]) => ({
+  const authorAssets = GENERATED_AUTHORS.map(([slug, subject]) => ({
     assetId: slug,
     scope: 'editorial-profile',
     subject: `emblema-avatar illustrato astratto per il profilo editoriale ${slug}: ${subject}; composizione geometrica non umana, nessun volto, occhi, naso, bocca, corpo o silhouette, nessuna somiglianza con persone reali`,

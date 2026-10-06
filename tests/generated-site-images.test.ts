@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { AUTHORS } from '../data/authors';
 import { verifyPublishedGeneratedSiteImages } from '../scripts/lib/generated-site-images.mjs';
+import { isPrivateGrantImageRecord } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 describe('published editorial and place image registry', () => {
   it('covers every published author/place WebP and matches its bytes', async () => {
@@ -19,6 +20,15 @@ describe('published editorial and place image registry', () => {
       expect(record, `missing registry record for ${author.slug}`).toBeTruthy();
       expect(record?.width).toBe(400);
       expect(record?.height).toBe(400);
+      if (author.slug === 'samuele-valente') {
+        expect(isPrivateGrantImageRecord(record)).toBe(true);
+        expect(record?.license).toBe('private-grant');
+        expect(record?.provider).toBe('site-owned');
+        expect(record?.note).toBe('ritratto fornito dall\'autore; consenso da confermare dal proprietario');
+      } else {
+        expect(record?.license).toBe('generated-provider');
+        expect(record?.provider).toBe('openai-codex');
+      }
     }
 
     expect(places.filter((record) => record.width === 1200 && record.height === 675)).toHaveLength(16);

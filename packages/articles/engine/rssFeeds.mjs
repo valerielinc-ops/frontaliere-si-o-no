@@ -255,16 +255,18 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
       // Per-article byline, from the same `"author"` object the page's JSON-LD
-      // and visible byline are built from. Only a named editorial-profile
-      // Organization is carried over: the newsroom Organization is the
-      // channel title and repeating it as <dc:creator> would say nothing.
+      // and visible byline are built from. Carry only a named real Person or
+      // editorial-profile Organization: the newsroom fallback is the channel
+      // title and repeating it as <dc:creator> would say nothing.
       const authorBlock = block.match(/"author":\s*\{[^}]*\}/)?.[0];
-      const isEditorialProfile =
+      const isNamedAuthor =
         authorBlock &&
-        /"@type":\s*"Organization"/.test(authorBlock) &&
-        (/"@id":\s*"[^"]+#profile"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock));
+        ((/"@type":\s*"Organization"/.test(authorBlock) &&
+          (/"@id":\s*"[^"]+#profile"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock)))
+          || (/(?:"@type":\s*"Person")/.test(authorBlock) &&
+            (/"@id":\s*"[^"]+#person"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock))));
       const authorName =
-        isEditorialProfile
+        isNamedAuthor
           ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
           : '';
 

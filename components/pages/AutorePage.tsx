@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Award, Globe } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
-import { getAuthorBySlug, type Author } from '@/data/authors';
+import { getAuthorBySlug, isEditorialProfile, isRealAuthor, type Author } from '@/data/authors';
 import { getMergedAuthor } from '@/services/authorProfileService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useTranslation } from '@/services/i18n';
@@ -13,15 +13,15 @@ import { buildAuthorSeo } from '@/services/seo/seo-authors';
  * AutorePage — `/autori/{slug}/` author profile page.
  *
  * Required for E-E-A-T compliance (Google News A1 — see
- * docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4). Every published article points
- * to an editorial profile entity here so Google can attribute coverage areas
- * without presenting the signature as an identifiable individual.
+ * docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4). Editorial signatures render as
+ * Organization entities; real guest authors render as Person entities with
+ * their public attribution fields.
  *
  * Renders:
  *   - Hero with author photo (400×400, explicit width/height for CLS).
  *   - Name (`<h1>`), role, biography paragraph.
- *   - Expertise tags and the localized editorial-profile disclosure.
- *   - Inline `Organization` JSON-LD via {@link buildAuthorSeo}.
+ *   - Expertise tags and, for editorial profiles, the localized disclosure.
+ *   - Inline `Person` or `Organization` JSON-LD via {@link buildAuthorSeo}.
  *
  * Layout mirrors `ChiSiamo.tsx` for visual consistency.
  */
@@ -71,15 +71,17 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
     );
   }
 
-  // Pass the CSR-merged author (admin editorial-profile patch applied on top of the
+  // Pass the CSR-merged author (admin public-profile patch applied on top of the
   // static registry), not the slug — otherwise buildAuthorSeo re-derives
   // from the static registry and the JSON-LD goes stale vs. the visible
   // visible description and illustration above.
   const { jsonLd } = buildAuthorSeo(author, locale);
+  const realAuthor = isRealAuthor(author) ? author : undefined;
+  const editorialProfile = isEditorialProfile(author);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
-      {/* Inline Organization JSON-LD — key forces remount when a CSR patch changes the profile. */}
+      {/* Inline author JSON-LD — key forces remount when a CSR patch changes the profile. */}
       <script
         key={`${author.slug}-jsonld`}
         type="application/ld+json"
@@ -114,14 +116,14 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
             <p className="text-sm sm:text-base text-accent font-semibold mt-1">
               {author.role}
             </p>
-            <p className="text-xs text-muted mt-2">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>
+            {editorialProfile && <p className="text-xs text-muted mt-2">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>}
           </div>
         </div>
       </div>
 
       <div className="space-y-6">
         {/* Bio */}
-        <Section icon={Globe} title={copy.biography}>
+        <Section icon={Globe} title={editorialProfile ? copy.editorialDescription : copy.biography}>
           <p lang={locale !== 'it' && author.bio === sourceAuthor?.bio ? 'it' : locale} className="whitespace-pre-line">{author.bio}</p>
         </Section>
 
@@ -139,6 +141,29 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
           </ul>
         </Section>
 
+        {realAuthor && (
+          <Section icon={Globe} title={copy.publicProfile}>
+            <div className="flex flex-wrap gap-3">
+              {realAuthor.social.linkedin && (
+                <a href={realAuthor.social.linkedin} target="_blank" rel="noopener noreferrer me" className="text-accent hover:underline">
+                  {copy.linkedin}
+                </a>
+              )}
+              {realAuthor.email && <a href={`mailto:${realAuthor.email}`} className="text-accent hover:underline">{copy.email}</a>}
+              {realAuthor.cvPath && (
+                <a href={realAuthor.cvPath} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                  {copy.openCv}
+                </a>
+              )}
+            </div>
+            {realAuthor.cvPath && (
+              <object data={realAuthor.cvPath} type="application/pdf" aria-label={copy.cv} className="mt-4 h-96 w-full rounded-lg border border-edge">
+                <p>{copy.pdfUnavailable} <a href={realAuthor.cvPath} className="text-accent hover:underline">{copy.openCv}</a>.</p>
+              </object>
+            )}
+          </Section>
+        )}
+
         {/* Editorial trust footer */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <h2 className="text-lg font-bold font-display text-strong mb-2">
@@ -154,7 +179,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
             </button>
             : {copy.policyEnd}
           </p>
-          <p className="mt-3 text-xs text-muted">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>
+          {editorialProfile && <p className="mt-3 text-xs text-muted">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>}
         </div>
       </div>
     </div>

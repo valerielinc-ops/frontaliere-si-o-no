@@ -857,16 +857,16 @@ function findBestFallbackImage(data) {
 
 const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
 
-// ── Author registry (mirror of data/authors.ts for byline + Person JSON-LD) ──
-// Keep slug/name/expertise/linkedin in sync with data/authors.ts. The TS file
+// ── Author registry (mirror of data/authors.ts for byline + JSON-LD) ──
+// Keep slug/name/expertise/kind in sync with data/authors.ts. The TS file
 // is the source of truth for the React app + author pages; this inline copy is
 // used because create-article.mjs is a Node ESM script that cannot import .ts.
 // Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A2.
 const AUTHORS = Object.freeze([
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'marco-ferrari',
     name: 'Marco Ferrari',
-    linkedinUrl: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
     expertise: Object.freeze([
       'fiscalità frontaliera',
       '730',
@@ -881,9 +881,9 @@ const AUTHORS = Object.freeze([
     ]),
   }),
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'laura-bianchi',
     name: 'Laura Bianchi',
-    linkedinUrl: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
     expertise: Object.freeze([
       'avs',
       'lpp',
@@ -900,6 +900,7 @@ const AUTHORS = Object.freeze([
     ]),
   }),
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'redazione',
     name: 'Redazione Frontaliere Ticino',
     linkedinUrl: 'https://www.linkedin.com/company/frontaliere-ticino/',
@@ -919,6 +920,7 @@ const AUTHORS = Object.freeze([
   // the Italia-Svizzera cross-border tax treaty (their specialty) kept
   // falling through to marco-ferrari/round-robin instead.
   Object.freeze({
+    kind: 'real-author',
     slug: 'samuele-valente',
     name: 'Samuele Valente',
     uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
@@ -955,8 +957,19 @@ let _authorRoundRobinIdx = 0;
  *      always gets the same author across re-runs, while still spreading
  *      bylines across the team for generic content.
  *
- * Returns `{ slug, name, linkedinUrl }` — never `null`.
+ * Returns the stable byline identity, including `kind` and only the permitted
+ * public identity fields for that kind — never `null`.
  */
+function authorSummary(author) {
+  return {
+    kind: author.kind,
+    slug: author.slug,
+    name: author.name,
+    ...(author.uid ? { uid: author.uid } : {}),
+    ...(author.linkedinUrl ? { linkedinUrl: author.linkedinUrl } : {}),
+  };
+}
+
 function pickAuthorForTopic(articleSection, articleId) {
   const haystack = String(articleSection || '').toLowerCase();
   const scored = AUTHORS.map((author) => {
@@ -970,21 +983,21 @@ function pickAuthorForTopic(articleSection, articleId) {
     const winners = scored.filter((s) => s.score === maxScore).map((s) => s.author);
     if (winners.length === 1) {
       const a = winners[0];
-      return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+      return authorSummary(a);
     }
     // Tied — pick deterministically by articleId hash if provided, else round-robin.
     const idx = articleId
       ? Math.abs(_hashString(String(articleId))) % winners.length
       : _authorRoundRobinIdx++ % winners.length;
     const a = winners[idx];
-    return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+    return authorSummary(a);
   }
   // No keyword match — deterministic round-robin keyed by articleId.
   const idx = articleId
     ? Math.abs(_hashString(String(articleId))) % AUTHORS.length
     : _authorRoundRobinIdx++ % AUTHORS.length;
   const a = AUTHORS[idx];
-  return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+  return authorSummary(a);
 }
 
 /**
@@ -997,7 +1010,7 @@ function pickAuthorForTopic(articleSection, articleId) {
 function getAuthorByUid(uid) {
   if (!uid) return undefined;
   const a = AUTHORS.find((author) => author.uid === uid);
-  return a ? { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl } : undefined;
+  return a ? authorSummary(a) : undefined;
 }
 
 /** Tiny FNV-1a-ish hash for stable author bucketing. Not cryptographic. */
@@ -8820,6 +8833,42 @@ function decodeSeoEntities(data) {
   }
 }
 
+function buildArticleAuthorStructuredData(author) {
+  const slug = author?.slug;
+  if (!slug) {
+    return {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      name: 'Frontaliere Ticino',
+      url: `${BASE_URL}/chi-siamo/`,
+    };
+  }
+  const url = `${BASE_URL}/autori/${slug}/`;
+  const isRealAuthor = author.kind === 'real-author' || (!author.kind && Boolean(author.uid));
+  if (isRealAuthor) {
+    return {
+      '@type': 'Person',
+      '@id': `${url}#person`,
+      name: author.name,
+      url,
+      ...(author.linkedinUrl ? { sameAs: [author.linkedinUrl] } : {}),
+    };
+  }
+  return {
+    '@type': 'Organization',
+    '@id': `${url}#profile`,
+    name: author.name,
+    url,
+    ...(author.linkedinUrl ? { sameAs: [author.linkedinUrl] } : {}),
+    parentOrganization: {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/chi-siamo/#team`,
+      name: 'Redazione Frontaliere Ticino',
+      url: `${BASE_URL}/chi-siamo/`,
+    },
+  };
+}
+
 function modifySeoService(data) {
   decodeSeoEntities(data);
   const publishedAt = toIsoWithTz(new Date())
@@ -8837,6 +8886,7 @@ function modifySeoService(data) {
   const blogSeoFile = SECTION.seoFile;
   let blogSrc = read(blogSeoFile);
   const itHub = SECTION.hubSlug.it;
+  const authorStructuredData = JSON.stringify(buildArticleAuthorStructuredData(data.author));
   // frontaliere canonicalPath has historically had NO trailing slash; keep it
   // byte-identical. svizzera uses a trailing slash (per seo-blog-ch.ts contract).
   const itHubPath = IS_FRONTALIERE ? `/${itHub}/${data.slugs.it}` : `/${itHub}/${data.slugs.it}/`;
@@ -8869,12 +8919,7 @@ function modifySeoService(data) {
       "datePublished": "${publishedAt}",
       "dateModified": "${modifiedAt}",
       "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/#person",
-        "name": "${String(data.author?.name || 'Redazione Frontaliere Ticino').replace(/"/g, '\\"')}",
-        "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
-      },
+      "author": ${authorStructuredData},
       "publisher": {"@id": "${BASE_URL}/#organization"},
       "mainEntityOfPage": \`\${BASE_URL}${itHubPath.endsWith('/') ? itHubPath : `${itHubPath}/`}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
@@ -9010,7 +9055,7 @@ function validateStructuredData(data) {
         url: `${BASE}/icons/icon-512x512.png`,
       },
     },
-    author: { '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
+    author: buildArticleAuthorStructuredData(data.author),
     mainEntityOfPage: `${BASE}${cp}`,
   };
   if (datePub) ldObj.datePublished = datePub;

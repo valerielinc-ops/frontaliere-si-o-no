@@ -3,8 +3,8 @@
  * Backfill script — assigns `authorSlug`/`authorName` to every article entry
  * in `data/blog-articles-data.ts` that doesn't already have one. Authors are
  * spread round-robin across the general editorial profiles (marco-ferrari,
- * laura-bianchi, redazione, repeat) so legacy articles get a named editorial
- * Organization byline for the NewsArticle JSON-LD upgrade in A2.
+ * laura-bianchi, redazione, repeat) so legacy articles get a named newsroom
+ * signature for the NewsArticle JSON-LD upgrade in A2.
  *
  * Idempotent: re-running the script only touches entries still missing the
  * fields, so it's safe to run after partial backfills.
@@ -25,10 +25,10 @@ const DATA_FILE = path.join(PROJECT_ROOT, 'data/blog-articles-data.ts');
 
 // Registry mirror — keep in sync with data/authors.ts's generalist profiles.
 // Samuele Valente is deliberately excluded from this blind rotation because
-// the script has no topic scoring: the topical profile should be selected only
-// through pickAuthorForTopic()'s keyword match in the article generator, never
-// by rotation. This avoids assigning a tax-treaty profile to unrelated legacy
-// articles about pensions, customs or wages.
+// he is a real guest author and the script has no topic scoring. His byline is
+// selected through pickAuthorForTopic() or uid attribution, never by rotation.
+// This avoids assigning a tax-treaty author to unrelated legacy articles about
+// pensions, customs or wages.
 const AUTHORS = [
   { slug: 'marco-ferrari', name: 'Marco Ferrari' },
   { slug: 'laura-bianchi', name: 'Laura Bianchi' },

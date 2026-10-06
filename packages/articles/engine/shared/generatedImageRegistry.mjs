@@ -9,6 +9,8 @@
 
 export const GENERATED_IMAGE_SCHEMA_VERSION = 1;
 export const GENERATED_IMAGE_LICENSE = 'generated-provider';
+export const PRIVATE_GRANT_LICENSE = 'private-grant';
+export const PRIVATE_GRANT_PROVIDER = 'site-owned';
 export const GENERATED_IMAGE_CREDIT = 'frontaliereticino.ch';
 export const GENERATED_IMAGE_PROMPT_VERSION = 'frontaliereticino.generated-image-policy.v1';
 export const GENERATED_IMAGE_MAX_BYTES = 220 * 1024;
@@ -177,6 +179,10 @@ export function isGeneratedImagePath(value) {
   return typeof value === 'string' && /^\/images\/(?:events\/library|generated|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
 }
 
+export function isPrivateGrantImageRecord(record) {
+  return isRecord(record) && record.license === PRIVATE_GRANT_LICENSE && record.provider === PRIVATE_GRANT_PROVIDER;
+}
+
 export function generatedImageAssetIdFromPath(value) {
   if (!isGeneratedImagePath(value)) return null;
   return value.slice(value.lastIndexOf('/') + 1, -'.webp'.length);
@@ -191,41 +197,51 @@ export function validateGeneratedImageRecord(record) {
   if (!isRecord(record)) return { valid: false, errors: ['record must be an object'] };
   if (record.schema !== GENERATED_IMAGE_SCHEMA_VERSION) errors.push('schema must be 1');
   if (!ASSET_ID_RE.test(String(record.assetId || ''))) errors.push('assetId is invalid');
-  if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
-  if (!nonEmpty(record.model)) errors.push('model is required');
-  if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
-  if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
-  if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
-  if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
-  if (GENERATED_IMAGE_LICENSE_URLS[record.provider] && record.licenseUrl !== GENERATED_IMAGE_LICENSE_URLS[record.provider]) {
-    errors.push('licenseUrl does not match the provider terms');
+  const isPrivateGrant = record.license === PRIVATE_GRANT_LICENSE;
+  if (isPrivateGrant) {
+    if (record.provider !== PRIVATE_GRANT_PROVIDER) errors.push('private-grant provider must be site-owned');
+    if (!nonEmpty(record.note)) errors.push('private-grant note is required');
+    if (!nonEmpty(record.credit)) errors.push('private-grant credit is required');
+    for (const field of ['model', 'executorModel', 'promptVersion', 'promptHash', 'licenseUrl', 'generatedAt', 'verifiedAt', 'restrictions', 'vision']) {
+      if (record[field] !== undefined) errors.push(`private-grant must not declare generated field ${field}`);
+    }
+  } else {
+    if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
+    if (!nonEmpty(record.model)) errors.push('model is required');
+    if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
+    if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
+    if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
+    if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
+    if (GENERATED_IMAGE_LICENSE_URLS[record.provider] && record.licenseUrl !== GENERATED_IMAGE_LICENSE_URLS[record.provider]) {
+      errors.push('licenseUrl does not match the provider terms');
+    }
+    if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
   }
-  if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
   if (!positiveInteger(record.width) || !positiveInteger(record.height)) errors.push('width/height must be positive integers');
   if (record.format !== 'webp') errors.push('format must be webp');
   if (!positiveInteger(record.bytes) || record.bytes > GENERATED_IMAGE_MAX_BYTES) errors.push('bytes exceed the WebP limit');
   if (!SHA256_RE.test(String(record.sha256 || ''))) errors.push('sha256 must be present');
-  if (!isoDate(record.generatedAt)) errors.push('generatedAt must be an ISO UTC timestamp');
-  if (!isoDate(record.verifiedAt)) errors.push('verifiedAt must be an ISO UTC timestamp');
+  if (!isPrivateGrant && !isoDate(record.generatedAt)) errors.push('generatedAt must be an ISO UTC timestamp');
+  if (!isPrivateGrant && !isoDate(record.verifiedAt)) errors.push('verifiedAt must be an ISO UTC timestamp');
   if (!GENERATED_IMAGE_SCOPES.includes(record.scope)) errors.push('scope is not allowed');
   if (record.scope === 'event-library') {
     for (const field of ['category', 'area', 'season', 'variant']) {
       if (!nonEmpty(record[field])) errors.push(`event-library ${field} is required`);
     }
   }
-  if (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item))) {
+  if (!isPrivateGrant && (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
     errors.push('restrictions do not contain the mandatory policy');
   }
-  if (!isRecord(record.vision)
+  if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
     || record.vision.contains_text !== false
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
     || record.vision.looks_like_specific_real_event !== false
-    || !nonEmpty(record.vision.notes)) {
+    || !nonEmpty(record.vision.notes))) {
     errors.push('vision gate verdict is missing or rejected');
   }
-  if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a generated WebP path');
+  if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a registered WebP path');
   const expectedPrefix = generatedImagePrefixForScope(record.scope);
   if (record.imageUrl && !record.imageUrl.startsWith(expectedPrefix)) errors.push('imageUrl does not match scope');
   if (record.imageUrl && generatedImageAssetIdFromPath(record.imageUrl) !== record.assetId) errors.push('imageUrl assetId mismatch');

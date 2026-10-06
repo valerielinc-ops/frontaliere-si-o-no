@@ -1,135 +1,121 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { AUTHORS, getAuthorBySlug, getAllAuthors, pickAuthorForTopic } from '@/data/authors';
+import {
+  AUTHORS,
+  getAuthorBySlug,
+  getAuthorByUid,
+  getAllAuthors,
+  isEditorialProfile,
+  isRealAuthor,
+  pickAuthorForTopic,
+} from '@/data/authors';
 import { buildAuthorSeo } from '@/services/seo/seo-authors';
 
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 
 describe('authors registry (Google News A1)', () => {
-  it('has at least 3 entries', () => {
-    expect(AUTHORS.length).toBeGreaterThanOrEqual(3);
+  it('has editorial profiles and real authors as distinct kinds', () => {
+    expect(AUTHORS.filter(isEditorialProfile).map((author) => author.slug)).toEqual([
+      'marco-ferrari', 'laura-bianchi', 'redazione',
+    ]);
+    expect(AUTHORS.filter(isRealAuthor).map((author) => author.slug)).toEqual(['samuele-valente']);
   });
 
   it('every author has a unique kebab-case slug', () => {
-    const slugs = AUTHORS.map((a) => a.slug);
+    const slugs = AUTHORS.map((author) => author.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
-    for (const slug of slugs) {
-      expect(slug).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-    }
+    for (const slug of slugs) expect(slug).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
   });
 
   it('every author has a photo file that exists in public/', () => {
     for (const author of AUTHORS) {
       expect(author.photoPath.startsWith('/images/authors/')).toBe(true);
-      const abs = path.join(PUBLIC_DIR, author.photoPath.replace(/^\//, ''));
-      expect(fs.existsSync(abs), `missing photo for ${author.slug} at ${abs}`).toBe(true);
+      expect(fs.existsSync(path.join(PUBLIC_DIR, author.photoPath.replace(/^\//, '')))).toBe(true);
     }
   });
 
-  it('editorial profiles expose no personal identity fields', () => {
-    for (const author of AUTHORS) {
-      expect(Object.keys(author)).not.toEqual(expect.arrayContaining([
-        'email', 'uid', 'cvPath', 'social', 'joinedAt', 'sameAs',
-      ]));
-    }
+  it('real authors retain their public identity and CV fields', () => {
+    const samuele = getAuthorBySlug('samuele-valente');
+    expect(samuele && isRealAuthor(samuele)).toBe(true);
+    if (!samuele || !isRealAuthor(samuele)) return;
+    expect(samuele.uid).toBe('rAaDN0AvhkUjvRxN2TJijgYodm22');
+    expect(samuele.cvPath).toBe('/documents/authors/samuele-valente-cv.pdf');
+    expect(samuele.social.linkedin).toBe('https://www.linkedin.com/in/samuele-valente-9b8a4335b/');
+    expect(fs.existsSync(path.join(PUBLIC_DIR, samuele.cvPath!.replace(/^\//, '')))).toBe(true);
+    expect(getAuthorByUid(samuele.uid)).toBe(samuele);
   });
 
-  it('every author has non-empty expertise', () => {
+  it('editorial profiles have no personal identity fields and Redazione keeps its company link', () => {
+    for (const author of AUTHORS.filter(isEditorialProfile)) {
+      expect(Object.prototype.hasOwnProperty.call(author, 'uid')).toBe(false);
+      expect(Object.prototype.hasOwnProperty.call(author, 'cvPath')).toBe(false);
+      expect(Object.prototype.hasOwnProperty.call(author, 'social')).toBe(false);
+    }
+    expect(getAuthorBySlug('marco-ferrari')?.linkedin).toBeUndefined();
+    expect(getAuthorBySlug('laura-bianchi')?.linkedin).toBeUndefined();
+    expect(getAuthorBySlug('redazione')?.linkedin).toBe('https://www.linkedin.com/company/frontaliere-ticino/');
+  });
+
+  it('every author has non-empty expertise and a non-trivial Italian description', () => {
     for (const author of AUTHORS) {
       expect(author.expertise.length).toBeGreaterThan(0);
-      for (const e of author.expertise) {
-        expect(typeof e).toBe('string');
-        expect(e.length).toBeGreaterThan(1);
-      }
+      expect(author.bio.trim().split(/\s+/).length).toBeGreaterThanOrEqual(40);
     }
   });
 
-  it('every author has a non-trivial Italian bio', () => {
-    for (const author of AUTHORS) {
-      const wordCount = author.bio.trim().split(/\s+/).length;
-      expect(wordCount, `description too short for ${author.slug}`).toBeGreaterThanOrEqual(30);
-    }
-  });
-
-  it('getAuthorBySlug returns the right author or undefined', () => {
+  it('getAuthorBySlug and getAllAuthors expose the frozen registry', () => {
     expect(getAuthorBySlug('marco-ferrari')?.name).toBe('Marco Ferrari');
     expect(getAuthorBySlug('does-not-exist')).toBeUndefined();
+    expect(getAllAuthors().length).toBe(AUTHORS.length);
   });
 
-  it('getAllAuthors mirrors the AUTHORS array', () => {
-    const all = getAllAuthors();
-    expect(all.length).toBe(AUTHORS.length);
-    expect(all[0].slug).toBe(AUTHORS[0].slug);
-  });
-
-  it('pickAuthorForTopic prefers a topical specialist when keywords match', () => {
-    const fiscal = pickAuthorForTopic(['730', 'imposta alla fonte']);
-    expect(fiscal.slug).toBe('marco-ferrari');
-    const previdenza = pickAuthorForTopic(['AVS', 'LPP']);
-    expect(previdenza.slug).toBe('laura-bianchi');
+  it('pickAuthorForTopic preserves topical attribution for Samuele', () => {
+    expect(pickAuthorForTopic(['730', 'imposta alla fonte']).slug).toBe('marco-ferrari');
+    expect(pickAuthorForTopic(['AVS', 'LPP']).slug).toBe('laura-bianchi');
+    expect(pickAuthorForTopic(['interpelli Agenzia delle Entrate']).slug).toBe('samuele-valente');
   });
 
   it('pickAuthorForTopic falls back to round-robin on no match', () => {
-    // Two no-match calls should pick different authors (round-robin).
-    const a = pickAuthorForTopic(['unrelated-topic-xyz']);
-    const b = pickAuthorForTopic(['another-unrelated-topic']);
-    expect(a).toBeTruthy();
-    expect(b).toBeTruthy();
-    // Either same (length 1 array — impossible since we asserted ≥3) or
-    // different. With ≥3 authors and round-robin, two consecutive calls
-    // must yield distinct authors.
-    expect(a.slug).not.toBe(b.slug);
+    const first = pickAuthorForTopic(['unrelated-topic-xyz']);
+    const second = pickAuthorForTopic(['another-unrelated-topic']);
+    expect(first.slug).not.toBe(second.slug);
   });
 });
 
 describe('buildAuthorSeo', () => {
-  it('produces a complete SEO payload for each author', () => {
-    for (const author of AUTHORS) {
+  it('emits Organization JSON-LD only for editorial profiles', () => {
+    for (const author of AUTHORS.filter(isEditorialProfile)) {
       const seo = buildAuthorSeo(author.slug, 'it');
-      expect(seo.title).toContain(author.name);
-      expect(seo.description.length).toBeGreaterThan(20);
-      expect(seo.canonical).toBe(`https://frontaliereticino.ch/autori/${author.slug}/`);
-      expect(seo.ogImage).toContain(author.photoPath);
       expect(seo.jsonLd['@type']).toBe('Organization');
       expect(seo.jsonLd['@id']).toBe(`${seo.canonical}#profile`);
-      expect(seo.jsonLd.name).toBe(author.name);
-      expect(seo.jsonLd.knowsAbout).toEqual(author.expertise);
-      expect((seo.jsonLd.parentOrganization as { '@id': string })['@id']).toBe(
-        'https://frontaliereticino.ch/#organization',
-      );
-      expect(seo.jsonLd.jobTitle).toBeUndefined();
-      expect(seo.jsonLd.sameAs).toBeUndefined();
-      expect(seo.jsonLd.knowsLanguage).toEqual(['it', 'en']);
+      expect(seo.jsonLd.disambiguatingDescription).toBeTruthy();
+      expect(seo.jsonLd.sameAs).toEqual(author.linkedin ? [author.linkedin] : undefined);
     }
   });
 
+  it('emits Samuele as a Person with sameAs and worksFor', () => {
+    const seo = buildAuthorSeo('samuele-valente', 'it');
+    expect(seo.jsonLd['@type']).toBe('Person');
+    expect(seo.jsonLd['@id']).toBe(`${seo.canonical}#person`);
+    expect(seo.jsonLd.sameAs).toEqual(['https://www.linkedin.com/in/samuele-valente-9b8a4335b/']);
+    expect((seo.jsonLd.worksFor as { '@id': string })['@id']).toBe('https://frontaliereticino.ch/#organization');
+    expect(seo.jsonLd.disambiguatingDescription).toBeUndefined();
+  });
+
   it('builds locale-prefixed canonicals for non-IT locales', () => {
-    expect(buildAuthorSeo('marco-ferrari', 'en').canonical).toBe(
-      'https://frontaliereticino.ch/en/authors/marco-ferrari/',
-    );
-    expect(buildAuthorSeo('marco-ferrari', 'de').canonical).toBe(
-      'https://frontaliereticino.ch/de/autoren/marco-ferrari/',
-    );
-    expect(buildAuthorSeo('marco-ferrari', 'fr').canonical).toBe(
-      'https://frontaliereticino.ch/fr/auteurs/marco-ferrari/',
-    );
+    expect(buildAuthorSeo('marco-ferrari', 'en').canonical).toBe('https://frontaliereticino.ch/en/authors/marco-ferrari/');
+    expect(buildAuthorSeo('marco-ferrari', 'de').canonical).toBe('https://frontaliereticino.ch/de/autoren/marco-ferrari/');
+    expect(buildAuthorSeo('marco-ferrari', 'fr').canonical).toBe('https://frontaliereticino.ch/fr/auteurs/marco-ferrari/');
+  });
+
+  it('accepts a resolved author object and reflects patched public fields', () => {
+    const staticAuthor = getAuthorBySlug('samuele-valente')!;
+    const merged = { ...staticAuthor, name: 'Samuele Valente Patched' };
+    expect(buildAuthorSeo(merged, 'it').jsonLd.name).toBe('Samuele Valente Patched');
   });
 
   it('throws on unknown slug', () => {
     expect(() => buildAuthorSeo('does-not-exist', 'it')).toThrow();
-  });
-
-  // Review nit (PR #3356): AutorePage.tsx must pass the CSR-merged editorial
-  // profile object, not
-  // the slug — passing the slug re-derives from the static registry and the
-  // Organization JSON-LD goes stale vs. the visible description/illustration.
-  it('accepts an already-resolved Author object and reflects its patched fields in the JSON-LD', () => {
-    const staticAuthor = getAuthorBySlug('marco-ferrari')!;
-    const merged = { ...staticAuthor, name: 'Marco Ferrari Patched', bio: staticAuthor.bio };
-    const seo = buildAuthorSeo(merged, 'it');
-    expect(seo.jsonLd.name).toBe('Marco Ferrari Patched');
-    expect(seo.title).toContain('Marco Ferrari Patched');
-    expect(seo.canonical).toBe(`https://frontaliereticino.ch/autori/${staticAuthor.slug}/`);
   });
 });

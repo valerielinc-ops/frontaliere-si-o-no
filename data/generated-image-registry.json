@@ -124,41 +124,17 @@
     {
       "schema": 1,
       "assetId": "samuele-valente",
-      "provider": "openai-codex",
-      "model": "gpt-image-2.5",
-      "executorModel": "gpt-5.6-luna",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "eccc5a49a2f78230c546f208fc27f5e1b8796f94237ba3afe5cfa65ba30e110a",
-      "license": "generated-provider",
-      "licenseUrl": "https://openai.com/policies/terms-of-use/",
-      "credit": "frontaliereticino.ch",
-      "sha256": "46c1d5a85e57433c90dbb4b32019efa6e40d749189ed2146f82ec37af0a032f2",
-      "bytes": 13558,
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "Samuele Valente",
+      "note": "ritratto fornito dall'autore; consenso da confermare dal proprietario",
+      "sha256": "742e2c3549c25ba633ba7f8e1f6b350690b85d50b5df844361208dbd02912fdd",
+      "bytes": 14046,
       "width": 400,
       "height": 400,
       "format": "webp",
-      "generatedAt": "2026-10-06T18:56:15.761Z",
-      "verifiedAt": "2026-10-06T18:56:24.388Z",
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
       "scope": "editorial-profile",
-      "imageUrl": "/images/authors/samuele-valente.webp",
-      "area": "redazione di frontaliereticino.ch",
-      "season": "all seasons",
-      "variant": "illustrated-avatar",
-      "vision": {
-        "ok": true,
-        "contains_text": false,
-        "contains_logo": false,
-        "contains_recognizable_face": false,
-        "looks_like_specific_real_event": false,
-        "notes": "Illustrazione astratta e generica, senza testo, marchi, volti riconoscibili o riferimenti a eventi reali specifici."
-      }
+      "imageUrl": "/images/authors/samuele-valente.webp"
     },
     {
       "schema": 1,

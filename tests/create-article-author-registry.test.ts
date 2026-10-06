@@ -26,6 +26,8 @@ describe('scripts/create-article.mjs AUTHORS mirror — stays in sync with data/
     for (const canonical of CANONICAL_AUTHORS) {
       const picked = pickAuthorForTopic(canonical.expertise.join(' ').toLowerCase(), `probe-${canonical.slug}`);
       expect(picked.slug, `expected ${canonical.slug} to be selected by its own expertise keywords`).toBe(canonical.slug);
+      expect(picked.kind, `expected ${canonical.slug} to preserve its author kind`).toBe(canonical.kind);
+      expect(picked.uid, `unexpected uid propagation for ${canonical.slug}`).toBe(canonical.kind === 'real-author' ? canonical.uid : undefined);
     }
   });
 

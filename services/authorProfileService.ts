@@ -1,11 +1,11 @@
 /**
  * authorProfileService.ts — runtime overrides on top of the static
- * `data/authors.ts` editorial-profile registry and `data/blog-articles-data.ts`
+ * `data/authors.ts` author registry and `data/blog-articles-data.ts`
  * byline, written admin-only via the `manageRedazioneAdmin` Cloud
  * Function (see services/redazioneAdminService.ts + AdminPanel.tsx's
  * "Redazione" section).
  *
- * Both override collections are small (a handful of editorial profiles / rare
+ * Both override collections are small (a handful of public author profiles / rare
  * reassignments), but `getMergedAuthor`/`getArticleAuthorOverride` run on
  * essentially every author-page and article-page view (the SEO funnel's
  * core traffic), so those two paths do a targeted `getDoc` by slug/id
@@ -34,7 +34,8 @@ export type AuthorProfilePatch = Partial<Pick<Author, 'name' | 'role' | 'bio' | 
 
 const EDITORIAL_PROFILE_FIELDS = ['name', 'role', 'bio', 'photoPath'] as const;
 
-/** Strip legacy contact/social/auth fields from admin profile documents. */
+/** Strip contact/social/auth fields from admin profile documents; preserve the
+ * static author's kind, uid, CV and other identity fields when merging. */
 export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch | undefined {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
   const source = value as Record<string, unknown>;
@@ -45,7 +46,7 @@ export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch |
   return Object.keys(patch).length > 0 ? patch : undefined;
 }
 
-function mergeEditorialProfile(base: Author, patch: unknown): Author {
+function mergeAuthorProfile(base: Author, patch: unknown): Author {
   return { ...base, ...sanitizeAuthorProfilePatch(patch) };
 }
 
@@ -255,7 +256,7 @@ export async function getMergedAuthor(slug: string): Promise<Author | undefined>
   if (!base) return undefined;
   const patch = await loadProfile(slug);
   if (!patch) return base;
-  return mergeEditorialProfile(base, patch);
+  return mergeAuthorProfile(base, patch);
 }
 
 /** Every persona, each merged with its override if one exists. */
@@ -264,7 +265,7 @@ export async function getAllMergedAuthors(): Promise<Author[]> {
   return AUTHORS.map((base) => {
     const patch = profiles.get(base.slug);
     if (!patch) return base;
-    return mergeEditorialProfile(base, patch);
+    return mergeAuthorProfile(base, patch);
   });
 }
 

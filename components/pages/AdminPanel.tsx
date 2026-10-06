@@ -4158,12 +4158,13 @@ export default function AdminPanel() {
  </div>
  )}
 
- {/* Editorial profiles */}
+ {/* Author profiles */}
  <div className="space-y-3">
- <h3 className="text-sm font-bold text-strong">Profili editoriali</h3>
+ <h3 className="text-sm font-bold text-strong">Firme e profili editoriali</h3>
  <p className="text-sm text-muted">
- Qui modifichi descrizione, immagine e area editoriale delle firme (Marco Ferrari,
- Samuele Valente, ecc.) senza deploy di codice. I profili non rappresentano persone fisiche.
+ Qui modifichi descrizione, immagine e area editoriale delle firme senza deploy di codice.
+ Marco Ferrari, Laura Bianchi e Redazione sono profili editoriali; Samuele Valente è un autore reale
+ e mantiene la propria attribuzione autenticata e i dati pubblici del registro.
  </p>
  <div className="space-y-2">
  {getAllAuthors().map((author) => {

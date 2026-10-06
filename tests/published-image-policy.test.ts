@@ -83,6 +83,10 @@ describe('published image policy', () => {
       valid: true,
       source: 'generated-registry',
     });
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}/images/authors/samuele-valente.webp`, { requireCdn: true })).toMatchObject({
+      valid: true,
+      source: 'private-grant-registry',
+    });
     expect(policy.checkOg(`${SITE_ORIGIN}/images/authors/redazione.jpg`)).toMatchObject({
       valid: false,
       reason: 'missing-generated-record',

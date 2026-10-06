@@ -12,7 +12,7 @@ export const EDITORIAL_PROFILE_DISCLOSURE: Record<AuthorLocale, string> = {
 
 type LocalizedFields = Pick<Author, 'role' | 'bio' | 'expertise'>;
 
-/** Translations of the registered editorial profiles. */
+/** Translations of the registered authors and editorial profiles. */
 const PROFILES: Record<string, Record<Exclude<AuthorLocale, 'it'>, LocalizedFields>> = {
   'marco-ferrari': {
     en: {
@@ -67,18 +67,18 @@ const PROFILES: Record<string, Record<Exclude<AuthorLocale, 'it'>, LocalizedFiel
   },
   'samuele-valente': {
     en: {
-      role: 'Editorial profile — cross-border taxation',
-      bio: 'This editorial profile gathers analysis on international and cross-border taxation between Italy and Switzerland. It follows Italian Revenue Agency practice and the Italy–Switzerland cross-border workers agreement, with coverage of tax rulings, border-area requirements, tax residence and concurrent taxation affecting Canton Ticino and the Italian border regions.',
+      role: 'Guest author — cross-border taxation',
+      bio: 'Samuele Valente is a professional specialising in international and cross-border taxation between Italy and Switzerland. As a guest author for Frontaliere Ticino, he contributes analysis and commentary on Italian Revenue Agency practice and the Italy–Switzerland cross-border workers agreement, applicable from 1 January 2024. His articles examine tax rulings, border-area requirements, tax residence and concurrent taxation affecting workers in Canton Ticino and the Italian border regions.',
       expertise: ['cross-border taxation', 'Italy–Switzerland agreement', 'Italian tax rulings', 'tax residence', 'cross-border workers'],
     },
     de: {
-      role: 'Redaktionelles Profil — grenzüberschreitende Besteuerung',
-      bio: 'Dieses redaktionelle Profil bündelt Analysen zur internationalen und grenzüberschreitenden Besteuerung zwischen Italien und der Schweiz. Es verfolgt die Praxis der italienischen Steuerbehörde und das Grenzgängerabkommen Italien–Schweiz sowie Steuerauskünfte, Voraussetzungen des Grenzgebiets, Steuerwohnsitz und konkurrierende Besteuerung im Kanton Tessin und in den italienischen Grenzregionen.',
+      role: 'Gastautor — grenzüberschreitende Besteuerung',
+      bio: 'Samuele Valente ist auf internationale und grenzüberschreitende Besteuerung zwischen Italien und der Schweiz spezialisiert. Als Gastautor von Frontaliere Ticino analysiert und kommentiert er die Praxis der italienischen Steuerbehörde und das seit 1. Januar 2024 anwendbare Grenzgängerabkommen Italien–Schweiz. Seine Beiträge behandeln Steuerauskünfte, Voraussetzungen des Grenzgebiets, den Steuerwohnsitz und konkurrierende Besteuerung von Arbeitnehmern im Kanton Tessin und in den italienischen Grenzregionen.',
       expertise: ['grenzüberschreitende Besteuerung', 'Abkommen Italien–Schweiz', 'italienische Steuerauskünfte', 'Steuerwohnsitz', 'Grenzgänger'],
     },
     fr: {
-      role: 'Profil éditorial — fiscalité transfrontalière',
-      bio: 'Ce profil éditorial rassemble des analyses sur la fiscalité internationale et transfrontalière entre l’Italie et la Suisse. Il suit la pratique de l’administration fiscale italienne et l’accord Italie–Suisse relatif aux frontaliers, avec des contenus sur les rescrits fiscaux, les conditions de la zone frontalière, la résidence fiscale et l’imposition concurrente au Tessin et dans les régions italiennes voisines.',
+      role: 'Auteur invité — fiscalité transfrontalière',
+      bio: 'Samuele Valente est spécialisé dans la fiscalité internationale et transfrontalière entre l’Italie et la Suisse. Auteur invité de Frontaliere Ticino, il propose des analyses et commentaires sur la pratique de l’administration fiscale italienne et sur l’accord Italie–Suisse relatif aux frontaliers, applicable depuis le 1er janvier 2024. Ses contributions portent sur les réponses aux demandes de rescrit, les conditions de la zone frontalière, la résidence fiscale et les mécanismes d’imposition concurrente concernant les travailleurs du Tessin et des régions frontalières italiennes.',
       expertise: ['fiscalité transfrontalière', 'accord Italie–Suisse', 'rescrits fiscaux italiens', 'résidence fiscale', 'frontaliers'],
     },
   },

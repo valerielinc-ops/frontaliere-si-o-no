@@ -1632,11 +1632,39 @@ function BlogArticles({
  const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
- // Author matches the visible byline (#3520): a named editorial Organization
- // when the article carries one (same merge the rendered byline uses), the
- // newsroom Organization only as fallback — mirroring the static
- // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
+ // Author matches the visible byline (#3520): a named Person or editorial
+ // Organization when the article carries one, the newsroom Organization only
+ // as fallback — mirroring the static ogPagesPlugin NewsArticle.
  const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
+ const ldAuthor = ldAuthorSlug ? getAuthorBySlug(ldAuthorSlug) : undefined;
+ const namedAuthorEntity: Record<string, unknown> = ldAuthor?.kind === 'real-author'
+ ? {
+ '@type': 'Person',
+ '@id': `https://frontaliereticino.ch/autori/${ldAuthor.slug}/#person`,
+ name: ldAuthorName,
+ url: `https://frontaliereticino.ch/autori/${ldAuthor.slug}/`,
+ jobTitle: ldAuthor.role,
+ sameAs: [ldAuthor.social.linkedin, ldAuthor.social.twitter, ldAuthor.social.mastodon,
+ ldAuthor.social.wikidataId ? `https://www.wikidata.org/wiki/${ldAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
+ }
+ : ldAuthor
+ ? {
+ '@type': 'Organization',
+ '@id': `https://frontaliereticino.ch/autori/${ldAuthor.slug}/#profile`,
+ name: ldAuthorName,
+ url: `https://frontaliereticino.ch/autori/${ldAuthor.slug}/`,
+ description: ldAuthor.role,
+ ...(ldAuthor.linkedin ? { sameAs: [ldAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', '@id': EDITORIAL_TEAM_ID, name: 'Redazione Frontaliere Ticino', url: 'https://frontaliereticino.ch/chi-siamo/' },
+ }
+ : {
+ '@type': 'Organization',
+ '@id': EDITORIAL_TEAM_ID,
+ name: ldAuthorName,
+ url: 'https://frontaliereticino.ch/chi-siamo/',
+ };
  // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
  // only prefix the origin for same-origin relative paths (e.g. /images/places).
  const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
@@ -1672,13 +1700,7 @@ function BlogArticles({
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
  ...schemaDates,
  author: ldAuthorName
- ? {
- '@type': 'Organization',
- '@id': ldAuthorSlug ? `https://frontaliereticino.ch/autori/${ldAuthorSlug}/#profile` : EDITORIAL_TEAM_ID,
- name: ldAuthorName,
- ...(ldAuthorSlug ? { url: `https://frontaliereticino.ch/autori/${ldAuthorSlug}/` } : {}),
- parentOrganization: { '@type': 'Organization', '@id': EDITORIAL_TEAM_ID, name: 'Redazione Frontaliere Ticino', url: 'https://frontaliereticino.ch/chi-siamo/' },
- }
+ ? namedAuthorEntity
  : {
  '@type': 'Organization',
  '@id': EDITORIAL_TEAM_ID,

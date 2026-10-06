@@ -12,7 +12,7 @@ import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
-import { getSiteShell, type SiteShellContract } from './siteShell';
+import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
@@ -29,6 +29,26 @@ import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
+
+/**
+ * Rich author identity supplied by the site shell at runtime. The package
+ * contract deliberately keeps ArticleAuthor minimal so the corpus host can
+ * consume this engine while its author registry is migrated in lockstep.
+ * Missing `kind` is treated as a legacy real-author record when personal
+ * identity fields are present.
+ */
+type ArticleAuthorIdentity = ArticleAuthor & {
+  kind?: 'editorial-profile' | 'real-author';
+  linkedin?: string;
+  social?: { linkedin?: string; twitter?: string; mastodon?: string; wikidataId?: string };
+  uid?: string;
+  cvPath?: string;
+};
+
+function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
+  return author?.kind === 'real-author'
+    || (!author?.kind && Boolean(author.uid || author.cvPath || author.social?.linkedin));
+}
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -1272,13 +1292,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
 
- // Determine author: editorial-profile Organization from data/authors.ts via
- // authorSlug (SECTION.registry field), Organization fallback when unset —
+ // Determine author: a Person or editorial-profile Organization from
+ // data/authors.ts via authorSlug (SECTION.registry field), Organization
+ // fallback when unset —
  // mirrors the SPA's mergeArticleByline (services/authorProfileService.ts)
  // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
- const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ const resolvedAuthor = (en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined) as ArticleAuthorIdentity | undefined;
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
  // moved to the per-article editorial profile. Every OG consumer (Facebook,
@@ -1288,13 +1309,26 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // page and wrong in the metadata. Organization fallback keeps /chi-siamo/,
  // which is exactly `authorObj.url` in that branch, so the tag and the
  // JSON-LD author can never disagree again.
- const authorObj: Record<string, unknown> = resolvedAuthor
+ const authorObj: Record<string, unknown> = isRealArticleAuthor(resolvedAuthor)
+ ? {
+ '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
+ name: resolvedAuthor.name,
+ url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
+ jobTitle: resolvedAuthor.role,
+ sameAs: [resolvedAuthor.social?.linkedin, resolvedAuthor.social?.twitter, resolvedAuthor.social?.mastodon,
+ resolvedAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${resolvedAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : resolvedAuthor
  ? {
  '@type': 'Organization' as const,
  '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#profile`,
  name: resolvedAuthor.name,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
  description: resolvedAuthor.role,
+ ...(resolvedAuthor.linkedin ? { sameAs: [resolvedAuthor.linkedin] } : {}),
  parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : {
@@ -1308,14 +1342,27 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // article has an explicit entry in articleReviewOverrides (nothing
  // reviewed by default, see shared/articleReviewOverrides.ts header).
  const reviewerSlug = resolveArticleReviewerSlug(en.articleId, articleReviewOverrides);
- const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
- const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
+ const reviewerAuthor = (reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined) as ArticleAuthorIdentity | undefined;
+ const reviewedByObj: Record<string, unknown> | undefined = isRealArticleAuthor(reviewerAuthor)
+ ? {
+ '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
+ name: reviewerAuthor.name,
+ url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
+ jobTitle: reviewerAuthor.role,
+ sameAs: [reviewerAuthor.social?.linkedin, reviewerAuthor.social?.twitter, reviewerAuthor.social?.mastodon,
+ reviewerAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${reviewerAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : reviewerAuthor
  ? {
  '@type': 'Organization' as const,
  '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#profile`,
  name: reviewerAuthor.name,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
  description: reviewerAuthor.role,
+ ...(reviewerAuthor.linkedin ? { sameAs: [reviewerAuthor.linkedin] } : {}),
  parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : undefined;

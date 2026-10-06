@@ -97,7 +97,7 @@ function validGeneratedRecord(url, record, expectedPath) {
   }
   return {
     valid: true,
-    source: 'generated-registry',
+    source: record.license === 'private-grant' ? 'private-grant-registry' : 'generated-registry',
     url: String(url),
     path: expectedPath,
     record,

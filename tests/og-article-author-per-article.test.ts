@@ -28,7 +28,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { AUTHORS, getAuthorBySlug } from '../data/authors';
+import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../data/authors';
 import { resolveArticleProvenance } from '../services/articleProvenance';
 
 const ROOT = join(__dirname, '..');
@@ -87,7 +87,7 @@ describe('article:author names the article author, not the Redazione', () => {
     // Order is the whole point: registry first, blob Organization second, team page
     // last. Flipping the first two re-opens the drift this module closed.
     const registryAt = src.indexOf('getAuthorBySlug(article.authorSlug)');
-    const blobAt = src.search(/blobAuthor\?\.\['@type'\]\s*===\s*'Organization'/);
+    const blobAt = src.search(/blobAuthor\?\.\['@type'\]\s*===\s*'(?:Organization|Person)'/);
     expect(registryAt).toBeGreaterThan(-1);
     expect(blobAt).toBeGreaterThan(registryAt);
   });
@@ -99,8 +99,11 @@ describe('article:author names the article author, not the Redazione', () => {
     // crawlers reconcile those editorial Organization nodes instead of treating every page as
     // a new anonymous entity. The publisher fallback uses the canonical
     // Organization type already declared by organizationLd.ts.
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#person`/);
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#profile`/);
+    expect(src).toMatch(/worksFor: \{ '@type': 'Organization'/);
     expect(src).toMatch(/parentOrganization: \{ '@type': 'Organization'/);
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#person`/);
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#profile`/);
     expect(src).toMatch(/'@type': 'Organization' as const/);
   });
@@ -115,17 +118,16 @@ describe('article:author names the article author, not the Redazione', () => {
  * simply false, and it reads as if the redazione, not the author, had produced
  * the piece: the same complaint, on the surface the reader actually sees.
  *
- * The author registry contains only editorial profiles. Per-article provenance
- * can still carry an explicit declaration from a separate content source, but
- * no editorial profile carries a Firebase identity.
+ * Editorial profiles carry no Firebase identity; real guest authors do. Per-
+ * article provenance can still carry an explicit declaration from a separate
+ * content source.
  */
 describe('editorial transparency disclosure matches how the article was produced', () => {
-  it('the editorial profile registry carries no Firebase identity', () => {
+  it('editorial profiles carry no Firebase identity while real authors do', () => {
     expect(AUTHORS.length).toBeGreaterThan(0);
-    for (const author of AUTHORS) {
-      expect(Object.keys(author)).not.toContain('uid');
-      expect(Object.keys(author)).not.toContain('email');
-    }
+    for (const author of AUTHORS.filter(isEditorialProfile)) expect(Object.keys(author)).not.toContain('uid');
+    const samuele = AUTHORS.find((author) => author.slug === 'samuele-valente');
+    expect(samuele && isRealAuthor(samuele) ? samuele.uid : undefined).toBe('rAaDN0AvhkUjvRxN2TJijgYodm22');
   });
 
   it('the AI-drafted wording is gated, not printed unconditionally', () => {

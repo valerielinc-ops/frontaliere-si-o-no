@@ -521,6 +521,27 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
   });
 
+  it('emette <dc:creator> anche per un autore reale Person', () => {
+    const root = makeFixture();
+    const seoFile = path.join(root, 'seo', RSS_SECTIONS[0].seoFiles[0]);
+    const source = fs.readFileSync(seoFile, 'utf8').replace(
+      '"@type": "Organization", "@id": "https://frontaliereticino.ch/autori/editorial-profile/#profile"',
+      '"@type": "Person", "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person"',
+    );
+    fs.writeFileSync(seoFile, source);
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+    const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
+  });
+
   it('non ripete la Redazione in <dc:creator> quando l\'autore e\' l\'Organization', () => {
     // Il canale gia' dichiara Frontaliere Ticino: ripeterlo per item non
     // aggiunge informazione, e un dc:creator uguale al canale non distingue
