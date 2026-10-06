@@ -26,7 +26,7 @@ export const HIDE_MARK = 'ft:static-handoff-hide';
  * `#loading-shell`, so `hasStaticContent()` is false and nothing is hidden —
  * the mark would never be set there.
  */
-export const CHECKED_PATHS = ['/cerca-lavoro-ticino/'];
+export const CHECKED_PATHS = ['/cerca-lavoro-ticino/']; // cathedral-allow: URL pubblica della pagina misurata da Lighthouse; script .mjs, non puo' importare SECTION_LEGACY_TI_PATH (TS)
 
 /** One verdict per LHR of a checked page; `null` for pages this check ignores. */
 export function evaluateLhr(lhr) {
