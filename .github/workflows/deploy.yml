@@ -2584,10 +2584,17 @@ jobs:
           PHASE_TIMING_RECOVERY_RUNS: '3'
         run: |
           set -euo pipefail
+          # A `--branch` run listing without `--created` can come back frozen
+          # weeks in the past (scripts/ci/lib/run-listing-window.mjs): the
+          # recovery check would then not find the current run and never
+          # close. Seven days cover the three consecutive deploys it needs
+          # with a wide margin; the observer orders the runs by id itself.
+          CREATED_SINCE="$(jq -rn 'now - (7 * 86400) | strftime("%Y-%m-%d")')"
           gh run list \
             --repo "$GH_REPO" \
             --workflow deploy.yml \
             --branch main \
+            --created ">=$CREATED_SINCE" \
             --limit 20 \
             --json databaseId,status,conclusion \
             > "$PHASE_TIMING_RUNS_FILE"
