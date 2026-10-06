@@ -22,6 +22,7 @@ on:
         type: string
 
 permissions:
+  actions: write
   contents: write
   actions: read
   # The shadow lane had no failure reporting at all, which is why it ran red on

@@ -63,6 +63,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   actions: read

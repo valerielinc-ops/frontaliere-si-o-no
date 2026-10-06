@@ -67,6 +67,7 @@ jobs:
     outputs:
       failure_kind: ${{ steps.classify.outputs.failure_kind }}
     permissions:
+      actions: write
       contents: read    # read-only — winners git push moved to publish.yml
       actions: read     # for download-artifact same-run
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")

@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   # Serve allo step di allarme in fondo: prima questo workflow falliva in
