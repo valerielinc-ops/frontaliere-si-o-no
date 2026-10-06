@@ -80,7 +80,8 @@ describe('site-rendered article-section boundary', () => {
       path.join(root, 'packages', 'articles', 'engine', 'rssFeeds.mjs'),
       'utf8',
     );
-    expect(source).toContain('export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);');
+    expect(source).toContain('export const RSS_SECTIONS = [];');
+    expect(source).toContain('registerActiveArticleSections(refreshRssSections);');
     expect(source).toContain('export const SITE_RSS_SECTIONS = SITE_RENDERED_ARTICLE_SECTIONS.map(rssSectionFor);');
     expect(source).toContain('sections = RSS_SECTIONS');
   });

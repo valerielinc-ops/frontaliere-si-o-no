@@ -32,7 +32,7 @@
  * app icon in the feed.
  */
 import {
-  ARTICLE_SECTION_CORE_LIST,
+  registerActiveArticleSections,
   SITE_RENDERED_ARTICLE_SECTIONS,
 } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
@@ -175,7 +175,13 @@ export function rssSectionFor(core) {
  * sections are not in the list. The corpus/API publisher uses this active
  * table because canton feeds are served from R2.
  */
-export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
+export const RSS_SECTIONS = [];
+
+function refreshRssSections(entries) {
+  RSS_SECTIONS.splice(0, RSS_SECTIONS.length, ...entries.map(rssSectionFor));
+}
+
+registerActiveArticleSections(refreshRssSections);
 
 /**
  * RSS rows that a monolith site build may render. Keep this as a projection of

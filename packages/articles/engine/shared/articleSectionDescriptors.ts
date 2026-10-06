@@ -44,7 +44,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
- ARTICLE_SECTION_CORE_LIST,
+ registerActiveArticleSections,
  SITE_RENDERED_ARTICLE_SECTIONS,
 } from './articleSectionCore.mjs';
 import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
@@ -153,8 +153,13 @@ function descriptorFor(core: CoreEntry): OgSection {
  * then any activated canton). This is the publisher/engine descriptor set:
  * the corpus needs active canton rows to render and publish their R2 pages.
  */
-export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] =
- (ARTICLE_SECTION_CORE_LIST as unknown as CoreEntry[]).map(descriptorFor);
+export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [];
+
+function refreshArticleSectionDescriptors(entries: readonly CoreEntry[]): void {
+ ARTICLE_SECTION_DESCRIPTORS.splice(0, ARTICLE_SECTION_DESCRIPTORS.length, ...entries.map(descriptorFor));
+}
+
+registerActiveArticleSections(refreshArticleSectionDescriptors);
 
 /**
  * Descriptors for static pages emitted by the monolith site build.

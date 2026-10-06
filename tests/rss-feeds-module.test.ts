@@ -94,7 +94,7 @@ const REGISTRY = [
 describe('packages/articles/engine/rssFeeds', () => {
   it('exposes separate active-publisher and site-rendered RSS populations', () => {
     expect(RSS_SECTIONS.map((section) => section.id)).toEqual([
-      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+      'frontaliere', 'svizzera',
     ]);
     expect(SITE_RSS_SECTIONS.map((section) => section.id)).toEqual(['frontaliere', 'svizzera']);
   });

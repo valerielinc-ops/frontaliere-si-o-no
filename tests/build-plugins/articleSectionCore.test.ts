@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   ARTICLE_SECTION_CORE,
@@ -75,13 +77,10 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     });
   });
 
-  it('ARTICLE_SECTION_CORE_LIST is historical sections followed by the active pilot', () => {
+  it('ARTICLE_SECTION_CORE_LIST defaults to the two historical sections', () => {
     expect(ARTICLE_SECTION_CORE_LIST).toEqual([
       ARTICLE_SECTION_CORE.frontaliere,
       ARTICLE_SECTION_CORE.svizzera,
-      ARTICLE_SECTION_CORE['canton-be'],
-      ARTICLE_SECTION_CORE['canton-gr'],
-      ARTICLE_SECTION_CORE['canton-ti'],
     ]);
   });
 
@@ -95,16 +94,42 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     }
   });
 
-  it('active consumers see the historical sections plus the three pilot cantons', () => {
-    expect(Object.keys(ARTICLE_SECTION_CORE)).toEqual(['frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti']);
-    expect(sectionsOfKind('canton')).toEqual([
-      ARTICLE_SECTION_CORE['canton-be'],
-      ARTICLE_SECTION_CORE['canton-gr'],
-      ARTICLE_SECTION_CORE['canton-ti'],
-    ]);
+  it('active consumers default to the historical sections until the host injects a set', () => {
+    expect(Object.keys(ARTICLE_SECTION_CORE)).toEqual(['frontaliere', 'svizzera']);
+    expect(sectionsOfKind('canton')).toEqual([]);
     expect(sectionsOfKind('frontaliere')).toEqual([ARTICLE_SECTION_CORE.frontaliere]);
     expect(sectionsOfKind('national')).toEqual([ARTICLE_SECTION_CORE.svizzera]);
     expect(() => sectionsOfKind('regional' as never)).toThrow();
+  });
+
+  it('the host injection validates, is idempotent, and rejects a later different set', () => {
+    const coreUrl = pathToFileURL(path.join(rootDir, 'packages/articles/engine/shared/articleSectionCore.mjs')).href;
+    const script = `
+      import { activeArticleSections, configureActiveCantonSections } from ${JSON.stringify(coreUrl)};
+      const first = configureActiveCantonSections(['TI', 'GR', 'BE']);
+      const same = configureActiveCantonSections(['BE', 'TI', 'GR']);
+      let error = '';
+      try {
+        activeArticleSections();
+        configureActiveCantonSections(['TI']);
+      } catch (cause) {
+        error = cause instanceof Error ? cause.message : String(cause);
+      }
+      console.log(JSON.stringify({
+        active: first.map((entry) => entry.section),
+        same: same.map((entry) => entry.section),
+        error,
+      }));
+    `;
+    const result = spawnSync(process.execPath, ['--input-type=module', '--eval', script], {
+      encoding: 'utf8',
+    });
+    expect(result.status, result.stderr).toBe(0);
+    expect(JSON.parse(result.stdout)).toEqual({
+      active: ['frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti'],
+      same: ['frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti'],
+      error: expect.stringContaining('impossibile riconfigurare'),
+    });
   });
 
   it('the site-rendered selector excludes active canton/R2 sections by construction', () => {
@@ -145,10 +170,10 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     expect(() => cantonHubTopicSlugs('svizzera', 'it')).toThrow();
   });
 
-  it('activeArticleSection resolves the historical sections and the pilot', () => {
+  it('activeArticleSection resolves historical sections and rejects a canton before host injection', () => {
     expect(activeArticleSection('frontaliere')).toBe(ARTICLE_SECTION_CORE.frontaliere);
     expect(activeArticleSection('svizzera')).toBe(ARTICLE_SECTION_CORE.svizzera);
-    expect(activeArticleSection('canton-ti')).toBe(ARTICLE_SECTION_CORE['canton-ti']);
+    expect(() => activeArticleSection('canton-ti')).toThrow(/non attiva/);
     expect(() => activeArticleSection('canton-zh')).toThrow(/non attiva/);
   });
 
@@ -175,12 +200,12 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     }
   });
 
-  it('articleSectionDescriptors.ts is derived from the ACTIVE core list and keeps the pre-table local fields', () => {
+  it('articleSectionDescriptors.ts is derived from the active core list and keeps the pre-table local fields', () => {
     // The kind-local fields are pinned to the two literals the module held
     // before it became table-driven: a value change here changes which files
     // renderArticlePages reads and which sitemap/canonical it writes.
     expect(ARTICLE_SECTION_DESCRIPTORS.map((s) => s.name)).toEqual([
-      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+      'frontaliere', 'svizzera',
     ]);
     const [frontaliere, svizzera] = ARTICLE_SECTION_DESCRIPTORS;
     expect(frontaliere.seoFiles).toEqual([
@@ -232,7 +257,7 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     // pinned is kept twice over: every row's tuple fields equal the core's,
     // and the source must not restate any tuple value (a copy, not a read).
     expect(RSS_SECTIONS.map((s) => s.id)).toEqual([
-      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+      'frontaliere', 'svizzera',
     ]);
     for (const section of RSS_SECTIONS.filter((s) => ['frontaliere', 'svizzera'].includes(s.id))) {
       const core = ARTICLE_SECTION_CORE[section.id as 'frontaliere' | 'svizzera'];
@@ -339,7 +364,7 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
         expect(BLOG_SECTION_RX.test(`/${slug}/`), `hub slug "${slug}" must match BLOG_SECTION_RX`).toBe(true);
       }
     }
-    for (const entry of ARTICLE_SECTION_CORE_LIST.filter((candidate) => candidate.kind === 'canton')) {
+    for (const entry of Object.values(ARTICLE_SECTION_CORE_ALL).filter((candidate) => candidate.kind === 'canton')) {
       for (const slug of Object.values(entry.indexSlug)) {
         expect(BLOG_SECTION_RX.test(`/${slug}/`), `canton slug "${slug}" must stay outside site static classification`).toBe(false);
       }
