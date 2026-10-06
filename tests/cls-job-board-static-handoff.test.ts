@@ -170,8 +170,8 @@ describe('static → SPA job-board geometry — #9815', () => {
   it('keeps the static detail and the hydrated detail on the same three-column rail contract', () => {
     expect(spaRailSource).toContain('ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[');
     expect(spaRailSource).toContain('ft-rail-aside-x hidden xl:max-xlw:block');
-    expect(jobSource).toContain('class="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[');
-    expect(jobSource).toContain('class="ft-rail-aside-x hidden xl:max-xlw:block');
+    expect(jobSource).toContain('class="ft-rail-grid ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[');
+    expect(jobSource).toContain('class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block');
     expect(jobSource).toContain('grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6');
     expect(criticalSource).toContain('main.seo-static-content.static-job-page');
     expect(indexCssSource).toContain('main.seo-static-content.static-job-page');
@@ -179,8 +179,8 @@ describe('static → SPA job-board geometry — #9815', () => {
 
   it('uses the job-board rail variant for the static hub, not the legacy 160px-only wrapper', () => {
     expect(guttersSource).toContain("'job-board'");
-    expect(guttersSource).toContain('ft-rail-grid-x xl:grid');
-    expect(guttersSource).toContain('ft-rail-aside-x hidden xl:max-xlw:block');
+    expect(guttersSource).toContain('ft-rail-grid-x job-board-static-rail-shell xl:grid');
+    expect(guttersSource).toContain('ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block');
     expect(guttersSource).toContain('job-board-static-rail-shell');
     expect(hubSource).toContain('railGutters(');
     expect(hubSource).toContain("const isJobBoardHub = hubChromeSpec?.hubKey === 'job-board';");
