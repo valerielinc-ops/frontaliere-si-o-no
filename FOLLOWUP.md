@@ -8,11 +8,11 @@ La forma canonica è:
 follow-up(daily:YYYY-MM-DD): N item — owner/repo
 ```
 
-Key `Europe/Zurich`≠`mergedAt`; successo→watermark, retry→finestra; marker `## Post-merge follow-up triage`.
+`Europe/Zurich`≠`mergedAt`; successo→watermark, retry→finestra; marker `## Post-merge follow-up triage`.
 
-PR daily `Addresses #<bucket>` + `Follow-up item: FU-...`: `Sources`/padre; `State: collecting`→`State: sealed`; no `agent:fix`/`agent:fix-queued`; `hasFalsifiableAcceptance()` demota/sigilla; errore→blocco, item/watermark intatti.
+PR daily `Addresses #<bucket>` + `Follow-up item: FU-...`: `Sources`/padre; `State: collecting`→`State: sealed`; no `agent:fix`/`agent:fix-queued`; `hasFalsifiableAcceptance()` demota/sigilla; errore→blocco, item/watermark.
 
-Baseline divergente→ricostruisci. Drainer `sealed`+`open` senza PR-ID→`issue-fix` uno/run; PR `Addresses #<bucket>`+`Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; reconciler validi `done`.
+Baseline diverge→rebuild. Drainer `sealed`+`open` senza PR-ID→`issue-fix` uno/run; PR `Addresses #<bucket>`+`Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; reconciler validi `done`.
 
 ### Ciclo del padre decomposto e PARENT-REARM
 
@@ -221,12 +221,14 @@ Tutti `Dropped`/`Skipped` da QUESTA PR → `Created/updated: 0 item.` con **0**;
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 
+`followup-reconcile.yml`.
+
 **2026-06-10 — auto-close a due tier.** `reconcile`: SOLO **doppia conferma separata nel tempo** + veti:
 
 1. **1ª detection** (issue non ancora `maybe-resolved`) → commento advisory + label `maybe-resolved`. **Finestra di grazia**: l'umano ha fino al run successivo per obiettare (rimuovere la label, aggiungere `keep-open`/`pinned`, riaprire lo scope).
 2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è un bucket con **tutti** gli item validi `done` — oppure una legacy **single-item** —, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
 
-Veto: invalidi bloccano; `done` + `isStrongAutoCloseEvidence()`. Parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`. **keep-open/pinned/revenue/tracker/do-not-close** = veti. `planMaybeResolvedRelease` + `<!-- FU_MAYBE_RESOLVED_RELEASED -->`; fail conserva flag, conferma azzera; `RECONCILE_NO_AUTOCLOSE=1` flag-only. Test `tests/reconcile-followups-decision.test.ts`; matcher `followup-resolution-match.mjs`, AGENTS.md #6.
+Veto: invalidi bloccano; `done` + `isStrongAutoCloseEvidence()`. Parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`; **keep-open/pinned/revenue/tracker/do-not-close** = veti. `planMaybeResolvedRelease` + `<!-- FU_MAYBE_RESOLVED_RELEASED -->`; fail conserva flag, conferma azzera; `RECONCILE_NO_AUTOCLOSE=1` flag-only. Test `tests/reconcile-followups-decision.test.ts`; matcher `followup-resolution-match.mjs`, AGENTS.md #6.
 
 
 ## Stati dell'item, scrittori e chiusura
@@ -259,7 +261,7 @@ Nessun'altra transizione auto; persona può `open`/chiudere con prova.
 
 **Regola di chiusura.** Auto-close SOLO `done` con token non nato vero o guardia locale + `FU_ITEM_CI_SUITE`, run separate (`maybe-resolved`, poi chiusura), senza veti. I4 (2026-10-05): suite verde=CI; altro→`blocked`; attesa→`METRICA`/prova.
 
-**Corpo fuori formato.** Illeggibile→«Bucket follow-up illeggibile dal parser»; `rebuildDailyBody`/`node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo>` (preview/`--write`); rifiuto.
+**Corpo fuori formato.** Illeggibile→«Bucket follow-up illeggibile dal parser»; `rebuildDailyBody`/`node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo>` (`--write`); rifiuto.
 
 **Finestra di gara.** Triage/reconciler/drainer condividono `followup-daily-<repo>`; `route-already-fixed.mjs` fuori mutex conferma `maybe-resolved` rimosso.
 
