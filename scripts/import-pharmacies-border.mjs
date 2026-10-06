@@ -36,6 +36,7 @@ import {
 import {
   buildPharmacyEnrichmentSnapshot,
   enrichPharmacyRecords,
+  extractPharmacyPdfText,
   validatePharmacyEnrichmentConfig,
 } from './lib/pharmacy-enrichment.mjs';
 import { TICINO_DUTY_REGIONS } from './lib/pharmacy-duty-regions.mjs';
@@ -708,6 +709,7 @@ async function main() {
       previous: previousEnrichment,
       checkedAt: fetchedAt,
       fetchDocument: (url) => fetchText(url, { accept: 'text/html' }),
+      fetchPdfText: async (url) => extractPharmacyPdfText(await fetchBuffer(url)),
       fetchJson,
       googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
       facebookPageId: process.env.PHARMACY_FACEBOOK_PAGE_ID,
