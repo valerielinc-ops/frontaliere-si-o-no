@@ -1,7 +1,7 @@
 {
   "key": "gemeinde-st-moritz",
   "label": "Gemeinde St. Moritz",
-  "generatedAt": "2026-10-05T21:48:50.951Z",
+  "generatedAt": "2026-10-06T09:28:42.585Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 13786,
-  "avgDurationMs": 13786,
+  "durationMs": 13404,
+  "avgDurationMs": 13404,
   "durationHistory": [
-    13786
+    13404
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:44.763Z",
+      "crawledAt": "2026-10-06T09:28:30.848Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:42.619Z",
+      "crawledAt": "2026-10-06T09:28:28.799Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:40.658Z",
+      "crawledAt": "2026-10-06T09:28:26.678Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -162,7 +162,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:37.958Z",
+      "crawledAt": "2026-10-06T09:28:24.226Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
