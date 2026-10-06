@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ExternalLink, Loader2, RefreshCw, ShieldCheck } from 'lucide-react';
 import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
 import AssistedApplicationOffer from '@/components/community/AssistedApplicationOffer';
+import { useApplicationOfferAdClearance } from '@/components/community/useApplicationOfferAdClearance';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
@@ -380,6 +381,8 @@ export default function RewardedApplicationOffer({
   const loadingRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const dismissFromBackdrop = useApplicationOfferBackdropDismiss(onDismiss);
+  // The hand-off card's buttons stay clear of Google's anchor ad.
+  const adClearance = useApplicationOfferAdClearance();
 
   // Shared shape of every rewarded event of this offer: the job context, the
   // ad inventory, and the Google request id that joins it to the
@@ -1109,6 +1112,7 @@ export default function RewardedApplicationOffer({
     <div
       className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-center justify-center bg-black/55 px-4 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm"
       onClick={handleBackdropClick}
+      style={adClearance.overlayStyle}
       data-testid="rewarded-application-offer"
     >
       {showLoading && (
