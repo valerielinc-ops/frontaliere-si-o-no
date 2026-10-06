@@ -2435,7 +2435,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  fr: parseBlogBodyLocale('fr'),
  } as const;
 
- const getPagePreloads = (urlPath: string, locale: string): string => {
+ const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = ''): string => {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
@@ -2455,21 +2455,32 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
  tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
- // Preload blog hero image on article listing pages.
+ // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
  // un'immagine che la pagina non mostra, e — dopo il fix del ramo detail —
  // per una che non compare piu' nel documento affatto.
- if (blogSlugs.has(firstSeg)) {
+ if (blogSlugs.has(firstSeg) || swissSlugs.has(firstSeg)) {
+ const isSwissSection = swissSlugs.has(firstSeg);
+ const articleIds = isSwissSection ? swissArticleIdByLocale : blogArticleIdByLocale;
+ const sectionHero = isSwissSection ? swissHeroImageStatic : blogHeroImageStatic;
  const isDetail = segs.length > (localePrefixes.includes(segs[0] ?? '') ? 2 : 1);
  const detailLocale = (localePrefixes.includes(segs[0] ?? '') ? segs[0] : 'it') as 'it' | 'en' | 'de' | 'fr';
  const detailId = isDetail
- ? (blogArticleIdByLocale[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? blogArticleIdByLocale.it[segs[segs.length - 1] ?? ''])
+ ? (articleIds[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? articleIds.it[segs[segs.length - 1] ?? ''])
  : undefined;
- const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || blogHeroImageStatic;
+ const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || sectionHero;
  if (preloadHero) {
  tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
  }
+ }
+ // Generated SEO cards (glossary and its translated route family) are emitted
+ // by this plugin's hand-rolled shell rather than buildSeoPageHtml, so the
+ // shared hero-marker helper cannot add their LCP hint. The caller passes the
+ // already-resolved URL after constructing the single hero identity used by
+ // og:image and the body <img>.
+ if (generatedHeroUrl) {
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">`);
  }
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
@@ -5785,7 +5796,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
+ ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
