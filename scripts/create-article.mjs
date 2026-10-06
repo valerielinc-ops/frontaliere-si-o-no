@@ -1844,6 +1844,7 @@ export const ARTICLE_SECTION_CONFIGS = {
     hubSlug: ARTICLE_SECTION_CORE.frontaliere.indexSlug,
     // Registry / slug-data / meta / body / seo write targets
     registryFile: ARTICLE_SECTION_CORE.frontaliere.registryFile,
+    registryRawArrayName: 'RAW_ARTICLES',
     registryArrayName: 'ARTICLES',
     slugDataFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
     slugsConstName: ARTICLE_SECTION_CORE.frontaliere.slugConst,
@@ -1870,6 +1871,7 @@ export const ARTICLE_SECTION_CONFIGS = {
     rssFallbackMap: NEWS_SOURCES_SVIZZERA_FALLBACK_MAP,
     hubSlug: ARTICLE_SECTION_CORE.svizzera.indexSlug,
     registryFile: ARTICLE_SECTION_CORE.svizzera.registryFile,
+    registryRawArrayName: 'RAW_SWISS_ARTICLES',
     registryArrayName: 'SWISS_ARTICLES',
     slugDataFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
     slugsConstName: ARTICLE_SECTION_CORE.svizzera.slugConst,
@@ -9100,21 +9102,20 @@ function modifyBlogArticlesTsx(data) {
   entryLines.push(`${objIndent}},`);
   const newEntry = entryLines.join('\n');
 
-  // Insert before the array terminator. Anchors to the closing `},` that
-  // immediately precedes `] satisfies Article[];` or `];` — robust to any
-  // set of trailing properties (authorSlug, authorName, etc.) on the last entry.
+  // Insert into the raw aggregate, after any generated chunks. Anchoring to
+  // the declaration name keeps new articles out of the first chunk, so a
+  // later sync can preserve the chunk-size invariant.
   const before = src;
-  src = src.replace(
-    /([ \t]*},\n)(\](?:[ \t]+satisfies[ \t]+Article\[\])?;)/,
-    `$1${newEntry}\n$2`
-  );
-  if (src === before) {
-    // Empty array (first article in the section) — no preceding `},`. Insert
-    // between the opening `[` and the closing `]`. Matches `= [\n]` and `= []`.
-    src = src.replace(
-      new RegExp(`(export const ${SECTION.registryArrayName}\\s*:[^=]*=\\s*\\[)(\\s*)(\\])`),
-      `$1\n${newEntry}\n$3`,
-    );
+  const rawArrayStart = new RegExp(
+    `const\\s+${escapeRegex(SECTION.registryRawArrayName)}\\s*(?::[^=]+)?\\s*=\\s*\\[`,
+  ).exec(src);
+  if (rawArrayStart) {
+    const arrayBodyStart = rawArrayStart.index + rawArrayStart[0].length;
+    const closer = src.slice(arrayBodyStart).match(/\](?:[ \t]+satisfies[ \t]+Article\[\])?;/);
+    if (closer) {
+      const insertAt = arrayBodyStart + closer.index;
+      src = src.slice(0, insertAt) + `${newEntry}\n` + src.slice(insertAt);
+    }
   }
   if (src === before) {
     throw new Error(`modifyBlogArticlesTsx: regex did not match — cannot insert article entry in ${file}`);
