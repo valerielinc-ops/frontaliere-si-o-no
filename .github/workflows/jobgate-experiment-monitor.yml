@@ -40,6 +40,7 @@ on:
         options: ['false', 'true']
 
 permissions:
+  actions: write
   contents: read
   issues: write
 

@@ -94,6 +94,7 @@ on:
       - 'scripts/cathedral-seo-gates-check.mjs'
 
 permissions:
+  actions: write
   contents: read
   issues: write
   # Listing + downloading the `github-pages` artifact of the deploy run whose

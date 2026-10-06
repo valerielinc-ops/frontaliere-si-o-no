@@ -22,6 +22,7 @@ on:
       - main
 
 permissions:
+  actions: write
   contents: read
   pages: write
   id-token: write
@@ -223,6 +224,7 @@ jobs:
       group: nonit-shard-tail-${{ matrix.locale }}
       cancel-in-progress: false
     permissions:
+      actions: write
       contents: read
       actions: read
       issues: write
@@ -1413,6 +1415,7 @@ jobs:
             format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     permissions:
+      actions: write
       pages: write
       id-token: write
       contents: read

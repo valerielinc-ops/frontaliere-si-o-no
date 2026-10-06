@@ -9,9 +9,14 @@ on:
   # `issues:[opened]`: TUTTI i monitor di fallimento). 46 orfane osservate
   # 2026-06-14, alcune di 2 settimane (#855/#857 follow-up mai entrati in coda).
   schedule:
-    - cron: '17 */4 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
+      issue_number:
+        description: 'Issue appena creata o riaperta: triage mirato (vuoto = sweep completo)'
+        required: false
+        type: string
+        default: ''
       cap:
         description: 'Max crawler→agent:fix DIRETTI per run. La coda concurrency di issue-fix ha profondità 1: >1 garantisce sfratti (#5514). Lo sforo va in agent:fix-queued.'
         required: false
@@ -41,7 +46,7 @@ on:
 # tiene serializzati fra loro come prima, e li tiene fuori dalla coda degli
 # eventi per-issue.
 concurrency:
-  group: issue-triage-${{ github.event.issue.number || 'sweep' }}
+  group: issue-triage-${{ github.event.issue.number || github.event.inputs.issue_number || 'sweep' }}
   cancel-in-progress: false
 # Contratto #7549: per un evento issue, un terzo evento sulla stessa issue può
 # sostituire la sola pending consentita anche con `cancel:false`; essendo
@@ -391,9 +396,11 @@ jobs:
           # che ha profondità 1. Lo sforo finisce in `agent:fix-queued`.
           INPUT_CAP: ${{ github.event.inputs.cap || '1' }}
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          INPUT_ISSUE_NUMBER: ${{ github.event.inputs.issue_number || '' }}
         run: |
           set -uo pipefail
           ARGS=(--cap "$INPUT_CAP")
+          if [ -n "$INPUT_ISSUE_NUMBER" ]; then ARGS+=(--issue-number "$INPUT_ISSUE_NUMBER"); fi
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/ci/triage-sweep.mjs "${ARGS[@]}"
 

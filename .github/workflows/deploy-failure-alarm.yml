@@ -80,6 +80,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: read
   issues: write
   # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non

@@ -26,6 +26,7 @@ on:
         type: string
 
 permissions:
+  actions: write
   contents: read
   issues: write
 

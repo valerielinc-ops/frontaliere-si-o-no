@@ -1,4 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
 
 // Mock `gh` invocations. We route by the gh sub-command so a single mock can
 // simulate "no open issue", "issue has N prior failure events", etc.
@@ -30,6 +33,60 @@ const ISO = (hoursAgo: number) => new Date(Date.now() - hoursAgo * 3600 * 1000).
 beforeEach(() => {
   execFileSync.mockReset();
   delete process.env.GH_REPO;
+  delete process.env.GITHUB_ACTIONS;
+  delete process.env.GITHUB_RUN_ID;
+  delete process.env.RUNNER_TEMP;
+});
+
+describe('automatic issue triage dispatch', () => {
+  it('dispatches targeted triage once after a monitor creates an issue', async () => {
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'issue-triage-dispatch-'));
+    process.env.GITHUB_ACTIONS = 'true';
+    process.env.GITHUB_RUN_ID = '12345';
+    process.env.RUNNER_TEMP = runnerTemp;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/123';
+      if (args[0] === 'workflow' && args[1] === 'run') return '';
+      return '';
+    });
+
+    try {
+      const first = await createGithubIssue({ title: 'Monitor failure one', description: 'first' } as any);
+      const second = await createGithubIssue({ title: 'Monitor failure two', description: 'second' } as any);
+      const dispatches = ghCalls().filter((args) => args[0] === 'workflow' && args[1] === 'run');
+
+      expect(first?.created).toBe(true);
+      expect(second?.created).toBe(true);
+      expect(dispatches).toHaveLength(1);
+      expect(dispatches[0]).toEqual(expect.arrayContaining([
+        'issue-triage.yml', '--ref', 'main', '--field', 'issue_number=123',
+      ]));
+    } finally {
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a persisted issue successful when workflow dispatch is forbidden', async () => {
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'issue-triage-denied-'));
+    process.env.GITHUB_ACTIONS = 'true';
+    process.env.GITHUB_RUN_ID = '12346';
+    process.env.RUNNER_TEMP = runnerTemp;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/124';
+      if (args[0] === 'workflow' && args[1] === 'run') throw new Error('HTTP 403');
+      return '';
+    });
+
+    try {
+      const result = await createGithubIssue({ title: 'Monitor failure denied dispatch' } as any);
+      expect(result?.persisted).toBe(true);
+      expect(result?.number).toBe(124);
+    } finally {
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('dedupKey cold-start CLOSED lookup (#6814)', () => {

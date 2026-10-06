@@ -11,6 +11,7 @@ jobs:
   build-evidence:
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
       pull-requests: write
       issues: write
@@ -138,6 +139,7 @@ jobs:
     needs: build-evidence
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
       pull-requests: write
       issues: write
