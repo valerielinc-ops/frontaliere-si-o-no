@@ -10,6 +10,7 @@ on:
         default: true
         type: boolean
 permissions:
+  actions: write
   contents: write
   issues: write
 

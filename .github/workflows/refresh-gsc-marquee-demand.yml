@@ -57,6 +57,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write # commit data/gsc-top-marquee-candidates.json
   issues: write # github-issue-creator on failure
 

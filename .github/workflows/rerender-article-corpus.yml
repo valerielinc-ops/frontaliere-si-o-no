@@ -179,6 +179,7 @@ on:
       - '.github/workflows/rerender-article-corpus.yml'
 
 permissions:
+  actions: write
   contents: read
   issues: write
 

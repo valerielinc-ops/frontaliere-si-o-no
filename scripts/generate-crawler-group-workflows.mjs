@@ -2042,9 +2042,9 @@ function npmScriptsForAnalyzer() {
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
-const GENERATED_GROUP_PERMISSIONS = Object.freeze({ contents: 'write', issues: 'write' });
+const GENERATED_GROUP_PERMISSIONS = Object.freeze({ actions: 'write', contents: 'write', issues: 'write' });
 const LOGIC_GROUP_PERMISSIONS = Object.freeze({ contents: 'read' });
-const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'read', contents: 'read', issues: 'write' });
+const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'write', contents: 'read', issues: 'write' });
 
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, { quarantine = null } = {}) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
@@ -3077,7 +3077,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
       canonicalJson(generatedWorkflow.concurrency) !== canonicalJson({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,
-  }) || canonicalJson(generatedWorkflow.permissions) !== canonicalJson({ contents: 'write', issues: 'write' }) ||
+  }) || canonicalJson(generatedWorkflow.permissions) !== canonicalJson({ actions: 'write', contents: 'write', issues: 'write' }) ||
       logicWorkflow.concurrency !== undefined ||
       canonicalJson(logicWorkflow.permissions) !== canonicalJson({ contents: 'read' })) {
     throw new Error(`${fileName}: reusable metadata drifted from the allowed cross-repo form`);

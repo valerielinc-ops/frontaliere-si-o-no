@@ -52,6 +52,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write  # commit data/linkedin-member-posted.json
   issues: write
 

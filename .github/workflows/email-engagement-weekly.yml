@@ -53,6 +53,7 @@ on:
         type: boolean
 
 permissions:
+  actions: write
   contents: read
   issues: write   # per aprire/commentare la issue canonica sulla regressione
 

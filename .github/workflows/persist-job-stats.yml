@@ -8,6 +8,7 @@ on:
     - cron: '15 6,18 * * *'  # 07:15 and 19:15 CET (after typical deploy times)
 
 permissions:
+  actions: write
   contents: write
   issues: write     # for github-issue-creator on failure
 

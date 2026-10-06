@@ -10,6 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: read
   # The failure reporter below files an issue with GITHUB_TOKEN. Without this
   # the call 403s, and because that step is continue-on-error the job would

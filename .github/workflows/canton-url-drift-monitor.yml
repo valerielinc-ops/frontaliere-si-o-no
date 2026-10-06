@@ -56,6 +56,7 @@ on:
 # `contents: write` per la riga appesa allo storico, `issues: write` per la
 # issue di soglia descritta nell'intestazione.
 permissions:
+  actions: write
   contents: write
   issues: write
 

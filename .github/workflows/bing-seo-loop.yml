@@ -37,10 +37,10 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   issues: write
-  actions: read
 
 jobs:
   # The workflow_run conclusion describes the aggregate publish workflow, so a

@@ -25,6 +25,7 @@ on:
         type: choice
         options: ['true', 'false']
 permissions:
+  actions: write
   contents: write  # to commit reddit-posted-jobs.json
   issues: write
 
