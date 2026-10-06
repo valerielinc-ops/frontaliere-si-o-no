@@ -10749,12 +10749,12 @@
     },
     {
       "id": "ubs-f8a7469a4257",
-      "slug": "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve",
+      "slug": "2027-stage-lfn-wealth-management-svizzera-ginevra-ubs-geneve",
       "slugByLocale": {
         "en": "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve",
-        "it": "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve",
-        "de": "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve",
-        "fr": "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve"
+        "it": "2027-stage-lfn-wealth-management-svizzera-ginevra-ubs-geneve",
+        "de": "2027-praktikum-lfn-wealth-management-schweiz-genf-ubs-geneve",
+        "fr": "2027-stage-gestion-de-patrimoine-lfn-suisse-geneve-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10822,7 +10822,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-06T09:15:34.367Z"
+      "firstSeenAt": "2026-10-06T09:15:34.367Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve"
+        ],
+        "de": [
+          "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve"
+        ],
+        "fr": [
+          "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-lfn-wealth-management-switzerland-geneva-ubs-geneve"
+      ]
     },
     {
       "id": "ubs-4c6d1b542647",
@@ -10831,7 +10845,7 @@
         "en": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
         "it": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
         "de": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
-        "fr": "2027-graduate-talent-program-procurement-zh-ubs-zurich"
+        "fr": "2027-programme-des-talents-diplomes-approvisionnement-zh-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10903,12 +10917,12 @@
     },
     {
       "id": "ubs-a97d3418970c",
-      "slug": "event-attendant-hourly-paid-ubs-geneve",
+      "slug": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
       "slugByLocale": {
         "en": "event-attendant-hourly-paid-ubs-geneve",
-        "it": "event-attendant-hourly-paid-ubs-geneve",
-        "de": "event-attendant-hourly-paid-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
+        "de": "event-attendant-stundenlohn-ubs-geneve",
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10976,7 +10990,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-06T09:14:59.207Z"
+      "firstSeenAt": "2026-10-06T09:14:59.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-attendant-hourly-paid-ubs-geneve"
+        ],
+        "de": [
+          "event-attendant-hourly-paid-ubs-geneve"
+        ],
+        "fr": [
+          "event-attendant-hourly-paid-ubs-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "event-attendant-hourly-paid-ubs-geneve"
+      ]
     }
   ]
 }

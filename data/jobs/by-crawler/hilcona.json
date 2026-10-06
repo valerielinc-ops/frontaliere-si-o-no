@@ -3215,7 +3215,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3255,7 +3255,6 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon",
         "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
@@ -3266,7 +3265,6 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon",
           "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
@@ -4023,8 +4021,8 @@
       "slugByLocale": {
         "de": "lehre-als-automatiker-in-efz-2027-hilcona-basel",
         "it": "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehre-als-automatiker-in-efz-2027-hilcona-basel",
-        "fr": "lehre-als-automatiker-in-efz-2027-hilcona-basel"
+        "en": "teaching-as-an-automatic-engineer-in-efz-2027-bell-schweiz-ag-basel",
+        "fr": "enseignement-en-tant-qu-ingenieur-automatique-a-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4066,6 +4064,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-automatiker-in-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehre-als-automatiker-in-efz-2027-hilcona-basel"
+        ],
+        "fr": [
           "lehre-als-automatiker-in-efz-2027-hilcona-basel"
         ]
       },

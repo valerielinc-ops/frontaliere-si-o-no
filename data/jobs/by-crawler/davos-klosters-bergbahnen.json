@@ -344,12 +344,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-7e729b4283cd",
-      "slug": "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+      "slug": "prenotazione-hotel-di-montagna-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
-        "it": "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+        "it": "prenotazione-hotel-di-montagna-davos-klosters-bergbahnen-ag-davos",
         "en": "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
-        "fr": "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+        "fr": "office-de-reservation-hotels-de-montagne-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -405,7 +405,18 @@
       "postalCode": "7270",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Booking-Office-Mountain-Hotels_j_3944423",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-05T09:25:00.411Z"
+      "firstSeenAt": "2026-10-05T09:25:00.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-cbe65104ec80",

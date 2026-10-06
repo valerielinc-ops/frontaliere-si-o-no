@@ -54,13 +54,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49365",
       "previousSlugs": [
-        "manager-accounting-reporting-alcon-ch",
-        "gestione-contabilita-e-reporting-alcon-fribourg"
+        "manager-accounting-reporting-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-accounting-reporting-alcon-ch",
-          "gestione-contabilita-e-reporting-alcon-fribourg"
+          "manager-accounting-reporting-alcon-ch"
         ],
         "de": [
           "manager-accounting-reporting-alcon-ch"
@@ -137,13 +135,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-46854",
       "previousSlugs": [
-        "international-accounting-and-reporting-director-alcon-ch",
-        "international-accounting-and-reporting-direttore-alcon-fribourg"
+        "international-accounting-and-reporting-director-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-accounting-and-reporting-director-alcon-ch",
-          "international-accounting-and-reporting-direttore-alcon-fribourg"
+          "international-accounting-and-reporting-director-alcon-ch"
         ],
         "de": [
           "international-accounting-and-reporting-director-alcon-ch"
@@ -220,13 +216,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49416",
       "previousSlugs": [
-        "director-compensation-alcon-ch",
-        "direttore-compensation-alcon-geneva"
+        "director-compensation-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-compensation-alcon-ch",
-          "direttore-compensation-alcon-geneva"
+          "director-compensation-alcon-ch"
         ],
         "de": [
           "director-compensation-alcon-ch"
@@ -305,14 +299,12 @@
       "previousSlugs": [
         "practice-solution-manager-psm-strategic-account-manager-m-w-d-80-100-alcon-ch",
         "practice-solution-manager-psm-gestione-account-strategica-m-f-d-80-100-alcon-fribourg",
-        "gestionnaire-de-solutions-pratiques-psm-gestionnaire-de-comptes-strategique-h-f-d-80-100-alcon-fribourg",
-        "gestione-soluzioni-pratiche-psm-gestione-account-strategici-m-f-d-80-100-alcon-fribourg"
+        "gestionnaire-de-solutions-pratiques-psm-gestionnaire-de-comptes-strategique-h-f-d-80-100-alcon-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practice-solution-manager-psm-strategic-account-manager-m-w-d-80-100-alcon-ch",
-          "practice-solution-manager-psm-gestione-account-strategica-m-f-d-80-100-alcon-fribourg",
-          "gestione-soluzioni-pratiche-psm-gestione-account-strategici-m-f-d-80-100-alcon-fribourg"
+          "practice-solution-manager-psm-gestione-account-strategica-m-f-d-80-100-alcon-fribourg"
         ],
         "fr": [
           "practice-solution-manager-psm-strategic-account-manager-m-w-d-80-100-alcon-ch",
@@ -386,13 +378,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49510",
       "previousSlugs": [
-        "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-        "field-service-ingegnere-m-f-d-medical-devices-german-english-speaking-alcon-fribourg"
+        "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-          "field-service-ingegnere-m-f-d-medical-devices-german-english-speaking-alcon-fribourg"
+          "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
         ],
         "de": [
           "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
@@ -419,12 +409,12 @@
     },
     {
       "id": "alcon-8ca5fb80dee4",
-      "slug": "freight-costs-control-manager-alcon-ch",
+      "slug": "gestore-di-controllo-dei-costi-di-trasporto-alcon-fribourg",
       "slugByLocale": {
         "en": "freight-costs-control-manager-alcon-ch",
-        "it": "freight-costs-control-manager-alcon-ch",
-        "de": "freight-costs-control-manager-alcon-ch",
-        "fr": "freight-costs-control-manager-alcon-ch"
+        "it": "gestore-di-controllo-dei-costi-di-trasporto-alcon-fribourg",
+        "de": "leiter-der-frachtkostenkontrolle-alcon-fribourg",
+        "fr": "gestionnaire-du-controle-des-couts-de-fret-alcon-fribourg"
       },
       "company": "Alcon",
       "companyKey": "alcon",
@@ -483,7 +473,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-10-06T09:43:26.502Z"
+      "firstSeenAt": "2026-10-06T09:43:26.502Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "freight-costs-control-manager-alcon-ch"
+        ],
+        "de": [
+          "freight-costs-control-manager-alcon-ch"
+        ],
+        "fr": [
+          "freight-costs-control-manager-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "freight-costs-control-manager-alcon-ch"
+      ]
     }
   ]
 }

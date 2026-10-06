@@ -2618,12 +2618,12 @@
     },
     {
       "id": "brack-alltron-90214edb9fc3",
-      "slug": "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
+      "slug": "specialista-in-logistica-dei-materiali-di-consumo-brack-alltron-ag-willisau",
       "slugByLocale": {
         "de": "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-        "it": "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-        "en": "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-        "fr": "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
+        "it": "specialista-in-logistica-dei-materiali-di-consumo-brack-alltron-ag-willisau",
+        "en": "logistics-consumables-specialist-brack-alltron-ag-willisau",
+        "fr": "specialiste-logistique-consommables-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2683,7 +2683,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-04T11:48:19.906Z"
+      "firstSeenAt": "2026-08-04T11:48:19.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
+        ],
+        "en": [
+          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
+        ],
+        "fr": [
+          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
+      ]
     },
     {
       "id": "brack-alltron-bf617c6e1f79",

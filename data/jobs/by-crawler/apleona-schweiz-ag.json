@@ -686,12 +686,12 @@
     },
     {
       "id": "apleona-schweiz-ag-f3e9875b8d22",
-      "slug": "objektleiter-m-w-d-apleona-schweiz-ag-aarau",
+      "slug": "testa-di-oggetto-m-f-d-apleona-schweiz-ag-aarau",
       "slugByLocale": {
         "de": "objektleiter-m-w-d-apleona-schweiz-ag-aarau",
-        "it": "objektleiter-m-w-d-apleona-schweiz-ag-aarau",
-        "en": "objektleiter-m-w-d-apleona-schweiz-ag-aarau",
-        "fr": "objektleiter-m-w-d-apleona-schweiz-ag-aarau"
+        "it": "testa-di-oggetto-m-f-d-apleona-schweiz-ag-aarau",
+        "en": "object-head-m-f-d-apleona-schweiz-ag-aarau",
+        "fr": "tete-d-objet-h-f-d-apleona-schweiz-ag-aarau"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -749,7 +749,21 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-10-06T09:36:18.876Z"
+      "firstSeenAt": "2026-10-06T09:36:18.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-aarau"
+        ],
+        "en": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-aarau"
+        ],
+        "fr": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "objektleiter-m-w-d-apleona-schweiz-ag-aarau"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-da03e256d1e6",

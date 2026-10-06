@@ -885,8 +885,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
         "it": "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
-        "fr": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        "en": "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+        "fr": "sante-efz-ou-mpa-pour-la-station-lit-avec-l-accent-sur-la-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -936,6 +936,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
         ]
       },
       "previousSlugs": [
@@ -958,12 +964,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-e4e41f278ce4",
-      "slug": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        "it": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-emergency-care-specialist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-specialiste-des-soins-d-urgence-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -1022,16 +1028,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:13:15.234Z"
+      "firstSeenAt": "2026-10-06T09:13:15.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-5c37673e92af",
-      "slug": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau"
+        "it": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -1090,7 +1110,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:13:14.443Z"
+      "firstSeenAt": "2026-10-06T09:13:14.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-4b06b37a59d3",
@@ -1098,8 +1132,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
         "it": "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -1148,6 +1182,12 @@
       "externalId": "4080242",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
         ]
       },

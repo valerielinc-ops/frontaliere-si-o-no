@@ -2303,8 +2303,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn",
         "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kanton-solothurn",
-        "en": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn",
-        "fr": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
+        "en": "apprenticeship-as-a-computer-scientist-efz-platform-development-kanton-solothurn-solothurn",
+        "fr": "place-d-apprentissage-en-tant-qu-informaticien-ne-cfc-developpement-de-plateformes-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2353,6 +2353,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
         ]
       },

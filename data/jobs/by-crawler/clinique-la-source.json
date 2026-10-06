@@ -330,12 +330,12 @@
     },
     {
       "id": "clinique-la-source-ee7e0d830416",
-      "slug": "data-manager-clinique-clinique-la-source-lausanne",
+      "slug": "responsabile-dei-dati-clinici-clinique-de-la-source-lausanne",
       "slugByLocale": {
         "fr": "data-manager-clinique-clinique-la-source-lausanne",
-        "it": "data-manager-clinique-clinique-la-source-lausanne",
+        "it": "responsabile-dei-dati-clinici-clinique-de-la-source-lausanne",
         "en": "data-manager-clinique-clinique-la-source-lausanne",
-        "de": "data-manager-clinique-clinique-la-source-lausanne"
+        "de": "klinischer-datenmanager-clinique-de-la-source-lausanne"
       },
       "company": "Clinique de La Source",
       "companyKey": "clinique-la-source",
@@ -394,7 +394,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:15:12.373Z"
+      "firstSeenAt": "2026-10-06T09:15:12.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-manager-clinique-clinique-la-source-lausanne"
+        ],
+        "de": [
+          "data-manager-clinique-clinique-la-source-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "data-manager-clinique-clinique-la-source-lausanne"
+      ]
     },
     {
       "id": "clinique-la-source-f23d76030166",
@@ -827,7 +838,7 @@
       "slugByLocale": {
         "it": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
         "en": "booking-co-ordinator-clinique-de-la-source-lausanne",
-        "de": "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne",
+        "de": "buchungskoordinator-clinique-de-la-source-lausanne",
         "fr": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -875,7 +886,6 @@
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
         "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-        "buchungskoordinator-clinique-de-la-source-lausanne",
         "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -887,7 +897,6 @@
         ],
         "de": [
           "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-          "buchungskoordinator-clinique-de-la-source-lausanne",
           "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne"
         ]
       },

@@ -3024,12 +3024,12 @@
     },
     {
       "id": "css-versicherung-2620c4714900",
-      "slug": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
+      "slug": "dati-del-titolare-finanziario-bi-80-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "it": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
+        "it": "dati-del-titolare-finanziario-bi-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3089,7 +3089,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:21:48.488Z"
+      "firstSeenAt": "2026-10-06T09:21:48.488Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid"
+      ]
     }
   ]
 }

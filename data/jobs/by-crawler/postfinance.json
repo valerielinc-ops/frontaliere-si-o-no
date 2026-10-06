@@ -1933,9 +1933,9 @@
         "de": "Traineeprogramm Interne Revision (w/m/d)",
         "fr": "Programme de stagiaires Révision interne (h/f/d)"
       },
-      "slug": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
+      "slug": "programma-traine-revisione-interna-m-f-d-postfinance-bern",
       "slugByLocale": {
-        "it": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
+        "it": "programma-traine-revisione-interna-m-f-d-postfinance-bern",
         "en": "trainee-program-internal-revision-m-f-d-postfinance-bern",
         "de": "traineeprogramm-interne-revision-w-m-d-postfinance",
         "fr": "programme-de-stagiaires-revision-interne-h-f-d-postfinance-bern"
@@ -1964,13 +1964,11 @@
       "id": "postfinance-2e73af385b97",
       "previousSlugs": [
         "traineeprogramm-interne-revision-w-m-d-postfinance",
-        "programma-traine-revisione-interna-m-f-d-postfinance-bern",
         "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "traineeprogramm-interne-revision-w-m-d-postfinance",
-          "programma-traine-revisione-interna-m-f-d-postfinance-bern",
           "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
         ],
         "en": [
@@ -2027,7 +2025,7 @@
         "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
         "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
         "de": "athletenprogramm-asset-management-w-m-d-postfinance",
-        "fr": "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+        "fr": "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -2053,7 +2051,6 @@
       "id": "postfinance-45a5161f48b7",
       "previousSlugs": [
         "athletenprogramm-asset-management-w-m-d-postfinance",
-        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern",
         "athletenprogramm-asset-management-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
@@ -2065,7 +2062,6 @@
         ],
         "fr": [
           "athletenprogramm-asset-management-w-m-d-postfinance",
-          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern",
           "athletenprogramm-asset-management-m-w-d-postfinance-bern"
         ]
       },
@@ -2190,12 +2186,12 @@
         "en": "Trainee program AI Business Engineering (m/f/d)",
         "fr": "Programme de stagiaires AI Business Engineering (h/f/d)"
       },
-      "slug": "traineeprogramm-ai-business-engineering-w-m-d-postfinance",
+      "slug": "programma-di-formazione-ai-business-engineering-m-f-d-postfinance-bern",
       "slugByLocale": {
         "de": "traineeprogramm-ai-business-engineering-w-m-d-postfinance",
-        "it": "traineeprogramm-ai-business-engineering-w-m-d-postfinance",
-        "en": "traineeprogramm-ai-business-engineering-w-m-d-postfinance",
-        "fr": "traineeprogramm-ai-business-engineering-w-m-d-postfinance"
+        "it": "programma-di-formazione-ai-business-engineering-m-f-d-postfinance-bern",
+        "en": "trainee-program-ai-business-engineering-m-f-d-postfinance-bern",
+        "fr": "programme-de-stagiaires-ai-business-engineering-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -2223,20 +2219,24 @@
         "traineeprogramm-operations-excellence-w-m-d-postfinance",
         "operazioni-del-programma-trainee-excellence-m-f-d-postfinance-bern",
         "trainee-program-operations-excellence-m-f-d-postfinance-bern",
-        "programme-de-stagiaires-excellence-des-operations-h-f-d-postfinance-bern"
+        "programme-de-stagiaires-excellence-des-operations-h-f-d-postfinance-bern",
+        "traineeprogramm-ai-business-engineering-w-m-d-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
           "traineeprogramm-operations-excellence-w-m-d-postfinance",
-          "operazioni-del-programma-trainee-excellence-m-f-d-postfinance-bern"
+          "operazioni-del-programma-trainee-excellence-m-f-d-postfinance-bern",
+          "traineeprogramm-ai-business-engineering-w-m-d-postfinance"
         ],
         "en": [
           "traineeprogramm-operations-excellence-w-m-d-postfinance",
-          "trainee-program-operations-excellence-m-f-d-postfinance-bern"
+          "trainee-program-operations-excellence-m-f-d-postfinance-bern",
+          "traineeprogramm-ai-business-engineering-w-m-d-postfinance"
         ],
         "fr": [
           "traineeprogramm-operations-excellence-w-m-d-postfinance",
-          "programme-de-stagiaires-excellence-des-operations-h-f-d-postfinance-bern"
+          "programme-de-stagiaires-excellence-des-operations-h-f-d-postfinance-bern",
+          "traineeprogramm-ai-business-engineering-w-m-d-postfinance"
         ],
         "de": [
           "traineeprogramm-operations-excellence-w-m-d-postfinance"

@@ -2772,7 +2772,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2821,7 +2821,6 @@
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen",
         "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
@@ -2832,7 +2831,6 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen",
           "physiotherapeute-spitaler-schaffhausen"
         ]
       },
@@ -4414,8 +4412,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen",
         "it": "oberarztin-oberarzt-schmerzmedizin-e-anasthesie-spitaler-schaffhausen",
-        "en": "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
+        "en": "senior-physician-pain-medicine-and-anaesthesia-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-chef-medecine-de-la-douleur-et-anesthesie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4464,6 +4462,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
