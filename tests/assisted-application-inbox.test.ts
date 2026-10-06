@@ -16,6 +16,7 @@ const {
   removeOrderAlias,
 } = await import('../functions/src/assistedApplicationAlias.js');
 const { classifyByRules, correctedCategory, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
@@ -130,6 +131,19 @@ function employerMail({ subject = 'Einladung zum Vorstellungsgespräch', text = 
   ].join('\r\n'), 'latin1');
 }
 
+function htmlEmployerMail({ subject = 'Mot de passe à usage unique pour vérifier le compte du candidat', code = '482913' } = {}) {
+  const html = `<html><head><title>SuccessFactors</title></head><body><p>Mot de passe à usage unique pour vérifier le compte du candidat.</p><p>Votre code est <strong>${code}</strong>.</p><p><a href="https://career5.successfactors.eu/verify?code=${code}&amp;source=email">Vérifier le compte</a></p><script>ignore-me-482913</script></body></html>`;
+  return Buffer.from([
+    'From: Carrières Rolex <system@successfactors.eu>',
+    `Subject: ${subject}`,
+    'Content-Type: text/html; charset=utf-8',
+    'Content-Transfer-Encoding: base64',
+    '',
+    Buffer.from(html, 'utf8').toString('base64'),
+    '',
+  ].join('\r\n'), 'latin1');
+}
+
 async function setupInbound() {
   const store = createMemoryFirestore({
     [`assisted_applications/${ORDER}`]: { paymentStatus: 'paid', locale: 'de', companyName: 'Arbeitgeber AG', jobTitle: 'Pflegefachfrau', applicantEmail: 'maria@example.com' },
@@ -233,6 +247,30 @@ describe('employer messages on the alias', () => {
     expect(ack).toMatchObject({ category: 'auto_acknowledgement', classifiedBy: 'rules' });
   });
 
+  it('reads an HTML-only portal verification message and keeps its code for the waiting account', async () => {
+    const { store, alias } = await setupInbound();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ career5_successfactors_eu: { host: 'career5.successfactors.eu', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const parsed = parseMimeMessage(htmlEmployerMail());
+    expect(parsed.text).toContain('Mot de passe à usage unique');
+    expect(parsed.text).toContain('482913');
+    expect(parsed.text).toContain('https://career5.successfactors.eu/verify?code=482913&source=email');
+    expect(parsed.text).not.toContain('ignore-me-482913');
+
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    const { processed } = await deliver({
+      store,
+      alias,
+      raw: htmlEmployerMail(),
+      sendCascade,
+      classify: async () => { throw new Error('codex_down'); },
+    });
+    expect(processed).toEqual({ ok: true, category: 'verification', forwarded: 'skipped' });
+    const [inbox] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
+    expect(inbox).toMatchObject({ category: 'verification', classifiedBy: 'rules', verificationCode: '482913', forwarded: { status: 'skipped', reason: 'portal_verification' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
   it('forwards a verification message no waiting portal account claims', async () => {
     const verification = (url: string, code = '') => async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: code, verificationUrl: url, needsReply: false });
     const mail = (text: string) => employerMail({ subject: 'Confirm your e-mail', text });
@@ -287,6 +325,7 @@ describe('employer messages on the alias', () => {
     expect(classifyByRules({ subject: 'Colloquio conoscitivo', text: '' })).toBe('interview_invite');
     expect(classifyByRules({ subject: 'Votre candidature', text: 'Malheureusement nous avons retenu un autre candidat.' })).toBe('rejection');
     expect(classifyByRules({ subject: 'Candidatura', text: 'Abbiamo ricevuto la sua candidatura.' })).toBe('auto_acknowledgement');
+    expect(classifyByRules({ subject: 'Mot de passe à usage unique', text: 'Votre code est 482913.' })).toBe('verification');
     expect(classifyByRules({ subject: 'Hello', text: 'See attached', autoSubmitted: false })).toBe('other');
   });
 

@@ -118,6 +118,7 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { canonicalCompanyAlertKey, companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
 import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGroups.mjs';
@@ -216,17 +217,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    initializeApp({ credential: cert(cred), projectId: cred.project_id });
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 

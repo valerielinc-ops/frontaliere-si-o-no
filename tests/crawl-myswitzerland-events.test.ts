@@ -652,6 +652,21 @@ describe('extractAddress', () => {
     ).toEqual({ street: 'Piazza Grande 1', postalCode: '6600' });
   });
 
+  it('decodes entity-wrapped fields and drops replacement-character bytes', () => {
+    expect(
+      extractAddress({
+        location: {
+          address: {
+            streetAddress: 'Grotzenb�el',
+            postalCode: '8784',
+            addressLocality: 'Braunwald',
+            addressRegion: 'GL',
+          },
+        },
+      }),
+    ).toEqual({ street: undefined, postalCode: '8784', locality: 'Braunwald', region: 'GL' });
+  });
+
   it('returns undefined when address is absent or empty', () => {
     expect(extractAddress({})).toBeUndefined();
     expect(extractAddress({ location: {} })).toBeUndefined();
@@ -914,6 +929,30 @@ describe('mapEventRecord', () => {
     expect(imageSourceUrl).toBe('https://cdn.myswitzerland.com/images/abc.jpg');
     expect(place).toBe('Lugano');
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
+  });
+
+  it('keeps a safe Algolia locality when detail JSON-LD contains corrupt venue bytes', () => {
+    const mapped = mapEventRecord(
+      'glarona-corrupt',
+      {
+        it: {
+          ...hitIt,
+          title: 'Alpine Gouache',
+          place: 'Braunwald',
+        },
+      },
+      {
+        detailLd: {
+          location: {
+            name: 'Bergrestaurant Ch�mistube',
+            address: { streetAddress: 'Grotzenb�el', postalCode: '8784', addressLocality: 'Braunwald', addressRegion: 'GL' },
+          },
+        },
+      },
+    );
+    const event = mapped?.event as never as Record<string, any>;
+    expect(event.venue).toBe('Braunwald');
+    expect(event.address).toMatchObject({ street: undefined, postalCode: '8784', locality: 'Braunwald', region: 'GL' });
   });
 
   it('merges it+en hits into titleByLocale/descriptionByLocale, prefers it as canonical title', () => {

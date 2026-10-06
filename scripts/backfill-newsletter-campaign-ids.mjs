@@ -50,14 +50,11 @@
  *
  * Initialization
  * ──────────────
- *   Uses Firebase Admin SDK with the service account at
- *   `mcp-gsc-main/service_account_credentials.json` (relative to repo root).
+ *   Uses the shared Firestore helper and the workflow service account.
  */
 
-import { cert, initializeApp } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
 import { FieldValue } from 'firebase-admin/firestore';
-import { readFileSync } from 'fs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 // ── Constants ─────────────────────────────────────────────────────────
 
@@ -96,13 +93,7 @@ if (!['deliveries', 'events', 'both'].includes(collectionArg)) {
 
 // ── Init Firebase Admin ───────────────────────────────────────────────
 
-const sa = JSON.parse(
-  readFileSync(
-    new URL('../mcp-gsc-main/service_account_credentials.json', import.meta.url),
-  ),
-);
-initializeApp({ credential: cert(sa) });
-const db = getFirestore();
+const db = await getFirestoreDb();
 
 // ── Helpers ───────────────────────────────────────────────────────────
 

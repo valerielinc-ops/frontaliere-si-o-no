@@ -1,7 +1,7 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-10-05T21:28:55.719Z",
+  "generatedAt": "2026-10-06T09:13:37.188Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3553,
-  "avgDurationMs": 3553,
+  "durationMs": 4484,
+  "avgDurationMs": 4484,
   "durationHistory": [
-    3553
+    4484
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer",
       "source": "Reha Andeer Dedicated Parser (Drupal HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:28:48.065Z",
+      "crawledAt": "2026-10-06T09:13:21.573Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

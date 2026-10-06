@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arsante-clinique-de-carouge",
-  "assembledAt": "2026-10-05T21:24:24.612Z",
+  "assembledAt": "2026-10-06T09:12:53.853Z",
   "jobs": [
     {
       "id": "arsante-clinique-de-carouge-32da6f6e8dee",
@@ -33,7 +33,7 @@
       "url": "https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:19.317Z",
+      "crawledAt": "2026-10-06T09:12:47.544Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "slug": "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
       "slugByLocale": {
         "it": "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
-        "en": "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
+        "en": "expert-doctor-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
         "de": "facharzt-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
         "fr": "medecin-expert-arsante-clinique-de-carouge-lancy"
       },
@@ -90,7 +90,7 @@
       "title": "Médecin expert",
       "titleByLocale": {
         "it": "medico esperto",
-        "en": "Expert physician",
+        "en": "Expert doctor",
         "de": "Facharzt",
         "fr": "Médecin expert"
       },
@@ -106,12 +106,12 @@
       "url": "https://arsante.ch/emploi/medecin-expert-18",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:18.585Z",
+      "crawledAt": "2026-10-06T09:12:46.868Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1212",
+      "postalCode": "1213",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -126,14 +126,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-expert-arsante-clinique-de-carouge-lancy"
+        "medecin-expert-arsante-clinique-de-carouge-lancy",
+        "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-expert-arsante-clinique-de-carouge-lancy"
         ],
         "en": [
-          "medecin-expert-arsante-clinique-de-carouge-lancy"
+          "medecin-expert-arsante-clinique-de-carouge-lancy",
+          "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
         ],
         "de": [
           "medecin-expert-arsante-clinique-de-carouge-lancy"
@@ -185,7 +187,7 @@
       "url": "https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:17.913Z",
+      "crawledAt": "2026-10-06T09:12:46.167Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -308,7 +310,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:17.252Z",
+      "crawledAt": "2026-10-06T09:12:45.428Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -385,18 +387,17 @@
       },
       "description": "Dans le cadre de l’agrandissement du Centre Médical Arsanté Crissier , nous recherchons des médecins spécialistes FMH pour compléter notre équipe pluridisciplinaire. Ce projet d’extension s’inscrit dans notre volonté de renforcer l’offre de soins dans la région et de développer des prises en charge coordonnées, notamment pour les patients souffrant de pathologies chroniques. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec radiologie, laboratoire, salles de soins et services de réadaptation. Cette implantation favorise une prise en charge coordonnée, notamment pour les patients souffrant de pathologies chroniques.\n• Plus d’information sur le projet Square Santé : https://square-sante.ch\n• Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch Nous offrons :\n• Un espace médical facile d’accès pour les patients avec un plateau technique complet sur place\n• La possibilité d’exercer en cabinet privé ou comme salarié·e\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet.",
       "descriptionByLocale": {
-        "it": "Descrizione Nell'ambito dell'ampliamento del Centro Medico Arsanté Crissier , stiamo cercando medici specialisti FMH per completare il nostro team multidisciplinare. Questo progetto di estensione fa parte della nostra volontà di rafforzare l’offerta di cure nella regione e di sviluppare cure coordinate, in particolare per i pazienti affetti da patologie croniche. Situato nel cuore di Square Santé , polo medico del quartiere Oassis a Crissier che comprende anche la Clinique La Source e la Clinique de La Lignière, il nostro centro riunisce professionisti della salute in un ambiente moderno e integrato, con radiologia, laboratorio, sale per trattamenti e servizi di riabilitazione. Questo impianto favorisce una gestione coordinata, in particolare per i pazienti affetti da patologie croniche. Maggiori informazioni sul progetto Square Santé: https://square-sante.ch Maggiori informazioni sul Centre Médical Arsanté Crissier: www.cmcrissier.ch\n• Cosa offriamo - Uno spazio medico di facile accesso per i pazienti con un vassoio tecnico completo in loco - La possibilità di esercitare in uno studio privato o come dipendente- Un tasso di attività adattabile al vostro progetto professionale - Condizioni di lavoro ottimali all'interno di un team multidisciplinare che favorisce gli scambi e la collaborazione\n• Requisiti - Titolo FMH e autorizzazione a fatturare a carico dell'AOS Contatto Saremo lieti",
-        "en": "Descripzione As part of the expansion of the Centre Médical Arsanté Crissier , we are looking for FMH medical specialists to complete our multidisciplinary team. This extension project is part of our desire to strengthen the provision of care in the region and to develop coordinated care, especially for patients suffering from chronic diseases. Located in the heart of Square Santé , a medical center in the Oassis district of Crissier that also includes Clinique La Source and Clinique de La Lignière, our center brings together health professionals in a modern and integrated environment, with radiology, laboratory, treatment rooms and rehabilitation services. This implantation promotes coordinated management, especially for patients suffering from chronic pathologies. More information on the Square Santé project: https://square-sante.ch More information on the Arsanté Crissier Medical Center: www.cmcrissier.ch\n• Cosa offriamo - An easily accessible medical space for patients with a complete technical platform on site - The possibility of practicing in a private practice or as an employee- An activity rate adaptable to your professional project - Optimal working conditions within a multidisciplinary team promoting exchanges and collaboration\n• Requisiti - FMH title and authorization to invoice at the expense of the Contatto SOA We would be delighted",
+        "it": "Nell'ambito dell'espansione del Centre Médical Arsanté Crissier , stiamo cercando specialisti FMH per completare il nostro team multidisciplinare. Questo progetto di estensione fa parte del nostro desiderio di rafforzare la cura nella regione e di sviluppare cure coordinate, in particolare per i pazienti con condizioni croniche. Situato nel cuore di Piazza Santé, il centro medico del quartiere Oassis di Crissier, che comprende anche il Clinique La Source e il Clinique de La Lignière, il nostro centro riunisce professionisti sanitari in un ambiente moderno e integrato, con radiologia, laboratorio, sale di trattamento e servizi di riabilitazione. Questa struttura promuove la cura coordinata, soprattutto per i pazienti con condizioni croniche.\n• Maggiori informazioni sul progetto Square Santé: https://square-sante.ch\n• Maggiori informazioni sul Centre Médical Arsanté Crissier: www.cmcrissier.ch Offriamo:\n• Un'area medica di facile accesso per i pazienti con un vassoio tecnico completo in loco\n• La possibilità di praticare nella pratica privata o come dipendente\n• Un tasso di attività adattabile al vostro progetto professionale\n• Condizioni di lavoro ottimali all'interno di un team multidisciplinare che promuove scambi e collaborazione Richiesto: titolo FMH e autorizzazione per caricare l'AOS Saremo lieti di discutere questo progetto con voi.",
+        "en": "As part of the expansion of the Centre Médical Arsanté Crissier , we are looking for FMH specialists to complete our multidisciplinary team. This extension project is part of our desire to strengthen the provision of care in the region and to develop coordinated care, particularly for patients with chronic conditions. Located in the heart of Square Santé , the medical center of the Oassis district in Crissier which also includes the Clinique La Source and the Clinique de La Lignière, our centre brings together health professionals in a modern and integrated environment, with radiology, laboratory, treatment rooms and rehabilitation services. This facility promotes coordinated care, especially for patients with chronic conditions.\n• More information on the Square Santé project: https://square-sante.ch\n• More information about the Centre Médical Arsanté Crissier : www.cmcrissier.ch We offer:\n• An easy access medical area for patients with a complete technical tray on site\n• The possibility to practice in private practice or as an employee\n• An activity rate adaptable to your professional project\n• Optimal working conditions within a multidisciplinary team promoting exchanges and collaboration Required: FMH title and authorization to charge the AOS We would be delighted to discuss this project with you.",
         "de": "Descrizione Im Rahmen der Erweiterung des Centre Médical Arsanté Crissier suchen wir FMH-Fachärzte zur Ergänzung unseres multidisziplinären Teams. Dieses Erweiterungsprojekt ist Teil unseres Bestrebens, das Versorgungsangebot in der Region zu stärken und eine koordinierte Versorgung, insbesondere für chronisch kranke Patienten, zu entwickeln. Im Herzen von Square Santé , dem medizinischen Zentrum des Viertels Oassis in Crissier, in dem auch die Clinique La Source und die Clinique de La Lignière untergebracht sind, vereint unser Zentrum medizinische Fachkräfte in einer modernen und integrierten Umgebung mit Radiologie, Labor, Behandlungsräumen und Rehabilitationsdiensten. Diese Implantation fördert eine koordinierte Versorgung, insbesondere bei chronisch kranken Patienten. Weitere Informationen zum Projekt Square Santé: https://square-sante.ch Weitere Informationen zum medizinischen Zentrum Arsanté Crissier: www.cmcrissier.ch\n• Cosa offriamo - Ein leicht zugänglicher medizinischer Raum für Patienten mit einer kompletten technischen Plattform vor Ort - Die Möglichkeit, in einer Privatpraxis oder als Angestellter zu arbeiten - Ein Beschäftigungsgrad, der an Ihr berufliches Projekt angepasst werden kann - Optimale Arbeitsbedingungen in einem multidisziplinären Team, das den Austausch und die Zusammenarbeit fördert\n• Requisiti - FMH-Titel und Berechtigung zur Rechnungsstellung zu Lasten der OKP Contatto Wir würden uns freuen",
         "fr": "Dans le cadre de l’agrandissement du Centre Médical Arsanté Crissier , nous recherchons des médecins spécialistes FMH pour compléter notre équipe pluridisciplinaire. Ce projet d’extension s’inscrit dans notre volonté de renforcer l’offre de soins dans la région et de développer des prises en charge coordonnées, notamment pour les patients souffrant de pathologies chroniques. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec radiologie, laboratoire, salles de soins et services de réadaptation. Cette implantation favorise une prise en charge coordonnée, notamment pour les patients souffrant de pathologies chroniques.\n• Plus d’information sur le projet Square Santé : https://square-sante.ch\n• Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch Nous offrons :\n• Un espace médical facile d’accès pour les patients avec un plateau technique complet sur place\n• La possibilité d’exercer en cabinet privé ou comme salarié·e\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet."
       },
-      "needsRetranslation": true,
       "location": "Carouge",
       "canton": "GE",
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:16.593Z",
+      "crawledAt": "2026-10-06T09:12:44.734Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -510,7 +511,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:15.927Z",
+      "crawledAt": "2026-10-06T09:12:44.039Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -604,7 +605,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:15.256Z",
+      "crawledAt": "2026-10-06T09:12:43.332Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -683,17 +684,16 @@
       "description": "Poste à temps partiel (60–80%) – Sans gardes. Nous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle. Vos missions\n• Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n• Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n• Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n• Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n• Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n• Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n• Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes. Conditions du poste\n• Taux d’activité : 60–80% , présence régulière sur cinq jours.\n• Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n• Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n• Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique. Profil recherché\n• Diplôme reconnu en Suisse (MEBEKO).\n• Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n• Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n• Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n• Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle.",
       "descriptionByLocale": {
         "it": "Posizione Posizione part-time (60–80%) - Senza guardie. Descrizione\n• Cerchiamo un medico qualificato (MEBEKO o FMH, assistente medico avanzato o livello di capo clinico) da inserire nell'unità di assistenza medica di un istituto sanitario riconosciuto per la sua offerta di formazione continua e il suo impegno per l'innovazione organizzativa. Mansioni - Garantire la consulenza all'ingresso e il monitoraggio medico quotidiano dei pazienti nel reparto (60-80% di presenza distribuita su 5 giorni). - Redigere referti e lettere di dimissione, in stretta collaborazione con l'équipe sanitaria. - Essere un attore chiave nel coordinamento medico, in collegamento con gli specialisti del centro sanitario e la piattaforma tecnica. - Partecipare ad un servizio ospedaliero amichevole, orientato alla qualità dei percorsi e alla pertinenza delle cure. - Operare in un contesto interprofessionale innovativo, con grande libertà di iniziativa clinica e organizzativa. - Adattare i percorsi dei pazienti, spesso complessi, per garantire cure adeguate e progressive. - Contribuire attivamente allo sviluppo istituzionale, in particolare all'evoluzione del concetto di UATM come alternativa credibile ai ricoveri pesanti. Richiesto - Diploma riconosciuto in Svizzera (MEBEKO). - Idealmente qualifica FMH in medicina interna generale o esperienza equivalente. - Esperienza clinica confermata (assistente medico avanzato o manager clinico). - Spiccato interesse per il coordinamento, i percorsi assistenziali e la medicina di transizione. - Senso del lavoro di squadra, autonomia, adattabilità e gusto per l'innovazione organizzativa. Condizioni successive - Tasso di attività: 60–80%, frequenza regolare nell'arco di cinque giorni. - Nessuna reperibilità, grazie alla presenza fissa di un servizio di pronto intervento interno. - Integrazione in un team accogliente, esperto e abituato alla collaborazione. - Ambiente riconosciuto per la formazione continua, il supporto e la qualità clinica. Contatto Nessuna informazione di contatto fornita.",
-        "en": "Position Part-time position (60–80%) – Without guards. Description We are looking for a qualified doctor (MEBEKO or FMH, advanced assistant doctor or clinical head level) to join the medical care unit of a health institution recognized for its continuing education offering and its commitment to organizational innovation. Mansioni - Ensure entry consultation and daily medical monitoring of patients in the department (60–80% presence spread over 5 days). - Write reports and discharge letters, in close collaboration with the healthcare team. - Be a key player in medical coordination, in liaison with the health center specialists and the technical platform. - Participate in a friendly hospital service, oriented towards the quality of pathways and the relevance of care. - Work in an innovative interprofessional context, with great freedom of clinical and organizational initiative. - Adjust patient trajectories, which are often complex, to guarantee appropriate and progressive care. - Actively contribute to institutional development, particularly to the evolution of the concept of UATM as a credible alternative to heavy hospitalizations. Required - Diploma recognized in Switzerland (MEBEKO). - Ideally FMH qualification in general internal medicine or equivalent experience. - Confirmed clinical experience (advanced assistant physician or clinical manager). - Marked interest in coordination, care pathways and transitional medicine. - Sense of teamwork, autonomy, adaptability, and taste for organizational innovation. Post conditions - Activity rate: 60–80%, regular attendance over five days. - No on-call, thanks to the permanent presence of an internal emergency service. - Integration into a welcoming, experienced team accustomed to collaboration. - Environment recognized for continuing education, support and clinical quality. Contact No contact information provided.",
-        "de": "Position: Teilzeitstelle (60–80 %) – ohne Bewachung. Beschreibung Wir suchen einen qualifizierten Arzt (MEBEKO oder FMH, fortgeschrittener Assistenzarzt oder klinischer Leiter) für die medizinische Versorgungsabteilung einer Gesundheitseinrichtung, die für ihr Weiterbildungsangebot und ihr Engagement für organisatorische Innovation bekannt ist. Mansioni – Gewährleistung der Eingangsberatung und täglichen medizinischen Überwachung der Patienten in der Abteilung (60–80 % Anwesenheit verteilt auf 5 Tage). - Verfassen Sie Berichte und Entlassungsbriefe in enger Zusammenarbeit mit dem Gesundheitsteam. - Seien Sie ein wichtiger Akteur bei der medizinischen Koordinierung in Zusammenarbeit mit den Spezialisten des Gesundheitszentrums und der technischen Plattform. - Nehmen Sie an einem freundlichen Krankenhausdienst teil, der sich an der Qualität der Wege und der Relevanz der Pflege orientiert. - Arbeiten Sie in einem innovativen interprofessionellen Kontext mit großer klinischer und organisatorischer Freiheit. - Passen Sie die häufig komplexen Patientenverläufe an, um eine angemessene und fortschrittliche Pflege zu gewährleisten. - Aktiver Beitrag zur institutionellen Entwicklung, insbesondere zur Entwicklung des Konzepts von UATM als glaubwürdige Alternative zu schweren Krankenhausaufenthalten. Erforderlich - In der Schweiz anerkanntes Diplom (MEBEKO). - Idealerweise FMH-Abschluss in Allgemeiner Innere Medizin oder gleichwertige Erfahrung. - Bestätigte klinische Erfahrung (fortgeschrittener Assistenzarzt oder klinischer Manager). - Ausgeprägtes Interesse an Koordination, Pflegewegen und Übergangsmedizin. - Sinn für Teamarbeit, Autonomie, Anpassungsfähigkeit und Sinn für organisatorische Innovation. Postbedingungen - Aktivitätsquote: 60–80 %, regelmäßige Teilnahme über fünf Tage. - Kein Rufbereitschaftsdienst durch ständige Präsenz eines internen Notdienstes. - Integration in ein freundliches, erfahrenes Team, das an Zusammenarbeit gewöhnt ist. - Ein Umfeld, das für seine kontinuierliche Ausbildung, Unterstützung und klinische Qualität anerkannt ist. Kontakt Keine Kontaktinformationen angegeben.",
+        "en": "Part-time post (60-80%) – Without guards. We are looking for a graduate doctor (MEBEKO or FMH, advanced assistant doctor or head of clinic) to join the medical care unit of a health institution recognized for its offer of continuing education and its commitment to organizational innovation. Your missions\n• Provide access and daily medical follow-up to patients in the service (present 60-80% spread over 5 days).\n• Write reports and exit letters , in close collaboration with the healthcare team.\n• Be a key player in medical coordination, in connection with the specialists of the health home and the technical plateau.\n• Participate in a friendly hospital service, oriented towards the quality of the journeys and the relevance of the care.\n• Work in an innovative interprofessional context, with great freedom of clinical and organizational initiative.\n• Adjust the trajectories of patients, often complex, to ensure appropriate and progressive management.\n• Actively contribute to institutional development, including the evolution of the UATM concept as a credible alternative to heavy hospitalizations. Post conditions\n• Activity rate: 60-80%, regular presence over five days.\n• No penalty, thanks to the permanent presence of an internal emergency service.\n• Integration into a team that is welcoming, experienced and accustomed to collaboration.\n• Environment known for continuing training, support and clinical quality. Profile sought\n• Recognized diploma in Switzerland (MEBEKO).\n• Ideally FMH title in general internal medicine or equivalent experience.\n• Confirmed clinical experience (advanced assistant physician or head of clinic).\n• Interest in coordination, care pathways and transitional medicine.\n• A sense of teamwork, autonomy, adaptability, and a taste for organizational innovation.",
+        "de": "Teilzeitpost (60-80%) - Ohne Wachen. Wir suchen einen Diplom-Arzt (MEBEKO oder FMH, fortgeschrittener Assistenzarzt oder Klinikleiter) für die medizinische Versorgung einer Gesundheitseinrichtung, die für ihr Weiterbildungsangebot und ihr Engagement für organisatorische Innovation anerkannt ist. Ihre Missionen\n• Bereitstellung von Zugang und täglicher medizinischer Nachsorge für Patienten im Dienst (derzeit 60-80% verteilt auf 5 Tage).\n• Schreiben Sie Berichte und Exit Letters, in enger Zusammenarbeit mit dem Gesundheitsteam.\n• Seien Sie ein wichtiger Akteur in der medizinischen Koordination, in Verbindung mit den Spezialisten des Gesundheitsheims und des technischen Plateaus.\n• Nehmen Sie an einem freundlichen Krankenhausservice teil, der sich an der Qualität der Reisen und der Relevanz der Pflege orientiert.\n• Arbeiten Sie in einem innovativen interprofessionellen Kontext mit großer Freiheit der klinischen und organisatorischen Initiative.\n• Passen Sie die Trajektorien von Patienten an, die oft komplex sind, um ein angemessenes und fortschrittliches Management zu gewährleisten.\n• Aktiv zur institutionellen Entwicklung beitragen, einschließlich der Weiterentwicklung des UATM-Konzepts als glaubwürdige Alternative zu schweren Krankenhausaufenthalten. Postbedingungen\n• Aktivitätsrate: 60-80%, regelmäßige Anwesenheit über fünf Tage.\n• Keine Strafe, dank der ständigen Anwesenheit eines internen Notdienstes.\n• Integration in ein Team, das einladend, erfahren und an die Zusammenarbeit gewöhnt ist.\n• Umwelt bekannt für Weiterbildung, Unterstützung und klinische Qualität. Profil gesucht\n• Anerkanntes Diplom in der Schweiz (MEBEKO).\n• Idealerweise FMH Titel in der allgemeinen inneren Medizin oder gleichwertige Erfahrung.\n• Bestätigte klinische Erfahrung (fortgeschrittener Assistenzarzt oder Klinikleiter).\n• Interesse an Koordination, Pflegewegen und Übergangsmedizin.\n• Ein Gefühl von Teamwork, Autonomie, Anpassungsfähigkeit und ein Geschmack für organisatorische Innovation.",
         "fr": "Poste à temps partiel (60–80%) – Sans gardes. Nous recherchons un médecin diplômé (MEBEKO ou FMH, niveau médecin assistant avancé ou chef de clinique) pour rejoindre l’unité de soins médicalisés d’une institution de santé reconnue pour son offre de formation continue et son engagement dans l’innovation organisationnelle. Vos missions\n• Assurer la consultation d’entrée et le suivi médical quotidien des patientes et patients du service (présence 60–80% répartie sur 5 jours).\n• Rédiger les rapports et lettres de sortie , en collaboration étroite avec l’équipe soignante.\n• Être un acteur clé de la coordination médicale , en lien avec les spécialistes de la maison de santé et le plateau technique.\n• Participer à un service hospitalier convivial , orienté vers la qualité des parcours et la pertinence des soins.\n• Travailler dans un contexte interprofessionnel novateur , avec une grande liberté d’initiative clinique et organisationnelle.\n• Ajuster les trajectoires des patientes et patients, souvent complexes, pour garantir une prise en charge adaptée et progressive.\n• Contribuer activement au développement institutionnel , notamment à l’évolution du concept d’UATM comme alternative crédible aux hospitalisations lourdes. Conditions du poste\n• Taux d’activité : 60–80% , présence régulière sur cinq jours.\n• Aucune astreinte , grâce à la présence permanente d’un service d’urgences interne.\n• Intégration dans une équipe accueillante, expérimentée et habituée à la collaboration.\n• Environnement reconnu pour la formation continue , l’accompagnement et la qualité clinique. Profil recherché\n• Diplôme reconnu en Suisse (MEBEKO).\n• Idéalement titre FMH en médecine interne générale ou expérience équivalente.\n• Expérience clinique confirmée (médecin assistant avancé ou chef de clinique).\n• Intérêt marqué pour la coordination, les parcours de soins et la médecine de transition.\n• Sens du travail en équipe, autonomie, adaptabilité, et goût pour l’innovation organisationnelle."
       },
-      "needsRetranslation": true,
       "location": "Onex",
       "canton": "GE",
       "url": "https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:14.579Z",
+      "crawledAt": "2026-10-06T09:12:42.579Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -776,18 +776,17 @@
       },
       "description": "Description du poste Le service des urgences de la Clinique et Permanence d’Onex SA recherche un-e infirmier-ière responsable à 100%. A ce poste stratégique, vous assurez l’organisation, la continuité et la qualité des activités du service, tout en veillant à leur intégration dans les projets de développement de la clinique. Vous jouez un rôle central dans la coordination de l’équipe, notamment par la planification des horaires, la gestion des absences et la garantie d’une couverture optimale permettant un fonctionnement fluide et efficace au quotidien. En tant que cadre intermédiaire, vous participez activement à la définition et à la mise en oeuvre du projet paramédical, en cohérence avec la vision institutionnelle. Vous contribuez à fixer les objectifs du service, à identifier les axes d’amélioration et à structurer les modalités organisationnelles nécessaires à son évolution, en recherchant la meilleure efficience. Vos conditions\n• Fonction : Responsable du service des urgences\n• Taux d’activité : 100% (entrée en fonction dès que possible), dont 20% dans les soins\n• Hiérarchie : Direction médicale (soins) et Direction opérationnelle (administrative) Profil recherché\n• Diplôme d’infirmier-ère reconnu\n• Autorisation de pratiquer dans le canton de Genève\n• Expérience confirmée en gestion d’équipe, idéalement en service d’urgences\n• Formation complémentaire en management ou en gestion des institutions de santé (atout)\n• Solides compétences en coordination et gestion d’équipe\n• Excellentes capacités organisationnelles et relationnelles\n• Expérience en milieu clinique exigée Nous vous offrons\n• Un environnement de travail dynamique et stimulant au sein d’une institution reconnue dans le canton\n• L’opportunité de participer à des projets innovants dans le domaine de la santé\n• Une équipe engagée, collaborative et professionnelle",
       "descriptionByLocale": {
-        "it": "Descrizione In questo ruolo strategico, ascure l'organizzazione, la continuità e la qualitéà delle attività del servizio, guarantore progettindo al contempo la loro integrazione nei sviluppi della clinica. Mansioni - Assicurare l'organizzazione, la continuità e la qualità della sua attività del servizio - Garantire l'integrazione delle attività nel progetto di sviluppo della clinica - Team coordinator, pianificazionendo gli orari, gestendo le assienze e guarantorendo una copertura ottimale - Partecipare attivamente allazone e implementazione del progetto paramedico, in linea con la visione istituzionale - Contribution definizone degli obiettivi del servizio, all'interno delle aree di miglioramento e alla strutturazione delle modalità organizzative necessarie per l'evoluzione del servizio Obbligo - Diploma di infermie/a riconosciuto - Autorizzazione a praticare nel cantone di Ginevra - Esperienza confermata nella gestione di team, preferibilmente in servisi di emergeenza - Formazione complementare in management o management delle istituzioni sanitarie (facoltiva) - Competenze solide in coordinamento e managemente del team - Eccellenti capacitàà organizativee relatzionali - Esperienza in ambiente clinico richiesta Cosa fare - Un'atmosfera di lavoro temporaneo e stimolante all'interno di un'itstituzione riconosciuta nel cantone - Le opportunità di partecipare a progetti innovativi nel campo della salute - Un team impegnativo, collaboratore e professionista Contatto Per candidarsi, inviare il curriculum e una lettera di presentazione a [indrizzo email].",
-        "en": "Descrizione It servedzio delle urgenze della Clinica e Permanenza d In questo ruolo strategico, ascure l'organizzazione, la continuità e la qualitéà delle attività del servizio, guarantorendo al contempo la loro integrazione nei progetti di sviluppo della clinica. Mansioni - Assicurare the organizzazione, the continuity and the quality of it attività del servizio - Guarantee the integrazione delle attività nel progetto di sviluppo della clinica - Team coordinator, pianificando gli orari, gestendo le assenze e guarantorendo una copertura ottimale - Partecipare attivamente alla definizone e implementationazione del progetto paramedico, in linea con la visione istituzionale - Contribute alla definizone degli obiettivi del servizio, all'identificazione delle aree di miglioramento e alla strutturazione delle modalità organizzative necessaria per l'evoluzione del servizio Required - Diploma di infermie/a riconosciuto - Autorizzazione a praticare nel cantone di Ginevra - Esperienza confermata nella managee di team, preferibilmente in servisi di emergeenza - Formazione complementare in management o managemente delle istituzioni sanitarie (facoltiva) - Competenze solid in coordinationo e managemente del team - Eccellenti capacitàà organizativee e relatzionali - Esperienza in ambient clinico richiesta Cosa offeriamo - An atmosphere di lavoro dinamico e stimolante all'interno di un'itstituzione riconosciuta nel cantone - The opportunità di partecipare a progetti innovativi nel campo della salutee - An impegnativo team, collaborator and professional Contatto Per candidarsi, inviare il curriculum e una lettera di presentazione a [indrizzo email].",
-        "de": "Descrizion Es diente dem Unternehmen Delle urgenze della Clinica e Permanenza d In questo ruolo strategico, ascure l'organizzazione, la continuità e la qualitéà delle attività del servizio, guarantorendo al contempo la loro integrazione nei progetti di sviluppo della clinica. Mansioni - Assicurare die organizzazione, die Kontinuität und die Qualität es attività del servizio - Garantie der integrazione delle attività nel progetto di sviluppo della clinica - Teamkoordinator, pianificando gli orari, gestendo le assenze e guarantorendo una copertura ottimale - Partecipare attivamente alla definizone e implementationazione del progetto paramedico, in linea con la visione istituzionale - Contribute alla definizone degli obiettivi del servizio, all'identificazione delle aree di miglioramento e alla strutturazione delle modalità organizzative necessaria per l'evoluzione del servizio erforderlich - Diploma di infermie/a riconosciuto - Autorizzazione a praticare nel cantone di Ginevra - Esperienza confermata nella managee di team, preferibilmente in servisi di emergeenza - Formazione complementare in management o managemente delle istituzioni sanitarie (facoltiva) - Competenze solid in coordinationo e managemente del team - Eccellenti capacitàà organizativee e relatzionali - Esperienza im Ambient Clinico Richiesta Cosa offeriamo - An atmosphere di lavoro dinamico e stimolante all'interno di un'itstituzione riconosciuta nel cantone - The opportunità di partecipare a progetti innovativei nel campo della salutee - Ein impegnativo-Team, Mitarbeiter und Profi Contatto Per candidarsi, inviare il curriculum e una lettera di presentazione a [indrizzo email].",
+        "it": "Descrizione del post Il Dipartimento di Emergenza della Clinica e Permanenza di Onex SA sta cercando un'infermiera responsabile al 100%. In questa posizione strategica, si garantisce l'organizzazione, la continuità e la qualità delle attività del servizio, garantendo al contempo la loro integrazione nei progetti di sviluppo clinico. Si gioca un ruolo centrale nel coordinamento del team, tra cui pianificazione, gestione delle assenze e garantire una copertura ottimale per un funzionamento quotidiano regolare ed efficiente. Come quadro intermedio, sei attivamente coinvolto nella definizione e nell'attuazione del progetto paramedico, coerente con la visione istituzionale. Aiuta a fissare gli obiettivi del servizio, identificare le aree di miglioramento e strutturare le modalità organizzative necessarie per la sua evoluzione, cercando la migliore efficienza. Le tue condizioni\n• Funzione: Capo Dipartimento di Emergenza\n• Tasso di attività: 100% (a partire il prima possibile), 20% di cui in cura\n• Gerarchia: Direzione Medica (cura) e Direzione Operativa (amministrativa)\n• Grado di allattamento riconosciuto\n• Autorizzazione alla pratica nel Cantone di Ginevra\n• Esperienza confermata nella gestione del team, idealmente nel servizio di emergenza\n• Formazione aggiuntiva nella gestione o nella gestione delle istituzioni sanitarie (attrazione)\n• Forte coordinamento e competenze di gestione del team\n• Eccellente capacità organizzative e relazionali\n• Esperienza clinica necessaria Vi offriamo\n• Un ambiente di lavoro dinamico e stimolante all'interno di un'istituzione riconosciuta nel Cantone\n• Opportunità di partecipare a progetti sanitari innovativi\n• Un team impegnato, collaborativo e professionale",
+        "en": "Description of post The Emergency Department of the Clinic and Permanence of Onex SA is looking for a 100% responsible nurse. In this strategic position, you ensure the organization, continuity and quality of the activities of the service, while ensuring their integration into the clinical development projects. You play a central role in coordinating the team, including scheduling, managing absences and ensuring optimal coverage for smooth and efficient daily operation. As an intermediate framework, you are actively involved in defining and implementing the paramedical project, consistent with the institutional vision. You help to set the objectives of the service, to identify areas for improvement and to structure the organisational arrangements necessary for its evolution, by seeking the best efficiency. Your conditions\n• Function: Head of Emergency Department\n• Activity rate: 100% (starting as soon as possible), 20% of which in care\n• Hierarchy: Medical Directorate (care) and Operational Directorate (administrative) Profile sought\n• Recognized nursing degree\n• Authorization to practise in the Canton of Geneva\n• Experience confirmed in team management, ideally in emergency service\n• Additional training in management or management of health institutions (attraction)\n• Strong coordination and team management skills\n• Excellent organizational and relational capabilities\n• Clinical experience required We offer you\n• A dynamic and stimulating working environment within an institution recognised in the canton\n• Opportunity to participate in innovative health projects\n• A committed, collaborative and professional team",
+        "de": "Die Notaufnahme der Klinik und Dauerhaftigkeit von Onex SA sucht eine 100% verantwortliche Krankenschwester. In dieser strategischen Position stellen Sie die Organisation, Kontinuität und Qualität der Aktivitäten des Dienstes sicher und gewährleisten gleichzeitig ihre Integration in die klinischen Entwicklungsprojekte. Sie spielen eine zentrale Rolle bei der Koordination des Teams, einschließlich der Planung, der Verwaltung von Abwesenheiten und der Gewährleistung einer optimalen Abdeckung für einen reibungslosen und effizienten täglichen Betrieb. Als Zwischenrahmen sind Sie aktiv an der Definition und Umsetzung des paramedizinischen Projekts im Einklang mit der institutionellen Vision beteiligt. Sie tragen dazu bei, die Ziele des Dienstes festzulegen, Verbesserungspotenziale zu identifizieren und die für seine Entwicklung erforderlichen organisatorischen Vorkehrungen zu strukturieren, indem Sie die beste Effizienz anstreben. Ihre Bedingungen\n• Funktion: Leiter der Notfallabteilung\n• Aktivitätsrate: 100% (so schnell wie möglich beginnen), 20% davon in der Pflege\n• Hierarchie: Medizinische Direktion (Pflege) und operative Direktion (Verwaltung) Profil gesucht\n• Anerkannter Pflegegrad\n• Zulassung zur Ausübung im Kanton Genf\n• Erfahrung im Teammanagement bestätigt, idealerweise im Notdienst\n• Zusätzliche Ausbildung in Management oder Management von Gesundheitseinrichtungen (Attraktion)\n• Starke Koordinations- und Teammanagementfähigkeiten\n• Hervorragende organisatorische und relationale Fähigkeiten\n• Klinische Erfahrung erforderlich Wir bieten Ihnen\n• Ein dynamisches und anregendes Arbeitsumfeld innerhalb einer im Kanton anerkannten Institution\n• Möglichkeit zur Teilnahme an innovativen Gesundheitsprojekten\n• Ein engagiertes, kooperatives und professionelles Team",
         "fr": "Description du poste Le service des urgences de la Clinique et Permanence d’Onex SA recherche un-e infirmier-ière responsable à 100%. A ce poste stratégique, vous assurez l’organisation, la continuité et la qualité des activités du service, tout en veillant à leur intégration dans les projets de développement de la clinique. Vous jouez un rôle central dans la coordination de l’équipe, notamment par la planification des horaires, la gestion des absences et la garantie d’une couverture optimale permettant un fonctionnement fluide et efficace au quotidien. En tant que cadre intermédiaire, vous participez activement à la définition et à la mise en oeuvre du projet paramédical, en cohérence avec la vision institutionnelle. Vous contribuez à fixer les objectifs du service, à identifier les axes d’amélioration et à structurer les modalités organisationnelles nécessaires à son évolution, en recherchant la meilleure efficience. Vos conditions\n• Fonction : Responsable du service des urgences\n• Taux d’activité : 100% (entrée en fonction dès que possible), dont 20% dans les soins\n• Hiérarchie : Direction médicale (soins) et Direction opérationnelle (administrative) Profil recherché\n• Diplôme d’infirmier-ère reconnu\n• Autorisation de pratiquer dans le canton de Genève\n• Expérience confirmée en gestion d’équipe, idéalement en service d’urgences\n• Formation complémentaire en management ou en gestion des institutions de santé (atout)\n• Solides compétences en coordination et gestion d’équipe\n• Excellentes capacités organisationnelles et relationnelles\n• Expérience en milieu clinique exigée Nous vous offrons\n• Un environnement de travail dynamique et stimulant au sein d’une institution reconnue dans le canton\n• L’opportunité de participer à des projets innovants dans le domaine de la santé\n• Une équipe engagée, collaborative et professionnelle"
       },
-      "needsRetranslation": true,
       "location": "Onex",
       "canton": "GE",
       "url": "https://arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:13.909Z",
+      "crawledAt": "2026-10-06T09:12:41.867Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -862,7 +861,7 @@
       "slugByLocale": {
         "it": "capo-arsante-clinique-de-carouge-arsante-carouge",
         "en": "chief-nurse-arsante-clinique-de-carouge-arsante-carouge",
-        "de": "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
+        "de": "krankenpfleger-in-chef-in-arsante-clinique-de-carouge-arsante-carouge",
         "fr": "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Arsanté",
@@ -872,7 +871,7 @@
       "titleByLocale": {
         "it": "Capo",
         "en": "Chief Nurse",
-        "de": "Hauptkrankenschwester",
+        "de": "Krankenpfleger/in Chef/in",
         "fr": "Infirmier·ère chef·fe"
       },
       "description": "Dans le cadre du développement de ses activités, notre établissement médico-social recherche un-e infirmier-ère chef-fe. Dépendant de la direction, l'infirmier-chef dirige le service des soins. Il participe, dans son domaine de compétence, à la conduite de l'établissement, apporte à la direction les éléments d'appréciation nécessaires à la prise de décision et veille à la mise en oeuvre des orientations arrêtées. Il garantit la qualité, la sécurité et la continuité des prestations de soins, dans le respect des valeurs de l'institution, des exigences légales et réglementaires, ainsi que des bonnes pratiques professionnelles. Il contribue, avec les autres cadres, au développement de l'établissement et à l'amélioration continue de son fonctionnement. La fonction\n• L'infirmier-chef assume la responsabilité de l'organisation et du fonctionnement du service des soins.\n• Il met en oeuvre la politique des soins définie par la direction, veille à son évolution et s'assure que les moyens humains et organisationnels permettent de répondre aux besoins des résidents.\n• Il encadre les équipes soignantes, favorise le développement de leurs compétences, accompagne les cadres de proximité et veille à maintenir un climat de travail fondé sur la confiance, le respect et la collaboration interdisciplinaire.\n• Il pilote les démarches d'amélioration continue, supervise les évaluations et indicateurs de qualité, veille à l'application des procédures et participe à l'évolution des pratiques professionnelles.\n• En collaboration avec la direction, il participe à la gestion des ressources humaines, à la planification des effectifs, à l'élaboration des budgets relevant de son secteur et au pilotage des projets institutionnels.\n• Il entretient des relations étroites avec le médecin répondant, les médecins traitants, les familles, les partenaires du réseau sanitaire et les autorités compétentes, dans le souci constant de garantir une prise en charge de qualité. Profil recherché\n• Vous êtes titulaire d'un diplôme d'infirmier reconnu par la Croix-Rouge suisse. CAS en management des institutions de santé, ou formation équivalente, requis (ou à obtenir en cours d’emploi).\n• Vous bénéficiez d'une expérience confirmée dans une fonction d'encadrement, idéalement en établissement médico-social ou dans le domaine de la gériatrie.\n• Vous possédez une bonne connaissance du cadre légal et réglementaire applicable aux EMS, des démarches qualité ainsi que des outils de gestion et de planification propres au secteur des soins.\n• Vous êtes reconnu-e pour votre leadership, votre sens des responsabilités, votre capacité d'analyse et de décision ainsi que pour votre aptitude à fédérer des équipes autour d'objectifs communs.\n• Vous savez conjuguer exigence, écoute, discernement et sens du dialogue, et êtes à l'aise dans un environnement où la qualité des relations humaines constitue une condition essentielle de la qualité des prestations. Nous offrons Une fonction de cadre comportant d'importantes responsabilités, exercée dans un environnement privilégiant la qualité des soins, le travail interdisciplinaire et l'amélioration continue.",
@@ -887,7 +886,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-chef-fe-89",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:13.234Z",
+      "crawledAt": "2026-10-06T09:12:41.178Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -908,6 +907,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge",
+        "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
         "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge"
       ],
       "previousSlugsByLocale": {
@@ -919,6 +919,7 @@
         ],
         "de": [
           "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge",
+          "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
           "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge"
         ]
       },
@@ -969,7 +970,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:12.579Z",
+      "crawledAt": "2026-10-06T09:12:40.508Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1048,7 +1049,7 @@
       "url": "https://arsante.ch/emploi/pharmacien-ne-92",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:11.919Z",
+      "crawledAt": "2026-10-06T09:12:39.834Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1141,12 +1142,12 @@
       "url": "https://arsante.ch/emploi/experts-medicaux-93",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:11.233Z",
+      "crawledAt": "2026-10-06T09:12:39.098Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1212",
+      "postalCode": "1213",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -1217,7 +1218,7 @@
       "title": "Psychologue psychothérapeute FSP",
       "titleByLocale": {
         "it": "Psicologia psicoterapeuta FSP",
-        "en": "Psychologist psychotherapist FSP",
+        "en": "Psychologist Psychotherapist FSP",
         "de": "Psychologe Psychotherapeut FSP",
         "fr": "Psychologue psychothérapeute FSP"
       },
@@ -1233,7 +1234,7 @@
       "url": "https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:10.558Z",
+      "crawledAt": "2026-10-06T09:12:38.402Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1328,7 +1329,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:09.887Z",
+      "crawledAt": "2026-10-06T09:12:37.714Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1421,7 +1422,7 @@
       "url": "https://arsante.ch/emploi/comptable-96",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:09.213Z",
+      "crawledAt": "2026-10-06T09:12:37.022Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1500,7 +1501,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:08.540Z",
+      "crawledAt": "2026-10-06T09:12:36.329Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1576,7 +1577,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:07.872Z",
+      "crawledAt": "2026-10-06T09:12:35.591Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1650,12 +1651,12 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:07.048Z",
+      "crawledAt": "2026-10-06T09:12:34.865Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1212",
+      "postalCode": "1213",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -1729,7 +1730,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:24:06.316Z",
+      "crawledAt": "2026-10-06T09:12:34.068Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",

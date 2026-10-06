@@ -1274,13 +1274,25 @@ const CODEX_TRANSLATE_LANES_MAX = 3;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
 const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
-// Tetto della singola chiamata: una traduzione non ha bisogno dei 10 minuti che
-// la lane concede al corpo articolo.
-const CODEX_TRANSLATE_CALL_TIMEOUT_MS = 180_000;
 // Sotto questo residuo una chiamata non ha il tempo di finire: stesso minimo
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
 const CODEX_TRANSLATE_MIN_CALL_MS = 15_000;
+// Il default resta quello dei chiamanti generali. translate-pending imposta il
+// valore esplicito FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS; il clamp impedisce a
+// un override del workflow di oltrepassare il tetto del broker.
+const CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT = 180_000;
+const CODEX_TRANSLATE_CALL_TIMEOUT_MS_MAX = 600_000;
 const CODEX_TRANSLATE_FAILURE_LIMIT = 3;
+
+function codexTranslateCallTimeoutMs() {
+  const raw = String(process.env.FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS || '').trim();
+  if (!/^\d+$/.test(raw)) return CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT;
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < CODEX_TRANSLATE_MIN_CALL_MS) {
+    return CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT;
+  }
+  return Math.min(value, CODEX_TRANSLATE_CALL_TIMEOUT_MS_MAX);
+}
 
 // Scadenza ASSOLUTA (epoch ms) del processo che ospita la cascata, oltre la
 // quale nessuna chiamata Codex deve restare in volo. `null` = nessuna: e' il
@@ -1314,7 +1326,7 @@ export function setCodexTranslateProcessDeadline(deadlineMs) {
  * finire, e avviarla significa solo farsi uccidere a meta'.
  */
 export function codexCallDeadlineMs({ now, budgetRemainingMs, processDeadlineMs = _codexProcessDeadlineMs }) {
-  let windowMs = Math.min(CODEX_TRANSLATE_CALL_TIMEOUT_MS, budgetRemainingMs);
+  let windowMs = Math.min(codexTranslateCallTimeoutMs(), budgetRemainingMs);
   if (processDeadlineMs !== null && processDeadlineMs !== undefined) {
     windowMs = Math.min(windowMs, processDeadlineMs - now);
   }

@@ -1,3 +1,4 @@
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * check-shard-secret-shadowing.mjs — catch a shard deploy key that is defined
  * at TWO secret levels, where the one you edited is not the one CI reads.
@@ -32,7 +33,6 @@
  *   node scripts/ci/check-shard-secret-shadowing.mjs [--strict] [--json]
  */
 
-import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 
 const REPO = process.env.GH_REPO || 'valerielinc-ops/frontaliere-si-o-no';
@@ -154,7 +154,7 @@ async function main() {
   return strict && shadowed.some((s) => s.isShardKey) ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {

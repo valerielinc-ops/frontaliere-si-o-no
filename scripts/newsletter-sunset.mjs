@@ -31,6 +31,7 @@ import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { localeOf } from './lib/subscriberLocale.mjs';
 import { pathToFileURL } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -46,15 +47,7 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || 'Frontaliere Ticino <newslette
 let db;
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = getFirestore();
+  db = await getFirestoreDb();
 }
 
 /**

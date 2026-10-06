@@ -31,7 +31,6 @@
  * staticPages, ogPages, jobs, and the various landing plugins.
  */
 import path from 'node:path';
-import { stripScriptsAndStyles } from '../scripts/lib/strip-scripts-styles.mjs';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
@@ -46,8 +45,13 @@ import type { Plugin } from 'vite';
 // ERR_MODULE_NOT_FOUND (run 15955). It resolves fine on the main thread under
 // Vite, which is why nothing caught it until the post-walk phase. Same reason
 // the worker's own `contextualLinkInjector.ts` import carries one.
-import { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags } from '../packages/articles/engine/flatHtmlRedirect.ts';
-export { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags };
+import {
+  NOINDEX_BRIDGE,
+  buildFlatBridgeFromSibling,
+  extractOgTags,
+  maskInactiveMarkup,
+} from '../packages/articles/engine/flatHtmlRedirect.ts';
+export { NOINDEX_BRIDGE, buildFlatBridgeFromSibling, extractOgTags, maskInactiveMarkup };
 
 
 interface FlatRedirectOptions {
@@ -154,7 +158,7 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
         let ogTags = '';
         try {
           const siblingHtml = fs.readFileSync(sibling, 'utf-8');
-          const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
+          const titleMatch = maskInactiveMarkup(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
           if (titleMatch && titleMatch[1]) {
             const extracted = titleMatch[1].trim();
             if (extracted.length > 0) {

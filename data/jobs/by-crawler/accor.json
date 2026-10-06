@@ -1,6 +1,6 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-10-05T21:49:36.018Z",
+  "assembledAt": "2026-10-06T09:35:59.398Z",
   "jobs": [
     {
       "id": "accor-3a1579d2eb3c",
@@ -34,7 +34,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-103713",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.738Z",
+      "crawledAt": "2026-10-06T09:35:49.305Z",
       "addressLocality": "Mövenpick Hotel And Casino Geneva, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -79,7 +79,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "accor-24fa1b0df40b",
@@ -113,7 +114,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-104711",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.734Z",
+      "crawledAt": "2026-10-06T09:35:49.303Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,7 +167,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-e283ad8b1977",
@@ -200,7 +202,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.733Z",
+      "crawledAt": "2026-10-06T09:35:49.301Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +251,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-2d13f2b5991d",
@@ -268,7 +271,7 @@
       "titleByLocale": {
         "it": "EN - Chef de Cuisine (M/F/X)",
         "en": "EN - Chef de Cuisine (M/F/X)",
-        "de": "FR - Chef de Cuisine (F/H/X)",
+        "de": "EN — Chef de Cuisine (M/W/X)",
         "fr": "FR - Chef de Cuisine (F/H/X)"
       },
       "description": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteLe Rotary Genève Mgallery recherche un(e) Chef(fe) de cuisine passionné(e), créatif(ve) et organisé(e) pour rejoindre son équipe et prendre en charge la cuisine lors de ses événements et réceptions.\n• Votre mission :Élaborer et préparer une cuisine de qualité, adaptée aux différents événementsConcevoir des menus variés et soignés, en tenant compte des saisons et des besoins des convives.Assurer la bonne organisation de la cuisine et le respect des normes d’hygiène et de sécurité.Gérer les approvisionnements, les stocks et les coûts.Encadrer et coordonner l’équipe de cuisine.Garantir une présentation soignée des plats et une expérience gastronomique à la hauteur des événements du Rotary Genève.\n• Votre profil : Nous recherchons une personne autonome, fiable, dynamique et passionnée par la gastronomie, disposant d’une solide expérience en cuisine et idéalement dans l’organisation de banquets, réceptions ou événements.Vous avez le sens du détail, aimez travailler en équipe et savez faire preuve de créativité tout en respectant les exigences d’une cuisine professionnelle.QualificationsParlons de vous :● La cuisine n’a plus de secret pour vous ! Votre expérience en tant que Chef de cuisine vous a permis de développer votre connaissance des tendances culinaires et des meilleures pratiques.● La gestion du temps et des équipes en cuisine, ça vous connait. Vous savez diriger, déléguer et répartir les tâches.● Vous avez toujours un œil sur le suivi des indicateurs de qualité et les ratios de maîtrise des coûts en cuisine.",
@@ -283,7 +286,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.731Z",
+      "crawledAt": "2026-10-06T09:35:49.298Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -318,7 +321,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:39:14.685Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -331,7 +333,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "accor-5bf571062e63",
@@ -365,7 +368,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.730Z",
+      "crawledAt": "2026-10-06T09:35:49.296Z",
       "addressLocality": "ibis Lausanne Centre, Lausanne, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -410,7 +413,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1003"
     },
     {
       "id": "accor-b6942ddb4ddf",
@@ -444,7 +448,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.729Z",
+      "crawledAt": "2026-10-06T09:35:49.294Z",
       "addressLocality": "ibis Styles Zurich City Center, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,7 +514,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "accor-25bbb5c819a5",
@@ -544,7 +549,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.728Z",
+      "crawledAt": "2026-10-06T09:35:49.290Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -593,7 +598,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "accor-4a385b52ea64",
@@ -627,7 +633,7 @@
       "url": "https://careers.accor.com/fr/fr/job/junior-sous-chef-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109967",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.727Z",
+      "crawledAt": "2026-10-06T09:35:49.288Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -658,7 +664,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "accor-45dd961bae62",
@@ -692,7 +699,7 @@
       "url": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.726Z",
+      "crawledAt": "2026-10-06T09:35:49.286Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -734,7 +741,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "accor-44dd3dbcab90",
@@ -768,7 +776,7 @@
       "url": "https://careers.accor.com/fr/fr/job/restaurant-supervisor-25hours-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5756",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.724Z",
+      "crawledAt": "2026-10-06T09:35:49.284Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -800,7 +808,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "accor-3544f0946891",
@@ -834,7 +843,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111289",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.722Z",
+      "crawledAt": "2026-10-06T09:35:49.280Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -879,7 +888,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-6e7a1f4e76cd",
@@ -913,7 +923,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-fe-de-reception-h-f-x-in-hotel-rotary-geneva-mgallery-geneve-switzerland-jid-111374",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.721Z",
+      "crawledAt": "2026-10-06T09:35:49.277Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Genève, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -955,7 +965,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1201"
     },
     {
       "id": "accor-9b94c0984277",
@@ -989,7 +1000,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-masseuse-f-h-x-cdd-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111291",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.719Z",
+      "crawledAt": "2026-10-06T09:35:49.275Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1035,7 +1046,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-67630a1d1845",
@@ -1069,7 +1081,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-h-f-x-in-mercure-fribourg-centre-remparts-fribourg-switzerl-jid-88660",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.717Z",
+      "crawledAt": "2026-10-06T09:35:49.267Z",
       "addressLocality": "Mercure Fribourg Centre Remparts, Fribourg, Switzerland",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1114,7 +1126,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1700"
     },
     {
       "id": "accor-66f6ee8ac1e4",
@@ -1148,7 +1161,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-aux-banquets-petit-dejeuner-la-palmeraie-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112443",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.716Z",
+      "crawledAt": "2026-10-06T09:35:49.261Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1193,7 +1206,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-ff02465983b7",
@@ -1227,7 +1241,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-cuisine-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112444",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.714Z",
+      "crawledAt": "2026-10-06T09:35:49.247Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1272,7 +1286,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-9ecef94515d6",
@@ -1306,7 +1321,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-patisserie-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112448",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.713Z",
+      "crawledAt": "2026-10-06T09:35:49.244Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1351,7 +1366,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-c71e2c76d02f",
@@ -1385,7 +1401,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stage-reception-du-fairmont-spa-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112451",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.711Z",
+      "crawledAt": "2026-10-06T09:35:49.241Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1427,7 +1443,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-c952a9744233",
@@ -1461,7 +1478,7 @@
       "url": "https://careers.accor.com/fr/fr/job/banquet-superviseur-h-f-100-in-moevenpick-hotel-lausanne-lausanne-switzerland-jid-112470",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.709Z",
+      "crawledAt": "2026-10-06T09:35:49.238Z",
       "addressLocality": "Mövenpick Hotel Lausanne, Lausanne, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1492,7 +1509,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1003"
     },
     {
       "id": "accor-496581e19447",
@@ -1526,7 +1544,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-rang-banquet-et-restaurant-in-geneva-switzerland-jid-112384",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.707Z",
+      "crawledAt": "2026-10-06T09:35:49.236Z",
       "addressLocality": ", Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1557,7 +1575,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "accor-1dd9f898dd22",
@@ -1591,7 +1610,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-administration-direction-f-and-b-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112528",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.705Z",
+      "crawledAt": "2026-10-06T09:35:49.234Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1636,7 +1655,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-209ade35dffd",
@@ -1670,7 +1690,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-en-service-f-and-b-f-h-x-montreux-jazz-cafe-terrasse-du-petit-palais-funky-claude-s-bar-pr-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112445",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.702Z",
+      "crawledAt": "2026-10-06T09:35:49.231Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1715,7 +1735,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-0c18ed2b739c",
@@ -1749,7 +1770,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-finance-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112446",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.694Z",
+      "crawledAt": "2026-10-06T09:35:49.228Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1781,7 +1802,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-6504598f2a56",
@@ -1815,7 +1837,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-in-room-dining-pureaty-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112447",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.692Z",
+      "crawledAt": "2026-10-06T09:35:49.224Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1860,7 +1882,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-31b9eebef27c",
@@ -1894,7 +1917,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-receptionniste-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112450",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.691Z",
+      "crawledAt": "2026-10-06T09:35:49.221Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1939,7 +1962,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-5adf68164233",
@@ -1973,7 +1997,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-sustainability-achats-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112449",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.689Z",
+      "crawledAt": "2026-10-06T09:35:49.217Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2018,7 +2042,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-ceae9c755888",
@@ -2052,7 +2077,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-tournant-h-f-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106833",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.687Z",
+      "crawledAt": "2026-10-06T09:35:49.212Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2097,7 +2122,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "accor-6734f14cfc37",
@@ -2131,7 +2157,7 @@
       "url": "https://careers.accor.com/fr/fr/job/commis-de-cuisine-f-h-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106814",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.685Z",
+      "crawledAt": "2026-10-06T09:35:49.210Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2171,14 +2197,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1820"
     },
     {
       "id": "accor-ad7c1fc121a5",
       "slug": "cluster-prenotazione-agente-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1",
       "slugByLocale": {
-        "en": "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1",
         "it": "cluster-prenotazione-agente-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1",
+        "en": "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1",
         "de": "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1",
         "fr": "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1"
       },
@@ -2188,16 +2215,16 @@
       "companyDomain": "careers.accor.com",
       "title": "Cluster Reservations Agent (f/m/d)",
       "titleByLocale": {
-        "en": "Cluster Reservations Agent (f/m/d)",
-        "fr": "Cluster Reservations Agent (h/f/d)",
         "it": "Cluster Prenotazione Agente (m/f/d)",
-        "de": "Cluster Reservierung Agent (m/w/d)"
+        "en": "Cluster Reservations Agent (f/m/d)",
+        "de": "Cluster Reservierung Agent (m/w/d)",
+        "fr": "Cluster Reservations Agent (h/f/d)"
       },
       "description": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN...An exciting challenge awaits you: we are building our local Reservations team in Zurich – and you will be part of it from day one. Together with your Supervisor and the team, you will ensure that our guests receive outstanding service from their very first contact, turning enquiries into bookings and bookings into anticipation.Job DescriptionHow does your working day look like...You will be part of our newly established Reservations Team and actively contribute your ideas and experienceYou will handle individual and group reservations through our various booking channels, ensuring that all details are accurately recorded in the systemYou will be the point of contact for our guests, handling reservation enquiries by phone and emailYou will monitor our hotel and reservations inboxes and ensure that all enquiries are handled promptlyYou will work daily with our PMS and reservation systems, maintaining accurate and up-to-date guest and booking dataYou will manage and maintain room allotments and allocationsYou will handle invoice amendments as well as the review and dispatch of group invoicesYou will maintain guest profiles in Opera Cloud and ensure a high level of data qualityYou will keep an eye on our returning guests and take care of guest recognition and our relationships with regular guestsYou will find the right solution for special guest requests and complaints, always aiming to create a positive experienceAnd above all: Together with the team, you will ensure that our guests feel well taken care of even before they arriveQualificationsYour personality counts more than your CV...You already have experience in hotel reservations or at the Front OfficeYou are highly organised and work in a structured, thorough and reliable mannerEven when several things are happening at once, you keep a clear overview and know how to set the right prioritiesYou enjoy working as part of a team, while also being able to organise your area independently and take responsibility for your tasksYou communicate confidently in German and English, both verbally and in writing. Additional languages are a plusYou enjoy interacting with international guests and have a good sense for their individual wishes and needsExperience with Opera Cloud is a plus – but what matters most to us is that you are eager to learn, get involved and take responsibilityAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
       "descriptionByLocale": {
-        "en": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN...An exciting challenge awaits you: we are building our local Reservations team in Zurich – and you will be part of it from day one. Together with your Supervisor and the team, you will ensure that our guests receive outstanding service from their very first contact, turning enquiries into bookings and bookings into anticipation.Job DescriptionHow does your working day look like...You will be part of our newly established Reservations Team and actively contribute your ideas and experienceYou will handle individual and group reservations through our various booking channels, ensuring that all details are accurately recorded in the systemYou will be the point of contact for our guests, handling reservation enquiries by phone and emailYou will monitor our hotel and reservations inboxes and ensure that all enquiries are handled promptlyYou will work daily with our PMS and reservation systems, maintaining accurate and up-to-date guest and booking dataYou will manage and maintain room allotments and allocationsYou will handle invoice amendments as well as the review and dispatch of group invoicesYou will maintain guest profiles in Opera Cloud and ensure a high level of data qualityYou will keep an eye on our returning guests and take care of guest recognition and our relationships with regular guestsYou will find the right solution for special guest requests and complaints, always aiming to create a positive experienceAnd above all: Together with the team, you will ensure that our guests feel well taken care of even before they arriveQualificationsYour personality counts more than your CV...You already have experience in hotel reservations or at the Front OfficeYou are highly organised and work in a structured, thorough and reliable mannerEven when several things are happening at once, you keep a clear overview and know how to set the right prioritiesYou enjoy working as part of a team, while also being able to organise your area independently and take responsibility for your tasksYou communicate confidently in German and English, both verbally and in writing. Additional languages are a plusYou enjoy interacting with international guests and have a good sense for their individual wishes and needsExperience with Opera Cloud is a plus – but what matters most to us is that you are eager to learn, get involved and take responsibilityAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
         "it": "Descrizione della ditta A Zurigo, siamo a casa tre volte: al 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse e Mama Shelter Zurich. Ognuno dei nostri hotel ha il suo carattere unico e la storia – ma ciò che ci collega è la nostra cultura informale di primo nome, molta personalità e il coraggio di fare le cose un po 'diverso. Le nostre squadre sono composte da persone con diversi background, esperienze e idee. Valoriamo l'iniziativa, i canali di comunicazione brevi e i colleghi che pensano avanti, si coinvolgono e, soprattutto, rimangono fedeli a se stessi. Vieni come sei e fai quello che puoi... Una sfida entusiasmante vi aspetta: stiamo costruendo il nostro team di prenotazioni locali a Zurigo – e sarete parte di esso dal primo giorno. Insieme al vostro Supervisore e al team, vi assicurerete che i nostri ospiti ricevano un servizio eccezionale dal loro primo contatto, trasformando le richieste in prenotazioni e prenotazioni in anticipazione. Descrizione del lavoroCome fa la vostra giornata di lavoro... Sarete parte del nostro nuovo team di prenotazioni e contribuire attivamente le vostre idee ed esperienza Potrai gestire prenotazioni individuali e di gruppo attraverso i nostri vari canali di prenotazione, assicurando che tutti i dettagli sono registrati con precisione nel sistema Sarete il punto di contatto per i nostri ospiti, la gestione delle richieste di prenotazione per telefono ed e-mail Monitorerai le nostre caselle di posta e prenotazioni e ti assicurerai che tutte le richieste vengano gestite prontamente Potrai lavorare ogni giorno con il nostro PMS e sistemi di prenotazione, mantenendo accurato e aggiornato i dati degli ospiti e delle prenotazioniGesterai e manterrai gli allocamenti e le allocazioni delle camere Potrai gestire le modifiche delle fatture, nonché la revisione e la spedizione delle fatture di gruppo Manterrai i profili degli ospiti in Opera Cloud e garantirai un elevato livello di qualità dei dati Si terrà d'occhio i nostri ospiti di ritorno e prendersi cura del riconoscimento degli ospiti e dei nostri rapporti con gli ospiti regolari Troverete la soluzione giusta per richieste e reclami speciali degli ospiti, mirando sempre a creare un'esperienza positiva E soprattutto: Insieme al team, vi assicurerete che i nostri ospiti si sentano ben curati anche prima di arrivareQualificazioni La tua personalità conta più del tuo CV... Hai già esperienza nelle prenotazioni alberghiere o presso il Front OfficeSei altamente organizzato e lavori in modo strutturato, accurato e affidabileAnche quando diverse cose stanno accadendo subito, tieni una chiara panoramica e sai come impostare le priorità giuste Ti piace lavorare come parte di un team, pur essendo in grado di organizzare la tua area in modo indipendente e di assumerti la responsabilità dei tuoi compiti Si comunica con fiducia in tedesco e inglese, sia verbalmente che per iscritto. Le lingue aggiuntive sono un plusYou godere di interagire con gli ospiti internazionali e hanno un buon senso per i loro desideri individuali e le esigenzeExperience with Opera Cloud è un plus – ma ciò che conta di più per noi è che siete desiderosi di imparare, entrare in gioco e prendere responsabilitàUlteriori informazioni Cosa c'è dentro per te... Scopri tutti gli altri hotel di 25 ore e soggiorna gratuitamente per un massimo di 10 notti all'anno come dipendente Ottieni un'indennità extra per viaggiare con i mezzi pubblici e approfitta delle fantastiche offerte dei nostri partner cooperative! Approfitta di essere parte di Ennismore e ottenere sconti generosi quando si visitano i nostri bar e ristoranti, così come la prenotazione di camere di hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner numeros collaborazioni Partecipa alle nostre feste di personale hilarous e molto altro...",
-        "de": "In Zürich sind wir dreimal zu Hause: im 25hours Hotel Zürich West, im 25hours Hotel Zürich Langstrasse und im Mama Shelter Zürich. Jedes unserer Hotels hat seinen eigenen Charakter und seine eigene Geschichte - aber was uns verbindet, ist unsere informelle Vornamenkultur, viel Persönlichkeit und der Mut, die Dinge ein wenig anders zu machen. Unsere Teams bestehen aus Menschen mit unterschiedlichen Hintergründen, Erfahrungen und Ideen. Wir schätzen Initiative, kurze Kommunikationswege und Kollegen, die vorausdenken, sich engagieren und vor allem sich selbst treu bleiben. Kommen Sie, wie Sie sind und zeigen, was Sie können ... Eine spannende Herausforderung erwartet Sie: Wir bauen unser lokales Reservations-Team in Zürich auf – und Sie werden vom ersten Tag an dabei sein. Gemeinsam mit Ihrem Vorgesetzten und dem Team stellen Sie sicher, dass unsere Gäste von ihrem ersten Kontakt an einen hervorragenden Service erhalten und Anfragen in Buchungen und Buchungen in Vorfreude verwandeln. StellenbeschreibungWie sieht Ihr Arbeitstag aus... Sie werden Teil unseres neu gegründeten Reservations Teams und bringen Ihre Ideen und Erfahrungen aktiv ein Sie bearbeiten Einzel- und Gruppenreservierungen über unsere verschiedenen Buchungskanäle und stellen sicher, dass alle Details genau im System aufgezeichnet werden. Sie sind der Ansprechpartner für unsere Gäste und bearbeiten Reservierungsanfragen per Telefon und E-Mail Sie werden unsere Hotel- und Reservierungsposteingänge überwachen und sicherstellen, dass alle Anfragen umgehend bearbeitet werden. Sie arbeiten täglich mit unseren PMS- und Reservierungssystemen, pflegen genaue und aktuelle Gäste- und BuchungsdatenSie verwalten und pflegen Zimmerzuteilungen und Zuweisungen Sie übernehmen Rechnungsänderungen sowie die Überprüfung und den Versand von Gruppenrechnungen Sie pflegen Gastprofile in Opera Cloud und sorgen für eine hohe Datenqualität Sie werden unsere wiederkehrenden Gäste im Auge behalten und sich um die Gästeerkennung und unsere Beziehungen zu Stammgästen kümmern. Sie finden die richtige Lösung für besondere Gästewünsche und Beschwerden, immer mit dem Ziel, ein positives Erlebnis zu schaffen Und vor allem: Gemeinsam mit dem Team sorgen Sie dafür, dass sich unsere Gäste schon vor ihrer Ankunft gut aufgehoben fühlenQualifications Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben bereits Erfahrung in Hotelreservierungen oder im Front OfficeSie sind gut organisiert und arbeiten strukturiert, gründlich und zuverlässigAuch wenn mehrere Dinge gleichzeitig passieren, behalten Sie einen klaren Überblick und wissen, wie Sie die richtigen Prioritäten setzen Sie arbeiten gerne als Teil eines Teams und können gleichzeitig Ihren Bereich selbstständig organisieren und Verantwortung für Ihre Aufgaben übernehmen. Sie kommunizieren selbstbewusst in Deutsch und Englisch, sowohl mündlich als auch schriftlich. Zusätzliche Sprachen sind ein PlusSie genießen die Interaktion mit internationalen Gästen und haben ein gutes Gespür für ihre individuellen Wünsche und BedürfnisseExperience mit Opera Cloud ist ein Plus – aber was uns am wichtigsten ist, ist, dass Sie gerne lernen, sich engagieren und Verantwortung übernehmen. Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und bleiben Sie für maximal 10 Nächte pro Jahr als Mitarbeiter kostenlos Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie die fantastischen Angebote unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros Kooperationspartner Seien sie teil unserer lustigen personalpartys und vieles mehr.",
+        "en": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN...An exciting challenge awaits you: we are building our local Reservations team in Zurich – and you will be part of it from day one. Together with your Supervisor and the team, you will ensure that our guests receive outstanding service from their very first contact, turning enquiries into bookings and bookings into anticipation.Job DescriptionHow does your working day look like...You will be part of our newly established Reservations Team and actively contribute your ideas and experienceYou will handle individual and group reservations through our various booking channels, ensuring that all details are accurately recorded in the systemYou will be the point of contact for our guests, handling reservation enquiries by phone and emailYou will monitor our hotel and reservations inboxes and ensure that all enquiries are handled promptlyYou will work daily with our PMS and reservation systems, maintaining accurate and up-to-date guest and booking dataYou will manage and maintain room allotments and allocationsYou will handle invoice amendments as well as the review and dispatch of group invoicesYou will maintain guest profiles in Opera Cloud and ensure a high level of data qualityYou will keep an eye on our returning guests and take care of guest recognition and our relationships with regular guestsYou will find the right solution for special guest requests and complaints, always aiming to create a positive experienceAnd above all: Together with the team, you will ensure that our guests feel well taken care of even before they arriveQualificationsYour personality counts more than your CV...You already have experience in hotel reservations or at the Front OfficeYou are highly organised and work in a structured, thorough and reliable mannerEven when several things are happening at once, you keep a clear overview and know how to set the right prioritiesYou enjoy working as part of a team, while also being able to organise your area independently and take responsibility for your tasksYou communicate confidently in German and English, both verbally and in writing. Additional languages are a plusYou enjoy interacting with international guests and have a good sense for their individual wishes and needsExperience with Opera Cloud is a plus – but what matters most to us is that you are eager to learn, get involved and take responsibilityAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
+        "de": "In Zürich sind wir dreimal zu Hause: im 25hours Hotel Zürich West, im 25hours Hotel Zürich Langstrasse und im Mama Shelter Zürich. Jedes unserer Hotels hat seinen eigenen Charakter und seine eigene Geschichte - aber was uns verbindet, ist unsere informelle Vornamenkultur, viel Persönlichkeit und der Mut, die Dinge ein wenig anders zu machen. Unsere Teams bestehen aus Menschen mit unterschiedlichen Hintergründen, Erfahrungen und Ideen. Wir schätzen Initiative, kurze Kommunikationswege und Kollegen, die vorausdenken, sich engagieren und vor allem sich selbst treu bleiben. Kommen Sie, wie Sie sind und zeigen, was Sie können ... Eine spannende Herausforderung erwartet Sie: Wir bauen unser lokales Reservations-Team in Zürich auf – und Sie werden vom ersten Tag an dabei sein. Gemeinsam mit Ihrem Vorgesetzten und dem Team stellen Sie sicher, dass unsere Gäste von ihrem ersten Kontakt an einen hervorragenden Service erhalten und Anfragen in Buchungen und Buchungen in Vorfreude verwandeln. StellenbeschreibungWie sieht Ihr Arbeitstag aus... Sie werden Teil unseres neu gegründeten Reservations Teams und bringen Ihre Ideen und Erfahrungen aktiv ein Sie bearbeiten Einzel- und Gruppenreservierungen über unsere verschiedenen Buchungskanäle und stellen sicher, dass alle Details genau im System aufgezeichnet werden. Sie sind der Ansprechpartner für unsere Gäste und bearbeiten Reservierungsanfragen per Telefon und E-Mail Sie werden unsere Hotel- und Reservierungsposteingänge überwachen und sicherstellen, dass alle Anfragen umgehend bearbeitet werden. Sie arbeiten täglich mit unseren PMS- und Reservierungssystemen, pflegen genaue und aktuelle Gäste- und BuchungsdatenSie verwalten und pflegen Zimmerzuteilungen und Zuweisungen Sie übernehmen Rechnungsänderungen sowie die Überprüfung und den Versand von Gruppenrechnungen Sie pflegen Gastprofile in Opera Cloud und sorgen für eine hohe Datenqualität Sie werden unsere wiederkehrenden Gäste im Auge behalten und sich um die Gästeerkennung und unsere Beziehungen zu Stammgästen kümmern. Sie finden die richtige Lösung für besondere Gästewünsche und Beschwerden, immer mit dem Ziel, ein positives Erlebnis zu schaffen Und vor allem: Gemeinsam mit dem Team sorgen Sie dafür, dass sich unsere Gäste schon vor ihrer Ankunft gut aufgehoben fühlenQualifications Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben bereits Erfahrung in Hotelreservierungen oder im Front OfficeSie sind gut organisiert und arbeiten strukturiert, gründlich und zuverlässigAuch wenn mehrere Dinge gleichzeitig passieren, behalten Sie einen klaren Überblick und wissen, wie Sie die richtigen Prioritäten setzen Sie arbeiten gerne als Teil eines Teams und können gleichzeitig Ihren Bereich selbstständig organisieren und Verantwortung für \n• Ihre Aufgaben übernehmen. Sie kommunizieren selbstbewusst in Deutsch und Englisch, sowohl mündlich als auch schriftlich. Zusätzliche Sprachen sind ein PlusSie genießen die Interaktion mit internationalen Gästen und haben ein gutes Gespür für ihre individuellen Wünsche und BedürfnisseExperience mit Opera Cloud ist ein Plus – aber was uns am wichtigsten ist, ist, dass Sie gerne lernen, sich engagieren und Verantwortung übernehmen. Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und bleiben Sie für maximal 10 Nächte pro Jahr als Mitarbeiter kostenlos Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie die fantastischen Angebote unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros Kooperationspartner Seien sie teil unserer lustigen personalpartys und vieles mehr.",
         "fr": "Description de l'entrepriseÀ Zurich, nous sommes à la maison trois fois plus: à 25h Hotel Zurich Ouest, 25h Hotel Zurich Langstrasse et Mama Shelter Zurich. Chacun de nos hôtels a son propre caractère et histoire – mais ce qui nous relie, c'est notre culture de premier nom informelle, beaucoup de personnalité et le courage de faire les choses un peu différemment. Nos équipes sont composées de personnes ayant des antécédents, des expériences et des idées variés. Nous apprécions l'initiative, les canaux de communication courts et les collègues qui pensent à l'avenir, s'impliquent et, surtout, restent fidèles à eux-mêmes. Venez comme vous êtes et dites ce que vous pouvez... Un défi passionnant vous attend : nous construisons notre équipe de réservation locale à Zurich – et vous y participerez dès le premier jour. En collaboration avec votre superviseur et l'équipe, vous vous assurerez que nos clients reçoivent un service exceptionnel de leur tout premier contact, transformant les demandes de renseignements en réservations et réservations en anticipation. Description de l'emploiÀ quoi ressemble votre journée de travail... Vous ferez partie de notre équipe de réservation nouvellement créée et apporterez activement vos idées et votre expérience Vous gérerez les réservations individuelles et collectives via nos différents canaux de réservation, en veillant à ce que tous les détails soient enregistrés avec précision dans le système Vous serez le point de contact pour nos clients, le traitement des demandes de réservation par téléphone et email Vous surveillerez notre hôtel et nos boîtes de réception de réservations et vous assurerez que toutes les demandes sont traitées rapidement Vous travaillerez tous les jours avec notre SPM et nos systèmes de réservation, en maintenant des données précises et à jour sur les clients et les réservations.Vous gérerez et conserverez les répartitions et les affectations de salles. Vous traiterez les modifications de facture ainsi que l'examen et l'expédition des factures du groupe Vous conserverez des profils clients dans Opera Cloud et assurerez un haut niveau de qualité des données Vous garderez un œil sur nos invités de retour et prendre soin de la reconnaissance des invités et de nos relations avec les invités réguliers Vous trouverez la bonne solution pour les demandes d'invités spéciaux et les plaintes, toujours en vue de créer une expérience positive Et surtout : Avec l'équipe, vous vous assurerez que nos invités se sentent bien pris en charge avant même qu'ils arriventQualifications Votre personnalité compte plus que votre CV... Vous avez déjà de l'expérience dans les réservations d'hôtel ou au Front OfficeVous êtes très organisé et travaillez de manière structurée, approfondie et fiableMême quand plusieurs choses se passent à la fois, vous gardez un aperçu clair et savez comment définir les bonnes priorités Vous aimez travailler en équipe, tout en étant capable d'organiser votre espace de manière indépendante et d'assumer vos tâches Vous communiquez avec confiance en allemand et en anglais, à la fois verbalement et par écrit. Les langues supplémentaires sont un plusVous aimez interagir avec des invités internationaux et avoir un bon sens pour leurs souhaits et besoins individuelsL'expérience avec Opera Cloud est un plus – mais ce qui nous importe le plus, c'est que vous êtes impatient d'apprendre, de vous impliquer et de prendre des responsabilités. Qu'y a-t-il dedans pour toi... Découvrez tous les autres hôtels de 25 heures et séjournez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une indemnité supplémentaire pour voyager en transports en commun et profitez des offres fantastiques de nos partenaires coopératifs! Profitez d'être une partie d'Ennismore et obtenir des rabais généreux lors de la visite de nos bars et restaurants ainsi que la réservation de chambres d'hôtel partout dans le monde Avantages de grandes offres de nos partenaires de coopération numeros Faites partie de nos soirées hilarantes et bien plus encore..."
       },
       "location": "25hours Hotel Zurich West, Zürich, Switzerland",
@@ -2205,7 +2232,7 @@
       "url": "https://careers.accor.com/fr/fr/job/cluster-reservations-agent-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-112761",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.683Z",
+      "crawledAt": "2026-10-06T09:35:49.208Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2222,9 +2249,16 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.accor.com/fr/fr/job/cluster-reservations-agent-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-112761",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1"
+        ]
       },
+      "firstSeenAt": "2026-10-05T21:49:23.683Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2238,24 +2272,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:49:23.683Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1"
-        ]
-      },
-      "previousSlugs": [
-        "cluster-reservations-agent-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-ad7c1fc1"
-      ]
+      "postalCode": "8001"
     },
     {
       "id": "accor-249f34cae356",
       "slug": "prima-colazione-m-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca",
       "slugByLocale": {
-        "fr": "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca",
         "it": "prima-colazione-m-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca",
         "en": "head-breakfast-m-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca",
-        "de": "fruhstuck-m-w-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
+        "de": "fruhstuck-m-w-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca",
+        "fr": "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
       },
       "slugDisambiguator": "249f34ca",
       "company": "Ibis Budget",
@@ -2263,24 +2289,24 @@
       "companyDomain": "careers.accor.com",
       "title": "Responsable petit déjeuner (H/F/X)",
       "titleByLocale": {
-        "fr": "Responsable petit déjeuner (H/F/X)",
         "it": "Prima colazione (M/F/X)",
         "en": "Head breakfast (M/F/X)",
-        "de": "Frühstück (M/W/X)"
+        "de": "Frühstück (M/W/X)",
+        "fr": "Responsable petit déjeuner (H/F/X)"
       },
       "description": "Description de l'entrepriseRejoignez notre hotel en plein coeur des Paquis, 122 chambres, un buffet petit déjeuner, un bar et une offre snacking à développer et faire vivre ! Une équipe volontaire et dynamique vous attend !Description du posteResponsable petit déjeuner (H/F/X) Vous êtes passionné(e) par la Restauration ? Vous n’avez pas peur de penser différemment ni d’apporter des idées nouvelles ? Nous avons un poste fait pour vous ! En tant que Responsable petit déjeuner (H/F/X), vous serez à la tête d’une équipe pour définir ensemble un tout autre niveau de satisfaction client. Ce que l’établissement vous offre : Avantage sur un tarif de stationnement (parking) Carte collaborateurs offrant des taux réduits chez Accor Plan de formations délivrées dans nos Académies et l’opportunité de développer vos compétences L’opportunité de développer vos talents et de vous épanouir au sein de votre établissement et à travers le monde Des horaires de travail en continu Votre rôle : Assurer le rôle de leader, de mentor et de formateur auprès de l’équipe opérationnelle petit déjeuner Assurer le respect des normes Food & Beverage , normes d'hygiène et règlementations en vigueur Elaborer une stratégie sur les nouveaux produits et services, analyse vos ventes et ratios Offrir une expérience inoubliable pour nos clientsEtre garant des ventes , du CA , des stocks et des commandes du serviceEtre pro actif dans vos propositions et offres petit déjeuner et barQualificationsVotre expérience et vos compétences incluent : Qualité de service essentielle : une expérience dans le management est requise Capacité à créer et maintenir de bonnes relations avec les parties prenantes Excellente communication favorisant le partage d'information Capacité à manager une équipe, à partager une culture d’équipe forte et à encourager la performanceUtilisation de Opéra et Simphony est un plusInformations supplémentairesVotre équipe et votre environnement de travail : Equipe dynamique, volontaire qui a volonté de satisfaire le client Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents.",
       "descriptionByLocale": {
-        "fr": "Description de l'entrepriseRejoignez notre hotel en plein coeur des Paquis, 122 chambres, un buffet petit déjeuner, un bar et une offre snacking à développer et faire vivre ! Une équipe volontaire et dynamique vous attend !Description du posteResponsable petit déjeuner (H/F/X) Vous êtes passionné(e) par la Restauration ? Vous n’avez pas peur de penser différemment ni d’apporter des idées nouvelles ? Nous avons un poste fait pour vous ! En tant que Responsable petit déjeuner (H/F/X), vous serez à la tête d’une équipe pour définir ensemble un tout autre niveau de satisfaction client. Ce que l’établissement vous offre : Avantage sur un tarif de stationnement (parking) Carte collaborateurs offrant des taux réduits chez Accor Plan de formations délivrées dans nos Académies et l’opportunité de développer vos compétences L’opportunité de développer vos talents et de vous épanouir au sein de votre établissement et à travers le monde Des horaires de travail en continu Votre rôle : Assurer le rôle de leader, de mentor et de formateur auprès de l’équipe opérationnelle petit déjeuner Assurer le respect des normes Food & Beverage , normes d'hygiène et règlementations en vigueur Elaborer une stratégie sur les nouveaux produits et services, analyse vos ventes et ratios Offrir une expérience inoubliable pour nos clientsEtre garant des ventes , du CA , des stocks et des commandes du serviceEtre pro actif dans vos propositions et offres petit déjeuner et barQualificationsVotre expérience et vos compétences incluent : Qualité de service essentielle : une expérience dans le management est requise Capacité à créer et maintenir de bonnes relations avec les parties prenantes Excellente communication favorisant le partage d'information Capacité à manager une équipe, à partager une culture d’équipe forte et à encourager la performanceUtilisation de Opéra et Simphony est un plusInformations supplémentairesVotre équipe et votre environnement de travail : Equipe dynamique, volontaire qui a volonté de satisfaire le client Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents.",
         "it": "Descrizione dell'aziendaUnisciti al nostro hotel nel cuore del Paquis, 122 camere, una colazione a buffet, un bar e una merenda offerta per sviluppare e fare dal vivo! Un team volontario e dinamico vi aspetta! Descrizione della posizioneColazione responsabile (M/F/X) Sei appassionato del Restauro? Non hai paura di pensare in modo diverso o di portare nuove idee? Abbiamo un lavoro fatto per te! Come capo della colazione (M/F/X), guiderai un team per definire insieme un livello completamente diverso di soddisfazione del cliente. Cosa offre la struttura: vantaggio su un parcheggio (parcheggio) Collaborare con la carta offrendo tariffe ridotte al piano di formazione Accor consegnato nelle nostre accademie e l'opportunità di sviluppare le vostre competenze L'opportunità di sviluppare i vostri talenti e fiorire all'interno della vostra istituzione e in tutto il mondo In qualità di leader, mentore e formatore con il team operativo della colazione Assicurarsi il rispetto degli attuali standard Food & Beverage, standard igienico-sanitari e normative Sviluppare una strategia su nuovi prodotti e servizi, analizzare le vendite e i rapporti Fornire un'esperienza indimenticabile per i nostri clienti Essere un garante di vendite, CA, inventario e ordini di servizio Essere attivi nelle vostre proposte e offre colazione e barQualificazioni La tua esperienza e le tue competenze includono: Qualità essenziale del servizio: un'esperienza nella gestione è necessaria Capacità di creare e mantenere buone relazioni con gli stakeholder Ottima comunicazione che promuove la condivisione delle informazioni Capacità di gestire un team, di condividere una forte cultura del team e di incoraggiare le prestazioniUtilizzando Opera e Simphony è un'ulteriore informazione Il vostro team e il vostro ambiente di lavoro: un team dinamico e volontario che vuole soddisfare il cliente La nostra diversità di impegno & inclusione: Siamo una società inclusiva e la nostra ambizione è di attrarre, reclutare e promuovere la diversità del talento.",
         "en": "Company descriptionJoin our hotel in the heart of the Paquis, 122 rooms, a breakfast buffet, a bar and a snack offer to develop and make live! A voluntary and dynamic team awaits you! Position descriptionResponsible breakfast (M/F/X) Are you passionate about the Restoration? Aren't you afraid to think differently or bring new ideas? We have a job made for you! As Head of Breakfast (M/F/X), you will lead a team to define together a completely different level of customer satisfaction. What the property offers: Advantage on a parking rate (parking) Collaborating card offering reduced rates at Accor Training plan delivered in our academies and the opportunity to develop your skills The opportunity to develop your talents and flourish within your institution and around the world Continuous work schedules Your role: As a leader, mentor and trainer with the breakfast operational team Ensure compliance with current Food & Beverage standards, hygiene standards and regulations Develop a strategy on new products and services, analyze your sales and ratios Provide an unforgettable experience for our customersBe a guarantor of sales, CA, inventory and service ordersBe active in your proposals and offers breakfast and barQualificationsYour experience and skills include: Essential quality of service: an experience in management is required Ability to create and maintain good relationships with stakeholders Excellent communication promoting information sharing Ability to manage a team, to share a strong team culture and to encourage performanceUsing Opera and Simphony is one moreAdditional informationYour team and your working environment: A dynamic, voluntary team that wants to satisfy the customer Our Commitment Diversity & Inclusion: We are an inclusive company and our ambition is to attract, recruit, and promote diversity of talent.",
-        "de": "Schließen Sie sich unserem Hotel im Herzen des Paquis an, 122 Zimmer, ein Frühstücksbuffet, eine Bar und ein Snackangebot, um sich zu entwickeln und live zu machen! Ein freiwilliges und dynamisches Team erwartet Sie! PositionsbeschreibungVerantwortliches Frühstück (M/W/X) Sie interessieren sich für die Restauration? Haben Sie keine Angst, anders zu denken oder neue Ideen zu bringen? Wir haben einen Job für Sie gemacht! Als Head of Breakfast (M/W/X) leiten Sie ein Team, um gemeinsam eine völlig andere Kundenzufriedenheit zu definieren. Was die Immobilie bietet: Vorteil bei einer Parkgebühr (Parken) Mitwirkende Karte bietet ermäßigte Preise bei Accor Training Plan in unseren Akademien geliefert und die Möglichkeit, Ihre Fähigkeiten zu entwickeln Die Möglichkeit, Ihre Talente zu entwickeln und in Ihrer Institution und auf der ganzen Welt zu gedeihen Continuous Work-Zeitpläne Ihre Rolle: Als Führungskraft, Mentor und Trainer des Frühstücksbetriebsteams Stellen Sie sicher, dass die aktuellen Lebensmittel- und Getränkestandards, Hygienestandards und -vorschriften eingehalten werden Entwickeln Sie eine Strategie für neue Produkte und Dienstleistungen, analysieren Sie Ihre Umsätze und Verhältnisse und bieten Sie unseren Kunden ein unvergessliches Erlebnis Seien Sie ein Garant für Sales, CA, Inventar und Serviceaufträge Seien Sie aktiv in Ihren Vorschlägen und bietet Frühstück und barQualifications Ihre Erfahrung und Fähigkeiten umfassen: Wesentliche Servicequalität: Eine Erfahrung im Management ist erforderlich Fähigkeit, gute Beziehungen zu Stakeholdern aufzubauen und zu pflegen Ausgezeichnete Kommunikation zur Förderung des Informationsaustauschs Fähigkeit, ein Team zu führen, eine starke Teamkultur zu teilen und die Leistung zu fördern Opera und Simphony ist eine weitere zusätzliche Information Ihr Team und Ihr Arbeitsumfeld: Ein dynamisches, ehrenamtliches Team, das den Kunden Our Commitment Diversity & Inclusion zufrieden stellen möchte: Wir sind ein integratives Unternehmen und unser Ziel ist es, die Vielfalt von Talenten zu gewinnen, zu rekrutieren und zu fördern."
+        "de": "Schließen Sie sich unserem Hotel im Herzen des Paquis an, 122 Zimmer, ein Frühstücksbuffet, eine Bar und ein Snackangebot, um sich zu entwickeln und live zu machen! Ein freiwilliges und dynamisches Team erwartet Sie! PositionsbeschreibungVerantwortliches Frühstück (M/W/X) Sie interessieren sich für die Restauration? Haben Sie keine Angst, anders zu denken oder neue Ideen zu bringen? Wir haben einen Job für Sie gemacht! Als Head of Breakfast (M/W/X) leiten Sie ein Team, um gemeinsam eine völlig andere Kundenzufriedenheit zu definieren. Was die Immobilie bietet: Vorteil bei einer Parkgebühr (Parken) Mitwirkende Karte bietet ermäßigte Preise bei Accor Training Plan in unseren Akademien geliefert und die Möglichkeit, Ihre Fähigkeiten zu entwickeln Die Möglichkeit, Ihre Talente zu entwickeln und in Ihrer Institution und auf der ganzen Welt zu gedeihen Continuous Work-Zeitpläne Ihre Rolle: Als Führungskraft, Mentor und Trainer des Frühstücksbetriebsteams Stellen Sie sicher, dass die aktuellen Lebensmittel- und Getränkestandards, Hygienestandards und -vorschriften eingehalten werden Entwickeln Sie eine Strategie für neue Produkte und Dienstleistungen, analysieren Sie Ihre Umsätze und Verhältnisse und bieten Sie unseren Kunden ein unvergessliches Erlebnis Seien Sie ein Garant für Sales, CA, Inventar und Serviceaufträge Seien Sie aktiv in Ihren Vorschlägen und bietet Frühstück und barQualifications Ihre Erfahrung und Fähigkeiten umfassen: Wesentliche Servicequalität: Eine Erfahrung im Management ist erforderlich Fähigkeit, gute Beziehungen zu Stakeholdern aufzubauen und zu pflegen Ausgezeichnete Kommunikation zur Förderung des Informationsaustauschs Fähigkeit, ein Team zu führen, eine starke Teamkultur zu teilen und die Leistung zu fördern Opera und Simphony ist eine weitere zusätzliche Information Ihr Team und Ihr Arbeitsumfeld: Ein dynamisches, ehrenamtliches Team, das den Kunden Our Commitment Diversity & Inclusion zufrieden stellen möchte: Wir sind ein integratives Unternehmen und unser Ziel ist es, die Vielfalt von Talenten zu gewinnen, zu rekrutieren und zu fördern.",
+        "fr": "Description de l'entrepriseRejoignez notre hotel en plein coeur des Paquis, 122 chambres, un buffet petit déjeuner, un bar et une offre snacking à développer et faire vivre ! Une équipe volontaire et dynamique vous attend !Description du posteResponsable petit déjeuner (H/F/X) Vous êtes passionné(e) par la Restauration ? Vous n’avez pas peur de penser différemment ni d’apporter des idées nouvelles ? Nous avons un poste fait pour vous ! En tant que Responsable petit déjeuner (H/F/X), vous serez à la tête d’une équipe pour définir ensemble un tout autre niveau de satisfaction client. Ce que l’établissement vous offre : Avantage sur un tarif de stationnement (parking) Carte collaborateurs offrant des taux réduits chez Accor Plan de formations délivrées dans nos Académies et l’opportunité de développer vos compétences L’opportunité de développer vos talents et de vous épanouir au sein de votre établissement et à travers le monde Des horaires de travail en continu Votre rôle : Assurer le rôle de leader, de mentor et de formateur auprès de l’équipe opérationnelle petit déjeuner Assurer le respect des normes Food & Beverage , normes d'hygiène et règlementations en vigueur Elaborer une stratégie sur les nouveaux produits et services, analyse vos ventes et ratios Offrir une expérience inoubliable pour nos clientsEtre garant des ventes , du CA , des stocks et des commandes du serviceEtre pro actif dans vos propositions et offres petit déjeuner et barQualificationsVotre expérience et vos compétences incluent : Qualité de service essentielle : une expérience dans le management est requise Capacité à créer et maintenir de bonnes relations avec les parties prenantes Excellente communication favorisant le partage d'information Capacité à manager une équipe, à partager une culture d’équipe forte et à encourager la performanceUtilisation de Opéra et Simphony est un plusInformations supplémentairesVotre équipe et votre environnement de travail : Equipe dynamique, volontaire qui a volonté de satisfaire le client Notre Engagement Diversité & Inclusion : Nous sommes une entreprise inclusive et notre ambition est d’attirer, de recruter, et de promouvoir la diversité des talents."
       },
       "location": "ibis Genève Centre Lac, Geneva, Switzerland",
       "canton": "GE",
       "url": "https://careers.accor.com/fr/fr/job/responsable-petit-dejeuner-h-f-x-in-ibis-geneve-centre-lac-geneva-switzerland-jid-112721",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:23.681Z",
+      "crawledAt": "2026-10-06T09:35:49.203Z",
       "addressLocality": "ibis Genève Centre Lac, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2297,23 +2323,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.accor.com/fr/fr/job/responsable-petit-dejeuner-h-f-x-in-ibis-geneve-centre-lac-geneva-switzerland-jid-112721",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-05T21:49:23.681Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
@@ -2325,16 +2338,28 @@
           "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
         ]
       },
-      "previousSlugs": [
-        "responsable-petit-dejeuner-h-f-x-ibis-budget-ibis-geneve-centre-lac-geneva-switzerland-249f34ca"
-      ]
+      "firstSeenAt": "2026-10-05T21:49:23.681Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "accor-e6fbe5712ddc",
       "slug": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571",
       "slugByLocale": {
-        "en": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571",
         "it": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571",
+        "en": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571",
         "de": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571",
         "fr": "cluster-reservations-supervisor-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-e6fbe571"
       },
@@ -2344,24 +2369,24 @@
       "companyDomain": "careers.accor.com",
       "title": "Cluster Reservations Supervisor (f/m/d)",
       "titleByLocale": {
-        "en": "Cluster Reservations Supervisor (f/m/d)",
         "it": "Cluster Reservations Supervisore (f/m/d)",
+        "en": "Cluster Reservations Supervisor (f/m/d)",
         "de": "Cluster Reservations Vorgesetzter (f/m/d)",
         "fr": "Cluster Reservations Superviseur (f/m/d)"
       },
       "description": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN…We are rebuilding our local Reservations department in Zurich – and you will play a key role from the very beginning. As Reservations Supervisor, you will be hands-on in the daily operation while also taking professional responsibility for the department.Reporting directly to the Operations Manager, you will work together with your team to ensure that the daily reservations operation runs smoothly. You will help develop processes and standards while keeping a close eye on quality, sales and guest satisfaction.Job DescriptionHow does your working day look like...You are hands-on in the daily reservations operation and personally handle individual and group reservations across our various booking channelsYou take professional responsibility for the Reservations department, coordinate the day-to-day operation and ensure that tasks and enquiries are handled reliably and promptlyTogether with the Operations Manager, you will help shape the set-up of our new local Reservations department and develop processes, standards and workflowsYou are the first point of contact for your Reservations Team, support the onboarding of new team members and regularly conduct on-the-job trainingYou keep a close eye on our Reservations inbox and various booking channels and ensure consistently high processing qualityYou work daily with our PMS and reservation systems and take responsibility for maintaining accurate booking and guest dataYou manage and maintain room allotments and allocations and work closely with Revenue Management and SalesYou see Reservations as an important sales channel and actively drive upselling of rooms and additional hotel services together with your teamYou handle more complex guest requests and complaints and find the right solution even when things do not go according to standard proceduresYou oversee group bookings and group invoices and ensure a smooth flow of information between all departments involvedYou ensure professional maintenance of our guest profiles in Opera Cloud and, together with the team, further develop Guest Recognition and our relationships with returning guestsYou work closely with Front Office, Revenue, Sales and the operational departments and act as the central point of contact for all reservation-related topicsYou identify opportunities for improvement in the daily operation and are excited to not only manage a new department, but actively help build and shape it from the ground upQualificationsYour personality counts more than your CV...You have solid experience in hotel reservations or Front Office and are ready to take on greater professional responsibility. First leadership experience is a plus, but not essential for usYou are hands-on and enjoy getting involved in the day-to-day operation yourself, while still being able to keep an overview, set priorities and provide guidance to othersYou are excited about helping to build a new department, questioning existing ways of working and developing practical solutions together with the Operations ManagerYou have a strong guest focus and commercial mindset, enjoy selling and know how to identify opportunities for upselling and additional salesYou work in a structured and reliable manner and keep a clear overview even when group enquiries, phone calls, inboxes and individual guest requests are all coming in at the same timeYou communicate confidently in German and English. Additional languages and experience with Opera Cloud are a plusAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
       "descriptionByLocale": {
-        "en": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN…We are rebuilding our local Reservations department in Zurich – and you will play a key role from the very beginning. As Reservations Supervisor, you will be hands-on in the daily operation while also taking professional responsibility for the department.Reporting directly to the Operations Manager, you will work together with your team to ensure that the daily reservations operation runs smoothly. You will help develop processes and standards while keeping a close eye on quality, sales and guest satisfaction.Job DescriptionHow does your working day look like...You are hands-on in the daily reservations operation and personally handle individual and group reservations across our various booking channelsYou take professional responsibility for the Reservations department, coordinate the day-to-day operation and ensure that tasks and enquiries are handled reliably and promptlyTogether with the Operations Manager, you will help shape the set-up of our new local Reservations department and develop processes, standards and workflowsYou are the first point of contact for your Reservations Team, support the onboarding of new team members and regularly conduct on-the-job trainingYou keep a close eye on our Reservations inbox and various booking channels and ensure consistently high processing qualityYou work daily with our PMS and reservation systems and take responsibility for maintaining accurate booking and guest dataYou manage and maintain room allotments and allocations and work closely with Revenue Management and SalesYou see Reservations as an important sales channel and actively drive upselling of rooms and additional hotel services together with your teamYou handle more complex guest requests and complaints and find the right solution even when things do not go according to standard proceduresYou oversee group bookings and group invoices and ensure a smooth flow of information between all departments involvedYou ensure professional maintenance of our guest profiles in Opera Cloud and, together with the team, further develop Guest Recognition and our relationships with returning guestsYou work closely with Front Office, Revenue, Sales and the operational departments and act as the central point of contact for all reservation-related topicsYou identify opportunities for improvement in the daily operation and are excited to not only manage a new department, but actively help build and shape it from the ground upQualificationsYour personality counts more than your CV...You have solid experience in hotel reservations or Front Office and are ready to take on greater professional responsibility. First leadership experience is a plus, but not essential for usYou are hands-on and enjoy getting involved in the day-to-day operation yourself, while still being able to keep an overview, set priorities and provide guidance to othersYou are excited about helping to build a new department, questioning existing ways of working and developing practical solutions together with the Operations ManagerYou have a strong guest focus and commercial mindset, enjoy selling and know how to identify opportunities for upselling and additional salesYou work in a structured and reliable manner and keep a clear overview even when group enquiries, phone calls, inboxes and individual guest requests are all coming in at the same timeYou communicate confidently in German and English. Additional languages and experience with Opera Cloud are a plusAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
         "it": "Descrizione della ditta A Zurigo, siamo a casa tre volte: al 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse e Mama Shelter Zurich. Ognuno dei nostri hotel ha il suo carattere unico e la storia – ma ciò che ci collega è la nostra cultura informale di primo nome, molta personalità e il coraggio di fare le cose un po 'diverso. Le nostre squadre sono composte da persone con diversi background, esperienze e idee. Valoriamo l'iniziativa, i canali di comunicazione brevi e i colleghi che pensano avanti, si coinvolgono e, soprattutto, rimangono fedeli a se stessi. Venite come siete e fate quello che potete...Stiamo ricostruendo il nostro dipartimento di prenotazioni locali a Zurigo – e si svolgerà un ruolo chiave fin dall'inizio. In qualità di Supervisore delle Prenotazioni, sarete a portata di mano nell'operazione quotidiana, assumendo anche la responsabilità professionale per il dipartimento. Segnalando direttamente al Operations Manager, lavorerai insieme al tuo team per assicurarti che l'operazione di prenotazione giornaliera funzioni senza problemi. Aiuterai a sviluppare processi e standard mantenendo un occhio attento alla qualità, alle vendite e alla soddisfazione degli ospiti. Descrizione del lavoroCome fa la vostra giornata di lavoro... Siete a portata di mano nell'operazione di prenotazioni giornaliere e gestire personalmente le prenotazioni individuali e di gruppo attraverso i nostri vari canali di prenotazione Si assume responsabilità professionale per il reparto Prenotazioni, coordinare l'operazione giorno per giorno e garantire che i compiti e le richieste siano gestiti in modo affidabile e tempestivoInsieme con il Gestore Operativo, vi aiuterà a modellare l'impostazione del nostro nuovo reparto prenotazioni locali e sviluppare processi, standard e flussi di lavoro Siete il primo punto di contatto per il vostro team di prenotazioni, sostenere l'imbarco di nuovi membri del team e regolarmente condurre l'allenamento on-the-job Tieni d'occhio la nostra casella di posta delle prenotazioni e vari canali di prenotazione e assicura una qualità di elaborazione costantemente elevata Lavori quotidianamente con le nostre POM e i nostri sistemi di prenotazione e ti assumi la responsabilità di mantenere la prenotazione accurata e i dati degli ospiti. Gestisci e mantieni allocazioni e allocazioni in camera e lavori a stretto contatto con Revenue Management e Sales.Vedi Prenotazioni come un importante canale di vendita e attiva l'aggiornamento di camere e servizi alberghieri aggiuntivi insieme al tuo team. Controllate le prenotazioni di gruppo e le fatture di gruppo e assicurate un flusso regolare di informazioni tra tutti i dipartimenti coinvolti Garantisci una manutenzione professionale dei nostri profili ospiti in Opera Cloud e, insieme al team, sviluppare ulteriormente il riconoscimento degli ospiti e le nostre relazioni con gli ospiti di ritorno Lavorate a stretto contatto con Front Office, Revenue, Sales e i dipartimenti operativi e comportate come punto di contatto centrale per tutti gli argomenti relativi alla prenotazione Identifichi le opportunità di miglioramento nel funzionamento quotidiano e sono entusiasti di gestire non solo un nuovo reparto, ma aiuta attivamente a costruire e modellarlo da zeroQualificazioni La tua personalità conta più del tuo CV... Hai una solida esperienza nelle prenotazioni alberghiere o Front Office e sei pronto a assumerti una maggiore responsabilità professionale. La prima esperienza di leadership è un plus, ma non essenziale per noiSiete hands-on e godere di essere coinvolti nel funzionamento quotidiano da soli, pur essendo ancora in grado di mantenere una panoramica, impostare le priorità e fornire la guida ad altri Sei entusiasta di aiutare a costruire un nuovo reparto, mettendo in discussione i modi esistenti di lavorare e sviluppare soluzioni pratiche insieme a Operations Manager Hai un forte focus degli ospiti e mentalità commerciale, godere di vendere e sapere come identificare le opportunità per upselling e vendite aggiuntive Si lavora in modo strutturato e affidabile e mantenere una chiara panoramica anche quando le richieste di gruppo, le telefonate, le caselle di posta e le richieste individuali degli ospiti sono tutti in arrivo allo stesso tempoSi comunica con fiducia in tedesco e inglese. Ulteriori lingue e esperienze con Opera Cloud sono un plusUlteriori informazioni Cosa c'è dentro per te... Scopri tutti gli altri hotel di 25 ore e soggiorna gratuitamente per un massimo di 10 notti all'anno come dipendente Ottieni un'indennità extra per viaggiare con i mezzi pubblici e approfitta delle fantastiche offerte dei nostri partner cooperative! Approfitta di essere parte di Ennismore e ottenere sconti generosi quando si visitano i nostri bar e ristoranti, così come la prenotazione di camere di hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner numeros collaborazioni Partecipa alle nostre feste di personale hilarous e molto altro...",
-        "de": "In Zürich sind wir dreimal zu Hause: im 25hours Hotel Zürich West, im 25hours Hotel Zürich Langstrasse und im Mama Shelter Zürich. Jedes unserer Hotels hat seinen eigenen Charakter und seine eigene Geschichte - aber was uns verbindet, ist unsere informelle Vornamenkultur, viel Persönlichkeit und der Mut, die Dinge ein wenig anders zu machen. Unsere Teams bestehen aus Menschen mit unterschiedlichen Hintergründen, Erfahrungen und Ideen. Wir schätzen Initiative, kurze Kommunikationswege und Kollegen, die vorausdenken, sich engagieren und vor allem sich selbst treu bleiben. Kommen Sie, wie Sie sind und zeigen, was Sie können...Wir bauen unsere lokale Reservierungsabteilung in Zürich um – und Sie werden von Anfang an eine Schlüsselrolle spielen. Als Reservations Supervisor sind Sie im täglichen Betrieb praxisnah und übernehmen gleichzeitig die fachliche Verantwortung für die Abteilung. Wenn Sie direkt an den Operations Manager berichten, arbeiten Sie mit Ihrem Team zusammen, um sicherzustellen, dass der tägliche Reservierungsvorgang reibungslos verläuft. Sie helfen bei der Entwicklung von Prozessen und Standards, während Sie Qualität, Verkauf und Gästezufriedenheit im Auge behalten. StellenbeschreibungWie sieht Ihr Arbeitstag aus... Sie sind im täglichen Reservierungsvorgang praxisnah und kümmern sich persönlich um Einzel- und Gruppenreservierungen über unsere verschiedenen Buchungskanäle Sie übernehmen die fachliche Verantwortung für die Reservationsabteilung, koordinieren den täglichen Betrieb und sorgen dafür, dass Aufgaben und Anfragen zuverlässig und zeitnah bearbeitet werdenGemeinsam mit dem Operations Manager gestalten Sie den Aufbau unserer neuen lokalen Reservationsabteilung mit und entwickeln Prozesse, Standards und Workflows. Sie sind der erste Ansprechpartner für Ihr Reservierungsteam, unterstützen das Onboarding neuer Teammitglieder und führen regelmäßig On-the-Job-Trainings durch Sie haben unseren Reservierungsposteingang und verschiedene Buchungskanäle genau im Blick und sorgen für eine gleichbleibend hohe Verarbeitungsqualität Sie arbeiten täglich mit unseren PMS- und Reservierungssystemen und übernehmen die Verantwortung für die Pflege korrekter Buchungs- und GästedatenSie verwalten und pflegen Zimmerzuteilungen und Zuteilungen und arbeiten eng mit Revenue Management und SalesSie sehen Reservierungen als wichtigen Vertriebskanal und treiben gemeinsam mit Ihrem Team den Upselling von Zimmern und zusätzlichen Hoteldienstleistungen aktiv voranSie bearbeiten komplexere Gästeanfragen und -beschwerden und finden die richtige Lösung, auch wenn es nicht nach Standardverfahren läuft Sie beaufsichtigen Gruppenbuchungen und Gruppenrechnungen und sorgen für einen reibungslosen Informationsfluss zwischen allen beteiligten Abteilungen Sie sorgen für eine professionelle Pflege unserer Gästeprofile in Opera Cloud und entwickeln gemeinsam mit dem Team die Gästeerkennung und unsere Beziehungen zu wiederkehrenden Gästen weiter Sie arbeiten eng mit Front Office, Revenue, Sales und den operativen Abteilungen zusammen und fungieren als zentraler Ansprechpartner für alle reservierungsrelevanten Themen Sie identifizieren Verbesserungsmöglichkeiten im täglichen Betrieb und freuen sich, nicht nur eine neue Abteilung zu leiten, sondern sie aktiv von Grund auf aufzubauen und zu gestalten. Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben fundierte Erfahrung in Hotelreservierungen oder Front Office und sind bereit, mehr professionelle Verantwortung zu übernehmen. Erste Führungserfahrung ist ein Plus, aber nicht wesentlich für unsSie sind praxisnah und genießen es, sich selbst in den täglichen Betrieb einzumischen, während Sie dennoch den Überblick behalten, Prioritäten setzen und andere beraten können Sie freuen sich, beim Aufbau einer neuen Abteilung mitzuhelfen, bestehende Arbeitsweisen zu hinterfragen und gemeinsam mit dem Operations Manager praktische Lösungen zu entwickeln Sie haben einen starken Gastfokus und eine kommerzielle Denkweise, genießen den Verkauf und wissen, wie Sie Möglichkeiten für Upselling und zusätzliche Verkäufe identifizieren können Sie arbeiten strukturiert und zuverlässig und behalten einen klaren Überblick, auch wenn Gruppenanfragen, Telefonate, Posteingänge und individuelle Gästeanfragen gleichzeitig ankommenSie kommunizieren sicher auf Deutsch und Englisch. Zusätzliche Sprachen und Erfahrungen mit Opera Cloud sind ein PlusZusätzliche Informationen Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und bleiben Sie für maximal 10 Nächte pro Jahr als Mitarbeiter kostenlos Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie die fantastischen Angebote unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros Kooperationspartner Seien sie teil unserer lustigen personalpartys und vieles mehr.",
-        "fr": "Description de l'entrepriseÀ Zurich, nous sommes à la maison trois fois plus: à 25h Hotel Zurich Ouest, 25h Hotel Zurich Langstrasse et Mama Shelter Zurich. Chacun de nos hôtels a son propre caractère et histoire – mais ce qui nous relie, c'est notre culture de premier nom informelle, beaucoup de personnalité et le courage de faire les choses un peu différemment. Nos équipes sont composées de personnes ayant des antécédents, des expériences et des idées variés. Nous apprécions l'initiative, les canaux de communication courts et les collègues qui pensent à l'avenir, s'impliquent et, surtout, restent fidèles à eux-mêmes. Venez dès que vous êtes et faites ce que vous pouvez...Nous reconstruisons notre département des Réservations à Zurich – et vous jouerez un rôle clé dès le début. En tant que superviseur des réservations, vous serez directement dans l'opération quotidienne tout en assumant la responsabilité professionnelle du ministère. Relevant directement du gestionnaire des opérations, vous travaillerez avec votre équipe pour assurer le bon déroulement des réservations quotidiennes. Vous aiderez à développer des processus et des normes tout en gardant un œil sur la qualité, les ventes et la satisfaction des clients. Description de l'emploiÀ quoi ressemble votre journée de travail... Vous êtes pratique dans l'opération de réservation quotidienne et personnellement gérer les réservations individuelles et de groupe sur nos différents canaux de réservation Vous assumez la responsabilité professionnelle du service Réservations, coordonnez le fonctionnement quotidien et veillez à ce que les tâches et les demandes de renseignements soient traitées de manière fiable et rapide Ensemble avec le gestionnaire des opérations, vous aiderez à façonner la configuration de notre nouveau service Réservations locales et à développer des processus, des normes et des workflows Vous êtes le premier point de contact pour votre équipe de réservation, supportez l'embarquement de nouveaux membres de l'équipe et conduisez régulièrement une formation en cours d'emploi Vous gardez un œil étroit sur notre boîte de réception de réservation et différents canaux de réservation et d'assurer une qualité de traitement élevée Vous travaillez tous les jours avec nos PMS et systèmes de réservation et prenez la responsabilité de maintenir des données précises sur les réservations et les clientsVous gérez et maintenez les allocations et les allocations de chambres et travaillez en étroite collaboration avec la gestion des recettes et des ventesVous voyez les réservations comme un important canal de vente et conduisez activement la vente de chambres et de services hôteliers supplémentaires avec votre équipeVous traitez des demandes et des plaintes plus complexes et trouvez la bonne solution même lorsque les choses ne vont pas selon les procédures standard Vous supervisez les réservations de groupe et les factures de groupe et vous assurez un flux d'information fluide entre tous les ministères concernés Vous assurez la maintenance professionnelle de nos profils d'invités dans Opera Cloud et, avec l'équipe, développez la reconnaissance des invités et nos relations avec les invités de retour Vous travaillez en étroite collaboration avec le Front Office, Revenus, Ventes et les services opérationnels et agissez comme point de contact central pour tous les sujets liés à la réservation Vous identifiez les possibilités d'amélioration de l'opération quotidienne et êtes heureux non seulement de gérer un nouveau département, mais aussi d'aider activement à le construire et à le façonner à partir du sol.Qualifications Votre personnalité compte plus que votre CV... Vous avez une solide expérience dans les réservations d'hôtel ou de Front Office et êtes prêt à assumer une plus grande responsabilité professionnelle. Première expérience de leadership est un plus, mais pas essentiel pour nousVous êtes pratique et aimez participer à l'opération quotidienne vous-même, tout en étant en mesure de garder un aperçu, fixer des priorités et fournir des conseils aux autres Vous êtes heureux d'aider à construire un nouveau département, de questionner les méthodes de travail existantes et de développer des solutions pratiques avec le gestionnaire des opérations Vous avez une forte concentration client et l'esprit commercial, profiter de la vente et savoir identifier des opportunités de vente et des ventes supplémentaires Vous travaillez de manière structurée et fiable et gardez un aperçu clair même lorsque des demandes de groupe, des appels téléphoniques, des boîtes de réception et des demandes individuelles d'invités arrivent en même tempsVous communiquez avec confiance en allemand et en anglais. Autres langues et expérience avec Opera Cloud sont un plusInformations supplémentaires Qu'y a-t-il dedans pour toi... Découvrez tous les autres hôtels de 25 heures et séjournez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une indemnité supplémentaire pour voyager en transports en commun et profitez des offres fantastiques de nos partenaires coopératifs! Profitez d'être une partie d'Ennismore et obtenir des rabais généreux lors de la visite de nos bars et restaurants ainsi que la réservation de chambres d'hôtel partout dans le monde Avantages de grandes offres de nos partenaires de coopération numeros Faites partie de nos soirées hilarantes et bien plus encore..."
+        "en": "Company DescriptionIn Zurich, we are home three times over: at 25hours Hotel Zurich West, 25hours Hotel Zurich Langstrasse and Mama Shelter Zurich. Each of our hotels has its own unique character and story – but what connects us is our informal first-name culture, plenty of personality and the courage to do things a little differently.Our teams are made up of people with diverse backgrounds, experiences and ideas. We value initiative, short communication channels and colleagues who think ahead, get involved and, above all, stay true to themselves.COME AS YOU ARE AND SHOW WHAT YOU CAN…We are rebuilding our local Reservations department in Zurich – and you will play a key role from the very beginning. As Reservations Supervisor, you will be hands-on in the daily operation while also taking professional responsibility for the department.Reporting directly to the Operations Manager, you will work together with your team to ensure that the daily reservations operation runs smoothly. You will help develop processes and standards while keeping a close eye on quality, sales and guest satisfaction.Job DescriptionHow does your working day look like...You are hands-on in the daily reservations operation and personally handle individual and group reservations across our various booking channelsYou take professional responsibility for the Reservations department, coordinate the day-to-day operation and ensure that tasks and enquiries are handled reliably and promptlyTogether with the Operations Manager, you will help shape the set-up of our new local Reservations department and develop processes, standards and workflowsYou are the first point of contact for your Reservations Team, support the onboarding of new team members and regularly conduct on-the-job trainingYou keep a close eye on our Reservations inbox and various booking channels and ensure consistently high processing qualityYou work daily with our PMS and reservation systems and take responsibility for maintaining accurate booking and guest dataYou manage and maintain room allotments and allocations and work closely with Revenue Management and SalesYou see Reservations as an important sales channel and actively drive upselling of rooms and additional hotel services together with your teamYou handle more complex guest requests and complaints and find the right solution even when things do not go according to standard proceduresYou oversee group bookings and group invoices and ensure a smooth flow of information between all departments involvedYou ensure professional maintenance of our guest profiles in Opera Cloud and, together with the team, further develop Guest Recognition and our relationships with returning guestsYou work closely with Front Office, Revenue, Sales and the operational departments and act as the central point of contact for all reservation-related topicsYou identify opportunities for improvement in the daily operation and are excited to not only manage a new department, but actively help build and shape it from the ground upQualificationsYour personality counts more than your CV...You have solid experience in hotel reservations or Front Office and are ready to take on greater professional responsibility. First leadership experience is a plus, but not essential for usYou are hands-on and enjoy getting involved in the day-to-day operation yourself, while still being able to keep an overview, set priorities and provide guidance to othersYou are excited about helping to build a new department, questioning existing ways of working and developing practical solutions together with the Operations ManagerYou have a strong guest focus and commercial mindset, enjoy selling and know how to identify opportunities for upselling and additional salesYou work in a structured and reliable manner and keep a clear overview even when group enquiries, phone calls, inboxes and individual guest requests are all coming in at the same timeYou communicate confidently in German and English. Additional languages and experience with Opera Cloud are a plusAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersBe part of our hilarous staff parties and much more...",
+        "de": "In Zürich sind wir dreimal zu Hause: im 25hours Hotel Zürich West, im 25hours Hotel Zürich Langstrasse und im Mama Shelter Zürich. Jedes unserer Hotels hat seinen eigenen Charakter und seine eigene Geschichte - aber was uns verbindet, ist unsere informelle Vornamenkultur, viel Persönlichkeit und der Mut, die Dinge ein wenig anders zu machen. Unsere Teams bestehen aus Menschen mit unterschiedlichen Hintergründen, Erfahrungen und Ideen. Wir schätzen Initiative, kurze Kommunikationswege und Kollegen, die vorausdenken, sich engagieren und vor allem sich selbst treu bleiben. Kommen Sie, wie Sie sind und zeigen, was Sie können...Wir bauen unsere lokale Reservierungsabteilung in Zürich um – und Sie werden von Anfang an eine Schlüsselrolle spielen. Als Reservations Supervisor sind Sie im täglichen Betrieb praxisnah und übernehmen gleichzeitig die fachliche Verantwortung für die Abteilung. Wenn Sie direkt an den Operations Manager berichten, arbeiten Sie mit Ihrem Team zusammen, um sicherzustellen, dass der tägliche Reservierungsvorgang reibungslos verläuft. Sie helfen bei der Entwicklung von Prozessen und Standards, während Sie Qualität, Verkauf und Gästezufriedenheit im Auge behalten. StellenbeschreibungWie sieht Ihr Arbeitstag aus... Sie sind im täglichen Reservierungsvorgang praxisnah und kümmern sich persönlich um Einzel- und Gruppenreservierungen über unsere verschiedenen Buchungskanäle Sie übernehmen die fachliche Verantwortung für die Reservationsabteilung, koordinieren den täglichen Betrieb und sorgen dafür, dass \n• Aufgaben und Anfragen zuverlässig und zeitnah bearbeitet werdenGemeinsam mit dem Operations Manager gestalten Sie den Aufbau unserer neuen lokalen Reservationsabteilung mit und entwickeln Prozesse, Standards und Workflows. Sie sind der erste Ansprechpartner für Ihr Reservierungsteam, unterstützen das Onboarding neuer Teammitglieder und führen regelmäßig On-the-Job-Trainings durch Sie haben unseren Reservierungsposteingang und verschiedene Buchungskanäle genau im Blick und sorgen für eine gleichbleibend hohe Verarbeitungsqualität Sie arbeiten täglich mit unseren PMS- und Reservierungssystemen und übernehmen die Verantwortung für die Pflege korrekter Buchungs- und GästedatenSie verwalten und pflegen Zimmerzuteilungen und Zuteilungen und arbeiten eng mit Revenue Management und SalesSie sehen Reservierungen als wichtigen Vertriebskanal und treiben gemeinsam mit Ihrem Team den Upselling von Zimmern und zusätzlichen Hoteldienstleistungen aktiv voranSie bearbeiten komplexere Gästeanfragen und -beschwerden und finden die richtige Lösung, auch wenn es nicht nach Standardverfahren läuft Sie beaufsichtigen Gruppenbuchungen und Gruppenrechnungen und sorgen für einen reibungslosen Informationsfluss zwischen allen beteiligten Abteilungen Sie sorgen für eine professionelle Pflege unserer Gästeprofile in Opera Cloud und entwickeln gemeinsam mit dem Team die Gästeerkennung und unsere Beziehungen zu wiederkehrenden Gästen weiter Sie arbeiten eng mit Front Office, Revenue, Sales und den operativen Abteilungen zusammen und fungieren als zentraler Ansprechpartner für alle reservierungsrelevanten Themen Sie identifizieren Verbesserungsmöglichkeiten im täglichen Betrieb und freuen sich, nicht nur eine neue Abteilung zu leiten, sondern sie aktiv von Grund auf aufzubauen und zu gestalten. Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben fundierte Erfahrung in Hotelreservierungen oder Front Office und sind bereit, mehr professionelle Verantwortung zu übernehmen. Erste Führungserfahrung ist ein Plus, aber nicht wesentlich für unsSie sind praxisnah und genießen es, sich selbst in den täglichen Betrieb einzumischen, während Sie dennoch den Überblick behalten, Prioritäten setzen und andere beraten können Sie freuen sich, beim Aufbau einer neuen Abteilung mitzuhelfen, bestehende Arbeitsweisen zu hinterfragen und gemeinsam mit dem Operations Manager praktische Lösungen zu entwickeln Sie haben einen starken Gastfokus und eine kommerzielle Denkweise, genießen den Verkauf und wissen, wie Sie Möglichkeiten für Upselling und zusätzliche Verkäufe identifizieren können Sie arbeiten strukturiert und zuverlässig und behalten einen klaren Überblick, auch wenn Gruppenanfragen, Telefonate, Posteingänge und individuelle Gästeanfragen gleichzeitig ankommenSie kommunizieren sicher auf Deutsch und Englisch. Zusätzliche Sprachen und Erfahrungen mit Opera Cloud sind ein PlusZusätzliche Informationen Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und bleiben Sie für maximal 10 Nächte pro Jahr als Mitarbeiter kostenlos Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie die fantastischen Angebote unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros Kooperationspartner Seien sie teil unserer lustigen personalpartys und vieles mehr.",
+        "fr": "Description de l'entrepriseÀ Zurich, nous sommes à la maison trois fois plus: à 25h Hotel Zurich Ouest, 25h Hotel Zurich Langstrasse et Mama Shelter Zurich. Chacun de nos hôtels a son propre caractère et histoire – mais ce qui nous relie, c'est notre culture de premier nom informelle, beaucoup de personnalité et le courage de faire les choses un peu différemment. Nos équipes sont composées de personnes ayant des antécédents, des expériences et des idées variés. Nous apprécions l'initiative, les canaux de communication courts et les collègues qui pensent à l'avenir, s'impliquent et, surtout, restent fidèles à eux-mêmes. Venez dès que vous êtes et faites ce que vous pouvez...Nous reconstruisons notre département des Réservations à Zurich – et vous jouerez un rôle clé dès le début. En tant que superviseur des réservations, vous serez directement dans l'opération quotidienne tout en assumant la responsabilité professionnelle du ministère. Relevant directement du gestionnaire des opérations, vous travaillerez avec votre équipe pour assurer le bon déroulement des réservations quotidiennes. Vous aiderez à développer des processus et des normes tout en gardant un œil sur la qualité, les ventes et la satisfaction des clients. Description de l'emploiÀ quoi ressemble votre journée de travail... Vous êtes pratique dans l'opération de réservation quotidienne et personnellement gérer les réservations individuelles et de groupe sur nos différents canaux de réservation Vous assumez la responsabilité professionnelle du service Réservations, coordonnez le fonctionnement quotidien et veillez à ce que les tâches et les demandes de renseignements soient traitées de manière fiable et rapide Ensemble avec le gestionnaire des opérations, vous aiderez à façonner la configuration de notre nouveau service Réservations locales et à développer des processus, des normes et des workflows Vous êtes le premier point de contact pour votre équipe de réservation, supportez l'embarquement de nouveaux membres de l'équipe et conduisez régulièrement une formation en cours d'emploi Vous gardez un œil étroit sur notre boîte de réception de réservation et différents canaux de réservation et d'assurer une qualité de traitement élevée Vous travaillez tous les jours avec nos PMS et systèmes de réservation et prenez la responsabilité de maintenir des données précises sur les réservations et les clientsVous gérez et maintenez les allocations et les allocations de chambres et travaillez en étroite collaboration avec la gestion des recettes et des ventesVous voyez les réservations comme un important canal de vente et conduisez activement la vente de chambres et de services hôteliers supplémentaires avec votre équipeVous traitez des demandes et des plaintes plus complexes et trouvez la bonne solution même lorsque les choses ne vont pas selon les procédures standard Vous supervisez les réservations de groupe et les factures de groupe et vous assurez un flux d'information fluide entre tous les ministères concernés Vous assurez la maintenance professionnelle de nos profils d'invités dans Opera Cloud et, avec l'équipe, développez la reconnaissance des invités et nos relations avec les invités de retour Vous travaillez en étroite collaboration avec le Front Office, Revenus, Ventes et les services opérationnels et agissez comme point de contact central pour tous les sujets liés à la réservation Vous identifiez les possibilités d'amélioration de l'opération quotidienne et êtes heureux non seulement de gérer un nouveau département, mais aussi d'aider activement à le construire et à le façonner à partir du sol.\n• Qualifications Votre personnalité compte plus que votre CV... Vous avez une solide expérience dans les réservations d'hôtel ou de Front Office et êtes prêt à assumer une plus grande responsabilité professionnelle. Première expérience de leadership est un plus, mais pas essentiel pour nousVous êtes pratique et aimez participer à l'opération quotidienne vous-même, tout en étant en mesure de garder un aperçu, fixer des priorités et fournir des conseils aux autres Vous êtes heureux d'aider à construire un nouveau département, de questionner les méthodes de travail existantes et de développer des solutions pratiques avec le gestionnaire des opérations Vous avez une forte concentration client et l'esprit commercial, profiter de la vente et savoir identifier des opportunités de vente et des ventes supplémentaires Vous travaillez de manière structurée et fiable et gardez un aperçu clair même lorsque des demandes de groupe, des appels téléphoniques, des boîtes de réception et des demandes individuelles d'invités arrivent en même tempsVous communiquez avec confiance en allemand et en anglais. Autres langues et expérience avec Opera Cloud sont un plusInformations supplémentaires Qu'y a-t-il dedans pour toi... Découvrez tous les autres hôtels de 25 heures et séjournez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une indemnité supplémentaire pour voyager en transports en commun et profitez des offres fantastiques de nos partenaires coopératifs! Profitez d'être une partie d'Ennismore et obtenir des rabais généreux lors de la visite de nos bars et restaurants ainsi que la réservation de chambres d'hôtel partout dans le monde Avantages de grandes offres de nos partenaires de coopération numeros Faites partie de nos soirées hilarantes et bien plus encore..."
       },
       "location": "25hours Hotel Zurich West, Zürich, Switzerland",
       "canton": "ZH",
       "url": "https://careers.accor.com/fr/fr/job/cluster-reservations-supervisor-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-112766",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:49:23.680Z",
+      "crawledAt": "2026-10-06T09:35:49.200Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2378,9 +2403,8 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.accor.com/fr/fr/job/cluster-reservations-supervisor-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-112766",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-05T21:49:23.680Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2394,7 +2418,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:49:23.680Z"
+      "postalCode": "8001"
     }
   ]
 }

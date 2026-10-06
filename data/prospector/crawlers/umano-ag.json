@@ -3,18 +3,21 @@
   "companyName": "Umano AG",
   "companyHost": "umano-ag.onlyfy.jobs",
   "platform": "onlyfy.jobs",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://umano-ag.onlyfy.jobs/de/job/kt36m9w5"
+    "https://umano-ag.onlyfy.jobs/de"
   ],
-  "detailTemplate": "/de/job/kt36m9w5",
-  "detailEnrichment": false,
+  "detailTemplate": "/de/job/*",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 1,
+  "sampleVacancyCount": 10,
   "sampleTitles": [
-    "Initiativbewerbung"
+    "Kundendienstberater:in Nutzfahrzeuge 80–100% (w/m/d) Geroldswil | Teilzeit / Vollzeit | 06.10.2026</d",
+    "Kundenberater:in / Customer Service 80-100% (Homeoffice) Horgen | Teilzeit | 06.10.2026 <d",
+    "Verkaufsberater im Swisscom Shop (w/m/d) 100% Winterthur | Vollzeit | 06.10.2026 <div clas",
+    "Kundenberater/in Versicherungen 100% Ostermundigen | Teilzeit | 01.10.2026 <div class=\"hid",
+    "Verkaufsberater:in / Sales Consultant 100% (w/m/d) Basel-Stadt | Vollzeit | 01.10.2026 <di"
   ],
-  "canton": "AG",
   "sourceLang": "de",
-  "learnedAt": "2026-10-03T11:06:02.963Z"
+  "learnedAt": "2026-10-06T12:21:26.797Z"
 }

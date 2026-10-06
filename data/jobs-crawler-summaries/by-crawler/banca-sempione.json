@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-05T21:28:57.035Z",
+  "generatedAt": "2026-10-06T09:19:01.225Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5278,
-  "avgDurationMs": 5278,
+  "durationMs": 5717,
+  "avgDurationMs": 5717,
   "durationHistory": [
-    5278
+    5717
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,13 +41,14 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
-      "_qualityScore": 86,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 16
+        "completeness": 19
       }
     },
     {
@@ -166,5 +167,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

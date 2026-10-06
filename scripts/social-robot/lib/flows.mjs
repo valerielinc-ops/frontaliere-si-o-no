@@ -31,6 +31,9 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
   optional: 3_000, // a dialog that may or may not be there
 });
 
+/** Bound the wait for TikTok to upgrade its cookie banner and attach its action. */
+export const TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS = 1_000;
+
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
 const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
 const escapeRegExp = (text) => String(text).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
@@ -76,7 +79,8 @@ export const TT_PROCESSING = '[role="progressbar"], [data-e2e="upload-progress"]
 export class RobotError extends Error {
   /**
    * @param {'login-required'|'challenge'|'selector-missing'|'upload-unsupported'|
-   *   'confirmation-missing'|'download'|'browser'|'interstitial-unknown'|'unexpected'} errorClass
+   *   'confirmation-missing'|'download'|'browser'|'interstitial-unknown'|
+   *   'cookie-banner-unreachable'|'unexpected'} errorClass
    * @param {string} message
    * @param {{ step?: string, pressed?: boolean }} [extra]
    */
@@ -105,26 +109,33 @@ export function timeoutForTikTokVideo(video, fallback = DEFAULT_TIMEOUTS.upload)
   return Math.min(10 * 60_000, Math.max(60_000, 30_000 + transferMs + durationMs));
 }
 
-/** Steps at or after the press of the publish button: the post may be online. */
-export const PRESSED_STEPS = Object.freeze(['publish', 'confirmation']);
+/** The confirmation step is entered only after the publish click was sent. */
+export const PRESSED_STEPS = Object.freeze(['confirmation']);
 
 /**
- * Run `afterPress` — the press itself and the wait for the confirmation — and
- * mark ANY error it throws as `pressed`, keeping its class: a challenge or a
- * login wall that appears after the press still pauses the platform, but the
- * post is then also `unconfirmed` and never pressed again on its own.
+ * Run the publish click and wait for confirmation. The flow calls the marker
+ * immediately after Playwright accepts the publish click; an intercepted or
+ * blocked click therefore remains retryable instead of becoming unconfirmed.
  */
 async function pressed(afterPress) {
+  let pressSent = false;
+  const markPressed = () => { pressSent = true; };
   try {
-    return await afterPress();
+    return await afterPress(markPressed);
   } catch (err) {
     const e = classifyError(err);
-    e.pressed = true;
+    e.pressed = pressSent;
     throw e;
   }
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const diagnosticMetadata = new WeakMap();
+
+function addDiagnosticMetadata(page, metadata) {
+  if (!page || typeof page !== 'object') return;
+  diagnosticMetadata.set(page, { ...(diagnosticMetadata.get(page) || {}), ...metadata });
+}
 
 /**
  * The first candidate locator that is visible (or attached), polling until
@@ -172,15 +183,45 @@ function normalize(text) {
   return String(text || '').replace(/\s+/g, ' ').trim();
 }
 
-async function saveInterstitialDiagnostic(snap) {
+async function saveInterstitialDiagnostic(snap, label = 'interstitial-unknown') {
   try {
-    await snap('interstitial-unknown');
+    await snap(label);
   } catch {
     // A diagnostic failure must not mask the fail-closed error.
   }
 }
 
-async function ensureClickable(page, locator, { step, snap, label }) {
+async function observeCookieBanner(root, blockedLocator = null) {
+  let point = null;
+  try {
+    const box = blockedLocator ? await blockedLocator.boundingBox() : null;
+    if (box && box.width > 0 && box.height > 0) point = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+  } catch {
+    // The blocked control may detach while the banner is being upgraded.
+  }
+  return root.evaluate((host, coordinates) => {
+    const defined = Boolean(customElements.get('tiktok-cookie-banner')) && host.matches(':defined');
+    const shadowRootMode = host.shadowRoot ? 'open' : 'closed-or-not-ready';
+    const visible = (node) => {
+      const style = getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    };
+    const contentVisible = Boolean(host.shadowRoot && [...host.shadowRoot.querySelectorAll('*')].some(visible));
+    const hostVisible = visible(host);
+    const hostBlocksControl = Boolean(coordinates && document.elementFromPoint(coordinates.x, coordinates.y) === host);
+    return {
+      cookieBannerState: defined ? (host.shadowRoot ? 'defined-open' : 'defined-closed') : 'not-defined',
+      shadowRootMode,
+      relevant: hostVisible || contentVisible || hostBlocksControl,
+    };
+  }, point).catch(() => ({ cookieBannerState: 'unknown', shadowRootMode: 'closed-or-not-ready', relevant: false }));
+}
+
+const isClickIntercepted = (err) => /intercepts pointer events|not receiving events|another element.*receives pointer events/i.test(String(err?.message || err));
+
+async function checkClickable(locator, { step, label }) {
   let box;
   try {
     box = await locator.boundingBox();
@@ -213,22 +254,54 @@ async function ensureClickable(page, locator, { step, snap, label }) {
     throw new RobotError('selector-missing', `${label} could not be checked before clicking: ${err?.message || err}`, { step: step?.get?.() || '' });
   }
 
-  if (!hit?.ok) {
+  return hit;
+}
+
+async function ensureClickable(page, locator, { step, snap, label, platform, recovery = { used: false }, allowInterstitialRecovery = true }) {
+  const hit = await checkClickable(locator, { step, label });
+  if (hit?.ok) return;
+
+  if (allowInterstitialRecovery && platform && !recovery.used) {
+    recovery.used = true;
+    await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional, blockedLocator: locator });
+    const retryHit = await checkClickable(locator, { step, label });
+    if (retryHit?.ok) return;
     await saveInterstitialDiagnostic(snap);
     throw new RobotError(
       'interstitial-unknown',
-      `${label} is blocked by an unrecognized overlay${hit?.obstacle ? `: ${hit.obstacle}` : ''}`,
+      `${label} is blocked by an unrecognized overlay${retryHit?.obstacle ? `: ${retryHit.obstacle}` : ''}`,
       { step: step?.get?.() || '' },
     );
   }
+
+  await saveInterstitialDiagnostic(snap);
+  throw new RobotError(
+    'interstitial-unknown',
+    `${label} is blocked by an unrecognized overlay${hit?.obstacle ? `: ${hit.obstacle}` : ''}`,
+    { step: step?.get?.() || '' },
+  );
 }
 
-async function clickChecked(page, locator, { step, snap, label = 'control' }) {
-  await ensureClickable(page, locator, { step, snap, label });
+async function clickChecked(page, locator, { step, snap, label = 'control', platform, allowInterstitialRecovery = true }) {
+  const recovery = { used: !allowInterstitialRecovery };
+  await ensureClickable(page, locator, { step, snap, label, platform, recovery, allowInterstitialRecovery });
   try {
     await locator.click();
   } catch (err) {
-    if (/intercepts pointer events|not receiving events|another element.*receives pointer events/i.test(String(err?.message || err))) {
+    let retryIntercepted = false;
+    if (isClickIntercepted(err) && platform && !recovery.used) {
+      recovery.used = true;
+      await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional, blockedLocator: locator });
+      await ensureClickable(page, locator, { step, snap, label, platform, recovery, allowInterstitialRecovery });
+      try {
+        await locator.click();
+        return;
+      } catch (retryErr) {
+        if (!isClickIntercepted(retryErr)) throw retryErr;
+        retryIntercepted = true;
+      }
+    }
+    if (isClickIntercepted(err) || retryIntercepted) {
       await saveInterstitialDiagnostic(snap);
       throw new RobotError('interstitial-unknown', `${label} click was intercepted by an unrecognized overlay`, { step: step?.get?.() || '' });
     }
@@ -241,8 +314,8 @@ async function clickChecked(page, locator, { step, snap, label = 'control' }) {
  * there (TikTok pre-fills the file name), then line by line with a per-key
  * delay. Checks the editor holds exactly the queued caption afterwards.
  */
-export async function typeCaption(page, editor, caption, { human, clear = false, hashtagSuggestions = false, step = null, snap = async () => {} } = {}) {
-  await clickChecked(page, editor, { step, snap, label: 'caption editor' });
+export async function typeCaption(page, editor, caption, { human, clear = false, hashtagSuggestions = false, platform, step = null, snap = async () => {} } = {}) {
+  await clickChecked(page, editor, { step, snap, platform, label: 'caption editor' });
   if (clear) {
     await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
     await page.keyboard.press('Backspace');
@@ -317,6 +390,7 @@ async function waitForTikTokProcessing(page, { timeout, guard }) {
 /** Screenshot + HTML + a small meta file. Never throws: diagnosis must not mask the error. */
 export async function captureDiagnostics(page, dir, label, meta = {}) {
   const saved = [];
+  const pageMetadata = page && typeof page === 'object' ? diagnosticMetadata.get(page) : null;
   try {
     mkdirSync(dir, { recursive: true });
   } catch {
@@ -345,11 +419,12 @@ export async function captureDiagnostics(page, dir, label, meta = {}) {
     } catch {
       // about:blank
     }
-    writeFileSync(file, `${JSON.stringify({ url, ...meta }, null, 2)}\n`, 'utf8');
+    writeFileSync(file, `${JSON.stringify({ url, ...(pageMetadata || {}), ...meta }, null, 2)}\n`, 'utf8');
     saved.push(file);
   } catch {
     // disk full
   }
+  if (pageMetadata && page && typeof page === 'object') diagnosticMetadata.delete(page);
   return saved;
 }
 
@@ -463,7 +538,7 @@ export const INTERSTITIAL_REGISTRY = Object.freeze({
   ]),
 });
 
-async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.optional) {
+async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.optional, { blockedLocator = null } = {}) {
   if (entry.surface === 'button') {
     const button = await findVisible([page.getByRole('button', { name: entry.name })], { timeout });
     return button ? { root: button, action: button } : null;
@@ -478,6 +553,25 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
     const titleInConfig = page.locator('#tiktok-cookie-banner-config').filter({ hasText: entry.title });
     const configPresent = (await titleInConfig.count().catch(() => 0)) > 0;
     for (const selector of entry.rootSelectors) {
+      const isCookieHost = selector === 'tiktok-cookie-banner';
+      if (isCookieHost) {
+        const hosts = page.locator(selector);
+        const count = await hosts.count().catch(() => 0);
+        for (let i = 0; i < count; i += 1) {
+          const root = hosts.nth(i);
+          const state = await observeCookieBanner(root, blockedLocator);
+          if (!state.relevant) continue;
+          const action = await findVisible([
+            // Page locators pierce TikTok's open shadow root even when the host has no box.
+            page.locator('tiktok-cookie-banner button').filter({ hasText: entry.name }),
+            page.getByRole('button', { name: entry.name }),
+          ], { timeout: Math.min(Math.max(timeout, 0), TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS) });
+          if (!action) return { root, action: null, unreachable: state };
+          return { root, action };
+        }
+        continue;
+      }
+
       const root = await findVisible([page.locator(selector)], { timeout: 0 });
       if (!root) continue;
       const title = await findVisible([
@@ -486,11 +580,12 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
       ], { timeout: 0 });
       if (!title && !configPresent) continue;
       const action = await findVisible([
-        // CSS locators pierce open shadow roots; keep this before role lookup.
         root.locator('button').filter({ hasText: entry.name }),
         root.getByRole('button', { name: entry.name }),
       ], { timeout: 0 });
-      if (!action) continue;
+      if (!action) {
+        continue;
+      }
       return { root, action };
     }
     return null;
@@ -512,12 +607,12 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
   return null;
 }
 
-async function dismissKnownInterstitial({ page, target, entry, step, snap }) {
+async function dismissKnownInterstitial({ page, platform, target, entry, step, snap }) {
   if (entry.safeAction === 'click' || entry.safeAction === 'decline-optional-cookies') {
     if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe action`, { step: step.get() });
     }
-    await clickChecked(page, target.action, { step, snap, label: `safe action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `safe action for ${entry.id}` });
     return;
   }
 
@@ -527,12 +622,12 @@ async function dismissKnownInterstitial({ page, target, entry, step, snap }) {
       target.root.locator('button').filter({ hasText: RX.ttContentChecksCancel }),
     ], { timeout: 0 });
     if (cancel) {
-      await clickChecked(page, cancel, { step, snap, label: `cancel action for ${entry.id}` });
+      await clickChecked(page, cancel, { step, snap, platform, allowInterstitialRecovery: false, label: `cancel action for ${entry.id}` });
       return;
     }
     const close = await findVisible([target.root.locator('.common-modal-close, [data-e2e="modal-close"]')], { timeout: 0 });
     if (close) {
-      await clickChecked(page, close, { step, snap, label: `close action for ${entry.id}` });
+      await clickChecked(page, close, { step, snap, platform, allowInterstitialRecovery: false, label: `close action for ${entry.id}` });
       return;
     }
     throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe cancel or close control`, { step: step.get() });
@@ -542,7 +637,7 @@ async function dismissKnownInterstitial({ page, target, entry, step, snap }) {
     if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `guided tour "${entry.id}" has no safe advance or close control`, { step: step.get() });
     }
-    await clickChecked(page, target.action, { step, snap, label: `safe action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `safe action for ${entry.id}` });
     return;
   }
 
@@ -550,7 +645,7 @@ async function dismissKnownInterstitial({ page, target, entry, step, snap }) {
 }
 
 /** Dismiss registered interstitials and fail closed on any other visible dialog. */
-export async function dismissKnownInterstitials({ page, platform, step, snap = async () => {}, timeout = DEFAULT_TIMEOUTS.optional }) {
+export async function dismissKnownInterstitials({ page, platform, step, snap = async () => {}, timeout = DEFAULT_TIMEOUTS.optional, blockedLocator = null }) {
   const entries = INTERSTITIAL_REGISTRY[platform] || [];
   const maxPasses = entries.length + MAX_GUIDED_TOUR_STEPS + 2;
   let settled = false;
@@ -559,7 +654,7 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
     let dismissed = false;
     const scanDeadline = Date.now() + (pass === 0 ? timeout : 0);
     for (const entry of entries) {
-      const target = await findKnownInterstitial(page, entry, Math.max(0, scanDeadline - Date.now()));
+      const target = await findKnownInterstitial(page, entry, Math.max(0, scanDeadline - Date.now()), { blockedLocator });
       if (!target) continue;
       if (entry.safeAction === 'advance-guided-tour') {
         if (tourSteps >= MAX_GUIDED_TOUR_STEPS) {
@@ -568,8 +663,18 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
         }
         tourSteps += 1;
       }
+      if (target.unreachable) {
+        const { cookieBannerState, shadowRootMode } = target.unreachable;
+        addDiagnosticMetadata(page, { cookieBannerState, shadowRootMode });
+        await saveInterstitialDiagnostic(snap, 'cookie-banner-unreachable');
+        throw new RobotError(
+          'cookie-banner-unreachable',
+          `TikTok cookie banner is visible but its "Rifiuta i cookie opzionali" control is unreachable after the bounded wait (state ${cookieBannerState}, shadow root ${shadowRootMode}). The owner must reject optional cookies once in the robot profile via VNC.`,
+          { step: step.get() },
+        );
+      }
       await snap(`interstitial-${entry.id}`);
-      await dismissKnownInterstitial({ page, target, entry, step, snap });
+      await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
       dismissed = true;
     }
     if (!dismissed) {
@@ -606,13 +711,15 @@ async function required(step, name, candidates, opts) {
   return loc;
 }
 
-async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, guard, page, step, snap, label = 'optional control' } = {}) {
+const FAIL_CLOSED_INTERSTITIAL_ERRORS = Object.freeze(['interstitial-unknown', 'cookie-banner-unreachable']);
+
+async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, guard, page, platform, step, snap, label = 'optional control' } = {}) {
   const loc = await findFirst(candidates, { timeout, guard });
   if (loc) {
     try {
-      await clickChecked(page, loc, { step, snap, label });
+      await clickChecked(page, loc, { step, snap, platform, label });
     } catch (err) {
-      if (err instanceof RobotError && err.errorClass === 'interstitial-unknown') throw err;
+      if (err instanceof RobotError && FAIL_CLOSED_INTERSTITIAL_ERRORS.includes(err.errorClass)) throw err;
     }
   }
   return Boolean(loc);
@@ -638,7 +745,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
     page.getByRole('button', { name: RX.igCreate }),
     page.locator('svg[aria-label="New post"], svg[aria-label="Nuovo post"], svg[aria-label="Neuer Beitrag"], svg[aria-label="Nouvelle publication"]'),
   ], { guard, timeout: t.ui });
-  await clickChecked(page, create, { step, snap, label: 'Instagram create control' });
+  await clickChecked(page, create, { step, snap, platform: 'instagram', label: 'Instagram create control' });
   await human.pause();
   // Newer layouts open a small menu (Post / Live / Ad) before the dialog.
   step.set('create-menu');
@@ -648,7 +755,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   ], { guard, timeout: t.optional });
   if (postMenu) {
     await snap('create-menu');
-    await clickChecked(page, postMenu, { step, snap, label: 'Instagram Post menu item' });
+    await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu item' });
     await human.pause();
   }
 
@@ -663,7 +770,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
 
   for (const name of ['next-crop', 'next-edit']) {
     const next = await required(step, name, [page.getByRole('button', { name: RX.igNext })], { guard, timeout: t.ui });
-    await clickChecked(page, next, { step, snap, label: `Instagram ${name} control` });
+    await clickChecked(page, next, { step, snap, platform: 'instagram', label: `Instagram ${name} control` });
     await human.pause();
   }
 
@@ -672,7 +779,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
     page.locator('div[role="dialog"] div[contenteditable="true"][aria-label]'),
   ], { guard, timeout: t.ui });
   await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
-  await typeCaption(page, editor, caption, { human, step, snap });
+  await typeCaption(page, editor, caption, { human, platform: 'instagram', step, snap });
   await human.pause();
 
   const share = await required(step, 'share-button', [
@@ -685,9 +792,10 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   if (dryRun) return { status: 'dry-run', step: 'share-button' };
 
   step.set('publish');
-  return pressed(async () => {
+  return pressed(async (markPressed) => {
     await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
-    await clickChecked(page, share, { step, snap, label: 'Instagram Share control' });
+    await clickChecked(page, share, { step, snap, platform: 'instagram', label: 'Instagram Share control' });
+    markPressed();
     step.set('confirmation');
     const confirmation = await findFirst([page.getByText(RX.igConfirm)], { timeout: t.confirm, guard });
     if (!confirmation) {
@@ -727,7 +835,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
     page.getByRole('combobox').and(page.locator('[contenteditable="true"]')),
   ], { guard, timeout: t.upload });
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: 0 });
-  await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true, step, snap });
+  await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true, platform: 'tiktok', step, snap });
   await human.pause();
 
   const post = await required(step, 'post-button', [
@@ -742,10 +850,14 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   if (dryRun) return { status: 'dry-run', step: 'post-button' };
 
   step.set('publish');
-  return pressed(async () => {
-    await clickChecked(page, post, { step, snap, label: 'TikTok Post control' });
+  return pressed(async (markPressed) => {
+    await post.scrollIntoViewIfNeeded();
+    await sleep(Math.min(250, t.optional));
+    await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
+    await clickChecked(page, post, { step, snap, platform: 'tiktok', label: 'TikTok Post control' });
+    markPressed();
     // TikTok may ask once more ("content check still running — post now?").
-    await optionalClick([page.getByRole('button', { name: RX.ttPostNow })], { page, step, snap, guard, timeout: 5_000, label: 'TikTok Post now control' });
+    await optionalClick([page.getByRole('button', { name: RX.ttPostNow })], { page, platform: 'tiktok', step, snap, guard, timeout: 5_000, label: 'TikTok Post now control' });
     step.set('confirmation');
     const deadline = Date.now() + t.confirm;
     for (;;) {

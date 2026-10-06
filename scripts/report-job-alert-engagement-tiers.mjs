@@ -41,19 +41,12 @@ import {
   resolveJobAlertCadence,
 } from './lib/jobAlertCadence.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call — same batching as send-job-alerts.mjs
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: getFirestore() };
+  return { db: await getFirestoreDb() };
 }
 
 /**

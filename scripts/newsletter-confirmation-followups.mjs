@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * newsletter-confirmation-followups.mjs — the runner that CLOSES a double
  * opt-in nobody answered (#5692).
@@ -70,7 +71,6 @@
  * decision to reach them is a decision somebody makes on purpose, with the
  * number in front of them.
  */
-import { pathToFileURL } from 'node:url';
 import {
   decideConfirmationFollowup,
   buildConfirmationExpiryFields,
@@ -102,6 +102,7 @@ import {
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 
@@ -358,15 +359,7 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
 }
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 async function main() {
@@ -514,7 +507,7 @@ async function main() {
 // runner calls main() at module scope, and that is exactly why they can only
 // ever be source-scanned instead of driven.
 const invokedDirectly =
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+  isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('[confirmation-followups] fatal:', err?.stack || err?.message || err);

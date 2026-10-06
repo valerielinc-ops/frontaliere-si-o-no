@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-10-05T21:49:46.578Z",
+  "assembledAt": "2026-10-06T09:37:43.347Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:40.558Z",
+      "crawledAt": "2026-10-06T09:37:37.491Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,7 +97,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1981"
     },
     {
       "id": "bcvs-9ee203f89972",
@@ -130,7 +131,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:40.115Z",
+      "crawledAt": "2026-10-06T09:37:37.071Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -185,7 +186,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-a7ac7dab4c55",
@@ -218,7 +220,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:39.546Z",
+      "crawledAt": "2026-10-06T09:37:36.649Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -273,7 +275,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -306,7 +309,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:38.976Z",
+      "crawledAt": "2026-10-06T09:37:36.227Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -362,7 +365,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-add4d1a4e3d9",
@@ -395,7 +399,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:38.534Z",
+      "crawledAt": "2026-10-06T09:37:35.806Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -454,7 +458,8 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-4a8aa35a96ea",
@@ -471,7 +476,7 @@
       "title": "Expert IA",
       "titleByLocale": {
         "it": "Esperto IA",
-        "en": "Expert IA",
+        "en": "AI Expert",
         "de": "Sachverständiger IA",
         "fr": "Expert IA"
       },
@@ -487,7 +492,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:49:38.091Z",
+      "crawledAt": "2026-10-06T09:37:35.382Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -547,7 +552,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-10-05T21:36:10.467Z",
+  "generatedAt": "2026-10-06T09:24:47.966Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 45360,
-  "avgDurationMs": 45360,
+  "durationMs": 41846,
+  "avgDurationMs": 41846,
   "durationHistory": [
-    45360
+    41846
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:53.167Z",
+      "crawledAt": "2026-10-06T09:24:22.613Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:48.792Z",
+      "crawledAt": "2026-10-06T09:24:17.878Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:46.840Z",
+      "crawledAt": "2026-10-06T09:24:16.233Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:45.572Z",
+      "crawledAt": "2026-10-06T09:24:15.002Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:52.059Z",
+      "crawledAt": "2026-10-06T09:24:21.593Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro, Mendrisio",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:50.081Z",
+      "crawledAt": "2026-10-06T09:24:19.301Z",
       "sourceLang": "it",
       "addressLocality": "Rancate",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:49.018Z",
+      "crawledAt": "2026-10-06T09:24:18.120Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:48.517Z",
+      "crawledAt": "2026-10-06T09:24:17.694Z",
       "sourceLang": "en",
       "addressLocality": "Rancate",
       "addressCountry": "CH",
@@ -351,12 +351,13 @@
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=107079&LN=IT&FT=456&SG=2",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6862",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -379,7 +380,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:45.809Z",
+      "crawledAt": "2026-10-06T09:24:15.183Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -422,7 +423,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-05T21:35:44.279Z",
+      "crawledAt": "2026-10-06T09:24:14.285Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -446,5 +447,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

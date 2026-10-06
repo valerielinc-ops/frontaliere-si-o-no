@@ -1,7 +1,7 @@
 {
   "key": "berner-klinik-montana",
   "label": "Berner Klinik Montana",
-  "generatedAt": "2026-10-05T21:28:21.381Z",
+  "generatedAt": "2026-10-06T09:14:39.495Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 10350,
-  "avgDurationMs": 10350,
+  "durationMs": 15185,
+  "avgDurationMs": 15185,
   "durationHistory": [
-    10350
+    15185
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:28:08.814Z",
+      "crawledAt": "2026-10-06T09:14:25.032Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-du-service-technique-a-100-2622/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:28:12.249Z",
+      "crawledAt": "2026-10-06T09:14:29.481Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:28:11.102Z",
+      "crawledAt": "2026-10-06T09:14:27.722Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:28:09.956Z",
+      "crawledAt": "2026-10-06T09:14:26.572Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

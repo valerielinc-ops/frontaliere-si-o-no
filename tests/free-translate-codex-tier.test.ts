@@ -53,6 +53,7 @@ beforeAll(async () => {
     'GSC_REFRESH_TOKEN', 'HF_TOKEN', 'HUGGINGFACE_API_KEY', 'LIBRETRANSLATE_SELF_HOSTED_URL',
     'MT_LOCAL_OPUSMT', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
     'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS',
+    'FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS',
   ]) vi.stubEnv(key, '');
   vi.stubEnv('DEEPL_API_KEY', 'deepl-finta');
   vi.stubEnv('AZURE_TRANSLATOR_KEY', 'azure-finta');
@@ -735,15 +736,27 @@ describe('freeTranslate — tier Codex Luna Max', () => {
 });
 
 // Scadenza del processo (corpus nanakokyobashi-rgb/frontaliere-articles#1931,
-// portata con #7483): la sezione Codex e' byte-identica nei due repo. Sul sito
-// nessuno installa una scadenza, quindi la finestra resta quella di prima; il
-// caso che la usa (create-article del corpus) e' coperto dal gemello.
+// portata con #7483): sul sito nessuno installa una scadenza, quindi il caso
+// senza override resta quello di prima; il caso che la usa (create-article del
+// corpus) e' coperto dal gemello. Il timeout esteso di translate-pending e' una
+// policy del workflow e va sincronizzato nel gemello adattato del corpus.
 describe('codexCallDeadlineMs — clamp della deadline di una chiamata Codex', () => {
   const now = 1_000_000;
 
   it('senza scadenza del processo resta min(tetto 180 s, budget del tier)', () => {
     expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: null })).toBe(now + 180_000);
     expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 40_000, processDeadlineMs: null })).toBe(now + 40_000);
+  });
+
+  it('usa il tetto esplicito del workflow e non supera il limite del broker', () => {
+    try {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS', '480000');
+      expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 600_000, processDeadlineMs: null })).toBe(now + 480_000);
+      vi.stubEnv('FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS', '900000');
+      expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 900_000, processDeadlineMs: null })).toBe(now + 600_000);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS', '');
+    }
   });
 
   it('la scadenza del processo vince quando e\' la piu\' vicina, e non allunga mai la finestra', () => {

@@ -41,6 +41,7 @@ import {
   buildApplicationIntentReminderEmailText,
   getApplicationIntentReminderStrings,
 } from './lib/applicationIntentReminderEmail.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -300,18 +301,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (credPath && fs.existsSync(credPath)) {
-      const cred = JSON.parse(fs.readFileSync(credPath, 'utf8'));
-      initializeApp({ credential: cred.project_id ? cert(cred) : applicationDefault(), projectId: cred.project_id || 'frontaliere-ticino' });
-    } else {
-      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-    }
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 

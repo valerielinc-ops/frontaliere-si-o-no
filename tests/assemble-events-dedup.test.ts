@@ -16,6 +16,7 @@ import {
   eventRichnessScore,
   pickRichestEvent,
   attachItalianFrontierComuni,
+  stripUnauthorizedEventImage,
 } from '../scripts/assemble-events-dataset.mjs';
 
 function ev(overrides: Record<string, any> = {}): Record<string, any> {
@@ -56,6 +57,38 @@ describe('eventRichnessScore', () => {
 
   it('a populated price object counts as one populated field', () => {
     expect(eventRichnessScore(ev({ price: { amount: 10, currency: 'CHF', isFree: false } }))).toBe(1);
+  });
+});
+
+describe('event image licence policy', () => {
+  it('strips stale image references from sources outside the allowlist', () => {
+    const stale = ev({
+      sourceKey: 'myswitzerland',
+      imageUrl: '/images/events/myswitzerland-old.webp',
+      imageCredit: 'MySwitzerland',
+    });
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageUrl');
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageCredit');
+  });
+
+  it('keeps an image from the explicit open-licence source', () => {
+    const licensed = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+      imageLicense: 'Licence Ouverte 2.0',
+      imageLicenseUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+    });
+    expect(stripUnauthorizedEventImage(licensed)).toEqual(licensed);
+  });
+
+  it('strips an OpenAgenda mirror when the per-image licence fields are absent', () => {
+    const incomplete = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+    });
+    expect(stripUnauthorizedEventImage(incomplete)).not.toHaveProperty('imageUrl');
   });
 });
 

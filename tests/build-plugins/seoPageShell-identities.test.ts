@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
+  buildSeoHeroPreload,
+  buildSeoPageHtml,
   normalizeStaticJsonLdScripts,
 } from '../../build-plugins/shared/seoPageShell';
 import {
@@ -75,5 +77,45 @@ describe('static SEO JSON-LD identities', () => {
     });
 
     expect(normalizeStaticJsonLdScripts([source])).toEqual([source]);
+  });
+});
+
+describe('static SEO hero LCP preload', () => {
+  const heroBody = '<figure><img data-seo-hero="faq-hub/permesso/de" src="/og/seo/faq-hub/permesso-de.webp" width="1200" height="630"></figure>';
+
+  it('derives a high-priority image preload from the shared hero marker', () => {
+    expect(buildSeoHeroPreload(heroBody)).toBe(
+      '<link rel="preload" as="image" href="/og/seo/faq-hub/permesso-de.webp" type="image/webp" fetchpriority="high">',
+    );
+  });
+
+  it('does not duplicate an existing absolute preload for the same hero', () => {
+    const existing = '<link rel="preload" as="image" href="https://frontaliereticino.ch/og/seo/faq-hub/permesso-de.webp" type="image/webp" fetchpriority="high">';
+    expect(buildSeoHeroPreload(heroBody, existing)).toBe('');
+  });
+
+  it('keeps an unrelated image preload and adds the hero hint', () => {
+    const existing = '<link rel="preload" as="image" href="/og-image.png">';
+    expect(buildSeoHeroPreload(heroBody, existing)).toContain(
+      'href="/og/seo/faq-hub/permesso-de.webp"',
+    );
+  });
+
+  it('ignores pages without the generated hero marker', () => {
+    expect(buildSeoHeroPreload('<img src="/images/logo.svg">')).toBe('');
+  });
+
+  it('injects the derived hint into the final document head', () => {
+    const html = buildSeoPageHtml({
+      locale: 'de',
+      title: 'Grenzgänger',
+      description: 'Arbeiten in der Schweiz',
+      canonicalUrl: 'https://frontaliereticino.ch/de/grenzgaenger/',
+      bodyHtml: heroBody,
+    });
+
+    expect(html).toContain(
+      '<link rel=preload as=image href=/og/seo/faq-hub/permesso-de.webp type=image/webp fetchpriority=high>',
+    );
   });
 });

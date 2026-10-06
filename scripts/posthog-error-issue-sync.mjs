@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * posthog-error-issue-sync.mjs — weekly "top recurring client errors" feeder:
  * reads GA4 `app_error` (with the standard `exception` mirror) for the
@@ -16,7 +17,6 @@
  * Report-only source: a GA4 failure is declared "non misurabile" and exits 0
  * rather than failing the workflow — this is a backlog feeder, not a gate.
  */
-import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { extractStackFrameOrigins, hasActionableErrorMessage, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
@@ -170,7 +170,7 @@ export async function main({
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main()/truncate() never triggers a live GA4/gh call — same
 // guard as scripts/dmarc-monitor.mjs.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const results = await main();
   if (results) {
     console.log(`[posthog-error-issue-sync] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);

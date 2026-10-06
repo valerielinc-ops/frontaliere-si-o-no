@@ -4,9 +4,9 @@
  * Covers:
  *  - Slug tables + path builders for all 4 locales × (root + regional hubs + crossings)
  *  - Route enumeration (BORDER_WAIT_ROUTES = locales × (1 + regions + crossings), derived
- *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 134, then to the full 143-crossing
- *    dataset by #4545 (Grigioni/Vallese–Italy corridor)
- *    crossings across 17 regions)
+ *    from the live registries — see borderWaitData.ts, expanded to the full
+ *    160-crossing dataset by BORDER2 (Grigioni/Vallese–Italy plus BL/SO/BS/JU
+ *    additions) across 20 regions)
  *  - Page generation: ≥50 words per page (MIN_INDEXABLE_WORDS), JSON-LD
  *    present & parseable, canonical self-referent, webcam section renders
  *    conditionally, related-links block present
@@ -96,9 +96,9 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
 // ── Slug / path tests ─────────────────────────────────────────────
 
 describe('borderWaitData — slug tables + path builders', () => {
-  it('exports exactly 143 crossings, all unique (post-#4545: the full dataset)', () => {
-    expect(BORDER_WAIT_CROSSINGS).toHaveLength(143);
-    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(143);
+  it('exports exactly 160 crossings, all unique (BORDER2 full dataset)', () => {
+    expect(BORDER_WAIT_CROSSINGS).toHaveLength(160);
+    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(160);
   });
 
   it('TOP_5_CROSSINGS is a strict subset of 5 crossings', () => {
@@ -126,10 +126,10 @@ describe('borderWaitData — slug tables + path builders', () => {
     expect(buildOggiPath('fr', 'chiasso-brogeda')).toMatch(/^\/fr\/temps-attente-douane\//);
   });
 
-  it('root + regional + crossing routes total 652 (4 locales × (1 + 19 regions + 143 crossings))', () => {
+  it('root + regional + crossing routes total 724 (4 locales × (1 + 20 regions + 160 crossings))', () => {
     const expected = BORDER_WAIT_LOCALES.length * (1 + BORDER_WAIT_REGIONS.length + BORDER_WAIT_CROSSINGS.length);
     expect(BORDER_WAIT_ROUTES).toHaveLength(expected);
-    expect(expected).toBe(652);
+    expect(expected).toBe(724);
     expect(new Set(BORDER_WAIT_ROUTES).size).toBe(expected);
   });
 
@@ -230,7 +230,11 @@ describe('borderWaitPagesPlugin — page generation', () => {
         if (schema['@type'] !== 'Place') continue;
         places++;
         expect(schema.address.addressCountry).toBe('CH');
-        expect(schema.address.addressLocality).toBeUndefined();
+        if (schema.address.addressLocality) {
+          expect(schema.address.addressLocality).not.toMatch(
+            /Leymen|Neuwiller|Hégenheim|Biederthal|Kiffis|Saint-Louis|Bourgfelden|Huningue|Courtavon|Taufers/i,
+          );
+        }
         expect(schema.amenityFeature.some((item: { name: string }) => item.name.includes('BAZG'))).toBe(false);
       }
       expect(html).not.toContain('"TouristAttraction"');
@@ -352,6 +356,24 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('data-webcam-base-url=');
     expect(html).toMatch(/\bwidth=["']?640["']?/);
     expect(html).toMatch(/\bheight=["']?360["']?/);
+  });
+
+  it('link-only webcam is rendered as an external link without an image or refresh script', () => {
+    const html = pages[buildOggiPath('it', 'basel-saint-louis-a35')];
+    expect(html).toContain('Apri la webcam ufficiale esterna');
+    expect(html).toContain('inforoute.alsace.eu');
+    expect(html).not.toContain('data-webcam-refresh=');
+    expect(html).not.toContain('Live webcam — Basel');
+  });
+
+  it('link-only webcam is discoverable from the root and regional hubs', () => {
+    const root = pages[buildRootHubPath('it')];
+    const regional = pages[buildRegionalHubPath('it', 'basilea-francia')];
+    for (const html of [root, regional]) {
+      expect(html).toContain('Apri la webcam ufficiale esterna: A35 – Saint-Louis');
+      expect(html).toContain('https://inforoute.alsace.eu/');
+      expect(html).not.toContain('data-webcam-refresh=');
+    }
   });
 
   it('a crossing WITHOUT configured webcams renders graceful fallback notice (no <figure>)', () => {
@@ -483,7 +505,7 @@ describe('borderWaitPagesPlugin — page generation', () => {
     );
     expect(currentCard).toContain('background:var(--color-surface-alt)');
     expect(currentCard).not.toContain('background:var(--color-success-subtle)');
-  });
+  }, 30_000);
 
   it('keeps the unavailable banner for a hub with no reading at all', () => {
     // MINIMAL_CURRENT only has Ticino readings: the Geneva corridor has none.

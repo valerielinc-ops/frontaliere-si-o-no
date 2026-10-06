@@ -23,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -499,13 +499,33 @@ async function clickFirst(page, snapshot, patterns) {
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
-  const verification = await ctx.accounts.waitForVerification({ host, sinceMs });
+  let current = snapshot || await extractFields(page);
+  const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
+    ? await ctx.accounts.verificationMessageIds()
+    : [];
+  const requestedAt = Date.now();
+  let resendRequested = false;
+  try {
+    if (await clickFirst(page, current, [RESEND_VERIFICATION_RE])) {
+      await settle(page);
+      current = await extractFields(page);
+      sinceMs = requestedAt;
+      resendRequested = true;
+    }
+  } catch {
+    // A portal may remove the resend control while processing the request;
+    // the existing message is still a valid fallback for this run.
+  }
+  const verification = await ctx.accounts.waitForVerification({
+    host,
+    sinceMs,
+    ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
+  });
   if (!verification) return { handoff: 'account_verification_timeout' };
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
   } else {
-    const current = snapshot || await extractFields(page);
     const field = codeField(current);
     if (!field) return { handoff: 'account' };
     await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});

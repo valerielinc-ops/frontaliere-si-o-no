@@ -65,6 +65,7 @@ concurrency:
 permissions:
   contents: write
   pull-requests: write
+  actions: read
   # A skipped sync exits 0 by design (nothing was written; the previous commit is
   # still consistent). That makes a mirror stuck for good invisible on a wall of
   # green runs, so N consecutive skips open an issue — see the escalation step.
@@ -85,6 +86,12 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
+          cache: npm
+
+      # Pull the corpus loads the chunker, which imports the lockfile-pinned
+      # TypeScript compiler. Install before any repository script runs.
+      - name: Install sync dependencies
+        run: npm ci --no-audit --no-fund
 
       # The corpus worker must send this exact contract in client_payload:
       # schema_version=1; source_repository, source_workflow,
@@ -433,7 +440,6 @@ jobs:
             echo "Article source unchanged; parser validation skipped."
             exit 0
           fi
-          npm ci --no-audit --no-fund
           npm test -- tests/generated-content-parses.test.ts
 
       - name: Commit if changed
@@ -1242,3 +1248,69 @@ jobs:
           fi
           node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
           exit "$release_status"
+
+  # Keep failure reporting outside the producer jobs so the Jobs API can serve
+  # their completed logs to the diagnostic action. This also covers a sync
+  # failure before its own checkout: this job performs an independent minimal
+  # checkout of the reporter sources.
+  report-failure:
+    needs: [sync, replay-after-article-sync]
+    if: >-
+      ${{ always() &&
+          (needs.sync.result == 'failure' ||
+           needs.replay-after-article-sync.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
+            .github/actions/report-failure/
+            .github/workflows/sync-articles-sitemaps.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Report sync failure
+        if: always() && needs.sync.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          log-from-job: sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
+          context: >-
+            La sincronizzazione del corpus verso sitemap, feed, ticker e metadati
+            degli articoli non ha completato il percorso di pubblicazione.
+
+      - name: Report replay failure
+        if: always() && needs.replay-after-article-sync.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          log-from-job: replay-after-article-sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
+          context: >-
+            Il replay post-merge della sincronizzazione non ha ripubblicato le
+            superfici sitemap, feed o ticker.

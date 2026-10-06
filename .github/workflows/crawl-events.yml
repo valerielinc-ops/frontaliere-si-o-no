@@ -376,6 +376,10 @@ jobs:
         id: assemble
         run: node scripts/assemble-events-dataset.mjs --stats
 
+      - name: Gate — every published event image is registered and allowed
+        id: event_image_gate
+        run: npm run validate:event-images
+
       - name: Refresh weekend-digest article body (evergreen, body-only)
         id: digest
         # Rewrites the 4 blog-body files of the stable `eventi-weekend-ticino`

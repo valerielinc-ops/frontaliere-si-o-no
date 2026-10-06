@@ -32,7 +32,7 @@
 import { pathToFileURL } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
-import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, cleanEventText } from './lib/events-utils.mjs';
+import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, cleanEventText, isEventImageSourceAllowed } from './lib/events-utils.mjs';
 import { isValidClockTime, failIfSourceUnreachable } from './lib/icms-agenda.mjs';
 
 const SOURCE = EVENT_SOURCES['fr-agenda'];
@@ -139,7 +139,9 @@ export function parseFribourgEventsFeed(xml) {
     const { comune, method } = resolveComune({ venue: city, title }, comuni);
     const creator = plain(item?.['dc:creator']);
     const enclosure = asArray(item?.enclosure).find((entry) => /^image\//i.test(String(entry?.type || '')));
-    const imageUrl = enclosure?.url && /^https?:\/\//i.test(enclosure.url) ? enclosure.url : undefined;
+    const imageUrl = isEventImageSourceAllowed(SOURCE.key) && enclosure?.url && /^https?:\/\//i.test(enclosure.url)
+      ? enclosure.url
+      : undefined;
     const description = plain(item?.description);
     const category = plain(item?.['event:eventType']);
     const geo = parseFeedGps(textOf(item?.['event:gps']));

@@ -157,6 +157,31 @@ export const EVENT_SOURCES = {
   },
 };
 
+// ── Event-image licence policy ───────────────────────────────
+// Event facts may be aggregated from many public agendas, but a public URL is
+// not an image licence. Keep the allowlist as a single registry so crawlers,
+// the assembler, the renderer and the CDN uploader cannot drift apart.
+//
+// OpenAgenda is the only admitted source at present: its public announcements
+// are reusable under the Licence Ouverte 2.0, and its image crawler additionally
+// requires an agenda-declared licence plus a non-rights-reserved credit before
+// mirroring an individual image (see crawl-openagenda-events.mjs).
+export const EVENT_IMAGE_LICENSES = Object.freeze({
+  openagenda: Object.freeze({
+    name: 'Licence Ouverte 2.0',
+    termsUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+  }),
+});
+
+export function isEventImageSourceAllowed(sourceKey) {
+  return typeof sourceKey === 'string' && Object.prototype.hasOwnProperty.call(EVENT_IMAGE_LICENSES, sourceKey);
+}
+
+/** True for a safe mirrored filename whose stable-id prefix is allowlisted. */
+export function isEventImageSafeIdAllowed(safeId) {
+  return typeof safeId === 'string' && Object.keys(EVENT_IMAGE_LICENSES).some((sourceKey) => safeId.startsWith(`${sourceKey}-`));
+}
+
 // ── Localized URL path config (single source of truth, §6) ───
 // The events SSG pages live under a LOCALIZED base segment per locale (en/de/fr
 // translate "events/ticino"). The build plugin AND any script that deep-links to
@@ -395,15 +420,31 @@ export function normalizeText(value) {
  * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
 export function cleanEventText(value) {
   if (typeof value !== 'string') return '';
-  const withoutRawTags = value
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?\s*>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ');
-  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let text = value;
+  // Crawler feeds occasionally encode the same field more than once
+  // (`&amp;auml;`). Decode until stable so a visible entity cannot survive
+  // solely because it was wrapped in another entity.
+  for (let pass = 0; pass < 3; pass += 1) {
+    const withoutRawTags = text
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<br\s*\/?\s*>/gi, ' ')
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    const decoded = decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    text = decoded;
+    if (decoded === withoutRawTags) break;
+  }
+
+  // The source fields are plain text in the rendered event cards. Remove the
+  // small Markdown subset that appears in agenda feeds while preserving
+  // ordinary hashtags such as `#batterypower` and names containing `*`.
+  text = text
+    .replace(/(^|\s)#{1,6}(?=\s)/g, '$1')
+    .replace(/(^|[\s([{\"'“‘])(\*{1,3}|_{1,3})(?=\S)([\s\S]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’])/g, '$1$3')
+    .replace(/(^|\s)(?:\*{3,}|_{3,})(?=\s|$)/g, '$1');
+
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -1015,18 +1056,24 @@ async function cancelEventImageResponse(response) {
 }
 
 /**
- * Download an event's source image once and store it locally under
+ * Download an allowlisted event source image once and store it locally under
  * `public/images/events/<sourceKey>-<rawId>.<ext>`. Returns the site-relative
- * path (e.g. `/images/events/guidle-Acv6rYJ.webp`) on success, or `null` on any
- * failure (missing URL, network error, oversized/non-image response) — callers
+ * path (e.g. `/images/events/openagenda-Acv6rYJ.webp`) on success, or `null` on any
+ * failure (unlicensed source, missing URL, network error, oversized/non-image
+ * response) — callers
  * MUST treat a null return as "no image" (never fall back to the original
  * remote URL, that would defeat the no-hotlink requirement).
  *
  * The stored extension is normally `webp` — encodeEventImage re-encodes what
  * was downloaded; the source's own extension survives only when that is
  * skipped.
+ *
+ * @param {string} sourceKey - source registry key checked against the image licence policy
  */
-export async function mirrorEventImage(sourceUrl, stableId) {
+export async function mirrorEventImage(sourceUrl, stableId, sourceKey) {
+  // Gate before manifest/disk probes: a stale entry from a previously allowed
+  // run must not resurrect an image after its source licence is revoked.
+  if (!isEventImageSourceAllowed(sourceKey)) return null;
   if (!sourceUrl || !/^https?:\/\//i.test(sourceUrl)) return null;
   const safeId = String(stableId || '').replace(/[^a-zA-Z0-9:_-]/g, '').replace(/:/g, '-');
   if (!safeId) return null;

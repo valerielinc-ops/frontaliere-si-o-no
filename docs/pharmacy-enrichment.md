@@ -26,7 +26,10 @@ solo da fonti esplicitamente registrate in
 - Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
   `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
   località devono corrispondere prima di accettare i dati; i post e le
-  recensioni non vengono importati.
+  recensioni non vengono importati. Se i valori Facebook sono già coperti da
+  una fonte con priorità maggiore, Facebook resta comunque registrato come
+  fonte corroborante: la provenienza osservata non sostituisce il fatto
+  selezionato.
 
 I segreti arrivano da Firebase Remote Config tramite
 `scripts/load-rc-env.mjs`; non devono essere inseriti nel JSON o nei log. Se

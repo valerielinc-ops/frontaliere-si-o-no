@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 import {
   CREATE_ACCOUNT_RE,
+  RESEND_VERIFICATION_RE,
   authPageKind,
   asksExistingPassword,
   codeField,
@@ -36,7 +37,13 @@ describe('portal account pages', () => {
     expect(authPageKind({ fields: [field('f1', 'text', 'Vorname')] })).toBe('none');
     expect(loginFields(signIn)).toEqual({ email: signIn.fields[0], password: signIn.fields[1] });
     expect(codeField({ fields: [field('f1', 'text', 'Bestätigungscode')] })?.id).toBe('f1');
+    expect(codeField({ fields: [field('f1', 'password', 'One-time password')] })?.id).toBe('f1');
+    expect(codeField({ fields: [field('f1', 'password', 'Code confidentiel')] })?.id).toBe('f1');
+    expect(codeField({ fields: [field('f1', 'password', 'Verification code')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
+    for (const label of ['Resend verification code', 'Neuen Code senden', 'Renvoyer un nouveau code', 'Inviare un nuovo codice']) {
+      expect(RESEND_VERIFICATION_RE.test(label), label).toBe(true);
+    }
   });
 
   it('tells an application form that asks for its own password from a login or a registration page', () => {
@@ -189,6 +196,22 @@ describe('portal account store', () => {
     now = 0;
     const empty = portalAccountStore({ db: createMemoryFirestore().db, orderId: ORDER, key: KEY, nowMs: () => now, sleep: async (ms: number) => { now += ms; } });
     expect(await empty.waitForVerification({ host: HOST, sinceMs: 0, timeoutMs: 30_000 })).toBeNull();
+  });
+
+  it('excludes verification messages that existed before a resend, even when their receipt timestamp is delayed', async () => {
+    const store = createMemoryFirestore({
+      [`assisted_applications/${ORDER}/inbox/old`]: { receivedAt: 1000, category: 'verification', verificationUrl: '', verificationCode: '111111' },
+    });
+    let now = 5000;
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => now, sleep: async () => {} });
+    const beforeResend = await accounts.verificationMessageIds();
+    expect(beforeResend).toEqual(['old']);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('old')
+      .set({ receivedAt: 6000 }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('new')
+      .set({ receivedAt: 7000, category: 'verification', verificationUrl: '', verificationCode: '222222' });
+    now = 7000;
+    expect(await accounts.waitForVerification({ host: HOST, sinceMs: 5000, excludeMessageIds: beforeResend })).toMatchObject({ messageId: 'new', code: '222222' });
   });
 });
 

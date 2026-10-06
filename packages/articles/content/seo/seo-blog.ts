@@ -1606,16 +1606,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-ristorni-frontalieri-scontro-ticino-lombardia': {
- title: 'Ristorni Frontalieri a Rischio: Scontro | Frontaliere Ticino',
+ title: 'Ristorni a rischio: lo scontro tra Ticino e Lombardia',
  description: 'La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.',
  keywords: 'ristorni frontalieri, tassa salute frontalieri, accordo fiscale italia svizzera, ticino, lombardia, frontalieri, tasse svizzera',
- ogTitle: 'Ristorni Bloccati? Il Ticino Minaccia Roma e la Lombardia Reagisce',
+ ogTitle: 'Ristorni a rischio: lo scontro tra Ticino e Lombardia',
  ogDescription: 'Il Canton Ticino propone di sospendere i ristorni fiscali per i frontalieri. Una mossa drastica in risposta alla nuova tassa sulla salute italiana. Ecco cosa succede.',
  canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-lombardia-tassa-salute/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Ristorni Bloccati? Il Ticino Minaccia Roma e la Lombardia Reagisce",
+ "headline": "Ristorni a rischio: lo scontro tra Ticino e Lombardia",
  "description": "La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ristorni-frontalieri-scontro-ticino-lombardia.webp`,
@@ -1780,16 +1780,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-frontalieri-salari-dibattito-ticino': {
- title: 'Frontalieri e Salari in Ticino: Analisi | Frontaliere Ticino',
+ title: 'Salari in Ticino: il dibattito sul ruolo dei frontalieri',
  description: 'Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un\'economia in un circolo vizioso.',
  keywords: 'frontalieri, ticino, stipendio, salari, dibattito, economia ticinese, dumping salariale, lavoro confine',
- ogTitle: 'Frontalieri nel mirino? La verità sul dibattito salariale in Ticino',
+ ogTitle: 'Salari in Ticino: il dibattito sul ruolo dei frontalieri',
  ogDescription: 'Non è solo una questione di numeri. Ecco perché il tema dei frontalieri e dei salari infiamma il Ticino e cosa significa per il tuo stipendio.',
  canonicalPath: '/articoli-frontaliere/frontalieri-salari-dibattito-ticino-il-cane-che-si-morde-la-coda/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Frontalieri nel mirino? La verità sul dibattito salariale in Ticino",
+ "headline": "Salari in Ticino: il dibattito sul ruolo dei frontalieri",
  "description": "Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un'economia in un circolo vizioso.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/frontalieri-salari-dibattito-ticino.webp`,
@@ -1838,16 +1838,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-stop-ristorni-mozione-partiti': {
- title: 'Stop Ristorni per Tassa Salute: Mozione | Frontaliere Ticino',
+ title: 'Stop ai ristorni: la mozione del Ticino sulla tassa salute',
  description: 'Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all\'Italia a causa della nuova tassa sulla salute per i frontalieri.',
  keywords: 'ristorni frontalieri, tassa salute frontalieri, ticino italia, accordo fiscale svizzera italia, sospensione ristorni, politica ticinese, mozione',
- ogTitle: 'Ristorni all\'Italia a Rischio: la Politica Ticinese Fa Fronte Comune',
+ ogTitle: 'Stop ai ristorni: la mozione del Ticino sulla tassa salute',
  ogDescription: 'Quattro partiti ticinesi chiedono lo stop ai ristorni fiscali a causa della tassa sulla salute. Ecco cosa significa per te e per il tuo stipendio.',
  canonicalPath: '/articoli-frontaliere/tassa-salute-partiti-ticino-chiedono-stop-ristorni/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Ristorni all'Italia a Rischio: la Politica Ticinese Fa Fronte Comune",
+ "headline": "Stop ai ristorni: la mozione del Ticino sulla tassa salute",
  "description": "Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all'Italia a causa della nuova tassa sulla salute per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/stop-ristorni-mozione-partiti.webp`,
@@ -3252,16 +3252,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-gavetta-tossica-architetti-ticino': {
- title: 'Architetti Sottopagati a Mendrisio: Ore | Frontaliere Ticino',
+ title: 'Architetti a Mendrisio: la testimonianza sulle ore non pagate',
  description: 'Multa da 160\'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.',
  keywords: 'architetti sottopagati, dumping salariale ticino, lavoro mendrisio, frontalieri, contratto di lavoro svizzera, stipendio ticino, commissione paritetica, sfruttamento lavoro',
- ogTitle: '"Ore gratis la sera": lo sfogo di un architetto sfruttato in Ticino',
+ ogTitle: 'Architetti a Mendrisio: la testimonianza sulle ore non pagate',
  ogDescription: 'Assunto come stagista a Mendrisio, lavorava a tempo pieno per pochi spiccioli. Un caso che scuote il mercato del lavoro ticinese.',
  canonicalPath: '/articoli-frontaliere/gavetta-tossica-architetti-ticino-denuncia/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "\"Ore gratis la sera\": lo sfogo di un architetto sfruttato in Ticino",
+ "headline": "Architetti a Mendrisio: la testimonianza sulle ore non pagate",
  "description": "Multa da 160'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/gavetta-tossica-architetti-ticino.webp`,
@@ -4881,16 +4881,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-cantieri-traffico-frontiera': {
- title: 'Cantieri sull\'A9: disagi per i frontalieri | Frontaliere Ticino',
+ title: 'Cantieri sull\'A9: guida per chi attraversa il confine',
  description: 'Nuovi lavori sull\'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l\'impatto economico. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, cantieri, sull, disagi, torna',
- ogTitle: 'Traffico frontalieri: cantieri sull\'A9',
+ ogTitle: 'Cantieri sull\'A9: guida per chi attraversa il confine',
  ogDescription: 'Lavori sull\'A9: code e disagi fino all\'Ascensione per chi attraversa il confine. Scopri strumenti utili per calcolare l\'impatto.',
  canonicalPath: '/articoli-frontaliere/cantieri-traffico-frontiera/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Traffico frontalieri: cantieri sull'A9",
+ "headline": "Cantieri sull'A9: guida per chi attraversa il confine",
  "description": "Nuovi lavori sull'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l'impatto economico. Dati aggiornati 2026 per",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cantieri-traffico-frontiera.webp`,
@@ -6735,16 +6735,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-tassa-salute-frontalieri-lombardia-minacce-ticino': {
- title: 'Tassa salute frontalieri: Lombardia | Frontaliere Ticino',
+ title: 'Tassa salute frontalieri: scontro tra Lombardia e Ticino',
  description: 'La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% reddito, min 30€ max 200€/mese). Ticino minaccia ritorsioni sui ristorni. Cgil: «Rischio',
  keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, sotto',
- ogTitle: 'Tassa salute frontalieri: Lombardia e Ticino allo scontro',
+ ogTitle: 'Tassa salute frontalieri: scontro tra Lombardia e Ticino',
  ogDescription: 'La Lombardia insiste sulla tassa salute per i frontalieri. Ticino minaccia ritorsioni sui ristorni. Analisi, scenari e procedure per i lavoratori tr',
  canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Tassa salute frontalieri: analisi della disputa tra Lombardia e Ticino e procedure per i lavoratori",
+ "headline": "Tassa salute frontalieri: scontro tra Lombardia e Ticino",
  "description": "La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% reddito, min 30€ max 200€/mese). Ticino minaccia ritorsioni sui ristorni. Cgil: «Rischio",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-minacce-ticino.webp`,
@@ -8191,16 +8191,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tassa-salute-frontalieri-lombardia-rinvio-2026': {
-    title: 'Tassa salute frontalieri: Lombardia | Frontaliere Ticino',
+    title: 'Tassa salute frontalieri: rinvio della mozione 2026',
     description: 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi',
     keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, rinvia',
-    ogTitle: 'Tassa salute frontalieri Lombardia: rinvio mozione fino al',
+    ogTitle: 'Tassa salute frontalieri: rinvio della mozione 2026',
     ogDescription: 'La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi',
     canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-rinvio-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Tassa salute frontalieri Lombardia: rinvio mozione fino al 23 aprile 2026",
+      "headline": "Tassa salute frontalieri: rinvio della mozione 2026",
       "description": "La Regione Lombardia rimanda la discussione sulla tassa sanitaria per i frontalieri storici al 23 aprile 2026. Scopri quali sono i rischi per i 80.000 ticinesi",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-rinvio-2026.webp`,
@@ -11530,16 +11530,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-omaggio-angeli-ponte-chiasso-2026': {
-    title: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    title: 'Angeli di Ponte Chiasso 2026: memoria e cerimonia',
     description: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
     keywords: 'frontalieri, ticino, svizzera, italia, omaggio, agli, angeli, ponte',
-    ogTitle: 'Omaggio agli Angeli di Ponte Chiasso | Frontaliere Ticino',
+    ogTitle: 'Angeli di Ponte Chiasso 2026: memoria e cerimonia',
     ogDescription: 'Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero',
     canonicalPath: '/articoli-frontaliere/omaggio-angeli-ponte-chiasso-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Omaggio agli Angeli di Ponte Chiasso: eroi che salvarono ebrei dai nazifascisti",
+      "headline": "Angeli di Ponte Chiasso 2026: memoria e cerimonia",
       "description": "Scoperta targa commemorativa per Giuseppina Panzìca, Giovanni Gavino Tolis e Paolo Boetti, eroi che salvarono ebrei dai nazifascisti al confine italo-svizzero",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/omaggio-angeli-ponte-chiasso-2026.webp`,
@@ -28190,16 +28190,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-guerra-iran-industria-alimentare-2026': {
-    title: 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    title: 'Guerra in Iran nel 2026: effetti su prezzi e approvvigionamenti',
     description: 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, guerra, iran, pressione, sull',
-    ogTitle: 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    ogTitle: 'Guerra in Iran nel 2026: effetti su prezzi e approvvigionamenti',
     ogDescription: 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future.',
     canonicalPath: '/articoli-frontaliere/guerra-iran-industria-alimentare-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Guerra in Iran: pressione sull'industria alimentare svizzera",
+      "headline": "Guerra in Iran nel 2026: effetti su prezzi e approvvigionamenti",
       "description": "Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/guerra-iran-industria-alimentare-2026.webp`,

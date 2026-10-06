@@ -38,7 +38,13 @@
 // mai» non ha bisogno di precisione.
 
 import { describe, expect, it } from 'vitest';
-import { fixJsonStringBody, findMatchingClose, repairLlmJsonArray } from '../../scripts/lib/llm-json-repair.mjs';
+import {
+  fixJsonStringBody,
+  findMatchingClose,
+  getLlmJsonRepairScanMetrics,
+  repairLlmJsonArray,
+  resetLlmJsonRepairScanMetrics,
+} from '../../scripts/lib/llm-json-repair.mjs';
 
 /** La forma esatta che fa esplodere la ricorsione. */
 const pseudoJsonInProse = (n: number) => `{"body1":"${'"chiave": "valore", '.repeat(n)}fine"}`;
@@ -93,6 +99,72 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
       deep.ms,
       `la crescita non e' quasi lineare: 97=${shallow.ms.toFixed(0)} ms, 388=${deep.ms.toFixed(0)} ms`,
     ).toBeLessThan(shallow.ms * 10 + 250);
+  });
+
+  it('ignora una chiusura di tipo errato mentre un altro frame e\' aperto', () => {
+    const raw = 'preamble {"broken":[1} , 2]} prose Risposta finale: [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('risincronizza dopo un closer incompatibile prima di un root FAQ successivo', () => {
+    const cases = [
+      '{"bad":[1} [{"q":"Q","a":"A"}]',
+      '[1} [{"q":"Q","a":"A"}]',
+      '{"bad":1] [{"q":"Q","a":"A"}]',
+      '{"bad":{"deeper":{"deepest":[1} [{"q":"Q","a":"A"}]',
+    ];
+
+    for (const raw of cases) {
+      expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'Q', a: 'A' }]);
+    }
+  });
+
+  it('mantiene un closer incompatibile fuori da un root incompleto a EOF', () => {
+    const cases = ['[1}', '{"bad":1]'];
+
+    for (const raw of cases) {
+      const repaired = repairLlmJsonArray(raw);
+      expect(repaired).toBe(raw);
+      expect(() => JSON.parse(repaired)).toThrow(SyntaxError);
+    }
+  });
+
+  it('ignora delimitatori ambigui dentro un valore quotato', () => {
+    const raw = 'meta {"note":"prosa "chiave": [1,2] e } ancora"} [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('documenta il budget di scansione di 24 root', () => {
+    const preamble = Array.from({ length: 25 }, (_, i) => `{"q":"noise-${i}","a":"N"}`).join(' ');
+    const raw = `${preamble} Risposta finale: {"q":"real","a":"A"}`;
+    // By construction, the 25th later balanced root is outside the bounded
+    // candidate scan; the first valid root remains the safe fallback.
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual({ q: 'noise-0', a: 'N' });
+  });
+
+  it('non consuma il budget dei root con gli opener annidati in un candidato laterale', () => {
+    const nestedOpenerCount = 96;
+    const lateralCandidate = `${'['.repeat(nestedOpenerCount + 1)}1${']'.repeat(nestedOpenerCount + 1)}`;
+    const raw = `{"meta":"noise"} ${lateralCandidate} [{"q":"real","a":"A"}]`;
+    const repaired = repairLlmJsonArray(raw, {
+      validateCandidate: (candidate) => candidate?.[0]?.q === 'real',
+    });
+    expect(JSON.parse(repaired)).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('esamina linearmente il suffisso di quote malformate', () => {
+    const measure = (quoteCount: number) => {
+      const raw = `preamble [${'"'.repeat(quoteCount)}x`;
+      resetLlmJsonRepairScanMetrics();
+      repairLlmJsonArray(raw);
+      const metrics = getLlmJsonRepairScanMetrics();
+      expect(metrics.charactersExamined).toBeGreaterThan(0);
+      return metrics.charactersExamined;
+    };
+
+    const n = measure(256);
+    const fourN = measure(1_024);
+    expect(fourN, `la scansione dei quote cresce oltre il lineare: N=${n}, 4N=${fourN}`).toBeLessThanOrEqual(n * 5);
   });
 });
 
