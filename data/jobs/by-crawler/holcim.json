@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-10-05T21:41:37.217Z",
+  "assembledAt": "2026-10-06T09:22:18.781Z",
   "jobs": [
     {
       "id": "holcim-07473013ef87",
@@ -9,7 +9,7 @@
         "it": "partner-delle-persone-in-holcim-group-eclepens",
         "en": "people-partner-holcim-group-eclepens",
         "de": "people-partner-in-holcim-ch",
-        "fr": "personnes-partenaire-in-holcim-group-eclepens"
+        "fr": "people-partner-50-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-People-Partnerin-50-AG-5303/1367342357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:26.351Z",
+      "crawledAt": "2026-10-06T09:22:08.194Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,6 +54,7 @@
       "previousSlugs": [
         "people-partner-in-50-holcim-ch",
         "people-partner-in-50-holcim-group-eclepens",
+        "personnes-partenaire-in-holcim-group-eclepens",
         "people-partner-50-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
@@ -65,6 +66,7 @@
         ],
         "fr": [
           "people-partner-in-50-holcim-group-eclepens",
+          "personnes-partenaire-in-holcim-group-eclepens",
           "people-partner-50-holcim-group-eclepens"
         ]
       },
@@ -81,7 +83,8 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-f41e5bcc1be3",
@@ -114,7 +117,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kirchberg-Chauffeurin-Kies%2C-Beton-&-Recycling-80-100-Kirchberg-St_-9533/1369275457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:25.855Z",
+      "crawledAt": "2026-10-06T09:22:07.706Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -154,7 +157,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "9533"
     },
     {
       "id": "holcim-de6f7059de98",
@@ -187,7 +191,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:25.358Z",
+      "crawledAt": "2026-10-06T09:22:07.235Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -227,7 +231,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6440"
     },
     {
       "id": "holcim-5705f9c01b31",
@@ -260,7 +265,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:24.849Z",
+      "crawledAt": "2026-10-06T09:22:06.756Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -306,40 +311,41 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "9500"
     },
     {
       "id": "holcim-a85d617edd5e",
       "slug": "driver-empl-pompaman-holcim-group-morges",
       "slugByLocale": {
-        "fr": "chauffeur-malaxeur-rempl-pompiste-holcim-ch",
         "it": "driver-empl-pompaman-holcim-group-morges",
         "en": "driver-empl-pumpman-holcim-group-morges",
-        "de": "fahrer-empl-pumpmann-holcim-group-morges"
+        "de": "fahrer-empl-pumpmann-holcim-group-morges",
+        "fr": "chauffeur-malaxeur-rempl-pompiste-holcim-ch"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
       "companyDomain": "holcim.com",
       "title": "Chauffeur malaxeur/rempl. pompiste",
       "titleByLocale": {
-        "fr": "Chauffeur malaxeur/rempl. pompiste",
-        "de": "Fahrer/Empl. Pumpmann",
         "it": "Driver/empl. pompaman",
-        "en": "Driver/empl. pumpman"
+        "en": "Driver/empl. pumpman",
+        "de": "Chauffeur malaxeur/rempl. pompiste",
+        "fr": "Chauffeur malaxeur/rempl. pompiste"
       },
       "description": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français",
       "descriptionByLocale": {
-        "fr": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français",
-        "it": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français",
-        "en": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français",
-        "de": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français"
+        "it": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\nTransport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\nEntretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\nImage & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\nNormes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\nMise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\nMise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\nOpérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\nGestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\nEntretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\nTitulaire d'un permis de conduire valable de la catégorie C.\n\n•\nExpérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\nAttentif/ve et sensible à la sécurité au travail.\n\n•\nFlexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\nPolyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\nOrienté/e service et clients.\n\n•\nA l'aise en français",
+        "en": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\nTransport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\nEntretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\nImage & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\nNormes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\nMise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\nMise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\nOpérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\nGestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\nEntretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\nTitulaire d'un permis de conduire valable de la catégorie C.\n\n•\nExpérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\nAttentif/ve et sensible à la sécurité au travail.\n\n•\nFlexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\nPolyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\nOrienté/e service et clients.\n\n•\nA l'aise en français",
+        "de": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\nTransport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\nEntretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\nImage & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\nNormes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\nMise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\nMise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\nOpérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\nGestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\nEntretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\nTitulaire d'un permis de conduire valable de la catégorie C.\n\n•\nExpérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\nAttentif/ve et sensible à la sécurité au travail.\n\n•\nFlexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\nPolyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\nOrienté/e service et clients.\n\n•\nA l'aise en français",
+        "fr": "Chauffeur malaxeur / pompiste 100% (CDI)\n\nLieu de travail : Morges\n\nAfin de renforcer notre équipe Transport sur la région Vaud / Genève, nous recherchons une personnalité dynamique, communicative et orientée esprit d'équipe.\n\nCe qui t'attend :\n\nChauffeur malaxeur:\n\n•\n Transport & Livraison : Transport et livraison fiables de nos bétons à l'aide de nos véhicules lourds.\n\n•\n Entretien des véhicules : Soin et entretien régulier du véhicule qui te sera confié. Piquage de la toupie.\n\n•\n Image & Clientèle : Représentation de la société auprès de nos clients et sur les routes de la région.\n\n•\n Normes & Exigences : Respect et application des normes élevées de Holcim en matière de sécurité, de qualité et d'environnement.\n\nChauffeur pompiste:\n\n•\n Mise en place du matériel : Installation sécurisée du véhicule et de ses équipements sur le chantier (déploiement de la flèche, raccordement des tuyaux).\n\n•\n Mise en route & Amorçage : Contrôle du bon fonctionnement des organes de commande et réalisation des opérations d'amorçage des pompes à béton (barbotine, ciment, etc.).\n\n•\n Opérations de pompage : Exécution du pompage en parfaite coordination avec les chauffeurs de camions malaxeurs et les équipes sur le chantier.\n\n•\n Gestion administrative : Remplissage et établissement des rapports de travail ainsi que des documents internes.\n\n•\n Entretien du véhicule : Suivi, nettoyage et entretien régulier du camion-pompe (graissage, maintenance de premier niveau).\n\nTon profil :\n\n•\n Titulaire d'un permis de conduire valable de la catégorie C.\n\n•\n Expérience préalable dans le pompage du béton et/ou en tant que chauffeur malaxeur\n\n•\n Attentif/ve et sensible à la sécurité au travail.\n\n•\n Flexible dans les missions et parfois les horaires (parfois le week-end ou de nuit)\n\n•\n Polyvalent/e, disponible et ouvert/e à l'apprentissage de nouvelles tâches.\n\n•\n Orienté/e service et clients.\n\n•\n A l'aise en français"
       },
       "location": "Morges",
       "canton": "VD",
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Morges-Chauffeur-malaxeurrempl_-pompiste-VD-1110/1372291457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:24.342Z",
+      "crawledAt": "2026-10-06T09:21:56.553Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -356,18 +362,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Morges-Chauffeur-malaxeurrempl_-pompiste-VD-1110/1372291457/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-malaxeur-rempl-pompiste-holcim-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-malaxeur-rempl-pompiste-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-malaxeur-rempl-pompiste-holcim-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T06:58:48.746Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -381,15 +386,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T06:58:48.746Z"
+      "postalCode": "1110"
     },
     {
       "id": "holcim-5d07e93b185c",
       "slug": "schiffsfuhrer-in-holcim-ch",
       "slugByLocale": {
-        "de": "schiffsfuhrer-in-holcim-ch",
         "it": "schiffsfuhrer-in-holcim-ch",
         "en": "schiffsfuhrer-in-holcim-ch",
+        "de": "schiffsfuhrer-in-holcim-ch",
         "fr": "schiffsfuhrer-in-holcim-ch"
       },
       "company": "Holcim Group",
@@ -397,16 +402,16 @@
       "companyDomain": "holcim.com",
       "title": "Schiffsführer:in",
       "titleByLocale": {
-        "de": "Schiffsführer:in",
         "it": "Schiffsführer:in",
         "en": "Schiffsführer:in",
+        "de": "Schiffsführer:in",
         "fr": "Schiffsführer:in"
       },
       "description": "Was dich erwartet:\n\n• Du führst den Materialtransport mit Lastschiffen zuverlässig und termingerecht durch\n\n• Du stellst eine zuverlässige Bedienung unserer Werke und Kunden sicher\n\n• Du kontrollierst Lieferscheine und stellst deren korrekte Übermittlung sicher\n\n• Du führst Transportaufträge für weitere Standorte innerhalb der Region ZCH aus\n\n• Du übernimmst bei Bedarf die Ablösung in der Schiffsverladeanlage – von der Disposition über die Annahme und Kontrolle bis hin zum Verlad\n\n• Du betreust und bedienst dabei auch unsere Kunden im Industriehafen\n\n• Du führst den Materialverlad mit Hydraulikbagger und Portalkran durch\n\n• Du sorgst für Ordnung und Sauberkeit und führst Reinigungs- und Aufräumarbeiten durch\n\n• Du unterstützt bei Revisionsarbeiten an Produktionsanlagen und Werken\n\n• Du arbeitest konstruktiv und lösungsorientiert mit den Bereichen Instandhaltung, Produktion und Qualitätsmanagement zusammen\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene technische Grundausbildung\n\n• Du besitzt einen Führerschein Kat. C / Schiffsführerausweis für Güterschiffe\n\n• Eine Weiterbildung im Bereich Aufbereitungstechnik ist von Vorteil\n\n• Du bringst Erfahrung in der Kiesproduktion oder einem vergleichbaren Umfeld der Baubranche mit\n\n• Du hast Freude am Umgang mit Kunden und verfügst über entsprechende Erfahrung\n\n• Kenntnisse im Bereich Gesteinsabbau, beispielsweise Erdbau, Gartenbau, Kiesabbau oder Mineralogie, sind von Vorteil\n\n• Du verfügst über Grundkenntnisse im Unterhalt und in der Wartung von Baumaschinen und Geräten\n\n• Grundkenntnisse in der Aufbereitungstechnik und Hydraulik bringst du idealerweise mit\n\n• Du hast ein ausgeprägtes Interesse an Produktion und Technik\n\n• Grundkenntnisse in Steuerungs- und Regelungstechnik sowie Pneumatik sind von Vorteil\n\n• Du bist offen für neue Technologien und verfügst über gute IT-Anwenderkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Was dich erwartet:\n\n• Du führst den Materialtransport mit Lastschiffen zuverlässig und termingerecht durch\n\n• Du stellst eine zuverlässige Bedienung unserer Werke und Kunden sicher\n\n• Du kontrollierst Lieferscheine und stellst deren korrekte Übermittlung sicher\n\n• Du führst Transportaufträge für weitere Standorte innerhalb der Region ZCH aus\n\n• Du übernimmst bei Bedarf die Ablösung in der Schiffsverladeanlage – von der Disposition über die Annahme und Kontrolle bis hin zum Verlad\n\n• Du betreust und bedienst dabei auch unsere Kunden im Industriehafen\n\n• Du führst den Materialverlad mit Hydraulikbagger und Portalkran durch\n\n• Du sorgst für Ordnung und Sauberkeit und führst Reinigungs- und Aufräumarbeiten durch\n\n• Du unterstützt bei Revisionsarbeiten an Produktionsanlagen und Werken\n\n• Du arbeitest konstruktiv und lösungsorientiert mit den Bereichen Instandhaltung, Produktion und Qualitätsmanagement zusammen\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene technische Grundausbildung\n\n• Du besitzt einen Führerschein Kat. C / Schiffsführerausweis für Güterschiffe\n\n• Eine Weiterbildung im Bereich Aufbereitungstechnik ist von Vorteil\n\n• Du bringst Erfahrung in der Kiesproduktion oder einem vergleichbaren Umfeld der Baubranche mit\n\n• Du hast Freude am Umgang mit Kunden und verfügst über entsprechende Erfahrung\n\n• Kenntnisse im Bereich Gesteinsabbau, beispielsweise Erdbau, Gartenbau, Kiesabbau oder Mineralogie, sind von Vorteil\n\n• Du verfügst über Grundkenntnisse im Unterhalt und in der Wartung von Baumaschinen und Geräten\n\n• Grundkenntnisse in der Aufbereitungstechnik und Hydraulik bringst du idealerweise mit\n\n• Du hast ein ausgeprägtes Interesse an Produktion und Technik\n\n• Grundkenntnisse in Steuerungs- und Regelungstechnik sowie Pneumatik sind von Vorteil\n\n• Du bist offen für neue Technologien und verfügst über gute IT-Anwenderkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "Cosa aspettarsi:\n\n• Eseguire il trasporto materiale con navi cargo in modo affidabile e in programma\n\n• Garantisci un funzionamento affidabile delle nostre piante e dei nostri clienti\n\n• Controlla le note di consegna e assicura la corretta trasmissione\n\n• Eseguire ordini di trasporto per altre località all'interno della regione ZCH\n\n• Si prende il controllo del distacco nella struttura di carico della nave se necessario – dalla pianificazione all'accettazione e al controllo al caricamento\n\n• Si prende anche cura e servire i nostri clienti nel porto industriale\n\n• Effettuare il carico del materiale con escavatore idraulico e gru a portale\n\n• Fornire ordine e pulizia e svolgere lavori di pulizia e pulizia\n\n• Sostegno ai lavori di revisione degli impianti di produzione e degli impianti\n\n• Lavori in modo costruttivo e orientato alla soluzione con le aree di manutenzione, produzione e gestione della qualità\n\nCosa porti:\n\n• Hai completato la formazione tecnica di base\n\n• Hai una patente di guida Kat. C / Passaporto per navi merci\n\n• Un ulteriore sviluppo nel settore della tecnologia di trasformazione è vantaggioso\n\n• Porti l'esperienza nella produzione di ghiaia o un ambiente paragonabile nel settore delle costruzioni\n\n• Ti piace trattare con i clienti e avere un'esperienza appropriata\n\n• Le conoscenze nel campo dell'estrazione mineraria rocciosa, per esempio la costruzione della terra, l'orticoltura, l'estrazione di ghiaia o la mineralogia sono vantaggiose\n\n• Hai conoscenze di base nella manutenzione e manutenzione di macchinari e attrezzature per la costruzione\n\n• Conoscenza di base della tecnologia di lavorazione e idraulica si porta idealmente con voi\n\n• Hai un forte interesse per la produzione e la tecnologia\n\n• La conoscenza di base della tecnologia di controllo e regolazione così come la pneumatica sono vantaggiose\n\n• Sei aperto alle nuove tecnologie e hai una buona conoscenza degli utenti IT\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni festivi, acquisti di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
         "en": "What to expect:\n\n• You carry out material transport with cargo ships reliably and on schedule\n\n• You ensure reliable operation of our plants and customers\n\n• You check delivery notes and ensure their correct transmission\n\n• You carry out transport orders for other locations within the ZCH region\n\n• You take over the detachment in the ship loading facility if necessary – from scheduling to acceptance and control to loading\n\n• You also look after and serve our customers in the industrial port\n\n• You carry out the material loading with hydraulic excavator and gantry crane\n\n• You provide order and cleanliness and carry out cleaning and cleanup work\n\n• You support in revision work on production plants and plants\n\n• You work constructively and solution-oriented with the areas of maintenance, production and quality management\n\nWhat you bring:\n\n• You have completed basic technical training\n\n• You have a driving license Kat. C / Passport for freight ships\n\n• A further development in the field of processing technology is advantageous\n\n• You bring experience in gravel production or a comparable environment in the construction industry\n\n• You enjoy dealing with customers and have appropriate experience\n\n• Knowledge in the field of rock mining, for example earth construction, horticulture, gravel mining or mineralogy are advantageous\n\n• You have basic knowledge in the maintenance and maintenance of construction machinery and equipment\n\n• Basic knowledge of processing technology and hydraulics you ideally bring with you\n\n• You have a strong interest in production and technology\n\n• Basic knowledge of control and regulation technology as well as pneumatics are advantageous\n\n• You are open to new technologies and have good IT user knowledge\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchases, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Was dich erwartet:\n\n• Du führst den Materialtransport mit Lastschiffen zuverlässig und termingerecht durch\n\n• Du stellst eine zuverlässige Bedienung unserer Werke und Kunden sicher\n\n• Du kontrollierst Lieferscheine und stellst deren korrekte Übermittlung sicher\n\n• Du führst Transportaufträge für weitere Standorte innerhalb der Region ZCH aus\n\n• Du übernimmst bei Bedarf die Ablösung in der Schiffsverladeanlage – von der Disposition über die Annahme und Kontrolle bis hin zum Verlad\n\n• Du betreust und bedienst dabei auch unsere Kunden im Industriehafen\n\n• Du führst den Materialverlad mit Hydraulikbagger und Portalkran durch\n\n• Du sorgst für Ordnung und Sauberkeit und führst Reinigungs- und Aufräumarbeiten durch\n\n• Du unterstützt bei Revisionsarbeiten an Produktionsanlagen und Werken\n\n• Du arbeitest konstruktiv und lösungsorientiert mit den Bereichen Instandhaltung, Produktion und Qualitätsmanagement zusammen\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene technische Grundausbildung\n\n• Du besitzt einen Führerschein Kat. C / Schiffsführerausweis für Güterschiffe\n\n• Eine Weiterbildung im Bereich Aufbereitungstechnik ist von Vorteil\n\n• Du bringst Erfahrung in der Kiesproduktion oder einem vergleichbaren Umfeld der Baubranche mit\n\n• Du hast Freude am Umgang mit Kunden und verfügst über entsprechende Erfahrung\n\n• Kenntnisse im Bereich Gesteinsabbau, beispielsweise Erdbau, Gartenbau, Kiesabbau oder Mineralogie, sind von Vorteil\n\n• Du verfügst über Grundkenntnisse im Unterhalt und in der Wartung von Baumaschinen und Geräten\n\n• Grundkenntnisse in der Aufbereitungstechnik und Hydraulik bringst du idealerweise mit\n\n• Du hast ein ausgeprägtes Interesse an Produktion und Technik\n\n• Grundkenntnisse in Steuerungs- und Regelungstechnik sowie Pneumatik sind von Vorteil\n\n• Du bist offen für neue Technologien und verfügst über gute IT-Anwenderkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "À quoi s'attendre :\n\n• Vous effectuez le transport de matériel avec des navires de cargaison de façon fiable et à temps\n\n• Vous assurez un fonctionnement fiable de nos usines et clients\n\n• Vous vérifiez les notes de livraison et assurez leur transmission correcte\n\n• Vous exécutez des ordres de transport pour d'autres emplacements dans la région ZCH\n\n• Vous prenez le détachement dans l'installation de chargement du navire si nécessaire – de l'horaire à l'acceptation et le contrôle au chargement\n\n• Vous vous occupez également et servez nos clients dans le port industriel\n\n• Vous effectuez le chargement de matériel avec pelle hydraulique et grue à portique\n\n• Vous fournissez l'ordre et la propreté et effectuer des travaux de nettoyage et de nettoyage\n\n• Vous soutenez dans les travaux de révision sur les usines de production et les usines\n\n• Vous travaillez de manière constructive et orientée vers la solution dans les domaines de la maintenance, de la production et de la gestion de la qualité\n\nCe que vous apportez:\n\n• Vous avez suivi une formation technique de base\n\n• Vous avez un permis de conduire Kat. C / Passeport pour les navires de fret\n\n• Un nouveau développement dans le domaine des technologies de transformation est avantageux\n\n• Vous apportez de l'expérience dans la production de gravier ou un environnement comparable dans l'industrie de la construction\n\n• Vous aimez traiter avec les clients et avoir une expérience appropriée\n\n• Les connaissances dans le domaine de l'extraction de roches, par exemple la construction de la terre, l'horticulture, l'extraction de gravier ou la minéralogie sont avantageuses\n\n• Vous avez des connaissances de base dans l'entretien et l'entretien des machines et équipements de construction\n\n• Connaissance de base de la technologie de traitement et de l'hydraulique que vous apportez idéalement avec vous\n\n• Vous avez un fort intérêt pour la production et la technologie\n\n• Les connaissances de base en matière de contrôle et de régulation ainsi que les pneumatiques sont avantageuses\n\n• Vous êtes ouvert aux nouvelles technologies et avez une bonne connaissance de l'utilisateur informatique\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, des achats de vacances, un congé de maternité et de paternité prolongé\n\n• Rémunération attrayante: Nous offrons à nos employés un ensemble de rémunération attrayant avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Stansstad",
@@ -414,7 +419,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Stansstad-Schiffsf%C3%BChrerin-NW-6362/1373927957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:23.858Z",
+      "crawledAt": "2026-10-06T09:22:00.887Z",
       "addressLocality": "Stansstad",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -431,10 +436,9 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Stansstad-Schiffsf%C3%BChrerin-NW-6362/1373927957/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:41:23.858Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -448,15 +452,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:41:23.858Z"
+      "postalCode": "6362"
     },
     {
       "id": "holcim-54e8fbae85ff",
       "slug": "disposizione-dell-economia-circolare-holcim-group-zurich",
       "slugByLocale": {
-        "de": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
         "it": "disposizione-dell-economia-circolare-holcim-group-zurich",
         "en": "circular-economy-disposition-holcim-group-zurich",
+        "de": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
         "fr": "disposition-circulaire-de-l-economie-holcim-group-zurich"
       },
       "company": "Holcim Group",
@@ -464,16 +468,16 @@
       "companyDomain": "holcim.com",
       "title": "Sachbearbeitung Disposition Kreislaufwirtschaft",
       "titleByLocale": {
-        "de": "Sachbearbeitung Disposition Kreislaufwirtschaft",
         "it": "Disposizione dell'economia circolare",
         "en": "Circular economy disposition",
+        "de": "Sachbearbeitung Disposition Kreislaufwirtschaft",
         "fr": "Disposition circulaire de l'économie"
       },
       "description": "Du behältst auch bei vielen Anfragen den Überblick, organisierst gerne und hast Freude am Austausch mit Kunden?\nDann werde Teil unseres Teams und gestalte mit uns die Kreislaufwirtschaft von morgen.\n\nWas dich erwartet:\n\n• Organisation und Disposition des Materialein- und -ausgangs sowie Koordination der täglichen Abläufe\n\n• Ansprechpartner:in für intere und externe Kunden im Bereich Kreislaufwirtschaft\n\n• Planung und Abstimmung von Materialmengen und Verarbeitungskapazitäten inklusive Troubleshooting\n\n• Bearbeitung der Kundenanfragen und erledigen der administrativen Aufgaben in verschiedenen Betriebssystemen (z.B. Google, CRM Tool und Sales Force, Logon und SAP)\n\n• Unterstützung bei Monatsabschlüssen, Rechnungsprüfungen und der Erstellung von Auswertungen\n\n• Enge Zusammenarbeit mit internen Schnittstellen und Übernahme weiterer organisatorischer Aufgaben\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Berufsausbildung oder eine vergleichbare Qualifikation, betriebswirtschaftliche Zusatzausbildung und Verkaufserfahrung sind von Vorteil\n\n• Erfahrung in der Disposition, Kreislaufwirtschaft oder einer vergleichbaren Branche von Vorteil\n\n• Sicherer Umgang mit MS Office bzw. Google Workspace und SAP\n\n• Gespür für Kundenbeziehungen und Lösungsorientierung\n\n• Dynamische und starke Persönlichkeit mit Selbstvertrauen sowie Durchsetzungskraft\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise sowie ein gutes Zahlenverhältnis\n\n• Kommunikationsstärke, Teamgeist und Freunde am Kundenkontakt\n\n• Sehr gute Deutschkenntnisse sowie gute Englisch & Französischkenntnisse; Italienisch ist von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Du behältst auch bei vielen Anfragen den Überblick, organisierst gerne und hast Freude am Austausch mit Kunden?\nDann werde Teil unseres Teams und gestalte mit uns die Kreislaufwirtschaft von morgen.\n\nWas dich erwartet:\n\n• Organisation und Disposition des Materialein- und -ausgangs sowie Koordination der täglichen Abläufe\n\n• Ansprechpartner:in für intere und externe Kunden im Bereich Kreislaufwirtschaft\n\n• Planung und Abstimmung von Materialmengen und Verarbeitungskapazitäten inklusive Troubleshooting\n\n• Bearbeitung der Kundenanfragen und erledigen der administrativen Aufgaben in verschiedenen Betriebssystemen (z.B. Google, CRM Tool und Sales Force, Logon und SAP)\n\n• Unterstützung bei Monatsabschlüssen, Rechnungsprüfungen und der Erstellung von Auswertungen\n\n• Enge Zusammenarbeit mit internen Schnittstellen und Übernahme weiterer organisatorischer Aufgaben\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Berufsausbildung oder eine vergleichbare Qualifikation, betriebswirtschaftliche Zusatzausbildung und Verkaufserfahrung sind von Vorteil\n\n• Erfahrung in der Disposition, Kreislaufwirtschaft oder einer vergleichbaren Branche von Vorteil\n\n• Sicherer Umgang mit MS Office bzw. Google Workspace und SAP\n\n• Gespür für Kundenbeziehungen und Lösungsorientierung\n\n• Dynamische und starke Persönlichkeit mit Selbstvertrauen sowie Durchsetzungskraft\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise sowie ein gutes Zahlenverhältnis\n\n• Kommunikationsstärke, Teamgeist und Freunde am Kundenkontakt\n\n• Sehr gute Deutschkenntnisse sowie gute Englisch & Französischkenntnisse; Italienisch ist von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "Si tiene anche traccia di molte richieste, come organizzare e godere lo scambio con i clienti?\nAllora diventa parte del nostro team e forma l'economia circolare di domani con noi.\n\nCosa aspettarsi:\n\n• Organizzazione e gestione dell'ingresso e dell'output dei materiali nonché coordinamento delle operazioni quotidiane\n\n• Persona di contatto: per i clienti interni ed esterni nel campo dell'economia circolare\n\n• Pianificazione e coordinamento delle quantità materiali e delle capacità di elaborazione, compresa la risoluzione dei problemi\n\n• Elaborazione delle richieste dei clienti e esecuzione delle attività amministrative in vari sistemi operativi (ad esempio Google, CRM Tool e Sales Force, Logon e SAP)\n\n• Supporto per conti mensili, audit e valutazioni\n\n• Chiudere la cooperazione con le interfacce interne e assumere ulteriori compiti organizzativi\n\nCosa porti:\n\n• Completo della formazione professionale commerciale o di una qualificazione comparabile, la formazione aziendale supplementare e l'esperienza di vendita sono vantaggiosi\n\n• L'esperienza nella pianificazione, nell'economia circolare o in un settore comparabile è utile\n\n• Gestione sicura di MS Office o Google Workspace e SAP\n\n• Sentirsi per le relazioni con i clienti e l'orientamento della soluzione\n\n• Dinamica e forte personalità con autostima e assertività\n\n• Metodo di lavoro strutturato, indipendente e orientato alla soluzione, nonché un buon rapporto numerico\n\n• Forza di comunicazione, spirito di squadra e amici a contatto con il cliente\n\n• Molto buone competenze tedesche e buone competenze in inglese e francese; italiano è un vantaggio\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni festivi, acquisti di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
         "en": "You also keep track of many inquiries, like to organize and enjoy the exchange with customers?\nThen become part of our team and shape the circular economy of tomorrow with us.\n\nWhat to expect:\n\n• Organisation and management of material input and output as well as coordination of daily operations\n\n• Contact person: for internal and external customers in the field of circular economy\n\n• Planning and coordination of material quantities and processing capacities including troubleshooting\n\n• Processing of customer requests and performing administrative tasks in various operating systems (e.g. Google, CRM Tool and Sales Force, Logon and SAP)\n\n• Support for monthly accounts, audits and evaluations\n\n• Close cooperation with internal interfaces and assumption of further organizational tasks\n\nWhat you bring:\n\n• Completed commercial vocational training or a comparable qualification, additional business training and sales experience are advantageous\n\n• Experience in scheduling, circular economy or a comparable industry is beneficial\n\n• Secure handling of MS Office or Google Workspace and SAP\n\n• Feel for customer relationships and solution orientation\n\n• Dynamic and strong personality with self-confidence and assertiveness\n\n• Structured, independent and solution-oriented working method as well as a good numerical ratio\n\n• Communication strength, team spirit and friends at customer contact\n\n• Very good German skills as well as good English & French skills; Italian is an advantage\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchases, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Du behältst auch bei vielen Anfragen den Überblick, organisierst gerne und hast Freude am Austausch mit Kunden?\nDann werde Teil unseres Teams und gestalte mit uns die Kreislaufwirtschaft von morgen.\n\nWas dich erwartet:\n\n• Organisation und Disposition des Materialein- und -ausgangs sowie Koordination der täglichen Abläufe\n\n• Ansprechpartner:in für intere und externe Kunden im Bereich Kreislaufwirtschaft\n\n• Planung und Abstimmung von Materialmengen und Verarbeitungskapazitäten inklusive Troubleshooting\n\n• Bearbeitung der Kundenanfragen und erledigen der administrativen Aufgaben in verschiedenen Betriebssystemen (z.B. Google, CRM Tool und Sales Force, Logon und SAP)\n\n• Unterstützung bei Monatsabschlüssen, Rechnungsprüfungen und der Erstellung von Auswertungen\n\n• Enge Zusammenarbeit mit internen Schnittstellen und Übernahme weiterer organisatorischer Aufgaben\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Berufsausbildung oder eine vergleichbare Qualifikation, betriebswirtschaftliche Zusatzausbildung und Verkaufserfahrung sind von Vorteil\n\n• Erfahrung in der Disposition, Kreislaufwirtschaft oder einer vergleichbaren Branche von Vorteil\n\n• Sicherer Umgang mit MS Office bzw. Google Workspace und SAP\n\n• Gespür für Kundenbeziehungen und Lösungsorientierung\n\n• Dynamische und starke Persönlichkeit mit Selbstvertrauen sowie Durchsetzungskraft\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise sowie ein gutes Zahlenverhältnis\n\n• Kommunikationsstärke, Teamgeist und Freunde am Kundenkontakt\n\n• Sehr gute Deutschkenntnisse sowie gute Englisch & Französischkenntnisse; Italienisch ist von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "Vous gardez également la trace de nombreuses demandes, comme organiser et profiter de l'échange avec les clients?\nPuis faites partie de notre équipe et façonnez l'économie circulaire de demain avec nous.\n\nÀ quoi s'attendre :\n\n• Organisation et gestion des intrants et des produits matériels ainsi que coordination des opérations quotidiennes\n\n• Personne à contacter: pour les clients internes et externes dans le domaine de l'économie circulaire\n\n• Planification et coordination des quantités de matières et des capacités de traitement, y compris le dépannage\n\n• Traitement des demandes des clients et exécution des tâches administratives dans divers systèmes d'exploitation (par exemple Google, CRM Tool and Sales Force, Logon et SAP)\n\n• Appui aux comptes mensuels, audits et évaluations\n\n• Coopération étroite avec les interfaces internes et prise en charge de nouvelles tâches organisationnelles\n\nCe que vous apportez:\n\n• Une formation professionnelle commerciale complète ou une qualification comparable, une formation professionnelle supplémentaire et une expérience de vente sont avantageuses\n\n• L'expérience en matière de programmation, d'économie circulaire ou d'industrie comparable est bénéfique\n\n• Gestion sécurisée de MS Office ou Google Workspace et SAP\n\n• Sens pour les relations client et l'orientation de la solution\n\n• Personnalité dynamique et forte avec confiance en soi et assurance\n\n• Méthode de travail structurée, indépendante et orientée vers la solution ainsi qu'un bon rapport numérique\n\n• Force de communication, esprit d'équipe et amis au contact du client\n\n• Très bonnes compétences en allemand ainsi que bonnes compétences en anglais et en français; l'italien est un avantage\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, des achats de vacances, un congé de maternité et de paternité prolongé\n\n• Rémunération attrayante: Nous offrons à nos employés un ensemble de rémunération attrayant avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Zurich",
@@ -481,7 +485,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Sachbearbeitung-Disposition-Kreislaufwirtschaft-CH-%C2%AD8050/1373927257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:23.377Z",
+      "crawledAt": "2026-10-06T09:22:04.286Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -498,9 +502,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Sachbearbeitung-Disposition-Kreislaufwirtschaft-CH-%C2%AD8050/1373927257/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ],
+        "en": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ]
       },
+      "firstSeenAt": "2026-10-05T21:41:23.377Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -514,29 +531,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:41:23.377Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
-        ],
-        "en": [
-          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
-        ],
-        "fr": [
-          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
-      ]
+      "postalCode": "8001"
     },
     {
       "id": "holcim-960650fcd523",
       "slug": "mechaniker-in-holcim-ch",
       "slugByLocale": {
-        "de": "mechaniker-in-holcim-ch",
         "it": "mechaniker-in-holcim-ch",
         "en": "mechanic-holcim-group-oberdorf",
+        "de": "mechaniker-in-holcim-ch",
         "fr": "mecanicien-ne-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
@@ -544,16 +547,16 @@
       "companyDomain": "holcim.com",
       "title": "Mechaniker:in",
       "titleByLocale": {
-        "de": "Mechaniker:in",
         "it": "Mechaniker:in",
         "en": "Mechanic",
+        "de": "Mechaniker:in",
         "fr": "Mécanicien/ne"
       },
       "description": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "en": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+        "de": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "Du bist technisch versiert, findest für jedes Problem eine passende Lösung und packst gerne selbst mit an? Dann werde Teil unseres Teams und sorge dafür, dass unsere Anlagen und Maschinen zuverlässig und sicher laufen.\n\nWas dich erwartet:\n\n• Reparatur, Wartung, Inspektion und Instandsetzung unserer Produktionsanlagen, Maschinen und Geräte\n\n• Durchführung regelmäßiger Kontrollgänge an Anlagen, Umschlagplätzen und auf dem Werkareal\n\n• Anfertigung und Montage von Ersatzkomponenten sowie Beschaffung benötigter Ersatzteile\n\n• Durchführung von Schweiß- und Schneidbrennarbeiten\n\n• Unterstützung bei Stillständen und Revisionen in den Kies- und Betonwerken der Region\n\n• Mitarbeit bei der kontinuierlichen Optimierung von Anlagen, Maschinen und Arbeitsabläufen\n\n• Dokumentation der durchgeführten Instandhaltungsarbeiten sowie Unterstützung bei der Planung von Jahresrevisionen\n\n• Selbstständige Umsetzung kleinerer bis mittlerer Projekte sowie Unterstützung bei allgemeinen Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung im Bereich Mechanik\n\n• Berufserfahrung in Reparatur, Instandhaltung, Stahl- oder Anlagenbau\n\n• Fundierte Kenntnisse in Mechanik und Schweißtechnik sowie Grundkenntnisse in Elektrik und Pneumatik\n\n• Technisches Verständnis sowie Kenntnisse im Konstruktionsbau und Rapportwesen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Lösungsorientiertes Denken, Eigeninitiative und Bereitschaft, Verantwortung zu übernehmen\n\n• Teamgeist, Hilfsbereitschaft und gute Kommunikationsfähigkeiten\n\n• Gute IT-Anwenderkenntnisse sowie Offenheit für neue Aufgaben und Technologien\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Grundkenntnisse in Englisch von Vorteil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst"
       },
       "location": "Oberdorf",
@@ -561,7 +564,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Mechanikerin-NW-6370/1373927057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:22.878Z",
+      "crawledAt": "2026-10-06T09:22:03.311Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -578,10 +581,9 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Mechanikerin-NW-6370/1373927057/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:27:07.903Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -595,7 +597,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:27:07.903Z"
+      "postalCode": "6370"
     },
     {
       "id": "holcim-f26ec4eb52d4",
@@ -686,7 +688,9 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "5303"
     },
     {
       "id": "holcim-2fa607485cd9",
@@ -719,7 +723,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partner-50-VD-1312/1371554857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:21.895Z",
+      "crawledAt": "2026-10-06T09:21:57.515Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -779,16 +783,17 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-51111e111e16",
       "slug": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
       "slugByLocale": {
         "it": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
-        "en": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
+        "en": "gravel-machinist-allrounder-holcim-group-kehrsiten",
         "de": "kieswerkmaschinist-in-allrounder-in-holcim-ch",
-        "fr": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten"
+        "fr": "machinistede-gravieres-polyvalente-holcim-group-kehrsiten"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -796,9 +801,9 @@
       "title": "Kieswerkmaschinist:in/Allrounder:in",
       "titleByLocale": {
         "it": "Kieswerkmaschinist:in/Allrounder:in",
-        "en": "Kieswerkmaschinist:in/Allrounder:in",
+        "en": "Gravel Machinist/ALLROUNDER",
         "de": "Kieswerkmaschinist:in/Allrounder:in",
-        "fr": "Kieswerkmaschinist:in/Allrounder:in"
+        "fr": "Machinistede gravières/polyvalente"
       },
       "description": "Was dich erwartet:\n\n• Bedienung & Überwachung: Du bedienst und überwachst unsere Aufbereitungsanlagen unter strenger Einhaltung aller Sicherheitsstandards\n\n• Produktion & Silomanagement: Du behältst die Produktionsabläufe, die Kies- und Splittaufbereitung sowie das Silomanagement fest im Blick\n\n• Instandhaltung & Wartung: Du führst Unterhalts-, Instandhaltungs- und Revisionsarbeiten (inkl. vorbeugender Instandhaltung) eigenständig sowie im Team durch\n\n• Qualitätssicherung: Du stellst die hohe Qualität unserer Gesteinskörnung sicher\n\n• Rapportierung & Pflege: Du rapportierst die Produktions- und Wartungsarbeiten sauber und führst nötige Reinigungs- sowie Aufräumarbeiten durch\n\n• Zusammenarbeit: Du arbeitest konstruktiv mit den Bereichen Instandhaltung, Produktion und Qualitätsmanagement zusammen\n\nWas du mitbringst:\n\n• Ausbildung: Du hast eine abgeschlossene technische Grundausbildung\n\n• Qualifikation: Du bringst eine Weiterbildung zum/zur Rohstoffaufbereiter:in mit eidg. FA mit – oder hast die Bereitschaft, diese zu absolvieren\n\n• Erfahrung & Wissen: Du bringst Erfahrung aus der Kiesproduktion oder einem ähnlichen Umfeld (z. B. Baubranche) mit . Zudem hast du ein solides Basiswissen in Mechanik, Elektrik, Steuerungstechnik/Pneumatik und Mineralogie\n\n• IT- & Technik-Affinität: Du hast Interesse an moderner Produktionstechnik, bist offen für neue Technologien und verfügst über gute IT-Anwenderkenntnisse\n\n• Persönlichkeit: Eine zuverlässige, strukturierte und selbständige Arbeitsweise zeichnet dich aus . Du denkst lösungsorientiert, bringst Eigeninitiative mit und besitzt ein hohes Sicherheits- und Verantwortungsbewusstsein\n\n• Teamgeist & Kommunikation: Du bist ein hilfsbereiter Teamplayer mit guten Kommunikationsfähigkeiten und offen dafür, neue Aufgaben kennenzulernen\n\n• Sprachen & Mobilität: Du sprichst verhandlungssicher Deutsch (Englischkenntnisse sind von Vorteil) und bist innerhalb der zu betreuenden Region mobil\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
@@ -812,7 +817,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-KieswerkmaschinistinAllrounderin-NW-6365/1373604957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:21.410Z",
+      "crawledAt": "2026-10-06T09:22:01.852Z",
       "addressLocality": "Kehrsiten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -852,13 +857,14 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6365"
     },
     {
       "id": "holcim-1c2b6ce2f56b",
-      "slug": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens",
+      "slug": "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
       "slugByLocale": {
-        "it": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens",
+        "it": "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
         "en": "multipurpose-worker-industrial-maintenance-holcim-group-eclepens",
         "de": "mehrzweckarbeiter-industrielle-instandhaltung-holcim-group-eclepens",
         "fr": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
@@ -868,7 +874,7 @@
       "companyDomain": "holcim.com",
       "title": "Collaborateur·trice polyvalent·e - Entretien industriel",
       "titleByLocale": {
-        "it": "Collaborateur·trice polyvalent·e - Entretien industriel",
+        "it": "Collaboratore polivalente- Manutenzione industriale",
         "en": "Multipurpose worker - Industrial maintenance",
         "de": "Mehrzweckarbeiter - Industrielle Instandhaltung",
         "fr": "Collaborateur·trice polyvalent·e - Entretien industriel"
@@ -885,7 +891,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Collaborateur%C2%B7trice-polyvalent%C2%B7e-Entretien-industriel-VD-1312/1373033457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:20.438Z",
+      "crawledAt": "2026-10-06T09:21:58.974Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -905,12 +911,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
-        "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens"
+        "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
-          "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens"
+          "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+          "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
         ],
         "en": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
@@ -919,7 +927,6 @@
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:23:13.251Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -933,7 +940,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-0c635c1fceff",
@@ -966,7 +974,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:19.949Z",
+      "crawledAt": "2026-10-06T09:22:03.801Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1005,7 +1013,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-1b0f4582da40",
@@ -1038,7 +1047,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/H%C3%BCntwangen-Baumaschinenf%C3%BChrerin-Allrounderin-Zuri-8194/1372320657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:19.444Z",
+      "crawledAt": "2026-10-06T09:22:02.825Z",
       "addressLocality": "Hüntwangen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1085,7 +1094,8 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8194"
     },
     {
       "id": "holcim-b7ca418e6d0a",
@@ -1118,7 +1128,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-GR-7204/1368625757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:18.937Z",
+      "crawledAt": "2026-10-06T09:22:05.746Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1183,7 +1193,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7204"
     },
     {
       "id": "holcim-113a217f6ab9",
@@ -1199,7 +1210,7 @@
       "companyDomain": "holcim.com",
       "title": "Installateur·trice électricien·ne 80-100%",
       "titleByLocale": {
-        "it": "Installatore elettrico 80-100%",
+        "it": "Installateur·trice électricien·ne 80-100%",
         "en": "Electrical equipment 80-100%",
         "de": "Elektrische Ausrüstung 80-100%",
         "fr": "Installateur·trice électricien·ne 80-100%"
@@ -1216,7 +1227,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:18.411Z",
+      "crawledAt": "2026-10-06T09:22:04.762Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1235,6 +1246,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:25:49.237Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1247,7 +1259,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-fd9804a1ae73",
@@ -1280,7 +1293,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:17.919Z",
+      "crawledAt": "2026-10-06T09:21:57.049Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1331,7 +1344,8 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5303"
     },
     {
       "id": "holcim-5c1d3cb4c66b",
@@ -1364,7 +1378,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:17.421Z",
+      "crawledAt": "2026-10-06T09:21:55.545Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1409,7 +1423,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5303"
     },
     {
       "id": "holcim-ca7c0c096d1c",
@@ -1442,7 +1457,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:16.944Z",
+      "crawledAt": "2026-10-06T09:21:59.458Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1485,7 +1500,8 @@
           "maxValue": 145000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "holcim-59fb64a4e193",
@@ -1518,7 +1534,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partnerin-1-1-VD-1312/1371554957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:16.446Z",
+      "crawledAt": "2026-10-06T09:21:58.001Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1545,6 +1561,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:46:49.064Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1557,7 +1574,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1312"
     },
     {
       "id": "holcim-1923f35816a3",
@@ -1590,7 +1608,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Manno-Autista-di-autobetoniera-a-chiamata-TI-6928/1370811157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T21:41:15.953Z",
+      "crawledAt": "2026-10-06T09:22:02.351Z",
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1609,6 +1627,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-31T17:18:45.490Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1621,7 +1640,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6928"
     },
     {
       "id": "holcim-408ddee49d0d",
@@ -1638,7 +1658,7 @@
       "title": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
       "titleByLocale": {
         "it": "Esperto in Tecnologia di Automazione e Controllo 80-100 %",
-        "en": "Expert in Automation and Control Technology 80-100 %",
+        "en": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "de": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "fr": "Expert en technologie d'automatisation et de contrôle 80-100 %"
       },
@@ -1654,7 +1674,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-ExperteExpertin-in-Automations-und-Steuerungstechnik-80-100-AG-5303/1367844357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:15.458Z",
+      "crawledAt": "2026-10-06T09:22:05.249Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1687,6 +1707,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:15:05.953Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1699,7 +1720,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5303"
     },
     {
       "id": "holcim-483a39ae878d",
@@ -1732,7 +1754,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-Automation-GR-7204/1369828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:14.972Z",
+      "crawledAt": "2026-10-06T09:21:56.038Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1771,7 +1793,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7204"
     },
     {
       "id": "holcim-9f6af8d160f9",
@@ -1804,7 +1827,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-&-Compliance-Officer-80-100-CH-%C2%AD8050/1372209557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:14.491Z",
+      "crawledAt": "2026-10-06T09:22:06.237Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1848,7 +1871,8 @@
           "maxValue": 225500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001"
     },
     {
       "id": "holcim-9ed5185c3577",
@@ -1881,7 +1905,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Projektleiterin-Mechanik-80-100-GR-7204/1371543657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:13.961Z",
+      "crawledAt": "2026-10-06T09:21:55.063Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1933,7 +1957,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7204"
     },
     {
       "id": "holcim-d568554a4494",
@@ -1966,7 +1991,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:13.481Z",
+      "crawledAt": "2026-10-06T09:22:00.413Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2000,6 +2025,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:58.460Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2012,7 +2038,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7204"
     },
     {
       "id": "holcim-16a9c4e06e7b",
@@ -2045,7 +2072,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Morges-Agent-de-transport-VD-1110/1371950357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:41:12.986Z",
+      "crawledAt": "2026-10-06T09:21:59.942Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2078,6 +2105,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:30.502Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2090,7 +2118,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1110"
     },
     {
       "id": "holcim-9c8bef513ca7",
@@ -2123,7 +2152,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Electrical-Engineering-Project-Manager-AG-5303/1354025757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:12.491Z",
+      "crawledAt": "2026-10-06T09:21:58.484Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2168,7 +2197,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5303"
     },
     {
       "id": "holcim-7c3fc27245d7",
@@ -2201,7 +2231,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:11.986Z",
+      "crawledAt": "2026-10-06T09:21:54.578Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2244,7 +2274,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5303"
     },
     {
       "id": "holcim-db6e7707f7be",
@@ -2277,7 +2308,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:11.498Z",
+      "crawledAt": "2026-10-06T09:21:54.089Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2324,7 +2355,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8200"
     },
     {
       "id": "holcim-a5e1119e0aec",
@@ -2357,7 +2389,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Luzern-Disponentin-6074/1369717057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:41:10.880Z",
+      "crawledAt": "2026-10-06T09:21:53.493Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2409,7 +2441,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "holcim-717d832b7306",
@@ -2442,7 +2475,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Process-Data-Scientist-6300/1373112557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:10.246Z",
+      "crawledAt": "2026-10-06T09:21:51.415Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2475,6 +2508,7 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:54:06.129Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2487,7 +2521,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-9da729e1acfd",
@@ -2520,7 +2555,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Intern-Analyst-6300/1373504257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:09.733Z",
+      "crawledAt": "2026-10-06T09:21:52.885Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2557,6 +2592,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:24:26.919Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2569,7 +2605,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-3cb1055f1396",
@@ -2602,7 +2639,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Operational-Technology-Engineer-6300/1373113757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:09.237Z",
+      "crawledAt": "2026-10-06T09:21:51.894Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2635,6 +2672,7 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:54:07.627Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2647,7 +2685,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-db0c08f8ab7b",
@@ -2680,7 +2719,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Head-of-Specification-Selling-6300/1367627357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:08.750Z",
+      "crawledAt": "2026-10-06T09:21:52.388Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2713,6 +2752,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:16:29.770Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2725,7 +2765,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-584336dcc939",
@@ -2758,7 +2799,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Regional-Security-Manager-Europe-%28EUCE%2C-EUW%29-6300/1355606057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:08.256Z",
+      "crawledAt": "2026-10-06T09:21:50.369Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2791,6 +2832,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:58:45.320Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2803,7 +2845,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-dd1b84f7d066",
@@ -2836,7 +2879,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Electrical-and-Automation-Engineer-6300/1372834057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:07.752Z",
+      "crawledAt": "2026-10-06T09:21:50.867Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2869,6 +2912,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:45:52.692Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2881,7 +2925,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-7f6b305a95c9",
@@ -2914,7 +2959,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Category-Manager-Production-Services-6300/1373697257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:41:07.230Z",
+      "crawledAt": "2026-10-06T09:21:49.866Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2958,7 +3003,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "holcim-8e2e3d363a3c",
@@ -3043,7 +3089,8 @@
       },
       "datePosted": "2026-09-16T02:00:00Z",
       "postingDateSource": "reported",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "postalCode": "5243"
     }
   ]
 }

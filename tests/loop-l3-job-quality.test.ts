@@ -124,6 +124,18 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.issues.join(' ')).toContain('duplicate identity');
   });
 
+  it('rejects a duplicate identity inside one evidence list', () => {
+    const verdict = validateJobSummaries([summary({
+      total: 2,
+      newCount: 0,
+      updatedCount: 2,
+      newJobs: [],
+      updatedJobs: [job(), job({ title: 'Operatore logistico aggiornato' })],
+    })], { outcomes: outcomes(), now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('duplicate identity id:job-1');
+  });
+
   it('rejects an inconsistent active total and never measures its outcome', async () => {
     const inconsistent = summary({
       total: 2,

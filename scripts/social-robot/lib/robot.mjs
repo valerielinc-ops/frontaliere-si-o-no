@@ -373,8 +373,9 @@ export async function runRobot(deps) {
         }
       } catch (raw) {
         const error = classifyError(raw);
-        // Second layer behind the flows' own marking: an error raised at or
-        // after the press step is a press, whatever the error says.
+        // Second layer behind the flows' own marking: an error in the
+        // confirmation step is a press; the publish step is still before the
+        // click marker and must stay retryable when that click was blocked.
         if (PRESSED_STEPS.includes(error.step)) error.pressed = true;
         const outcome = error.pressed ? 'unconfirmed' : 'error';
         journal.attempts.push({

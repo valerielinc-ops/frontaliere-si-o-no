@@ -44,6 +44,7 @@ const SEO_PAGES = read('services/seo/seo-pages.ts');
 const STATIC_PAGES_PLUGIN = read('build-plugins/staticPagesPlugin.ts');
 const BLOG_ARTICLES = read('components/community/BlogArticles.tsx');
 const SEO_SERVICE = read('services/seoService.ts');
+const JOB_MARKET_SNAPSHOT = read('build-plugins/jobMarketSnapshotPlugin.ts');
 // Corpus pubblicato (`packages/articles/content/`, riscritto dal sync del
 // corpus): letto solo dentro il caso che lo verifica, che nel gate PR salta con
 // SKIP_LIVE_DATA e gira nel monitor dei dati vivi (live-data-test-guard).
@@ -285,6 +286,11 @@ describe('the canonical #organization entity', () => {
       anonymousSiteOrganizations(read(file)).map((hit) => `${file} ${hit}`),
     );
     expect(offenders).toEqual([]);
+  });
+
+  it('uses the canonical site logo in job-market snapshot publishers', () => {
+    expect(JOB_MARKET_SNAPSHOT).toContain('${BASE_URL}/icons/icon-512x512.png');
+    expect(JOB_MARKET_SNAPSHOT).not.toContain('${BASE_URL}/logo-512.png');
   });
 
   it('emitters never put the Google-rejected news subtype in @type', () => {

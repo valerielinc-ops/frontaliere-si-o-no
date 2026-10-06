@@ -964,16 +964,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-iniziativa-anti-dumping-voto': {
- title: 'Ticino al voto sull\'iniziativa | Frontaliere Ticino',
+ title: 'Voto anti-dumping in Ticino: proposta e impatto',
  description: 'L\'8 marzo 2026 il Ticino vota sull\'iniziativa anti-dumping salariale. Scopri cosa prevede, l\'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano',
  keywords: 'frontalieri, ticino, svizzera, italia, voto, sull, iniziativa, anti-dumping',
- ogTitle: 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
+ ogTitle: 'Voto anti-dumping in Ticino: proposta e impatto',
  ogDescription: 'L\'8 marzo 2026 il Ticino vota per blindare i salari. Un\'analisi completa dell\'iniziativa anti-dumping e del suo impatto sui frontalieri e l\'economia cantonale.',
  canonicalPath: '/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iniziativa anti-dumping salariale in Ticino al voto",
+ "headline": "Voto anti-dumping in Ticino: proposta e impatto",
  "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping salariale. Scopri cosa prevede, l'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-anti-dumping-voto.webp`,

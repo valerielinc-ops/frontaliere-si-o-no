@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-05T21:26:02.212Z",
+  "generatedAt": "2026-10-06T09:12:45.877Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5326,
-  "avgDurationMs": 5326,
+  "durationMs": 4132,
+  "avgDurationMs": 4132,
   "durationHistory": [
-    5326
+    4132
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vaxcyte-dfe11ab55bc0",
-      "slug": "senior-manager-quality-control-operations-global-analytics-vaxcyte-ch",
+      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -34,11 +35,11 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:25:46.217Z",
+      "crawledAt": "2026-10-06T09:12:21.177Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "postalCode": "1950",
+      "postalCode": "3930",
       "country": "CH",
       "category": "Produzione",
       "contract": "full-time",
@@ -57,20 +58,19 @@
         "location": "Visp"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:25:46.217Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T21:25:46.217Z",
-      "_qualityScore": 80,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,11 +85,11 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:25:46.247Z",
+      "crawledAt": "2026-10-06T09:12:21.202Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "postalCode": "1950",
+      "postalCode": "3930",
       "country": "CH",
       "category": "Ingegneria",
       "contract": "full-time",
@@ -132,11 +132,11 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:25:46.241Z",
+      "crawledAt": "2026-10-06T09:12:21.200Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "postalCode": "1950",
+      "postalCode": "3930",
       "country": "CH",
       "category": "Ingegneria",
       "contract": "full-time",
@@ -179,11 +179,11 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:25:46.213Z",
+      "crawledAt": "2026-10-06T09:12:21.174Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "postalCode": "1950",
+      "postalCode": "3930",
       "country": "CH",
       "category": "Qualità",
       "contract": "full-time",
@@ -226,11 +226,11 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:25:46.206Z",
+      "crawledAt": "2026-10-06T09:12:21.170Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "postalCode": "1950",
+      "postalCode": "3930",
       "country": "CH",
       "category": "Produzione",
       "contract": "contract",
@@ -261,5 +261,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

@@ -1,56 +1,20 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-05T21:26:29.932Z",
+  "generatedAt": "2026-10-06T09:18:59.109Z",
   "total": 16,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 4785,
-  "avgDurationMs": 4785,
+  "unchangedCount": 13,
+  "durationMs": 5845,
+  "avgDurationMs": 5845,
   "durationHistory": [
-    4785
+    5845
   ],
-  "newJobs": [
-    {
-      "title": "(preferibile) o Architettura;",
-      "slug": "preferibile-o-architettura-lwp-ledermann-wieting-partners-switzerland",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "id": "lwphr-df739a9c239c",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T21:26:24.362Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 13
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
@@ -83,12 +47,13 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "7500",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -155,17 +120,52 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "6900",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "(preferibile) o Architettura;",
+      "slug": "preferibile-o-architettura-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-df739a9c239c",
+      "firstSeenAt": "2026-10-05T21:26:24.362Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 13
+      }
+    },
     {
       "title": "Per conto di una società cliente siamo alla ricerca di un:",
       "slug": "per-conto-di-una-societa-cliente-siamo-alla-ricerca-di-un-lwp-ledermann-wieting-partners-switzerland",
@@ -402,12 +402,13 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "6900",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -583,5 +584,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

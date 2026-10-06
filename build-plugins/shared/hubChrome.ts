@@ -511,7 +511,10 @@ function buildSubTabHref(hub: HubKey, spec: SubTabSpec, locale: HubLocale): stri
 // ── Hero ───────────────────────────────────────────────────────
 
 const HERO_GRADIENT: Record<HubHeroVariant, string> = {
-  green: 'background:linear-gradient(135deg,#10b981 0%,#059669 100%);color:#fff',
+  // Keep both ends dark enough for the inherited white hero text (WCAG AA).
+  // The previous #10b981 → #059669 gradient fell below 4.5:1 across most of
+  // the hero, which surfaced as a color-contrast warning on the comparisons hub.
+  green: 'background:linear-gradient(135deg,#047857 0%,#065f46 100%);color:#fff',
   blue: 'background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);color:#fff',
   purple: 'background:linear-gradient(135deg,#7c3aed 0%,#6d28d9 100%);color:#fff',
 };

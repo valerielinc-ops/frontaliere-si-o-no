@@ -246,10 +246,39 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     expect(src.includes('/contratti-lavoro-frontalieri/')).toBe(true);
   });
 
-  it('source declares COST_OF_LIVING_LINKS for the 4 cost-of-living orphans', () => {
+  it('source declares COST_OF_LIVING_LINKS for every generated cost-of-living landing', () => {
     expect(src.includes('COST_OF_LIVING_LINKS')).toBe(true);
     expect(src.includes('/costo-vita-lugano-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-mendrisio-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-chiasso-ticino/')).toBe(true);
     expect(src.includes('/costo-vita-bellinzona-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-locarno-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-ticino/')).toBe(true);
+  });
+
+  it('source declares localized contextual links for every cost-of-living landing', () => {
+    for (const path of [
+      '/en/cost-of-living-lugano-ticino/',
+      '/en/cost-of-living-mendrisio-ticino/',
+      '/en/cost-of-living-chiasso-ticino/',
+      '/en/cost-of-living-bellinzona-ticino/',
+      '/en/cost-of-living-locarno-ticino/',
+      '/en/cost-of-living-ticino/',
+      '/de/lebenshaltungskosten-lugano-tessin/',
+      '/de/lebenshaltungskosten-mendrisio-tessin/',
+      '/de/lebenshaltungskosten-chiasso-tessin/',
+      '/de/lebenshaltungskosten-bellinzona-tessin/',
+      '/de/lebenshaltungskosten-locarno-tessin/',
+      '/de/lebenshaltungskosten-tessin/',
+      '/fr/cout-vie-lugano-tessin/',
+      '/fr/cout-vie-mendrisio-tessin/',
+      '/fr/cout-vie-chiasso-tessin/',
+      '/fr/cout-vie-bellinzona-tessin/',
+      '/fr/cout-vie-locarno-tessin/',
+      '/fr/cout-vie-tessin/',
+    ]) {
+      expect(src.includes(path), `localized cost-of-living link missing: ${path}`).toBe(true);
+    }
   });
 
   it('source declares NURSING_LINKS for the 3 nursing orphans', () => {

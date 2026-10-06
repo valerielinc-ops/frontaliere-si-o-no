@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-05T21:22:29.996Z",
+  "generatedAt": "2026-10-06T09:18:19.645Z",
   "total": 27,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 24,
-  "durationMs": 11001,
-  "avgDurationMs": 11001,
+  "durationMs": 12974,
+  "avgDurationMs": 12974,
   "durationHistory": [
-    11001
+    12974
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,7 +56,7 @@
       "salaryMax": 150000,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-03T13:26:59.347Z",
       "salarySource": "reported",
@@ -207,7 +207,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
@@ -321,7 +321,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.163Z",
+      "crawledAt": "2026-10-06T09:18:06.796Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -334,12 +334,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6488",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "1201",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -425,7 +426,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.161Z",
+      "crawledAt": "2026-10-06T09:18:06.794Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14T16:10:22+00:00",
@@ -438,12 +439,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6456",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "1201",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -562,7 +564,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.156Z",
+      "crawledAt": "2026-10-06T09:18:06.790Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -619,7 +621,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.149Z",
+      "crawledAt": "2026-10-06T09:18:06.783Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13T15:55:36+00:00",
@@ -632,12 +634,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6413",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "1201",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -674,14 +677,14 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.146Z",
+      "crawledAt": "2026-10-06T09:18:06.780Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-28T12:24:37.370Z",
@@ -802,14 +805,14 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.143Z",
+      "crawledAt": "2026-10-06T09:18:06.776Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
@@ -860,7 +863,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.139Z",
+      "crawledAt": "2026-10-06T09:18:06.772Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -991,7 +994,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.125Z",
+      "crawledAt": "2026-10-06T09:18:06.754Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1119,7 +1122,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.118Z",
+      "crawledAt": "2026-10-06T09:18:06.749Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25T07:07:02+00:00",
@@ -1130,12 +1133,13 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-25T14:39:21.479Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "8001",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1193,7 +1197,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T21:22:21.067Z",
+      "crawledAt": "2026-10-06T09:18:06.711Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-29T15:25:56+00:00",
@@ -1204,12 +1208,13 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-29T21:12:54.926Z",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "1201",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1365,7 +1370,7 @@
       "salaryMax": 306000,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
       "salarySource": "estimated",
@@ -1482,12 +1487,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "1201",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1606,7 +1612,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
@@ -1737,12 +1743,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1861,12 +1868,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1910,7 +1918,7 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-20T22:46:49.521Z",
@@ -2074,7 +2082,7 @@
       "salaryMax": 107500,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-24T11:14:17.928Z",
       "salarySource": "estimated",
@@ -2371,7 +2379,7 @@
       "salaryMax": 91500,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "salarySource": "estimated",
@@ -2621,12 +2629,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6142",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -2670,7 +2679,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
@@ -2688,5 +2697,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

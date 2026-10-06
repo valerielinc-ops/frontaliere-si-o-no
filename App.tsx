@@ -4221,7 +4221,7 @@ const App: React.FC = () => {
  key={tab}
  href={buildPath({ activeTab: tab })}
  onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
- className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
+ className={`relative flex min-h-[44px] flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
  isActive ? 'text-accent' : 'text-tab-inactive-text'
  }`}
  >

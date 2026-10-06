@@ -25,25 +25,52 @@
       "fr": "jurist-in-confederazione-bern"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-10-05T21:57:12.398Z",
+    "expiredAt": "2026-10-06T09:51:08.670Z",
     "previousSlugs": [
       "jurist-in-confederazione-bern",
-      "jurist-in-confederazione-svizzera-bern-bw4wll",
-      "jurist-in-confederazione-svizzera-bern"
+      "jurist-in-confederazione-svizzera-bern",
+      "jurist-in-confederazione-svizzera-bern-no38qa",
+      "lawyer-confederazione-svizzera-bern",
+      "jurist-in-confederazione-bern-no38qa",
+      "avocat-confederazione-svizzera-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
         "jurist-in-confederazione-bern",
-        "jurist-in-confederazione-svizzera-bern-bw4wll"
+        "jurist-in-confederazione-svizzera-bern-no38qa"
+      ],
+      "en": [
+        "lawyer-confederazione-svizzera-bern",
+        "jurist-in-confederazione-bern-no38qa"
+      ],
+      "de": [
+        "jurist-in-confederazione-bern-no38qa"
+      ],
+      "fr": [
+        "avocat-confederazione-svizzera-bern",
+        "jurist-in-confederazione-bern-no38qa"
       ]
     },
+    "postalCode": "3004",
     "salaryMin": 78500,
     "salaryMax": 134500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/eb2c39de-46fa-40a4-be9a-e10f97b293d0",
-    "firstSeenAt": "2026-09-23T23:59:04.439Z"
+    "firstSeenAt": "2026-09-23T23:59:04.439Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/7c26e98b-0e69-4a7a-818c-9c3b6c7a9fc4",
+        "firstSeenAt": "2026-09-23T23:59:04.439Z",
+        "title": "Jurist/-in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/eb2c39de-46fa-40a4-be9a-e10f97b293d0",
+        "firstSeenAt": "2026-09-23T23:59:04.439Z",
+        "title": "Jurist/-in"
+      }
+    ]
   },
   {
     "slug": "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft",
@@ -71,20 +98,19 @@
       "fr": "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-10-05T21:57:12.398Z",
+    "expiredAt": "2026-10-06T09:51:08.670Z",
     "previousSlugs": [
       "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
-      "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft",
       "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern",
       "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62"
     ],
     "previousSlugsByLocale": {
       "it": [
         "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
-        "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft",
         "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62"
       ]
     },
+    "postalCode": "3004",
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",

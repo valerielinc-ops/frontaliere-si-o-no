@@ -1,102 +1,20 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-05T21:36:16.076Z",
+  "generatedAt": "2026-10-06T09:26:41.921Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 9,
-  "durationMs": 21513,
-  "avgDurationMs": 21513,
+  "removedCount": 0,
+  "unchangedCount": 10,
+  "durationMs": 21855,
+  "avgDurationMs": 21855,
   "durationHistory": [
-    21513
+    21855
   ],
-  "newJobs": [
-    {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-st-gallen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-aa68475ac16c",
-      "needsRetranslation": true,
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Communication Manager | Team Support (Ascona/Lugano)",
-      "slug": "communication-manager-team-support-ascona-lugano-engel-voelkers-lugano",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/dd5f005f-a14a-4e75-9f03-58d49b724f88",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/dd5f005f-a14a-4e75-9f03-58d49b724f88",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "marketing",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-be988d8bd39a",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Nassa 17",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-08-31T17:16:34.884Z",
-      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/dd5f005f-a14a-4e75-9f03-58d49b724f88",
-      "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -124,7 +42,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
-      "postalCode": "5000",
+      "postalCode": "4310",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8e22d987-4b2a-4689-ac1e-79592a539204",
@@ -165,7 +83,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
-      "postalCode": "5000",
+      "postalCode": "4410",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/240930ab-8370-4948-a7a8-7f560c687f1e",
@@ -206,7 +124,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
-      "postalCode": "5000",
+      "postalCode": "4144",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/41644f6d-45ce-4d3e-842f-411bdc2a50e6",
@@ -253,12 +171,13 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "8180",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -333,12 +252,13 @@
       "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/3a5547d3-87bc-4ff8-92a2-6637e2b635c7",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "8200",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -373,12 +293,13 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "postalCode": "9000",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -412,12 +333,13 @@
       "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "8500",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -451,14 +373,54 @@
       "firstSeenAt": "2026-09-28T21:20:02.340Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 81,
+      "postalCode": "8200",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-st-gallen",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-aa68475ac16c",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

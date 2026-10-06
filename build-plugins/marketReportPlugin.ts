@@ -469,13 +469,13 @@ interface RenderedReport {
   wordCount: number;
 }
 
-function renderTable(headers: string[], rows: string[][]): string {
-  const h = headers.map((x) => `<th class="s-thd">${esc(x)}</th>`).join('');
+function renderTable(headers: string[], rows: string[][], accessibleName: string): string {
+  const h = headers.map((x) => `<th scope="col" class="s-thd">${esc(x)}</th>`).join('');
   const body = rows.map((r) => {
     const tds = r.map((c, idx) => `<td class="s-tcl"${idx === 0 ? ' style="font-weight:600"' : ''}>${c}</td>`).join('');
     return `<tr>${tds}</tr>`;
   }).join('');
-  return `<div class="s-Itl8IE"><table class="s-wkGd-4"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="s-Itl8IE"><table class="s-wkGd-4" aria-label="${esc(accessibleName)}"><caption class="sr-only">${esc(accessibleName)}</caption><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function renderReport(opts: {
@@ -560,10 +560,10 @@ function renderReport(opts: {
   });
 
   const topEmployersTable = topEmployers.length > 0
-    ? renderTable([copy.rankLabel, copy.employerLabel, copy.openingsLabel], topEmployersRows)
+    ? renderTable([copy.rankLabel, copy.employerLabel, copy.openingsLabel], topEmployersRows, copy.topEmployersH2)
     : '';
   const topCitiesTable = topCities.length > 0
-    ? renderTable([copy.rankLabel, copy.cityLabel, copy.openingsLabel], topCitiesRows)
+    ? renderTable([copy.rankLabel, copy.cityLabel, copy.openingsLabel], topCitiesRows, copy.topCitiesH2)
     : '';
 
   const topSalaryCompaniesRows = topSalaryCompanies.map((e, i) => [
@@ -579,10 +579,10 @@ function renderReport(opts: {
     return [`#${i + 1}`, cell, esc(formatCHF(l.avgMid))];
   });
   const topSalaryCompaniesTable = topSalaryCompanies.length > 0
-    ? renderTable([copy.rankLabel, copy.employerLabel, copy.avgSalaryLabel], topSalaryCompaniesRows)
+    ? renderTable([copy.rankLabel, copy.employerLabel, copy.avgSalaryLabel], topSalaryCompaniesRows, copy.topSalaryCompaniesH3)
     : '';
   const topSalaryLocationsTable = topSalaryLocations.length > 0
-    ? renderTable([copy.rankLabel, copy.cityLabel, copy.avgSalaryLabel], topSalaryLocationsRows)
+    ? renderTable([copy.rankLabel, copy.cityLabel, copy.avgSalaryLabel], topSalaryLocationsRows, copy.topSalaryLocationsH3)
     : '';
 
   // Embed snippet — allows other sites to paste this on their pages.
