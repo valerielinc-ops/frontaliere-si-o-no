@@ -134,6 +134,68 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('twitter:title');
   });
 
+  it('ignores social preview meta inside comments, templates, and scripts', async () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><meta property="og:title" content="Stale template title"></template>' +
+        '<!-- <meta property="og:description" content="Stale comment description"> -->' +
+        '<script>const fake = \'<meta property="og:image" content="https://example.test/fake.webp">\';</script>' +
+        '<meta property="og:title" content="Live title">' +
+        '<meta property="og:description" content="Live description">' +
+        '</head><body>canonical</body></html>',
+    );
+
+    await runPluginCloseBundle(fixture.tmpRoot);
+
+    const bridge = fs.readFileSync(fixture.flatFile, 'utf-8');
+    expect(bridge).toContain('<meta property="og:title" content="Live title">');
+    expect(bridge).toContain('<meta property="og:description" content="Live description">');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment description');
+    expect(bridge).not.toContain('https://example.test/fake.webp');
+  });
+
+  it('uses the active title in the full-build transform', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><title>Stale template title</title></template>' +
+        '<!-- <title>Stale comment title</title> -->' +
+        '<title>Live title</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<title>Live title</title>');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment title');
+  });
+
+  it('masks nested inactive templates in bridge title and OG extraction', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><template>' +
+        '<meta property="og:title" content="inner-stale">' +
+        '</template><meta property="og:title" content="outer-stale">' +
+        '<title>outer-stale</title></template>' +
+        '<meta property="og:title" content="active">' +
+        '<title>active</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<meta property="og:title" content="active">');
+    expect(bridge).toContain('<title>active</title>');
+    expect(bridge).not.toContain('inner-stale');
+    expect(bridge).not.toContain('outer-stale');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing
