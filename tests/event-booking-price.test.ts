@@ -156,4 +156,25 @@ describe('official event booking tariffs', () => {
     const response = { ok: true, status: 200, headers: new Headers(), body: { getReader: () => reader, cancel: async () => {} } };
     expect((await fetchEventBookingPrice(event, bookingUrl, { fetchImpl: vi.fn().mockResolvedValue(response) }))?.amount).toBe(0);
   });
+
+  it('cancels an invalid streamed chunk before returning an unknown price', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '{"invalid":true}' }),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader), cancel: vi.fn() },
+    };
+    const fetchImpl = vi.fn().mockResolvedValue(response);
+    await expect(fetchEventBookingPrice(event, bookingUrl, { fetchImpl })).resolves.toBeUndefined();
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
+  });
 });

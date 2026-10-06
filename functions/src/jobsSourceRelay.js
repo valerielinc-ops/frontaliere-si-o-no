@@ -297,6 +297,7 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
   let bytes = 0;
   if (response?.body?.getReader) {
     const reader = response.body.getReader();
+    const tooLarge = new Error('upstream_response_too_large');
     const cancelOnAbort = () => {
       void reader.cancel().catch(() => {});
     };
@@ -314,14 +315,17 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
           : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength));
         bytes += chunk.length;
         if (bytes > maxBytes) {
-          await reader.cancel();
-          return { tooLarge: true, bytes };
+          throw tooLarge;
         }
         chunks.push(chunk);
       }
+    } catch (error) {
+      try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+      if (error === tooLarge) return { tooLarge: true, bytes };
+      throw error;
     } finally {
       signal?.removeEventListener('abort', cancelOnAbort);
-      reader.releaseLock?.();
+      try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
     }
     return { tooLarge: false, bytes, body: Buffer.concat(chunks, bytes) };
   }
