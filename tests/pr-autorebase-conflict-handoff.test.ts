@@ -6,6 +6,9 @@ import {
   shouldHandOffConflict,
   agentPrConflictNeedsHandOff,
   isAgentOwnedPr,
+  CONFLICT_RESOLUTION_LOCK_LABEL,
+  CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+  decideConflictResolutionLock,
   handoffIssuesForOrigin,
   createHandoffIssueIndex,
   planConflictHandoff,
@@ -252,6 +255,65 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     // `null` = merge-tree non verificabile: fail-closed.
     expect(agentPrConflictNeedsHandOff({ conflicted: null, nearMerge: false, labels: agent })).toBe(false);
     expect(agentPrConflictNeedsHandOff({ conflicted: false, nearMerge: false, labels: agent })).toBe(false);
+  });
+
+  it('un lock agent:resolving-conflict valido sospende il passaggio di mano', () => {
+    expect(agentPrConflictNeedsHandOff({
+      conflicted: true,
+      nearMerge: false,
+      labels: ['agent:autofix', CONFLICT_RESOLUTION_LOCK_LABEL],
+    })).toBe(false);
+  });
+
+  describe('lock a tempo', () => {
+    const lockedAt = Date.parse('2026-10-06T09:00:00Z');
+    const event = (name: 'labeled' | 'unlabeled', at: string) => ({
+      event: name,
+      label: { name: CONFLICT_RESOLUTION_LOCK_LABEL },
+      created_at: at,
+    });
+
+    it('scade dopo 60 minuti e lascia ripartire il hand-off', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [CONFLICT_RESOLUTION_LOCK_LABEL],
+        events: [event('labeled', '2026-10-06T09:00:00Z')],
+        headCommittedAt: '2026-10-06T09:01:00Z',
+        now: lockedAt + CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+      });
+      expect(decision).toMatchObject({ state: 'expired', release: true, lockedAt });
+      expect(shouldHandOffConflict({
+        lgtm: false,
+        agentOwned: true,
+        alreadyHandedOff: false,
+        conflictLockState: decision.state,
+      })).toBe(true);
+    });
+
+    it('rimuove il lock al primo push successivo', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [CONFLICT_RESOLUTION_LOCK_LABEL],
+        events: [event('labeled', '2026-10-06T09:00:00Z')],
+        headCommittedAt: '2026-10-06T09:02:00Z',
+        now: '2026-10-06T09:10:00Z',
+      });
+      expect(decision).toMatchObject({ state: 'pushed', release: true, lockedAt });
+    });
+
+    it('senza lock mantiene il comportamento precedente', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [],
+        events: [],
+        headCommittedAt: '2026-10-06T09:01:00Z',
+        now: '2026-10-06T09:10:00Z',
+      });
+      expect(decision).toEqual({ state: 'none', release: false });
+      expect(shouldHandOffConflict({
+        lgtm: false,
+        agentOwned: true,
+        alreadyHandedOff: false,
+        conflictLockState: decision.state,
+      })).toBe(true);
+    });
   });
 
   it('la issue senza LGTM ha un titolo proprio e non promette un contributo approvato', () => {
