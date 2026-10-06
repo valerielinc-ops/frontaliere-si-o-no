@@ -11,8 +11,8 @@ describe('analytics-report machine-readable output', () => {
     expect(jsonOutput).toBeGreaterThan(-1);
     expect(finalFlush).toBeGreaterThan(jsonOutput);
 
-    const afterFlush = source.slice(finalFlush, finalFlush + 240);
+    const afterFlush = source.slice(finalFlush, finalFlush + 400);
     expect(afterFlush).toContain('\n  return;');
-    expect(afterFlush).not.toContain('process.exit(0)');
+    expect(afterFlush).not.toMatch(/\n\s*process\.exit\(0\);/);
   });
 });
