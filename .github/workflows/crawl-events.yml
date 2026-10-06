@@ -59,11 +59,6 @@ permissions:
 jobs:
   crawl-events:
     runs-on: ubuntu-latest
-    env:
-      # The crawlers may feed the rewrite backlog, but the raw input must stay
-      # outside the checkout and is uploaded only as a short-lived private
-      # artifact. The checkpoint boundary strips it before any git write.
-      EVENT_DESCRIPTION_SOURCE_EXPORT_PATH: ${{ runner.temp }}/event-description-sources.jsonl
     # 12 min was enough for the single TI-only tio-agenda crawl before
     # #3415's in-crawler geo/translation enrichment. That enrichment's
     # one-time backlog pass (every pre-existing event needs geocoding +
@@ -96,6 +91,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Configure private event-description export path
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: echo "EVENT_DESCRIPTION_SOURCE_EXPORT_PATH=$RUNNER_TEMP/event-description-sources.jsonl" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials for push auth
         if: inputs.dry_run != true && inputs.dry_run != 'true'
