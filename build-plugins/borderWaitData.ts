@@ -69,6 +69,26 @@ export type BorderCrossingSlug =
   | 'dumenza-cassinone'
   | 'camedo'
   | 'piaggio-valmara'
+  // Francia — Basel-Landschaft/Soletta/Basilea Città
+  | 'biel-benken-leymen'
+  | 'neuwiller-benken'
+  | 'neuwiller-allschwil'
+  | 'neuwiller-schonenbuch'
+  | 'allschwil-hegenheim'
+  | 'battwil-leymen'
+  | 'rodersdorf-leymen'
+  | 'rodersdorf-biederthal'
+  | 'kleinlutzel-kiffis'
+  | 'basel-saint-louis-a35'
+  | 'basel-bourgfelden-burgfelderstrasse'
+  | 'basel-saint-louis-elsasserstrasse'
+  | 'basel-saint-louis-flughafenstrasse'
+  | 'basel-huningue-kohlenstrasse'
+  // Francia — Giura
+  | 'lucelle'
+  | 'miecourt-courtavon'
+  // Italia — Grigioni
+  | 'mustair-taufers'
   // Germania (issue #4889, corridor 1 of 4)
   | 'basel-weil-am-rhein-hiltalingerstrasse'
   | 'basel-weil-am-rhein-autostrada-a2-a5'
@@ -237,8 +257,9 @@ export type BorderCrossingSlug =
  *     it. `REGION_TO_COUNTRY[r] === 'IT'` is NOT the same question — see
  *     the `TICINO_REGIONS` doc comment.
  *
- * As of #4545 every crossing in `data/borderCrossings.ts` (143) is mirrored
- * here — the registry is complete, not a subset. The Grigioni/Vallese
+ * As of BORDER2 every crossing in `data/borderCrossings.ts` (160) is mirrored
+ * here; the change adds 17 verified crossings and keeps the registry complete,
+ * not a subset. The Grigioni/Vallese
  * crossings (Spluga, Gran San Bernardo, Sempione, …) that this file used to
  * call out as a known gap are now wired; if you add a crossing to the
  * dataset, `tests/border-wait-italian-corridor-scope.test.ts` fails until
@@ -249,6 +270,7 @@ export type BorderCrossingRegion =
   | 'ticino-varese'
   | 'ticino-verbano'
   | 'basilea-germania'
+  | 'basilea-francia'
   | 'argovia-germania'
   | 'zurigo-germania'
   | 'sciaffusa-germania'
@@ -300,7 +322,7 @@ export function isTicinoRegion(region: BorderCrossingRegion): boolean {
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /**
- * Full crossing registry (143, the complete data/borderCrossings.ts set)
+ * Full crossing registry (160, the complete data/borderCrossings.ts set)
  * — must match ALL_BORDER_CROSSING_IDS in
  * router.ts. New crossing → append its slug here too (see "Adding a new
  * crossing" checklist above BorderCrossingRegion, step 5).
@@ -332,6 +354,24 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'dumenza-cassinone',
   'camedo',
   'piaggio-valmara',
+  // Francia — BL (5), SO (4), BS (5)
+  'biel-benken-leymen',
+  'neuwiller-benken',
+  'neuwiller-allschwil',
+  'neuwiller-schonenbuch',
+  'allschwil-hegenheim',
+  'battwil-leymen',
+  'rodersdorf-leymen',
+  'rodersdorf-biederthal',
+  'kleinlutzel-kiffis',
+  'basel-saint-louis-a35',
+  'basel-bourgfelden-burgfelderstrasse',
+  'basel-saint-louis-elsasserstrasse',
+  'basel-saint-louis-flughafenstrasse',
+  'basel-huningue-kohlenstrasse',
+  // Francia — JU (2)
+  'lucelle',
+  'miecourt-courtavon',
   // Germania — BS (7)
   'basel-weil-am-rhein-hiltalingerstrasse',
   'basel-weil-am-rhein-autostrada-a2-a5',
@@ -461,6 +501,7 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'tunnel-munt-la-schera',
   'forcola-di-livigno',
   'giogo-di-santa-maria',
+  'mustair-taufers',
   // Italia — VS (2)
   'sempione',
   'traforo-del-gran-san-bernardo',
@@ -508,6 +549,22 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'dumenza-cassinone': 'Dumenza Cassinone',
   camedo: 'Camedo (Re-Centovalli)',
   'piaggio-valmara': 'Piaggio Valmara (Cannobio-Brissago)',
+  'biel-benken-leymen': 'Biel-Benken – Leymen',
+  'neuwiller-benken': 'Neuwiller – Benken',
+  'neuwiller-allschwil': 'Neuwiller – Allschwil',
+  'neuwiller-schonenbuch': 'Neuwiller – Schönenbuch',
+  'allschwil-hegenheim': 'Allschwil – Hégenheim',
+  'battwil-leymen': 'Bättwil – Leymen',
+  'rodersdorf-leymen': 'Rodersdorf – Leymen',
+  'rodersdorf-biederthal': 'Rodersdorf – Biederthal',
+  'kleinlutzel-kiffis': 'Kleinlützel – Kiffis',
+  'basel-saint-louis-a35': 'Basel – Saint-Louis, A35',
+  'basel-bourgfelden-burgfelderstrasse': 'Basel – Bourgfelden, Burgfelderstrasse',
+  'basel-saint-louis-elsasserstrasse': 'Basel – Saint-Louis, Elsässerstrasse',
+  'basel-saint-louis-flughafenstrasse': 'Basel – Saint-Louis, Flughafenstrasse',
+  'basel-huningue-kohlenstrasse': 'Basel – Huningue, Kohlenstrasse',
+  lucelle: 'Lucelle',
+  'miecourt-courtavon': 'Miécourt – Courtavon',
   'basel-weil-am-rhein-hiltalingerstrasse': 'Basel – Weil am Rhein, Hiltalingerstrasse',
   'basel-weil-am-rhein-autostrada-a2-a5': 'Basel – Weil am Rhein, Autostrada A2/A5',
   'basel-weil-am-rhein-freiburgerstrasse': 'Basel – Weil am Rhein, Freiburgerstrasse',
@@ -624,6 +681,7 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'tunnel-munt-la-schera': 'Tunnel Munt La Schera (Passo del Gallo)',
   'forcola-di-livigno': 'Forcola di Livigno',
   'giogo-di-santa-maria': "Giogo di Santa Maria (Passo dell'Umbrail)",
+  'mustair-taufers': 'Müstair – Taufers',
   sempione: 'Sempione (Iselle-Gondo)',
   'traforo-del-gran-san-bernardo': 'Traforo del Gran San Bernardo',
   'widnau-lustenau-schmitterbrucke': 'Widnau-Lustenau (Schmitterbrücke)',
@@ -663,6 +721,20 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'dumenza-cassinone': 'ticino-varese',
   camedo: 'ticino-verbano',
   'piaggio-valmara': 'ticino-verbano',
+  'biel-benken-leymen': 'basilea-francia',
+  'neuwiller-benken': 'basilea-francia',
+  'neuwiller-allschwil': 'basilea-francia',
+  'neuwiller-schonenbuch': 'basilea-francia',
+  'allschwil-hegenheim': 'basilea-francia',
+  'battwil-leymen': 'basilea-francia',
+  'rodersdorf-leymen': 'basilea-francia',
+  'rodersdorf-biederthal': 'basilea-francia',
+  'kleinlutzel-kiffis': 'basilea-francia',
+  'basel-saint-louis-a35': 'basilea-francia',
+  'basel-bourgfelden-burgfelderstrasse': 'basilea-francia',
+  'basel-saint-louis-elsasserstrasse': 'basilea-francia',
+  'basel-saint-louis-flughafenstrasse': 'basilea-francia',
+  'basel-huningue-kohlenstrasse': 'basilea-francia',
   'basel-weil-am-rhein-hiltalingerstrasse': 'basilea-germania',
   'basel-weil-am-rhein-autostrada-a2-a5': 'basilea-germania',
   'basel-weil-am-rhein-freiburgerstrasse': 'basilea-germania',
@@ -768,6 +840,8 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'boncourt-delle': 'giura-francia',
   'fahy-abbevillers': 'giura-francia',
   goumois: 'giura-francia',
+  lucelle: 'giura-francia',
+  'miecourt-courtavon': 'giura-francia',
   'le-chatelard-vallorcine': 'vallese-francia',
   'saint-gingolph': 'vallese-francia',
   'morgins-chatel': 'vallese-francia',
@@ -778,6 +852,7 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'tunnel-munt-la-schera': 'grigioni-italia',
   'forcola-di-livigno': 'grigioni-italia',
   'giogo-di-santa-maria': 'grigioni-italia',
+  'mustair-taufers': 'grigioni-italia',
   // Italia — Vallese. Sempione sits on canton VS but faces province VB
   // (Domodossola corridor), Gran San Bernardo faces AO; both are Vallese
   // crossings and are grouped by the SWISS canton, like every other region.
@@ -901,6 +976,7 @@ export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = [
   'ticino-varese',
   'ticino-verbano',
   'basilea-germania',
+  'basilea-francia',
   'argovia-germania',
   'zurigo-germania',
   'sciaffusa-germania',
@@ -927,6 +1003,7 @@ export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'ticino-varese': 'Ticino — Varese',
   'ticino-verbano': 'Ticino — Verbano',
   'basilea-germania': 'Basilea — Germania',
+  'basilea-francia': 'Basilea — Francia',
   'argovia-germania': 'Argovia — Germania',
   'zurigo-germania': 'Zurigo — Germania',
   'sciaffusa-germania': 'Sciaffusa — Germania',
@@ -959,6 +1036,7 @@ export const REGION_TO_COUNTRY: Record<BorderCrossingRegion, 'IT' | 'DE' | 'AT' 
   'ticino-varese': 'IT',
   'ticino-verbano': 'IT',
   'basilea-germania': 'DE',
+  'basilea-francia': 'FR',
   'argovia-germania': 'DE',
   'zurigo-germania': 'DE',
   'sciaffusa-germania': 'DE',
@@ -1043,7 +1121,7 @@ export function buildArchivePath(
  * services/router.ts so unknown `/traffico-dogane/...` URLs resolve to a known
  * route (guida/border sub-tab) instead of falling through to 404.
  *
- * Count: 4 locales × (1 root + 19 regional + 143 crossings) = 652 canonical paths.
+ * Count: 4 locales × (1 root + 20 regional + 160 crossings) = 724 canonical paths.
  */
 export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   const out: string[] = [];

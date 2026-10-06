@@ -1,13 +1,21 @@
 /**
  * Centralized border crossings data source.
  * Used by both TrafficAlerts and FrontierGuide components.
- * Source: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026
+ * Source: BAZG/UDSC, geo.admin.ch and canton/foreign-border authorities;
+ * legacy entries retain their original provenance in the dataset history.
  */
+
+export interface BorderCrossingSource {
+ /** Human-readable authority or dataset name. */
+ label: string;
+ /** Public source URL supporting the crossing record. */
+ url: string;
+}
 
 export interface WebcamRef {
  /** Localised display label, e.g. "A2 Chiasso-Brogeda direzione nord". */
  label: string;
- /** Direct URL to the JPEG/GIF frame (hotlink-friendly). */
+ /** Direct URL to the JPEG/GIF frame, or the public frame opened externally. */
  imageUrl: string;
  /** Human-readable source name for attribution, e.g. "Dipartimento del territorio – Canton Ticino". */
  sourceName: string;
@@ -19,6 +27,12 @@ export interface WebcamRef {
  license?: string;
  /** Optional human-readable license note shown in <figcaption>. */
  licenseNote?: string;
+ /** False when the provider permits only an external link, not an embed/hotlink. */
+ embedAllowed?: boolean;
+ /** robots policy checked for the public source URL. */
+ robots?: 'allowed' | 'disallowed' | 'unknown';
+ /** Human-readable provider cadence or observation note. */
+ updateFrequency?: string;
  /**
   * Per-webcam override for the watchdog's MIN_WEBCAM_BYTES floor
   * (scripts/check-border-data-health.mjs). Some vendors legitimately serve a
@@ -34,6 +48,8 @@ export interface BorderCrossing {
  country: 'IT' | 'FR' | 'DE' | 'AT' | 'LI';
  foreignSide: string;
  canton: string;
+ /** Swiss municipality containing the checkpoint, when verified for the record. */
+ municipality?: string;
  province: string;
  lat: number;
  lng: number;
@@ -56,9 +72,17 @@ export interface BorderCrossing {
   * authoritative waiting-time data for this crossing. When true, the traffic
   * scheduler should prefer BAZG over TomTom/Google derived estimates.
   * NOTE: BAZG public JSON endpoint not discoverable as of 2026-04; flag is
-  * future-proofing and currently has no runtime effect (cascade not wired).
-  */
+ * future-proofing and currently has no runtime effect (cascade not wired).
+ */
  bazgCoverage?: boolean;
+ /**
+  * Cost-aware wait-data policy. `none` keeps the crossing in the registry and
+  * pages but excludes it from paid TomTom/HERE polling until a source is
+  * explicitly approved and budgeted.
+  */
+ waitSource?: 'paid' | 'webcam' | 'none';
+ /** Official or authoritative sources used to verify this crossing record. */
+ sources?: readonly BorderCrossingSource[];
  /**
   * Hotlinkable public webcams covering the crossing. Source: Dipartimento del
   * territorio, Canton Ticino (https://www.ti.ch/webcam) — GIF snapshots
@@ -81,6 +105,39 @@ const SITG_CAMERA_LICENSE_URL = 'https://sitg.ge.ch/ressources/conditions-utilis
 // floor is tuned for the much larger Ticino GIFs; use the same low-res-safe
 // floor for every SITG feed so a valid compressed frame is not paged as broken.
 const SITG_CAMERA_MIN_BYTES = 1500;
+
+const BAZG_BORDER_DIRECTORY_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — sedi e orari dei valichi',
+ url: 'https://www.bazg.admin.ch/de/standorte-und-oeffnungszeiten-grenzuebergaenge',
+};
+const BAZG_CH_FR_BORDER_ZONE_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — zona di frontiera CH–FR',
+ url: 'https://www.bazg.admin.ch/dam/de/sd-web/j09xMELLfj2p/Liste%20des%20communes%20relative%20%C3%A0%20la%20Convention%20sur%20le%20trafic%20de%20fronti%C3%A8re%20CH_FR.pdf',
+};
+const BAZG_DECLARATION_BOX_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — punti di dichiarazione doganale',
+ url: 'https://www.bazg.admin.ch/dam/de/sd-web/GGHknSwDEDN6/standorte-anmeldeboxen-de.pdf',
+};
+const BAZG_BIEL_BENKEN_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — riapertura Biel-Benken',
+ url: 'https://www.bazg.admin.ch/dam/de/sd-web/KZFsmsvWZQTh/20200403-mm_oeffnung_grenzuebergang_biel-benken_d.pdf',
+};
+const BAZG_LUCELLE_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — scheda doganale Lucelle',
+ url: 'https://dst.bazg.admin.ch/dst/print?id=675&lang=2',
+};
+const BAZG_MUESTAIR_SOURCE: BorderCrossingSource = {
+ label: 'BAZG — scheda doganale Müstair',
+ url: 'https://dst.bazg.admin.ch/dst/print?id=656&lang=3',
+};
+const ECOPLAN_BASEL_BORDER_SOURCE: BorderCrossingSource = {
+ label: 'ECOPLAN/Confederazione — traffico transfrontaliero Regione Basilea',
+ url: 'https://www.newsd.admin.ch/newsd/message/attachments/51396.pdf',
+};
+const KANTON_GR_MUESTAIR_SOURCE: BorderCrossingSource = {
+ label: 'Kanton Graubünden — valico Müstair/Taufers',
+ url: 'https://www.gr.ch/DE/institutionen/verwaltung/djsg/kapo/aktuelles/medien/2017/Seiten/201707211.aspx',
+};
 
 export const borderCrossings: BorderCrossing[] = [
  // COMO - TICINO
@@ -1218,8 +1275,8 @@ export const borderCrossings: BorderCrossing[] = [
  // Source: de.wikipedia.org "Liste der Straßengrenzübergänge zwischen Deutschland
  // und der Schweiz" (raw wikitext, Lfd. Nr. 1–67). No real traffic-history data yet
  // → avgWaitMorning/avgWaitEvening/trafficLevel/peak intentionally omitted (schema
- // supports missing values, verified in PR #4541). Basel-Landschaft canton has zero
- // road crossings per the source (confirmed, not an oversight).
+ // supports missing values, verified in PR #4541). The historical source omitted
+ // the BL/SO road crossings; the verified France routes are listed below.
  {
   name: 'Basel – Weil am Rhein, Hiltalingerstrasse',
   country: 'DE',
@@ -2556,6 +2613,314 @@ export const borderCrossings: BorderCrossing[] = [
  customsPresent: true,
  hours: '24h',
  tips: 'border.tips.morginsChatel',
+ },
+ // Francia — Basel-Landschaft (valichi omessi dal registro storico)
+ {
+  name: 'Biel-Benken–Leymen',
+  country: 'FR',
+  foreignSide: 'Leymen',
+  canton: 'BL',
+  municipality: 'Biel-Benken',
+  province: 'HAUT-RHIN',
+  lat: 47.5027088,
+  lng: 7.5110139,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.bielBenkenLeymen',
+  waitSource: 'none',
+  sources: [BAZG_BIEL_BENKEN_SOURCE, ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Neuwiller–Benken',
+  country: 'FR',
+  foreignSide: 'Neuwiller',
+  canton: 'BL',
+  municipality: 'Biel-Benken',
+  province: 'HAUT-RHIN',
+  lat: 47.5199400,
+  lng: 7.5149197,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.neuwillerBenken',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Neuwiller–Allschwil',
+  country: 'FR',
+  foreignSide: 'Neuwiller',
+  canton: 'BL',
+  municipality: 'Allschwil',
+  province: 'HAUT-RHIN',
+  lat: 47.5266640,
+  lng: 7.5191763,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.neuwillerAllschwil',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Neuwiller–Schönenbuch',
+  country: 'FR',
+  foreignSide: 'Neuwiller',
+  canton: 'BL',
+  municipality: 'Schönenbuch',
+  province: 'HAUT-RHIN',
+  lat: 47.5417000,
+  lng: 7.5009000,
+  type: 'locale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.neuwillerSchoenenbuch',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Allschwil–Hégenheim',
+  country: 'FR',
+  foreignSide: 'Hégenheim',
+  canton: 'BL',
+  municipality: 'Allschwil',
+  province: 'HAUT-RHIN',
+  lat: 47.5607014,
+  lng: 7.5309895,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.hegenheimAllschwil',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ // Francia — Soletta (Leimental/Kleinlützel)
+ {
+  name: 'Bättwil–Leymen',
+  country: 'FR',
+  foreignSide: 'Leymen',
+  canton: 'SO',
+  municipality: 'Bättwil',
+  province: 'HAUT-RHIN',
+  lat: 47.4891535,
+  lng: 7.4981809,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.battwilLeymen',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Rodersdorf–Leymen',
+  country: 'FR',
+  foreignSide: 'Leymen',
+  canton: 'SO',
+  municipality: 'Rodersdorf',
+  province: 'HAUT-RHIN',
+  lat: 47.4897869,
+  lng: 7.4694456,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.rodersdorfLeymen',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_DECLARATION_BOX_SOURCE],
+ },
+ {
+  name: 'Rodersdorf–Biederthal',
+  country: 'FR',
+  foreignSide: 'Biederthal',
+  canton: 'SO',
+  municipality: 'Rodersdorf',
+  province: 'HAUT-RHIN',
+  lat: 47.47984695,
+  lng: 7.45642996,
+  type: 'locale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.rodersdorfBiederthal',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_DECLARATION_BOX_SOURCE],
+ },
+ {
+  name: 'Kleinlützel–Kiffis',
+  country: 'FR',
+  foreignSide: 'Kiffis',
+  canton: 'SO',
+  municipality: 'Kleinlützel',
+  province: 'HAUT-RHIN',
+  lat: 47.4265780,
+  lng: 7.3968100,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.kleinluetzelKiffis',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_DECLARATION_BOX_SOURCE],
+ },
+ // Francia — Basilea Città (assi Saint-Louis/Huningue)
+ {
+  name: 'Basel–Saint-Louis (A35)',
+  country: 'FR',
+  foreignSide: 'Saint-Louis',
+  canton: 'BS',
+  municipality: 'Basel',
+  province: 'HAUT-RHIN',
+  lat: 47.5765335,
+  lng: 7.5599767,
+  type: 'autostrada',
+  open24h: true,
+  customsPresent: true,
+  hours: '24h',
+  tips: 'border.tips.baselSaintLouisA35',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+  webcams: [
+   {
+    label: 'A35 – Saint-Louis, immagine ufficiale Inforoute Alsace',
+    imageUrl: 'https://inforoute.alsace.eu/webcamDIR/SAINTLOUIS_1/lastimage.jpeg?size=LARGE',
+    sourceName: 'Collectivité européenne d’Alsace — Inforoute',
+    sourceUrl: 'https://inforoute.alsace.eu/',
+    refreshIntervalMs: 300000,
+    license: 'https://inforoute.alsace.eu/mentions-legales.php',
+    licenseNote: 'Termini pubblici: attribuzione richiesta e autorizzazione scritta per riuso non personale. Il sito offre solo un link esterno; nessun hotlink o fotogramma viene incorporato o archiviato.',
+    embedAllowed: false,
+    robots: 'allowed',
+    updateFrequency: 'Timestamp pubblico nel fotogramma; cadenza del fornitore non documentata.',
+   },
+  ],
+ },
+ {
+  name: 'Basel–Bourgfelden (Burgfelderstrasse)',
+  country: 'FR',
+  foreignSide: 'Saint-Louis/Bourgfelden',
+  canton: 'BS',
+  municipality: 'Basel',
+  province: 'HAUT-RHIN',
+  lat: 47.5721790,
+  lng: 7.5572027,
+  type: 'statale',
+  open24h: true,
+  customsPresent: true,
+  hours: '24h',
+  tips: 'border.tips.baselBourgfelden',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Basel–Saint-Louis (Elsässerstrasse)',
+  country: 'FR',
+  foreignSide: 'Saint-Louis',
+  canton: 'BS',
+  municipality: 'Basel',
+  province: 'HAUT-RHIN',
+  lat: 47.57352066,
+  lng: 7.57367373,
+  type: 'statale',
+  open24h: true,
+  customsPresent: true,
+  hours: '24h',
+  tips: 'border.tips.baselSaintLouisElsasserstrasse',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Basel–Saint-Louis (Flughafenstrasse)',
+  country: 'FR',
+  foreignSide: 'Saint-Louis / EuroAirport',
+  canton: 'BS',
+  municipality: 'Basel',
+  province: 'HAUT-RHIN',
+  lat: 47.59967041,
+  lng: 7.53209114,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.baselSaintLouisFlughafenstrasse',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ {
+  name: 'Basel–Huningue (Kohlenstrasse)',
+  country: 'FR',
+  foreignSide: 'Huningue',
+  canton: 'BS',
+  municipality: 'Basel',
+  province: 'HAUT-RHIN',
+  lat: 47.57647705,
+  lng: 7.57609987,
+  type: 'statale',
+  open24h: true,
+  customsPresent: true,
+  hours: '24h',
+  tips: 'border.tips.baselHuningue',
+  waitSource: 'none',
+  sources: [ECOPLAN_BASEL_BORDER_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ // Francia — Giura (valichi aggiuntivi rispetto al solo Delle)
+ {
+  name: 'Lucelle',
+  country: 'FR',
+  foreignSide: 'Lucelle',
+  canton: 'JU',
+  municipality: 'La Baroche',
+  province: 'HAUT-RHIN',
+  lat: 47.4175809,
+  lng: 7.2433953,
+  type: 'statale',
+  open24h: true,
+  customsPresent: true,
+  hours: '24h',
+  tips: 'border.tips.lucelle',
+  waitSource: 'none',
+  sources: [BAZG_LUCELLE_SOURCE, BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_DECLARATION_BOX_SOURCE],
+ },
+ {
+  name: 'Miécourt–Courtavon',
+  country: 'FR',
+  foreignSide: 'Courtavon',
+  canton: 'JU',
+  municipality: 'La Baroche',
+  province: 'HAUT-RHIN',
+  lat: 47.4300519,
+  lng: 7.1772679,
+  type: 'locale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.miecourtCourtavon',
+  waitSource: 'none',
+  sources: [BAZG_CH_FR_BORDER_ZONE_SOURCE, BAZG_DECLARATION_BOX_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
+ },
+ // Italia — Grigioni (valico stradale della Val Monastero)
+ {
+  name: 'Müstair–Taufers',
+  country: 'IT',
+  foreignSide: 'Taufers/Tubre',
+  canton: 'GR',
+  municipality: 'Val Müstair',
+  province: 'Bolzano',
+  lat: 46.6354513,
+  lng: 10.4587328,
+  type: 'statale',
+  open24h: false,
+  customsPresent: true,
+  hours: 'border.hours.unspecified',
+  tips: 'border.tips.mustairTaufers',
+  waitSource: 'none',
+  sources: [BAZG_MUESTAIR_SOURCE, KANTON_GR_MUESTAIR_SOURCE, BAZG_BORDER_DIRECTORY_SOURCE],
  },
 ];
 
