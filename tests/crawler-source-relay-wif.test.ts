@@ -216,13 +216,18 @@ describe('source relay client: Google ID token and fail-closed readiness', () =>
     expect(thrown?.status).toBeUndefined();
   });
 
-  it('both relay crawlers check readiness before crawling', () => {
-    for (const script of ['scripts/update-stadt-chur-jobs.mjs', 'scripts/update-has-healthcare-jobs.mjs']) {
+  it('all relay crawlers check readiness before crawling', () => {
+    for (const script of [
+      'scripts/update-stadt-chur-jobs.mjs',
+      'scripts/update-has-healthcare-jobs.mjs',
+      'scripts/update-alten-jobs.mjs',
+    ]) {
       const source = fs.readFileSync(path.join(ROOT, script), 'utf8');
       const mainAt = source.indexOf('async function main()');
       expect(mainAt, script).toBeGreaterThan(-1);
       const assertAt = source.indexOf('assertSourceRelayReady();', mainAt);
       expect(assertAt, script).toBeGreaterThan(mainAt);
+      expect(source.slice(mainAt, assertAt)).toContain('registerCrawlerSummaryGuard');
     }
   });
 });
