@@ -227,7 +227,7 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(JSON.stringify(schemas)).not.toContain('Stale pharmacy');
   });
 
-  it('removes the static city FAQPage when navigating from a city to a pharmacy detail', async () => {
+  it('replaces the static city FAQPage with the pharmacy detail FAQPage', async () => {
     const pharmacy = ticino.pharmacies[0] as unknown as Pharmacy;
     const citySlug = pharmacyCitySlug(pharmacy.city);
     const staticSchemas = addStaticCitySchemas(citySlug);
@@ -244,7 +244,12 @@ describe('pharmacy SEO after SPA navigation', () => {
     window.history.replaceState({}, '', path);
     await seo.updateMetaTags('pharmacy');
 
-    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage')).toBe(false);
+    const pharmacyFaq = jsonLdSchemas().find((schema) => schema['@type'] === 'FAQPage');
+    expect(pharmacyFaq?.['@id']).toBe(`https://frontaliereticino.ch${path}#faq`);
+    expect(pharmacyFaq?.mainEntity).toEqual(expect.arrayContaining([
+      expect.objectContaining({ name: expect.stringContaining(pharmacy.name) }),
+    ]));
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage' && schema['@id']?.includes(`/farmacie/ticino/${citySlug}/#faq`))).toBe(false);
     expect(jsonLdSchemas().some((schema) => schema['@type'] === 'Pharmacy' && schema.name === pharmacy.name)).toBe(true);
   });
 
