@@ -325,6 +325,21 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     }
   });
 
+  it('drops a partial DE overlay when a later group rejects the key', async () => {
+    let calls = 0;
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => {
+        calls += 1;
+        if (calls === 1) return okResponse({ ok: true, stations: [{ id: 'first', e5: 1.8, diesel: 2.0 }] });
+        return okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' });
+      }) as any,
+    });
+    expect(result).toMatchObject({ status: 'skipped', data: {}, coverage: {} });
+    expect(calls).toBe(2);
+  });
+
   it('uses one serialised request per DE group and exposes the active coverage', async () => {
     const requests: URL[] = [];
     const result = await fetchGermanStations({
