@@ -1,7 +1,7 @@
 import { inlineScriptJson } from './inlineJsonScript';
 import { resolveAuthorProfileMetadata } from '../../services/seo/authorProfileMetadata';
 import { AUTHORS, getAuthorBySlug } from '../../data/authors';
-import { localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
+import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '../../services/authorPageCopy';
 import { buildAuthorSeo } from '../../services/seo/seo-authors';
 import { buildPath } from '../../services/router';
@@ -20,12 +20,11 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
     const translated = localizeAuthor(peer, locale);
     return `<li><a href="${escape(buildAuthorSeo(peer, locale).canonical)}" rel="author">${escape(peer.name)}</a> — ${escape(translated.role)}</li>`;
   }).join('');
-  const social = author.social.linkedin ? `<a href="${escape(author.social.linkedin)}" rel="noopener me" target="_blank">LinkedIn</a>` : '';
   return [
     `<h2>${escape(author.name)} — ${escape(author.role)}</h2>`,
+    `<p>${escape(EDITORIAL_PROFILE_DISCLOSURE[locale])}</p>`,
     `<p>${escape(author.bio)}</p>`,
     `<h2>${escape(copy.expertise)}</h2><ul>${author.expertise.map(topic => `<li>${escape(topic)}</li>`).join('')}</ul>`,
-    `<h2>${escape(copy.publicProfile)}</h2><p>${social}${author.email ? ` <a href="mailto:${escape(author.email)}">${escape(author.email)}</a>` : ''}</p>`,
     `<h2>${escape(copy.otherAuthors)}</h2><ul>${peers}</ul>`,
     `<p><a href="${buildPath({ activeTab: 'chi-siamo' }, locale)}">${escape(copy.about)}</a> · <a href="${buildPath({ activeTab: 'correzioni' }, locale)}">${escape(copy.corrections)}</a></p>`,
   ];

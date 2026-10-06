@@ -27,20 +27,11 @@ describe('authors registry (Google News A1)', () => {
     }
   });
 
-  it('every author with a cvPath has a PDF file that exists in public/', () => {
+  it('editorial profiles expose no personal identity fields', () => {
     for (const author of AUTHORS) {
-      if (!author.cvPath) continue;
-      expect(author.cvPath.startsWith('/documents/authors/')).toBe(true);
-      expect(author.cvPath.endsWith('.pdf')).toBe(true);
-      const abs = path.join(PUBLIC_DIR, author.cvPath.replace(/^\//, ''));
-      expect(fs.existsSync(abs), `missing CV for ${author.slug} at ${abs}`).toBe(true);
-    }
-  });
-
-  it('every author has a public LinkedIn URL', () => {
-    for (const author of AUTHORS) {
-      expect(author.social.linkedin, `missing linkedin for ${author.slug}`).toBeTruthy();
-      expect(author.social.linkedin).toMatch(/^https:\/\/(www\.)?linkedin\.com\//);
+      expect(Object.keys(author)).not.toEqual(expect.arrayContaining([
+        'email', 'uid', 'cvPath', 'social', 'joinedAt', 'sameAs',
+      ]));
     }
   });
 
@@ -57,7 +48,7 @@ describe('authors registry (Google News A1)', () => {
   it('every author has a non-trivial Italian bio', () => {
     for (const author of AUTHORS) {
       const wordCount = author.bio.trim().split(/\s+/).length;
-      expect(wordCount, `bio too short for ${author.slug}`).toBeGreaterThanOrEqual(80);
+      expect(wordCount, `description too short for ${author.slug}`).toBeGreaterThanOrEqual(30);
     }
   });
 
@@ -100,15 +91,15 @@ describe('buildAuthorSeo', () => {
       expect(seo.description.length).toBeGreaterThan(20);
       expect(seo.canonical).toBe(`https://frontaliereticino.ch/autori/${author.slug}/`);
       expect(seo.ogImage).toContain(author.photoPath);
-      expect(seo.jsonLd['@type']).toBe('Person');
-      expect(seo.jsonLd['@id']).toBe(`${seo.canonical}#person`);
+      expect(seo.jsonLd['@type']).toBe('Organization');
+      expect(seo.jsonLd['@id']).toBe(`${seo.canonical}#profile`);
       expect(seo.jsonLd.name).toBe(author.name);
-      expect(Array.isArray(seo.jsonLd.sameAs)).toBe(true);
-      expect((seo.jsonLd.sameAs as string[]).length).toBeGreaterThan(0);
       expect(seo.jsonLd.knowsAbout).toEqual(author.expertise);
-      expect((seo.jsonLd.worksFor as { '@id': string })['@id']).toBe(
+      expect((seo.jsonLd.parentOrganization as { '@id': string })['@id']).toBe(
         'https://frontaliereticino.ch/#organization',
       );
+      expect(seo.jsonLd.jobTitle).toBeUndefined();
+      expect(seo.jsonLd.sameAs).toBeUndefined();
       expect(seo.jsonLd.knowsLanguage).toEqual(['it', 'en']);
     }
   });
@@ -129,10 +120,10 @@ describe('buildAuthorSeo', () => {
     expect(() => buildAuthorSeo('does-not-exist', 'it')).toThrow();
   });
 
-  // Review nit (PR #3356): AutorePage.tsx must pass the CSR-merged author
-  // object (admin persona patch applied on top of the static registry), not
+  // Review nit (PR #3356): AutorePage.tsx must pass the CSR-merged editorial
+  // profile object, not
   // the slug — passing the slug re-derives from the static registry and the
-  // Person JSON-LD goes stale vs. the visible bio/photo/social.
+  // Organization JSON-LD goes stale vs. the visible description/illustration.
   it('accepts an already-resolved Author object and reflects its patched fields in the JSON-LD', () => {
     const staticAuthor = getAuthorBySlug('marco-ferrari')!;
     const merged = { ...staticAuthor, name: 'Marco Ferrari Patched', bio: staticAuthor.bio };

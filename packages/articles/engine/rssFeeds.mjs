@@ -255,12 +255,16 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
       // Per-article byline, from the same `"author"` object the page's JSON-LD
-      // and visible byline are built from. Only a Person is carried over: an
-      // Organization author is the Redazione, which the channel title already
-      // states, and repeating it as <dc:creator> would say nothing.
+      // and visible byline are built from. Only a named editorial-profile
+      // Organization is carried over: the newsroom Organization is the
+      // channel title and repeating it as <dc:creator> would say nothing.
       const authorBlock = block.match(/"author":\s*\{[^}]*\}/)?.[0];
+      const isEditorialProfile =
+        authorBlock &&
+        /"@type":\s*"Organization"/.test(authorBlock) &&
+        (/"@id":\s*"[^"]+#profile"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock));
       const authorName =
-        authorBlock && /"@type":\s*"Person"/.test(authorBlock)
+        isEditorialProfile
           ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
           : '';
 
@@ -430,12 +434,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
     );
 
     // Per-item byline. Without it a feed reader has nothing but the channel
-    // title to attribute the piece to, so every article — guest-authored
-    // ones included — syndicates as written by the Redazione, the same
-    // defect `article:author` had in ogPagesPlugin.ts. The Person here is
-    // the one content/seo/** already declares, i.e. the one the page byline
-    // and the JSON-LD show; an Organization author yields no <dc:creator>
-    // because the channel already says that.
+    // title to attribute the piece to, so a named editorial profile would be
+    // syndicated as written by the Redazione. The newsroom Organization yields
+    // no <dc:creator> because the channel already says that.
     const creator = article.authorName || '';
 
     items.push({

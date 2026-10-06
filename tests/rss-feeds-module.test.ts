@@ -37,7 +37,7 @@ function makeFixture(): string {
     path.join(root, 'seo', section.seoFiles[0]),
     `export const BLOG_SEO_METADATA = {
   'blog-alpha': {
-    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale", "author": { "@type": "Person", "@id": "https://frontaliereticino.ch/autori/guest-author/#person", "name": "Guest Author", "url": "https://frontaliereticino.ch/autori/guest-author/" } },
+    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale", "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/autori/editorial-profile/#profile", "name": "Editorial profile", "url": "https://frontaliereticino.ch/autori/editorial-profile/" } },
   },
   'blog-beta': {
     structuredData: { "headline": "Beta headline", "description": "Beta description", "datePublished": "2026-03-01", "articleSection": "Pratico", "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Redazione Frontaliere Ticino" } },
@@ -501,7 +501,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
   // ospite — viene sindacato come scritto dalla Redazione. E' lo stesso
   // difetto che `article:author` aveva in ogPagesPlugin.ts, sull'altra
   // superficie di metadati.
-  it('emette <dc:creator> per articolo quando l\'autore e\' una Person', () => {
+  it('emette <dc:creator> per articolo quando l\'autore e\' un profilo editoriale', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
       repairSerpSnippet,

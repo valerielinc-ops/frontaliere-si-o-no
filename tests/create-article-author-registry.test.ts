@@ -10,7 +10,7 @@
 // instead of the specialist it was clearly written for.
 //
 // These tests lock in the fix and guard against the two registries drifting
-// out of sync again (same slug set, matching name/linkedin per slug).
+// out of sync again (same slug set and matching public names per slug).
 
 import { describe, expect, it } from 'vitest';
 import { AUTHORS as CANONICAL_AUTHORS } from '@/data/authors';
@@ -38,12 +38,11 @@ describe('scripts/create-article.mjs AUTHORS mirror — stays in sync with data/
     expect(picked.name).toBe('Samuele Valente');
   });
 
-  it("Samuele Valente's mirrored name/linkedin match the canonical registry", () => {
+  it("Samuele Valente's mirrored public name matches the canonical registry", () => {
     const canonical = CANONICAL_AUTHORS.find((a) => a.slug === 'samuele-valente');
     expect(canonical).toBeTruthy();
     const picked = pickAuthorForTopic(canonical!.expertise.join(' ').toLowerCase(), 'probe-samuele-valente');
     expect(picked.name).toBe(canonical!.name);
-    expect(picked.linkedinUrl).toBe(canonical!.social.linkedin);
   });
 
   // Review finding on this PR: optimizeSeoMetadata()'s baseKeywords appends

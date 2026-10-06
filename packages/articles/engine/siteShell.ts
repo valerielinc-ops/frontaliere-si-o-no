@@ -27,15 +27,10 @@
 
 export type ArticleLocale = 'it' | 'en' | 'de' | 'fr';
 
-export interface ArticleAuthorSocial {
-  linkedin?: string;
-}
-
 export interface ArticleAuthor {
   slug: string;
   name: string;
   role: string;
-  social?: ArticleAuthorSocial;
 }
 
 export interface ArticleImageObjectInput {

@@ -384,7 +384,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleCategoryById: Record<string, string> = {};
  const articlePublishedAtById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
- // Per-article author (E-E-A-T): was hardcoded to a single Person for every
+ // Per-article editorial profile (E-E-A-T): was hardcoded to a single
  // article (JSON-LD + visible byline) — real values live alongside each
  // entry in SECTION.registry, resolved against data/authors.ts below.
  const articleAuthorSlugById: Record<string, string> = {};
@@ -1272,7 +1272,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
 
- // Determine author: real per-article Person from data/authors.ts via
+ // Determine author: editorial-profile Organization from data/authors.ts via
  // authorSlug (SECTION.registry field), Organization fallback when unset —
  // mirrors the SPA's mergeArticleByline (services/authorProfileService.ts)
  // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
@@ -1281,7 +1281,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
- // moved to the per-article Person. Every OG consumer (Facebook, LinkedIn,
+ // moved to the per-article editorial profile. Every OG consumer (Facebook,
  // aggregators) therefore read *every* article — guest-authored ones
  // included — as attributed to the Redazione. Reported 2026-09-03 by the
  // guest author of the 2026-09-02 article, whose byline was correct on the
@@ -1290,13 +1290,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // JSON-LD author can never disagree again.
  const authorObj: Record<string, unknown> = resolvedAuthor
  ? {
- '@type': 'Person' as const,
- '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#profile`,
  name: resolvedAuthor.name,
- jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
- ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
+ description: resolvedAuthor.role,
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : {
  '@type': 'Organization' as const,
@@ -1312,12 +1311,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
  const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
  ? {
- '@type': 'Person' as const,
- '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#profile`,
  name: reviewerAuthor.name,
- jobTitle: reviewerAuthor.role,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
- ...(reviewerAuthor.social?.linkedin ? { sameAs: [reviewerAuthor.social.linkedin] } : {}),
+ description: reviewerAuthor.role,
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : undefined;
 
@@ -1444,8 +1443,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  url: full,
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
- // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/Organization object defined once
+ // SPA-side Organization schema (#3520) — Google's guidance: structured-data
+ // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is

@@ -166,8 +166,8 @@ describe('Google News compliance — E1', () => {
       ).toBe(0);
     });
 
-    it('every resolved author is a Person (not an organization placeholder)', () => {
-      // The AUTHORS registry is the Person registry by construction.
+    it('every resolved author is a registered editorial profile', () => {
+      // Article signatures resolve to the closed editorial-profile registry.
       // We additionally guard against an article pointing at the literal
       // organization slugs that some pipelines historically used.
       const ORG_SLUG_BLOCKLIST = new Set([
@@ -185,27 +185,21 @@ describe('Google News compliance — E1', () => {
       ).toBe(0);
     });
 
-    it('every resolved author has a non-empty sameAs (LinkedIn / KG signal)', () => {
-      // Indirect check: walk articles, resolve each author, assert at least
-      // one social URL is set. This catches both registry rot and articles
-      // pointing at a future author whose social profiles are TBD.
+    it('every resolved editorial profile has no personal identity fields', () => {
       const offenders: string[] = [];
       for (const article of ARTICLES) {
         if (!article.authorSlug) continue;
         const author = getAuthorBySlug(article.authorSlug);
         if (!author) continue; // covered by the previous test
-        const sameAs = [
-          author.social.linkedin,
-          author.social.twitter,
-          author.social.mastodon,
-        ].filter((s): s is string => typeof s === 'string' && s.length > 0);
-        if (sameAs.length === 0) {
-          offenders.push(`  - ${article.id}: author "${author.slug}" has no sameAs URL`);
+        const personalFields = ['email', 'uid', 'cvPath', 'social', 'joinedAt', 'sameAs'];
+        const found = personalFields.filter((field) => Object.prototype.hasOwnProperty.call(author, field));
+        if (found.length > 0) {
+          offenders.push(`  - ${article.id}: profile "${author.slug}" exposes ${found.join(', ')}`);
         }
       }
       expect(
         offenders.length,
-        `${offenders.length} article(s) resolve to an author missing sameAs:${summarize(offenders)}`,
+        `${offenders.length} article(s) resolve to profiles with personal fields:${summarize(offenders)}`,
       ).toBe(0);
     });
 

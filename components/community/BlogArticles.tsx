@@ -1632,9 +1632,9 @@ function BlogArticles({
  const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
- // Author matches the visible byline (#3520): a named Person when the
- // article carries one (same merge the rendered byline uses), the
- // editorial Organization only as fallback — mirroring the static
+ // Author matches the visible byline (#3520): a named editorial Organization
+ // when the article carries one (same merge the rendered byline uses), the
+ // newsroom Organization only as fallback — mirroring the static
  // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
  const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
  // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
@@ -1673,10 +1673,11 @@ function BlogArticles({
  ...schemaDates,
  author: ldAuthorName
  ? {
- '@type': 'Person',
+ '@type': 'Organization',
+ '@id': ldAuthorSlug ? `https://frontaliereticino.ch/autori/${ldAuthorSlug}/#profile` : EDITORIAL_TEAM_ID,
  name: ldAuthorName,
  ...(ldAuthorSlug ? { url: `https://frontaliereticino.ch/autori/${ldAuthorSlug}/` } : {}),
- worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
+ parentOrganization: { '@type': 'Organization', '@id': EDITORIAL_TEAM_ID, name: 'Redazione Frontaliere Ticino', url: 'https://frontaliereticino.ch/chi-siamo/' },
  }
  : {
  '@type': 'Organization',
@@ -2127,9 +2128,9 @@ function BlogArticles({
  // The disclosure below is the only place on the page that states HOW an
  // article came to exist, so it splits on the article's own provenance:
  // `aiAssisted` when the article declares it, otherwise the registry default
- // (`uid` ⇒ guest journalist ⇒ human contributor). The declaration exists
- // because the registry alone answers a per-article question with a
- // per-author property — see services/articleProvenance.ts.
+ // (the registry default for a separately sourced contributor). The
+ // declaration exists because a registry entry alone cannot answer a
+ // per-article provenance question — see services/articleProvenance.ts.
  const bylineAuthor = effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined;
  const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
 
