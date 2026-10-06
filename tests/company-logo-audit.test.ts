@@ -231,7 +231,11 @@ describe('company-logo-audit', () => {
     const installMarker = 'run: npm ci --ignore-scripts --no-audit --no-fund';
     const assembleMarker = 'run: node scripts/assemble-jobs-dataset.mjs --no-summaries';
     expect(auditWorkflow).toContain('./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs');
-    expect(auditWorkflow).toContain('--regenerate-cmd "./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"');
+    expect(auditWorkflow).toContain('node scripts/download-missing-company-logos.mjs --from-audit');
+    expect(auditWorkflow).toContain('node scripts/verify-company-logo-acquisition.mjs');
+    expect(auditWorkflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(auditWorkflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(auditWorkflow).not.toMatch(/HEAD:main/);
 
     for (const workflow of [auditWorkflow, verifyWorkflow]) {
       expect(workflow).toContain('cache: npm');
