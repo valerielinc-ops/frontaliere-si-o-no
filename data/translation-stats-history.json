@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-14T01:24:12.466Z",
-    "label": "after",
-    "total": 32489,
-    "needsRetranslation": 5235,
-    "suppressed": 153,
-    "incomplete": 5639,
-    "complete": 26850,
-    "slotsPresent": 26850,
-    "flaggedAmongSlotsPresent": 45,
-    "verifiedTranslated": 26805,
-    "sourceCopyExcused": 451,
-    "slotsPresentByLength": 32363,
-    "languageVerified": 27721,
-    "missingByLocale": {
-      "it": 71,
-      "en": 57,
-      "de": 71,
-      "fr": 78
-    },
-    "queueAge": {
-      "count": 5235,
-      "withTimestamp": 5235,
-      "oldestAgeDays": 153.6,
-      "p50AgeDays": 13.3,
-      "p90AgeDays": 74.5,
-      "buckets": {
-        "0-1d": 22,
-        "1-2d": 5,
-        "2-7d": 1707,
-        "0-7d": 1734,
-        "7-30d": 1711,
-        "30-90d": 1394,
-        "90-180d": 396,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 66,
-      "withTimestamp": 66,
-      "oldestAgeDays": 153.2,
-      "p50AgeDays": 19.6,
-      "p90AgeDays": 153.2,
-      "buckets": {
-        "0-1d": 4,
-        "1-2d": 0,
-        "2-7d": 24,
-        "0-7d": 28,
-        "7-30d": 13,
-        "30-90d": 11,
-        "90-180d": 14,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1192
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 496
-      },
-      {
-        "company": "Roche",
-        "pending": 454
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 162
-      },
-      {
-        "company": "Sulzer",
-        "pending": 162
-      },
-      {
-        "company": "PEMSA",
-        "pending": 138
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 131
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 113
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 72
-      },
-      {
-        "company": "JUMBO",
-        "pending": 65
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-14T01:57:17.104Z",
     "label": "before",
     "total": 32489,
@@ -20491,6 +20390,115 @@
       }
     },
     "predicateVersion": "2fc77c5ea1061c71",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 226,
+      "complete": 67
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3495
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1736
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1532
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 894
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 854
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 691
+      },
+      {
+        "company": "Banca Migros",
+        "pending": 560
+      },
+      {
+        "company": "VOLG",
+        "pending": 506
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 382
+      },
+      {
+        "company": "Manor AG",
+        "pending": 258
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-06T01:17:02.007Z",
+    "label": "before",
+    "total": 31728,
+    "needsRetranslation": 19451,
+    "suppressed": 117,
+    "incomplete": 21350,
+    "complete": 10378,
+    "slotsPresent": 10378,
+    "flaggedAmongSlotsPresent": 328,
+    "verifiedTranslated": 10050,
+    "sourceCopyExcused": 469,
+    "slotsPresentByLength": 31699,
+    "languageVerified": 16224,
+    "missingByLocale": {
+      "it": 6021,
+      "en": 6024,
+      "de": 916,
+      "fr": 5863
+    },
+    "queueAge": {
+      "count": 19451,
+      "withTimestamp": 19450,
+      "oldestAgeDays": 469.1,
+      "p50AgeDays": 19.7,
+      "p90AgeDays": 89.1,
+      "buckets": {
+        "0-1d": 661,
+        "1-2d": 152,
+        "2-7d": 2799,
+        "0-7d": 3612,
+        "7-30d": 8071,
+        "30-90d": 5858,
+        "90-180d": 1902,
+        "180d+": 7
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 10737,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 127,
+      "byCrawler": {
+        "fachkraft": 64,
+        "sta": 27,
+        "stellenpartner": 30,
+        "stellentreff": 6
+      }
+    },
+    "predicateVersion": "3f149c87152adb71",
     "freshCohort": {
       "window": "24-48h",
       "total": 226,

@@ -771,7 +771,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-40-manor-ag-chur",
         "en": "mitarbeiter-in-sales-40-manor-ag-chur",
-        "de": "manor-mitarbeiter-in-verkauf-40-chur",
+        "de": "manor-mitarbeiter-in-verkauf-40-chur-frusgy",
         "fr": "mitarbeiter-in-vente-40-manor-ag-chur"
       },
       "titleByLocale": {
@@ -787,6 +787,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-verkauf-40-chur"
+        ],
+        "de": [
           "manor-mitarbeiter-in-verkauf-40-chur"
         ]
       },
@@ -1729,7 +1732,6 @@
           "manor-collaborateur-trice-supermarche-poissonnerie-20-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 15500,
@@ -1804,7 +1806,6 @@
           "manor-collaborateur-trice-supermarche-boulangerie-80-chavannes-de-bogis"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 52400,
@@ -3906,7 +3907,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf",
         "en": "mitarbeiter-in-sales-damenkonfektion-30-manor-ag-biel",
-        "de": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
+        "de": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel-f9l67f",
         "fr": "mitarbeiter-in-vente-damenkonfektion-30-manor-ag-biel"
       },
       "titleByLocale": {
@@ -3932,6 +3933,9 @@
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
+        ],
+        "de": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ]
       },
@@ -5492,7 +5496,7 @@
       "slugByLocale": {
         "it": "fondo-dei-lavoratori-40-manor-ag-zurich",
         "en": "employee-fund-40-manor-ag-zurich",
-        "de": "manor-mitarbeiter-in-kasse-40-zurich",
+        "de": "manor-mitarbeiter-in-kasse-40-zurich-exh25y",
         "fr": "fonds-des-employes-40-manor-ag-zurich"
       },
       "titleByLocale": {
@@ -5514,6 +5518,9 @@
           "manor-mitarbeiter-in-kasse-40-zurich"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-40-zurich"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-40-zurich"
         ]
       },
@@ -5765,7 +5772,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
         "en": "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
-        "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe-0ox2rs",
         "fr": "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf"
       },
       "titleByLocale": {
@@ -5785,6 +5792,9 @@
         "it": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs",
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        ],
+        "de": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
         ]
       },
@@ -5850,11 +5860,28 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf"
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-fu0bzn",
+          "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
+          "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf",
+          "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
+          "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+          "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        ],
+        "de": [
+          "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf"
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-fu0bzn",
+        "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
+        "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf",
+        "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
+        "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
       ],
       "id": "manor-ae10fcc1dedc",
       "salaryMin": 13900,
@@ -11828,7 +11855,6 @@
           "buyer-women-s-fashion-100-manor-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -13292,7 +13318,6 @@
           "manor-collaborateur-trice-vente-bijouterie-50-biel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 38800,
@@ -13440,7 +13465,6 @@
           "manor-collaborateur-trice-vente-confection-dames-30-biel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 23300,
@@ -14174,7 +14198,6 @@
           "manor-collaborateur-trice-caisse-jouets-50-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 36000,
