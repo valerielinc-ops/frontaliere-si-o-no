@@ -358,23 +358,25 @@ function selectQueue(records, dataset, cache, options) {
 
 function buildBatches(queue, options) {
   const batches = [];
+  const inputBudgetSkipped = [];
   let current = [];
-  let currentChars = 0;
-  let totalChars = 0;
   for (const record of queue) {
-    const estimate = JSON.stringify({ id: record.id, facts: record.facts, sourceDescriptions: record.sourceDescriptionByLocale || record.sourceDescription }).length;
-    if (totalChars > 0 && totalChars + estimate > options.maxTotalInputChars) break;
-    if (current.length && (current.length >= options.batchSize || currentChars + estimate > options.maxInputChars)) {
+    // Measure the real prompt shape, not only the JSON payload: the fixed
+    // policy instructions and retry diagnostics also count toward the cap.
+    const singlePromptLength = buildBatchPrompt([record]).length;
+    if (singlePromptLength > options.maxInputChars) {
+      inputBudgetSkipped.push(record);
+      continue;
+    }
+    const candidate = [...current, record];
+    if (current.length && (current.length >= options.batchSize || buildBatchPrompt(candidate).length > options.maxInputChars)) {
       batches.push(current);
       current = [];
-      currentChars = 0;
     }
     current.push(record);
-    currentChars += estimate;
-    totalChars += estimate;
   }
   if (current.length) batches.push(current);
-  return batches;
+  return { batches, inputBudgetSkipped };
 }
 
 async function processBatch(batch, cache, options, stats) {
@@ -382,6 +384,10 @@ async function processBatch(batch, cache, options, stats) {
   let retryReasons = new Map();
   for (let attempt = 1; attempt <= options.maxAttempts && pending.length; attempt += 1) {
     const prompt = buildBatchPrompt(pending, retryReasons);
+    if (prompt.length > options.maxInputChars) {
+      stats.inputBudgetSkipped += pending.length;
+      break;
+    }
     if (stats.inputChars + prompt.length > options.maxTotalInputChars) {
       stats.inputBudgetSkipped += pending.length;
       break;
@@ -494,7 +500,8 @@ async function main() {
     rejectionCodes: {},
     totalCandidateRecords: totalPending,
   };
-  const batches = buildBatches(queue, options);
+  const { batches, inputBudgetSkipped } = buildBatches(queue, options);
+  stats.inputBudgetSkipped += inputBudgetSkipped.length;
   const processQueue = batches.flat();
   if (!options.dryRun) {
     for (const batch of batches) await processBatch(batch, cache, options, stats);
