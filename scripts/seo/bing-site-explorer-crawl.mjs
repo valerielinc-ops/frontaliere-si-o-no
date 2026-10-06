@@ -198,6 +198,22 @@ async function cancelReaderOnReadError(reader) {
   try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
 }
 
+/**
+ * The bytes of a stream chunk as a view. A chunk that is not bytes is a read
+ * error, not an empty chunk: `new Uint8Array(value.buffer, …)` over a value
+ * with no `buffer` builds an EMPTY view without throwing, so the chunk would
+ * vanish, `total` would never grow, and a stream that keeps producing such
+ * chunks would never reach the byte cap. The `toString` tag covers a bare
+ * ArrayBuffer from another realm, which fails `instanceof`.
+ */
+function byteViewOfChunk(value) {
+  if (ArrayBuffer.isView(value)) return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  if (value instanceof ArrayBuffer || Object.prototype.toString.call(value) === '[object ArrayBuffer]') {
+    return new Uint8Array(value);
+  }
+  throw new TypeError('limited_body_chunk_not_bytes');
+}
+
 async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
   if (!response?.body?.getReader) {
     const text = await response.text();
@@ -214,9 +230,7 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
       if (done) break;
       // A byte view (copied below by `slice`): a typed array other than
       // Uint8Array would otherwise be read element by element.
-      const chunk = value instanceof ArrayBuffer
-        ? new Uint8Array(value)
-        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      const chunk = byteViewOfChunk(value);
       const remaining = maxBytes - total;
       if (remaining <= 0) {
         truncated = true;
