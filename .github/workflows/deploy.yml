@@ -124,6 +124,7 @@ on:
         default: false
 
 permissions:
+  actions: write
   # This workflow only needs repository read access: the previous-slug winners
   # sync moved to post-deploy-validation.yml, while the deploy itself only
   # uploads artifacts and publishes to GitHub Pages.
@@ -2678,6 +2679,7 @@ jobs:
     timeout-minutes: 10
     continue-on-error: true
     permissions:
+      actions: write
       contents: read
       issues: write
     steps:
@@ -2799,12 +2801,10 @@ jobs:
     timeout-minutes: 10
     continue-on-error: true
     permissions:
+      # actions: write includes the Jobs API read scope used by the reporter.
+      actions: write
       contents: read
       issues: write
-      # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non
-      # attribuito» in silenzio: un blocco `permissions:` esplicito azzera gli
-      # scope non elencati.
-      actions: read
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash

@@ -36,6 +36,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
+  actions: write
   contents: write
   issues: write
 

@@ -27,6 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  actions: write
   contents: write
   issues: write
 
@@ -37,6 +38,7 @@ jobs:
     # The gate only reads the repository; `issues: write` is for its failure
     # report. The `report` job keeps the workflow-level permissions.
     permissions:
+      actions: write
       contents: read
       issues: write
     outputs:

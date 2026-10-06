@@ -71,6 +71,7 @@ concurrency:
   group: jobs-crawler-group-12
   cancel-in-progress: false
 permissions:
+  actions: write
   contents: write
   issues: write
 env:

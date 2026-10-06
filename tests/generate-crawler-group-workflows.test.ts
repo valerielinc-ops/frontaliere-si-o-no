@@ -2819,7 +2819,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(reporter.run).toContain('gh issue create');
       expect(reporter.run).not.toContain('GITHUB_PAT');
       expect(doc.permissions.issues).toBe('write');
-      expect(doc.permissions.actions).toBe('read');
+      expect(doc.permissions.actions).toBe('write');
 
       const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
       expect(checkoutReady).toMatchObject({

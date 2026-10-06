@@ -22,6 +22,7 @@ on:
         type: boolean
 
 permissions:
+  actions: write
   contents: read
   issues: write
 

@@ -105,6 +105,7 @@ on:
         default: true
 
 permissions:
+  actions: write
   # The sitemap enters main through a stable PR so the required Vitest check
   # runs before publication.
   contents: write

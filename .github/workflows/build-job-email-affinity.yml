@@ -29,6 +29,7 @@ on:
         type: boolean
 
 permissions:
+  actions: write
   contents: read
   issues: write     # github-issue-creator sul fallimento
 

@@ -22,6 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  actions: write
   contents: write       # commit baseline updates when triggered with update_baseline=true
   issues: write         # open brand-drift issue on non-zero exit
 

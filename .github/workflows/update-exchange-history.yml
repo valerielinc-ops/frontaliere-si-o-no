@@ -10,12 +10,12 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  actions: write
   # contents: write — the SSG-snapshot step below commits
   # data/exchange-rate-snapshot.json back to main (epic #4452).
   contents: write
   pull-requests: write
   issues: write
-  actions: read
   checks: read
 
 jobs:

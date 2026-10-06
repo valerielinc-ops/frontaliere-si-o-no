@@ -94,11 +94,11 @@ on:
       - 'scripts/cathedral-seo-gates-check.mjs'
 
 permissions:
-  contents: read
-  issues: write
   # Listing + downloading the `github-pages` artifact of the deploy run whose
   # dist/ this gate audits (issue #5169 — it no longer builds its own).
-  actions: read
+  actions: write
+  contents: read
+  issues: write
 
 concurrency:
   group: cathedral-seo-gates-check

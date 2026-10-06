@@ -58,7 +58,7 @@ concurrency:
   group: jobs-crawler-group-17
   cancel-in-progress: false
 permissions:
-  actions: read
+  actions: write
   contents: read
   issues: write
 env:

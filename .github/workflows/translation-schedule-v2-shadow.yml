@@ -22,8 +22,8 @@ on:
         type: string
 
 permissions:
+  actions: write
   contents: write
-  actions: read
   # The shadow lane had no failure reporting at all, which is why it ran red on
   # every single run from its first (2026-09-12) to 2026-09-18 without anyone
   # being told. `github-issue-creator.mjs` dedups on a stable title, so a

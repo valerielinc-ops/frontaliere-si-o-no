@@ -66,6 +66,7 @@ concurrency:
   group: jobs-crawler-group-08
   cancel-in-progress: false
 permissions:
+  actions: write
   contents: write
   issues: write
 env:
@@ -75,6 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     permissions:
+      actions: write
       contents: write
       issues: write
       id-token: write
