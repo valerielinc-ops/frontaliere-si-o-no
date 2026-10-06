@@ -246,10 +246,14 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     expect(src.includes('/contratti-lavoro-frontalieri/')).toBe(true);
   });
 
-  it('source declares COST_OF_LIVING_LINKS for the 4 cost-of-living orphans', () => {
+  it('source declares COST_OF_LIVING_LINKS for every generated cost-of-living landing', () => {
     expect(src.includes('COST_OF_LIVING_LINKS')).toBe(true);
     expect(src.includes('/costo-vita-lugano-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-mendrisio-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-chiasso-ticino/')).toBe(true);
     expect(src.includes('/costo-vita-bellinzona-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-locarno-ticino/')).toBe(true);
+    expect(src.includes('/costo-vita-ticino/')).toBe(true);
   });
 
   it('source declares NURSING_LINKS for the 3 nursing orphans', () => {
