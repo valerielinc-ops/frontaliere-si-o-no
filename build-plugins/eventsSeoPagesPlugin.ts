@@ -1461,7 +1461,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const title = localizedTitle(event, locale);
   const factualDescription = `${title} — ${cat} ${COPY[locale].at} ${venueName || locality || 'Svizzera'} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}`
     + `${event.startTime ? ` ${event.startTime}` : ''}.`;
-  const description = (localizedDescription(event, locale)?.trim() || factualDescription).trim();
+  const rewriteDescription = event.sourceDescriptionHash ? localizedDescription(event, locale)?.trim() : undefined;
+  const description = rewriteDescription && rewriteDescription.length >= 30
+    ? rewriteDescription
+    : factualDescription;
   const eventWithDefaults = fillEventPeopleDefaults({ ...event, title, venue: venueName || undefined }, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);

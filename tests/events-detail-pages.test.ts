@@ -260,6 +260,19 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.description).toBe(withDescription.description);
   });
 
+  it('uses factual JSON-LD when a legacy cache miss carries a short description', () => {
+    const withShortDescription = {
+      ...EVENT,
+      id: 'myswitzerland:short-legacy',
+      description: 'Short.',
+      descriptionByLocale: { it: 'Short.' },
+    };
+    const ld = eventLd(withShortDescription as never, 'it') as Record<string, any>;
+    expect(ld.description).not.toBe('Short.');
+    expect(String(ld.description)).toContain('Concerto sinfonico al LAC');
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+  });
+
   it('emits location.geo when the event has coordinates', () => {
     const withGeo = { ...EVENT, geo: { lat: 46.005, lng: 8.951 } };
     const ld = eventLd(withGeo as never, 'it') as Record<string, any>;
