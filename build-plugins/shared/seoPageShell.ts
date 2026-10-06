@@ -179,6 +179,76 @@ export function clearEntryAssetsCache(): void {
   ENTRY_CACHE.clear();
 }
 
+/**
+ * Read one HTML attribute from a tag without depending on the minifier's
+ * choice of quoted or unquoted values. Build-time callers pass generated HTML
+ * here, so a small attribute reader is enough and avoids pulling a DOM parser
+ * into every SEO build.
+ */
+function htmlAttribute(tag: string, name: string): string | undefined {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = tag.match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+  );
+  return match?.[1] ?? match?.[2] ?? match?.[3];
+}
+
+/**
+ * Return the URL path used for comparing same-resource preload hints.
+ *
+ * Hero markup uses a site-relative `/og/` path while a few older emitters use
+ * an origin-absolute URL. Comparing the parsed path keeps those forms from
+ * producing duplicate preloads and also remains correct after the deploy
+ * step rewrites `/og/` to the image CDN.
+ */
+function resourcePath(value: string): string {
+  const decoded = value.replace(/&amp;/g, '&');
+  try {
+    const parsed = new URL(decoded, 'https://frontaliere.local');
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return decoded;
+  }
+}
+
+/**
+ * Build the LCP preload for the shared generated SEO hero, when present.
+ *
+ * `renderSeoHeroImage()` deliberately owns only the body `<img>` because its
+ * callers do not have access to the final document head. The shell is the one
+ * place all those pages share, so it can derive the hint from the marker that
+ * already identifies the generated card. Existing callers that supplied the
+ * same hero preload (the annual report page, for example) are left untouched.
+ */
+export function buildSeoHeroPreload(
+  bodyHtml: string,
+  extraHeadHtml = '',
+): string {
+  const imageTags = bodyHtml.match(/<img\b[^>]*>/gi) ?? [];
+  const heroTag = imageTags.find((tag) => htmlAttribute(tag, 'data-seo-hero') !== undefined);
+  if (!heroTag) return '';
+
+  const heroSrc = htmlAttribute(heroTag, 'src');
+  if (!heroSrc) return '';
+  const heroPath = resourcePath(heroSrc);
+
+  const existingImagePreload = (extraHeadHtml.match(/<link\b[^>]*>/gi) ?? []).some((tag) => {
+    const rel = htmlAttribute(tag, 'rel');
+    const as = htmlAttribute(tag, 'as');
+    return rel?.toLowerCase() === 'preload'
+      && as?.toLowerCase() === 'image'
+      && resourcePath(htmlAttribute(tag, 'href') ?? '') === heroPath;
+  });
+  if (existingImagePreload) return '';
+
+  const escapedSrc = heroSrc
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return `<link rel="preload" as="image" href="${escapedSrc}" type="image/webp" fetchpriority="high">`;
+}
+
 export interface SeoPageShellOpts {
   locale: string;
   title: string;
@@ -331,6 +401,8 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
       })
     : { subnavHtml: '', bodyHtml };
 
+  const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
+
   const simpleOpts: SimplePageOpts = {
     locale,
     title: normalizeShellTitle(title),
@@ -345,7 +417,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
+    extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
