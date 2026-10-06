@@ -18140,9 +18140,9 @@
       "crawledAt": "2026-10-06T01:33:03.183Z",
       "firstSeenAt": "2026-09-29T21:31:06.670Z",
       "titleByLocale": {
+        "de": "Sicherheitsbeauftragte/r (m/w/d)",
         "it": "Chargé·e de sécurité (f/m/d)",
         "en": "Security Officer (m/f/d)",
-        "de": "",
         "fr": "Chargé·e de sécurité (f/h/d)"
       },
       "descriptionByLocale": {
@@ -18171,6 +18171,8 @@
       "streetAddress": "Route de la Venoge 17",
       "addressRegion": "VD",
       "sourceLang": "fr",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18196,9 +18198,7 @@
       ],
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "sourceReference": "170228",
-      "salaryMin": 104500,
-      "salaryMax": 183500
+      "sourceReference": "170228"
     },
     {
       "id": "company-t74wip",
