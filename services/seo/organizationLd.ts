@@ -36,8 +36,9 @@ const ORGANIZATION_ID_PREFIX = `${SITE}/#organization-`;
  */
 function organizationNameHash(name: string): string {
   // Two independent 32-bit lanes provide a compact 64-bit suffix without
-  // requiring a platform crypto API. Hash the complete original name so two
-  // names with the same readable prefix cannot share the fallback identity.
+  // requiring a platform crypto API. The caller passes the complete canonical
+  // name, so two names with the same readable slug or the same readable
+  // prefix cannot share the fallback identity.
   let first = 0x811c9dc5;
   let second = 0x9e3779b9;
   for (let index = 0; index < name.length; index += 1) {
@@ -48,6 +49,16 @@ function organizationNameHash(name: string): string {
   return `${(first >>> 0).toString(16).padStart(8, '0')}${(second >>> 0).toString(16).padStart(8, '0')}`;
 }
 
+/**
+ * The form of a name that decides its identity: Unicode-composed, with outer
+ * and repeated whitespace removed, and without letter case. Two names that
+ * differ only in those respects are one name written twice; any other
+ * difference (an accent, punctuation, `&` against `and`) is a different name.
+ */
+function canonicalOrganizationName(name: string): string {
+  return name.normalize('NFC').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
 function organizationNameKey(name: string): string {
   const normalized = name
     .normalize('NFKD')
@@ -56,8 +67,14 @@ function organizationNameKey(name: string): string {
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  const readable = normalized.slice(0, 96);
-  return normalized.length > 96 ? `${readable}-${organizationNameHash(name)}` : readable;
+  if (!normalized) return '';
+  const readable = normalized.slice(0, 96).replace(/-+$/g, '');
+  // The slug only keeps the fragment legible. It is lossy on purpose (accents,
+  // punctuation and `&` all fold), so on its own it would hand one identity to
+  // different names: "A & B" and "A and B", "Müller AG" and "Muller AG". The
+  // hash of the canonical name is what makes the fallback an identity, at
+  // every length and not only past the readable limit.
+  return `${readable}-${organizationNameHash(canonicalOrganizationName(name))}`;
 }
 
 function httpUrl(value: unknown): string | undefined {
