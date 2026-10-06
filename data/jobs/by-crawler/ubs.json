@@ -3306,12 +3306,12 @@
     },
     {
       "id": "ubs-8777fcc18826",
-      "slug": "2027-internship-corporate-clients-romandie-ubs-lausanne",
+      "slug": "2027-stage-clienti-aziendali-romandie-ubs-lausanne",
       "slugByLocale": {
         "en": "2027-internship-corporate-clients-romandie-ubs-lausanne",
-        "it": "2027-internship-corporate-clients-romandie-ubs-lausanne",
-        "de": "2027-internship-corporate-clients-romandie-ubs-lausanne",
-        "fr": "2027-internship-corporate-clients-romandie-ubs-lausanne"
+        "it": "2027-stage-clienti-aziendali-romandie-ubs-lausanne",
+        "de": "2027-praktikum-firmenkunden-romandie-ubs-lausanne",
+        "fr": "2027-stage-clients-corporatifs-romandie-ubs-lausanne"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3379,7 +3379,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-05T21:24:15.742Z"
+      "firstSeenAt": "2026-10-05T21:24:15.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-corporate-clients-romandie-ubs-lausanne"
+        ],
+        "de": [
+          "2027-internship-corporate-clients-romandie-ubs-lausanne"
+        ],
+        "fr": [
+          "2027-internship-corporate-clients-romandie-ubs-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-corporate-clients-romandie-ubs-lausanne"
+      ]
     },
     {
       "id": "ubs-f8f52ab68ca2",
@@ -3461,8 +3475,8 @@
       "slugByLocale": {
         "en": "2027-internship-gwm-international-germany-austria-uhnw-zurich-ubs-zurich",
         "it": "2027-internship-gwm-international-germany-austria-uhnw-zurich-ubs-zurich",
-        "de": "2027-internship-gwm-international-germany-austria-uhnw-zurich-ubs-zurich",
-        "fr": "2027-internship-gwm-international-germany-austria-uhnw-zurich-ubs-zurich"
+        "de": "2027-praktikum-gwm-international-deutschland-osterreich-uhnw-zurich-ubs-zurich",
+        "fr": "2027-stage-gwm-international-allemagne-autriche-uhnw-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",

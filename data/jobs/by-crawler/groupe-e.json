@@ -2306,19 +2306,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installatore-o-installatore-elettrico-80-100-groupe-e-moutier",
-        "installatrice-ou-installateur-electricien-80-100-groupe-e-moutier"
+        "installatore-o-installatore-elettrico-80-100-groupe-e-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-o-installatore-elettrico-80-100-groupe-e-moutier",
-          "installatrice-ou-installateur-electricien-80-100-groupe-e-moutier"
-        ],
-        "en": [
-          "installatrice-ou-installateur-electricien-80-100-groupe-e-moutier"
-        ],
-        "de": [
-          "installatrice-ou-installateur-electricien-80-100-groupe-e-moutier"
+          "installatore-o-installatore-elettrico-80-100-groupe-e-moutier"
         ]
       },
       "firstSeenAt": "2026-09-30T21:22:29.198Z",
@@ -2742,7 +2734,7 @@
       "slugByLocale": {
         "it": "capo-o-responsabile-delle-infrastrutture-stradali-e-ferroviarie-groupe-e-mont-sur-rolle",
         "en": "chief-or-construction-manager-road-and-rail-infrastructure-groupe-e-mont-sur-rolle",
-        "de": "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle",
+        "de": "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
         "fr": "cheffe-ou-chef-de-chantier-infrastructures-routieres-et-ferroviaires-groupe-e-mont-sur"
       },
       "company": "Groupe E",
@@ -2797,7 +2789,6 @@
         "mount-or-mount-in-road-and-rail-infrastructure-80-100-groupe-e-matran-mad-4",
         "mount-oder-mount-in-stra-en-und-schieneninfrastruktur-80-100-groupe-e-matran-mad-4",
         "monteuse-ou-monteur-en-infrastructures-routieres-et-ferroviaires-80-100-groupe-e-matran",
-        "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
         "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle"
       ],
       "previousSlugsByLocale": {
@@ -2819,7 +2810,6 @@
         "de": [
           "cheffe-ou-chef-de-chantier-infrastructures-routieres-et-ferroviaires-groupe-e-mont-sur",
           "mount-oder-mount-in-stra-en-und-schieneninfrastruktur-80-100-groupe-e-mont-sur-rolle",
-          "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
           "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle"
         ],
         "fr": [
@@ -3004,12 +2994,12 @@
     },
     {
       "id": "groupe-e-76edbd4d49e0",
-      "slug": "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges",
+      "slug": "ingegnere-o-progetto-idroelettrico-80-100-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
         "fr": "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges",
-        "it": "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges",
-        "en": "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges",
-        "de": "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges"
+        "it": "ingegnere-o-progetto-idroelettrico-80-100-groupe-e-granges-paccot-plexus",
+        "en": "engineer-or-project-engineer-hydroelectric-80-100-groupe-e-granges-paccot-plexus",
+        "de": "ingenieur-oder-projektingenieur-wasserkraft-80-100-groupe-e-granges-paccot-plexus"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3067,7 +3057,21 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Route de Morat 135"
+      "streetAddress": "Route de Morat 135",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges"
+        ],
+        "en": [
+          "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges"
+        ],
+        "de": [
+          "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieure-ou-ingenieur-de-projets-en-ouvrages-hydroelectriques-80-100-groupe-e-granges"
+      ]
     },
     {
       "id": "groupe-e-e31345fb09a5",
@@ -3273,14 +3277,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4",
-        "capo-o-project-manager-ufficio-tecnico-infrastrutture-groupe-e-matran-mad-4",
-        "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4"
+        "capo-o-project-manager-ufficio-tecnico-infrastrutture-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4",
-          "capo-o-project-manager-ufficio-tecnico-infrastrutture-groupe-e-matran-mad-4",
-          "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4"
+          "capo-o-project-manager-ufficio-tecnico-infrastrutture-groupe-e-matran-mad-4"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:21.998Z",

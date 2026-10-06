@@ -629,8 +629,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
         "it": "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-        "en": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
-        "fr": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+        "en": "specialist-health-medicine-orthopaedics-spital-sts-thun",
+        "fr": "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -678,6 +678,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
         ]
       },

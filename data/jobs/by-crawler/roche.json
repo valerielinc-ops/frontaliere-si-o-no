@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,7 +52,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz",
         "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
@@ -60,7 +59,6 @@
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz",
           "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
@@ -7332,11 +7330,11 @@
     },
     {
       "id": "roche-a92ba3c43ca0",
-      "slug": "global-sites-network-communications-manager-roche-ch",
+      "slug": "responsabile-delle-comunicazioni-di-rete-dei-siti-globali-roche-basel",
       "slugByLocale": {
-        "it": "global-sites-network-communications-manager-roche-ch",
+        "it": "responsabile-delle-comunicazioni-di-rete-dei-siti-globali-roche-basel",
         "en": "global-sites-network-communications-manager-roche-ch",
-        "de": "global-sites-network-communications-manager-roche-ch",
+        "de": "netzwerkkommunikationsmanager-fur-globale-standorte-roche-basel",
         "fr": "gestionnaire-de-communications-de-reseaux-de-sites-mondiaux-roche-basel"
       },
       "company": "Roche",
@@ -7392,7 +7390,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-sites-network-communications-manager-roche-ch"
+        ],
+        "de": [
+          "global-sites-network-communications-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-sites-network-communications-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-6a0fa6085d1e",
@@ -8014,7 +8023,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8057,7 +8066,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
         "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -8065,7 +8073,6 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
           "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
@@ -9010,12 +9017,12 @@
     },
     {
       "id": "roche-bb6baac86377",
-      "slug": "student-internship-process-development-for-oligonucleotides-roche-ch",
+      "slug": "stage-studentesco-sviluppo-del-processo-per-oligonucleotides-roche-basel",
       "slugByLocale": {
         "en": "student-internship-process-development-for-oligonucleotides-roche-ch",
-        "it": "student-internship-process-development-for-oligonucleotides-roche-ch",
-        "de": "student-internship-process-development-for-oligonucleotides-roche-ch",
-        "fr": "student-internship-process-development-for-oligonucleotides-roche-ch"
+        "it": "stage-studentesco-sviluppo-del-processo-per-oligonucleotides-roche-basel",
+        "de": "student-internship-prozessentwicklung-fur-oligonukleotide-roche-basel",
+        "fr": "stage-etudiant-developpement-de-processus-pour-les-oligonucleotides-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9072,7 +9079,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-05T21:22:45.623Z"
+      "firstSeenAt": "2026-10-05T21:22:45.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-internship-process-development-for-oligonucleotides-roche-ch"
+        ],
+        "de": [
+          "student-internship-process-development-for-oligonucleotides-roche-ch"
+        ],
+        "fr": [
+          "student-internship-process-development-for-oligonucleotides-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-internship-process-development-for-oligonucleotides-roche-ch"
+      ]
     },
     {
       "id": "roche-2af42ec63c03",
@@ -9143,12 +9164,12 @@
     },
     {
       "id": "roche-d3863d8c1e91",
-      "slug": "praktikum-in-der-qc-mikrobiologie-roche-ch",
+      "slug": "stage-in-microbiologia-qc-roche-kaiseraugst",
       "slugByLocale": {
         "de": "praktikum-in-der-qc-mikrobiologie-roche-ch",
-        "it": "praktikum-in-der-qc-mikrobiologie-roche-ch",
-        "en": "praktikum-in-der-qc-mikrobiologie-roche-ch",
-        "fr": "praktikum-in-der-qc-mikrobiologie-roche-ch"
+        "it": "stage-in-microbiologia-qc-roche-kaiseraugst",
+        "en": "internship-in-qc-microbiology-roche-kaiseraugst",
+        "fr": "stage-en-microbiologie-qc-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9205,7 +9226,21 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-05T21:22:42.312Z"
+      "firstSeenAt": "2026-10-05T21:22:42.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-qc-mikrobiologie-roche-ch"
+        ],
+        "en": [
+          "praktikum-in-der-qc-mikrobiologie-roche-ch"
+        ],
+        "fr": [
+          "praktikum-in-der-qc-mikrobiologie-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-qc-mikrobiologie-roche-ch"
+      ]
     }
   ]
 }
