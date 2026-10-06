@@ -320,11 +320,13 @@ async function enrichHtmlSource(record, pharmacy, source, checkedAt, fetchDocume
       warnings.push(`${source.id}: page did not match ${pharmacy.id}; no facts published`);
       return;
     }
-    const acceptedFields = [];
-    for (const field of source.fields || []) {
-      if (setFact(record, field, parsed.facts[field], source, checkedAt)) acceptedFields.push(field);
-    }
-    addExternalSource(record, source, checkedAt, acceptedFields, parsed.sourceUpdatedAt);
+    const observedFields = (source.fields || []).filter((field) => hasFieldValue(parsed.facts[field]));
+    for (const field of observedFields) setFact(record, field, parsed.facts[field], source, checkedAt);
+    // Keep a matched source even when its values lose field-level precedence
+    // to an official source. The selected fact and the corroborating source
+    // are separate pieces of provenance and both help readers/agents audit
+    // the identity without allowing a lower-trust source to overwrite it.
+    addExternalSource(record, source, checkedAt, observedFields, parsed.sourceUpdatedAt);
   } catch (error) {
     warnings.push(`${source.id}: ${error instanceof Error ? error.message : String(error)}`);
   }
@@ -414,11 +416,11 @@ async function enrichFacebookProvider(records, pharmacies, provider, checkedAt, 
         sourceType: 'facebook',
         fields: ['phone', 'website', 'openingHours', 'contactEmail'],
       };
-      const acceptedFields = [];
-      for (const field of source.fields) {
-        if (setFact(records[pharmacy.id], field, facts[field], source, checkedAt)) acceptedFields.push(field);
-      }
-      addExternalSource(records[pharmacy.id], source, checkedAt, acceptedFields);
+      const observedFields = source.fields.filter((field) => hasFieldValue(facts[field]));
+      for (const field of observedFields) setFact(records[pharmacy.id], field, facts[field], source, checkedAt);
+      // Preserve the matched Page as corroborating provenance even when the
+      // official catalogue/municipal source remains the selected fact source.
+      addExternalSource(records[pharmacy.id], source, checkedAt, observedFields);
     } catch (error) {
       warnings.push(`facebook:${pharmacy.id}: ${error instanceof Error ? error.message : String(error)}`);
     }
