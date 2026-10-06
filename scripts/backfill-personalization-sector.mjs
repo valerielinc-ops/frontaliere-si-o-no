@@ -37,6 +37,7 @@ import {
   derivePersonalizationPatch,
   PERSONALIZATION_FIELDS,
 } from './lib/subscriber-personalization.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const SECTOR_FIELDS = ['sector_interest', 'job_category'];
 
@@ -74,15 +75,8 @@ function parseArgs(argv) {
 }
 
 async function getFirestoreAdmin() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: getFirestore(), FieldValue };
+  const { FieldValue } = await import('firebase-admin/firestore');
+  return { db: await getFirestoreDb(), FieldValue };
 }
 
 const norm = (v) => String(v || '').trim().toLowerCase();

@@ -102,6 +102,7 @@ import {
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 
@@ -358,15 +359,7 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
 }
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 async function main() {

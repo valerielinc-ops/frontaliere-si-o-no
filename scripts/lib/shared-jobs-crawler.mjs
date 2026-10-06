@@ -26,6 +26,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
+import { getFirestoreDb } from './firestore-admin.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { hasAnyJobSignal } from './job-like.mjs';
@@ -5868,12 +5869,7 @@ async function loadCrawlerConfigFromFirestore() {
   const enabled = process.env.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1';
   if (!enabled) return null;
   try {
-    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-    const { getFirestore } = await import('firebase-admin/firestore');
-    if (!getApps().length) {
-      initializeApp({ credential: applicationDefault() });
-    }
-    const fsAdmin = getFirestore();
+    const fsAdmin = await getFirestoreDb();
     const snap = await fsAdmin.doc(CRAWLER_FIRESTORE_DOC).get();
     if (!snap.exists) return null;
     const data = snap.data();
