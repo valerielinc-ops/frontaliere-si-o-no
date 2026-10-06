@@ -65,6 +65,7 @@ concurrency:
 permissions:
   contents: write
   pull-requests: write
+  actions: read
   # A skipped sync exits 0 by design (nothing was written; the previous commit is
   # still consistent). That makes a mirror stuck for good invisible on a wall of
   # green runs, so N consecutive skips open an issue — see the escalation step.
@@ -85,6 +86,12 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
+          cache: npm
+
+      # Pull the corpus loads the chunker, which imports the lockfile-pinned
+      # TypeScript compiler. Install before any repository script runs.
+      - name: Install sync dependencies
+        run: npm ci --no-audit --no-fund
 
       # The corpus worker must send this exact contract in client_payload:
       # schema_version=1; source_repository, source_workflow,
@@ -433,7 +440,6 @@ jobs:
             echo "Article source unchanged; parser validation skipped."
             exit 0
           fi
-          npm ci --no-audit --no-fund
           npm test -- tests/generated-content-parses.test.ts
 
       - name: Commit if changed
@@ -975,6 +981,21 @@ jobs:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
 
+      # The diagnostic reporter uses the canonical title so the recovered-run
+      # reconciler can close the issue on the next green sync.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          context: >-
+            La sincronizzazione del corpus verso sitemap, feed, ticker e metadati
+            degli articoli non ha completato il percorso di pubblicazione.
+
   # The stable refresh PR deliberately skips every live side effect until its
   # required check has passed. This push job is the other half of that contract:
   # it reads the merged main tree and replays every surface that the PR path
@@ -1242,3 +1263,16 @@ jobs:
           fi
           node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
           exit "$release_status"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          context: >-
+            Il replay post-merge della sincronizzazione non ha ripubblicato le
+            superfici sitemap, feed o ticker.
