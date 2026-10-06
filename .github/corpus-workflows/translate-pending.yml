@@ -597,6 +597,7 @@ jobs:
           AZURE_TRANSLATOR_KEY: ""
           AZURE_TRANSLATOR_KEY_2: ""
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: "1"
@@ -692,6 +693,7 @@ jobs:
         env:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "12600000"
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
@@ -714,6 +716,7 @@ jobs:
           AZURE_TRANSLATOR_KEY: ""
           AZURE_TRANSLATOR_KEY_2: ""
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve

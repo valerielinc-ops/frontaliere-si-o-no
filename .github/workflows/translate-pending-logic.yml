@@ -510,6 +510,7 @@ jobs:
           # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
           # alert (scripts/lib/codex-reserve-report.mjs).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
@@ -656,6 +657,7 @@ jobs:
           # number of calls (30 by default) and 15 minutes per run, because the
           # subscription is shared with the owner's interactive use and this lane runs every day.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
@@ -688,6 +690,7 @@ jobs:
           # Codex last resort, same per-run budget as Phase 2d (the two
           # phases never run in the same run).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
