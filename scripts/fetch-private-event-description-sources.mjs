@@ -15,15 +15,12 @@ const target = path.resolve(output);
 try {
   const bucket = await privateEventDescriptionBucket();
   const content = await downloadPrivateEventDescriptionSources(bucket);
-  if (!content) {
-    console.log(JSON.stringify({ status: 'missing' }));
-    process.exit(0);
-  }
+  if (!content) throw new Error('private_event_description_backlog_missing');
   writePrivateEventDescriptionOutput(target, content);
   const records = content.toString('utf8').split('\n').filter(Boolean).length;
   console.log(JSON.stringify({ status: 'ready', records }));
 } catch (error) {
   fs.rmSync(target, { force: true });
   console.log(JSON.stringify({ status: 'unavailable', error: error?.name || 'Error' }));
-  process.exitCode = 0;
+  process.exitCode = 1;
 }

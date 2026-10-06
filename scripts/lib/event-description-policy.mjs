@@ -7,6 +7,7 @@ export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
 export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v1';
 export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 1;
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
+export const EVENT_DESCRIPTION_MIN_CHARS = 30;
 const MODULE_REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 
 export function isValidSourceDescriptionHash(value) {
@@ -398,6 +399,7 @@ function sentenceCount(text) {
 export function validateRewriteDescription(candidate, { sourceTexts = [], factTexts = [] } = {}) {
   const text = normalizeDescriptionText(candidate);
   if (!text) return { ok: false, code: 'empty' };
+  if (text.length < EVENT_DESCRIPTION_MIN_CHARS) return { ok: false, code: 'too-short' };
   const sentences = sentenceCount(text);
   if (sentences < 2 || sentences > 3) return { ok: false, code: 'sentence-count' };
   if (findSharedSourceNgram(text, sourceTexts)) return { ok: false, code: 'source-ngram-8' };

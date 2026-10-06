@@ -1430,6 +1430,8 @@ export function zurichOffset(isoDate: string): string {
  * The description is optional until the rewrite cache has an exact
  * id+sourceDescriptionHash hit. Older and partial slices are completed at
  * detail-page render time with deterministic catalog/venue/image defaults.
+ * This omission is intentional: the publication contract requires factual
+ * data only until a validated rewrite exists, including in Event JSON-LD.
  * Detail pages also emit an Offer shell when the source has no verifiable
  * price, so the page still exposes its source URL and availability without
  * fabricating a zero or other amount. Direct callers only get that fallback

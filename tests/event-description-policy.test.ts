@@ -104,6 +104,10 @@ describe('event description rewrite validator', () => {
     expect(validateRewriteDescription('La mostra ospita Palazzo Nuovo. L\'appuntamento si svolge al museo.', { sourceTexts: source, factTexts: facts })).toEqual({ ok: false, code: 'new-name' });
   });
 
+  it('rejects prose shorter than the structured-data minimum', () => {
+    expect(validateRewriteDescription('A. B.', { sourceTexts: source, factTexts: facts })).toEqual({ ok: false, code: 'too-short' });
+  });
+
   it('rejects a date or price value that differs from the factual context', () => {
     expect(validateRewriteDescription('L\'evento è previsto il 10/12/2026. Il programma è aperto al pubblico.', {
       sourceTexts: source,
