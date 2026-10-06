@@ -187,8 +187,8 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
       consent_checked: true,
       consent_allowed: true,
       consent_basis: 'explicit-alert',
-      consent_checked_at: '2026-10-05T08:59:00.000Z',
     });
+    expect(sets[0].data.consent_checked_at).toBe(sets[0].data.sent_at.toISOString());
   });
 
   it('retains a successful send without an alert id as an unattributed delivery row', async () => {

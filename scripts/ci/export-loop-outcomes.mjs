@@ -23,6 +23,7 @@ export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const L4_RETURN_WINDOW_DAYS = 7;
 export const L4_GA4_LAG_DAYS = 2;
 export const L4_DELIVERY_CONTRACT_VERSION = 1;
+export const L4_DELIVERY_CONSENT_CLOCK_SKEW_MS = 5 * 60_000;
 export const L4_DELIVERY_LOOKBACK_DAYS = L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS + 1;
 export const DEFAULT_L4_WINDOW_HOURS = L4_DELIVERY_LOOKBACK_DAYS * 24;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
@@ -1008,7 +1009,7 @@ function sendDay(ms) {
   return new Date(ms).toISOString().slice(0, 10);
 }
 
-function readDeliveryConsentEvidence(data, sentAt) {
+export function readDeliveryConsentEvidence(data, sentAt) {
   const checked = first(data, ['consent_checked', 'consentChecked']);
   const allowed = first(data, ['consent_allowed', 'consentAllowed']);
   // `false/false` was the legacy shape written when the sender had no
@@ -1016,15 +1017,17 @@ function readDeliveryConsentEvidence(data, sentAt) {
   // is a refusal; everything else without a valid allow proof is missing.
   if (checked === true && allowed === false) return { status: 'refused' };
   const checkedAt = toMillis(first(data, ['consent_checked_at', 'consentCheckedAt']));
+  const sentAtMs = toMillis(sentAt);
   const version = Number(first(data, ['outcome_contract_version', 'outcomeContractVersion']));
   const basis = first(data, ['consent_basis', 'consentBasis']);
-  const clockSkewMs = 5 * 60_000;
   if (
     checked === true
     && allowed === true
     && version === L4_DELIVERY_CONTRACT_VERSION
     && checkedAt != null
-    && checkedAt <= sentAt + clockSkewMs
+    && sentAtMs != null
+    && checkedAt >= sentAtMs - L4_DELIVERY_CONSENT_CLOCK_SKEW_MS
+    && checkedAt <= sentAtMs + L4_DELIVERY_CONSENT_CLOCK_SKEW_MS
     && text(basis)
   ) return { status: 'valid', checkedAt, basis: String(basis).trim() };
   return { status: 'missing' };

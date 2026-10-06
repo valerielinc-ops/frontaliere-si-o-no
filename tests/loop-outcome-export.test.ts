@@ -21,6 +21,7 @@ import {
   GoogleDataClient,
   L1_GA4_EVENT_CONTRACT,
   L4_GA4_RETURN_CONTRACT,
+  readDeliveryConsentEvidence,
   L5_DECISION_EVENT_CONTRACT,
   l5GatedDateRange,
 } from '../scripts/ci/export-loop-outcomes.mjs';
@@ -35,6 +36,26 @@ function row(path: string, data: Record<string, unknown>) {
 }
 
 describe('read-only loop outcome exporters', () => {
+  it('requires consent evidence to be contemporaneous with the recorded send', () => {
+    const sentAt = '2026-10-06T12:00:00.000Z';
+    const proof = {
+      consent_checked: true,
+      consent_allowed: true,
+      outcome_contract_version: 1,
+      consent_basis: 'subscription',
+    };
+
+    expect(readDeliveryConsentEvidence({
+      ...proof,
+      consent_checked_at: '2026-10-05T12:00:00.000Z',
+    }, sentAt)).toEqual({ status: 'missing' });
+
+    expect(readDeliveryConsentEvidence({
+      ...proof,
+      consent_checked_at: '2026-10-06T11:56:00.000Z',
+    }, sentAt)).toMatchObject({ status: 'valid', basis: 'subscription' });
+  });
+
   it('parses Firestore runQuery streamed response records', async () => {
     const stream = [
       JSON.stringify({

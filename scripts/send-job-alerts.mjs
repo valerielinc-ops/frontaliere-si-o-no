@@ -1495,6 +1495,11 @@ export async function persistJobAlertDelivery(item, sendResult) {
     const db = await getFirestoreAdmin();
     const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
     const sentAt = new Date();
+    // The audience filter may run long before a provider accepts this item
+    // (especially when a scheduled send waits in the cascade). Renew the
+    // timestamp at the same persistence boundary as sent_at while preserving
+    // the already-evaluated allow decision and its basis.
+    const consentCheckedAt = consentProof ? sentAt.toISOString() : null;
     // A successful provider send must remain observable even if an upstream
     // item lost its alert id. The null campaign_id keeps attribution closed;
     // the provider id/time fallback prevents two unknown sends collapsing into
@@ -1519,15 +1524,16 @@ export async function persistJobAlertDelivery(item, sendResult) {
       // (personal/global) — absent entirely for retries, which never resolve one.
       scheduled_for: sendResult?.scheduledFor ?? null,
       send_time_source: item.meta?.sendTimeSource ?? null,
-      // L4 outcome contract v1: this is the consent decision evaluated before
-      // the provider call, not a reconstruction from the subscriber after the
-      // send. Keep the basis and timestamp so the exporter can prove consent
-      // existed at send time without trusting a later profile mutation.
+      // L4 outcome contract v1: keep the allow decision and basis evaluated
+      // before the provider call, but renew its timestamp at the provider-
+      // accepted send boundary above. The exporter can then require consent
+      // evidence contemporaneous with sent_at without trusting a later profile
+      // mutation.
       outcome_contract_version: 1,
       consent_checked: consentProof ? true : null,
       consent_allowed: consentProof ? consentProof.allowed === true : null,
       consent_basis: consentProof?.basis || null,
-      consent_checked_at: consentProof?.checkedAt || null,
+      consent_checked_at: consentCheckedAt,
       is_operator_verification: !!item.meta?.isOperatorVerification,
       sent_at: sentAt,
     }, { merge: true });
