@@ -10,8 +10,8 @@
 import { createHash } from 'node:crypto';
 import { canonicalJson } from './canonical-json-digest.mjs';
 
-const CATALOGUE_SNAPSHOT_PATH = 'data/pharmacies-ticino-complete.json';
-const DUTIES_SNAPSHOT_PATH = 'data/pharmacy-duties-ticino.json';
+export const CATALOGUE_SNAPSHOT_PATH = 'data/pharmacies-ticino-complete.json';
+export const DUTIES_SNAPSHOT_PATH = 'data/pharmacy-duties-ticino.json';
 
 // Floors deliberately leave room below the current snapshots (207 Ticino;
 // 542 Italy: CO 193, VA 266, VB 83) while rejecting the partial feeds that

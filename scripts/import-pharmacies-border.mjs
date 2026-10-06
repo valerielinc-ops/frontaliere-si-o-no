@@ -23,6 +23,8 @@ import { validatePharmacyReleaseContract } from '../services/pharmacies/release-
 import { httpFetchWithRetry, isRetryBudgetExhausted, transportErrorKind } from './lib/transient-fetch.mjs';
 import {
   BORDER_MINIMUMS,
+  CATALOGUE_SNAPSHOT_PATH,
+  DUTIES_SNAPSHOT_PATH,
   pharmacySnapshotSha256,
   releaseIdForContract,
   verifyPharmacyReleaseContract,

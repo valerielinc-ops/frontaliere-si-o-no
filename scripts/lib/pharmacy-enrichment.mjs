@@ -12,9 +12,7 @@
 
 import { JSDOM } from 'jsdom';
 import {
-  FIELDS,
   safeHttpsUrl,
-  SOURCE_TYPES,
   validatePharmacyEnrichmentConfig,
   validatePharmacyEnrichmentSnapshot,
 } from './pharmacy-enrichment-validation.mjs';

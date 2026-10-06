@@ -85,7 +85,7 @@ describe('pharmacy data-health monitor dependency-free closure', () => {
     const { files } = scanImportClosure();
     expect(files).toContain('scripts/check-pharmacy-data-health.mjs');
     // The chain is walked for real, so the guard cannot pass vacuously.
-    expect(files).toContain('scripts/lib/pharmacy-ticino-parser.mjs');
+    expect(files).toContain('scripts/lib/pharmacy-ticino-duty-parser.mjs');
     expect(files).toContain('scripts/lib/slugify.mjs');
     expect(files).toContain('scripts/lib/pharmacy-enrichment-validation.mjs');
     expect(files).toContain('scripts/lib/pharmacy-border-release-validation.mjs');
