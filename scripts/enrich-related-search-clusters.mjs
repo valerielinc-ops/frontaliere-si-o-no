@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * AI enrichment pipeline for related-search cluster landing pages.
  *
@@ -25,8 +26,7 @@
 import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-
+import { fileURLToPath } from 'node:url';
 import {
   callLLM,
   AI_MODELS,
@@ -653,7 +653,7 @@ async function main() {
   printRunSummary();
 }
 
-const isCli = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const isCli = isInvokedDirectly(import.meta.url);
 if (isCli) main().catch(async (err) => {
   // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
   // errore butta via gli esiti dei modelli accumulati dalla run — per lo

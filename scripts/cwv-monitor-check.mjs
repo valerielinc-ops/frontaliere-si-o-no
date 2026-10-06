@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * cwv-monitor-check.mjs — weekly real-user CLS/INP regression watchdog for
  * the #4302 money-page target list.
@@ -31,7 +32,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { reconcileMonitorIssues } from './lib/monitor-issue-reconcile.mjs';
@@ -632,7 +633,7 @@ export async function main({
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main()/TARGET_PAGES/etc. here never fires a real GA4/gh
 // call — same guard as scripts/posthog-error-issue-sync.mjs / dmarc-monitor.mjs.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const result = await main();
   if (result?.synced) {
     console.log(`[cwv-monitor-check] synced ${result.synced.filter(Boolean).length}/${result.synced.length} issue(s)`);

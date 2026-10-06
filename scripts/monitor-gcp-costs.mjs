@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Guard on the Google Cloud usage that becomes the bill. Runs every 6 hours
  * (Cloud Scheduler, see functions/src/gcpCostMonitorDispatch.js) over a
@@ -20,7 +21,6 @@
  * Usage: node scripts/monitor-gcp-costs.mjs [--dry-run]
  */
 import { appendFileSync, readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
 
 export const GCP_COST_ISSUE_TITLE = 'Costi GCP sopra la soglia giornaliera (monitor-gcp-costs)';
@@ -330,7 +330,7 @@ async function main(argv = process.argv.slice(2)) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`[monitor-gcp-costs] ${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);

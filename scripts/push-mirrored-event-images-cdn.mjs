@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Upload the event images THIS run mirrored to the CDN, then make
  * `data/events-image-manifest.json` tell the truth about what actually landed.
@@ -60,7 +61,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { isEventImageSafeIdAllowed } from './lib/events-utils.mjs';
 
@@ -144,7 +145,7 @@ function datasetFilesToPrune() {
 
 // Executed directly? The upload flow runs. Imported (tests)? Only the exports.
 const RUN_DIRECTLY =
-  process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+  isInvokedDirectly(import.meta.url);
 
 function main() {
   if (!existsSync(IMAGE_DIR)) {
