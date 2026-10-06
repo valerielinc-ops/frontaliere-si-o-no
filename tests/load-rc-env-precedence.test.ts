@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { claimEnvKey } from '../scripts/load-rc-env.mjs';
+import { claimEnvKey, RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 
 describe('load-rc-env target precedence', () => {
   it('keeps the specific LSA token ahead of the legacy fallback', () => {
@@ -13,5 +13,9 @@ describe('load-rc-env target precedence', () => {
     }
 
     expect(emittedValues).toEqual(['lsa-token-from-specific-plan']);
+  });
+
+  it('maps the optional Tankerkönig key without exposing it to the client', () => {
+    expect(RC_TO_ENV.TANKERKOENIG_API_KEY).toEqual(['TANKERKOENIG_API_KEY']);
   });
 });
