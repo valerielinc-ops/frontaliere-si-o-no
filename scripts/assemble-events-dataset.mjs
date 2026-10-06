@@ -100,6 +100,7 @@ export function loadEventImageLibrary(filePath = EVENT_IMAGE_LIBRARY_PATH) {
     return { assets: [] };
   }
 }
+import { applyDescriptionRewrite, loadEventDescriptionRewriteCache, sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 
 function readSlices(sliceDir = EVENTS_SLICE_DIR) {
   if (!existsSync(sliceDir)) return [];
@@ -725,11 +726,17 @@ export function attachCantonFromGeo(events, cantonAt = cantonAtPoint) {
  * Paths are injectable only so tests can assemble into a temp dir
  * (tests/events-private-source-exclusions.test.ts); the CLI uses the defaults.
  */
-export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DATASET_PATH } = {}) {
+export function assemble({
+  sliceDir = EVENTS_SLICE_DIR,
+  datasetPath = EVENTS_DATASET_PATH,
+  rewriteCachePath = path.join(path.dirname(datasetPath), 'events-description-rewrites.json'),
+} = {}) {
   const priorDataset = loadEventsDataset(datasetPath);
-  const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
-  const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
+  const priorEvents = priorDataset.events.map(sanitizeEventForPublication);
+  const priorById = new Map(priorEvents.map((event) => [event.id, event]));
+  const priorRoutes = publishedEventRoutes(priorEvents, priorDataset.generatedAt?.slice(0, 10));
   const slices = readSlices(sliceDir);
+  const rewriteCache = loadEventDescriptionRewriteCache(rewriteCachePath);
   const byId = new Map();
   let invalidRecords = 0;
   let privateRecords = 0;
@@ -738,7 +745,7 @@ export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DAT
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
     for (const rawEvent of slice.events) {
       if (!rawEvent || !rawEvent.id || !rawEvent.startDate || !rawEvent.title) continue;
-      const ev = stripUnauthorizedEventImage(rawEvent);
+      const ev = sanitizeEventForPublication(stripUnauthorizedEventImage(rawEvent));
       // Eventfrog & co. (scripts/lib/private-event-sources.mjs): a record of a
       // private source must never reach data/events.json or its public copy,
       // which the corpus republishes as an open API (AGB §17(3)).
@@ -782,7 +789,9 @@ export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DAT
     }]);
   });
 
-  const events = withHistory.sort(
+  const eventsWithRewrites = withHistory.map((event) => applyDescriptionRewrite(event, rewriteCache));
+  const rewrittenDescriptions = eventsWithRewrites.filter((event) => event.description).length;
+  const events = eventsWithRewrites.sort(
     (a, b) =>
       (a.startDate || '').localeCompare(b.startDate || '') ||
       (a.title || '').localeCompare(b.title || ''),
@@ -823,12 +832,14 @@ export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DAT
     frontierAttached,
     invalidRecords,
     privateRecords,
+    rewrittenDescriptions,
+    pendingDescriptions: events.length - rewrittenDescriptions,
     publicPath,
     cantonless: { before: cantonlessBefore, fromGeo: cantonFromGeo },
   };
 }
 
-function printStats(events, mergedAway, frontierAttached, cantonless) {
+function printStats(events, mergedAway, frontierAttached, cantonless, rewrittenDescriptions = events.filter((event) => event.description).length) {
   const byComune = new Map();
   const byCategory = new Map();
   let withComune = 0;
@@ -842,6 +853,7 @@ function printStats(events, mergedAway, frontierAttached, cantonless) {
   const topComuni = [...byComune.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
   console.log(`\n── events stats ──`);
   console.log(`total: ${events.length} | with comune: ${withComune} | comuni: ${byComune.size}`);
+  console.log(`descriptions: ${rewrittenDescriptions} rewritten | ${events.length - rewrittenDescriptions} factual-only pending`);
   console.log(`top comuni: ${topComuni.map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`categories: ${[...byCategory.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`cross-source fuzzy dedup: merged away ${mergedAway} duplicate(s)`);
@@ -869,7 +881,7 @@ function printStats(events, mergedAway, frontierAttached, cantonless) {
 // data/events.json.
 const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) {
-  const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless } = assemble();
+  const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless, rewrittenDescriptions } = assemble();
   console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed; ${invalidRecords} invalid date record(s) skipped) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
-  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached, cantonless);
+  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached, cantonless, rewrittenDescriptions);
 }

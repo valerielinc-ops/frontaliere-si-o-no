@@ -32,6 +32,7 @@
 import { pathToFileURL } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, cleanEventText, isEventImageSourceAllowed } from './lib/events-utils.mjs';
 import { isValidClockTime, failIfSourceUnreachable } from './lib/icms-agenda.mjs';
 
@@ -182,7 +183,7 @@ async function main() {
   const dryRun = process.argv.slice(2).includes('--dry-run');
   const result = await crawler.crawl({ dryRun });
   failIfSourceUnreachable(SOURCE.key, result);
-  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3), null, 2));
+  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
