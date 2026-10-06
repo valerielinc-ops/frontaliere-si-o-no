@@ -44,9 +44,11 @@ async function emit(jobs?: object[]) {
     const doc = dom.window.document;
     const dataset = [...doc.querySelectorAll('script[type="application/ld+json"]')]
       .map((script) => JSON.parse(script.textContent || '{}')).find((entry) => entry['@type'] === 'Dataset');
+    const tableLabels = [...doc.querySelectorAll('table')]
+      .map((table) => table.getAttribute('aria-label'));
     const text = doc.body.textContent;
     dom.window.close();
-    return { text, dataset };
+    return { text, dataset, tableLabels };
   });
 }
 
@@ -70,11 +72,14 @@ describe('report panel provenance', () => {
       { ...job, datePosted: '2025-06-15', company: 'Old employer' },
     ]);
     expect(pages).toHaveLength(4);
-    for (const { text, dataset } of pages) {
+    for (const { text, dataset, tableLabels } of pages) {
       expect(dataset.variableMeasured.map((entry: { value: number }) => entry.value)).toEqual([5, 3, 90000]);
       expect(text).toContain('Reported employer');
       expect(text).not.toMatch(/Invented employer|Zurich employer|Old employer|bimodal|12[–-]18\s*%|300[–-]400|100\s*%/);
       expect(text).toContain('N/D');
+      expect(tableLabels.length).toBeGreaterThan(0);
+      expect(tableLabels.every((label) => !!label?.trim())).toBe(true);
+      expect(new Set(tableLabels).size).toBe(tableLabels.length);
     }
   });
   it.each([{ canton: 7 }, { ...job, salaryPeriod: 12 }, { ...job, company: 12 }, { ...job, location: 12 }, { ...job, sector: 12 }, { ...job, baseSalary: { value: { unitText: 12 } } }])('treats a corrupt row as unavailable rather than a valid empty panel: %j', async (invalid) => {
