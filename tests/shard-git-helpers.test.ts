@@ -386,6 +386,25 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       return bare;
     }
 
+    function flakyRemote(name: string, message: string, failures: number) {
+      const bare = join(root, `${name}.git`);
+      const attemptsFile = join(root, `${name}.attempts`);
+      sh(`git init -q --bare -b main "${bare}"`);
+      writeFileSync(attemptsFile, '0');
+      const hook = join(bare, 'hooks/pre-receive');
+      writeFileSync(
+        hook,
+        `#!/bin/sh\n` +
+          `attempts=$(cat "${attemptsFile}")\n` +
+          `attempts=$((attempts + 1))\n` +
+          `printf '%s' "$attempts" > "${attemptsFile}"\n` +
+          `if [ "$attempts" -le ${failures} ]; then echo "${message}" >&2; exit 1; fi\n` +
+          'exit 0\n',
+        { mode: 0o755 },
+      );
+      return { bare, attemptsFile };
+    }
+
     function stageWithCommit(name: string): string {
       const stage = join(root, name);
       sh(`mkdir -p "${stage}"`);
@@ -417,17 +436,23 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       // statements in single quotes, so a quoted printf inside would be mangled.
       const authLog = join(root, 'classify-auth.log');
       const transientLog = join(root, 'classify-transient.log');
+      const http2Log = join(root, 'classify-http2-transient.log');
       writeFileSync(
         authLog,
         'ERROR: Permission to nanakokyobashi-rgb/frontaliere-uri-it.git denied to deploy key\n' +
           'fatal: Could not read from remote repository.\n',
       );
       writeFileSync(transientLog, 'fatal: early EOF\nfatal: index-pack failed\n');
+      writeFileSync(
+        http2Log,
+        'error: RPC failed; curl 92 HTTP/2 stream 3 was not closed cleanly: INTERNAL_ERROR\n',
+      );
       const out = runHelperScript(
         `shard_push_error_is_auth "${authLog}" && echo AUTH; ` +
-          `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT`,
+          `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT; ` +
+          `shard_push_error_is_transient "${http2Log}" && echo HTTP2`,
       );
-      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT']);
+      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT', 'HTTP2']);
       const reasons = runHelperScript(
         `shard_push_failure_reason "${authLog}"; echo; ` +
           `shard_push_failure_reason "${transientLog}"`,
@@ -534,6 +559,57 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       // itself — that IS the mechanism that hides it from the Actions log.
       expect(out).toContain('::add-mask::dummy-token');
       expect(out.replace(/::add-mask::.*\n?/g, '')).not.toContain('dummy-token');
+    }, 25_000);
+
+    it('retries a transient GitHub PAT failure and succeeds', () => {
+      const refused = rejectingRemote(
+        'pat-fallback-transient-ssh',
+        'ERROR: Permission to owner/frontaliere-uri-it.git denied to deploy key',
+      );
+      const flaky = flakyRemote('pat-fallback-transient-https', 'remote: Internal Server Error', 2);
+      const stage = stageWithCommit('pat-fallback-transient-stage');
+      sh(
+        `git -C "${stage}" config url."${refused}".insteadOf git@github.com:owner/frontaliere-uri-it.git`,
+      );
+      sh(
+        `git -C "${stage}" config url."${flaky.bare}".insteadOf https://github.com/owner/frontaliere-uri-it.git`,
+      );
+
+      const out = execSync(
+        `env -u GITHUB_PAT SHARD_PUSH_PAT=dummy-token bash -c 'set -uo pipefail; source "${HELPERS}"; ` +
+          `SHARD_PUSH_RETRY_DELAY=0 SHARD_PAT_RETRY_DELAY=0.5 shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-uri-it.git" main uri-it; echo "RC=$?"'`,
+        { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 20_000 },
+      );
+      expect(out).toMatch(/PAT push attempt 1\/3 failed with a transient remote\/transport error/);
+      expect(out).toMatch(/PAT push attempt 2\/3 failed with a transient remote\/transport error/);
+      expect(out).toMatch(/pushed via the PAT fallback/);
+      expect(out).toContain('RC=0');
+      expect(sh(`cat "${flaky.attemptsFile}"`)).toBe('3');
+      expect(sh(`git -C "${flaky.bare}" rev-list --count main`)).toBe('1');
+    }, 25_000);
+
+    it('does not retry a PAT authorization failure', () => {
+      const refused = rejectingRemote(
+        'pat-fallback-permanent-ssh',
+        'ERROR: Permission to owner/frontaliere-uri-it.git denied to deploy key',
+      );
+      const denied = rejectingRemote('pat-fallback-permanent-https', 'remote: 403 Forbidden');
+      const stage = stageWithCommit('pat-fallback-permanent-stage');
+      sh(
+        `git -C "${stage}" config url."${refused}".insteadOf git@github.com:owner/frontaliere-uri-it.git`,
+      );
+      sh(
+        `git -C "${stage}" config url."${denied}".insteadOf https://github.com/owner/frontaliere-uri-it.git`,
+      );
+
+      const out = execSync(
+        `env -u GITHUB_PAT SHARD_PUSH_PAT=dummy-token bash -c 'set -uo pipefail; source "${HELPERS}"; ` +
+          `SHARD_PUSH_RETRY_DELAY=0 SHARD_PAT_RETRY_DELAY=0 shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-uri-it.git" main uri-it; echo "RC=$?"'`,
+        { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 20_000 },
+      );
+      expect(out).not.toMatch(/PAT push attempt [12]\/3/);
+      expect(out).toMatch(/PAT fallback push also failed/);
+      expect(out).toContain('RC=1');
     }, 25_000);
 
     it('recovers a torn SSH connection without falsely declaring the deploy key broken', () => {

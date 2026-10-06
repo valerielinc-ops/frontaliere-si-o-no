@@ -135,6 +135,34 @@ describe('scripts/lib/shard-git-helpers.sh — shape', () => {
   it('scrubs the token from the fallback push transcript', () => {
     expect(script).toMatch(/sed\s+"s\|\$SHARD_PUSH_TOKEN\|\*\*\*\|g"/);
   });
+
+  it('normalizes and bounds fractional PAT retry delays before sleep/arithmetic', () => {
+    expect(script).toMatch(/shard_pat_retry_delay\(\)/);
+    expect(script).toMatch(/shard_pat_retry_delay_double/);
+    expect(script).toMatch(/pat_delay="\$\(shard_pat_retry_delay\)"/);
+  });
+
+});
+
+describe('scripts/ci/prune-cdn-assets.mjs — PAT fallback shape', () => {
+  const script = read('scripts/ci/prune-cdn-assets.mjs');
+
+  it('retries only bounded transient PAT failures and preserves the original failure otherwise', () => {
+    expect(script).toMatch(/const PAT_PUSH_MAX_ATTEMPTS = 3/);
+    expect(script).toMatch(/attempt < PAT_PUSH_MAX_ATTEMPTS && isTransientPushFailure\(fallbackError\)/);
+    expect(script).toMatch(/function isTransientPushFailure\(error\)/);
+    expect(script).toMatch(/throw err;/);
+  });
+
+  it('rechecks the live CDN tip before every PAT force-push attempt', () => {
+    expect(script).toMatch(/function pushCdnMain\(repoDir, sshEnv, clonedTip\)/);
+    expect(script).toMatch(/for \(let attempt = 1;[\s\S]*?assertFreshRemote\(clonedTip, sshEnv\)/);
+    expect(script).toMatch(/pushCdnMain\(repoDir, sshEnv, clonedTip\)/);
+  });
+
+  it('classifies the Git HTTP/2 transport interruption as transient', () => {
+    expect(script).toContain(String.raw`HTTP\/2 stream \d+ was not closed cleanly`);
+  });
 });
 
 describe('SSH deploy paths — transport keepalive', () => {
