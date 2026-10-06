@@ -1,0 +1,148 @@
+name: Generate event image library
+
+on:
+  schedule:
+    - cron: '15 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      max_assets:
+        description: 'Maximum number of missing slots to generate (1–20)'
+        required: false
+        default: '20'
+        type: string
+
+concurrency:
+  group: event-image-library
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      MAX_ASSETS: ${{ inputs.max_assets || '20' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Validate generation limit
+        run: |
+          case "$MAX_ASSETS" in
+            ''|*[!0-9]*) echo '::error::max_assets must be an integer from 1 to 20'; exit 2 ;;
+          esac
+          if [ "$MAX_ASSETS" -lt 1 ] || [ "$MAX_ASSETS" -gt 20 ]; then
+            echo '::error::max_assets must be an integer from 1 to 20'
+            exit 2
+          fi
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load Remote Config'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo 'GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json' >> "$GITHUB_ENV"
+
+      - name: Load R2, Gemini and PR credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Setup Codex OAuth image lane
+        id: setup_codex
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          codex_cli_version: '0.160.1'
+          broker_max_concurrency: '1'
+          broker_max_timeout_ms: '600000'
+
+      - name: Snapshot the previous image registry
+        run: cp data/event-image-library.json "$RUNNER_TEMP/event-image-library.before.json"
+
+      - name: Generate missing event-library slots
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          node scripts/generate-event-image-library.mjs \
+            --limit "$MAX_ASSETS" \
+            --registry data/event-image-library.json \
+            --output-dir .cache/event-image-library
+
+      - name: Upload generated WebP assets to R2
+        run: |
+          node scripts/upload-event-image-library-cdn.mjs \
+            --registry data/event-image-library.json \
+            --asset-dir .cache/event-image-library \
+            --before-registry "$RUNNER_TEMP/event-image-library.before.json"
+
+      - name: Gate event image records and published URLs
+        run: npm run validate:event-images
+
+      - name: Publish registry through a data PR
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          export GH_TOKEN="${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
+          body="$RUNNER_TEMP/event-image-library-pr-body.md"
+          cat > "$body" <<'EOF'
+          ## Implementato
+          - Il motore condiviso assegna in modo deterministico gli slot mancanti della libreria eventi e persiste solo record verificati con provider, modello, hash, dimensioni, marcatura media generativa e restrizioni.
+          - I WebP nuovi sono stati caricati su R2 sotto `images/events/library/` prima della proposta del registro, con controllo del gate eventi.
+
+          ## Non implementato (ancora)
+          - Il passaggio di `create-article.mjs` e degli altri generatori al motore è blocked: PR successiva nel corpus sul motore.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/event-image-library.json \
+            --branch chore/event-image-library \
+            --commit-message 'chore(data): refresh event image library' \
+            --title 'chore(data): refresh event image library' \
+            --body-file "$body"
+
+      - name: Stop Codex broker
+        if: always() && steps.setup_codex.outputs.codex_auth_broker_socket != ''
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          node -e 'const net=require("node:net"); const s=net.createConnection(process.env.CODEX_AUTH_BROKER_SOCKET,()=>s.end(JSON.stringify({op:"cleanup"})+"\n")); s.on("error",()=>{});'
