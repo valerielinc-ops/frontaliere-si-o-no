@@ -190,6 +190,31 @@ describe('static → SPA job-board geometry — #9815', () => {
     expect(hubSource).toContain("isJobBoardHub ? 'job-board' : 'default'");
   });
 
+  it('derives the static cap and centering from the hydrated job-board main contract', () => {
+    const mainClass = appSource.match(/activeTab === 'job-board'\s*\?\s*'([^']+)'/)?.[1];
+    const maxWidthPx = mainClass?.match(/!max-w-\[(\d+)px\]/)?.[1];
+    expect(maxWidthPx, 'the job-board branch must declare a pixel max-width').toBeTruthy();
+    expect(appSource).toMatch(/<main id="main-content"[^>]*mx-auto/);
+
+    const expectCenteredCapped = (source: string, selector: string, separator: string) => {
+      const rule = source.match(new RegExp(`${selector}\\s*\\{([^}]*)\\}`))?.[1] ?? '';
+      expect(rule, `${selector} must have an explicit static rule`).toContain(`max-width:${separator}${maxWidthPx}px`);
+      expect(rule).toContain(`margin-inline:${separator}auto`);
+    };
+
+    for (const selector of ['main\\.seo-static-content\\.static-job-page', 'main\\.seo-static-content\\.job-board-static-hub']) {
+      expectCenteredCapped(indexCssSource, selector, ' ');
+      expectCenteredCapped(criticalSource, selector, '');
+    }
+
+    expect(indexCssSource).toMatch(
+      new RegExp(`\\.ft-rail-grid\\.ft-rail-grid-x\\s*\\{[^}]*max-width:\\s*${maxWidthPx}px[^}]*margin-inline:\\s*auto`),
+    );
+    expect(criticalSource).toMatch(
+      new RegExp(`\\.ft-rail-grid\\.ft-rail-grid-x\\{[^}]*max-width:${maxWidthPx}px;margin-inline:auto`),
+    );
+  });
+
   it('portals the job-board footer through the explicit footer-root handoff target', () => {
     expect(appSource).toContain("activeTab === 'job-board'");
     expect(appSource).toContain("document.getElementById('footer-root')");

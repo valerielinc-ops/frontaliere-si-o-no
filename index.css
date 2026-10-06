@@ -270,7 +270,8 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
      so do not let the legacy `.ft-rail-grid` rule create 160px gutters. */
   .ft-rail-grid.ft-rail-grid-x {
     display: block;
-    max-width: none;
+    max-width: 2400px;
+    margin-inline: auto;
   }
   .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: none; }
 }
@@ -279,7 +280,8 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
     display: grid;
     grid-template-columns: var(--ft-rail-w-m-l, 180px) minmax(0, 1fr) var(--ft-rail-w-m-r, 180px);
     gap: 1rem;
-    max-width: none;
+    max-width: 2400px;
+    margin-inline: auto;
   }
   .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: block; }
 }
@@ -288,7 +290,8 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
     display: grid;
     grid-template-columns: var(--ft-rail-w-l, 300px) minmax(0, 1fr) var(--ft-rail-w-r, 300px);
     gap: 1rem;
-    max-width: none;
+    max-width: 2400px;
+    margin-inline: auto;
   }
   .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: flex; }
 }
@@ -337,7 +340,8 @@ main.seo-static-content {
 }
 main.seo-static-content.job-board-static-hub {
   display: block;
-  max-width: none;
+  max-width: 2400px;
+  margin-inline: auto;
   width: 100%;
   padding: 0 0 56px;
 }
@@ -351,7 +355,8 @@ main.seo-static-content.job-board-static-hub {
   }
   .job-board-static-rail-shell {
     margin-top: 1.5rem;
-    padding-inline: 16px;
+    width: calc(100% - 32px);
+    padding-inline: 0;
   }
 }
 
@@ -360,7 +365,8 @@ main.seo-static-content.job-board-static-hub {
    frame does not reflow when the detail view takes over. */
 main.seo-static-content.static-job-page {
   display: block;
-  max-width: none;
+  max-width: 2400px;
+  margin-inline: auto;
   width: 100%;
   padding: 16px 12px 56px;
 }

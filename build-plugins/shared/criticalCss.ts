@@ -135,7 +135,7 @@ export const RAIL_RESERVE_CSS =
   '@media(min-width:1200px) and (max-width:1399.98px){' +
   '.ft-rail-grid{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid>.ft-rail-aside{display:flex;flex-direction:column;min-height:600px}' +
-  '.ft-rail-grid.ft-rail-grid-x{display:block;max-width:none}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:block;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:none}' +
   '}' +
   '@media(min-width:1200px){' +
@@ -144,7 +144,7 @@ export const RAIL_RESERVE_CSS =
   '}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
   '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem}' +
-  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem;max-width:none}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside-x{display:block}' +
   '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:block}' +
   '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
@@ -155,7 +155,7 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid-spa{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem}' +
   '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem}' +
-  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem;max-width:none}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
@@ -227,7 +227,7 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
  * asynchronously and the handoff happens before the React detail paints.
  */
 export const JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS =
-  'main.seo-static-content.static-job-page{display:block;max-width:none;width:100%;padding:16px 12px 56px}' +
+  'main.seo-static-content.static-job-page{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:16px 12px 56px}' +
   '.job-detail-top-row{display:flex;align-items:center;gap:1rem;min-height:44px;margin-bottom:1.5rem}' +
   '.job-detail-top-row .bn{margin:0;width:auto}' +
   '.job-detail-top-banner-reserve{display:none}' +
@@ -244,8 +244,8 @@ export const JOB_BOARD_HUB_STATIC_HANDOFF_CSS =
   '.job-board-static-top-stack{margin-top:16px}' +
   '.job-board-top-banner-reserve{display:none}' +
   '.job-board-static-rail-shell{margin-top:0;padding-inline:12px;box-sizing:border-box}' +
-  'main.seo-static-content.job-board-static-hub{display:block;max-width:none;width:100%;padding:0 0 56px}' +
-  '@media(min-width:1024px){.job-board-static-top-stack{margin-top:32px}.job-board-top-banner-reserve{display:block;min-height:100px}.job-board-static-rail-shell{margin-top:1.5rem;padding-inline:16px}}';
+  'main.seo-static-content.job-board-static-hub{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:0 0 56px}' +
+  '@media(min-width:1024px){.job-board-static-top-stack{margin-top:32px}.job-board-top-banner-reserve{display:block;min-height:100px}.job-board-static-rail-shell{margin-top:1.5rem;width:calc(100% - 32px);padding-inline:0}}';
 
 /**
  * Static SEO HERO layout, mirrored from the ASYNC `seo-static.css` into this
