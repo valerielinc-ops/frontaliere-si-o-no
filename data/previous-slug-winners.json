@@ -864,11 +864,11 @@
     "canton": "AG"
   },
   "AG::de::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen-dtnq5b": {
-    "winnerJobIdentifier": "company-scbn4z",
-    "winnerCanonical": "verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen",
-    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "winnerJobIdentifier": "company-nj3rz5",
+    "winnerCanonical": "verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.8889,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -927,12 +927,12 @@
     "canton": "AG"
   },
   "AG::de::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-8b6b49d756db",
-    "winnerCanonical": "zusteller-in-briefe-und-pakete-die-schweizerische-post-lenzburg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-af9b6decf355",
+    "winnerCanonical": "zusteller-in-briefe-und-pakete-die-schweizerische-post-buchs-ag",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::en::assembly-assistent-in-for-home-delivery-of-household-appliances-fust-swiss-household-services-ag-lenzburg": {
@@ -1620,12 +1620,12 @@
     "canton": "AG"
   },
   "AG::en::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-8b6b49d756db",
-    "winnerCanonical": "delivery-letters-and-packages-die-schweizerische-post-lenzburg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-af9b6decf355",
+    "winnerCanonical": "delivery-letters-and-packages-die-schweizerische-post-buchs-ag",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0769,
-    "candidatesCount": 2,
+    "score": 0.0714,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::fr::arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid": {
@@ -2286,12 +2286,12 @@
     "canton": "AG"
   },
   "AG::fr::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-8b6b49d756db",
-    "winnerCanonical": "lettres-de-livraison-et-colis-die-schweizerische-post-lenzburg",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-af9b6decf355",
+    "winnerCanonical": "lettres-de-livraison-et-colis-die-schweizerische-post-buchs-ag",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0714,
-    "candidatesCount": 4,
+    "score": 0.0667,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::addetto-al-magazzino-coop-genossenschaft-basel": {
@@ -3770,6 +3770,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2": {
+    "winnerJobIdentifier": "bkw-1b7c17b24d8c",
+    "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-aarau",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3": {
     "winnerJobIdentifier": "bkw-1b7c17b24d8c",
     "winnerCanonical": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-aarau",
@@ -4526,6 +4535,15 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::it::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-baden-aargau-fachkraft-ch": {
+    "winnerJobIdentifier": "fachkraft-db45283ae674",
+    "winnerCanonical": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-baden",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik": {
     "winnerJobIdentifier": "klinik-schuetzen-a12cef6fc64c",
     "winnerCanonical": "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden",
@@ -5049,12 +5067,12 @@
     "canton": "AG"
   },
   "AG::it::sanitarinstallateur-in-fur-servicearbeiten-und-sanitarinstallationen-baden-aargau": {
-    "winnerJobIdentifier": "stellenpartner-0ebb77a771c5",
-    "winnerCanonical": "sanitarinstallateur-in-per-servicearbeiten-e-sanitarinstallationen-stellenpartner-ag-baden",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-02de10260fbd",
+    "winnerCanonical": "sanitarinstallateur-in-per-servicearbeiten-e-sanitarinstallationen-fachkraft-ch-gmbh-baden",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::sanitarinstallateur-in-genossenschaft-migros-ostschweiz-abtwil": {
@@ -6039,11 +6057,11 @@
     "canton": "APPENZELLO"
   },
   "BASILEA::de::administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch": {
-    "winnerJobIdentifier": "unispital-basel-0752fec8e8d2",
-    "winnerCanonical": "administrative-r-mitarbeiter-in-universitatsspital-basel-basel",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-58dbe86324f2",
+    "winnerCanonical": "administraive-r-mitarbeiter-in-unispital-basel-ch",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -6210,11 +6228,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::chefarztsekretar-in-kardiologie-unispital-basel-ch": {
-    "winnerJobIdentifier": "unispital-basel-ad78492ec9aa",
-    "winnerCanonical": "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "unispital-basel-91b0d55cb4a8",
+    "winnerCanonical": "doktorand-in-kardiologie-unispital-basel-ch",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -6894,11 +6912,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-0752fec8e8d2",
-    "winnerCanonical": "administrative-r-mitarbeiter-in-universitatsspital-basel-basel",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-70ec46e46c03",
+    "winnerCanonical": "mitarbeiter-in-medizin-betriebstechnik-universitatsspital-basel-basel",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -10083,7 +10101,7 @@
     "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
     "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
     "decidedAt": "2026-09-04T00:00:00.000Z",
-    "lastSeenAt": "2026-09-27T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -10206,9 +10224,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt": {
-    "winnerJobIdentifier": "galenica-93ab2f0a19e4",
+    "winnerJobIdentifier": "galenica-d4509eb15173",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-pratteln",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 1,
@@ -10224,9 +10242,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy": {
-    "winnerJobIdentifier": "galenica-ccaa5a38ec2a",
+    "winnerJobIdentifier": "galenica-ad3467fdb62c",
     "winnerCanonical": "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.9,
     "candidatesCount": 1,
@@ -10836,12 +10854,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::medicina-subassista-a-kantonsspital-baselland-ksbl-liestal": {
-    "winnerJobIdentifier": "ksbl-1f87f6de291d",
-    "winnerCanonical": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
+    "winnerJobIdentifier": "ksbl-20e1c631cea0",
+    "winnerCanonical": "assistente-inferiore-di-ortopedia-e-traumatologia-a-kantonsspital-baselland-ksbl-liestal",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::medico-senior-ambulatorio-universitatsspital-basel-basel": {
@@ -11277,20 +11295,20 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::professional-health-80-100-spitex-region-birs-gmbh-reinach-bl": {
-    "winnerJobIdentifier": "spitex-ch-bb2c013199a0",
-    "winnerCanonical": "collaboratore-trice-hauswirtschaft-80-90-spitex-region-birs-gmbh-reinach-bl",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
+    "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6154,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::professionnel-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl": {
-    "winnerJobIdentifier": "spitex-ch-bb2c013199a0",
-    "winnerCanonical": "collaboratore-trice-hauswirtschaft-80-90-spitex-region-birs-gmbh-reinach-bl",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.4375,
+    "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
+    "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5333,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -11331,11 +11349,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::rayonleiter-in-grundnahrungsmittel-coop-basel-landschaft": {
-    "winnerJobIdentifier": "company-xf7bhy",
-    "winnerCanonical": "rayon-conduttore-cibo-di-base-coop-genossenschaft-liestal",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
+    "winnerJobIdentifier": "company-1cm0p7",
+    "winnerCanonical": "rayon-conduttore-cibo-di-base-coop-genossenschaft-basel",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0769,
+    "score": 0.1667,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -11484,11 +11502,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl": {
-    "winnerJobIdentifier": "spitex-ch-6843935c295a",
-    "winnerCanonical": "infermiera-hf-dipartimento-di-demenza-60-90-spitex-region-birs-gmbh-reinach-bl",
+    "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
+    "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.3529,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -11664,11 +11682,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl": {
-    "winnerJobIdentifier": "spitex-ch-da70e7dd19a2",
-    "winnerCanonical": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl",
-    "decidedAt": "2026-09-27T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
+    "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.8333,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -12042,12 +12060,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-basel": {
-    "winnerJobIdentifier": "denner-5fe6816b5688",
-    "winnerCanonical": "venditore-denner-ag-basel-15d39b",
+    "winnerJobIdentifier": "denner-60d180e5f04b",
+    "winnerCanonical": "venditore-denner-ag-basel-66c0e2",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-food-coop-basel-stadt": {
@@ -12381,6 +12399,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 6,
+    "canton": "BE"
+  },
+  "BE::de::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-bern": {
+    "winnerJobIdentifier": "interdiscount-2b6df6d2-7b6",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-cvjit8",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::de::disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op": {
@@ -12762,11 +12789,11 @@
     "canton": "BE"
   },
   "BE::de::tiermedizinische-r-praxisassistent-in-80-100-unibe-bern": {
-    "winnerJobIdentifier": "unibe-aa87a20415b0",
-    "winnerCanonical": "hilfsassistent-in-20-25-unibe-bern",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.2727,
+    "winnerJobIdentifier": "unibe-7ca280eda46f",
+    "winnerCanonical": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.7778,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -13401,11 +13428,11 @@
     "canton": "BE"
   },
   "BE::en::dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal": {
-    "winnerJobIdentifier": "sro-d849642bd397",
-    "winnerCanonical": "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "sro-8c2899c14006",
+    "winnerCanonical": "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5263,
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -13515,6 +13542,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::en::fachperson-gesundheit-a-spital-emmental-burgdorf": {
+    "winnerJobIdentifier": "spital-emmental-ac167eeedff9",
+    "winnerCanonical": "health-professional-a-spital-emmental-burgdorf",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::en::fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern": {
@@ -14912,6 +14948,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::fr::fachperson-gesundheit-a-spital-emmental-burgdorf": {
+    "winnerJobIdentifier": "spital-emmental-ac167eeedff9",
+    "winnerCanonical": "professionnels-de-la-sante-a-spital-emmental-burgdorf",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern": {
     "winnerJobIdentifier": "confederazione-ticino-b285d2b621a2",
     "winnerCanonical": "specialiste-en-fiscalite-internationale-impot-minimum-ocde-confederazione-svizzera-bern",
@@ -14940,12 +14985,12 @@
     "canton": "BE"
   },
   "BE::fr::gestionnaire-pour-les-consentements-de-cookies-schindler-bern": {
-    "winnerJobIdentifier": "schindler-02cc08a824e6",
-    "winnerCanonical": "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-bern",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "schindler-a82d244bb274",
+    "winnerCanonical": "place-d-apprentissage-en-tant-que-constructeur-d-installations-et-d-appareils-cfc-avec-un-accent-particulier-sur-le-montage-d-ascenseurs-pour-2027-schindler-bern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.1111,
-    "candidatesCount": 2,
+    "score": 0.1071,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::hochschulpraktikant-in-confederazione-svizzera-bern": {
@@ -15210,11 +15255,11 @@
     "canton": "BE"
   },
   "BE::fr::medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal": {
-    "winnerJobIdentifier": "sro-715a9560b568",
-    "winnerCanonical": "medecin-ou-hematologie-senior-60-100-sro-ag-spital-region-oberaargau-langenthal",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "sro-bfef7d84c591",
+    "winnerCanonical": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5714,
+    "score": 0.5333,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -16901,6 +16946,15 @@
     "candidatesCount": 6,
     "canton": "BE"
   },
+  "BE::it::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-bern": {
+    "winnerJobIdentifier": "interdiscount-2b6df6d2-7b6",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-cvjit8",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-bern": {
     "winnerJobIdentifier": "company-76ieod",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-bern-76ieod",
@@ -18486,12 +18540,12 @@
     "canton": "BE"
   },
   "BE::it::lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-2": {
-    "winnerJobIdentifier": "bkw-1d22fa247edc",
-    "winnerCanonical": "apprendistato-montage-elektriker-in-cfc-alle-bkw-munsingen",
-    "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "bkw-3f53bae3f9fe",
+    "winnerCanonical": "apprendistato-electrician-efz-tutti-bkw-langenthal",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-20": {
@@ -18918,11 +18972,11 @@
     "canton": "BE"
   },
   "BE::it::medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal": {
-    "winnerJobIdentifier": "sro-715a9560b568",
-    "winnerCanonical": "ematologia-medico-senior-60-100-sro-ag-spital-region-oberaargau-langenthal",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "sro-4cbba52c54e3",
+    "winnerCanonical": "segretario-medico-ortopedia-100-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.6154,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -22122,12 +22176,12 @@
     "canton": "FR"
   },
   "FR::it::employe-e-d-administration-etat-de-fribourg-ch-zhwlp1": {
-    "winnerJobIdentifier": "etat-de-fribourg-4875ab97e783",
-    "winnerCanonical": "addetto-a-amministrazione-etat-de-fribourg-givisiez",
+    "winnerJobIdentifier": "etat-de-fribourg-89cf35da00e5",
+    "winnerCanonical": "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.2143,
+    "candidatesCount": 1,
     "canton": "FR"
   },
   "FR::it::gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39": {
@@ -22508,6 +22562,15 @@
     "candidatesCount": 2,
     "canton": "GE"
   },
+  "GE::de::operations-specialist-ubp-ch": {
+    "winnerJobIdentifier": "ubp-d334a97cad98",
+    "winnerCanonical": "operations-spezialist-union-bancaire-privee-geneva-switzerland",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::de::produktionsleiter-h-f-rolex-geneve": {
     "winnerJobIdentifier": "rolex-8489cc56c080",
     "winnerCanonical": "produktionsleiter-m-w-rolex-geneve",
@@ -22607,6 +22670,15 @@
     "candidatesCount": 3,
     "canton": "GE"
   },
+  "GE::en::securities-transfers-officer-ubp-ch": {
+    "winnerJobIdentifier": "ubp-24d81bdce2a1",
+    "winnerCanonical": "securities-transfer-officer-ubp-ch",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::en::special-wheels-manager-h-f-patek-philippe-plan-les-ouates": {
     "winnerJobIdentifier": "patek-philippe-988885ffcf88",
     "winnerCanonical": "m-f-programmer-patek-philippe-plan-les-ouates",
@@ -22667,6 +22739,15 @@
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::fr::operations-specialist-ubp-ch": {
+    "winnerJobIdentifier": "ubp-d334a97cad98",
+    "winnerCanonical": "operations-specialiste-union-bancaire-privee-geneva-switzerland",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -22994,6 +23075,15 @@
     "candidatesCount": 3,
     "canton": "GE"
   },
+  "GE::it::gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-geneve-charmilles": {
+    "winnerJobIdentifier": "interdiscount-3b47f7f9-e0d",
+    "winnerCanonical": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-interdiscount-geneve-charmilles",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::it::infermiera-pediatrica-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex": {
     "winnerJobIdentifier": "arsante-clinique-de-carouge-356c93d4d50b",
     "winnerCanonical": "un-infermiera-d-emergenza-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
@@ -23072,6 +23162,15 @@
     "decidedAt": "2026-08-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::it::operations-specialist-ubp-ch": {
+    "winnerJobIdentifier": "ubp-d334a97cad98",
+    "winnerCanonical": "operations-specialista-union-bancaire-privee-geneva-switzerland",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -23219,6 +23318,15 @@
     "candidatesCount": 1,
     "canton": "GL"
   },
+  "GL::en::assistenzarztin-assistenzarzt-medizin-ksgl-glarus": {
+    "winnerJobIdentifier": "ksgl-f21881136409",
+    "winnerCanonical": "assistant-doctor-assistant-doctor-medicine-kantonsspital-glarus-ksgl-glarus",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "GL"
+  },
   "GL::en::dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus": {
     "winnerJobIdentifier": "ksgl-18f7c02ccaf7",
     "winnerCanonical": "dipl-expertin-experte-intensivpflege-nds-hf-kantonsspital-glarus-ksgl-glarus",
@@ -23264,6 +23372,15 @@
     "candidatesCount": 1,
     "canton": "GL"
   },
+  "GL::fr::assistenzarztin-assistenzarzt-medizin-ksgl-glarus": {
+    "winnerJobIdentifier": "ksgl-f21881136409",
+    "winnerCanonical": "assistant-medecin-assistant-medecin-medecine-kantonsspital-glarus-ksgl-glarus",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "GL"
+  },
   "GL::fr::diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus": {
     "winnerJobIdentifier": "ksgl-81eaf614946d",
     "winnerCanonical": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
@@ -23297,6 +23414,15 @@
     "decidedAt": "2026-08-11T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "GL"
+  },
+  "GL::it::assistenzarztin-assistenzarzt-medizin-ksgl-glarus": {
+    "winnerJobIdentifier": "ksgl-f21881136409",
+    "winnerCanonical": "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2222,
     "candidatesCount": 2,
     "canton": "GL"
   },
@@ -23952,7 +24078,7 @@
     "winnerJobIdentifier": "company-87p8lj",
     "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.625,
     "candidatesCount": 1,
     "canton": "GR"
@@ -24597,9 +24723,9 @@
     "canton": "GR"
   },
   "GR::en::strassenwart-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-9ab2accba96c",
-    "winnerCanonical": "streetkeeper-kantonale-verwaltung-graubunden-ilanz",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-9bce45e4999d",
+    "winnerCanonical": "road-maintenance-officer-kantonale-verwaltung-graubunden-samedan",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
@@ -24624,12 +24750,12 @@
     "canton": "GR"
   },
   "GR::en::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-9c992a657670",
-    "winnerCanonical": "zusteller-in-briefe-und-pakete-post-krx3zw",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-c038f2569581",
+    "winnerCanonical": "delivery-in-letters-and-packages-die-schweizerische-post-scuol",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers": {
@@ -25122,7 +25248,7 @@
     "winnerJobIdentifier": "volg-fenaco-0d590dd387a3",
     "winnerCanonical": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lenzerheide",
     "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6111,
     "candidatesCount": 1,
     "canton": "GR"
@@ -25191,9 +25317,9 @@
     "canton": "GR"
   },
   "GR::fr::strassenwart-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-9ab2accba96c",
-    "winnerCanonical": "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-9bce45e4999d",
+    "winnerCanonical": "agent-d-entretien-routier-kantonale-verwaltung-graubunden-samedan",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
@@ -25236,12 +25362,12 @@
     "canton": "GR"
   },
   "GR::fr::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-9c992a657670",
-    "winnerCanonical": "lettres-de-livraison-et-colis-die-schweizerische-post-samedan",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-c038f2569581",
+    "winnerCanonical": "livraison-en-lettres-et-en-colis-die-schweizerische-post-scuol",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.0714,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::139ler-m-w-d-100-ems-chemie-ag-domat-ems": {
@@ -25263,11 +25389,11 @@
     "canton": "GR"
   },
   "GR::it::addetto-a-vendita-food-coop-genossenschaft-chur-fcf376": {
-    "winnerJobIdentifier": "company-87p8lj",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-b1gzib",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-chur-42d976",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -26343,11 +26469,11 @@
     "canton": "GR"
   },
   "GR::it::medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur": {
-    "winnerJobIdentifier": "pdgr-6bea78edbd79",
-    "winnerCanonical": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-3aad195a9d08",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.7,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -26604,11 +26730,11 @@
     "canton": "GR"
   },
   "GR::it::personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551": {
-    "winnerJobIdentifier": "pdgr-a093480a1d37",
-    "winnerCanonical": "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-3aad195a9d08",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -26838,11 +26964,11 @@
     "canton": "GR"
   },
   "GR::it::staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551": {
-    "winnerJobIdentifier": "pdgr-a093480a1d37",
-    "winnerCanonical": "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-3aad195a9d08",
+    "winnerCanonical": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -26856,12 +26982,12 @@
     "canton": "GR"
   },
   "GR::it::strassenwart-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-9ab2accba96c",
-    "winnerCanonical": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
-    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-9bce45e4999d",
+    "winnerCanonical": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.2222,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::studentenjob-verkauf-m-w-d-20-40-lidl-svizzera-schluein": {
@@ -28223,6 +28349,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::en::all-rounder-sales-genossenschaft-migros-luzern-luzern": {
+    "winnerJobIdentifier": "company-grkcs8",
+    "winnerCanonical": "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::anlagen-und-apparatebauer-in-fur-militarische-luftfahrzeuginstandhaltung-luzern-luzern": {
     "winnerJobIdentifier": "stellentreff-fb98c54de71f",
     "winnerCanonical": "plant-and-apparatus-builders-for-military-aircraft-maintenance-stellentreff-ag-luzern-luzern",
@@ -28589,6 +28724,15 @@
     "decidedAt": "2026-08-31T00:00:00.000Z",
     "lastSeenAt": "2026-09-15T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern": {
+    "winnerJobIdentifier": "fachkraft-b13f94be091e",
+    "winnerCanonical": "interior-fitting-and-assembly-carpenters-fachkraft-ch-gmbh-luzern-luzern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2667,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -29238,6 +29382,15 @@
     "lastSeenAt": "2026-09-06T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::fr::schreiner-in-fur-innenausbau-und-montage-fachkraft-ch-gmbh-luzern": {
+    "winnerJobIdentifier": "fachkraft-b13f94be091e",
+    "winnerCanonical": "charpentiers-d-amenagement-interieur-et-d-assemblage-fachkraft-ch-gmbh-luzern-luzern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::sozialpadagog-in-hf-fh-kindheitspadagog-in-hf-fachperson-betreuung-zirka-40-betreuung-st": {
@@ -31841,6 +31994,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::schreiner-in-fur-innenausbau-und-montage-luzern-luzern-fachkraft-ch": {
+    "winnerJobIdentifier": "fachkraft-a955d4d544f4",
+    "winnerCanonical": "schreiner-in-per-innenausbau-e-montage-fachkraft-ch-gmbh-luzern",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::schreiner-in-projektleiter-in-fur-kuchen-und-mobelprojekte-60-100-willisau-luzern": {
     "winnerJobIdentifier": "stellentreff-c3505322848d",
     "winnerCanonical": "schreiner-in-responsabile-di-progetto-per-kuchen-e-mobelprojekte-60-100-stellentreff-ag-willisau",
@@ -32922,11 +33084,11 @@
     "canton": "NE"
   },
   "NW::de::polymechaniker-in-8211-cnc-fertigung-mit-erfahrung-in-5-achsen-bearbeitung-stans-nidwalden": {
-    "winnerJobIdentifier": "sta-188a1d9e9469",
-    "winnerCanonical": "polymechaniker-in-8211-cnc-fertigung-mit-luftfahrtfokus-stans-nidwalden-sta-ch",
+    "winnerJobIdentifier": "stellenpartner-fe1c97fbe85c",
+    "winnerCanonical": "polymechaniker-in-8211-cnc-fertigung-mit-topsolid-programmierung-stans-nidwalden",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5333,
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "NW"
   },
@@ -33335,6 +33497,15 @@
     "candidatesCount": 2,
     "canton": "OW"
   },
+  "OW::it::detailhandelsfachfrau-detailhandelsfachmann-50-70-w-m-d-landi-unterwalden-ag-sarnen": {
+    "winnerJobIdentifier": "volg-fenaco-457a44459845",
+    "winnerCanonical": "apprendistato-detailhandelsfachfrau-detailhandelsfachmann-cfc-m-w-d-landi-unterwalden-ag-sarnen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "OW"
+  },
   "OW::it::logistiker-in-hilfsarbeiter-in-mit-teamarbeit-und-zuverlassigkeit-2-3-schicht-sarnen": {
     "winnerJobIdentifier": "stellentreff-a46e0497aac6",
     "winnerCanonical": "logisticista-operaio-ausiliario-con-lavoro-di-squadra-e-affidabilita-2-3-turni-stellentreff-ag-sarnen-obwalden",
@@ -33668,6 +33839,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::de::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-st": {
+    "winnerJobIdentifier": "interdiscount-287fed13-777",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-8vm9sl",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::de::dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen": {
     "winnerJobIdentifier": "hoch-health-f44eff5fa5f4",
     "winnerCanonical": "dipl-fachfrau-mann-operationstechnik-80-100-kssg-ch",
@@ -33858,20 +34038,20 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-4d60fa03bd10",
-    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachperson-hf-fh-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-8666f27b8485",
-    "winnerCanonical": "dipl-pflegefachperson-berufsbildung-hf-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34893,12 +35073,12 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
     "winnerCanonical": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7273,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-specialist-surgical-technique-80-100-hoch-health-ostschweiz-st-gallen": {
@@ -35009,6 +35189,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::en::malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen": {
+    "winnerJobIdentifier": "fachkraft-715b91db83f3",
+    "winnerCanonical": "painter-practitioner-versatile-painting-work-minor-plaster-work-fachkraft-ch-gmbh-wil-sg-st-gallen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::mason-in-for-versatile-masonry-work-fachkraft-ch-gmbh-wil-sg-st-gallen": {
     "winnerJobIdentifier": "fachkraft-3500b9f8631f",
     "winnerCanonical": "construction-worker-construction-work-with-concrete-and-masonry-fachkraft-ch-gmbh-wil-sg-st-gallen",
@@ -35070,6 +35259,15 @@
     "lastSeenAt": "2026-09-29T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::en::pflegeexpert-in-apn-70-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-8a1ee2cd8866",
+    "winnerCanonical": "pflegeexpert-in-apn-70-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::en::pflegehelfer-in-40-100-hoch-health-st-gallen": {
@@ -35163,10 +35361,10 @@
     "canton": "SG"
   },
   "SG::en::service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen": {
-    "winnerJobIdentifier": "company-5otdos",
-    "winnerCanonical": "service-technician-professional-solutions-fust-oberburen",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-28T00:00:00.000Z",
+    "winnerJobIdentifier": "company-xvht46",
+    "winnerCanonical": "professional-solutions-service-technician-fust-oberburen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
@@ -35613,12 +35811,12 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
     "winnerCanonical": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7273,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg": {
@@ -35640,28 +35838,28 @@
     "canton": "SG"
   },
   "SG::fr::dipl-specialiste-des-soins-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-8666f27b8485",
-    "winnerCanonical": "dipl-infirmiere-specialiste-formation-professionnelle-hf-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-96f5c7dc7d8c",
+    "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-soins-intensifs-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5714,
+    "score": 0.9167,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-infirmiere-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
-    "score": 0.7333,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-soins-professionnels-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.8,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg-57f50c": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-infirmiere-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-96f5c7dc7d8c",
+    "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-soins-intensifs-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6875,
     "candidatesCount": 1,
     "canton": "SG"
@@ -35772,6 +35970,15 @@
     "lastSeenAt": "2026-09-29T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::fr::malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen": {
+    "winnerJobIdentifier": "fachkraft-715b91db83f3",
+    "winnerCanonical": "peintre-praticien-travaux-de-peinture-polyvalents-petits-travaux-de-platrier-fachkraft-ch-gmbh-wil-sg-st-gallen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1905,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::fr::mason-in-pour-un-travail-de-maconnerie-polyvalent-fachkraft-ch-gmbh-wil-sg-st-gallen": {
@@ -36000,11 +36207,11 @@
     "canton": "SG"
   },
   "SG::fr::technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen": {
-    "winnerJobIdentifier": "company-5otdos",
-    "winnerCanonical": "technicien-de-services-solutions-professionnelles-fust-oberburen",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-28T00:00:00.000Z",
-    "score": 0.5833,
+    "winnerJobIdentifier": "company-xvht46",
+    "winnerCanonical": "technicien-ne-de-service-en-solutions-professionnelles-fust-oberburen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6154,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -36387,36 +36594,36 @@
     "canton": "SG"
   },
   "SG::it::assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-d5dpll": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-jrctte": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-mwu8pb": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -36630,9 +36837,9 @@
     "canton": "SG"
   },
   "SG::it::commercial-internship-psychiatrie-st-gallen-wil-sg-31a5b0": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -36791,6 +36998,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-st": {
+    "winnerJobIdentifier": "interdiscount-287fed13-777",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-8vm9sl",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon": {
     "winnerJobIdentifier": "company-jn5ctp",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp",
@@ -36801,29 +37017,29 @@
     "canton": "SG"
   },
   "SG::it::dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
-    "score": 0.6,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-assistenza-professionale-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.8462,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
-    "score": 0.5625,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-assistenza-professionale-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.7857,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-ur8b94": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
-    "score": 0.5625,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-assistenza-professionale-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.7857,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37278,20 +37494,20 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-2f7e510aaa9d",
-    "winnerCanonical": "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-assistenza-professionale-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg-2": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
-    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
-    "lastSeenAt": "2026-09-26T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "psgn-8be2490e87ab",
+    "winnerCanonical": "dipl-assistenza-professionale-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3125,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37305,12 +37521,12 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
-    "winnerCanonical": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
+    "winnerCanonical": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-psgn-wil-sg-2": {
@@ -37332,11 +37548,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-8666f27b8485",
-    "winnerCanonical": "dipl-infermieristica-formazione-professionale-hf-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
+    "winnerCanonical": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.7273,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37350,10 +37566,10 @@
     "canton": "SG"
   },
   "SG::it::dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
+    "winnerJobIdentifier": "psgn-1b85f7a9ffe8",
     "winnerCanonical": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "SG"
@@ -37395,11 +37611,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-specialiste-des-soins-hf-fh-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-abba69776f19",
-    "winnerCanonical": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-26T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
-    "score": 0.6154,
+    "winnerJobIdentifier": "psgn-96f5c7dc7d8c",
+    "winnerCanonical": "dipl-specialista-di-cura-hf-fh-cura-intensiva-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5333,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37449,11 +37665,11 @@
     "canton": "SG"
   },
   "SG::it::ergoterapeuta-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-79e4f39f2cc7",
-    "winnerCanonical": "assistente-medico-psychiatrie-st-gallen-wil-sg-482944",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
-    "lastSeenAt": "2026-09-28T00:00:00.000Z",
-    "score": 0.5556,
+    "winnerJobIdentifier": "psgn-3eb5b0c78007",
+    "winnerCanonical": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37584,18 +37800,18 @@
     "canton": "SG"
   },
   "SG::it::fachpsychologin-fachpsychologe-psgn-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-27T00:00:00.000Z",
-    "lastSeenAt": "2026-09-27T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -37809,11 +38025,11 @@
     "canton": "SG"
   },
   "SG::it::infermieristica-in-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-79e4f39f2cc7",
-    "winnerCanonical": "assistente-medico-psychiatrie-st-gallen-wil-sg-482944",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
-    "lastSeenAt": "2026-09-28T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "psgn-3eb5b0c78007",
+    "winnerCanonical": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -38042,6 +38258,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::it::malerpraktiker-in-vielseitige-malerarbeiten-kleinere-gipserarbeiten-wil-sg-st-gallen": {
+    "winnerJobIdentifier": "fachkraft-715b91db83f3",
+    "winnerCanonical": "praticante-pittore-lavori-di-pittura-versatili-piccoli-lavori-di-gessatura-fachkraft-ch-gmbh-wil-sg-st-gallen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1905,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::manager-de-la-qualite-et-des-risques-80-100-hoch-health-ostschweiz-st-gallen": {
     "winnerJobIdentifier": "hoch-health-7d4ee093b492",
     "winnerCanonical": "assistente-secondario-hoch-health-ostschweiz-st-gallen",
@@ -38088,9 +38313,9 @@
     "canton": "SG"
   },
   "SG::it::medecin-senior-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -38115,9 +38340,9 @@
     "canton": "SG"
   },
   "SG::it::medico-senior-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -38175,6 +38400,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::it::metallbauer-in-fur-vielseitige-metallbauarbeiten-wil-sg-st-gallen-sta-ch": {
+    "winnerJobIdentifier": "sta-ea0c2e888c8a",
+    "winnerCanonical": "metallbauer-in-per-vielseitige-metallbauarbeiten-sta-personal-ag-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::metallbauer-in-mit-fundierten-schweisskenntnissen-und-montageerfahrung-rapperswil-jona-st": {
@@ -38421,11 +38655,11 @@
     "canton": "SG"
   },
   "SG::it::oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-f8ec80f3a577",
-    "winnerCanonical": "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -38442,6 +38676,15 @@
     "winnerJobIdentifier": "kanton-st-gallen-df18adb440e0",
     "winnerCanonical": "consulente-personale-rav-wil-m-f-d-kanton-st-gallen-wil",
     "decidedAt": "2026-09-11T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::pflegeexpert-in-apn-70-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-8a1ee2cd8866",
+    "winnerCanonical": "esperto-di-cura-apn-70-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
@@ -38592,12 +38835,12 @@
     "canton": "SG"
   },
   "SG::it::polymechaniker-in-cnc-fertigung-mit-heidenhain-und-fanuc-steuerung-wil-sg-st-gallen": {
-    "winnerJobIdentifier": "stellenpartner-0c5daf37c72e",
-    "winnerCanonical": "polymechaniker-in-cnc-fertigung-con-heidenhain-e-fanuc-steuerung-stellenpartner-ag-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3d6e23439ba0",
+    "winnerCanonical": "polymechaniker-in-cnc-fertigung-con-heidenhain-e-fanuc-steuerung-fachkraft-ch-gmbh-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5294,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::polymechaniker-in-instandhaltung-mit-eigenverantwortlicher-umsetzung-wil-sg-st-gallen": {
@@ -38637,11 +38880,11 @@
     "canton": "SG"
   },
   "SG::it::product-manager-chocolate-portfolio-buehler-uzwil": {
-    "winnerJobIdentifier": "buehler-f7247b130b37",
-    "winnerCanonical": "gestione-prodotti-portafoglio-cioccolato-buhler-group-uzwil",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.0833,
+    "winnerJobIdentifier": "buehler-8a9088c82b98",
+    "winnerCanonical": "product-manager-portafoglio-cioccolato-buhler-group-uzwil",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -38898,9 +39141,9 @@
     "canton": "SG"
   },
   "SG::it::senior-doctor-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -38916,9 +39159,9 @@
     "canton": "SG"
   },
   "SG::it::senior-physician-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -39024,27 +39267,27 @@
     "canton": "SG"
   },
   "SG::it::stage-commercial-psychiatrie-st-gallen-wil-sg-31a5b0": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::stage-commerciale-psychiatrie-st-gallen-wil-sg-31a5b0": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::stage-commerciale-psychiatrie-st-gallen-wil-sg-4ln01i": {
-    "winnerJobIdentifier": "psgn-264d734cac1d",
-    "winnerCanonical": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-c5001d74f570",
+    "winnerCanonical": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -39708,11 +39951,11 @@
     "canton": "SH"
   },
   "SH::de::polymechaniker-in-8211-cnc-fertigung-mit-eigenstandiger-programmierung-schaffhausen": {
-    "winnerJobIdentifier": "sta-b883f2f43af7",
-    "winnerCanonical": "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-frasen-schaffhausen-schaffhausen",
+    "winnerJobIdentifier": "fachkraft-7ff149ce7543",
+    "winnerCanonical": "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.8889,
     "candidatesCount": 1,
     "canton": "SH"
   },
@@ -39780,11 +40023,11 @@
     "canton": "SH"
   },
   "SH::en::dipl-ing-expertin-experte-intensivpflege-nds-hf-spitaler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-5dbdcb6d06b7",
-    "winnerCanonical": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "spitaeler-schaffhausen-f23d39a4d737",
+    "winnerCanonical": "expertin-experte-anasthesiepflege-nds-hf-in-ausbildung-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "SH"
   },
@@ -39902,6 +40145,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-21T00:00:00.000Z",
     "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::en::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "stellenpartner-71b42789917d",
+    "winnerCanonical": "assembly-electrician-for-high-and-low-voltage-installations-stellenpartner-ag-schaffhausen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.0556,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -40073,6 +40325,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-21T00:00:00.000Z",
     "score": 0.087,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::fr::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "stellenpartner-71b42789917d",
+    "winnerCanonical": "electricien-d-assemblage-pour-installations-haute-et-basse-tension-stellenpartner-ag-schaffhausen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.0526,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -40608,12 +40869,12 @@
     "canton": "SH"
   },
   "SH::it::heizungsinstallateur-in-mit-service-und-sanierungsarbeiten-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "stellenpartner-2eb06b4d4fb5",
-    "winnerCanonical": "heizungsinstallateur-in-con-service-e-sanierungsarbeiten-stellenpartner-ag-schaffhausen",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-6f256610e2f4",
+    "winnerCanonical": "heizungsinstallateur-in-con-service-e-sanierungsarbeiten-fachkraft-ch-gmbh-schaffhausen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "SH"
   },
   "SH::it::hilfskochin-hilfskoch-spitaeler-schaffhausen-schaffhausen": {
@@ -42678,12 +42939,12 @@
     "canton": "SO"
   },
   "SO::fr::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5": {
-    "winnerJobIdentifier": "bkw-dd0a792638b8",
-    "winnerCanonical": "apprentissage-d-electricien-efz-tous-bkw-zuchwil",
+    "winnerJobIdentifier": "bkw-23776e87240b",
+    "winnerCanonical": "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-biberist",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.1538,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::lehrstelle-montage-elektriker-in-efz-alle-bkw-ch": {
@@ -44118,11 +44379,11 @@
     "canton": "SO"
   },
   "SO::it::mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-topshop-winznau-landi-aarau-west-ag-winznau": {
-    "winnerJobIdentifier": "volg-fenaco-98576f6a1dc3",
-    "winnerCanonical": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-topshop-winznau-landi-aarau-west-ag-winznau",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5882,
+    "winnerJobIdentifier": "volg-fenaco-35ed00fc6eb0",
+    "winnerCanonical": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-topshop-winznau-landi-aarau-west-ag-winznau",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6471,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -45404,6 +45665,24 @@
     "candidatesCount": 1,
     "canton": "TG"
   },
+  "TG::de::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount": {
+    "winnerJobIdentifier": "interdiscount-2a61dddd-060",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-kcqau4",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::de::detailhandelsfachfrau-mann-interdiscount-frauenfeld-thurgi-park": {
+    "winnerJobIdentifier": "interdiscount-3b0b2b8a-766",
+    "winnerCanonical": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-kgiy4z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::de::dipl-expert-in-terapia-intensiva-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld": {
     "winnerJobIdentifier": "spital-thurgau-a18521b3e719",
     "winnerCanonical": "dipl-experte-in-intensivpflege-nds-hf-stgag-ch",
@@ -45612,11 +45891,11 @@
     "canton": "TG"
   },
   "TG::de::heizungsinstallateur-in-fur-service-und-sanierungsarbeiten-weinfelden-thurgau-fachkraft-ch": {
-    "winnerJobIdentifier": "stellenpartner-e573e39f28fc",
-    "winnerCanonical": "heizungsinstallateur-in-fur-service-und-sanierungsarbeiten-stellenpartner-ag-weinfelden",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
-    "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5833,
+    "winnerJobIdentifier": "fachkraft-0c692ad8bf01",
+    "winnerCanonical": "schreiner-in-fur-renovationen-und-servicearbeiten-weinfelden-thurgau-fachkraft-ch",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5385,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -45702,12 +45981,12 @@
     "canton": "TG"
   },
   "TG::de::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-kreuzlingen-thurgau": {
-    "winnerJobIdentifier": "stellenpartner-1933ce518021",
-    "winnerCanonical": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-kreuzlingen",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-25e56e0efe21",
+    "winnerCanonical": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-kreuzlingen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::montage-elektriker-in-mit-abwechslungsreichen-einsatzmoglichkeiten-bischofszell-thurgau": {
@@ -45867,7 +46146,7 @@
     "winnerJobIdentifier": "fachkraft-c9bb659fb0ca",
     "winnerCanonical": "schreiner-in-werkstatt-und-montagearbeiten-ziel-festanstellung-fachkraft-ch-gmbh-munchwilen-tg",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6923,
     "candidatesCount": 1,
     "canton": "TG"
@@ -47609,12 +47888,30 @@
     "candidatesCount": 1,
     "canton": "TG"
   },
+  "TG::it::detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount": {
+    "winnerJobIdentifier": "interdiscount-2a61dddd-060",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-kcqau4",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon": {
     "winnerJobIdentifier": "jumbo-71eed98b-cfe",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-arbon",
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::detailhandelsfachfrau-mann-interdiscount-frauenfeld-thurgi-park": {
+    "winnerJobIdentifier": "interdiscount-3b0b2b8a-766",
+    "winnerCanonical": "esperto-del-commercio-al-dettaglio-mann-interdiscount-jegensdorf-5c96db",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1538,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -48636,12 +48933,12 @@
     "canton": "TG"
   },
   "TG::it::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-kreuzlingen-thurgau": {
-    "winnerJobIdentifier": "stellenpartner-1933ce518021",
-    "winnerCanonical": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-kreuzlingen",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-25e56e0efe21",
+    "winnerCanonical": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-kreuzlingen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.4615,
-    "candidatesCount": 2,
+    "score": 0.4286,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::montage-elektriker-in-mit-abwechslungsreichen-einsatzmoglichkeiten-bischofszell-thurgau": {
@@ -49824,9 +50121,9 @@
     "canton": "TI"
   },
   "TI::de::verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
@@ -51228,7 +51525,7 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-fef1x1": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
@@ -51237,9 +51534,9 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil169": {
-    "winnerJobIdentifier": "company-feey97",
-    "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-feezql",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -51255,7 +51552,7 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-43343a": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
@@ -51264,9 +51561,9 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -52262,6 +52559,15 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::de::gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39": {
+    "winnerJobIdentifier": "interdiscount-455b8875-1a4",
+    "winnerCanonical": "detailhandelsmanager-efz-konzeption-und-realisierung-von-einkaufserlebnissen-interdiscount-lausanne",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne": {
     "winnerJobIdentifier": "fondation-soins-lausanne-043e22611f0d",
     "winnerCanonical": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne",
@@ -52326,12 +52632,12 @@
     "canton": "VD"
   },
   "VD::de::taches-principales-hirslanden-search": {
-    "winnerJobIdentifier": "hirslanden-e816bb53fdb2",
-    "winnerCanonical": "agent-e-de-sterilisation-a-100-hirslanden-lausanne",
-    "decidedAt": "2026-09-24T00:00:00.000Z",
+    "winnerJobIdentifier": "hirslanden-918c9b97e919",
+    "winnerCanonical": "spezialisierte-krankenschwester-bei-40-60-hirslanden-klinik-lausanne",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.0909,
-    "candidatesCount": 4,
+    "candidatesCount": 3,
     "canton": "VD"
   },
   "VD::de::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
@@ -52530,6 +52836,15 @@
     "lastSeenAt": "2026-09-24T00:00:00.000Z",
     "score": 0.2353,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::en::gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39": {
+    "winnerJobIdentifier": "interdiscount-455b8875-1a4",
+    "winnerCanonical": "retail-manager-swc-designing-and-conducting-purchasing-experiences-interdiscount-lausanne",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.0476,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::en::health-assistant-m-f-fondation-soins-lausanne-lausanne": {
@@ -53108,6 +53423,24 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::it::caissiere-vendeuse-caissier-vendeur-pour-un-shop-de-station-service-f-h-d-landi-nord-vaudois-venoge-sa-orbe": {
+    "winnerJobIdentifier": "volg-fenaco-aa6d00d37290",
+    "winnerCanonical": "caissiere-vendeuse-caissier-vendeur-pour-un-shop-de-station-service-m-w-d-landi-nord-vaudois-venoge-sa-orbe",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.8095,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::it::caissiere-vendeuse-caissier-vendeur-pour-un-shop-de-station-service-f-m-d-landi-nord-vaudois-venoge-sa-orbe": {
+    "winnerJobIdentifier": "volg-fenaco-aa6d00d37290",
+    "winnerCanonical": "caissiere-vendeuse-caissier-vendeur-pour-un-shop-de-station-service-m-w-d-landi-nord-vaudois-venoge-sa-orbe",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::it::carrossier-peintre-emil-frey-crissier": {
     "winnerJobIdentifier": "emil-frey-5314ea2b529b",
     "winnerCanonical": "bodybuilder-pittore-emil-frey-crissier",
@@ -53469,7 +53802,7 @@
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx": {
-    "winnerJobIdentifier": "galenica-61e97033ec14",
+    "winnerJobIdentifier": "galenica-ccc38c8491aa",
     "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
@@ -53478,7 +53811,7 @@
     "canton": "VD"
   },
   "VD::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv": {
-    "winnerJobIdentifier": "galenica-61e97033ec14",
+    "winnerJobIdentifier": "galenica-ccc38c8491aa",
     "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
@@ -54576,7 +54909,7 @@
     "canton": "VS"
   },
   "VS::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye": {
-    "winnerJobIdentifier": "galenica-a8a8e62fcb76",
+    "winnerJobIdentifier": "galenica-c2b6dabff8f0",
     "winnerCanonical": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
@@ -55740,7 +56073,7 @@
     "winnerJobIdentifier": "fachkraft-2c68076a65bc",
     "winnerCanonical": "automatiker-in-fur-inbetriebnahme-und-service-mit-siemens-tia-portal-fachkraft-ch",
     "decidedAt": "2026-09-27T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -55836,12 +56169,12 @@
     "canton": "ZH"
   },
   "ZH::de::besatzung-mcdonald-s-switzerland-winterthur": {
-    "winnerJobIdentifier": "mcdonald-s-switzerland-50a9c3220acb",
+    "winnerJobIdentifier": "mcdonald-s-switzerland-b49289703ae9",
     "winnerCanonical": "crew-mcdonald-s-switzerland-winterthur",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::boulanger-ere-coop-genossenschaft-zurich-m82gh0": {
@@ -55931,6 +56264,15 @@
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::detailhandelfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-zurich": {
+    "winnerJobIdentifier": "interdiscount-1d7d8e4c-b1d",
+    "winnerCanonical": "detailhandelfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegenstorf-k2ip9l",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -56484,12 +56826,12 @@
     "canton": "ZH"
   },
   "ZH::de::elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich": {
-    "winnerJobIdentifier": "stellenpartner-9bc9c4fe2505",
+    "winnerJobIdentifier": "stellenpartner-76a00179c0b7",
     "winnerCanonical": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.7,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::elektroinstallateur-in-mit-erfahrung-in-medizintechnik-und-kundenservice-bulach-zurich": {
@@ -56646,8 +56988,8 @@
     "canton": "ZH"
   },
   "ZH::de::gartner-in-8211-garten-und-landschaftsbau-fur-abwechslungsreiche-aufgaben-zurich-zurich": {
-    "winnerJobIdentifier": "sta-0dc291d18d1a",
-    "winnerCanonical": "gartner-in-8211-garten-und-landschaftsbau-fur-vielseitige-unterhaltsarbeiten-zurich-zurich",
+    "winnerJobIdentifier": "stellenpartner-6eb46ad2d0f7",
+    "winnerCanonical": "gartner-in-8211-garten-und-landschaftsbau-fur-neuanlagen-und-begrunungen-zurich-zurich",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
@@ -56655,8 +56997,8 @@
     "canton": "ZH"
   },
   "ZH::de::gartner-in-8211-garten-und-landschaftsbau-fur-anspruchsvolle-projektestahli-zurich-zurich": {
-    "winnerJobIdentifier": "sta-0dc291d18d1a",
-    "winnerCanonical": "gartner-in-8211-garten-und-landschaftsbau-fur-vielseitige-unterhaltsarbeiten-zurich-zurich",
+    "winnerJobIdentifier": "stellenpartner-6eb46ad2d0f7",
+    "winnerCanonical": "gartner-in-8211-garten-und-landschaftsbau-fur-neuanlagen-und-begrunungen-zurich-zurich",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
@@ -57753,11 +58095,11 @@
     "canton": "ZH"
   },
   "ZH::de::produktionsmechaniker-in-servicetechniker-in-fur-aufzugsanlagen-mit-kundenkontakt-zurich": {
-    "winnerJobIdentifier": "stellenpartner-1abebbad5d9e",
-    "winnerCanonical": "produktionsmechaniker-in-8211-servicetechniker-in-fur-aufzugsanlagen-mit-kundenkontakt",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3c9d98d66395",
+    "winnerCanonical": "produktionsmechaniker-in-servicetechniker-in-fur-aufzugsanlagen-mit-kundenkontakt",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.7778,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -59112,12 +59454,12 @@
     "canton": "ZH"
   },
   "ZH::en::assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-track-3-50-100-usz-ch": {
-    "winnerJobIdentifier": "usz-f9def89ff72c",
-    "winnerCanonical": "assistant-doctor-f-m-d-curriculum-family-medicine-track-3-50-100-universitatsspital-zurich-usz-campus",
-    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "winnerJobIdentifier": "usz-ef62c35df971",
+    "winnerCanonical": "assistant-doctor-f-m-d-curriculum-family-medicine-track-3-50-100-universitatsspital-zurich-usz-campus-e01bcd",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.381,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::augenoptiker-w-m-d-fielmann-ch-12": {
@@ -59400,8 +59742,8 @@
     "canton": "ZH"
   },
   "ZH::en::dipl-expert-in-emergency-care-spital-bulach-bulach": {
-    "winnerJobIdentifier": "spital-buelach-b98b0824dc43",
-    "winnerCanonical": "dipl-expert-expert-intensive-care-spital-bulach-bulach",
+    "winnerJobIdentifier": "spital-buelach-77f624dcd078",
+    "winnerCanonical": "certified-emergency-care-expert-spital-bulach-bulach",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.625,
@@ -59930,6 +60272,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::elektroplaner-in-alle-bkw-ch": {
+    "winnerJobIdentifier": "bkw-bbf4750d2f17",
+    "winnerCanonical": "electrical-planner-in-alle-bkw-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::emergency-medical-technician-in-training-see-spital-horgen": {
     "winnerJobIdentifier": "see-spital-74bfb782fc7e",
     "winnerCanonical": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
@@ -60299,6 +60650,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::en::metallbauer-in-fur-kunststoffrohrleitungen-und-stahl-schweissarbeiten-zurich-zurich": {
+    "winnerJobIdentifier": "stellenpartner-4c93036c8a6d",
+    "winnerCanonical": "metalworker-for-plastic-pipelines-and-steel-welding-work-stellenpartner-ag-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.0556,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur": {
     "winnerJobIdentifier": "company-pivqqx",
     "winnerCanonical": "metzger-in-meat-specialist-meat-specialist-room-winterthur-coop-genossenschaft-basel",
@@ -60315,6 +60675,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::mitarbeiter-in-kasse-genossenschaft-migros-zurich": {
+    "winnerJobIdentifier": "company-hs5cgn",
+    "winnerCanonical": "cashier-genossenschaft-migros-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::mitarbeiter-verkauf-m-w-d-aldi-suisse": {
@@ -60573,7 +60942,7 @@
     "winnerJobIdentifier": "stadt-zuerich-851e264405f8",
     "winnerCanonical": "police-aspirant-stadt-zurich-zurich-7fb7e9",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -60864,6 +61233,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::sanitarinstallateur-in-efz-brefis-personal-ag-zh": {
+    "winnerJobIdentifier": "brefispersonal-554e7c9c44e1",
+    "winnerCanonical": "plumber-efz-brefis-personal-ag-zh",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::sap-service-manager-stadt-zuerich-zurigo-49567": {
@@ -61703,6 +62081,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich": {
+    "winnerJobIdentifier": "stellentreff-9228b37e9042",
+    "winnerCanonical": "zimmermann-zimmerin-glass-assemblies-partition-walls-goal-permanent-employment-stellentreff-ag-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1765,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::zusteller-in-briefe-und-pakete-post": {
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-16210063e087",
     "winnerCanonical": "letter-and-parcel-delivery-person-die-schweizerische-post-affoltern-am-albis",
@@ -61833,7 +62220,7 @@
     "winnerJobIdentifier": "stadt-zuerich-851e264405f8",
     "winnerCanonical": "aspirant-policier-stadt-zurich-zurich-7fb7e9",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -62801,6 +63188,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::elektroplaner-in-alle-bkw-ch": {
+    "winnerJobIdentifier": "bkw-bbf4750d2f17",
+    "winnerCanonical": "planificateur-trice-electrique-in-alle-bkw-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::ergotherapeute-en-hf-fh-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-0e879e0fde17",
     "winnerCanonical": "ergotherapie-ergotherapeute-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
@@ -62847,11 +63243,11 @@
     "canton": "ZH"
   },
   "ZH::fr::expert-en-soins-d-urgence-spital-bulach-bulach": {
-    "winnerJobIdentifier": "spital-buelach-b98b0824dc43",
-    "winnerCanonical": "dipl-expert-en-soins-intensifs-spital-bulach-bulach",
+    "winnerJobIdentifier": "spital-buelach-77f624dcd078",
+    "winnerCanonical": "expert-diplome-en-soins-d-urgence-spital-bulach-bulach",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63216,11 +63612,11 @@
     "canton": "ZH"
   },
   "ZH::fr::medecin-assistant-e-h-f-80-100-clienia-ag-pfaffikon": {
-    "winnerJobIdentifier": "clienia-ag-666dd4ef72cf",
-    "winnerCanonical": "assistant-medecin-60-100-clienia-ag-pfaffikon-zh",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "clienia-ag-d8731d849e25",
+    "winnerCanonical": "assistant-medecin-80-100-clienia-ag-pfaffikon-zh",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63249,6 +63645,24 @@
     "lastSeenAt": "2026-09-16T00:00:00.000Z",
     "score": 0.0769,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::metallbauer-in-fur-kunststoffrohrleitungen-und-stahl-schweissarbeiten-zurich-zurich": {
+    "winnerJobIdentifier": "fachkraft-ee7e92e9c531",
+    "winnerCanonical": "constructeur-constructrice-de-metaux-pour-les-tuyaux-en-plastique-et-les-travaux-de-soudage-en-acier-fachkraft-ch-gmbh",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::mitarbeiter-in-kasse-genossenschaft-migros-zurich": {
+    "winnerJobIdentifier": "company-hs5cgn",
+    "winnerCanonical": "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::mitarbeiter-verkauf-m-w-d-aldi-suisse": {
@@ -63635,6 +64049,15 @@
     "decidedAt": "2026-06-30T00:00:00.000Z",
     "lastSeenAt": "2026-09-27T00:00:00.000Z",
     "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::sanitarinstallateur-in-efz-brefis-personal-ag-zh": {
+    "winnerJobIdentifier": "brefispersonal-554e7c9c44e1",
+    "winnerCanonical": "plombier-efz-brefis-personal-ag-zh",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -64484,6 +64907,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich": {
+    "winnerJobIdentifier": "stellentreff-9228b37e9042",
+    "winnerCanonical": "murs-de-separation-zimmermann-zimmerin-glass-assemblies-objectif-emploi-permanent-stellentreff-ag-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::zusteller-in-briefe-und-pakete-post": {
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-16210063e087",
     "winnerCanonical": "lettres-de-livraison-et-colis-die-schweizerische-post-affoltern-am-albis",
@@ -64529,13 +64961,22 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
-  "ZH::it::account-manager-m-w-d-otis-wallisellen": {
-    "winnerJobIdentifier": "otis-df95b6c3ce48",
-    "winnerCanonical": "gestore-conto-m-f-d-otis-sa-wallisellen",
+  "ZH::it::abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch": {
+    "winnerJobIdentifier": "usz-9d536f7f8214",
+    "winnerCanonical": "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.3636,
+    "score": 0.1765,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::account-manager-m-w-d-otis-wallisellen": {
+    "winnerJobIdentifier": "otis-27d0d293fb89",
+    "winnerCanonical": "responsabile-vendite-m-f-d-otis-sa-dietlikon",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::addetto-a-alle-vendite-administration-e-kundendienst-jumbo-kusnacht": {
@@ -64611,12 +65052,12 @@
     "canton": "ZH"
   },
   "ZH::it::anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-bulach-zurich": {
-    "winnerJobIdentifier": "stellenpartner-1a404ccecfca",
-    "winnerCanonical": "impianti-ed-apparecchi-per-la-lavorazione-di-lamiere-sottili-di-acciaio-al-cromo-nichel-stellenpartner-ag-bulach-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-0c36c0b37a10",
+    "winnerCanonical": "impianti-ed-apparecchi-per-la-lavorazione-di-lamiere-sottili-di-acciaio-al-cromo-nichel-fachkraft-ch-gmbh-bulach-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0833,
-    "candidatesCount": 2,
+    "score": 0.08,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::anlagen-und-apparatebauer-in-fur-chromnickelstahl-gastronomieeinrichtungen-bulach-zurich": {
@@ -64971,11 +65412,11 @@
     "canton": "ZH"
   },
   "ZH::it::aspirante-di-polizia-stadt-zurich-zurich-463598": {
-    "winnerJobIdentifier": "stadt-zuerich-0479062f72ee",
-    "winnerCanonical": "betriebsleiter-in-stadt-zuerich-zurigo-51825",
+    "winnerJobIdentifier": "stadt-zuerich-851e264405f8",
+    "winnerCanonical": "aspiratore-di-polizia-stadt-zurich-zurich-7fb7e9",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0909,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -65331,12 +65772,12 @@
     "canton": "ZH"
   },
   "ZH::it::assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-track-3-50-100-usz-ch": {
-    "winnerJobIdentifier": "usz-f9def89ff72c",
-    "winnerCanonical": "medico-assistente-f-m-d-curriculum-medicina-di-famiglia-track-3-50-100-universitatsspital-zurich-usz-campus",
-    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "winnerJobIdentifier": "usz-ef62c35df971",
+    "winnerCanonical": "assistente-medico-f-m-d-curriculum-family-medicine-traccia-3-50-100-universitatsspital-zurich-usz-campus",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3182,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch": {
@@ -66249,12 +66690,12 @@
     "canton": "ZH"
   },
   "ZH::it::crew-mcdonalds-switzerland-winterthur-p8-319501-1": {
-    "winnerJobIdentifier": "mcdonald-s-switzerland-50a9c3220acb",
-    "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319502-1",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "mcdonald-s-switzerland-b49289703ae9",
+    "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::crew-mcdonalds-switzerland-winterthur-p8-319504-1": {
@@ -66569,6 +67010,15 @@
     "decidedAt": "2026-09-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::detailhandelfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-zurich": {
+    "winnerJobIdentifier": "interdiscount-1d7d8e4c-b1d",
+    "winnerCanonical": "detailhandelfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegenstorf-k2ip9l",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -67217,6 +67667,15 @@
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.0667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100": {
+    "winnerJobIdentifier": "hirslanden-091c26ae47d3",
+    "winnerCanonical": "mansioni-richieste-hirslanden-klinik-search-ee23ed",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -68103,9 +68562,9 @@
     "canton": "ZH"
   },
   "ZH::it::elektroplaner-in-alle-bkw-ch": {
-    "winnerJobIdentifier": "bkw-d61837cbe39b",
-    "winnerCanonical": "progettista-elettrico-a-in-alle-bkw-dubendorf",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
+    "winnerJobIdentifier": "bkw-bbf4750d2f17",
+    "winnerCanonical": "progettista-elettrico-a-in-alle-bkw-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
@@ -68778,9 +69237,9 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm": {
-    "winnerJobIdentifier": "galenica-ed28c9713a09",
+    "winnerJobIdentifier": "galenica-1b201cef0afe",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-winterthur",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 1,
@@ -71172,11 +71631,11 @@
     "canton": "ZH"
   },
   "ZH::it::medico-assistente-m-f-d-80-100-clienia-ag-pfaffikon": {
-    "winnerJobIdentifier": "clienia-ag-8158e1053e42",
-    "winnerCanonical": "assistente-medico-80-100-clienia-ag-pfaffikon-zh",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "clienia-ag-d8731d849e25",
+    "winnerCanonical": "assistente-medico-80-100-clienia-ag-pfaffikon-zh-52008e",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.6364,
+    "score": 0.5833,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71576,6 +72035,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::mitarbeiter-in-medizintechnik-80-100-usz-ch": {
+    "winnerJobIdentifier": "usz-18bfe3158f51",
+    "winnerCanonical": "collaboratore-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich": {
     "winnerJobIdentifier": "company-m2bg5a",
     "winnerCanonical": "addetto-a-alle-vendite-administration-kundendienst-coop-genossenschaft-zurich",
@@ -71745,6 +72213,15 @@
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.1053,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-fachkraft-ch": {
+    "winnerJobIdentifier": "fachkraft-ea5f31d05c68",
+    "winnerCanonical": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-horgen",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::montage-elektriker-in-mit-erfahrung-in-photovoltaik-und-kundenservice-winterthur-zurich": {
@@ -72629,6 +73106,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::polymechaniker-in-cnc-fertigung-frasen-bulach-zurich-fachkraft-ch": {
+    "winnerJobIdentifier": "fachkraft-606de54732a9",
+    "winnerCanonical": "operatore-di-macchine-cnc-fresatura-fachkraft-ch-gmbh-bulach-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::polymechaniker-in-cnc-fertigung-frasen-mit-moderner-5-achsen-maschine-winterthur-zurich": {
     "winnerJobIdentifier": "fachkraft-2a037a20000e",
     "winnerCanonical": "polymechaniker-in-cnc-fertigung-frasen-con-moderner-5-achsen-maschine-fachkraft-ch-gmbh-winterthur",
@@ -72999,11 +73485,11 @@
     "canton": "ZH"
   },
   "ZH::it::produktionsmechaniker-in-servicetechniker-in-fur-aufzugsanlagen-mit-kundenkontakt-zurich": {
-    "winnerJobIdentifier": "stellenpartner-1abebbad5d9e",
-    "winnerCanonical": "meccanico-di-produzione-tecnico-di-servizio-per-sistemi-di-ascensore-con-contatto-cliente-stellenpartner-ag-zurich",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3c9d98d66395",
+    "winnerCanonical": "produktionsmechaniker-in-tecnico-a-di-servizio-per-aufzugsanlagen-con-kundenkontakt-fachkraft-ch-gmbh-lugano",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.0476,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73053,11 +73539,11 @@
     "canton": "ZH"
   },
   "ZH::it::projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-0f2d1493a5c6",
-    "winnerCanonical": "assistente-assistente-neurochirurgia-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
+    "winnerJobIdentifier": "ksw-323dfda4f4cb",
+    "winnerCanonical": "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.375,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73224,12 +73710,12 @@
     "canton": "ZH"
   },
   "ZH::it::radiologiefachperson-interventionelle-radiologie-80-100-usz-ch": {
-    "winnerJobIdentifier": "usz-a334820f2ab8",
-    "winnerCanonical": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-27T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "usz-df911d325782",
+    "winnerCanonical": "specialista-in-radiologia-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::railway-signalling-specialist-stadler-rail-ch": {
@@ -74664,8 +75150,8 @@
     "canton": "ZH"
   },
   "ZH::it::specialista-della-salute-sito-sydefadeli-stadt-zurich-zurich": {
-    "winnerJobIdentifier": "stadt-zuerich-3ea8b578b7be",
-    "winnerCanonical": "specialista-della-salute-sito-gehrenholz-stadt-zurich-zurich",
+    "winnerJobIdentifier": "stadt-zuerich-650567514d47",
+    "winnerCanonical": "specialista-della-salute-sito-grunau-stadt-zurich-zurich",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.75,
@@ -74916,12 +75402,12 @@
     "canton": "ZH"
   },
   "ZH::it::student-innen-aushilfe-genossenschaft-migros-zurich": {
-    "winnerJobIdentifier": "company-y5xiwb",
-    "winnerCanonical": "student-innen-aushilfe-genossenschaft-migros-zurich-y5xiwb",
-    "decidedAt": "2026-09-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-b7cq9f",
+    "winnerCanonical": "assistenza-agli-studenti-migros-restaurant-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::studentische-hilfskraft-uzh-zurich": {
@@ -76391,6 +76877,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich": {
+    "winnerJobIdentifier": "company-3qj4qz",
+    "winnerCanonical": "venditore-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-food-coop-adliswil-zurich": {
     "winnerJobIdentifier": "company-run4by",
     "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-adliswil",
@@ -77441,6 +77936,15 @@
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-05T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::zimmermann-zimmerin-glasmontagen-trennwande-ziel-festanstellung-winterthur-zurich": {
+    "winnerJobIdentifier": "stellentreff-9228b37e9042",
+    "winnerCanonical": "zimmermann-zimmerin-glass-assemblies-pareti-divisorie-obiettivo-impiego-permanente-stellentreff-ag-winterthur",
+    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-10-05T00:00:00.000Z",
+    "score": 0.1765,
     "candidatesCount": 2,
     "canton": "ZH"
   },
