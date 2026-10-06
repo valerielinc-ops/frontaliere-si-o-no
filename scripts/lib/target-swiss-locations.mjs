@@ -1162,11 +1162,43 @@ const SWISS_LOCATION_FIELD_MARKER_RE = new RegExp(
   'i',
 );
 
+function locationCantonMarkers(raw = '') {
+  return [...String(raw || '').matchAll(SWISS_CANTON_CODE_MARKER_RE)]
+    .map(([marker]) => marker.toUpperCase());
+}
+
+function stripLocationCantonMarker(city = '') {
+  return String(city || '')
+    .replace(new RegExp(`\\s*\\(?${SWISS_CANTON_CODE_MARKER_SOURCE}\\)?$`, 'i'), '')
+    .trim();
+}
+
 function hasMatchingCantonMarker(raw, city) {
-  const markers = [...raw.matchAll(SWISS_CANTON_CODE_MARKER_RE)].map(([marker]) => marker.toUpperCase());
+  const markers = locationCantonMarkers(raw);
   if (!markers.length) return true;
-  const cityCantons = swissMunicipalityCantons(city);
+  const cityCantons = swissMunicipalityCantons(stripLocationCantonMarker(city));
   return markers.every((marker) => cityCantons.includes(marker));
+}
+
+function findSwissCityInCantonText(text = '', canton = '') {
+  const normalized = normalizeToken(text);
+  if (!normalized || !canton) return '';
+  const words = normalized.split(' ').filter((word) => word.length >= 2);
+  for (let n = 3; n >= 1; n -= 1) {
+    for (let i = 0; i + n <= words.length; i += 1) {
+      const candidate = words.slice(i, i + n).join(' ');
+      if (isKnownSwissMunicipalityInCanton(candidate, canton)) return candidate;
+    }
+  }
+  return '';
+}
+
+function canonicalLocationFieldCity(city, markers) {
+  const canonical = canonicalSwissCityName(city);
+  if (markers.length !== 1 || /\\([A-Z]{2}\\)$/i.test(canonical)) return canonical;
+  const bareCity = stripLocationCantonMarker(city);
+  if (swissMunicipalityCantons(bareCity).length <= 1) return canonical;
+  return canonicalSwissCityName(`${bareCity} ${markers[0]}`);
 }
 
 function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExonyms = false) {
@@ -1193,10 +1225,15 @@ function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExony
 
 export function swissCityFromLocationField(value = '', { allowUnqualifiedEnglishExonyms = false } = {}) {
   const raw = String(value || '').trim();
-  const city = findSwissCityInText(raw)
+  const markers = locationCantonMarkers(raw);
+  const scopedCity = markers.length === 1
+    ? findSwissCityInCantonText(raw, markers[0])
+    : '';
+  const city = scopedCity
+    || findSwissCityInText(raw)
     || englishExonymFromLocationField(value, allowUnqualifiedEnglishExonyms);
   if (!city || !hasMatchingCantonMarker(raw, city)) return '';
-  return canonicalSwissCityName(city);
+  return canonicalLocationFieldCity(city, markers);
 }
 
 // A work mode written where a city would go: EN/DE/FR/IT forms seen on
