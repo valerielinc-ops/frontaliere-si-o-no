@@ -256,6 +256,9 @@ interface Copy {
   rentMetric: string;
   populationMetric: string;
   distanceMetric: string;
+  noPeer: string;
+  profileMetric: (metricLabel: string, rank: number, total: number, value: string, ahead: string, behind: string) => string;
+  profileProvince: (province: string, peers: string) => string;
   faqTitle: string;
   faq1: (m: Municipality) => string;
   faq1a: (m: Municipality) => string;
@@ -327,6 +330,11 @@ const COPY = {
     rentMetric: "l'affitto mensile indicativo",
     populationMetric: 'la popolazione',
     distanceMetric: 'la distanza dal confine',
+    noPeer: 'nessun comune',
+    profileMetric: (metricLabel, rank, total, value, ahead, behind) =>
+      `Per ${metricLabel}, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `Nella provincia ${province}, i comuni del corridoio con popolazione più simile sono ${peers}.`,
     faqTitle: 'Domande frequenti',
     faq1: (m: Municipality) => `${m.name} è un comune di frontiera per lavorare in Svizzera?`,
     faq1a: (m: Municipality) => `${m.name} risulta nella fascia ${m.fascia} del dataset interno dei comuni di frontiera usato da Frontaliere Ticino. Verifica sempre il tuo caso fiscale con un consulente se stai cambiando residenza o status di frontaliere.`,
@@ -390,6 +398,11 @@ const COPY = {
     rentMetric: 'indicative monthly rent',
     populationMetric: 'population',
     distanceMetric: 'distance to the border',
+    noPeer: 'no town',
+    profileMetric: (metricLabel, rank, total, value, ahead, behind) =>
+      `By ${metricLabel}, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `In province ${province}, the corridor towns with the closest population are ${peers}.`,
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Is ${m.name} a border municipality for Swiss work?`,
     faq1a: (m: Municipality) => `${m.name} appears in zone ${m.fascia} in the internal border-municipality dataset used by Frontaliere Ticino. Always verify your individual tax status before moving.`,
@@ -450,9 +463,14 @@ const COPY = {
     spreadAddizionale: 'der Gemeindezuschlag',
     comparisonSource: 'IRPEF-Gemeindezuschlag 2024, Richtmiete der Zone und Entfernung zur Grenze aus demselben Gemeindedatensatz wie die Kennzahlen oben.',
     comparisonPeerNoun: 'Gemeinden',
-    rentMetric: 'die Richtmiete pro Monat',
-    populationMetric: 'die Einwohnerzahl',
-    distanceMetric: 'die Entfernung zur Grenze',
+    rentMetric: 'Richtmiete pro Monat',
+    populationMetric: 'Einwohnerzahl',
+    distanceMetric: 'Entfernung zur Grenze',
+    noPeer: 'keine Gemeinde',
+    profileMetric: (metricLabel, rank, total, value, ahead, behind) =>
+      `Nach ${metricLabel} liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `In der Provinz ${province} liegen diese Korridor-Gemeinden bei der Einwohnerzahl am nächsten: ${peers}.`,
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Ist ${m.name} eine Grenzgemeinde?`,
     faq1a: (m: Municipality) => `${m.name} erscheint in Zone ${m.fascia} im internen Grenzgemeinden-Datensatz von Frontaliere Ticino. Prüfe deinen Steuerfall vor einem Umzug individuell.`,
@@ -516,6 +534,11 @@ const COPY = {
     rentMetric: 'le loyer mensuel indicatif',
     populationMetric: 'la population',
     distanceMetric: 'la distance de la frontière',
+    noPeer: 'aucune commune',
+    profileMetric: (metricLabel, rank, total, value, ahead, behind) =>
+      `Pour ${metricLabel}, cette commune est ${rank}e sur ${total} avec ${value}; juste devant: ${ahead}; juste derrière: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `Dans la province ${province}, les communes du corridor dont la population est la plus proche sont ${peers}.`,
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `${m.name} est-elle une commune frontalière?`,
     faq1a: (m: Municipality) => `${m.name} apparaît en zone ${m.fascia} dans le jeu de données interne des communes frontalières utilisé par Frontaliere Ticino. Vérifiez toujours votre cas fiscal avant un déménagement.`,
@@ -543,6 +566,119 @@ const slugify = slugifyMunicipalityName;
 
 function pathFor(locale: Locale, municipality: Municipality): string {
   return borderMunicipalityPathFor(locale, municipality.name);
+}
+
+const ITALIAN_CORRIDOR_MUNICIPALITIES = corridorMunicipalities();
+const ITALIAN_POPULATION_RANK = [...ITALIAN_CORRIDOR_MUNICIPALITIES].sort(
+  (a, b) => b.population - a.population || slugify(a.name).localeCompare(slugify(b.name)),
+);
+const ITALIAN_DISTANCE_RANK = [...ITALIAN_CORRIDOR_MUNICIPALITIES].sort(
+  (a, b) => a.distanceKm - b.distanceKm || slugify(a.name).localeCompare(slugify(b.name)),
+);
+const ITALIAN_RENT_RANK = [...ITALIAN_CORRIDOR_MUNICIPALITIES].sort(
+  (a, b) => a.avgRentMonthly - b.avgRentMonthly || slugify(a.name).localeCompare(slugify(b.name)),
+);
+const ITALIAN_TAX_RANK = ITALIAN_CORRIDOR_MUNICIPALITIES.filter(leviesIrpefAddizionale).sort(
+  (a, b) => a.irpefAddizionale - b.irpefAddizionale || slugify(a.name).localeCompare(slugify(b.name)),
+);
+
+interface ItalianRankDetails {
+  rank: number;
+  total: number;
+  value: string;
+  ahead: string[];
+  behind: string[];
+}
+
+function italianRankDetails(
+  rows: readonly Municipality[],
+  current: Municipality,
+  valueOf: (municipality: Municipality) => number,
+  higherIsBetter: boolean,
+  formatValue: (value: number) => string,
+): ItalianRankDetails {
+  const ranked = rankPeerRows(
+    rows.map((municipality) => ({
+      key: slugify(municipality.name),
+      name: municipality.name,
+      value: valueOf(municipality),
+    })),
+    higherIsBetter,
+  );
+  const currentRow = ranked.find((row) => row.key === slugify(current.name));
+  if (!currentRow) throw new Error(`Italian corridor ranking is missing ${current.name}`);
+  const isAhead = (value: number): boolean => (higherIsBetter ? value > currentRow.value : value < currentRow.value);
+  const isBehind = (value: number): boolean => (higherIsBetter ? value < currentRow.value : value > currentRow.value);
+  return {
+    rank: currentRow.rank,
+    total: ranked.length,
+    value: formatValue(currentRow.value),
+    ahead: ranked
+      .filter((row) => row.key !== currentRow.key && isAhead(row.value))
+      .slice(-2)
+      .map((row) => row.name),
+    behind: ranked
+      .filter((row) => row.key !== currentRow.key && isBehind(row.value))
+      .slice(0, 2)
+      .map((row) => row.name),
+  };
+}
+
+function joinItalianProfileNames(names: readonly string[], locale: Locale, fallback: string): string {
+  if (names.length === 0) return fallback;
+  if (names.length === 1) return names[0];
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
+function buildItalianProfileProse(locale: Locale, current: Municipality): string[] {
+  const copy = COPY[locale];
+  const names = (values: readonly string[]) => joinItalianProfileNames(values, locale, copy.noPeer);
+  const summary = (
+    rows: readonly Municipality[],
+    metricLabel: string,
+    valueOf: (municipality: Municipality) => number,
+    formatValue: (value: number) => string,
+    higherIsBetter: boolean,
+  ) => {
+    const details = italianRankDetails(rows, current, valueOf, higherIsBetter, formatValue);
+    return copy.profileMetric(
+      metricLabel,
+      details.rank,
+      details.total,
+      details.value,
+      names(details.ahead),
+      names(details.behind),
+    );
+  };
+
+  const prose = [
+    summary(ITALIAN_POPULATION_RANK, copy.populationMetric, (m) => m.population, (value) => formatInt(value, locale), true),
+    summary(ITALIAN_DISTANCE_RANK, copy.distanceMetric, (m) => m.distanceKm, (value) => `${formatInt(value, locale)} km`, false),
+    summary(ITALIAN_RENT_RANK, copy.rentMetric, (m) => m.avgRentMonthly, (value) => `EUR ${formatInt(value, locale)}`, false),
+  ];
+  if (leviesIrpefAddizionale(current)) {
+    prose.push(
+      summary(
+        ITALIAN_TAX_RANK,
+        copy.spreadAddizionale,
+        (m) => m.irpefAddizionale,
+        (value) => `${formatDecimal(value, locale)}%`,
+        false,
+      ),
+    );
+  }
+  const provincePeers = ITALIAN_CORRIDOR_MUNICIPALITIES
+    .filter((municipality) => municipality.province === current.province && municipality.name !== current.name)
+    .sort(
+      (a, b) =>
+        Math.abs(a.population - current.population) - Math.abs(b.population - current.population) ||
+        slugify(a.name).localeCompare(slugify(b.name)),
+    )
+    .slice(0, 2)
+    .map((municipality) => municipality.name);
+  prose.push(copy.profileProvince(current.province, names(provincePeers)));
+  return prose;
 }
 
 /**
@@ -1139,6 +1275,7 @@ export function renderPage(params: {
             (value, valueLocale) => `${formatInt(value, valueLocale)} km`,
             false,
           ),
+          ...buildItalianProfileProse(locale, self),
         ];
       },
     })}
