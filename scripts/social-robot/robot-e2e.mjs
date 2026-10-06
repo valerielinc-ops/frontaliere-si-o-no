@@ -24,8 +24,8 @@
  *   - an Instagram SVG-only create fallback whose hit target is its button;
  *     a non-actionable TikTok cookie config beside an unrelated banner; a
  *     cookie banner whose custom element is defined late, one that appears on
- *     the Post hover, one that blocks the optional Post now click, or one with
- *     a closed shadow root;
+ *     the Post hover, one with a zero-size host and fixed shadow content, one
+ *     that blocks the optional Post now click, or one with a closed shadow root;
  *   - one whole runRobot() publish through the persistent profile: the confirm
  *     dispatch happens after the confirmation, never in a dry run.
  */
@@ -98,6 +98,7 @@ function tiktokPage({
   afterPost = 'redirect',
   cookieBanner = false,
   lateCookieBanner = false,
+  zeroSizeCookieBanner = false,
   closedCookieBanner = false,
   delayedCookieBanner = false,
   optionalPostCookieBanner = false,
@@ -115,6 +116,7 @@ function tiktokPage({
       section { box-sizing: border-box; height: 100%; padding: 24px 64px; }
       .actions { display: flex; gap: 16px; justify-content: flex-end; }
       button { background: white; border: 0; border-radius: 4px; color: #111; font: 600 16px sans-serif; padding: 14px 20px; }
+      ${zeroSizeCookieBanner ? 'section { position: fixed; inset: 0; z-index: 2000; width: 100vw; height: 100vh; background: #0aa; }' : ''}
     </style>
     <section aria-label="Consentire i cookie da TikTok su questo browser?">
       <h2>Consentire i cookie da TikTok su questo browser?</h2>
@@ -124,10 +126,12 @@ function tiktokPage({
         <button id="cookie-accept">Consenti tutti</button>
       </div>
     </section>`;
-  const hasCookieBanner = cookieBanner || lateCookieBanner || closedCookieBanner || delayedCookieBanner || optionalPostCookieBanner;
+  const hasCookieBanner = cookieBanner || lateCookieBanner || zeroSizeCookieBanner || closedCookieBanner || delayedCookieBanner || optionalPostCookieBanner;
   const cookieVisibleOnLoad = cookieBanner || delayedCookieBanner;
   const cookieMode = closedCookieBanner || optionalPostCookieBanner ? 'closed' : 'open';
-  const cookieAttributes = optionalPostCookieBanner
+  const cookieAttributes = zeroSizeCookieBanner
+    ? ' style="display:block;position:fixed;inset:auto 0 0;width:0;height:0"'
+    : optionalPostCookieBanner
     ? ' hidden style="display:none"'
     : cookieVisibleOnLoad
     ? (delayedCookieBanner ? ' style="display:block;position:fixed;inset:auto 0 0;height:260px;z-index:2000"' : '')
@@ -173,6 +177,7 @@ const installCookie = (host, mode) => {
 };
 ${delayedCookieBanner ? "setTimeout(() => customElements.define('tiktok-cookie-banner', class extends HTMLElement { connectedCallback() { installCookie(this, 'open'); } }), 150);" : `customElements.define('tiktok-cookie-banner', class extends HTMLElement {}); installCookie(cookie, ${JSON.stringify(cookieMode)});`}
 ${lateCookieBanner ? "$('post').addEventListener('mouseenter', () => { cookieShownByHover = true; cookie.hidden = false; cookie.style.display = ''; }, { once: true });" : ''}
+${zeroSizeCookieBanner ? "cookie.shadowRoot.querySelector('section').hidden = true; $('post').addEventListener('mouseenter', () => { cookie.shadowRoot.querySelector('section').hidden = false; }, { once: true });" : ''}
 ` : ''}
 ${lateUnknownOverlay ? "$('post').addEventListener('mouseenter', () => { $('unknown-overlay').hidden = false; }, { once: true });" : ''}
 $('content-cancel')?.addEventListener('click', () => { contentAction = 'cancel'; $('content-checks').hidden = true; });
@@ -262,6 +267,7 @@ function fakePlatforms() {
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
       case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
       case '/tt-late-cookie/tiktokstudio/upload': return send(200, tiktokPage({ lateCookieBanner: true }));
+      case '/tt-zero-size-cookie/tiktokstudio/upload': return send(200, tiktokPage({ zeroSizeCookieBanner: true }));
       case '/tt-delayed-cookie/tiktokstudio/upload': return send(200, tiktokPage({ delayedCookieBanner: true }));
       case '/tt-closed-cookie/tiktokstudio/upload': return send(200, tiktokPage({ closedCookieBanner: true }));
       case '/tt-optional-cookie-intercept/tiktokstudio/upload': return send(200, tiktokPage({ optionalPostCookieBanner: true }));
@@ -377,6 +383,10 @@ async function main() {
     check(r.result?.status === 'published', `a cookie banner shown at publish is dismissed and the retry publishes (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.at(-1).cookieShownByHover === true && state.ttPosts.at(-1).cookieAction === 'decline' && state.ttPosts.at(-1).cookieAcceptClicks === 0, 'the late banner used only the optional-cookie rejection, never the accept-all action');
 
+    r = await run('tiktok', `${base}/tt-zero-size-cookie/tiktokstudio/upload`, { dryRun: false, label: 'tt-zero-size-cookie' });
+    check(r.result?.status === 'published', `a zero-size cookie host with visible fixed shadow content is dismissed and the retry publishes (${r.result?.evidence || r.error?.message})`);
+    check(state.ttPosts.at(-1).cookieAction === 'decline' && state.ttPosts.at(-1).cookieAcceptClicks === 0, 'the zero-size cookie host uses only the exact optional-cookie rejection, never the accept-all action');
+
     r = await run('tiktok', `${base}/tt-delayed-cookie/tiktokstudio/upload`, { dryRun: false, label: 'tt-delayed-cookie' });
     check(r.result?.status === 'published', `a not-yet-defined cookie host is waited for and dismissed (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.at(-1).cookieAction === 'decline' && state.ttPosts.at(-1).cookieAcceptClicks === 0, 'the delayed cookie host uses only the optional-cookie rejection');
@@ -387,7 +397,7 @@ async function main() {
     check(r.error?.pressed === false, 'an intercepted publish click records pressed=false');
     check(state.ttPosts.length === beforeClosedCookie, 'the closed cookie banner never posted');
     const closedCookieDiagnostic = JSON.parse(readFileSync(path.join(r.dir, 'cookie-banner-unreachable.json'), 'utf8'));
-    check(closedCookieDiagnostic.shadowRootMode === 'closed' && closedCookieDiagnostic.cookieBannerState === 'defined-closed', 'the closed cookie diagnostic records the observed defined-closed state');
+    check(closedCookieDiagnostic.shadowRootMode === 'closed-or-not-ready' && closedCookieDiagnostic.cookieBannerState === 'defined-closed', 'the closed cookie diagnostic records the observed defined-closed state');
 
     const beforeOptionalCookie = state.ttPosts.length;
     r = await run('tiktok', `${base}/tt-optional-cookie-intercept/tiktokstudio/upload`, { dryRun: false, label: 'tt-optional-cookie-intercept' });
