@@ -194,7 +194,7 @@ export function scanTopLevelSeoEntries(src: string): TopLevelSeoEntry[] {
 
 /** The `structuredData.author` node of one shard entry, as written in the source. */
 export interface SeoShardAuthorRef {
-  /** `Person` for a real byline; absent on the `{"@id": …#organization}` reference form. */
+  /** Named `Organization` for an editorial profile; absent on the team reference form. */
   type?: string;
   /** Author page URL — what `article:author` resolves to on the SPA/RSS side. */
   url?: string;

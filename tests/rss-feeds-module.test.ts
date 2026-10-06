@@ -38,7 +38,7 @@ function makeFixture(): string {
     path.join(root, 'seo', section.seoFiles[0]),
     `export const BLOG_SEO_METADATA = {
   'blog-alpha': {
-    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale", "author": { "@type": "Person", "@id": "https://frontaliereticino.ch/autori/guest-author/#person", "name": "Guest Author", "url": "https://frontaliereticino.ch/autori/guest-author/" } },
+    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale", "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/autori/editorial-profile/#profile", "name": "Editorial profile", "url": "https://frontaliereticino.ch/autori/editorial-profile/" } },
   },
   'blog-beta': {
     structuredData: { "headline": "Beta headline", "description": "Beta description", "datePublished": "2026-03-01", "articleSection": "Pratico", "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Redazione Frontaliere Ticino" } },
@@ -512,7 +512,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
   // ospite — viene sindacato come scritto dalla Redazione. E' lo stesso
   // difetto che `article:author` aveva in ogPagesPlugin.ts, sull'altra
   // superficie di metadati.
-  it('emette <dc:creator> per articolo quando l\'autore e\' una Person', () => {
+  it('emette <dc:creator> per articolo quando l\'autore e\' un profilo editoriale', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
       repairSerpSnippet,
@@ -529,7 +529,28 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     expect(xml).toContain('xmlns:dc="http://purl.org/dc/elements/1.1/"');
 
     const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
-    expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Editorial profile]]></dc:creator>');
+  });
+
+  it('emette <dc:creator> anche per un autore reale Person', () => {
+    const root = makeFixture();
+    const seoFile = path.join(root, 'seo', RSS_SECTIONS[0].seoFiles[0]);
+    const source = fs.readFileSync(seoFile, 'utf8').replace(
+      '"@type": "Organization", "@id": "https://frontaliereticino.ch/autori/editorial-profile/#profile"',
+      '"@type": "Person", "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person"',
+    ).replace('"name": "Editorial profile"', '"name": "Samuele Valente"');
+    fs.writeFileSync(seoFile, source);
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+    const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Samuele Valente]]></dc:creator>');
   });
 
   it('non ripete la Redazione in <dc:creator> quando l\'autore e\' l\'Organization', () => {

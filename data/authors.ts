@@ -1,68 +1,72 @@
 /**
  * Author registry — Google News E-E-A-T compliance (FASE 1, A1).
  *
- * Defines the editorial team Person entries used by NewsArticle JSON-LD,
- * per-author profile pages (`/autori/{slug}/`), and topic-based byline
- * assignment via {@link pickAuthorForTopic}.
- *
- * Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A1.
- *
- * The registry is the single source of truth: pages, schema, and tests all
- * read from {@link AUTHORS}. Adding/editing an author here automatically
- * propagates to the author page, JSON-LD, sitemap entry, and (via A2,
- * separate task) NewsArticle bylines.
+ * The registry distinguishes editorial signatures from real authors. Editorial
+ * profiles describe the newsroom's coverage without personal identity fields;
+ * real authors may carry the public identity and attribution fields needed for
+ * a Person entity and uid-based bylines.
  */
 
+export type AuthorKind = 'editorial-profile' | 'real-author';
+
+export interface AuthorBase {
+  /** Stable kebab-case slug used in URLs (`/autori/{slug}/`). */
+  slug: string;
+  /** Display name of the signature or author. */
+  name: string;
+  /** Short role descriptor shown under the name. */
+  role: string;
+  /** Italian biography or editorial description, plain text and without HTML. */
+  bio: string;
+  /** Public path under /public. */
+  photoPath: string;
+  /** Topical keywords used by {@link pickAuthorForTopic}. */
+  expertise: string[];
+}
+
+/** Public social identity fields used by real authors' structured data. */
 export interface AuthorSocial {
-  /** OBBLIGATORIO per KG link — public LinkedIn profile URL. */
+  /** Public LinkedIn profile URL. */
   linkedin?: string;
   twitter?: string;
   mastodon?: string;
-  /** Wikidata QID (e.g. `Q12345`) — boost E-E-A-T when present. */
+  /** Wikidata QID (e.g. `Q12345`). */
   wikidataId?: string;
 }
 
-export interface Author {
-  /** Stable kebab-case slug used in URLs (`/autori/{slug}/`). */
-  slug: string;
-  /** Full display name. */
-  name: string;
-  /** Short role descriptor shown under the name (e.g. "Esperto fiscalità frontaliera"). */
-  role: string;
-  /** Italian biography, ~150 words. Plain text, no HTML. */
-  bio: string;
-  /** Public path under /public, e.g. `/images/authors/marco-ferrari.jpg`. */
-  photoPath: string;
-  /** Optional contact email. */
+/** A newsroom signature with no personal identity or attribution fields. */
+export interface EditorialProfile extends AuthorBase {
+  kind: 'editorial-profile';
+  /** Organization LinkedIn URL; currently used by the Redazione team only. */
+  linkedin?: string;
+}
+
+/** A real author whose public identity may be represented as a schema.org Person. */
+export interface RealAuthor extends AuthorBase {
+  kind: 'real-author';
+  /** Optional public contact email. */
   email?: string;
-  /** Firebase Auth uid for guest journalists — trusted for byline attribution over topic guessing (see pickAuthorForTopic). */
-  uid?: string;
-  /** Optional downloadable CV, e.g. `/documents/authors/marco-ferrari-cv.pdf`. */
+  /** Firebase Auth uid used for trusted byline attribution. */
+  uid: string;
+  /** Optional downloadable CV. */
   cvPath?: string;
-  /** Social profiles for `sameAs` JSON-LD signals. */
+  /** Social fields, including the author's public LinkedIn URL. */
   social: AuthorSocial;
-  /** Topical keywords used by {@link pickAuthorForTopic}. */
-  expertise: string[];
-  /** ISO 8601 join date — drives `joinedAt` in JSON-LD where useful. */
+  /** ISO 8601 join date. */
   joinedAt: string;
 }
 
-/**
- * Frozen registry of authors. Order matters: {@link pickAuthorForTopic}
- * walks the array in declared order before falling back to round-robin,
- * so the most-specialised author for a topic should be listed first.
- */
+export type Author = EditorialProfile | RealAuthor;
+
+/** Frozen registry of editorial profiles and real authors. */
 export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
   {
+    kind: 'editorial-profile',
     slug: 'marco-ferrari',
     name: 'Marco Ferrari',
-    role: 'Esperto fiscalità frontaliera',
-    bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica dell’accordo Italia-Svizzera sui frontalieri. Segue le novità dell'Agenzia delle Entrate, dell'AFC ticinese e dei comunicati congiunti del Ministero dell'Economia. Su Frontaliere Ticino cura le guide operative su acconti, scadenze, doppia imposizione e calcolo dell'imposta netta in CHF ed EUR. Pubblica analisi sulle implicazioni della soglia di 20 km dal confine, sulla figura del «nuovo frontaliere» e sui regimi transitori per chi ha iniziato a lavorare in Svizzera prima e dopo il 17 luglio 2023. Risponde a quesiti dei lettori sui casi limite della residenza fiscale italiana.",
-    photoPath: '/images/authors/marco-ferrari.jpg',
-    email: 'marco.ferrari@frontaliereticino.ch',
-    social: {
-      linkedin: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
-    },
+    role: 'Profilo editoriale — fiscalità frontaliera',
+    bio: 'Questo profilo editoriale raccoglie guide sulla fiscalità transfrontaliera tra Italia e Svizzera, con attenzione ai lavoratori frontalieri del Canton Ticino. Copre dichiarazioni dei redditi 730 e Redditi PF, imposta alla fonte cantonale e federale, ristorni IRPEF e applicazione pratica dell’accordo Italia-Svizzera. La redazione segue le comunicazioni dell’Agenzia delle Entrate, dell’AFC ticinese e del Ministero dell’Economia e pubblica analisi su acconti, scadenze, doppia imposizione, calcolo dell’imposta netta in CHF ed EUR, soglia dei 20 km, nuovi frontalieri e regimi transitori.',
+    photoPath: '/images/authors/marco-ferrari.webp',
     expertise: [
       'fiscalità frontaliera',
       '730',
@@ -70,18 +74,14 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
       'imposta alla fonte',
       'accordo Italia-Svizzera',
     ],
-    joinedAt: '2024-09-01',
   },
   {
+    kind: 'editorial-profile',
     slug: 'laura-bianchi',
     name: 'Laura Bianchi',
-    role: 'Specialista previdenza svizzera',
-    bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri. Su Frontaliere Ticino redige guide su rendite di vecchiaia, prestazioni di libero passaggio, riscatto del 2° pilastro alla cessazione del rapporto di lavoro, terzo pilastro 3a/3b e adempimenti presso le casse di compensazione. Segue da vicino la riforma AVS 21, l'andamento dei tassi di conversione LPP minimi, i premi e le coperture LAMal secondo la residenza e le decisioni del Consiglio federale in materia di assicurazioni sociali. Aiuta i lettori a leggere correttamente il certificato LPP annuale e a confrontare le casse pensione con simulatori dedicati al confronto frontaliere/residente B.",
-    photoPath: '/images/authors/laura-bianchi.jpg',
-    email: 'laura.bianchi@frontaliereticino.ch',
-    social: {
-      linkedin: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
-    },
+    role: 'Profilo editoriale — previdenza svizzera',
+    bio: 'Questo profilo editoriale raccoglie contenuti sulla previdenza sociale svizzera per i lavoratori frontalieri italiani in Canton Ticino. I temi includono AVS, LPP, assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, compreso il diritto di scelta verso la cassa malati italiana. Le guide trattano rendite di vecchiaia, libero passaggio, riscatto del secondo pilastro, terzo pilastro 3a/3b, casse di compensazione, riforma AVS 21, tassi di conversione LPP, premi e coperture secondo la residenza.',
+    photoPath: '/images/authors/laura-bianchi.webp',
     expertise: [
       'AVS',
       'LPP',
@@ -89,27 +89,24 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
       'pensioni',
       'assicurazioni sociali svizzere',
     ],
-    joinedAt: '2024-10-15',
   },
   {
+    kind: 'editorial-profile',
     slug: 'redazione',
     name: 'Redazione Frontaliere Ticino',
-    role: 'Team editoriale',
-    bio: "La Redazione di Frontaliere Ticino è il team editoriale dedicato alla copertura quotidiana dei temi rilevanti per i lavoratori frontalieri italiani in Canton Ticino. Cura aggiornamenti su mercato del lavoro ticinese, livelli salariali per settore, contratti collettivi nazionali (CCNL) svizzeri, mobilità transfrontaliera e politiche doganali ai principali valichi (Chiasso-Brogeda, Stabio-Gaggiolo, Ponte Tresa, Bizzarone). Verifica i comunicati ufficiali di SECO, USTAT, Cantone Ticino, Comuni di confine e organi italiani come INPS, Agenzia delle Entrate e ATS Insubria. Confronta i dati pubblicati da fonti giornalistiche regionali (RSI, Corriere del Ticino, La Regione, Tio.ch, Como Zero, VareseNews) con le statistiche ufficiali per garantire accuratezza. Coordina inoltre la pubblicazione delle altre firme editoriali quando la materia trattata esce dal perimetro di specializzazione fiscale o previdenziale.",
-    photoPath: '/images/authors/redazione.jpg',
-    email: 'redazione@frontaliereticino.ch',
-    social: {
-      linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
-    },
+    role: 'Profilo editoriale — attualità ticinese',
+    bio: 'Questo profilo editoriale copre i temi quotidiani dei lavoratori frontalieri italiani in Canton Ticino: mercato del lavoro, salari per settore, contratti collettivi svizzeri, mobilità transfrontaliera e dogana ai principali valichi. La redazione verifica i comunicati di SECO, USTAT, Cantone Ticino, Comuni di confine, INPS e Agenzia delle Entrate, confrontando le fonti giornalistiche regionali con le statistiche ufficiali e coordinando i contenuti che non rientrano negli altri ambiti editoriali.',
+    photoPath: '/images/authors/redazione.webp',
+    linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
     expertise: [
       'lavoro frontaliere',
       'salari',
       'trasporti transfrontalieri',
       'dogana',
     ],
-    joinedAt: '2024-08-01',
   },
   {
+    kind: 'real-author',
     slug: 'samuele-valente',
     name: 'Samuele Valente',
     uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
@@ -131,50 +128,48 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
   },
 ]);
 
-/** Returns the author with the given slug, or `undefined` if not found. */
-export function getAuthorBySlug(slug: string): Author | undefined {
-  return AUTHORS.find((a) => a.slug === slug);
+export function isEditorialProfile(author: Author): author is EditorialProfile {
+  return author.kind === 'editorial-profile';
 }
 
-/** Returns a fresh, readonly snapshot of all authors. */
+export function isRealAuthor(author: Author): author is RealAuthor {
+  return author.kind === 'real-author';
+}
+
+/** Returns the registered signature with the given slug, or `undefined`. */
+export function getAuthorBySlug(slug: string): Author | undefined {
+  return AUTHORS.find((author) => author.slug === slug);
+}
+
+/** Returns the real author associated with a Firebase Auth uid. */
+export function getAuthorByUid(uid: string): RealAuthor | undefined {
+  return AUTHORS.find((author): author is RealAuthor => isRealAuthor(author) && author.uid === uid);
+}
+
 export function getAllAuthors(): ReadonlyArray<Author> {
   return AUTHORS;
 }
 
 let _roundRobinIdx = 0;
 
-/**
- * Picks an author best suited for the given topical keywords.
- *
- * Strategy:
- *   1. Score each author by case-insensitive substring overlap between
- *      `keywords` and `expertise`. Highest score wins.
- *   2. On a tie (or zero matches), advance a round-robin pointer over the
- *      full registry. This guarantees byline diversity over a series of
- *      generic articles while still preferring topical specialists when
- *      a clear match exists.
- *
- * Pure when scores diverge; module-stateful (round-robin) only on ties.
- */
+/** Picks the registered author best suited to the given topical keywords. */
 export function pickAuthorForTopic(keywords: string[]): Author {
-  const normalized = keywords.map((k) => k.toLowerCase());
+  const normalized = keywords.map((keyword) => keyword.toLowerCase());
   const scored = AUTHORS.map((author) => {
     const score = author.expertise.reduce((acc, expertise) => {
-      const e = expertise.toLowerCase();
-      const hit = normalized.some((kw) => kw.includes(e) || e.includes(kw));
+      const normalizedExpertise = expertise.toLowerCase();
+      const hit = normalized.some((keyword) => keyword.includes(normalizedExpertise) || normalizedExpertise.includes(keyword));
       return acc + (hit ? 1 : 0);
     }, 0);
     return { author, score };
   });
-  const maxScore = scored.reduce((m, s) => (s.score > m ? s.score : m), 0);
+  const maxScore = scored.reduce((max, item) => (item.score > max ? item.score : max), 0);
   if (maxScore > 0) {
-    const winners = scored.filter((s) => s.score === maxScore);
+    const winners = scored.filter((item) => item.score === maxScore);
     if (winners.length === 1) return winners[0].author;
-    // Tied winners — round-robin within the tied group.
-    const idx = _roundRobinIdx++ % winners.length;
-    return winners[idx].author;
+    const index = _roundRobinIdx++ % winners.length;
+    return winners[index].author;
   }
-  // No match — global round-robin.
-  const idx = _roundRobinIdx++ % AUTHORS.length;
-  return AUTHORS[idx];
+  const index = _roundRobinIdx++ % AUTHORS.length;
+  return AUTHORS[index];
 }

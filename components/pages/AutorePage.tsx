@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArrowLeft, Linkedin, Twitter, Mail, Award, Globe, FileText } from 'lucide-react';
+import { ArrowLeft, Award, Globe } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
-import { getAuthorBySlug, type Author } from '@/data/authors';
+import { getAuthorBySlug, isEditorialProfile, isRealAuthor, type Author } from '@/data/authors';
 import { getMergedAuthor } from '@/services/authorProfileService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useTranslation } from '@/services/i18n';
-import { localizeAuthor } from '@/data/authorLocales';
+import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '@/data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '@/services/authorPageCopy';
 import { buildAuthorSeo } from '@/services/seo/seo-authors';
 
@@ -13,15 +13,15 @@ import { buildAuthorSeo } from '@/services/seo/seo-authors';
  * AutorePage — `/autori/{slug}/` author profile page.
  *
  * Required for E-E-A-T compliance (Google News A1 — see
- * docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4). Every published article points
- * to an author entity here so Google can attribute expertise and resolve
- * the byline against the public Knowledge Graph (LinkedIn / Wikidata).
+ * docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4). Editorial signatures render as
+ * Organization entities; real guest authors render as Person entities with
+ * their public attribution fields.
  *
  * Renders:
  *   - Hero with author photo (400×400, explicit width/height for CLS).
  *   - Name (`<h1>`), role, biography paragraph.
- *   - Expertise tags + social links (LinkedIn always, Twitter / email when present).
- *   - Inline `Person` JSON-LD via {@link buildAuthorSeo}.
+ *   - Expertise tags and, for editorial profiles, the localized disclosure.
+ *   - Inline `Person` or `Organization` JSON-LD via {@link buildAuthorSeo}.
  *
  * Layout mirrors `ChiSiamo.tsx` for visual consistency.
  */
@@ -71,15 +71,17 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
     );
   }
 
-  // Pass the CSR-merged author (admin persona patch applied on top of the
+  // Pass the CSR-merged author (admin public-profile patch applied on top of the
   // static registry), not the slug — otherwise buildAuthorSeo re-derives
   // from the static registry and the JSON-LD goes stale vs. the visible
-  // bio/photo/social above (review nit, PR #3356).
+  // visible description and illustration above.
   const { jsonLd } = buildAuthorSeo(author, locale);
+  const realAuthor = isRealAuthor(author) ? author : undefined;
+  const editorialProfile = isEditorialProfile(author);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
-      {/* Inline Person JSON-LD — key forces remount (not just innerHTML patch) when author changes, guarding SSR-hydrated stale state after CSR merge. */}
+      {/* Inline author JSON-LD — key forces remount when a CSR patch changes the profile. */}
       <script
         key={`${author.slug}-jsonld`}
         type="application/ld+json"
@@ -114,14 +116,14 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
             <p className="text-sm sm:text-base text-accent font-semibold mt-1">
               {author.role}
             </p>
-            <SocialLinks author={author} copy={copy} />
+            {editorialProfile && <p className="text-xs text-muted mt-2">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>}
           </div>
         </div>
       </div>
 
       <div className="space-y-6">
         {/* Bio */}
-        <Section icon={Globe} title={copy.biography}>
+        <Section icon={Globe} title={editorialProfile ? copy.editorialDescription : copy.biography}>
           <p lang={locale !== 'it' && author.bio === sourceAuthor?.bio ? 'it' : locale} className="whitespace-pre-line">{author.bio}</p>
         </Section>
 
@@ -139,31 +141,28 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
           </ul>
         </Section>
 
-        {/* CV — embedded PDF viewer (view in-page, no forced download) */}
-        {author.cvPath ? (
-          <Section icon={FileText} title={copy.cv}>
-            <object
-              data={author.cvPath}
-              type="application/pdf"
-              aria-label={`${copy.cv}: ${author.name} (PDF)`}
-              className="w-full h-[75vh] min-h-[420px] rounded-xl border border-edge"
-            >
-              {/* Fallback for browsers without an inline PDF viewer (most mobile). */}
-              <p>
-                {copy.pdfUnavailable}{' '}
-                <a
-                  href={author.cvPath}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:underline font-medium"
-                >
-                  {copy.openCv}: {author.name} (PDF)
+        {realAuthor && (
+          <Section icon={Globe} title={copy.publicProfile}>
+            <div className="flex flex-wrap gap-3">
+              {realAuthor.social.linkedin && (
+                <a href={realAuthor.social.linkedin} target="_blank" rel="noopener noreferrer me" className="text-accent hover:underline">
+                  {copy.linkedin}
                 </a>
-                .
-              </p>
-            </object>
+              )}
+              {realAuthor.email && <a href={`mailto:${realAuthor.email}`} className="text-accent hover:underline">{copy.email}</a>}
+              {realAuthor.cvPath && (
+                <a href={realAuthor.cvPath} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                  {copy.openCv}
+                </a>
+              )}
+            </div>
+            {realAuthor.cvPath && (
+              <object data={realAuthor.cvPath} type="application/pdf" aria-label={copy.cv} className="mt-4 h-96 w-full rounded-lg border border-edge">
+                <p>{copy.pdfUnavailable} <a href={realAuthor.cvPath} className="text-accent hover:underline">{copy.openCv}</a>.</p>
+              </object>
+            )}
           </Section>
-        ) : null}
+        )}
 
         {/* Editorial trust footer */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
@@ -180,14 +179,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
             </button>
             : {copy.policyEnd}
           </p>
-          {author.email ? (
-            <p className="mt-3 text-xs text-muted">
-              {copy.contact}:{' '}
-              <a href={`mailto:${author.email}`} className="text-accent hover:underline">
-                {author.email}
-              </a>
-            </p>
-          ) : null}
+          {editorialProfile && <p className="mt-3 text-xs text-muted">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>}
         </div>
       </div>
     </div>
@@ -213,72 +205,6 @@ function Section({
       </div>
       <div className="text-sm text-subtle leading-relaxed">{children}</div>
     </div>
-  );
-}
-
-function SocialLinks({ author, copy }: { author: Author; copy: typeof AUTHOR_PAGE_COPY.it }) {
-  const items: Array<{
-    key: string;
-    href: string;
-    label: string;
-    Icon: React.FC<{ size?: number; className?: string }>;
-  }> = [];
-  if (author.social.linkedin) {
-    items.push({
-      key: 'linkedin',
-      href: author.social.linkedin,
-      label: `${copy.publicProfile} LinkedIn: ${author.name}`,
-      Icon: Linkedin,
-    });
-  }
-  if (author.social.twitter) {
-    items.push({
-      key: 'twitter',
-      href: author.social.twitter,
-      label: `${copy.publicProfile} Twitter: ${author.name}`,
-      Icon: Twitter,
-    });
-  }
-  if (author.email) {
-    items.push({
-      key: 'email',
-      href: `mailto:${author.email}`,
-      label: `Email: ${author.name}`,
-      Icon: Mail,
-    });
-  }
-  if (author.cvPath) {
-    items.push({
-      key: 'cv',
-      href: author.cvPath,
-      label: `${copy.openCv}: ${author.name} (PDF)`,
-      Icon: FileText,
-    });
-  }
-  if (items.length === 0) return null;
-  return (
-    <ul className="flex items-center gap-3 mt-3">
-      {items.map(({ key, href, label, Icon }) => (
-        <li key={key}>
-          <a
-            href={href}
-            target={href.startsWith('mailto:') ? undefined : '_blank'}
-            rel={
-              href.startsWith('mailto:')
-                ? undefined
-                : href.endsWith('.pdf')
-                  ? 'noopener noreferrer'
-                  : 'noopener me'
-            }
-            aria-label={label}
-            title={label}
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-info text-on-accent hover:opacity-90 transition-opacity"
-          >
-            <Icon size={16} />
-          </a>
-        </li>
-      ))}
-    </ul>
   );
 }
 
