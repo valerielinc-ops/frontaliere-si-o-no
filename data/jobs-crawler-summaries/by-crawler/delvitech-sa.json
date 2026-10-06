@@ -1,20 +1,22 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-06T09:25:30.652Z",
-  "total": 10,
+  "generatedAt": "2026-10-06T21:26:08.187Z",
+  "total": 7,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 3,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 3,
   "unchangedCount": 7,
-  "durationMs": 24658,
-  "avgDurationMs": 24658,
+  "durationMs": 48104,
+  "avgDurationMs": 48104,
   "durationHistory": [
-    24658
+    48104
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
       "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
@@ -41,18 +43,17 @@
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-d624f7e54b9b",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-06T09:25:18.503Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -82,18 +83,17 @@
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-bfc600631968",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-06T09:25:18.503Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -130,17 +130,15 @@
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-06T09:25:18.503Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Application Engineer",
@@ -431,5 +429,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }
