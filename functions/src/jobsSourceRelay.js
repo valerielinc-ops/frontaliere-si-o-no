@@ -204,8 +204,9 @@ export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetc
 }
 
 /**
- * The two host/path rules are intentionally kept next to the relay handler;
- * the same parser is applied again after every redirect.
+ * The host/path rules are intentionally kept next to the relay handler; the
+ * same parser is applied again after every redirect. Keep each source narrow:
+ * the relay is a clean-egress escape hatch, not a general proxy.
  */
 export function parseAllowedRelayTarget(rawUrl) {
   if (typeof rawUrl !== 'string' || rawUrl.length === 0 || rawUrl.length > 2_048) return null;
@@ -225,7 +226,10 @@ export function parseAllowedRelayTarget(rawUrl) {
   const host = target.hostname.toLowerCase();
   const isChurJob = host === 'jobs.chur.ch' && /^\/[^/]+-de-j\d+\.html$/u.test(target.pathname);
   const isHasJob = host === 'e-lavoro.ch' && /^\/node\/\d+$/u.test(target.pathname);
-  if (!isChurJob && !isHasJob) return null;
+  const isAltenListing = host === 'www.alten.ch' && target.pathname === '/career/jobs/';
+  const isAltenJob = host === 'www.alten.ch'
+    && /^\/jobs\/\d+-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u.test(target.pathname);
+  if (!isChurJob && !isHasJob && !isAltenListing && !isAltenJob) return null;
   return { url: target, host, path: target.pathname };
 }
 
