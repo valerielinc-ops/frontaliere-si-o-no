@@ -1254,6 +1254,9 @@ jobs:
             /packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
+            # The publication-policy tests exercise one real imageCredits record
+            # without materializing the rest of the article corpus.
+            /packages/articles/content/image-credits/**/*.json
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts

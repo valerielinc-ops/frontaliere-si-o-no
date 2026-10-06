@@ -1617,6 +1617,7 @@ describe('source-detail fidelity checks', () => {
       'scripts/lib/stable-stringify.mjs',
       'scripts/lib/target-swiss-locations.mjs',
       'data/canton-municipalities.json',
+      'data/swiss-locality-postal-codes.json',
     ]);
     // The BFS municipality snapshot and its reader are inputs of BOTH closures:
     // the extractor resolves the source geography with them and, since the
@@ -1628,6 +1629,7 @@ describe('source-detail fidelity checks', () => {
     expect(shared).toEqual([
       'scripts/lib/target-swiss-locations.mjs',
       'data/canton-municipalities.json',
+      'data/swiss-locality-postal-codes.json',
     ]);
     for (const input of SOURCE_DETAIL_EXTRACTOR_VERSION_FILES) {
       const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });

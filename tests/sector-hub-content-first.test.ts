@@ -35,6 +35,14 @@ describe('per-canton non-TI sector hub is content-first (propagated from PR #111
     return source.slice(start, end);
   })();
 
+  const listItemHelper = (() => {
+    const start = source.indexOf('const mapCantonJobToListItem =');
+    const end = source.indexOf('const dateStamp =', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    return source.slice(start, end);
+  })();
+
   it('renders the lively colored stat grid', () => {
     expect(block).toContain('renderStatGrid(statTiles)');
     expect(block).toContain("pickStatTileTone('openings'");
@@ -71,7 +79,13 @@ describe('per-canton non-TI sector hub is content-first (propagated from PR #111
     expect(block).toContain('const aggregateSectorBuckets');
     expect(block).toContain('[...SHARED_ALL_CANTON_CODES, AGGREGATE_KEY]');
     expect(block).toContain('isAggregate ? aggregateSectorBuckets.get(sector)');
-    expect(block).toContain('sharedResolveCantonSection(locale, jobCanton)');
-    expect(block).toContain('sectionByLocale[locale]');
+    expect(block).toContain('const sectionSlug = sharedResolveCantonSection(locale, canton);');
+    expect(block).toContain('mapCantonJobToListItem(job, i, locale)');
+    expect(listItemHelper).toContain(
+      'const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });',
+    );
+    expect(listItemHelper).toContain(
+      'buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCanton)',
+    );
   });
 });
