@@ -499,18 +499,28 @@ async function clickFirst(page, snapshot, patterns) {
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
-  const current = snapshot || await extractFields(page);
+  let current = snapshot || await extractFields(page);
+  const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
+    ? await ctx.accounts.verificationMessageIds()
+    : [];
   const requestedAt = Date.now();
+  let resendRequested = false;
   try {
     if (await clickFirst(page, current, [RESEND_VERIFICATION_RE])) {
       await settle(page);
+      current = await extractFields(page);
       sinceMs = requestedAt;
+      resendRequested = true;
     }
   } catch {
     // A portal may remove the resend control while processing the request;
     // the existing message is still a valid fallback for this run.
   }
-  const verification = await ctx.accounts.waitForVerification({ host, sinceMs });
+  const verification = await ctx.accounts.waitForVerification({
+    host,
+    sinceMs,
+    ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
+  });
   if (!verification) return { handoff: 'account_verification_timeout' };
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });

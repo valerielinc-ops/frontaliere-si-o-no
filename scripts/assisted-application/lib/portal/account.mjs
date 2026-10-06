@@ -34,7 +34,7 @@ export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
 export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
 const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
-const PASSWORD_CODE_FIELD_RE = /one[- ]time|otp|einmal|usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)/i;
+const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
@@ -142,6 +142,7 @@ export function accountsRefFor(db, orderId) {
  */
 export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = () => Date.now(), sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) }) {
   const ref = accountsRefFor(db, orderId);
+  const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
   return {
     /** A password typed but never stored (a dry run's) is masked in the log all the same. */
     mask,
@@ -174,16 +175,22 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       if (!current) return;
       await ref.set({ [hostKey(host)]: { ...current, ...patch } }, { merge: true });
     },
+    /** Message ids already present before a portal asks us to resend a code. */
+    async verificationMessageIds() {
+      const snapshot = await inbox.get();
+      return snapshot.docs.filter((doc) => doc.data()?.category === 'verification').map((doc) => doc.id);
+    },
     /**
      * The first verification message classified by the inbound handler after
      * `sinceMs` whose link is on the portal's site (or that carries a code).
      */
-    async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS }) {
-      const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
+    async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
+      const excluded = new Set(excludeMessageIds);
       const deadline = nowMs() + timeoutMs;
       while (nowMs() < deadline) {
         const snapshot = await inbox.where('receivedAt', '>=', sinceMs).get();
         for (const doc of snapshot.docs) {
+          if (excluded.has(doc.id)) continue;
           const message = doc.data();
           if (message.category !== 'verification') continue;
           const url = message.verificationUrl && sameSite(message.verificationUrl, host) ? message.verificationUrl : '';
