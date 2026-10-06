@@ -49,6 +49,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: read
   # `actions: write` is gone with the generate-article dispatch (#5289): this
   # workflow no longer starts any other workflow, so the token that could is

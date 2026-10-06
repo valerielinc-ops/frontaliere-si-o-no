@@ -37,6 +37,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   # The weekly snapshot reaches main through the stable PR branch
   # chore/cwv-monitor-history (scripts/lib/open-data-refresh-pr.sh): the main
   # ruleset requires the vitest check, which only exists on a PR head. The

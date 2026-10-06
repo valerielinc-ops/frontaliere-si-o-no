@@ -67,7 +67,7 @@
  * per costruzione: crawler-transient (vedi sopra) e le vetate da `queueVeto()`,
  * che nel primo passaggio ricevono soltanto `agent:triaged`, anche senza PAT.
  *
- * Uso:  node scripts/ci/triage-sweep.mjs [--dry-run] [--cap N]
+ * Uso:  node scripts/ci/triage-sweep.mjs [--dry-run] [--cap N] [--issue-number N]
  * Env:  GH_TOKEN (GITHUB_TOKEN: list + agent:triaged + commenti),
  *       GITHUB_PAT (routing), GH_REPO/GITHUB_REPOSITORY.
  */
@@ -243,13 +243,35 @@ export function isTriagedButNotRouted(iss) {
 
 function main() {
   if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }
-  console.log(`triage-sweep${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} cap=${ROUTE_FIX_CAP}`);
+  const targetArgAt = argv.indexOf('--issue-number');
+  const targetRaw = targetArgAt >= 0 ? argv[targetArgAt + 1] : '';
+  let targetIssueNumber = null;
+  if (targetArgAt >= 0) {
+    if (!/^[1-9]\d*$/u.test(String(targetRaw || ''))) {
+      console.error(`--issue-number non valido: ${String(targetRaw || '(vuoto)')}`);
+      process.exit(1);
+    }
+    targetIssueNumber = Number(targetRaw);
+    if (!Number.isSafeInteger(targetIssueNumber)) {
+      console.error(`--issue-number fuori range: ${String(targetRaw)}`);
+      process.exit(1);
+    }
+  }
+  console.log(`triage-sweep${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} cap=${ROUTE_FIX_CAP}`
+    + (targetIssueNumber ? ` target=#${targetIssueNumber}` : ''));
 
   let issues = [];
   try {
-    issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--limit', '300', '--json', 'number,title,body,labels']);
-  } catch (e) { console.error(`gh issue list fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
+    if (targetIssueNumber) {
+      const target = gh(['issue', 'view', String(targetIssueNumber), '--repo', REPO,
+        '--json', 'number,title,body,labels,state']);
+      if (String(target?.state || '').toUpperCase() === 'OPEN') issues = [target];
+      else console.log(`#${targetIssueNumber} non è OPEN → nessun triage mirato.`);
+    } else {
+      issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
+        '--limit', '300', '--json', 'number,title,body,labels']);
+    }
+  } catch (e) { console.error(`gh issue list/view fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
 
   // Orfane = open senza agent:triaged. Più vecchie prima (numero crescente).
   const allOrphans = issues
@@ -424,9 +446,15 @@ function main() {
   // la vecchia policy prima che il routing universale fosse esteso (PR #3554).
   let allTriaged = [];
   try {
-    allTriaged = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,body,labels']);
-  } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
+    if (targetIssueNumber) {
+      const target = gh(['issue', 'view', String(targetIssueNumber), '--repo', REPO,
+        '--json', 'number,title,body,labels,state']);
+      allTriaged = String(target?.state || '').toUpperCase() === 'OPEN' ? [target] : [];
+    } else {
+      allTriaged = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
+        '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,body,labels']);
+    }
+  } catch (e) { console.error(`gh issue list/view (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
   // I vetati non entrano in `unrouted`, ma si contano e si loggano: un ramo
   // muto sarebbe indistinguibile da un buco del router.

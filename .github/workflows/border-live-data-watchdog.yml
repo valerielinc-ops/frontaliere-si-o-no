@@ -19,6 +19,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
+  actions: write
   # contents: write — the run persists data/webcam-status.json back to main so
   # the NEXT run can tell an offline→online transition from a feed that was
   # never down (issue #6644). Without the commit the state file is recreated

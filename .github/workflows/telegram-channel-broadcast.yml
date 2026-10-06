@@ -38,6 +38,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write  # commit data/telegram-posted-jobs.json (jobs mode)
   pull-requests: write
   issues: write

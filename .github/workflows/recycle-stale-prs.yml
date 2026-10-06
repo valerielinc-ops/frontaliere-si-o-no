@@ -31,6 +31,7 @@ on:
         default: '5'
 
 permissions:
+  actions: write
   contents: write   # serve per il DELETE esplicito del ref dopo il guard SHA
   pull-requests: write
   issues: write

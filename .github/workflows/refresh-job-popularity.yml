@@ -25,6 +25,7 @@ on:
     - cron: '0 5 * * *'  # 06:00 CET / 07:00 CEST — before the morning deploys
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   issues: write     # for github-issue-creator on failure

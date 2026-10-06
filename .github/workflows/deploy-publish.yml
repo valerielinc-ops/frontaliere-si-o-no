@@ -22,11 +22,12 @@ on:
       - main
 
 permissions:
+  actions: write
   contents: read
   pages: write
   id-token: write
   issues: write     # for github-issue-creator on deploy failure
-  actions: read     # for cross-run download-artifact
+  # actions: write also covers cross-run download-artifact.
 
 # There is deliberately NO workflow-level lock here. The Pages deploy job owns
 # the shared `pages-deploy` lock below; the long dist validator and the
@@ -223,8 +224,8 @@ jobs:
       group: nonit-shard-tail-${{ matrix.locale }}
       cancel-in-progress: false
     permissions:
+      actions: write
       contents: read
-      actions: read
       issues: write
     env:
       BUILD_LOCALE: ${{ matrix.locale }}
@@ -1413,11 +1414,11 @@ jobs:
             format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     permissions:
+      actions: write       # also covers cross-run download-artifact
       pages: write
       id-token: write
       contents: read
       issues: write
-      actions: read       # cross-run download-artifact
       deployments: read   # the extended server-side poll reads /deployments + /statuses
     # ⚠️ This `environment:` is the single point where a run can WEDGE, and it
     # cannot be removed: actions/deploy-pages binds the Pages deployment to this
@@ -1790,7 +1791,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: read    # checkout
-      actions: read     # cross-run download-artifact
+      actions: write    # dispatch triage; also covers cross-run download-artifact
       issues: write     # github-issue-creator on validation failure (must be declared at the caller too or the reusable startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
@@ -1810,7 +1811,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
-      actions: read     # cross-run download-artifact
+      actions: write    # dispatch triage; also covers cross-run download-artifact
       issues: write     # github-issue-creator on validation failure
 
   # ───────────────────────────────────────────────────────────────────────
@@ -1885,7 +1886,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
-      actions: read     # cross-run download small artifacts (sitemaps, winners)
+      actions: write    # dispatch triage; also covers cross-run download small artifacts (sitemaps, winners)
       issues: write     # github-issue-creator on publish failure
       deployments: read # post-deploy-publish validates deployment provenance
 
