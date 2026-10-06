@@ -437,7 +437,10 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
       const text = await readResponseText(res, (cleanup) => {
         bodyCleanup = cleanup;
       }, deadlineSignal);
-      if (text === RESPONSE_TIMEOUT) return timeoutResult();
+      // Cancellation can resolve a pending reader.read() before the deadline
+      // sentinel wins. The timer still owns the verdict, so never parse a body
+      // after the request deadline has fired.
+      if (timedOut || text === RESPONSE_TIMEOUT) return timeoutResult();
       const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
 
       // Strong "job closed" phrases — definitive, bypasses fresh protection

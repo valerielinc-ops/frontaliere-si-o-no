@@ -125,4 +125,49 @@ describe('validateJobUrl response deadline', () => {
 
     expect(liveProbes).toBe(0);
   });
+
+  it('keeps the timeout verdict when cancellation releases a pending reader', async () => {
+    let releasePendingRead;
+    const closedBanner = new TextEncoder().encode(
+      'This job is no longer available',
+    );
+    const reader = {
+      reads: 0,
+      read: vi.fn(() => {
+        reader.reads += 1;
+        if (reader.reads === 1) {
+          return Promise.resolve({ done: false, value: closedBanner });
+        }
+        return new Promise((resolve) => {
+          releasePendingRead = resolve;
+        });
+      }),
+      cancel: vi.fn(() => {
+        releasePendingRead?.({ done: true });
+        return Promise.resolve();
+      }),
+      releaseLock: vi.fn(),
+    };
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        status: 200,
+        url: 'https://jobs.coopjobs.ch/job/cancelled-reader',
+        body: { getReader: () => reader },
+      }),
+    );
+
+    await expect(
+      validateJobUrl('https://jobs.coopjobs.ch/job/cancelled-reader', {
+        id: 'cancelled-reader',
+        timeoutMs: 20,
+      }),
+    ).resolves.toMatchObject({
+      id: 'cancelled-reader',
+      valid: true,
+      status: 0,
+      reason: 'network-timeout',
+    });
+    expect(reader.cancel).toHaveBeenCalledTimes(1);
+  });
 });
