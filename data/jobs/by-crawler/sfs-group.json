@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-06T09:35:17.112Z",
+  "assembledAt": "2026-10-06T21:44:23.920Z",
   "jobs": [
     {
       "id": "sfs-group-0d3da9babeb0",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:10.724Z",
+      "crawledAt": "2026-10-06T21:44:16.169Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -116,7 +116,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:10.578Z",
+      "crawledAt": "2026-10-06T21:44:16.001Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -155,6 +155,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -200,7 +201,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:10.433Z",
+      "crawledAt": "2026-10-06T21:44:15.833Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -282,7 +283,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:10.287Z",
+      "crawledAt": "2026-10-06T21:44:15.665Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -362,7 +363,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:10.140Z",
+      "crawledAt": "2026-10-06T21:44:15.497Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -385,6 +386,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -430,7 +432,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.988Z",
+      "crawledAt": "2026-10-06T21:44:15.329Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -498,6 +500,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -543,7 +546,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.840Z",
+      "crawledAt": "2026-10-06T21:44:15.162Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -625,7 +628,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-walzen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.693Z",
+      "crawledAt": "2026-10-06T21:44:14.996Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -694,7 +697,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-mit-perspektive-teamleitung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.547Z",
+      "crawledAt": "2026-10-06T21:44:14.829Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -763,7 +766,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.400Z",
+      "crawledAt": "2026-10-06T21:44:14.655Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -832,7 +835,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.251Z",
+      "crawledAt": "2026-10-06T21:44:14.480Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -887,26 +890,26 @@
       "id": "sfs-group-ef7c66ad83ea",
       "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
-        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg",
         "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg"
+        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
       "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
       "titleByLocale": {
-        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
-        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
         "it": "Marketing Manager–Employer Branding & Risorse Umane (m/f/d) 80–",
+        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
         "fr": "Marketing Manager–Employer Branding & Ressources Humaines (m/f/d) 80–"
       },
       "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
       "descriptionByLocale": {
-        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
         "it": "Con noi avete l'opportunità di plasmare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativamente e con un sacco di ambito creativo. Le intuizioni diventano idee forti, strategie campagne rilevanti e comunicazione che si blocca da prospettive diverse. Se non si vuole solo implementare le cose, ma pensare di nuovo e davvero fare la differenza, dovremmo sicuramente arrivare a conoscersi. I vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing del datore di lavoro per tutti i marchi e i gruppi target rilevanti\n• Consulenza e supporto comunicativo delle aree specialistiche HR e degli stakeholder rilevanti nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e attuazione di campagne di marcatura datore di lavoro globali e locali, nonché la creazione e il controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle misure nel business quotidiano, nonché gestione della cooperazione con team di creazione interna, centri di competenza e servizi e partner esterni\n• Garantire una presenza costante in tutti i paesi e canali e sviluppare soluzioni valide nell'allestimento multimarca internazionale\n• Definizione e valutazione dei KPI rilevanti nonché creazione, controllo e approvazione delle presentazioni Il tuo profilo:\n• Studi completi in marketing, comunicazione, produzione multimediale, digital marketing o qualificazione comparabile. Sfondo in alternativa HR con ulteriore sviluppo verso il marketing, il marchio datore di lavoro o il branding\n• Esperienza in una funzione strategica-concettuale, nella gestione del progetto e nell'esperienza approfondita nel branding del datore di lavoro, nel marketing HR o in un ambiente paragonabile\n• Tedesco a livello di lingua madre e fluente competenze in inglese\n• Capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale HR, brand o marketing\n• Gestione sicura dei diversi interessi e requisiti, nonché la capacità di sviluppare soluzioni realizzabili in una configurazione multi-brand internazionale\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché un metodo di lavoro strutturato e una buona gestione del tempo Offriamo:\n• Varie aree di responsabilità e spazio per la responsabilità personale e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Ore lavorative flessibili e ufficio domestico\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo, numerose offerte sportive & eventi dei dipendenti, ristorante del personale con prezzi interessanti\n• Concetto di mobilità flessibile per il vostro commuto",
         "en": "With us you have the opportunity to actively shape an international employer brand, strategically, creatively and with a lot of creative scope. Insights become strong ideas, strategies relevant campaigns and communication that gets stuck from different perspectives. If you do not just want to implement things, but think newly and really make a difference, we should definitely get to know each other. Your Tasks:\n• Global development and implementation of the employer branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support of HR specialist areas and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementing global and local employer branding campaigns as well as creating and controlling content for digital and internal channels\n• Planning, prioritization and coordination of measures in day-to-day business as well as managing cooperation with internal creation teams, competence and service centers and external partners\n• Ensuring a consistent presence across all countries and channels and developing viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs as well as creation, control and approval of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualification. Alternatively HR background with further development towards marketing, employer branding or branding\n• Experience in a strategic-conceptual function, in project management as well as in-depth experience in employer branding, HR marketing or a comparable environment\n• German at native language level and fluent English skills\n• Ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Confident handling of different interests and requirements as well as the ability to develop viable solutions in an international multi-brand setup\n• Communication strength, creativity, teamwork and initiative as well as a structured working method and good time management We offer:\n• Varied area of responsibility as well as space for personal responsibility and initiative\n• Clearly structured training phase with cross-department onboarding program\n• Flexible working hours and home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports offers & employee events, staff restaurant with attractive prices\n• Flexible mobility concept for your commute",
+        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
         "fr": "Avec nous, vous avez l'occasion de façonner activement une marque d'employeurs internationale, de façon stratégique, créative et avec beaucoup de créativité. Les points de vue deviennent des idées fortes, des stratégies pertinentes et des campagnes de communication qui sont bloquées de différents points de vue. Si vous ne voulez pas simplement mettre en œuvre les choses, mais pensez à nouveau et vraiment faire une différence, nous devrions certainement apprendre à nous connaître. Vos tâches :\n• Élaboration et mise en œuvre à l ' échelle mondiale de la stratégie de promotion de l ' image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseils et soutien communicatif des spécialistes des RH et des parties prenantes concernées ainsi que l'élaboration de concepts, de messages et d'idées créatives\n• Planifier et mettre en œuvre des campagnes de promotion de l'image de marque au niveau mondial et local, ainsi que créer et contrôler du contenu pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des mesures dans les activités quotidiennes et gestion de la coopération avec les équipes de création internes, les centres de compétences et de services et les partenaires externes\n• Assurer une présence cohérente dans tous les pays et dans tous les canaux et mettre au point des solutions viables dans le cadre de la mise en place internationale de plusieurs marques\n• Définition et évaluation des ICR pertinents ainsi que création, contrôle et approbation des présentations Votre profil:\n• Études terminées en marketing, communication, production multimédia, marketing numérique ou qualification comparable. Autre contexte RH avec développement ultérieur vers le marketing, la marque patronale ou la marque\n• Expérience dans une fonction stratégique-conceptuelle, dans la gestion de projet ainsi qu'une expérience approfondie dans l'image de marque de l'employeur, le marketing des RH ou un environnement comparable\n• Allemand au niveau de la langue maternelle et maîtrise de l'anglais couramment\n• Capacité à élaborer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des RH, de la marque ou du marketing\n• Gestion fiable de différents intérêts et exigences ainsi que la capacité de développer des solutions viables dans une configuration multimarques internationale\n• La force de communication, la créativité, le travail d'équipe et l'initiative, ainsi qu'une méthode de travail structurée et une bonne gestion du temps Nous offrons :\n• Zone de responsabilité variée et espace de responsabilité personnelle et d'initiative\n• Phase de formation clairement structurée avec programme interservices à bord\n• Heures de travail flexibles et bureau à domicile\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès, nombreuses offres sportives et événements pour les employés, restaurant du personnel à des prix attractifs\n• Concept de mobilité flexible pour votre trajet"
       },
       "location": "Heerbrugg",
@@ -914,7 +917,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:09.106Z",
+      "crawledAt": "2026-10-06T21:44:14.305Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -935,10 +938,9 @@
       "jobReqId": "3025",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:44:36.484Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -951,8 +953,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T14:44:36.484Z"
+      }
     },
     {
       "id": "sfs-group-e7ba8983fe25",
@@ -985,7 +986,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.955Z",
+      "crawledAt": "2026-10-06T21:44:14.132Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -1061,7 +1062,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.808Z",
+      "crawledAt": "2026-10-06T21:44:13.962Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1144,7 +1145,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.659Z",
+      "crawledAt": "2026-10-06T21:44:13.794Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -1228,7 +1229,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.507Z",
+      "crawledAt": "2026-10-06T21:44:13.629Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1266,6 +1267,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1275,123 +1277,6 @@
         "value": {
           "@type": "QuantitativeValue",
           "minValue": 64500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sfs-group-d5628f00a1be",
-      "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
-        "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-        "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Kaltmassivumformer/in (m/f/d)",
-      "titleByLocale": {
-        "it": "Convertitore a formatura a freddo (m/f/d)",
-        "en": "Kaltmassivumformer/in (m/f/d)",
-        "de": "Kaltmassivumformer/in (m/f/d)",
-        "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
-      },
-      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-      "descriptionByLocale": {
-        "it": "Il nostro obiettivo è quello di selezionare e sviluppare applicazioni finali. Al sito di Heerbrugg, importanti parti modellate di precisione, nonché elementi di fissaggio e assemblaggi tecnici sono realizzati per l'industria automobilistica. Produciamo parti modellate di precisione sulle più moderne macchine per presse multistadio con la tecnologia di stampaggio a freddo. Desiderate contribuire attivamente alla vostra esperienza in questo settore? Non vediamo l'ora di la vostra applicazione!\n\nLe vostre attività:\n• Impostazione, funzionamento e monitoraggio di macchine per presse multistadio su cui vengono fabbricati complessi pezzi di formatura a freddo\n• Responsabile per la riparazione di malfunzionamenti di processo\n• Inserimento di ottimizzazioni di processo\n• Responsabile per la qualità dei prodotti fabbricati\n• Valore di misura ingresso nel sistema di qualità Il vostro profilo:\n• Formazione meccanica di base completata\n• Buona comprensione tecnica\n• Alto livello di prestazioni, capacità del team e affidabilità\n• Atteggiamento positivo all'operazione flessibile a due turni\n• Auto-occupazione e iniziativa\n• Competenze tedesche in materia di\n\n• Lavoro in una società orientata al futuro e innovativa\n• Settore di responsabilità variabile\n• Sei settimane di vacanze e vacanze supplementari possibili\n• Partecipazione annuale al successo\n• Ristorante del personale con prezzi interessanti\n• Offerta sportiva in misura ridotta e eventi per i dipendenti",
-        "en": "Our focus is on selected and high-growth end applications. At the Heerbrugg site, important precision molded parts as well as technical fasteners and assemblies are manufactured for the automotive industry. We manufacture precision molded parts on the most modern multi-stage press machines with the cold mass forming technology. Would you like to actively contribute your expertise in this area? We look forward to your application!\n\nYour Tasks:\n• Setting, operating and monitoring of multi-stage press machines on which complex cold forming parts are manufactured\n• Responsible for repairing process malfunctions\n• Inserting process optimizations\n• Responsible for the quality of the manufactured products\n• Measurement value input into the quality system Your profile:\n• Completed mechanical basic training\n• Good technical understanding\n• High level of performance, team capability and reliability\n• Positive attitude to flexible two-shift operation\n• Self-employment and initiative\n• German skills in\n\nWord and writing We offer:\n• Job in a future-oriented & innovative company\n• Varied area of responsibility\n• Six weeks of holidays & additional holidays possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
-        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-        "fr": "Sur le site Heerbrugg, des pièces moulées de précision importantes ainsi que des fixations et des assemblages techniques sont fabriqués pour l'industrie automobile. Nous fabriquons des pièces moulées de précision sur les machines à presse multi-étapes les plus modernes avec la technologie de formage de masse froide. Voulez-vous contribuer activement à votre expertise dans ce domaine? Nous attendons votre application!\n\nVos tâches:\n• Mise en place, fonctionnement et surveillance de machines à presse à plusieurs étages sur lesquelles sont fabriquées des pièces de formage à froid complexes\n• Responsable de la réparation des dysfonctionnements du processus\n• Insertion des optimisations du processus\n• Responsable de la qualité des produits manufacturés\n• Valeur de mesure dans le système de qualité Votre profil:\n• Formation de base mécanique terminée\n• Bonne compréhension technique\n• Haute performance, capacité d'équipe et fiabilité\n• Positive attitude à l'égard de l'opération à deux postes flexible\n• Travail indépendant et initiative\n• Compétences allemandes en matière de\n\nMots et écritures Nous offrons:\n• Emploi dans une entreprise tournée vers l'avenir et innovante\n• domaine de responsabilité varié\n• Six semaines de vacances et vacances supplémentaires possibles\n• Participation annuelle au succès\n• Restaurant du personnel à des prix attractifs\n• De nombreuses offres sportives et événements pour les employés"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.361Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2829/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2829",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione meccanica di base completata",
-          "Buona comprensione tecnica",
-          "Elevata disponibilità a prestare servizio, capacità di lavorare in team e affidabilità",
-          "Atteggiamento positivo verso il lavoro su due turni flessibile",
-          "Autonomia e spirito d'iniziativa",
-          "Conoscenza del tedesco scritto e parlato"
-        ],
-        "en": [
-          "Completed basic mechanical training",
-          "Good technical understanding",
-          "High willingness to perform, team ability, and reliability",
-          "Positive attitude toward flexible two-shift operation",
-          "Self-reliance and initiative",
-          "German language skills (spoken and written)"
-        ],
-        "fr": [
-          "Formation mécanique de base achevée",
-          "Bonne compréhension technique",
-          "Grande disponibilité, esprit d'équipe et fiabilité",
-          "Attitude positive envers le travail en deux équipes flexible",
-          "Autonomie et esprit d'initiative",
-          "Connaissances de l'allemand à l'oral et à l'écrit"
-        ]
-      },
-      "previousSlugs": [
-        "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-        "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
-        "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
-        "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
-        ],
-        "en": [
-          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
-        ],
-        "fr": [
-          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg"
-        ]
-      },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1340,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-08-20T22:10:07.433Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
           "maxValue": 87000,
           "unitText": "YEAR"
         }
@@ -1428,7 +1313,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.212Z",
+      "crawledAt": "2026-10-06T21:44:13.464Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1511,7 +1396,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:08.062Z",
+      "crawledAt": "2026-10-06T21:44:13.294Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1542,6 +1427,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1587,7 +1473,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.914Z",
+      "crawledAt": "2026-10-06T21:44:13.123Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1624,6 +1510,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1669,7 +1556,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.763Z",
+      "crawledAt": "2026-10-06T21:44:12.952Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1751,7 +1638,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.615Z",
+      "crawledAt": "2026-10-06T21:44:12.777Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1819,6 +1706,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1864,7 +1752,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.464Z",
+      "crawledAt": "2026-10-06T21:44:12.606Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1946,7 +1834,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.316Z",
+      "crawledAt": "2026-10-06T21:44:12.428Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -2030,7 +1918,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:07.148Z",
+      "crawledAt": "2026-10-06T21:44:12.216Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -2082,170 +1970,124 @@
       }
     },
     {
-      "id": "sfs-group-d28e368a8b5c",
-      "slug": "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg",
+      "id": "sfs-group-d5628f00a1be",
+      "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg",
-        "en": "technician-heat-treatment-m-f-d-sfs-group-heerbrugg",
-        "de": "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
-        "fr": "technicien-traitement-thermique-m-f-j-sfs-group-heerbrugg"
+        "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
+        "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+        "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
-      "title": "Techniker/in Wärmebehandlung (m/f/d)",
+      "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
-        "it": "Trattamento tecnico/riscaldamento (m/f/d)",
-        "en": "Technician/heat treatment (m/f/d)",
-        "de": "Techniker/in Wärmebehandlung (m/f/d)",
-        "fr": "Technicien/traitement thermique (m/f/j)"
+        "it": "Convertitore a formatura a freddo (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
+        "de": "Kaltmassivumformer/in (m/f/d)",
+        "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
       },
-      "description": "Steigende Produktbeanspruchungen und höhere Qualitätsansprüche, insbesondere im Bereich Automotive, erfordern eine Nachbearbeitung der kaltmassivumgeformten Produkte durch Wärmebehandlung. Your Tasks:\n• Geforderte Prüfungen nach CQI9 und NADCAP durchführen sowie analysieren und genehmigen von TUS/SAT Instrumentierungsprotokollen\n• Verantwortung zur Erstellung/Änderung von Prozessspezifikationen für neue/bestehende Produkte incl. Prototypen bzgl. Wärmebehandlung\n• Analysieren von Prozessdaten und Prozessergebnissen\n• Überprüfung und Verbesserung von Prozessen Your profile:\n• Abgeschlossene technische Ausbildung (Polymechaniker, Werkzeugmacher oder ähnlich)\n• Erfahrung in den Bereichen Wärmebehandlung, Prozessoptimierung, Qualität sowie Normen, idealerweise in der Automobilzulieferindustrie\n• Bereitschaft zur Arbeit im Produktionsumfeld sowie selbständige Arbeitsweise\n• Deutsch und Englisch in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
       "descriptionByLocale": {
-        "it": "Aumentare le sollecitazioni del prodotto e le richieste di qualità più elevate, soprattutto nel settore automobilistico, richiedono il post-elaborazione dei prodotti a freddo mediante il trattamento termico. I vostri compiti:\n• Test richiesti secondo CQI9 e NADCAP, analizza e approva i protocolli di strumentazione TUS/SAT\n• Responsabilità per la creazione / modifica di specifiche di processo per i nuovi / prodotti esistenti incl. Prototipi di trattamento termico\n• Analizzare i dati del processo e i risultati del processo\n• Revisione e miglioramento dei processi Il tuo profilo:\n• Formazione tecnica completa (polimeccanica, macchine utensili o simili)\n• Esperienza nelle aree di trattamento termico, ottimizzazione dei processi, qualità e standard, idealmente nel settore dell'offerta automobilistica\n• La volontà di lavorare nell'ambiente di produzione e nei metodi di lavoro indipendenti\n• Tedesco e inglese in Word e scrittura Offriamo:\n• Occupazione in azienda innovativa e orientata al futuro\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Ristorante personale con prezzi interessanti\n• Numerose offerte sportive & eventi dei dipendenti",
-        "en": "Increasing product stresses and higher quality demands, especially in the automotive sector, require post-processing of the cold-formed products by heat treatment. Your Tasks:\n• Required tests according to CQI9 and NADCAP, analyze and approve TUS/SAT instrumentation protocols\n• Responsibility for creating / changing process specifications for new / existing products incl. Heat treatment prototypes\n• Analyze process data and process results\n• Reviewing and improving processes Your profile:\n• Completed technical training (polymechanic, toolmaker or similar)\n• Experience in the areas of heat treatment, process optimization, quality and standards, ideally in the automotive supply industry\n• Willingness to work in the production environment and independent working methods\n• German and English in Word and Writing We offer:\n• Employment in future-oriented & innovative company\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
-        "de": "Steigende Produktbeanspruchungen und höhere Qualitätsansprüche, insbesondere im Bereich Automotive, erfordern eine Nachbearbeitung der kaltmassivumgeformten Produkte durch Wärmebehandlung. Your Tasks:\n• Geforderte Prüfungen nach CQI9 und NADCAP durchführen sowie analysieren und genehmigen von TUS/SAT Instrumentierungsprotokollen\n• Verantwortung zur Erstellung/Änderung von Prozessspezifikationen für neue/bestehende Produkte incl. Prototypen bzgl. Wärmebehandlung\n• Analysieren von Prozessdaten und Prozessergebnissen\n• Überprüfung und Verbesserung von Prozessen Your profile:\n• Abgeschlossene technische Ausbildung (Polymechaniker, Werkzeugmacher oder ähnlich)\n• Erfahrung in den Bereichen Wärmebehandlung, Prozessoptimierung, Qualität sowie Normen, idealerweise in der Automobilzulieferindustrie\n• Bereitschaft zur Arbeit im Produktionsumfeld sowie selbständige Arbeitsweise\n• Deutsch und Englisch in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-        "fr": "L'augmentation du stress des produits et l'augmentation de la qualité des exigences, en particulier dans le secteur de l'automobile, exigent le post-traitement des produits formés à froid par traitement thermique. Vos tâches :\n• Essais requis selon CQI9 et NADCAP, analyser et approuver les protocoles d'instrumentation TUS/SAT\n• Responsabilité de créer / modifier les spécifications du processus pour les produits nouveaux / existants incl. prototypes de traitement thermique\n• Analyser les données et les résultats du processus\n• Examen et amélioration des processus Votre profil :\n• Formation technique complète (polymécanique, outilleur ou similaire)\n• Expérience dans les domaines du traitement thermique, de l'optimisation des processus, de la qualité et des normes, idéalement dans l'industrie automobile\n• Volonté de travailler dans l'environnement de production et méthodes de travail indépendantes\n• Allemand et anglais en paroles et en écriture Nous offrons:\n• L'emploi dans une entreprise tournée vers l'avenir et innovante\n• Tâches variées\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Restaurant du personnel à prix attractifs\n• Nombreuses offres sportives et événements pour les employés"
+        "it": "Il nostro obiettivo è quello di selezionare e sviluppare applicazioni finali. Al sito di Heerbrugg, importanti parti modellate di precisione, nonché elementi di fissaggio e assemblaggi tecnici sono realizzati per l'industria automobilistica. Produciamo parti modellate di precisione sulle più moderne macchine per presse multistadio con la tecnologia di stampaggio a freddo. Desiderate contribuire attivamente alla vostra esperienza in questo settore? Non vediamo l'ora di la vostra applicazione!\n\nLe vostre attività:\n• Impostazione, funzionamento e monitoraggio di macchine per presse multistadio su cui vengono fabbricati complessi pezzi di formatura a freddo\n• Responsabile per la riparazione di malfunzionamenti di processo\n• Inserimento di ottimizzazioni di processo\n• Responsabile per la qualità dei prodotti fabbricati\n• Valore di misura ingresso nel sistema di qualità Il vostro profilo:\n• Formazione meccanica di base completata\n• Buona comprensione tecnica\n• Alto livello di prestazioni, capacità del team e affidabilità\n• Atteggiamento positivo all'operazione flessibile a due turni\n• Auto-occupazione e iniziativa\n• Competenze tedesche in materia di\n\n• Lavoro in una società orientata al futuro e innovativa\n• Settore di responsabilità variabile\n• Sei settimane di vacanze e vacanze supplementari possibili\n• Partecipazione annuale al successo\n• Ristorante del personale con prezzi interessanti\n• Offerta sportiva in misura ridotta e eventi per i dipendenti",
+        "en": "Our focus is on selected and high-growth end applications. At the Heerbrugg site, important precision molded parts as well as technical fasteners and assemblies are manufactured for the automotive industry. We manufacture precision molded parts on the most modern multi-stage press machines with the cold mass forming technology. Would you like to actively contribute your expertise in this area? We look forward to your application!\n\nYour Tasks:\n• Setting, operating and monitoring of multi-stage press machines on which complex cold forming parts are manufactured\n• Responsible for repairing process malfunctions\n• Inserting process optimizations\n• Responsible for the quality of the manufactured products\n• Measurement value input into the quality system Your profile:\n• Completed mechanical basic training\n• Good technical understanding\n• High level of performance, team capability and reliability\n• Positive attitude to flexible two-shift operation\n• Self-employment and initiative\n• German skills in\n\nWord and writing We offer:\n• Job in a future-oriented & innovative company\n• Varied area of responsibility\n• Six weeks of holidays & additional holidays possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
+        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "fr": "Sur le site Heerbrugg, des pièces moulées de précision importantes ainsi que des fixations et des assemblages techniques sont fabriqués pour l'industrie automobile. Nous fabriquons des pièces moulées de précision sur les machines à presse multi-étapes les plus modernes avec la technologie de formage de masse froide. Voulez-vous contribuer activement à votre expertise dans ce domaine? Nous attendons votre application!\n\nVos tâches:\n• Mise en place, fonctionnement et surveillance de machines à presse à plusieurs étages sur lesquelles sont fabriquées des pièces de formage à froid complexes\n• Responsable de la réparation des dysfonctionnements du processus\n• Insertion des optimisations du processus\n• Responsable de la qualité des produits manufacturés\n• Valeur de mesure dans le système de qualité Votre profil:\n• Formation de base mécanique terminée\n• Bonne compréhension technique\n• Haute performance, capacité d'équipe et fiabilité\n• Positive attitude à l'égard de l'opération à deux postes flexible\n• Travail indépendant et initiative\n• Compétences allemandes en matière de\n\nMots et écritures Nous offrons:\n• Emploi dans une entreprise tournée vers l'avenir et innovante\n• domaine de responsabilité varié\n• Six semaines de vacances et vacances supplémentaires possibles\n• Participation annuelle au succès\n• Restaurant du personnel à des prix attractifs\n• De nombreuses offres sportives et événements pour les employés"
       },
       "location": "Heerbrugg",
       "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
+      "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:36:47.718Z",
+      "crawledAt": "2026-10-06T09:35:08.361Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
       "postalCode": "9435",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Tecnica",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2930/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2930",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2829/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2829",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
+      "requirementsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "Formazione meccanica di base completata",
+          "Buona comprensione tecnica",
+          "Elevata disponibilità a prestare servizio, capacità di lavorare in team e affidabilità",
+          "Atteggiamento positivo verso il lavoro su due turni flessibile",
+          "Autonomia e spirito d'iniziativa",
+          "Conoscenza del tedesco scritto e parlato"
         ],
         "en": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "Completed basic mechanical training",
+          "Good technical understanding",
+          "High willingness to perform, team ability, and reliability",
+          "Positive attitude toward flexible two-shift operation",
+          "Self-reliance and initiative",
+          "German language skills (spoken and written)"
         ],
         "fr": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "Formation mécanique de base achevée",
+          "Bonne compréhension technique",
+          "Grande disponibilité, esprit d'équipe et fiabilité",
+          "Attitude positive envers le travail en deux équipes flexible",
+          "Autonomie et esprit d'initiative",
+          "Connaissances de l'allemand à l'oral et à l'écrit"
         ]
       },
-      "firstSeenAt": "2026-07-09T12:26:57.623Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sfs-group-8e63d8a49f76",
-      "slug": "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion",
-      "slugByLocale": {
-        "it": "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion",
-        "en": "sales-advisor-city-of-artisan-m-f-d-sfs-group-sion",
-        "de": "verkaufsberater-stadt-des-handwerkers-m-w-d-sfs-group-sion",
-        "fr": "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Conseiller de vente Cité de l'artisan (m/f/d)",
-      "titleByLocale": {
-        "it": "Consulente commerciale Città dell'artigiano (m/f/d)",
-        "en": "Sales advisor City of artisan (m/f/d)",
-        "de": "Verkaufsberater Stadt des Handwerkers (m/w/d)",
-        "fr": "Conseiller de vente Cité de l'artisan (m/f/d)"
-      },
-      "description": "Sion 60% Martigny 40% Nos filiales SFS offrent un assortiment premium répondant aux besoins spécifiques de nos clients dans les domaines de l’outillage et des machines, de la technique de fixation, des ferrements et des produits chimico-techniques. Afin de renforcer nos équipes à Sion et à Martigny, nous recherchons un vendeur expérimenté dans ces secteurs. Your Tasks:\n• Assurer la vente et le conseil auprès de notre clientèle dans les domaines de l’outillage, des machines, des produits chimico-techniques, de la technique de fixation et des ferrements\n• Gérer le traitement des commandes clients via SAP\n• Assurer la gestion des stocks, des marchandises et des commandes\n• Organiser et optimiser les rayons de vente ainsi que l’agencement des points de vente\n• Développer un réseau solide parmi les ouvriers et artisans de la région\n• Gestion des inventaires Your profile:\n• CFC de gestionnaire du commerce de détail dans le secteur de la quincaillerie ou CFC dans l’artisanat/la construction\n• Maîtrise de SAP (un atout)\n• Excellente présentation et sens du service client\n• Personne fiable, responsable, flexible et dotée d’un esprit d’initiative\n• Intérêt marqué pour les produits et processus liés à la construction et/ou à l’artisanat\n• Bon relationnel, aisance communicationnelle et sens commercial\n• Résidence proche de l'un des points de ventes We offer:\n• Conditions d’emploi attractives et cadre de travail dynamique\n• Horaires en semaine, du lundi au vendredi\n• Avantages exclusifs : six semaines de vacances, bonus lié aux résultats, événements sportifs, etc.\n• Une entreprise tournée vers l’avenir avec des opportunités d’évolution interne\n• Un programme d’intégration structuré et des formations continues",
-      "descriptionByLocale": {
-        "it": "Sion 60% Martigny 40% Le nostre filiali SFS offrono un assortimento premium che soddisfa le esigenze specifiche dei nostri clienti nei settori di utensili e macchine, tecnologia di fissaggio, raccordi e prodotti chimici-tecnici. Per rafforzare i nostri team a Sion e Martigny, stiamo cercando un venditore esperto in queste aree. I vostri compiti:\n• Vendite e consigli ai nostri clienti nei settori di utensili, macchinari, prodotti chimici-tecnici, tecnica di fissaggio e raccordi\n• Gestire l'elaborazione dell'ordine del cliente tramite SAP\n• Gestione dell'inventario, delle merci e degli ordini\n• Organizzare e ottimizzare le aree di vendita e la disposizione dei punti vendita\n• Sviluppare una forte rete tra lavoratori e artigiani locali\n• Il tuo profilo:\n• SWC di Retail Trade Manager nel settore Hardware o SWC in Artigianato/Building\n• Mastery di SAP (un bene)\n• Ottima presentazione e senso del servizio clienti\n• Fiducia, responsabile, flessibile e proattivo\n• Interessi in prodotti e processi legati alla costruzione e/o all'artigianato\n• Buona relazione, facilità di comunicazione e senso aziendale\n• Residence vicino a uno dei punti di vendita:\n• Condizioni di lavoro e ambiente di lavoro dinamico\n• Orario settimanale, dal lunedì al venerdì\n• Vantaggi esclusivi: sei settimane di vacanza, bonus risultati, eventi sportivi, ecc.\n• Una società orientata al futuro con opportunità di cambiamento interno\n• Programma di integrazione strutturata e formazione continua",
-        "en": "Sion 60% Martigny 40% Our SFS subsidiaries offer a premium assortment that meets the specific needs of our customers in the fields of tools and machines, fastening technology, fittings and chemical-technical products. In order to strengthen our teams in Sion and Martigny, we are looking for an experienced salesman in these areas. Your Tasks:\n• Sales and advice to our customers in the fields of tools, machinery, chemical-technical products, fastening technique and fittings\n• Manage customer order processing via SAP\n• Manage inventory, goods and orders\n• Organize and optimize sales areas and the layout of outlets\n• Developing a strong network among local workers and artisans\n• Inventory management Your profile:\n• SWC of Retail Trade Manager in the Hardware Sector or SWC in Crafts/Building\n• Mastery of SAP (an asset)\n• Excellent presentation and sense of customer service\n• Trusted, accountable, flexible and proactive\n• Interest in products and processes related to construction and/or crafts\n• Good relationship, communication ease and business sense\n• Residence near one of the We offer sales points:\n• Attractive conditions of employment and dynamic working environment\n• Weekday hours, Monday to Friday\n• Exclusive benefits: six weeks of vacation, results bonus, sporting events, etc.\n• A future-oriented company with opportunities for internal change\n• A structured integration programme and continuing training",
-        "de": "Sion 60% Martigny 40% Unsere SFS-Tochtergesellschaften bieten ein Premium-Sortiment, das den spezifischen Bedürfnissen unserer Kunden in den Bereichen Werkzeuge und Maschinen, Befestigungstechnik, Armaturen und chemisch-technische Produkte entspricht. Um unsere Teams in Sion und Martigny zu stärken, suchen wir einen erfahrenen Verkäufer in diesen Bereichen. Ihre Aufgaben:\n• Verkauf und Beratung unserer Kunden in den Bereichen Werkzeuge, Maschinen, chemisch-technische Produkte, Befestigungstechnik und Armaturen\n• Verwalten der Kundenauftragsabwicklung über SAP\n• Verwalten von Inventar, Waren und Bestellungen\n• Organisieren und optimieren Sie Verkaufsbereiche und das Layout von Outlets\n• Aufbau eines starken Netzwerks zwischen lokalen Arbeitern und Handwerkern\n• Bestandsverwaltung Ihr Profil:\n• SWC of Retail Trade Manager im Hardware-Sektor oder SWC in Crafts / Building\n• Beherrschung von SAP (ein Asset)\n• Ausgezeichnete Präsentation und Sinn für Kundenservice\n• Vertrauensvoll, verantwortlich, flexibel und proaktiv\n• Interesse an bau- und/oder handwerksbezogenen Produkten und Verfahren\n• Gute Beziehung, Kommunikation Leichtigkeit und Business Sinn\n• Residenz in der Nähe eines der Wir bieten Verkaufsstellen:\n• Attraktive Beschäftigungsbedingungen und dynamisches Arbeitsumfeld\n• Wochentagsstunden, Montag bis Freitag\n• Exklusive Vorteile: sechs Wochen Urlaub, Ergebnisbonus, Sportveranstaltungen usw.\n• Ein zukunftsorientiertes Unternehmen mit Chancen für interne Veränderungen\n• Ein strukturiertes Integrationsprogramm und Weiterbildung",
-        "fr": "Sion 60% Martigny 40% Nos filiales SFS offrent un assortiment premium répondant aux besoins spécifiques de nos clients dans les domaines de l’outillage et des machines, de la technique de fixation, des ferrements et des produits chimico-techniques. Afin de renforcer nos équipes à Sion et à Martigny, nous recherchons un vendeur expérimenté dans ces secteurs. Your Tasks:\n• Assurer la vente et le conseil auprès de notre clientèle dans les domaines de l’outillage, des machines, des produits chimico-techniques, de la technique de fixation et des ferrements\n• Gérer le traitement des commandes clients via SAP\n• Assurer la gestion des stocks, des marchandises et des commandes\n• Organiser et optimiser les rayons de vente ainsi que l’agencement des points de vente\n• Développer un réseau solide parmi les ouvriers et artisans de la région\n• Gestion des inventaires Your profile:\n• CFC de gestionnaire du commerce de détail dans le secteur de la quincaillerie ou CFC dans l’artisanat/la construction\n• Maîtrise de SAP (un atout)\n• Excellente présentation et sens du service client\n• Personne fiable, responsable, flexible et dotée d’un esprit d’initiative\n• Intérêt marqué pour les produits et processus liés à la construction et/ou à l’artisanat\n• Bon relationnel, aisance communicationnelle et sens commercial\n• Résidence proche de l'un des points de ventes We offer:\n• Conditions d’emploi attractives et cadre de travail dynamique\n• Horaires en semaine, du lundi au vendredi\n• Avantages exclusifs : six semaines de vacances, bonus lié aux résultats, événements sportifs, etc.\n• Une entreprise tournée vers l’avenir avec des opportunités d’évolution interne\n• Un programme d’intégration structuré et des formations continues"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:36:44.689Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "postalCode": "1950",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2890/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2890",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+        "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
+        "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+          "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
-        "de": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "fr": [
+          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg"
         ]
       },
-      "firstSeenAt": "2026-08-12T21:59:24.657Z",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1340,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-08-20T22:10:07.433Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
