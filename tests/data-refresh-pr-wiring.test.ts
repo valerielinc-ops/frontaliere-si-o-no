@@ -96,6 +96,70 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).not.toMatch(/HEAD:main/);
   });
 
+  it('carries stable refresh files without turning stale branch absence into deletions', () => {
+    const helper = read('scripts/lib/restore-stable-refresh-files.sh');
+    expect(helper).toContain('git ls-tree -r --name-only -z');
+    expect(helper).toContain('git restore --source="$SOURCE_REF"');
+
+    for (const workflowPath of [
+      '.github/workflows/recover-prev-slugs.yml',
+      '.github/workflows/crawl-events.yml',
+    ]) {
+      const workflow = read(workflowPath);
+      expect(workflow, workflowPath).toContain('scripts/lib/restore-stable-refresh-files.sh');
+      expect(workflow, workflowPath).not.toContain(
+        'git restore --source="refs/remotes/origin/${branch}" -- "$path"',
+      );
+    }
+
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'stable-refresh-carry-'));
+    const gitEnv = {
+      ...process.env,
+      GIT_AUTHOR_NAME: 'refresh-test',
+      GIT_AUTHOR_EMAIL: 'refresh-test@example.invalid',
+      GIT_COMMITTER_NAME: 'refresh-test',
+      GIT_COMMITTER_EMAIL: 'refresh-test@example.invalid',
+    };
+    const git = (args: string[]) => execFileSync('git', args, {
+      cwd: repo,
+      env: gitEnv,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    const write = (file: string, content: string) => {
+      const target = path.join(repo, file);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, content);
+    };
+
+    try {
+      git(['init', '-q', '-b', 'main']);
+      write('data/jobs/by-crawler/shared.json', 'main\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'base']);
+      git(['checkout', '-q', '-b', 'stable']);
+      write('data/jobs/by-crawler/shared.json', 'pending\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'pending refresh']);
+      git(['checkout', '-q', 'main']);
+      write('data/jobs/by-crawler/current-main-only.json', 'new main data\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'current main data']);
+
+      execFileSync('bash', [
+        path.join(ROOT, 'scripts/lib/restore-stable-refresh-files.sh'),
+        'refs/heads/stable',
+        'data/jobs/by-crawler/',
+      ], { cwd: repo, env: gitEnv, encoding: 'utf8' });
+
+      expect(fs.readFileSync(path.join(repo, 'data/jobs/by-crawler/shared.json'), 'utf8')).toBe('pending\n');
+      expect(fs.readFileSync(path.join(repo, 'data/jobs/by-crawler/current-main-only.json'), 'utf8'))
+        .toBe('new main data\n');
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
+  });
+
   it('passes the evidence PR branch from the build job into quota tuning', () => {
     const workflow = read('.github/workflows/build-evidence-and-tune.yml');
     const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
