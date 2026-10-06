@@ -19,6 +19,10 @@ solo da fonti esplicitamente registrate in
   conserva soltanto il `place_id` stabile, da cui costruisce il link Maps.
   Questo rispetta l'eccezione di caching documentata da Google; per mostrare
   altri contenuti Places servirebbero recupero live e attribuzione Google Maps.
+  Anche quando Places non è disponibile, la scheda può offrire un link di
+  navigazione Google Maps costruito dall'identità già verificata nel catalogo:
+  è solo un collegamento di ricerca e non rappresenta dati, coordinate,
+  recensioni o rating restituiti da Google.
 - Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
   `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
   località devono corrispondere prima di accettare i dati; i post e le
