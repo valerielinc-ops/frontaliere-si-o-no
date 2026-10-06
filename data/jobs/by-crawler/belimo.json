@@ -353,12 +353,12 @@
     },
     {
       "id": "belimo-3dfbcc1e335f",
-      "slug": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot",
+      "slug": "specialista-tecnico-del-supporto-clienti-80-100-belimo-granges-paccot",
       "slugByLocale": {
-        "it": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot",
-        "en": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot",
+        "it": "specialista-tecnico-del-supporto-clienti-80-100-belimo-granges-paccot",
+        "en": "technical-customer-support-specialist-80-100-belimo-granges-paccot",
         "de": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot",
-        "fr": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot"
+        "fr": "specialiste-technique-du-support-client-80-100-belimo-granges-paccot"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -417,7 +417,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot"
+        ],
+        "en": [
+          "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot"
+        ],
+        "fr": [
+          "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot"
+      ]
     },
     {
       "id": "belimo-6993f5b55a7a",

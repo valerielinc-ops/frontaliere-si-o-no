@@ -1222,9 +1222,9 @@
       "slug": "collaboratore-trice-im-abendservice-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "collaboratore-trice-im-abendservice-tertianum-zollikerberg",
-        "en": "mitarbeiter-in-im-abendservice-tertianum-zollikerberg",
+        "en": "evening-service-associate-tertianum-zollikerberg",
         "de": "mitarbeiter-in-im-abendservice-tertianum-zollikerberg",
-        "fr": "mitarbeiter-in-im-abendservice-tertianum-zollikerberg"
+        "fr": "employe-e-en-service-du-soir-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1273,6 +1273,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-im-abendservice-tertianum-zollikerberg"
+        ],
+        "en": [
+          "mitarbeiter-in-im-abendservice-tertianum-zollikerberg"
+        ],
+        "fr": [
           "mitarbeiter-in-im-abendservice-tertianum-zollikerberg"
         ]
       },
@@ -4596,9 +4602,9 @@
       "slug": "collaboratore-trice-aktivierung-ma-aktivierung-tertianum-basel",
       "slugByLocale": {
         "it": "collaboratore-trice-aktivierung-ma-aktivierung-tertianum-basel",
-        "en": "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel",
+        "en": "employee-activation-ma-activation-tertianum-basel",
         "de": "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel",
-        "fr": "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel"
+        "fr": "activation-du-collaborateur-de-la-collaboratrice-activation-du-collaborateur-tertianum-basel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4647,6 +4653,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-aktivierung-ma-aktivierung-tertianum-basel"
         ]
       },
@@ -15300,12 +15312,12 @@
     },
     {
       "id": "tertianum-bad8d9415f7d",
-      "slug": "assistent-in-gesundheit-soziales-tertianum-oberlindach",
+      "slug": "assistente-sanitario-sociale-tertianum-oberlindach",
       "slugByLocale": {
-        "it": "assistent-in-gesundheit-soziales-tertianum-oberlindach",
-        "en": "assistent-in-gesundheit-soziales-tertianum-oberlindach",
+        "it": "assistente-sanitario-sociale-tertianum-oberlindach",
+        "en": "assistant-health-social-affairs-tertianum-oberlindach",
         "de": "assistent-in-gesundheit-soziales-tertianum-oberlindach",
-        "fr": "assistent-in-gesundheit-soziales-tertianum-oberlindach"
+        "fr": "assistant-e-sante-social-tertianum-oberlindach"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -15361,7 +15373,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-gesundheit-soziales-tertianum-oberlindach"
+        ],
+        "en": [
+          "assistent-in-gesundheit-soziales-tertianum-oberlindach"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-soziales-tertianum-oberlindach"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-gesundheit-soziales-tertianum-oberlindach"
+      ]
     },
     {
       "id": "tertianum-f5653069ccf8",
@@ -16509,8 +16535,6 @@
       },
       "previousSlugs": [
         "kochin-koch-60-tertianum-solothurn",
-        "cuocere-chef-60-tertianum-solothurn",
-        "cuisson-chef-60-tertianum-solothurn",
         "cuisinier-cuisiniere-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {

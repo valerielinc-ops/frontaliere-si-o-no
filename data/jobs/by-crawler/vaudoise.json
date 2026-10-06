@@ -2799,9 +2799,9 @@
       "slug": "collaboratore-trice-kundensupport-m-w-d-80-vaudoise-assurances-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-kundensupport-m-w-d-80-vaudoise-assurances-zurich",
-        "en": "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich",
+        "en": "employee-customer-support-m-f-d-80-vaudoise-assurances-zurich",
         "de": "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich",
-        "fr": "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich"
+        "fr": "employe-e-support-client-h-f-d-80-vaudoise-assurances-zurich"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2849,10 +2849,17 @@
         ],
         "it": [
           "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-ch"
+        "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-ch",
+        "mitarbeiter-in-kundensupport-m-w-d-80-vaudoise-assurances-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:10:36.902Z",

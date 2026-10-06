@@ -835,12 +835,12 @@
     },
     {
       "id": "strabag-5f116ac3c46a",
-      "slug": "baufuhrer-in-strassenbau-strabag-erstfeld",
+      "slug": "supervisore-ai-lavori-strade-strabag-ag-erstfeld",
       "slugByLocale": {
-        "it": "baufuhrer-in-strassenbau-strabag-erstfeld",
-        "en": "baufuhrer-in-strassenbau-strabag-erstfeld",
+        "it": "supervisore-ai-lavori-strade-strabag-ag-erstfeld",
+        "en": "road-construction-supervisor-strabag-ag-erstfeld",
         "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
-        "fr": "baufuhrer-in-strassenbau-strabag-erstfeld"
+        "fr": "superviseur-de-la-construction-routiere-strabag-ag-erstfeld"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -898,16 +898,30 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
+        ],
+        "en": [
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
+        ],
+        "fr": [
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-strassenbau-strabag-erstfeld"
+      ]
     },
     {
       "id": "strabag-f129fee79ebe",
       "slug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
       "slugByLocale": {
         "it": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
-        "en": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
+        "en": "technical-group-leader-civil-engineering-and-road-construction-strabag-ag-bern",
         "de": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
-        "fr": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        "fr": "chef-de-groupe-technique-genie-civil-et-construction-routiere-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -957,6 +971,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        ],
+        "en": [
+          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        ],
+        "fr": [
           "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
         ]
       },

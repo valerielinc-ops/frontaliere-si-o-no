@@ -1612,9 +1612,9 @@
     },
     {
       "id": "kanton-solothurn-16a7037ef985",
-      "slug": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
+      "slug": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
+        "it": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
         "en": "tax-specialist-private-individuals-80-100-kanton-solothurn-solothurn",
         "de": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
         "fr": "specialiste-fiscal-particuliers-80-100-kanton-solothurn-solothurn"
@@ -1663,12 +1663,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-        "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
+        "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-          "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
+          "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
@@ -2092,9 +2092,9 @@
       "slug": "responsabile-tagungszentrum-80-100-kanton-solothurn",
       "slugByLocale": {
         "it": "responsabile-tagungszentrum-80-100-kanton-solothurn",
-        "en": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn",
+        "en": "head-of-conference-centre-80-100-kanton-solothurn-solothurn",
         "de": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn",
-        "fr": "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        "fr": "responsable-du-centre-de-conference-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2145,6 +2145,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "leiter-in-tagungszentrum-80-100-kanton-solothurn-solothurn"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:58.829Z",
@@ -2164,12 +2170,12 @@
     },
     {
       "id": "kanton-solothurn-738a6b2819a3",
-      "slug": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
+      "slug": "addetto-a-apma-40-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
-        "en": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
+        "it": "addetto-a-apma-40-kanton-solothurn-solothurn",
+        "en": "kesb-clerk-40-kanton-solothurn-solothurn",
         "de": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn",
-        "fr": "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        "fr": "responsable-apea-40-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2227,16 +2233,30 @@
           "maxValue": 47600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kesb-40-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-f2a825b14d29",
-      "slug": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+      "slug": "ufficiale-del-registro-immobiliare-80-100-kanton-solothurn-thal-gau",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
-        "en": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
+        "it": "ufficiale-del-registro-immobiliare-80-100-kanton-solothurn-thal-gau",
+        "en": "land-registry-officer-80-100-kanton-solothurn-thal-gau",
         "de": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau",
-        "fr": "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        "fr": "officier-du-registre-foncier-80-100-kanton-solothurn-thal-gau"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2294,7 +2314,21 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ],
+        "en": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-grundbuch-80-100-kanton-solothurn-thal-gau"
+      ]
     },
     {
       "id": "kanton-solothurn-d9e383691665",

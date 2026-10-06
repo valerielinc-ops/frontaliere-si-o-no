@@ -1322,12 +1322,12 @@
     },
     {
       "id": "livit-ccdae2589e16",
-      "slug": "senior-immobilienbewirtschafter-in-livit-luzern",
+      "slug": "gestore-immobiliare-senior-livit-ag-luzern",
       "slugByLocale": {
-        "it": "senior-immobilienbewirtschafter-in-livit-luzern",
-        "en": "senior-immobilienbewirtschafter-in-livit-luzern",
+        "it": "gestore-immobiliare-senior-livit-ag-luzern",
+        "en": "senior-propertymanager-livit-ag-luzern",
         "de": "senior-immobilienbewirtschafter-in-livit-luzern",
-        "fr": "senior-immobilienbewirtschafter-in-livit-luzern"
+        "fr": "gestionnaire-immobilier-senior-livit-ag-luzern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1384,7 +1384,21 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-immobilienbewirtschafter-in-livit-luzern"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-livit-luzern"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-livit-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-immobilienbewirtschafter-in-livit-luzern"
+      ]
     },
     {
       "id": "livit-dd648c47f7dc",
@@ -1458,9 +1472,9 @@
       "slug": "immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
       "slugByLocale": {
         "it": "immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
-        "en": "immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
+        "en": "property-manager-commercial-space-livit-ag-luzern",
         "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
-        "fr": "immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+        "fr": "gerant-immobilier-dans-les-surfaces-commerciales-livit-ag-luzern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1701,9 +1715,9 @@
       "slug": "teamleiter-in-bewirtschaftung-livit-zurich",
       "slugByLocale": {
         "it": "teamleiter-in-bewirtschaftung-livit-zurich",
-        "en": "teamleiter-in-bewirtschaftung-livit-zurich",
+        "en": "management-team-leader-livit-ag-zurich",
         "de": "teamleiter-in-bewirtschaftung-livit-zurich",
-        "fr": "teamleiter-in-bewirtschaftung-livit-zurich"
+        "fr": "chef-d-equipe-en-gestion-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1768,9 +1782,9 @@
       "slug": "sachbearbeiter-in-team-bewirtschaftung-livit-basel",
       "slugByLocale": {
         "it": "sachbearbeiter-in-team-bewirtschaftung-livit-basel",
-        "en": "sachbearbeiter-in-team-bewirtschaftung-livit-basel",
+        "en": "clerk-ofthe-management-team-livit-ag-basel",
         "de": "sachbearbeiter-in-team-bewirtschaftung-livit-basel",
-        "fr": "sachbearbeiter-in-team-bewirtschaftung-livit-basel"
+        "fr": "responsable-en-equipe-de-gestion-livit-ag-basel"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2006,9 +2020,9 @@
       "slug": "sachbearbeiter-in-team-bewirtschaftung-livit-solothurn",
       "slugByLocale": {
         "it": "sachbearbeiter-in-team-bewirtschaftung-livit-solothurn",
-        "en": "sachbearbeiter-in-team-bewirtschaftung-livit-solothurn",
+        "en": "clerk-ofthe-management-team-livit-ag-solothurn",
         "de": "sachbearbeiter-in-team-bewirtschaftung-livit-solothurn",
-        "fr": "sachbearbeiter-in-team-bewirtschaftung-livit-solothurn"
+        "fr": "responsable-en-equipe-de-gestion-livit-ag-solothurn"
       },
       "company": "Livit AG",
       "companyKey": "livit",

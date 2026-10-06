@@ -1726,12 +1726,12 @@
     },
     {
       "id": "stadt-bern-22f81e70eca9",
-      "slug": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+      "slug": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
       "slugByLocale": {
-        "it": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
-        "en": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+        "it": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
+        "en": "specialist-assistant-sports-facility-north-stadt-bern-bern",
         "de": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
-        "fr": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+        "fr": "assistant-specialiste-des-installations-sportives-nord-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1789,7 +1789,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-41bf60e2f686",
@@ -1863,9 +1877,9 @@
       "slug": "projektleiter-in-nutzung-e-betrieb-stadt-bern",
       "slugByLocale": {
         "it": "projektleiter-in-nutzung-e-betrieb-stadt-bern",
-        "en": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern",
+        "en": "project-manager-use-and-operation-stadt-bern-bern",
         "de": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern",
-        "fr": "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+        "fr": "gestion-de-projet-utilisation-et-exploitation-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1916,6 +1930,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+        ],
+        "en": [
+          "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
+        ],
+        "fr": [
+          "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T06:24:57.820Z",
@@ -1935,12 +1955,12 @@
     },
     {
       "id": "stadt-bern-fc94e036d0bb",
-      "slug": "senior-projektleiter-in-stadt-bern",
+      "slug": "senior-project-manager-stadt-bern-bern",
       "slugByLocale": {
-        "it": "senior-projektleiter-in-stadt-bern",
+        "it": "senior-project-manager-stadt-bern-bern",
         "en": "senior-projektleiter-in-stadt-bern-bern",
         "de": "senior-projektleiter-in-stadt-bern-bern",
-        "fr": "senior-projektleiter-in-stadt-bern-bern"
+        "fr": "chef-de-projet-principal-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1986,10 +2006,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-projektleiter-in-stadt-bern-bern"
+        "senior-projektleiter-in-stadt-bern-bern",
+        "senior-projektleiter-in-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-projektleiter-in-stadt-bern-bern",
+          "senior-projektleiter-in-stadt-bern"
+        ],
+        "fr": [
           "senior-projektleiter-in-stadt-bern-bern"
         ]
       },
@@ -2010,12 +2035,12 @@
     },
     {
       "id": "stadt-bern-406a17e60816",
-      "slug": "koordinator-in-obdachlosenhilfe-stadt-bern-bern",
+      "slug": "coordinatore-aiuti-per-i-senzatetto-stadt-bern-bern",
       "slugByLocale": {
-        "it": "koordinator-in-obdachlosenhilfe-stadt-bern-bern",
-        "en": "koordinator-in-obdachlosenhilfe-stadt-bern-bern",
+        "it": "coordinatore-aiuti-per-i-senzatetto-stadt-bern-bern",
+        "en": "coordinator-homeless-aid-stadt-bern-bern",
         "de": "koordinator-in-obdachlosenhilfe-stadt-bern-bern",
-        "fr": "koordinator-in-obdachlosenhilfe-stadt-bern-bern"
+        "fr": "coordinateur-de-l-aide-aux-sans-abri-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2073,7 +2098,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-obdachlosenhilfe-stadt-bern-bern"
+        ],
+        "en": [
+          "koordinator-in-obdachlosenhilfe-stadt-bern-bern"
+        ],
+        "fr": [
+          "koordinator-in-obdachlosenhilfe-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-obdachlosenhilfe-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-d79dcfc8b388",

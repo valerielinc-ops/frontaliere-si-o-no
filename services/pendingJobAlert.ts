@@ -22,12 +22,11 @@ const KEY = 'pending_job_alert';
  * The CTA surface a guest submitted from. Carried through the auth round-trip
  * so the replayed `job_alert_created` is attributed to the surface that emitted
  * the `job_alert_cta_shown` impression (issue 9576), instead of a synthetic
- * `post_auth_auto` that the alert_funnel_conversion allowlist
- * (`ALERT_CTA_SURFACES` in scripts/campaign-goal-check.mjs) excludes. Every
- * value here MUST be an impression-bearing surface of that allowlist — pinned
- * by tests/campaign-goal-check.test.ts. Detail receipts and the other
- * impression-bearing form handoffs carry their own surface through the same
- * auth round-trip.
+ * `post_auth_auto`. The five allowlisted form handoffs are counted by
+ * `alert_funnel_conversion`; `saved_jobs_nudge` also emits the generic shown
+ * event but remains outside that campaign allowlist because it has its own
+ * saved-jobs nudge funnel. Every value here is therefore an explicit,
+ * impression-bearing form surface, pinned by the attribution tests.
  */
 export const PENDING_JOB_ALERT_ORIGINS = Object.freeze([
   'inline_card',
@@ -35,6 +34,7 @@ export const PENDING_JOB_ALERT_ORIGINS = Object.freeze([
   'job_board_filters',
   'end_card',
   'sticky_banner',
+  'saved_jobs_nudge',
 ] as const);
 export type PendingJobAlertOrigin = (typeof PENDING_JOB_ALERT_ORIGINS)[number];
 

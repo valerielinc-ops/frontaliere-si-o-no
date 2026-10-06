@@ -67,7 +67,10 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
-import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';
+import {
+  ARTICLE_REGISTRY_CHUNK_CONFIGS,
+  chunkArticleRegistry,
+} from './lib/blog-article-registry-chunker.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
@@ -108,7 +111,7 @@ const BRANCH = process.env.ARTICLES_CORPUS_BRANCH ?? 'main';
 const ROOT = process.cwd();
 const DEST = path.join(ROOT, 'packages', 'articles', 'content');
 const CHECK_ONLY = process.argv.includes('--check');
-const BLOG_REGISTRY_CHUNK_SIZE = 250;
+const ARTICLE_REGISTRY_CHUNK_SIZE = 250;
 
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
@@ -197,13 +200,19 @@ async function fetchManifest(attempts = 3) {
   return null;
 }
 
-/** Keep the generated blog registry below TypeScript's inferred-union limit. */
-function splitBlogArticleRegistry() {
-  const file = path.join(DEST, 'blog-articles-data.ts');
-  const source = fs.readFileSync(file, 'utf8');
-  const result = chunkBlogArticleRegistry(source, BLOG_REGISTRY_CHUNK_SIZE);
-  if (result.source !== source) fs.writeFileSync(file, result.source);
-  return result.chunkCount;
+/** Keep every generated article registry below TypeScript's inferred-union limit. */
+function splitArticleRegistries() {
+  return ARTICLE_REGISTRY_CHUNK_CONFIGS.map((config) => {
+    const file = path.join(DEST, config.file);
+    const source = fs.readFileSync(file, 'utf8');
+    const result = chunkArticleRegistry(source, {
+      ...config,
+      fileName: config.file,
+      chunkSize: ARTICLE_REGISTRY_CHUNK_SIZE,
+    });
+    if (result.source !== source) fs.writeFileSync(file, result.source);
+    return { ...config, ...result };
+  });
 }
 
 /** Top-level SEO entries that are site-owned additions to the mirrored file. */
@@ -566,11 +575,12 @@ try {
   // Chunk only after replaying local snapshots: a snapshot can add a
   // site-owned article back to the upstream registry, and that final output
   // must receive the same TS2590-safe representation as a clean pull.
-  const registryChunks = splitBlogArticleRegistry();
-  if (registryChunks > 0) {
-    console.log(
-      `[pull-articles-corpus] split blog article registry into ${registryChunks} typed chunks`,
-    );
+  for (const { file, chunkCount } of splitArticleRegistries()) {
+    if (chunkCount > 0) {
+      console.log(
+        `[pull-articles-corpus] split ${file} into ${chunkCount} typed chunks`,
+      );
+    }
   }
 
   // Hand the pin to pull-articles-api.mjs. Published only now, on the success

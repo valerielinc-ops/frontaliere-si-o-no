@@ -1,6 +1,7 @@
 import { BellRing, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 
@@ -32,7 +33,7 @@ export default function JobAlertEndCard({ keyword, userId = null, authResolved =
  });
  const handleClick = () => {
  Analytics.trackJobAlertCtaClick('end_card', 'open', keyword);
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword, origin: 'end_card' } }));
+ openJobAlertForm(keyword, 'end_card');
  };
 
  const heading = keyword && keyword.length >= 2

@@ -9,7 +9,7 @@
         "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountants-pantr-gmbh-zurich-fa865fd8b331",
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "fr": "financial-accountant-pantr-gmbh-zurich"
+        "fr": "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
       },
       "slugDisambiguator": "fa865fd8b331",
       "company": "Pantr GmbH",
@@ -57,13 +57,11 @@
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "financial-accountant-pantr-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-          "financial-contabile-pantr-gmbh-zurich-fa865fd8b331"
+          "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
         ],
         "en": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
@@ -91,12 +89,12 @@
     },
     {
       "id": "pantr-ch-cfd0a7b808cb",
-      "slug": "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb",
+      "slug": "contabile-finanziario-pantr-gmbh-zurich-cfd0a7b808cb",
       "slugByLocale": {
-        "it": "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb",
-        "en": "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb",
+        "it": "contabile-finanziario-pantr-gmbh-zurich-cfd0a7b808cb",
+        "en": "financial-accountant-pantr-gmbh-zurich-cfd0a7b808cb",
         "de": "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb",
-        "fr": "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb"
+        "fr": "comptable-financier-pantr-gmbh-zurich-cfd0a7b808cb"
       },
       "slugDisambiguator": "cfd0a7b808cb",
       "company": "Pantr GmbH",
@@ -154,16 +152,30 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb"
+        ],
+        "en": [
+          "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb"
+        ],
+        "fr": [
+          "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb"
+        ]
+      },
+      "previousSlugs": [
+        "finanzbuchhalter-in-pantr-gmbh-zurich-cfd0a7b808cb"
+      ]
     },
     {
       "id": "pantr-ch-8a66d4156bf6",
-      "slug": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+      "slug": "generalista-a-finanza-pantr-gmbh-ruti-zurich-8a66d4156bf6",
       "slugByLocale": {
-        "it": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-        "en": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+        "it": "generalista-a-finanza-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+        "en": "generalist-finance-pantr-gmbh-ruti-zurich-8a66d4156bf6",
         "de": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-        "fr": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+        "fr": "generaliste-finances-pantr-gmbh-ruti-zurich-8a66d4156bf6"
       },
       "slugDisambiguator": "8a66d4156bf6",
       "company": "Pantr GmbH",
@@ -221,7 +233,21 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+        ],
+        "en": [
+          "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+        ],
+        "fr": [
+          "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+        ]
+      },
+      "previousSlugs": [
+        "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+      ]
     },
     {
       "id": "pantr-ch-ba1b6fb7d144",
@@ -276,13 +302,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
-        "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
+        "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
-          "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
+          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
         ],
         "en": [
           "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
@@ -379,9 +403,9 @@
       "slug": "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern",
       "slugByLocale": {
         "it": "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern",
-        "en": "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
+        "en": "certified-public-accountant-as-head-of-mandate-pantr-gmbh-bern-bern-a6cd462ca484",
         "de": "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
-        "fr": "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+        "fr": "expert-comptable-diplome-e-en-tant-que-responsable-de-mandat-pantr-gmbh-bern-bern-a6cd462ca484"
       },
       "slugDisambiguator": "a6cd462ca484",
       "company": "Pantr GmbH",
@@ -427,13 +451,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
-        "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
+        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
-          "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
+          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+        ],
+        "en": [
+          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+        ],
+        "fr": [
+          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
         ]
       },
       "needsRetranslation": true,
@@ -457,9 +485,9 @@
       "slug": "responsabile-steuerteam-pantr-gmbh-basel",
       "slugByLocale": {
         "it": "responsabile-steuerteam-pantr-gmbh-basel",
-        "en": "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
+        "en": "head-of-tax-team-pantr-gmbh-basel-09f427342f61",
         "de": "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
-        "fr": "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
+        "fr": "responsable-de-l-equipe-de-pilotage-pantr-gmbh-basel-09f427342f61"
       },
       "slugDisambiguator": "09f427342f61",
       "company": "Pantr GmbH",
@@ -505,13 +533,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
-        "responsabile-steuerteam-pantr-gmbh-basel"
+        "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
-          "responsabile-steuerteam-pantr-gmbh-basel"
+          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
+        ],
+        "en": [
+          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
+        ],
+        "fr": [
+          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.249Z",
@@ -582,13 +614,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
-        "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
+        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
-          "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
+          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
         ],
         "fr": [
           "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"

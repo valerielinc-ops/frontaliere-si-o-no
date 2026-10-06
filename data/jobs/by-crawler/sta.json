@@ -10426,9 +10426,9 @@
       "slug": "schreiner-in-per-montageeinsatze-sta-personal-ag-muri-ag",
       "slugByLocale": {
         "it": "schreiner-in-per-montageeinsatze-sta-personal-ag-muri-ag",
-        "en": "schreiner-in-fur-montageeinsatze-sta-personal-ag-muri-ag",
+        "en": "carpenter-for-assembly-assignments-sta-personal-ag-muri-ag-aargau",
         "de": "schreiner-in-fur-montageeinsatze-muri-ag-aargau-sta-ch",
-        "fr": "schreiner-in-fur-montageeinsatze-sta-personal-ag-muri-ag"
+        "fr": "charpentier-pour-les-missions-d-assemblage-sta-personal-ag-muri-ag-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -10471,11 +10471,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schreiner-in-fur-montageeinsatze-muri-ag-aargau-sta-ch"
+        "schreiner-in-fur-montageeinsatze-muri-ag-aargau-sta-ch",
+        "schreiner-in-fur-montageeinsatze-sta-personal-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-montageeinsatze-muri-ag-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montageeinsatze-sta-personal-ag-muri-ag"
+        ],
+        "fr": [
+          "schreiner-in-fur-montageeinsatze-sta-personal-ag-muri-ag"
         ]
       },
       "needsRetranslation": true,
@@ -12703,9 +12710,9 @@
       "slug": "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau",
       "slugByLocale": {
         "it": "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau",
-        "en": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
+        "en": "carpenter-for-kitchen-and-interior-design-sta-personal-ag-willisau-luzern",
         "de": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
-        "fr": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+        "fr": "charpentier-pour-la-cuisine-et-la-decoration-interieure-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -12752,6 +12759,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
         ]
       },
@@ -23408,9 +23421,9 @@
       "slug": "polymechaniker-in-mit-fuhrungsaufgaben-sta-personal-ag-wil-sg",
       "slugByLocale": {
         "it": "polymechaniker-in-mit-fuhrungsaufgaben-sta-personal-ag-wil-sg",
-        "en": "polymechaniker-in-mit-fuhrungsaufgaben-sta-personal-ag-wil-sg",
+        "en": "polymechanic-with-management-tasks-sta-personal-ag-wil-sg-st-gallen",
         "de": "polymechaniker-in-mit-fuhrungsaufgaben-wil-sg-st-gallen-sta-ch",
-        "fr": "polymechaniker-in-mit-fuhrungsaufgaben-sta-personal-ag-wil-sg"
+        "fr": "polymecanique-avec-taches-de-gestion-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -23482,9 +23495,9 @@
       "slug": "polymechaniker-in-con-fokus-instandhaltung-e-produktion-sta-personal-ag-herisau",
       "slugByLocale": {
         "it": "polymechaniker-in-con-fokus-instandhaltung-e-produktion-sta-personal-ag-herisau",
-        "en": "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden",
+        "en": "polymechanic-with-a-focus-on-maintenance-and-production-sta-personal-ag-herisau-appenzell-ausserrhoden",
         "de": "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden",
-        "fr": "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden"
+        "fr": "polymecanicien-ne-specialise-e-dans-la-maintenance-et-la-production-sta-personal-ag-herisau-appenzell-ausserrhoden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -23531,6 +23544,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden"
+        ],
+        "fr": [
           "polymechaniker-in-mit-fokus-instandhaltung-und-produktion-herisau-appenzell-ausserrhoden"
         ]
       },
@@ -24222,9 +24241,9 @@
       "slug": "polymechaniker-in-con-cnc-dreh-e-frastechnologie-sta-personal-ag-wil-sg",
       "slugByLocale": {
         "it": "polymechaniker-in-con-cnc-dreh-e-frastechnologie-sta-personal-ag-wil-sg",
-        "en": "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-sta-personal-ag-wil-sg",
+        "en": "polymechanic-with-cnc-turning-and-milling-technology-sta-personal-ag-wil-sg-st-gallen",
         "de": "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-wil-sg-st-gallen-sta-ch",
-        "fr": "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-sta-personal-ag-wil-sg"
+        "fr": "polymecanique-avec-technologie-de-tournage-et-de-fraisage-cnc-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -24267,11 +24286,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-wil-sg-st-gallen-sta-ch"
+        "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-wil-sg-st-gallen-sta-ch",
+        "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-sta-personal-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-sta-personal-ag-wil-sg"
+        ],
+        "fr": [
+          "polymechaniker-in-mit-cnc-dreh-und-frastechnologie-sta-personal-ag-wil-sg"
         ]
       },
       "needsRetranslation": true,
@@ -25433,9 +25459,9 @@
       "slug": "polymechaniker-in-per-cnc-drehen-con-fanuc-steuerung-sta-personal-ag-rapperswil-jona",
       "slugByLocale": {
         "it": "polymechaniker-in-per-cnc-drehen-con-fanuc-steuerung-sta-personal-ag-rapperswil-jona",
-        "en": "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch",
+        "en": "polymechanic-for-cnc-turning-with-fanuc-control-sta-personal-ag-rapperswil-jona-st-gallen",
         "de": "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch",
-        "fr": "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch"
+        "fr": "polymecanicien-ne-pour-tournage-cnc-avec-commande-fanuc-sta-personal-ag-rapperswil-jona-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -25482,6 +25508,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-fur-cnc-drehen-mit-fanuc-steuerung-rapperswil-jona-st-gallen-sta-ch"
         ]
       },
@@ -25874,9 +25906,9 @@
       "slug": "polymechaniker-in-per-baugruppenmontage-sta-personal-ag-herisau",
       "slugByLocale": {
         "it": "polymechaniker-in-per-baugruppenmontage-sta-personal-ag-herisau",
-        "en": "polymechaniker-in-fur-baugruppenmontage-sta-personal-ag-herisau",
+        "en": "assembly-polymechanic-sta-personal-ag-herisau-appenzell-ausserrhoden",
         "de": "polymechaniker-in-fur-baugruppenmontage-herisau-appenzell-ausserrhoden-sta-ch",
-        "fr": "polymechaniker-in-fur-baugruppenmontage-sta-personal-ag-herisau"
+        "fr": "polymecanicien-ne-pour-le-montage-d-assemblages-sta-personal-ag-herisau-appenzell-ausserrhoden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -25919,11 +25951,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-fur-baugruppenmontage-herisau-appenzell-ausserrhoden-sta-ch"
+        "polymechaniker-in-fur-baugruppenmontage-herisau-appenzell-ausserrhoden-sta-ch",
+        "polymechaniker-in-fur-baugruppenmontage-sta-personal-ag-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-fur-baugruppenmontage-herisau-appenzell-ausserrhoden-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-fur-baugruppenmontage-sta-personal-ag-herisau"
+        ],
+        "fr": [
+          "polymechaniker-in-fur-baugruppenmontage-sta-personal-ag-herisau"
         ]
       },
       "needsRetranslation": true,
@@ -26387,9 +26426,9 @@
       "slug": "polymechaniker-in-cnc-drehen-con-heidenhain-steuerung-sta-personal-ag-wil-sg",
       "slugByLocale": {
         "it": "polymechaniker-in-cnc-drehen-con-heidenhain-steuerung-sta-personal-ag-wil-sg",
-        "en": "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch",
+        "en": "polymechanic-cnc-turning-with-heidenhain-control-sta-personal-ag-wil-sg-st-gallen",
         "de": "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch",
-        "fr": "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch"
+        "fr": "tournage-cnc-polymecanique-avec-controle-heidenhain-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -26436,6 +26475,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-cnc-drehen-mit-heidenhain-steuerung-wil-sg-st-gallen-sta-ch"
         ]
       },
@@ -27207,9 +27252,9 @@
       "slug": "polymechaniker-in-come-allrounder-sta-personal-ag-langenthal",
       "slugByLocale": {
         "it": "polymechaniker-in-come-allrounder-sta-personal-ag-langenthal",
-        "en": "polymechaniker-in-als-allrounder-sta-personal-ag-langenthal",
+        "en": "polymechanic-as-an-all-rounder-sta-personal-ag-langenthal-bern",
         "de": "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch",
-        "fr": "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch"
+        "fr": "polymecanique-en-tant-que-polyvalent-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -27252,10 +27297,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch"
+        "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch",
+        "polymechaniker-in-als-allrounder-sta-personal-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-als-allrounder-sta-personal-ag-langenthal"
+        ],
+        "fr": [
           "polymechaniker-in-als-allrounder-langenthal-bern-sta-ch"
         ]
       },
@@ -30115,9 +30167,9 @@
       "slug": "polymechaniker-in-montage-per-wasserkraftanlagen-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "polymechaniker-in-montage-per-wasserkraftanlagen-sta-personal-ag-luzern",
-        "en": "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch",
+        "en": "polymechanic-assembly-for-hydroelectric-power-plants-sta-personal-ag-luzern-luzern",
         "de": "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch",
-        "fr": "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch"
+        "fr": "polymecanicien-ne-montage-pour-centrales-hydroelectriques-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -30164,6 +30216,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-montage-fur-wasserkraftanlagen-luzern-luzern-sta-ch"
         ]
       },
@@ -30341,9 +30399,9 @@
       "slug": "polymechaniker-in-montage-per-spritzgussmaschinen-sta-personal-ag-schaffhausen",
       "slugByLocale": {
         "it": "polymechaniker-in-montage-per-spritzgussmaschinen-sta-personal-ag-schaffhausen",
-        "en": "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch",
+        "en": "polymechanic-assembly-for-injection-moulding-machines-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch",
-        "fr": "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch"
+        "fr": "polymecanique-assemblage-pour-machines-d-injection-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -30390,6 +30448,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-montage-fur-spritzgussmaschinen-schaffhausen-schaffhausen-sta-ch"
         ]
       },
@@ -30871,9 +30935,9 @@
       "slug": "polymechaniker-in-montage-per-maschinen-e-anlagenbau-sta-personal-ag-zurich",
       "slugByLocale": {
         "it": "polymechaniker-in-montage-per-maschinen-e-anlagenbau-sta-personal-ag-zurich",
-        "en": "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch",
+        "en": "polymechanic-assembly-for-mechanical-and-plant-engineering-sta-personal-ag-zurich-zurich",
         "de": "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch",
-        "fr": "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch"
+        "fr": "polymecanicien-ne-montage-pour-la-construction-de-machines-et-d-installations-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -30920,6 +30984,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-montage-fur-maschinen-und-anlagenbau-zurich-zurich-sta-ch"
         ]
       },
@@ -31326,9 +31396,9 @@
       "slug": "polymechaniker-in-montage-per-hightech-anlagen-sta-personal-ag-hochdorf",
       "slugByLocale": {
         "it": "polymechaniker-in-montage-per-hightech-anlagen-sta-personal-ag-hochdorf",
-        "en": "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch",
+        "en": "polymechanic-assembly-for-high-tech-systems-sta-personal-ag-hochdorf-luzern",
         "de": "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch",
-        "fr": "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch"
+        "fr": "polymecanique-assemblage-pour-systemes-high-tech-sta-personal-ag-hochdorf-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -31375,6 +31445,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-montage-fur-hightech-anlagen-hochdorf-luzern-sta-ch"
         ]
       },
@@ -34715,9 +34791,9 @@
       "slug": "polymechaniker-in-instandhaltung-per-festanstellung-in-fensterfirma-sta-personal-ag-sursee",
       "slugByLocale": {
         "it": "polymechaniker-in-instandhaltung-per-festanstellung-in-fensterfirma-sta-personal-ag-sursee",
-        "en": "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch",
+        "en": "polymechanic-maintenance-for-permanent-employment-in-window-company-sta-personal-ag-sursee-luzern",
         "de": "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch",
-        "fr": "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch"
+        "fr": "polymecanique-entretien-pour-emploi-permanent-dans-une-entreprise-de-fenetres-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -34764,6 +34840,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-instandhaltung-fur-festanstellung-in-fensterfirma-sursee-luzern-sta-ch"
         ]
       },
@@ -47033,9 +47115,9 @@
       "slug": "montage-elektriker-in-per-abwechslungsreiche-festanstellung-sta-personal-ag-zug",
       "slugByLocale": {
         "it": "montage-elektriker-in-per-abwechslungsreiche-festanstellung-sta-personal-ag-zug",
-        "en": "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch",
+        "en": "assembly-electrician-for-varied-permanent-employment-sta-personal-ag-zug-zug",
         "de": "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch",
-        "fr": "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch"
+        "fr": "electricien-d-assemblage-pour-divers-emplois-permanents-sta-personal-ag-zug-zug"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -47082,6 +47164,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch"
+        ],
+        "fr": [
           "montage-elektriker-in-fur-abwechslungsreiche-festanstellung-zug-zug-sta-ch"
         ]
       },
@@ -47472,9 +47560,9 @@
       "slug": "metallbaupraktiker-in-per-montage-e-serviceeinsatze-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "metallbaupraktiker-in-per-montage-e-serviceeinsatze-sta-personal-ag-aarau",
-        "en": "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-sta-personal-ag-aarau",
+        "en": "metal-construction-practitioner-for-assembly-and-service-assignments-sta-personal-ag-aarau-aargau",
         "de": "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-aarau-aargau-sta-ch",
-        "fr": "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-sta-personal-ag-aarau"
+        "fr": "praticien-en-construction-metallique-pour-l-assemblage-et-les-missions-de-service-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -47517,11 +47605,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-aarau-aargau-sta-ch"
+        "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-aarau-aargau-sta-ch",
+        "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "metallbaupraktiker-in-fur-montage-und-serviceeinsatze-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -52907,9 +53002,9 @@
       "slug": "metallbauer-in-per-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "metallbauer-in-per-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau",
-        "en": "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau",
+        "en": "metal-worker-for-assembly-work-metal-constructions-sta-personal-ag-aarau-aargau",
         "de": "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-aarau-aargau-sta-ch",
-        "fr": "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau"
+        "fr": "metallurgiste-pour-les-travaux-d-assemblage-constructions-metalliques-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -52952,11 +53047,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-aarau-aargau-sta-ch"
+        "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-aarau-aargau-sta-ch",
+        "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "metallbauer-in-fur-montagearbeiten-metallkonstruktionen-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -59879,9 +59981,9 @@
       "slug": "maler-in-per-neu-e-umbauten-sta-personal-ag-dietikon",
       "slugByLocale": {
         "it": "maler-in-per-neu-e-umbauten-sta-personal-ag-dietikon",
-        "en": "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch",
+        "en": "painter-for-new-buildings-and-conversions-sta-personal-ag-dietikon-zurich",
         "de": "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch",
-        "fr": "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch"
+        "fr": "peintre-pour-de-nouveaux-batiments-et-transformations-sta-personal-ag-dietikon-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -59928,6 +60030,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-neu-und-umbauten-dietikon-zurich-sta-ch"
         ]
       },
@@ -61512,9 +61620,9 @@
       "slug": "maler-in-per-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
       "slugByLocale": {
         "it": "maler-in-per-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
-        "en": "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
+        "en": "painter-for-permanent-position-in-surface-treatment-sta-personal-ag-sarnen-obwalden",
         "de": "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta-ch",
-        "fr": "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
+        "fr": "peintre-pour-un-emploi-permanent-dans-le-traitement-de-surface-sta-personal-ag-sarnen-obwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -61557,11 +61665,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta-ch"
+        "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta-ch",
+        "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
+        ],
+        "fr": [
+          "maler-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
         ]
       },
       "needsRetranslation": true,
@@ -62430,9 +62545,9 @@
       "slug": "maler-in-cfc-per-fassadenarbeiten-sta-personal-ag-wil-sg",
       "slugByLocale": {
         "it": "maler-in-cfc-per-fassadenarbeiten-sta-personal-ag-wil-sg",
-        "en": "maler-in-efz-fur-fassadenarbeiten-sta-personal-ag-wil-sg",
+        "en": "painter-efz-for-facade-work-sta-personal-ag-wil-sg-st-gallen",
         "de": "maler-in-efz-fur-fassadenarbeiten-wil-sg-st-gallen-sta-ch",
-        "fr": "maler-in-efz-fur-fassadenarbeiten-sta-personal-ag-wil-sg"
+        "fr": "peintre-cfc-pour-travaux-de-facade-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -62475,11 +62590,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-efz-fur-fassadenarbeiten-wil-sg-st-gallen-sta-ch"
+        "maler-in-efz-fur-fassadenarbeiten-wil-sg-st-gallen-sta-ch",
+        "maler-in-efz-fur-fassadenarbeiten-sta-personal-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-efz-fur-fassadenarbeiten-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "maler-in-efz-fur-fassadenarbeiten-sta-personal-ag-wil-sg"
+        ],
+        "fr": [
+          "maler-in-efz-fur-fassadenarbeiten-sta-personal-ag-wil-sg"
         ]
       },
       "needsRetranslation": true,
@@ -63632,9 +63754,9 @@
       "slug": "logistiker-in-con-staplerausweis-per-la-metallbranche-sta-personal-ag-sarnen",
       "slugByLocale": {
         "it": "logistiker-in-con-staplerausweis-per-la-metallbranche-sta-personal-ag-sarnen",
-        "en": "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sta-personal-ag-sarnen",
+        "en": "logistics-specialist-with-forklift-pass-for-the-metal-industry-sta-personal-ag-sarnen-obwalden",
         "de": "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sarnen-obwalden-sta-ch",
-        "fr": "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sta-personal-ag-sarnen"
+        "fr": "logisticien-ne-avec-badge-de-chariot-elevateur-pour-le-secteur-metallurgique-sta-personal-ag-sarnen-obwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -63677,11 +63799,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sarnen-obwalden-sta-ch"
+        "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sarnen-obwalden-sta-ch",
+        "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sta-personal-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sarnen-obwalden-sta-ch"
+        ],
+        "en": [
+          "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sta-personal-ag-sarnen"
+        ],
+        "fr": [
+          "logistiker-in-mit-staplerausweis-fur-die-metallbranche-sta-personal-ag-sarnen"
         ]
       },
       "needsRetranslation": true,
@@ -63706,9 +63835,9 @@
       "slug": "logistiker-in-con-staplerausweis-bereitschaft-per-4-schicht-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "logistiker-in-con-staplerausweis-bereitschaft-per-4-schicht-sta-personal-ag-luzern",
-        "en": "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch",
+        "en": "logistics-specialist-with-forklift-pass-readiness-for-4-shift-sta-personal-ag-luzern-luzern",
         "de": "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch",
-        "fr": "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch"
+        "fr": "logisticien-ne-avec-badge-de-chariot-elevateur-pret-pour-4-equipes-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -63755,6 +63884,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "logistiker-in-mit-staplerausweis-bereitschaft-fur-4-schicht-luzern-luzern-sta-ch"
         ]
       },
@@ -64079,9 +64214,9 @@
       "slug": "logistiker-in-con-sap-erfahrung-per-top-festanstellung-sta-personal-ag-sursee",
       "slugByLocale": {
         "it": "logistiker-in-con-sap-erfahrung-per-top-festanstellung-sta-personal-ag-sursee",
-        "en": "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sta-personal-ag-sursee",
+        "en": "logistician-with-sap-experience-for-top-permanent-employment-sta-personal-ag-sursee-luzern",
         "de": "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sursee-luzern-sta-ch",
-        "fr": "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sta-personal-ag-sursee"
+        "fr": "logisticien-avec-experience-sap-pour-un-emploi-permanent-top-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -64124,11 +64259,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sursee-luzern-sta-ch"
+        "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sursee-luzern-sta-ch",
+        "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sta-personal-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sta-personal-ag-sursee"
+        ],
+        "fr": [
+          "logistiker-in-mit-sap-erfahrung-fur-top-festanstellung-sta-personal-ag-sursee"
         ]
       },
       "needsRetranslation": true,
@@ -67086,9 +67228,9 @@
       "slug": "landmaschinenmechaniker-in-per-interne-montage-an-wasserkraftanlagen-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "landmaschinenmechaniker-in-per-interne-montage-an-wasserkraftanlagen-sta-personal-ag-luzern",
-        "en": "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch",
+        "en": "agricultural-machinery-mechanic-for-internal-installation-on-hydropower-plants-sta-personal-ag-luzern-luzern",
         "de": "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch",
-        "fr": "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch"
+        "fr": "mecanicien-ne-en-machines-agricoles-pour-le-montage-interne-sur-des-installations-hydroelectriques-sta-personal-ag"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -67135,6 +67277,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "landmaschinenmechaniker-in-fur-interne-montage-an-wasserkraftanlagen-luzern-luzern-sta-ch"
         ]
       },
@@ -68806,9 +68954,9 @@
       "slug": "industrielackierer-in-per-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
       "slugByLocale": {
         "it": "industrielackierer-in-per-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
-        "en": "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen",
+        "en": "industrial-lacquerer-for-permanent-employment-in-surface-treatment-sta-personal-ag-sarnen-obwalden",
         "de": "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta",
-        "fr": "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
+        "fr": "peintre-industriel-pour-un-emploi-permanent-dans-le-traitement-de-surface-sta-personal-ag-sarnen-obwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -68851,11 +68999,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta"
+        "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta",
+        "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sarnen-obwalden-sta"
+        ],
+        "en": [
+          "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
+        ],
+        "fr": [
+          "industrielackierer-in-fur-festanstellung-in-der-oberflachenbehandlung-sta-personal-ag-sarnen"
         ]
       },
       "needsRetranslation": true,
@@ -75688,9 +75843,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-con-kundenkontakt-e-leitungsfunktion-sta-personal-ag-bulach",
       "slugByLocale": {
         "it": "gartner-in-garten-e-landschaftsbau-con-kundenkontakt-e-leitungsfunktion-sta-personal-ag-bulach",
-        "en": "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-sta-personal-ag-bulach",
+        "en": "gardener-gardening-and-landscaping-with-customer-contact-and-management-function-sta-personal-ag-bulach-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-bulach-zurich",
-        "fr": "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-sta-personal-ag-bulach"
+        "fr": "jardinier-ere-jardinage-et-amenagement-paysager-avec-contact-avec-la-clientele-et-fonction-de-direction-sta-personal-ag"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -75733,11 +75888,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-bulach-zurich"
+        "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-bulach-zurich",
+        "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-sta-personal-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-bulach-zurich"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-sta-personal-ag-bulach"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-mit-kundenkontakt-und-leitungsfunktion-sta-personal-ag-bulach"
         ]
       },
       "needsRetranslation": true,
@@ -77412,9 +77574,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-per-try-hire-sta-personal-ag-gosgen",
       "slugByLocale": {
         "it": "gartner-in-garten-e-landschaftsbau-per-try-hire-sta-personal-ag-gosgen",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch",
+        "en": "gardener-gardening-and-landscaping-for-try-hire-sta-personal-ag-gosgen-solothurn",
         "de": "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        "fr": "jardinier-ere-jardinage-et-amenagement-paysager-pour-try-hire-sta-personal-ag-gosgen-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -77461,6 +77623,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-gosgen-solothurn-sta-ch"
         ]
       },
@@ -78673,9 +78841,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-per-gartenpflege-sta-personal-ag-kreuzlingen",
       "slugByLocale": {
         "it": "gartner-in-garten-e-landschaftsbau-per-gartenpflege-sta-personal-ag-kreuzlingen",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch",
+        "en": "gardener-gardening-and-landscaping-for-garden-care-sta-personal-ag-kreuzlingen-thurgau",
         "de": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch"
+        "fr": "jardinier-ere-jardinage-et-amenagement-paysager-pour-l-entretien-du-jardin-sta-personal-ag-kreuzlingen-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -78722,6 +78890,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-kreuzlingen-thurgau-sta-ch"
         ]
       },
@@ -95402,9 +95576,9 @@
       "slug": "automatikmonteur-in-per-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee",
       "slugByLocale": {
         "it": "automatikmonteur-in-per-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee",
-        "en": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee",
+        "en": "automatic-mechanic-for-great-use-in-the-sursee-area-sta-personal-ag-sursee-luzern",
         "de": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-sta-ch",
-        "fr": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee"
+        "fr": "monteur-monteur-automatique-pour-une-grande-utilisation-dans-la-region-de-sursee-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -95447,11 +95621,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-sta-ch"
+        "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-sta-ch",
+        "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee"
+        ],
+        "fr": [
+          "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sta-personal-ag-sursee"
         ]
       },
       "needsRetranslation": true,
@@ -97796,9 +97977,9 @@
       "slug": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-sta-ch",
       "slugByLocale": {
         "it": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-sta-ch",
-        "en": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-sta-ch",
+        "en": "automation-engineer-with-development-opportunities-sta-personal-ag-luzern-luzern",
         "de": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-sta-ch",
-        "fr": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-sta-ch"
+        "fr": "automaticien-ne-avec-possibilites-de-developpement-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -100401,9 +100582,9 @@
       "slug": "automatiker-in-per-emsr-anlagen-e-automation-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "automatiker-in-per-emsr-anlagen-e-automation-sta-personal-ag-luzern",
-        "en": "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch",
+        "en": "automation-technician-for-ei-c-systems-and-automation-sta-personal-ag-luzern-luzern",
         "de": "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch",
-        "fr": "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch"
+        "fr": "technicien-en-automatisation-pour-les-systemes-ei-c-et-l-automatisation-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -100450,6 +100631,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-emsr-anlagen-und-automation-luzern-luzern-sta-ch"
         ]
       },
@@ -106946,9 +107133,9 @@
       "slug": "allrounder-in-ausbaugewerbe-per-la-endfertigung-sta-personal-ag-sarnen",
       "slugByLocale": {
         "it": "allrounder-in-ausbaugewerbe-per-la-endfertigung-sta-personal-ag-sarnen",
-        "en": "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch",
+        "en": "all-rounder-finishing-trade-for-finishing-sta-personal-ag-sarnen-obwalden",
         "de": "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch",
-        "fr": "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch"
+        "fr": "echange-de-finition-polyvalent-contre-finition-sta-personal-ag-sarnen-obwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -106995,6 +107182,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch"
+        ],
+        "en": [
+          "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch"
+        ],
+        "fr": [
           "allrounder-in-ausbaugewerbe-fur-die-endfertigung-sarnen-obwalden-sta-ch"
         ]
       },
@@ -107093,9 +107286,9 @@
       "slug": "schreiner-in-per-verleimung-von-treppentritten-sta-personal-ag-zug",
       "slugByLocale": {
         "it": "schreiner-in-per-verleimung-von-treppentritten-sta-personal-ag-zug",
-        "en": "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch",
+        "en": "carpenter-for-gluing-stairs-sta-personal-ag-zug-zug",
         "de": "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch",
-        "fr": "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch"
+        "fr": "menuisier-menuisiere-pour-le-collage-de-marches-d-escalier-sta-personal-ag-zug-zug"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107142,6 +107335,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-verleimung-von-treppentritten-zug-zug-sta-ch"
         ]
       },
@@ -107394,9 +107593,9 @@
       "slug": "montage-elektriker-in-per-einsatz-in-der-sicherheitstechnik-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "montage-elektriker-in-per-einsatz-in-der-sicherheitstechnik-sta-personal-ag-luzern",
-        "en": "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch",
+        "en": "assembly-electrician-for-use-in-security-technology-sta-personal-ag-luzern-luzern",
         "de": "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch",
-        "fr": "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch"
+        "fr": "electricien-d-assemblage-pour-une-utilisation-dans-la-technologie-de-securite-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107444,6 +107643,12 @@
       "previousSlugsByLocale": {
         "it": [
           "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-einsatz-in-der-sicherheitstechnik-luzern-luzern-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -107468,9 +107673,9 @@
       "slug": "logistiker-in-cfc-con-erfahrung-in-spedition-sta-personal-ag-zofingen",
       "slugByLocale": {
         "it": "logistiker-in-cfc-con-erfahrung-in-spedition-sta-personal-ag-zofingen",
-        "en": "logistiker-in-efz-mit-erfahrung-in-spedition-sta-personal-ag-zofingen",
+        "en": "logistician-efz-with-experience-in-forwarding-sta-personal-ag-zofingen-aargau",
         "de": "logistiker-in-efz-mit-erfahrung-in-spedition-zofingen-aargau-sta-ch",
-        "fr": "logistiker-in-efz-mit-erfahrung-in-spedition-sta-personal-ag-zofingen"
+        "fr": "logisticien-ne-cfc-ayant-de-l-experience-dans-l-expedition-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107513,11 +107718,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-efz-mit-erfahrung-in-spedition-zofingen-aargau-sta-ch"
+        "logistiker-in-efz-mit-erfahrung-in-spedition-zofingen-aargau-sta-ch",
+        "logistiker-in-efz-mit-erfahrung-in-spedition-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-mit-erfahrung-in-spedition-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "logistiker-in-efz-mit-erfahrung-in-spedition-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "logistiker-in-efz-mit-erfahrung-in-spedition-sta-personal-ag-zofingen"
         ]
       },
       "needsRetranslation": true,
@@ -108253,9 +108465,9 @@
       "slug": "anlagen-e-apparatebauer-in-con-schweisskenntnissen-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-in-con-schweisskenntnissen-sta-personal-ag-aarau",
-        "en": "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-sta-personal-ag-aarau",
+        "en": "plant-and-apparatus-engineer-with-welding-skills-sta-personal-ag-aarau-aargau",
         "de": "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-aarau-aargau-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-sta-personal-ag-aarau"
+        "fr": "ingenieur-d-usine-et-d-appareils-avec-des-competences-en-soudage-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -108298,11 +108510,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-aarau-aargau-sta-ch"
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-aarau-aargau-sta-ch",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -108874,9 +109093,9 @@
       "slug": "maler-in-per-renovationen-sta-personal-ag-winterthur",
       "slugByLocale": {
         "it": "maler-in-per-renovationen-sta-personal-ag-winterthur",
-        "en": "maler-in-fur-renovationen-winterthur-zurich-sta-ch",
+        "en": "painter-for-renovations-sta-personal-ag-winterthur-zurich",
         "de": "maler-in-fur-renovationen-winterthur-zurich-sta-ch",
-        "fr": "maler-in-fur-renovationen-winterthur-zurich-sta-ch"
+        "fr": "peintre-pour-renovations-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -108923,6 +109142,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-renovationen-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovationen-winterthur-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-renovationen-winterthur-zurich-sta-ch"
         ]
       },
@@ -109634,9 +109859,9 @@
       "slug": "schreiner-in-per-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden",
       "slugByLocale": {
         "it": "schreiner-in-per-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden",
-        "en": "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden",
+        "en": "carpenter-for-versatile-assembly-work-in-interior-fittings-sta-personal-ag-baden-aargau",
         "de": "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-baden-aargau-sta-ch",
-        "fr": "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden"
+        "fr": "charpentier-pour-un-travail-d-assemblage-polyvalent-dans-des-amenagements-interieurs-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -109679,11 +109904,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-baden-aargau-sta-ch"
+        "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-baden-aargau-sta-ch",
+        "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden"
+        ],
+        "fr": [
+          "schreiner-in-fur-vielseitige-montagearbeiten-im-innenausbau-sta-personal-ag-baden"
         ]
       },
       "needsRetranslation": true,
@@ -110803,9 +111035,9 @@
       "slug": "maler-in-per-neubau-e-renovationen-sta-personal-ag-schaffhausen",
       "slugByLocale": {
         "it": "maler-in-per-neubau-e-renovationen-sta-personal-ag-schaffhausen",
-        "en": "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch",
+        "en": "painter-for-new-buildings-and-renovations-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch",
-        "fr": "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch"
+        "fr": "peintre-pour-de-nouveaux-batiments-et-renovations-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -110853,6 +111085,12 @@
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-neubau-und-renovationen-schaffhausen-schaffhausen-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -110877,9 +111115,9 @@
       "slug": "maler-in-per-innen-e-aussenrenovationen-sta-personal-ag-baden",
       "slugByLocale": {
         "it": "maler-in-per-innen-e-aussenrenovationen-sta-personal-ag-baden",
-        "en": "maler-in-fur-innen-und-aussenrenovationen-sta-personal-ag-baden",
+        "en": "painter-for-interior-and-exterior-renovations-sta-personal-ag-baden-aargau",
         "de": "maler-in-fur-innen-und-aussenrenovationen-baden-aargau-sta-ch",
-        "fr": "maler-in-fur-innen-und-aussenrenovationen-sta-personal-ag-baden"
+        "fr": "peintre-pour-les-renovations-interieures-et-exterieures-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -110922,11 +111160,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-innen-und-aussenrenovationen-baden-aargau-sta-ch"
+        "maler-in-fur-innen-und-aussenrenovationen-baden-aargau-sta-ch",
+        "maler-in-fur-innen-und-aussenrenovationen-sta-personal-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-innen-und-aussenrenovationen-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-innen-und-aussenrenovationen-sta-personal-ag-baden"
+        ],
+        "fr": [
+          "maler-in-fur-innen-und-aussenrenovationen-sta-personal-ag-baden"
         ]
       },
       "needsRetranslation": true,
@@ -111188,9 +111433,9 @@
       "slug": "maler-in-per-temporar-einsatz-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "maler-in-per-temporar-einsatz-sta-personal-ag-aarau",
-        "en": "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch",
+        "en": "painter-for-temporary-use-sta-personal-ag-aarau-aargau",
         "de": "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch",
-        "fr": "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch"
+        "fr": "peintre-pour-usage-temporaire-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -111237,6 +111482,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-fur-temporar-einsatz-aarau-aargau-sta-ch"
         ]
       },
@@ -111419,9 +111670,9 @@
       "slug": "logistiker-in-afp-per-magazzino-e-auslieferungstatigkeiten-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "logistiker-in-afp-per-magazzino-e-auslieferungstatigkeiten-sta-personal-ag-luzern",
-        "en": "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch",
+        "en": "logistics-eba-for-warehousing-and-delivery-activities-sta-personal-ag-luzern-luzern",
         "de": "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch",
-        "fr": "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch"
+        "fr": "logisticien-ne-afp-pour-les-activites-de-stockage-et-de-livraison-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -111468,6 +111719,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "logistiker-in-eba-fur-lager-und-auslieferungstatigkeiten-luzern-luzern-sta-ch"
         ]
       },
@@ -111720,9 +111977,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-per-vielseitige-grunflachenpflege-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "gartner-in-garten-e-landschaftsbau-per-vielseitige-grunflachenpflege-sta-personal-ag-aarau",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-sta-personal-ag-aarau",
+        "en": "gardener-gardening-and-landscaping-for-versatile-green-area-care-sta-personal-ag-aarau-aargau",
         "de": "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-aarau-aargau-sta-ch",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-sta-personal-ag-aarau"
+        "fr": "jardinier-ere-jardinage-et-amenagement-paysager-pour-l-entretien-polyvalent-des-espaces-verts-sta-personal-ag-aarau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -111765,11 +112022,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-aarau-aargau-sta-ch"
+        "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-aarau-aargau-sta-ch",
+        "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-fur-vielseitige-grunflachenpflege-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -113231,9 +113495,9 @@
       "slug": "sanitarinstallateur-in-per-abwechslungsreichen-einsatz-im-raum-malters-sta-personal-ag-luzern",
       "slugByLocale": {
         "it": "sanitarinstallateur-in-per-abwechslungsreichen-einsatz-im-raum-malters-sta-personal-ag-luzern",
-        "en": "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta",
+        "en": "plumber-for-varied-work-in-the-malters-area-sta-personal-ag-luzern-luzern",
         "de": "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta",
-        "fr": "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta"
+        "fr": "plombier-pour-divers-travaux-dans-la-region-des-malters-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113280,6 +113544,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta"
+        ],
+        "en": [
+          "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta"
+        ],
+        "fr": [
           "sanitarinstallateur-in-fur-abwechslungsreichen-einsatz-im-raum-malters-luzern-luzern-sta"
         ]
       },
@@ -113378,9 +113648,9 @@
       "slug": "montage-elektriker-in-per-abwechslungsreiche-stark-e-schwachstrominstallationen-sta-personal-ag-kulm",
       "slugByLocale": {
         "it": "montage-elektriker-in-per-abwechslungsreiche-stark-e-schwachstrominstallationen-sta-personal-ag-kulm",
-        "en": "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm",
+        "en": "assembly-electrician-for-varied-high-and-low-voltage-installations-sta-personal-ag-kulm-aargau",
         "de": "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm",
-        "fr": "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm"
+        "fr": "electricien-d-assemblage-pour-diverses-installations-haute-et-basse-tension-sta-personal-ag-kulm-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113428,6 +113698,12 @@
       "previousSlugsByLocale": {
         "it": [
           "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-abwechslungsreiche-stark-und-schwachstrominstallationen-kulm"
         ]
       },
       "needsRetranslation": true,
@@ -113452,9 +113728,9 @@
       "slug": "metallbauer-in-per-try-hire-sta-personal-ag-gosgen",
       "slugByLocale": {
         "it": "metallbauer-in-per-try-hire-sta-personal-ag-gosgen",
-        "en": "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch",
+        "en": "metalworker-for-try-hire-sta-personal-ag-gosgen-solothurn",
         "de": "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch",
-        "fr": "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        "fr": "metallurgiste-pour-try-hire-sta-personal-ag-gosgen-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113501,6 +113777,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        ],
+        "en": [
+          "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch"
+        ],
+        "fr": [
           "metallbauer-in-fur-try-amp-hire-gosgen-solothurn-sta-ch"
         ]
       },
@@ -113769,9 +114051,9 @@
       "slug": "maler-in-per-vielseitige-malerprojekte-sta-personal-ag-winterthur",
       "slugByLocale": {
         "it": "maler-in-per-vielseitige-malerprojekte-sta-personal-ag-winterthur",
-        "en": "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch",
+        "en": "painter-for-versatile-painting-projects-sta-personal-ag-winterthur-zurich",
         "de": "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch",
-        "fr": "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch"
+        "fr": "peintre-pour-des-projets-de-peinture-polyvalents-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113818,6 +114100,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-vielseitige-malerprojekte-winterthur-zurich-sta-ch"
         ]
       },
@@ -114780,9 +115068,9 @@
       "slug": "gartner-in-per-abwechslungsreichen-garten-e-landschaftsbau-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "gartner-in-per-abwechslungsreichen-garten-e-landschaftsbau-sta-personal-ag-aarau",
-        "en": "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-sta-personal-ag-aarau",
+        "en": "gardener-for-varied-gardening-and-landscaping-sta-personal-ag-aarau-aargau",
         "de": "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-        "fr": "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-sta-personal-ag-aarau"
+        "fr": "jardinier-jardiniere-pour-un-jardinage-et-un-amenagement-paysager-varies-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -114825,11 +115113,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-aarau-aargau-sta-ch"
+        "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-aarau-aargau-sta-ch",
+        "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "gartner-in-fur-abwechslungsreichen-garten-und-landschaftsbau-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -115148,9 +115443,9 @@
       "slug": "anlagen-e-apparatebauer-in-mag-e-tig-schweissen-sta-personal-ag-langenthal",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-in-mag-e-tig-schweissen-sta-personal-ag-langenthal",
-        "en": "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch",
+        "en": "plant-and-apparatus-engineer-mag-and-tig-welding-sta-personal-ag-langenthal-bern",
         "de": "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch"
+        "fr": "ingenieur-d-usine-et-d-appareils-soudage-mag-et-tig-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -115197,6 +115492,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-mag-und-tig-schweissen-langenthal-bern-sta-ch"
         ]
       },
@@ -115756,9 +116057,9 @@
       "slug": "maler-in-per-innen-e-aussenbereich-sta-personal-ag-zurich",
       "slugByLocale": {
         "it": "maler-in-per-innen-e-aussenbereich-sta-personal-ag-zurich",
-        "en": "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch",
+        "en": "painter-for-interior-and-exterior-sta-personal-ag-zurich-zurich",
         "de": "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch",
-        "fr": "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch"
+        "fr": "peintre-pour-l-interieur-et-l-exterieur-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -115805,6 +116106,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-innen-und-aussenbereich-zurich-zurich-sta-ch"
         ]
       },
@@ -116611,9 +116918,9 @@
       "slug": "schreiner-in-per-innenausbau-e-montage-sta-personal-ag-baden",
       "slugByLocale": {
         "it": "schreiner-in-per-innenausbau-e-montage-sta-personal-ag-baden",
-        "en": "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch",
+        "en": "carpenter-for-interior-construction-and-assembly-sta-personal-ag-baden-aargau",
         "de": "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch",
-        "fr": "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch"
+        "fr": "charpentier-pour-la-construction-et-l-assemblage-d-interieurs-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -116660,6 +116967,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-und-montage-baden-aargau-sta-ch"
         ]
       },
@@ -117756,9 +118069,9 @@
       "slug": "maler-in-per-renovationen-e-kundenmalerei-sta-personal-ag-winterthur",
       "slugByLocale": {
         "it": "maler-in-per-renovationen-e-kundenmalerei-sta-personal-ag-winterthur",
-        "en": "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch",
+        "en": "painter-for-renovations-and-customer-painting-sta-personal-ag-winterthur-zurich",
         "de": "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch",
-        "fr": "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch"
+        "fr": "peintre-pour-renovations-et-peinture-client-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -117805,6 +118118,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-renovationen-und-kundenmalerei-winterthur-zurich-sta-ch"
         ]
       },
@@ -118743,9 +119062,9 @@
       "slug": "schreinerpraktiker-in-per-montageeinsatze-sta-personal-ag-zofingen",
       "slugByLocale": {
         "it": "schreinerpraktiker-in-per-montageeinsatze-sta-personal-ag-zofingen",
-        "en": "schreinerpraktiker-in-fur-montageeinsatze-sta-personal-ag-zofingen",
+        "en": "carpentry-practitioner-for-installation-assignments-sta-personal-ag-zofingen-aargau",
         "de": "schreinerpraktiker-in-fur-montageeinsatze-zofingen-aargau-sta-ch",
-        "fr": "schreinerpraktiker-in-fur-montageeinsatze-sta-personal-ag-zofingen"
+        "fr": "praticien-ne-en-menuiserie-pour-les-interventions-de-montage-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -118788,11 +119107,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schreinerpraktiker-in-fur-montageeinsatze-zofingen-aargau-sta-ch"
+        "schreinerpraktiker-in-fur-montageeinsatze-zofingen-aargau-sta-ch",
+        "schreinerpraktiker-in-fur-montageeinsatze-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreinerpraktiker-in-fur-montageeinsatze-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-fur-montageeinsatze-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-fur-montageeinsatze-sta-personal-ag-zofingen"
         ]
       },
       "needsRetranslation": true,
@@ -119885,9 +120211,9 @@
       "slug": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-sta-personal-ag-aarau",
       "slugByLocale": {
         "it": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-sta-personal-ag-aarau",
-        "en": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-sta-personal-ag-aarau",
+        "en": "assembly-electrician-for-high-and-low-voltage-installations-sta-personal-ag-aarau-aargau",
         "de": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-aarau-aargau-sta-ch",
-        "fr": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-sta-personal-ag-aarau"
+        "fr": "electricien-d-assemblage-pour-installations-haute-et-basse-tension-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -119930,11 +120256,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-aarau-aargau-sta-ch"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-aarau-aargau-sta-ch",
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -120108,9 +120441,9 @@
       "slug": "metallbauer-in-per-speziallosungen-e-prototypenbau-sta-personal-ag-langenthal",
       "slugByLocale": {
         "it": "metallbauer-in-per-speziallosungen-e-prototypenbau-sta-personal-ag-langenthal",
-        "en": "metallbauer-in-fur-speziallosungen-und-prototypenbau-sta-personal-ag-langenthal",
+        "en": "metal-worker-for-special-solutions-and-prototype-construction-sta-personal-ag-langenthal-bern",
         "de": "metallbauer-in-fur-speziallosungen-und-prototypenbau-langenthal-bern-sta-ch",
-        "fr": "metallbauer-in-fur-speziallosungen-und-prototypenbau-sta-personal-ag-langenthal"
+        "fr": "metallurgiste-pour-solutions-speciales-et-construction-de-prototypes-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -120153,11 +120486,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-fur-speziallosungen-und-prototypenbau-langenthal-bern-sta-ch"
+        "metallbauer-in-fur-speziallosungen-und-prototypenbau-langenthal-bern-sta-ch",
+        "metallbauer-in-fur-speziallosungen-und-prototypenbau-sta-personal-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-fur-speziallosungen-und-prototypenbau-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "metallbauer-in-fur-speziallosungen-und-prototypenbau-sta-personal-ag-langenthal"
+        ],
+        "fr": [
+          "metallbauer-in-fur-speziallosungen-und-prototypenbau-sta-personal-ag-langenthal"
         ]
       },
       "needsRetranslation": true,
@@ -120799,9 +121139,9 @@
       "slug": "maler-in-per-vielseitige-innen-e-aussenarbeiten-sta-personal-ag-meilen",
       "slugByLocale": {
         "it": "maler-in-per-vielseitige-innen-e-aussenarbeiten-sta-personal-ag-meilen",
-        "en": "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch",
+        "en": "painter-for-versatile-interior-and-exterior-work-sta-personal-ag-meilen-zurich",
         "de": "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch",
-        "fr": "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch"
+        "fr": "peintre-pour-des-travaux-polyvalents-d-interieur-et-d-exterieur-sta-personal-ag-meilen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -120848,6 +121188,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-vielseitige-innen-und-aussenarbeiten-meilen-zurich-sta-ch"
         ]
       },
@@ -123737,9 +124083,9 @@
       "slug": "automatikmonteur-in-per-schaltschrankbau-e-kundeneinsatze-sta-personal-ag-zug",
       "slugByLocale": {
         "it": "automatikmonteur-in-per-schaltschrankbau-e-kundeneinsatze-sta-personal-ag-zug",
-        "en": "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch",
+        "en": "automatic-fitter-for-control-cabinet-construction-and-customer-applications-sta-personal-ag-zug-zug",
         "de": "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch",
-        "fr": "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch"
+        "fr": "installateur-automatique-pour-la-construction-d-armoires-de-controle-et-les-applications-clients-sta-personal-ag-zug-zug"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -123786,6 +124132,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch"
+        ],
+        "en": [
+          "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch"
+        ],
+        "fr": [
           "automatikmonteur-in-fur-schaltschrankbau-und-kundeneinsatze-zug-zug-sta-ch"
         ]
       },
@@ -125737,9 +126089,9 @@
       "slug": "fahrzeugschlosser-in-con-schweisskenntnissen-per-sonderkonstruktionen-sta-personal-ag-langenthal",
       "slugByLocale": {
         "it": "fahrzeugschlosser-in-con-schweisskenntnissen-per-sonderkonstruktionen-sta-personal-ag-langenthal",
-        "en": "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-sta-personal-ag-langenthal",
+        "en": "vehicle-fitter-with-welding-skills-for-special-constructions-sta-personal-ag-langenthal-bern",
         "de": "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-langenthal-bern-sta",
-        "fr": "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-sta-personal-ag-langenthal"
+        "fr": "ajusteur-de-vehicules-avec-des-competences-en-soudure-pour-des-constructions-speciales-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -125782,11 +126134,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-langenthal-bern-sta"
+        "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-langenthal-bern-sta",
+        "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-sta-personal-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-langenthal-bern-sta"
+        ],
+        "en": [
+          "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-sta-personal-ag-langenthal"
+        ],
+        "fr": [
+          "fahrzeugschlosser-in-mit-schweisskenntnissen-fur-sonderkonstruktionen-sta-personal-ag-langenthal"
         ]
       },
       "needsRetranslation": true,
@@ -128850,9 +129209,9 @@
       "slug": "anlagen-e-apparatebauer-in-per-try-hire-sta-personal-ag-oensingen",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-in-per-try-hire-sta-personal-ag-oensingen",
-        "en": "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch",
+        "en": "plant-and-apparatus-engineer-for-try-hire-sta-personal-ag-oensingen-solothurn",
         "de": "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch"
+        "fr": "ingenieur-en-usine-et-appareils-pour-try-hire-sta-personal-ag-oensingen-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128899,6 +129258,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-fur-try-amp-hire-oensingen-solothurn-sta-ch"
         ]
       },
@@ -129376,9 +129741,9 @@
       "slug": "maler-in-mit-erfahrung-in-sanierungsprojekten-solothurn-solothurn-sta-ch",
       "slugByLocale": {
         "it": "maler-in-mit-erfahrung-in-sanierungsprojekten-solothurn-solothurn-sta-ch",
-        "en": "maler-in-mit-erfahrung-in-sanierungsprojekten-solothurn-solothurn-sta-ch",
+        "en": "painter-with-experience-in-renovation-projects-sta-personal-ag-solothurn-solothurn",
         "de": "maler-in-mit-erfahrung-in-sanierungsprojekten-solothurn-solothurn-sta-ch",
-        "fr": "maler-in-mit-erfahrung-in-sanierungsprojekten-solothurn-solothurn-sta-ch"
+        "fr": "peintre-experimente-dans-des-projets-de-renovation-sta-personal-ag-solothurn-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129528,9 +129893,9 @@
       "slug": "maler-in-per-umbauprojekte-sta-personal-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "maler-in-per-umbauprojekte-sta-personal-ag-affoltern-am-albis",
-        "en": "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch",
+        "en": "painter-for-renovation-projects-sta-personal-ag-affoltern-am-albis-zurich",
         "de": "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch",
-        "fr": "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch"
+        "fr": "peintre-pour-les-projets-de-renovation-sta-personal-ag-affoltern-am-albis-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129577,6 +129942,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-umbauprojekte-affoltern-am-albis-zurich-sta-ch"
         ]
       },
@@ -129684,9 +130055,9 @@
       "slug": "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-sta-personal-ag-willisau",
       "slugByLocale": {
         "it": "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-sta-personal-ag-willisau",
-        "en": "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-sta-personal-ag-willisau",
+        "en": "industrial-painter-unskilled-worker-for-wet-painting-work-sta-personal-ag-willisau-luzern",
         "de": "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-sta-ch",
-        "fr": "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-sta-personal-ag-willisau"
+        "fr": "peintre-industriel-ouvrier-non-qualifie-pour-la-peinture-a-l-eau-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129729,11 +130100,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-sta-ch"
+        "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-sta-ch",
+        "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-sta-ch"
+        ],
+        "en": [
+          "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-sta-personal-ag-willisau"
+        ],
+        "fr": [
+          "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-sta-personal-ag-willisau"
         ]
       },
       "needsRetranslation": true,

@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-14T10:54:12.332Z",
-    "label": "before",
-    "total": 32489,
-    "needsRetranslation": 5012,
-    "suppressed": 157,
-    "incomplete": 5468,
-    "complete": 27021,
-    "slotsPresent": 27021,
-    "flaggedAmongSlotsPresent": 8,
-    "verifiedTranslated": 27013,
-    "sourceCopyExcused": 411,
-    "slotsPresentByLength": 32372,
-    "languageVerified": 27882,
-    "missingByLocale": {
-      "it": 70,
-      "en": 57,
-      "de": 62,
-      "fr": 76
-    },
-    "queueAge": {
-      "count": 5012,
-      "withTimestamp": 5012,
-      "oldestAgeDays": 154,
-      "p50AgeDays": 13.7,
-      "p90AgeDays": 73.5,
-      "buckets": {
-        "0-1d": 16,
-        "1-2d": 5,
-        "2-7d": 1655,
-        "0-7d": 1676,
-        "7-30d": 1628,
-        "30-90d": 1338,
-        "90-180d": 370,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1192
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 475
-      },
-      {
-        "company": "Roche",
-        "pending": 450
-      },
-      {
-        "company": "Sulzer",
-        "pending": 162
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 160
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 131
-      },
-      {
-        "company": "PEMSA",
-        "pending": 129
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 104
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 72
-      },
-      {
-        "company": "JUMBO",
-        "pending": 65
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-14T14:47:15.324Z",
     "label": "after",
     "total": 32489,
@@ -20543,43 +20460,7 @@
         "residualRate": 0.029411764705882353,
         "runs": 11,
         "measured": false,
-        "queueCandidates": 10529,
-        "members": [
-          "ac180aec3d632a0b:0",
-          "9d19b14c5c0aa913:0",
-          "3ed52ce78ec0b861:0",
-          "447373739f946624:0",
-          "4aa1932443c4f122:0",
-          "f1c29d9fdd446dcb:0",
-          "117831c75bc981a3:0",
-          "9bb018668078c9b7:0",
-          "577f095a7cf31f1d:0",
-          "577e4374595d751a:0",
-          "cf2c9a40a9c22d45:1",
-          "bdfca07f0f844e9a:0",
-          "a5062b9370b4e09a:0",
-          "1d34c2cbe481c269:0",
-          "539b2c1ead95e079:0",
-          "71a6f6a189662bb1:0",
-          "7be338aa7ef1bd8e:0",
-          "8f2e9a5b8e966518:0",
-          "ca5e6d9f20494941:0",
-          "4eee954f051e6e3b:0",
-          "0445343c830a5c80:0",
-          "1df865f5fc6e0b3b:0",
-          "0e77fa5ac66ca3c9:0",
-          "c20329066049e967:0",
-          "a706eeb3adea8b53:0",
-          "a6f338a90144ed74:0",
-          "32d00c4334a82676:0",
-          "01d827670e2978a9:0",
-          "3dec9e219436d786:0",
-          "9d1446221fdd089b:0",
-          "0811c8fa9a098afd:0",
-          "53a1c2962fd258db:0",
-          "dc6c3ab1426512b8:0",
-          "93ce4938d052ef43:0"
-        ]
+        "queueCandidates": 10529
       }
     },
     "publicationHold": {
@@ -20749,5 +20630,209 @@
         "pending": 233
       }
     ]
+  },
+  {
+    "timestamp": "2026-10-06T18:04:25.634Z",
+    "label": "after",
+    "total": 32085,
+    "needsRetranslation": 15287,
+    "suppressed": 135,
+    "incomplete": 16263,
+    "complete": 15822,
+    "slotsPresent": 15822,
+    "flaggedAmongSlotsPresent": 120,
+    "verifiedTranslated": 15702,
+    "sourceCopyExcused": 537,
+    "slotsPresentByLength": 31864,
+    "languageVerified": 18740,
+    "missingByLocale": {
+      "it": 2929,
+      "en": 2798,
+      "de": 405,
+      "fr": 2717
+    },
+    "queueAge": {
+      "count": 15287,
+      "withTimestamp": 15286,
+      "oldestAgeDays": 518.4,
+      "p50AgeDays": 12.8,
+      "p90AgeDays": 57.3,
+      "buckets": {
+        "0-1d": 634,
+        "1-2d": 221,
+        "2-7d": 2298,
+        "0-7d": 3153,
+        "7-30d": 7377,
+        "30-90d": 3861,
+        "90-180d": 889,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 1430,
+      "withTimestamp": 1430,
+      "oldestAgeDays": 175.8,
+      "p50AgeDays": 16.8,
+      "p90AgeDays": 35.7,
+      "buckets": {
+        "0-1d": 17,
+        "1-2d": 55,
+        "2-7d": 150,
+        "0-7d": 222,
+        "7-30d": 987,
+        "30-90d": 206,
+        "90-180d": 15,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 10018,
+      "sampled": 120,
+      "processed": 6,
+      "residual": 1,
+      "residualRate": 0.16666666666666666,
+      "window": {
+        "size": 120,
+        "processed": 40,
+        "residual": 2,
+        "residualRate": 0.05,
+        "runs": 12,
+        "measured": false,
+        "queueCandidates": 10018,
+        "members": [
+          "ac180aec3d632a0b:0",
+          "9d19b14c5c0aa913:0",
+          "3ed52ce78ec0b861:0",
+          "447373739f946624:0",
+          "4aa1932443c4f122:0",
+          "f1c29d9fdd446dcb:0",
+          "117831c75bc981a3:0",
+          "9bb018668078c9b7:0",
+          "577f095a7cf31f1d:0",
+          "577e4374595d751a:0",
+          "cf2c9a40a9c22d45:1",
+          "bdfca07f0f844e9a:0",
+          "a5062b9370b4e09a:0",
+          "1d34c2cbe481c269:0",
+          "539b2c1ead95e079:0",
+          "71a6f6a189662bb1:0",
+          "7be338aa7ef1bd8e:0",
+          "8f2e9a5b8e966518:0",
+          "ca5e6d9f20494941:0",
+          "4eee954f051e6e3b:0",
+          "0445343c830a5c80:0",
+          "1df865f5fc6e0b3b:0",
+          "0e77fa5ac66ca3c9:0",
+          "c20329066049e967:0",
+          "a706eeb3adea8b53:0",
+          "a6f338a90144ed74:0",
+          "32d00c4334a82676:0",
+          "01d827670e2978a9:0",
+          "3dec9e219436d786:0",
+          "9d1446221fdd089b:0",
+          "0811c8fa9a098afd:0",
+          "53a1c2962fd258db:0",
+          "dc6c3ab1426512b8:0",
+          "93ce4938d052ef43:0",
+          "7dfaaa79ac3363ae:0",
+          "0cc47f234c1bdaa0:0",
+          "466626d8783796f9:0",
+          "c5db7218be1b23da:1",
+          "e0913ee178b778c0:0",
+          "7860b9c37abaf63f:0"
+        ]
+      }
+    },
+    "publicationHold": {
+      "held": 248,
+      "byCrawler": {
+        "fachkraft": 109,
+        "sta": 32,
+        "stellenpartner": 71,
+        "stellentreff": 36
+      }
+    },
+    "predicateVersion": "ab9a9061e161d272",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 370,
+      "complete": 191
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3442
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1732
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 957
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 893
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 807
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 759
+      },
+      {
+        "company": "VOLG",
+        "pending": 345
+      },
+      {
+        "company": "Galaxus",
+        "pending": 249
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 227
+      },
+      {
+        "company": "Manor AG",
+        "pending": 221
+      }
+    ],
+    "codexReserve": {
+      "calls": 30,
+      "textsSent": 30,
+      "translated": 30,
+      "rejected": 0,
+      "spentMs": 640059,
+      "verdict": "covered",
+      "byPhase": {
+        "2b-cascade": {
+          "position": "after-premium",
+          "calls": 30,
+          "maxCalls": 30,
+          "translated": 30,
+          "rejected": 0,
+          "stopReason": "budget di 30 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)"
+        },
+        "2d-titles": {
+          "position": "last",
+          "calls": 0,
+          "maxCalls": 30,
+          "translated": 0,
+          "rejected": 0,
+          "stopReason": null
+        }
+      }
+    }
   }
 ]

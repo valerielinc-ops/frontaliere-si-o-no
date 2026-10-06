@@ -8385,12 +8385,12 @@
     },
     {
       "id": "uzh-cd0aeeb025ec",
-      "slug": "doktorand-in-uzh-zurich",
+      "slug": "dottorando-a-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "doktorand-in-uzh-zurich",
+        "it": "dottorando-a-universitat-zurich-zurich",
         "en": "doktorand-in-universitat-zurich-zurich",
         "de": "doktorand-in-uzh-zurich",
-        "fr": "doktorand-in-uzh-zurich"
+        "fr": "doctorant-e-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8447,14 +8447,25 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-uzh-zurich"
+        ],
+        "fr": [
+          "doktorand-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-1201add5688b",
       "slug": "risorse-umane-spezialist-in-risorse-umane-zentrale-dienste-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "risorse-umane-spezialist-in-risorse-umane-zentrale-dienste-universitat-zurich-zurich",
-        "en": "hr-spezialist-in-hr-zentrale-dienste-uzh-zurich",
+        "en": "hr-specialist-hr-central-services-universitat-zurich-zurich",
         "de": "hr-spezialist-in-hr-zentrale-dienste-uzh-zurich",
         "fr": "ressources-humaines-spezialist-in-ressources-humaines-zentrale-dienste-universitat-zurich-zurich"
       },
@@ -8509,6 +8520,9 @@
           "hr-spezialist-in-hr-zentrale-dienste-uzh-zurich"
         ],
         "fr": [
+          "hr-spezialist-in-hr-zentrale-dienste-uzh-zurich"
+        ],
+        "en": [
           "hr-spezialist-in-hr-zentrale-dienste-uzh-zurich"
         ]
       },
@@ -8935,7 +8949,7 @@
         "it": "receptionist-in-uzh-zurich",
         "en": "receptionist-in-uzh-zurich",
         "de": "receptionist-in-uzh-zurich",
-        "fr": "receptionist-in-uzh-zurich"
+        "fr": "receptionniste-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9226,9 +9240,9 @@
       "slug": "responsabile-it-digital-services-universitat-zurich",
       "slugByLocale": {
         "it": "responsabile-it-digital-services-universitat-zurich",
-        "en": "leiter-in-it-amp-digital-services-uzh-zurich",
+        "en": "head-of-it-digital-services-universitat-zurich-zurich",
         "de": "leiter-in-it-amp-digital-services-uzh-zurich",
-        "fr": "leiter-in-it-amp-digital-services-uzh-zurich"
+        "fr": "responsable-des-services-informatiques-et-numeriques-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9278,6 +9292,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-it-amp-digital-services-uzh-zurich"
+        ],
+        "en": [
+          "leiter-in-it-amp-digital-services-uzh-zurich"
+        ],
+        "fr": [
           "leiter-in-it-amp-digital-services-uzh-zurich"
         ]
       },

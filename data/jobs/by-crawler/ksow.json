@@ -1152,12 +1152,12 @@
     },
     {
       "id": "ksow-55e195d6b4bf",
-      "slug": "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen",
+      "slug": "assistente-medico-ambulatoriale-ricezione-di-emergenza-a-30-60-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen",
-        "en": "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen",
+        "it": "assistente-medico-ambulatoriale-ricezione-di-emergenza-a-30-60-kantonsspital-obwalden-sarnen",
+        "en": "medical-practice-assistant-emergency-receptionist-a-30-60-kantonsspital-obwalden-sarnen",
         "de": "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen",
-        "fr": "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen"
+        "fr": "assistant-e-medical-e-reception-d-urgence-a-30-60-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1202,11 +1202,19 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen"
+        "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen",
+        "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen"
+          "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen",
+          "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen"
+        ],
+        "en": [
+          "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:12.172Z",

@@ -91,6 +91,7 @@ import {
   withEventPriceSource,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
@@ -1139,10 +1140,11 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 

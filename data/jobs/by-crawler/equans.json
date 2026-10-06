@@ -10787,12 +10787,12 @@
     },
     {
       "id": "equans-6d4a1701f6ad",
-      "slug": "sanitarinstallateur-in-equans-switzerland-bern",
+      "slug": "installatore-trice-di-sanitari-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-equans-switzerland-bern",
-        "en": "sanitarinstallateur-in-equans-switzerland-bern",
+        "it": "installatore-trice-di-sanitari-equans-switzerland-bern",
+        "en": "plumbing-engineer-equans-switzerland-bern",
         "de": "sanitarinstallateur-in-equans-bern",
-        "fr": "sanitarinstallateur-in-equans-switzerland-bern"
+        "fr": "installateur-trice-sanitaire-cfc-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10837,11 +10837,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarinstallateur-in-equans-bern"
+        "sanitarinstallateur-in-equans-bern",
+        "sanitarinstallateur-in-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-equans-bern"
+          "sanitarinstallateur-in-equans-bern",
+          "sanitarinstallateur-in-equans-switzerland-bern"
+        ],
+        "en": [
+          "sanitarinstallateur-in-equans-switzerland-bern"
+        ],
+        "fr": [
+          "sanitarinstallateur-in-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.028Z",
@@ -10945,9 +10953,9 @@
       "slug": "disponent-in-equans-switzerland-landquart",
       "slugByLocale": {
         "it": "disponent-in-equans-switzerland-landquart",
-        "en": "disponent-in-equans-landquart",
+        "en": "dispatcher-equans-switzerland-landquart",
         "de": "disponent-in-equans-landquart",
-        "fr": "disponent-in-equans-landquart"
+        "fr": "organisateur-trice-equans-switzerland-landquart"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10997,6 +11005,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-equans-landquart"
+        ],
+        "en": [
+          "disponent-in-equans-landquart"
+        ],
+        "fr": [
           "disponent-in-equans-landquart"
         ]
       },
@@ -11474,12 +11488,12 @@
     },
     {
       "id": "equans-ca1c9f37d124",
-      "slug": "kaltetechniker-in-equans-kloten",
+      "slug": "tecnico-della-refrigerazione-equans-switzerland-kloten",
       "slugByLocale": {
-        "it": "kaltetechniker-in-equans-kloten",
-        "en": "kaltetechniker-in-equans-kloten",
+        "it": "tecnico-della-refrigerazione-equans-switzerland-kloten",
+        "en": "refrigeration-technician-equans-switzerland-kloten",
         "de": "kaltetechniker-in-equans-kloten",
-        "fr": "kaltetechniker-in-equans-kloten"
+        "fr": "technicien-en-refrigeration-equans-switzerland-kloten"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -11537,16 +11551,30 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kaltetechniker-in-equans-kloten"
+        ],
+        "en": [
+          "kaltetechniker-in-equans-kloten"
+        ],
+        "fr": [
+          "kaltetechniker-in-equans-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "kaltetechniker-in-equans-kloten"
+      ]
     },
     {
       "id": "equans-ce236ea3cdd6",
-      "slug": "luftungstechniker-in-equans-switzerland-kloten",
+      "slug": "tecnico-di-ventilazione-equans-switzerland-kloten",
       "slugByLocale": {
-        "it": "luftungstechniker-in-equans-switzerland-kloten",
-        "en": "luftungstechniker-in-equans-switzerland-kloten",
+        "it": "tecnico-di-ventilazione-equans-switzerland-kloten",
+        "en": "ventilation-technician-equans-switzerland-kloten",
         "de": "luftungstechniker-in-equans-kloten",
-        "fr": "luftungstechniker-in-equans-switzerland-kloten"
+        "fr": "technicien-en-ventilation-equans-switzerland-kloten"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -11592,11 +11620,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "luftungstechniker-in-equans-kloten"
+        "luftungstechniker-in-equans-kloten",
+        "luftungstechniker-in-equans-switzerland-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "luftungstechniker-in-equans-kloten"
+          "luftungstechniker-in-equans-kloten",
+          "luftungstechniker-in-equans-switzerland-kloten"
+        ],
+        "en": [
+          "luftungstechniker-in-equans-switzerland-kloten"
+        ],
+        "fr": [
+          "luftungstechniker-in-equans-switzerland-kloten"
         ]
       },
       "firstSeenAt": "2026-10-05T21:26:50.488Z",

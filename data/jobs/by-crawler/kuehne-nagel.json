@@ -58,17 +58,14 @@
       "firstSeenAt": "2026-09-01T14:15:31.466Z",
       "previousSlugsByLocale": {
         "it": [
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
         ],
         "en": [
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
         ]
       },
       "previousSlugs": [
-        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -137,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-        "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-          "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
         ],
         "en": [
           "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
@@ -221,13 +216,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
-        "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
+        "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
-          "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
+          "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
         ],
         "de": [
           "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
@@ -253,12 +246,12 @@
     },
     {
       "id": "kuehne-nagel-1afed546b5fd",
-      "slug": "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon",
+      "slug": "spedizioniere-a-trasporto-aereo-export-m-f-d-kuehne-nagel-opfikon",
       "slugByLocale": {
-        "it": "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon",
-        "en": "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon",
+        "it": "spedizioniere-a-trasporto-aereo-export-m-f-d-kuehne-nagel-opfikon",
+        "en": "freight-forwarder-air-freight-export-m-f-d-kuehne-nagel-opfikon",
         "de": "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon",
-        "fr": "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon"
+        "fr": "agent-e-de-transport-fret-aerien-export-h-f-d-kuehne-nagel-opfikon"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -317,7 +310,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon"
+        ],
+        "en": [
+          "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon"
+        ],
+        "fr": [
+          "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "speditionskaufmann-frau-luftfracht-export-m-w-d-kuehne-nagel-opfikon"
+      ]
     },
     {
       "id": "kuehne-nagel-e682041b5b7f",
@@ -372,13 +379,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-internal-auditor-kuehne-nagel-schindellegi",
-        "auditore-interno-senior-kuehne-nagel-schindellegi"
+        "senior-internal-auditor-kuehne-nagel-schindellegi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-internal-auditor-kuehne-nagel-schindellegi",
-          "auditore-interno-senior-kuehne-nagel-schindellegi"
+          "senior-internal-auditor-kuehne-nagel-schindellegi"
         ],
         "de": [
           "senior-internal-auditor-kuehne-nagel-schindellegi"
@@ -405,12 +410,12 @@
     },
     {
       "id": "kuehne-nagel-c280173accb0",
-      "slug": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
+      "slug": "spedizioniere-a-trasporto-marittimo-m-f-d-kuehne-nagel-opfikon",
       "slugByLocale": {
-        "it": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
-        "en": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
+        "it": "spedizioniere-a-trasporto-marittimo-m-f-d-kuehne-nagel-opfikon",
+        "en": "freight-forwarding-clerk-seefracht-m-f-d-kuehne-nagel-opfikon",
         "de": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
-        "fr": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+        "fr": "agent-e-de-transport-fret-maritime-h-f-d-kuehne-nagel-opfikon"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -469,7 +474,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+        ],
+        "en": [
+          "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+        ],
+        "fr": [
+          "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+      ]
     }
   ]
 }

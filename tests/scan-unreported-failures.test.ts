@@ -19,6 +19,9 @@
  * uno step in un YAML.
  */
 
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   isReportableRun,
@@ -34,7 +37,10 @@ import {
   SIGNATURE_MAX_LEN,
   workflowScheduleFromSource,
   workflowNameFromIssue,
+  issueMatchSource,
   latestIssuePerWorkflow,
+  latestDomainIssuePerWorkflow,
+  domainIssueCoverage,
   latestClosedIssuePerWorkflow,
   closedFailureIssueWorkflows,
   closedIssueCoversRun,
@@ -44,6 +50,8 @@ import {
   RECOVERY_LISTING_SIZE,
 } from '../scripts/ci/scan-unreported-failures.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
+
+const TEST_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const NOW = Date.now();
 const since = new Date(NOW - 75 * 60_000).toISOString();
@@ -102,6 +110,40 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
       title: 'A crawler needs attention',
       body: 'The workflow crawler-health-monitor reported a stale crawler.',
     })).toBeNull();
+  });
+
+  it('classifica il titolo della famiglia prima del campo nel corpo', () => {
+    expect(issueMatchSource({
+      title: 'CI Failure: sync-pharmacy-duties',
+      body: '**Workflow:** altro-workflow',
+    })).toBe('failure-title');
+    expect(issueMatchSource({
+      title: 'Content grounding: claim non verificati',
+      body: '**Workflow:** sync-pharmacy-duties',
+    })).toBe('workflow-field');
+  });
+
+  it('elenca separatamente la canonica di dominio per poterla citare nel thread di failure', () => {
+    const domains = latestDomainIssuePerWorkflow([
+      {
+        number: 5661,
+        title: 'Content grounding: claim non verificati',
+        updatedAt: '2026-10-06T18:22:16Z',
+        url: 'https://github.com/o/r/issues/5661',
+        body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+      },
+      {
+        number: 7421,
+        title: 'CI Failure: Sync article sitemaps, feeds and ticker from the articles API',
+        updatedAt: '2026-10-06T19:00:00Z',
+        url: 'https://github.com/o/r/issues/7421',
+        body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+      },
+    ]);
+    expect(domains.get('Sync article sitemaps, feeds and ticker from the articles API')).toMatchObject({
+      number: 5661,
+      url: 'https://github.com/o/r/issues/5661',
+    });
   });
 
   it('sceglie la issue aggiornata piu recente indipendentemente dall ordine del listing', () => {
@@ -187,12 +229,138 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
     expect(closedFailureIssueWorkflows(horizon, { fetchPage: () => [] })?.size).toBe(0);
   });
 
+  it('non usa una issue di dominio chiusa come copertura storica di un failure', () => {
+    const domain = {
+      number: 5661,
+      title: 'Content grounding: claim non verificati',
+      closed_at: '2026-09-30T21:00:00Z',
+      body: '**Workflow:** sync-articles-sitemaps',
+    };
+    expect(closedFailureIssueWorkflows('2026-09-29T23:50:05Z', {
+      fetchPage: () => [domain],
+    })?.get('sync-articles-sitemaps')).toBeUndefined();
+  });
+
   it('non riapre uno storico già coperto ma lascia passare una run nuova', () => {
     const closed = { number: 10260, closedAt: '2026-09-29T11:34:09Z' };
     expect(closedIssueCoversRun(closed, '2026-09-28T18:31:07Z')).toBe(true);
     expect(closedIssueCoversRun(closed, '2026-09-29T11:34:09Z')).toBe(false);
     expect(closedIssueCoversRun(closed, '2026-09-29T11:35:00Z')).toBe(false);
     expect(closedIssueCoversRun(closed, 'not-a-date')).toBe(false);
+  });
+});
+
+describe('copertura legata allo step-verdetto del monitor', () => {
+  const crashJobs = JSON.parse(fs.readFileSync(
+    path.join(TEST_ROOT, 'tests/fixtures/scan-unreported-failures-domain-coverage/run-37339354134-jobs.json'),
+    'utf8',
+  ));
+  const verdictJobs = JSON.parse(fs.readFileSync(
+    path.join(TEST_ROOT, 'tests/fixtures/verdict-step-registry/run-37121059160-jobs.json'),
+    'utf8',
+  ));
+  const domainIssue = {
+    number: 5661,
+    title: 'Content grounding: articoli sincronizzati con claim non verificati',
+    body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+    url: 'https://github.com/valerielinc-ops/frontaliere-si-o-no/issues/5661',
+  };
+
+  it('fixture reale #5661: il crash fuori dal verdetto va al thread CI standard', () => {
+    const signature = failureSignature(crashJobs);
+    const result = domainIssueCoverage({
+      issue: domainIssue,
+      workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+      jobs: crashJobs,
+      knownTexts: [`<!-- ${SIGNATURE_MARKER} sync — step: Pull published sitemaps -->`],
+      ownerPersisted: false,
+    });
+
+    expect(signature).toBe('sync — step: Pull the article corpus');
+    expect(result).toMatchObject({ action: 'failure-issue', reason: 'new-signature', signature });
+  });
+
+  it('fixture reale del monitor: il rosso sullo step-verdetto resta coperto', () => {
+    const result = domainIssueCoverage({
+      issue: {
+        number: 11887,
+        title: '[crawler-health] stellenpartner: crawler unhealthy',
+        body: '**Workflow:** crawler-health-monitor',
+      },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: verdictJobs,
+      knownTexts: [],
+      ownerPersisted: true,
+    });
+
+    expect(result).toMatchObject({ action: 'covered', reason: 'verdict-step' });
+  });
+
+  it('invariante: una firma nuova non può essere scartata dalla copertura di dominio', () => {
+    for (const scenario of [
+      {
+        issue: domainIssue,
+        workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+        jobs: crashJobs,
+      },
+      {
+        issue: domainIssue,
+        workflowPath: '.github/workflows/unknown-monitor.yml',
+        jobs: {
+          total_count: 1,
+          jobs: [{ name: 'monitor', conclusion: 'failure', steps: [{ name: 'Run monitor', conclusion: 'failure' }] }],
+        },
+      },
+    ]) {
+      const result = domainIssueCoverage({
+        ...scenario,
+        knownTexts: [],
+        ownerPersisted: false,
+      });
+      expect(result.signature).toBeTruthy();
+      expect(result.action).toBe('failure-issue');
+      expect(result.action).not.toBe('covered');
+    }
+  });
+
+  it('dati dei job incompleti non autorizzano un duplicato', () => {
+    const result = domainIssueCoverage({
+      issue: domainIssue,
+      workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+      jobs: null,
+      knownTexts: null,
+      ownerPersisted: false,
+    });
+    expect(result).toMatchObject({ action: 'defer', reason: 'signature-undetermined' });
+  });
+
+  it('payload incompleto: solo una firma nuova autorizza la consegna', () => {
+    const incompleteVerdict = {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Step without conclusion' },
+        ],
+      }],
+    };
+    const signature = failureSignature(incompleteVerdict);
+    expect(domainIssueCoverage({
+      issue: { title: '[crawler-health] x', body: '**Workflow:** crawler-health-monitor' },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: incompleteVerdict,
+      knownTexts: [`<!-- ${SIGNATURE_MARKER} ${signature} -->`],
+      ownerPersisted: false,
+    })).toMatchObject({ action: 'defer', reason: 'signature-not-new-and-verdict-undetermined', signature });
+    expect(domainIssueCoverage({
+      issue: { title: '[crawler-health] x', body: '**Workflow:** crawler-health-monitor' },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: incompleteVerdict,
+      knownTexts: [],
+      ownerPersisted: false,
+    })).toMatchObject({ action: 'failure-issue', signature });
   });
 });
 

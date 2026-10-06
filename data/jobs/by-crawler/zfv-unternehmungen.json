@@ -2895,7 +2895,6 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
         "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
@@ -2917,7 +2916,6 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
           "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
@@ -4641,7 +4639,7 @@
         "it": "responsabile-public-catering-zfv-unternehmungen-zurich",
         "en": "leiter-in-public-catering-zfv-unternehmungen-zurich",
         "de": "leiter-in-public-catering-zfv-unternehmungen-zurich",
-        "fr": "leiter-in-public-catering-zfv-unternehmungen-zurich"
+        "fr": "responsable-dela-restauration-publique-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4690,6 +4688,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-public-catering-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "leiter-in-public-catering-zfv-unternehmungen-zurich"
         ]
       },

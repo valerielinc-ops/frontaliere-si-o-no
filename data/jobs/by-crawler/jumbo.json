@@ -11954,14 +11954,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garten-jumbo-laupen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen"
-      ],
       "retranslationAttempts": 2
     },
     {
@@ -12435,14 +12427,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-kusnacht"
-      ],
       "retranslationAttempts": 2
     },
     {
@@ -14419,7 +14403,6 @@
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur",
           "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
         ]
       },
@@ -17231,8 +17214,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-chur",
         "it": "verkaufsberater-in-do-it-jumbo-chur",
-        "en": "verkaufsberater-in-do-it-jumbo-chur",
-        "fr": "verkaufsberater-in-do-it-jumbo-chur"
+        "en": "sales-consultant-do-it-jumbo-chur",
+        "fr": "conseiller-de-vente-in-do-it-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17313,8 +17296,8 @@
       "slugByLocale": {
         "de": "leiter-in-layouting-jumbo-dietlikon",
         "it": "responsabile-layouting-jumbo-dietlikon",
-        "en": "leiter-in-layouting-jumbo-dietlikon",
-        "fr": "leiter-in-layouting-jumbo-dietlikon"
+        "en": "layouting-manager-jumbo-dietlikon",
+        "fr": "responsable-de-lamise-en-page-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17379,6 +17362,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-layouting-jumbo-dietlikon"
+        ],
+        "en": [
+          "leiter-in-layouting-jumbo-dietlikon"
+        ],
+        "fr": [
+          "leiter-in-layouting-jumbo-dietlikon"
         ]
       },
       "firstSeenAt": "2026-10-03T09:13:53.672Z",
@@ -17402,8 +17391,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-logistik-jumbo-arbon",
         "it": "teamleiter-in-logistik-jumbo-arbon",
-        "en": "teamleiter-in-logistik-jumbo-arbon",
-        "fr": "teamleiter-in-logistik-jumbo-arbon"
+        "en": "logistics-team-leader-jumbo-arbon",
+        "fr": "chef-d-equipe-en-logistique-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17588,8 +17577,8 @@
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-schattdorf",
         "it": "verkaufer-in-kassen-services-jumbo-schattdorf",
-        "en": "verkaufer-in-kassen-services-jumbo-schattdorf",
-        "fr": "verkaufer-in-kassen-services-jumbo-schattdorf"
+        "en": "vendor-cash-registers-services-jumbo-schattdorf",
+        "fr": "vendeur-dans-les-caisses-services-jumbo-schattdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17934,12 +17923,12 @@
     },
     {
       "id": "jumbo-619c979b-693",
-      "slug": "verkaufsberater-in-garden-jumbo-villmergen",
+      "slug": "consulente-di-vendita-garden-jumbo-villmergen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-villmergen",
-        "it": "verkaufsberater-in-garden-jumbo-villmergen",
-        "en": "verkaufsberater-in-garden-jumbo-villmergen",
-        "fr": "verkaufsberater-in-garden-jumbo-villmergen"
+        "it": "consulente-di-vendita-garden-jumbo-villmergen",
+        "en": "sales-consultant-garden-jumbo-villmergen",
+        "fr": "jardin-de-consultants-en-vente-jumbo-villmergen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18012,16 +18001,30 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-villmergen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-villmergen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-villmergen"
+      ]
     },
     {
       "id": "jumbo-5bec73c3-dba",
-      "slug": "verkaufer-in-kassen-services-jumbo-sissach",
+      "slug": "casse-servizi-per-assistenti-vendite-jumbo-sissach",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-sissach",
-        "it": "verkaufer-in-kassen-services-jumbo-sissach",
-        "en": "verkaufer-in-kassen-services-jumbo-sissach",
-        "fr": "verkaufer-in-kassen-services-jumbo-sissach"
+        "it": "casse-servizi-per-assistenti-vendite-jumbo-sissach",
+        "en": "sales-assistant-cash-registers-services-jumbo-sissach",
+        "fr": "caisses-services-d-assistant-commercial-jumbo-sissach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18093,7 +18096,21 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-sissach"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-sissach"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-sissach"
+      ]
     },
     {
       "id": "jumbo-35c3d38a-b38",

@@ -1,0 +1,258 @@
+name: Rewrite event descriptions (Codex Luna Max)
+
+# The source prose is consumed only from a private Firebase backlog or a
+# short-lived, encrypted Actions artifact emitted by crawl-events. It is never
+# staged, committed, copied to public/data or sent to the CDN. The checked-in
+# output is the four-locale rewrite cache only.
+on:
+  schedule:
+    # Eight small opportunities per day keep the backlog moving without
+    # monopolising the shared Codex OAuth quota.
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Select the queue without calling Codex or opening a PR.'
+        required: false
+        default: false
+        type: boolean
+      limit:
+        description: 'Maximum events selected for this run.'
+        required: false
+        default: '24'
+      batch_size:
+        description: 'Events per Codex call.'
+        required: false
+        default: '8'
+      days:
+        description: 'Restrict to the next N days; 0 means the complete queue.'
+        required: false
+        default: '0'
+  workflow_run:
+    workflows: ['Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitzerland, geneve.ch)']
+    types: [completed]
+
+concurrency:
+  group: event-description-rewrite
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  rewrite:
+    # A manual crawl defaults to dry-run. Only the scheduled real crawl may
+    # fan out automatically; a manual real crawl can dispatch this workflow
+    # explicitly with its own limits.
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'schedule')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      REWRITE_LIMIT: ${{ inputs.limit || '24' }}
+      REWRITE_BATCH_SIZE: ${{ inputs.batch_size || '8' }}
+      REWRITE_DAYS: ${{ inputs.days || '0' }}
+      REWRITE_DRY_RUN: ${{ inputs.dry_run || 'false' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Prepare Firebase credentials for private source backlog
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the private source backlog'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo 'GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json' >> "$GITHUB_ENV"
+
+      - name: Fetch private initial event-description backlog
+        id: seed
+        run: |
+          set -euo pipefail
+          seed_file="$RUNNER_TEMP/event-description-seed.jsonl"
+          node scripts/fetch-private-event-description-sources.mjs --out "$seed_file"
+          if [ -s "$seed_file" ]; then
+            echo 'has_seed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_seed=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Load data-PR credentials from Remote Config
+        if: env.REWRITE_DRY_RUN != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Mint App token (PAT fallback)
+        if: env.REWRITE_DRY_RUN != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Locate latest private crawl input
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORKFLOW_RUN_ID: ${{ github.event.workflow_run.id || '' }}
+        run: |
+          set -euo pipefail
+          source_dir="$RUNNER_TEMP/event-description-source"
+          mkdir -p "$source_dir"
+          run_id="$WORKFLOW_RUN_ID"
+          if [ -z "$run_id" ]; then
+            run_id="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow crawl-events.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+          fi
+          if [ -z "$run_id" ]; then
+            echo "No successful crawl run is available yet."
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name "event-description-sources-${run_id}" --dir "$source_dir"; then
+            echo "No encrypted description artifact was attached to crawl run ${run_id}; using the private seed only."
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          source_file="$(find "$source_dir" -type f -name '*.jsonl.enc' -print -quit)"
+          if [ -z "$source_file" ]; then
+            echo "The crawl artifact contains no encrypted source input."
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "SOURCE_EXPORT_ENCRYPTED=$source_file" >> "$GITHUB_ENV"
+          echo 'has_incremental=true' >> "$GITHUB_OUTPUT"
+
+      - name: Decrypt private crawl input
+        if: steps.source.outputs.has_incremental == 'true'
+        env:
+          EVENT_DESCRIPTION_ARTIFACT_KEY: ${{ secrets.CODEX_AUTH_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$EVENT_DESCRIPTION_ARTIFACT_KEY" ]; then
+            echo '::error::CODEX_AUTH_JSON is required to decrypt the private event-description input'
+            exit 1
+          fi
+          source_file="$RUNNER_TEMP/event-description-sources.jsonl"
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in "$SOURCE_EXPORT_ENCRYPTED" -out "$source_file" \
+            -pass env:EVENT_DESCRIPTION_ARTIFACT_KEY
+          chmod 600 "$source_file"
+
+      - name: Combine private backlog and crawl input
+        id: input
+        if: steps.seed.outputs.has_seed == 'true' || steps.source.outputs.has_incremental == 'true'
+        run: |
+          set -euo pipefail
+          combined="$RUNNER_TEMP/event-description-sources-combined.jsonl"
+          : > "$combined"
+          if [ "${{ steps.seed.outputs.has_seed }}" = 'true' ]; then
+            cat "$RUNNER_TEMP/event-description-seed.jsonl" >> "$combined"
+          fi
+          if [ "${{ steps.source.outputs.has_incremental }}" = 'true' ]; then
+            cat "$RUNNER_TEMP/event-description-sources.jsonl" >> "$combined"
+          fi
+          chmod 600 "$combined"
+          echo "SOURCE_EXPORT=$combined" >> "$GITHUB_ENV"
+          echo 'has_input=true' >> "$GITHUB_OUTPUT"
+
+      - name: Setup OmniRoute
+        if: steps.input.outputs.has_input == 'true' && env.REWRITE_DRY_RUN != 'true'
+        uses: ./.github/actions/setup-omniroute
+
+      - name: Setup Codex Luna Max broker
+        if: steps.input.outputs.has_input == 'true' && env.REWRITE_DRY_RUN != 'true'
+        id: setup_codex
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_max_concurrency: '1'
+          broker_max_timeout_ms: '180000'
+
+      - name: Rewrite selected queue
+        if: steps.input.outputs.has_input == 'true'
+        id: rewrite
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          set -euo pipefail
+          args=(
+            --source-export "$SOURCE_EXPORT"
+            --limit "$REWRITE_LIMIT"
+            --batch-size "$REWRITE_BATCH_SIZE"
+            --days "$REWRITE_DAYS"
+            --max-input-chars 50000
+            --max-total-input-chars 150000
+            --max-attempts 3
+            --stats-output "$RUNNER_TEMP/event-description-rewrite-stats.json"
+          )
+          if [ "$REWRITE_DRY_RUN" = 'true' ]; then args+=(--dry-run); fi
+          node scripts/event-description-rewrite.mjs "${args[@]}"
+          accepted="$(node -e "const s=require(process.argv[1]); console.log(s.accepted)" "$RUNNER_TEMP/event-description-rewrite-stats.json")"
+          echo "accepted=$accepted" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble and validate public data
+        if: steps.rewrite.outputs.accepted != '' && steps.rewrite.outputs.accepted != '0' && env.REWRITE_DRY_RUN != 'true'
+        run: |
+          node scripts/assemble-events-dataset.mjs --stats
+          npm run validate:event-descriptions
+          npx vitest run tests/event-description-policy.test.ts tests/events-pipeline.test.ts tests/events-detail-pages.test.ts --reporter=dot
+
+      - name: Publish rewrite cache through a data PR
+        if: steps.rewrite.outputs.accepted != '' && steps.rewrite.outputs.accepted != '0' && env.REWRITE_DRY_RUN != 'true'
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          stats="$RUNNER_TEMP/event-description-rewrite-stats.json"
+          body="$RUNNER_TEMP/event-description-rewrite-pr-body.md"
+          accepted="$(node -e "const s=require(process.argv[1]); console.log(s.accepted)" "$stats")"
+          remaining="$(node -e "const s=require(process.argv[1]); console.log(s.queueRemaining)" "$stats")"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - La cache versionata contiene ${accepted} riscrittura/e approvate dal controllo automatico; l'assembler pubblica le descrizioni solo con corrispondenza esatta tra id evento e hash della descrizione acquisita.
+          - Il dataset e la copia pubblica sono stati riassemblati e verificati prima dell'apertura della PR; l'input originale resta nell'artifact privato a breve conservazione e non entra nella PR.
+
+          ## Non implementato (ancora)
+          - Restano ${remaining} eventi selezionabili senza riscrittura valida in questa PR, by construction: workflow schedulato.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events-description-rewrites.json \
+            --path data/events.json \
+            --path public/data/events.json \
+            --branch chore/event-description-rewrite \
+            --commit-message "chore(events): refresh rewritten descriptions" \
+            --title "chore(data): rewrite event descriptions" \
+            --body-file "$body"
+
+      - name: Publish throughput and quota summary
+        if: always() && steps.input.outputs.has_input == 'true'
+        run: |
+          if [ -f "$RUNNER_TEMP/event-description-rewrite-stats.json" ]; then
+            node -e "const s=require(process.argv[1]); console.log(JSON.stringify({accepted:s.accepted,rejected:s.rejected,calls:s.calls,callsPerHour:s.callsPerHour,acceptedPerCall:s.acceptedPerCall,inputChars:s.inputChars,outputChars:s.outputChars,inputBudgetSkipped:s.inputBudgetSkipped,queueRemaining:s.queueRemaining,quota:s.quota}))" "$RUNNER_TEMP/event-description-rewrite-stats.json" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Cleanup Codex auth broker
+        if: always() && steps.setup_codex.outputs.codex_auth_broker_socket != ''
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo '::warning::Codex auth broker cleanup did not complete'

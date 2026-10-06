@@ -467,9 +467,9 @@ jobs:
       # translates a text only once DeepL and Azure can no longer serve the
       # run (every key rejected or out of quota, or not configured — Azure is
       # blanked in 2b, see there), and before Google Cloud and the free tiers.
-      # While DeepL answers, Codex is not called. Phases 2d/2e keep it at the
-      # very end of their cascade (FREE_TRANSLATE_CODEX_TIER=last, decision of
-      # 2026-09-25). Every consumer has its own per-process budget; the
+      # Codex is the primary lane; if its broker is unavailable or its
+      # per-run circuit opens, the existing translation tiers continue. Every
+      # consumer has its own per-process budget; the
       # subscription is shared with the owner's interactive use. The idle TTL
       # covers the stretch between 2b and 2d/2e (Argos mop-up, commits) inside
       # the 210-minute envelope. Without the secret, or with
@@ -653,12 +653,11 @@ jobs:
           # slug commit after 109min of queue. Healthy runs currently close in
           # ~125-155min, so this lane gets ~55-85min before it stops.
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
-          # Codex last resort (see the broker step above): at most the configured
+          # Codex primary lane (see the broker step above): at most the configured
           # number of calls (30 by default) and 15 minutes per run, because the
           # subscription is shared with the owner's interactive use and this lane runs every day.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
-          FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
@@ -687,11 +686,10 @@ jobs:
           # Azure is kept for titles, as in Phase 2b (see there).
           AZURE_TRANSLATOR_KEY: ''
           AZURE_TRANSLATOR_KEY_2: ''
-          # Codex last resort, same per-run budget as Phase 2d (the two
+          # Codex primary lane, same per-run budget as Phase 2d (the two
           # phases never run in the same run).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
-          FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
