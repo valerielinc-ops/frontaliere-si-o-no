@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-06T09:36:25.814Z",
+  "generatedAt": "2026-10-06T21:38:49.858Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9383,
-  "avgDurationMs": 9383,
+  "durationMs": 7387,
+  "avgDurationMs": 7387,
   "durationHistory": [
-    9383
+    7387
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:36:12.902Z",
+      "crawledAt": "2026-10-06T21:38:42.515Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -75,13 +75,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Head of HR EMEA & Canada",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:36:12.017Z",
+      "crawledAt": "2026-10-06T21:38:41.693Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -118,13 +118,12 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Group Commercial FP&A Manager",
-      "needsRetranslation": true,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:36:11.071Z",
+      "crawledAt": "2026-10-06T21:38:40.904Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -155,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

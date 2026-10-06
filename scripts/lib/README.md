@@ -132,6 +132,23 @@ also calls `generateImageFromSpec()` and persists its `article-hero` record;
 future place/corpus generators must use the same contract rather than add a
 second provider path.
 
+The site's editorial-profile and place catalogue uses the same boundary:
+
+```bash
+npm run generate:editorial-images -- --only authors
+npm run generate:editorial-images -- --only places
+npm run validate:generated-images
+```
+
+The generator writes three 400×400 illustrated profile avatars, sixteen
+1200×675 place views and their sixteen 480×270 thumbnails, keeping the
+existing filenames and recording each byte in
+`data/generated-image-registry.json`. The validator checks every file under
+`public/images/authors/` and `public/images/places/` against that registry,
+including the XMP/IPTC-marked WebP byte hash and dimensions. Author images are
+uploaded to the existing CDN during deployment; place images and thumbnails
+remain same-origin by contract.
+
 The historical blog-cover repair lane uses the same contract with
 `scope: 'article-hero'`: its verified bytes live at
 `public/images/blog/<assetId>.webp`, while the matching `generated-provider`

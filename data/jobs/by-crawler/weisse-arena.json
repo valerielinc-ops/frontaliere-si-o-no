@@ -1987,7 +1987,7 @@
       "title": "Hilfskoch/Hilfsköchin Hangar",
       "titleByLocale": {
         "it": "Assistente cuoco / cuoco ausiliario hangar",
-        "en": "Hilfskoch/Hilfsköchin Hangar",
+        "en": "Assistant cook/auxiliary cook hangar",
         "de": "Hilfskoch/Hilfsköchin Hangar",
         "fr": "Pendentif de cuisinier auxiliaire"
       },
@@ -2039,7 +2039,6 @@
           "hilfskoch-hilfskochin-hangar-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:15:40.297Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -3336,7 +3335,7 @@
       "slug": "cuoco-cuoca-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cuoco-cuoca-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-ch",
+        "en": "cook-chef-weisse-arena-gruppe-laax",
         "de": "koch-kochin-weisse-arena-ch",
         "fr": "chef-cuisinier-weisse-arena-gruppe-laax"
       },
@@ -3346,7 +3345,7 @@
       "title": "Koch/Köchin",
       "titleByLocale": {
         "it": "Cuoco/cuoca",
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "de": "Koch/Köchin",
         "fr": "Chef / cuisinier"
       },
@@ -3389,6 +3388,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "koch-kochin-weisse-arena-ch"
+        ],
+        "en": [
           "koch-kochin-weisse-arena-ch"
         ]
       },

@@ -131,8 +131,9 @@ describe('ricetta pre-PR di AGENTS.md (collector changed-paths)', () => {
     expect(paths).toEqual([]);
   });
 
-  it('lo stato non-complete forza la suite intera nel runner', () => {
+  it('lo stato non-complete blocca la selezione nel runner', () => {
     const runner = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/run-related-tests.mjs'), 'utf8');
     expect(runner).toContain("changedStatus !== 'complete'");
+    expect(runner).toContain('stopWithoutFullSuite');
   });
 });

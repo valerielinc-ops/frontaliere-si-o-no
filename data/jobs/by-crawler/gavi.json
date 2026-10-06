@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-10-06T09:12:57.346Z",
+  "assembledAt": "2026-10-06T21:13:56.073Z",
   "jobs": [
     {
       "id": "gavi-779c03b3dd09",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:50.314Z",
+      "crawledAt": "2026-10-06T21:13:50.717Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -54,7 +54,6 @@
       "jobReqId": "VN2509",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:26:05.940Z",
       "salaryMin": 83500,
       "salaryMax": 126500,

@@ -1,7 +1,7 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-10-06T09:34:53.923Z",
+  "generatedAt": "2026-10-06T21:32:42.537Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3647,
-  "avgDurationMs": 3647,
+  "unchangedCount": 0,
+  "durationMs": 3185,
+  "avgDurationMs": 3185,
   "durationHistory": [
-    3647
+    3185
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "igroove-c5d93def086a",
       "slug": "senior-data-pipeline-ingegnere-igroove-ag-zurich",
@@ -37,7 +35,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:34:41.633Z",
+      "crawledAt": "2026-10-06T21:32:33.337Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -69,5 +67,7 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

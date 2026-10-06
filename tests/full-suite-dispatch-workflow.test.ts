@@ -1,8 +1,10 @@
 // @vitest-environment node
 /**
  * Contratto di `.github/workflows/full-suite-dispatch.yml` (issue #9740,
- * FU-2026-09-18-013): l'unico runner che esegue la suite Vitest COMPLETA in un
- * checkout PIENO. Ogni asserzione tiene fermo un modo concreto in cui la misura
+ * FU-2026-09-18-013): l'unico runner che esegue la suite Vitest riproducibile in
+ * un checkout PIENO. I test che ricostruiscono artifact generati sono esclusi
+ * e restano eseguibili in modo mirato. Ogni asserzione tiene fermo un modo
+ * concreto in cui la misura
  * smetterebbe di misurare in silenzio: un trigger automatico (costo CI
  * permanente), uno sparse-checkout (file rossi per assenza), una env di
  * selezione o tolleranza (suite parziale), un `continue-on-error` o un
@@ -144,6 +146,12 @@ describe('full-suite-dispatch.yml: la suite è intera e il rosso resta rosso', (
     const run = String(testStep.run ?? '');
     expect(run).toContain('set -o pipefail');
     expect(run).toMatch(/npm test -- --reporter=default --reporter=json --outputFile=full-suite-report\.json/);
+  });
+
+  it('esclude i test che ricostruiscono dati generati dal percorso completo', () => {
+    const run = String(testStep.run ?? '');
+    expect(run).toContain('--exclude tests/generate-crawler-group-workflows.test.ts');
+    expect(run).toContain('--exclude tests/translation-state-drainer-v2.test.ts');
   });
 
   it('nessuna env di selezione o tolleranza, nessun --bail, nessun continue-on-error', () => {

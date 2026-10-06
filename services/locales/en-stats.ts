@@ -301,7 +301,7 @@ const enStats: Record<string, string> = {
  'blog.contentType.news': 'News',
  'blog.byline': 'Frontaliere Ticino Editorial',
  'blog.bylinePrefix': 'By',
- 'blog.authorBio': 'Cross-border tax expert Switzerland-Italy since 2020. Specialized in net salary calculation, cross-border worker taxation and Swiss social security. Data verified with official BFS, Agenzia delle Entrate and Canton Ticino sources.',
+ 'blog.authorBio': 'Editorial profile of the frontaliereticino.ch newsroom. Coverage combines official sources, practical guides and editorial checks on cross-border work topics.',
  'blog.newsBanner.title': 'Current news',
  'blog.newsBanner.desc': 'This article reports recent news. Discover also our evergreen practical guides for cross-border workers.',
  'blog.seoTitle': 'Everything a cross-border worker needs to know',
