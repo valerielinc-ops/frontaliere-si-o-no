@@ -274,6 +274,15 @@ const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hirin
 // toccati da questa decisione: decide isEscalationDriver come prima.
 export const TAXONOMY_ESCALATION_KINDS = Object.freeze(['rule', 'topic', 'ambiguous']);
 
+// Il checker/gate sibling e' un'area del codice, non la classe di processo che
+// misura i gemelli lasciati indietro. Le forme qui sotto descrivono il soggetto
+// dello strumento (cache/revisione del checker, filtro del gate o misura del
+// hook), non un semplice path citato nell'acceptance del finding.
+const SIBLING_TOOLING_RE =
+  /\bsibling\s+checker\b|\bchecker\s+(?:cache|contents?|extracted|invocation|revision)\b|\bfunction-header\s+filter\b|\bgeneric\s+sibling\s+expression\b|\bgate\s+candidate\b|\bhook\b[^.\n]{0,40}\bcomplete\b[^.\n]{0,40}\b(?:large|partial)\s+clones?\b|\b(?:large|partial)\s+clones?\b[^.\n]{0,120}\b(?:pre\/?post|measurement|benchmark)\b/i;
+const UNVALIDATED_CLAIM_RE =
+  /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i;
+
 export const TAXONOMY = [
   { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'],
     escalation: 'rule', why: "predicato sulla posizione: tutti i path del finding sono parser del crawler (isCrawlerParserFinding), cioe' la classe che il gate dei parser misura" },
@@ -358,9 +367,11 @@ export const TAXONOMY = [
   // PROCESS-failure-mode buckets (see family note above):
   { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'],
     escalation: 'rule', why: "contratto del body PR, con il filtro dei falsi positivi isGenuinePrBodyContractViolation" },
+  { key: 'sibling-tooling', re: SIBLING_TOOLING_RE, docKeys: ['sibling checker', 'sibling-check', 'check-sibling-patterns'],
+    escalation: 'topic', why: "soggetto sul checker o gate sibling: resta nel report come argomento, ma non misura la recidiva del processo di sweep" },
   { key: 'sibling-class-fix', re: /stesso anti-?pattern|file gemello|stesso costrutto|sibling|non toccat|class-complete/i, docKeys: ['file gemello', 'stesso anti', 'class-complete'],
     escalation: 'rule', why: "Non-Negotiable 6, con il filtro isGenuineSiblingClassViolation che esige una relazione di classe" },
-  { key: 'unvalidated-claim', re: /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i, docKeys: ['non validat', 'revert-trigger', 'speculativ'],
+  { key: 'unvalidated-claim', re: UNVALIDATED_CLAIM_RE, docKeys: ['non validat', 'revert-trigger', 'speculativ'],
     escalation: 'rule', why: "ogni alternativa nomina la violazione: claim non validato pre-merge senza revert-trigger (AGENTS.md, Build And Test)" },
   { key: 'stale-comment', re: /stale (comment|doc)|comment(o|i)? stale|docblock stale|descrive ancora|title.*(contraddice|stale)|commento.*vecchio/i, docKeys: ['stale comment', 'docblock', 'descrive ancora'],
     escalation: 'rule', why: "ogni alternativa nomina la violazione (commento o docblock stale), con lo scarto delle disposizioni esplicite nel tally" },
@@ -517,23 +528,44 @@ const SIBLING_CLASS_AFFIRM_RE =
 // through to the fingerprint safety net in `bucketFinding`, so this guard does
 // not discard the reviewer finding; it only refuses to call it a sibling-class
 // recurrence without evidence.
+// A semantic neighbour that is merely non-first or changes route (for example
+// an event slug collision) is still countable through the fingerprint safety
+// net, but is not evidence of an unswept cross-file class.
 const SIBLING_CLASS_EVIDENCE_RE =
-  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|chang\w*|address\w*|propagat\w*)\b|\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|address\w*|propagat\w*)\b|\b(?:still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
+
+export function isGenuineSiblingToolingFinding(text) {
+  const s = stripFindingLocationLabel(text).replace(/`[^`]*`/g, ' ');
+  if (FALSE_POSITIVE_DECLARATION_RE.test(s)) return false;
+  if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
+  // Se il reviewer dice esplicitamente che un gemello porta ancora lo stesso
+  // costrutto, il path del checker e' il soggetto del gemello, non del tool.
+  if (/\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b/i.test(s)) return false;
+  return SIBLING_TOOLING_RE.test(s);
+}
+
 // Negation-aware false-positive-declaration matcher, shared with
 // sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
 // copies drifted when kept in sync by docstring promise only).
 export function isGenuineSiblingClassViolation(text) {
-  const s = String(text || '');
+  const s = stripFindingLocationLabel(text).replace(/`[^`]*`/g, ' ');
   // (c) explicit false-positive declaration wins first — a reviewer can declare
   //     lexical-vs-semantic mismatch even inside an otherwise alarming sentence.
   if (FALSE_POSITIVE_DECLARATION_RE.test(s)) return false;
   // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
   //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
   if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
+  // A finding about the checker/gate itself belongs to the topic bucket below;
+  // it is not evidence that a sibling implementation was left unswept.
+  if (isGenuineSiblingToolingFinding(text)) return false;
   // A class relation is required before this process bucket can claim the line.
   // Scope-only and semantic-neighbour mentions remain available to the generic
   // fingerprint path instead of being mistaken for an unswept sibling.
   return SIBLING_CLASS_EVIDENCE_RE.test(s);
+}
+
+export function isGenuineUnvalidatedClaimFinding(text) {
+  return UNVALIDATED_CLAIM_RE.test(stripFindingLocationLabel(text));
 }
 
 // ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
@@ -719,12 +751,30 @@ export function isCrawlerParserFinding(text) {
   return paths.length > 0 && paths.every((p) => CRAWLER_PARSER_PATH_RE.test(p));
 }
 
+/**
+ * Removes only the leading review location (`path:L<n>:` or `PR body:L<n>:`).
+ * The location is an address, not reviewer prose, so process-bucket guards can
+ * ignore it. Topic buckets and the fingerprint keep the original text.
+ * @param {unknown} text
+ * @returns {string}
+ */
+export function stripFindingLocationLabel(text) {
+  const s = String(text || '');
+  const marker = /[🔴🟡❓]/u.exec(s);
+  if (!marker || marker.index === 0) return s;
+  const prefix = s.slice(0, marker.index).trim();
+  if (/^PR body\s*:\s*L\d+\s*:\s*$/i.test(prefix) || findingLocationPaths(s).length > 0) {
+    return s.slice(marker.index);
+  }
+  return s;
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
-  // I guard per-bucket sotto ricevono invece il testo INTERO, perche' la loro
-  // discriminante e' la frase completa (affermazioni, location label, falsi
-  // positivi dichiarati), non il solo vocabolario del topic.
+  // Come su origin/main, anche i bucket di argomento e la rete fingerprint
+  // ricevono il testo originale. Solo i guard dei bucket di processo rimuovono
+  // la location label prima della loro discriminante.
   const scannable = stripNegatedImpactClauses(text);
   // Reviews sometimes name sitemap concepts only inside camelCase identifiers
   // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
@@ -760,7 +810,9 @@ export function bucketFinding(text) {
     // sibling-class-fix: same treatment (issue #3325) — drop affirmations /
     // declared false positives so the bucket counts only genuine unswept-sibling
     // findings, mirroring pr-body-contract's filter above.
+    if (t.key === 'sibling-tooling' && !isGenuineSiblingToolingFinding(text)) continue;
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
+    if (t.key === 'unvalidated-claim' && !isGenuineUnvalidatedClaimFinding(text)) continue;
     // `canonical` is overloaded outside SEO (canonical vacancy links, archive
     // canonicalizers, canonical replacements, route URLs). Keep those lines in
     // the fingerprint safety-net instead of inflating the canonical-sitemap
