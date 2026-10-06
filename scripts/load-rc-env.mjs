@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { realpathSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 /**
  * Load secrets from Firebase Remote Config → environment variables
  *
@@ -738,7 +740,22 @@ async function main() {
 }
 
 // Only run when executed directly (not when imported by tests).
-if (isInvokedDirectly(import.meta.url)) {
+const directInvocation = (() => {
+  if (!process.argv[1]) return false;
+  try {
+    const entryPath = fileURLToPath(import.meta.url);
+    const resolvedArgvPath = path.resolve(process.argv[1]);
+    try {
+      return realpathSync(entryPath) === realpathSync(resolvedArgvPath);
+    } catch {
+      return entryPath === resolvedArgvPath;
+    }
+  } catch {
+    return false;
+  }
+})();
+
+if (directInvocation) {
   main().catch((err) => {
     console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
     console.warn('   Falling back to environment variables / GH Secrets.');
