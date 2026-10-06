@@ -89,8 +89,8 @@ export const CRAWLER_ABORT_KINDS = new Set([
   // The parser emitted jobs, none with a source body of at least 50 words
   // (fresh or stored): nothing is publishable, thin stored rows are quarantined.
   'thin-source-all',
-  // Same outcome, but every parsed row reported a source-body extraction
-  // failure (e.g. an unreadable PDF): the extractor broke, not the content.
+  // Same outcome, but the source extractor cannot prove a complete snapshot
+  // (e.g. every detail body is unreadable or too many detail pages are lost).
   'source-extraction-failed',
 ]);
 

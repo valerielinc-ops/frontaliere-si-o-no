@@ -23,7 +23,10 @@
  * `.mjs` core instead, this file just types and re-exports it.
  */
 import type { ArticleLocale as Locale } from './engine/siteShell';
-import { ARTICLE_SECTION_CORE } from './engine/shared/articleSectionCore.mjs';
+import {
+  ARTICLE_SECTION_CORE,
+  registerActiveArticleSections,
+} from './engine/shared/articleSectionCore.mjs';
 
 /** The two historical sections, always active. */
 export type HistoricalArticleSection = 'frontaliere' | 'svizzera';
@@ -86,15 +89,18 @@ export interface ArticleSectionConfig {
 }
 
 /**
- * ACTIVE sections only (today frontaliere + svizzera; a canton joins when it
- * is listed in `ACTIVE_CANTON_SECTIONS`). The historical keys are always
- * present, so `ARTICLE_SECTIONS.svizzera` stays a non-optional lookup.
+ * ACTIVE sections only (frontaliere + svizzera plus any canton set injected
+ * by the corpus host). The historical keys are always present, so
+ * `ARTICLE_SECTIONS.svizzera` stays a non-optional lookup.
  */
 export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> =
   ARTICLE_SECTION_CORE as unknown as Record<ArticleSection, ArticleSectionConfig>;
 
-export const ARTICLE_SECTION_LIST: readonly ArticleSectionConfig[] =
-  Object.values(ARTICLE_SECTIONS);
+export const ARTICLE_SECTION_LIST: ArticleSectionConfig[] = [];
+
+registerActiveArticleSections((entries) => {
+  ARTICLE_SECTION_LIST.splice(0, ARTICLE_SECTION_LIST.length, ...(entries as ArticleSectionConfig[]));
+});
 
 /**
  * Config of an ACTIVE section, failing loudly otherwise. `ArticleSection`

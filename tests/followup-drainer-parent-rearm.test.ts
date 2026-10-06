@@ -103,6 +103,40 @@ describe('PARENT-REARM: i quattro padri misurati rientrano una sola volta', () =
     }
   });
 
+  it('riconosce il marker scritto nello stesso secondo della ricorrenza', () => {
+    // I timestamp dei commenti hanno precisione al secondo: ricorrenza e marker
+    // possono avere lo stesso istante. Il marker identifica comunque l'evento.
+    const parent = realCases[0];
+    const sameSecond = [
+      ...commentsFor(parent),
+      {
+        body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+        createdAt: parent.reopenedAt,
+      },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: sameSecond,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'already-rearmed' });
+
+    // Un marker datato prima della ricorrenza che dichiara non la copre.
+    const before = [
+      ...commentsFor(parent),
+      {
+        body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+        createdAt: new Date(Date.parse(parent.reopenedAt) - 1000).toISOString(),
+      },
+    ];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: before,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+  });
+
   it('non riarma se almeno una figlia è ancora aperta', () => {
     const parent = realCases[0];
     const states = closedChildren(parent.children);

@@ -40,4 +40,21 @@ describe('static SEO page landmarks', () => {
     expect(career).not.toContain('<main class="s-xzWvwM cl-fun">');
     expect(career).toContain('<div class="s-xzWvwM cl-fun">');
   });
+
+  it('keeps profession and nursing landing pages on the shell-provided main landmark', () => {
+    const nursing = fs.readFileSync(path.join(root, 'build-plugins/nursingLandingsPlugin.ts'), 'utf8');
+    const professions = fs.readFileSync(path.join(root, 'build-plugins/professionLandingsPlugin.ts'), 'utf8');
+
+    for (const source of [nursing, professions]) {
+      expect(source).not.toContain('<main class="s-it71Rt">');
+      expect(source).toContain('<div class="s-it71Rt">');
+    }
+  });
+
+  it('keeps holiday landing pages on the shell-provided main landmark', () => {
+    const source = fs.readFileSync(path.join(root, 'build-plugins/holidaysLandingsPlugin.ts'), 'utf8');
+
+    expect(source).not.toContain('<main class="s-xzWvwM">');
+    expect(source).toContain('<div class="s-xzWvwM">');
+  });
 });

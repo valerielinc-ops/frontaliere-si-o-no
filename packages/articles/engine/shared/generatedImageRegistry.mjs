@@ -89,6 +89,7 @@ function aspectRatio(width, height) {
 export function generatedImagePrefixForScope(scope) {
   if (scope === 'event-library') return '/images/events/library/';
   if (scope === 'editorial-profile') return '/images/authors/';
+  if (scope === 'article-hero') return '/images/blog/';
   if (scope === 'place') return '/images/places/';
   return '/images/generated/';
 }
@@ -176,7 +177,7 @@ export function generatedImagePromptInput(spec, options) {
 }
 
 export function isGeneratedImagePath(value) {
-  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|blog|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
 }
 
 export function isPrivateGrantImageRecord(record) {

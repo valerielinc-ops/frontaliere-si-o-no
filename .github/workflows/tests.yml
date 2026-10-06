@@ -2314,6 +2314,10 @@ jobs:
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      - name: Verify published blog cover ledger
+        if: ${{ steps.body_contract.outcome != 'failure' }}
+        run: node scripts/ci/verify-blog-cover-ledger.mjs
+
       - name: vitest related (PR diff)
         id: vitest_related
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
