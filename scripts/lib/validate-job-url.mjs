@@ -20,6 +20,8 @@ const DEFAULT_TIMEOUT_MS = 7000;
 const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_USER_AGENT =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const RESPONSE_BODY_CLEANUP_TIMEOUT_MS = 1000;
+const RESPONSE_TIMEOUT = Symbol('response-timeout');
 
 // Fresh protection: jobs crawled within this many hours are never removed
 const DEFAULT_FRESH_PROTECTION_HOURS = 72;
@@ -251,6 +253,75 @@ function hasTiChClosedSignal(htmlLower, url) {
 
 // ── Core validation ─────────────────────────────────────────────────────────
 
+async function boundedBodyCleanup(cleanup) {
+  if (typeof cleanup !== 'function') return;
+  await new Promise((resolve) => {
+    let settled = false;
+    let timer;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve();
+    };
+    timer = setTimeout(finish, RESPONSE_BODY_CLEANUP_TIMEOUT_MS);
+    Promise.resolve()
+      .then(cleanup)
+      .then(finish, finish);
+  });
+}
+
+function settleBeforeDeadline(operation, deadlineSignal) {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const settle = (callback) => {
+      if (settled) return;
+      settled = true;
+      callback();
+    };
+    Promise.resolve()
+      .then(operation)
+      .then(
+        (value) => settle(() => resolve({ timedOut: false, value })),
+        (error) => settle(() => reject(error)),
+      );
+    deadlineSignal.then(
+      () => settle(() => resolve({ timedOut: true })),
+      (error) => settle(() => reject(error)),
+    );
+  });
+}
+
+async function readResponseText(response, setCleanup, deadlineSignal) {
+  const body = response?.body;
+  if (!body || typeof body.getReader !== 'function') {
+    // A non-standard response without a readable stream cannot provide
+    // cancellable body semantics. Do not call an unbounded response.text()
+    // fallback: treat it as unknown and release the body if it exposes cancel.
+    await boundedBodyCleanup(() => body?.cancel?.('job URL validation timeout'));
+    return RESPONSE_TIMEOUT;
+  }
+
+  const reader = body.getReader();
+  setCleanup(() => reader.cancel('job URL validation timeout'));
+  try {
+    const decoder = new TextDecoder();
+    let text = '';
+    while (true) {
+      // eslint-disable-next-line no-await-in-loop
+      const next = await settleBeforeDeadline(() => reader.read(), deadlineSignal);
+      if (next.timedOut) return RESPONSE_TIMEOUT;
+      const { done, value } = next.value;
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    setCleanup(null);
+    try { reader.releaseLock(); } catch { /* best effort after cancellation */ }
+  }
+}
+
 /**
  * @typedef {Object} ValidationResult
  * @property {string} [id]       - Job ID (passed through)
@@ -288,74 +359,125 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
   const targetUrl = guest || url;
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  let timeoutId;
+  let bodyCleanup = null;
+  let timedOut = false;
+  // AbortController normally bounds fetch(), but a response body can ignore the
+  // abort and leave a reader pending. Keep a cleanup handle for the body so one
+  // hostile portal cannot strand a live probe behind the crawler timeout.
+  let resolveDeadline;
+  const deadlineSignal = new Promise((resolve) => {
+    resolveDeadline = resolve;
+  });
+  const timeoutResult = () => ({ id, valid: true, status: 0, reason: 'network-timeout' });
+  timeoutId = setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+    const cleanup = bodyCleanup;
+    bodyCleanup = null;
+    void boundedBodyCleanup(cleanup).then(() => {
+      // Keep the validator fail-open: an unproven URL must never be archived.
+      resolveDeadline(RESPONSE_TIMEOUT);
+    });
+  }, timeout);
+
+  const validation = (async () => {
+    try {
+      const fetchResult = await settleBeforeDeadline(
+        () => fetch(targetUrl, {
+          method: 'GET',
+          redirect: 'follow',
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'User-Agent': ua,
+          },
+        }).then((res) => {
+          if (timedOut) {
+            void boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
+          }
+          return res;
+        }),
+        deadlineSignal,
+      );
+      if (fetchResult.timedOut) return timeoutResult();
+      const res = fetchResult.value;
+
+      // A fetch implementation may resolve after aborting. Do not start a
+      // body read in that case; cancel the response that arrived too late.
+      if (timedOut) {
+        await boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
+        return timeoutResult();
+      }
+
+      // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
+      if (res.status === 404 || res.status === 410) {
+        return { id, valid: false, status: res.status, reason: `http-${res.status}`, definitive: true };
+      }
+
+      // Rate limit / auth block: fail-open (never delete)
+      if (res.status === 429 || res.status === 403 || res.status === 999) {
+        return { id, valid: true, status: res.status, reason: `blocked-${res.status}` };
+      }
+
+      // Other error codes: fail-open
+      if (res.status < 200 || res.status >= 400) {
+        return { id, valid: true, status: res.status, reason: `nonfatal-${res.status}` };
+      }
+
+      // Check for redirect to generic landing page
+      const finalUrl = res.url || targetUrl;
+      if (isGenericLandingPage(url, finalUrl)) {
+        return { id, valid: false, status: res.status, reason: 'redirect-to-generic-listing', definitive: true };
+      }
+
+      // Read body for content-level signals. The deadline is part of this
+      // read, so validation itself settles after cleanup rather than leaving
+      // an unobserved body-read promise behind the caller.
+      const text = await readResponseText(res, (cleanup) => {
+        bodyCleanup = cleanup;
+      }, deadlineSignal);
+      // Cancellation can resolve a pending reader.read() before the deadline
+      // sentinel wins. The timer still owns the verdict, so never parse a body
+      // after the request deadline has fired.
+      if (timedOut || text === RESPONSE_TIMEOUT) return timeoutResult();
+      const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
+
+      // Strong "job closed" phrases — definitive, bypasses fresh protection
+      for (const phrase of STRONG_PHRASES) {
+        if (htmlLower.includes(phrase)) {
+          return { id, valid: false, status: res.status, reason: `phrase:${phrase}`, definitive: true };
+        }
+      }
+
+      // Portal-specific signals — definitive, bypasses fresh protection
+      if (hasSuccessFactorsClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:successfactors-closed', definitive: true };
+      }
+      if (hasWorkdayClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:workday-closed', definitive: true };
+      }
+      if (hasUmantisClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:umantis-closed', definitive: true };
+      }
+      if (hasTiChClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:tich-closed', definitive: true };
+      }
+
+      // Auth wall (LinkedIn etc.): fail-open
+      if (looksLikeAuthWall(htmlLower)) {
+        return { id, valid: true, status: res.status, reason: 'authwall' };
+      }
+
+      return { id, valid: true, status: res.status, reason: 'ok' };
+    } catch (err) {
+      // Fail-open on network/timeout errors
+      return timedOut ? timeoutResult() : { id, valid: true, status: 0, reason: 'network-error' };
+    }
+  })();
 
   try {
-    const res = await fetch(targetUrl, {
-      method: 'GET',
-      redirect: 'follow',
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': ua,
-      },
-    });
-
-    // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
-    if (res.status === 404 || res.status === 410) {
-      return { id, valid: false, status: res.status, reason: `http-${res.status}`, definitive: true };
-    }
-
-    // Rate limit / auth block: fail-open (never delete)
-    if (res.status === 429 || res.status === 403 || res.status === 999) {
-      return { id, valid: true, status: res.status, reason: `blocked-${res.status}` };
-    }
-
-    // Other error codes: fail-open
-    if (res.status < 200 || res.status >= 400) {
-      return { id, valid: true, status: res.status, reason: `nonfatal-${res.status}` };
-    }
-
-    // Check for redirect to generic landing page
-    const finalUrl = res.url || targetUrl;
-    if (isGenericLandingPage(url, finalUrl)) {
-      return { id, valid: false, status: res.status, reason: 'redirect-to-generic-listing', definitive: true };
-    }
-
-    // Read body for content-level signals
-    const text = await res.text();
-    const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
-
-    // Strong "job closed" phrases — definitive, bypasses fresh protection
-    for (const phrase of STRONG_PHRASES) {
-      if (htmlLower.includes(phrase)) {
-        return { id, valid: false, status: res.status, reason: `phrase:${phrase}`, definitive: true };
-      }
-    }
-
-    // Portal-specific signals — definitive, bypasses fresh protection
-    if (hasSuccessFactorsClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:successfactors-closed', definitive: true };
-    }
-    if (hasWorkdayClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:workday-closed', definitive: true };
-    }
-    if (hasUmantisClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:umantis-closed', definitive: true };
-    }
-    if (hasTiChClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:tich-closed', definitive: true };
-    }
-
-    // Auth wall (LinkedIn etc.): fail-open
-    if (looksLikeAuthWall(htmlLower)) {
-      return { id, valid: true, status: res.status, reason: 'authwall' };
-    }
-
-    return { id, valid: true, status: res.status, reason: 'ok' };
-  } catch (err) {
-    // Fail-open on network/timeout errors
-    return { id, valid: true, status: 0, reason: 'network-error' };
+    return await validation;
   } finally {
     clearTimeout(timeoutId);
   }
