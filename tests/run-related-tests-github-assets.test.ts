@@ -461,6 +461,22 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(bingSparse);
   }, 120_000);
 
+  it('un file della chiusura del social robot seleziona il suo test di snapshot', () => {
+    const socialRobotTest = 'tests/social-robot.test.ts';
+    for (const file of [
+      'scripts/social-robot/launchd.sh',
+      'scripts/social-robot/run.mjs',
+      'scripts/load-rc-env.mjs',
+      'scripts/lib/github-issue-creator.mjs',
+      'scripts/lib/google-service-account-token.mjs',
+      'scripts/lib/social-carousel-video.mjs',
+      'scripts/lib/social-publish-queue.mjs',
+    ]) {
+      expect(selectionFor([file]), file).toContain(socialRobotTest);
+    }
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(socialRobotTest);
+  }, 120_000);
+
   it('un workflow o il codice che un job carica seleziona il guard dei profili sparse', () => {
     // Issue 11301 item 008: `tests/checkout-sparse-profiles.test.ts` stava in
     // `alwaysExcludedTests` e non girava mai. Il 2026-10-04 su main 6 job
