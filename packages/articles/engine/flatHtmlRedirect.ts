@@ -41,6 +41,19 @@ function stripScriptsAndStyles(html = '') {
 }
 
 /**
+ * Keep only active document markup when extracting metadata. Comments,
+ * scripts, styles, and templates can contain stale OG tags that are not part
+ * of the rendered page but would otherwise be copied into the redirect
+ * bridge.
+ */
+function maskInactiveMarkup(html = '') {
+  return String(html || '').replace(
+    /<!--[\s\S]*?-->|<(script|style|template)\b[^>]*>[\s\S]*?<\/\1\s*>/gi,
+    (match) => ' '.repeat(match.length),
+  );
+}
+
+/**
  * Extract og:* / description meta tags from the sibling index.html
  * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
  * that don't follow the JS location.replace redirect. The bridge keeps
@@ -61,7 +74,7 @@ export function extractOgTags(indexHtml: string): string {
   const metaRx = /<meta\b[^>]*\/?>/gi;
   const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
   let match: RegExpExecArray | null;
-  while ((match = metaRx.exec(indexHtml))) {
+  while ((match = metaRx.exec(maskInactiveMarkup(indexHtml)))) {
     const tag = match[0];
     attrRx.lastIndex = 0;
     const attrs: Record<string, string> = {};
@@ -119,7 +132,7 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
   try {
-    const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
+    const titleMatch = maskInactiveMarkup(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
       const extracted = titleMatch[1].trim();
       if (extracted.length > 0) {

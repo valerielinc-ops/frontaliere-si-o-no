@@ -134,6 +134,26 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('twitter:title');
   });
 
+  it('ignores social preview meta inside comments, templates, and scripts', async () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><meta property="og:title" content="Stale template title"></template>' +
+        '<!-- <meta property="og:description" content="Stale comment description"> -->' +
+        '<script>const fake = \'<meta property="og:image" content="https://example.test/fake.webp">\';</script>' +
+        '<meta property="og:title" content="Live title">' +
+        '<meta property="og:description" content="Live description">' +
+        '</head><body>canonical</body></html>',
+    );
+
+    await runPluginCloseBundle(fixture.tmpRoot);
+
+    const bridge = fs.readFileSync(fixture.flatFile, 'utf-8');
+    expect(bridge).toContain('<meta property="og:title" content="Live title">');
+    expect(bridge).toContain('<meta property="og:description" content="Live description">');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment description');
+    expect(bridge).not.toContain('https://example.test/fake.webp');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing
