@@ -62,6 +62,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
+import { isEventImageSafeIdAllowed } from './lib/events-utils.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -154,10 +155,19 @@ function main() {
   // Only the flat files this run wrote. `catalog/` is build output emitted into
   // dist/ by build-plugins/eventsSeoPagesPlugin.ts and pushed by the deploy, not
   // mirrored material — skip any directory rather than assume it can't appear.
-  const files = readdirSync(IMAGE_DIR)
+  const allFiles = readdirSync(IMAGE_DIR)
     .filter((name) => !name.startsWith('.'))
     .filter((name) => statSync(path.join(IMAGE_DIR, name)).isFile())
     .sort();
+  const files = allFiles.filter((name) => {
+    const extensionIndex = name.lastIndexOf('.');
+    const safeId = extensionIndex > 0 ? name.slice(0, extensionIndex) : name;
+    return isEventImageSafeIdAllowed(safeId);
+  });
+  const skipped = allFiles.length - files.length;
+  if (skipped > 0) {
+    log(`skipped ${skipped} non-allowlisted event image file(s); they are never uploaded`);
+  }
 
   if (files.length === 0) {
     log('no mirrored image on disk — nothing to push');

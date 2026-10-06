@@ -92,9 +92,10 @@
  * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
  * bot-identity spoofing, a clearly identifying User-Agent (matches the
  * tio-agenda / myswitzerland / mirrorEventImage convention), and a politeness
- * delay between every request to the guidle.com origin. Every event image is
- * mirrored once via `mirrorEventImage` — the output slice NEVER references a
- * guidle.com/imagekit.io image URL directly.
+ * delay between every request to the guidle.com origin. Image URLs are passed
+ * through the shared licence gate and are currently dropped because Guidle
+ * provides no explicit open image licence — the output slice NEVER references
+ * a guidle.com/imagekit.io image URL directly.
  *
  * Usage:
  *   node scripts/crawl-guidle-events.mjs                # one time-budgeted, checkpointed slice of the catalog
@@ -119,6 +120,7 @@ import {
   eventStableId,
   resolveComuneNationwide,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
@@ -772,7 +774,9 @@ async function main() {
       // Matches the sibling `crawl-myswitzerland-events.mjs` crawler.
       event.canton = canton || '';
       if (event.comune) resolvedComune += 1;
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      if (isEventImageSourceAllowed(SOURCE.key)) {
+        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+      }
       events.push(event);
     }
 

@@ -79,6 +79,7 @@ import {
   haversineKm,
   EVENT_PRICE_SOURCES,
   hasConfidentPrice,
+  isEventImageSourceAllowed,
 } from './lib/events-utils.mjs';
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
@@ -148,6 +149,19 @@ const SOURCE_PRIORITY = ['tio-agenda', 'openagenda', 'classicascona', 'guidle', 
 
 function eventSourceKey(ev) {
   return ev.sourceKey || String(ev.id || '').split(':')[0];
+}
+
+/**
+ * Image policy backstop for old slices and hand-edited snapshots. A source
+ * can remain a valid event-facts source while its images are unlicensed; in
+ * that case remove both the URL and its credit before deduplication so an old
+ * record cannot win a richer-record tie or reach a public dataset.
+ */
+export function stripUnauthorizedEventImage(ev) {
+  if (!ev || isEventImageSourceAllowed(eventSourceKey(ev))) return ev;
+  if (!Object.prototype.hasOwnProperty.call(ev, 'imageUrl') && !Object.prototype.hasOwnProperty.call(ev, 'imageCredit')) return ev;
+  const { imageUrl: _imageUrl, imageCredit: _imageCredit, ...withoutImage } = ev;
+  return withoutImage;
 }
 
 function sourcePriorityRank(ev) {
@@ -658,8 +672,9 @@ export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DAT
 
   for (const slice of slices) {
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
-    for (const ev of slice.events) {
-      if (!ev || !ev.id || !ev.startDate || !ev.title) continue;
+    for (const rawEvent of slice.events) {
+      if (!rawEvent || !rawEvent.id || !rawEvent.startDate || !rawEvent.title) continue;
+      const ev = stripUnauthorizedEventImage(rawEvent);
       // Eventfrog & co. (scripts/lib/private-event-sources.mjs): a record of a
       // private source must never reach data/events.json or its public copy,
       // which the corpus republishes as an open API (AGB §17(3)).

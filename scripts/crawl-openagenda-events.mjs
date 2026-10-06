@@ -506,7 +506,7 @@ export async function crawlOpenAgenda({
   for (const event of fresh) {
     let withImage = { ...event, sourceKey: source.key, sourceName: source.label, crawledAt };
     if (withImage.imageUrl) {
-      const mirrored = dryRun ? undefined : await mirrorImage(withImage.imageUrl, withImage.id);
+      const mirrored = dryRun ? undefined : await mirrorImage(withImage.imageUrl, withImage.id, source.key);
       if (mirrored) {
         withImage.imageUrl = mirrored;
       } else {

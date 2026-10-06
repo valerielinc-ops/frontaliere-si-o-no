@@ -33,9 +33,10 @@
  * 2026-10-05, issue #10710): the detail pages only are requested with a fixed
  * desktop-browser User-Agent, because the CDN refuses identifying clients
  * with HTTP 406. It lives in lib/myswitzerland-detail-transport.mjs with its
- * limits and stop rules; do not copy it to any other crawler or request. Every event image is mirrored
- * once via `mirrorEventImage` (see scripts/lib/events-utils.mjs) — the output
- * slice NEVER references a myswitzerland.com/cloudfront image URL directly.
+ * limits and stop rules; do not copy it to any other crawler or request. Image
+ * URLs pass through the shared licence gate and are currently dropped because
+ * MySwitzerland provides no open image licence — the output slice NEVER
+ * references a myswitzerland.com/cloudfront image URL directly.
  *
  * No artificial cap: the full catalog (tens of thousands of records across
  * ~20 Algolia buckets x 4 locales, then one detail-page fetch per unique
@@ -77,6 +78,7 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
@@ -1070,7 +1072,9 @@ async function main() {
       );
       event.comune = comune || undefined;
       event.canton = canton || '';
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      if (isEventImageSourceAllowed(SOURCE.key)) {
+        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+      }
       const frontier = resolveItalianFrontierComuni(event.geo);
       if (frontier.length) event.italianFrontierComuni = frontier;
       events.push(event);

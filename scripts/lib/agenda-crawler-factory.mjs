@@ -59,12 +59,13 @@
  *     terminate early.
  *   `iterations` remains a hard safety ceiling in all cases.
  *
- * No-hotlink policy: every event's `imageUrl` is mirrored via the shared
- * `mirrorEventImage` (events-utils.mjs) before the slice is written — the
- * same convention every existing events crawler already follows.
+ * Image policy: every event's `imageUrl` is passed through the shared
+ * `mirrorEventImage` gate before the slice is written. Only an explicitly
+ * allowlisted open-licence source can be mirrored; all other source images
+ * become absent rather than remaining as raw URLs.
  */
 import path from 'node:path';
-import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage } from './events-utils.mjs';
+import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage, isEventImageSourceAllowed } from './events-utils.mjs';
 import { fillEventPeopleDefaults } from './event-metadata.mjs';
 import { mergeEventsIntoSlice } from './crawl-checkpoint.mjs';
 
@@ -153,9 +154,12 @@ export function createAgendaCrawler(config) {
         out.push(ev);
         continue;
       }
-      const mirrored = await mirrorEventImage(ev.imageUrl, ev.id);
-      out.push({ ...ev, imageUrl: mirrored || undefined });
-      await sleep(imageMirrorDelayMs);
+      const mirrored = isEventImageSourceAllowed(sourceKey)
+        ? await mirrorEventImage(ev.imageUrl, ev.id, sourceKey)
+        : null;
+      const { imageUrl: _sourceImageUrl, ...withoutSourceImage } = ev;
+      out.push(mirrored ? { ...withoutSourceImage, imageUrl: mirrored } : withoutSourceImage);
+      if (isEventImageSourceAllowed(sourceKey)) await sleep(imageMirrorDelayMs);
     }
     return out;
   }
