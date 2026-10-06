@@ -32,7 +32,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractDeclaredIdentity } from './crawler-company-identity.mjs';
-import { addPreviousSlugForLocale } from './dedicated-crawler-common.mjs';
+import { replaceActiveSlug } from './dedicated-crawler-common.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
 
 const LIB_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -148,11 +148,6 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
     const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
     const location = String(job.location || job.addressLocality || '').trim();
     const disambiguator = String(job.slugDisambiguator || '').trim();
-    const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
-      ? { ...job.slugByLocale }
-      : {};
-    let changed = false;
-
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const title = String(
         titleByLocale[locale] || (locale === sourceLang ? job.title : '') || '',
@@ -160,44 +155,18 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
       if (!title) continue;
       const canonical = buildSlug(title, declared, location, disambiguator);
       if (!canonical) continue;
-      const current = String(slugByLocale[locale] || '').trim();
-      if (current === canonical) continue;
-      if (current) {
-        addPreviousSlugForLocale(
-          job,
-          locale,
-          current,
-          undefined,
-          'crawler-brand-relabel.refreshDeclaredBrandSlugs',
-        );
-      }
-      slugByLocale[locale] = canonical;
-      changed = true;
+      if (!replaceActiveSlug(job, canonical, { locale })) continue;
       refreshed++;
       byKey[key] = (byKey[key] || 0) + 1;
     }
 
-    const canonicalMaster = String(slugByLocale.it || '').trim();
+    const canonicalMaster = String(job.slugByLocale?.it || '').trim();
     const currentMaster = String(job.slug || '').trim();
-    if (canonicalMaster && currentMaster !== canonicalMaster) {
-      if (currentMaster) {
-        addPreviousSlugForLocale(
-          job,
-          'it',
-          currentMaster,
-          undefined,
-          'crawler-brand-relabel.refreshDeclaredBrandSlugs',
-        );
-      }
-      job.slug = canonicalMaster;
-      changed = true;
-      if (!slugByLocale.it || slugByLocale.it === canonicalMaster) {
-        refreshed++;
-        byKey[key] = (byKey[key] || 0) + 1;
-      }
+    if (canonicalMaster && currentMaster !== canonicalMaster
+      && replaceActiveSlug(job, canonicalMaster)) {
+      refreshed++;
+      byKey[key] = (byKey[key] || 0) + 1;
     }
-
-    if (changed) job.slugByLocale = slugByLocale;
   }
   return { refreshed, byKey };
 }
