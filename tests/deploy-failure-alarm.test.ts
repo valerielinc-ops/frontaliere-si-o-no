@@ -274,6 +274,25 @@ describe('il workflow osservatore: forma pinnata', () => {
   });
 });
 
+describe('il reporter esterno sopravvive al checkout fallito', () => {
+  const steps = WF.jobs.alarm.steps as Array<Record<string, any>>;
+  const opener = steps.find((step) => step.name === 'Open or update the deploy alarm issue');
+  const fallback = steps.find((step) => step.name === 'Open or update deploy alarm without the checkout (fallback)');
+
+  it('ha un fallback API che apre la stessa issue canonica', () => {
+    expect(opener?.id).toBe('open');
+    expect(fallback, 'il reporter senza checkout deve esistere').toBeDefined();
+    expect(String(fallback?.if)).toContain('always()');
+    expect(String(fallback?.if)).toContain("steps.open.outcome != 'success'");
+    expect(String(fallback?.if)).toContain("github.event.workflow_run.conclusion == 'failure'");
+    expect(fallback?.['continue-on-error']).toBe(true);
+    expect(fallback?.env?.ALARM_SHA).toBe('${{ github.sha }}');
+    expect(String(fallback?.run)).toContain('gh api');
+    expect(String(fallback?.run)).toContain('scripts/lib/github-issue-creator.mjs');
+    expect(String(fallback?.run)).toContain('--title "Workflow Failure: Deploy to GitHub Pages"');
+  });
+});
+
 describe('accoppiamento con il canale d allarme esistente', () => {
   it('il titolo nomina il workflow OSSERVATO, che è ciò che il reconciler cerca', () => {
     expect(observedWorkflowNames(WF_RAW)).toContain(OBSERVED);

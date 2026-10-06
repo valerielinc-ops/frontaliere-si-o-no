@@ -15,6 +15,8 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: read
+  checks: read
 
 jobs:
   update:
@@ -110,6 +112,18 @@ jobs:
             --title "chore(data): refresh CHF/EUR SSG snapshot" \
             --body-file "$body"
 
+      # `cancel-in-progress: true` cancels a run superseded by a newer run, but
+      # a job timeout is cancelled too and must still be reported. Distinguish
+      # the two before the fallback reporter; otherwise the fallback would
+      # reopen an issue for every normal concurrency hand-off.
+      - name: Detect superseded cancellation
+        id: superseded
+        if: cancelled()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_TIMEOUT_MINUTES: '15'
+        run: node scripts/ci/run-superseded.mjs
+
       - name: Report failure to GitHub Issues
         id: report_failure
         if: failure()
@@ -132,7 +146,8 @@ jobs:
         # Recupera solo il creator alla SHA della run: gh e Node sono già
         # disponibili sul runner, quindi il segnalatore non dipende dal repo.
         if: >-
-          always() && !cancelled() && failure() &&
+          always() &&
+          (failure() || (cancelled() && steps.superseded.outputs.superseded != 'true')) &&
           steps.report_failure.outcome != 'success'
         continue-on-error: true
         env:
