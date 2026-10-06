@@ -44,28 +44,42 @@ push_input=$(cat)
 readonly OLD_HISTORY_FIRST_CHANGED_COMMIT='dab77221540a4e369440f762228be7e0be21155d'
 
 # Prima della riscrittura origin/main contiene il marker, quindi la guardia è
-# inerte. Dopo la riscrittura origin/main aggiornato non lo conterrà più: in
-# quel caso rifiuta ogni local sha non-zero che lo abbia nella propria storia.
+# inerte. Un tracking ref locale può però essere vecchio proprio nel clone che
+# va protetto: solo se un local sha contiene il marker aggiorniamo origin/main
+# dal remote, poi rifiutiamo la storia vecchia se il ref aggiornato non lo ha.
 if git cat-file -e "${OLD_HISTORY_FIRST_CHANGED_COMMIT}^{commit}" 2>/dev/null; then
-  old_history_is_in_origin_main=0
-  if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" refs/remotes/origin/main 2>/dev/null; then
-    old_history_is_in_origin_main=1
-  fi
+  old_history_is_in_local_push=0
+  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+    [ -z "$local_sha" ] && continue
+    case "$local_sha" in
+      0000000000000000000000000000000000000000) continue ;;
+    esac
+    if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" "$local_sha" 2>/dev/null; then
+      old_history_is_in_local_push=1
+      break
+    fi
+  done <<< "$push_input"
 
-  if [ "$old_history_is_in_origin_main" = "0" ]; then
-    while read -r _local_ref local_sha _remote_ref _remote_sha; do
-      [ -z "$local_sha" ] && continue
-      case "$local_sha" in
-        0000000000000000000000000000000000000000) continue ;;
-      esac
-      if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" "$local_sha" 2>/dev/null; then
-        echo "Push rifiutato: il branch contiene la storia precedente alla riscrittura."
-        echo "Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:"
-        echo "  git rebase --onto origin/main <vecchia base> <branch>"
-        echo "Non usare --no-verify."
-        exit 1
-      fi
-    done <<< "$push_input"
+  if [ "$old_history_is_in_local_push" = "1" ]; then
+    if ! node scripts/ci/pre-push-refresh-origin-main.mjs; then
+      echo "Push rifiutato: impossibile aggiornare origin/main prima del controllo della storia precedente." >&2
+      exit 1
+    fi
+    if ! git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" refs/remotes/origin/main 2>/dev/null; then
+      while read -r _local_ref local_sha _remote_ref _remote_sha; do
+        [ -z "$local_sha" ] && continue
+        case "$local_sha" in
+          0000000000000000000000000000000000000000) continue ;;
+        esac
+        if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" "$local_sha" 2>/dev/null; then
+          echo "Push rifiutato: il branch contiene la storia precedente alla riscrittura."
+          echo "Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:"
+          echo "  git rebase --onto origin/main <vecchia base> <branch>"
+          echo "Non usare --no-verify."
+          exit 1
+        fi
+      done <<< "$push_input"
+    fi
   fi
 fi
 

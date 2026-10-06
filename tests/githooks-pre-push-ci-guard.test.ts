@@ -10,12 +10,14 @@
 // branches (issue-fix agents — the gate's designed audience) still run it.
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const HOOK = resolve(ROOT, '.githooks/pre-push');
+const REFRESH_HELPER = resolve(ROOT, 'scripts/ci/pre-push-refresh-origin-main.mjs');
+const SINGLE_FLIGHT_LOCK = resolve(ROOT, 'scripts/lib/single-flight-lock.mjs');
 const ZERO_SHA = '0'.repeat(40);
 
 // Run the hook with a stubbed `node` binary prepended to PATH so the real
@@ -76,12 +78,22 @@ function runGit(cwd: string, args: string[], input?: string | Buffer) {
 
 function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }) {
   const repo = mkdtempSync(join(tmpdir(), 'pre-push-history-guard-repo-'));
-  const nodeDir = mkdtempSync(join(tmpdir(), 'pre-push-history-guard-node-'));
-  writeFileSync(join(nodeDir, 'node'), '#!/usr/bin/env bash\nexit 0\n');
-  chmodSync(join(nodeDir, 'node'), 0o755);
+  const remote = mkdtempSync(join(tmpdir(), 'pre-push-history-guard-remote-'));
 
   try {
     runGit(repo, ['init', '-q']);
+    runGit(remote, ['init', '--bare', '-q']);
+    mkdirSync(join(repo, 'scripts', 'ci'), { recursive: true });
+    mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
+    writeFileSync(
+      join(repo, 'scripts', 'ci', 'pre-push-refresh-origin-main.mjs'),
+      readFileSync(REFRESH_HELPER),
+    );
+    writeFileSync(
+      join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'),
+      readFileSync(SINGLE_FLIGHT_LOCK),
+    );
+    writeFileSync(join(repo, 'scripts', 'ci', 'check-sibling-patterns.mjs'), 'process.exit(0);\n');
     runGit(repo, ['config', 'user.name', 'Fixture']);
     runGit(repo, ['config', 'user.email', 'fixture@example.invalid']);
 
@@ -94,8 +106,16 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
       ? runGit(repo, ['commit-tree', emptyTree, '-p', marker, '-m', 'legacy branch'])
       : runGit(repo, ['commit-tree', emptyTree, '-m', 'current branch']);
 
+    runGit(repo, ['remote', 'add', 'origin', remote]);
+    runGit(repo, [
+      'push',
+      '-q',
+      'origin',
+      `${marker ?? localHead}:refs/heads/legacy`,
+      `${rewrittenMain}:refs/heads/main`,
+    ]);
     runGit(repo, ['update-ref', 'refs/heads/test-branch', localHead]);
-    runGit(repo, ['update-ref', 'refs/remotes/origin/main', rewrittenMain]);
+    runGit(repo, ['update-ref', 'refs/remotes/origin/main', marker ? localHead : rewrittenMain]);
 
     const hookSource = readFileSync(HOOK, 'utf8');
     const markerDeclaration = hookSource.match(
@@ -113,7 +133,6 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
 
     const env = {
       ...process.env,
-      PATH: `${nodeDir}:${process.env.PATH ?? ''}`,
     };
     delete env.GITHUB_ACTIONS;
 
@@ -122,13 +141,13 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
       hookPath,
       localHead,
       marker,
-      nodeDir,
+      remote,
       repo,
       rewrittenMain,
     };
   } catch (error) {
     rmSync(repo, { recursive: true, force: true });
-    rmSync(nodeDir, { recursive: true, force: true });
+    rmSync(remote, { recursive: true, force: true });
     throw error;
   }
 }
@@ -155,7 +174,7 @@ function runHistoryGuard(
     return { code, stdout };
   } finally {
     rmSync(fixture.repo, { recursive: true, force: true });
-    rmSync(fixture.nodeDir, { recursive: true, force: true });
+    rmSync(fixture.remote, { recursive: true, force: true });
   }
 }
 
@@ -198,7 +217,7 @@ describe('.githooks/pre-push CI automation guard', () => {
 });
 
 describe('.githooks/pre-push old-history rewrite guard', () => {
-  it('rejects a branch containing the marker when origin/main no longer contains it', () => {
+  it('rejects a branch after fetching rewritten remote main when the tracking ref is stale', () => {
     const fixture = createHistoryGuardFixture({ includeMarker: true });
     const result = runHistoryGuard(
       fixture,
@@ -213,6 +232,7 @@ describe('.githooks/pre-push old-history rewrite guard', () => {
 
   it('leaves the push alone while origin/main still contains the marker', () => {
     const fixture = createHistoryGuardFixture({ includeMarker: true });
+    runGit(fixture.remote, ['update-ref', 'refs/heads/main', fixture.localHead]);
     runGit(fixture.repo, ['update-ref', 'refs/remotes/origin/main', fixture.localHead]);
     const result = runHistoryGuard(
       fixture,
