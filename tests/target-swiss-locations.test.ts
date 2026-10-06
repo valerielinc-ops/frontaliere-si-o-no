@@ -113,6 +113,10 @@ describe('target swiss locations', () => {
     expect(swissCityFromLocationField('Zurich, ZH')).toBe('Zürich');
   });
 
+  it('does not select an English exonym from an unqualified multi-site field', () => {
+    expect(swissCityFromLocationField('Paris, Geneva, London')).toBe('');
+  });
+
   it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {
     expect(canonicalSwissCityName('Davos Platz')).toBe('Davos');
     expect(canonicalSwissCityName('Davos Glaris')).toBe('Davos');
