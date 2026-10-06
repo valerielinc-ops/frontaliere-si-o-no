@@ -1791,7 +1791,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: read    # checkout
-      actions: read     # cross-run download-artifact
+      actions: write    # dispatch triage; also covers cross-run download-artifact
       issues: write     # github-issue-creator on validation failure (must be declared at the caller too or the reusable startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
@@ -1811,7 +1811,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
-      actions: read     # cross-run download-artifact
+      actions: write    # dispatch triage; also covers cross-run download-artifact
       issues: write     # github-issue-creator on validation failure
 
   # ───────────────────────────────────────────────────────────────────────
@@ -1886,7 +1886,7 @@ jobs:
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
-      actions: read     # cross-run download small artifacts (sitemaps, winners)
+      actions: write    # dispatch triage; also covers cross-run download small artifacts (sitemaps, winners)
       issues: write     # github-issue-creator on publish failure
       deployments: read # post-deploy-publish validates deployment provenance
 
