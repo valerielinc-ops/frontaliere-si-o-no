@@ -95,6 +95,14 @@ const crawlerGenerationRuntimePaths = new Set([
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  // `consent-shown-at-signup` discovers signup writers by reading every file
+  // under these roots. Those `read()` calls are the contract, but they are
+  // invisible to the static import graph; keep the observer adjacent to the
+  // scan so a new writer cannot leave its verdict stale on main.
+  [
+    'tests/consent-shown-at-signup.test.tsx',
+    (file) => file === 'App.tsx' || /^(?:components|hooks|services)\//.test(file),
+  ],
   // Chiusura per import del transport verso nanako: il test legge il manifest
   // e gli import dei file trasportati da disco, quindi non importa nessuno dei
   // file che giudica. La PR 10973 ha fatto importare a
