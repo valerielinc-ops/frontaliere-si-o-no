@@ -84,9 +84,10 @@ describe('pharmacy data-health monitor dependency-free closure', () => {
     // the exact failure class the monitor exists to close.
     const { files } = scanImportClosure();
     expect(files).toContain('scripts/check-pharmacy-data-health.mjs');
-    // The chain is walked for real, so the guard cannot pass vacuously.
-    expect(files).toContain('scripts/lib/pharmacy-ticino-duty-parser.mjs');
-    expect(files).toContain('scripts/lib/slugify.mjs');
+    // The chain is walked for real, so the guard cannot pass vacuously: the
+    // monitor reaches the pure validators through check-pharmacy-border-data.
+    expect(files).toContain('scripts/check-pharmacy-border-data.mjs');
+    expect(files).toContain('services/pharmacies/release-contract-validator.mjs');
     expect(files).toContain('scripts/lib/pharmacy-enrichment-validation.mjs');
     expect(files).toContain('scripts/lib/pharmacy-border-release-validation.mjs');
     // These modules carry optional npm/provider imports and must stay out of
