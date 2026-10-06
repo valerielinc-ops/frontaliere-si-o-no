@@ -121,6 +121,26 @@ describe('declared brand relabel', () => {
     expect(result.refreshed).toBeGreaterThanOrEqual(2);
   });
 
+  it('syncs the flat slug only to its validated pre-refresh locale owner', () => {
+    const labels = new Map([['ipersonal', 'IPERSONAL']]);
+    const job = {
+      companyKey: 'ipersonal',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Arbeit' },
+      location: 'Lugano',
+      slugByLocale: {
+        it: 'alte-ipersonal-route',
+        de: 'arbeit-ipersonal-lugano',
+      },
+      slug: 'arbeit-ipersonal-lugano',
+    };
+
+    refreshDeclaredBrandSlugs([job], labels);
+
+    expect(job.slug).toBe(job.slugByLocale.de);
+    expect(job.slug).not.toBe(job.slugByLocale.it);
+  });
+
   it('is wired into the assembly of both active and expired jobs', () => {
     const src = fs.readFileSync(path.join(ROOT, 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
     // Three call sites: the crawler slice writer, the active `deduped` pass,

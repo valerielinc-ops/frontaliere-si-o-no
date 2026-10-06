@@ -148,6 +148,13 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
     const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
     const location = String(job.location || job.addressLocality || '').trim();
     const disambiguator = String(job.slugDisambiguator || '').trim();
+    const currentMaster = String(job.slug || '').trim();
+    const masterLocale = currentMaster
+      ? ['it', 'en', 'de', 'fr'].find((locale) => (
+        String(job.slugByLocale?.[locale] || '').trim() === currentMaster
+      ))
+      : undefined;
+    const validatedLocales = new Set();
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const title = String(
         titleByLocale[locale] || (locale === sourceLang ? job.title : '') || '',
@@ -155,14 +162,17 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
       if (!title) continue;
       const canonical = buildSlug(title, declared, location, disambiguator);
       if (!canonical) continue;
+      validatedLocales.add(locale);
       if (!replaceActiveSlug(job, canonical, { locale })) continue;
       refreshed++;
       byKey[key] = (byKey[key] || 0) + 1;
     }
 
-    const canonicalMaster = String(job.slugByLocale?.it || '').trim();
-    const currentMaster = String(job.slug || '').trim();
-    if (canonicalMaster && currentMaster !== canonicalMaster
+    const canonicalMaster = masterLocale
+      ? String(job.slugByLocale?.[masterLocale] || '').trim()
+      : '';
+    if (masterLocale && validatedLocales.has(masterLocale)
+      && canonicalMaster && currentMaster !== canonicalMaster
       && replaceActiveSlug(job, canonicalMaster)) {
       refreshed++;
       byKey[key] = (byKey[key] || 0) + 1;
