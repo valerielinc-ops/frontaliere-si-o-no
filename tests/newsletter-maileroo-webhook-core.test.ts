@@ -141,6 +141,37 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__adds.some((e) => e.collection.includes('/events'))).toBe(true);
   });
 
+  it('preserves a confirmation-copy experiment campaign from the provider tag', async () => {
+    const campaign = 'confirmation_copy_ab_generic_job_gate_email_unlock_it';
+    const db = createFakeDb({
+      newsletter_subscribers: { 'ab@example.com': { status: 'pending' } },
+    });
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'accepted',
+      message_id: 'ab-message',
+      event_data: { to: 'ab@example.com' },
+      tags: { campaign_id: campaign, type: 'transactional' },
+    });
+    expect(result).toMatchObject({ processed: true, type: 'send', campaignId: campaign });
+    const stored = db.__adds.find((entry) => entry.collection.includes('/events'));
+    expect(stored?.data).toMatchObject({ event_type: 'send', campaign_id: campaign, provider: 'maileroo' });
+
+    const engagementDb = createFakeDb({
+      newsletter_subscribers: { 'ab@example.com': { status: 'pending' } },
+      'newsletter_subscribers/_meta_/maileroo_refs': {
+        'ab-reference': { email: 'ab@example.com', campaign_id: campaign, is_job_alert: false },
+      },
+    });
+    const engagement = await persistMailerooEvent(engagementDb as any, {
+      event_type: 'clicked',
+      message_reference_id: 'ab-reference',
+      event_data: { original_url: 'https://frontaliereticino.ch/' },
+    });
+    expect(engagement).toMatchObject({ processed: true, type: 'click', campaignId: campaign });
+    const storedEngagement = engagementDb.__adds.find((entry) => entry.collection.includes('/events'));
+    expect(storedEngagement?.data).toMatchObject({ event_type: 'click', campaign_id: campaign, provider: 'maileroo' });
+  });
+
   it('maps accepted → send and delivered → delivered', async () => {
     const db = createFakeDb();
     const accepted = await persistMailerooEvent(db as any, {

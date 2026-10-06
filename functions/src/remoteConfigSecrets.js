@@ -132,6 +132,16 @@ export async function getNewsletterTokenPolicyConfig() {
 }
 
 /**
+ * The double-opt-in copy rollout (#6317), read directly by Cloud Functions.
+ * Empty, absent or invalid values are interpreted by the pure experiment
+ * module as rollout 0: today's contextual copy remains the safe behavior.
+ */
+export async function getNewsletterConfirmationCopyConfig() {
+ const rollout = await getRemoteConfigValue('NEWSLETTER_CONFIRMATION_COPY_ROLLOUT');
+ return { NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: rollout };
+}
+
+/**
  * Fetch all three newsletter secrets at once.
  * Returns { resendApiKey, resendWebhookSecret, newsletterSecret }.
  */
