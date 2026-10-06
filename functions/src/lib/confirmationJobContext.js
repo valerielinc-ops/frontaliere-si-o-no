@@ -31,6 +31,11 @@
 
 import { sanitizeCompany, sanitizeLocation } from './welcomeSegment.js';
 import { toMillis } from './confirmationFollowup.js';
+import {
+  CONFIRMATION_COPY_VARIANTS,
+  isConfirmationCopyEligibleSourceCta,
+  isConfirmationCopyVariant,
+} from './confirmationCopyExperiment.js';
 
 /**
  * `source_cta` → which wording applies.
@@ -47,6 +52,12 @@ export const CONFIRMATION_JOB_CONTEXT_KINDS = Object.freeze({
   job_board_social_unlock: 'unlocked',
   job_expired_email_unlock: 'expired',
 });
+
+/** The allowlisted source CTA, or null for every non-experiment surface. */
+export function confirmationSourceCta(data) {
+  const sourceCta = String(data?.source_cta || '').trim();
+  return isConfirmationCopyEligibleSourceCta(sourceCta) ? sourceCta : null;
+}
 
 /** The client truncates the title it stamps into `source` at this length. */
 const SOURCE_TITLE_MAX = 60;
@@ -206,7 +217,7 @@ export function jobFieldsFromTitleSignup(data, now) {
 export function resolveConfirmationJobContext(data, { now = Date.now() } = {}) {
   try {
     if (!data || typeof data !== 'object') return null;
-    const kind = CONFIRMATION_JOB_CONTEXT_KINDS[String(data.source_cta || '').trim()];
+    const kind = CONFIRMATION_JOB_CONTEXT_KINDS[confirmationSourceCta(data) || ''];
     if (!kind) return null;
 
     // Title and company from two different offers: no context at all, not the
@@ -261,7 +272,11 @@ export function resolveConfirmationJobContext(data, { now = Date.now() } = {}) {
 export const CONFIRMATION_JOB_CONTEXT_FIELD = 'confirmation_job_context';
 
 /**
- * @typedef {ConfirmationJobContext & {return_path: string|null}} ConfirmationJobSnapshot
+ * @typedef {ConfirmationJobContext & {
+ *   return_path: string|null,
+ *   copy_variant?: 'generic'|'contextual',
+ *   source_cta?: string,
+ * }} ConfirmationJobSnapshot
  */
 
 /**
@@ -322,13 +337,29 @@ export function readConfirmationJobSnapshot(data) {
     if (!title.ok || !company.ok || !location.ok || !returnPath.ok) return null;
     if (!title.value && !company.value) return null;
 
-    return {
+    const optionalSlot = (key, validate) => {
+      if (!Object.prototype.hasOwnProperty.call(raw, key)) return { present: false, ok: true, value: null };
+      const clean = validate(raw[key]);
+      return { present: true, ok: clean != null, value: clean };
+    };
+    const copyVariant = optionalSlot('copy_variant', (value) => (
+      isConfirmationCopyVariant(value) ? String(value) : null
+    ));
+    const sourceCta = optionalSlot('source_cta', (value) => (
+      isConfirmationCopyEligibleSourceCta(value) ? String(value).trim() : null
+    ));
+    if (!copyVariant.ok || !sourceCta.ok) return null;
+
+    const snapshot = {
       kind,
       title: title.value,
       company: company.value,
       location: location.value,
       return_path: returnPath.value,
     };
+    if (copyVariant.present) snapshot.copy_variant = copyVariant.value;
+    if (sourceCta.present) snapshot.source_cta = sourceCta.value;
+    return snapshot;
   } catch {
     return null;
   }
@@ -353,11 +384,18 @@ export function readConfirmationJobSnapshot(data) {
  * freezes what it sent, so its next reminder repeats it.
  *
  * @param {Record<string, any>|null|undefined} data a `newsletter_subscribers` doc
- * @param {{attemptsBefore: number, returnPath?: string|null, now?: number}} args
+ * @param {{attemptsBefore: number, returnPath?: string|null, now?: number, copyVariant?: 'generic'|'contextual'|null}} args
  *   `returnPath` is the path this sender would use without a snapshot
- * @returns {{jobContext: ConfirmationJobContext|null, returnPath: string|null, snapshot: ConfirmationJobSnapshot|null}}
+ * @returns {{jobContext: ConfirmationJobContext|null, returnPath: string|null, snapshot: ConfirmationJobSnapshot|null, copyVariant?: 'generic'|'contextual', sourceCta?: string|null}}
  */
-export function confirmationJobContextForSend(data, { attemptsBefore, returnPath = null, now = Date.now() } = {}) {
+export function confirmationJobContextForSend(data, options = {}) {
+  const {
+    attemptsBefore,
+    returnPath = null,
+    now = Date.now(),
+    copyVariant: requestedCopyVariant,
+  } = options;
+  const hasRequestedCopyVariant = Object.prototype.hasOwnProperty.call(options, 'copyVariant');
   // The link and the snapshot use the SAME sanitized path: a query string or a
   // fragment on the caller's path would otherwise make request #1 differ from
   // its reminders (and doubles the `?` in confirmationConfirmUrl).
@@ -367,13 +405,41 @@ export function confirmationJobContextForSend(data, { attemptsBefore, returnPath
     // A generic request #1 stays generic, and keeps this sender's link: with
     // no offer named there is no return promise for the link to contradict.
     if (stored === null) return { jobContext: null, returnPath: path, snapshot: null };
-    const { return_path: frozenPath, ...jobContext } = stored;
-    return { jobContext, returnPath: frozenPath, snapshot: stored };
+    const {
+      return_path: frozenPath,
+      copy_variant: storedCopyVariant,
+      source_cta: storedSourceCta,
+      ...jobContext
+    } = stored;
+    if (!isConfirmationCopyVariant(storedCopyVariant)) {
+      return { jobContext, returnPath: frozenPath, snapshot: stored };
+    }
+    return {
+      jobContext: storedCopyVariant === CONFIRMATION_COPY_VARIANTS.GENERIC ? null : jobContext,
+      returnPath: frozenPath,
+      snapshot: stored,
+      copyVariant: storedCopyVariant,
+      sourceCta: storedSourceCta || null,
+    };
   }
   const jobContext = resolveConfirmationJobContext(data, { now });
+  const sourceCta = jobContext ? confirmationSourceCta(data) : null;
+  const activeAssignment = jobContext
+    && hasRequestedCopyVariant
+    && isConfirmationCopyVariant(requestedCopyVariant);
+  const snapshot = jobContext
+    ? {
+      ...jobContext,
+      return_path: path,
+      ...(activeAssignment ? { copy_variant: requestedCopyVariant, source_cta: sourceCta } : {}),
+    }
+    : null;
   return {
-    jobContext,
+    jobContext: activeAssignment && requestedCopyVariant === CONFIRMATION_COPY_VARIANTS.GENERIC
+      ? null
+      : jobContext,
     returnPath: path,
-    snapshot: jobContext ? { ...jobContext, return_path: path } : null,
+    snapshot,
+    ...(activeAssignment ? { copyVariant: requestedCopyVariant, sourceCta } : {}),
   };
 }
