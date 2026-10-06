@@ -196,6 +196,27 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('outer-stale');
   });
 
+  it('keeps templates with slash-valued unquoted attributes inactive', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template data-src=/foo/>'
+        + '<meta property="og:title" content="stale">'
+        + '<title>stale</title></template>'
+        + '<meta property="og:title" content="active">'
+        + '<title>active</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<meta property="og:title" content="active">');
+    expect(bridge).toContain('<title>active</title>');
+    expect(bridge).not.toContain('content="stale"');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing
