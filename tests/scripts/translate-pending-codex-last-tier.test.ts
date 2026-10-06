@@ -84,6 +84,7 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(steps.indexOf(resolver!)).toBeLessThan(steps.indexOf(consumers[0]));
     expect(effectiveMaxCalls({ repo: '0' })).toBe(0);
     for (const step of consumers) expectBudget(step);
+    for (const step of consumers) expect(step.env?.FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS, step.name).toBe('480000');
     expect(steps.some((step) => step.env && Object.prototype.hasOwnProperty.call(step.env, 'AI_MODELS_PREFER'))).toBe(false);
   });
 

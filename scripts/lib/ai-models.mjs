@@ -5939,7 +5939,7 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTime
     let started = false;
     const initialTimeoutMs = boundedByDeadline(queueWaitMs + executionSocketTimeoutMs);
     client.setTimeout(initialTimeoutMs, () => finish(started
-      ? _codexTransportError('Codex auth broker socket timed out')
+      ? _codexTransportError(`Codex auth broker execution timed out after ${Math.round(requestTimeoutMs / 1000)}s`)
       : _codexTransportError(`Codex auth broker queue wait timed out after ${Math.round(initialTimeoutMs / 1000)}s before Codex started`)));
     client.on('error', (error) => {
       if (settled) return;
