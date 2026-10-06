@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Rank editorial pages by content-refresh opportunity using Search Console
  * page-level performance (impressions, CTR, avg position).
@@ -23,7 +24,6 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { classifyAnalyticsPath } from './lib/analytics-opportunity-utils.mjs';
 import { rankPageOpportunities } from './lib/gsc-opportunity-scoring.mjs';
@@ -192,7 +192,7 @@ async function main() {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((err) => {
+if (isInvokedDirectly(import.meta.url)) main().catch((err) => {
   console.error(`gsc-content-opportunity-score failed: ${err.message}`);
   process.exit(1);
 });

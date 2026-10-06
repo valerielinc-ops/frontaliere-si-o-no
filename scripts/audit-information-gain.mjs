@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * audit-information-gain.mjs — issue #5002.
  *
@@ -46,7 +47,6 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import {
@@ -534,7 +534,7 @@ async function standalone() {
 export const factory = createAuditor;
 export const auditor = factory();
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   standalone().catch((err) => {
     console.error('[audit-information-gain] fatal', err);
     process.exit(1);

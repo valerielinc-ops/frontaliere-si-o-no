@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * build-job-email-affinity.mjs — costruisce e aggiorna, ogni notte, il profilo
  * di interessi per persona (`job_email_affinity/{pseudonimo}`) dai clic sugli
@@ -53,7 +54,7 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { classifyClickEvents, toMillis } from '../functions/src/lib/syntheticClicks.js';
 import { parseJobRankingClick } from '../functions/src/lib/jobEmailRankingLinks.js';
 import { stableJobId } from '../functions/src/lib/jobEmailRanking.js';
@@ -582,7 +583,7 @@ export async function main(argv = process.argv, { getDb } = {}) {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().then(
     (code) => process.exit(code),
     (error) => {
