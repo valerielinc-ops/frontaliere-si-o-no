@@ -303,8 +303,13 @@ describe('publisherAdPagesPlugin — emitted employer profile identity', () => {
         }]),
       );
 
-      const plugin = publisherAdPagesPlugin(root) as unknown as { closeBundle: () => Promise<void> };
-      await plugin.closeBundle();
+      const plugin = publisherAdPagesPlugin(root) as unknown as {
+        closeBundle:
+          | (() => Promise<void>)
+          | { handler: () => Promise<void> };
+      };
+      const closeBundle = plugin.closeBundle;
+      await (typeof closeBundle === 'function' ? closeBundle() : closeBundle.handler());
       const html = fs.readFileSync(
         path.join(root, 'dist', 'lavoro', 'acme-sviluppatore-lugano', 'index.html'),
         'utf8',
