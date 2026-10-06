@@ -201,6 +201,18 @@ function runBloblessMeasurement(remote: string): number {
   }
 }
 
+function configureUrlRewrite(scenario: Scenario, sshRepo: string): string {
+  const httpsRepo = sshRepo.replace(/^git@github\.com:/, 'https://github.com/');
+  const config = join(scenario.root, 'gitconfig');
+  writeFileSync(
+    config,
+    `[url "${scenario.remote}"]\n`
+      + `\tinsteadOf = ${sshRepo}\n`
+      + `\tinsteadOf = ${httpsRepo}\n`,
+  );
+  return config;
+}
+
 function runPush(
   scenario: Scenario,
   mode: 'delta' | 'full' | undefined,
@@ -616,6 +628,74 @@ describe('delta push degli shard', () => {
       assertContent(scenario.remote, 'en/find-jobs-ticino/pages/a/index.html', '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('usa il PAT per pubblicare quando manca la deploy key, senza saltare lo shard', () => {
+    const cases = [
+      {
+        name: 'locale-missing-key',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-en.git',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        seed: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale stale</html>',
+        }),
+        write: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale recovered</html>',
+        }),
+        path: 'en/pages/a/index.html',
+        content: '<html>locale recovered</html>',
+      },
+      {
+        name: 'section-missing-key',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-ticino-en.git',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        seed: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section stale</html>',
+        }),
+        write: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section recovered</html>',
+        }),
+        path: 'en/find-jobs-ticino/pages/a/index.html',
+        content: '<html>section recovered</html>',
+      },
+    ];
+
+    for (const testCase of cases) {
+      const scenario = createScenario(testCase.name);
+      try {
+        testCase.seed(scenario);
+        expect(runPush(scenario, 'full', {}, testCase.target).status).toBe(0);
+        testCase.write(scenario);
+        const result = runPush(
+          scenario,
+          'full',
+          {
+            [testCase.target.deployKey]: '',
+            GITHUB_PAT: 'test-pat',
+            SHARD_REPO_OVERRIDE: testCase.fakeRepo,
+            GIT_CONFIG_GLOBAL: configureUrlRewrite(scenario, testCase.fakeRepo),
+          },
+          testCase.target,
+        );
+        expect(result.status).toBe(0);
+        expect(result.output).toContain('deploy key missing — reading the current tree over HTTPS before the PAT fallback');
+        expect(result.output).toContain('pushed via the PAT fallback after deploy-key missing');
+        expect(treeFiles(scenario.remote)).toContain(testCase.path);
+        assertContent(scenario.remote, testCase.path, testCase.content);
+      } finally {
+        rmSync(scenario.root, { recursive: true, force: true });
+      }
     }
   });
 

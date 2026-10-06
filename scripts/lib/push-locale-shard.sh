@@ -19,7 +19,11 @@
 #
 # Required env (read exactly as the workflow does, via indirect expansion):
 #   SHARD_<LOCALE>_DEPLOY_KEY  — per-locale SSH deploy key, e.g. SHARD_EN_DEPLOY_KEY.
-#                                Missing → skip (exit 0), never an error.
+#                                Missing → use SHARD_PUSH_PAT/GITHUB_PAT for a
+#                                complete full publish; if both are absent,
+#                                fail closed instead of leaving a stale shard.
+#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token (GITHUB_PAT is hydrated
+#                                from Remote Config in the deploy workflow).
 # Optional env:
 #   RUNNER_TEMP        — scratch dir + success-marker location (GitHub Actions sets
 #                        it). Falls back to a mktemp dir if unset (logged).
@@ -32,10 +36,10 @@
 #                                    to .cache/incremental-manifest.
 #
 # On success writes the marker $RUNNER_TEMP/shard-ok-<locale> (consumed by the
-# strip step) and exits 0. On a SKIP (no deploy key, or <dist_dir>/<locale>
-# absent) exits 0 WITHOUT the marker. On a real build/push failure exits non-zero
-# so the caller decides (the matrix step is `continue-on-error: true`, mirroring
-# the original step).
+# strip step) and exits 0. A missing deploy key uses the HTTPS fallback when it
+# is available; only an absent <dist_dir>/<locale> remains a clean skip. On a
+# real build/push failure exits non-zero so the caller decides (the matrix step
+# is `continue-on-error: true`, mirroring the original step).
 #
 # Exit codes:
 #   0  — pushed (marker written), or legitimately skipped (no marker)
@@ -109,8 +113,9 @@ push_shard() {
     # the PAT fallback still handles a remote that closes the transport.
     export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
   else
-    # There is no SSH credential to use for the clone or push. The full orphan
-    # path below publishes the complete freshly-built locale over HTTPS.
+    # There is no SSH credential to use for the clone or push. The full path
+    # below reads the public shard over HTTPS and publishes the complete,
+    # freshly-built locale with the PAT.
     unset GIT_SSH_COMMAND
   fi
   # Source-of-truth file count + the shard's last-published count, read
@@ -320,11 +325,16 @@ push_shard() {
     # so bookkeeping counters (.shard-deploys / .shard-filecount) must be
     # read via git-plumbing (shard_read_counter), not `[ -f ... ]` — see
     # shard-git-helpers.sh header for the incident this fixes.
+    clone_repo="$SHARD_REPO"
     if [ "$missing_deploy_key" = 1 ]; then
-      echo "$loc shard: deploy key missing — using a complete orphan tree for the PAT fallback"
-      shard_orphan_init "$stage"
-    elif git clone -q --depth 1 --filter=blob:none --no-checkout \
-         "$SHARD_REPO" "$stage" 2>/dev/null \
+      if ! clone_repo="$(shard_https_push_url "$SHARD_REPO")"; then
+        echo "::error::$loc shard: deploy key missing and no HTTPS GitHub URL can be derived from '$SHARD_REPO' — refusing the fallback push" >&2
+        exit 1
+      fi
+      echo "$loc shard: deploy key missing — reading the current tree over HTTPS before the PAT fallback"
+    fi
+    if git clone -q --depth 1 --filter=blob:none --no-checkout \
+         "$clone_repo" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
       # A listed-but-unreadable marker is not a zero: flatten the staged
       # payload to the same orphan path used at the history cap, so a failed
@@ -351,6 +361,10 @@ push_shard() {
         incremental=1
       fi
     else
+      if [ "$missing_deploy_key" = 1 ]; then
+        echo "::error::$loc shard: HTTPS read failed while the deploy key is missing — refusing to publish without the remote shrink baseline" >&2
+        exit 1
+      fi
       echo "$loc shard: no prior clone (first push / transient) — full orphan push"
       shard_orphan_init "$stage"
     fi
