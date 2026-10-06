@@ -3331,7 +3331,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // the Italian SEO registry. Keep the fallback useful for crawlers instead of
  // deriving a short title and a generic one-line description from the slug.
  const title = 'Articoli sulla Svizzera 2026 | Frontaliere Ticino';
- const desc = 'Notizie, analisi e guide sulla Svizzera per frontalieri: tasse, lavoro, costo della vita e aggiornamenti cantonali.';
+ const desc = 'Notizie, analisi e guide aggiornate sulla Svizzera per frontalieri: lavoro, fisco, previdenza, trasporti, vita quotidiana e opportunità nei cantoni.';
  seo = { title, desc, ogT: title, ogD: desc };
  }
  if (!seo) {

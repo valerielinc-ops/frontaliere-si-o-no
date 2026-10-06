@@ -102,6 +102,36 @@ describe('data/image CDN preconnect injection', () => {
     expect(charsetAt).toBeLessThan(hintAt);
   });
 
+  it('relocates a stale base marker after charset and existing preconnects', () => {
+    const stale =
+      '<!doctype html><html><head>' +
+      `<script>window.__CDN_DATA_BASE__="${CDN_BASE}"</script>` +
+      '<meta charset="utf-8"><meta name="viewport" content="width=device-width">' +
+      `<link rel="preconnect" href="${CDN_ORIGIN}" crossorigin>` +
+      '</head><body></body></html>';
+    const { html } = runOffload(stale);
+    const charsetAt = html.indexOf('<meta charset="utf-8">');
+    const hintAt = html.indexOf('rel="preconnect"');
+    const scriptAt = html.indexOf('window.__CDN_DATA_BASE__');
+    const assignments = html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? [];
+    expect(assignments).toHaveLength(1);
+    expect(charsetAt).toBeLessThan(hintAt);
+    expect(hintAt).toBeLessThan(scriptAt);
+  });
+
+  it('does not treat marker text in another script as an installed base', () => {
+    const deceptive = BASE_HTML.replace(
+      '<title>t</title>',
+      '<script>const marker = "__CDN_DATA_BASE__";</script><title>t</title>',
+    );
+    const { html } = runOffload(deceptive);
+    const assignments = html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? [];
+    expect(assignments).toHaveLength(1);
+    expect(html.indexOf('<meta charset="utf-8">')).toBeLessThan(
+      html.indexOf('window.__CDN_DATA_BASE__'),
+    );
+  });
+
   it('consumes valid attributes after an unquoted charset value', () => {
     const withAttribute = BASE_HTML.replace(
       '<meta charset="utf-8">',
