@@ -71,6 +71,29 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
       `la crescita non e' quasi lineare: 4.000=${small.ms.toFixed(0)} ms, 16.000=${large.ms.toFixed(0)} ms`,
     ).toBeLessThan(small.ms * 10 + 250);
   });
+
+  it('estrae un payload FAQ reale dopo prosa corrotta con un opener annidato non bilanciato', () => {
+    const raw = '[[ prosa corrotta [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('collassa i contenitori malformati oltre il budget prima dei candidati e resta lineare', () => {
+    const measure = (depth: number) => {
+      const raw = `${'['.repeat(depth + 1)} prosa corrotta [{"q":"real","a":"A"}]`;
+      const startedAt = performance.now();
+      const parsed = JSON.parse(repairLlmJsonArray(raw));
+      return { ms: performance.now() - startedAt, parsed };
+    };
+
+    const shallow = measure(97);
+    const deep = measure(388);
+    expect(shallow.parsed).toEqual([{ q: 'real', a: 'A' }]);
+    expect(deep.parsed).toEqual([{ q: 'real', a: 'A' }]);
+    expect(
+      deep.ms,
+      `la crescita non e' quasi lineare: 97=${shallow.ms.toFixed(0)} ms, 388=${deep.ms.toFixed(0)} ms`,
+    ).toBeLessThan(shallow.ms * 10 + 250);
+  });
 });
 
 function millis<T>(fn: () => T): { ms: number; out: T } {

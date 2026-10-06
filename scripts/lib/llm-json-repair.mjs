@@ -702,8 +702,8 @@ function firstRootStart(source, rootOpeners) {
  * allowing an opener that follows the prose of a malformed preamble through.
  */
 function isNestedRootCandidate(source, rootStart, candidate) {
-  if (candidate.depth > 1) return true;
   if (!candidate.prefixJsonLike) return false;
+  if (candidate.depth > 1) return true;
 
   let previous = candidate.start - 1;
   while (previous > rootStart && /\s/.test(source[previous])) previous--;
@@ -730,6 +730,10 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
   let prefixTokenEnd = start + 1;
 
   const recordCandidate = (frame) => {
+    // For an unbalanced first root, discard nested intervals before applying
+    // the scan budget. This keeps deeply nested malformed containers from
+    // hiding a later root that follows corrupted prose.
+    if (!firstClosed && isNestedRootCandidate(source, start, frame)) return;
     if (recordedRoots >= MAX_LATER_SCANNED_ROOTS) return;
     candidates.push(frame);
     recordedRoots++;
