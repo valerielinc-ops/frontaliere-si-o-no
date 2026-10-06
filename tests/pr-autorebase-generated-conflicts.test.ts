@@ -10,6 +10,7 @@ import {
 } from '../scripts/ci/generated-files-registry.mjs';
 import {
   GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE,
+  decideGeneratedConflictHandoff,
   resolveGeneratedConflictMerge,
 } from '../scripts/ci/pr-autorebase.mjs';
 
@@ -121,5 +122,39 @@ describe('autorebase generated conflict resolution', () => {
     git(cwd, 'merge', '--abort');
     expect(git(cwd, 'rev-parse', 'HEAD')).toBe(featureHead);
     expect(git(cwd, 'status', '--porcelain')).toBe('');
+  });
+});
+
+describe('autorebase generated conflicts before hand-off', () => {
+  it('keeps a generated-only conflict on the autorebase path after regeneration', () => {
+    const { cwd } = createConflictingRepository(['.github/corpus-workflows/contract.json']);
+    const injected = injectedCommands();
+    const generated = resolveGeneratedConflictMerge({ cwd, commandRunner: injected.commandRunner });
+
+    expect(decideGeneratedConflictHandoff({
+      conflictPaths: ['.github/corpus-workflows/contract.json'],
+      resolutionStatus: generated.status,
+    })).toMatchObject({ action: 'resolved' });
+    expect(git(cwd, 'log', '-1', '--format=%s')).toBe(GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE);
+  });
+
+  it('passes a mixed conflict to hand-off without attempting generation', () => {
+    expect(decideGeneratedConflictHandoff({
+      conflictPaths: ['.github/corpus-workflows/contract.json', 'notes.md'],
+    })).toMatchObject({ action: 'handoff', reason: 'manual-conflict' });
+  });
+
+  it('passes a failed generated resolution to hand-off', () => {
+    expect(decideGeneratedConflictHandoff({
+      conflictPaths: ['.github/corpus-workflows/contract.json'],
+      resolutionStatus: 'failed',
+    })).toMatchObject({ action: 'handoff', reason: 'generated-resolution-failed' });
+  });
+
+  it('takes no action while the conflict-resolution lock is valid', () => {
+    expect(decideGeneratedConflictHandoff({
+      conflictPaths: ['.github/corpus-workflows/contract.json'],
+      conflictLockState: 'active',
+    })).toMatchObject({ action: 'skip', reason: 'lock' });
   });
 });

@@ -34,7 +34,7 @@ import {
   classifyTruncation,
   describePayloadRejection,
 } from '../../scripts/lib/llm-payload-diagnostics.mjs';
-import { findMatchingClose, fixJsonStringBody, stripCodeFences } from '../../scripts/lib/llm-json-repair.mjs';
+import { repairLlmJson } from '../../scripts/lib/llm-json-repair.mjs';
 
 const ROOT = path.resolve(__dirname, '../..');
 const SRC = fs.readFileSync(path.join(ROOT, 'scripts/create-article.mjs'), 'utf-8');
@@ -72,26 +72,9 @@ function documentoSano(body = 'Un paragrafo di corpo abbastanza lungo da superar
 }`;
 }
 
-/** `repairLlmJson()` di scripts/create-article.mjs, ricopiato: la' non e' esportata. */
-function repairLike(raw: string): string {
-  let c = stripCodeFences(raw);
-  const start = c.indexOf('{');
-  if (start !== -1) {
-    const closeIdx = findMatchingClose(c, start, true);
-    if (closeIdx !== -1) c = c.slice(start, closeIdx + 1);
-    else {
-      const end = c.lastIndexOf('}');
-      if (end > start) c = c.slice(start, end + 1);
-    }
-  }
-  return fixJsonStringBody(c, { fixAsterisks: true })
-    .replace(/,(\s*,)+/g, ',')
-    .replace(/,(\s*[}\]])/g, '$1');
-}
-
 /** Il giro completo del ramo `isBody2Check`: repair → parse → diagnostica. */
 function diagnostica(raw: string, model: string | null = 'nvidia/meta/llama-3.1-8b-instruct'): string {
-  const repaired = repairLike(raw);
+  const repaired = repairLlmJson(raw);
   let parsed;
   let parseErr: Error | null = null;
   try {

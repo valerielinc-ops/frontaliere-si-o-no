@@ -14,7 +14,8 @@
  *
  * Scopes the token to THIS repo only. On success: masks it and appends
  * `APP_TOKEN=<token>` to $GITHUB_ENV. Missing/invalid App creds → warn + exit 0
- * (no APP_TOKEN written) so callers fall back to GITHUB_PAT/GITHUB_TOKEN.
+ * (no APP_TOKEN written); each caller must then fail closed or use its explicitly
+ * declared PAT policy. This helper never authorizes a silent GITHUB_TOKEN fallback.
  * `APP_TOKEN_DATA_REFRESH=true` is written only when the token response verifies
  * both `contents: write` and `pull_requests: write`; data-refresh PR publishers
  * use that capability flag before selecting APP_TOKEN.
@@ -158,7 +159,7 @@ function setDataRefreshCapability(granted) {
 }
 
 function warnExit(msg) {
-  console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set, callers fall back to GITHUB_PAT/GITHUB_TOKEN.`);
+  console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set; callers must fail closed or use an explicitly declared PAT.`);
   setWorkflowsCapability(false);
   setActionsCapability(false);
   setDataRefreshCapability(false);

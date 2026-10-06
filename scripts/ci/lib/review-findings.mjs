@@ -32,6 +32,62 @@ import { createHash } from 'node:crypto';
 // #6), che è esattamente ciò che questo modulo esiste per garantire altrove.
 import { stripFencedBlocks } from '../followup-resolution-match.mjs';
 
+export const BODY_CITATION_MAX_LENGTH = 240;
+
+const BODY_CITATION_LINE_RE = /^\s*(?:[-*+]\s*)?Body citation:\s*(.*?)\s*$/iu;
+
+/**
+ * Extract the one machine-readable quote required for a PR-body finding.
+ * The value is a JSON string so quotes and backslashes cannot make the parser
+ * guess where the citation ends. Missing, duplicated, malformed, empty, or
+ * overly long values return null and therefore keep the finding blocking.
+ */
+export function extractBodyCitation(text) {
+  let count = 0;
+  let citation = null;
+  for (const line of String(text || '').split(/\r?\n/u)) {
+    const match = line.match(BODY_CITATION_LINE_RE);
+    if (!match) continue;
+    count += 1;
+    let parsed;
+    try {
+      parsed = JSON.parse(match[1].trim());
+    } catch {
+      return null;
+    }
+    if (typeof parsed !== 'string' || !parsed.trim()
+        || parsed.length > BODY_CITATION_MAX_LENGTH) return null;
+    citation = parsed;
+  }
+  return count === 1 ? citation : null;
+}
+
+/** Remove citation metadata before scanning the finding text for code paths. */
+export function stripBodyCitationLines(text) {
+  return String(text || '')
+    .split(/\r?\n/u)
+    .filter((line) => !BODY_CITATION_LINE_RE.test(line))
+    .join('\n');
+}
+
+/**
+ * Compare body text without treating Markdown decoration or whitespace layout
+ * as content. The comparison remains case-sensitive and preserves words and
+ * punctuation, so the quote is still evidence of the exact text.
+ */
+export function normalizeBodyCitationText(value) {
+  let text = String(value || '').normalize('NFKC').replace(/\r\n?/gu, '\n');
+  text = text
+    .replace(/<!--[\s\S]*?-->/gu, ' ')
+    .replace(/!\[([^\]]*)\]\([^)]*\)/gu, '$1')
+    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
+    .replace(/```[^\n]*\n?/gu, '')
+    .replace(/`([^`\n]*)`/gu, '$1')
+    .replace(/^\s{0,3}(?:#{1,6}\s+|>\s?|[-*+]\s+|\d+\.\s+)/gmu, '')
+    .replace(/[*_~]/gu, '');
+  return text.replace(/\s+/gu, ' ').trim();
+}
+
 /** Classi dichiarabili. Solo `regression` ha semantica per il gate. */
 export const FINDING_CLASSES = Object.freeze([
   'regression',
