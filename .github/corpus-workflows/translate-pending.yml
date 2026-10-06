@@ -454,6 +454,10 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
+      - name: Probe translation provider readiness
+        id: provider_readiness
+        continue-on-error: true
+        run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
       - name: Resolve Codex reserve budget
         if: inputs.skip_translate != true
         env:
@@ -466,10 +470,6 @@ jobs:
           else
             printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=30\n' >> "$GITHUB_ENV"
           fi
-      - name: Probe translation provider readiness
-        id: provider_readiness
-        continue-on-error: true
-        run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
