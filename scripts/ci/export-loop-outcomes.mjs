@@ -23,7 +23,12 @@ export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const L4_RETURN_WINDOW_DAYS = 7;
 export const L4_GA4_LAG_DAYS = 2;
 export const L4_DELIVERY_CONTRACT_VERSION = 1;
-export const L4_DELIVERY_CONSENT_CLOCK_SKEW_MS = 5 * 60_000;
+// Measured on recent production alert runs: run 37100524185 took 14m05s from
+// workflow start to the last provider acceptance (the filter runs after start
+// and before matching). Keep a 5m55s margin for queue/provider variance, for a
+// named 20-minute filter-to-send window. This avoids one Firestore re-read per
+// delivery while keeping the proof bounded by observed batch duration.
+export const L4_DELIVERY_CONSENT_WINDOW_MS = 20 * 60_000;
 export const L4_DELIVERY_LOOKBACK_DAYS = L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS + 1;
 export const DEFAULT_L4_WINDOW_HOURS = L4_DELIVERY_LOOKBACK_DAYS * 24;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
@@ -1026,8 +1031,8 @@ export function readDeliveryConsentEvidence(data, sentAt) {
     && version === L4_DELIVERY_CONTRACT_VERSION
     && checkedAt != null
     && sentAtMs != null
-    && checkedAt >= sentAtMs - L4_DELIVERY_CONSENT_CLOCK_SKEW_MS
-    && checkedAt <= sentAtMs + L4_DELIVERY_CONSENT_CLOCK_SKEW_MS
+    && checkedAt >= sentAtMs - L4_DELIVERY_CONSENT_WINDOW_MS
+    && checkedAt <= sentAtMs + L4_DELIVERY_CONSENT_WINDOW_MS
     && text(basis)
   ) return { status: 'valid', checkedAt, basis: String(basis).trim() };
   return { status: 'missing' };
@@ -1094,6 +1099,7 @@ export function buildL4OutcomeLedger({
   // Every alert row read, consented or not: tells a delivery whose alert row
   // is gone apart from one whose alert exists but has no consent.
   const knownAlertKeys = new Set();
+  const currentConsentByAlertKey = new Map();
   let consentChecked = true;
   let suppressedWithoutConsent = 0;
   for (const row of alertRows) {
@@ -1103,14 +1109,17 @@ export function buildL4OutcomeLedger({
     const alert = documentData(row);
     const newsletter = newsletters.get(email) || null;
     let consent;
+    let consentState = 'unknown';
     try {
       consent = evaluateConsent({ alert, subscriber: newsletter });
+      consentState = consent?.allowed === true ? 'allowed' : 'denied';
     } catch {
       consentChecked = false;
       consent = { allowed: false, reason: 'consent-evaluation-failed' };
     }
     const alertKey = buildAlertKey(email, child.childId);
     knownAlertKeys.add(alertKey);
+    currentConsentByAlertKey.set(alertKey, consentState);
     if (alert.active !== true) continue;
     if (!consent || consent.allowed !== true) suppressedWithoutConsent += 1;
     const eligible = alert.paused !== true
@@ -1181,8 +1190,19 @@ export function buildL4OutcomeLedger({
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
-    const consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
+    let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
+    // Option (b): the sender deliberately does not re-read per recipient at
+    // provider time. If the exporter now sees that the same alert's consent is
+    // denied, a previously valid filter proof is a refusal, not a delivery
+    // that can satisfy L4. Unknown evaluation failures stay `missing`.
+    if (
+      consentEvidence.status === 'valid'
+      && knownAlert
+      && currentConsentByAlertKey.get(key) === 'denied'
+    ) {
+      consentEvidence = { status: 'refused' };
+    }
 
     // Deduplication is a delivery-ledger invariant, independent of whether
     // the same row can be attributed to a consented alert. Record every

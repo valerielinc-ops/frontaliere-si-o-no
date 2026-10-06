@@ -1496,10 +1496,11 @@ export async function persistJobAlertDelivery(item, sendResult) {
     const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
     const sentAt = new Date();
     // The audience filter may run long before a provider accepts this item
-    // (especially when a scheduled send waits in the cascade). Renew the
-    // timestamp at the same persistence boundary as sent_at while preserving
-    // the already-evaluated allow decision and its basis.
-    const consentCheckedAt = consentProof ? sentAt.toISOString() : null;
+    // (especially when a scheduled send waits in the cascade). Preserve the
+    // timestamp captured by that filter alongside the already-evaluated allow
+    // decision and its basis. `sentAt` is the provider-accepted boundary, not
+    // a consent read, so it must never replace the filter timestamp.
+    const consentCheckedAt = consentProof?.checkedAt || null;
     // A successful provider send must remain observable even if an upstream
     // item lost its alert id. The null campaign_id keeps attribution closed;
     // the provider id/time fallback prevents two unknown sends collapsing into
@@ -1524,11 +1525,10 @@ export async function persistJobAlertDelivery(item, sendResult) {
       // (personal/global) — absent entirely for retries, which never resolve one.
       scheduled_for: sendResult?.scheduledFor ?? null,
       send_time_source: item.meta?.sendTimeSource ?? null,
-      // L4 outcome contract v1: keep the allow decision and basis evaluated
-      // before the provider call, but renew its timestamp at the provider-
-      // accepted send boundary above. The exporter can then require consent
-      // evidence contemporaneous with sent_at without trusting a later profile
-      // mutation.
+      // L4 outcome contract v1: keep the allow decision, basis and real check
+      // time evaluated before the provider call. The exporter can then bound
+      // the filter-to-send interval without accepting a fabricated send-time
+      // consent read or trusting a later profile mutation.
       outcome_contract_version: 1,
       consent_checked: consentProof ? true : null,
       consent_allowed: consentProof ? consentProof.allowed === true : null,
