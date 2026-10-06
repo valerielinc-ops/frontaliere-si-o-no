@@ -362,9 +362,11 @@ export function buildFailureBody(input) {
     lines.push('- `scripts/ci/report-workflow-failure.mjs` (non è stato possibile ricavare i path del gate dallo step: il fix parte dal log del run)');
   }
 
+  if (signature) lines.push('', signatureMarker(signature).trim());
+
   // Un punto solo di redazione, applicato sempre: un nome di step o una nota
   // futura potrebbero reintrodurre il path che disinnesca il fixer.
-  return redactWorkflowPaths(`${lines.join('\n')}${signatureMarker(signature)}`);
+  return redactWorkflowPaths(lines.join('\n'));
 }
 
 /* ── strato gh (best-effort: ogni fallimento degrada, mai un exit != 0) ── */
