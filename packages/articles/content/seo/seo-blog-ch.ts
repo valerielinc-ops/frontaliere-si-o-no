@@ -7947,16 +7947,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-congedo-parentale-frontalieri': {
-    title: 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
+    title: 'Congedo parentale in Svizzera: regole per frontalieri',
     description: 'Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, diritti, scopri',
-    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogTitle: 'Congedo parentale in Svizzera: regole per frontalieri',
     ogDescription: 'Informazioni sui congedi parentali per frontalieri in Svizzera e Italia, con dettagli pratici e procedure.',
     canonicalPath: '/articoli-svizzera/congedo-parentale-frontalieri/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia",
+      "headline": "Congedo parentale in Svizzera: regole per frontalieri",
       "description": "Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -10004,16 +10004,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-blocco-ristorni-ticino': {
-    title: 'Blocco ristorni, tensioni con il Ticino | Frontaliere Ticino',
+    title: 'Blocco dei ristorni in Ticino: cause e conseguenze',
     description: 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, tensioni, parte',
-    ogTitle: 'Blocco dei ristorni, rapporti tesissimi con il Ticino',
+    ogTitle: 'Blocco dei ristorni in Ticino: cause e conseguenze',
     ogDescription: 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni.',
     canonicalPath: '/articoli-svizzera/blocco-ristorni-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Blocco ristorni, tensioni con il Ticino",
+      "headline": "Blocco dei ristorni in Ticino: cause e conseguenze",
       "description": "Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -10857,16 +10857,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-ai-prospettive-finanziarie': {
-    title: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    title: 'AVS e AI: nuove previsioni sui conti previdenziali',
     description: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, peggiorano, prospettive, finanziarie, secondo',
-    ogTitle: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    ogTitle: 'AVS e AI: nuove previsioni sui conti previdenziali',
     ogDescription: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più.',
     canonicalPath: '/articoli-svizzera/avs-ai-prospettive-finanziarie/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Peggiorano le prospettive finanziarie di AVS e AI",
+      "headline": "AVS e AI: nuove previsioni sui conti previdenziali",
       "description": "L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -12329,16 +12329,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-oltre-monti-lavorare-grigioni': {
-    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    title: 'Vivere oltre i monti: lavorare nei Grigioni da frontaliere',
     description: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
-    ogTitle: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    ogTitle: 'Vivere oltre i monti: lavorare nei Grigioni da frontaliere',
     ogDescription: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia',
     canonicalPath: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "headline": "Vivere oltre i monti: lavorare nei Grigioni da frontaliere",
       "description": "Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -12481,16 +12481,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-svizzera-guida': {
     title: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
-    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    description: 'Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, imposta, alla',
     ogTitle: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
-    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    ogDescription: 'Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.',
     canonicalPath: '/articoli-svizzera/trasferirsi-svizzera-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Guida per trasferirsi in Svizzera da italiano non frontaliere",
-      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio",
+      "description": "Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -12704,16 +12704,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-insegnante-scuola-ticino-stipendio-requisiti': {
-    title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
+    title: 'Insegnare in Ticino da frontaliere: requisiti e stipendio',
     description: 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
-    ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
+    ogTitle: 'Insegnare in Ticino da frontaliere: requisiti e stipendio',
     ogDescription: 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino.',
     canonicalPath: '/articoli-svizzera/frontaliere-insegnante-scuola-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
+      "headline": "Insegnare in Ticino da frontaliere: requisiti e stipendio",
       "description": "La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -14444,16 +14444,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-disoccupati': {
-    title: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    title: 'Disoccupazione dei frontalieri: cosa cambia con la riforma UE',
     description: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, approva, riforma, onerosa',
-    ogTitle: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    ogTitle: 'Disoccupazione dei frontalieri: cosa cambia con la riforma UE',
     ogDescription: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati.',
     canonicalPath: '/articoli-svizzera/frontalieri-disoccupati/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri disoccupati: l'UE approva riforma onerosa per la Svizzera",
+      "headline": "Disoccupazione dei frontalieri: cosa cambia con la riforma UE",
       "description": "Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -15838,17 +15838,17 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-ticino-ergoterapista': {
-    title: 'Ergoterapia in Ticino: stipendio e differenze con l\'Italia',
-    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    title: 'Ergoterapia in Ticino: stipendio, titolo e permesso G',
+    description: 'Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l\'Italia.',
     keywords: 'frontalieri, ticino, svizzera, italia, ergoterapia, stipendio, differenze, imposta',
-    ogTitle: 'Stipendio reale di un ergoterapista frontaliere in Ticino',
-    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    ogTitle: 'Ergoterapia in Ticino: stipendio, titolo e permesso G',
+    ogDescription: 'Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l\'Italia.',
     canonicalPath: '/articoli-svizzera/frontalieri-ticino-ergoterapista/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Ergoterapia in Ticino: stipendio e differenze con l'Italia",
-      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO",
+      "headline": "Ergoterapia in Ticino: stipendio, titolo e permesso G",
+      "description": "Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l'Italia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -19227,16 +19227,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trippa-futuri-mobilita-italia-grigioni': {
     title: 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
-    description: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.',
     keywords: 'frontalieri, ticino, svizzera, italia, mobilità, alpina, proietta, verso',
     ogTitle: 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
-    ogDescription: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni.',
+    ogDescription: 'Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.',
     canonicalPath: '/articoli-svizzera/trippa-futuri-mobilita-italia-grigioni/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "La mobilità alpina si proietta verso scenari futuri: il progetto TRIP",
-      "description": "Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -25483,16 +25483,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo': {
-    title: 'Affitti in Svizzera 2026: prezzi e diritti | Frontaliere Ticino',
+    title: 'Affitti nel Canton San Gallo: prezzi medi e diritti',
     description: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, affitti, prezzi, diritti, medi',
-    ogTitle: 'Mercato degli affitti in Svizzera nel 2026: prezzi medi per cantone, diritti dell\'inquilino, deposito cauzionale e disdetta.',
+    ogTitle: 'Affitti nel Canton San Gallo: prezzi medi e diritti',
     ogDescription: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale.',
     canonicalPath: '/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Affitti in Svizzera 2026: prezzi e diritti",
+      "headline": "Affitti nel Canton San Gallo: prezzi medi e diritti",
       "description": "Prezzi medi per affitti in Svizzera nel 2026, diritti dell'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -35770,16 +35770,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aprire-un-attivita-canton-uri-registro-di-commercio-e-costi': {
-    title: 'Aprire un\'attività nel Cantone di Uri: scelta e obblighi',
+    title: 'Aprire un\'attività nel Canton Uri: capitale, tasse e assicurazioni',
     description: 'I costi e le formalità per aprire un\'attività nel Cantone di Uri. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, scelta',
-    ogTitle: 'Aprire un\'attività nel Cantone di Uri: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    ogTitle: 'Aprire un\'attività nel Canton Uri: capitale, tasse e assicurazioni',
     ogDescription: 'I costi e le formalità per aprire un\'attività nel Cantone di Uri.',
     canonicalPath: '/articoli-svizzera/aprire-un-attivita-canton-uri-registro-di-commercio-e-costi/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Aprire un'attività nel Cantone di Uri: scelta e obblighi",
+      "headline": "Aprire un'attività nel Canton Uri: capitale, tasse e assicurazioni",
       "description": "I costi e le formalità per aprire un'attività nel Cantone di Uri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -51333,16 +51333,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-soletta-affitti-canoni-diritto': {
-    title: 'Mercato affitti a Soletta: canoni medi e diritto',
+    title: 'Affitti a Soletta: prezzi medi e regole per inquilini',
     description: 'Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.',
     keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
-    ogTitle: 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
+    ogTitle: 'Affitti a Soletta: prezzi medi e regole per inquilini',
     ogDescription: 'Approfondimento completo sul mercato immobiliare e delle locazioni nel Cantone di Soletta. Scopri le regole sui canoni medi, la cauzione, le contestazioni e il ruolo dell\'autorità di conciliazione.',
     canonicalPath: '/articoli-svizzera/soletta-affitti-canoni-diritto/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Mercato affitti a Soletta: canoni medi e diritto",
+      "headline": "Affitti a Soletta: prezzi medi e regole per inquilini",
       "description": "Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.",
       "image": {
         "@type": "ImageObject",
@@ -53794,16 +53794,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lacune-contributive-avs-zurigo': {
-    title: 'AVS e prestazioni complementari: cassa di compensazione',
+    title: 'Lacune AVS nel Canton Zurigo: prestazioni e contributi',
     description: 'Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, cassa, compensazione',
-    ogTitle: 'AVS e prestazioni complementari nel Canton Zurigo',
+    ogTitle: 'Lacune AVS nel Canton Zurigo: prestazioni e contributi',
     ogDescription: 'Scopri come funziona il primo pilastro AVS nel Canton Zurigo. Guida completa alla cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per coprire il minimo vitale. Info pratiche e procedure.',
     canonicalPath: '/articoli-svizzera/lacune-contributive-avs-zurigo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari: cassa di compensazione",
+      "headline": "Lacune AVS nel Canton Zurigo: prestazioni e contributi",
       "description": "Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.",
       "image": {
         "@type": "ImageObject",
@@ -58199,16 +58199,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-apprendistato-formazione-uri-guida': {
-    title: 'Apprendistato e formazione professionale nel Canton Uri',
+    title: 'Apprendistato nel Canton Uri: formazione e requisiti',
     description: 'Guida pratica all\'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
-    ogTitle: 'Apprendistato e formazione professionale nel Canton Uri',
+    ogTitle: 'Apprendistato nel Canton Uri: formazione e requisiti',
     ogDescription: 'Tutto sull\'apprendistato in Canton Uri: come trovare un posto di tirocinio, il contratto, la retribuzione dell\'apprendista e la maturità professionale federale. Guida pratica.',
     canonicalPath: '/articoli-svizzera/apprendistato-formazione-uri-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Apprendistato e formazione professionale nel Canton Uri",
+      "headline": "Apprendistato nel Canton Uri: formazione e requisiti",
       "description": "Guida pratica all'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -63068,16 +63068,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-apprendistato-formazione-professionale-canton-friburgo': {
-    title: 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    title: 'Formazione professionale a Friburgo: guida all\'apprendistato',
     description: 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, cantone',
-    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    ogTitle: 'Formazione professionale a Friburgo: guida all\'apprendistato',
     ogDescription: 'Esplora le opportunità di apprendistato e formazione professionale nel Cantone di Friburgo, inclusi i dettagli sui contratti di tirocinio e la retribuzione degli apprendisti.',
     canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-canton-friburgo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Apprendistato e formazione professionale nel Cantone di Friburgo",
+      "headline": "Formazione professionale a Friburgo: guida all'apprendistato",
       "description": "Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -67574,16 +67574,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-assicurazioni-tagli-occupazione-2028': {
-    title: 'Swiss Life prevede di tagliare 600 posti entro il 2028',
+    title: 'Swiss Life: riduzione dell\'organico e impatto sul lavoro',
     description: 'Swiss Life annuncia 600 tagli di posti entro il 2028 nella strategia di efficienza. Risultati finanziari positivi nel primo semestre 2026. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, swiss, life, prevede, tagliare',
-    ogTitle: 'Swiss Life taglia 600 posti entro il 2028',
+    ogTitle: 'Swiss Life: riduzione dell\'organico e impatto sul lavoro',
     ogDescription: 'Nonostante la crescita dei ricavi e l\'utile netto in aumento, Swiss Life taglierà 600 posizioni entro il 2028. La compagnia zurighese punta sulla digitalizzazione e efficienza. Scopri cosa significa per il mercato del lavoro svizzero e cosa fare',
     canonicalPath: '/articoli-svizzera/assicurazioni-tagli-occupazione-2028/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Swiss Life prevede di tagliare 600 posti entro il 2028",
+      "headline": "Swiss Life: riduzione dell'organico e impatto sul lavoro",
       "description": "Swiss Life annuncia 600 tagli di posti entro il 2028 nella strategia di efficienza. Risultati finanziari positivi nel primo semestre 2026. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -68110,16 +68110,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-lacune-contributive-san-gallo': {
-    title: 'AVS e prestazioni complementari: guida San Gallo',
+    title: 'Lacune AVS a San Gallo: prestazioni e contributi',
     description: 'Guida pratica al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, gallo, funziona',
-    ogTitle: 'AVS e prestazioni complementari nel Canton San Gallo',
+    ogTitle: 'Lacune AVS a San Gallo: prestazioni e contributi',
     ogDescription: 'Scopri come funziona il primo pilastro nel San Gallo: ruolo della cassa di compensazione cantonale, calcolo della rendita AVS, recupero delle lacune contributive e diritto alle prestazioni complementari per garantire il minimo vitale in pensione.',
     canonicalPath: '/articoli-svizzera/avs-lacune-contributive-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari: guida San Gallo",
+      "headline": "Lacune AVS a San Gallo: prestazioni e contributi",
       "description": "Guida pratica al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo",
       "image": {
         "@type": "ImageObject",
@@ -73176,16 +73176,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-fondare-impresa-appenzello-esterno': {
-    title: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    title: 'Impresa in Appenzello Esterno: forma giuridica e iscrizione',
     description: 'Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un\'attività nel cantone Appenzello Esterno in Svizzera.',
     keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
-    ogTitle: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    ogTitle: 'Impresa in Appenzello Esterno: forma giuridica e iscrizione',
     ogDescription: 'Guida completa per avviare un\'attività nel Canton Appenzello Esterno: scopri le forme giuridiche, come iscriversi al registro di commercio, i requisiti fiscali federali e cantonali, gli obblighi previdenziali per autonomi e tutte le procedure',
     canonicalPath: '/articoli-svizzera/fondare-impresa-appenzello-esterno/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Aprire un'attività in Appenzello Esterno: guida pratica",
+      "headline": "Impresa in Appenzello Esterno: forma giuridica e iscrizione",
       "description": "Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un'attività nel cantone Appenzello Esterno in Svizzera.",
       "image": {
         "@type": "ImageObject",
@@ -80792,16 +80792,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-turno-ticino-guida': {
     title: 'Farmacie di turno in Ticino: guida a fonti e copertura',
-    description: 'Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.',
+    description: 'Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l\'apertura prima di partire.',
     keywords: 'farmacie di turno Ticino, OFCT, farmacia aperta, turni regionali, Mendrisiotto, Luganese, Bellinzonese',
     ogTitle: 'Farmacie di turno in Ticino: guida a fonti e copertura',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l\'apertura prima di partire.',
     canonicalPath: '/articoli-svizzera/farmacie-turno-ticino-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie di turno in Ticino: come leggere fonti e copertura",
-      "description": "Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.",
+      "description": "Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l'apertura prima di partire.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80831,16 +80831,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-ticino-elenco-contatti': {
     title: 'Farmacie in Ticino: elenco e contatti',
-    description: 'Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.',
+    description: 'Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.',
     keywords: 'farmacie Ticino elenco, contatti farmacie Ticino, lista ufficiale farmacie, farmacia Lugano, farmacia Bellinzona',
     ogTitle: 'Farmacie in Ticino: elenco e contatti',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.',
     canonicalPath: '/articoli-svizzera/farmacie-ticino-elenco-contatti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie in Ticino: elenco ufficiale e contatti",
-      "description": "Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.",
+      "description": "Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80870,16 +80870,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-confine-italia-como-varese-verbano': {
     title: 'Farmacie al confine: Como, Varese e Verbano',
-    description: 'Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.',
+    description: 'Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.',
     keywords: 'farmacie confine Italia Svizzera, farmacie Como, farmacie Varese, farmacie Verbano, farmacie Ticino',
     ogTitle: 'Farmacie al confine: Como, Varese e Verbano',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.',
     canonicalPath: '/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie al confine: il catalogo per Como, Varese e Verbano",
-      "description": "Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.",
+      "description": "Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80909,16 +80909,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacia-aperta-turno-elenco': {
     title: 'Farmacia aperta o di turno: come leggere l’elenco',
-    description: 'Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.',
+    description: 'Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.',
     keywords: 'farmacia aperta Ticino, farmacia di turno, elenco farmacie, orari farmacia, OFCT',
     ogTitle: 'Farmacia aperta o di turno: come leggere l’elenco',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.',
     canonicalPath: '/articoli-svizzera/farmacia-aperta-turno-elenco/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacia aperta o di turno: come leggere l’elenco",
-      "description": "Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.",
+      "description": "Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -81138,16 +81138,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-turno-svizzera-confine-italiano': {
     title: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone',
-    description: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi',
+    description: 'Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.',
     keywords: 'farmacie di turno Svizzera, farmacia di guardia cantone, farmacia aperta confine Italia, OFCT Ticino, farmacie Varese Como',
     ogTitle: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.',
     canonicalPath: '/articoli-svizzera/farmacie-turno-svizzera-confine-italiano/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie di turno in Svizzera: verifica per cantone e confine italiano",
-      "description": "Farmacie di turno in Svizzera e confine italiano: fonti per cantone: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi",
+      "description": "Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -90745,16 +90745,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-franchigie-lamal-basilea-citta': {
-    title: 'Premi cassa malati canton Basilea Città: riduzione premi',
+    title: 'Premi LAMal a Basilea Città: franchigia e sussidio',
     description: 'Premi cassa malati nel canton Basilea Città: franchigie adulti, modelli alternativi, obbligo LAMal entro tre mesi per residenti, riduzione cantonale dei premi.',
     keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
-    ogTitle: 'Basilea Città: premi LAMal e riduzione',
+    ogTitle: 'Premi LAMal a Basilea Città: franchigia e sussidio',
     ogDescription: 'LAMal obbligatoria per i residenti a Basilea Città: guida pratica a cantone, regione, franchigie adulte, modelli alternativi e riduzione dei premi come sussidio cantonale, con stipula entro tre mesi dall\'arrivo.',
     canonicalPath: '/articoli-svizzera/franchigie-lamal-basilea-citta/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Premi cassa malati canton Basilea Città: riduzione premi",
+      "headline": "Premi LAMal a Basilea Città: franchigia e sussidio",
       "description": "Premi cassa malati nel canton Basilea Città: franchigie adulti, modelli alternativi, obbligo LAMal entro tre mesi per residenti, riduzione cantonale dei premi.",
       "image": {
         "@type": "ImageObject",
