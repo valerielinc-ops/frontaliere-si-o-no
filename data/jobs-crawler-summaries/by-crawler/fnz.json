@@ -1,16 +1,16 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-10-05T21:38:58.312Z",
+  "generatedAt": "2026-10-06T09:14:10.017Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9559,
-  "avgDurationMs": 9559,
+  "durationMs": 10149,
+  "avgDurationMs": 10149,
   "durationHistory": [
-    9559
+    10149
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,14 +50,15 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "postalCode": "6830",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 16
+        "completeness": 19
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

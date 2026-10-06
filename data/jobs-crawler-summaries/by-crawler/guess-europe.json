@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-05T21:41:46.457Z",
+  "generatedAt": "2026-10-06T09:14:16.037Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 2263,
-  "avgDurationMs": 2263,
+  "durationMs": 2631,
+  "avgDurationMs": 2631,
   "durationHistory": [
-    2263
+    2631
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,12 +53,13 @@
       "firstSeenAt": "2026-09-30T21:13:04.544Z",
       "datePosted": "2026-09-30T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -99,12 +100,13 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-30T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -144,12 +146,13 @@
       "firstSeenAt": "2026-09-23T23:40:49.854Z",
       "datePosted": "2026-09-23T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -188,12 +191,13 @@
       "firstSeenAt": "2026-09-21T15:59:02.794Z",
       "datePosted": "2026-09-21T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -228,12 +232,13 @@
       "firstSeenAt": "2026-10-03T09:11:01.087Z",
       "datePosted": "2026-10-01T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "3004",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -268,12 +273,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-20T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "8001",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -313,12 +319,13 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T09:15:50.416Z",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -358,12 +365,13 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-12T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -403,14 +411,15 @@
       "firstSeenAt": "2026-09-10T23:05:14.146Z",
       "datePosted": "2026-09-10T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6934",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
