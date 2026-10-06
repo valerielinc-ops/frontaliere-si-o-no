@@ -44,6 +44,7 @@ export const WAVE1_CHANNELS = new Set([
 ]);
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = 5;
+const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -201,6 +202,15 @@ function hasApplicationForm(snapshot) {
   const textish = snapshot.fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
   const email = snapshot.fields.some((field) => field.inputType === 'email' || /e-?mail/i.test(field.label));
   return kinds.includes('file') || (textish >= 3 && email);
+}
+
+/** A SuccessFactors page resumed between account creation and OTP submission. */
+export function isOtpVerificationPage(snapshot, host, account) {
+  if (!account || account.verifiedAt || !usesOtpAccountCreation(host) || hasApplicationForm(snapshot)) return false;
+  if (!codeField(snapshot)) return false;
+  return Boolean(findButton(snapshot.buttons || [], NEXT_RE)
+    || findButton(snapshot.buttons || [], SUBMIT_RE)
+    || findButton(snapshot.buttons || [], ACCOUNT_VERIFY_RE));
 }
 
 /**
@@ -529,7 +539,7 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     const field = codeField(current);
     if (!field) return { handoff: 'account' };
     await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});
-    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i])) return { handoff: 'account' };
+    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
     await settle(page);
   }
   const after = await extractFields(page);
@@ -1129,12 +1139,27 @@ export async function submitViaPortal(ctx) {
       if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
       return result;
     };
+    const pendingOtpAccount = async (current) => {
+      if (!ctx.accounts || !codeField(current)) return null;
+      let host = '';
+      try {
+        host = new URL(page.url()).hostname;
+      } catch {
+        return null;
+      }
+      const account = await ctx.accounts.load(host);
+      return isOtpVerificationPage(current, host, account) ? { host, account } : null;
+    };
     const match = await formMatch();
     evidence.postingMatch = match;
+    const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ownAccountForm(snapshot) && !ctx.skipPostingCheck;
+    let postingCheckPending = match === 'mismatch'
+      && (snapshot.passwordVisible || initialOtpAccount)
+      && !ownAccountForm(snapshot)
+      && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
@@ -1199,6 +1224,34 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      // SuccessFactors can resume directly on its one-time-code page after a
+      // previous run saved the password but did not consume the OTP. It has no
+      // password field, so it must be handled before the application planner.
+      const otpAccount = await pendingOtpAccount(snapshot);
+      if (otpAccount) {
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification');
+        const auth = await verifyAccount({
+          page,
+          host: otpAccount.host,
+          sinceMs: otpAccount.account.createdAt || 0,
+          ctx,
+          snapshot,
+        });
+        evidence.steps.at(-1).auth = {
+          kind: 'otp_verification',
+          outcome: auth.handoff || 'ok',
+        };
+        if (auth.handoff) return await handoff(auth.handoff);
+        snapshot = auth.snapshot;
+        if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          snapshot = await extractFields(page);
+        }
+        step -= 1;
+        continue;
+      }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
         const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
