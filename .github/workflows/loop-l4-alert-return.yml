@@ -12,11 +12,11 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l4-alert-return.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/send-job-alerts.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/posthog-client.mjs'
       - 'functions/src/jobAlertBackfillCore.js'
       - 'functions/src/lib/subscriberConsent.js'
       - 'functions/src/lib/emailSuppression.js'
@@ -26,7 +26,6 @@ on:
       - 'functions/src/lib/cantonUrlSlugs.json'
       - 'functions/src/lib/subscriberLocale.js'
       - 'functions/src/emailI18n.js'
-      - 'functions/src/lib/returnVisit.js'
       - 'functions/src/lib/syntheticClicks.js'
       - 'functions/src/lib/emailScannerRanges.js'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -46,7 +45,6 @@ on:
       - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/posthog-client.mjs'
       - 'functions/src/jobAlertBackfillCore.js'
       - 'functions/src/lib/subscriberConsent.js'
       - 'functions/src/lib/emailSuppression.js'
@@ -56,7 +54,6 @@ on:
       - 'functions/src/lib/cantonUrlSlugs.json'
       - 'functions/src/lib/subscriberLocale.js'
       - 'functions/src/emailI18n.js'
-      - 'functions/src/lib/returnVisit.js'
       - 'functions/src/lib/syntheticClicks.js'
       - 'functions/src/lib/emailScannerRanges.js'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -104,7 +101,6 @@ jobs:
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/loop-fleet-issue.mjs
-            /scripts/lib/posthog-client.mjs
             /functions/src/jobAlertBackfillCore.js
             /functions/src/lib/subscriberConsent.js
             /functions/src/lib/emailSuppression.js
@@ -114,7 +110,6 @@ jobs:
             /functions/src/lib/cantonUrlSlugs.json
             /functions/src/lib/subscriberLocale.js
             /functions/src/emailI18n.js
-            /functions/src/lib/returnVisit.js
             /functions/src/lib/syntheticClicks.js
             /functions/src/lib/emailScannerRanges.js
             /.github/workflows/loop-l4-alert-return.yml
