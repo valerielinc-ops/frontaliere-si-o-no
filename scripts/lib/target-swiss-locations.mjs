@@ -1379,7 +1379,6 @@ export function swissCityFromLocationField(value = '', cantonHintOrOptions = '')
     ? findSwissCityInText(raw, {
       cantonHint,
       allowOfficialLocality: true,
-      includeEnglishExonyms: true,
     })
     : '';
   const city = directFieldCity
@@ -1387,7 +1386,6 @@ export function swissCityFromLocationField(value = '', cantonHintOrOptions = '')
     || hintedCity
     || findSwissCityInText(raw, {
       allowOfficialLocality: true,
-      includeEnglishExonyms: true,
     })
     || englishExonymFromLocationField(value, allowUnqualifiedEnglishExonyms);
   if (!city || !hasMatchingCantonMarker(raw, city, { includeOfficialLocalities: true })) return '';
