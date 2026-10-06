@@ -849,7 +849,7 @@ export function openFailureIssueWorkflows() {
 }
 
 /**
- * Le issue aperte (`number,title,updatedAt,body`), o `null` se il listing è illeggibile
+ * Le issue aperte (`number,title,updatedAt,body,url`), o `null` se il listing è illeggibile
  * o troncato al cap. Una sola lettura serve sia alla mappa delle canoniche sia alla prova
  * di persistenza dell'owner di uno step-verdetto (`ownerSignalPersisted`).
  */
@@ -860,8 +860,9 @@ export function readOpenIssues() {
       // si distingue un allarme vivo da uno parcheggiato (vedi
       // COVERED_ISSUE_SILENCE_HOURS).
       // `body` contiene anche il campo strutturato `**Workflow:**` delle issue
-      // aperte dai monitor di dominio, che possono usare un titolo diverso.
-      '--json', 'number,title,updatedAt,body', ...repoFlag()],
+      // aperte dai monitor di dominio, che possono usare un titolo diverso;
+      // `url` serve per rimandare dal thread generico alla issue di dominio.
+      '--json', 'number,title,updatedAt,body,url', ...repoFlag()],
     { allowFailure: true },
   );
   if (raw === null) return null;
@@ -970,7 +971,11 @@ export function closedFailureIssueWorkflows(since, {
     if (!Array.isArray(items)) return null;
     for (const item of items) {
       // La REST delle issue elenca anche le PR: non sono issue di failure.
-      if (!item || typeof item !== 'object' || item.pull_request) continue;
+      // Una issue di dominio con solo `**Workflow:**` nel corpo non è invece
+      // una copertura storica di un failure generico: la sua copertura va
+      // provata sullo step-verdetto, quando la run è ancora osservabile.
+      if (!item || typeof item !== 'object' || item.pull_request
+        || issueMatchSource(item) !== 'failure-title') continue;
       byNumber.set(item.number, {
         number: item.number,
         title: item.title,
@@ -1005,6 +1010,20 @@ export function workflowNameFromIssue(issue) {
 }
 
 /**
+ * Da quale contratto arriva il workflow dichiarato dalla issue.
+ *
+ * Un titolo della famiglia centrale identifica una issue di failure. Il campo
+ * nel corpo identifica invece una issue di dominio: il nome basta per cercare
+ * la relazione, ma non basta per dichiarare coperto un crash del workflow.
+ */
+export function issueMatchSource(issue) {
+  if (TITLE_RE.test(String(issue?.title || ''))) return 'failure-title';
+  return /^\*\*Workflow:\*\*\s*(.+?)\s*$/m.test(String(issue?.body || ''))
+    ? 'workflow-field'
+    : null;
+}
+
+/**
  * Sceglie una sola issue canonica quando piu' reporter dichiarano lo stesso
  * workflow. Il listing GitHub non e' un ordine stabile: conservare l'ultima
  * riga iterata puo' quindi riattivare una issue generica vecchia mentre una
@@ -1034,6 +1053,118 @@ export function latestIssuePerWorkflow(issues) {
     }
   }
   return byWorkflow;
+}
+
+/**
+ * Issue di dominio più recente per workflow, distinta dalla canonica della
+ * rete di sicurezza. Le issue con un titolo `CI/Workflow/Crawler Failure:`
+ * restano nella mappa standard anche se qualcuno ha aggiunto loro un campo
+ * `**Workflow:**`: quel titolo è il contratto di failure e ha precedenza.
+ */
+export function latestDomainIssuePerWorkflow(issues) {
+  const byWorkflow = new Map();
+  for (const issue of issues || []) {
+    if (issueMatchSource(issue) !== 'workflow-field') continue;
+    const workflowName = workflowNameFromIssue(issue);
+    if (!workflowName) continue;
+
+    const candidate = {
+      number: issue.number,
+      title: issue.title ?? '',
+      updatedAt: issue.updatedAt ?? null,
+      body: issue.body ?? '',
+      url: issue.url ?? null,
+    };
+    const previous = byWorkflow.get(workflowName);
+    if (!previous) {
+      byWorkflow.set(workflowName, candidate);
+      continue;
+    }
+
+    const candidateTime = Date.parse(String(candidate.updatedAt ?? ''));
+    const previousTime = Date.parse(String(previous.updatedAt ?? ''));
+    if (
+      (Number.isFinite(candidateTime) && !Number.isFinite(previousTime))
+      || (candidateTime > previousTime)
+      || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
+    ) {
+      byWorkflow.set(workflowName, candidate);
+    }
+  }
+  return byWorkflow;
+}
+
+/**
+ * Il payload dei job è abbastanza completo da distinguere «step diverso» da
+ * «step non determinabile»? È la stessa soglia conservativa del registro nel
+ * chiuditore, ripetuta qui solo per non dichiarare nuova una firma quando un
+ * campo mancante potrebbe nascondere proprio il verdetto.
+ */
+function verdictPayloadComplete(workflowPath, jobs) {
+  // Fuori dal registro non esiste uno step-verdetto che possa coprire il
+  // failure: una firma leggibile va quindi al thread standard anche se una
+  // vecchia issue di dominio ha già registrato la stessa firma.
+  if (!VERDICT_STEPS[String(workflowPath ?? '')]) return true;
+  if (!jobs || typeof jobs !== 'object' || !Array.isArray(jobs.jobs)) return false;
+  const totalCount = Number(jobs.total_count);
+  if (!Number.isInteger(totalCount) || totalCount !== jobs.jobs.length || totalCount === 0) return false;
+  const jobConclusions = new Set(['success', 'skipped', 'failure']);
+  const stepConclusions = new Set(['success', 'skipped', 'failure']);
+  for (const job of jobs.jobs) {
+    if (!jobConclusions.has(job?.conclusion)) return false;
+    if (job.status !== undefined && job.status !== 'completed') return false;
+    if (job.conclusion === 'skipped' && !Array.isArray(job.steps)) continue;
+    if (!Array.isArray(job.steps)) return false;
+    if (!job.steps.every((step) => Boolean(step)
+      && typeof step.name === 'string' && step.name.trim() !== ''
+      && stepConclusions.has(step.conclusion)
+      && (step.status === undefined || step.status === 'completed'))) return false;
+  }
+  return true;
+}
+
+/**
+ * Decide se una issue di dominio copre davvero la run osservata.
+ *
+ * Il campo `**Workflow:**` stabilisce solo l'associazione. La copertura vera
+ * esiste quando `isVerdictOnlyFailure` dimostra che la run è rossa per il
+ * verdetto registrato del monitor e `ownerPersisted` prova che il monitor ha
+ * scritto la propria issue. Un altro step, un monitor non registrato o un
+ * verdetto senza prova di scrittura passa al thread `CI Failure:` standard.
+ * Job illeggibili restano in attesa: non si apre un duplicato su dati
+ * incompleti.
+ */
+export function domainIssueCoverage({
+  issue,
+  workflowPath,
+  jobs,
+  knownTexts = [],
+  ownerPersisted = false,
+} = {}) {
+  const signature = failureSignature(jobs);
+  if (signature === null) {
+    return { action: 'defer', reason: 'signature-undetermined', signature: null };
+  }
+
+  if (issueMatchSource(issue) !== 'workflow-field') {
+    return { action: 'failure-issue', reason: 'not-domain-issue', signature };
+  }
+
+  const verdictOnly = isVerdictOnlyFailure(workflowPath, jobs);
+  if (verdictOnly && ownerPersisted) {
+    return { action: 'covered', reason: 'verdict-step', signature };
+  }
+
+  const signatureIsNew = Array.isArray(knownTexts)
+    && !signatureAlreadyRecorded(knownTexts, signature);
+  if (!verdictPayloadComplete(workflowPath, jobs) && !signatureIsNew) {
+    return { action: 'defer', reason: 'signature-not-new-and-verdict-undetermined', signature };
+  }
+  return {
+    action: 'failure-issue',
+    reason: verdictOnly ? 'verdict-signal-unpersisted' : (signatureIsNew ? 'new-signature' : 'non-verdict-step'),
+    signature,
+  };
 }
 
 /**
@@ -1151,7 +1282,16 @@ function signatureLine(signature) {
   return signature ? `\n\n<!-- ${SIGNATURE_MARKER} ${signature} -->` : '';
 }
 
-export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
+/** Riferimento stabile alla issue di dominio che non copre un crash generico. */
+function domainIssueLine(issue) {
+  const number = Number(issue?.number);
+  if (!Number.isInteger(number)) return '';
+  const url = String(issue?.url || '').trim()
+    || (REPO ? `https://github.com/${REPO}/issues/${number}` : `#${number}`);
+  return `- issue di dominio correlata: [#${number}](${url})`;
+}
+
+export function runBody({ run, workflowName, jobs, jobsReadable = true, relatedIssue = null }) {
   const total = jobs?.total_count;
   const failed = (jobs?.jobs || []).filter((j) => j?.conclusion === 'failure');
   const lines = [];
@@ -1160,6 +1300,8 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   lines.push(`- run: ${run.html_url}`);
   lines.push(`- event: \`${run.event}\` · branch: \`${run.head_branch}\``);
   lines.push(`- iniziata: ${run.created_at} · aggiornata: ${run.updated_at}`);
+  const relatedLine = domainIssueLine(relatedIssue);
+  if (relatedLine) lines.push(relatedLine);
   lines.push('');
   if (total === 0) {
     lines.push('**Startup failure: zero job.** La run è `failure` con `jobs.total_count: 0` —');
@@ -1198,6 +1340,7 @@ export async function scanFailures() {
 
   const openIssueList = readOpenIssues();
   const openIssues = openIssueList === null ? null : latestIssuePerWorkflow(openIssueList);
+  const domainIssues = openIssueList === null ? null : latestDomainIssuePerWorkflow(openIssueList);
   if (openIssues === null) {
     // Fail-CLOSED: senza sapere che cosa è già aperto, aprire significa
     // duplicare. Un rosso vero rientra alla passata dopo; un duplicato no.
@@ -1246,7 +1389,8 @@ export async function scanFailures() {
     // i nomi degli step da soli non provano che il segnale sia arrivato.
     const verdictEntry = VERDICT_STEPS[wf?.path || ''];
     const verdictOnly = Boolean(verdictEntry) && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs);
-    if (verdictOnly && !ownerSignalPersisted(verdictEntry, openIssueList, run)) {
+    const ownerPersisted = verdictOnly && ownerSignalPersisted(verdictEntry, openIssueList, run);
+    if (verdictOnly && !ownerPersisted) {
       console.warn(
         `::warning::[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto, `
           + `ma nessuna issue «${verdictEntry.owner}…» aperta risulta aggiornata dalla run → resta segnalabile.`,
@@ -1258,7 +1402,12 @@ export async function scanFailures() {
       );
       continue;
     }
-    reportable.push({ ...run, workflowName });
+    reportable.push({
+      ...run,
+      workflowName,
+      workflowPath: wf?.path || null,
+      ownerPersisted,
+    });
   }
 
   // Un solo thread per workflow: si tiene la run più recente, le altre sono la
@@ -1302,8 +1451,37 @@ export async function scanFailures() {
   for (let i = 0; i < pending.length; i += 1) {
     const [workflowName, run] = pending[i];
     const already = openIssues.get(workflowName);
+    const domainIssue = domainIssues.get(workflowName);
+    const domainIsCanonical = Boolean(domainIssue && already
+      && String(already.number) === String(domainIssue.number));
+    let domainCoverage = null;
 
-    if (already) {
+    if (domainIssue) {
+      // Il campo nel corpo collega il monitor, ma non basta a coprire un crash.
+      // La prova si fa sui job della run corrente; un payload illeggibile lascia
+      // intatto il fail-closed e non autorizza l'apertura di un secondo thread.
+      const { jobs: coverageJobs } = readRunJobs(run.id);
+      domainCoverage = domainIssueCoverage({
+        issue: domainIssue,
+        workflowPath: run.workflowPath,
+        jobs: coverageJobs,
+        // Nei payload incompleti il marker della issue distingue una firma
+        // nuova (da consegnare) da una firma già osservata (da non duplicare).
+        // Per uno step diverso la decisione resta standard in ogni caso.
+        knownTexts: domainIsCanonical ? issueTexts(domainIssue.number) : [],
+        ownerPersisted: run.ownerPersisted === true,
+      });
+      if (domainIsCanonical && domainCoverage.action === 'defer') {
+        tally.undelivered.push(`${workflowName} (copertura della issue di dominio non determinabile)`);
+        console.warn(
+          `::warning::[scan-unreported-failures] ${workflowName}: issue di dominio #${domainIssue.number}, `
+            + 'ma firma job/step illeggibile → nessun duplicato in questa passata.',
+        );
+        continue;
+      }
+    }
+
+    if (already && !(domainIsCanonical && domainCoverage?.action === 'failure-issue')) {
       // Un secondo thread non si apre mai. Si registra una ricorrenza in DUE
       // casi, e il secondo è il difetto riparato il 2026-09-20:
       //
@@ -1349,6 +1527,9 @@ export async function scanFailures() {
         `🔁 Il guasto ricorre e ${why}.\n\n`
           + `- run: ${run.html_url}\n- event: \`${run.event}\` · branch: \`${run.head_branch}\`\n`
           + `- aggiornata: ${run.updated_at}\n`
+          + ((domainCoverage?.action === 'failure-issue' && domainIssue)
+            ? `${domainIssueLine(domainIssue)}\n`
+            : '')
           + (signature ? `- job/step: \`${signature}\`\n` : '')
           + '\n'
           + 'Registrato da `scripts/ci/scan-unreported-failures.mjs`: nessun secondo thread, '
@@ -1468,7 +1649,13 @@ export async function scanFailures() {
     // run scelta per il corpo (vedi `newestRunStart`).
     const issue = await createGithubIssue({
       title,
-      description: runBody({ run, workflowName, jobs, jobsReadable })
+      description: runBody({
+        run,
+        workflowName,
+        jobs,
+        jobsReadable,
+        relatedIssue: domainCoverage?.action === 'failure-issue' ? domainIssue : null,
+      })
         + signatureLine(failureSignature(jobs)),
       priority: 2,
       labels: ['automation', 'ci-failure'],
