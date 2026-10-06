@@ -1,10 +1,10 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-10-05T21:40:24.817Z",
+  "generatedAt": "2026-10-06T09:33:43.946Z",
   "total": 2,
   "discovered": null,
-  "parsed": 2,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5941,
-  "avgDurationMs": 5941,
+  "durationMs": 6175,
+  "avgDurationMs": 6175,
   "durationHistory": [
-    5941
+    6175
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,7 +42,7 @@
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1206",
+      "postalCode": "1201",
       "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
       "category": "Sanità / Ospedali",
       "employmentType": "PART_TIME",
@@ -57,6 +57,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -82,12 +83,12 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:40:11.397Z",
+      "crawledAt": "2026-10-06T09:33:27.963Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1206",
+      "postalCode": "1201",
       "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
       "category": "Sanità / Ospedali",
       "employmentType": "PART_TIME",
@@ -111,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
