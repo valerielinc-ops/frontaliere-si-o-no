@@ -148,7 +148,10 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const policy = loadPublishedImagePolicy({ root });
   const references = collectOgImageReferences(distDir);
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies });
-  if (policy.registryErrors.length > 0) result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
+  if (policy.registryErrors.length > 0) {
+    result.valid = false;
+    result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
+  }
 
   console.log(`og:image references: ${references.length}; sample events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
   for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);

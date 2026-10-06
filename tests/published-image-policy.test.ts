@@ -1,6 +1,7 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   IMAGE_CDN_ORIGIN,
@@ -10,7 +11,7 @@ import {
   checkPublishedImageUrl,
   loadPublishedImagePolicy,
 } from '../scripts/lib/published-image-policy.mjs';
-import { verifyOgImageReferences } from '../scripts/verify-og-images.mjs';
+import { run as runOgImageGate, verifyOgImageReferences } from '../scripts/verify-og-images.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -96,6 +97,27 @@ describe('published image policy', () => {
     expect(result.valid).toBe(true);
     expect(result.counts).toEqual({ events: 1, articles: 1, static: 1 });
     expect(result.errors).toEqual([]);
+  });
+
+  it('fails closed when a local registry is malformed', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-gate-'));
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'generated-image-registry.json'), '{"assets": [}', 'utf8');
+      fs.writeFileSync(
+        path.join(root, 'dist', 'index.html'),
+        '<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">',
+        'utf8',
+      );
+
+      expect(runOgImageGate(['--dist', 'dist', '--allow-missing-families'], { root })).toBe(1);
+      expect(errorSpy.mock.calls.flat().join('\n')).toContain('registry:');
+    } finally {
+      errorSpy.mockRestore();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('keeps article heroes on the governed engine and retires the dead backfill', () => {
