@@ -538,3 +538,160 @@ describe('LC-24c: il closer chiude la issue decisa, per numero', () => {
     }
   });
 });
+
+describe('issue 12010 — prova dal branch dopo una pagina all-branch satura', () => {
+  const BRANCH = 'feat/canton-hubs-producer';
+  const WORKFLOW = 'Orphan push warn';
+  const tmp12010 = fs.mkdtempSync(path.join(os.tmpdir(), 'lc12010-closer-'));
+  afterAll(() => fs.rmSync(tmp12010, { recursive: true, force: true }));
+
+  function runPass({ branchRuns = {}, branchExists = true }: {
+    branchRuns?: Record<string, unknown[]>;
+    branchExists?: boolean;
+  } = {}) {
+    const now = Date.now();
+    const failureCreatedAt = at(4 * HOUR, now);
+    const issueCreatedAt = at(3 * HOUR, now);
+    const issue = {
+      number: 12010,
+      title: `Workflow Failure: ${WORKFLOW}`,
+      body: [
+        '**Workflow:** Orphan push warn',
+        `- Run: https://github.com/owner/site/actions/runs/12010001`,
+        `- Branch: \`${BRANCH}\``,
+        '- Evento: `push`',
+      ].join('\n'),
+      createdAt: issueCreatedAt,
+      labels: [],
+    };
+    const otherBranchRuns = Array.from({ length: 101 }, (_, index) => ({
+      databaseId: 12010100 + index,
+      status: 'completed',
+      conclusion: 'success',
+      createdAt: at((index + 1) * 60 * 1000, now),
+      headBranch: `other/branch-${index}`,
+      event: 'push',
+    }));
+    const fixture = {
+      issues: [issue],
+      mainRuns: {},
+      allBranchRuns: { success: otherBranchRuns, failure: [], timed_out: [], startup_failure: [] },
+      branchRuns,
+      branchExists,
+      failureCreatedAt,
+    };
+    const dir = fs.mkdtempSync(path.join(tmp12010, 'pass-'));
+    const fixturePath = path.join(dir, 'fixture.json');
+    const callsPath = path.join(dir, 'calls.log');
+    const summaryPath = path.join(dir, 'summary.md');
+    const outPath = path.join(dir, 'verdicts.json');
+    fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+    const bin = path.join(dir, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      "fs.appendFileSync(process.env.LC12010_CALLS, args.join(' ') + '\\n');",
+      "const fixture = JSON.parse(fs.readFileSync(process.env.LC12010_FIXTURE, 'utf8'));",
+      "const key = args.slice(0, 2).join(' ');",
+      "const status = args[args.indexOf('--status') + 1];",
+      "if (key === 'issue list') process.stdout.write(JSON.stringify(fixture.issues));",
+      "else if (key === 'run list') {",
+      "  const runs = args.includes('-b') ? fixture.mainRuns[status] || [] : args.includes('--branch') ? fixture.branchRuns[status] || [] : fixture.allBranchRuns[status] || [];",
+      '  process.stdout.write(JSON.stringify(runs));',
+      '} else if (key === \'run view\') process.stdout.write(JSON.stringify({ createdAt: fixture.failureCreatedAt }));',
+      "else if (args[0] === 'api' && /\\/comments$/.test(args[1])) process.stdout.write('[]');",
+      "else if (args[0] === 'api' && /\\/branches\\//.test(args[1])) {",
+      "  if (!fixture.branchExists) { console.error('Not Found'); process.exit(1); }",
+      "  process.stdout.write('{}');",
+      '} else process.exit(1);',
+      '',
+    ].join('\n'), { mode: 0o755 });
+
+    const env: Record<string, string | undefined> = {
+      ...process.env,
+      PATH: `${bin}${path.delimiter}${process.env.PATH}`,
+      GH_REPO: 'owner/site',
+      LC12010_FIXTURE: fixturePath,
+      LC12010_CALLS: callsPath,
+      GITHUB_STEP_SUMMARY: summaryPath,
+    };
+    for (const key of Object.keys(env)) {
+      if (key.startsWith('CLOSE_RECOVERED_') || key.startsWith('CRAWLER_RUN_')
+        || key === 'GITHUB_PAT_NANAKO' || key === 'ENABLE_FAILURE_REPORT' || key === 'TRUSTED_GH_BIN') delete env[key];
+    }
+    const result = spawnSync(process.execPath, [SCRIPT, '--dry-run', '--verdicts-out', outPath], {
+      env, encoding: 'utf8',
+    });
+    expect(result.status, result.stderr).toBe(0);
+    return {
+      result,
+      calls: fs.readFileSync(callsPath, 'utf8').trim().split('\n').filter(Boolean),
+      verdict: JSON.parse(fs.readFileSync(outPath, 'utf8'))[0],
+      summary: fs.readFileSync(summaryPath, 'utf8'),
+    };
+  }
+
+  const green = (id: number, msAgo: number, now = Date.now()) => ({
+    databaseId: id,
+    status: 'completed',
+    conclusion: 'success',
+    createdAt: at(msAgo, now),
+    headBranch: BRANCH,
+    event: 'push',
+  });
+
+  it('chiude con tre verdi del branch anche quando la pagina all-branch è satura', () => {
+    const now = Date.now();
+    const pass = runPass({
+      branchRuns: {
+        success: [green(120103, 30 * 60 * 1000, now), green(120102, 60 * 60 * 1000, now), green(120101, 90 * 60 * 1000, now)],
+        failure: [], timed_out: [], startup_failure: [],
+      },
+    });
+    expect(pass.verdict).toMatchObject({ action: 'close', runId: 120103 });
+    const branchReads = pass.calls.filter((call) => call.startsWith('run list') && call.includes('--branch'));
+    expect(branchReads).toHaveLength(4);
+    expect(branchReads.every((call) => call.includes(`--branch ${BRANCH}`)
+      && call.includes('--event push') && /--created >=\d{4}-\d{2}-\d{2}/.test(call))).toBe(true);
+    expect(pass.calls.filter((call) => call.startsWith('run list') && !call.includes('-b') && !call.includes('--branch')))
+      .toHaveLength(0);
+  });
+
+  it('resta aperta con una rossa del branch nella finestra di ricorrenza', () => {
+    const now = Date.now();
+    const pass = runPass({
+      branchRuns: {
+        success: [green(120203, 60 * 60 * 1000, now), green(120202, 90 * 60 * 1000, now)],
+        failure: [{ ...green(120204, 30 * 60 * 1000, now), conclusion: 'failure' }],
+        timed_out: [], startup_failure: [],
+      },
+    });
+    expect(pass.verdict).toMatchObject({ action: 'keep', reason: 'branch-proof-insufficient' });
+    expect(pass.result.stdout).toContain('red in window=true');
+  });
+
+  it('espone 2/3 quando il branch ha solo due verdi post-apertura', () => {
+    const now = Date.now();
+    const pass = runPass({
+      branchRuns: {
+        success: [green(120302, 60 * 60 * 1000, now), green(120301, 90 * 60 * 1000, now)],
+        failure: [], timed_out: [], startup_failure: [],
+      },
+    });
+    expect(pass.verdict).toMatchObject({ action: 'keep', reason: 'branch-proof-insufficient' });
+    expect(pass.result.stdout).toContain('2/3');
+  });
+
+  it('distingue il branch cancellato senza run dopo il guasto e non lo chiude', () => {
+    const pass = runPass({
+      branchRuns: { success: [], failure: [], timed_out: [], startup_failure: [] },
+      branchExists: false,
+    });
+    expect(pass.verdict).toMatchObject({ action: 'keep', reason: 'branch-no-run-after-failure', runId: null });
+    expect(pass.result.stdout).toContain('branch-no-run-after-failure');
+    expect(pass.summary).toContain('Branch senza run dopo il guasto e non più esistente: **1**');
+    expect(pass.calls.filter((call) => /\/branches\//.test(call))).toHaveLength(1);
+  });
+});

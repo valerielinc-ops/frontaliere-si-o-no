@@ -10,6 +10,8 @@ import {
   mergeRunHistoryResults,
   historyUnavailableNote,
   alreadyHistoryUnavailable,
+  branchHistoryStartAt,
+  BRANCH_HISTORY_FALLBACK_MARGIN_DAYS,
   runHistoryMemoKey,
   RUN_HISTORY_STATUS_FILTERS,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
@@ -48,6 +50,49 @@ describe('close-recovered history reads', () => {
     expect(crawler).not.toContain('-b');
   });
 
+  it('filtra dal server il branch push o l\'evento PR e include la finestra creata', () => {
+    const push = buildRunListArgs('Orphan push warn', {
+      historyScope: 'branch',
+      branch: 'feat/canton-hubs-producer',
+      event: 'push',
+      created: '>=2026-10-05',
+      status: 'success',
+    });
+    expect(push).toEqual(expect.arrayContaining([
+      '--branch', 'feat/canton-hubs-producer',
+      '--event', 'push',
+      '--created', '>=2026-10-05',
+    ]));
+    expect(push).not.toEqual(expect.arrayContaining(['-b']));
+
+    const pr = buildRunListArgs('Retry code check after corrected PR body', {
+      historyScope: 'event',
+      event: 'pull_request_target',
+      created: '>=2026-10-05',
+      status: 'failure',
+    });
+    expect(pr).toEqual(expect.arrayContaining([
+      '--event', 'pull_request_target',
+      '--created', '>=2026-10-05',
+    ]));
+    expect(pr).not.toContain('--branch');
+  });
+
+  it('parte dalla data della run fallita o dall\'issue meno il margine dichiarato', () => {
+    expect(branchHistoryStartAt(
+      { createdAt: '2026-10-05T22:36:39Z' },
+      '2026-10-05T20:53:49Z',
+    )).toMatchObject({
+      filter: '>=2026-10-05',
+      source: 'failure-run',
+    });
+    expect(branchHistoryStartAt({ createdAt: '2026-10-05T22:36:39Z' }, null)).toMatchObject({
+      filter: '>=2026-10-04',
+      source: 'issue-open-minus-margin',
+    });
+    expect(BRANCH_HISTORY_FALLBACK_MARGIN_DAYS).toBeGreaterThan(0);
+  });
+
   it('merges meaningful status pages without letting cancelled rows consume the history', () => {
     const result = mergeRunHistoryResults([
       {
@@ -69,6 +114,16 @@ describe('close-recovered history reads', () => {
       .not.toBe(runHistoryMemoKey('w', 'o/r', { historyScope: 'branches' }));
     expect(runHistoryMemoKey('w', 'o/r', { historyScope: 'branches' }))
       .not.toBe(runHistoryMemoKey('w', 'o/r', { includeCrawlerShadowBranches: true }));
+    expect(runHistoryMemoKey('w', 'o/r', {
+      historyScope: 'branch', branch: 'feat/a', created: '>=2026-10-05',
+    })).not.toBe(runHistoryMemoKey('w', 'o/r', {
+      historyScope: 'branch', branch: 'feat/b', created: '>=2026-10-05',
+    }));
+    expect(runHistoryMemoKey('w', 'o/r', {
+      historyScope: 'branch', branch: 'feat/a', created: '>=2026-10-05',
+    })).not.toBe(runHistoryMemoKey('w', 'o/r', {
+      historyScope: 'branch', branch: 'feat/a', created: '>=2026-10-06',
+    }));
   });
 
   it('uses the stricter branch proof and rejects a still-red PR in the gate window', () => {
