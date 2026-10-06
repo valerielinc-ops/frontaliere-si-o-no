@@ -375,7 +375,15 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
     // producer is deferred by enforce:'post'; the unresolved signal lets
     // Node exit 0 before staticPagesPlugin emits the critical IT landings.
     enforce: 'post',
-    async closeBundle() {
+    // The profile wrapper makes plain hooks sequential, but Rollup still
+    // sorts an unannotated hook into its default bucket. Keep this consumer
+    // behind the employer-profile producer at both layers: Vite's post group
+    // and Rollup's post ObjectHook bucket. `sequential:true` then makes the
+    // producer's completed promise a real ordering barrier.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       if (process.env.SKIP_PUBLISHER_AD_PAGES === '1') {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m Skipped (SKIP_PUBLISHER_AD_PAGES=1)');
         resolvePublisherAdsFlushed([]);
@@ -578,6 +586,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
         `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}${canarySkipped ? `, ${canarySkipped} canary/test excluded from sitemap` : ''}) — flushed ${written} files.`,
       );
       resolvePublisherAdsFlushed(emittedAds);
+      },
     },
   };
 }

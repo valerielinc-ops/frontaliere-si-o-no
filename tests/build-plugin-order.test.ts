@@ -156,6 +156,36 @@ function expectPluginAfter(names: string[], consumer: string, producer: string):
 }
 
 describe('build plugin ordering', () => {
+  it('serializes the publisher signal chain in Rollup post hooks', () => {
+    const prev = process.env.FAST_BUILD;
+    delete process.env.FAST_BUILD;
+    try {
+      const resolved = typeof viteConfig === 'function'
+        ? viteConfig({ command: 'build', mode: 'production' })
+        : viteConfig;
+      const plugins = (Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [])
+        .filter(isNamedPlugin);
+      const publisher = plugins.find((plugin) => plugin.name === 'publisher-ad-pages') as
+        | { enforce?: string; closeBundle?: unknown }
+        | undefined;
+      const links = plugins.find((plugin) => plugin.name === 'publisher-ad-links') as
+        | { enforce?: string; closeBundle?: unknown }
+        | undefined;
+
+      expect(publisher?.enforce).toBe('post');
+      expect(publisher?.closeBundle).toMatchObject({ order: 'post', sequential: true });
+      expect(links?.enforce).toBe('post');
+      expect(links?.closeBundle).toMatchObject({ order: 'post', sequential: true });
+
+      const names = closeBundlePluginNames();
+      expectPluginAfter(names, 'publisher-ad-pages', 'employer-profile-pages');
+      expectPluginAfter(names, 'publisher-ad-links', 'publisher-ad-pages');
+      expectPluginAfter(names, 'publisher-ad-links', 'static-pages');
+    } finally {
+      if (prev !== undefined) process.env.FAST_BUILD = prev;
+    }
+  });
+
   it('keeps signal consumers after their producers in sequential closeBundle profiles', () => {
     const names = pluginNames();
 
