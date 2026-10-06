@@ -410,6 +410,13 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['scripts/ci/rearm-deploy-build.mjs'])).toContain(runListing);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(runListing);
 
+    // `consent-shown-at-signup` walks App/components/hooks/services by path,
+    // so a new or changed signup writer has no static import edge back to it.
+    const consentSignup = 'tests/consent-shown-at-signup.test.tsx';
+    expect(selectionFor(['services/companyFollowIntent.ts'])).toContain(consentSignup);
+    expect(selectionFor(['components/community/CompanyFollowButton.tsx'])).toContain(consentSignup);
+    expect(selectionFor(['scripts/ci/rearm-deploy-build.mjs'])).not.toContain(consentSignup);
+
     // Corpus 1926: un import nuovo fuori dalla lista sparse di housekeeping
     // nasce in uno script o nell'engine condiviso, non nel workflow.
     const housekeeping = 'tests/housekeeping-sparse-paths.test.ts';

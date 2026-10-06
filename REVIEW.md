@@ -119,13 +119,12 @@ PR body DEVE avere:
 
 ### Una sola fonte di verità sul body
 
-`scripts/lib/pr-body-sections-check.mjs` valida sezioni, stati,
-`Motivo`/`Prossimo passo`, placeholder, `Closes` in `PR-body completeness` di
-`tests.yml`; bundle: `## Deterministic body contract`. Se ✅, niente 🔴 dal body,
-al massimo 🟡 su `PR body:L<n>`; stati accettati (`blocked: <causa>` incluso) e
-`Prossimo passo` concreto non si ridiscutono. 🔴 solo su Non implementato →
-`DECLASSIFIED-BODY`; claim perf senza baseline (step 7) resta 🔴. Nuove regole
-vanno nel contratto; qui giudica Implementato-vs-diff o verdetto assente.
+`scripts/lib/pr-body-sections-check.mjs` valida il body; bundle: `## Deterministic body contract`.
+🔴 `PR body:L<n>` come prefisso della prima riga richiede `Body citation: "<JSON string>"` ≤240.
+Testo assente dopo
+normalizzazione → `DECLASSIFIED-STALE-BODY`; citazione mancante/malformata o
+presente resta 🔴. `NON_CONTRACT_BODY_RE` blocca claim perf/capacità senza
+baseline finché nella riga; se rimosso, stale.
 
 ### Reviewer behavior
 
@@ -218,6 +217,8 @@ Una riga/finding:
 ```
 
 Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
+
+Body-only: aggiungi sotto `Body citation: "<JSON string>"` (≤240; escape virgolette/backslash).
 
 **Marker `🔴 Important` = stringa esatta, MAI bold.** Scrivi `🔴 Important`, non `🔴 **Important**` né `🔴 __Important__`. È letto dai gate (`pr-redflag-fixer.yml`, `auto-merge-eval.mjs`); tienilo piano.
 

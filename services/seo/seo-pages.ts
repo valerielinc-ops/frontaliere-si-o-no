@@ -49,6 +49,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "WebSite",
+ "@id": `${BASE_URL}/#website`,
  "name": "Frontaliere Ticino",
  "url": `${BASE_URL}/`,
  "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, guida e comparatori servizi",
@@ -3595,6 +3596,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "WebSite",
+ "@id": `${BASE_URL}/cerca-lavoro-ticino/#website`,
  "name": "Offerte di Lavoro Ticino \u2014 Frontaliere Ticino",
  "url": `${BASE_URL}/cerca-lavoro-ticino/`,
  "potentialAction": {

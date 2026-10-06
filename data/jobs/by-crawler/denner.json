@@ -151,7 +151,7 @@
       "slugByLocale": {
         "it": "obiettivi-tecnici-operativi-denner-aclens",
         "en": "operating-technician-aclens-denner-aclens",
-        "de": "techniker-fur-die-aklensoperationen-denner-aclens",
+        "de": "betriebstechniker-aclens-denner-aclens",
         "fr": "technicien-ne-d-exploitation-aclens-denner"
       },
       "company": "Denner",
@@ -226,7 +226,6 @@
         "betriebstechniker-aclens-denner-sa-aclens",
         "obiettivi-tecnici-operativi-denner-sa-aclens",
         "technicien-ne-d-exploitation-aclens-denner",
-        "betriebstechniker-aclens-denner-aclens",
         "techniker-fur-die-aklensoperationen-denner-aclens"
       ],
       "previousSlugsByLocale": {
@@ -243,7 +242,6 @@
         "de": [
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9",
           "betriebstechniker-aclens-denner-sa-aclens",
-          "betriebstechniker-aclens-denner-aclens",
           "techniker-fur-die-aklensoperationen-denner-aclens"
         ],
         "fr": [
@@ -492,7 +490,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "hourly-wage-salesperson-denner-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
         "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
@@ -556,7 +554,6 @@
           "verkaufer-in-im-stundenlohn-denner-frauenfeld"
         ],
         "en": [
-          "seller-denner-ag-frauenfeld-008421",
           "hourly-wage-salesperson-denner-frauenfeld"
         ],
         "fr": [
@@ -566,7 +563,6 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-frauenfeld",
-        "seller-denner-ag-frauenfeld-008421",
         "hourly-wage-salesperson-denner-frauenfeld"
       ],
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
@@ -1601,7 +1597,7 @@
         "it": "controller-denner-zurich",
         "en": "controller-denner-zurich",
         "de": "controller-in-denner",
-        "fr": "controller-in-denner-zurich"
+        "fr": "controleur-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1670,7 +1666,6 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "controller-in-denner",
-        "controleur-denner-zurich",
         "controller-in-denner-zurich"
       ],
       "previousSlugsByLocale": {
@@ -1681,7 +1676,6 @@
           "controller-in-denner"
         ],
         "fr": [
-          "controleur-denner-zurich",
           "controller-in-denner-zurich"
         ]
       },
@@ -1825,7 +1819,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-basel-66c0e2",
-        "en": "shop-assistant-denner-basel",
+        "en": "seller-denner-ag-basel-66c0e2",
         "de": "verkaufer-in-denner-ag-basel",
         "fr": "vendeur-denner-ag-basel-66c0e2"
       },
@@ -1902,7 +1896,6 @@
           "verkaufer-in-denner-basel"
         ],
         "en": [
-          "seller-denner-ag-basel-66c0e2",
           "shop-assistant-denner-basel"
         ]
       },
@@ -1915,7 +1908,6 @@
         "vendeur-denner-ag-basel",
         "verkaufer-in-denner-basel",
         "verkaufer-in-denner-j9jhrv",
-        "seller-denner-ag-basel-66c0e2",
         "shop-assistant-denner-basel"
       ],
       "needsRetranslation": true,
@@ -3197,7 +3189,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-bern-bumpliz",
-        "en": "shop-assistant-denner-bern-bumpliz",
+        "en": "seller-denner-ag-bern-bumpliz",
         "de": "verkaufer-in-denner-ag-bern-bumpliz-tkyapg",
         "fr": "vendeur-denner-ag-bern-bumpliz"
       },
@@ -3261,7 +3253,6 @@
         ],
         "en": [
           "verkaufer-in-denner-bern-bumpliz",
-          "seller-denner-ag-bern-bumpliz",
           "shop-assistant-denner-bern-bumpliz"
         ],
         "fr": [
@@ -3271,7 +3262,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-bern-bumpliz",
-        "seller-denner-ag-bern-bumpliz",
         "shop-assistant-denner-bern-bumpliz"
       ],
       "needsRetranslation": true,
@@ -3833,7 +3823,8 @@
         "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will",
         "verkaufer-in-denner",
         "vendeur-denner-allschwil",
-        "verkaufer-in-denner-ag-allschwil-w2uxdl"
+        "verkaufer-in-denner-ag-allschwil-w2uxdl",
+        "verkaufer-in-denner-uldcvi"
       ],
       "firstSeenAt": "2026-07-16T11:21:46.566Z",
       "salaryMin": 74000,
@@ -4198,15 +4189,15 @@
       "slug": "verkaufer-in-im-stundenlohn-denner",
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
-        "it": "Verkäufer*in im Stundenlohn",
-        "en": "Verkäufer*in im Stundenlohn",
-        "fr": "Verkäufer*in im Stundenlohn"
+        "it": "Venditore con retribuzione oraria",
+        "en": "Hourly Wage Salesperson",
+        "fr": "Vendeur·euseà l'heure"
       },
       "slugByLocale": {
         "de": "verkaufer-in-im-stundenlohn-denner-zurich",
         "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-zurich",
-        "fr": "verkaufer-in-im-stundenlohn-denner-zurich"
+        "en": "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -4263,15 +4254,14 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e"
+          "verkaufer-in-im-stundenlohn-denner-zurich"
         ],
         "fr": [
-          "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e"
+          "verkaufer-in-im-stundenlohn-denner-zurich"
         ]
       },
       "previousSlugs": [
-        "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
-        "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e"
+        "verkaufer-in-im-stundenlohn-denner-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -4368,6 +4358,7 @@
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "it": [
+          "verkaufer-in-im-stundenlohn-denner-x84zlj",
           "verkaufer-in-im-stundenlohn-denner-ag-zurich",
           "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo",
           "verkaufer-in-im-stundenlohn-denner",
@@ -4387,6 +4378,7 @@
         ]
       },
       "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner-x84zlj",
         "verkaufer-in-im-stundenlohn-denner-ag-zurich",
         "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo",
         "verkaufer-in-im-stundenlohn-denner",
@@ -4668,7 +4660,8 @@
         "assistente-nella-gestione-delle-branche-denner-st-gallen",
         "assistente-nella-gestione-delle-branche-denner-basel",
         "assistente-alla-direzione-del-filiale-denner-arlesheim",
-        "assistant-in-branch-management-denner-appenzell"
+        "assistant-in-branch-management-denner-appenzell",
+        "assistent-in-filialleitung-denner-ag-zurich-kicwog"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
@@ -4754,9 +4747,11 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "de": [
+          "stv-filialleiter-in-denner-ag-zurich-z8lf10",
           "stv-filialleiter-in-denner"
         ],
         "it": [
+          "stv-filialleiter-in-denner-11l56c",
           "vice-direttoredifiliale-denner-neuhausen",
           "stv-filialleiter-in-denner-neuhausen",
           "stv-filialleiter-in-denner-wollerau",
@@ -4776,9 +4771,15 @@
           "stv-filialleiter-in-denner-emmenbrucke",
           "directeur-de-succursale-stv-denner-emmenbrucke",
           "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-branch-manager-in-denner-ag-zurich-z8lf10"
         ]
       },
       "previousSlugs": [
+        "stv-filialleiter-in-denner-11l56c",
+        "stv-branch-manager-in-denner-ag-zurich-z8lf10",
+        "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-filialleiter-in-denner",
         "directeur-de-succursale-stv-in-denner-emmenbrucke",
         "stv-filialleiter-in-denner-10zjml",
@@ -4865,7 +4866,7 @@
         "fr": "Vendeur/Vendeuse à l'heure"
       },
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-su-base-oraria-denner-wollerau",
+        "it": "venditore-nel-salario-orario-denner-ag-wollerau",
         "en": "seller-in-the-hourly-wage-denner-ag-wollerau",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-wollerau"
@@ -4934,8 +4935,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
           "verkaufer-in-im-stundenlohn-denner-wollerau",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-wollerau"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm"
@@ -4951,8 +4951,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
         "verkaufer-in-im-stundenlohn-denner-wollerau",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-wollerau"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.264Z",
@@ -4981,7 +4980,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-basel-25bcd4",
-        "en": "shop-assistant-denner-basel",
+        "en": "seller-denner-ag-basel-25bcd4",
         "de": "verkaufer-in-denner-ag-basel",
         "fr": "vendeur-denner-ag-basel-25bcd4"
       },
@@ -5046,7 +5045,6 @@
           "verkaufer-in-denner-basel"
         ],
         "en": [
-          "seller-denner-ag-basel-25bcd4",
           "shop-assistant-denner-basel"
         ]
       },
@@ -5054,7 +5052,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-basel-sdrsyr",
         "verkaufer-in-denner-basel",
-        "seller-denner-ag-basel-25bcd4",
         "shop-assistant-denner-basel"
       ],
       "needsRetranslation": true,
@@ -5083,8 +5080,8 @@
         "fr": "Vendeur*"
       },
       "slugByLocale": {
-        "it": "venditore-denner-gebenstorf",
-        "en": "seller-denner-gebenstorf",
+        "it": "addetto-a-alle-vendite-denner-ag-gebenstorf",
+        "en": "sales-associate-denner-ag-gebenstorf",
         "de": "verkaufer-in-denner-ag-gebenstorf",
         "fr": "vendeur-se-denner-ag-gebenstorf"
       },
@@ -5156,13 +5153,11 @@
           "verkaufer-in-denner-gebenstorf",
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
           "verkaufer-in-denner-ag-gebenstorf",
-          "verkaufer-in-denner",
-          "addetto-a-alle-vendite-denner-ag-gebenstorf"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
           "verkaufer-in-denner-ag-gebenstorf",
-          "sales-associate-denner-ag-gebenstorf",
           "seller-denner-gebenstorf"
         ],
         "fr": [
@@ -5175,8 +5170,6 @@
         "verkaufer-in-denner-ag-gebenstorf-y28jsm",
         "verkaufer-in-denner-ag-gebenstorf",
         "verkaufer-in-denner",
-        "addetto-a-alle-vendite-denner-ag-gebenstorf",
-        "sales-associate-denner-ag-gebenstorf",
         "seller-denner-gebenstorf"
       ],
       "needsRetranslation": true,
@@ -5403,7 +5396,7 @@
       },
       "slugByLocale": {
         "it": "venditore-trice-denner-ag-interlaken",
-        "en": "seller-denner-interlaken",
+        "en": "sales-associate-denner-ag-interlaken",
         "de": "verkaufer-in-denner-ag-interlaken",
         "fr": "vendeur-euse-denner-ag-interlaken"
       },
@@ -5495,7 +5488,6 @@
           "verkaufer-in-denner-ag-interlaken-kk53ro",
           "verkaufer-in-denner-ag-interlaken",
           "seller-denner-ag-interlaken-a375b5",
-          "sales-associate-denner-ag-interlaken",
           "seller-denner-interlaken"
         ],
         "fr": [
@@ -5544,7 +5536,6 @@
         "verkaufer-in-denner-29",
         "verkaufer-in-denner-16",
         "verkaufer-in-denner-15",
-        "sales-associate-denner-ag-interlaken",
         "seller-denner-interlaken"
       ],
       "needsRetranslation": true,
@@ -5671,7 +5662,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-denner-interlaken",
         "en": "verkaufer-in-denner-interlaken",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-rtv6c7",
         "fr": "verkaufer-in-denner-interlaken"
       },
       "company": "Denner",
@@ -5727,7 +5718,6 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "de": [
-          "verkaufer-in-denner-rtv6c7",
           "verkaufer-in-denner"
         ],
         "it": [
@@ -6036,7 +6026,10 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner-275t99"
+      ]
     },
     {
       "id": "denner-a55a7681ee0b",
@@ -7218,13 +7211,15 @@
       "previousSlugs": [
         "verkaufer-in-denner-23",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-samedan"
+        "verkaufer-in-denner-samedan",
+        "verkaufer-in-denner-7th4hu"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-23",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-samedan"
+          "verkaufer-in-denner-samedan",
+          "verkaufer-in-denner-7th4hu"
         ],
         "en": [
           "verkaufer-in-denner-samedan"
@@ -7319,7 +7314,8 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-5l2op8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7901,7 +7897,7 @@
         "it": "vice-direttore-di-filiale-denner-ag-ebikon",
         "en": "assistant-branch-manager-denner-ag-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-ebikon"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -7979,7 +7975,6 @@
         "fr": [
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
           "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
@@ -7988,7 +7983,6 @@
         "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
         "assistent-in-filialleitung-denner",
         "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-        "directeur-adjoint-de-succursale-denner-ag-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       ],
       "needsRetranslation": true,
@@ -8885,7 +8879,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-basel-4958f7",
-        "en": "stv-filialleiter-in-denner-basel",
+        "en": "deputy-branch-manager-denner-ag-basel",
         "de": "stv-filialleiter-in-denner-ag-basel-v42vb5",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-basel"
       },
@@ -8949,14 +8943,12 @@
           "stv-filialleiter-in-denner-basel"
         ],
         "en": [
-          "deputy-branch-manager-denner-ag-basel",
           "stv-filialleiter-in-denner-basel"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-basel",
-        "deputy-branch-manager-denner-ag-basel"
+        "stv-filialleiter-in-denner-basel"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
@@ -9947,10 +9939,10 @@
         "fr": "Assistant* dans la gestion des succursales"
       },
       "slugByLocale": {
-        "it": "assistente-nella-gestione-delle-branche-denner-basel",
+        "it": "vice-direttore-di-filiale-denner-ag-basel",
         "en": "assistant-branch-manager-denner-ag-basel",
         "de": "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-basel"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -10018,15 +10010,13 @@
           "assistent-in-filialleitung-denner-ag-basel",
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
           "assistent-in-filialleitung-denner-basel",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-basel"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-          "directeur-adjoint-de-succursale-denner-ag-basel",
           "assistant-dans-la-gestion-des-succursales-denner-basel"
         ],
         "de": [
@@ -10039,8 +10029,6 @@
         "assistent-in-filialleitung-denner-basel",
         "assistent-in-filialleitung-denner-lvyhnb",
         "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-basel",
-        "directeur-adjoint-de-succursale-denner-ag-basel",
         "assistant-dans-la-gestion-des-succursales-denner-basel"
       ],
       "firstSeenAt": "2026-06-18T22:40:00.067Z",
@@ -10290,7 +10278,7 @@
         "fr": "Vendeur*se à l'heure"
       },
       "slugByLocale": {
-        "it": "addetto-a-vendite-con-paga-oraria-denner-interlaken",
+        "it": "venditore-nel-salario-orario-denner-ag-interlaken",
         "en": "seller-in-the-hourly-wage-denner-ag-interlaken",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-interlaken"
@@ -10360,8 +10348,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
           "verkaufer-in-im-stundenlohn-denner-interlaken",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-interlaken"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh"
@@ -10378,8 +10365,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
         "verkaufer-in-im-stundenlohn-denner-interlaken",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-interlaken"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T10:59:14.461Z",
@@ -11269,7 +11255,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-basel",
-        "en": "shop-assistant-denner-basel",
+        "en": "seller-denner-ag-basel-129873",
         "de": "verkaufer-in-denner-ag-basel",
         "fr": "vendeur-denner-ag-basel"
       },
@@ -11334,14 +11320,14 @@
           "verkaufer-in-denner-basel"
         ],
         "en": [
-          "seller-denner-ag-basel-129873"
+          "shop-assistant-denner-basel"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-basel-jm857n",
         "verkaufer-in-denner-basel",
-        "seller-denner-ag-basel-129873"
+        "shop-assistant-denner-basel"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
@@ -11444,7 +11430,8 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-zurich-5db9aa",
-        "assistent-in-filialleitung-denner-zurich"
+        "assistent-in-filialleitung-denner-zurich",
+        "assistent-in-filialleitung-denner-ag-zurich-5db9aa"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
@@ -11473,7 +11460,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "assistant-store-manager-denner-ag-zurich",
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b"
       },
@@ -11537,14 +11524,12 @@
         ],
         "en": [
           "stv-filialleiter-in-denner-zurich-2zbait",
-          "assistant-store-manager-denner-ag-zurich",
           "stv-filialleiter-in-denner-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-zurich-2zbait",
-        "assistant-store-manager-denner-ag-zurich",
         "stv-filialleiter-in-denner-zurich"
       ],
       "needsRetranslation": true,
@@ -11574,7 +11559,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-zurich-1ed56c",
-        "en": "shop-assistant-denner-zurich",
+        "en": "seller-denner-ag-zurich-1ed56c",
         "de": "verkaufer-in-denner-ag-zurich",
         "fr": "vendeur-denner-ag-zurich-1ed56c"
       },
@@ -11638,14 +11623,12 @@
           "verkaufer-in-denner-zurich"
         ],
         "en": [
-          "seller-denner-ag-zurich-1ed56c",
           "shop-assistant-denner-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-zurich",
-        "seller-denner-ag-zurich-1ed56c",
         "shop-assistant-denner-zurich"
       ],
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
@@ -12041,7 +12024,7 @@
         "fr": "Vendeur en salaire horaire"
       },
       "slugByLocale": {
-        "it": "seller-in-retribuzione-oraria-denner-reinach-ag",
+        "it": "venditore-nel-salario-orario-denner-ag-reinach-ag",
         "en": "seller-in-the-hourly-wage-denner-ag-reinach-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-reinach-ag"
@@ -12111,8 +12094,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
           "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-reinach-ag"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
@@ -12129,8 +12111,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
         "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-reinach-ag"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.779Z",
@@ -12285,7 +12266,7 @@
         "fr": "Directeur de branche"
       },
       "slugByLocale": {
-        "it": "gestore-ramo-denner-einsiedeln",
+        "it": "vice-direttore-di-filiale-denner-ag-einsiedeln",
         "en": "stv-branch-manager-in-denner-ag-einsiedeln",
         "de": "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
         "fr": "directeur-de-succursale-stv-denner-ag-einsiedeln"
@@ -12358,8 +12339,7 @@
           "vice-direttore-di-filiale-denner-basel",
           "stv-branch-manager-in-denner-ag-einsiedeln",
           "stv-branch-manager-in-denner-einsiedeln",
-          "stv-filialleiter-in-denner",
-          "vice-direttore-di-filiale-denner-ag-einsiedeln"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
@@ -12379,8 +12359,7 @@
         "vice-direttore-di-filiale-denner-basel",
         "stv-branch-manager-in-denner-ag-einsiedeln",
         "stv-branch-manager-in-denner-einsiedeln",
-        "stv-filialleiter-in-denner",
-        "vice-direttore-di-filiale-denner-ag-einsiedeln"
+        "stv-filialleiter-in-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T11:06:33.256Z",
@@ -12409,9 +12388,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-zug",
-        "en": "verkaufer-in-denner-zug",
+        "en": "shop-assistant-denner-zug",
         "de": "verkaufer-in-denner",
-        "fr": "verkaufer-in-denner-zug"
+        "fr": "vendeur-denner-zug"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12467,8 +12446,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-zug-rtrz4s",
-        "shop-assistant-denner-zug",
-        "vendeur-denner-zug",
         "verkaufer-in-denner-zug"
       ],
       "previousSlugsByLocale": {
@@ -12477,12 +12454,10 @@
         ],
         "en": [
           "verkaufer-in-denner-zug-rtrz4s",
-          "shop-assistant-denner-zug",
           "verkaufer-in-denner-zug"
         ],
         "fr": [
           "verkaufer-in-denner-zug-rtrz4s",
-          "vendeur-denner-zug",
           "verkaufer-in-denner-zug"
         ]
       },
@@ -12625,9 +12600,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-huttwil",
-        "en": "verkaufer-in-denner-huttwil",
+        "en": "seller-denner-ag-huttwil",
         "de": "verkaufer-in-denner-ag-huttwil",
-        "fr": "verkaufer-in-denner-huttwil"
+        "fr": "vendeur-denner-ag-huttwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12688,18 +12663,14 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-huttwil",
           "verkaufer-in-denner-huttwil"
         ],
         "fr": [
-          "vendeur-denner-ag-huttwil",
           "verkaufer-in-denner-huttwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-huttwil",
-        "vendeur-denner-ag-huttwil",
         "verkaufer-in-denner-huttwil"
       ],
       "needsRetranslation": true,
@@ -12729,9 +12700,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-herzogenbuchsee",
-        "en": "verkaufer-in-denner-herzogenbuchsee",
+        "en": "seller-denner-ag-herzogenbuchsee",
         "de": "verkaufer-in-denner-ag-herzogenbuchsee",
-        "fr": "verkaufer-in-denner-herzogenbuchsee"
+        "fr": "vendeur-denner-ag-herzogenbuchsee"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12792,18 +12763,14 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-herzogenbuchsee",
           "verkaufer-in-denner-herzogenbuchsee"
         ],
         "fr": [
-          "vendeur-denner-ag-herzogenbuchsee",
           "verkaufer-in-denner-herzogenbuchsee"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-herzogenbuchsee",
-        "vendeur-denner-ag-herzogenbuchsee",
         "verkaufer-in-denner-herzogenbuchsee"
       ],
       "needsRetranslation": true,
@@ -12834,7 +12801,7 @@
       "slugByLocale": {
         "it": "venditore-denner-zweisimmen",
         "en": "shop-assistant-denner-zweisimmen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-o0pnha",
         "fr": "vendeur-denner-zweisimmen"
       },
       "company": "Denner",
@@ -12891,7 +12858,6 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufer-in-denner-zweisimmen",
-          "verkaufer-in-denner-o0pnha",
           "verkaufer-in-denner"
         ],
         "it": [
@@ -12909,8 +12875,7 @@
       "previousSlugs": [
         "verkaufer-in-denner-26",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-zweisimmen",
-        "verkaufer-in-denner-o0pnha"
+        "verkaufer-in-denner-zweisimmen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -13100,6 +13065,13 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
+        "vendeur-dans-le-salaire-horaire-denner-ag-ibach",
+        "seller-in-the-hourly-wage-denner-ag-ibach",
+        "vendor-in-hourly-wages-denner-ibach",
+        "verkaufer-in-im-stundenlohn-denner-zug-bgvgho",
+        "verkaufer-in-im-stundenlohn-denner-st-gallen-p3c9ng",
+        "verkaufer-in-im-stundenlohn-denner-i27iqc",
+        "verkaufer-in-im-stundenlohn-denner-x84zlj",
         "venditore-nel-salario-orario-denner-ag-menzingen",
         "verkaufer-in-im-stundenlohn-denner-ag-menzingen",
         "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy",
@@ -13179,6 +13151,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-dans-le-salaire-horaire-denner-ag-ibach",
+          "seller-in-the-hourly-wage-denner-ag-ibach",
+          "vendor-in-hourly-wages-denner-ibach",
+          "verkaufer-in-im-stundenlohn-denner-zug-bgvgho",
+          "verkaufer-in-im-stundenlohn-denner-st-gallen-p3c9ng",
+          "verkaufer-in-im-stundenlohn-denner-i27iqc",
+          "verkaufer-in-im-stundenlohn-denner-x84zlj",
           "venditore-nel-salario-orario-denner-ag-burgdorf",
           "verkaufer-in-im-stundenlohn-denner-ag-burgdorf",
           "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
@@ -15573,7 +15552,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-urdorf",
-        "en": "shop-assistant-denner-urdorf",
+        "en": "seller-denner-ag-urdorf",
         "de": "verkaufer-in-denner-ag-urdorf",
         "fr": "vendeur-denner-ag-urdorf"
       },
@@ -15645,14 +15624,12 @@
           "verkaufer-in-denner-urdorf"
         ],
         "en": [
-          "seller-denner-ag-urdorf",
           "shop-assistant-denner-urdorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-urdorf",
-        "seller-denner-ag-urdorf",
         "shop-assistant-denner-urdorf"
       ],
       "needsRetranslation": true,
@@ -16046,6 +16023,7 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "de": [
+          "stv-filialleiter-in-denner-ag-zurich-z8lf10",
           "stv-filialleiter-in-denner"
         ],
         "it": [
@@ -16287,7 +16265,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-konolfingen",
-        "en": "shop-assistant-denner-konolfingen",
+        "en": "seller-denner-ag-konolfingen",
         "de": "verkaufer-in-denner-ag-konolfingen",
         "fr": "vendeur-denner-ag-konolfingen"
       },
@@ -16352,7 +16330,6 @@
         ],
         "en": [
           "verkaufer-in-denner-konolfingen",
-          "seller-denner-ag-konolfingen",
           "shop-assistant-denner-konolfingen"
         ],
         "fr": [
@@ -16363,7 +16340,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-konolfingen-97uhx7",
         "verkaufer-in-denner-konolfingen",
-        "seller-denner-ag-konolfingen",
         "shop-assistant-denner-konolfingen"
       ],
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -20471,7 +20447,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-wadenswil",
-        "en": "stv-filialleiter-in-denner-wadenswil",
+        "en": "deputy-branch-manager-denner-ag-wadenswil",
         "de": "stv-filialleiter-in-denner-ag-wadenswil-idrc05",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-wadenswil"
       },
@@ -20543,14 +20519,12 @@
           "stv-filialleiter-in-denner-wadenswil"
         ],
         "en": [
-          "deputy-branch-manager-denner-ag-wadenswil",
           "stv-filialleiter-in-denner-wadenswil"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-wadenswil",
-        "deputy-branch-manager-denner-ag-wadenswil"
+        "stv-filialleiter-in-denner-wadenswil"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
@@ -20802,7 +20776,7 @@
       },
       "slugByLocale": {
         "it": "venditore-a-denner-ag-frauenfeld",
-        "en": "shop-assistant-denner-frauenfeld",
+        "en": "sales-associate-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
         "fr": "vendeur-vendeuse-denner-ag-frauenfeld"
       },
@@ -20875,7 +20849,6 @@
           "verkaufer-in-denner-frauenfeld"
         ],
         "en": [
-          "sales-associate-denner-ag-frauenfeld",
           "shop-assistant-denner-frauenfeld"
         ]
       },
@@ -20883,7 +20856,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-24",
         "verkaufer-in-denner-frauenfeld",
-        "sales-associate-denner-ag-frauenfeld",
         "shop-assistant-denner-frauenfeld"
       ],
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
@@ -20912,7 +20884,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-negozio-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "deputy-branch-manager-denner-ag-zurich",
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich"
       },
@@ -20977,15 +20949,13 @@
         ],
         "en": [
           "stv-filialleiter-in-denner-zurich-geicje",
-          "deputy-branch-manager-denner-ag-zurich",
           "stv-filialleiter-in-denner-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-zurich",
-        "stv-filialleiter-in-denner-zurich-geicje",
-        "deputy-branch-manager-denner-ag-zurich"
+        "stv-filialleiter-in-denner-zurich-geicje"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -21667,7 +21637,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "deputy-branch-manager-denner-ag-zurich-6527ca",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
       },
@@ -21735,6 +21705,8 @@
           "stv-filialleiter-in-denner"
         ],
         "it": [
+          "stv-filialleiter-in-denner-11l56c",
+          "stv-branch-manager-in-denner-ag-zurich-z8lf10",
           "stv-filialleiter-in-denner-bern",
           "stv-filialleiter-in-denner-13",
           "stv-filialleiter-in-denner-fullinsdorf",
@@ -21750,7 +21722,6 @@
         ],
         "en": [
           "stv-filialleiter-in-denner-zurich-gdn8qz",
-          "deputy-branch-manager-denner-ag-zurich-6527ca",
           "stv-filialleiter-in-denner-zurich"
         ],
         "fr": [
@@ -21758,6 +21729,9 @@
         ]
       },
       "previousSlugs": [
+        "stv-filialleiter-in-denner-11l56c",
+        "stv-branch-manager-in-denner-ag-zurich-z8lf10",
+        "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-8",
         "stv-filialleiter-in-denner-9",
@@ -23293,7 +23267,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-st-gallen",
-        "en": "shop-assistant-denner-st-gallen",
+        "en": "seller-denner-st-gallen",
         "de": "verkaufer-in-denner-ag-st-gallen",
         "fr": "vendeur-denner-st-gallen"
       },
@@ -23376,7 +23350,6 @@
         ],
         "en": [
           "verkaufer-in-denner-st-gallen",
-          "seller-denner-st-gallen",
           "shop-assistant-denner-st-gallen"
         ],
         "fr": [
@@ -23418,7 +23391,6 @@
         "verkaufer-in-denner-ag-brugg-ag",
         "verkaufer-in-denner-4",
         "verkaufer-in-denner-2",
-        "seller-denner-st-gallen",
         "shop-assistant-denner-st-gallen"
       ],
       "needsRetranslation": true,
@@ -23449,7 +23421,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-greifensee",
         "en": "hourly-wage-salesperson-denner-greifensee",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-ln4ak3",
         "fr": "vendeur-eusea-l-heure-denner-greifensee"
       },
       "company": "Denner",
@@ -23518,7 +23490,8 @@
           "verkaufer-in-im-stundenlohn-denner-greifensee"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-greifensee"
+          "verkaufer-in-im-stundenlohn-denner-greifensee",
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-greifensee"
@@ -23681,7 +23654,7 @@
         "it": "responsabile-negozio-denner-ag-ilanz",
         "en": "store-manager-denner-ag-ilanz",
         "de": "filialleiter-in-denner-ag-ilanz",
-        "fr": "adjoint-e-d-agence-denner-ilanz"
+        "fr": "gestionnaire-de-magasin-denner-ag-ilanz"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -23754,14 +23727,12 @@
         ],
         "fr": [
           "filialleiter-in-denner-ilanz",
-          "gestionnaire-de-magasin-denner-ag-ilanz",
           "adjoint-e-d-agence-denner-ilanz"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-denner",
         "filialleiter-in-denner-ilanz",
-        "gestionnaire-de-magasin-denner-ag-ilanz",
         "adjoint-e-d-agence-denner-ilanz"
       ],
       "needsRetranslation": true,
@@ -23849,13 +23820,15 @@
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-weinfelden"
+        "verkaufer-in-denner-weinfelden",
+        "verkaufer-in-denner-kkrjpb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-weinfelden"
+          "verkaufer-in-denner-weinfelden",
+          "verkaufer-in-denner-kkrjpb"
         ],
         "en": [
           "verkaufer-in-denner-weinfelden"
@@ -24935,7 +24908,7 @@
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne",
         "en": "shop-assistant-denner-biel-bienne",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-giwqst",
         "fr": "vendeur-denner-biel-bienne"
       },
       "company": "Denner",
@@ -24992,7 +24965,6 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufer-in-denner-biel-bienne",
-          "verkaufer-in-denner-giwqst",
           "verkaufer-in-denner"
         ],
         "it": [
@@ -25010,8 +24982,7 @@
       "previousSlugs": [
         "verkaufer-in-denner-6",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-biel-bienne",
-        "verkaufer-in-denner-giwqst"
+        "verkaufer-in-denner-biel-bienne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -25595,7 +25566,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-wattwil-246b9c",
-        "en": "shop-assistant-denner-wattwil",
+        "en": "seller-denner-ag-wattwil",
         "de": "verkaufer-in-denner-ag-wattwil",
         "fr": "vendeur-denner-ag-wattwil"
       },
@@ -25659,7 +25630,6 @@
           "verkaufer-in-denner-wattwil"
         ],
         "en": [
-          "seller-denner-ag-wattwil",
           "shop-assistant-denner-wattwil"
         ],
         "fr": [
@@ -25669,7 +25639,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-wattwil",
-        "seller-denner-ag-wattwil",
         "shop-assistant-denner-wattwil"
       ],
       "needsRetranslation": true,
@@ -25698,10 +25667,10 @@
         "it": "Verkäufer*in"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-denner-wattwil",
-        "en": "verkaufer-in-denner-wattwil",
+        "it": "venditore-denner-ag-wattwil",
+        "en": "seller-denner-ag-wattwil-8129f7",
         "de": "verkaufer-in-denner-ag-wattwil",
-        "fr": "verkaufer-in-denner-wattwil"
+        "fr": "vendeur-denner-ag-wattwil-8129f7"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -25759,21 +25728,11 @@
           "verkaufer-in-denner"
         ],
         "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-ag-wattwil"
-        ],
-        "en": [
-          "seller-denner-ag-wattwil-8129f7"
-        ],
-        "fr": [
-          "vendeur-denner-ag-wattwil-8129f7"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "venditore-denner-ag-wattwil",
-        "seller-denner-ag-wattwil-8129f7",
-        "vendeur-denner-ag-wattwil-8129f7"
+        "verkaufer-in-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
@@ -25802,7 +25761,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-ibach",
-        "en": "shop-assistant-denner-ibach",
+        "en": "seller-denner-ag-ibach",
         "de": "verkaufer-in-denner-ag-ibach",
         "fr": "vendeur-denner-ag-ibach"
       },
@@ -25874,7 +25833,6 @@
         ],
         "en": [
           "verkaufer-in-denner-ibach",
-          "seller-denner-ag-ibach",
           "shop-assistant-denner-ibach"
         ],
         "fr": [
@@ -25884,7 +25842,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-ibach",
-        "seller-denner-ag-ibach",
         "shop-assistant-denner-ibach"
       ],
       "needsRetranslation": true,
@@ -26077,7 +26034,8 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-amriswil"
+        "assistent-in-filialleitung-denner-amriswil",
+        "assistent-in-filialleitung-denner-fislqo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27790,18 +27748,18 @@
     },
     {
       "id": "denner-ca71dd7f4368",
-      "slug": "verkaufer-in-im-stundenlohn-denner-uzwil",
+      "slug": "venditore-con-retribuzione-oraria-denner-uzwil",
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
-        "it": "Verkäufer*in im Stundenlohn",
-        "en": "Verkäufer*in im Stundenlohn",
-        "fr": "Verkäufer*in im Stundenlohn"
+        "it": "Venditore con retribuzione oraria",
+        "en": "Hourly Wage Salesperson",
+        "fr": "Vendeur·euseà l'heure"
       },
       "slugByLocale": {
         "de": "verkaufer-in-im-stundenlohn-denner",
-        "it": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "en": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "fr": "verkaufer-in-im-stundenlohn-denner-uzwil"
+        "it": "venditore-con-retribuzione-oraria-denner-uzwil",
+        "en": "hourly-wage-salesperson-denner-uzwil",
+        "fr": "vendeur-eusea-l-heure-denner-uzwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27858,11 +27816,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-10"
+          "verkaufer-in-im-stundenlohn-denner-10",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-10"
+        "verkaufer-in-im-stundenlohn-denner-10",
+        "verkaufer-in-im-stundenlohn-denner-uzwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -27884,15 +27850,15 @@
       "slug": "verkaufer-in-denner-chur",
       "titleByLocale": {
         "de": "Verkäufer*in",
-        "it": "Verkäufer*in",
-        "en": "Verkäufer*in",
-        "fr": "Verkäufer*in"
+        "it": "Venditore",
+        "en": "shop assistant",
+        "fr": "Vendeur"
       },
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-chur",
-        "en": "verkaufer-in-denner-chur",
-        "fr": "verkaufer-in-denner-chur",
-        "it": "verkaufer-in-denner-chur"
+        "en": "seller-denner-ag-chur",
+        "fr": "vendeur-denner-ag-chur-2511ee",
+        "it": "venditore-denner-ag-chur-2511ee"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27949,24 +27915,89 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-ag-chur-2511ee"
+          "verkaufer-in-denner-26",
+          "verkaufer-in-denner-samedan",
+          "verkaufer-in-denner-25",
+          "verkaufer-in-denner-weinfelden",
+          "verkaufer-in-denner-6qzxem",
+          "verkaufer-in-denner-10",
+          "verkaufer-in-denner-effretikon",
+          "venditore-denner-ag-visp",
+          "venditore-denner-visp",
+          "seller-denner-ag-visp",
+          "verkaufer-in-denner-visp",
+          "seller-denner-visp",
+          "verkaufer-in-denner-ag-visp",
+          "vendeur-denner-ag-visp",
+          "vendeur-denner-visp",
+          "venditore-denner-ag-ruti-zh",
+          "seller-denner-ag-ruti-zh",
+          "verkaufer-in-denner-ruti-zh"
         ],
         "de": [
           "verkaufer-in-denner"
-        ],
-        "en": [
-          "seller-denner-ag-chur"
-        ],
-        "fr": [
-          "vendeur-denner-ag-chur-2511ee"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "venditore-denner-ag-chur-2511ee",
         "seller-denner-ag-chur",
-        "vendeur-denner-ag-chur-2511ee"
+        "vendeur-denner-ag-chur-2511ee",
+        "seller-denner-ruti-zh",
+        "vendeur-denner-ag-ruti-zh",
+        "vendeur-denner-ruti-zh",
+        "venditore-denner-ruti-zh",
+        "venditore-denner-ag-bern-bumpliz",
+        "seller-denner-ag-bern-bumpliz",
+        "verkaufer-in-denner-bern-bumpliz",
+        "seller-denner-bern-bumpliz",
+        "vendeur-denner-ag-bern-bumpliz",
+        "vendeur-denner-bern-bumpliz",
+        "venditore-denner-bern-bumpliz",
+        "verkaufer-in-denner-4",
+        "verkaufer-in-denner-allschwil",
+        "venditore-denner-ag-herisau",
+        "seller-denner-ag-herisau",
+        "verkaufer-in-denner-ag-herisau",
+        "vendeur-denner-ag-herisau",
+        "verkaufer-in-denner-2z2sqy",
+        "verkaufer-in-denner-schluein",
+        "verkaufer-in-denner-3",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-chur-pu2w4a",
+        "seller-denner-ag-chur-7e22e4",
+        "vendeur-denner-ag-chur",
+        "venditore-denner-ag-chur",
+        "venditore-denner-ag-chur-7e22e4",
+        "seller-denner-ag-chur-2511ee",
+        "vendeur-denner-ag-chur-7e22e4",
+        "verkaufer-in-denner-ag-chur-3",
+        "verkaufer-in-denner-ag-chur-pu2w4a",
+        "verkaufer-in-denner-ag-chur-s6g83c",
+        "verkaufer-in-denner-ag-zweisimmen",
+        "verkaufer-in-denner-zweisimmen",
+        "verkaufer-in-denner-2d59lb",
+        "verkaufer-in-denner-wettingen",
+        "seller-denner-ag-wettingen",
+        "vendeur-denner-ag-wettingen",
+        "verkaufer-in-denner-26",
+        "verkaufer-in-denner-samedan",
+        "verkaufer-in-denner-25",
+        "verkaufer-in-denner-weinfelden",
+        "verkaufer-in-denner-6qzxem",
+        "verkaufer-in-denner-10",
+        "verkaufer-in-denner-effretikon",
+        "venditore-denner-ag-visp",
+        "venditore-denner-visp",
+        "seller-denner-ag-visp",
+        "verkaufer-in-denner-visp",
+        "seller-denner-visp",
+        "verkaufer-in-denner-ag-visp",
+        "vendeur-denner-ag-visp",
+        "vendeur-denner-visp",
+        "venditore-denner-ag-ruti-zh",
+        "seller-denner-ag-ruti-zh",
+        "verkaufer-in-denner-ruti-zh"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -27988,15 +28019,15 @@
       "slug": "verkaufer-in-im-stundenlohn-denner-schaffhausen",
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
-        "it": "Verkäufer*in im Stundenlohn",
-        "en": "Verkäufer*in im Stundenlohn",
-        "fr": "Verkäufer*in im Stundenlohn"
+        "it": "Venditore con retribuzione oraria",
+        "en": "Hourly Wage Salesperson",
+        "fr": "Vendeur·euseà l'heure"
       },
       "slugByLocale": {
         "de": "verkaufer-in-im-stundenlohn-denner-ag-schaffhausen-nvm3cg",
-        "en": "verkaufer-in-im-stundenlohn-denner-schaffhausen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-schaffhausen",
-        "it": "verkaufer-in-im-stundenlohn-denner-schaffhausen"
+        "en": "salesperson-on-an-hourly-wage-denner-ag-schaffhausen",
+        "fr": "vendeur-a-salaire-horaire-denner-ag-schaffhausen",
+        "it": "venditore-con-salario-orario-denner-ag-schaffhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28053,24 +28084,14 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-con-salario-orario-denner-ag-schaffhausen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner"
-        ],
-        "en": [
-          "salesperson-on-an-hourly-wage-denner-ag-schaffhausen"
-        ],
-        "fr": [
-          "vendeur-a-salaire-horaire-denner-ag-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-con-salario-orario-denner-ag-schaffhausen",
-        "salesperson-on-an-hourly-wage-denner-ag-schaffhausen",
-        "vendeur-a-salaire-horaire-denner-ag-schaffhausen"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -28092,9 +28113,9 @@
       "slug": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
-        "it": "Stv. Filialleiter*in",
+        "it": "Vice direttoredifiliale",
         "en": "Stv. Filialleiter*in",
-        "fr": "Stv. Filialleiter*in"
+        "fr": "Directeur (trice) adjoint (e) de succursale"
       },
       "slugByLocale": {
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
@@ -28186,15 +28207,15 @@
       "slug": "assistente-nella-gestione-delle-branche-denner-ag-schaffhausen",
       "titleByLocale": {
         "de": "Assistent*in Filialleitung",
-        "it": "Assistent*in Filialleitung",
-        "en": "Assistent*in Filialleitung",
-        "fr": "Assistent*in Filialleitung"
+        "it": "Assistente nella direzione della filiale",
+        "en": "Assistant Branch Manager",
+        "fr": "Assistant(e)de direction de succursale"
       },
       "slugByLocale": {
         "de": "assistent-in-filialleitung-denner-ag-schaffhausen-hgv73x",
         "it": "assistente-nella-gestione-delle-branche-denner-ag-schaffhausen",
-        "en": "assistent-in-filialleitung-denner-schaffhausen",
-        "fr": "assistent-in-filialleitung-denner-schaffhausen"
+        "en": "assistant-in-branch-management-denner-ag-schaffhausen",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-schaffhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28257,16 +28278,18 @@
           "assistent-in-filialleitung-denner"
         ],
         "en": [
-          "assistant-in-branch-management-denner-ag-schaffhausen"
+          "assistent-in-filialleitung-denner-schaffhausen"
         ],
         "fr": [
-          "assistant-dans-la-gestion-des-succursales-denner-ag-schaffhausen"
+          "assistent-in-filialleitung-denner-schaffhausen"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-in-branch-management-denner-ag-schaffhausen",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-schaffhausen"
+        "assistant-dans-la-gestion-des-succursales-denner-ag-schaffhausen",
+        "assistent-in-filialleitung-denner-ag-schaffhausen-hgv73x",
+        "assistent-in-filialleitung-denner-schaffhausen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -28288,15 +28311,15 @@
       "slug": "venditore-denner-ag-frauenfeld-483d8d",
       "titleByLocale": {
         "de": "Verkäufer*in",
-        "it": "Verkäufer*in",
-        "en": "Verkäufer*in",
-        "fr": "Verkäufer*in"
+        "it": "Venditore",
+        "en": "shop assistant",
+        "fr": "Vendeur"
       },
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-frauenfeld",
         "it": "venditore-denner-ag-frauenfeld-483d8d",
-        "en": "verkaufer-in-denner-frauenfeld",
-        "fr": "verkaufer-in-denner-frauenfeld"
+        "en": "seller-denner-ag-frauenfeld",
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28359,16 +28382,22 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld",
+          "verkaufer-in-denner-frauenfeld",
+          "verkaufer-in-denner-frauenfeld-xxj3e2"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld",
+          "verkaufer-in-denner-frauenfeld",
+          "verkaufer-in-denner-frauenfeld-xxj3e2"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld"
+        "vendeur-denner-ag-frauenfeld",
+        "verkaufer-in-denner-frauenfeld",
+        "verkaufer-in-denner-frauenfeld-xxj3e2"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -28390,15 +28419,15 @@
       "slug": "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld",
       "titleByLocale": {
         "de": "Assistent*in Filialleitung",
-        "it": "Assistent*in Filialleitung",
-        "en": "Assistent*in Filialleitung",
-        "fr": "Assistent*in Filialleitung"
+        "it": "Assistente nella direzione della filiale",
+        "en": "Assistant Branch Manager",
+        "fr": "Assistant(e)de direction de succursale"
       },
       "slugByLocale": {
         "de": "assistent-in-filialleitung-denner-ag-frauenfeld-496np1",
         "it": "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld",
-        "en": "assistent-in-filialleitung-denner-frauenfeld",
-        "fr": "assistent-in-filialleitung-denner-frauenfeld"
+        "en": "assistant-in-branch-management-denner-ag-frauenfeld",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28455,22 +28484,103 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner-ag-bremgarten-ag",
+          "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh",
+          "assistant-branch-manager-denner-ag-bremgarten-ag",
+          "directeur-adjoint-de-succursale-denner-ag-bremgarten-ag",
+          "assistente-nella-gestione-delle-branche-denner-ag-biberist",
+          "assistent-in-filialleitung-denner-ag-biberist",
+          "assistent-in-filialleitung-denner-ag-biberist-e4dwpi",
+          "vice-direttore-di-filiale-denner-ag-solothurn",
+          "assistente-nella-gestione-delle-branche-denner-ag-solothurn",
+          "assistent-in-filialleitung-denner-2",
+          "assistent-in-filialleitung-denner-ag-solothurn",
+          "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
+          "assistent-in-filialleitung-denner-solothurn",
+          "assistente-nella-gestione-delle-branche-denner-solothurn",
+          "assistent-in-filialleitung-denner-6",
+          "assistant-in-branch-management-denner-ag-biberist",
+          "assistent-in-filialleitung-denner-biberist"
         ],
         "de": [
           "assistent-in-filialleitung-denner"
         ],
         "en": [
-          "assistant-in-branch-management-denner-ag-frauenfeld"
+          "assistent-in-filialleitung-denner-frauenfeld"
         ],
         "fr": [
-          "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld"
+          "assistent-in-filialleitung-denner-frauenfeld"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-in-branch-management-denner-ag-frauenfeld",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld"
+        "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld",
+        "directeur-adjoint-de-succursale-denner-ag-solothurn",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn",
+        "assistant-dans-la-gestion-des-succursales-denner-solothurn",
+        "assistent-in-filialleitung-denner-cc1clp",
+        "assistent-in-filialleitung-denner-steinhausen",
+        "assistent-in-filialleitung-denner-3tveeh",
+        "assistent-in-filialleitung-denner-bremgarten-ag",
+        "assistent-in-filialleitung-denner-bppi07",
+        "assistent-in-filialleitung-denner-lenzburg",
+        "assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "assistant-in-branch-management-denner-flims-dorf",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
+        "assistente-nella-direzione-della-filiale-denner-langwiesen",
+        "assistent-in-filialleitung-denner-langwiesen",
+        "assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "assistant-in-branch-management-denner-bubendorf",
+        "assistent-in-filialleitung-denner-bubendorf",
+        "assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
+        "assistent-in-filialleitung-denner-ag-frauenfeld",
+        "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld-555cb2",
+        "assistant-in-branch-management-denner-ag-frauenfeld-555cb2",
+        "assistent-in-filialleitung-denner-ag-frauenfeld-hqjx55",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld-555cb2",
+        "assistent-in-filialleitung-denner-ag-frauenfeld-2",
+        "assistente-nella-gestione-delle-branche-denner-ag-schaffhausen",
+        "assistent-in-filialleitung-denner-ag-schaffhausen",
+        "vice-direttore-di-filiale-denner-ag-appenzell",
+        "assistent-in-filialleitung-denner-ag-appenzell",
+        "assistant-in-branch-management-denner-ag-schaffhausen",
+        "assistant-branch-manager-denner-ag-appenzell",
+        "assistent-in-filialleitung-denner-ag-appenzell-3nhcda",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-schaffhausen",
+        "directeur-adjoint-de-succursale-denner-ag-appenzell",
+        "assistente-di-filiale-denner-ag-zurich",
+        "store-assistant-denner-ag-zurich",
+        "assistant-de-magasin-denner-ag-zurich",
+        "assistent-in-filialleitung-denner-zurich",
+        "assistente-nella-gestione-delle-branche-denner-ag-zurich",
+        "assistant-in-branch-management-denner-ag-zurich",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-zurich",
+        "assistent-in-filialleitung-denner-4",
+        "assistent-in-filialleitung-denner-amriswil",
+        "assistent-in-filialleitung-denner-3",
+        "assistent-in-filialleitung-denner-walenstadt",
+        "vice-direttore-di-filiale-denner-ag-bremgarten-ag",
+        "assistent-in-filialleitung-denner-ag-bremgarten-ag",
+        "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh",
+        "assistant-branch-manager-denner-ag-bremgarten-ag",
+        "directeur-adjoint-de-succursale-denner-ag-bremgarten-ag",
+        "assistente-nella-gestione-delle-branche-denner-ag-biberist",
+        "assistent-in-filialleitung-denner-ag-biberist",
+        "assistent-in-filialleitung-denner-ag-biberist-e4dwpi",
+        "vice-direttore-di-filiale-denner-ag-solothurn",
+        "assistente-nella-gestione-delle-branche-denner-ag-solothurn",
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner-ag-solothurn",
+        "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
+        "assistent-in-filialleitung-denner-solothurn",
+        "assistente-nella-gestione-delle-branche-denner-solothurn",
+        "assistent-in-filialleitung-denner-6",
+        "assistant-in-branch-management-denner-ag-biberist",
+        "assistent-in-filialleitung-denner-biberist",
+        "assistent-in-filialleitung-denner-frauenfeld"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -28492,15 +28602,15 @@
       "slug": "venditore-denner-ag-pfungen",
       "titleByLocale": {
         "de": "Verkäufer*in",
-        "it": "Verkäufer*in",
-        "en": "Verkäufer*in",
-        "fr": "Verkäufer*in"
+        "it": "Venditore",
+        "en": "shop assistant",
+        "fr": "Vendeur"
       },
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-pfungen",
         "it": "venditore-denner-ag-pfungen",
-        "en": "verkaufer-in-denner-pfungen",
-        "fr": "verkaufer-in-denner-pfungen"
+        "en": "seller-denner-ag-pfungen",
+        "fr": "vendeur-denner-ag-pfungen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28563,16 +28673,15 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-pfungen"
+          "verkaufer-in-denner-pfungen"
         ],
         "fr": [
-          "vendeur-denner-ag-pfungen"
+          "verkaufer-in-denner-pfungen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-pfungen",
-        "vendeur-denner-ag-pfungen"
+        "verkaufer-in-denner-pfungen"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -28591,18 +28700,18 @@
     },
     {
       "id": "denner-993a93756414",
-      "slug": "verkaufer-in-denner-biel-bienne",
+      "slug": "venditore-denner-biel-bienne-916e21",
       "titleByLocale": {
         "de": "Verkäufer*in",
-        "it": "Verkäufer*in",
-        "en": "Verkäufer*in",
-        "fr": "Verkäufer*in"
+        "it": "Venditore",
+        "en": "shop assistant",
+        "fr": "Vendeur"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
-        "it": "verkaufer-in-denner-biel-bienne",
-        "en": "verkaufer-in-denner-biel-bienne",
-        "fr": "verkaufer-in-denner-biel-bienne"
+        "de": "verkaufer-in-denner-c310c0",
+        "it": "venditore-denner-biel-bienne-916e21",
+        "en": "shop-assistant-denner-biel-bienne-916e21",
+        "fr": "vendeur-denner-biel-bienne-916e21"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28659,11 +28768,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-12"
+          "verkaufer-in-denner-12",
+          "verkaufer-in-denner-biel-bienne"
+        ],
+        "de": [
+          "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-biel-bienne"
+        ],
+        "fr": [
+          "verkaufer-in-denner-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-12"
+        "verkaufer-in-denner-12",
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-biel-bienne"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -28682,18 +28803,18 @@
     },
     {
       "id": "denner-c586d26d63de",
-      "slug": "verkaufer-in-denner-grenchen",
+      "slug": "venditore-denner-grenchen",
       "titleByLocale": {
         "de": "Verkäufer*in",
-        "it": "Verkäufer*in",
-        "en": "Verkäufer*in",
-        "fr": "Verkäufer*in"
+        "it": "Venditore",
+        "en": "shop assistant",
+        "fr": "Vendeur"
       },
       "slugByLocale": {
         "de": "verkaufer-in-denner",
-        "it": "verkaufer-in-denner-grenchen",
-        "en": "verkaufer-in-denner-grenchen",
-        "fr": "verkaufer-in-denner-grenchen"
+        "it": "venditore-denner-grenchen",
+        "en": "shop-assistant-denner-grenchen",
+        "fr": "vendeur-denner-grenchen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28750,11 +28871,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-14"
+          "verkaufer-in-denner-14",
+          "verkaufer-in-denner-grenchen"
+        ],
+        "en": [
+          "verkaufer-in-denner-grenchen"
+        ],
+        "fr": [
+          "verkaufer-in-denner-grenchen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-14"
+        "verkaufer-in-denner-14",
+        "verkaufer-in-denner-grenchen"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -28773,18 +28902,18 @@
     },
     {
       "id": "denner-65de65d0f95a",
-      "slug": "stv-filialleiter-in-denner-schlieren",
+      "slug": "vice-direttoredifiliale-denner-schlieren",
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
-        "it": "Stv. Filialleiter*in",
+        "it": "Vice direttoredifiliale",
         "en": "Stv. Filialleiter*in",
-        "fr": "Stv. Filialleiter*in"
+        "fr": "Directeur (trice) adjoint (e) de succursale"
       },
       "slugByLocale": {
         "de": "stv-filialleiter-in-denner",
-        "it": "stv-filialleiter-in-denner-schlieren",
+        "it": "vice-direttoredifiliale-denner-schlieren",
         "en": "stv-filialleiter-in-denner-schlieren",
-        "fr": "stv-filialleiter-in-denner-schlieren"
+        "fr": "directeur-trice-adjoint-e-de-succursale-denner-schlieren"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28841,11 +28970,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-6"
+          "stv-filialleiter-in-denner-6",
+          "stv-filialleiter-in-denner-schlieren"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-schlieren"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-6"
+        "stv-filialleiter-in-denner-6",
+        "stv-filialleiter-in-denner-schlieren"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -28864,18 +28998,18 @@
     },
     {
       "id": "denner-a10f18faa118",
-      "slug": "stv-filialleiter-in-denner-interlaken",
+      "slug": "vice-direttoredifiliale-denner-interlaken",
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
-        "it": "Stv. Filialleiter*in",
+        "it": "Vice direttoredifiliale",
         "en": "Stv. Filialleiter*in",
-        "fr": "Stv. Filialleiter*in"
+        "fr": "Directeur (trice) adjoint (e) de succursale"
       },
       "slugByLocale": {
-        "de": "stv-filialleiter-in-denner",
-        "it": "stv-filialleiter-in-denner-interlaken",
+        "de": "stv-filialleiter-in-denner-obz0cb",
+        "it": "vice-direttoredifiliale-denner-interlaken",
         "en": "stv-filialleiter-in-denner-interlaken",
-        "fr": "stv-filialleiter-in-denner-interlaken"
+        "fr": "directeur-trice-adjoint-e-de-succursale-denner-interlaken"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -28932,11 +29066,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-7"
+          "stv-filialleiter-in-denner-7",
+          "stv-filialleiter-in-denner-interlaken"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-interlaken"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-7"
+        "stv-filialleiter-in-denner-7",
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-interlaken"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -28955,17 +29098,17 @@
     },
     {
       "id": "denner-51b06ee79ad2",
-      "slug": "assistant-adjoint-assistante-adjointe-denner-geneve",
+      "slug": "assistente-assistente-assistente-assistente-denner-geneve",
       "titleByLocale": {
         "fr": "Assistant-adjoint / assistante-adjointe",
-        "it": "Assistant-adjoint / assistante-adjointe",
-        "en": "Assistant-adjoint / assistante-adjointe",
+        "it": "Assistente/Assistente Assistente Assistente",
+        "en": "Assistant/Assistant Assistant",
         "de": "Assistent-adjoint / assistante-adjointe"
       },
       "slugByLocale": {
         "fr": "assistant-adjoint-assistante-adjointe-denner",
-        "it": "assistant-adjoint-assistante-adjointe-denner-geneve",
-        "en": "assistant-adjoint-assistante-adjointe-denner",
+        "it": "assistente-assistente-assistente-assistente-denner-geneve",
+        "en": "assistant-assistant-assistant-denner-geneve",
         "de": "assistant-adjoint-assistante-adjointe-denner"
       },
       "company": "Denner",
@@ -29023,11 +29166,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "assistant-adjoint-assistante-adjointe-denner",
+          "assistant-adjoint-assistante-adjointe-denner-geneve"
+        ],
+        "en": [
           "assistant-adjoint-assistante-adjointe-denner"
         ]
       },
       "previousSlugs": [
-        "assistant-adjoint-assistante-adjointe-denner"
+        "assistant-adjoint-assistante-adjointe-denner",
+        "assistant-adjoint-assistante-adjointe-denner-geneve"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -29046,17 +29194,17 @@
     },
     {
       "id": "denner-d00b757d1fdc",
-      "slug": "etudiant-etudiante-denner-2",
+      "slug": "studente-denner-murten",
       "titleByLocale": {
         "fr": "Étudiant / étudiante",
-        "it": "Étudiant / étudiante",
-        "en": "Étudiant / étudiante",
-        "de": "Étudiant / étudiante"
+        "it": "Studente",
+        "en": "Student",
+        "de": "Student"
       },
       "slugByLocale": {
         "fr": "etudiant-etudiante-denner",
-        "it": "etudiant-etudiante-denner-2",
-        "en": "etudiant-etudiante-denner-2",
+        "it": "studente-denner-murten",
+        "en": "student-denner-murten",
         "de": "etudiant-etudiante-denner-2"
       },
       "company": "Denner",
@@ -29123,7 +29271,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T21:47:48.860Z"
+      "firstSeenAt": "2026-06-26T21:47:48.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "etudiant-etudiante-denner-2"
+        ],
+        "en": [
+          "etudiant-etudiante-denner-2"
+        ]
+      },
+      "previousSlugs": [
+        "etudiant-etudiante-denner-2"
+      ]
     }
   ]
 }

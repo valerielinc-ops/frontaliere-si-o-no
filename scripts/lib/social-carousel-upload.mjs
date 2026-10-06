@@ -62,3 +62,32 @@ export function uploadCarouselSlides(buffers, { channel, keyPrefix }) {
     rmSync(tmpDir, { recursive: true, force: true });
   }
 }
+
+/**
+ * Upload the generated TikTok MP4 next to the slide JPEGs. The extension is
+ * intentional: upload-cdn-file.sh maps `.mp4` to `video/mp4` explicitly.
+ *
+ * @param {Buffer} buffer
+ * @param {{ channel: string, keyPrefix: string }} opts
+ * @returns {string|null}
+ */
+export function uploadCarouselVideo(buffer, { channel, keyPrefix }) {
+  const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'social-carousel-video-upload-'));
+  const fileName = `${keyPrefix}.mp4`;
+  const localPath = path.join(tmpDir, fileName);
+  try {
+    writeFileSync(localPath, buffer);
+    const cdnKey = `images/social/${channel}/${fileName}`;
+    const res = spawnSync('bash', [UPLOADER, localPath, cdnKey, CACHE_CONTROL], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      env: process.env,
+    });
+    const out = `${res.stdout || ''}${res.stderr || ''}`;
+    if (res.status === 0 && out.includes('✅ uploaded')) return `${CDN_BASE}/${cdnKey}`;
+    console.warn(`⚠️  video upload failed for ${fileName}: ${out.trim().split('\n').slice(-1)[0] || 'no output'}`);
+    return null;
+  } finally {
+    rmSync(tmpDir, { recursive: true, force: true });
+  }
+}

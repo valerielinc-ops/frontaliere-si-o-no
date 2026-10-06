@@ -14,6 +14,7 @@ import {
  listSupportedSchemaTypes,
  translateSchema,
 } from '../services/seo/schema-translators';
+import { ORGANIZATION_ID } from '../services/seo/organizationLd';
 
 type Locale = 'en' | 'de' | 'fr';
 const LOCALES: Locale[] = ['en', 'de', 'fr'];
@@ -100,7 +101,6 @@ describe('translateOrganization', () => {
  const source = () => ({
  '@context': 'https://schema.org',
  '@type': 'Organization',
- '@id': 'https://frontaliereticino.ch/#organization',
  name: 'Frontaliere Ticino',
  description:
  'La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.',
@@ -115,13 +115,20 @@ describe('translateOrganization', () => {
  ],
  });
 
- it.each(LOCALES)('translates description and knowsAbout but keeps brand name for %s', (locale) => {
+ it.each(LOCALES)('translates description and knowsAbout for an unbound organization in %s', (locale) => {
  const obj = source();
  translateOrganization(obj, locale);
  expect(obj.name).toBe('Frontaliere Ticino');
  expect(obj.description).not.toContain('La risorsa più completa');
  expect(Array.isArray(obj.knowsAbout)).toBe(true);
  expect(obj.knowsAbout.length).toBe(6);
+ });
+
+ it.each(LOCALES)('keeps the canonical publisher definition stable in %s', (locale) => {
+ const obj = { ...source(), '@id': ORGANIZATION_ID };
+ const before = JSON.parse(JSON.stringify(obj));
+ translateOrganization(obj, locale);
+ expect(obj).toEqual(before);
  });
 
  it('localises areaServed country names', () => {

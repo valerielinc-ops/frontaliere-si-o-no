@@ -75,7 +75,7 @@ describe('orderMopupRequestsTitleFirst()', () => {
     // same source-level check the CLI-flag guard in
     // tests/translation-protected-tokens.test.ts uses.
     const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'local-mt-mopup.mjs'), 'utf8');
-    expect(source).toMatch(/const orderedRequests = orderMopupRequestsTitleFirst\(requests, \(r\) => targets\.get\(r\.id\)\?\.field\);/);
+    expect(source).toMatch(/const orderedRequests = orderMopupRequestsTitleFirst\(\s*requests,\s*\(r\) => targets\.get\(r\.id\)\?\.field,\s*\(r\) => targets\.get\(r\.id\)\?\.overwrite === true,\s*\);/);
     expect(source).toMatch(/const jsonl = orderedRequests\.map\(\(r\) => JSON\.stringify\(r\)\)/);
   });
 });

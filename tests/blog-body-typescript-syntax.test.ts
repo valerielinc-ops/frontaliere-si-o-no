@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import esbuild from 'esbuild';
 import { describe, expect, it } from 'vitest';
+import { ARTICLE_SECTION_CORE_LIST } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 
 // BOTH corpora. This guard covered only `blog-body` (frontaliere, ~12.1k
 // files) and never `blog-body-ch` (svizzera, ~2.2k) — so an unescaped
@@ -9,10 +10,11 @@ import { describe, expect, it } from 'vitest';
 // check and killed all four build-locale jobs of every deploy until someone
 // found it by reading build logs. A corpus the guard does not scan is a
 // corpus where a syntax error is discovered in production.
-const BLOG_BODY_ROOTS = [
-  path.resolve(__dirname, '..', 'services', 'locales', 'blog-body'),
-  path.resolve(__dirname, '..', 'services', 'locales', 'blog-body-ch'),
-];
+const BLOG_BODY_ROOTS = ARTICLE_SECTION_CORE_LIST.map(({ section, kind, bodyDir }) => ({
+  root: path.resolve(__dirname, '..', 'packages', 'articles', 'content', bodyDir),
+  section,
+  kind,
+}));
 
 function collectTypeScriptFiles(dir: string): string[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -43,13 +45,18 @@ describe('blog body locale files', () => {
     // resolves to zero — an orphaned symlink or a renamed directory, exactly
     // the Fase 6 scenario this guard exists for — and would silence the very
     // gap being closed. Each corpus has to prove it was actually scanned.
-    for (const root of BLOG_BODY_ROOTS) {
+    // Historical sections carry the established >1,000-file floor. Family
+    // sections are enumerated too, but may legitimately have no body files
+    // immediately after activation; their floor belongs to the section core's
+    // registry policy, not this syntax-only Vitest guard.
+    for (const { root, section, kind } of BLOG_BODY_ROOTS) {
+      if (kind === 'canton') continue;
       expect(
         collectTypeScriptFiles(root).length,
-        `${path.relative(process.cwd(), root)} resolved to no files — the guard would scan nothing`,
+        `${section}: ${path.relative(process.cwd(), root)} resolved to no files — the guard would scan nothing`,
       ).toBeGreaterThan(1_000);
     }
-    const files = BLOG_BODY_ROOTS.flatMap(collectTypeScriptFiles);
+    const files = BLOG_BODY_ROOTS.flatMap(({ root }) => collectTypeScriptFiles(root));
 
     const results = await Promise.all(files.map(async (filePath) => {
       const source = fs.readFileSync(filePath, 'utf8');

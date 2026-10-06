@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-10-05T09:24:22.764Z",
+  "assembledAt": "2026-10-05T21:47:22.248Z",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:24:16.773Z",
+      "crawledAt": "2026-10-05T21:47:17.165Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:24:15.671Z",
+      "crawledAt": "2026-10-05T21:47:16.426Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,9 @@
       "sector": "Sociale / Educazione",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10T14:13:00+00:00",
       "postedDate": "2026-09-10T14:13:00+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "requirements": [],
       "requirementsByLocale": {},
@@ -149,9 +151,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-10T14:13:00+00:00",
-      "postingDateSource": "reported"
+      }
     }
   ]
 }

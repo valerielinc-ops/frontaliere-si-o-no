@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-10-05T09:36:26.200Z",
+  "assembledAt": "2026-10-05T21:55:51.491Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -49,7 +49,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:36:21.568Z",
+      "crawledAt": "2026-10-05T21:55:45.854Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
@@ -130,7 +130,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:36:20.830Z",
+      "crawledAt": "2026-10-05T21:55:45.137Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch",
@@ -211,7 +211,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:36:20.154Z",
+      "crawledAt": "2026-10-05T21:55:44.540Z",
       "jobReqId": "J-020112",
       "previousSlugs": [
         "material-scientist-pcb-materials-huntsman-ch",
@@ -292,7 +292,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:36:19.237Z",
+      "crawledAt": "2026-10-05T21:55:43.811Z",
       "jobReqId": "J-020110",
       "previousSlugs": [
         "laboratory-technician-pcb-materials-huntsman-ch",
@@ -366,12 +366,14 @@
       "sector": "Chimica",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-08",
       "postedDate": "2026-09-08",
+      "postingDateSource": "reported",
       "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:36:18.066Z",
+      "crawledAt": "2026-10-05T21:55:42.765Z",
       "jobReqId": "J-019784",
       "previousSlugs": [
         "operateur-pilote-huntsman-ch",
@@ -403,9 +405,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "datePosted": "2026-09-08",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     }
   ]
 }

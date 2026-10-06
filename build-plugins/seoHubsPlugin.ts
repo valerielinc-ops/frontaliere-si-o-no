@@ -26,6 +26,7 @@ import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { jobBoardHeadTags } from './jobBoardGpt';
@@ -1938,7 +1939,7 @@ export function buildThinCantonHubHtml(args: {
         description: intro,
         url: canonicalUrl,
         inLanguage: locale,
-        isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+        isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
         mainEntity: {
           '@type': 'ItemList',
           numberOfItems: totalItems,

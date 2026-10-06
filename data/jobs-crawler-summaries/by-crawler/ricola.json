@@ -1,7 +1,7 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-10-05T09:39:19.693Z",
+  "generatedAt": "2026-10-05T21:50:29.907Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5382,
-  "avgDurationMs": 5382,
+  "unchangedCount": 2,
+  "durationMs": 6375,
+  "avgDurationMs": 6375,
   "durationHistory": [
-    5382
+    6375
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ricola-6e3762cab55f",
       "slug": "responsabile-health-safety-80-ricola-laufen",
@@ -30,13 +32,12 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Health & Safety 80%",
-      "needsRetranslation": true,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:39:11.485Z",
+      "crawledAt": "2026-10-05T21:50:22.704Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -73,13 +74,12 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Controlling (100%)",
-      "needsRetranslation": true,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:39:11.062Z",
+      "crawledAt": "2026-10-05T21:50:22.300Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -110,7 +110,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

@@ -100,6 +100,7 @@ import {
 } from '../services/companyAlertEmail.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 import { generateAutologinCode, makeAuthenticatedUrl } from '../services/newsletterUrls.mjs';
 import {
   normalizeSentMap,
@@ -143,6 +144,11 @@ const ROOT = path.resolve(__dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+
+// Kept as a compatibility marker for alert documents written before the
+// explicit-follow consent policy. A permanent empty newsletter status is not
+// a transient lookup failure: the CompanyAlert itself is the user's request.
+export const NEWSLETTER_CONSENT_STATUS_UNKNOWN = 'newsletter-consent-status-unknown';
 
 /**
  * Novelty window. Wider than the workflow's own cadence on purpose: a push-run
@@ -339,43 +345,88 @@ export function sortCompanyAlertRecipients(alertsByRecipient) {
 }
 
 /**
- * Decide whether both channel containers are available to evaluate an
- * immediate email. The caller passes Firestore-like projections
- * (`{exists, data}`), so a missing row is distinguishable from a known
- * suppression. No confirmation proof or status word is a delivery gate.
+ * Decide whether the recipient may receive an immediate email. The caller
+ * passes Firestore-like projections (`{exists, data}`), so a missing row is
+ * distinguishable from a known suppression. No confirmation proof or status
+ * word is a delivery gate for an explicit CompanyAlert: that alert is the
+ * user's request and therefore its own subscription basis.
  *
  * The newsletter row is the central registration relationship, but its status
  * is channel-local. A newsletter unsubscribe/inactivity state therefore does
- * not cancel a separately requested CompanyAlert. Missing or malformed rows
- * remain UNKNOWN, so the sender defers and the next run can retry the lookup.
+ * not cancel a separately requested CompanyAlert; a cross-channel stop or a
+ * hard address signal does. An absent newsletter row is acceptable for an
+ * explicit follow because there is no recorded stop to honour. The job-alert
+ * root must still exist so its own stop/inactive state can be checked.
+ * Missing/malformed job-alert data remains UNKNOWN, as does a non-explicit
+ * row without `hasSubscriptionBasis`; the caller defers those cases.
  *
  * @param {{exists?: boolean, data?: object}|null|undefined} newsletterDoc
  * @param {{exists?: boolean, data?: object}|null|undefined} jobAlertDoc
+ * @param {object|null|undefined} [alert]
  * @returns {{action: 'send'|'suppress'|'defer', reason: string}}
  */
-export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
-  if (!newsletterDoc?.exists || !jobAlertDoc?.exists) {
-    return { action: 'defer', reason: 'consent-document-missing' };
-  }
-  const newsletter = typeof newsletterDoc.data === 'object' && newsletterDoc.data
-    ? newsletterDoc.data
+export function classifyRecipientConsent(newsletterDoc, jobAlertDoc, alert = null) {
+  const explicitFollow = isImmediateCompanyAlert(alert);
+  const newsletterExists = newsletterDoc?.exists === true;
+  const jobAlertExists = jobAlertDoc?.exists === true;
+  const newsletter = newsletterExists
+    ? (typeof newsletterDoc.data === 'object' && newsletterDoc.data ? newsletterDoc.data : null)
     : null;
-  const jobAlert = typeof jobAlertDoc.data === 'object' && jobAlertDoc.data
+  const jobAlert = jobAlertExists && typeof jobAlertDoc.data === 'object' && jobAlertDoc.data
     ? jobAlertDoc.data
     : null;
-  if (!newsletter || !jobAlert) return { action: 'defer', reason: 'consent-document-malformed' };
 
-  if (isCrossChannelStop(newsletter)) {
+  // Evaluate every stop that is present before treating a missing or malformed
+  // companion document as UNKNOWN. A recorded unsubscribe, bounce, complaint
+  // or channel stop always wins, even if the other channel's root is gone.
+  if (newsletter && isCrossChannelStop(newsletter)) {
     return { action: 'suppress', reason: 'newsletter-cross-channel-stop' };
   }
-  if (isJobAlertExcluded(jobAlert.status)) {
+  if (jobAlert && isJobAlertExcluded(jobAlert.status)) {
     return { action: 'suppress', reason: 'job-alert-status-excluded' };
+  }
+
+  if (!jobAlertExists || (!newsletterExists && !explicitFollow)) {
+    return { action: 'defer', reason: 'consent-document-missing' };
+  }
+  if (!jobAlert || (newsletterExists && !newsletter)) {
+    return { action: 'defer', reason: 'consent-document-malformed' };
   }
   if (jobAlert.active === false) {
     return { action: 'suppress', reason: 'job-alert-subscriber-inactive' };
   }
 
+  if (explicitFollow) {
+    return { action: 'send', reason: 'explicit-company-follow' };
+  }
+  if (!hasSubscriptionBasis(newsletter)) {
+    return { action: 'defer', reason: NEWSLETTER_CONSENT_STATUS_UNKNOWN };
+  }
+
   return { action: 'send', reason: 'subscription-known-ok' };
+}
+
+/**
+ * Whether an alert carries the legacy permanent-consent defer that is safe to
+ * recover after the explicit-follow decision has been evaluated again.
+ * Provider, claim and throughput terminals deliberately do not qualify.
+ * @param {object|null|undefined} alert
+ * @returns {boolean}
+ */
+export function hasRecoverableConsentDeferral(alert) {
+  return String(alert?.deliveryLastDeferredReason || '').trim().toLowerCase()
+    === NEWSLETTER_CONSENT_STATUS_UNKNOWN;
+}
+
+function deliveryLedgerForMatching(alert, recoverConsentDeferrals = false) {
+  const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
+  if (!recoverConsentDeferrals || !hasRecoverableConsentDeferral(alert)) return ledger;
+  return Object.fromEntries(
+    Object.entries(ledger).filter(([, entry]) => !(
+      entry.state === DELIVERY_STATES.DEFERRED_EXHAUSTED
+      && String(entry.reason || '').trim().toLowerCase() === NEWSLETTER_CONSENT_STATUS_UNKNOWN
+    )),
+  );
 }
 
 /**
@@ -387,7 +438,7 @@ export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
 export function hasDeferredCompanyAlertWork(alerts) {
   return (alerts || []).some((alert) => {
     const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
-    if (isDeferredExhausted(alert)) return false;
+    if (isDeferredExhausted(alert)) return hasRecoverableConsentDeferral(alert);
     return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED
       || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
@@ -454,7 +505,7 @@ function isThroughputDeferReason(reason) {
   return reason === 'per-run-cap' || reason === 'card-cap';
 }
 
-function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
+function candidateJobsForAlert(alert, newJobs, allJobs = newJobs, recoverConsentDeferrals = false) {
   const byKey = new Map();
   const withoutKey = [];
   const add = (job) => {
@@ -467,8 +518,9 @@ function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
   };
   for (const job of newJobs || []) add(job);
 
-  const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
-  const alertDeferredExhausted = isDeferredExhausted(alert);
+  const recoverableConsent = recoverConsentDeferrals && hasRecoverableConsentDeferral(alert);
+  const ledger = deliveryLedgerForMatching(alert, recoverableConsent);
+  const alertDeferredExhausted = isDeferredExhausted(alert) && !recoverableConsent;
   const deferredKeys = alertDeferredExhausted
     ? new Set()
     : new Set(Object.entries(ledger)
@@ -478,6 +530,9 @@ function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
     for (const job of allJobs || []) {
       if (deferredKeys.has(jobDedupKey(job))) add(job);
     }
+  }
+  if (recoverableConsent) {
+    for (const job of allJobs || []) add(job);
   }
   return [...byKey.values(), ...withoutKey];
 }
@@ -533,6 +588,7 @@ export function companyAlertJobQuarantines(alert, jobs) {
  * @param {number} nowMs
  * @param {number} [dedupWindowMs]
  * @param {object[]} [allJobs=newJobs] Full dataset used to recover durable cap backlog.
+ * @param {{recoverConsentDeferrals?: boolean}} [options]
  * @returns {Array<{alert: object, locale: string, sentMap: object, jobs: object[], companyName: string, freshestMs: number}>}
  */
 export function buildRecipientSections(
@@ -541,7 +597,9 @@ export function buildRecipientSections(
   nowMs,
   dedupWindowMs = DEDUP_WINDOW_MS,
   allJobs = newJobs,
+  options = {},
 ) {
+  const recoverConsentDeferrals = options?.recoverConsentDeferrals === true;
   const sections = [];
   const followGroupOf = (alert) => companyFollowGroupKey(canonicalCompanyAlertKey(alert?.specificCompanyKey));
   // Delivery history shared by every alert of one follow group, so the window
@@ -559,7 +617,7 @@ export function buildRecipientSections(
     }
     sentByGroup.set(group, merged);
     const ledger = ledgerByGroup.get(group) || {};
-    for (const [key, entry] of Object.entries(normalizeDeliveryLedger(alert?.deliveryLedger))) {
+    for (const [key, entry] of Object.entries(deliveryLedgerForMatching(alert, recoverConsentDeferrals))) {
       if (!ledger[key] || (deliveryEntryBlocksRetry(entry, nowMs) && !deliveryEntryBlocksRetry(ledger[key], nowMs))) {
         ledger[key] = entry;
       }
@@ -581,7 +639,7 @@ export function buildRecipientSections(
     // would be the fifth copy of the normalisation that PR spent its review
     // deleting.
     const profile = buildAlertProfile(alert, null, {});
-    const matched = candidateJobsForAlert(alert, newJobs, allJobs)
+    const matched = candidateJobsForAlert(alert, newJobs, allJobs, recoverConsentDeferrals)
       .filter((job) => isOpenCompanyAlertJob(job, nowMs))
       .filter((job) => !jobCompanyIdentityQuarantineReason(job, profile))
       .filter((job) => scoreJobForAlert(job, profile, locale) > 0);
@@ -781,6 +839,9 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
         const hasAlertLevelAttempt = deferredAttemptsForAlert(write) > 0;
         const currentExhausted = isDeferredExhausted(currentData);
         const desired = normalizeDeliveryLedger(write.deliveryLedger);
+        const preserveConsentRecoveryMarker = isThroughputDeferReason(write.reason)
+          && String(currentData.deliveryLastDeferredReason || '').trim().toLowerCase()
+            === NEWSLETTER_CONSENT_STATUS_UNKNOWN;
         const next = { ...current };
         for (const [key, entry] of Object.entries(desired)) {
           if (currentExhausted && entry.state === DELIVERY_STATES.DEFERRED) continue;
@@ -801,7 +862,13 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
         }
         const update = {
           deliveryLedger: next,
-          deliveryLastDeferredReason: write.reason,
+          // A recovered legacy consent terminal may hit the per-run/card cap
+          // before the provider. Keep its marker until an accepted send clears
+          // it; otherwise the next run would treat the old terminal as final
+          // again and the alert could remain stuck forever.
+          deliveryLastDeferredReason: preserveConsentRecoveryMarker
+            ? currentData.deliveryLastDeferredReason
+            : write.reason,
           deliveryLastDeferredAt: write.at,
         };
         if (hasAlertLevelAttempt) {
@@ -839,9 +906,11 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
  * @param {object[]} sections
  * @param {number} nowMs
  * @param {string} claimId
+ * @param {{recoverConsentDeferrals?: boolean}} [options]
  * @returns {Promise<object[]>}
  */
-export async function claimRecipientSections(db, sections, nowMs, claimId) {
+export async function claimRecipientSections(db, sections, nowMs, claimId, options = {}) {
+  const recoverConsentDeferrals = options?.recoverConsentDeferrals === true;
   const claimable = (sections || []).filter((section) => section?.alert?.ref);
   if (claimable.length === 0) return [];
   if (!db || typeof db.runTransaction !== 'function') {
@@ -863,7 +932,7 @@ export async function claimRecipientSections(db, sections, nowMs, claimId) {
       const freshAlert = snapshot.data() || {};
       if (!isImmediateCompanyAlert(freshAlert) || companyAlertQuarantineReason(freshAlert)) continue;
       const sentMap = normalizeSentMap(freshAlert.sentJobIds);
-      const ledger = normalizeDeliveryLedger(freshAlert.deliveryLedger);
+      const ledger = deliveryLedgerForMatching(freshAlert, recoverConsentDeferrals);
       const freshProfile = buildAlertProfile(freshAlert, null, {});
       const freshMatchedJobs = section.jobs
         .filter((job) => isOpenCompanyAlertJob(job, nowMs))
@@ -1087,6 +1156,8 @@ export async function finalizeRecipientDelivery(
         // not carry a previous consent-defer terminal into the next alert.
         update.deliveryDeferredAttempts = 0;
         update.deliveryDeferredState = null;
+        update.deliveryLastDeferredReason = null;
+        update.deliveryLastDeferredAt = null;
       }
       if (plan.matchCountDelta > 0) {
         update.lastMatchedAt = typeof fieldValues.serverTimestamp === 'function'
@@ -1386,12 +1457,17 @@ async function main() {
   console.log(`   Immediate CompanyAlerts: ${alerts.length}`);
   if (alerts.length === 0) return;
 
-  // Registration/suppression, from both documents. The newsletter side is
-  // isCrossChannelStop: the recorded unsubscribe, address-level hard signals
-  // and legacy explicit global stop-all. Known rows plus the active alert are
-  // rows plus the active alert are sendable regardless of confirmation
-  // proof or status word; missing or unknown data is DEFERRED, never fail-open.
+  // Registration/suppression, from both documents. The newsletter side uses
+  // isCrossChannelStop for recorded unsubscribes, address-level hard signals
+  // and legacy explicit global stop-all. An explicit active alert is itself a
+  // subscription basis; only missing or unknown data outside that basis is
+  // DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
+  const representativeAlertByEmail = new Map();
+  for (const alert of alerts || []) {
+    const email = String(alert.email || '').toLowerCase();
+    if (email && !representativeAlertByEmail.has(email)) representativeAlertByEmail.set(email, alert);
+  }
   const consentByEmail = new Map();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
@@ -1405,8 +1481,9 @@ async function main() {
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
         consentByEmail.set(e, classifyRecipientConsent(
-          nlDoc && { exists: nlDoc.exists, data: nlDoc.data() || {} },
-          jaDoc && { exists: jaDoc.exists, data: jaDoc.data() || {} },
+          nlDoc && { exists: nlDoc.exists, data: nlDoc.data() },
+          jaDoc && { exists: jaDoc.exists, data: jaDoc.data() },
+          representativeAlertByEmail.get(e),
         ));
       });
     } catch (err) {
@@ -1465,7 +1542,13 @@ async function main() {
   let capLogged = false;
   for (let i = 0; i < recipients.length; i += 1) {
     const recipient = recipients[i];
-    const plannedSections = buildRecipientSections(alertsByRecipient.get(recipient), newJobs, now, DEDUP_WINDOW_MS, allJobs);
+    const plannedSections = buildRecipientSections(alertsByRecipient.get(recipient),
+      newJobs,
+      now,
+      DEDUP_WINDOW_MS,
+      allJobs,
+      { recoverConsentDeferrals: true },
+    );
     if (plannedSections.length === 0) continue;
     if (plannedSections.some((section) => !section.alert?.ref)) {
       console.warn('   🧰 CompanyAlert quarantine: alert reference missing before send; recipient deferred');
@@ -1500,7 +1583,13 @@ async function main() {
 
     let sections = plannedSections;
     if (!DRY_RUN) {
-      sections = await claimRecipientSections(db, plannedSections, now, claimId);
+      sections = await claimRecipientSections(
+        db,
+        plannedSections,
+        now,
+        claimId,
+        { recoverConsentDeferrals: true },
+      );
     }
     if (sections.length === 0) continue;
 

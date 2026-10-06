@@ -169,7 +169,7 @@
       "companyDomain": "bkw.ch",
       "title": "Installateur de service en chauffage (tous)",
       "titleByLocale": {
-        "it": "Installateur de service en chauffage (tous)",
+        "it": "Facilità del servizio di riscaldamento (tutti)",
         "en": "Heating Service Installer (All)",
         "de": "Heizungsanlage (alle)",
         "fr": "Installateur de service en chauffage (tous)"
@@ -1289,7 +1289,7 @@
       "companyDomain": "bkw.ch",
       "title": "Installateur en chauffage (tous)",
       "titleByLocale": {
-        "it": "Installateur en chauffage (tous)",
+        "it": "Sistema di riscaldamento (tutti)",
         "en": "Heating Installer (all)",
         "de": "Heizungsinstallateur (alle)",
         "fr": "Installateur en chauffage (tous)"
@@ -1535,8 +1535,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -1583,8 +1583,6 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-ch",
         "assistant-du-responsable-chiffrage-bkw-marly",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly",
         "assistant-to-the-quantity-quote-manager-bkw-marly",
         "assistent-du-responsable-chiffrage-bkw-marly"
       ],
@@ -1594,11 +1592,9 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly",
           "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly",
           "assistent-du-responsable-chiffrage-bkw-marly"
         ],
         "fr": [
@@ -6273,7 +6269,7 @@
       "companyDomain": "bkw.ch",
       "title": "Installateur/-trice sanitaire avec CFC - Raboud Energie SA",
       "titleByLocale": {
-        "it": "Installateur/-trice sanitaire avec CFC - Raboud Energie SA",
+        "it": "Installatore sanitario con CFC - Raboud Energy SA",
         "en": "Plumbers with CFC - Raboud Energie SA",
         "de": "Klempner mit CFC – Raboud Energie SA",
         "fr": "Installateur/-trice sanitaire avec CFC - Raboud Energie SA"
@@ -8451,8 +8447,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
-        "en": "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "fr": "bauleiter-in-elektro-alle-bkw-zuchwil"
+        "en": "construction-manager-in-electric-all-bkw-zuchwil",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -8504,16 +8500,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-zuchwil",
-        "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -9217,7 +9212,7 @@
       "companyDomain": "bkw.ch",
       "title": "Chef de projet sanitaire - Raboud Energie SA",
       "titleByLocale": {
-        "it": "Chef de projet sanitaire - Raboud Energie SA",
+        "it": "Responsabile del progetto sanitario - Raboud Energy SA",
         "en": "Health Project Manager - Raboud Energy SA",
         "de": "Gesundheitsprojektmanager - Raboud Energy SA",
         "fr": "Chef de projet sanitaire - Raboud Energie SA"
@@ -18008,7 +18003,7 @@
       "companyDomain": "bkw.ch",
       "title": "Senior Quant Risk Modeller (all)",
       "titleByLocale": {
-        "it": "Senior Quant Risk Modeller (all)",
+        "it": "Senior Quant Risk Modeller (tutti)",
         "en": "Senior Quant Risk Modeller (all)",
         "de": "Hochrangiger Quant-Risikomodellierer (alle)",
         "fr": "Modèle principal de risque quantitatif (tous)"
@@ -18261,7 +18256,7 @@
       "companyDomain": "bkw.ch",
       "title": "Senior Renewable Intraday Trader Italy (all)",
       "titleByLocale": {
-        "it": "Senior Renewable Intraday Trader Italy (all)",
+        "it": "Senior Renewable Intraday Trader Italia (tutti)",
         "en": "Senior Renewable Intraday Trader Italy (all)",
         "de": "Senior Renewable Intraday Trader Italien (alle)",
         "fr": "Trafic principal d'énergie renouvelable intrajournalier Italie (tous)"
@@ -18299,7 +18294,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:58:50.757Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -18593,7 +18587,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -18642,7 +18636,6 @@
       "previousSlugs": [
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "rope-testing-laboratory-employee-all-bkw-bern",
-        "associate-seilprufstelle-alle-bkw-bern",
         "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
@@ -18651,7 +18644,6 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern",
           "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
@@ -19271,7 +19263,7 @@
       "companyDomain": "bkw.ch",
       "title": "Senior Quant Risk Modeller (alle)",
       "titleByLocale": {
-        "it": "Senior Quant Risk Modeller (alle)",
+        "it": "Senior Quant Risk Modeller (tutti)",
         "en": "Senior Quant Risk Modeller (all)",
         "de": "Senior Quant Risk Modeller (alle)",
         "fr": "Modèle principal de risque quantitatif (tous)"
@@ -19683,7 +19675,7 @@
       "title": "Program Manager AI Transformation & Innovation (alle)",
       "titleByLocale": {
         "it": "Responsabile del programma AI Transformation & Innovation (tutti)",
-        "en": "Program Manager AI Transformation & Innovation (alle)",
+        "en": "Program Manager AI Transformation & Innovation (all)",
         "de": "Program Manager AI Transformation & Innovation (alle)",
         "fr": "Gestionnaire de programme Transformation de l'IA et innovation (tous)"
       },
@@ -19751,7 +19743,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-protection-specialist-woman-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -19761,7 +19753,7 @@
       "title": "Brandschutzfachmann:frau (alle)",
       "titleByLocale": {
         "it": "Specialista nella protezione antincendio (tutti)",
-        "en": "Brandschutzfachmann:frau (alle)",
+        "en": "Fire protection specialist:woman (all)",
         "de": "Brandschutzfachmann:frau (alle)",
         "fr": "Spécialiste de la protection incendie (tous)"
       },
@@ -19799,8 +19791,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-ch",
-        "brandschutzfachmann-frau-alle-bkw-chur",
-        "fire-protection-specialist-woman-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19809,7 +19800,6 @@
         ],
         "en": [
           "brandschutzfachmann-frau-alle-bkw-ch",
-          "fire-protection-specialist-woman-all-bkw-chur",
           "brandschutzfachmann-frau-alle-bkw-chur"
         ],
         "fr": [
@@ -23781,7 +23771,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23791,7 +23781,7 @@
         "it": "Senior Risorse Umane Business Partner (alle)",
         "en": "Senior HR Business Partner (all)",
         "de": "Senior Personalwesen Business Partner (alle)",
-        "fr": "Senior HR Business Partner (alle)"
+        "fr": "Partenaire principal des RH (tous)"
       },
       "description": "Du möchtest strategische HR-Themen mitgestalten und gleichzeitig nahe am Business sein? In dieser Rolle übernimmst du die Betreuung unserer Gesellschaften in der Romandie und unterstützt Geschäftsleitungen und Führungskräfte als Sparringspartner in strategischen wie auch operativen Fragestellungen.\n\n## Deine Aufgaben\n• Ganzheitliche Betreuung und Beratung von Geschäftsleitungen und Führungskräften unserer Gesellschaften in der Romandie entlang des gesamten HR-Lifecycles\n• Verantwortung für strategische und operative HR-Themen von der Rekrutierung über Talent- und Nachfolgeplanung bis hin zu anspruchsvollen Personal- und Führungsfragen\n• Begleitung und Umsetzung von Transformationen, Organisationsentwicklungen sowie Integrationen und Akquisitionen\n• Unterstützung und Coaching von Führungskräften in arbeitsrechtlichen Fragestellungen, Konfliktsituationen, Trennungen sowie im Gesundheitsmanagement\n• Rekrutierung von Fach- und Führungskräften sowie Mitwirkung bei der Besetzung von Schlüsselpositionen\n• Leitung von bereichs- und standortübergreifenden HR-Projekten und aktive Mitgestaltung von gruppenweiten HR-Initiativen\n• Entwickeln von HR-Aktionsplänen für die betreuten Gesellschaften\n\n## Das bringst du mit\n• Höhere Ausbildung mit Schwerpunkt Human Resources, Betriebswirtschaft, Psychologie oder vergleichbarer Fachrichtung\n• Mehrjährige Erfahrung als HR Business Partner in einem anspruchsvollen und dynamischen Unternehmensumfeld\n• Ausgewiesene Erfahrung in der Beratung von Geschäftsleitungen und Führungskräften in strategischen und operativen HR-Themen\n• Praxis in Veränderungsprozessen, Organisationsentwicklungen sowie im Talent- und Performance-Management\n• Fundierte Kenntnisse des Schweizer Arbeitsrechts und hohe Sicherheit im Umgang mit komplexen Personalfällen\n• Sehr gute Französisch- und Deutschkenntnisse in Wort und Schrift\nWir wünschen keine Anfragen von Personaldienstleistern.\n• Arbeitsort Rue de l'Etang 8, 1630 Bulle\n• Pensum 80-100%\n• Berufsfeld HR / Personalwesen\n• Position Fachverantwortung\n• Anstellungsart Unbefristeter Vertrag\n• Referenznummer A-27470\n\n## Darauf kannst du dich freuen\nSinnvolle Tätigkeit Wir leisten einen wertvollen Beitrag für Gesellschaft und Umwelt. Wir schätzen Vielfalt und stehen für ein verbindendes und wertschätzendes Arbeitsumfeld ein.\nVergütung & Sozialleistungen Wir vergüten am Markt und bieten attraktive Sozial- sowie Salärnebenleistungen. Die Vergütung orientiert sich an der Funktion und der relevanten Erfahrung.\nKarriere & Weiterbildung Bei uns stehen viele Türen offen. Wir fördern Fach- und Führungslaufbahnen gleichermassen und setzen auf massgeschneiderte Aus- und Weiterbildungsmöglichkeiten.\nWeitere Vorteile Wir bieten unseren Mitarbeitenden eine Reihe weiteren Vorteilen in Form von Vergünstigungen bei Drittfirmen.\nFür einzelne Stellen (z.B. befristete Anstellungen) können abweichende Anstellungsbedingungen gelten.\nArbeitsort\n\n## Über uns\nGebäudetechnik aus einem Guss – dafür steht die BKW Building Solutions. Unsere Unternehmen planen, realisieren und warten umfassende Lösungen rund um Gebäudetechnik, Informations- und Kommunikationstechnologien. In den Bereichen Elektro, Solar, Heizung, Lüftung, Klima, Kälte, Sanitär, Gebäudeautomation sowie IT. Die Vielseitigkeit ist das, was uns einzigartig macht. Vereint in der führenden Gebäudetechnikgruppe der Schweiz.\nMehr entdecken\nWir leben in der BKW Gruppe eine Willkommenskultur, die alle Menschen einschliesst. Bei uns sind alle willkommen, unabhängig von Faktoren wie Alter, Geschlecht, sozialer oder ethnischer Herkunft, Hautfarbe, Nationalität, Sprache, sexueller Orientierung und Identität oder Religion.",
       "descriptionByLocale": {
@@ -23827,7 +23817,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle",
         "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
@@ -23835,7 +23824,6 @@
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle",
           "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
@@ -24761,7 +24749,7 @@
       "title": "Senior Data Engineer (alle)",
       "titleByLocale": {
         "it": "Senior Data Ingegnere (alle)",
-        "en": "Senior Data Engineer (alle)",
+        "en": "Senior Data Engineer (all)",
         "de": "Senior Data Ingenieur (alle)",
         "fr": "Senior Data Ingénieur (alle)"
       },
@@ -25322,7 +25310,7 @@
       "title": "Software Engineer Realtime Applications (alle)",
       "titleByLocale": {
         "it": "Software Ingegnere Realtime Applications (alle)",
-        "en": "Software Engineer Realtime Applications (alle)",
+        "en": "Software Engineer Realtime Applications (all)",
         "de": "Software Ingenieur Realtime Applications (alle)",
         "fr": "Software Ingénieur Realtime Applications (alle)"
       },

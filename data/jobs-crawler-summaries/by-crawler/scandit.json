@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-10-05T09:32:58.508Z",
+  "generatedAt": "2026-10-05T21:53:23.076Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4919,
-  "avgDurationMs": 4919,
+  "durationMs": 3090,
+  "avgDurationMs": 3090,
   "durationHistory": [
-    4919
+    3090
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:46.584Z",
+      "crawledAt": "2026-10-05T21:53:13.782Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,7 +52,6 @@
       "postedDate": "2026-08-20T05:57:57-04:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:02.243Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -67,5 +66,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

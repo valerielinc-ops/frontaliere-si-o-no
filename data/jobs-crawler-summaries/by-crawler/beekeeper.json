@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-10-05T09:38:52.966Z",
+  "generatedAt": "2026-10-05T21:48:00.885Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2975,
-  "avgDurationMs": 2975,
+  "unchangedCount": 2,
+  "durationMs": 5250,
+  "avgDurationMs": 5250,
   "durationHistory": [
-    2975
+    5250
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "beekeeper-ad4c568442b2",
       "slug": "responsabile-account-senior-beekeeper-zurich",
@@ -36,7 +38,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:38:45.455Z",
+      "crawledAt": "2026-10-05T21:47:52.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -74,13 +76,12 @@
       "companyKey": "beekeeper",
       "companyDomain": "beekeeper.io",
       "title": "Senior Account Executive – Germany",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:38:45.452Z",
+      "crawledAt": "2026-10-05T21:47:52.170Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -112,7 +113,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

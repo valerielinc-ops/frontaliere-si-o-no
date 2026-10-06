@@ -1,10 +1,16 @@
 import { TYPES_ACCEPT_IN_LANGUAGE } from './inlanguage-whitelist';
-import { ORGANIZATION_ID, ORGANIZATION_LD } from './organizationLd';
+import {
+ ORGANIZATION_ID,
+ ORGANIZATION_LD,
+ SITE_URL,
+ TICINO_CUSTOMS_DEPARTMENT_ID,
+ TICINO_CUSTOMS_DEPARTMENT_NAME,
+ WEBSITE_ID,
+} from './organizationLd';
 import { isSiteOrganizationCreator } from './imageObjectLd';
 
 const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
 const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
-
 const DEFAULT_ARTICLE_AUTHOR = {
  '@type': 'Organization',
  '@id': ORGANIZATION_ID,
@@ -103,11 +109,33 @@ function isSchemaType(record: Record<string, any>, expected: string): boolean {
  return Array.isArray(typeValue) && typeValue.includes(expected);
 }
 
+function isSiteWebSite(record: Record<string, any>): boolean {
+ return isSchemaType(record, 'WebSite')
+  && (record['@id'] === WEBSITE_ID
+   || (record.name === 'Frontaliere Ticino'
+    && (record.url === SITE_URL || record.url === SITE_URL.slice(0, -1))));
+}
+
 function isAppSchema(record: Record<string, any>): boolean {
  return isSchemaType(record, 'WebApplication') || isSchemaType(record, 'SoftwareApplication');
 }
 
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
+ // Every static SEO generator describes the same site WebSite. Give it one
+ // graph identity so crawlers do not retain thousands of anonymous copies.
+ if (isSiteWebSite(record)) record['@id'] = WEBSITE_ID;
+
+ // Webcam attribution names the Ticino Department of Territory. The source
+ // URL is its stable identity; keep it distinct from the publisher entity.
+ if (
+  isSchemaType(record, 'Organization')
+  && record.name === TICINO_CUSTOMS_DEPARTMENT_NAME
+  && (!record['@id'] || record['@id'] === TICINO_CUSTOMS_DEPARTMENT_ID)
+ ) {
+  record['@id'] = TICINO_CUSTOMS_DEPARTMENT_ID;
+  record.url = TICINO_CUSTOMS_DEPARTMENT_ID;
+ }
+
  // Legacy records include both anonymous Organization nodes and the
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
  // Reattach site records to the canonical identity while emitting the base type.

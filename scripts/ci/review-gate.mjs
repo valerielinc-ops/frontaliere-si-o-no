@@ -43,9 +43,12 @@ import {
 import {
   changedLinesFromPatch,
   dedupeFindingsById,
+  extractBodyCitation,
   isMalformedReviewBody,
+  normalizeBodyCitationText,
   reviewBodyDefects,
   stableFindingId,
+  stripBodyCitationLines,
   unchangedLineImportants,
 } from './lib/review-findings.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
@@ -348,14 +351,11 @@ export function classifyReview(body, {
   // pure classifier fail-closed: only a caller holding a real checkout can
   // prove the carve-out, and everything unproven keeps blocking.
   isIgnoredPath = () => false,
-  // The deterministic PR-body contract of this same run passed on the current
-  // body. It is the single source of truth for the body: a model 🔴 anchored
-  // only on `PR body:L<n>` is then at most a Nit and never blocks (20% of the
-  // 🔴 measured on 2026-09-19 were body findings on a green contract).
+  // Retained for caller compatibility. A green body contract alone never
+  // declassifies a 🔴: body findings need the textual-citation proof below.
   bodyContractPassed = false,
-  // Current PR body, needed to prove that the anchored line lies inside
-  // `## Non implementato`, the section the contract validates. Without it
-  // nothing is declassified.
+  // Current PR body, needed to prove that a quoted body excerpt is absent.
+  // Without it nothing is declassified.
   prBody = null,
   // Id stabili (`review-findings.mjs`) dei 🔴 già emessi dalle review
   // precedenti. Un finding il cui id è qui non è nuovo e non viene mai
@@ -394,8 +394,12 @@ export function classifyReview(body, {
   const inScope = [];
   const unresolved = [];
   const ignoredCitations = [];
-  const bodyDeclassified = [];
+  const staleBodyDeclassified = [];
   const ledgerDeclassified = [];
+  const hasCurrentPrBody = typeof prBody === 'string';
+  const normalizedPrBody = hasCurrentPrBody
+    ? normalizeBodyCitationText(prBody)
+    : '';
 
   // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
   // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
@@ -428,15 +432,31 @@ export function classifyReview(body, {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
       continue;
     }
-    if (staleIds.has(finding.findingNumber)) {
+    if (isStaleBodyFinding(finding, prBody)) {
+      const bodyCitation = extractBodyCitation(finding.text);
+      const normalizedCitation = bodyCitation
+        ? normalizeBodyCitationText(bodyCitation)
+        : '';
+      if (normalizedCitation && hasCurrentPrBody
+          && !normalizedPrBody.includes(normalizedCitation)
+          && isContractDomainBodyFinding(finding, prBody)) {
+        staleBodyDeclassified.push({
+          ...finding,
+          bodyCitation,
+          stableId: stableFindingId(finding),
+        });
+        continue;
+      }
+      // Body-only findings never enter the generic unchanged-code-line
+      // declassification: without the quote-absent proof, or outside the
+      // deterministic contract domain, they remain red.
+    } else if (staleIds.has(finding.findingNumber)) {
       staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
       continue;
     }
-    if (bodyContractPassed && finding.citations.length === 0
-        && isContractDomainBodyFinding(finding, prBody)) {
-      bodyDeclassified.push(finding);
-      continue;
-    }
+    // A body anchor without a valid quote, or with a quote still present,
+    // remains unresolved. The exact absence proof above is the only new
+    // declassification path for PR-body findings.
     if (isLedgerAcceptanceFinding(finding)) {
       ledgerDeclassified.push(finding);
       continue;
@@ -507,10 +527,10 @@ export function classifyReview(body, {
     inScope,
     unresolved,
     ignoredCitations,
-    bodyDeclassified,
+    staleBodyDeclassified,
     staleDeclassified,
     ledgerDeclassified,
-    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length
+    outsideOnly: (outside.length + staleBodyDeclassified.length + staleDeclassified.length
       + ledgerDeclassified.length) > 0
       && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
@@ -521,26 +541,26 @@ export function classifyReview(body, {
 export function prBodyFindingLine(finding) {
   const fromText = prBodyAnchor(finding?.text);
   if (fromText !== null) return fromText;
-  const match = String(finding?.line || '').match(/`?PR body[:#]L?([1-9]\d*)/iu);
-  return match ? Number(match[1]) : null;
+  return prBodyAnchor(finding?.line);
 }
 
 // Claims the contract cannot judge (REVIEW.md step 7: perf/optimization claim
-// without a baseline) keep blocking even when anchored on the body.
-const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|claim)\w*/iu;
+// without a baseline) keep blocking while the current anchored body line still
+// contains the claim; the finding prose may describe text that is now gone.
+const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|capacit|claim)\w*/iu;
 
 /**
  * A 🔴 anchored only on `PR body:L<n>`, on a line inside `## Non implementato`
  * (the section the deterministic contract validates), about a contract rule.
- * Anything else — a line elsewhere in the body, a perf claim, no body text to
- * prove the position — stays blocking.
+ * Anything else — a line elsewhere in the body, a current perf/capacity claim,
+ * no body text to prove the position — stays blocking.
  */
 export function isContractDomainBodyFinding(finding, prBody) {
   const line = prBodyFindingLine(finding);
   if (line === null || typeof prBody !== 'string' || !prBody) return false;
-  if (NON_CONTRACT_BODY_RE.test(String(finding?.text || ''))) return false;
   const lines = prBody.split(/\r?\n/u);
   if (line > lines.length) return false;
+  if (NON_CONTRACT_BODY_RE.test(lines[line - 1] || '')) return false;
   let section = null;
   for (let index = 0; index < line; index += 1) {
     const heading = lines[index].match(/^\s{0,3}#{2,3}\s+(.+?)\s*$/u);
@@ -1869,7 +1889,7 @@ export function scopeDeclassificationOptions({
 // `blocking`. Ogni altra uscita e' un no-op VERDE, e fino al 2026-09-20 due di
 // quelle uscite non lasciavano nessuna traccia sulla PR:
 //
-//   • `bodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
+//   • `staleBodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
 //     follow-up viene coniata (il mint guarda solo `outside`), il fixer e'
 //     skippato, la run e' verde e il 🔴 sparisce senza che nessuno lo legga.
 //     Irraggiungibile prima della fix qui sopra, raggiungibile 11 volte su 47
@@ -1893,6 +1913,11 @@ export function isBodyAnchoredFinding(finding) {
   return (finding?.citations?.length ?? 0) === 0 && prBodyFindingLine(finding) !== null;
 }
 
+/** Il filtro del contratto e' parte della prova stale, non un post-filtro. */
+function isStaleBodyFinding(finding, prBody) {
+  return isBodyAnchoredFinding(finding) && isContractDomainBodyFinding(finding, prBody);
+}
+
 /**
  * Classifica l'uscita dello scope. `silent` e' vero esattamente quando la run
  * uscirebbe verde senza lasciare niente sulla PR: e' il predicato che il
@@ -1905,7 +1930,7 @@ export function scopeExit(classification) {
     return { kind: SCOPE_EXITS.NONE, bodyOnly: false, silent: false, declassified: [] };
   }
   const declassified = [
-    ...(classification.bodyDeclassified || []).map((finding) => ({ finding, reason: 'body' })),
+    ...(classification.staleBodyDeclassified || []).map((finding) => ({ finding, reason: 'stale-body' })),
     ...(classification.staleDeclassified || []).map((finding) => ({ finding, reason: 'stale' })),
     ...(classification.ledgerDeclassified || []).map((finding) => ({ finding, reason: 'ledger' })),
   ];
@@ -2040,6 +2065,38 @@ Run: ${runUrl}`;
   gh(['pr', 'comment', String(pr), '--repo', repo, '--body', body], { json: false, allowFail: true });
 }
 
+export function renderStaleBodyFindingComment(finding, headSha, runUrl = '') {
+  const stableId = stableFindingId(finding);
+  const citation = String(finding?.bodyCitation || extractBodyCitation(finding?.text) || '');
+  return [
+    `<!-- REVIEW_GATE_STALE_BODY_FINDING:${stableId} -->`,
+    '⚠️ **Finding superato** — il testo citato non è più nel body attuale (spazi e Markdown normalizzati).',
+    '',
+    '**Testo del finding:**',
+    `> ${safeText(finding?.text || finding?.line)}`,
+    '',
+    `**Citazione mancante:** ${JSON.stringify(citation)}`,
+    `HEAD: ${headSha}`,
+    runUrl ? `Run: ${runUrl}` : '',
+  ].filter(Boolean).join('\n');
+}
+
+function postStaleBodyFindingComment(repo, pr, finding, headSha, runUrl) {
+  const marker = `<!-- REVIEW_GATE_STALE_BODY_FINDING:${stableFindingId(finding)} -->`;
+  try {
+    const existing = gh([
+      'api', `repos/${repo}/issues/${pr}/comments`, '--paginate', '--jq', '.[].body',
+    ], { json: false, allowFail: true }) || '';
+    if (String(existing).includes(marker)) return;
+    gh([
+      'pr', 'comment', String(pr), '--repo', repo,
+      '--body', renderStaleBodyFindingComment(finding, headSha, runUrl),
+    ], { json: false, allowFail: true });
+  } catch (error) {
+    console.log(`review-gate: commento finding superato non pubblicato (${String(error).slice(0, 160)}).`);
+  }
+}
+
 async function withRepo(repo, callback) {
   const previous = process.env.GH_REPO;
   process.env.GH_REPO = repo;
@@ -2086,8 +2143,8 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 }
 
 export function logClassification(classification) {
-  for (const finding of classification.bodyDeclassified ?? []) {
-    console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
+  for (const finding of classification.staleBodyDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-STALE-BODY finding=${finding.findingNumber} id=${finding.stableId} reason=quoted PR-body text is absent from the current body after whitespace/Markdown normalization`);
   }
   for (const finding of classification.ledgerDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-LEDGER finding=${finding.findingNumber} reason=Important without a file whose acceptance is checked only on the review bundle/ledger; no change to the PR can satisfy it`);
@@ -2167,11 +2224,17 @@ export async function classifyAndMintReview(body, {
     repositoryPaths,
     isIgnoredPath: gitPathIsIgnored,
     bodyContractPassed,
-    prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
+    prBody: prBody === null ? readPrBody(repo, pr) : prBody,
     priorFindingIds,
     changedLinesSince,
   });
   logClassification(classification);
+
+  if (mutate) {
+    for (const finding of classification.staleBodyDeclassified ?? []) {
+      postStaleBodyFindingComment(repo, Number(pr), finding, headSha, process.env.RUN_URL || '');
+    }
+  }
 
   let followup = null;
   if (classification.outside.length > 0 && mutate) {
@@ -2467,10 +2530,8 @@ async function scopeMain() {
   const tree = hasFindings ? fetchRepositoryHeadPaths(repo, pr) : { paths: null, fromFallback: false };
   if (tree.paths) options.repositoryPaths = tree.paths;
   // NB: `bodyContractPassed` resta deliberatamente FUORI da questo percorso.
-  // Nel gate gemello declassa il 🔴 ancorato al body, che li' e' l'uscita
-  // giusta (il contratto deterministico ha gia' giudicato il body). Qui
-  // l'uscita giusta e' l'opposta: il fixer PUO' riscrivere il body, quindi il
-  // finding resta azionabile e viene instradato con `bodyOnly`.
+  // Anche il gate deve avere la prova testuale del finding: un contratto verde
+  // da solo non declassa un 🔴 ancorato al body.
   let reviews = null;
   try {
     reviews = hasFindings ? readReviews(repo, pr) : null;
@@ -2559,7 +2620,7 @@ function extractFindingCitations(text, extractCitations) {
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
     .map(anchorText)
     .join('\n');
-  const occurrences = extractCitations(findingText, {
+  const occurrences = extractCitations(stripBodyCitationLines(findingText), {
     dedupe: false,
     includeMatchIndex: true,
   });

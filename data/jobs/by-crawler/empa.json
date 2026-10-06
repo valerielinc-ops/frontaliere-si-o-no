@@ -232,7 +232,7 @@
         "it": "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun",
         "en": "apprentice-physics-laboratory-technician-a-empa-thun",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
-        "fr": "lernende-r-physiklaborant-in-a-empa-thun"
+        "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -313,8 +313,7 @@
         "apprendista-physiklaborant-in-a-empa-thun-fb5508",
         "apprentice-physiklaborant-in-a-empa-thun-fb5508",
         "apprentissage-laboratoire-de-physique-en-a-empa-thun",
-        "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
-        "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+        "laboratoire-d-apprentissage-et-de-physique-a-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -331,7 +330,6 @@
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
           "apprentissage-laboratoire-de-physique-en-a-empa-thun",
           "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
-          "laboratoire-d-apprentissage-de-physique-a-empa-thun",
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
@@ -1539,7 +1537,7 @@
       "id": "empa-cdaf38788288",
       "slug": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
+        "it": "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
         "en": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
         "de": "postdoktorand-in-organischen-lichtemittierenden-geraten-oleds-empa-dubendorf",
         "fr": "chercheur-postdoctoral-dans-les-dispositifs-electroluminescents-organiques-empa-dubendorf"
@@ -1590,14 +1588,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:08:47.414Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-        ]
-      },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1992,14 +1982,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "female-scientific-leadership-fellowship-empa-dubendorf",
-        "women-scientific-leadership-fellowship-empa-dubendorf",
-        "fellowship-di-leadership-scientifica-femminile-empa-dubendorf"
+        "women-scientific-leadership-fellowship-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "female-scientific-leadership-fellowship-empa-dubendorf",
-          "women-scientific-leadership-fellowship-empa-dubendorf",
-          "fellowship-di-leadership-scientifica-femminile-empa-dubendorf"
+          "women-scientific-leadership-fellowship-empa-dubendorf"
         ],
         "en": [
           "female-scientific-leadership-fellowship-empa-dubendorf"
@@ -2025,12 +2013,12 @@
     },
     {
       "id": "empa-075174446cfa",
-      "slug": "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa",
+      "slug": "posizione-del-dottorato-in-proprieta-vibrazionali-e-optoelettroniche-di-quasi-1d-chalcogenides-empa-dubendorf",
       "slugByLocale": {
         "en": "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa",
-        "it": "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa",
-        "de": "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa",
-        "fr": "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa"
+        "it": "posizione-del-dottorato-in-proprieta-vibrazionali-e-optoelettroniche-di-quasi-1d-chalcogenides-empa-dubendorf",
+        "de": "phd-position-in-vibrationalen-und-optoelektronischen-eigenschaften-von-quasi-1d-chalcogeniden-empa-dubendorf",
+        "fr": "position-du-doctorat-dans-les-proprietes-vibrationnelles-et-optoelectroniques-des-chalcogenides-quasi-1d-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -2038,9 +2026,9 @@
       "title": "PhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides",
       "titleByLocale": {
         "en": "PhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides",
-        "it": "PhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides",
-        "de": "PhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides",
-        "fr": "PhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides"
+        "it": "Posizione del dottorato in proprietà vibrazionali e optoelettroniche di quasi 1D chalcogenides",
+        "de": "PhD-Position in vibrationalen und optoelektronischen Eigenschaften von Quasi-1D-Chalcogeniden",
+        "fr": "Position du doctorat dans les propriétés vibrationnelles et optoélectroniques des chalcogénides quasi-1D"
       },
       "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in vibrational and optoelectronic properties of quasi-1D chalcogenides\n\nThe Nanomaterials Spectroscopy and Imaging Group within Empa's Transport at Nanoscale Interfaces Laboratory develops and applies advanced optical and time-resolved spectroscopic methods to understand how structure, defects and the local environment govern material behaviour. We are looking for a PhD student to investigate quasi-1D (Ba,Sr)(Ti,Nb,Ta)(S,Se)3 chalcogenides, a family of semiconductors with strong optical anisotropy and collective electronic phenomena such as charge-density-wave order. The project will establish how composition, defects and chain alignment determine vibrational, optical and carrier-dynamic properties in single crystals and orientation-controlled thin films. The PhD is part of a collaborative project with FAU Erlangen-Nürnberg funded by SNF and DPG.\n\nYour tasks\n\n• Perform Raman and photoluminescence (PL) spectroscopy, including polarization- and temperature-dependent measurements, to investigate structural, vibrational and optoelectronic properties of quasi-1D chalcogenides.\n\n• Characterize optical properties and carrier dynamics using time-resolved photoluminescence (TRPL), terahertz spectroscopy and transient absorption.\n\n• Develop and apply data-analysis approaches for correlating results obtained from complementary characterization techniques.\n\n• Collaborate closely with synthesis, theory and device partners, and publish and present the results in peer-reviewed journals and at international conferences.\n\nYour profile\n\n• Master's degree in physics, materials science, chemistry, nanoscience or a closely related field.\n\n• Strong interest in optical spectroscopy, semiconductor physics and low-dimensional or quantum materials.\n\n• A plus is hands-on experience with Raman, photoluminescence, time-resolved spectroscopy, cryogenic measurements or semiconductor characterization is an advantage.\n\n• Experience with quantitative data analysis and programming (e.g. Python or MATLAB) is an asset.\n\n• A self-motivated and organized working style, with the ability to work independently while contributing effectively to an interdisciplinary and international team.\n\n• Excellent written and spoken English; willingness to collaborate across institutions and undertake a research stay abroad.\n\nOur offer\n\nWe offer a fully funded, full-time (100%) PhD position for three years at Empa in Dübendorf, near Zurich, with a starting date on 1st of March. You will work in a highly interdisciplinary environment with access to state-of-the-art materials-characterization infrastructure. We provide excellent research conditions within the ETH Domain and strong opportunities for scientific training, conference participation and career development. The PhD will be enrolled at University of Basel.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
       "descriptionByLocale": {
@@ -2092,7 +2080,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:44.188Z"
+      "firstSeenAt": "2026-10-05T21:37:44.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa"
+        ],
+        "de": [
+          "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa"
+        ],
+        "fr": [
+          "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-vibrational-and-optoelectronic-properties-of-quasi-1d-chalcogenides-empa"
+      ]
     },
     {
       "id": "empa-8d5a51c62388",
