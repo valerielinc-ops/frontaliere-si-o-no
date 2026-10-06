@@ -6,6 +6,7 @@ import {
   buildAllRssFeeds,
   buildSectionFeeds,
   RSS_SECTIONS,
+  SITE_RSS_SECTIONS,
   RSS_MAX_ITEMS,
   sanitizeFeedBody,
 } from '../packages/articles/engine/rssFeeds.mjs';
@@ -91,6 +92,13 @@ const REGISTRY = [
 ];
 
 describe('packages/articles/engine/rssFeeds', () => {
+  it('exposes separate active-publisher and site-rendered RSS populations', () => {
+    expect(RSS_SECTIONS.map((section) => section.id)).toEqual([
+      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+    ]);
+    expect(SITE_RSS_SECTIONS.map((section) => section.id)).toEqual(['frontaliere', 'svizzera']);
+  });
+
   it('removes internal nav actions while preserving real markdown URLs', () => {
     const sanitized = sanitizeFeedBody(
       '[Calcola la pensione](nav:pension) — [Guida](https://frontaliereticino.ch/guida/) nav:calculator',

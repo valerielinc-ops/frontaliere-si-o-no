@@ -5,6 +5,7 @@ import {
   ARTICLE_SECTION_CORE,
   ARTICLE_SECTION_CORE_ALL,
   ARTICLE_SECTION_CORE_LIST,
+  SITE_RENDERED_ARTICLE_SECTIONS,
   articleSectionKind,
   cantonHubTopicSlugs,
   isCantonSection,
@@ -12,9 +13,16 @@ import {
   twinOf,
 } from '../../build-plugins/shared/articleSectionCore.mjs';
 import { ARTICLE_SECTIONS, activeArticleSection } from '../../services/articleSections';
-import { ARTICLE_SECTION_DESCRIPTORS } from '../../build-plugins/shared/articleSectionDescriptors';
+import {
+  ARTICLE_SECTION_DESCRIPTORS,
+  SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS,
+} from '../../build-plugins/shared/articleSectionDescriptors';
 import { BLOG_SECTION_RX } from '../../scripts/lib/articleSections.mjs';
-import { RSS_SECTIONS, rssSectionFor } from '../../packages/articles/engine/rssFeeds.mjs';
+import {
+  RSS_SECTIONS,
+  SITE_RSS_SECTIONS,
+  rssSectionFor,
+} from '../../packages/articles/engine/rssFeeds.mjs';
 
 const rootDir = path.resolve(__dirname, '..', '..');
 
@@ -97,6 +105,21 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     expect(sectionsOfKind('frontaliere')).toEqual([ARTICLE_SECTION_CORE.frontaliere]);
     expect(sectionsOfKind('national')).toEqual([ARTICLE_SECTION_CORE.svizzera]);
     expect(() => sectionsOfKind('regional' as never)).toThrow();
+  });
+
+  it('the site-rendered selector excludes active canton/R2 sections by construction', () => {
+    expect(SITE_RENDERED_ARTICLE_SECTIONS.map((entry) => entry.section)).toEqual([
+      'frontaliere',
+      'svizzera',
+    ]);
+    expect(SITE_RENDERED_ARTICLE_SECTIONS.every((entry) => entry.kind !== 'canton' && entry.shardKey !== null)).toBe(true);
+    expect(Object.isFrozen(SITE_RENDERED_ARTICLE_SECTIONS)).toBe(true);
+    expect(SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((descriptor) => descriptor.name)).toEqual([
+      'frontaliere',
+      'svizzera',
+    ]);
+    expect(SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.every((descriptor) => descriptor.shardKey !== null)).toBe(true);
+    expect(SITE_RSS_SECTIONS.map((section) => section.id)).toEqual(['frontaliere', 'svizzera']);
   });
 
   it('kind lookup and twin pairing are data, and fail loudly on an unknown id', () => {
@@ -310,10 +333,15 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     }
   });
 
-  it('scripts/lib/articleSections.mjs BLOG_SECTION_RX matches every core hub slug (all sections, all locales)', () => {
-    for (const entry of ARTICLE_SECTION_CORE_LIST) {
+  it('scripts/lib/articleSections.mjs BLOG_SECTION_RX matches every site-rendered hub slug, not canton R2 slugs', () => {
+    for (const entry of SITE_RENDERED_ARTICLE_SECTIONS) {
       for (const slug of Object.values(entry.indexSlug)) {
         expect(BLOG_SECTION_RX.test(`/${slug}/`), `hub slug "${slug}" must match BLOG_SECTION_RX`).toBe(true);
+      }
+    }
+    for (const entry of ARTICLE_SECTION_CORE_LIST.filter((candidate) => candidate.kind === 'canton')) {
+      for (const slug of Object.values(entry.indexSlug)) {
+        expect(BLOG_SECTION_RX.test(`/${slug}/`), `canton slug "${slug}" must stay outside site static classification`).toBe(false);
       }
     }
   });

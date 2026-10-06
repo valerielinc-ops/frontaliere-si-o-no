@@ -65,7 +65,7 @@ import {
   readArticleSlugs,
   readBlogUrlSlugs,
 } from './shared/articleReaders';
-import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 import { assignArticlesToTopics } from '../packages/articles/engine/topicClusters';
 import {
   TOPIC_CLUSTERS,
@@ -249,13 +249,9 @@ interface ArticleRow {
 }
 
 function sectionCfg(section: TopicHubSection) {
-  return (ARTICLE_SECTION_CORE as Record<string, {
-    indexSlug: Record<string, string>;
-    metaPrefix: string;
-    registryFile: string;
-    slugDataFile: string;
-    slugConst: string;
-  }>)[section];
+  const entry = SITE_RENDERED_ARTICLE_SECTIONS.find((candidate) => candidate.section === section);
+  if (!entry) throw new Error(`topicClusterHubsPlugin: sezione non resa dal sito "${section}"`);
+  return entry;
 }
 
 /**

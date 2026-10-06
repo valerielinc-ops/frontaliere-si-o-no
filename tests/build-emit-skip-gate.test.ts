@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
-import { ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
+import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
 import {
   ARTICLE_HUB_SHELL_NAV_OPEN,
   ensureArticleHubCards,
@@ -108,7 +108,7 @@ describe('BUILD_EMIT_SKIP gate covers BOTH sections in every plugin', () => {
   });
 });
 
-describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTORS contract', () => {
+describe('staticPagesPlugin bare-index skip-set: site-rendered descriptor contract', () => {
   // The real skip-set-building loop lives inline inside staticPagesPlugin's
   // Vite plugin closure (build-plugins/staticPagesPlugin.ts:1150-1166) and is
   // not exported as a standalone function, so it can't be imported and
@@ -118,10 +118,10 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
   // identical to the source (same field accesses, same locale list, same
   // path template) so a divergence between this test and the real loop is a
   // deliberate edit, not accidental drift. What we DO import for real is
-  // `ARTICLE_SECTION_DESCRIPTORS` itself (the same shared array the plugin
+  // `SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS` itself (the same shared array the plugin
   // imports), so the section list/indexSlug data driving both this test and
   // the real code is guaranteed identical.
-  function buildSkipSetPaths(sec: (typeof ARTICLE_SECTION_DESCRIPTORS)[number]): string[] {
+  function buildSkipSetPaths(sec: (typeof SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS)[number]): string[] {
     const paths: string[] = [`/${sec.indexSlug.it}`];
     for (const loc of ['en', 'de', 'fr'] as const) {
       const bs = sec.indexSlug[loc];
@@ -138,7 +138,7 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
     // `/en/cross-border-articles` are the same paths issue #4974 records
     // pre-flip byte baselines for.
     const bySection = Object.fromEntries(
-      ARTICLE_SECTION_DESCRIPTORS.map((sec) => [sec.name, buildSkipSetPaths(sec)]),
+      SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((sec) => [sec.name, buildSkipSetPaths(sec)]),
     );
 
     expect(new Set(bySection.frontaliere)).toEqual(
@@ -157,30 +157,6 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
         '/fr/articles-suisse',
       ]),
     );
-    expect(new Set(bySection['canton-be'])).toEqual(
-      new Set([
-        '/articoli-berna',
-        '/en/bern-articles',
-        '/de/bern-artikel',
-        '/fr/articles-berne',
-      ]),
-    );
-    expect(new Set(bySection['canton-gr'])).toEqual(
-      new Set([
-        '/articoli-grigioni',
-        '/en/graubunden-articles',
-        '/de/graubunden-artikel',
-        '/fr/articles-grisons',
-      ]),
-    );
-    expect(new Set(bySection['canton-ti'])).toEqual(
-      new Set([
-        '/articoli-ticino',
-        '/en/ticino-articles',
-        '/de/tessin-artikel',
-        '/fr/articles-tessin',
-      ]),
-    );
   });
 
   it('the frontaliere and svizzera index slugs are non-empty for all four locales (it/en/de/fr)', () => {
@@ -188,7 +164,7 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
     // only manifests if a locale's indexSlug is falsy and silently skipped —
     // confirm the live data actually exercises all four locale branches, not
     // just IT, so Group 3 above isn't vacuously true.
-    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+    for (const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
       expect(sec.indexSlug.it, `section "${sec.name}" missing indexSlug.it`).toBeTruthy();
       expect(sec.indexSlug.en, `section "${sec.name}" missing indexSlug.en`).toBeTruthy();
       expect(sec.indexSlug.de, `section "${sec.name}" missing indexSlug.de`).toBeTruthy();
@@ -196,8 +172,8 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
     }
   });
 
-  it('staticPagesPlugin.ts source still drives its skip-set from ARTICLE_SECTION_DESCRIPTORS (not a re-literalized copy)', () => {
-    expect(staticPagesSource).toMatch(/for \(const sec of ARTICLE_SECTION_DESCRIPTORS\)/);
+  it('staticPagesPlugin.ts source still drives its skip-set from the site selector (not a re-literalized copy)', () => {
+    expect(staticPagesSource).toMatch(/for \(const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS\)/);
     expect(staticPagesSource).toContain('ogPagesPaths.add(`/${sec.indexSlug.it}`)');
     expect(staticPagesSource).toContain('ogPagesPaths.add(`/${loc}/${bs}`)');
   });
@@ -281,7 +257,7 @@ describe('no landing may be excluded from BOTH writers at once', () => {
     ]);
     // The shard handoff remains the two historical sections; pilot cantons are
     // served by R2 + Worker and therefore have no shard key.
-    expect(ARTICLE_SECTION_DESCRIPTORS.filter((s) => s.shardKey).map((s) => s.name).sort()).toEqual([
+    expect(SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.filter((s) => s.shardKey).map((s) => s.name).sort()).toEqual([
       'frontaliere',
       'svizzera',
     ]);
