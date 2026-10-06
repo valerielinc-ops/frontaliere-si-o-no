@@ -280,6 +280,8 @@ export const TAXONOMY_ESCALATION_KINDS = Object.freeze(['rule', 'topic', 'ambigu
 // hook), non un semplice path citato nell'acceptance del finding.
 const SIBLING_TOOLING_RE =
   /\bsibling\s+checker\b|\bchecker\s+(?:cache|contents?|extracted|invocation|revision)\b|\bfunction-header\s+filter\b|\bgeneric\s+sibling\s+expression\b|\bgate\s+candidate\b|\bhook\b[^.\n]{0,40}\bcomplete\b[^.\n]{0,40}\b(?:large|partial)\s+clones?\b|\b(?:large|partial)\s+clones?\b[^.\n]{0,120}\b(?:pre\/?post|measurement|benchmark)\b/i;
+const UNVALIDATED_CLAIM_RE =
+  /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i;
 
 export const TAXONOMY = [
   { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'],
@@ -369,7 +371,7 @@ export const TAXONOMY = [
     escalation: 'topic', why: "soggetto sul checker o gate sibling: resta nel report come argomento, ma non misura la recidiva del processo di sweep" },
   { key: 'sibling-class-fix', re: /stesso anti-?pattern|file gemello|stesso costrutto|sibling|non toccat|class-complete/i, docKeys: ['file gemello', 'stesso anti', 'class-complete'],
     escalation: 'rule', why: "Non-Negotiable 6, con il filtro isGenuineSiblingClassViolation che esige una relazione di classe" },
-  { key: 'unvalidated-claim', re: /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i, docKeys: ['non validat', 'revert-trigger', 'speculativ'],
+  { key: 'unvalidated-claim', re: UNVALIDATED_CLAIM_RE, docKeys: ['non validat', 'revert-trigger', 'speculativ'],
     escalation: 'rule', why: "ogni alternativa nomina la violazione: claim non validato pre-merge senza revert-trigger (AGENTS.md, Build And Test)" },
   { key: 'stale-comment', re: /stale (comment|doc)|comment(o|i)? stale|docblock stale|descrive ancora|title.*(contraddice|stale)|commento.*vecchio/i, docKeys: ['stale comment', 'docblock', 'descrive ancora'],
     escalation: 'rule', why: "ogni alternativa nomina la violazione (commento o docblock stale), con lo scarto delle disposizioni esplicite nel tally" },
@@ -464,7 +466,7 @@ const PR_BODY_CONTRACT_LOCATION_RE =
 const PR_BODY_CONTRACT_PRESCRIPTION_RE =
   /\b(?:aggiungi|inserisci|inserir[ei]|dichiara(?:re)?|elenc[ao](?:re)?|list[ao](?:re)?|menziona(?:re)?|nota(?:re)?|documenta(?:re)?|scrivi|scrivere|aggiorna(?:re)?|specifica(?:re)?|includi|includere)\b[^.]{0,150}\b(?:in|nel(?:la)?)\b[^.]{0,80}\b(?:non\s+)?implementato\b/i;
 export function isGenuinePrBodyContractViolation(text) {
-  const s = stripFindingLocationLabel(text);
+  const s = String(text || '');
   // (e) ❓-only adversarial questions that mention the vocabulary are due
   //     diligence, not a confirmed defect. A confirmed 🔴/🟡 on the same line
   //     still proceeds to (a)–(d).
@@ -560,6 +562,10 @@ export function isGenuineSiblingClassViolation(text) {
   // Scope-only and semantic-neighbour mentions remain available to the generic
   // fingerprint path instead of being mistaken for an unswept sibling.
   return SIBLING_CLASS_EVIDENCE_RE.test(s);
+}
+
+export function isGenuineUnvalidatedClaimFinding(text) {
+  return UNVALIDATED_CLAIM_RE.test(stripFindingLocationLabel(text));
 }
 
 // ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
@@ -747,8 +753,8 @@ export function isCrawlerParserFinding(text) {
 
 /**
  * Removes only the leading review location (`path:L<n>:` or `PR body:L<n>:`).
- * The location is an address, not reviewer prose, so it must not contribute to
- * any taxonomy bucket. The severity marker and the actual finding remain.
+ * The location is an address, not reviewer prose, so process-bucket guards can
+ * ignore it. Topic buckets and the fingerprint keep the original text.
  * @param {unknown} text
  * @returns {string}
  */
@@ -766,11 +772,10 @@ export function stripFindingLocationLabel(text) {
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
-  // I guard per-bucket sotto ricevono il finding completo e rimuovono in modo
-  // condiviso la location label prima della loro discriminante (affermazioni,
-  // falsi positivi dichiarati), non il solo vocabolario del topic.
-  const content = stripFindingLocationLabel(text);
-  const scannable = stripNegatedImpactClauses(content);
+  // Come su origin/main, anche i bucket di argomento e la rete fingerprint
+  // ricevono il testo originale. Solo i guard dei bucket di processo rimuovono
+  // la location label prima della loro discriminante.
+  const scannable = stripNegatedImpactClauses(text);
   // Reviews sometimes name sitemap concepts only inside camelCase identifiers
   // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
   // those boundaries for this topic so genuine sitemap failures still reach
@@ -807,6 +812,7 @@ export function bucketFinding(text) {
     // findings, mirroring pr-body-contract's filter above.
     if (t.key === 'sibling-tooling' && !isGenuineSiblingToolingFinding(text)) continue;
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
+    if (t.key === 'unvalidated-claim' && !isGenuineUnvalidatedClaimFinding(text)) continue;
     // `canonical` is overloaded outside SEO (canonical vacancy links, archive
     // canonicalizers, canonical replacements, route URLs). Keep those lines in
     // the fingerprint safety-net instead of inflating the canonical-sitemap
@@ -829,7 +835,7 @@ export function bucketFinding(text) {
   // righe, NESSUN bucket topic si muove (5 cambiano solo la lead-phrase del
   // fingerprint, 1 rientra nella rete da `null`), quindi il rimedio a #901 resta
   // intatto e i due controesempi smettono di sparire.
-  return fingerprintFinding(content); // unbucketed → fingerprint safety net (or null)
+  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
 }
 
 // Severities that count as a CONFIRMED recurring mistake. `❓` is an
