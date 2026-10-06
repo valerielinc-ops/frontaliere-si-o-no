@@ -132,6 +132,17 @@ describe('data/image CDN preconnect injection', () => {
     );
   });
 
+  it('ignores CDN hints inside inactive head nodes', () => {
+    const hiddenHint = `<script>const source = '<link rel="preconnect" href="${CDN_ORIGIN}">';</script>`;
+    const fixture = BASE_HTML.replace('<meta charset="utf-8"><title>', `<meta charset="utf-8">${hiddenHint}<title>`);
+    const { html } = runOffload(fixture);
+    expect(html).toContain(hiddenHint);
+    const activeHead = html.replace(hiddenHint, '');
+    const hint = `<link rel="preconnect" href="${CDN_ORIGIN}`;
+    expect(activeHead.split(hint).length - 1).toBe(1);
+    expect(html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? []).toHaveLength(1);
+  });
+
   it('consumes valid attributes after an unquoted charset value', () => {
     const withAttribute = BASE_HTML.replace(
       '<meta charset="utf-8">',

@@ -394,10 +394,34 @@ function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
   while (searchFrom < headEnd) {
     const start = html.indexOf('<', searchFrom);
     if (start < 0 || start >= headEnd) break;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0 || afterComment > headEnd) break;
+      searchFrom = afterComment;
+      continue;
+    }
     const tag = readTag(html, start);
     if (!tag || tag.end + 1 > headEnd) {
       searchFrom = start + 1;
       continue;
+    }
+    if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'template')) {
+      const afterTemplate = skipTemplateElement(html, tag.end + 1);
+      if (afterTemplate < 0 || afterTemplate > headEnd) break;
+      searchFrom = afterTemplate;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing) {
+      let skippedRawText = false;
+      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+        if (!isTagNamed(html, tag, rawName)) continue;
+        const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
+        if (afterRawText < 0 || afterRawText > headEnd) return lastEnd;
+        searchFrom = afterRawText;
+        skippedRawText = true;
+        break;
+      }
+      if (skippedRawText) continue;
     }
     const sourceTag = html.slice(start, tag.end + 1);
     if (!tag.closing && needles.some((needle) => sourceTag.startsWith(needle))) {
