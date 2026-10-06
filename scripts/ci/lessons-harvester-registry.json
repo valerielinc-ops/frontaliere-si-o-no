@@ -75,9 +75,16 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
       "outcome": "declined",
-      "decidedAt": "2026-10-03T10:32:59Z",
-      "ref": "#11011, #10448, #10393",
-      "reason": "Fingerprint catch-all basato su path `scripts/` e classe funnel: i finding coprono fallback titolo, parita' strutturale delle traduzioni e floor/prova snapshot, senza una bug class comune; AGENTS.md #6 copre gia' la validazione di dominio, contesto e sibling."
+      "decidedAt": "2026-10-06T12:13:36Z",
+      "ref": "#11638, #11578, #11036",
+      "reason": "Catch-all basato su path `scripts/` e classe funnel: i nuovi finding coprono retry/status, rilevazione di meta-risposte e guardie di candidatura, senza una regola preventiva unica; AGENTS.md #6 resta sufficiente per i casi di dominio, contesto e sibling."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-treats-every",
+      "outcome": "declined",
+      "decidedAt": "2026-10-06T12:13:36Z",
+      "ref": "#11764, #11521, #10288",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non devono trattare ogni shape come semantica, ma validare dominio/contesto e gestire unknown, ambigui e vicino non-target; aggiungere una riga duplicherbbe la regola."
     },
     {
       "key": "reviewer-finding/fp:scripts-funnel-falls-back",
