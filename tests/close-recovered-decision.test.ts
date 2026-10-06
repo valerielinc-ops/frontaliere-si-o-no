@@ -255,7 +255,7 @@ describe('main() usa la decisione esportata, e solo quella', () => {
     const failureIssues = [
       { number: 1, title: 'Workflow Failure: LC20 Recovered', runs: [liveRun(11, 'success', HOUR)], action: 'close', reason: /^recovered \(run 11 / },
       { number: 2, title: 'CI Failure: LC20 Red', runs: [liveRun(21, 'failure', HOUR)], action: 'keep', reason: /^still-red$/ },
-      { number: 3, title: 'Workflow Failure: LC20 Gone', runs: [], action: 'keep', reason: /^run-not-resolvable$/ },
+      { number: 3, title: 'Workflow Failure: LC20 Gone', runs: [], action: 'keep', reason: /^no-run-window$/ },
       {
         number: 4,
         title: 'Workflow Failure: LC20 Skipped',
@@ -319,14 +319,17 @@ describe('main() usa la decisione esportata, e solo quella', () => {
     // Il log testuale resta quello di prima: verdetto e riga dicono la stessa cosa.
     expect(result.stdout).toContain('#1 WOULD CLOSE — recovered (run 11 success');
     expect(result.stdout).toContain('#2 still red (latest completed run 21=failure) — keep open');
-    expect(result.stdout).toContain('#3 "LC20 Gone" — no completed run on main (renamed/deleted?), keep open');
+    expect(result.stdout).toContain('#3 "LC20 Gone" — workflow exists but no completed run in window — keep open');
     expect(result.stdout).toContain('#4 WOULD CLOSE — recovered (run 43 success');
 
     const calls = fs.readFileSync(callsPath, 'utf8').trim().split('\n');
     expect(calls.filter((c) => /^issue (edit|close|comment|reopen)|^label /.test(c))).toEqual([]);
-    // I commenti si leggono solo per le issue in chiusura: una chiamata per `close`.
+    // I commenti si leggono per le issue in chiusura e per spiegare una storia non valutabile.
     const commentReads = calls.filter((c) => /\/comments /.test(`${c} `)).map((c) => Number(/issues\/(\d+)\/comments/.exec(c)?.[1]));
-    expect(commentReads.sort()).toEqual(failureIssues.filter((i) => i.action === 'close').map((i) => i.number).sort());
+    expect(commentReads.sort()).toEqual([
+      ...failureIssues.filter((i) => i.action === 'close').map((i) => i.number),
+      3,
+    ].sort());
   });
 
   // LC-03 attraverso main(): la run che decide è sempre passata, calcolata dallo storico.
