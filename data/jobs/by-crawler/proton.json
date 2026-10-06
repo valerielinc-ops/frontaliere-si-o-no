@@ -2245,12 +2245,12 @@
     },
     {
       "id": "proton-fa82de98165b",
-      "slug": "growth-manager-b2b-proton-ch",
+      "slug": "gestione-della-crescita-b2b-proton-london",
       "slugByLocale": {
         "en": "growth-manager-b2b-proton-ch",
-        "it": "growth-manager-b2b-proton-ch",
-        "de": "growth-manager-b2b-proton-ch",
-        "fr": "growth-manager-b2b-proton-ch"
+        "it": "gestione-della-crescita-b2b-proton-london",
+        "de": "wachstumsmanager-b2b-proton-london",
+        "fr": "gestionnaire-de-la-croissance-b2b-proton-london"
       },
       "company": "Proton",
       "companyKey": "proton",
@@ -2308,7 +2308,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-05T21:38:30.541Z"
+      "firstSeenAt": "2026-10-05T21:38:30.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "growth-manager-b2b-proton-ch"
+        ],
+        "de": [
+          "growth-manager-b2b-proton-ch"
+        ],
+        "fr": [
+          "growth-manager-b2b-proton-ch"
+        ]
+      },
+      "previousSlugs": [
+        "growth-manager-b2b-proton-ch"
+      ]
     },
     {
       "id": "proton-55074e299a5c",

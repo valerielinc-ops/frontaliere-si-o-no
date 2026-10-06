@@ -4777,12 +4777,12 @@
     },
     {
       "id": "senevita-e80a0fe132dd",
-      "slug": "fachfrau-mann-gesundheit-100-senevita-bl-pratteln",
+      "slug": "professionista-della-salute-100-senevita-bl-pratteln",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-100-senevita-bl-pratteln",
-        "en": "fachfrau-mann-gesundheit-100-senevita-bl-pratteln",
+        "it": "professionista-della-salute-100-senevita-bl-pratteln",
+        "en": "health-professional-100-senevita-bl-pratteln",
         "de": "fachfrau-mann-gesundheit-100-senevita-bl-pratteln",
-        "fr": "fachfrau-mann-gesundheit-100-senevita-bl-pratteln"
+        "fr": "specialiste-de-la-sante-100-senevita-bl-pratteln"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -4839,7 +4839,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-100-senevita-bl-pratteln"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-100-senevita-bl-pratteln"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-100-senevita-bl-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-100-senevita-bl-pratteln"
+      ]
     },
     {
       "id": "senevita-920087aeeb9f",

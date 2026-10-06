@@ -1220,7 +1220,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
+        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -1297,7 +1297,6 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
-        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
@@ -1307,7 +1306,6 @@
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -1938,12 +1936,12 @@
     },
     {
       "id": "sfs-group-c9d7f2a8063f",
-      "slug": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+      "slug": "manutentore-automatico-nel-modello-a-turni-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
-        "en": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "it": "manutentore-automatico-nel-modello-a-turni-m-f-d-sfs-group-heerbrugg",
+        "en": "automated-maintenance-in-shift-model-m-f-d-sfs-group-heerbrugg",
         "de": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
-        "fr": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "fr": "automaticien-ne-maintenance-dans-le-modele-de-travail-poste-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -2002,7 +2000,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ],
+        "fr": [
+          "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+      ]
     },
     {
       "id": "sfs-group-d28e368a8b5c",

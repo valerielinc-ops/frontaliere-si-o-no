@@ -1346,9 +1346,9 @@
       "slug": "collaboratore-trice-in-kasse-40-manor-ag-hinwil",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-40-manor-ag-hinwil",
-        "en": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "en": "employeecash-register-40-manor-ag-hinwil",
         "de": "manor-mitarbeiter-in-kasse-40-hinwil",
-        "fr": "manor-mitarbeiter-in-kasse-40-hinwil"
+        "fr": "employe-e-caisse-40-manor-ag-hinwil"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 40%",
@@ -1363,6 +1363,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ]
       },
@@ -1410,12 +1416,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "detailhandelsfachmann-frau-herrenkonfektion-100-manor-ag-st-gallen",
+      "slug": "professionista-del-commercio-al-dettaglio-donna-confezione-uomo-100-manor-ag-st-gallen",
       "slugByLocale": {
-        "it": "detailhandelsfachmann-frau-herrenkonfektion-100-manor-ag-st-gallen",
-        "en": "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen",
+        "it": "professionista-del-commercio-al-dettaglio-donna-confezione-uomo-100-manor-ag-st-gallen",
+        "en": "retail-specialist-for-men-s-clothing-100-manor-ag-st-gallen",
         "de": "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen",
-        "fr": "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen"
+        "fr": "professionnel-du-commerce-de-detail-femme-confection-homme-100-manor-ag-st-gallen"
       },
       "titleByLocale": {
         "it": "Professionista del commercio al dettaglio/donna Confezione uomo 100%",
@@ -1426,10 +1432,18 @@
       "sourceLang": "de",
       "id": "manor-0733415f106c",
       "previousSlugs": [
-        "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen"
+        "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen",
+        "detailhandelsfachmann-frau-herrenkonfektion-100-manor-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen",
+          "detailhandelsfachmann-frau-herrenkonfektion-100-manor-ag-st-gallen"
+        ],
+        "en": [
+          "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen"
+        ],
+        "fr": [
           "manor-detailhandelsfachmann-frau-herrenkonfektion-100-st-gallen"
         ]
       },
@@ -13549,9 +13563,9 @@
       "slug": "collaboratore-trice-in-kasse-30-manor-ag-winterthur",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-30-manor-ag-winterthur",
-        "en": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo",
+        "en": "employeecash-register-30-manor-ag-winterthur",
         "de": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo",
-        "fr": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo"
+        "fr": "employe-e-caisse-30-manor-ag-winterthur"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 30%",
@@ -13563,7 +13577,8 @@
       "id": "manor-13bfdc337e48",
       "previousSlugs": [
         "manor-mitarbeiter-in-kasse-30-winterthur",
-        "manor-mitarbeiter-in-kasse-30-winterthur-2"
+        "manor-mitarbeiter-in-kasse-30-winterthur-2",
+        "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13571,13 +13586,15 @@
           "manor-mitarbeiter-in-kasse-30-winterthur-2"
         ],
         "en": [
-          "manor-mitarbeiter-in-kasse-30-winterthur"
+          "manor-mitarbeiter-in-kasse-30-winterthur",
+          "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo"
         ],
         "de": [
           "manor-mitarbeiter-in-kasse-30-winterthur"
         ],
         "fr": [
-          "manor-mitarbeiter-in-kasse-30-winterthur"
+          "manor-mitarbeiter-in-kasse-30-winterthur",
+          "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo"
         ]
       },
       "needsRetranslation": true,
@@ -16112,9 +16129,9 @@
       "slug": "collaboratore-trice-in-backoffice-kasse-kundendienst-60-manor-ag-schattdorf",
       "slugByLocale": {
         "it": "collaboratore-trice-in-backoffice-kasse-kundendienst-60-manor-ag-schattdorf",
-        "en": "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf",
+        "en": "employee-back-office-checkout-customer-service-60-manor-ag-schattdorf",
         "de": "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf",
-        "fr": "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf"
+        "fr": "collaborateur-back-office-caisse-service-client-60-manor-ag-schattdorf"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Backoffice/Kasse/Kundendienst 60%",
@@ -16129,6 +16146,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-backoffice-kasse-kundendienst-60-schattdorf"
         ]
       },
@@ -16179,9 +16202,9 @@
       "slug": "collaboratore-trice-in-kasse-30-manor-ag-winterthur-d9fc79",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-30-manor-ag-winterthur-d9fc79",
-        "en": "manor-mitarbeiter-in-kasse-30-winterthur",
+        "en": "employeecash-register-30-manor-ag-winterthur-d9fc79",
         "de": "manor-mitarbeiter-in-kasse-30-winterthur",
-        "fr": "manor-mitarbeiter-in-kasse-30-winterthur"
+        "fr": "employe-e-caisse-30-manor-ag-winterthur-d9fc79"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 30%",
@@ -16199,6 +16222,12 @@
         "it": [
           "manor-mitarbeiter-in-kasse-30-winterthur",
           "manor-mitarbeiter-in-kasse-30-winterthur-2"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -19306,9 +19335,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-caisse-supermarche-50-manor-ag-lausanne",
+      "slug": "collaboratore-trice-cassa-supermercato-50-manor-ag-lausanne",
       "slugByLocale": {
-        "it": "collaborateur-trice-caisse-supermarche-50-manor-ag-lausanne",
+        "it": "collaboratore-trice-cassa-supermercato-50-manor-ag-lausanne",
         "en": "collaborator-caisse-supermarket-50-manor-ag-lausanne",
         "de": "manor-collaborateur-trice-caisse-supermarche-50-lausanne",
         "fr": "manor-collaborateur-trice-caisse-supermarche-50-lausanne"
@@ -19323,12 +19352,14 @@
       "id": "manor-c72a954beeac",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-supermarche-50-lausanne",
-        "collaboratore-caisse-supermercato-50-manor-ag-lausanne"
+        "collaboratore-caisse-supermercato-50-manor-ag-lausanne",
+        "collaborateur-trice-caisse-supermarche-50-manor-ag-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-supermarche-50-lausanne",
-          "collaboratore-caisse-supermercato-50-manor-ag-lausanne"
+          "collaboratore-caisse-supermercato-50-manor-ag-lausanne",
+          "collaborateur-trice-caisse-supermarche-50-manor-ag-lausanne"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-supermarche-50-lausanne"

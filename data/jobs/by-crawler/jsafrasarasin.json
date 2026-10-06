@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -59,7 +59,6 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
           "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
@@ -856,12 +855,12 @@
     },
     {
       "id": "jsafrasarasin-53ea1d349671",
-      "slug": "junior-fixed-income-sales-trader-jsafrasarasin-ch",
+      "slug": "vendite-trasporto-a-reddito-fisso-j-safra-sarasin-zurich-ch",
       "slugByLocale": {
         "en": "junior-fixed-income-sales-trader-jsafrasarasin-ch",
-        "it": "junior-fixed-income-sales-trader-jsafrasarasin-ch",
+        "it": "vendite-trasporto-a-reddito-fisso-j-safra-sarasin-zurich-ch",
         "de": "junior-fixed-income-sales-trader-jsafrasarasin-ch",
-        "fr": "junior-fixed-income-sales-trader-jsafrasarasin-ch"
+        "fr": "ventes-negociants-a-revenu-fixe-junior-j-safra-sarasin-zurich-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -919,7 +918,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:24:11.336Z"
+      "firstSeenAt": "2026-10-05T21:24:11.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-fixed-income-sales-trader-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "junior-fixed-income-sales-trader-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-fixed-income-sales-trader-jsafrasarasin-ch"
+      ]
     }
   ]
 }

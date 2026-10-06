@@ -14957,12 +14957,12 @@
     },
     {
       "id": "luks-961361d7526e",
-      "slug": "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern",
+      "slug": "team-leader-con-sala-operatoria-per-gli-occhi-80-100-clinica-oculistica-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern",
-        "en": "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern",
+        "it": "team-leader-con-sala-operatoria-per-gli-occhi-80-100-clinica-oculistica-luzerner-kantonsspital-luks-luzern",
+        "en": "team-leader-in-eye-surgery-80-100-eye-clinic-luzerner-kantonsspital-luks-luzern",
         "de": "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern",
-        "fr": "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern"
+        "fr": "chef-d-equipe-operation-des-yeux-80-100-clinique-ophtalmologique-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15019,16 +15019,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern"
+        ],
+        "en": [
+          "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern"
+        ],
+        "fr": [
+          "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-augen-op-80-100-augenklinik-luks-luzern"
+      ]
     },
     {
       "id": "luks-fe00da125074",
-      "slug": "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern",
+      "slug": "responsabile-acquisti-e-approvvigionamento-gastronomia-e-settore-alberghiero-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern",
-        "en": "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern",
+        "it": "responsabile-acquisti-e-approvvigionamento-gastronomia-e-settore-alberghiero-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "purchasing-procurement-manager-gastronomy-hotel-industry-80-100-luzerner-kantonsspital-luks-luzern",
         "de": "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern",
-        "fr": "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern"
+        "fr": "responsable-achats-creation-gastronomie-hotellerie-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15085,7 +15099,21 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern"
+        ],
+        "en": [
+          "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern"
+        ],
+        "fr": [
+          "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "einkaufs-amp-baschaffungsmanager-in-gastronomie-amp-hotellerie-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-b7b48296629d",
