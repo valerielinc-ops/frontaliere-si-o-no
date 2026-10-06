@@ -7838,6 +7838,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Schweiz: 10\'500 Schweine wegen enzootischer Pneumonie getötet',
     'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Gesundheitsnotstand in 14 Kantonen: Über 10\'500 Schweine getötet oder geschlachtet, um die Ausbreitung einer ansteckenden Lungeninfektion zu stoppen.',
     'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Schweizer Landwirtschaftliche Einrichtungen und Landschaft',
+    'blog.article.ginevra-iniziativa-cern-fcc.title': 'Genf startet Volksabstimmung über die Zukunft des CERN',
+    'blog.article.ginevra-iniziativa-cern-fcc.excerpt': 'Der FCC wäre 91 km lang, würde 15 Milliarden Franken kosten, und bis Mitte Februar 2027 sind 5’696 Unterschriften erforderlich; die endgültige Entscheidung der 25 Mitgliedstaaten ist für Mai 2028 vorgesehen.',
+    'blog.article.ginevra-iniziativa-cern-fcc.imageAlt': 'Blick auf den Genfersee mit dem CERN-Komplex im Hintergrund, Tageslicht',
+    'blog.article.iniziative-mps-giustizia-respinte.title': 'MPS-Initiativen zur Justiz vom Grossen Rat abgelehnt',
+    'blog.article.iniziative-mps-giustizia-respinte.excerpt': 'Der Grosse Rat hat die beiden MPS-Initiativen abgelehnt: das Pensionsalter der Magistratinnen und Magistraten von 70 auf 65 Jahre zu senken (41 Gegenstimmen) und die Amtsenthebungen dem Parlament zu übertragen (61 Gegenstimmen).',
+    'blog.article.iniziative-mps-giustizia-respinte.imageAlt': 'Saal des Grossen Rates in Bellinzona während einer Abstimmung über die MPS-Justizinitiativen',
 };
 
 export default blogMetaChDe;

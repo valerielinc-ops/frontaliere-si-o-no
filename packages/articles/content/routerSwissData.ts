@@ -2635,6 +2635,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nuovi-progetti-chiave-digitali': { it: 'nuovi-progetti-chiave-digitali', en: 'new-key-digital-projects', de: 'neue-key-digital-projekte', fr: 'nouveaux-projets-cles-numeriques' },
  'luna-opportunita-aziende-svizzere': { it: 'luna-opportunita-aziende-svizzere', en: 'moon-opportunity-swiss-companies', de: 'mond-chance-schweizer-unternehmen', fr: 'lune-opportunite-entreprises-suisses' },
  'maiali-polmonite-enzootica-svizzera': { it: 'maiali-polmonite-enzootica-svizzera', en: 'switzerland-pigs-enzootic-pneumonia', de: 'schweiz-schweine-enzootische-lunge', fr: 'suisse-porcs-pneumonie-enzootique' },
+ 'ginevra-iniziativa-cern-fcc': { it: 'ginevra-iniziativa-cern-fcc', en: 'geneva-initiative-cern-fcc', de: 'genf-initiative-cern-fcc', fr: 'geneve-initiative-cern-fcc' },
+ 'iniziative-mps-giustizia-respinte': { it: 'iniziative-mps-giustizia-respinte', en: 'mps-justice-initiatives-rejected', de: 'mps-justizinitiativen-abgelehnt', fr: 'initiatives-mps-justice-rejetees' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

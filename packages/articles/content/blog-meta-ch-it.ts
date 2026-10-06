@@ -7838,6 +7838,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
     'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Emergenza sanitaria in 14 Cantoni: oltre 10\'500 suini abbattuti o macellati per fermare il contagio di un\'infezione polmonare contagiosa.',
     'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Paesaggio rurale svizzero con strutture agricole own modern own',
+    'blog.article.ginevra-iniziativa-cern-fcc.title': 'Ginevra lancia voto popolare sul futuro CERN',
+    'blog.article.ginevra-iniziativa-cern-fcc.excerpt': 'Il FCC sarebbe lungo 91 km, costerebbe 15 miliardi di franchi e servono 5’696 firme entro metà febbraio 2027; decisione finale dei 25 Stati membri prevista per maggio 2028.',
+    'blog.article.ginevra-iniziativa-cern-fcc.imageAlt': 'Vista del lago di Ginevra con il complesso del CERN sullo sfondo, luce diurna',
+    'blog.article.iniziative-mps-giustizia-respinte.title': 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    'blog.article.iniziative-mps-giustizia-respinte.excerpt': 'Il Gran Consiglio ha respinto le due iniziative MPS: ridurre l\'età pensionamento magistrati da 70 a 65 anni (41 voti contro) e trasferire al Parlamento le destituzioni (61 voti contro).',
+    'blog.article.iniziative-mps-giustizia-respinte.imageAlt': 'Aula del Gran Consiglio a Bellinzona durante una votazione sulle iniziative MPS sulla giustizia',
 };
 
 export default blogMetaChIt;

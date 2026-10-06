@@ -18,7 +18,7 @@ import { cdnBlogImage } from './blogImageCdnMirror';
 
 export type { Article };
 
-const RAW_SWISS_ARTICLES: Article[] = [
+const RAW_SWISS_ARTICLES_CHUNK_01: Article[] = [
   {
     id: 'costo-vita-svizzera-2026',
     category: 'pratico',
@@ -2345,6 +2345,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_02: Article[] = [
    {
     id: 'volg-wiler-analisi-nazionale',
     category: 'novita',
@@ -4721,6 +4724,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_03: Article[] = [
    {
     id: 'regione-lombardia-fiduciosa',
     category: 'novita',
@@ -7054,6 +7060,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_04: Article[] = [
    {
     id: 'portale-informazione-svizzera-italiana',
     category: 'novita',
@@ -9445,6 +9454,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_05: Article[] = [
    {
     id: 'avs-e-prestazioni-complementari-nidvaldo',
     category: 'pensione',
@@ -11842,6 +11854,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_06: Article[] = [
    {
     id: 'cherosene-sintetico-aviazione',
     category: 'novita',
@@ -14237,6 +14252,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_07: Article[] = [
    {
     id: 'kremlin-voto-neutralita-svizzera',
     category: 'novita',
@@ -16632,6 +16650,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_08: Article[] = [
    {
     id: 'avs-prestazioni-complementari-lacune-contributive',
     category: 'pensione',
@@ -19042,6 +19063,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_09: Article[] = [
    {
     id: 'sistema-scolastico-canton-ginevra-iscrizione-cicli',
     category: 'pratico',
@@ -21371,6 +21395,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_10: Article[] = [
    {
     id: 'bns-inflazione-pil-previsioni-2026',
     category: 'novita',
@@ -23698,6 +23725,9 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
    {
     id: 'otto-progetti-ricostruzione-ucraina',
     category: 'novita',
@@ -24771,7 +24801,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ginevra-iniziativa-cern-fcc',
+    category: 'novita',
+    date: '2026-10-06T17:58:26.506Z',
+    image: '/images/blog/ginevra-iniziativa-cern-fcc.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['GE'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'iniziative-mps-giustizia-respinte',
+    category: 'novita',
+    date: '2026-10-06T18:30:47.821Z',
+    image: '/images/blog/iniziative-mps-giustizia-respinte.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
+
+const RAW_SWISS_ARTICLES: Article[] = [
+ ...RAW_SWISS_ARTICLES_CHUNK_01,
+ ...RAW_SWISS_ARTICLES_CHUNK_02,
+ ...RAW_SWISS_ARTICLES_CHUNK_03,
+ ...RAW_SWISS_ARTICLES_CHUNK_04,
+ ...RAW_SWISS_ARTICLES_CHUNK_05,
+ ...RAW_SWISS_ARTICLES_CHUNK_06,
+ ...RAW_SWISS_ARTICLES_CHUNK_07,
+ ...RAW_SWISS_ARTICLES_CHUNK_08,
+ ...RAW_SWISS_ARTICLES_CHUNK_09,
+ ...RAW_SWISS_ARTICLES_CHUNK_10,
+ ...RAW_SWISS_ARTICLES_CHUNK_11,
+] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
 // Pages artifact (build-plugins/blogImageCdnFinalizePlugin) — so the runtime

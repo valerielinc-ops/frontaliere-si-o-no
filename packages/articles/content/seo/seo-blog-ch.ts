@@ -98819,6 +98819,74 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ginevra-iniziativa-cern-fcc': {
+    title: 'Ginevra lancia voto popolare sul futuro CERN | Frontaliere Ticino',
+    description: 'Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, lancia, voto, popolare',
+    ogTitle: 'Ginevra lancia voto popolare sul futuro CERN',
+    ogDescription: 'Il Future Circular Collider (FCC) del CERN, lungo 91 km e dal costo stimato di 15 miliardi di franchi, potrebbe essere sottoposto a un voto popolare ginevrino. L\'iniziativa Co-CERNés chiede 5’696 firme entro metà febbraio 2027 per rendere',
+    canonicalPath: '/articoli-svizzera/ginevra-iniziativa-cern-fcc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra lancia voto popolare sul futuro CERN",
+      "description": "Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ginevra-iniziativa-cern-fcc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Ginevra con il complesso del CERN sullo sfondo, luce diurna"
+      },
+      "datePublished": "2026-10-06T17:58:26+00:00",
+      "dateModified": "2026-10-06T17:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-iniziativa-cern-fcc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziative-mps-giustizia-respinte': {
+    title: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    description: 'Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all\'età pensionamento dei magistrati (70 anni rimane) né',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, sulla, giustizia, bocciate',
+    ogTitle: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    ogDescription: 'A Bellinzona, il Gran Consiglio ha bocciato entrambe le proposte degli esponenti MPS Matteo Pronzini e Pino Sergi. La prima voleva ridurre l\'età di pensionamento dei giudici da 70 a 65 anni, ricevendo 41 voti contrari; la seconda intendeva attribuire',
+    canonicalPath: '/articoli-svizzera/iniziative-mps-giustizia-respinte/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative MPS sulla giustizia bocciate dal Gran Consiglio",
+      "description": "Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all'età pensionamento dei magistrati (70 anni rimane) né",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-mps-giustizia-respinte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Gran Consiglio a Bellinzona durante una votazione sulle iniziative MPS sulla giustizia"
+      },
+      "datePublished": "2026-10-06T18:30:47+00:00",
+      "dateModified": "2026-10-06T18:30:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziative-mps-giustizia-respinte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

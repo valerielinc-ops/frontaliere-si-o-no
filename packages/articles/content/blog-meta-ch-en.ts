@@ -7838,6 +7838,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.maiali-polmonite-enzootica-svizzera.title': 'Switzerland: 10\'500 pigs killed due to enzootic pneumonia',
     'blog.article.maiali-polmonite-enzootica-svizzera.excerpt': 'Health emergency in 14 cantons: over 10\'500 pigs culled or slaughtered to stop the spread of a contagious lung infection.',
     'blog.article.maiali-polmonite-enzootica-svizzera.imageAlt': 'Swiss rural landscape with modern agricultural facilities',
+    'blog.article.ginevra-iniziativa-cern-fcc.title': 'Geneva launches popular vote on CERN\'s future',
+    'blog.article.ginevra-iniziativa-cern-fcc.excerpt': 'The FCC would be 91 km long, would cost 15 billion francs, and 5’696 signatures are needed by mid-February 2027; final decision by the 25 Member States scheduled for May 2028.',
+    'blog.article.ginevra-iniziativa-cern-fcc.imageAlt': 'Lake Geneva view with the CERN complex in the background, daylight',
+    'blog.article.iniziative-mps-giustizia-respinte.title': 'MPS justice initiatives rejected by the Grand Council',
+    'blog.article.iniziative-mps-giustizia-respinte.excerpt': 'The Grand Council rejected the two MPS initiatives: reducing magistrates\' retirement age from 70 to 65 years (41 votes against) and transferring dismissals to Parliament (61 votes against).',
+    'blog.article.iniziative-mps-giustizia-respinte.imageAlt': 'Grand Council chamber in Bellinzona during a vote on the MPS justice initiatives',
 };
 
 export default blogMetaChEn;

@@ -40100,6 +40100,27 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parlamento-ticino-a2-a13-priorita',
+ category: 'novita',
+ date: '2026-10-06T17:38:30.838Z',
+ image: '/images/blog/parlamento-ticino-a2-a13-priorita.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'truffa-finto-operatore-luino',
+ category: 'novita',
+ date: '2026-10-06T18:14:32.622Z',
+ image: '/images/blog/truffa-finto-operatore-luino.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

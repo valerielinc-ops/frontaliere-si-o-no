@@ -12710,6 +12710,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-part-time-ticino-dati.title': 'Il lavoro part-time rende in percentuale meno',
     'blog.article.lavoro-part-time-ticino-dati.excerpt': 'In Ticino il 65% dei salariati lavora a tempo pieno (5\'456 franchi/mese) e il 35% a part-time con retribuzione equivalente di 5\'121 franchi, cioè 335 franchi in meno.',
     'blog.article.lavoro-part-time-ticino-dati.imageAlt': 'Lavoratore part-time sul lungolago di Lugano con vista sulle Alpi',
+    'blog.article.parlamento-ticino-a2-a13-priorita.title': 'Parlamento Ticino: A2-A13 torni priorità USTRA',
+    'blog.article.parlamento-ticino-a2-a13-priorita.excerpt': 'Parlamento ticinese vota risoluzione per non rinviare oltre il 2050 il collegamento A2-A13. Locarnese unica grande regione senza accesso autostradale diretto.',
+    'blog.article.parlamento-ticino-a2-a13-priorita.imageAlt': 'Vista aerea del Locarnese con Lago Maggiore e assenza collegamento autostradale',
+    'blog.article.truffa-finto-operatore-luino.title': 'Truffa del finto bancario a Luino: sequestrati 17mila euro',
+    'blog.article.truffa-finto-operatore-luino.excerpt': 'Un 32enne campano è stato denunciato: avrebbe convinto una persona di 62 anni a fare un bonifico. Sequestrato un conto con oltre 17mila euro.',
+    'blog.article.truffa-finto-operatore-luino.imageAlt': 'Scena urbana di Luino legata alla truffa del finto operatore bancario',
 };
 
 export default blogMetaIt;

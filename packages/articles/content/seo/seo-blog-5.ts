@@ -100431,6 +100431,74 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-ticino-a2-a13-priorita': {
+    title: 'Parlamento Ticino: A2-A13 torni priorità USTRA',
+    description: 'Il Parlamento ticinese approva risoluzione per reinserire il collegamento A2-A13 tra le priorità USTRA. Locarnese unica grande regione senza autostrada diretta',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, a2-a13, torni, priorità',
+    ogTitle: 'Parlamento Ticino: A2-A13 torni priorità USTRA, no a rinvio oltre 2050',
+    ogDescription: 'Il Parlamento ticinese vota all\'unanimità una risoluzione che chiede al Consiglio federale di non posticipare il collegamento A2-A13 oltre il 2050 e di riportarlo tra i progetti prioritari dell\'USTRA. Il Locarnese resta l\'unica grande regione',
+    canonicalPath: '/articoli-frontaliere/parlamento-ticino-a2-a13-priorita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento Ticino: A2-A13 torni priorità USTRA",
+      "description": "Il Parlamento ticinese approva risoluzione per reinserire il collegamento A2-A13 tra le priorità USTRA. Locarnese unica grande regione senza autostrada diretta",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parlamento-ticino-a2-a13-priorita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Locarnese con Lago Maggiore e assenza collegamento autostradale"
+      },
+      "datePublished": "2026-10-06T17:38:30+00:00",
+      "dateModified": "2026-10-06T17:38:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parlamento-ticino-a2-a13-priorita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-truffa-finto-operatore-luino': {
+    title: 'Truffa del finto bancario a Luino: sequestrati 17mila euro',
+    description: 'Truffa telefonica a Luino: denunciato un 32enne campano dopo un bonifico ottenuto con un falso allarme. Sequestrato un conto con oltre 17mila euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffa, finto, bancario, luino',
+    ogTitle: 'Luino, truffa del finto operatore: conto sequestrato',
+    ogDescription: 'A Luino, un falso allarme sui prelievi fraudolenti ha spinto una vittima di 62 anni a disporre un bonifico. I carabinieri hanno denunciato un 32enne campano e sequestrato il conto, con oltre 17mila euro congelati in attesa della restituzione.',
+    canonicalPath: '/articoli-frontaliere/truffa-finto-operatore-luino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffa del finto bancario a Luino: sequestrati 17mila euro",
+      "description": "Truffa telefonica a Luino: denunciato un 32enne campano dopo un bonifico ottenuto con un falso allarme. Sequestrato un conto con oltre 17mila euro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/truffa-finto-operatore-luino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena urbana di Luino legata alla truffa del finto operatore bancario"
+      },
+      "datePublished": "2026-10-06T18:14:32+00:00",
+      "dateModified": "2026-10-06T18:14:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffa-finto-operatore-luino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
