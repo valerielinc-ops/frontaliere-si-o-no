@@ -295,6 +295,8 @@ jobs:
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -352,6 +354,8 @@ jobs:
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -419,6 +423,8 @@ jobs:
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -487,6 +493,8 @@ jobs:
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
