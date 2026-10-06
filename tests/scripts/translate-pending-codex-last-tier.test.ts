@@ -17,11 +17,11 @@ import YAML from 'yaml';
  * corpus:
  *   · il broker parte dopo il passaggio Argos bulk (2a) e prima della 2b;
  *   · il socket arriva solo alle fasi 2b, 2d e 2e, ognuna con un budget per
- *     run esplicito; la 2b senza `last`, la 2d/2e con `last`;
+ *     run ereditato dal resolver comune; la 2b senza `last`, la 2d/2e con `last`;
  *   · nessuno step imposta AI_MODELS_PREFER;
  *   · TTL del broker che copre la finestra delle fasi.
  */
-type Step = { id?: string; name?: string; uses?: string; if?: string; env?: Record<string, unknown>; with?: Record<string, unknown> };
+type Step = { id?: string; name?: string; uses?: string; if?: string; env?: Record<string, unknown>; with?: Record<string, unknown>; run?: string };
 
 const TARGETS = [
   '.github/workflows/translate-pending-logic.yml',
@@ -30,7 +30,9 @@ const TARGETS = [
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
-const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
+const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
+const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
+const DEFAULT_CODEX_MAX_CALLS = 30;
 
 function stepsOf(rel: string): Step[] {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), rel), 'utf8')) as {
@@ -39,16 +41,15 @@ function stepsOf(rel: string): Step[] {
   return workflow.jobs.translate.steps;
 }
 
-function effectiveMaxCalls(raw: unknown, workflowVars: Record<string, string> = {}) {
-  if (raw === CODEX_MAX_CALLS_EXPR) return Number(workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS ?? '30');
-  return Number(raw);
+function effectiveMaxCalls({ inherited = '', repo = '' }: { inherited?: string; repo?: string } = {}) {
+  return Number(inherited || repo || String(DEFAULT_CODEX_MAX_CALLS));
 }
 
 function expectBudget(step: Step) {
-  expect(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS, step.name).toBe(CODEX_MAX_CALLS_EXPR);
-  const calls = effectiveMaxCalls(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS);
+  expect(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS, step.name).toBeUndefined();
+  const calls = effectiveMaxCalls();
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
-  expect(calls, step.name).toBeGreaterThan(0);
+  expect(calls, step.name).toBe(DEFAULT_CODEX_MAX_CALLS);
   expect(calls, step.name).toBeLessThanOrEqual(40);
   expect(ms, step.name).toBeGreaterThan(0);
   expect(ms, step.name).toBeLessThanOrEqual(15 * 60 * 1000);
@@ -72,11 +73,16 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(Number(setup.with?.broker_idle_ttl_ms)).toBeGreaterThanOrEqual(12_600_000);
   });
 
-  it('il socket arriva solo alle fasi 2b/2d/2e, ognuna con un budget per run', () => {
+  it('il socket arriva solo alle fasi 2b/2d/2e, che ereditano il budget per run', () => {
     const consumers = steps.filter((step) => step.env
       && Object.prototype.hasOwnProperty.call(step.env, 'CODEX_AUTH_BROKER_SOCKET')
       && step.name !== 'Cleanup Codex auth broker');
     expect(consumers.map((step) => step.name)).toEqual([PHASE_2B, PHASE_2D, PHASE_2E]);
+    const resolver = steps.find((step) => step.name === CODEX_BUDGET_RESOLVER);
+    expect(resolver?.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
+    expect(resolver?.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS');
+    expect(steps.indexOf(resolver!)).toBeLessThan(steps.indexOf(consumers[0]));
+    expect(effectiveMaxCalls({ repo: '0' })).toBe(0);
     for (const step of consumers) expectBudget(step);
     expect(steps.some((step) => step.env && Object.prototype.hasOwnProperty.call(step.env, 'AI_MODELS_PREFER'))).toBe(false);
   });

@@ -238,6 +238,24 @@ jobs:
         continue-on-error: true
         run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
 
+      # Resolve the effective Codex reserve budget once, after Remote Config
+      # has been loaded. An existing environment/input value wins; otherwise
+      # the repository variable is the rollback lever and 30 is only the
+      # unset default. Writing the result to GITHUB_ENV lets every translating
+      # phase inherit the same setting without redefining it in its own env.
+      - name: Resolve Codex reserve budget
+        if: inputs.skip_translate != true
+        env:
+          FREE_TRANSLATE_CODEX_MAX_CALLS_REPO: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}
+        run: |
+          if [ -n "${FREE_TRANSLATE_CODEX_MAX_CALLS:-}" ]; then
+            echo "FREE_TRANSLATE_CODEX_MAX_CALLS already set; preserving effective setting"
+          elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
+          else
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=30\n' >> "$GITHUB_ENV"
+          fi
+
       # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
       # note and crawler-group-NN-logic.yml's identical step for the full
       # chicken-and-egg rationale.
@@ -492,7 +510,6 @@ jobs:
           # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
           # alert (scripts/lib/codex-reserve-report.mjs).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
@@ -640,7 +657,6 @@ jobs:
           # subscription is shared with the owner's interactive use and this lane runs every day.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_TIER: last
-          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
@@ -673,7 +689,6 @@ jobs:
           # phases never run in the same run).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_TIER: last
-          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
