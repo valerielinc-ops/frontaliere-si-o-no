@@ -45,9 +45,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "kundendienstmitarbeiter-in-service-fust-niederwangen-be",
-        "en": "kundendienstmitarbeiter-in-service-fust-niederwangen-be",
-        "de": "kundendienstmitarbeiter-in-service-fust-niederwangen-be",
-        "fr": "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
+        "en": "kundendienstmitarbeiter-in-service-fust-niederwangen-be-nigsde",
+        "de": "kundendienstmitarbeiter-in-service-fust-niederwangen-be-nigsde",
+        "fr": "kundendienstmitarbeiter-in-service-fust-niederwangen-be-nigsde"
       },
       "requirementsByLocale": {},
       "addressLocality": "Niederwangen BE",
@@ -69,7 +69,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
+        ],
+        "de": [
+          "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
+        ],
+        "fr": [
+          "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
+        ]
+      },
+      "previousSlugs": [
+        "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
+      ]
     },
     {
       "id": "company-mdebqz",
@@ -727,9 +741,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-weinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-weinfelden"
+      ]
     },
     {
       "id": "company-nrd2y5",
@@ -797,9 +819,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-widnau"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-widnau"
+      ]
     },
     {
       "id": "company-psknw4",
@@ -867,9 +897,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 79000,
-      "salaryMax": 134500
+      "salaryMax": 134500,
+      "previousSlugsByLocale": {
+        "it": [
+          "2nd-level-support-engineer-fust-otelfingen"
+        ]
+      },
+      "previousSlugs": [
+        "2nd-level-support-engineer-fust-otelfingen"
+      ]
     },
     {
       "id": "company-xrafdf",
@@ -1006,9 +1044,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "multimediaelektroniker-in-efz-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "multimediaelektroniker-in-efz-fust-oberburen"
+      ]
     },
     {
       "id": "company-kasdqb",
@@ -1076,9 +1122,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-efz-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-in-efz-fust-oberburen"
+      ]
     },
     {
       "id": "company-fxcm7",
@@ -1146,9 +1200,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
+      ]
     },
     {
       "id": "company-fsbsv9",
@@ -1216,9 +1278,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-frauenfeld"
+      ]
     },
     {
       "id": "company-lj87ri",
@@ -1286,9 +1356,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
+      ]
     },
     {
       "id": "company-ui85m3",
@@ -1356,9 +1434,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-arbon"
+      ]
     },
     {
       "id": "company-jhub8h",
@@ -1426,9 +1512,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+      ]
     },
     {
       "id": "company-mvdbaz",
@@ -1496,9 +1590,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mvdbaz"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mvdbaz"
+      ]
     },
     {
       "id": "company-ggdhcw",
@@ -1566,9 +1668,17 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-eba-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-in-eba-fust-oberburen"
+      ]
     },
     {
       "id": "company-1jys2s",
@@ -2696,7 +2806,8 @@
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
+          "specialista-al-dettaglio-efz-scopri-di-esperienze-di-shopping-fust-chur"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66"
@@ -2712,7 +2823,8 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-w1ep66",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-chur",
+        "specialista-al-dettaglio-efz-scopri-di-esperienze-di-shopping-fust-chur"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
@@ -2786,15 +2898,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern"
+          "kundendienstmitarbeiter-in-service-fust-koniz-bern",
+          "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
         ]
       },
       "previousSlugs": [
-        "kundendienstmitarbeiter-in-service-fust-koniz-bern"
+        "kundendienstmitarbeiter-in-service-fust-koniz-bern",
+        "kundendienstmitarbeiter-in-service-fust-niederwangen-be"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -2863,7 +2977,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
+          "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
+          "qualita-responsabile-r-consegna-a-domicilio-fust-niederwangen-be"
         ],
         "en": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz"
@@ -2877,7 +2992,8 @@
       },
       "previousSlugs": [
         "qualitatsverantwortliche-r-heimlieferung-fust-koniz",
-        "qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be"
+        "qualitatsverantwortliche-r-heimlieferung-fust-niederwangen-be",
+        "qualita-responsabile-r-consegna-a-domicilio-fust-niederwangen-be"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
@@ -2951,12 +3067,14 @@
         "servicetechniker-in-professional-solutions-fust-oberburen",
         "servicetechniker-in-professional-solutions-fust-oberburen-2",
         "technicien-de-services-solutions-professionnelles-fust-region-zurich-basel",
-        "servicetechniker-in-professional-solutions-fust-region-zurich-basel"
+        "servicetechniker-in-professional-solutions-fust-region-zurich-basel",
+        "tecnico-di-servizio-soluzioni-professionali-fust-region-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-professional-solutions-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-oberburen-2"
+          "servicetechniker-in-professional-solutions-fust-oberburen-2",
+          "tecnico-di-servizio-soluzioni-professionali-fust-region-zurich-basel"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen"
@@ -3797,7 +3915,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
+          "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
         ],
         "en": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
@@ -3811,7 +3930,8 @@
       },
       "previousSlugs": [
         "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
-        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf",
+        "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-dubendorf"
       ],
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
@@ -4746,7 +4866,8 @@
       "postingDateSource": "reported",
       "retranslationAttempts": 0,
       "salaryMin": 105500,
-      "salaryMax": 185000
+      "salaryMax": 185000,
+      "needsRetranslation": true
     },
     {
       "id": "company-d3cpjz",
@@ -5067,7 +5188,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-heimservice-fust-visp"
+          "servicetechniker-in-heimservice-fust-visp",
+          "tecnico-di-assistenza-domiciliare-fust-region-oberwallis"
         ],
         "en": [
           "servicetechniker-in-heimservice-fust-visp"
@@ -5077,7 +5199,8 @@
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-heimservice-fust-visp"
+        "servicetechniker-in-heimservice-fust-visp",
+        "tecnico-di-assistenza-domiciliare-fust-region-oberwallis"
       ],
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
@@ -5289,7 +5412,7 @@
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-schwyz",
         "en": "retail-specialist-efz-designing-shopping-experiences-fust-schwyz",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-9duvq8",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz",
         "fr": "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-schwyz"
       },
       "requirementsByLocale": {},
@@ -5329,7 +5452,6 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-9duvq8"
         ],
         "de": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-9duvq8"
         ],
         "fr": [
@@ -5410,11 +5532,17 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zurich-letzipark"
       ],
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zurich-letzipark"
+        ]
+      }
     },
     {
       "id": "company-fcfav1",
@@ -5489,7 +5617,8 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-7",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-14",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1"
         ]
       },
       "previousSlugs": [
@@ -5498,9 +5627,10 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-7",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-14",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1"
       ],
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -5640,7 +5770,6 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5656,14 +5785,16 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-bulach"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-bulach-vdtr88"
@@ -5674,9 +5805,11 @@
       },
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1338
     },
     {
       "id": "company-yo2bxu",
@@ -6014,7 +6147,8 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-12",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-schwyz",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7"
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-2234e7"
@@ -6028,9 +6162,10 @@
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-schwyz",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-2234e7"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz-2234e7",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-schwyz"
       ],
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 107500,
       "salaryMax": 188500
     },
@@ -6086,7 +6221,6 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6102,14 +6236,16 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-13",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-13",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-zug"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zug-71n83b"
@@ -6120,9 +6256,11 @@
       },
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
       "salaryMin": 107500,
-      "salaryMax": 188500
+      "salaryMax": 188500,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1263
     },
     {
       "id": "company-s62qmp",
@@ -6192,13 +6330,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
         ]
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
       ],
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -6306,9 +6446,9 @@
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z",
-        "en": "retail-specialist-efz-shape-of-shopping-experiences-fust-oberburen-plbt7z",
+        "en": "retail-specialist-efz-shape-of-shopping-experiences-fust-oberburen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z",
-        "fr": "specialiste-du-commerce-de-detail-efz-shape-of-shopping-experiences-fust-oberburen-plbt7z"
+        "fr": "specialiste-du-commerce-de-detail-efz-shape-of-shopping-experiences-fust-oberburen"
       },
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -7228,9 +7368,9 @@
       "crawledAt": "2026-10-06T09:45:34.946Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "slugByLocale": {
-        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174",
-        "en": "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-l0r174",
-        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-l0r174",
+        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen",
+        "en": "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen",
+        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen",
         "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-l0r174"
       },
       "titleByLocale": {
@@ -7265,30 +7405,26 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "previousSlugsByLocale": {
         "it": [
-          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen",
-          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174"
+          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174",
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-geneve-balexert"
         ],
         "en": [
-          "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen",
           "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-l0r174"
         ],
         "de": [
-          "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen",
           "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-l0r174"
         ]
       },
       "previousSlugs": [
-        "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen",
-        "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen",
-        "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen",
         "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174",
         "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-l0r174",
-        "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-l0r174"
+        "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-l0r174",
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-geneve-balexert"
       ]
     },
     {

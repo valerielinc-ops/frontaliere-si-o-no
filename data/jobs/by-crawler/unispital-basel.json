@@ -1970,10 +1970,10 @@
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
+        "it": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2019,12 +2019,13 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
+        "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
         "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+          "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
@@ -2993,10 +2994,10 @@
       "id": "unispital-basel-c6b7a7b547f5",
       "slug": "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
+        "it": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "en": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "de": "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "fr": "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "fr": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3041,16 +3042,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
-        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
+        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
@@ -3068,7 +3068,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "unispital-basel-84824a7e36e4",
@@ -9026,7 +9027,7 @@
       "id": "unispital-basel-4ea8a41de814",
       "slug": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
+        "it": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "en": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "de": "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
         "fr": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
@@ -9074,12 +9075,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-        "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+        "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-          "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+          "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel"
         ]
       },
       "needsRetranslation": true,
@@ -9096,7 +9097,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "unispital-basel-4ffb557747e5",

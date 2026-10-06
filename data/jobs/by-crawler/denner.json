@@ -3186,7 +3186,7 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-bern-bumpliz",
-        "en": "shop-assistant-denner-bern-bumpliz",
+        "en": "seller-denner-ag-bern-bumpliz",
         "de": "verkaufer-in-denner-ag-bern-bumpliz-tkyapg",
         "fr": "vendeur-denner-ag-bern-bumpliz"
       },
@@ -11136,7 +11136,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-2zbait",
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b"
       },
@@ -11199,16 +11199,16 @@
           "stv-filialleiter-in-denner"
         ],
         "en": [
-          "stv-filialleiter-in-denner-zurich-2zbait",
           "assistant-store-manager-denner-ag-zurich",
-          "stv-filialleiter-in-denner-zurich"
+          "stv-filialleiter-in-denner-zurich",
+          "stv-filialleiter-in-denner-zurich-2zbait"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-zurich-2zbait",
         "assistant-store-manager-denner-ag-zurich",
-        "stv-filialleiter-in-denner-zurich"
+        "stv-filialleiter-in-denner-zurich",
+        "stv-filialleiter-in-denner-zurich-2zbait"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -12070,9 +12070,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-zug",
-        "en": "verkaufer-in-denner-zug",
+        "en": "verkaufer-in-denner-zug-rtrz4s",
         "de": "verkaufer-in-denner",
-        "fr": "verkaufer-in-denner-zug"
+        "fr": "verkaufer-in-denner-zug-rtrz4s"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12127,24 +12127,24 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-zug-rtrz4s",
         "shop-assistant-denner-zug",
         "vendeur-denner-zug",
-        "verkaufer-in-denner-zug"
+        "verkaufer-in-denner-zug",
+        "verkaufer-in-denner-zug-rtrz4s"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-zug-rtrz4s",
           "shop-assistant-denner-zug",
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner-zug",
+          "verkaufer-in-denner-zug-rtrz4s"
         ],
         "fr": [
-          "verkaufer-in-denner-zug-rtrz4s",
           "vendeur-denner-zug",
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner-zug",
+          "verkaufer-in-denner-zug-rtrz4s"
         ]
       },
       "needsRetranslation": true,
@@ -20129,7 +20129,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-negozio-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-geicje",
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich"
       },
@@ -20193,16 +20193,16 @@
           "stv-filialleiter-in-denner-zurich"
         ],
         "en": [
-          "stv-filialleiter-in-denner-zurich-geicje",
           "deputy-branch-manager-denner-ag-zurich",
-          "stv-filialleiter-in-denner-zurich"
+          "stv-filialleiter-in-denner-zurich",
+          "stv-filialleiter-in-denner-zurich-geicje"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-zurich",
-        "stv-filialleiter-in-denner-zurich-geicje",
-        "deputy-branch-manager-denner-ag-zurich"
+        "deputy-branch-manager-denner-ag-zurich",
+        "stv-filialleiter-in-denner-zurich-geicje"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -20880,7 +20880,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-gdn8qz",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
       },
@@ -20962,9 +20962,9 @@
           "stv-filialleiter-in-denner-cham"
         ],
         "en": [
-          "stv-filialleiter-in-denner-zurich-gdn8qz",
           "deputy-branch-manager-denner-ag-zurich-6527ca",
-          "stv-filialleiter-in-denner-zurich"
+          "stv-filialleiter-in-denner-zurich",
+          "stv-filialleiter-in-denner-zurich-gdn8qz"
         ],
         "fr": [
           "directeur-de-succursale-stv-in-denner-ag-zurich"
@@ -20999,8 +20999,8 @@
         "stv-filialleiter-in-denner-amriswil",
         "stv-filialleiter-in-denner-zurich",
         "stv-filialleiter-in-denner-cham",
-        "stv-filialleiter-in-denner-zurich-gdn8qz",
-        "deputy-branch-manager-denner-ag-zurich-6527ca"
+        "deputy-branch-manager-denner-ag-zurich-6527ca",
+        "stv-filialleiter-in-denner-zurich-gdn8qz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -27616,7 +27616,7 @@
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne-916e21",
         "en": "shop-assistant-denner-biel-bienne-916e21",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-c310c0",
         "fr": "vendeur-denner-biel-bienne-916e21"
       },
       "company": "Denner",
@@ -27911,7 +27911,7 @@
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-interlaken",
         "en": "stv-filialleiter-in-denner-interlaken",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-obz0cb",
         "fr": "directeur-trice-adjoint-e-de-succursale-denner-interlaken"
       },
       "company": "Denner",
@@ -27968,8 +27968,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "stv-filialleiter-in-denner-obz0cb",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-obz0cb"
         ],
         "it": [
           "stv-filialleiter-in-denner-7",
@@ -27982,8 +27982,8 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-7",
         "stv-filialleiter-in-denner-interlaken",
-        "stv-filialleiter-in-denner-obz0cb",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-obz0cb"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -28285,7 +28285,7 @@
         "fr": "Vendeur"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-y3hqpt",
         "it": "verkaufer-in-denner-biel-bienne",
         "en": "verkaufer-in-denner-biel-bienne",
         "fr": "verkaufer-in-denner-biel-bienne"
@@ -28346,10 +28346,14 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-13"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-13"
+        "verkaufer-in-denner-13",
+        "verkaufer-in-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -28809,7 +28813,7 @@
         "fr": "Vendeur"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-z7jyyo",
         "it": "verkaufer-in-denner-langenthal",
         "en": "verkaufer-in-denner-langenthal",
         "fr": "verkaufer-in-denner-langenthal"
@@ -28870,10 +28874,14 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-18"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-18"
+        "verkaufer-in-denner-18",
+        "verkaufer-in-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

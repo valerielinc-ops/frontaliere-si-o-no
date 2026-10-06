@@ -99,8 +99,7 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
       "postedDate": "2026-01-26",
-      "postingDateSource": "reported",
-      "needsRetranslation": true
+      "postingDateSource": "reported"
     },
     {
       "title": "Infermieri",
@@ -316,7 +315,7 @@
       "slugByLocale": {
         "it": "assistenti-di-cura",
         "en": "care-assistants-lis-lugano-istituti-sociali-pregassona",
-        "de": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+        "de": "pflegehelfer-lis-lugano-istituti-sociali-pregassona",
         "fr": "assistants-de-soins-lis-lugano-istituti-sociali-pregassona"
       },
       "descriptionByLocale": {
@@ -389,8 +388,7 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
       "postedDate": "2026-01-26",
-      "postingDateSource": "reported",
-      "needsRetranslation": true
+      "postingDateSource": "reported"
     },
     {
       "title": "Collaboratori sanitari",
@@ -872,7 +870,9 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=38-educatori-sociali-pregassona&language=it",
       "postedDate": "2026-01-26",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -971,7 +971,9 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
       "postedDate": "2026-01-26",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Educatori dell'infanzia",
