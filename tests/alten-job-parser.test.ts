@@ -6,9 +6,24 @@ import {
   parseAltenDetailHtml,
   isAltenSwissLocation,
 } from '../scripts/lib/alten-job-parser.mjs';
+import {
+  CAREERS_URL,
+  isTransientAltenBrowserError,
+} from '../scripts/update-alten-jobs.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from '../scripts/lib/swiss-locality-sentence-split.mjs';
 
 describe('alten-job-parser', () => {
+  it('uses the canonical careers listing URL without a query string', () => {
+    expect(CAREERS_URL).toBe('https://www.alten.ch/career/jobs/');
+    expect(new URL(CAREERS_URL).search).toBe('');
+  });
+
+  it('classifies browser transport failures as transient', () => {
+    expect(isTransientAltenBrowserError(new Error('net::ERR_CONNECTION_RESET'))).toBe(true);
+    expect(isTransientAltenBrowserError(new Error('ALTEN listing did not become available'))).toBe(true);
+    expect(isTransientAltenBrowserError(new Error('HTTP 404'))).toBe(false);
+  });
+
   it('recognizes Swiss locations CH-wide', () => {
     expect(isAltenSwissLocation('Ticino')).toBe(true);
     expect(isAltenSwissLocation('Switzerland Ticino')).toBe(true);

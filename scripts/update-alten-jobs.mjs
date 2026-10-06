@@ -41,7 +41,12 @@ import { detectJinaErrorBody, fetchViaJinaWithRetry } from './lib/jina-proxy.mjs
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
+  fetchWithRetry,
+  warnIfListingAtCap,
+} from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -59,9 +64,10 @@ const COMPANY_NAME = 'ALTEN Switzerland';
 const COMPANY_DOMAIN = 'alten.ch';
 const COMPANY_HOST = 'www.alten.ch';
 const LISTING_PAGE_CAP = 100;
-const CAREERS_URL = `https://www.alten.ch/career/jobs/?pagenum=1&per_page=${LISTING_PAGE_CAP}`;
+export const CAREERS_URL = 'https://www.alten.ch/career/jobs/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const CRAWL_STATE = { lastFetchOutcome: null };
+const ALTEN_BROWSER_RETRIES = 1;
 
 function readJson(filePath, fallback) {
   try {
@@ -113,6 +119,11 @@ function isTrustedDomain(rawUrl = '') {
 function isBrowserExitError(error = {}) {
   const message = String(error?.message || error);
   return /target page,\s*context or browser has been closed/i.test(message);
+}
+
+export function isTransientAltenBrowserError(error = {}) {
+  const message = String(error?.message || error);
+  return isBrowserExitError(error) || /did not become available|net::ERR_|timeout|403/i.test(message);
 }
 
 async function waitForListing(page) {
@@ -169,6 +180,15 @@ async function withBrowser(fn) {
     await context.close();
     await browser.close();
   }
+}
+
+async function withBrowserRetry(fn, label) {
+  return fetchWithRetry(() => withBrowser(fn), {
+    retries: ALTEN_BROWSER_RETRIES,
+    retryBaseMs: 1500,
+    label: `ALTEN ${label} browser session`,
+    isTransient: isTransientAltenBrowserError,
+  });
 }
 
 function isRecognizedAltenSourceLocation(raw = '') {
@@ -262,21 +282,19 @@ function assertCompleteAltenSnapshot(jobs = []) {
 async function discoverListings() {
   console.log('🔍 Fetching ALTEN jobs with browser session...');
   try {
-    return await withBrowser(async (page) => {
+    return await withBrowserRetry(async (page) => {
       await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
       const readySnapshot = await waitForListing(page);
       if (!readySnapshot) throw new Error('ALTEN listing did not become available in browser session');
       return buildAltenListings(readySnapshot.html, 'browser', {
         stableSourceSnapshot: readySnapshot.sourceReadComplete === true,
       });
-    });
+    }, 'listing');
   } catch (err) {
     // Treat connectivity / challenge errors as a transient unavailability.
     // Return null so main() preserves the existing jobs.json content rather
     // than wiping ALTEN entries on a bad run.
-    const errorMessage = String(err?.message || err);
-    const isTransient = isBrowserExitError(err) || /did not become available|net::ERR_|timeout|403/i.test(errorMessage);
-    if (isTransient) {
+    if (isTransientAltenBrowserError(err)) {
       console.warn(`⚠️  ALTEN site or listing unavailable: ${err.message}`);
       try {
         console.log('🛰️  Retrying ALTEN listing through clean egress...');
@@ -588,4 +606,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'ALTEN'));
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((error) => exitCrawlerOnError(error, 'ALTEN'));
+}
