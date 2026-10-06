@@ -45,6 +45,15 @@ service firebase.storage {
         && request.resource.contentType.matches('image/.*');
     }
 
+    // Private event snapshots (Eventfrog Public API, AGB §17(3)): read and
+    // written only by CI with the Admin SDK, which bypasses these rules. No
+    // client may ever list, read or write them — stated explicitly so a future
+    // broad rule above cannot open the prefix by accident
+    // (tests/events-private-source-exclusions.test.ts pins it).
+    match /private-event-snapshots/{allPaths=**} {
+      allow read, write: if false;
+    }
+
     // Default deny: any path not matched above is inaccessible.
     match /{allPaths=**} {
       allow read, write: if false;
