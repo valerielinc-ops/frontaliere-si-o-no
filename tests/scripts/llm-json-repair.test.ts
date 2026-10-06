@@ -307,6 +307,19 @@ describe('repairLlmJson', () => {
     expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
   });
 
+  it('keeps a response after malformed array preamble punctuation', () => {
+    const raw = 'preamble [unbalanced, [{"q":"Q","a":"A"}]';
+    const parsed = JSON.parse(repairLlmJsonArray(raw));
+    expect(parsed).toEqual([{ q: 'Q', a: 'A' }]);
+  });
+
+  it('does not promote a nested array inside an unterminated response root', () => {
+    const raw = '[{"q":"Q","tags":["a"]}';
+    const repaired = repairLlmJsonArray(raw);
+    expect(repaired).not.toBe('["a"]');
+    expect(repaired).toContain('"q"');
+  });
+
   it('keeps a real wrapper when a trailing direct array is marked as an example', () => {
     const raw = '{"faqs":[{"q":"real","a":"A"}]} Example: [{"q":"example","a":"B"}]';
     const parsed = JSON.parse(repairLlmJsonArray(raw));

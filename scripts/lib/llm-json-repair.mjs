@@ -697,6 +697,68 @@ function nextRootStart(source, from, rootOpeners) {
   }, -1);
 }
 
+function hasJsonPrefixSyntax(source, from, to) {
+  let inString = false;
+  for (let i = from; i < to; i++) {
+    const ch = source[i];
+    if (ch === '"' && !isEscapedAt(source, i)) {
+      inString = !inString;
+      continue;
+    }
+    if (inString || /\s/.test(ch) || '{}[],:'.includes(ch)) continue;
+
+    const number = /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(source.slice(i));
+    if (number) {
+      i += number[0].length - 1;
+      continue;
+    }
+    const literal = /^(?:true|false|null)\b/.exec(source.slice(i));
+    if (literal) {
+      i += literal[0].length - 1;
+      continue;
+    }
+    return false;
+  }
+  return !inString;
+}
+
+/**
+ * An unmatched preferred root may contain complete nested containers that are
+ * not response roots (for example `tags: ["a"]` in a truncated FAQ object).
+ * A malformed prose preamble can also leave an unmatched opener before the
+ * real response, so bracket depth alone cannot distinguish the two cases:
+ * `[unbalanced [` has the same depth as `[{"tags":[`. Treat a later opener as
+ * nested only when the prefix still has JSON structural context, while
+ * allowing an opener that follows the prose of a malformed preamble through.
+ */
+function isNestedRootCandidate(source, rootStart, candidateStart) {
+  const stack = [source[rootStart]];
+  let inString = false;
+
+  for (let i = rootStart + 1; i < candidateStart; i++) {
+    const ch = source[i];
+    if (ch === '"' && !isEscapedAt(source, i)) {
+      inString = !inString;
+      continue;
+    }
+    if (inString) continue;
+
+    if (ch === '{' || ch === '[') {
+      stack.push(ch);
+    } else if (ch === '}' || ch === ']') {
+      const opener = ch === '}' ? '{' : '[';
+      if (stack.at(-1) === opener) stack.pop();
+    }
+  }
+
+  if (inString || stack.length > 1) return true;
+
+  let previous = candidateStart - 1;
+  while (previous > rootStart && /\s/.test(source[previous])) previous--;
+  return [':', '[', '{', ','].includes(source[previous])
+    && hasJsonPrefixSyntax(source, rootStart + 1, candidateStart);
+}
+
 function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {}) {
   const start = firstRootStart(source, rootOpeners);
   if (start === -1) return { start, candidates: [] };
@@ -721,12 +783,17 @@ function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {
     });
   };
 
-  const collectLaterBalancedCandidates = (from, { skipUnbalanced = false } = {}) => {
+  const collectLaterBalancedCandidates = (from, { skipUnbalanced = false, skipNested = false } = {}) => {
     let nextStart = nextRootStart(source, from, laterRootOpeners);
     let examined = 0;
     while (nextStart !== -1 && examined < MAX_LATER_CANDIDATES) {
       examined++;
       const nextCloseIdx = findMatchingClose(source, nextStart, true);
+      if (skipNested && isNestedRootCandidate(source, start, nextStart)) {
+        const nextFrom = nextCloseIdx === -1 ? nextStart + 1 : nextCloseIdx + 1;
+        nextStart = nextRootStart(source, nextFrom, laterRootOpeners);
+        continue;
+      }
       if (nextCloseIdx === -1) {
         if (!skipUnbalanced) break;
         nextStart = nextRootStart(source, nextStart + 1, laterRootOpeners);
@@ -747,7 +814,7 @@ function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {
     // diagnostics, but inspect later roots so a balanced preferred array is
     // not hidden by that unmatched opener (including an unmatched array).
     if (preferredRoot) {
-      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true });
+      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true, skipNested: true });
     }
     // Keep the historical truncated-payload fallback: callers can still
     // retry with a larger token budget.
