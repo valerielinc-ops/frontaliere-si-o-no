@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 export const PHASE_TIMING_THRESHOLD = 1.3;
 export const MIN_HISTORY_SAMPLES = 3;
@@ -314,7 +315,9 @@ function main() {
     const locales = (process.env.PHASE_TIMING_REQUIRED_LOCALES || PHASE_TIMING_LOCALES.join(','))
       .split(/[,\s]+/u)
       .filter(Boolean);
-    const recoveryRuns = Number(process.env.PHASE_TIMING_RECOVERY_RUNS || PHASE_TIMING_RECOVERY_RUNS);
+    // Un valore non intero o non positivo ricade sul default con un avviso:
+    // passato cosi' com'e' renderebbe la recovery sempre falsa, in silenzio.
+    const recoveryRuns = positiveIntFromEnv('PHASE_TIMING_RECOVERY_RUNS', PHASE_TIMING_RECOVERY_RUNS);
     const ready = hasStablePhaseTimingRecovery({
       history: fs.existsSync(historyPath) ? fs.readFileSync(historyPath, 'utf8') : '',
       runStatuses,

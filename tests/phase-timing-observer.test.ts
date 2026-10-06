@@ -1,4 +1,9 @@
 // @vitest-environment node
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   formatPhaseTimingSummary,
@@ -42,6 +47,33 @@ function recoveryReady(historyRows: string[], runIds: number[], currentRunId: nu
     currentRunId: String(currentRunId),
     locales: ['de'],
   });
+}
+
+const OBSERVER_SCRIPT = fileURLToPath(new URL('../scripts/ci/phase-timing-observer.mjs', import.meta.url));
+
+/** Runs the real `--recovery-ready` CLI the deploy workflow calls. */
+function recoveryReadyCli(historyRows: string[], runIds: number[], currentRunId: number, recoveryRunsEnv?: string) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'phase-timing-observer-'));
+  try {
+    const historyPath = path.join(dir, 'memory-peaks.jsonl');
+    const runsPath = path.join(dir, 'runs.json');
+    fs.writeFileSync(historyPath, `${historyRows.join('\n')}\n`, 'utf8');
+    fs.writeFileSync(runsPath, runStatuses(runIds, currentRunId), 'utf8');
+    const env: Record<string, string | undefined> = {
+      ...process.env,
+      PHASE_TIMING_HISTORY: historyPath,
+      PHASE_TIMING_RUNS_FILE: runsPath,
+      PHASE_TIMING_RUN_ID: String(currentRunId),
+      PHASE_TIMING_REQUIRED_LOCALES: 'de',
+    };
+    delete env.GITHUB_OUTPUT;
+    delete env.PHASE_TIMING_RECOVERY_RUNS;
+    if (recoveryRunsEnv !== undefined) env.PHASE_TIMING_RECOVERY_RUNS = recoveryRunsEnv;
+    const result = spawnSync(process.execPath, [OBSERVER_SCRIPT, '--recovery-ready'], { env, encoding: 'utf8' });
+    return { status: result.status, ready: result.stdout.trim(), stderr: result.stderr };
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 }
 
 describe('phase-timing-observer', () => {
@@ -139,6 +171,36 @@ describe('phase-timing-observer', () => {
       ];
       expect(recoveryReady(history, [4, 5, 6], 6, { 4: outcome })).toBe(false);
     }
+  });
+
+  it('reads the recovery window from the environment without letting a malformed value disable the closer', () => {
+    const history = [
+      profileRow(1),
+      profileRow(2),
+      profileRow(3),
+      profileRow(4, 140000),
+      profileRow(5, 105000),
+      profileRow(6, 105000),
+      profileRow(7, 105000),
+    ];
+
+    const unset = recoveryReadyCli(history, [5, 6, 7], 7);
+    expect(unset).toMatchObject({ status: 0, ready: 'true' });
+    expect(unset.stderr).not.toContain('[int-from-env]');
+
+    // A non-numeric or non-positive value used to reach the predicate as NaN
+    // or 0, which made the recovery false forever with no signal: the alarm
+    // could never be closed and nothing went red.
+    for (const malformed of ['tre', '0', '-3', '1e1', '3 runs']) {
+      const result = recoveryReadyCli(history, [5, 6, 7], 7, malformed);
+      expect(result, malformed).toMatchObject({ status: 0, ready: 'true' });
+      expect(result.stderr, malformed).toContain('::warning::[int-from-env] PHASE_TIMING_RECOVERY_RUNS=');
+    }
+
+    // A valid value is honoured: four runs are required, only three are listed.
+    const stricter = recoveryReadyCli(history, [5, 6, 7], 7, '4');
+    expect(stricter).toMatchObject({ status: 0, ready: 'false' });
+    expect(stricter.stderr).not.toContain('[int-from-env]');
   });
 
   it('never closes when the current phase measurement is absent', () => {
