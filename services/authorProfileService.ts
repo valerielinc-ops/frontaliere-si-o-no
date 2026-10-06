@@ -1,11 +1,11 @@
 /**
  * authorProfileService.ts — runtime overrides on top of the static
- * `data/authors.ts` persona registry and `data/blog-articles-data.ts`
+ * `data/authors.ts` author registry and `data/blog-articles-data.ts`
  * byline, written admin-only via the `manageRedazioneAdmin` Cloud
  * Function (see services/redazioneAdminService.ts + AdminPanel.tsx's
  * "Redazione" section).
  *
- * Both override collections are small (a handful of personas / rare
+ * Both override collections are small (a handful of public author profiles / rare
  * reassignments), but `getMergedAuthor`/`getArticleAuthorOverride` run on
  * essentially every author-page and article-page view (the SEO funnel's
  * core traffic), so those two paths do a targeted `getDoc` by slug/id
@@ -25,14 +25,30 @@
  * edit in this SSG architecture.
  */
 
-import { AUTHORS, getAuthorBySlug, type Author, type AuthorSocial } from '@/data/authors';
+import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
 import { resilientImport } from '@/services/resilientImport';
 
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 
-export type AuthorProfilePatch = Partial<Pick<Author, 'name' | 'role' | 'bio' | 'photoPath' | 'email'>> & {
-  social?: Partial<AuthorSocial>;
-};
+export type AuthorProfilePatch = Partial<Pick<Author, 'name' | 'role' | 'bio' | 'photoPath'>>;
+
+const EDITORIAL_PROFILE_FIELDS = ['name', 'role', 'bio', 'photoPath'] as const;
+
+/** Strip contact/social/auth fields from admin profile documents; preserve the
+ * static author's kind, uid, CV and other identity fields when merging. */
+export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const source = value as Record<string, unknown>;
+  const patch: AuthorProfilePatch = {};
+  for (const field of EDITORIAL_PROFILE_FIELDS) {
+    if (typeof source[field] === 'string') patch[field] = source[field].trim();
+  }
+  return Object.keys(patch).length > 0 ? patch : undefined;
+}
+
+function mergeAuthorProfile(base: Author, patch: unknown): Author {
+  return { ...base, ...sanitizeAuthorProfilePatch(patch) };
+}
 
 export interface ArticleAuthorOverride {
   authorSlug: string;
@@ -109,7 +125,10 @@ async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
         );
         const db = await getDb();
         const snap = await getDocs(collection(db, 'author_profiles'));
-        snap.forEach((doc) => map.set(doc.id, doc.data() as AuthorProfilePatch));
+        snap.forEach((doc) => {
+          const patch = sanitizeAuthorProfilePatch(doc.data());
+          if (patch) map.set(doc.id, patch);
+        });
         writeLocalMap(PROFILES_LS_KEY, map);
       } catch {
         // Offline / permission edge cases — fall back to the static registry only.
@@ -162,7 +181,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
         );
         const db = await getDb();
         const snap = await getDoc(doc(db, 'author_profiles', slug));
-        if (snap.exists()) result = snap.data() as AuthorProfilePatch;
+        if (snap.exists()) result = sanitizeAuthorProfilePatch(snap.data());
       } catch {
         // Offline / permission edge cases — fall back to the static registry only.
       }
@@ -237,11 +256,7 @@ export async function getMergedAuthor(slug: string): Promise<Author | undefined>
   if (!base) return undefined;
   const patch = await loadProfile(slug);
   if (!patch) return base;
-  return {
-    ...base,
-    ...patch,
-    social: { ...base.social, ...patch.social },
-  };
+  return mergeAuthorProfile(base, patch);
 }
 
 /** Every persona, each merged with its override if one exists. */
@@ -250,7 +265,7 @@ export async function getAllMergedAuthors(): Promise<Author[]> {
   return AUTHORS.map((base) => {
     const patch = profiles.get(base.slug);
     if (!patch) return base;
-    return { ...base, ...patch, social: { ...base.social, ...patch.social } };
+    return mergeAuthorProfile(base, patch);
   });
 }
 

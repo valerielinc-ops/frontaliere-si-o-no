@@ -1,10 +1,10 @@
 import React from 'react';
-import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch, UserCircle, DollarSign, Award, Mail, Linkedin, ExternalLink } from 'lucide-react';
+import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch, UserCircle, DollarSign, Award, Mail, ExternalLink } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { useLocale } from '@/services/i18n';
 import { buildPath, type ActiveTab } from '@/services/router';
-import { AUTHORS } from '@/data/authors';
-import { localizeAuthor } from '@/data/authorLocales';
+import { AUTHORS, isEditorialProfile, isRealAuthor } from '@/data/authors';
+import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '@/data/authorLocales';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { CHI_SIAMO_COPY } from './chiSiamoCopy';
 
@@ -61,7 +61,7 @@ export const ChiSiamo: React.FC = () => {
  {authors.map(author => <li key={author.slug}>
  <a href={buildPath({ activeTab: 'autore', author: author.slug }, locale)} onClick={event => authorLink(event, author.slug)} className="flex items-center gap-3 p-3 rounded-xl bg-info/10 hover:bg-info/20 transition-colors no-underline">
  <img src={cdnImageUrl(author.photoPath)} alt={`${copy.photo} ${author.name}`} width={48} height={48} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover border border-edge shrink-0" />
- <span className="min-w-0"><span className="block text-sm font-semibold text-strong truncate">{author.name}</span><span className="block text-xs text-muted truncate">{author.role}</span></span>
+ <span className="min-w-0"><span className="block text-sm font-semibold text-strong truncate">{author.name}</span><span className="block text-xs text-muted truncate">{author.role}</span>{isEditorialProfile(author) && <span className="block text-[11px] text-muted mt-1">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</span>}</span>
  </a></li>)}
  </ul>
  </Section>
@@ -86,7 +86,7 @@ export const ChiSiamo: React.FC = () => {
  <div className="min-w-0 flex-1">
  <a href={buildPath({ activeTab: 'autore', author: author.slug }, locale)} onClick={event => authorLink(event, author.slug)} className="block text-sm font-semibold text-strong hover:text-accent transition-colors no-underline">{author.name}</a>
  <p className="text-xs text-muted mt-0.5">{author.role}</p>
- {author.social.linkedin && <a href={author.social.linkedin} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs text-accent hover:underline" aria-label={`${copy.linkedin} ${author.name}`}><Linkedin size={12} aria-hidden="true" />LinkedIn</a>}
+ {isEditorialProfile(author) && <p className="text-[11px] text-muted mt-2">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>}{isEditorialProfile(author) && author.linkedin && <a href={author.linkedin} target="_blank" rel="noopener noreferrer" className="block text-[11px] text-accent mt-1 hover:underline">LinkedIn</a>}{isRealAuthor(author) && author.social.linkedin && <a href={author.social.linkedin} target="_blank" rel="noopener noreferrer me" className="block text-[11px] text-accent mt-1 hover:underline">LinkedIn</a>}
  </div></li>)}
  </ul>
  </Section>
