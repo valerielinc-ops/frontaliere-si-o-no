@@ -266,7 +266,7 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
 
   it('keeps the parser contract required by the mirrored fast-publish engine', () => {
     const engine = fs.readFileSync(
-      new URL('../packages/articles/engine/flatHtmlRedirect.ts', import.meta.url),
+      path.resolve('packages/articles/engine/flatHtmlRedirect.ts'),
       'utf-8',
     );
 
