@@ -21,6 +21,25 @@ describe('static pages blog detail rendering', () => {
   });
 });
 
+describe('static article heroes expose an early LCP preload', () => {
+  const source = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
+
+  it('selects the section or detail hero for both article sections', () => {
+    expect(source).toContain('if (blogSlugs.has(firstSeg) || swissSlugs.has(firstSeg))');
+    expect(source).toContain('const sectionHero = isSwissSection ? swissHeroImageStatic : blogHeroImageStatic;');
+    expect(source).toContain('const articleIds = isSwissSection ? swissArticleIdByLocale : blogArticleIdByLocale;');
+    expect(source).toContain('heroImageByArticleId[detailId]');
+    expect(source).toContain('<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">');
+  });
+
+  it('passes the generated glossary hero into the hand-rolled shell preload list', () => {
+    expect(source).toContain("const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = '')");
+    expect(source).toContain('if (generatedHeroUrl)');
+    expect(source).toContain('glossaryHero ? seoHeroImageUrl(glossaryHero) : \'\'');
+    expect(source).toContain('<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">');
+  });
+});
+
 describe('ogPagesPlugin skip-set covers every article section (no missingTarget race)', () => {
   // Regression for validate-dist [missingTarget] (run 27998666257, 2026-06-23):
   // staticPagesPlugin built its ogPagesPlugin skip-set from the `frontaliere`
