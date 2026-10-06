@@ -15,6 +15,7 @@ export const SOURCE_TYPES = new Set([
   'google_business_profile',
   'facebook',
 ]);
+export const SOURCE_KINDS = new Set(['html', 'pdf']);
 export const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail']);
 
 export function safeHttpsUrl(value) {
@@ -35,6 +36,7 @@ export function validatePharmacyEnrichmentConfig(config) {
     if (!source?.id) errors.push('enrichment source is missing id');
     if (!source?.pharmacyId) errors.push(`${source?.id || '<unknown>'}: missing pharmacyId`);
     if (!safeHttpsUrl(source?.url)) errors.push(`${source?.id || '<unknown>'}: URL must be HTTPS`);
+    if (!SOURCE_KINDS.has(source?.kind || 'html')) errors.push(`${source?.id || '<unknown>'}: invalid source kind`);
     if (!SOURCE_TYPES.has(source?.sourceType)) errors.push(`${source?.id || '<unknown>'}: invalid sourceType`);
     if (!Array.isArray(source?.fields) || source.fields.some((field) => !FIELDS.has(field))) errors.push(`${source?.id || '<unknown>'}: invalid fields`);
     if (source?.status !== 'active') errors.push(`${source?.id || '<unknown>'}: source must be active`);
