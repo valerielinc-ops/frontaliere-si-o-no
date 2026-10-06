@@ -414,8 +414,12 @@ function getActiveCounter(env = process.env) {
  * @returns {Promise<import('firebase-admin/firestore').Firestore>}
  */
 export async function getFirestoreDb(projectId = FIRESTORE_PROJECT_ID) {
-  if (activeFirestoreDb) return activeFirestoreDb;
+  const hasInlineCredentials = Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
   const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!hasInlineCredentials && (!credPath || !fs.existsSync(credPath))) {
+    throw new Error('GOOGLE_APPLICATION_CREDENTIALS required (Firebase service account JSON).');
+  }
+  if (activeFirestoreDb) return activeFirestoreDb;
   const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
   const { getFirestore } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {

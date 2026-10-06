@@ -2,14 +2,33 @@ import { PassThrough } from 'node:stream';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, afterEach } from 'vitest';
 import {
   buildFirestoreCaller,
   createFirestoreReadCounter,
   FIRESTORE_READ_METRIC,
   flushFirestoreReadAccounting,
+  getFirestoreDb,
   instrumentFirestore,
 } from '../scripts/lib/firestore-admin.mjs';
+
+const firebaseAdminApp = vi.hoisted(() => ({
+  initializeApp: vi.fn(),
+  cert: vi.fn(),
+  getApps: vi.fn(() => []),
+  applicationDefault: vi.fn(),
+}));
+const firebaseAdminFirestore = vi.hoisted(() => ({
+  getFirestore: vi.fn(),
+}));
+
+vi.mock('firebase-admin/app', () => firebaseAdminApp);
+vi.mock('firebase-admin/firestore', () => firebaseAdminFirestore);
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.clearAllMocks();
+});
 
 function document(id: string) {
   return {
@@ -51,6 +70,18 @@ function fakeFirestore(docs: object[]) {
 }
 
 describe('Firestore read accounting', () => {
+  it('keeps main behavior without credentials and never requests a Firestore client', async () => {
+    vi.stubEnv('GOOGLE_APPLICATION_CREDENTIALS', '');
+    vi.stubEnv('FIREBASE_SERVICE_ACCOUNT_JSON', '');
+
+    await expect(getFirestoreDb()).rejects.toThrow(
+      'GOOGLE_APPLICATION_CREDENTIALS required (Firebase service account JSON).',
+    );
+    expect(firebaseAdminApp.initializeApp).not.toHaveBeenCalled();
+    expect(firebaseAdminApp.applicationDefault).not.toHaveBeenCalled();
+    expect(firebaseAdminFirestore.getFirestore).not.toHaveBeenCalled();
+  });
+
   it('counts documents returned by get, getAll, collectionGroup and stream', async () => {
     const counter = createFirestoreReadCounter({ caller: 'test-caller' });
     const db = instrumentFirestore(fakeFirestore([document('a'), document('b'), document('c')]), counter);
