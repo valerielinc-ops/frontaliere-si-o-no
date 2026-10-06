@@ -54,6 +54,12 @@ service firebase.storage {
       allow read, write: if false;
     }
 
+    // Source descriptions used only by the private rewrite queue. The Admin
+    // SDK reads this prefix from trusted CI; no Firebase client may access it.
+    match /private-event-description-sources/{allPaths=**} {
+      allow read, write: if false;
+    }
+
     // Default deny: any path not matched above is inaccessible.
     match /{allPaths=**} {
       allow read, write: if false;

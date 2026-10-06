@@ -204,6 +204,7 @@
     "validate:structured-data": "node scripts/validate-structured-data.mjs",
     "validate:event-images": "node scripts/verify-event-images.mjs",
     "validate:structured-data-completeness": "node scripts/validate-structured-data-completeness.mjs",
+    "validate:event-descriptions": "node scripts/ci/check-event-description-publication.mjs",
     "validate:jobs-rich-results": "node scripts/validate-jobs-rich-results-sample.mjs",
     "validate:jobposting-schema": "node scripts/validate-jobposting-schema.mjs",
     "validate:jobs-quality": "node scripts/validate-jobs-quality.mjs",

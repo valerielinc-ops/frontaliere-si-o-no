@@ -18,6 +18,7 @@
  */
 import { pathToFileURL } from 'node:url';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 import { EVENT_SOURCES } from './lib/events-utils.mjs';
 import { parseIcmsAnlaesseHtml, parseIcmsTermineRss, failIfSourceUnreachable } from './lib/icms-agenda.mjs';
 
@@ -60,7 +61,7 @@ async function main() {
   const dryRun = argv.includes('--dry-run');
   const result = await crawler.crawl({ dryRun });
   failIfSourceUnreachable(sourceKey, result);
-  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3), null, 2));
+  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {

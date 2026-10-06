@@ -181,10 +181,13 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // description >= 30 chars
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+  // A description is optional while the event waits for an exact rewrite-cache
+  // hit. When present, it still needs to be substantial enough for rich data.
+  if (schema.description !== undefined) {
+    const desc = String(schema.description || '').trim();
+    if (desc.length < 30) {
+      errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+    }
   }
 
   // location must exist with addressLocality

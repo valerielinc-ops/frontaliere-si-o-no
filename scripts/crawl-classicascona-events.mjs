@@ -47,6 +47,7 @@ import {
   parseLocalDateTime,
 } from './lib/organizer-jsonld.mjs';
 import { failIfSourceUnreachable } from './lib/icms-agenda.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 
 const SOURCE = EVENT_SOURCES.classicascona;
 export const SITEMAP_URL = 'https://classicascona.ch/konzerte-sitemap1.xml';
@@ -261,7 +262,7 @@ async function main() {
   failIfSourceUnreachable(SOURCE.key, result);
   const withPrice = result.events.filter((event) => hasConfidentPrice(event.price)).length;
   console.log(`[${SOURCE.key}] ${result.events.length} concert(s) read, ${withPrice} with a publishable structured price`);
-  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3), null, 2));
+  if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
