@@ -496,7 +496,7 @@ jobs:
           # rather than `git add public/` keeps the commit scoped to what this
           # workflow owns — public/ carries plenty this job must never touch.
           #
-          # The last three are the generator migration's additions (item 3, §3
+          # The last four are the generator migration's additions (item 3, §3
           # and §5.5 of docs/articles-generator-migration.md). They are listed
           # unconditionally and that is safe today even though nanako publishes
           # neither yet: the pull skips an artifact it cannot find, so the paths
@@ -504,8 +504,9 @@ jobs:
           # them now rather than at cutover means the day nanako starts emitting
           # is a publisher change only, with nothing to remember on this side.
           #
-          # public/images/blog is a DIRECTORY on purpose — the pull writes one
-          # file per new article and the set is not known ahead of time.
+          # Both image trees are DIRECTORIES on purpose — the pull writes one
+          # file per new article and the set is not known ahead of time. Catalog
+          # covers use blog/; governed generated covers use generated/.
           # public/sitemap-articles-archive.xml was MISSING from this list while
           # scripts/pull-articles-api.mjs has written it since #4974 — so every
           # run produced the file and this step threw it away unstaged. It never
@@ -530,6 +531,7 @@ jobs:
             public/sitemap-news.xml
             public/sitemap.xml
             public/images/blog
+            public/images/generated
           )
 
           if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \
@@ -583,6 +585,7 @@ jobs:
             --path public/sitemap-news.xml \
             --path public/sitemap.xml \
             --path public/images/blog \
+            --path public/images/generated \
             --branch chore/sync-articles-sitemaps \
             --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
             --title "chore(data): sync article corpus and public feeds" \
