@@ -288,6 +288,15 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /scripts/lib/articleSections.mjs
+            /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/plateAuctionSections.mjs
+            /build-plugins/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -338,6 +347,15 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /scripts/lib/articleSections.mjs
+            /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/plateAuctionSections.mjs
+            /build-plugins/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -398,6 +416,15 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /scripts/lib/articleSections.mjs
+            /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/plateAuctionSections.mjs
+            /build-plugins/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -459,6 +486,15 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /scripts/lib/articleSections.mjs
+            /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/plateAuctionSections.mjs
+            /build-plugins/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 

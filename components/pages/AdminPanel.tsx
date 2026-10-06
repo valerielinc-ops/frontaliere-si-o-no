@@ -4158,17 +4158,18 @@ export default function AdminPanel() {
  </div>
  )}
 
- {/* Persona profiles */}
+ {/* Author profiles */}
  <div className="space-y-3">
- <h3 className="text-sm font-bold text-strong">Profili autore (persona AI)</h3>
+ <h3 className="text-sm font-bold text-strong">Firme e profili editoriali</h3>
  <p className="text-sm text-muted">
- Nessun login reale: qui modifichi bio, foto e social delle persona (Marco Ferrari,
- Samuele Valente, ecc.) senza deploy di codice.
+ Qui modifichi descrizione, immagine e area editoriale delle firme senza deploy di codice.
+ Marco Ferrari, Laura Bianchi e Redazione sono profili editoriali; Samuele Valente è un autore reale
+ e mantiene la propria attribuzione autenticata e i dati pubblici del registro.
  </p>
  <div className="space-y-2">
  {getAllAuthors().map((author) => {
  const override = redazioneData?.authorProfiles[author.slug];
- const merged = { ...author, ...override, social: { ...author.social, ...override?.social } };
+ const merged = { ...author, ...override };
  const isEditing = editingProfileSlug === author.slug;
  return (
  <div key={author.slug} className="bg-surface rounded-xl border border-edge p-3">
@@ -4181,7 +4182,7 @@ export default function AdminPanel() {
  <button
  onClick={() => startEditingProfile(author.slug, {
  name: merged.name, role: merged.role, bio: merged.bio,
- photoPath: merged.photoPath, email: merged.email, social: merged.social,
+ photoPath: merged.photoPath,
  })}
  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-edge text-sm font-medium text-subtle hover:text-strong hover:border-accent-border transition-colors"
  >
@@ -4216,21 +4217,7 @@ export default function AdminPanel() {
  type="text"
  value={profileDraft.photoPath || ''}
  onChange={(e) => setProfileDraft((d) => ({ ...d, photoPath: e.target.value }))}
- placeholder="/images/authors/slug.jpg"
- className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
- />
- <input
- type="email"
- value={profileDraft.email || ''}
- onChange={(e) => setProfileDraft((d) => ({ ...d, email: e.target.value }))}
- placeholder="Email"
- className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
- />
- <input
- type="text"
- value={profileDraft.social?.linkedin || ''}
- onChange={(e) => setProfileDraft((d) => ({ ...d, social: { ...d.social, linkedin: e.target.value } }))}
- placeholder="LinkedIn URL"
+ placeholder="/images/authors/slug.webp"
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  <div className="flex items-center gap-2">

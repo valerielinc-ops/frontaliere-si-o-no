@@ -9,14 +9,28 @@ import {
   domainCandidates,
   selectAuditCandidates,
 } from '../scripts/lib/company-logo-acquisition.mjs';
-import { downloadForKey } from '../scripts/download-missing-company-logos.mjs';
+import {
+  downloadForKey,
+  extractOfficialLogoImages,
+  shouldAcquireTarget,
+} from '../scripts/download-missing-company-logos.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const workflowPath = path.join(ROOT, '.github/workflows/audit-missing-company-logos.yml');
+
+function pngBytes(width = 128, height = 128) {
+  const bytes = Buffer.alloc(24);
+  bytes.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  bytes.writeUInt32BE(width, 16);
+  bytes.writeUInt32BE(height, 20);
+  return bytes;
+}
+
 const ACQUIRED_ASSET_KEYS = [
-  '1a-hunkeler', 'anicura', 'apply', 'artificialy', 'atec-personal', 'benu',
+  '1a-hunkeler', 'anicura', 'answerconsulting', 'apply', 'artificialy', 'atec-personal', 'benu',
   'blatters-hotel', 'brefispersonal', 'bucherer', 'buersten-technik',
-  'christinavassalli', 'clariant', 'elprom', 'endeso', 'fisba',
+  'christinavassalli', 'clariant', 'comadur-swatch-group', 'elprom', 'endeso', 'fisba',
+  'gim-architekten', 'grischapersonal',
   'integra-biosciences', 'kone', 'mcm-group', 'mueller-steinmaur',
   'neoproconseils', 'nord-anglia', 'pantr-ch', 'parmag', 'protectas-sa',
   'schweizerhof-flims', 'yellowshark',
@@ -55,14 +69,95 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('acme')).toEqual(['acme.ch', 'acme.com']);
   });
 
-  it('selects only missing audit entries and preserves official-source candidates', () => {
+  it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {
     const entries = [
       { companyKey: 'yellowshark', status: 'missing', companyName: 'yellowshark AG' },
       { companyKey: 'broken', status: 'broken', companyName: 'Broken AG' },
       { companyKey: 'low-quality', status: 'low-quality', companyName: 'Low Quality AG' },
     ];
 
-    expect(selectAuditCandidates(entries)).toEqual([entries[0]]);
+    expect(selectAuditCandidates(entries)).toEqual([entries[0], entries[2]]);
+  });
+
+  it('extracts structured employer logo declarations from official pages', () => {
+    const links = extractOfficialLogoImages(`
+      <meta property="og:logo" content="https://media.example.test/answer.svg">
+      <script type="application/ld+json">
+        {"@type":"Organization","logo":"https://media.example.test/answer-large.png"}
+      </script>
+    `, 'https://answerconsulting.ch/', 'answerconsulting.ch');
+
+    expect(links).toContain('https://media.example.test/answer.svg');
+    expect(links).toContain('https://media.example.test/answer-large.png');
+  });
+
+  it('uses an official career-page logo before a group homepage fallback', async () => {
+    const sourceUrl = 'https://www.swatchgroup.com/fr/job/33350';
+    const logoUrl = 'https://www.swatchgroup.com/sites/default/files/brands-logos/comadur.png';
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (url) => {
+      if (url === sourceUrl) {
+        return new Response(`<script type="application/ld+json">{"logo":"${logoUrl}"}</script>`, {
+          headers: { 'content-type': 'text/html' },
+        });
+      }
+      if (url === logoUrl) return new Response(pngBytes(513, 117), {
+        headers: { 'content-type': 'image/png' },
+      });
+      throw new Error(`unexpected fetch ${url}`);
+    };
+
+    try {
+      const result = await downloadForKey('comadur-swatch-group', {
+        sourceUrls: new Set([sourceUrl]),
+      }, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'official-career-page-icon',
+        sourceDomain: 'swatchgroup.com',
+        width: 513,
+        height: 117,
+      }));
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it('refreshes an existing manifest entry when the audit still marks it low-quality', () => {
+    expect(shouldAcquireTarget({
+      manifestAliases: ['mediamarkt'],
+      qualityDeficient: true,
+    }, { mediamarkt: '/images/brands/mediamarkt.png' })).toBe(true);
+    expect(shouldAcquireTarget({
+      manifestAliases: ['valid'],
+      qualityDeficient: false,
+    }, { valid: '/images/brands/valid.png' })).toBe(false);
+  });
+
+  it('does not accept a generic favicon in strict audit mode', async () => {
+    const sourceUrl = 'https://www.swatchgroup.com/fr/job/33350';
+    const genericFavicon = 'https://www.swatchgroup.com/favicon.png';
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (url) => {
+      if (url === sourceUrl || url === 'https://swatchgroup.com/' || url === 'https://www.swatchgroup.com/') {
+        return new Response(`<link rel="icon" href="${genericFavicon}">`, {
+          headers: { 'content-type': 'text/html' },
+        });
+      }
+      if (url === genericFavicon) return new Response(pngBytes(128, 128), {
+        headers: { 'content-type': 'image/png' },
+      });
+      throw new Error(`unexpected fetch ${url}`);
+    };
+
+    try {
+      const result = await downloadForKey('comadur-swatch-group', {
+        sourceUrls: new Set([sourceUrl]),
+      }, { fromAudit: true });
+      expect(result.accepted).toBe(false);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 
   it('leaves an explicit reason for every unresolved company', () => {
@@ -121,6 +216,26 @@ describe('missing company-logo acquisition', () => {
     );
 
     expect(residual.affectedCompanies[0]?.reason).toBe('nessun dominio ufficiale dichiarato');
+  });
+
+  it('keeps checkout assets visible as pending-deploy in the residual report', () => {
+    const residual = buildResidualReport(
+      {
+        affectedCompanies: [
+          {
+            companyKey: 'pending',
+            status: 'pending-deploy',
+            pendingDeployJobCount: 2,
+            affectedJobCount: 2,
+          },
+        ],
+      },
+      { targets: [], acquired: 0, failed: 0, qualityRejected: 0 },
+    );
+
+    expect(residual.pendingDeploy).toBeGreaterThan(0);
+    expect(residual.pendingDeployJobCount).toBeGreaterThan(0);
+    expect(residual.affectedCompanies[0]?.reason).toBe('asset presente nel checkout, in attesa del deploy CDN');
   });
 
   it('keeps every acquired PR asset covered by an explicit override', () => {
