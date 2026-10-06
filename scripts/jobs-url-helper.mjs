@@ -23,6 +23,7 @@ import {
   jobsDiffer,
 } from './lib/job-identity.mjs';
 import { ambiguousJobIdentities } from './lib/first-seen-history.mjs';
+import { deduplicateJobsByKey } from './lib/crawler-summary-partition.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -270,8 +271,12 @@ export function computeCrawlDiff(beforeMap, afterMap) {
   // posting by posting (see snapshotJobSlugs); the rest keep the 1:1 lookup.
   const collided = ambiguousJobIdentities(snapshotJobs(beforeMap), snapshotJobs(afterMap));
   for (const identity of collided) {
-    const beforeByPosting = new Map(snapshotGroup(beforeMap, identity).map((job) => [snapshotPostingKey(job), job]));
-    const afterGroup = snapshotGroup(afterMap, identity);
+    // A listing can repeat the same posting row. Compare each posting once,
+    // keeping the first source occurrence; distinct ids/slugs under the same
+    // listing identity remain separate postings.
+    const beforeGroup = deduplicateJobsByKey(snapshotGroup(beforeMap, identity), snapshotPostingKey);
+    const beforeByPosting = new Map(beforeGroup.map((job) => [snapshotPostingKey(job), job]));
+    const afterGroup = deduplicateJobsByKey(snapshotGroup(afterMap, identity), snapshotPostingKey);
     const afterPostings = new Set(afterGroup.map(snapshotPostingKey));
     for (const afterJob of afterGroup) {
       const beforeJob = beforeByPosting.get(snapshotPostingKey(afterJob));
