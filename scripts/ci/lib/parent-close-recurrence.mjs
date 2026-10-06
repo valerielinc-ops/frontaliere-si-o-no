@@ -241,8 +241,14 @@ export function decideParentRearm({
 
   const markerState = parentRearmMarkers(comments);
   if (!markerState.ok) return skipDecision('unreadable');
+  // `>=`, non `>`: GitHub data i commenti al secondo, quindi il marker scritto
+  // nello stesso secondo della ricorrenza che registra ha il suo stesso
+  // istante. Con `>` quel marker non veniva riconosciuto e, se la rimozione
+  // delle label era fallita, il passaggio successivo ne scriveva un altro fino
+  // al tetto della finestra. Un marker datato PRIMA della ricorrenza che
+  // dichiara resta invece non valido.
   const matchingMarker = markerState.markers.find(
-    (marker) => marker.reopenedAtMs === reopened.atMs && marker.createdAtMs > reopened.atMs,
+    (marker) => marker.reopenedAtMs === reopened.atMs && marker.createdAtMs >= reopened.atMs,
   );
   if (matchingMarker) return skipDecision('already-rearmed', { reopenedAt: reopened.createdAt });
 
