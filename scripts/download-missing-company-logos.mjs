@@ -31,6 +31,7 @@ import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   domainCandidates,
+  isAtsDomain,
   normalizeDomain,
   selectAuditCandidates,
 } from './lib/company-logo-acquisition.mjs';
@@ -86,14 +87,17 @@ function metadataFromJobs(jobs) {
       names: new Set(),
       companyDomains: new Set(),
       urlHosts: new Set(),
+      sourceUrls: new Set(),
     };
     const name = String(job.company || job.employer || '').trim();
     if (name) current.names.add(name);
     const companyDomain = normalizeDomain(job.companyDomain);
     if (companyDomain) current.companyDomains.add(companyDomain);
     try {
-      const host = normalizeDomain(new URL(job.url).hostname);
+      const sourceUrl = String(job.url || '').trim();
+      const host = normalizeDomain(new URL(sourceUrl).hostname);
       if (host) current.urlHosts.add(host);
+      if (sourceUrl && host && !isAtsDomain(host)) current.sourceUrls.add(sourceUrl);
     } catch { /* a malformed job URL is irrelevant to logo source selection */ }
     metadata.set(key, current);
   }
@@ -131,6 +135,7 @@ async function loadAuditTargets(reportPath, jobsPath) {
       names: new Set(),
       companyDomains: new Set(),
       urlHosts: new Set(),
+      sourceUrls: new Set(),
     };
     if (entry.companyName) current.names.add(String(entry.companyName));
     targets.push({
@@ -139,6 +144,8 @@ async function loadAuditTargets(reportPath, jobsPath) {
       metadata: current,
       manifestAliases: [key],
       status: entry.status || 'missing',
+      qualityDeficient: entry.status === 'low-quality'
+        || Number(entry.lowQualityJobCount || 0) > 0,
     });
   }
   return targets;
@@ -170,13 +177,19 @@ async function loadLegacyTargets() {
     const key = urlToKey.get(slug) || slug;
     if (!key || seen.has(key)) continue;
     seen.add(key);
-    const current = metadata.get(key) || { names: new Set(), companyDomains: new Set(), urlHosts: new Set() };
+    const current = metadata.get(key) || {
+      names: new Set(),
+      companyDomains: new Set(),
+      urlHosts: new Set(),
+      sourceUrls: new Set(),
+    };
     targets.push({
       key,
       name: [...current.names][0] || key,
       metadata: current,
       manifestAliases: [key, slug],
       status: 'missing',
+      qualityDeficient: false,
     });
   }
   return targets;
@@ -247,12 +260,13 @@ async function tryDirectFavicon(domain) {
   return lastFailure;
 }
 
-function extractIconLinks(html, baseUrl) {
+function extractIconLinks(html, baseUrl, { allowGenericFavicon = false } = {}) {
   const links = [];
   const seen = new Set();
   for (const tag of html.match(/<link\b[^>]*>/gi) || []) {
     const rel = tag.match(/\brel\s*=\s*["']([^"']+)["']/i)?.[1] || '';
     if (!/(?:^|\s)(?:icon|shortcut|apple-touch-icon)(?:\s|$)/i.test(rel)) continue;
+    if (!/apple-touch-icon/i.test(rel) && !allowGenericFavicon) continue;
     const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
     if (!href) continue;
     try {
@@ -265,7 +279,7 @@ function extractIconLinks(html, baseUrl) {
   return links.slice(0, 8);
 }
 
-function extractOfficialLogoImages(html, baseUrl, domain) {
+export function extractOfficialLogoImages(html, baseUrl, domain) {
   const links = [];
   const seen = new Set();
   const officialHost = (value) => {
@@ -282,6 +296,14 @@ function extractOfficialLogoImages(html, baseUrl, domain) {
       links.push(absolute);
     } catch { /* ignore malformed markup */ }
   };
+  const addDeclaredLogo = (src) => {
+    try {
+      const absolute = new URL(src.replaceAll('\\/', '/').replaceAll('&amp;', '&'), baseUrl).href;
+      if (!/^https?:$/i.test(new URL(absolute).protocol) || seen.has(absolute)) return;
+      seen.add(absolute);
+      links.push(absolute);
+    } catch { /* ignore malformed markup */ }
+  };
   for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
     const marker = tag;
     if (!/(?:logo|brand|wordmark|logotype)/i.test(marker)) continue;
@@ -291,25 +313,40 @@ function extractOfficialLogoImages(html, baseUrl, domain) {
     addOfficial(src);
   }
   // WordPress/Yoast JSON-LD often carries the real logo while the favicon is
-  // only 32px; it remains an official URL because the host check above is
-  // applied before it can be probed.
+  // only 32px. A structured declaration is authoritative even when the
+  // employer stores the asset on its official media/CDN host.
   const structuredHtml = html.replaceAll('\\"', '"');
+  for (const match of structuredHtml.matchAll(/"logo"\s*:\s*"([^"]+)"/gi)) {
+    addDeclaredLogo(match[1]);
+  }
   for (const block of structuredHtml.matchAll(/"logo"\s*:\s*\{([\s\S]{0,1200}?)\}/gi)) {
     for (const match of block[1].matchAll(/"(?:url|contentUrl)"\s*:\s*"([^"]+)"/gi)) {
-      addOfficial(match[1]);
+      addDeclaredLogo(match[1]);
     }
+  }
+  for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
+    const property = tag.match(/\bproperty\s*=\s*["']([^"']+)["']/i)?.[1]
+      || tag.match(/\bname\s*=\s*["']([^"']+)["']/i)?.[1]
+      || '';
+    if (property.toLowerCase() !== 'og:logo') continue;
+    const content = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (content) addDeclaredLogo(content);
   }
   return links.slice(0, 8);
 }
 
-async function tryHtmlIcon(domain) {
-  const pageUrl = `https://${domain}/`;
+async function tryHtmlIcon(
+  domain,
+  pageUrl = `https://${domain}/`,
+  source = 'official-html-icon',
+  { allowGenericFavicon = false } = {},
+) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   let lastFailure = {
     accepted: false,
     reason: 'official-page-no-icon',
-    source: 'official-html-icon',
+    source,
     sourceDomain: domain,
     url: pageUrl,
   };
@@ -335,12 +372,12 @@ async function tryHtmlIcon(domain) {
     const html = new TextDecoder().decode(bytes);
     const baseUrl = response.url || pageUrl;
     const iconUrls = [
-      ...extractIconLinks(html, baseUrl),
+      ...extractIconLinks(html, baseUrl, { allowGenericFavicon }),
       ...extractOfficialLogoImages(html, baseUrl, domain),
     ];
     for (const url of iconUrls) {
       try {
-        const result = await readImageUrl(url, 'official-html-icon', domain);
+        const result = await readImageUrl(url, source, domain);
         if (result.accepted) return result;
         lastFailure = result;
       } catch { /* try the next declared icon */ }
@@ -374,6 +411,7 @@ async function tryGoogleFavicon(domain) {
 
 export async function downloadForKey(key, metadata, options = {}) {
   const domains = domainCandidates(key, metadata, options);
+  const strictAudit = options.fromAudit === true;
   let lastFailure = {
     accepted: false,
     reason: domains.length > 0 ? 'no-verified-official-icon' : 'no-official-domain',
@@ -381,17 +419,45 @@ export async function downloadForKey(key, metadata, options = {}) {
     sourceDomain: domains[0] || null,
   };
   for (const domain of domains) {
-    const google = await tryGoogleFavicon(domain);
-    if (google.accepted) return google;
-    lastFailure = google;
-    const declared = await tryHtmlIcon(domain);
-    if (declared.accepted) return declared;
-    lastFailure = declared;
-    const direct = await tryDirectFavicon(domain);
-    if (direct.accepted) return direct;
-    lastFailure = direct;
+    if (!strictAudit) {
+      const google = await tryGoogleFavicon(domain);
+      if (google.accepted) return google;
+      lastFailure = google;
+    }
+    for (const sourceUrl of metadata?.sourceUrls || []) {
+      let sourceHost;
+      try {
+        sourceHost = normalizeDomain(new URL(sourceUrl).hostname);
+      } catch {
+        continue;
+      }
+      if (sourceHost !== domain && !sourceHost.endsWith(`.${domain}`)) continue;
+      const careerPage = await tryHtmlIcon(domain, sourceUrl, 'official-career-page-icon', {
+        allowGenericFavicon: !strictAudit,
+      });
+      if (careerPage.accepted) return careerPage;
+      lastFailure = careerPage;
+    }
+    const homepageUrls = [`https://${domain}/`];
+    if (!domain.startsWith('www.')) homepageUrls.push(`https://www.${domain}/`);
+    for (const homepageUrl of homepageUrls) {
+      const declared = await tryHtmlIcon(domain, homepageUrl, 'official-html-icon', {
+        allowGenericFavicon: !strictAudit,
+      });
+      if (declared.accepted) return declared;
+      lastFailure = declared;
+    }
+    if (!strictAudit) {
+      const direct = await tryDirectFavicon(domain);
+      if (direct.accepted) return direct;
+      lastFailure = direct;
+    }
   }
   return lastFailure;
+}
+
+export function shouldAcquireTarget({ manifestAliases = [], qualityDeficient = false } = {}, manifest = {}, force = false) {
+  return force || qualityDeficient || !manifestAliases.some((alias) => manifest[alias]);
 }
 
 async function runConcurrent(items, worker, concurrency) {
@@ -448,9 +514,7 @@ async function main() {
       : loadLegacyTargets(),
   ]);
   const manifest = JSON.parse(manifestRaw);
-  const toDownload = targets.filter(({ key, manifestAliases = [key] }) => (
-    options.force || !manifestAliases.some((alias) => manifest[alias])
-  ));
+  const toDownload = targets.filter((target) => shouldAcquireTarget(target, manifest, options.force));
 
   console.log(`[download-missing] Mode: ${options.fromAudit ? 'canonical audit' : 'legacy known slugs'}`);
   console.log(`[download-missing] Targets: ${targets.length}`);

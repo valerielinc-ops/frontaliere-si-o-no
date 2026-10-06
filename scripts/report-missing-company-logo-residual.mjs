@@ -44,7 +44,10 @@ async function main() {
   const reasons = residual.affectedCompanies
     .map((company) => `${company.companyKey}: ${auditIssueReason(company)}`)
     .join('; ');
-  console.log(`[report-missing-company-logo-residual] Residuo: ${residual.affectedCompanies.length} aziende, ${residual.missingJobCount} annunci.`);
+  console.log(
+    `[report-missing-company-logo-residual] Residuo: ${residual.affectedCompanies.length} aziende, `
+      + `${residual.missingJobCount} missing, ${residual.pendingDeployJobCount || 0} pending-deploy annunci.`,
+  );
   if (reasons) console.log(`[report-missing-company-logo-residual] ${reasons}`);
 }
 
