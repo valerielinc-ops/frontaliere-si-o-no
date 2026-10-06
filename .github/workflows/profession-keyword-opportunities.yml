@@ -48,38 +48,11 @@ jobs:
           # refresh-thin-promotions.yml: shallow clones break `git rebase
           # origin/main` on bursts of concurrent data commits).
           fetch-depth: 0
-          # Blobless partial clone (same fix as guard-data-integrity.yml
-          # #4120 / crawler-health-monitor.yml #4380): this job shares the
-          # same tight 10-min timeout-minutes budget that crawler-health-monitor
-          # blew through on the repo's current ~1.36GB/868k-object blob history.
-          filter: blob:none
           token: ${{ secrets.GITHUB_TOKEN }}
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Ha gia' blob:none MA i numeri NON dicono che sta bene: Checkout 94-518s
-        # su 7 run e il massimo e' l'86% di un cap da 10min. E' il rischio residuo
-        # piu' alto della classe (vedi `## Non implementato` della PR): il tetto lo
-        # rende diagnosticabile, non lo risolve.
         timeout-minutes: 9
 
       - uses: actions/setup-node@v7

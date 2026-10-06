@@ -215,6 +215,23 @@ describe('profili di sparse-checkout', () => {
     expect(bad).toEqual([]);
   }, TIMEOUT);
 
+  it('porta a checkout pieno i profili nella fascia misurata come lenta con lazy blob', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    for (const file of [
+      'update-exchange-history.yml',
+      'update-fuel-prices.yml',
+      'quality-alerts.yml',
+    ]) {
+      const workflow = analyzeAll().find((w) => w.file === file);
+      const job = workflow?.jobs.find((j) => j.hasCheckout);
+      expect(job, file).toBeDefined();
+      expect(job!.checkoutMb, file).toBeGreaterThan(CROSSOVER_MB);
+
+      const generated = computeProfiledText(path.join(WF_DIR, file), pkg.scripts);
+      expect(generated.text, file).not.toContain('# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs');
+    }
+  }, TIMEOUT);
+
   it('un job opaco (build/test) non esclude nulla', () => {
     // Un job che builda o testa il sito raggiunge l'albero per vie che nessuna
     // analisi di import vede (glob dei plugin Vite, fixture). Deve restare pieno.
