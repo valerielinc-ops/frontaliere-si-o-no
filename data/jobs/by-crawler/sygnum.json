@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-10-06T09:30:57.204Z",
+  "assembledAt": "2026-10-06T21:30:42.632Z",
   "jobs": [
     {
       "id": "sygnum-1e743fa07863",
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:48.269Z",
+      "crawledAt": "2026-10-06T21:30:33.953Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -66,7 +66,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sygnum-41bbb4b7e3e7",
@@ -99,7 +100,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:47.479Z",
+      "crawledAt": "2026-10-06T21:30:33.237Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -133,6 +134,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:50:29.915Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -178,7 +180,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:46.710Z",
+      "crawledAt": "2026-10-06T21:30:31.964Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -272,7 +274,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:45.984Z",
+      "crawledAt": "2026-10-06T21:30:31.151Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -352,7 +354,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:45.314Z",
+      "crawledAt": "2026-10-06T21:30:29.962Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -388,6 +390,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:07.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -433,7 +436,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:43.513Z",
+      "crawledAt": "2026-10-06T21:30:28.591Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -454,7 +457,16 @@
       "jobReqId": "VN288",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-relationship-manager-private-banking-80-100-sygnum-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-relationship-manager-private-banking-80-100-sygnum-zurich"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:21:36.405Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -467,15 +479,7 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-relationship-manager-private-banking-80-100-sygnum-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-relationship-manager-private-banking-80-100-sygnum-zurich"
-      ]
+      }
     },
     {
       "id": "sygnum-553807b103eb",
@@ -508,7 +512,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:41.839Z",
+      "crawledAt": "2026-10-06T21:30:27.803Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -541,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:30:03.444Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -586,7 +591,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:39.923Z",
+      "crawledAt": "2026-10-06T21:30:26.624Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -608,6 +613,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -653,7 +659,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:30:39.133Z",
+      "crawledAt": "2026-10-06T21:30:25.159Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
