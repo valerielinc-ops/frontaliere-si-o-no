@@ -6,7 +6,7 @@
  *    `scripts/generate-canton-article-sections.mjs` su `data/canton-url-slugs.json`
  *    (stessa forma di `tests/canton-url-slugs-parity.test.ts`: due copie dello
  *    stesso dato non possono divergere in silenzio).
- * 2. Forma: 24 gruppi URL, slug derivati dalla formula, nessuno attivo.
+ * 2. Forma: 24 gruppi URL, slug derivati dalla formula, tre attivi nel pilota.
  * 3. Collisioni: i 96 `indexSlug` non coincidono con nessuna route nota (tabella
  *    degli slug del router, sezioni del Worker, shard di sezione, hub esistenti)
  *    e gli slug riservati degli hub tematici non coincidono con i figli già
@@ -81,9 +81,9 @@ describe('sezioni cantonali: forma delle voci', () => {
     expect(CANTON_ARTICLE_SECTION_CORE['canton-basilea'].canton).toBe('BASILEA');
   });
 
-  it('nessuna sezione cantonale è attiva', () => {
-    expect(ACTIVE_CANTON_SECTIONS).toEqual([]);
-    expect(ACTIVE_CANTON_CODES).toEqual([]);
+  it('il pilota attiva TI, GR e BE e lascia gli altri gruppi inattivi', () => {
+    expect(ACTIVE_CANTON_CODES).toEqual(['TI', 'GR', 'BE']);
+    expect(ACTIVE_CANTON_SECTIONS).toEqual(['canton-be', 'canton-gr', 'canton-ti']);
   });
 
   it('ogni voce segue la formula degli slug (D1) e dei path per sezione (D14)', () => {

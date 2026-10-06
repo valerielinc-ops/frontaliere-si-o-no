@@ -148,8 +148,7 @@ function descriptorFor(core: CoreEntry): OgSection {
 /**
  * One descriptor per ACTIVE section, in core order (frontaliere, svizzera,
  * then any activated canton). Derived from `ARTICLE_SECTION_CORE_LIST`, so
- * while no canton is active this is exactly the two hand-written entries it
- * replaced.
+ * the descriptor set follows the activation list by construction.
  */
 export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] =
  (ARTICLE_SECTION_CORE_LIST as unknown as CoreEntry[]).map(descriptorFor);

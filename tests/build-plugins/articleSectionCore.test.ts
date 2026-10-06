@@ -30,8 +30,8 @@ const rootDir = path.resolve(__dirname, '..', '..');
  * silent change to every one of the (now single-sourced) consumers.
  */
 describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
-  it('pins the full contents of the core registry', () => {
-    expect(ARTICLE_SECTION_CORE).toEqual({
+  it('pins the historical entries of the core registry', () => {
+    expect({ frontaliere: ARTICLE_SECTION_CORE.frontaliere, svizzera: ARTICLE_SECTION_CORE.svizzera }).toEqual({
       frontaliere: {
         section: 'frontaliere',
         kind: 'frontaliere',
@@ -67,10 +67,13 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     });
   });
 
-  it('ARTICLE_SECTION_CORE_LIST is [frontaliere, svizzera] in that order', () => {
+  it('ARTICLE_SECTION_CORE_LIST is historical sections followed by the active pilot', () => {
     expect(ARTICLE_SECTION_CORE_LIST).toEqual([
       ARTICLE_SECTION_CORE.frontaliere,
       ARTICLE_SECTION_CORE.svizzera,
+      ARTICLE_SECTION_CORE['canton-be'],
+      ARTICLE_SECTION_CORE['canton-gr'],
+      ARTICLE_SECTION_CORE['canton-ti'],
     ]);
   });
 
@@ -84,9 +87,13 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     }
   });
 
-  it('no canton section is active: every consumer that iterates the sections sees exactly frontaliere + svizzera', () => {
-    expect(Object.keys(ARTICLE_SECTION_CORE)).toEqual(['frontaliere', 'svizzera']);
-    expect(sectionsOfKind('canton')).toEqual([]);
+  it('active consumers see the historical sections plus the three pilot cantons', () => {
+    expect(Object.keys(ARTICLE_SECTION_CORE)).toEqual(['frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti']);
+    expect(sectionsOfKind('canton')).toEqual([
+      ARTICLE_SECTION_CORE['canton-be'],
+      ARTICLE_SECTION_CORE['canton-gr'],
+      ARTICLE_SECTION_CORE['canton-ti'],
+    ]);
     expect(sectionsOfKind('frontaliere')).toEqual([ARTICLE_SECTION_CORE.frontaliere]);
     expect(sectionsOfKind('national')).toEqual([ARTICLE_SECTION_CORE.svizzera]);
     expect(() => sectionsOfKind('regional' as never)).toThrow();
@@ -115,10 +122,11 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     expect(() => cantonHubTopicSlugs('svizzera', 'it')).toThrow();
   });
 
-  it('activeArticleSection resolves the active sections and refuses an inactive canton id', () => {
+  it('activeArticleSection resolves the historical sections and the pilot', () => {
     expect(activeArticleSection('frontaliere')).toBe(ARTICLE_SECTION_CORE.frontaliere);
     expect(activeArticleSection('svizzera')).toBe(ARTICLE_SECTION_CORE.svizzera);
-    expect(() => activeArticleSection('canton-ti')).toThrow(/non attiva/);
+    expect(activeArticleSection('canton-ti')).toBe(ARTICLE_SECTION_CORE['canton-ti']);
+    expect(() => activeArticleSection('canton-zh')).toThrow(/non attiva/);
   });
 
   it('services/articleSections.ts re-exports the SAME object (reference equality, not a copy)', () => {
@@ -148,7 +156,9 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     // The kind-local fields are pinned to the two literals the module held
     // before it became table-driven: a value change here changes which files
     // renderArticlePages reads and which sitemap/canonical it writes.
-    expect(ARTICLE_SECTION_DESCRIPTORS.map((s) => s.name)).toEqual(['frontaliere', 'svizzera']);
+    expect(ARTICLE_SECTION_DESCRIPTORS.map((s) => s.name)).toEqual([
+      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+    ]);
     const [frontaliere, svizzera] = ARTICLE_SECTION_DESCRIPTORS;
     expect(frontaliere.seoFiles).toEqual([
       'services/seo/seo-blog.ts',
@@ -198,8 +208,10 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     // longer describes how the table reads the tuple. The requirement it
     // pinned is kept twice over: every row's tuple fields equal the core's,
     // and the source must not restate any tuple value (a copy, not a read).
-    expect(RSS_SECTIONS.map((s) => s.id)).toEqual(['frontaliere', 'svizzera']);
-    for (const section of RSS_SECTIONS) {
+    expect(RSS_SECTIONS.map((s) => s.id)).toEqual([
+      'frontaliere', 'svizzera', 'canton-be', 'canton-gr', 'canton-ti',
+    ]);
+    for (const section of RSS_SECTIONS.filter((s) => ['frontaliere', 'svizzera'].includes(s.id))) {
       const core = ARTICLE_SECTION_CORE[section.id as 'frontaliere' | 'svizzera'];
       expect(section.slugFile).toBe(core.slugDataFile);
       expect(section.slugConst).toBe(core.slugConst);
@@ -226,7 +238,7 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
   it('rssFeeds.mjs RSS_SECTIONS keeps the pre-table feed files, fallbacks and channel copy', () => {
     // Pinned to the two hand-written rows the table replaced: the ten feed
     // files, their slug fallback and every channel title/description.
-    const pinned = RSS_SECTIONS.map((s) => ({
+    const pinned = RSS_SECTIONS.filter((s) => ['frontaliere', 'svizzera'].includes(s.id)).map((s) => ({
       id: s.id,
       seoFiles: s.seoFiles,
       slugFallback: s.slugFallback,

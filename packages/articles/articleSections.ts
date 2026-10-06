@@ -86,9 +86,9 @@ export interface ArticleSectionConfig {
 }
 
 /**
- * ACTIVE sections only (today frontaliere + svizzera; a canton joins when it
- * is listed in `ACTIVE_CANTON_SECTIONS`). The historical keys are always
- * present, so `ARTICLE_SECTIONS.svizzera` stays a non-optional lookup.
+ * ACTIVE sections only (frontaliere + svizzera plus any pilot cantons listed
+ * in `ACTIVE_CANTON_SECTIONS`). The historical keys are always present, so
+ * `ARTICLE_SECTIONS.svizzera` stays a non-optional lookup.
  */
 export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> =
   ARTICLE_SECTION_CORE as unknown as Record<ArticleSection, ArticleSectionConfig>;

@@ -130,7 +130,7 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
     return paths;
   }
 
-  it('produces exactly the 8 known live index paths (4 locales x 2 sections)', () => {
+  it('produces the 4-locale index paths for every active section', () => {
     // Hard-coded expectations on purpose. Re-deriving the expected set from the
     // same descriptor the replica reads would compare the replica against
     // itself — a tautology that stays green even if indexSlug data is wrong.
@@ -155,6 +155,30 @@ describe('staticPagesPlugin bare-index skip-set: real ARTICLE_SECTION_DESCRIPTOR
         '/en/swiss-articles',
         '/de/schweiz-artikel',
         '/fr/articles-suisse',
+      ]),
+    );
+    expect(new Set(bySection['canton-be'])).toEqual(
+      new Set([
+        '/articoli-berna',
+        '/en/bern-articles',
+        '/de/bern-artikel',
+        '/fr/articles-berne',
+      ]),
+    );
+    expect(new Set(bySection['canton-gr'])).toEqual(
+      new Set([
+        '/articoli-grigioni',
+        '/en/graubunden-articles',
+        '/de/graubunden-artikel',
+        '/fr/articles-grisons',
+      ]),
+    );
+    expect(new Set(bySection['canton-ti'])).toEqual(
+      new Set([
+        '/articoli-ticino',
+        '/en/ticino-articles',
+        '/de/tessin-artikel',
+        '/fr/articles-tessin',
       ]),
     );
   });
@@ -255,8 +279,9 @@ describe('no landing may be excluded from BOTH writers at once', () => {
       'articolifrontaliere',
       'articolisvizzera',
     ]);
-    // Same two sections the BUILD_EMIT_SKIP flags gate, by another name.
-    expect(ARTICLE_SECTION_DESCRIPTORS.map((s) => s.name).sort()).toEqual([
+    // The shard handoff remains the two historical sections; pilot cantons are
+    // served by R2 + Worker and therefore have no shard key.
+    expect(ARTICLE_SECTION_DESCRIPTORS.filter((s) => s.shardKey).map((s) => s.name).sort()).toEqual([
       'frontaliere',
       'svizzera',
     ]);

@@ -45,15 +45,14 @@
  * Each entry also carries `kind` (`frontaliere` | `national` | `canton`) and
  * `shardKey`: engine branches look the kind up instead of comparing the
  * section NAME, so a new section is a data row, not a new `if`. The 24 canton
- * entries live in `ARTICLE_SECTION_CORE_ALL` but are INACTIVE:
- * `ARTICLE_SECTION_CORE` / `ARTICLE_SECTION_CORE_LIST` hold only the active
- * sections (today frontaliere and svizzera), so every consumer that iterates
- * them — here and in the corpus repo after the engine mirror — emits exactly
- * what it emitted before.
+ * entries live in `ARTICLE_SECTION_CORE_ALL`; only the ids listed by the
+ * generated activation list enter `ARTICLE_SECTION_CORE` /
+ * `ARTICLE_SECTION_CORE_LIST`. Every consumer that iterates them — here and
+ * in the corpus repo after the engine mirror — emits exactly the active set.
  *
- * Zero behavior change: every value here is copied byte-for-byte from the
- * pre-existing six copies (they already agreed on every value — see the
- * per-consumer equivalence tests in `tests/build-plugins/articleSectionCore.test.ts`).
+ * Every tuple value here is copied byte-for-byte from the pre-existing six
+ * copies (they already agreed on every value — see the per-consumer
+ * equivalence tests in `tests/build-plugins/articleSectionCore.test.ts`).
  *
  * @typedef {Object} ArticleSectionLocaleSlugs
  * @property {string} it
@@ -141,10 +140,11 @@ export const ARTICLE_SECTION_CORE_ALL = {
 
 /**
  * The ACTIVE sections: frontaliere, svizzera, then each canton listed in
- * `ACTIVE_CANTON_SECTIONS` (empty today). Every consumer that iterates the
+ * `ACTIVE_CANTON_SECTIONS`. Every consumer that iterates the
  * sections — build plugins, RSS, the corpus publisher, create-article — reads
- * this map or `ARTICLE_SECTION_CORE_LIST`, so adding the 24 inactive canton
- * entries above changes nothing they emit. Same entry objects as
+ * this map or `ARTICLE_SECTION_CORE_LIST`, so adding an inactive canton entry
+ * changes nothing they emit until it is explicitly activated. Same entry
+ * objects as
  * `ARTICLE_SECTION_CORE_ALL` (reference-equal), never copies.
  * @type {Record<string, ArticleSectionCoreEntry>}
  */

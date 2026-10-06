@@ -168,8 +168,8 @@ export function rssSectionFor(core) {
 
 /**
  * Section table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
- * core order (frontaliere, svizzera). Inactive canton sections are not in the
- * list, so the ten feeds are unchanged.
+ * core order (frontaliere, svizzera, then activated cantons). Inactive canton
+ * sections are not in the list.
  */
 export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
 

@@ -342,5 +342,5 @@ export const CANTON_ARTICLE_SECTION_CORE = {
   },
 };
 
-/** Lista di attivazione: id delle sezioni cantonali attive (vuota = nessuna). */
-export const ACTIVE_CANTON_SECTIONS = [];
+/** Lista di attivazione: id delle sezioni cantonali attive. */
+export const ACTIVE_CANTON_SECTIONS = ['canton-be', 'canton-gr', 'canton-ti'];
