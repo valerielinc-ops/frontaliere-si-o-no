@@ -70,6 +70,7 @@ import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_
 import { isModelMetaAnswer, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import {
+  DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX,
   DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
   interpretSemanticVerdict,
   judgeLocalMtMeaning,
@@ -123,6 +124,26 @@ const SEMANTIC_PREWARM_BATCH_SIZE = Math.max(
     ? Math.floor(Number(process.env.LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE))
     : DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
 );
+
+/**
+ * Keep every candidate's two texts resident until its verdict is consumed.
+ * The semantic judge's cache is bounded by text, so a block of half the cache
+ * capacity is safe even when every source and candidate is unique. Duplicate
+ * texts only make the block cheaper; the consumer order remains unchanged.
+ */
+export function semanticCandidateBlocks(candidates, cacheMax = DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX) {
+  const requestedMax = Number(cacheMax);
+  const maxEntries = Number.isFinite(requestedMax)
+    ? Math.max(1, Math.floor(requestedMax))
+    : DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX;
+  const blockSize = Math.max(1, Math.floor(maxEntries / 2));
+  const list = Array.isArray(candidates) ? candidates : [];
+  const blocks = [];
+  for (let offset = 0; offset < list.length; offset += blockSize) {
+    blocks.push(list.slice(offset, offset + blockSize));
+  }
+  return blocks;
+}
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
@@ -1661,9 +1682,9 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
       semanticCandidates.push({ job, jobIdx, locale, field, candidate: finalCandidate, languageDriven });
     }
 
-    if (semanticCandidates.length > 0) {
+    for (const semanticBlock of semanticCandidateBlocks(semanticCandidates)) {
       const semanticTexts = [];
-      for (const { candidate } of semanticCandidates) {
+      for (const { candidate } of semanticBlock) {
         semanticTexts.push(candidate.normalizedSourceText, candidate.incoming);
       }
       try {
@@ -1677,7 +1698,7 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
         console.warn(`⚠️  [local-mt] Semantic embedding warm-up unavailable (${error?.message || 'unknown error'}); falling back to one-text judge calls.`);
       }
 
-      for (const { job, jobIdx, locale, field, candidate, languageDriven } of semanticCandidates) {
+      for (const { job, jobIdx, locale, field, candidate, languageDriven } of semanticBlock) {
         const committed = await commitMopupCandidate({
           job,
           locale,

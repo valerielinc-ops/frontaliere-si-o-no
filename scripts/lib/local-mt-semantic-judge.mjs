@@ -40,7 +40,7 @@ export const SEMANTIC_VERDICT = Object.freeze({
   UNAVAILABLE: 'unavailable',
 });
 
-const DEFAULT_CACHE_MAX = 1024;
+export const DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX = 1024;
 export const DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE = 64;
 
 function cleanText(value) {
@@ -132,10 +132,10 @@ function unavailable(reason, threshold) {
 export function createLocalMtSemanticJudge({
   embed = embedBatch,
   threshold = DEFAULT_LOCAL_MT_SEMANTIC_THRESHOLD,
-  cacheMax = DEFAULT_CACHE_MAX,
+  cacheMax = DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX,
 } = {}) {
   const minScore = normalizedThreshold(threshold);
-  const maxEntries = Math.max(1, Number(cacheMax) || DEFAULT_CACHE_MAX);
+  const maxEntries = Math.max(1, Number(cacheMax) || DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX);
   const vectors = new Map();
 
   async function vectorFor(text) {
@@ -178,7 +178,16 @@ export function createLocalMtSemanticJudge({
     const seen = new Set();
     for (const value of Array.isArray(texts) ? texts : []) {
       const text = cleanText(value);
-      if (!text || seen.has(text) || vectors.has(text)) continue;
+      if (!text || seen.has(text)) continue;
+      const cached = vectors.get(text);
+      if (cached) {
+        // A hit belongs to the block currently being warmed. Refresh its
+        // insertion position so old entries cannot evict it before consume.
+        vectors.delete(text);
+        vectors.set(text, cached);
+        seen.add(text);
+        continue;
+      }
       seen.add(text);
       pending.push(text);
     }

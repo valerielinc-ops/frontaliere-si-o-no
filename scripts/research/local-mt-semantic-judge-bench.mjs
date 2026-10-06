@@ -12,6 +12,13 @@
  *     --n 500 --latency-ms 5 --batch-size 64
  *   node scripts/research/local-mt-semantic-judge-bench.mjs \
  *     --n 500 --latency-ms 5 --batch-size 64 --prewarm --profile
+ *   node scripts/research/local-mt-semantic-judge-bench.mjs \
+ *     --n 600 --unique-sources --cache-max 1024 --latency-ms 0 \
+ *     --batch-size 64 --prewarm
+ *
+ * `--prewarm-all` is a regression comparator for the former all-at-once path;
+ * production uses `--prewarm`, which consumes each cache-fitting block before
+ * warming the next one.
  */
 
 import fs from 'node:fs';
@@ -22,6 +29,7 @@ import { performance } from 'node:perf_hooks';
 
 import {
   classifyMopupStructure,
+  semanticCandidateBlocks,
 } from '../local-mt-mopup.mjs';
 import { titleLooksUntranslated } from '../lib/job-locale-utils.mjs';
 import {
@@ -51,9 +59,9 @@ function vectorFor(text) {
   return [1, delta, delta / 2, delta / 3];
 }
 
-function makePairs(n) {
+function makePairs(n, uniqueSources) {
   return Array.from({ length: n }, (_, index) => ({
-    sourceText: `Source phrase ${index % 50}`,
+    sourceText: `Source phrase ${uniqueSources ? index : index % 50}`,
     candidateText: `Translated candidate ${index}`,
   }));
 }
@@ -81,25 +89,30 @@ function batchShape(calls) {
   }, {});
 }
 
-async function runJudge({ pairs, latencyMs, batchSize, prewarm }) {
+async function runJudge({ pairs, latencyMs, batchSize, cacheMax, prewarmMode }) {
   const calls = [];
   const judge = createLocalMtSemanticJudge({
     embed: fakeEmbedder({ latencyMs, calls }),
     threshold: 0.8,
-    cacheMax: pairs.length * 2 + 100,
+    cacheMax,
   });
   const started = performance.now();
   let prewarmMs = 0;
-  if (prewarm) {
-    const warmupStarted = performance.now();
-    await judge.prewarm(
-      pairs.flatMap(({ sourceText, candidateText }) => [sourceText, candidateText]),
-      { batchSize },
-    );
-    prewarmMs = performance.now() - warmupStarted;
-  }
   const verdicts = [];
-  for (const pair of pairs) verdicts.push(await judge(pair));
+  const blocks = prewarmMode === 'blocks'
+    ? semanticCandidateBlocks(pairs, cacheMax)
+    : [pairs];
+  for (const block of blocks) {
+    if (prewarmMode !== 'none') {
+      const warmupStarted = performance.now();
+      await judge.prewarm(
+        block.flatMap(({ sourceText, candidateText }) => [sourceText, candidateText]),
+        { batchSize },
+      );
+      prewarmMs += performance.now() - warmupStarted;
+    }
+    for (const pair of block) verdicts.push(await judge(pair));
+  }
   const judgeMs = performance.now() - started - prewarmMs;
   return {
     totalMs: performance.now() - started,
@@ -107,6 +120,7 @@ async function runJudge({ pairs, latencyMs, batchSize, prewarm }) {
     judgeMs,
     calls,
     inputCount: calls.reduce((sum, call) => sum + call.count, 0),
+    candidateBlocks: prewarmMode === 'blocks' ? blocks.length : 1,
     verdicts,
     fingerprint: fingerprint(verdicts),
   };
@@ -171,24 +185,32 @@ async function main() {
     Number(option('--batch-size', String(DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE)))
       || DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
   );
-  const pairs = makePairs(n);
+  const cacheMax = Math.max(1, Number(option('--cache-max', '1024')) || 1024);
+  const uniqueSources = hasFlag('--unique-sources');
+  const prewarmMode = hasFlag('--prewarm-all') ? 'all' : hasFlag('--prewarm') ? 'blocks' : 'none';
+  const pairs = makePairs(n, uniqueSources);
   const profile = hasFlag('--profile') ? profileGuardsAndIo(n) : null;
   const result = await runJudge({
     pairs,
     latencyMs,
     batchSize,
-    prewarm: hasFlag('--prewarm'),
+    cacheMax,
+    prewarmMode,
   });
   const output = {
-    mode: hasFlag('--prewarm') ? 'prewarm' : 'baseline',
+    mode: prewarmMode === 'blocks' ? 'prewarm' : prewarmMode === 'all' ? 'prewarm-all' : 'baseline',
     n,
+    uniqueSources,
     latencyMs,
     batchSize,
+    cacheMax,
+    candidateBlocks: result.candidateBlocks,
     totalMs: Number(result.totalMs.toFixed(2)),
     prewarmMs: Number(result.prewarmMs.toFixed(2)),
     judgeMs: Number(result.judgeMs.toFixed(2)),
     embedCalls: result.calls.length,
     embeddedInputs: result.inputCount,
+    singleTextEmbeds: result.calls.filter(({ count }) => count === 1).length,
     batchShape: batchShape(result.calls),
     verdictFingerprint: result.fingerprint,
   };

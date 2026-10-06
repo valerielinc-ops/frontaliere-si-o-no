@@ -6,6 +6,7 @@ import {
   classifyMopupWrite,
   commitMopupCandidate,
   judgeMopupWrite,
+  semanticCandidateBlocks,
 } from '../scripts/local-mt-mopup.mjs';
 import {
   cosineSimilarity,
@@ -119,6 +120,40 @@ describe('local-mt semantic judge', () => {
     expect(coldCalls.every(({ inputs }) => inputs.length === 1)).toBe(true);
     expect(warmCalls.map(({ inputs }) => inputs.length)).toEqual([2, 2, 2]);
     expect(warmCalls.every(({ prefix }) => prefix === 'passage')).toBe(true);
+  });
+
+  it('keeps 600 unique candidate pairs inside cache-fitting blocks', async () => {
+    const cacheMax = 1024;
+    const batchSize = 64;
+    const calls: EmbedCall[] = [];
+    const judge = createLocalMtSemanticJudge({
+      embed: async ({ inputs, prefix }: EmbedCall) => {
+        calls.push({ inputs, prefix });
+        return inputs.map(() => [1, 0]);
+      },
+      cacheMax,
+    });
+    const pairs = Array.from({ length: 600 }, (_, index) => ({
+      sourceText: `unique source ${index}`,
+      candidateText: `unique candidate ${index}`,
+    }));
+
+    const blocks = semanticCandidateBlocks(pairs, cacheMax);
+    for (const block of blocks) {
+      await judge.prewarm(
+        block.flatMap(({ sourceText, candidateText }) => [sourceText, candidateText]),
+        { batchSize },
+      );
+      for (const pair of block) await judge(pair);
+    }
+
+    expect(blocks.map((block) => block.length)).toEqual([512, 88]);
+    expect(calls).toHaveLength(19);
+    expect(calls.map(({ inputs }) => inputs.length)).toEqual([
+      ...Array.from({ length: 18 }, () => 64),
+      48,
+    ]);
+    expect(calls.some(({ inputs }) => inputs.length === 1)).toBe(false);
   });
 
   it('falls back to one-text embedding after a failed batch and still writes', async () => {
