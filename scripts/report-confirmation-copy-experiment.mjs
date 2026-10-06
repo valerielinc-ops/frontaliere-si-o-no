@@ -166,8 +166,16 @@ export function aggregateConfirmationCopyEvents(events = []) {
   const subscribersByKey = new Map();
   let missingSubscriberIdentity = 0;
   for (const message of sentMessages) {
-    const subscriberKey = message.subscriberKey || `message:${message.joinKey}`;
-    if (!message.subscriberKey) missingSubscriberIdentity += 1;
+    // No identity, no subscriber. A message that cannot be tied to a person
+    // stays in the auxiliary per-message tables, but it must not enter the
+    // per-subscriber aggregates: counted as one more distinct person each, a
+    // batch of identity-less follow-ups would inflate the denominator of the
+    // primary metric and could satisfy the readiness floor on its own.
+    if (!message.subscriberKey) {
+      missingSubscriberIdentity += 1;
+      continue;
+    }
+    const subscriberKey = message.subscriberKey;
     let subscriber = subscribersByKey.get(subscriberKey);
     if (!subscriber) {
       subscriber = {
@@ -204,7 +212,7 @@ export function aggregateConfirmationCopyEvents(events = []) {
       sent_messages: sentMessages.length,
       eligible_subscribers: subscribers.length,
       missing_subscriber_identity: missingSubscriberIdentity,
-      followup_messages_collapsed: Math.max(0, sentMessages.length - subscribers.length),
+      followup_messages_collapsed: Math.max(0, sentMessages.length - missingSubscriberIdentity - subscribers.length),
       orphan_engagement_messages: [...messages.values()].filter((message) => !message.sent && (message.opened || message.clicked)).length,
     },
   };
@@ -319,7 +327,7 @@ function principalComparisons(rawByDimension) {
   return output;
 }
 
-function decisionFor(messages, activationMs, toMs, rawByDimension) {
+function decisionFor(messages, activationMs, toMs, rawByDimension, counters = {}) {
   const rawByVariant = {
     [CONFIRMATION_COPY_VARIANTS.GENERIC]: emptyCounts(),
     [CONFIRMATION_COPY_VARIANTS.CONTEXTUAL]: emptyCounts(),
@@ -350,6 +358,11 @@ function decisionFor(messages, activationMs, toMs, rawByDimension) {
   if (generic.sends < MIN_ARM_SENDS) warnings.push(`generic sotto la numerosità minima di ${MIN_ARM_SENDS} invii`);
   if (contextual.sends < MIN_ARM_SENDS) warnings.push(`contextual sotto la numerosità minima di ${MIN_ARM_SENDS} invii`);
   if (!principal.length) warnings.push(`nessuno strato principale ha almeno ${MIN_STRATUM_SENDS} invii per braccio`);
+  if (counters.missing_subscriber_identity > 0) {
+    warnings.push(
+      `${counters.missing_subscriber_identity} invii senza identità dell'iscritto esclusi dagli aggregati primari`,
+    );
+  }
   for (const [dimension, table] of Object.entries(rawByDimension)) {
     for (const [value, arms] of Object.entries(table)) {
       for (const variant of Object.keys(arms)) {
@@ -433,7 +446,7 @@ export function buildConfirmationCopyReport({ events = [], activationMs = null, 
     message_by_variant: Object.fromEntries(Object.entries(rawMessageByVariant)
       .map(([variant, counts]) => [variant, cell(counts)])),
     strata: strataRows,
-    decision: decisionFor(primaryUnits, activationMs, toMs, rawByDimension),
+    decision: decisionFor(primaryUnits, activationMs, toMs, rawByDimension, folded.counters),
     period: {
       from: fromMs == null ? null : new Date(fromMs).toISOString(),
       to: toMs == null ? null : new Date(toMs).toISOString(),

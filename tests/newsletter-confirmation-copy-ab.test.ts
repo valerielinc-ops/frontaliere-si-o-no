@@ -249,6 +249,50 @@ describe('confirmation copy report', () => {
     expect(findIdentifierLeaks(report)).toEqual([]);
   });
 
+  it('keeps identity-less messages out of the per-subscriber aggregates', () => {
+    // Acceptance from the PR review: two sends with distinct message ids, the
+    // same valid experiment campaign and no email are not two subscribers.
+    const noIdentity = (type: 'send' | 'open' | 'click', id: string) => ({
+      event_type: type, message_id: id, campaign_id: campaign('generic'), provider: 'maileroo',
+    });
+    const report = buildConfirmationCopyReport({
+      fromMs: Date.parse('2026-10-01T00:00:00.000Z'),
+      toMs: Date.parse('2026-10-20T00:00:00.000Z'),
+      activationMs: Date.parse('2026-10-01T00:00:00.000Z'),
+      events: [noIdentity('send', 'anon-1'), noIdentity('send', 'anon-2'), noIdentity('click', 'anon-2')],
+    });
+    expect(report.counters.eligible_subscribers).toBe(0);
+    expect(report.counters.missing_subscriber_identity).toBe(2);
+    expect(report.counters.followup_messages_collapsed).toBe(0);
+    expect(report.by_variant.generic.sends).toBe(0);
+    // The messages are still visible in the auxiliary per-message table.
+    expect(report.message_by_variant.generic).toMatchObject({ sends: 2, clicked: 1 });
+    expect(report.decision.ready).toBe(false);
+    expect(report.decision.warnings.join(' | ')).toContain('2 invii senza identità');
+    expect(findIdentifierLeaks(report)).toEqual([]);
+  });
+
+  it('cannot reach the readiness floor with identity-less sends', () => {
+    // 400 identified subscribers on one arm, 400 identity-less sends on the
+    // other: before the fix both arms looked ready after 14 days.
+    const events: Array<Record<string, string>> = [];
+    for (let index = 0; index < 400; index += 1) {
+      events.push(event('send', `c-${index}`, campaign('contextual')));
+      events.push({ event_type: 'send', message_id: `anon-${index}`, campaign_id: campaign('generic'), provider: 'maileroo' });
+    }
+    const report = buildConfirmationCopyReport({
+      fromMs: Date.parse('2026-10-01T00:00:00.000Z'),
+      toMs: Date.parse('2026-10-20T00:00:00.000Z'),
+      activationMs: Date.parse('2026-10-01T00:00:00.000Z'),
+      events,
+    });
+    expect(report.by_variant.contextual.sends).toBe(400);
+    expect(report.by_variant.generic.sends).toBe(0);
+    expect(report.counters.missing_subscriber_identity).toBe(400);
+    expect(report.decision.ready).toBe(false);
+    expect(report.decision.decision).toBe('tie_or_not_ready_keep_contextual');
+  });
+
   it('only recommends generic after the fixed horizon, arm minimum and principal strata agree', () => {
     const events: Array<Record<string, string>> = [];
     for (let index = 0; index < 400; index += 1) {
