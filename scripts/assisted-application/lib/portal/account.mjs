@@ -31,8 +31,10 @@ const VERIFICATION_POLL_MS = 10_000;
 // button is «Konto anlegen» / «Crea account» / «Créer un compte».
 export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?(konto (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an )?account|sign up|register|crea (un )?account|registrati( qui)?|créer (un )?compte|créez-en un|s'inscrire)$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
-export const VERIFY_PAGE_RE = /(verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)/i;
-const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs/i;
+export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
+export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
+const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+const PASSWORD_CODE_FIELD_RE = /one[- ]time|otp|einmal|usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
@@ -200,7 +202,12 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
 }
 
 export function codeField(snapshot) {
-  return snapshot.fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && CODE_FIELD_RE.test(`${field.label} ${field.name}`)) || null;
+  return snapshot.fields.find((field) => {
+    const label = `${field.label} ${field.name}`;
+    return CODE_FIELD_RE.test(label)
+      && (field.kind === 'text' && field.inputType !== 'password'
+        || field.inputType === 'password' && PASSWORD_CODE_FIELD_RE.test(label));
+  }) || null;
 }
 
 export function loginFields(snapshot) {

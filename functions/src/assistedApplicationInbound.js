@@ -72,12 +72,12 @@ summaryIt: one sentence in Italian for the operator.
 summaryCandidate: one or two sentences in ${LANGUAGE_NAMES[locale] || 'Italian'} for the candidate: what the employer wants and what to do next, if anything.
 interviewWhen: date/time/place of a proposed interview exactly as written, else "".
 requestedDocuments: documents or information the employer asks for, else [].
-verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address or account, else "". Never construct them.
+verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address or account, else "". A one-time password, OTP, or password à usage unique is a verificationCode. Never construct them.
 needsReply: true when the employer expects an answer from the candidate.`;
 }
 
 const RULES = [
-  ['verification', /\b(verify|verification|bestätig|verifica|confirm your (e-?mail|account)|code de (vérification|confirmation)|best[aä]tigungscode|codice di verifica)/i],
+  ['verification', /\b(verify|verification|bestätig|verifica|confirm your (e-?mail|account)|code de (vérification|confirmation)|best[aä]tigungscode|codice di verifica|mot de passe [àa] usage unique|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code))/i],
   ['interview_invite', /\b(interview|colloquio|vorstellungsgespr[aä]ch|entretien|kennenlernen|incontro conoscitivo)/i],
   ['offer', /\b(job offer|offerta di lavoro|arbeitsvertrag|stellenangebot|offre d'emploi|contratto di lavoro)/i],
   ['rejection', /\b(unfortunately|purtroppo|leider|malheureusement|non (possiamo|potremo) (proseguire|dare seguito)|anderen kandidat|autre candidat)/i],
