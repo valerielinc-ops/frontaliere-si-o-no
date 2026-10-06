@@ -9,6 +9,7 @@ import {
   DEFAULT_CHAIN,
   __installScoreStoreForTests,
   callLLM,
+  callSingleModel,
   classifyExhaustionCause,
   getScoreBoard,
   getPreferredModel,
@@ -155,6 +156,23 @@ describe('client del broker Codex', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
+  });
+
+  it('una chiamata diretta Codex successiva al circuito non riapre il broker', async () => {
+    behavior = (client) => {
+      client.end(`${JSON.stringify({ ok: false, error: 'Codex CLI timed out after 15000ms' })}\n`);
+    };
+    await expect(callSingleModel(messages, {
+      model: CODEX,
+      maxRetriesPerModel: 1,
+    })).rejects.toThrow(/timed out/);
+    const requestsAfterFailure = requests.length;
+
+    await expect(callSingleModel(messages, {
+      model: CODEX,
+      maxRetriesPerModel: 1,
+    })).rejects.toThrow(/primary circuit open for this run \(timeout\)/);
+    expect(requests.length).toBe(requestsAfterFailure);
   });
 
   it('una quota Codex apre il circuito senza persistere un ban del modello', async () => {
