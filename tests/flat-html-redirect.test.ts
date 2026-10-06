@@ -154,6 +154,25 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('https://example.test/fake.webp');
   });
 
+  it('uses the active title in the full-build transform', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><title>Stale template title</title></template>' +
+        '<!-- <title>Stale comment title</title> -->' +
+        '<title>Live title</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<title>Live title</title>');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment title');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing

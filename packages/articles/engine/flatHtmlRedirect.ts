@@ -146,4 +146,4 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   return NOINDEX_BRIDGE(slashUrl, title, ogTags);
 }
 
-export { stripScriptsAndStyles };
+export { maskInactiveMarkup, stripScriptsAndStyles };
