@@ -32,6 +32,7 @@ import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { buildPeerProse, rankPeerRows } from './shared/peerCohortComparison';
 import { haversineKm as sharedHaversineKm } from '../scripts/lib/haversine.mjs';
 import { forceGc } from './shared/forceGc';
 
@@ -251,6 +252,10 @@ interface Copy {
   colBorderDistance: string;
   spreadAddizionale: string;
   comparisonSource: string;
+  comparisonPeerNoun: string;
+  rentMetric: string;
+  populationMetric: string;
+  distanceMetric: string;
   faqTitle: string;
   faq1: (m: Municipality) => string;
   faq1a: (m: Municipality) => string;
@@ -318,6 +323,10 @@ const COPY = {
     colBorderDistance: 'Distanza dal confine',
     spreadAddizionale: 'l\u2019addizionale comunale',
     comparisonSource: 'Addizionale IRPEF 2024, affitto indicativo di zona e distanza dal confine dallo stesso dataset comunale delle metriche qui sopra.',
+    comparisonPeerNoun: 'comuni',
+    rentMetric: "l'affitto mensile indicativo",
+    populationMetric: 'la popolazione',
+    distanceMetric: 'la distanza dal confine',
     faqTitle: 'Domande frequenti',
     faq1: (m: Municipality) => `${m.name} è un comune di frontiera per lavorare in Svizzera?`,
     faq1a: (m: Municipality) => `${m.name} risulta nella fascia ${m.fascia} del dataset interno dei comuni di frontiera usato da Frontaliere Ticino. Verifica sempre il tuo caso fiscale con un consulente se stai cambiando residenza o status di frontaliere.`,
@@ -377,6 +386,10 @@ const COPY = {
     colBorderDistance: 'Distance to border',
     spreadAddizionale: 'the municipal surcharge',
     comparisonSource: '2024 IRPEF surcharge, indicative area rent and distance to the border from the same municipal dataset as the metrics above.',
+    comparisonPeerNoun: 'towns',
+    rentMetric: 'indicative monthly rent',
+    populationMetric: 'population',
+    distanceMetric: 'distance to the border',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Is ${m.name} a border municipality for Swiss work?`,
     faq1a: (m: Municipality) => `${m.name} appears in zone ${m.fascia} in the internal border-municipality dataset used by Frontaliere Ticino. Always verify your individual tax status before moving.`,
@@ -436,6 +449,10 @@ const COPY = {
     colBorderDistance: 'Entfernung zur Grenze',
     spreadAddizionale: 'der Gemeindezuschlag',
     comparisonSource: 'IRPEF-Gemeindezuschlag 2024, Richtmiete der Zone und Entfernung zur Grenze aus demselben Gemeindedatensatz wie die Kennzahlen oben.',
+    comparisonPeerNoun: 'Gemeinden',
+    rentMetric: 'die Richtmiete pro Monat',
+    populationMetric: 'die Einwohnerzahl',
+    distanceMetric: 'die Entfernung zur Grenze',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Ist ${m.name} eine Grenzgemeinde?`,
     faq1a: (m: Municipality) => `${m.name} erscheint in Zone ${m.fascia} im internen Grenzgemeinden-Datensatz von Frontaliere Ticino. Prüfe deinen Steuerfall vor einem Umzug individuell.`,
@@ -495,6 +512,10 @@ const COPY = {
     colBorderDistance: 'Distance de la frontière',
     spreadAddizionale: 'la surtaxe communale',
     comparisonSource: 'Surtaxe IRPEF 2024, loyer indicatif de la zone et distance de la frontière issus du même jeu de données communal que les indicateurs ci-dessus.',
+    comparisonPeerNoun: 'communes',
+    rentMetric: 'le loyer mensuel indicatif',
+    populationMetric: 'la population',
+    distanceMetric: 'la distance de la frontière',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `${m.name} est-elle une commune frontalière?`,
     faq1a: (m: Municipality) => `${m.name} apparaît en zone ${m.fascia} dans le jeu de données interne des communes frontalières utilisé par Frontaliere Ticino. Vérifiez toujours votre cas fiscal avant un déménagement.`,
@@ -1069,6 +1090,57 @@ export function renderPage(params: {
         },
       ],
       sourceNote: copy.comparisonSource,
+      extraProse: ({ current: self, neighbours }) => {
+        const places = [self, ...neighbours.map((entry) => entry.place)];
+        const proseFor = (
+          metricLabel: string,
+          valueOf: (place: Municipality) => number | null,
+          formatValue: (value: number, valueLocale: Locale) => string,
+          higherIsBetter: boolean,
+        ) =>
+          buildPeerProse({
+            locale,
+            ranked: rankPeerRows(
+              places.map((place) => ({
+                key: slugify(place.name),
+                name: place.name,
+                value: valueOf(place),
+              })),
+              higherIsBetter,
+            ),
+            currentKey: slugify(self.name),
+            labels: { heading: '', metricLabel, peerNoun: copy.comparisonPeerNoun },
+            formatValue,
+            higherIsBetter,
+          });
+
+        return [
+          ...proseFor(
+            copy.spreadAddizionale,
+            (place) => (leviesIrpefAddizionale(place) ? place.irpefAddizionale : null),
+            (value, valueLocale) => `${formatDecimal(value, valueLocale)}%`,
+            false,
+          ),
+          ...proseFor(
+            copy.rentMetric,
+            (place) => place.avgRentMonthly,
+            (value, valueLocale) => `EUR ${formatInt(value, valueLocale)}`,
+            false,
+          ),
+          ...proseFor(
+            copy.populationMetric,
+            (place) => place.population,
+            (value, valueLocale) => formatInt(value, valueLocale),
+            true,
+          ),
+          ...proseFor(
+            copy.distanceMetric,
+            (place) => place.distanceKm,
+            (value, valueLocale) => `${formatInt(value, valueLocale)} km`,
+            false,
+          ),
+        ];
+      },
     })}
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
