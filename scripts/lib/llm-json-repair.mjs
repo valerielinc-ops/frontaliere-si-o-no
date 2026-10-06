@@ -750,19 +750,23 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
   let firstRoot = null;
   let firstCloseIdx = -1;
   let firstClosed = false;
-  let recordedRoots = 0;
+  let recordedTopLevelRoots = 0;
   let prefixJsonLike = true;
   let prefixInString = false;
   let prefixTokenEnd = start + 1;
 
   const recordCandidate = (frame) => {
+    // After the first root closes, depth zero is the top-level boundary for
+    // later candidates. The outer frame's `end` lets the collector skip all
+    // nested frames without spending the budget on them.
+    if (firstClosed && frame.depth > 0) return;
     // For an unbalanced first root, discard nested intervals before applying
     // the scan budget. This keeps deeply nested malformed containers from
     // hiding a later root that follows corrupted prose.
     if (!firstClosed && isNestedRootCandidate(source, start, frame)) return;
-    if (recordedRoots >= MAX_LATER_SCANNED_ROOTS) return;
+    if (recordedTopLevelRoots >= MAX_LATER_SCANNED_ROOTS) return;
     candidates.push(frame);
-    recordedRoots++;
+    recordedTopLevelRoots++;
   };
 
   for (let i = start; i < source.length; i++) {
@@ -814,9 +818,7 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
       structuralStack.push(frame);
 
       if (!firstRoot) firstRoot = frame;
-      else if (targetOpeners.has(ch) && (firstClosed || recordedRoots < MAX_LATER_SCANNED_ROOTS)) {
-        recordCandidate(frame);
-      }
+      else if (targetOpeners.has(ch)) recordCandidate(frame);
       continue;
     }
 
@@ -842,7 +844,7 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
       firstCloseIdx = i;
       firstClosed = true;
       candidates.length = 0;
-      recordedRoots = 0;
+      recordedTopLevelRoots = 0;
       structuralStack.length = 0;
       prefixJsonLike = true;
       prefixInString = false;

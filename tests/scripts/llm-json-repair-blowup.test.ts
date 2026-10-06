@@ -142,6 +142,16 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual({ q: 'noise-0', a: 'N' });
   });
 
+  it('non consuma il budget dei root con gli opener annidati in un candidato laterale', () => {
+    const nestedOpenerCount = 96;
+    const lateralCandidate = `${'['.repeat(nestedOpenerCount + 1)}1${']'.repeat(nestedOpenerCount + 1)}`;
+    const raw = `{"meta":"noise"} ${lateralCandidate} [{"q":"real","a":"A"}]`;
+    const repaired = repairLlmJsonArray(raw, {
+      validateCandidate: (candidate) => candidate?.[0]?.q === 'real',
+    });
+    expect(JSON.parse(repaired)).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
   it('esamina linearmente il suffisso di quote malformate', () => {
     const measure = (quoteCount: number) => {
       const raw = `preamble [${'"'.repeat(quoteCount)}x`;
