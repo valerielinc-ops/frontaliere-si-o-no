@@ -46,6 +46,7 @@ const EVENT = {
   venue: 'LAC Lugano Arte e Cultura',
   comune: 'Lugano',
   canton: 'TI',
+  sourceDescriptionHash: 'c'.repeat(64),
   url: 'https://www.tio.ch/agenda/day/20260704/42',
   sourceKey: 'tio-agenda',
   sourceName: 'Tio.ch Agenda',

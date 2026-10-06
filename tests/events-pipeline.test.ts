@@ -488,6 +488,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         id: 'guidle:pending-description',
         title: 'Mostra civica',
         startDate: '2026-10-12',
+        sourceDescriptionHash: 'd'.repeat(64),
         canton: 'TI',
         comune: 'Lugano',
         venue: 'Museo civico',

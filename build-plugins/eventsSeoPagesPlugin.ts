@@ -1427,11 +1427,12 @@ export function zurichOffset(isoDate: string): string {
 /**
  * schema.org/Event object for one agenda entry.
  *
- * The description is optional until the rewrite cache has an exact
- * id+sourceDescriptionHash hit. Older and partial slices are completed at
- * detail-page render time with deterministic catalog/venue/image defaults.
- * This omission is intentional: the publication contract requires factual
- * data only until a validated rewrite exists, including in Event JSON-LD.
+ * Source-backed events omit the description until the rewrite cache has an
+ * exact id+sourceDescriptionHash hit. Records that never had source prose
+ * may use a deterministic factual sentence; it is built only from the event
+ * fields and never from a crawler description. Older and partial slices are
+ * completed at detail-page render time with deterministic catalog/venue/image
+ * defaults.
  * Detail pages also emit an Offer shell when the source has no verifiable
  * price, so the page still exposes its source URL and availability without
  * fabricating a zero or other amount. Direct callers only get that fallback
@@ -1456,8 +1457,16 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // reads it as midnight → "endDate before startDate"): mirror startIso.
   const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
   const endIso = hasMultiDay ? (event.endDate as string) : startIso;
+  const cat = categoryLabel(event.category, locale);
+  const when = humanDate(event.startDate, locale);
   const title = localizedTitle(event, locale);
-  const description = localizedDescription(event, locale)?.trim();
+  const factualDescription = !event.sourceDescriptionHash
+    ? `${title} — ${cat} ${COPY[locale].at} ${venueName || locality || 'Svizzera'} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}`
+      + `${event.startTime ? ` ${event.startTime}` : ''}.`
+    : undefined;
+  const description = (event.sourceDescriptionHash
+    ? localizedDescription(event, locale)
+    : factualDescription)?.trim();
   const eventWithDefaults = fillEventPeopleDefaults({ ...event, title, venue: venueName || undefined }, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
