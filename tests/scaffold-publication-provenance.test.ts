@@ -29,6 +29,14 @@ function generatedParser(tier: string) {
   }) as string;
 }
 
+function generatedAtsSection(tier: string) {
+  const prefix = source.slice(source.indexOf('const args ='), source.indexOf('const atsSection ='));
+  return vm.runInNewContext(`${prefix}\nbuildAtsParserSection(${JSON.stringify(tier)})`, {
+    process: { argv: ['node', 'scaffold', 'fixture-employer', '--ats', tier], exit: () => { throw new Error('unexpected scaffold exit'); } },
+    fs: { existsSync: () => false }, path, ROOT: '/fixture-only', constPrefix, pascalIdentifier, console,
+  }) as { imports: string; fetchBlock: string };
+}
+
 async function generatedJobs(tier: string, input: Record<string, unknown>) {
   const listing = { title: 'Software Engineer', location: 'Lugano', applyUrl: 'https://fixtureemployer.ch/job/1/', url: 'https://fixtureemployer.ch/job/1/', descriptionHtml: description, description, ...input };
   const code = stripImports(generatedParser(tier)).replace(/^export\s+/gm, '');
@@ -75,6 +83,13 @@ describe('generated crawler publication provenance', () => {
   it('dispatches Workday to its source-aware factory instead of the unused generic fetch block', () => {
     expect(generatedParser('workday')).toContain('createWorkdaySwissParser');
     expect(generatedParser('workday')).not.toContain('parseWorkdayPostedDate');
+  });
+  it('generates the Workday fetch section with the verified publication tuple', () => {
+    const section = generatedAtsSection('workday');
+    expect(section.imports).toContain('workdayPostingDateFields');
+    expect(section.imports).not.toContain('parseWorkdayPostedDate');
+    expect(section.fetchBlock).toContain('...workdayPostingDateFields(posting)');
+    expect(section.fetchBlock).not.toContain('parseWorkdayPostedDate');
   });
 });
 

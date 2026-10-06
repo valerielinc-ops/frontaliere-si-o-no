@@ -27,8 +27,9 @@
  *   3 → priority:medium (default)
  *   4 → priority:low
  *
- * De-duplication: searches for OPEN issues whose title shares a safe prefix
- * derived from the first 60 chars of the new title; if found, posts a comment
+ * De-duplication: searches for OPEN issues by the complete title when an
+ * unkeyed title fits within 60 chars; truncated titles and keyed families use
+ * a safe prefix derived from the first 60 chars. If found, posts a comment
  * with the new context instead of creating a duplicate. The lookup reconciles
  * the search index with a plain repository listing — the index is eventually
  * consistent and does not
@@ -232,7 +233,9 @@ function stripUnbalancedBracketTail(s) {
 // Takes the FULL title (not a pre-sliced prefix) so it can tell whether
 // slice(0,LEN) actually split a word — the signal needed to repair a partial
 // discriminator token without mistaking a clean 60-character boundary for a
-// fragment.
+// fragment. The caller uses the returned value as an exact title only when the
+// complete, untruncated title survives unchanged and no deduplication family
+// key was declared; truncated titles and keyed families retain prefix matching.
 export function searchSafePrefix(fullTitle) {
   const LEN = DEDUP_TITLE_PREFIX_LEN;
   const full = String(fullTitle);
@@ -325,22 +328,27 @@ function searchIssuesByTitlePrefix(
   fullTitle,
   state,
   searchLimit = 10,
-  { exactTitle = false } = {},
+  { exactTitle = false, dedupKey = null } = {},
 ) {
   const requestedTitle = String(fullTitle);
   const safePrefix = searchSafePrefix(fullTitle);
+  const matchExactTitle = exactTitle || (
+    !dedupKey
+    && requestedTitle.length <= DEDUP_TITLE_PREFIX_LEN
+    && safePrefix === requestedTitle
+  );
   // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
   // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
   // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
-  // entrambi comparire. Filtra al match esatto di prefisso → niente commento
-  // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-  // I caller con bucket distinti oltre i 60 caratteri possono richiedere
-  // l'uguaglianza del titolo completo dopo la stessa query di candidati.
+  // entrambi comparire. Un titolo completo entro i 60 caratteri, senza una
+  // chiave di famiglia, non è un prefisso: in quel caso richiedi il titolo
+  // esatto. Un titolo troncato, una famiglia con chiave o un caller che chiede
+  // `exactTitle` esplicitamente seguono invece la regola rispettiva sotto.
   // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
   // resta coerente quando lo slice grezzo era stato troncato a metà token.
   const matching = (issues) =>
     issues.filter((i) => typeof i.title === 'string' && (
-      exactTitle
+      matchExactTitle
         ? i.title === requestedTitle.slice(0, 200)
         : i.title.startsWith(safePrefix)
     ));
@@ -547,7 +555,7 @@ function findRecentlyClosedIssueByTitlePrefix(
     exactTitle ? fullTitle : (dedupKey || fullTitle),
     'closed',
     CLOSED_SEARCH_LIMIT,
-    { exactTitle },
+    { exactTitle, dedupKey },
   );
   if (candidates === null) return undefined;
   const inWindow = candidates
@@ -1337,7 +1345,7 @@ export async function createGithubIssue({
   const openCandidates = findOpenIssueCandidatesByTitlePrefix(
     matchExactTitle ? title : dedupTitle,
     Boolean(normalizedDedupKey),
-    { exactTitle: matchExactTitle },
+    { exactTitle: matchExactTitle, dedupKey: normalizedDedupKey },
   );
   if (openCandidates === undefined) return lookupFailedResult(title, 'open-issue');
   const newestOpen = openCandidates[0] || null;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-10-06T09:35:59.717Z",
+  "assembledAt": "2026-10-06T21:39:06.133Z",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:55.242Z",
+      "crawledAt": "2026-10-06T21:39:02.045Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:53.272Z",
+      "crawledAt": "2026-10-06T21:39:01.669Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:50.164Z",
+      "crawledAt": "2026-10-06T21:39:01.252Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -235,6 +235,20 @@
       "pensum": "60 - 100%",
       "pensumMin": 60,
       "pensumMax": 100,
+      "previousSlugs": [
+        "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:34:30.045Z",
       "salaryMin": 81500,
@@ -250,21 +264,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
-        ],
-        "en": [
-          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
-        ],
-        "fr": [
-          "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
-        ]
-      },
-      "previousSlugs": [
-        "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-1e6940acb70a",
@@ -297,7 +297,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:48.072Z",
+      "crawledAt": "2026-10-06T21:38:59.599Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -403,9 +403,9 @@
       "id": "flury-stiftung-2f717b7dc49d",
       "slug": "dipl-specialista-hf-80-100-casa-di-riposo-schiers-flury-stiftung-schiers",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch",
         "it": "dipl-specialista-hf-80-100-casa-di-riposo-schiers-flury-stiftung-schiers",
         "en": "dipl-care-specialist-hf-80-100-retirement-home-schiers-flury-stiftung-schiers",
+        "de": "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch",
         "fr": "dipl-specialiste-des-soins-hf-80-100-maison-de-retraite-schiers-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
@@ -413,16 +413,16 @@
       "companyDomain": "flurystiftung.ch",
       "title": "Dipl. Pflegefachperson HF 80 – 100%, Altersheim Schiers",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF 80 – 100%, Altersheim Schiers",
         "it": "Dipl. Specialista HF 80 – 100%, casa di riposo Schiers",
         "en": "Dipl. Care specialist HF 80 – 100%, retirement home Schiers",
+        "de": "Dipl. Pflegefachperson HF 80 – 100%, Altersheim Schiers",
         "fr": "Dipl. Spécialiste des soins HF 80 – 100%, maison de retraite Schiers"
       },
       "description": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizini- schen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Altersheim Schiers, eingebettet in eine wunderschöne Berglandschaft, bietet rund 52 Bewohnerinnen und Bewohnern ein liebevolles Zuhause. Wir suchen per sofort oder nach Vereinbarung eine Dipl. Pflegefachperson HF 80 – 100%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Eine bedürfnisorientierte, individuelle Betreuung und Pflege unserer Bewohnerinnen und Bewohner\n\n- Pflege anhand des Pflegeprozesses und entsprechende Dokumentation\n\n- Übernahme der pflegerischen Verantwortung\n\nIhr Profil:\n\n- Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachperson HF\n\n- Freude und Geduld im Umgang mit alten Menschen, Teamfähigkeit und Zuverlässigkeit\n\n- Hohe Fach- und Sozialkompetenz kombiniert mit einer zuverlässigen und selbstständigen Arbeitsweise\n\n- Interesse an neuen Herausforderungen und eine gute persönliche Arbeitsorganisation\n\nWir bieten Ihnen:\n\n- Eine moderne, zeitgerechte und lichtdurchflutete Lebens- und Betreuungsumgebung\n\n- Eine abwechslungsreiche und herausfordernde Tätigkeit in einem innovativen Unternehmen\n\n- Selbstständiges Arbeiten mit einem kompetenten und motivierten Team\n\n- Ein kollegiales Arbeitsumfeld\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Eine eigene Kinderkrippe und weitere interessante Benefits für Mitarbeitende\n\nErstfragen beantwortet Ihnen gerne Frau Lea Hohbach, Bereichsleitung, Tel. +41 81 308 06 10. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung der Bewerbungsunterlagen an: hr@flurystiftung.ch freuen wir uns!",
       "descriptionByLocale": {
-        "de": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizini- schen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Altersheim Schiers, eingebettet in eine wunderschöne Berglandschaft, bietet rund 52 Bewohnerinnen und Bewohnern ein liebevolles Zuhause. Wir suchen per sofort oder nach Vereinbarung eine Dipl. Pflegefachperson HF 80 – 100%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Eine bedürfnisorientierte, individuelle Betreuung und Pflege unserer Bewohnerinnen und Bewohner\n\n- Pflege anhand des Pflegeprozesses und entsprechende Dokumentation\n\n- Übernahme der pflegerischen Verantwortung\n\nIhr Profil:\n\n- Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachperson HF\n\n- Freude und Geduld im Umgang mit alten Menschen, Teamfähigkeit und Zuverlässigkeit\n\n- Hohe Fach- und Sozialkompetenz kombiniert mit einer zuverlässigen und selbstständigen Arbeitsweise\n\n- Interesse an neuen Herausforderungen und eine gute persönliche Arbeitsorganisation\n\nWir bieten Ihnen:\n\n- Eine moderne, zeitgerechte und lichtdurchflutete Lebens- und Betreuungsumgebung\n\n- Eine abwechslungsreiche und herausfordernde Tätigkeit in einem innovativen Unternehmen\n\n- Selbstständiges Arbeiten mit einem kompetenten und motivierten Team\n\n- Ein kollegiales Arbeitsumfeld\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Eine eigene Kinderkrippe und weitere interessante Benefits für Mitarbeitende\n\nErstfragen beantwortet Ihnen gerne Frau Lea Hohbach, Bereichsleitung, Tel. +41 81 308 06 10. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung der Bewerbungsunterlagen an: hr@flurystiftung.ch freuen wir uns!",
         "it": "Con oltre 600 dipendenti nell'ospedale Schiers, le tre case di riposo Schiers, Jenaz e Klosters, Spitex, che vivono con il servizio, il crèche, la consulenza genitoriale e il centro medico di Klosters, la Flury Foundation garantisce un'assistenza sanitaria completa e integrata nel Prättigau tra Grüsch e Klosters. Schiers casa di riposo, immerso in un bellissimo paesaggio montano, offre circa 52 residenti una casa amorevole. Stiamo cercando un Dipl immediatamente o d'accordo. Professionista HF 80 – 100%\n\nLe tue responsabilità includono:\n\n- Una cura individuale e orientata alle esigenze dei nostri residenti\n\n- Cura basata sul processo di cura e sulla documentazione corrispondente\n\n- Assumere la responsabilità di allattamento\n\nIl tuo profilo:\n\n- Hai completato l'addestramento come infermiera HF\n\n- Gioia e pazienza nel trattare con vecchi, lavoro di squadra e affidabilità\n\n- Un elevato livello di competenza tecnica e sociale unita ad un metodo di lavoro affidabile e indipendente\n\n- Interessi in nuove sfide e una buona organizzazione del lavoro personale\n\nVi offriamo:\n\n- Un ambiente di vita e di cura moderno, tempestivo e leggero\n\n- Un lavoro vario e impegnativo in un'azienda innovativa\n\n- Lavorare in modo indipendente con un team competente e motivato\n\n- Un ambiente di lavoro collegiale\n\n- Condizioni di lavoro contemporanee e generose prestazioni sociali\n\n- Un proprio crèche e altri benefici interessanti per i dipendenti\n\nLe prime domande possono essere risolte dalla signora Lea Hohbach, Divisional Management, Tel. +41 81 308 06 10. Ulteriori informazioni sulla Fondazione Flury possono essere trovate su Internet: flurystiftung.ch Circa la consegna dei documenti di richiesta a: hr@flurystiftung.ch siamo felici!",
         "en": "With more than 600 employees in the Schiers hospital, the three retirement homes Schiers, Jenaz and Klosters, Spitex, living with service, the crèche, parental counselling and the medical center of Klosters, the Flury Foundation ensures comprehensive and integrated health care in the Prättigau between Grüsch and Klosters. Schiers retirement home, nestled in a beautiful mountain landscape, offers around 52 residents a loving home. We are looking for a Dipl immediately or by agreement. Care professional HF 80 – 100%\n\nYour responsibilities include:\n\n- A needs-oriented, individual care and care of our residents\n\n- Care based on the care process and corresponding documentation\n\n- Taking on nursing responsibility\n\nYour profile:\n\n- You have completed training as a nurse HF\n\n- Joy and patience in dealing with old people, teamwork and reliability\n\n- High level of technical and social competence combined with a reliable and independent working method\n\n- Interest in new challenges and a good personal work organization\n\nWe offer you:\n\n- A modern, timely and light-flooded living and care environment\n\n- A varied and challenging job in an innovative company\n\n- Working independently with a competent and motivated team\n\n- A collegial working environment\n\n- Attractive, contemporary employment conditions and generous social benefits\n\n- An own crèche and other interesting benefits for employees\n\nInitial questions can be answered by Mrs. Lea Hohbach, Divisional Management, Tel. +41 81 308 06 10. Further information about the Flury Foundation can be found on the Internet: flurystiftung.ch About the delivery of the application documents to: hr@flurystiftung.ch we are happy!",
+        "de": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizini- schen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Altersheim Schiers, eingebettet in eine wunderschöne Berglandschaft, bietet rund 52 Bewohnerinnen und Bewohnern ein liebevolles Zuhause. Wir suchen per sofort oder nach Vereinbarung eine Dipl. Pflegefachperson HF 80 – 100%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Eine bedürfnisorientierte, individuelle Betreuung und Pflege unserer Bewohnerinnen und Bewohner\n\n- Pflege anhand des Pflegeprozesses und entsprechende Dokumentation\n\n- Übernahme der pflegerischen Verantwortung\n\nIhr Profil:\n\n- Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachperson HF\n\n- Freude und Geduld im Umgang mit alten Menschen, Teamfähigkeit und Zuverlässigkeit\n\n- Hohe Fach- und Sozialkompetenz kombiniert mit einer zuverlässigen und selbstständigen Arbeitsweise\n\n- Interesse an neuen Herausforderungen und eine gute persönliche Arbeitsorganisation\n\nWir bieten Ihnen:\n\n- Eine moderne, zeitgerechte und lichtdurchflutete Lebens- und Betreuungsumgebung\n\n- Eine abwechslungsreiche und herausfordernde Tätigkeit in einem innovativen Unternehmen\n\n- Selbstständiges Arbeiten mit einem kompetenten und motivierten Team\n\n- Ein kollegiales Arbeitsumfeld\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Eine eigene Kinderkrippe und weitere interessante Benefits für Mitarbeitende\n\nErstfragen beantwortet Ihnen gerne Frau Lea Hohbach, Bereichsleitung, Tel. +41 81 308 06 10. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung der Bewerbungsunterlagen an: hr@flurystiftung.ch freuen wir uns!",
         "fr": "Avec plus de 600 employés à l'hôpital Schiers, les trois maisons de retraite Schiers, Jenaz et Klosters, Spitex, vivant avec le service, la crèche, le conseil parental et le centre médical de Klosters, la Fondation Flury assure des soins de santé complets et intégrés dans le Prättigau entre Grüsch et Klosters. La maison de retraite Schiers, nichée dans un beau paysage de montagne, offre à environ 52 résidents une maison d'amour. Nous cherchons un Dipl immédiatement ou par accord. Soins professionnels HF 80 – 100%\n\nVos responsabilités comprennent :\n\n- Un soin individuel axé sur les besoins de nos résidents\n\n- Soins fondés sur le processus de soins et la documentation correspondante\n\n- Prise en charge des soins infirmiers\n\nVotre profil:\n\n- Vous avez terminé la formation comme infirmière HF\n\n- La joie et la patience face aux personnes âgées, le travail d'équipe et la fiabilité\n\n- Haute compétence technique et sociale associée à une méthode de travail fiable et indépendante\n\n- Intérêt pour les nouveaux défis et une bonne organisation du travail personnel\n\nNous vous offrons:\n\n- Un milieu de vie et de soins moderne, opportun et éclairé\n\n- Un travail varié et stimulant dans une entreprise innovante\n\n- Travailler indépendamment avec une équipe compétente et motivée\n\n- Un environnement de travail collégial\n\n- Conditions d'emploi attractives et contemporaines et avantages sociaux généreux\n\n- Une crèche propre et d'autres avantages intéressants pour les salariés\n\nMme Lea Hohbach, Direction Générale, Tél. +41 81 308 06 10. De plus amples informations sur la Fondation Flury sont disponibles sur Internet: flurystiftung.ch À propos de la livraison des documents d'application à: hr@flurystiftung.ch nous sommes heureux!"
       },
       "location": "Schiers",
@@ -430,7 +430,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:47.683Z",
+      "crawledAt": "2026-10-06T21:38:57.602Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -447,13 +447,26 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Altersheime",
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:35:47.683Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -467,22 +480,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-06T09:35:47.683Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-80-100-altersheim-schiers-flury-stiftung-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-4fb0719c59ca",
@@ -515,7 +513,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:44.818Z",
+      "crawledAt": "2026-10-06T21:38:54.910Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -602,7 +600,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:44.460Z",
+      "crawledAt": "2026-10-06T21:38:52.347Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -685,7 +683,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:44.099Z",
+      "crawledAt": "2026-10-06T21:38:50.092Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -769,7 +767,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:43.633Z",
+      "crawledAt": "2026-10-06T21:38:47.667Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -858,7 +856,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:43.135Z",
+      "crawledAt": "2026-10-06T21:38:45.502Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -948,7 +946,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:42.769Z",
+      "crawledAt": "2026-10-06T21:38:43.701Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1046,7 +1044,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:42.419Z",
+      "crawledAt": "2026-10-06T21:38:41.357Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1130,7 +1128,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Dipl.%20Pflegefachperson%20IMC%20Notfall%2080-%20100%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:42.029Z",
+      "crawledAt": "2026-10-06T21:38:39.631Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1218,7 +1216,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:39.512Z",
+      "crawledAt": "2026-10-06T21:38:38.038Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1302,7 +1300,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:39.062Z",
+      "crawledAt": "2026-10-06T21:38:35.833Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1389,7 +1387,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:38.696Z",
+      "crawledAt": "2026-10-06T21:38:33.849Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1473,7 +1471,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:38.325Z",
+      "crawledAt": "2026-10-06T21:38:31.952Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1557,7 +1555,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiter_in%20Hauswirtschaft%2060%25%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:35.971Z",
+      "crawledAt": "2026-10-06T21:38:30.068Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1641,7 +1639,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:33.533Z",
+      "crawledAt": "2026-10-06T21:38:28.110Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
