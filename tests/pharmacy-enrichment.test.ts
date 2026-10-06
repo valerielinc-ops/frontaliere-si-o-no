@@ -196,6 +196,60 @@ describe('pharmacy enrichment', () => {
     expect(result.records[pharmacy.id].externalSources).toEqual([expect.objectContaining({ sourceType: 'facebook' })]);
   });
 
+  it('keeps a matched Facebook source as corroboration when official facts win', async () => {
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({
+      providers: {
+        googlePlaces: { enabled: false, pharmacyIds: [] },
+        facebook: { enabled: true, pharmacyIds: [pharmacy.id] },
+      },
+    }), {
+      previous: {
+        records: {
+          [pharmacy.id]: {
+            checkedAt,
+            phone: '+39 0332 227362',
+            fieldSources: {
+              phone: {
+                url: enrichmentConfig.sources[0].url,
+                sourceType: 'official',
+                checkedAt,
+              },
+            },
+            externalSources: [{
+              url: enrichmentConfig.sources[0].url,
+              label: enrichmentConfig.sources[0].label,
+              sourceType: 'official',
+              checkedAt,
+              fields: ['phone'],
+              status: 'verified',
+            }],
+          },
+        },
+      },
+      checkedAt,
+      facebookPageId: 'page-3907',
+      facebookAccessToken: 'test-page-token',
+      fetchJson: async () => ({
+        name: pharmacy.name,
+        link: 'https://www.facebook.com/farmaciainternazionaledicasciago',
+        phone: '+39 0332 227362',
+        location: { city: pharmacy.city, street: pharmacy.address },
+      }),
+    });
+
+    expect(result.warnings).toEqual([]);
+    expect(result.records[pharmacy.id].phone).toBe('+39 0332 227362');
+    expect(result.records[pharmacy.id].fieldSources?.phone).toMatchObject({ sourceType: 'official' });
+    expect(result.records[pharmacy.id].externalSources).toEqual(expect.arrayContaining([
+      expect.objectContaining({ sourceType: 'official' }),
+      expect.objectContaining({
+        sourceType: 'facebook',
+        fields: ['phone'],
+        url: 'https://www.facebook.com/farmaciainternazionaledicasciago',
+      }),
+    ]));
+  });
+
   it('allows an official enrichment to replace a directory value, but not the reverse', () => {
     const base = {
       ...pharmacy,

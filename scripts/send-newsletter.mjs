@@ -45,6 +45,7 @@ import {
   jobAlertCooldownApplies,
 } from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
@@ -218,16 +219,9 @@ let db;
 let firestoreFieldValue;
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
+  const { FieldValue } = await import('firebase-admin/firestore');
   firestoreFieldValue = FieldValue;
-  db = getFirestore();
+  db = await getFirestoreDb();
 }
 
 // ─── AI Model Chain ─────────────────────────────────────────

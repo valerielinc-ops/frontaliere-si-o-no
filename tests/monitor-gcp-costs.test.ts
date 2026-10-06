@@ -4,7 +4,9 @@ import {
   COST_DRIVERS,
   dailyGrowth,
   evaluateCostDrivers,
+  FIRESTORE_READ_ATTRIBUTION_METRIC,
   GCP_COST_ISSUE_TITLE,
+  measureFirestoreReadAttribution,
   measureCostDrivers,
   renderCostReport,
   STORAGE_DRIVER,
@@ -69,6 +71,25 @@ describe('GCP cost monitor: report', () => {
     expect(report).not.toContain('1-CAUSA');
     expect(report).not.toContain('più tempo istanza');
   });
+
+  it('reports the top Firestore callers and the unallocated quota', () => {
+    const report = renderCostReport(evaluateCostDrivers(incidentDay), {
+      windowEnd: '2026-10-01T18:34:36Z',
+      totalFirestoreReads: 75_430_000,
+      firestoreAttribution: {
+        callers: [
+          { name: 'workflow=nightly;run=42;script=scan.mjs', value: 70_000_000 },
+          { name: 'workflow=hourly;run=43;script=report.mjs', value: 4_000_000 },
+        ],
+        attributed: 74_000_000,
+      },
+    });
+
+    expect(report).toContain('**Attribuzione letture Firestore, primi 5 chiamanti:**');
+    expect(report).toContain('`workflow=nightly;run=42;script=scan.mjs` 70.00 M');
+    expect(report).toContain('**Quota non attribuita:** 1.43 M (totale 75.43 M meno attribuito 74.00 M)');
+    expect(report).toContain('Cloud Functions o browser');
+  });
 });
 
 describe('GCP cost monitor: series helpers', () => {
@@ -89,6 +110,34 @@ describe('GCP cost monitor: series helpers', () => {
 });
 
 describe('GCP cost monitor: Cloud Monitoring calls', () => {
+  it('groups the custom Firestore read metric by caller', async () => {
+    const result = await measureFirestoreReadAttribution({
+      token: 't',
+      start: new Date('2026-10-01T00:00:00Z'),
+      end: new Date('2026-10-02T00:00:00Z'),
+      fetchImpl: async (url: string) => {
+        const parsed = new URL(url);
+        expect(parsed.searchParams.get('filter')).toContain(`metric.type="${FIRESTORE_READ_ATTRIBUTION_METRIC}"`);
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            timeSeries: [
+              { metric: { labels: { caller: 'workflow=one;run=1;script=a.mjs' } }, points: [point(7)] },
+              { metric: { labels: { caller: 'workflow=two;run=2;script=b.mjs' } }, points: [point(3)] },
+            ],
+          }),
+        };
+      },
+    });
+
+    expect(result.attributed).toBe(10);
+    expect(result.callers.map((item) => item.name)).toEqual([
+      'workflow=one;run=1;script=a.mjs',
+      'workflow=two;run=2;script=b.mjs',
+    ]);
+  });
+
   it('pages through every driver and applies the internet-egress filter', async () => {
     const urls: string[] = [];
     const fetchImpl = async (url: string) => {
@@ -176,4 +225,3 @@ describe('GCP cost monitor: thresholds apply to the project total', () => {
     expect(egress(2, 2)).toEqual([]);
   });
 });
-

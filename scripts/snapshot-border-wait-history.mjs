@@ -30,11 +30,11 @@
  * Optionally prunes history files older than 90 days to keep the repo lean.
  */
 
-import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
-import { FieldPath, getFirestore } from 'firebase-admin/firestore';
+import { FieldPath } from 'firebase-admin/firestore';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,11 +42,6 @@ const DEFAULT_REPO_ROOT = path.resolve(__dirname, '..');
 
 function ensureDirs(historyDir) {
   fs.mkdirSync(historyDir, { recursive: true });
-}
-
-function initFirebase() {
-  if (getApps().length > 0) return;
-  initializeApp({ credential: applicationDefault() });
 }
 
 function toEpochMs(docId) {
@@ -226,8 +221,7 @@ async function main() {
     console.error('❌ GOOGLE_APPLICATION_CREDENTIALS is not set or file does not exist');
     process.exit(1);
   }
-  initFirebase();
-  const db = getFirestore();
+  const db = await getFirestoreDb();
 
   const today = new Date().toISOString().slice(0, 10);
   console.log(`🚦 Snapshotting border-wait history for ${today}…`);
