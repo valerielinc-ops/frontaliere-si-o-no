@@ -5,6 +5,7 @@ import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
   dropIstFabricatedText,
+  extractIstMicrodata,
   hasCompleteIstDetailEvidence,
   isIstDetailJob,
   parseCountryCode,
@@ -48,6 +49,41 @@ describe('IST sitemap discovery', () => {
       ],
       authoritativeEmptySnapshot: false,
     });
+  });
+});
+
+describe('IST detail extraction', () => {
+  it('accepts reordered and single-quoted SuccessFactors attributes', () => {
+    const html = `
+      <meta content="2026-09-25" itemprop='datePosted'>
+      <meta content='Inspired Education' itemprop = "hiringOrganization">
+      <span data-careersite-propertyid = 'title'>Primary Teacher</span>
+      <div data-careersite-propertyid='location'><span>Lugano, CH</span></div>
+      <div data-careersite-propertyid='description'><p>Teach a primary class.</p><p>Work with families.</p></div>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Primary Teacher',
+      location: 'Lugano, CH',
+      datePosted: '2026-09-25',
+      hiringOrganization: 'Inspired Education',
+      description: 'Teach a primary class.\nWork with families.',
+    }));
+  });
+
+  it('uses the detail heading when a portal skin omits structured title fields', () => {
+    const html = `
+      <meta property='og:title' content='Receptionist Job Details | Inspired Education'>
+      <h1><span>Receptionist</span></h1>
+      <span itemprop='streetAddress'>London, GB</span>
+      <meta itemprop='hiringOrganization' content='Inspired Education'>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Receptionist',
+      location: 'London, GB',
+      hiringOrganization: 'Inspired Education',
+    }));
   });
 });
 

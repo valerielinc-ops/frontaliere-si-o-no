@@ -135,6 +135,8 @@ export const RAIL_RESERVE_CSS =
   '@media(min-width:1200px) and (max-width:1399.98px){' +
   '.ft-rail-grid{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid>.ft-rail-aside{display:flex;flex-direction:column;min-height:600px}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:block;max-width:2400px;margin-inline:auto}' +
+  '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:none}' +
   '}' +
   '@media(min-width:1200px){' +
   '.ft-static-rail-stack{display:flex;flex:1 1 0%;flex-direction:column;min-height:0}' +
@@ -142,7 +144,9 @@ export const RAIL_RESERVE_CSS =
   '}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
   '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside-x{display:block}' +
+  '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:block}' +
   '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1400px){' +
@@ -151,6 +155,7 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid-spa{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem}' +
   '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
@@ -214,6 +219,33 @@ export const STATIC_AD_COLLAPSE_CSS =
 export const SEO_STATIC_GRID_RESERVE_CSS =
   'main.seo-static-content{max-width:min(100%,1120px);margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
   'main.seo-static-content>*{min-width:0;width:100%}';
+
+/**
+ * First-paint mirror for the active job-detail fallback. The SPA owns the
+ * same 12-column centre grid inside the same 180/300px rail wrapper. Keep
+ * this in the synchronous sheet because the SEO stylesheet is swapped in
+ * asynchronously and the handoff happens before the React detail paints.
+ */
+export const JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS =
+  'main.seo-static-content.static-job-page{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:16px 12px 56px}' +
+  '.job-detail-top-row{display:flex;align-items:center;gap:1rem;min-height:44px;margin-bottom:1.5rem}' +
+  '.job-detail-top-row .bn{margin:0;width:auto}' +
+  '.job-detail-top-banner-reserve{display:none}' +
+  '.static-job-rail-center{min-width:0;width:100%}' +
+  '.static-job-inner-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}' +
+  '@media(min-width:1024px){main.seo-static-content.static-job-page{padding-top:32px;padding-inline:16px}.job-detail-top-banner-reserve{display:block;flex:1 1 0%;min-width:0;min-height:100px}.static-job-inner-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:1.5rem}.static-job-inner-grid>.proposal{grid-column:span 8/span 8}.static-job-inner-grid>.job-detail-rail{grid-column:span 4/span 4}}';
+
+/**
+ * The bare job-board hub has no SPA sub-navigation. Align its static rail
+ * shell with the padding of `#main-content` so the first grid row starts at
+ * the same y/x coordinates before and after the fallback is adopted.
+ */
+export const JOB_BOARD_HUB_STATIC_HANDOFF_CSS =
+  '.job-board-static-top-stack{margin-top:16px}' +
+  '.job-board-top-banner-reserve{display:none}' +
+  '.job-board-static-rail-shell{margin-top:0;padding-inline:12px;box-sizing:border-box}' +
+  'main.seo-static-content.job-board-static-hub{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:0 0 56px}' +
+  '@media(min-width:1024px){.job-board-static-top-stack{margin-top:32px}.job-board-top-banner-reserve{display:block;min-height:100px}.job-board-static-rail-shell{margin-top:1.5rem;width:calc(100% - 32px);padding-inline:0}}';
 
 /**
  * Static SEO HERO layout, mirrored from the ASYNC `seo-static.css` into this
@@ -901,6 +933,8 @@ export const CRITICAL_CSS =
   RAIL_RESERVE_CSS +
   STATIC_AD_COLLAPSE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
+  JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS +
+  JOB_BOARD_HUB_STATIC_HANDOFF_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
   SEO_ARTICLE_SHELL_RESERVE_CSS +

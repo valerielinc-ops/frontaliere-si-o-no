@@ -19,9 +19,12 @@
  *
  * ALGORITHM for `Workflow Failure:` / `CI Failure:` issues:
  *   1. Parse the workflow display name out of the stable title prefix.
- *   2. Ask GitHub for that workflow's most-recent COMPLETED runs on `main` (one page,
- *      RUN_HISTORY_LIMIT rows — the run HISTORY, not just the head of it). Workflow-level
- *      `skipped` completions are removed because their guarded jobs never ran.
+ *   2. Ask GitHub for the four meaningful conclusion populations (`success`, `failure`,
+ *      `timed_out`, `startup_failure`) on `main`, each with RUN_HISTORY_LIMIT rows.
+ *      Server-side filtering means a page full of `cancelled`/`skipped` queue noise
+ *      cannot hide the green or red that decides the issue, while timeout/startup reds
+ *      remain observations exactly as before. The crawler population keeps its separate
+ *      all-branch path unchanged.
  *   3. If the latest one is `success` AND started after the issue was opened (so it is a
  *      run that happened *after* the reported failure, not a stale pre-failure green) →
  *      close THAT issue by number via resolveGithubIssueByNumber() (re-reads it first:
@@ -32,8 +35,12 @@
  *      auto-close again), RECURRENCE GATE (the failure is still recurring in the recent
  *      window → hold and comment the count), STRUCTURAL HOLD (the last FIX_OUTCOME verdict
  *      says the written fix was never applied).
- *   4. Otherwise (latest completed run still red, or no completed run / renamed workflow)
- *      → leave the issue open. Bias is conservative: never close while currently red.
+ *   4. If `main` has no qualifying run but the workflow evidence says it is a branch/PR
+ *      workflow, read all branches and require the stricter proof: three consecutive
+ *      post-issue greens and no red in the recurrence window. A PR that is still red in
+ *      that window therefore holds the issue; it cannot be held forever by an old red.
+ *      Otherwise distinguish workflow missing, empty window, and unreadable `gh` history;
+ *      each leaves the issue open and posts one idempotent explanation.
  *   5. Exception for the workflows in VERDICT_STEPS (a monitor that ends red ON PURPOSE
  *      after opening its own issue family): a red run whose only failed step is the
  *      registered verdict is not a failure observation and leaves the history before
@@ -155,9 +162,8 @@
  * tracker, validation-failure and other issues are never touched.
  *
  * Known edge: a workflow whose failure title names something that does NOT equal its
- * `name:` won't resolve via `gh run list -w <title>` → its issue stays open forever
- * (conservative/safe, but indistinguishable from "covered" by eye — the title HAS the
- * right prefix, so this reconciler picks it up and then finds no run).
+ * `name:` is classified as a missing workflow by `gh run list -w <title>`; the issue stays
+ * open with that reason instead of being silently indistinguishable from an API failure.
  *
  * This docstring used to claim `persist-job-stats` was the ONLY such workflow. It was
  * not — there were three — and the count is now MEASURED rather than asserted, by
@@ -817,7 +823,7 @@ function listFailureIssues() {
     'issue', 'list', '--state', 'open', '--limit', '300',
     // `labels` serve solo alla de-escalation cronica: arriva già in questa chiamata,
     // così non costa un giro `gh` in più per issue (vedi decideChronicDeescalation).
-    '--json', 'number,title,createdAt,labels', ...repoFlag(),
+    '--json', 'number,title,body,createdAt,labels', ...repoFlag(),
   ]);
   return JSON.parse(out)
     .map((i) => ({ issue: i, m: TITLE_RE.exec(i.title) }))
@@ -825,6 +831,7 @@ function listFailureIssues() {
     .map(({ issue, m }) => ({
       number: issue.number,
       title: issue.title,
+      body: issue.body || '',
       createdAt: issue.createdAt,
       labels: (issue.labels || []).map((l) => l?.name).filter(Boolean),
       workflow: m[1].trim(),
@@ -861,14 +868,33 @@ function fetchIssueComments(issueNumber) {
   }
 }
 
-// Quante run di storico chiede il listing. Una pagina di `gh run list` è 100 righe,
-// quindi alzare il vecchio `-L 20` a 100 costa LA STESSA singola chiamata di prima —
-// nessun costo di quota aggiunto. Misurato su `Generate Blog Article` (~170 run/giorno
-// qui): 100 righe coprono ~14h, largamente più della finestra di 8h su cui il gate
-// misura. Se un workflow è abbastanza veloce da superare le 100 run dentro la finestra,
-// la finestra si tronca: può solo SOTTO-contare i fallimenti, quindi la troncatura
-// spinge verso la chiusura (il comportamento vecchio), mai verso l'hold.
+// Quante run significative conserva lo storico. Le letture ordinarie sono divise in
+// quattro filtri server-side (`success`, `failure`, `timed_out`, `startup_failure`): le
+// cancellate/skipped non consumano piu' la pagina, ma il limite logico resta quello
+// storico di 100 osservazioni. I quattro valori sono le conclusioni che il reporter
+// considera guasto o recupero; le altre conclusioni non possono aprire una issue di
+// guasto e restano quindi fuori dalla popolazione decisionale.
 const RUN_HISTORY_LIMIT = 100;
+
+/** Le conclusioni che contano per la storia ordinaria del closer. */
+export const RUN_HISTORY_STATUS_FILTERS = Object.freeze([
+  'success',
+  'failure',
+  'timed_out',
+  'startup_failure',
+]);
+
+/** Stati della lettura usati per non confondere assenza, rinomina e errore API. */
+export const RUN_HISTORY_KINDS = Object.freeze([
+  'ok',
+  'workflow-missing',
+  'no-run-window',
+  'history-unreadable',
+  'branch-proof-insufficient',
+]);
+
+/** Marker del commento idempotente per una storia che non consente il verdetto. */
+export const HISTORY_NOT_EVALUABLE_MARKER = '<!-- CLOSE_RECOVERED: history-not-evaluable -->';
 
 // Finestra `created` del listing su `main`. `gh run list -b main` senza finestra
 // restituisce a tratti un elenco fermo a settimane o mesi prima (misurato il
@@ -925,17 +951,224 @@ export function sortCrawlerRecoveryRuns(runs) {
 
 /**
  * Build the `gh run list` arguments for a workflow family. Normal failures
- * remain main-scoped; crawler recovery must list branches and filter the
- * returned head branch explicitly because `gh` has no wildcard `--branch`.
+ * remain main-scoped; the branch-recovery read deliberately omits `-b main`.
+ * Crawler recovery keeps its all-branch listing and client-side allowlist.
  */
-export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = false, nowMs = Date.now() } = {}) {
+export function buildRunListArgs(workflowName, {
+  includeCrawlerShadowBranches = false,
+  historyScope = 'main',
+  status,
+  nowMs = Date.now(),
+} = {}) {
   const args = ['run', 'list', '-w', workflowName];
-  if (!includeCrawlerShadowBranches) args.push('-b', 'main', '--created', runHistoryCreatedFilter(nowMs));
+  if (!includeCrawlerShadowBranches) args.push('-a');
+  if (!includeCrawlerShadowBranches) {
+    if (historyScope === 'main') args.push('-b', 'main');
+    args.push('--created', runHistoryCreatedFilter(nowMs));
+  }
+  if (status && !includeCrawlerShadowBranches) args.push('--status', status);
+  const jsonFields = includeCrawlerShadowBranches
+    ? 'databaseId,conclusion,status,createdAt,headBranch'
+    : 'databaseId,conclusion,status,createdAt,headBranch,event';
   args.push(
     '-L', String(RUN_HISTORY_LIMIT),
-    '--json', 'databaseId,conclusion,status,createdAt,headBranch',
+    '--json', jsonFields,
   );
   return args;
+}
+
+/** Classify the stable `gh run list` error for a workflow name. Pure. */
+export function classifyRunListFailure(errorText) {
+  const text = String(errorText ?? '').toLowerCase();
+  return /could not find any workflows named|workflow[^\n]*(?:not found|does not exist)|no workflow/.test(text)
+    ? 'workflow-missing'
+    : 'history-unreadable';
+}
+
+/**
+ * Merge the independent server-filtered status reads. A partial read is never a
+ * green signal: one missing/error response plus one readable response is an API
+ * problem, not proof that the workflow is absent.
+ */
+export function mergeRunHistoryResults(results) {
+  if (!Array.isArray(results) || results.length === 0) {
+    return { kind: 'history-unreadable', runs: null };
+  }
+  const kinds = results.map((result) => result?.kind);
+  if (kinds.every((kind) => kind === 'workflow-missing')) {
+    return { kind: 'workflow-missing', runs: null };
+  }
+  if (kinds.some((kind) => kind !== 'ok')) {
+    return { kind: 'history-unreadable', runs: null };
+  }
+  const byId = new Map();
+  for (const result of results) {
+    if (!Array.isArray(result.runs)) return { kind: 'history-unreadable', runs: null };
+    for (const run of result.runs) {
+      const key = run?.databaseId === undefined || run?.databaseId === null
+        ? `${run?.createdAt ?? ''}\n${run?.headBranch ?? ''}\n${run?.conclusion ?? ''}`
+        : String(run.databaseId);
+      if (!byId.has(key)) byId.set(key, run);
+    }
+  }
+  const runs = [...byId.values()]
+    .filter((run) => run?.status === 'completed')
+    .sort((a, b) => Date.parse(b?.createdAt ?? '') - Date.parse(a?.createdAt ?? ''))
+    .slice(0, RUN_HISTORY_LIMIT);
+  return runs.length > 0
+    ? { kind: 'ok', runs }
+    : { kind: 'no-run-window', runs: null };
+}
+
+/** Extract the failure scope from the issue body or its recurrence comments. Pure. */
+export function failureRunScope(issue, comments = []) {
+  const texts = [
+    issue?.body,
+    ...(Array.isArray(comments) ? comments.map((comment) => comment?.body) : []),
+  ].filter((text) => typeof text === 'string');
+  const workflow = String(issue?.workflow ?? issue?.title?.replace(TITLE_RE, '$1') ?? '').trim();
+  const readField = (text, labels) => {
+    const labelsPattern = labels.join('|');
+    const match = text.match(new RegExp(
+      `(?:^|\\n)\\s*(?:[-*]\\s+)?(?:\\*\\*)?(?:${labelsPattern})(?::(?:\\*\\*)?|(?:\\*\\*)?:)\\s*([^\\r\\n]*)`,
+      'i',
+    ));
+    const value = match?.[1]?.trim();
+    return value?.replace(/^`([^`]*)`$/, '$1').trim() || null;
+  };
+  for (const text of texts.reverse()) {
+    const declaredWorkflow = text.match(/\*\*Workflow:\*\*\s+(.+)/)?.[1]?.trim();
+    if (declaredWorkflow && workflow && declaredWorkflow !== workflow) continue;
+    const branch = readField(text, ['Branch', 'Ref']);
+    const event = readField(text, ['Evento', 'Trigger']);
+    if (branch || event) {
+      // A PR workflow is healthy when the workflow's recent PR observations are healthy;
+      // requiring the exact branch from the old failure would make a closed PR pin the
+      // issue forever while a different PR proves the same workflow is green. Push-only
+      // workflows retain the exact branch scope, so an unrelated branch cannot close them.
+      return {
+        branch: event?.startsWith('pull_request') ? null : branch,
+        event,
+      };
+    }
+  }
+  return { branch: null, event: null };
+}
+
+/** Only explicit non-main evidence may authorize the all-branch fallback. Pure. */
+export function canUseBranchRecovery(scope = {}) {
+  return Boolean(
+    scope.event?.startsWith('pull_request')
+    || (scope.branch && scope.branch !== 'main'),
+  );
+}
+
+function runMatchesFailureScope(run, scope = {}) {
+  if (scope.branch && run?.headBranch !== scope.branch) return false;
+  if (scope.event && run?.event !== scope.event) return false;
+  return true;
+}
+
+/**
+ * Apply the stricter proof used when a workflow has no meaningful `main` run.
+ * A PR/branch workflow is recovered only on three consecutive greens after the
+ * issue opened, with no red in the same recurrence window. A red PR remains a
+ * hold while it is fresh; once it ages out of that window it cannot pin the issue
+ * forever. The optional branch/event scope comes from the latest failure evidence.
+ */
+export function assessBranchRecovery(history, {
+  issue = {},
+  scope = {},
+  now = Date.now(),
+  windowHours = DEFAULT_RECURRENCE_WINDOW_HOURS,
+  minGreenStreak = DEFAULT_MIN_GREEN_STREAK,
+} = {}) {
+  const selected = (Array.isArray(history) ? history : [])
+    .filter((run) => run?.status === 'completed')
+    .filter((run) => RUN_HISTORY_STATUS_FILTERS.includes(run?.conclusion))
+    .filter((run) => runMatchesFailureScope(run, scope))
+    .sort((a, b) => Date.parse(b?.createdAt ?? '') - Date.parse(a?.createdAt ?? ''));
+  const opened = Date.parse(issue?.createdAt ?? '');
+  const afterIssue = Number.isFinite(opened)
+    ? selected.filter((run) => Number.isFinite(Date.parse(run?.createdAt ?? '')) && Date.parse(run.createdAt) >= opened)
+    : [];
+  let greenStreak = 0;
+  for (const run of afterIssue) {
+    if (run.conclusion === 'success') greenStreak++;
+    else break;
+  }
+  const cutoff = now - windowHours * 3600 * 1000;
+  const redInWindow = selected.some((run) => {
+    const created = Date.parse(run?.createdAt ?? '');
+    return Number.isFinite(created) && created >= cutoff && run.conclusion !== 'success';
+  });
+  const recovered = greenStreak >= minGreenStreak && !redInWindow;
+  return {
+    recovered,
+    history: selected,
+    run: afterIssue[0] ?? null,
+    greenStreak,
+    redInWindow,
+    postIssueRuns: afterIssue.length,
+    scope,
+    windowHours,
+    reason: recovered
+      ? `branch proof: ${greenStreak} consecutive greens after issue, no red in ${windowHours}h`
+      : `branch proof insufficient: ${greenStreak}/${minGreenStreak} consecutive greens after issue, red in window=${redInWindow}`,
+  };
+}
+
+/** The idempotent explanation posted when the history cannot be evaluated. */
+export function historyUnavailableNote({ workflow, kind } = {}) {
+  const reason = kind === 'workflow-missing'
+    ? 'il workflow non è risolvibile: può essere stato rinominato o cancellato'
+    : kind === 'no-run-window'
+      ? 'il workflow esiste, ma non ci sono run completate qualificanti nella finestra'
+      : 'la lettura `gh run list` è fallita o il suo JSON è illeggibile';
+  const needed = kind === 'workflow-missing'
+    ? 'Serve ripristinare il workflow o registrare una nuova issue sul nome corretto; senza una prova di verde non chiudo questa issue.'
+    : kind === 'no-run-window'
+      ? 'Serve una run completata nel perimetro corretto; per workflow solo branch/PR servono inoltre tre verdi consecutive post-issue e nessun rosso nella finestra di ricorrenza.'
+      : 'Serve una passata successiva con la storia leggibile; fino ad allora lascio la issue aperta per non confondere un errore API con un recupero.';
+  return [
+    `🔎 **Recovery non valutabile**${workflow ? ` per \`${workflow}\`` : ''}: ${reason}.`,
+    '',
+    needed,
+    '',
+    HISTORY_NOT_EVALUABLE_MARKER,
+    `<!-- CLOSE_RECOVERED: history-status=${kind} -->`,
+  ].join('\n');
+}
+
+/** True if this exact non-evaluable reason was already explained. */
+export function alreadyHistoryUnavailable(comments, kind) {
+  if (!Array.isArray(comments)) return true;
+  const marker = `<!-- CLOSE_RECOVERED: history-status=${kind} -->`;
+  return comments.some((comment) => String(comment?.body ?? '').includes(HISTORY_NOT_EVALUABLE_MARKER)
+    && String(comment?.body ?? '').includes(marker));
+}
+
+/** The proof attached to a close that used branch/PR history instead of `main`. */
+export function branchRecoveryNote({ workflow, evidence, repo = REPO } = {}) {
+  const d = evidence || {};
+  const scope = d.scope || {};
+  const scopeText = [
+    scope.branch ? `branch \`${scope.branch}\`` : 'branch non specificato (workflow PR)',
+    scope.event ? `evento \`${scope.event}\`` : 'evento non specificato',
+  ].join(', ');
+  const runs = (d.history || [])
+    .filter((run) => run?.conclusion === 'success')
+    .slice(0, d.greenStreak || DEFAULT_MIN_GREEN_STREAK)
+    .map((run) => `#${run.databaseId}`)
+    .join(', ');
+  return [
+    `🔎 **Recovery provata fuori da \`main\`** per \`${workflow || 'workflow'}\`.`,
+    '',
+    `Il workflow non ha una run qualificante su \`main\`; la chiusura usa il criterio più severo: almeno ${d.greenStreak ?? DEFAULT_MIN_GREEN_STREAK} verdi consecutive, tutte iniziate dopo l'apertura della issue, e nessun rosso nella finestra di ricorrenza di ${d.windowHours ?? DEFAULT_RECURRENCE_WINDOW_HOURS}h. Perimetro: ${scopeText}.`,
+    `Run verdi usate come prova: ${runs || 'non leggibili'}${repo ? ` (repo ${repo})` : ''}.`,
+    '',
+    '<!-- CLOSE_RECOVERED: branch-recovery-proof -->',
+  ].join('\n');
 }
 
 // I job di una run (`GET /actions/runs/<id>/jobs`), o `null` se illeggibili. Memo per
@@ -1367,29 +1600,30 @@ export function verdictOnlyThreadNote({ workflow, entry, runUrl } = {}) {
 }
 
 // Le run COMPLETATE più recenti del workflow sulla popolazione richiesta,
-// dalla più nuova alla più vecchia, o null se il workflow non ha run
-// (rinominato/cancellato) o il listing è fallito — nel qual caso lasciamo
-// conservativamente aperta la issue, come da sempre.
-// Memo per passata del listing+filtro di UN workflow. Lo script è un processo
+// dalla più nuova alla più vecchia. La storia ordinaria ha un risultato strutturato,
+// così «workflow mancante», «nessuna run nella finestra» e «gh illeggibile» non
+// collassano piu' nello stesso null. Il percorso crawler conserva invece il suo
+// listing all-branch e il filtro dedicato, senza introdurre questa fallback.
+// Memo per passata della lettura di UN workflow. Lo script è un processo
 // monouso per invocazione del cron, quindi la cache non attraversa mai due passate e non
 // può servire uno storico stantio.
 //
-// Perché serve: N issue aperte sullo stesso workflow moltiplicavano per N un fan-out che
-// per una sola run `cancelled` è già `jobs` + un'`annotations` per job cancellato (vedi
-// il blocco COSTO sopra). La chiave è `repo` + `workflowName` + popolazione e NON include
-// il token: è derivato dal repo per costruzione (`crawlerRunToken(repo)`), quindi due
-// chiamate con lo stesso repo hanno per forza la stessa identità e quindi la stessa
-// visibilità.
+// Perché serve: il percorso crawler mantiene il fan-out che per una sola run `cancelled`
+// è già `jobs` + un'`annotations` per job cancellato (vedi il blocco COSTO sopra), e N
+// issue aperte sullo stesso gruppo lo moltiplicavano per N. La storia ordinaria non
+// interroga piu' le cancellate: usa le popolazioni server-filtered qui sopra. La chiave è
+// `repo` + `workflowName` + popolazione e NON include il token: è derivato dal repo per
+// costruzione (`crawlerRunToken(repo)`), quindi due chiamate con lo stesso repo hanno per
+// forza la stessa identità e quindi la stessa visibilità.
 //
-// La POPOLAZIONE (`includeCrawlerShadowBranches`) è nella chiave perché cambia il listing
-// stesso: `-b main` contro tutti i branch filtrati sulle ref `crawler-generation-shadow-*`
-// (vedi `buildRunListArgs`). Senza, la prima chiamata di una passata deciderebbe lo
-// storico anche per l'altra, e un gruppo crawler potrebbe essere giudicato sulle sole run
-// legacy di `main` — il cieco che #8557 ha tolto.
+// La POPOLAZIONE è nella chiave perché cambia il listing stesso: `-b main` contro tutti i
+// branch della prova severa, o contro le ref `crawler-generation-shadow-*` del percorso
+// crawler (vedi `buildRunListArgs`). Senza, la prima chiamata di una passata deciderebbe
+// lo storico anche per l'altra, e un gruppo crawler potrebbe essere giudicato sulle sole
+// run legacy di `main` — il cieco che #8557 ha tolto.
 //
-// `null` è un risultato memoizzabile quanto un array — significa "listing fallito o
-// workflow senza run", cioè "lascia la issue aperta" — quindi la cache si interroga con
-// `has()`, non con un falsy check: `??=` rifarebbe l'intero fan-out a ogni issue proprio
+// Anche un risultato di errore è memoizzabile quanto un array: la cache si interroga con
+// `has()`, non con un falsy check, per non rifare l'intero fan-out a ogni issue proprio
 // nel caso in cui l'API sta già dando problemi.
 //
 // Il memo è una factory con `compute` iniettabile per la stessa ragione di
@@ -1398,7 +1632,9 @@ export function verdictOnlyThreadNote({ workflow, entry, runUrl } = {}) {
 
 /** Chiave del memo per passata: repo, workflow e popolazione di branch interrogata. */
 export function runHistoryMemoKey(workflowName, repo = REPO, options = {}) {
-  const population = options?.includeCrawlerShadowBranches === true ? 'shadow' : 'main';
+  const population = options?.includeCrawlerShadowBranches === true
+    ? 'shadow'
+    : options?.historyScope === 'branches' ? 'branches' : 'main';
   return `${repo || ''}\n${workflowName}\n${population}`;
 }
 
@@ -1417,6 +1653,44 @@ export function createRunHistoryMemo(compute) {
   };
 }
 
+/** Run one server-filtered status listing and preserve the reason for a failure. */
+function readRunListForStatus(workflowName, repo, token, options, status) {
+  try {
+    const out = execFileSync('gh', [
+      ...buildRunListArgs(workflowName, { ...options, status }),
+      ...repoFlag(repo),
+    ], {
+      encoding: 'utf8',
+      maxBuffer: 32 * 1024 * 1024,
+      env: token ? { ...process.env, GH_TOKEN: token } : process.env,
+    });
+    const runs = JSON.parse(out);
+    return Array.isArray(runs)
+      ? { kind: 'ok', runs }
+      : { kind: 'history-unreadable', runs: null };
+  } catch (err) {
+    return {
+      kind: classifyRunListFailure([err?.stderr, err?.stdout, err?.message].filter(Boolean).join('\n')),
+      runs: null,
+    };
+  }
+}
+
+/** Ordinary history: one API read per meaningful conclusion population. */
+function computeRunHistory(workflowName, repo, token, options = {}) {
+  const results = [];
+  for (const status of RUN_HISTORY_STATUS_FILTERS) {
+    const result = readRunListForStatus(workflowName, repo, token, options, status);
+    if (result.kind === 'workflow-missing') {
+      results.push(result);
+      break;
+    }
+    results.push(result);
+  }
+  return mergeRunHistoryResults(results);
+}
+
+const recentRunHistory = createRunHistoryMemo(computeRunHistory);
 const recentCompletedRuns = createRunHistoryMemo(computeRecentCompletedRuns);
 
 function computeRecentCompletedRuns(workflowName, repo, token, options = {}) {
@@ -2089,6 +2363,51 @@ function issueStateIsClosed(number) {
   }
 }
 
+function notifyHistoryUnavailable(issue, kind, comments) {
+  const note = historyUnavailableNote({ workflow: issue.workflow, kind });
+  if (DRY_RUN) {
+    console.log(`  #${issue.number} WOULD COMMENT (${kind}) — history non valutabile`);
+    return;
+  }
+  if (alreadyHistoryUnavailable(comments, kind)) {
+    console.log(`  #${issue.number} history note already present (${kind})`);
+    return;
+  }
+  if (comments === null) {
+    console.error(`  #${issue.number} history note not posted (${kind}) — issue comments unreadable`);
+    return;
+  }
+  if (commentOnGithubIssue(issue.number, note)) {
+    console.log(`  #${issue.number} history note posted (${kind})`);
+  } else {
+    console.error(`  #${issue.number} history note rejected (${kind})`);
+  }
+}
+
+function appendHistorySummary(counts, details) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+  const lines = [
+    '',
+    '## close-recovered: storia non valutabile',
+    '',
+    `- Workflow inesistente (rinominato/cancellato): **${counts.workflowMissing}**`,
+    `- Workflow esistente senza run qualificanti nella finestra: **${counts.noRunWindow}**`,
+    `- Storia illeggibile (\`gh\`/JSON): **${counts.historyUnreadable}**`,
+    `- Prova branch/PR insufficiente: **${counts.branchProofInsufficient}**`,
+  ];
+  for (const [label, items] of Object.entries(details)) {
+    lines.push('', `### ${label}`);
+    if (items.length === 0) lines.push('- Nessuno');
+    else items.forEach((item) => lines.push(`- ${item}`));
+  }
+  try {
+    fs.appendFileSync(summaryPath, `${lines.join('\n')}\n`, 'utf8');
+  } catch (err) {
+    console.error(`[close-recovered] GITHUB_STEP_SUMMARY non scrivibile: ${err?.message ?? err}`);
+  }
+}
+
 function main() {
   const verdictsOut = verdictsOutPath();
   // Un file rimasto da una passata precedente non deve poter passare per il verdetto di
@@ -2106,6 +2425,18 @@ function main() {
   let held = 0;
   let chronic = 0;
   let deescalated = 0;
+  const historyCounts = {
+    workflowMissing: 0,
+    noRunWindow: 0,
+    historyUnreadable: 0,
+    branchProofInsufficient: 0,
+  };
+  const historyDetails = {
+    'Workflow inesistente': [],
+    'Workflow esistente senza run nella finestra': [],
+    'Storia illeggibile': [],
+    'Prova branch/PR insufficiente': [],
+  };
 
   for (const it of issues) {
     const crawlerStepMatch = CRAWLER_STEP_RE.exec(it.workflow);
@@ -2114,32 +2445,154 @@ function main() {
     // Storico run completo per la famiglia `Workflow|CI Failure:`. Per i crawler resta
     // la sola run di testa: ricostruire lo storico di UNO step di background costa una
     // chiamata alla Jobs API per ogni run storica, e il gate lì è per costruzione un
-    // no-op (vedi decideRecurrenceHold).
+    // no-op (vedi decideRecurrenceHold). La storia ordinaria distingue gli esiti della
+    // lettura prima di entrare nel verdetto, così nessun errore API diventa «rinominato».
     const historySource = isCrawlerStepIdentifier ? null : failureRunHistorySource(it.workflow);
-    const rawHistory = historySource
-      ? recentCompletedRuns(historySource.workflowRef, historySource.repo, crawlerRunToken(historySource.repo), {
-        includeCrawlerShadowBranches: historySource.includeCrawlerShadowBranches,
-      })?.map((r) => ({ ...r, repository: historySource.repo }))
-      : null;
+    let rawHistory = null;
+    let history = null;
+    let run = null;
+    let comments = null;
+    let commentsRead = false;
+    let branchEvidence = null;
+    let branchProofInsufficient = false;
+    let historyIssueKind = null;
+
+    if (isCrawlerStepIdentifier) {
+      run = latestCompletedCrawlerStepRun(crawlerStepMatch[1]);
+    } else if (historySource?.includeCrawlerShadowBranches) {
+      // Crawler branch deliberately unchanged: one all-branch listing, exact allowlist,
+      // and the existing cancellation/Jobs evidence path.
+      rawHistory = recentCompletedRuns(
+        historySource.workflowRef,
+        historySource.repo,
+        crawlerRunToken(historySource.repo),
+        { includeCrawlerShadowBranches: historySource.includeCrawlerShadowBranches },
+      )?.map((r) => ({ ...r, repository: historySource.repo })) ?? null;
+    } else if (historySource) {
+      const mainHistory = recentRunHistory(
+        historySource.workflowRef,
+        historySource.repo,
+        crawlerRunToken(historySource.repo),
+        { historyScope: 'main' },
+      );
+      if (mainHistory.kind === 'ok') {
+        rawHistory = mainHistory.runs.map((r) => ({ ...r, repository: historySource.repo }));
+      } else if (mainHistory.kind === 'no-run-window') {
+        // The second read is deliberately all-branch and memoized per workflow. The
+        // latest failure scope (body or recurrence comment) prevents a green PR from a
+        // different branch/event from pretending to repair this issue.
+        comments = fetchIssueComments(it.number);
+        commentsRead = true;
+        const scope = failureRunScope(it, comments);
+        if (!canUseBranchRecovery(scope)) {
+          // A main-only failure must not be closed by an unrelated branch green. The
+          // workflow exists, but its qualifying population is empty in this window.
+          historyIssueKind = 'no-run-window';
+        } else {
+          const branchHistory = recentRunHistory(
+            historySource.workflowRef,
+            historySource.repo,
+            crawlerRunToken(historySource.repo),
+            { historyScope: 'branches' },
+          );
+          if (branchHistory.kind === 'ok') {
+            branchEvidence = assessBranchRecovery(branchHistory.runs, {
+              issue: it,
+              scope,
+              now: Date.now(),
+              windowHours: rec.windowHours,
+              minGreenStreak: rec.minGreenStreak,
+            });
+            branchEvidence.windowHours = rec.windowHours;
+            if (branchEvidence.recovered) {
+              rawHistory = branchEvidence.history.map((r) => ({ ...r, repository: historySource.repo }));
+              branchEvidence.history = rawHistory;
+              branchEvidence.run = branchEvidence.run
+                ? { ...branchEvidence.run, repository: historySource.repo }
+                : null;
+              run = branchEvidence.run;
+            } else {
+              branchProofInsufficient = true;
+              historyCounts.branchProofInsufficient++;
+              historyDetails['Prova branch/PR insufficiente'].push(`#${it.number} "${it.workflow}" — ${branchEvidence.reason}`);
+            }
+          } else if (branchHistory.kind === 'no-run-window') {
+            historyIssueKind = 'no-run-window';
+          } else {
+            // The main query succeeded, so a second "workflow missing" is an
+            // inconsistent read, not evidence of a rename.
+            historyIssueKind = 'history-unreadable';
+          }
+        }
+      } else {
+        historyIssueKind = mainHistory.kind;
+      }
+    }
+
     // LC-03: per i soli workflow del registro, le rosse più recenti si leggono job per job
     // e quelle di solo verdetto escono dalla storia (vedi `markVerdictOnlyRuns`).
     const verdictEntry = historySource ? verdictStepEntryForWorkflowName(it.workflow) : null;
-    const history = verdictEntry
+    history = verdictEntry
       ? markVerdictOnlyRuns(rawHistory, verdictEntry.workflowPath, (databaseId) => readRunJobs(
         databaseId, historySource.repo, crawlerRunToken(historySource.repo),
       ))
       : rawHistory;
-    const run = decidingRun({
-      run: isCrawlerStepIdentifier ? latestCompletedCrawlerStepRun(crawlerStepMatch[1]) : null,
-      history,
-    });
+    if (!run) run = decidingRun({ history });
+
+    const decidingRunKind = classifyDecidingRun({ issue: it, run });
+    if (!commentsRead && (historyIssueKind || decidingRunKind === 'recovered')) {
+      comments = fetchIssueComments(it.number);
+      commentsRead = true;
+    }
+
+    if (historyIssueKind) {
+      if (historyIssueKind === 'workflow-missing') {
+        historyCounts.workflowMissing++;
+        historyDetails['Workflow inesistente'].push(`#${it.number} "${it.workflow}"`);
+      } else if (historyIssueKind === 'no-run-window') {
+        historyCounts.noRunWindow++;
+        historyDetails['Workflow esistente senza run nella finestra'].push(`#${it.number} "${it.workflow}"`);
+      } else {
+        historyCounts.historyUnreadable++;
+        historyDetails['Storia illeggibile'].push(`#${it.number} "${it.workflow}"`);
+      }
+      const logReason = historyIssueKind === 'workflow-missing'
+        ? 'workflow missing (renamed/deleted)'
+        : historyIssueKind === 'no-run-window'
+          ? 'workflow exists but no completed run in window'
+          : 'workflow history unreadable (gh error)';
+      console.log(`  #${it.number} "${it.workflow}" — ${logReason} — keep open`);
+      verdicts.push({
+        number: it.number,
+        title: it.title,
+        action: 'keep',
+        reason: historyIssueKind,
+        runId: null,
+        runRepo: null,
+      });
+      notifyHistoryUnavailable(it, historyIssueKind, comments);
+      skipped++;
+      continue;
+    }
+
+    if (branchProofInsufficient) {
+      console.log(`  #${it.number} "${it.workflow}" — no qualifying branch recovery (${branchEvidence.reason}) — keep open`);
+      const branchRunId = branchEvidence.run?.databaseId ?? null;
+      verdicts.push({
+        number: it.number,
+        title: it.title,
+        action: 'keep',
+        reason: 'branch-proof-insufficient',
+        runId: branchRunId,
+        runRepo: branchRunId === null ? null : historySource?.repo || REPO || null,
+      });
+      kept++;
+      continue;
+    }
 
     // I commenti si leggono solo per una issue che sta per chiudersi (#5454: il verde
     // risponde a «il sintomo è tornato?», non a «il guasto è stato corretto?»). Negli
     // altri rami la decisione non li guarda, e la lettura non si paga.
-    const comments = classifyDecidingRun({ issue: it, run }) === 'recovered'
-      ? fetchIssueComments(it.number)
-      : null;
     const verdict = decideFailureIssueClose({
       issue: it,
       run,
@@ -2187,7 +2640,7 @@ function main() {
         ? `crawler '${crawlerStepMatch[1]}' not found in any current crawler-group-*.yml, or its step/run not resolvable`
         : historySource?.includeCrawlerShadowBranches
           ? `no completed production run of ${historySource.workflowRef} in ${historySource.repo || 'this repo'}`
-          : 'no completed run on main (renamed/deleted?)';
+          : 'no deciding run after history classification';
       console.log(`  #${it.number} "${it.workflow}" — ${reason}, keep open`);
       skipped++;
       continue;
@@ -2274,9 +2727,18 @@ function main() {
       // scrivere: chiusa o rinominata dopo la decisione → nessuna scrittura.
       // A TTL-released close must say why, or it looks exactly like the symptom-only
       // close #5454 was opened about.
-      const preface = decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)
-        ? ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays })
-        : undefined;
+      const prefaces = [];
+      if (branchEvidence) {
+        prefaces.push(branchRecoveryNote({
+          workflow: it.workflow,
+          evidence: branchEvidence,
+          repo: runRepo,
+        }));
+      }
+      if (decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)) {
+        prefaces.push(ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays }));
+      }
+      const preface = prefaces.length > 0 ? prefaces.join('\n\n') : undefined;
       const result = resolveGithubIssueByNumber(it.number, {
         expectedTitle: it.title, workflow: it.workflow, runUrl, preface,
       });
@@ -2296,7 +2758,9 @@ function main() {
     closed++;
   }
 
+  console.log(`[close-recovered] history: workflow-missing=${historyCounts.workflowMissing} no-run-window=${historyCounts.noRunWindow} history-unreadable=${historyCounts.historyUnreadable} branch-proof-insufficient=${historyCounts.branchProofInsufficient}`);
   console.log(`[close-recovered] done: closed=${closed} held=${held} chronic=${chronic} de-escalated=${deescalated} kept=${kept} skipped=${skipped}`);
+  appendHistorySummary(historyCounts, historyDetails);
 
   if (verdictsOut) {
     fs.mkdirSync(path.dirname(path.resolve(verdictsOut)), { recursive: true });

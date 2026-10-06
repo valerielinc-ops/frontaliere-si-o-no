@@ -178,7 +178,7 @@ function monitorRecurrences(comments) {
 /** Marker di riarmo già scritto sul thread, oppure dato illeggibile. */
 function parentRearmMarkers(comments) {
   const markers = [];
-  for (const comment of comments) {
+  for (const [index, comment] of comments.entries()) {
     const body = typeof comment?.body === 'string' ? comment.body : '';
     if (!/PARENT_REARM/i.test(body)) continue;
     const match = PARENT_REARM_RE.exec(body);
@@ -190,6 +190,7 @@ function parentRearmMarkers(comments) {
     markers.push({
       reopenedAtMs: reopenedAt,
       createdAtMs: createdAt,
+      index,
       reopenedAt: new Date(reopenedAt).toISOString(),
     });
   }
@@ -258,14 +259,18 @@ export function decideParentRearm({
 
   const markerState = parentRearmMarkers(comments);
   if (!markerState.ok) return skipDecision('unreadable');
-  // `>=`, non `>`: GitHub data i commenti al secondo, quindi il marker scritto
-  // nello stesso secondo della ricorrenza che registra ha il suo stesso
-  // istante. Con `>` quel marker non veniva riconosciuto e, se la rimozione
-  // delle label era fallita, il passaggio successivo ne scriveva un altro fino
-  // al tetto della finestra. Un marker datato PRIMA della ricorrenza che
-  // dichiara resta invece non valido.
+  // GitHub data i commenti al secondo, quindi il marker scritto nello stesso
+  // secondo della ricorrenza che registra ha il suo stesso istante: va
+  // riconosciuto, altrimenti (se la rimozione delle label era fallita) il
+  // passaggio successivo ne scriverebbe un altro fino al tetto della finestra.
+  // A parità di istante decide però la posizione nel thread, come per le altre
+  // due comparazioni di questo modulo: un marker che PRECEDE la ricorrenza non
+  // può averla registrata, anche se porta lo stesso secondo (è il marker di
+  // una ricorrenza precedente caduta in quel secondo). Accettarlo farebbe
+  // uscire il padre come «già riarmato» senza leggere lo stato delle figlie.
   const matchingMarker = markerState.markers.find(
-    (marker) => marker.reopenedAtMs === reopened.atMs && marker.createdAtMs >= reopened.atMs,
+    (marker) => marker.reopenedAtMs === reopened.atMs
+      && isAfter(marker.createdAtMs, marker.index, reopened.atMs, reopened.index),
   );
   if (matchingMarker) return skipDecision('already-rearmed', { reopenedAt: reopened.createdAt });
 
