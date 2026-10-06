@@ -1,22 +1,23 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-06T09:19:23.664Z",
+  "generatedAt": "2026-10-06T21:23:03.863Z",
   "total": 1,
-  "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "authoritativeEmptySnapshot": true,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 356499,
-  "avgDurationMs": 356499,
+  "durationMs": 390504,
+  "avgDurationMs": 390504,
   "durationHistory": [
-    356499
+    390504
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-7uc1k7",
-      "slug": "mecanicien-mouliste-comadur-sa-boncourt-7uc1k7",
+      "slug": "ingegnere-moulist-comadur-sa-boncourt",
       "company": "Comadur SA",
       "title": "Mécanicien - Mouliste",
       "location": "Boncourt",
@@ -35,7 +36,6 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-10-06T09:19:09.285Z",
       "firstSeenAt": "2026-10-06T09:19:09.285Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -44,17 +44,18 @@
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
       "postalCode": "2926",
-      "_qualityScore": 83,
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

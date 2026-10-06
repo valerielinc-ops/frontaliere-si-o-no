@@ -3111,9 +3111,9 @@
     },
     {
       "id": "concara-9eed920a9598",
-      "slug": "dipl-pflegefachperson-mit-fachverantwortung-60-100-concara-bern",
+      "slug": "infermiere-diplomato-con-responsabilita-specialistica-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-mit-fachverantwortung-60-100-concara-bern",
+        "it": "infermiere-diplomato-con-responsabilita-specialistica-60-100-concara-domicil-spitex-bern-bern",
         "en": "dipl-nurse-with-professional-responsibility-60-100-concara-domicil-spitex-bern-bern",
         "de": "dipl-pflegefachperson-mit-fachverantwortung-60-100-concara-bern",
         "fr": "dipl-infirmiere-a-responsabilite-professionnelle-60-100-concara-domicil-spitex-bern-bern"
@@ -3173,7 +3173,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-fachverantwortung-60-100-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-fachverantwortung-60-100-concara-bern"
+      ]
     }
   ]
 }

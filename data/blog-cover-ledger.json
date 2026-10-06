@@ -2,28 +2,28 @@
   "schema": 1,
   "generatedAt": "2026-10-06",
   "source": {
-    "gitCommit": "dfea522a5383660ebb1693b1c297c98d58867977",
-    "heroFiles": 6762,
-    "publishedHeroFiles": 1866,
-    "registryArticles": 6694,
-    "recordsOnDisk": 1743,
+    "gitCommit": "89c615225a9a29eb9529d8410b3aec56dc5de548",
+    "heroFiles": 6816,
+    "publishedHeroFiles": 1920,
+    "registryArticles": 6748,
+    "recordsOnDisk": 1796,
     "duplicateMethod": "sha256 of Git blob bytes; no public/images/blog checkout"
   },
   "counts": {
     "allCoversByProofLevel": {
-      "1": 1525,
+      "1": 1578,
       "2": 197,
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5020
+      "6": 5021
     },
-    "publishedCovers": 1866,
-    "publishedWithExistingOrInheritedRecord": 1716,
-    "publishedReplacements": 4963,
+    "publishedCovers": 1920,
+    "publishedWithExistingOrInheritedRecord": 1769,
+    "publishedReplacements": 4964,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
-    "generatedQueued": 150,
+    "generatedQueued": 151,
     "fallbackRepointed": 4813
   },
   "covers": {
@@ -9400,6 +9400,29 @@
       },
       "currentlyPublished": false
     },
+    "affluenza-scalo-zurigo-autunno": {
+      "cover": "/images/blog/affluenza-scalo-zurigo-autunno.webp",
+      "hash": "9eecb9ef99abefceb183d252c71f70d3b2a6199c3db63c424a3c45a9338fb722",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "affluenza-scalo-zurigo-autunno",
+          "category": "novita",
+          "date": "2026-10-06T12:52:17.730Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/affluenza-scalo-zurigo-autunno.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "afghano-arresto-zug-chiasso": {
       "cover": "/images/blog/afghano-arresto-zug-chiasso.webp",
       "hash": "e74b3bbfaf4753c7726f60b1a743b1cf12fb3b9ae68c60115b20e6f4e0242e8e",
@@ -11748,6 +11771,29 @@
       },
       "currentlyPublished": false
     },
+    "air-baltic-tagli-swiss": {
+      "cover": "/images/blog/air-baltic-tagli-swiss.webp",
+      "hash": "4a0f61e84c4160095b22c98b189f6a7276f1b1d3c082c272bcf3959d62bc4e05",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "air-baltic-tagli-swiss",
+          "category": "novita",
+          "date": "2026-10-06T01:43:45.507Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/air-baltic-tagli-swiss.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "airpack-lombardia-41-lavoratori": {
       "cover": "/images/blog/airpack-lombardia-41-lavoratori.webp",
       "hash": "7d3fd2fe19c41bc0b480690b98e8b2a41eb4fc3bc81312e65815ccc1671c3d7f",
@@ -13761,6 +13807,29 @@
         "priority": 1790
       },
       "currentlyPublished": false
+    },
+    "analisi-salario-prestazioni": {
+      "cover": "/images/blog/analisi-salario-prestazioni.webp",
+      "hash": "4a0f61e84c4160095b22c98b189f6a7276f1b1d3c082c272bcf3959d62bc4e05",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "analisi-salario-prestazioni",
+          "category": "novita",
+          "date": "2026-10-05T18:09:49.845Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/analisi-salario-prestazioni.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "analisi-traffico-gottardo-app": {
       "cover": "/images/blog/analisi-traffico-gottardo-app.webp",
@@ -35599,6 +35668,29 @@
       },
       "currentlyPublished": false
     },
+    "bellinzona-aggregazione-costi-2026": {
+      "cover": "/images/blog/bellinzona-aggregazione-costi-2026.webp",
+      "hash": "38aa120bf11305b8fd1ebfb6d115a5a25a1ff4e8fd498f5002cda14b14f08aaf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-aggregazione-costi-2026",
+          "category": "pratico",
+          "date": "2026-10-06T01:28:30.762Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/bellinzona-aggregazione-costi-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "bellinzona-auscultazione-2026": {
       "cover": "/images/blog/bellinzona-auscultazione-2026.webp",
       "hash": "3e73cd4a9958fcac631763f52ede27ed201708b87f5e73ed6c95e988440329fe",
@@ -37219,6 +37311,29 @@
       },
       "currentlyPublished": false
     },
+    "berna-protezione-servizio-indennita": {
+      "cover": "/images/blog/berna-protezione-servizio-indennita.webp",
+      "hash": "6fc86f3f3800b9d28938bd947353aa768bca75eb7e39a306c4a8efcb1596c0c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "berna-protezione-servizio-indennita",
+          "category": "pratico",
+          "date": "2026-10-06T05:28:53.054Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/berna-protezione-servizio-indennita.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "berna-rinnova-festival-cinematografici": {
       "cover": "/images/blog/berna-rinnova-festival-cinematografici.webp",
       "hash": "437da8bc339551bc34f0a4d73a2ca6913b35fa0f3e1dd51495dc833559d9b4b0",
@@ -37770,6 +37885,29 @@
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1778
+    },
+    "biasca-accoltellamento-21enne": {
+      "cover": "/images/blog/biasca-accoltellamento-21enne.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "biasca-accoltellamento-21enne",
+          "category": "novita",
+          "date": "2026-10-05T23:38:30.856Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/biasca-accoltellamento-21enne.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "biasca-roller-hockey-uttigen-2026": {
       "cover": "/images/blog/biasca-roller-hockey-uttigen-2026.webp",
@@ -42349,6 +42487,39 @@
         "toCover": "/images/blog/bollettino-frontaliere-2026-10-05.webp",
         "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-05.json",
         "reason": "Copertina storica senza prova sufficiente; priorità traffico/recenza nella coda article-hero.",
+        "priority": 1791
+      },
+      "currentlyPublished": true
+    },
+    "bollettino-frontaliere-2026-10-06": {
+      "cover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
+      "hash": "5d37e17023d5861b36f3f2f532bd1739c88decc831a52bc314206807cb2f9d0d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-06",
+          "category": "novita",
+          "date": "2026-10-06T11:53:20.937Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "replace-generated",
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1791,
+      "replacement": {
+        "mode": "generated",
+        "status": "queued",
+        "fromCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
+        "toCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
+        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-06.json",
+        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
         "priority": 1791
       },
       "currentlyPublished": true
@@ -51378,6 +51549,29 @@
       },
       "currentlyPublished": false
     },
+    "carovita-sindacati-recupero-divario": {
+      "cover": "/images/blog/carovita-sindacati-recupero-divario.webp",
+      "hash": "44c3e132057e5567a40318c3b6c9bf7e90bc4ebcc296cea902277821ade064d1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "carovita-sindacati-recupero-divario",
+          "category": "novita",
+          "date": "2026-10-06T09:15:31.670Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/carovita-sindacati-recupero-divario.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "carpooling-aziendale-ticino": {
       "cover": "/images/blog/carpooling-aziendale-ticino.webp",
       "hash": "6689204b9302676135efbc58c500053e0378064b55e450996c5769c4e6112cf8",
@@ -54023,6 +54217,29 @@
         "priority": 1778
       },
       "currentlyPublished": false
+    },
+    "casse-malati-proposte-esperti-risposta": {
+      "cover": "/images/blog/casse-malati-proposte-esperti-risposta.webp",
+      "hash": "4c06818cb047f88166207aa0b211e4550f6db3758fd95d37c87af2079a2ee1ea",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "casse-malati-proposte-esperti-risposta",
+          "category": "pratico",
+          "date": "2026-10-06T04:17:25.035Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/casse-malati-proposte-esperti-risposta.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "casse-malati-ticino-divise-2026": {
       "cover": "/images/blog/casse-malati-ticino-divise-2026.webp",
@@ -59187,6 +59404,29 @@
         "priority": 1789
       },
       "currentlyPublished": false
+    },
+    "ciclabile-lumino-castione-fase-due": {
+      "cover": "/images/blog/ciclabile-lumino-castione-fase-due.webp",
+      "hash": "4a0f61e84c4160095b22c98b189f6a7276f1b1d3c082c272bcf3959d62bc4e05",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ciclabile-lumino-castione-fase-due",
+          "category": "pratico",
+          "date": "2026-10-06T12:30:34.016Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/ciclabile-lumino-castione-fase-due.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "ciclabile-saronno-rovello-porro-2026": {
       "cover": "/images/blog/ciclabile-saronno-rovello-porro-2026.webp",
@@ -70774,6 +71014,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1787
     },
+    "costi-assicurazione-base-proiezione": {
+      "cover": "/images/blog/costi-assicurazione-base-proiezione.webp",
+      "hash": "6fc86f3f3800b9d28938bd947353aa768bca75eb7e39a306c4a8efcb1596c0c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "costi-assicurazione-base-proiezione",
+          "category": "pratico",
+          "date": "2026-10-06T07:50:50.849Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/costi-assicurazione-base-proiezione.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "costi-auto-elettrica-benzina": {
       "cover": "/images/blog/costi-auto-elettrica-benzina.webp",
       "hash": "578547f013a1c7577f5b8ea9fb09202284c5c0f75af796f3b41ab349aa356c1c",
@@ -74254,6 +74517,29 @@
       },
       "currentlyPublished": false
     },
+    "crisi-attrattivita-como-lecco": {
+      "cover": "/images/blog/crisi-attrattivita-como-lecco.webp",
+      "hash": "d4e5077d008026171a47fbba32b1c41695581d719ac11c3624f10439bba173e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "crisi-attrattivita-como-lecco",
+          "category": "pratico",
+          "date": "2026-10-06T13:26:39.306Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/crisi-attrattivita-como-lecco.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "crisi-aziendali-mimit-tavoli-monitoraggio-2026": {
       "cover": "/images/blog/crisi-aziendali-mimit-tavoli-monitoraggio-2026.webp",
       "hash": "e7822e57c28fc54503c3539c813c54bf24d6ecbc6a71f3d32df3048b79acc388",
@@ -77325,6 +77611,29 @@
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1782
+    },
+    "deduzioni-3a-2027": {
+      "cover": "/images/blog/deduzioni-3a-2027.webp",
+      "hash": "d37a7677e45cbbfeb7703654aa28d18e5ceee864de3a6956fa1c1fdd209d4a0e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "deduzioni-3a-2027",
+          "category": "fiscale",
+          "date": "2026-10-05T15:21:39.547Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/deduzioni-3a-2027.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "deduzioni-smac-frontalieri-2025": {
       "cover": "/images/blog/deduzioni-smac-frontalieri-2025.webp",
@@ -81290,6 +81599,29 @@
         "priority": 1788
       },
       "currentlyPublished": false
+    },
+    "disoccupazione-settembre-ticino-2026": {
+      "cover": "/images/blog/disoccupazione-settembre-ticino-2026.webp",
+      "hash": "73c70b81b0de70633008edad195f84fc1e7f3caf15d1858cc22dbe2fec9a77bd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "disoccupazione-settembre-ticino-2026",
+          "category": "novita",
+          "date": "2026-10-06T07:34:13.555Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/disoccupazione-settembre-ticino-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "disoccupazione-stabile-agosto-2023": {
       "cover": "/images/blog/disoccupazione-stabile-agosto-2023.webp",
@@ -85939,6 +86271,29 @@
       },
       "currentlyPublished": false
     },
+    "edifici-berna-obbligo-premi": {
+      "cover": "/images/blog/edifici-berna-obbligo-premi.webp",
+      "hash": "af629649717b0bc840120f605cfc9265ca936a1fc251861dee33b164d71963f2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "edifici-berna-obbligo-premi",
+          "category": "pratico",
+          "date": "2026-10-06T06:00:47.970Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/edifici-berna-obbligo-premi.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "edilizia-crescita-primo-semestre": {
       "cover": "/images/blog/edilizia-crescita-primo-semestre.webp",
       "hash": "ba2d526f366fa8607ac6f8402c04f63a719f7b7e7896d5a08ac4c4e7495f6c53",
@@ -86601,6 +86956,29 @@
       },
       "currentlyPublished": false
     },
+    "effettivo-esercito-2026-calo": {
+      "cover": "/images/blog/effettivo-esercito-2026-calo.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "effettivo-esercito-2026-calo",
+          "category": "pratico",
+          "date": "2026-10-06T10:00:38.453Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/effettivo-esercito-2026-calo.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "effetto-domino-fallite-aziende-svizzera": {
       "cover": "/images/blog/effetto-domino-fallite-aziende-svizzera.webp",
       "hash": "269ff38c9f68d98b8267642d7cc96d14e53f3cffb45271d0f45fccb3c2d7112b",
@@ -86682,6 +87060,29 @@
         "priority": 1788
       },
       "currentlyPublished": false
+    },
+    "elezioni-berna-guida-voto": {
+      "cover": "/images/blog/elezioni-berna-guida-voto.webp",
+      "hash": "955dc62b6f108e20829e57b60b3d4e66fb4242f2b6b9513774d8fbbfd5e6e16e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "elezioni-berna-guida-voto",
+          "category": "pratico",
+          "date": "2026-10-06T04:48:46.950Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/elezioni-berna-guida-voto.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "elezioni-cantonali-zurigo-vademecum": {
       "cover": "/images/blog/elezioni-cantonali-zurigo-vademecum.webp",
@@ -106916,6 +107317,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1786
     },
+    "frontalieri-tassa-ingresso-rischi-comuni": {
+      "cover": "/images/blog/frontalieri-tassa-ingresso-rischi-comuni.webp",
+      "hash": "56e1760fb8f3ca8b6db04691c93ca8902abe7a870301f890643d767fe80b6cf1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontalieri-tassa-ingresso-rischi-comuni",
+          "category": "fiscale",
+          "date": "2026-10-06T08:21:29.058Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/frontalieri-tassa-ingresso-rischi-comuni.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "frontalieri-tassa-salute": {
       "cover": "/images/blog/frontalieri-tassa-salute.webp",
       "hash": "38ca1d315a85aac76f52931a68be994bccb60712d742567d9b40a980bea7a283",
@@ -109060,6 +109484,29 @@
       },
       "currentlyPublished": false
     },
+    "fuochi-artificio-no": {
+      "cover": "/images/blog/fuochi-artificio-no.webp",
+      "hash": "955dc62b6f108e20829e57b60b3d4e66fb4242f2b6b9513774d8fbbfd5e6e16e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fuochi-artificio-no",
+          "category": "novita",
+          "date": "2026-10-06T11:19:54.249Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/fuochi-artificio-no.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "fuoriuscita-ammoniaca-rapelli-stabio": {
       "cover": "/images/blog/fuoriuscita-ammoniaca-rapelli-stabio.webp",
       "hash": "6d8ea4a6d493ca5c523a8d52252d473a0140bf378d58c42b04ab4aa16161e2b7",
@@ -110766,6 +111213,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1788
     },
+    "gallerie-castelletto-sesto-calende": {
+      "cover": "/images/blog/gallerie-castelletto-sesto-calende.webp",
+      "hash": "fe9f4bfd785f9cb4e0bc4a0639ebdb87ff6f6aadd899a16cde7090dc38f99d66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gallerie-castelletto-sesto-calende",
+          "category": "pratico",
+          "date": "2026-10-05T16:57:29.122Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/gallerie-castelletto-sesto-calende.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "gambarogno-contributi-costruzione-ricorrenti": {
       "cover": "/images/blog/gambarogno-contributi-costruzione-ricorrenti.webp",
       "hash": "0695c9401c81fa68031f8e2988b3a94b33f74a749ba63c3ec14feefc43638312",
@@ -110814,6 +111284,29 @@
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1778
+    },
+    "gambarogno-pavimentazione-attese": {
+      "cover": "/images/blog/gambarogno-pavimentazione-attese.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gambarogno-pavimentazione-attese",
+          "category": "pratico",
+          "date": "2026-10-06T06:52:28.196Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/gambarogno-pavimentazione-attese.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "gamberetti-torneo-madrid-2026": {
       "cover": "/images/blog/gamberetti-torneo-madrid-2026.webp",
@@ -112033,6 +112526,29 @@
         "priority": 1782
       },
       "currentlyPublished": false
+    },
+    "ginevra-iniziativa-cern-fcc": {
+      "cover": "/images/blog/ginevra-iniziativa-cern-fcc.webp",
+      "hash": "a293a59d4ff1c5bf8e0f2b29ed8a135672cbcb1654a7a055b88b749ad3e52564",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ginevra-iniziativa-cern-fcc",
+          "category": "novita",
+          "date": "2026-10-06T17:58:26.506Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/ginevra-iniziativa-cern-fcc.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "ginevra-manifestazione-frontalieri-2026": {
       "cover": "/images/blog/ginevra-manifestazione-frontalieri-2026.webp",
@@ -115215,6 +115731,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1774
     },
+    "greggio-export-pre-guerra": {
+      "cover": "/images/blog/greggio-export-pre-guerra.webp",
+      "hash": "1ec878fb1a30bcf3d6a8e43c7be2269b86a6090aa306a32769e7ae5848602c21",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "greggio-export-pre-guerra",
+          "category": "novita",
+          "date": "2026-10-05T23:22:16.833Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/greggio-export-pre-guerra.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "grenzgaenger-schweiz-steuern-2026": {
       "cover": "/images/blog/grenzgaenger-schweiz-steuern-2026.webp",
       "hash": "00b30b77e71e2d4c72befa88ef1c4417cde3e2019e5a8e68df8f0b011df223b5",
@@ -117996,6 +118535,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1790
     },
+    "guida-tre-valli-varesine-2026": {
+      "cover": "/images/blog/guida-tre-valli-varesine-2026.webp",
+      "hash": "3678def3c051d67d9cf001403f36edc01cf33c3db51e30ad33aa5ddf9d619af9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "guida-tre-valli-varesine-2026",
+          "category": "pratico",
+          "date": "2026-10-06T03:13:40.523Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/guida-tre-valli-varesine-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "guida-vivere-mese-grigioni": {
       "cover": "/images/blog/guida-vivere-mese-grigioni.webp",
       "hash": "d37a7677e45cbbfeb7703654aa28d18e5ceee864de3a6956fa1c1fdd209d4a0e",
@@ -118790,6 +119352,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1789
     },
+    "hotel-collina-oro-licenziamenti": {
+      "cover": "/images/blog/hotel-collina-oro-licenziamenti.webp",
+      "hash": "9f0a68faf1bef410fdfb78a54a424d9013922c961690ef0460b4f5ad563b6c8a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "hotel-collina-oro-licenziamenti",
+          "category": "novita",
+          "date": "2026-10-05T15:51:02.657Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/hotel-collina-oro-licenziamenti.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "hotel-flaz-pontresina-2028": {
       "cover": "/images/blog/hotel-flaz-pontresina-2028.webp",
       "hash": "369427625b034d4df8bff937be0c46a0cb8a3ad0be683bce77982c385ee42c01",
@@ -118891,6 +119476,29 @@
         "priority": 1791
       },
       "currentlyPublished": false
+    },
+    "hotel-ticino-76-licenziamenti": {
+      "cover": "/images/blog/hotel-ticino-76-licenziamenti.webp",
+      "hash": "e02af8f162cd0258f304343a29ec78150086f18bedd4dc0fd646aa18fc9d3333",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "hotel-ticino-76-licenziamenti",
+          "category": "novita",
+          "date": "2026-10-05T16:27:36.721Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/hotel-ticino-76-licenziamenti.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "hoval-ticino-opportunita-lavoro": {
       "cover": "/images/blog/hoval-ticino-opportunita-lavoro.webp",
@@ -125659,6 +126267,29 @@
       },
       "currentlyPublished": false
     },
+    "incidente-monte-generoso-varese": {
+      "cover": "/images/blog/incidente-monte-generoso-varese.webp",
+      "hash": "3678def3c051d67d9cf001403f36edc01cf33c3db51e30ad33aa5ddf9d619af9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incidente-monte-generoso-varese",
+          "category": "pratico",
+          "date": "2026-10-06T05:43:39.002Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/incidente-monte-generoso-varese.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "incidente-mortale-frontaliere": {
       "cover": "/images/blog/incidente-mortale-frontaliere.webp",
       "hash": "ad1fbc39bc530872af21f38870345af39c0d688327de516cf6c49f205d8cb5f6",
@@ -129719,6 +130350,29 @@
       },
       "currentlyPublished": false
     },
+    "iniziative-mps-giustizia-respinte": {
+      "cover": "/images/blog/iniziative-mps-giustizia-respinte.webp",
+      "hash": "fe9f4bfd785f9cb4e0bc4a0639ebdb87ff6f6aadd899a16cde7090dc38f99d66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "iniziative-mps-giustizia-respinte",
+          "category": "novita",
+          "date": "2026-10-06T18:30:47.821Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/iniziative-mps-giustizia-respinte.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "inizio-lavoro-ticino-frontaliere-checklist": {
       "cover": "/images/blog/inizio-lavoro-ticino-frontaliere-checklist.webp",
       "hash": "529f5ed968cac6e221c708c1b88f625ac604e651c5a3f0b6b3912cbaa63f46f6",
@@ -131130,6 +131784,29 @@
         "priority": 1784
       },
       "currentlyPublished": false
+    },
+    "investimenti-viabilita-lariana-como": {
+      "cover": "/images/blog/investimenti-viabilita-lariana-como.webp",
+      "hash": "854b718ef96e8916b9af29ba79b6359d0817f90dd7a4b86115409119e1ffb439",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "investimenti-viabilita-lariana-como",
+          "category": "novita",
+          "date": "2026-10-05T22:55:09.946Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/investimenti-viabilita-lariana-como.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "investimento-busto-arsizio-28enne-ospedale": {
       "cover": "/images/blog/investimento-busto-arsizio-28enne-ospedale.webp",
@@ -137094,6 +137771,29 @@
       },
       "currentlyPublished": false
     },
+    "lavori-lereti-via-copelli-luino": {
+      "cover": "/images/blog/lavori-lereti-via-copelli-luino.webp",
+      "hash": "6fc86f3f3800b9d28938bd947353aa768bca75eb7e39a306c4a8efcb1596c0c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavori-lereti-via-copelli-luino",
+          "category": "pratico",
+          "date": "2026-10-06T00:22:58.575Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/lavori-lereti-via-copelli-luino.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "lavori-linea-locarno-cadenazzo-2026": {
       "cover": "/images/blog/lavori-linea-locarno-cadenazzo-2026.webp",
       "hash": "c91912cb5d140d9e59f243193b799c2943f5879d1e220aaf027e1e4742fe3709",
@@ -137274,6 +137974,29 @@
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1787
+    },
+    "lavori-pubblica-utilita-multe-pene": {
+      "cover": "/images/blog/lavori-pubblica-utilita-multe-pene.webp",
+      "hash": "4a0f61e84c4160095b22c98b189f6a7276f1b1d3c082c272bcf3959d62bc4e05",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavori-pubblica-utilita-multe-pene",
+          "category": "pratico",
+          "date": "2026-10-06T06:23:25.903Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/lavori-pubblica-utilita-multe-pene.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "lavori-rete-ferroviaria-tilo": {
       "cover": "/images/blog/lavori-rete-ferroviaria-tilo.webp",
@@ -138318,6 +139041,29 @@
         "priority": 1790
       },
       "currentlyPublished": false
+    },
+    "lavoro-part-time-ticino-dati": {
+      "cover": "/images/blog/lavoro-part-time-ticino-dati.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavoro-part-time-ticino-dati",
+          "category": "pratico",
+          "date": "2026-10-06T17:01:17.818Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/lavoro-part-time-ticino-dati.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "lavoro-piastrellista-ticino-frontaliere": {
       "cover": "/images/blog/lavoro-piastrellista-ticino-frontaliere.webp",
@@ -140930,6 +141676,29 @@
         "priority": 1791
       },
       "currentlyPublished": false
+    },
+    "lipomo-fiuto-roxy-cocaina": {
+      "cover": "/images/blog/lipomo-fiuto-roxy-cocaina.webp",
+      "hash": "d4e5077d008026171a47fbba32b1c41695581d719ac11c3624f10439bba173e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lipomo-fiuto-roxy-cocaina",
+          "category": "novita",
+          "date": "2026-10-06T05:08:37.021Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/lipomo-fiuto-roxy-cocaina.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "lipsia-pirata-strada-frontalieri": {
       "cover": "/images/blog/lipsia-pirata-strada-frontalieri.webp",
@@ -144584,6 +145353,29 @@
       },
       "currentlyPublished": false
     },
+    "luna-opportunita-aziende-svizzere": {
+      "cover": "/images/blog/luna-opportunita-aziende-svizzere.webp",
+      "hash": "fe9f4bfd785f9cb4e0bc4a0639ebdb87ff6f6aadd899a16cde7090dc38f99d66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "luna-opportunita-aziende-svizzere",
+          "category": "novita",
+          "date": "2026-10-06T15:49:21.967Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/luna-opportunita-aziende-svizzere.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "luna-wedler-golden-eye-award-zurigo": {
       "cover": "/images/blog/luna-wedler-golden-eye-award-zurigo.webp",
       "hash": "a222308aaf297e579ab19a9c1d5b44f9fd4926d748a1e9c6b4eb96af6f7a4f5a",
@@ -145511,6 +146303,29 @@
       "proofLevel": 1,
       "evidence": "ledger-record",
       "recordFile": "packages/articles/content/image-credits/blog/magrini-cultura-provincia-varese.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
+    "maiali-polmonite-enzootica-svizzera": {
+      "cover": "/images/blog/maiali-polmonite-enzootica-svizzera.webp",
+      "hash": "6fc86f3f3800b9d28938bd947353aa768bca75eb7e39a306c4a8efcb1596c0c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "maiali-polmonite-enzootica-svizzera",
+          "category": "novita",
+          "date": "2026-10-06T17:19:31.365Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/maiali-polmonite-enzootica-svizzera.json",
       "inheritedFrom": null,
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
@@ -149913,6 +150728,29 @@
       },
       "currentlyPublished": false
     },
+    "mercato-lavoro-settembre-2026": {
+      "cover": "/images/blog/mercato-lavoro-settembre-2026.webp",
+      "hash": "a2e5df2de50e6caf1afb8aa2c7f754748d34d7b2dfec1845471a92d6d8bedcc9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "mercato-lavoro-settembre-2026",
+          "category": "novita",
+          "date": "2026-10-06T08:45:47.077Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/mercato-lavoro-settembre-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "mercato-lavoro-svizzera-agosto-2026": {
       "cover": "/images/blog/mercato-lavoro-svizzera-agosto-2026.webp",
       "hash": "4dc94583315bdb91c07f779c3f36e1ab670fc73f540f8d169f9e2f102289f970",
@@ -153489,6 +154327,29 @@
       "action": "copy-record",
       "reason": "Duplicato esatto (sha256) di una copertina già registrata; il record è ereditato con il nuovo cover path.",
       "priority": 1785
+    },
+    "monte-olimpino-collegamenti-tilo": {
+      "cover": "/images/blog/monte-olimpino-collegamenti-tilo.webp",
+      "hash": "38ebd3d04d5dfa25fbac48bb32ebf6d744bb07256735b9896b650392f3b11441",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "monte-olimpino-collegamenti-tilo",
+          "category": "pratico",
+          "date": "2026-10-06T10:25:20.912Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/monte-olimpino-collegamenti-tilo.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "montegrino-valtravaglia-frontalieri-ticino": {
       "cover": "/images/blog/montegrino-valtravaglia-frontalieri-ticino.webp",
@@ -157624,6 +158485,29 @@
       },
       "currentlyPublished": false
     },
+    "neutralita-svizzera-voto-costituzione": {
+      "cover": "/images/blog/neutralita-svizzera-voto-costituzione.webp",
+      "hash": "d4e5077d008026171a47fbba32b1c41695581d719ac11c3624f10439bba173e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "neutralita-svizzera-voto-costituzione",
+          "category": "novita",
+          "date": "2026-10-06T04:01:17.585Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/neutralita-svizzera-voto-costituzione.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "neutralita-svizzera-voto-settembre": {
       "cover": "/images/blog/neutralita-svizzera-voto-settembre.webp",
       "hash": "d03e22b20953a891c3b3380f1a5040860033745c44a170c33e3d5bff6c83bcf7",
@@ -160579,6 +161463,29 @@
       "action": "keep",
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1778
+    },
+    "nuovi-progetti-chiave-digitali": {
+      "cover": "/images/blog/nuovi-progetti-chiave-digitali.webp",
+      "hash": "f66b7d5bf6b7a3d46f520ed2650a7434aa9a045ef79d4d3d4f7c718e2b25bf58",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "nuovi-progetti-chiave-digitali",
+          "category": "novita",
+          "date": "2026-10-06T14:57:46.101Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/nuovi-progetti-chiave-digitali.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "nuovi-radar-ticino-multe": {
       "cover": "/images/blog/nuovi-radar-ticino-multe.webp",
@@ -164057,6 +164964,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1777
     },
+    "ostinelli-cassa-malati-udienza-pretore": {
+      "cover": "/images/blog/ostinelli-cassa-malati-udienza-pretore.webp",
+      "hash": "4a0f61e84c4160095b22c98b189f6a7276f1b1d3c082c272bcf3959d62bc4e05",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ostinelli-cassa-malati-udienza-pretore",
+          "category": "pratico",
+          "date": "2026-10-06T07:13:37.693Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/ostinelli-cassa-malati-udienza-pretore.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "othermovie-lugano-2026-god-witness": {
       "cover": "/images/blog/othermovie-lugano-2026-god-witness.webp",
       "hash": "e439bbd360dfd2f30f7d3263e05525baea8cc46f869af5484d76af15c8297d40",
@@ -166004,6 +166934,29 @@
         "priority": 1788
       },
       "currentlyPublished": false
+    },
+    "parlamento-ticino-a2-a13-priorita": {
+      "cover": "/images/blog/parlamento-ticino-a2-a13-priorita.webp",
+      "hash": "955dc62b6f108e20829e57b60b3d4e66fb4242f2b6b9513774d8fbbfd5e6e16e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "parlamento-ticino-a2-a13-priorita",
+          "category": "novita",
+          "date": "2026-10-06T17:38:30.838Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/parlamento-ticino-a2-a13-priorita.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "parmelin-accordo-investimenti-bahrein-2026": {
       "cover": "/images/blog/parmelin-accordo-investimenti-bahrein-2026.webp",
@@ -169618,6 +170571,29 @@
       },
       "currentlyPublished": false
     },
+    "perdita-ad-bilancio-2025": {
+      "cover": "/images/blog/perdita-ad-bilancio-2025.webp",
+      "hash": "af629649717b0bc840120f605cfc9265ca936a1fc251861dee33b164d71963f2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "perdita-ad-bilancio-2025",
+          "category": "novita",
+          "date": "2026-10-06T10:41:49.027Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/perdita-ad-bilancio-2025.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "perequazione-ticino-frontalieri-2026": {
       "cover": "/images/blog/perequazione-ticino-frontalieri-2026.webp",
       "hash": "7e81a5018ebc80e12579e68ec803391eb08fc593d651693dcefaad4fa0f12057",
@@ -172696,6 +173672,29 @@
         "priority": 1786
       },
       "currentlyPublished": false
+    },
+    "permesso-edilizio-berna-procedura": {
+      "cover": "/images/blog/permesso-edilizio-berna-procedura.webp",
+      "hash": "26c53ef196cd464a3c34cc8ee0e8ecee0a1829b1f3dbc1484a69b29d6ff29f13",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "permesso-edilizio-berna-procedura",
+          "category": "pratico",
+          "date": "2026-10-06T01:17:07.729Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/permesso-edilizio-berna-procedura.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "permesso-frontaliere-g-procedura-ticino": {
       "cover": "/images/blog/permesso-frontaliere-g-procedura-ticino.webp",
@@ -182297,6 +183296,29 @@
       },
       "currentlyPublished": false
     },
+    "prezzi-immobili-settembre-regioni": {
+      "cover": "/images/blog/prezzi-immobili-settembre-regioni.webp",
+      "hash": "c96ade7bcd38a375465b4116126aa4e2cc2c75533d925831fd5814f3a23b31b0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "prezzi-immobili-settembre-regioni",
+          "category": "pratico",
+          "date": "2026-10-06T06:36:57.205Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/prezzi-immobili-settembre-regioni.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "prezzi-immobili-svizzera-giugno": {
       "cover": "/images/blog/prezzi-immobili-svizzera-giugno.webp",
       "hash": "97bc8610c5132ad3636a6d3755e7972c36d9fce3e8fb4ea37bbf60455b3756f7",
@@ -190684,6 +191706,29 @@
       },
       "currentlyPublished": false
     },
+    "rickli-tempo-candidatura-federal": {
+      "cover": "/images/blog/rickli-tempo-candidatura-federal.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "rickli-tempo-candidatura-federal",
+          "category": "novita",
+          "date": "2026-10-06T14:04:52.307Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/rickli-tempo-candidatura-federal.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "ricongiungimento-familiare-burocrazia": {
       "cover": "/images/blog/ricongiungimento-familiare-burocrazia.webp",
       "hash": "a190df7abf1536578abf6399d65aed1976f17236a2b673b5607843c774361544",
@@ -195376,6 +196421,29 @@
         "priority": 1790
       },
       "currentlyPublished": false
+    },
+    "ruegsegger-candidato-federale": {
+      "cover": "/images/blog/ruegsegger-candidato-federale.webp",
+      "hash": "d4e5077d008026171a47fbba32b1c41695581d719ac11c3624f10439bba173e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ruegsegger-candidato-federale",
+          "category": "novita",
+          "date": "2026-10-06T12:03:33.699Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/ruegsegger-candidato-federale.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "rumore-traffico-svizzera-500-morti-anno": {
       "cover": "/images/blog/rumore-traffico-svizzera-500-morti-anno.webp",
@@ -212412,6 +213480,29 @@
       },
       "currentlyPublished": false
     },
+    "stazione-ffs-giubiasco-rinnovo": {
+      "cover": "/images/blog/stazione-ffs-giubiasco-rinnovo.webp",
+      "hash": "9eecb9ef99abefceb183d252c71f70d3b2a6199c3db63c424a3c45a9338fb722",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "stazione-ffs-giubiasco-rinnovo",
+          "category": "novita",
+          "date": "2026-10-06T10:59:22.835Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/stazione-ffs-giubiasco-rinnovo.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "stazioni-ferroviarie-ticino-sicurezza": {
       "cover": "/images/blog/stazioni-ferroviarie-ticino-sicurezza.webp",
       "hash": "3933e94c8c3bcec9011c34fb9063415a6c73020f3b813d8ce25412102e7a2173",
@@ -217570,6 +218661,29 @@
       },
       "currentlyPublished": false
     },
+    "svizzera-patriot-bodluv-iva-attesa": {
+      "cover": "/images/blog/svizzera-patriot-bodluv-iva-attesa.webp",
+      "hash": "fe9f4bfd785f9cb4e0bc4a0639ebdb87ff6f6aadd899a16cde7090dc38f99d66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-patriot-bodluv-iva-attesa",
+          "category": "fiscale",
+          "date": "2026-10-05T23:53:47.805Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/svizzera-patriot-bodluv-iva-attesa.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "svizzera-perde-attrattiva-aziende": {
       "cover": "/images/blog/svizzera-perde-attrattiva-aziende.webp",
       "hash": "0ba9e61c1b27902d46142e3ca2a58cac42b6ac59f61a86d7281c8198746d5716",
@@ -220770,6 +221884,29 @@
         "priority": 1777
       },
       "currentlyPublished": false
+    },
+    "tamedia-cancella-34-posti-lavoro": {
+      "cover": "/images/blog/tamedia-cancella-34-posti-lavoro.webp",
+      "hash": "16a136ae641dba0fe4c5bbe35e1810ff0f09652465d1af2000650b29dc1289df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tamedia-cancella-34-posti-lavoro",
+          "category": "pratico",
+          "date": "2026-10-06T03:24:07.459Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/tamedia-cancella-34-posti-lavoro.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "tamedia-taglio-posti-lavoro": {
       "cover": "/images/blog/tamedia-taglio-posti-lavoro.webp",
@@ -230149,6 +231286,29 @@
       "reason": "Record di licenza già presente nel ledger.",
       "priority": 1780
     },
+    "trame-oriente-chiasso": {
+      "cover": "/images/blog/trame-oriente-chiasso.webp",
+      "hash": "baafaf9fc00e22dfe163a715270f6aefd0d667e4c90fc5f3d77b95f483998ab9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "trame-oriente-chiasso",
+          "category": "novita",
+          "date": "2026-10-06T11:41:53.257Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/trame-oriente-chiasso.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "tramonto-a-cadenazzo": {
       "cover": "/images/blog/tramonto-a-cadenazzo.webp",
       "hash": "984b9b83d21716a2dcad4e4b557f1f971187ff4041d952754934da3ef1b54335",
@@ -235190,6 +236350,29 @@
         "priority": 1772
       },
       "currentlyPublished": false
+    },
+    "truffa-finto-operatore-luino": {
+      "cover": "/images/blog/truffa-finto-operatore-luino.webp",
+      "hash": "4c06818cb047f88166207aa0b211e4550f6db3758fd95d37c87af2079a2ee1ea",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "truffa-finto-operatore-luino",
+          "category": "novita",
+          "date": "2026-10-06T18:14:32.622Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/truffa-finto-operatore-luino.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "truffa-lavoro-svizzera-anticipo-2026": {
       "cover": "/images/blog/truffa-lavoro-svizzera-anticipo-2026.webp",
@@ -240390,6 +241573,29 @@
       },
       "currentlyPublished": false
     },
+    "varese-conferenza-lavoro-salari-2026": {
+      "cover": "/images/blog/varese-conferenza-lavoro-salari-2026.webp",
+      "hash": "73c70b81b0de70633008edad195f84fc1e7f3caf15d1858cc22dbe2fec9a77bd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-conferenza-lavoro-salari-2026",
+          "category": "novita",
+          "date": "2026-10-06T03:43:17.872Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/varese-conferenza-lavoro-salari-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
+    },
     "varese-corsi-net-opportunita-rete-sinergie-2026": {
       "cover": "/images/blog/varese-corsi-net-opportunita-rete-sinergie-2026.webp",
       "hash": "1627f5240602430c3d32f09fb5e9bba3c4569d92f10314eb25b85d833bb3d2c4",
@@ -241592,6 +242798,29 @@
         "priority": 1778
       },
       "currentlyPublished": false
+    },
+    "varese-whp-programma-lombardia-2026": {
+      "cover": "/images/blog/varese-whp-programma-lombardia-2026.webp",
+      "hash": "6fc86f3f3800b9d28938bd947353aa768bca75eb7e39a306c4a8efcb1596c0c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-whp-programma-lombardia-2026",
+          "category": "novita",
+          "date": "2026-10-06T15:20:43.122Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/varese-whp-programma-lombardia-2026.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "varesino-salvato-polizia-frontiera-domodossola": {
       "cover": "/images/blog/varesino-salvato-polizia-frontiera-domodossola.webp",
@@ -256599,6 +257828,29 @@
         "priority": 1778
       },
       "currentlyPublished": false
+    },
+    "white-hash-sequestro-varese": {
+      "cover": "/images/blog/white-hash-sequestro-varese.webp",
+      "hash": "854b718ef96e8916b9af29ba79b6359d0817f90dd7a4b86115409119e1ffb439",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "white-hash-sequestro-varese",
+          "category": "novita",
+          "date": "2026-10-06T14:27:41.313Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 1,
+      "evidence": "ledger-record",
+      "recordFile": "packages/articles/content/image-credits/blog/white-hash-sequestro-varese.json",
+      "inheritedFrom": null,
+      "action": "keep",
+      "reason": "Record di licenza già presente nel ledger.",
+      "priority": 1791
     },
     "whp-premia-aziende-ticino-2026": {
       "cover": "/images/blog/whp-premia-aziende-ticino-2026.webp",
