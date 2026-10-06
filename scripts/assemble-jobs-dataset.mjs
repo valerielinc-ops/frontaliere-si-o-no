@@ -59,7 +59,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -1931,7 +1931,9 @@ export function acceptBadLocalityViaCanton(canton, postalCode, haystack, rescueO
  * @returns {{ foreignContext: boolean, isForeignPlace: (item: string) => boolean }}
  */
 export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
-  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton) || isSwissPostalCode(postalCode);
+  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton, {
+    includeOfficialLocality: true,
+  }) || isSwissPostalCode(postalCode);
   return { foreignContext: !knownGeography, isForeignPlace: isLocationExplicitlyForeign };
 }
 
@@ -2036,7 +2038,14 @@ export function applySwissLocationGate(jobs) {
     }
 
     // (3) Canton-only labels need a Swiss anchor.
-    if (isCantonOnlyLabel(primaryLoc)) {
+    // The canton keyword table deliberately remains conservative for parsers
+    // and free text. An explicit locality field is stronger evidence: the
+    // official postal directory rescues real localities such as Biel that are
+    // also used as a canton keyword, without weakening isCantonOnlyLabel()
+    // for source parsers that must reject a bare canton-like label. Let those
+    // field values continue into step (4), where stale-canton reconciliation
+    // can still prefer a city named in the job's own-canton description.
+    if (isCantonOnlyLabel(primaryLoc) && !isKnownSwissLocationFieldToken(primaryLoc, job.canton)) {
       if (isSwissPostalCode(job.postalCode)) return true;
       // Look for a real Swiss city in the description. rescueSwissCityFromText
       // is the single source of truth for description scanning: it applies both
@@ -2058,7 +2067,9 @@ export function applySwissLocationGate(jobs) {
     const listedLocalityCity = swissCityFromLocationField(primaryLoc, job.canton);
     const mixedForeignLocality = locationFieldContainsForeignSegment(primaryLoc);
     const directLocalityCity = !mixedForeignLocality
-      && locationFieldHasSwissSignal(primaryLoc, job.canton)
+      && locationFieldHasSwissSignal(primaryLoc, job.canton, {
+        includeOfficialLocality: true,
+      })
       ? listedLocalityCity
       : '';
     if (directLocalityCity) {
@@ -2067,8 +2078,9 @@ export function applySwissLocationGate(jobs) {
       // explicitly names a city owned by that record canton, retain the
       // established rescue result; otherwise the authoritative field wins.
       const localityBelongsToAnotherCanton = Boolean(job.canton)
-        && isKnownSwissCity(primaryLoc)
-        && !isKnownSwissCity(primaryLoc, job.canton);
+        && !isKnownSwissMunicipalityInCanton(primaryLoc, job.canton, {
+          allowOfficialLocality: true,
+        });
       if (localityBelongsToAnotherCanton) {
         const cantonCity = rescueSwissCityFromText(haystack);
         if (cantonCity && isKnownSwissCity(cantonCity, job.canton)) {
