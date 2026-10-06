@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 import {
   CREATE_ACCOUNT_RE,
+  RESEND_VERIFICATION_RE,
   authPageKind,
   asksExistingPassword,
   codeField,
@@ -36,7 +37,12 @@ describe('portal account pages', () => {
     expect(authPageKind({ fields: [field('f1', 'text', 'Vorname')] })).toBe('none');
     expect(loginFields(signIn)).toEqual({ email: signIn.fields[0], password: signIn.fields[1] });
     expect(codeField({ fields: [field('f1', 'text', 'Bestätigungscode')] })?.id).toBe('f1');
+    expect(codeField({ fields: [field('f1', 'password', 'One-time password')] })?.id).toBe('f1');
+    expect(codeField({ fields: [field('f1', 'password', 'Code confidentiel')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
+    for (const label of ['Resend verification code', 'Neuen Code senden', 'Renvoyer un nouveau code', 'Inviare un nuovo codice']) {
+      expect(RESEND_VERIFICATION_RE.test(label), label).toBe(true);
+    }
   });
 
   it('tells an application form that asks for its own password from a login or a registration page', () => {

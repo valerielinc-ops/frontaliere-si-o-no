@@ -5,7 +5,8 @@
  *
  * It reads what that flow needs and nothing more: top-level headers, the
  * leaf parts of (nested) multiparts, base64 / quoted-printable bodies,
- * attachment file names (RFC 2231 and RFC 2047), the first text/plain part,
+ * attachment file names (RFC 2231 and RFC 2047), the first text/plain part (or
+ * an HTML part converted to text),
  * and the sender-authentication verdict Cloudflare writes in
  * Authentication-Results. No dependency, so it deploys with the functions.
  */
@@ -80,6 +81,34 @@ function decodeBody(body, transferEncoding) {
   return Buffer.from(body, 'latin1');
 }
 
+/** Turn an HTML-only message into the text the classifier and the runner need. */
+export function htmlToText(html) {
+  return String(html || '')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(?:script|style|head|title|svg|noscript)\b[^>]*>[\s\S]*?<\/(?:script|style|head|title|svg|noscript)>/gi, ' ')
+    // Verification links are often the only copy of the token in a portal mail.
+    .replace(/<a\b[^>]*\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>/gi, (_, doubleQuoted, singleQuoted, bare, label) => `${label} ${doubleQuoted || singleQuoted || bare}`)
+    .replace(/<(?:br\s*\/?>|\/(?:p|div|li|tr|h[1-6]|td|th|section|article|table|ul|ol))\s*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => {
+      const lower = entity.toLowerCase();
+      if (lower === 'amp') return '&';
+      if (lower === 'lt') return '<';
+      if (lower === 'gt') return '>';
+      if (lower === 'quot') return '"';
+      if (lower === 'apos') return "'";
+      if (lower === 'nbsp') return ' ';
+      const codePoint = lower.startsWith('#x') ? Number.parseInt(lower.slice(2), 16) : Number.parseInt(lower.slice(1), 10);
+      return Number.isSafeInteger(codePoint) && codePoint > 0 && codePoint <= 0x10ffff
+        ? String.fromCodePoint(codePoint)
+        : ' ';
+    })
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
+
 function collectParts(headerText, body, depth, out) {
   if (out.length >= MAX_PARTS) return;
   const headers = parseHeaders(headerText);
@@ -117,14 +146,17 @@ export function parseMimeMessage(raw) {
   const parts = [];
   collectParts(headerText, body, 0, parts);
   const textPart = parts.find((part) => !part.isAttachment && part.contentType === 'text/plain');
+  const htmlPart = parts.find((part) => !part.isAttachment && part.contentType === 'text/html');
   let text = '';
-  if (textPart) {
+  const contentOf = (part) => {
     try {
-      text = new TextDecoder(/utf-?8/i.test(textPart.charset) ? 'utf-8' : 'latin1').decode(textPart.content);
+      return new TextDecoder(/utf-?8/i.test(part.charset) ? 'utf-8' : 'latin1').decode(part.content);
     } catch {
-      text = textPart.content.toString('utf8');
+      return part.content.toString('utf8');
     }
-  }
+  };
+  if (textPart) text = contentOf(textPart);
+  else if (htmlPart) text = htmlToText(contentOf(htmlPart));
   return {
     headers,
     from: decodeEncodedWords(header(headers, 'from')),
