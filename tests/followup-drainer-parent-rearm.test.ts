@@ -137,6 +137,44 @@ describe('PARENT-REARM: i quattro padri misurati rientrano una sola volta', () =
     })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
   });
 
+  it('un marker nello stesso secondo copre la ricorrenza solo se viene dopo nel thread', () => {
+    // Tutto nello stesso secondo: ricorrenza, marker di quella ricorrenza, e
+    // una seconda ricorrenza. Il marker PRECEDE la seconda ricorrenza: non può
+    // averla registrata. Con il solo confronto degli istanti la seconda
+    // risultava «già riarmata» e il padre usciva senza che nessuno leggesse lo
+    // stato delle figlie.
+    const parent = realCases[0];
+    const marker = {
+      body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+      createdAt: parent.reopenedAt,
+    };
+    const secondRecurrence = { body: reopenedBody(parent.number), createdAt: parent.reopenedAt };
+    const markerBefore = [...commentsFor(parent), marker, secondRecurrence];
+
+    const [openChild, ...rest] = parent.children;
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerBefore,
+      childStates: [{ number: openChild, state: 'OPEN' }, ...closedChildren(rest)],
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'child-open' });
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerBefore,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+
+    // Lo stesso marker, scritto DOPO la seconda ricorrenza, la copre.
+    const markerAfter = [...commentsFor(parent), secondRecurrence, marker];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerAfter,
+      childStates: null,
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'already-rearmed' });
+  });
+
   it('a parità di secondo decide l\'ultima decomposizione, come nel PARENT-CLOSE', () => {
     // Due marker DECOMPOSED_INTO nello stesso secondo: il secondo aggiunge una
     // figlia ancora aperta. `decomposedChildNumbers` usa l'ultimo commento; la
