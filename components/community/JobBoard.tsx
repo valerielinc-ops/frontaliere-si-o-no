@@ -17,7 +17,7 @@ import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
-import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
@@ -7819,12 +7819,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  categoryLabel={savedNudge.categoryLabel}
  cantonCode={savedNudge.cantonCode}
  cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
- onShown={() => Analytics.trackEvent('nudge_shown', {
+ onShown={() => {
+ // The saved-jobs nudge has its own `nudge_*` funnel and stays outside the
+ // campaign's seven-surface denominator, but its generic shown event keeps the
+ // raw `job_alert_created` pair attributable for GA4 diagnostics.
+ Analytics.trackJobAlertCtaShown('saved_jobs_nudge', savedNudge.categoryLabel);
+ Analytics.trackEvent('nudge_shown', {
  nudge: 'saved_jobs_alert',
  saved_count: savedNudge.savedCount,
  nudge_category: savedNudge.category,
  nudge_canton: savedNudge.cantonCode || '(none)',
- })}
+ })
+ }}
  userId={userId}
  email={userEmail}
  locale={locale}
@@ -7840,10 +7846,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // queued-request + backToList dance as the prompt's onManage above.
  saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
  if (isJobDetailView) {
- requestJobAlertOpen(savedNudge.categoryLabel);
+ requestJobAlertOpen(savedNudge.categoryLabel, 'saved_jobs_nudge');
  backToList();
  } else {
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: savedNudge.categoryLabel } }));
+ openJobAlertForm(savedNudge.categoryLabel, 'saved_jobs_nudge');
  }
  }}
  onDismissed={handleSavedNudgeDismissed}
