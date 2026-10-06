@@ -418,6 +418,25 @@ export function pharmacyGoogleMapsUrl(placeId: unknown): string | undefined {
 }
 
 /**
+ * Builds a Google Maps search link from the verified catalogue identity.
+ *
+ * This is a navigation link, not a cached Google result: it deliberately
+ * carries no provider facts, ratings, reviews or inferred coordinates.
+ */
+export function pharmacyGoogleMapsSearchUrl(
+  pharmacy: Pick<Pharmacy, 'name' | 'address' | 'postalCode' | 'city' | 'country'>,
+): string | undefined {
+  const parts = [
+    pharmacy.name,
+    pharmacy.address,
+    `${pharmacy.postalCode} ${pharmacy.city}`,
+    pharmacy.country === 'IT' ? 'Italy' : pharmacy.country === 'CH' ? 'Switzerland' : '',
+  ].map((part) => String(part || '').trim()).filter(Boolean);
+  if (parts.length < 2) return undefined;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(parts.join(', '))}`;
+}
+
+/**
  * Validates a `PharmacySourceEntry` shape, returning the list of problems
  * found (empty = valid). Deliberately permissive on unknown extra fields —
  * it exists to catch incomplete entries, not to police the schema.

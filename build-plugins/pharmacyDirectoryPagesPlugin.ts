@@ -27,7 +27,7 @@ import { currentDutyForRegion } from '../services/pharmacies/duties';
 import { currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { ITALY_DUTY_COPY, italyDutyWeekModel, italyDutyWeekStructuredData, renderItalyDutyCoverageSection, renderItalyDutyWeek } from './pharmacyItalyDuty';
 import type { Locale } from '../services/i18n';
-import { pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyExternalSource, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
+import { pharmacyGoogleMapsSearchUrl, pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyExternalSource, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -450,14 +450,15 @@ function renderServices(pharmacy: Pharmacy, locale: Locale): string {
   return `<ul style="${BODY_STYLE}">${pharmacy.services.map((service) => `<li>${esc(service)}</li>`).join('')}</ul>`;
 }
 
-function renderPharmacyFacts(pharmacy: Pharmacy, locale: Locale, maps?: string): string {
+function renderPharmacyFacts(pharmacy: Pharmacy, locale: Locale, maps?: { osm?: string; google?: string }): string {
   const copy = COPY[locale];
   const rows = [
     `<dt><strong>${esc(copy.address)}</strong></dt><dd>${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</dd>`,
     ...(pharmacy.phone ? [`<dt><strong>${esc(copy.phone)}</strong></dt><dd><a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></dd>`] : []),
     ...(pharmacy.contactEmail ? [`<dt><strong>${esc(copy.email)}</strong></dt><dd><a href="mailto:${esc(pharmacy.contactEmail)}">${esc(pharmacy.contactEmail)}</a></dd>`] : []),
     ...(safePharmacyUrl(pharmacy.website) ? [`<dt><strong>${esc(copy.website)}</strong></dt><dd><a href="${esc(safePharmacyUrl(pharmacy.website))}" rel="nofollow noopener">${esc(safePharmacyUrl(pharmacy.website))}</a></dd>`] : []),
-    ...(maps ? [`<dt><strong>${esc(copy.map)}</strong></dt><dd><a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></dd>`] : []),
+    ...(maps?.osm ? [`<dt><strong>${esc(copy.map)}</strong></dt><dd><a href="${esc(maps.osm)}" rel="nofollow noopener">${esc(copy.openMap)}</a></dd>`] : []),
+    ...(maps?.google ? [`<dt><strong>Google Maps</strong></dt><dd><a href="${esc(maps.google)}" rel="nofollow noopener">Google Maps</a></dd>`] : []),
   ];
   return `<dl data-pharmacy-facts="true" style="${BODY_STYLE}">${rows.join('')}</dl>`;
 }
@@ -613,6 +614,10 @@ function detailJsonLd(pharmacy: Pharmacy, locale: Locale): string {
   const pathValue = pharmacyPath(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
   const addressRegion = pharmacy.canton || pharmacy.province || pharmacy.region;
+  const googleMaps = pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) || pharmacyGoogleMapsSearchUrl(pharmacy);
+  const hasMap = pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
+    ? `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}`
+    : googleMaps;
   const sameAs = [...new Set([
     ...(website ? [website] : []),
     ...(pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) ? [pharmacyGoogleMapsUrl(pharmacy.googlePlaceId)!] : []),
@@ -635,7 +640,7 @@ function detailJsonLd(pharmacy: Pharmacy, locale: Locale): string {
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
     ...(pharmacy.contactEmail ? { email: pharmacy.contactEmail } : {}),
     ...(sameAs.length ? { sameAs: sameAs.length === 1 ? sameAs[0] : sameAs } : {}),
-    ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? { hasMap: `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}` } : {}),
+    ...(hasMap ? { hasMap } : {}),
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } } : {}),
     ...(pharmacy.services?.length ? { amenityFeature: pharmacy.services.map((service) => ({ '@type': 'LocationFeatureSpecification', name: service })) } : {}),
   };
@@ -884,7 +889,10 @@ function renderBody(
   } else if (descriptor.kind === 'pharmacy') {
     const pharmacy = descriptor.pharmacy!;
     const website = safePharmacyUrl(pharmacy.website);
-    const maps = pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}#map=18/${encodeURIComponent(String(pharmacy.latitude))}/${encodeURIComponent(String(pharmacy.longitude))}` : undefined;
+    const maps = {
+      osm: pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}#map=18/${encodeURIComponent(String(pharmacy.latitude))}/${encodeURIComponent(String(pharmacy.longitude))}` : undefined,
+      google: pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) || pharmacyGoogleMapsSearchUrl(pharmacy),
+    };
     const parent = pharmacy.country === 'IT' ? cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug) : cityPath('CH', locale, pharmacyCitySlug(pharmacy.city));
     sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><p data-pharmacy-answer="true" style="${LEDE_STYLE}">${esc(pharmacyAnswerSummary(pharmacy, locale))}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2>${renderPharmacyFacts(pharmacy, locale, maps)}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></section>`;
   } else {
