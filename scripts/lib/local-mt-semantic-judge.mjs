@@ -41,6 +41,7 @@ export const SEMANTIC_VERDICT = Object.freeze({
 });
 
 const DEFAULT_CACHE_MAX = 1024;
+export const DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE = 64;
 
 function cleanText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -161,7 +162,51 @@ export function createLocalMtSemanticJudge({
     }
   }
 
-  return async function judge({ sourceText, candidateText } = {}) {
+  /**
+   * Fill the same per-text cache used by vectorFor(), in bounded batches.
+   *
+   * A failed batch is deliberately not fatal: it leaves every text in that
+   * batch uncached and stops the warm-up, so the caller's normal one-text
+  * vectorFor() path remains the fallback for every later candidate.
+  */
+  async function prewarm(texts, { batchSize = DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE } = {}) {
+    const requestedSize = Number(batchSize);
+    const size = Number.isFinite(requestedSize)
+      ? Math.max(1, Math.floor(requestedSize))
+      : DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE;
+    const pending = [];
+    const seen = new Set();
+    for (const value of Array.isArray(texts) ? texts : []) {
+      const text = cleanText(value);
+      if (!text || seen.has(text) || vectors.has(text)) continue;
+      seen.add(text);
+      pending.push(text);
+    }
+
+    let embedded = 0;
+    let failed = 0;
+    for (let offset = 0; offset < pending.length; offset += size) {
+      const batch = pending.slice(offset, offset + size);
+      let rows;
+      try {
+        rows = asRows(await embed({ inputs: batch, prefix: 'passage' }));
+        if (!Array.isArray(rows) || rows.length !== batch.length || rows.some((row) => !validVector(row))) {
+          throw new Error('semantic embedder returned an invalid warm-up batch');
+        }
+      } catch {
+        failed = pending.length - offset;
+        break;
+      }
+      for (let index = 0; index < batch.length; index += 1) {
+        vectors.set(batch[index], Promise.resolve(rows[index]));
+        if (vectors.size > maxEntries) vectors.delete(vectors.keys().next().value);
+      }
+      embedded += batch.length;
+    }
+    return { requested: pending.length, embedded, failed };
+  }
+
+  const judge = async function judge({ sourceText, candidateText } = {}) {
     const source = cleanText(sourceText);
     const candidate = cleanText(candidateText);
     if (!source || !candidate) return unavailable('missing-text', minScore);
@@ -185,6 +230,11 @@ export function createLocalMtSemanticJudge({
       reason: accepted ? 'semantic-match' : 'semantic-mismatch',
     };
   };
+
+  // Keep the hot-path API callable as before while exposing the opt-in batch
+  // warm-up to the mop-up writer and to isolated tests/benchmarks.
+  judge.prewarm = prewarm;
+  return judge;
 }
 
 let defaultJudge = null;
@@ -198,4 +248,10 @@ let defaultJudge = null;
 export function judgeLocalMtMeaning(options = {}) {
   if (!defaultJudge) defaultJudge = createLocalMtSemanticJudge();
   return defaultJudge(options);
+}
+
+/** Warm the singleton judge used by judgeLocalMtMeaning(). */
+export function prewarmLocalMtMeaning(texts, options = {}) {
+  if (!defaultJudge) defaultJudge = createLocalMtSemanticJudge();
+  return defaultJudge.prewarm(texts, options);
 }
