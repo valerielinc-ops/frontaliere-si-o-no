@@ -65,6 +65,16 @@ describe('article SEO fallback builder', () => {
     ]);
   });
 
+  it('renders underscore emphasis without changing identifiers that contain underscores', () => {
+    expect(renderArticleInlineMarkup('_Fonte: Ticinonline, 24 febbraio 2026_')).toBe(
+      '<em>Fonte: Ticinonline, 24 febbraio 2026</em>',
+    );
+    expect(renderArticleInlineMarkup('**_mobilità pubblica_**')).toBe(
+      '<strong><em>mobilità pubblica</em></strong>',
+    );
+    expect(renderArticleInlineMarkup('MOPS_DanceSyndrome')).toBe('MOPS_DanceSyndrome');
+  });
+
   it('clamps a skipped heading level under the article section wrapper', () => {
     const html = renderArticleDerivedSectionsHtml([
       { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },

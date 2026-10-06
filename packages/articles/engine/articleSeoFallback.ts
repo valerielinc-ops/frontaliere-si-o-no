@@ -278,6 +278,11 @@ export const renderArticleInlineMarkup = (line: string): string => {
   .replace(/`([^`]+)`/g, '<code>$1</code>')
   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
   .replace(/\*(.*?)\*/g, '<em>$1</em>')
+  // A few archived bodies use underscore emphasis (`_Fonte: ..._`), which is
+  // valid Markdown but used to survive as literal punctuation in the static
+  // article HTML. Restrict delimiters to whitespace/punctuation boundaries so
+  // identifiers such as `MOPS_DanceSyndrome` remain intact.
+  .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>')
   .replace(INLINE_LINK_TOKEN_RX, (_, index: string) => links[Number(index)] ?? '');
 };
 
