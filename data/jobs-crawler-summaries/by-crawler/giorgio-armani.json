@@ -1,16 +1,16 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-10-05T21:39:39.988Z",
+  "generatedAt": "2026-10-06T09:23:32.817Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 29796,
-  "avgDurationMs": 29796,
+  "durationMs": 46028,
+  "avgDurationMs": 46028,
   "durationHistory": [
-    29796
+    46028
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,14 +46,15 @@
       "firstSeenAt": "2026-09-19T22:57:38.732Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
