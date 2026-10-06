@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-14T08:45:22.271Z",
-    "label": "before",
-    "total": 32489,
-    "needsRetranslation": 5130,
-    "suppressed": 158,
-    "incomplete": 5496,
-    "complete": 26993,
-    "slotsPresent": 26993,
-    "flaggedAmongSlotsPresent": 92,
-    "verifiedTranslated": 26901,
-    "sourceCopyExcused": 408,
-    "slotsPresentByLength": 32370,
-    "languageVerified": 27853,
-    "missingByLocale": {
-      "it": 70,
-      "en": 57,
-      "de": 64,
-      "fr": 76
-    },
-    "queueAge": {
-      "count": 5130,
-      "withTimestamp": 5130,
-      "oldestAgeDays": 153.9,
-      "p50AgeDays": 13.7,
-      "p90AgeDays": 73.9,
-      "buckets": {
-        "0-1d": 18,
-        "1-2d": 5,
-        "2-7d": 1692,
-        "0-7d": 1715,
-        "7-30d": 1665,
-        "30-90d": 1370,
-        "90-180d": 380,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1192
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 485
-      },
-      {
-        "company": "Roche",
-        "pending": 450
-      },
-      {
-        "company": "Sulzer",
-        "pending": 162
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 160
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 131
-      },
-      {
-        "company": "PEMSA",
-        "pending": 129
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 104
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 72
-      },
-      {
-        "company": "JUMBO",
-        "pending": 65
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-14T10:23:07.474Z",
     "label": "after",
     "total": 32489,
@@ -20481,39 +20398,7 @@
         "residualRate": 0.03333333333333333,
         "runs": 10,
         "measured": false,
-        "queueCandidates": 10782,
-        "members": [
-          "ac180aec3d632a0b:0",
-          "9d19b14c5c0aa913:0",
-          "3ed52ce78ec0b861:0",
-          "447373739f946624:0",
-          "4aa1932443c4f122:0",
-          "f1c29d9fdd446dcb:0",
-          "117831c75bc981a3:0",
-          "9bb018668078c9b7:0",
-          "577f095a7cf31f1d:0",
-          "577e4374595d751a:0",
-          "cf2c9a40a9c22d45:1",
-          "bdfca07f0f844e9a:0",
-          "a5062b9370b4e09a:0",
-          "dc6c3ab1426512b8:0",
-          "93ce4938d052ef43:0",
-          "01d827670e2978a9:0",
-          "1d34c2cbe481c269:0",
-          "539b2c1ead95e079:0",
-          "71a6f6a189662bb1:0",
-          "7be338aa7ef1bd8e:0",
-          "8f2e9a5b8e966518:0",
-          "ca5e6d9f20494941:0",
-          "4eee954f051e6e3b:0",
-          "0445343c830a5c80:0",
-          "1df865f5fc6e0b3b:0",
-          "0e77fa5ac66ca3c9:0",
-          "c20329066049e967:0",
-          "a706eeb3adea8b53:0",
-          "a6f338a90144ed74:0",
-          "32d00c4334a82676:0"
-        ]
+        "queueCandidates": 10782
       }
     },
     "publicationHold": {
@@ -20683,5 +20568,178 @@
         "pending": 250
       }
     ]
+  },
+  {
+    "timestamp": "2026-10-06T14:09:08.545Z",
+    "label": "after",
+    "total": 32085,
+    "needsRetranslation": 16310,
+    "suppressed": 118,
+    "incomplete": 17691,
+    "complete": 14394,
+    "slotsPresent": 14394,
+    "flaggedAmongSlotsPresent": 30,
+    "verifiedTranslated": 14364,
+    "sourceCopyExcused": 527,
+    "slotsPresentByLength": 31842,
+    "languageVerified": 18050,
+    "missingByLocale": {
+      "it": 3605,
+      "en": 3518,
+      "de": 548,
+      "fr": 3420
+    },
+    "queueAge": {
+      "count": 16310,
+      "withTimestamp": 16309,
+      "oldestAgeDays": 518.3,
+      "p50AgeDays": 13.1,
+      "p90AgeDays": 56.7,
+      "buckets": {
+        "0-1d": 653,
+        "1-2d": 207,
+        "2-7d": 2407,
+        "0-7d": 3267,
+        "7-30d": 8069,
+        "30-90d": 4065,
+        "90-180d": 902,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 2213,
+      "withTimestamp": 2213,
+      "oldestAgeDays": 1673.6,
+      "p50AgeDays": 49.7,
+      "p90AgeDays": 118.1,
+      "buckets": {
+        "0-1d": 208,
+        "1-2d": 22,
+        "2-7d": 29,
+        "0-7d": 259,
+        "7-30d": 217,
+        "30-90d": 1201,
+        "90-180d": 534,
+        "180d+": 2
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 10529,
+      "sampled": 120,
+      "processed": 7,
+      "residual": 0,
+      "residualRate": 0,
+      "window": {
+        "size": 120,
+        "processed": 34,
+        "residual": 1,
+        "residualRate": 0.029411764705882353,
+        "runs": 11,
+        "measured": false,
+        "queueCandidates": 10529,
+        "members": [
+          "ac180aec3d632a0b:0",
+          "9d19b14c5c0aa913:0",
+          "3ed52ce78ec0b861:0",
+          "447373739f946624:0",
+          "4aa1932443c4f122:0",
+          "f1c29d9fdd446dcb:0",
+          "117831c75bc981a3:0",
+          "9bb018668078c9b7:0",
+          "577f095a7cf31f1d:0",
+          "577e4374595d751a:0",
+          "cf2c9a40a9c22d45:1",
+          "bdfca07f0f844e9a:0",
+          "a5062b9370b4e09a:0",
+          "1d34c2cbe481c269:0",
+          "539b2c1ead95e079:0",
+          "71a6f6a189662bb1:0",
+          "7be338aa7ef1bd8e:0",
+          "8f2e9a5b8e966518:0",
+          "ca5e6d9f20494941:0",
+          "4eee954f051e6e3b:0",
+          "0445343c830a5c80:0",
+          "1df865f5fc6e0b3b:0",
+          "0e77fa5ac66ca3c9:0",
+          "c20329066049e967:0",
+          "a706eeb3adea8b53:0",
+          "a6f338a90144ed74:0",
+          "32d00c4334a82676:0",
+          "01d827670e2978a9:0",
+          "3dec9e219436d786:0",
+          "9d1446221fdd089b:0",
+          "0811c8fa9a098afd:0",
+          "53a1c2962fd258db:0",
+          "dc6c3ab1426512b8:0",
+          "93ce4938d052ef43:0"
+        ]
+      }
+    },
+    "publicationHold": {
+      "held": 321,
+      "byCrawler": {
+        "fachkraft": 159,
+        "sta": 32,
+        "stellenpartner": 93,
+        "stellentreff": 37
+      }
+    },
+    "predicateVersion": "aa9938f608276c6d",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 345,
+      "complete": 129
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3455
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1735
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1192
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 902
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 820
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 762
+      },
+      {
+        "company": "VOLG",
+        "pending": 386
+      },
+      {
+        "company": "Galaxus",
+        "pending": 348
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 259
+      },
+      {
+        "company": "Manor AG",
+        "pending": 233
+      }
+    ],
+    "codexReserve": null
   }
 ]
