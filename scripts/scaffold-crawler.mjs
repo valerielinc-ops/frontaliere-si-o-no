@@ -295,7 +295,7 @@ async function fetchJobListings() {
       imports: `import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';`,
@@ -323,7 +323,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
       });
