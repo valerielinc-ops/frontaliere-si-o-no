@@ -981,21 +981,6 @@ jobs:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
 
-      # The diagnostic reporter uses the canonical title so the recovered-run
-      # reconciler can close the issue on the next green sync.
-      - name: Report failure to GitHub Issues
-        if: failure()
-        uses: ./.github/actions/report-failure
-        with:
-          title: 'Workflow Failure: ${{ github.workflow }}'
-          closed-by: close-recovered-failure-issues
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          priority: '2'
-          labels: Bug
-          context: >-
-            La sincronizzazione del corpus verso sitemap, feed, ticker e metadati
-            degli articoli non ha completato il percorso di pubblicazione.
-
   # The stable refresh PR deliberately skips every live side effect until its
   # required check has passed. This push job is the other half of that contract:
   # it reads the merged main tree and replays every surface that the PR path
@@ -1264,8 +1249,44 @@ jobs:
           node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
           exit "$release_status"
 
-      - name: Report failure to GitHub Issues
-        if: failure()
+  # Keep failure reporting outside the producer jobs so the Jobs API can serve
+  # their completed logs to the diagnostic action. This also covers a sync
+  # failure before its own checkout: this job performs an independent minimal
+  # checkout of the reporter sources.
+  report-failure:
+    needs: [sync, replay-after-article-sync]
+    if: >-
+      ${{ always() &&
+          (needs.sync.result == 'failure' ||
+           needs.replay-after-article-sync.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
+            .github/actions/report-failure/
+            .github/workflows/sync-articles-sitemaps.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Report sync failure
+        if: always() && needs.sync.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'Workflow Failure: ${{ github.workflow }}'
@@ -1273,6 +1294,23 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           priority: '2'
           labels: Bug
+          log-from-job: sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
+          context: >-
+            La sincronizzazione del corpus verso sitemap, feed, ticker e metadati
+            degli articoli non ha completato il percorso di pubblicazione.
+
+      - name: Report replay failure
+        if: always() && needs.replay-after-article-sync.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          log-from-job: replay-after-article-sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
           context: >-
             Il replay post-merge della sincronizzazione non ha ripubblicato le
             superfici sitemap, feed o ticker.
