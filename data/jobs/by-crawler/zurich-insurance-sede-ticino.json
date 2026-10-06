@@ -1209,9 +1209,9 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1373463257",
-      "slug": "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "responsabile-senior-del-rischio-di-proprieta-e-infortuni-80-100-zurich-insurance-zurich-1373463257",
       "slugByLocale": {
-        "it": "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich",
+        "it": "responsabile-senior-del-rischio-di-proprieta-e-infortuni-80-100-zurich-insurance-zurich-1373463257",
         "en": "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich",
         "de": "senior-property-casual-risk-manager-80-100-zurich-insurance-zurich-1373463257",
         "fr": "gestionnaire-principal-des-risques-lies-aux-biens-et-aux-pertes-80-100-zurich-insurance-zurich-1373463257"
@@ -1272,7 +1272,15 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "company-pz5d7i",

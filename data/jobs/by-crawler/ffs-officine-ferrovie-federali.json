@@ -7,9 +7,9 @@
       "slug": "career-starter-bahntechnik-e-steuerung-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "career-starter-bahntechnik-e-steuerung-ffs-officine-ferrovie-federali-bern",
-        "en": "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern",
+        "en": "career-starter-railway-technology-and-control-ffs-officine-ferrovie-federali-bern",
         "de": "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern",
-        "fr": "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern"
+        "fr": "debut-de-carriere-technologie-ferroviaire-et-controle-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -84,6 +84,12 @@
       "previousSlugsByLocale": {
         "it": [
           "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "career-starter-bahntechnik-und-steuerung-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
@@ -109,12 +115,12 @@
     },
     {
       "id": "sbb-9ca7f91db718",
-      "slug": "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
+      "slug": "carriera-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
-        "en": "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
+        "it": "carriera-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
+        "en": "career-starter-civil-engineering-ffs-officine-ferrovie-federali-olten",
         "de": "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
-        "fr": "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+        "fr": "debut-de-carriere-genie-civil-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -201,15 +207,29 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/career-starter-bauingenieurwesen/502ae9bb-a5bb-410e-91fb-3664ea258b5c",
-      "firstSeenAt": "2026-10-05T21:39:14.637Z"
+      "firstSeenAt": "2026-10-05T21:39:14.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "career-starter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-354c893f00cf",
-      "slug": "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten",
+      "slug": "carriera-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten-eee50c",
       "slugByLocale": {
-        "it": "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten",
+        "it": "carriera-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten-eee50c",
         "en": "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten",
-        "de": "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten",
+        "de": "karrierestarter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
         "fr": "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -297,16 +317,27 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/career-starter-genie-civil/ad87c568-3e54-41d8-b488-c5e0cbb92099",
-      "firstSeenAt": "2026-10-05T21:39:15.640Z"
+      "firstSeenAt": "2026-10-05T21:39:15.640Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten"
+        ],
+        "de": [
+          "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "career-starter-genie-civil-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-46fe483df784",
       "slug": "career-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "career-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
-        "en": "career-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
-        "de": "career-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
-        "fr": "career-starter-ingegneria-civile-ffs-officine-ferrovie-federali-olten"
+        "en": "career-starter-civil-engineering-ffs-officine-ferrovie-federali-olten-9d5ea3",
+        "de": "karrierestarter-bauingenieurwesen-ffs-officine-ferrovie-federali-olten-9d5ea3",
+        "fr": "debut-de-carriere-genie-civil-ffs-officine-ferrovie-federali-olten-9d5ea3"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -397,12 +428,12 @@
     },
     {
       "id": "sbb-7e34df8a4537",
-      "slug": "career-starter-signalling-ffs-officine-ferrovie-federali-bern",
+      "slug": "avviamento-di-carriera-segnalazione-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "career-starter-signalling-ffs-officine-ferrovie-federali-bern",
+        "it": "avviamento-di-carriera-segnalazione-ffs-officine-ferrovie-federali-bern",
         "en": "career-starter-signalling-ffs-officine-ferrovie-federali-bern",
         "de": "career-starter-signalling-ffs-officine-ferrovie-federali-bern",
-        "fr": "career-starter-signalling-ffs-officine-ferrovie-federali-bern"
+        "fr": "signalisation-du-debut-de-carriere-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -485,15 +516,26 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/career-starter-signalling/b4557df7-edf9-4387-84e3-d7b3e68a0484",
-      "firstSeenAt": "2026-10-05T21:39:17.141Z"
+      "firstSeenAt": "2026-10-05T21:39:17.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-starter-signalling-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "career-starter-signalling-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "career-starter-signalling-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-7e6eb198464a",
-      "slug": "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens",
+      "slug": "carriera-starter-technical-and-rail-management-ffs-officine-ferrovie-federali-zurich-berne-renens",
       "slugByLocale": {
-        "it": "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens",
-        "en": "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens",
-        "de": "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens",
+        "it": "carriera-starter-technical-and-rail-management-ffs-officine-ferrovie-federali-zurich-berne-renens",
+        "en": "career-starter-technical-and-rail-management-ffs-officine-ferrovie-federali-zurich-berne-renens",
+        "de": "karrierestarter-technisches-und-bahnmanagement-ffs-officine-ferrovie-federali-zurich-berne-renens",
         "fr": "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -586,7 +628,21 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/career-starter-technique-et-gestion-ferroviaire/9e92b68a-7cfa-494a-a9c7-03e41f48f6d0",
-      "firstSeenAt": "2026-10-05T21:39:18.137Z"
+      "firstSeenAt": "2026-10-05T21:39:18.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens"
+        ],
+        "en": [
+          "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens"
+        ],
+        "de": [
+          "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens"
+        ]
+      },
+      "previousSlugs": [
+        "career-starter-technique-et-gestion-ferroviaire-ffs-officine-ferrovie-federali-zurich-berne-renens"
+      ]
     },
     {
       "id": "sbb-8470a5556c0d",
@@ -969,11 +1025,11 @@
     },
     {
       "id": "sbb-300a7313edad",
-      "slug": "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+      "slug": "stage-scuola-superiore-infrastrutture-progetti-di-sviluppo-e-rinnovo-leman-2030-m-f-d-ffs-officine-ferrovie-federali",
       "slugByLocale": {
-        "it": "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
-        "en": "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+        "it": "stage-scuola-superiore-infrastrutture-progetti-di-sviluppo-e-rinnovo-leman-2030-m-f-d-ffs-officine-ferrovie-federali",
+        "en": "high-school-internship-infrastructure-development-and-renewal-projects-leman-2030-m-f-d-ffs-officine-ferrovie-federali",
+        "de": "hochschulpraktikum-infrastrukturentwicklung-und-erneuerungsprojekte-leman-2030-m-w-d-ffs-officine-ferrovie-federali",
         "fr": "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -1066,7 +1122,21 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d/27837bbf-c2ea-42e3-9c75-ab50e6542ba4",
-      "firstSeenAt": "2026-10-05T21:40:44.140Z"
+      "firstSeenAt": "2026-10-05T21:40:44.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "en": [
+          "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "de": [
+          "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "stage-de-haute-ecole-infrastructure-projets-d-amenagement-et-de-renouvellement-leman-2030-m-f-d-ffs-officine-ferrovie-federali-renens-vd"
+      ]
     },
     {
       "id": "sbb-2d6df8d198b2",
@@ -4058,9 +4128,9 @@
       "slug": "capocantiere-in-corrente-di-trazione-impianti-di-corrente-di-trazione-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "capocantiere-in-corrente-di-trazione-impianti-di-corrente-di-trazione-ffs-officine-ferrovie-federali-olten",
-        "en": "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten",
+        "en": "construction-manager-traction-current-traction-current-systems-ffs-officine-ferrovie-federali-olten",
         "de": "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten",
-        "fr": "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten"
+        "fr": "chef-de-chantier-systemes-de-courant-de-traction-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4125,20 +4195,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:02.647Z",
       "previousSlugs": [
-        "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten",
-        "construction-manager-traction-current-traction-current-systems-ffs-officine-ferrovie-federali-olten",
-        "chef-de-chantier-systemes-de-courant-de-traction-ffs-officine-ferrovie-federali-olten"
+        "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
-          "construction-manager-traction-current-traction-current-systems-ffs-officine-ferrovie-federali-olten",
           "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "chef-de-chantier-systemes-de-courant-de-traction-ffs-officine-ferrovie-federali-olten",
           "baufuhrer-in-fahrstrom-fahrstromanlagen-ffs-officine-ferrovie-federali-olten"
         ]
       },
@@ -4869,7 +4935,7 @@
         "it": "responsabile-delle-operazioni-con-un-focus-sui-sistemi-di-corrente-di-trazione-a-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen",
         "en": "operations-manager-with-a-focus-on-traction-current-systems-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen",
-        "fr": "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
+        "fr": "responsable-des-operations-avec-un-accent-sur-les-systemes-de-courant-de-traction-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4926,8 +4992,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:12.147Z",
       "previousSlugs": [
-        "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen",
-        "responsable-des-operations-avec-un-accent-sur-les-systemes-de-courant-de-traction-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
+        "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4937,7 +5002,6 @@
           "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
         ],
         "fr": [
-          "responsable-des-operations-avec-un-accent-sur-les-systemes-de-courant-de-traction-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen",
           "betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz-ffs-officine-ferrovie-federali-ostermundigen"
         ]
       },
@@ -7055,9 +7119,9 @@
       "slug": "ingegnere-civile-in-ingegneria-civile-strutturale-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "ingegnere-civile-in-ingegneria-civile-strutturale-ffs-officine-ferrovie-federali-bern",
-        "en": "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern",
+        "en": "civil-engineer-in-structural-civil-engineering-ffs-officine-ferrovie-federali-bern",
         "de": "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern",
-        "fr": "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
+        "fr": "ingenieur-civil-en-genie-civil-structurel-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -7126,20 +7190,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:06.131Z",
       "previousSlugs": [
-        "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern",
-        "civil-engineer-in-structural-civil-engineering-ffs-officine-ferrovie-federali-bern",
-        "ingenieur-civil-en-genie-civil-structurel-ffs-officine-ferrovie-federali-bern"
+        "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
         ],
         "en": [
-          "civil-engineer-in-structural-civil-engineering-ffs-officine-ferrovie-federali-bern",
           "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
         ],
         "fr": [
-          "ingenieur-civil-en-genie-civil-structurel-ffs-officine-ferrovie-federali-bern",
           "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
         ]
       },
@@ -10453,9 +10513,9 @@
       "slug": "formatore-professionale-nella-costruzione-di-binari-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "formatore-professionale-nella-costruzione-di-binari-ffs-officine-ferrovie-federali-olten",
-        "en": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten",
+        "en": "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-olten",
         "de": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten",
-        "fr": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
+        "fr": "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -10533,20 +10593,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:08.126Z",
       "previousSlugs": [
-        "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten",
-        "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-olten",
-        "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-olten"
+        "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
-          "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-olten",
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-olten",
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
         ]
       },
@@ -11645,9 +11701,9 @@
       "slug": "formatore-professionale-nella-costruzione-di-binari-ffs-officine-ferrovie-federali-winterthur",
       "slugByLocale": {
         "it": "formatore-professionale-nella-costruzione-di-binari-ffs-officine-ferrovie-federali-winterthur",
-        "en": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur",
+        "en": "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-winterthur",
         "de": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur",
-        "fr": "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
+        "fr": "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-winterthur"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11725,20 +11781,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:08.623Z",
       "previousSlugs": [
-        "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur",
-        "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-winterthur",
-        "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-winterthur"
+        "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
         ],
         "en": [
-          "vocational-trainer-in-track-construction-ffs-officine-ferrovie-federali-winterthur",
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
         ],
         "fr": [
-          "formateur-professionnel-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-winterthur",
           "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
         ]
       },
@@ -12551,9 +12603,9 @@
       "slug": "costruzione-di-piste-per-istruttori-professionali-caposquadra-berna-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "costruzione-di-piste-per-istruttori-professionali-caposquadra-berna-ffs-officine-ferrovie-federali-bern",
-        "en": "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern",
+        "en": "vocational-trainer-track-construction-foreman-bern-ffs-officine-ferrovie-federali-bern",
         "de": "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern",
-        "fr": "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern"
+        "fr": "construction-de-pistes-de-formation-professionnelle-contremaitre-berne-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12621,20 +12673,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-05T21:39:07.110Z",
       "previousSlugs": [
-        "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern",
-        "vocational-trainer-track-construction-foreman-bern-ffs-officine-ferrovie-federali-bern",
-        "construction-de-pistes-de-formation-professionnelle-contremaitre-berne-ffs-officine-ferrovie-federali-bern"
+        "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern"
         ],
         "en": [
-          "vocational-trainer-track-construction-foreman-bern-ffs-officine-ferrovie-federali-bern",
           "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern"
         ],
         "fr": [
-          "construction-de-pistes-de-formation-professionnelle-contremaitre-berne-ffs-officine-ferrovie-federali-bern",
           "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern"
         ]
       },
@@ -12959,9 +13007,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13032,8 +13080,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -13043,12 +13089,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

@@ -135,6 +135,8 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).toContain('farmaciadicasciago@enterpoint.it');
     expect(page.html).toContain('08:30');
     expect(page.html).toContain('data-pharmacy-facts');
+    expect(page.html).toMatch(/https:\/\/www\.google\.com\/maps\/search\/\?api=1(?:&amp;|&)query=/);
+    expect(page.html).toContain('>Google Maps</a>');
   });
 
   it('keeps the directory H1 distinct from the emitted title', () => {

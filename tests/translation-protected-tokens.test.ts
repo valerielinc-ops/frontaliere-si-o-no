@@ -604,6 +604,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // vanno in coda: funzioni pure. `readOverwriteRollback` e
     // `recordOverwriteRollback` leggono/scrivono il marker del rollback solo
     // quando sono chiamate; all'import calcolano soltanto il percorso.
+    // `writeReserveMs` e' aritmetica sul budget della fase.
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
@@ -628,6 +629,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'rescueMopupRejects',
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
+      'writeReserveMs',
     ]);
   });
 

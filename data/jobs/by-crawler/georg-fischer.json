@@ -963,12 +963,12 @@
     },
     {
       "id": "georg-fischer-f8b8063c3eba",
-      "slug": "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch",
+      "slug": "sistemi-di-produzione-della-testa-e-impianti-di-ingegneria-industriale-sissach-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
         "de": "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch",
-        "it": "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch",
+        "it": "sistemi-di-produzione-della-testa-e-impianti-di-ingegneria-industriale-sissach-m-f-d-georg-fischer-sissach",
         "en": "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch",
-        "fr": "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
+        "fr": "systemes-de-fabrication-de-tetes-et-d-ingenierie-industrielle-h-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1026,7 +1026,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:48:51.461Z"
+      "firstSeenAt": "2026-10-05T21:48:51.461Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-2fbf2b701bbf",
@@ -1035,7 +1046,7 @@
         "en": "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch",
         "it": "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch",
         "de": "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch",
-        "fr": "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch"
+        "fr": "software-ingenieur-embedded-systems-responsable-technique-m-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",

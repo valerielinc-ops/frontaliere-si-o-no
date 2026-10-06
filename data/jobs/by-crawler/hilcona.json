@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-c27a29942a38",
-      "slug": "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon",
+      "slug": "junior-production-manager-in-80-100-eisberg-ag-dallikon",
       "slugByLocale": {
         "de": "junior-produktionsmanager-in-80-100-hilcona-dallikon",
-        "it": "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon",
+        "it": "junior-production-manager-in-80-100-eisberg-ag-dallikon",
         "en": "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon",
-        "fr": "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon"
+        "fr": "junior-production-manager-en-80-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -51,11 +51,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "junior-produktionsmanager-in-80-100-hilcona-dallikon"
+          "junior-produktionsmanager-in-80-100-hilcona-dallikon",
+          "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon"
+        ],
+        "fr": [
+          "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon"
         ]
       },
       "previousSlugs": [
-        "junior-produktionsmanager-in-80-100-hilcona-dallikon"
+        "junior-produktionsmanager-in-80-100-hilcona-dallikon",
+        "junior-produktionsmanager-in-80-100-eisberg-ag-dallikon"
       ],
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -76,12 +81,12 @@
     },
     {
       "id": "hilcona-87d175f416d3",
-      "slug": "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon",
+      "slug": "capo-ufficio-vendite-100-eisberg-ag-dallikon",
       "slugByLocale": {
         "de": "leiter-in-verkaufsinnendienst-100-hilcona-dallikon",
-        "it": "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon",
-        "en": "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon",
-        "fr": "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon"
+        "it": "capo-ufficio-vendite-100-eisberg-ag-dallikon",
+        "en": "head-of-sales-office-100-eisberg-ag-dallikon",
+        "fr": "chef-du-bureau-des-ventes-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -123,11 +128,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-verkaufsinnendienst-100-hilcona-dallikon"
+          "leiter-in-verkaufsinnendienst-100-hilcona-dallikon",
+          "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon"
+        ],
+        "en": [
+          "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon"
+        ],
+        "fr": [
+          "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon"
         ]
       },
       "previousSlugs": [
-        "leiter-in-verkaufsinnendienst-100-hilcona-dallikon"
+        "leiter-in-verkaufsinnendienst-100-hilcona-dallikon",
+        "leiter-in-verkaufsinnendienst-100-eisberg-ag-dallikon"
       ],
       "salaryMin": 134000,
       "salaryMax": 180500,
@@ -3216,7 +3229,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3256,7 +3269,6 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon",
         "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
@@ -3267,7 +3279,6 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon",
           "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },

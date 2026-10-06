@@ -921,7 +921,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -968,7 +968,6 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern",
         "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -977,7 +976,6 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern",
           "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
@@ -12853,7 +12851,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -12902,13 +12900,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -16547,12 +16543,12 @@
     },
     {
       "id": "luks-80e8c21879bd",
-      "slug": "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen",
+      "slug": "team-leader-team-leader-interdisciplinare-reparto-focus-medicina-100-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen",
-        "it": "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen",
-        "en": "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen",
-        "fr": "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen"
+        "it": "team-leader-team-leader-interdisciplinare-reparto-focus-medicina-100-luzerner-kantonsspital-luks-wolhusen",
+        "en": "team-leader-team-leader-interdisciplinary-department-focus-medicine-100-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "chef-d-equipe-chef-d-equipe-departement-interdisciplinaire-centre-medecine-100-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16611,7 +16607,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:26:06.898Z"
+      "firstSeenAt": "2026-10-05T21:26:06.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-interdisziplinare-abteilung-schwerpunkt-medizin-100-luks-wolhusen"
+      ]
     },
     {
       "id": "luks-cba213747e6b",

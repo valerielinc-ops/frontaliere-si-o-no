@@ -138,12 +138,12 @@
     },
     {
       "id": "pallas-kliniken-35994d4d2552",
-      "slug": "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen",
+      "slug": "assistente-di-studio-medico-al-100-area-oftalmologia-pallas-kliniken-zofingen",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen",
-        "en": "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen",
+        "it": "assistente-di-studio-medico-al-100-area-oftalmologia-pallas-kliniken-zofingen",
+        "en": "medical-practice-assistant-100-ophthalmology-department-pallas-kliniken-zofingen",
         "de": "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen",
-        "fr": "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        "fr": "assistant-e-medical-e-100-domaine-de-l-ophtalmologie-pallas-kliniken-zofingen"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -200,16 +200,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-100-bereich-ophthalmologie-pallas-kliniken-zofingen"
+      ]
     },
     {
       "id": "pallas-kliniken-f5940200a0ef",
       "slug": "augenoptiker-in-come-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken-zofingen",
       "slugByLocale": {
         "it": "augenoptiker-in-come-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken-zofingen",
-        "en": "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken",
+        "en": "ophthalmologist-as-a-practice-employee-40-80-ophthalmology-department-pallas-kliniken-zofingen",
         "de": "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken",
-        "fr": "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken"
+        "fr": "opticien-ne-en-tant-qu-employe-e-de-cabinet-40-80-domaine-de-l-ophtalmologie-pallas-kliniken-zofingen"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -259,6 +273,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken"
+        ],
+        "en": [
+          "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken"
+        ],
+        "fr": [
           "augenoptiker-in-als-praxisangestellte-r-40-80-bereich-ophthalmologie-pallas-kliniken"
         ]
       },
@@ -330,13 +350,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
-        "mpa-flessibile-cercasi-pallas-kliniken-olten"
+        "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
-          "mpa-flessibile-cercasi-pallas-kliniken-olten"
+          "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten"
         ]
       },
       "firstSeenAt": "2026-09-19T22:59:20.346Z",
@@ -356,12 +374,12 @@
     },
     {
       "id": "pallas-kliniken-d4d1ad36d8e9",
-      "slug": "dipl-orthoptist-in-hf-pallas-kliniken-olten",
+      "slug": "ortottista-dipl-hf-pallas-kliniken-olten",
       "slugByLocale": {
-        "it": "dipl-orthoptist-in-hf-pallas-kliniken-olten",
+        "it": "ortottista-dipl-hf-pallas-kliniken-olten",
         "en": "dipl-orthoptist-in-hf-pallas-kliniken-olten",
         "de": "dipl-orthoptist-in-hf-pallas-kliniken-olten",
-        "fr": "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+        "fr": "dipl-orthoptiste-es-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -418,16 +436,27 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-pallas-kliniken-olten"
+      ]
     },
     {
       "id": "pallas-kliniken-0e1d6dcb1b6e",
-      "slug": "dipl-orthoptist-in-hf-pallas-kliniken-grenchen",
+      "slug": "ortottista-dipl-hf-pallas-kliniken-grenchen",
       "slugByLocale": {
-        "it": "dipl-orthoptist-in-hf-pallas-kliniken-grenchen",
+        "it": "ortottista-dipl-hf-pallas-kliniken-grenchen",
         "en": "dipl-orthoptist-in-hf-pallas-kliniken-grenchen",
         "de": "dipl-orthoptist-in-hf-pallas-kliniken-grenchen",
-        "fr": "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+        "fr": "dipl-orthoptiste-es-pallas-kliniken-grenchen"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -484,7 +513,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-pallas-kliniken-grenchen"
+      ]
     },
     {
       "id": "pallas-kliniken-16b3fff6239b",
@@ -539,13 +579,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
-        "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten"
+        "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
-          "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten"
+          "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
@@ -622,13 +660,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "initiativbewerbungen-pallas-kliniken-olten",
-        "applicazioni-d-iniziativa-pallas-kliniken-olten"
+        "initiativbewerbungen-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "initiativbewerbungen-pallas-kliniken-olten",
-          "applicazioni-d-iniziativa-pallas-kliniken-olten"
+          "initiativbewerbungen-pallas-kliniken-olten"
         ],
         "en": [
           "initiativbewerbungen-pallas-kliniken-olten"
@@ -654,12 +690,12 @@
     },
     {
       "id": "pallas-kliniken-31ebf27fe70b",
-      "slug": "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern",
+      "slug": "ortottista-dipl-hf-10-20-pallas-kliniken-bern",
       "slugByLocale": {
-        "it": "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern",
+        "it": "ortottista-dipl-hf-10-20-pallas-kliniken-bern",
         "en": "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern",
         "de": "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern",
-        "fr": "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+        "fr": "dipl-orthoptiste-es-10-20-pallas-kliniken-bern"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -716,16 +752,27 @@
           "maxValue": 23800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+        ],
+        "fr": [
+          "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-orthoptist-in-hf-10-20-pallas-kliniken-bern"
+      ]
     },
     {
       "id": "pallas-kliniken-4019a66c713b",
-      "slug": "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken",
+      "slug": "assistente-di-studio-medico-80-100-dermatologia-medicina-estetica-pallas-kliniken-olten",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken",
-        "en": "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken",
+        "it": "assistente-di-studio-medico-80-100-dermatologia-medicina-estetica-pallas-kliniken-olten",
+        "en": "medical-practice-assistant-80-100-dermatology-aesthetic-medicine-pallas-kliniken-olten",
         "de": "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken",
-        "fr": "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        "fr": "assistant-e-medical-e-80-100-dermatologie-medecine-esthetique-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -782,7 +829,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-80-100-dermatologie-asthetische-medizin-pallas-kliniken"
+      ]
     },
     {
       "id": "pallas-kliniken-776732c3bf58",
@@ -1043,13 +1104,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
-        "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
+        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
-          "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
+          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
@@ -1129,8 +1188,7 @@
         "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
         "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
         "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
-        "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
+        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1138,8 +1196,7 @@
           "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
           "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
-          "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
+          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
         ],
         "en": [
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten"
@@ -1219,13 +1276,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
-        "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
+        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
-          "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
+          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:54.694Z",
@@ -1312,13 +1367,11 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
-        "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
+        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
-          "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
+          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:53.494Z",
@@ -1389,13 +1442,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-        "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-solothurn"
+        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-          "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-solothurn"
+          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
         ],
         "en": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
@@ -1473,14 +1524,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2",
-        "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-winterthur"
+        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2",
-          "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-winterthur"
+          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"
         ],
         "en": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"

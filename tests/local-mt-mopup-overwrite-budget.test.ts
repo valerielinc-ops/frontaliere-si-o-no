@@ -9,6 +9,7 @@ import {
   overwriteQueueBudget,
   readOverwriteRollback,
   recordOverwriteRollback,
+  writeReserveMs,
 } from '../scripts/local-mt-mopup.mjs';
 
 /**
@@ -114,5 +115,22 @@ describe('run-scoped overwrite rollback marker', () => {
     recordOverwriteRollback(1000, { tripped: false, reason: 'within-policy' }, file);
     expect(fs.existsSync(file)).toBe(false);
     expect(readOverwriteRollback(1000, file)).toBeNull();
+  });
+});
+
+describe('writeReserveMs()', () => {
+  const MIN = 60 * 1000;
+
+  it('keeps a quarter of the phase budget for the write loop, between 5 and 15 minutes', () => {
+    expect(writeReserveMs(75 * MIN)).toBe(15 * MIN); // Phase 2a
+    expect(writeReserveMs(35 * MIN)).toBe(8.75 * MIN); // a late Phase 2c
+    expect(writeReserveMs(12 * MIN)).toBe(5 * MIN);
+    expect(writeReserveMs(0)).toBe(5 * MIN);
+  });
+
+  it('honours a positive override and ignores an invalid one', () => {
+    expect(writeReserveMs(75 * MIN, String(7 * MIN))).toBe(7 * MIN);
+    expect(writeReserveMs(75 * MIN, '0')).toBe(15 * MIN);
+    expect(writeReserveMs(75 * MIN, 'abc')).toBe(15 * MIN);
   });
 });

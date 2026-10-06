@@ -176,10 +176,10 @@ const TIME_BUDGET_MS = Math.min(
   STATIC_TIME_BUDGET_MS,
   Math.max(0, MOPUP_DEADLINE_MS - (Date.now() - RUN_START_MS)),
 );
-// Reserve 5min after the spawn kill for the JSON-write phase.
+// Reserve time after the spawn kill for the write phase (see writeReserveMs).
 // spawnSync timeout = TIME_BUDGET_MS - WRITE_RESERVE_MS so that when ETIMEDOUT
 // fires, Date.now()-started is still < TIME_BUDGET_MS and budgetOk() stays true.
-const WRITE_RESERVE_MS = 5 * 60 * 1000;
+const WRITE_RESERVE_MS = writeReserveMs(TIME_BUDGET_MS, process.env.LOCAL_MT_WRITE_RESERVE_MS);
 
 function parseFlag(name) {
   return process.argv.slice(2).includes(name);
@@ -625,6 +625,26 @@ export function createFreshCoverageMeter({ now = Date.now() } = {}) {
       return { ...counts };
     },
   };
+}
+
+/**
+ * Time kept after the worker for the write loop (guards + semantic judge per
+ * candidate), out of the phase budget.
+ *
+ * It was a fixed 5 minutes, sized when the worker returned ~4000 results. With
+ * the batched worker the first run (corpus 37397114200, 2026-10-06) returned
+ * 5279 results in Phase 2a and the loop hit the budget after 90 slice files
+ * («Time budget reached — stopping before remaining files»), again in Phase
+ * 2c after 70: the translations were done and stayed unwritten until a later
+ * pass. A quarter of the phase budget, between 5 and 15 minutes: 15 for the
+ * 75-minute bulk pass, ~9 for a 35-minute mop-up. `override` is
+ * LOCAL_MT_WRITE_RESERVE_MS.
+ */
+export function writeReserveMs(timeBudgetMs, override) {
+  const forced = Number(override);
+  if (Number.isFinite(forced) && forced > 0) return forced;
+  const quarter = Math.floor((Number(timeBudgetMs) || 0) / 4);
+  return Math.min(15 * 60 * 1000, Math.max(5 * 60 * 1000, quarter));
 }
 
 /**
@@ -1508,11 +1528,18 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
   // One rollback guard per run for the overwrite arm (#9676), created in main().
   const overwriteRollback = rollout.rollbackGuard;
 
+  let filesVisited = 0;
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
-      console.log('⏰ [local-mt] Time budget reached — stopping before remaining files (already-translated fields stay in memory but unwritten).');
+      let unwritten = 0;
+      let index = 0;
+      for (const pending of byFile.values()) {
+        if (index++ >= filesVisited) unwritten += pending.length;
+      }
+      console.log(`⏰ [local-mt] Time budget reached — stopping before the remaining ${byFile.size - filesVisited} of ${byFile.size} slice files: ${unwritten} translated field(s) left unwritten (their units stay in the unit cache for the next pass).`);
       break;
     }
+    filesVisited += 1;
     const filePath = path.join(BY_CRAWLER_DIR, file);
     const data = readJson(filePath);
     if (!data || !Array.isArray(data.jobs)) continue;

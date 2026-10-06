@@ -1249,8 +1249,8 @@
       "slugByLocale": {
         "de": "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch",
         "it": "ausbildungsplatz-come-dipl-fachperson-operationstechnik-hf-gzo-spital-wetzikon",
-        "en": "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch",
-        "fr": "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch"
+        "en": "training-place-as-dipl-specialist-surgical-technique-hf-gzo-spital-wetzikon-wetzikon",
+        "fr": "lieu-de-formation-comme-dipl-technique-chirurgicale-specialisee-hf-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1297,6 +1297,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch"
         ]
       },
