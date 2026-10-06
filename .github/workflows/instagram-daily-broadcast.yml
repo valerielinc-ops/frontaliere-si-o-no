@@ -45,6 +45,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write  # commit data/instagram-posted.json + data/instagram-queue.json
   issues: write
 

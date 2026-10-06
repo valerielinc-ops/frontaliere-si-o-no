@@ -49,6 +49,7 @@ on:
         default: '24'
 
 permissions:
+  actions: write
   contents: write
   issues: write
 

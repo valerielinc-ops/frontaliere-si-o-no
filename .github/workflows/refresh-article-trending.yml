@@ -20,6 +20,7 @@ on:
     - cron: '15 5 * * *'  # 06:15 CET / 07:15 CEST — staggered after job-popularity
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   issues: write     # for github-issue-creator on failure

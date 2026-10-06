@@ -16,6 +16,7 @@ on:
     - cron: '17 6 * * *'
 
 permissions:
+  actions: write
   contents: read
   issues: write
 

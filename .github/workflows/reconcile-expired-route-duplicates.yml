@@ -20,6 +20,7 @@ concurrency:
   queue: max
 
 permissions:
+  actions: write
   contents: write
   issues: write
 

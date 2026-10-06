@@ -38,6 +38,7 @@ on:
         type: string
 
 permissions:
+  actions: write
   contents: write
   issues: write     # for github-issue-creator on failure
 

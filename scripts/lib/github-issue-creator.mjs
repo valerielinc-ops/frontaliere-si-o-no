@@ -136,6 +136,12 @@ const CLOSING_REFERENCE_WINDOW_MS = 5 * 60 * 1000;
 // slow cadences, short enough that a condition genuinely settled for a month
 // gets a fresh issue with a fresh discussion.
 const DEFAULT_REOPEN_WITHIN_HOURS = 30 * 24; // 720h
+const ISSUE_TRIAGE_WORKFLOW_FILE = 'issue-triage.yml';
+const ISSUE_TRIAGE_REF = 'main';
+// A monitor run may report more than one condition.  Keep the dispatch
+// at-most-once per runner/run, while the scheduled sweep remains the safety
+// net when the caller token cannot dispatch workflows.
+const issueTriageDispatchClaims = new Set();
 
 export function isFailureReportingDisabled() {
   return process.env.ENABLE_FAILURE_REPORT === 'false';
@@ -186,6 +192,68 @@ function appendStepSummary(line) {
 function repoFlag() {
   // Honor explicit override; otherwise gh auto-detects from cwd's git remote.
   return process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+}
+
+function issueTriageDispatchMarker() {
+  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
+  const runnerTemp = String(process.env.RUNNER_TEMP || '').trim();
+  if (!/^\d+$/u.test(runId) || !runnerTemp) return null;
+  return `${runnerTemp}/issue-triage-dispatch-${runId}`;
+}
+
+function claimIssueTriageDispatch() {
+  const marker = issueTriageDispatchMarker();
+  // Outside Actions there is no safe reason for a local issue report to
+  // dispatch the production triage workflow.  This also keeps local tests and
+  // maintenance scripts side-effect free.
+  if (process.env.GITHUB_ACTIONS !== 'true') return false;
+
+  const key = marker || 'process';
+  if (issueTriageDispatchClaims.has(key)) return false;
+  if (marker) {
+    try {
+      const fd = fs.openSync(marker, 'wx');
+      fs.closeSync(fd);
+    } catch (error) {
+      if (error?.code === 'EEXIST') {
+        issueTriageDispatchClaims.add(key);
+        return false;
+      }
+      // A runner-temp write failure must not turn an issue reporter into a
+      // failing monitor.  The in-process claim still prevents duplicates in
+      // this process; the cron sweep remains the fallback if dispatch fails.
+      console.warn(`[github-issue-creator] Could not claim triage dispatch marker: ${error.message}`);
+    }
+  }
+  issueTriageDispatchClaims.add(key);
+  return true;
+}
+
+function requestIssueTriage(issueNumber) {
+  const number = Number(issueNumber);
+  if (!Number.isSafeInteger(number) || number <= 0) {
+    console.warn('[github-issue-creator] Cannot target issue triage: issue number is unavailable; scheduled triage remains the fallback.');
+    return false;
+  }
+  if (!claimIssueTriageDispatch()) return false;
+  const args = [
+    'workflow', 'run', ISSUE_TRIAGE_WORKFLOW_FILE,
+    '--ref', ISSUE_TRIAGE_REF,
+    '--field', `issue_number=${number}`,
+  ];
+  args.push(...repoFlag());
+  const dispatched = gh(args, { allowFailure: true });
+  if (dispatched === null) {
+    console.warn(
+      `[github-issue-creator] Could not dispatch ${ISSUE_TRIAGE_WORKFLOW_FILE}; `
+      + 'scheduled triage remains the fallback.',
+    );
+    return false;
+  }
+  console.log(
+    `[github-issue-creator] Requested targeted triage for issue #${number}.`,
+  );
+  return true;
 }
 
 export function ensureLabelsExist(labels) {
@@ -1632,6 +1700,7 @@ export async function createGithubIssue({
           console.error(
             `[github-issue-creator] Reopened #${recentlyClosed.number}, but failed to persist recurrence context.`,
           );
+          requestIssueTriage(recentlyClosed.number);
           return {
             number: recentlyClosed.number,
             title: recentlyClosed.title,
@@ -1647,6 +1716,7 @@ export async function createGithubIssue({
         );
         const canonical = migrateLegacyIssueTitle(recentlyClosed, title, normalizedDedupKey);
         console.log(`[github-issue-creator] Reopened #${canonical.number} — ${canonical.title}`);
+        requestIssueTriage(canonical.number);
         return {
           number: canonical.number,
           title: canonical.title,
@@ -1675,7 +1745,9 @@ export async function createGithubIssue({
     console.log(`[github-issue-creator] Created: ${url}`);
     // Parse issue number from URL for return value
     const m = url.match(/\/issues\/(\d+)/);
-    return { number: m ? Number(m[1]) : null, title, url, state: 'OPEN', persisted: true };
+    const number = m ? Number(m[1]) : null;
+    requestIssueTriage(number);
+    return { number, title, url, state: 'OPEN', persisted: true };
   } catch (err) {
     // Why: this helper runs in `if: failure()` reporter steps. If posting to
     // GH fails (missing GH_TOKEN, API outage, perms), we must NOT lose the

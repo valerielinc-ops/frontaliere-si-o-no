@@ -20,8 +20,8 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  actions: write
   contents: read
-  actions: read
   issues: write
 
 jobs:

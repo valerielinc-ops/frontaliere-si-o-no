@@ -30,6 +30,7 @@ on:
         default: '60'
 
 permissions:
+  actions: write
   contents: write
   issues: write
 

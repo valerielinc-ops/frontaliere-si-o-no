@@ -82,6 +82,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   # The topic sitemap enters main through a stable PR so the required Vitest
   # check runs before publication.
   contents: write
