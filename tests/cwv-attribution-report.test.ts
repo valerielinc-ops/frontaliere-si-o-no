@@ -114,11 +114,16 @@ function fakeGh() {
   return { gh, comments };
 }
 
+// The clock of every run unless a test passes its own: a window that ends
+// before the attribution emitter went live, so the gap check stays out of the
+// way. Assertions on the requested window must use this same clock.
+const DEFAULT_NOW = new Date('2026-10-03T12:00:00Z');
+
 async function run(
   argv: string[],
   rows: Partial<Record<Kind, Row[]>>,
   ghFake = fakeGh(),
-  now = new Date('2026-10-03T12:00:00Z'),
+  now = DEFAULT_NOW,
 ) {
   const { fetchImpl, bodies } = fakeGa4(rows);
   const out: string[] = [];
@@ -158,7 +163,7 @@ describe('GA4 requests', () => {
     const { code, bodies } = await run(['--dry-run'], FULL);
     expect(code).toBe(0);
     expect(bodies.map(kindOf)).toEqual(['attribution', 'selectors', 'template']);
-    const range = ga4DateRange(WINDOW_DAYS, LAG_DAYS);
+    const range = ga4DateRange(WINDOW_DAYS, LAG_DAYS, DEFAULT_NOW);
     for (const body of bodies) expect(body.dateRanges).toEqual([range]);
     const [a, b, c] = bodies;
 
