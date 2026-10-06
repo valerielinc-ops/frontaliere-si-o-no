@@ -1,110 +1,138 @@
 name: Audit Missing Company Logos (weekly)
 
-# Trova le aziende per cui services/jobDataNormalization.ts::resolveCompanyLogoUrl()
-# non produce una copertura verificabile: `null` per tutti gli annunci, oppure
-# un riferimento locale/esterno rotto o un'immagine raster di qualità
-# insufficiente. Le pagine mostrano il badge iniziali
-# colorato nei casi senza logo (vedi scripts/audit-missing-company-logos.mjs).
-# Il report include anche i riferimenti rotti e quelli di qualità insufficiente
-# che prima finivano soltanto nel workflow verify-company-logos-weekly.yml.
-#
-# Prima assembla il dataset canonico come fa il build; poi scrive
-# data/company-logos-missing.json e, se ci sono anomalie, apre/aggiorna UNA
-# issue con l'elenco — la riprende il loop autonomo del
-# repo (issue-triage -> agent:fix-queued -> issue-fix -> PR -> pr-review-loop
-# -> auto-merge).
-#
-# Runs every Sunday 05:15 UTC (poco dopo verify-company-logos-weekly, 04:00).
+# Misura la copertura canonica, acquisisce soltanto da domini ufficiali già
+# verificati, ricontrolla gli asset locali e pubblica i risultati tramite una
+# sola PR stabile. L'issue canonica contiene esclusivamente il residuo.
 
 on:
   schedule:
     - cron: '15 5 * * 0' # Every Sunday 05:15 UTC
   workflow_dispatch:
 
+concurrency:
+  group: audit-missing-company-logos
+  cancel-in-progress: false
+
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     env:
-      # Keep the guard active for both the first audit and every rebase retry
-      # performed by git-push-with-retry.sh.
       COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'
       COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch
+      DATA_REFRESH_BRANCH: chore/company-logos-refresh
     steps:
-      # Nessun blocco sparse-checkout: NON e' un'omissione. scripts/audit-missing-company-logos.mjs
-      # importa scripts/lib/github-issue-creator.mjs (per --report-issue), la cui
-      # closure statica tocca 7 bucket (data/all-known-job-slugs/, data/jobs-ai-cache.json,
-      # data/jobs/, data/orphan-enriched-data/, data/seo-404-compat/, public/data/,
-      # public/images/) — e' quell'import a rendere il job pieno per costruzione, non
-      # verify-company-logos.mjs (che non importa quell'utility come modulo). Verificato con
-      # `node scripts/ci/apply-checkout-profiles.mjs --dry-run --only audit-missing-company-logos.yml`
-      # → "workflow modificati: 0, peso escluso in media per job: 0 MB su 6829 MB".
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # The refresh enters main through a PR; do not leave the ambient
+          # Actions token on origin as a competing credential.
+          persist-credentials: false
           fetch-depth: 0
           filter: blob:none
-        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 12
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 22
+          node-version: '22'
           cache: npm
 
-      # `assemble-jobs-dataset.mjs` importa `scripts/lib/crawler-template.mjs`,
-      # che importa `scripts/lib/prospector/public-fetch-policy.mjs`, che usa
-      # `undici` per vincolare il lookup DNS alla connessione. Senza installare
-      # il lockfile il job muore con `ERR_MODULE_NOT_FOUND: undici` prima di
-      # assemblare il dataset.
-      - name: Install dependencies
+      - name: Install logo-audit dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
+        timeout-minutes: 12
 
-      - name: Prepare Firebase credentials for push auth
+      - name: Prepare Firebase credentials for PR publishing
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the stable refresh PR"
             exit 1
           fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+        timeout-minutes: 2
 
-      - name: Load push credentials from Remote Config
+      - name: Load publishing credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+        timeout-minutes: 3
+
+      - name: Verify stable PR credential
+        run: |
+          set -euo pipefail
+          test -n "${GITHUB_PAT:-}" || {
+            echo "::error::GITHUB_PAT was not loaded; refusing to publish a logo refresh without a PR token"
+            exit 1
+          }
+        timeout-minutes: 1
 
       - name: Assemble canonical jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        timeout-minutes: 12
 
-      # --report-issue: calcola il report E apre/aggiorna l'issue nello
-      # stesso step (createGithubIssue dedupe sul titolo stabile, quindi run
-      # ripetute commentano sulla issue canonica invece di duplicarla).
       - name: Audit missing company logos
+        id: audit
+        run: ./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs
+        timeout-minutes: 12
+
+      - name: Acquire missing company logos
+        id: acquire
+        if: steps.audit.outcome == 'success'
+        continue-on-error: true
+        env:
+          COMPANY_LOGO_ACQUISITION_RESULT: ${{ runner.temp }}/company-logo-acquisition.json
+        run: node scripts/download-missing-company-logos.mjs --from-audit --result-file "$COMPANY_LOGO_ACQUISITION_RESULT"
+        timeout-minutes: 15
+
+      - name: Verify acquired company logos
+        id: verify
+        if: always() && steps.audit.outcome == 'success'
+        continue-on-error: true
+        env:
+          COMPANY_LOGO_ACQUISITION_RESULT: ${{ runner.temp }}/company-logo-acquisition.json
+          COMPANY_LOGO_ACQUISITION_VERIFIED_RESULT: ${{ runner.temp }}/company-logo-acquisition-verified.json
+        run: node scripts/verify-company-logo-acquisition.mjs --input "$COMPANY_LOGO_ACQUISITION_RESULT" --output "$COMPANY_LOGO_ACQUISITION_VERIFIED_RESULT"
+        timeout-minutes: 8
+
+      - name: Report missing-logo residual
+        if: always() && steps.audit.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs --report-issue
+          COMPANY_LOGO_ACQUISITION_VERIFIED_RESULT: ${{ runner.temp }}/company-logo-acquisition-verified.json
+        run: ./node_modules/.bin/tsx scripts/report-missing-company-logo-residual.mjs --acquisition "$COMPANY_LOGO_ACQUISITION_VERIFIED_RESULT"
+        timeout-minutes: 5
 
-      - name: Commit + push missing-logos report
+      - name: Publish verified company logos through stable PR
+        if: always() && steps.verify.outputs.eligible == 'true'
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/company-logos-missing.json
-          if git diff --cached --quiet; then
-            echo "No missing-logo changes — nothing to commit."
-            exit 0
-          fi
-          git commit -m "chore(seo): refresh missing-company-logos report"
+          body="$RUNNER_TEMP/company-logo-refresh-pr-body.md"
+          cat > "$body" <<'EOF'
+          Auto-generated by the weekly company-logo audit.
 
-          # Rigenera SENZA --report-issue: un retry su conflitto di rebase non
-          # deve riaprire/ricommentare la issue una seconda volta.
-          bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"
+          ## Implementato
+          - Acquisisce i loghi mancanti soltanto dai domini ufficiali verificati, con yellowshark come priorità, e rifiuta risposte non immagine o sotto la soglia di qualità.
+          - Ricontrolla gli asset locali prima di pubblicare `public/images/brands/` e aggiorna `data/company-logos-manifest.json` tramite il branch stabile `chore/company-logos-refresh`.
+
+          ## Non implementato (ancora)
+          - La prova dell'audit canonico dopo l'ingresso su `main` resta **per scelta**. **Motivo:** questa PR contiene la consegna degli asset; il workflow settimanale rifarà la misura sul dataset completo. **Prossimo passo:** attendere la run post-merge dell'orchestratore.
+
+          Refs #6504
+          🤖 Generated with [Claude Code](https://claude.com/claude-code)
+          EOF
+          GH_TOKEN="${GITHUB_PAT:-}" bash scripts/lib/open-data-refresh-pr.sh \
+            --path public/images/brands \
+            --path data/company-logos-manifest.json \
+            --branch "$DATA_REFRESH_BRANCH" \
+            --commit-message "fix(jobs): add verified missing company logos" \
+            --title "fix(jobs): acquire verified missing company logos" \
+            --body-file "$body"
+        timeout-minutes: 15
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -121,3 +149,4 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+        timeout-minutes: 5

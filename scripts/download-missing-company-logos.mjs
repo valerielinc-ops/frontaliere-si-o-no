@@ -24,6 +24,7 @@ import {
   MAX_LOGO_BODY_BYTES,
 } from './lib/company-logo-audit.mjs';
 import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
+import { selectAuditCandidates } from './lib/company-logo-acquisition.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -97,6 +98,36 @@ const DOMAIN_OVERRIDES = {
   'michaelpage': ['michaelpage.ch', 'michaelpage.com'],
   'matterhorn-gotthard-bahn': ['mgb.ch'],
   'recruitingapp-1154': ['sgkb.ch'],
+  // Issue #6504: these are employer-owned domains, never ATS or directory
+  // hosts. yellowshark is first because it covers most of the affected jobs.
+  yellowshark: ['yellowshark.com'],
+  bucherer: ['bucherer.com'],
+  'nord-anglia': ['nordangliaeducation.com'],
+  grischapersonal: ['grischapersonal.ch'],
+  brefispersonal: ['brefis.ch'],
+  parmag: ['parmag.ch'],
+  endeso: ['endeso.ch'],
+  'integra-biosciences': ['integra-biosciences.com'],
+  benu: ['benu.ch'],
+  'pantr-ch': ['pantr.ch'],
+  kone: ['kone.com'],
+  fisba: ['fisba.com'],
+  'schweizerhof-flims': ['schweizerhof-flims.ch'],
+  'blatters-hotel': ['blatters-hotel.ch'],
+  'mcm-group': ['mcm-group.ch'],
+  christinavassalli: ['christinavassalli.ch'],
+  clariant: ['clariant.com'],
+  neoproconseils: ['neoproconseils.ch'],
+  '1a-hunkeler': ['1a-hunkeler.ch'],
+  anicura: ['anicura.ch'],
+  apply: ['leitpuls.ch'],
+  artificialy: ['artificialy.com'],
+  'atec-personal': ['atec-personal.ch'],
+  'buersten-technik': ['buersten-technik.ch'],
+  elprom: ['elprom.ch'],
+  'farmacia-internazionale-dr-merloni': ['internationalpharmacy.swiss'],
+  'mueller-steinmaur': ['mueller-steinmaur.ch'],
+  'protectas-sa': ['protectas.com'],
 };
 
 function slugify(value = '') {
@@ -247,7 +278,7 @@ async function loadAuditTargets(reportPath, jobsPath) {
   const metadata = metadataFromJobs(jobs);
   const targets = [];
   const seen = new Set();
-  for (const entry of entries) {
+  for (const entry of selectAuditCandidates(entries)) {
     const key = String(entry?.companyKey || '').trim();
     if (!key || seen.has(key)) continue;
     // The report is refreshed from changing crawler data. If a stale report
@@ -315,13 +346,41 @@ async function readImageUrl(url, source, sourceDomain, accept = 'image/*,*/*;q=0
     timeoutMs: FETCH_TIMEOUT_MS,
     accept,
   });
-  if (response.status !== 'valid') return null;
-  if (!response.body || response.body.length > MAX_LOGO_BODY_BYTES) return null;
+  if (response.status !== 'valid') {
+    return {
+      accepted: false,
+      reason: response.reason || 'logo-non-validato',
+      source,
+      sourceDomain,
+      url,
+    };
+  }
+  if (!response.body || response.body.length > MAX_LOGO_BODY_BYTES) {
+    return { accepted: false, reason: 'body-too-large', source, sourceDomain, url };
+  }
+  if (response.qualityStatus !== 'good') {
+    return {
+      accepted: false,
+      reason: response.qualityStatus === 'unverified' ? 'quality-unverified' : 'quality-insufficient',
+      source,
+      sourceDomain,
+      url: response.url || url,
+      format: response.extension,
+      width: response.width,
+      height: response.height,
+    };
+  }
   return {
+    accepted: true,
     buf: response.body,
     ext: response.extension,
     size: response.bytes,
     contentType: response.contentType,
+    format: response.extension,
+    width: response.width,
+    height: response.height,
+    qualityStatus: response.qualityStatus,
+    qualityReason: response.qualityReason,
     source,
     sourceDomain,
     url: response.url || source,
@@ -331,13 +390,20 @@ async function readImageUrl(url, source, sourceDomain, accept = 'image/*,*/*;q=0
 async function tryDirectFavicon(domain) {
   const urls = [`https://${domain}/favicon.ico`];
   if (!domain.startsWith('www.')) urls.push(`https://www.${domain}/favicon.ico`);
+  let lastFailure = {
+    accepted: false,
+    reason: 'official-favicon-unavailable',
+    source: 'official-favicon',
+    sourceDomain: domain,
+  };
   for (const url of urls) {
     try {
       const result = await readImageUrl(url, 'official-favicon', domain);
-      if (result) return result;
+      if (result.accepted) return result;
+      lastFailure = result;
     } catch { /* try the next official URL */ }
   }
-  return null;
+  return lastFailure;
 }
 
 function extractIconLinks(html, baseUrl) {
@@ -362,6 +428,13 @@ async function tryHtmlIcon(domain) {
   const pageUrl = `https://${domain}/`;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  let lastFailure = {
+    accepted: false,
+    reason: 'official-page-no-icon',
+    source: 'official-html-icon',
+    sourceDomain: domain,
+    url: pageUrl,
+  };
   try {
     const response = await fetch(pageUrl, {
       headers: {
@@ -371,45 +444,71 @@ async function tryHtmlIcon(domain) {
       redirect: 'follow',
       signal: controller.signal,
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+      return {
+        ...lastFailure,
+        reason: `http-${response.status}`,
+      };
+    }
     // The cap is applied while the page streams: `response.text()` and a
     // length check afterwards would download a chunked page in full (#9729).
     const bytes = await readBoundedResponseBytes(response, MAX_LOGO_BODY_BYTES);
-    if (bytes === null) return null;
+    if (bytes === null) return { ...lastFailure, reason: 'body-too-large' };
     const html = new TextDecoder().decode(bytes);
     for (const url of extractIconLinks(html, response.url || pageUrl)) {
       try {
         const result = await readImageUrl(url, 'official-html-icon', domain);
-        if (result) return result;
+        if (result.accepted) return result;
+        lastFailure = result;
       } catch { /* try the next declared icon */ }
     }
-  } catch { /* Google/favicon fallback may still work */ }
+  } catch (error) {
+    lastFailure = {
+      ...lastFailure,
+      reason: error?.name === 'AbortError' ? 'timeout' : 'source-unreachable',
+    };
+  }
   finally {
     clearTimeout(timer);
   }
-  return null;
+  return lastFailure;
 }
 
 async function tryGoogleFavicon(domain) {
   const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
   try {
     return await readImageUrl(url, 'google-favicon-proxy', domain);
-  } catch {
-    return null;
+  } catch (error) {
+    return {
+      accepted: false,
+      reason: error?.name === 'AbortError' ? 'timeout' : 'source-unreachable',
+      source: 'google-favicon-proxy',
+      sourceDomain: domain,
+      url,
+    };
   }
 }
 
 async function downloadForKey(key, metadata) {
   const domains = domainCandidates(key, metadata);
+  let lastFailure = {
+    accepted: false,
+    reason: domains.length > 0 ? 'no-verified-official-icon' : 'no-official-domain',
+    source: null,
+    sourceDomain: domains[0] || null,
+  };
   for (const domain of domains) {
     const google = await tryGoogleFavicon(domain);
-    if (google) return google;
+    if (google.accepted) return google;
+    lastFailure = google;
     const declared = await tryHtmlIcon(domain);
-    if (declared) return declared;
+    if (declared.accepted) return declared;
+    lastFailure = declared;
     const direct = await tryDirectFavicon(domain);
-    if (direct) return direct;
+    if (direct.accepted) return direct;
+    lastFailure = direct;
   }
-  return null;
+  return lastFailure;
 }
 
 async function runConcurrent(items, worker, concurrency) {
@@ -442,6 +541,9 @@ function parseArgs(argv) {
     jobsPath: process.env.COMPANY_LOGO_AUDIT_JOBS_FILE
       ? path.resolve(ROOT, process.env.COMPANY_LOGO_AUDIT_JOBS_FILE)
       : null,
+    resultFile: process.env.COMPANY_LOGO_ACQUISITION_RESULT
+      ? path.resolve(ROOT, process.env.COMPANY_LOGO_ACQUISITION_RESULT)
+      : null,
   };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === '--dry-run') options.dryRun = true;
@@ -449,6 +551,7 @@ function parseArgs(argv) {
     else if (argv[i] === '--from-audit') options.fromAudit = true;
     else if (argv[i] === '--report' && argv[i + 1]) options.reportPath = path.resolve(ROOT, argv[++i]);
     else if (argv[i] === '--jobs-file' && argv[i + 1]) options.jobsPath = path.resolve(ROOT, argv[++i]);
+    else if (argv[i] === '--result-file' && argv[i + 1]) options.resultFile = path.resolve(ROOT, argv[++i]);
   }
   return options;
 }
@@ -481,12 +584,22 @@ async function main() {
   await mkdir(OUT_DIR, { recursive: true });
   let downloaded = 0;
   let failed = 0;
+  let qualityRejected = 0;
   const results = await runConcurrent(toDownload, async ({ key, name, metadata, status }) => {
     const result = await downloadForKey(key, metadata);
-    if (!result) {
+    if (!result.accepted) {
       failed += 1;
-      process.stdout.write(`  ✗ ${key} [${status}] — no verified official icon\n`);
-      return { key, name, status: 'failed' };
+      if (result.reason === 'quality-insufficient' || result.reason === 'quality-unverified') qualityRejected += 1;
+      process.stdout.write(`  ✗ ${key} [${status}] — ${result.reason}\n`);
+      return {
+        companyKey: key,
+        name,
+        status: 'failed',
+        reason: result.reason,
+        source: result.source || null,
+        sourceDomain: result.sourceDomain || null,
+        url: result.url || null,
+      };
     }
     const safeKey = slugify(key) || key;
     const filename = `${safeKey}.${result.ext}`;
@@ -495,26 +608,46 @@ async function main() {
     const publicPath = `/images/brands/${filename}`;
     manifest[key] = publicPath;
     downloaded += 1;
-    process.stdout.write(`  ✓ ${key} (${result.sourceDomain}, ${result.source}, ${result.size}B)\n`);
+    process.stdout.write(`  ✓ ${key} (${result.sourceDomain}, ${result.source}, ${result.size}B, ${result.width || '?'}x${result.height || '?'})\n`);
     return {
-      key,
+      companyKey: key,
       name,
       status: 'downloaded',
       source: result.source,
       sourceDomain: result.sourceDomain,
       path: publicPath,
+      format: result.format,
+      size: result.size,
+      width: result.width,
+      height: result.height,
+      qualityStatus: result.qualityStatus,
+      qualityReason: result.qualityReason,
+      url: result.url,
     };
   }, CONCURRENCY);
 
   const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
   await writeFile(MANIFEST_PATH, `${JSON.stringify(sorted, null, 2)}\n`);
 
+  if (options.resultFile) {
+    await mkdir(path.dirname(options.resultFile), { recursive: true });
+    await writeFile(options.resultFile, `${JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      reportPath: path.relative(ROOT, options.reportPath),
+      targets: results,
+      acquired: downloaded,
+      failed,
+      qualityRejected,
+    }, null, 2)}\n`);
+    console.log(`[download-missing] Acquisition result: ${options.resultFile}`);
+  }
+
   console.log(`\n[download-missing] Done. downloaded=${downloaded} failed=${failed}`);
   console.log(`[download-missing] Manifest: ${MANIFEST_PATH}`);
   if (failed > 0) {
     console.log('\nNo verified logo found:');
     for (const result of results.filter((item) => item.status === 'failed')) {
-      console.log(`  ✗ ${result.key} ("${result.name}")`);
+      console.log(`  ✗ ${result.companyKey} ("${result.name}") — ${result.reason}`);
     }
     if (options.fromAudit) process.exitCode = 1;
   }
