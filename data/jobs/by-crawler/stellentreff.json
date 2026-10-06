@@ -27230,7 +27230,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/gaertner-in-buelach-dauerstelle-117514/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:52:07.311Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -49157,7 +49156,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-buelach-temporaer-117564/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:52:07.110Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -55807,9 +55805,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-26T00:00:00+02:00",
       "postedDate": "2026-09-26T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.stellentreff.ch/stellen/metallbauer-in-hilfsarbeiter-in-frauenfeld-temporaer-116680/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -55845,7 +55841,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-26T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "stellentreff-be5b042fd7b8",
@@ -60415,7 +60413,6 @@
           "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-andelfingen-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:52:07.109Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -60628,7 +60625,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-117504/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:52:07.107Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
