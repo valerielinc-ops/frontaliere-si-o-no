@@ -1,7 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { classifyReview, isContractDomainBodyFinding, runReviewGate } from '../scripts/ci/review-gate.mjs';
+import {
+  classifyReview,
+  isContractDomainBodyFinding,
+  renderStaleBodyFindingComment,
+  runReviewGate,
+} from '../scripts/ci/review-gate.mjs';
 
 const HEAD = 'a'.repeat(40);
 const BODY_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L13`: 🔴 Important: `blocked: configurazione owner-only` non chiude la voce.\n';
@@ -26,12 +31,27 @@ const PERF_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L13`: 🔴 Impo
 const IMPL_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L3`: 🔴 Important: la voce non corrisponde al diff.\n';
 const files = { files: ['scripts/lib/foo.mjs'], complete: true, prBody: PR_BODY };
 
+const STALE_BODY_FINDING = [
+  '## Findings (Important: 1, Nit: 0)',
+  '',
+  '`PR body:L13`: 🔴 Important: il claim non è più presente nel body.',
+  'Body citation: "testo rimosso dal body corrente"',
+].join('\n');
+const CURRENT_BODY_WITHOUT_CITATION = [
+  '## Implementato',
+  '',
+  '- una modifica corrente',
+  '',
+  '## Non implementato (ancora)',
+  '',
+  '- Nessuno.',
+].join('\n');
+
 describe('the deterministic body contract is the single source of truth', () => {
-  it('declassifies a body-anchored 🔴 when the contract passed', () => {
+  it('does not declassify a body-anchored 🔴 without textual-citation proof', () => {
     const passed = classifyReview(BODY_RED, { ...files, bodyContractPassed: true });
-    expect(passed.blocking).toBe(false);
-    expect(passed.bodyDeclassified).toHaveLength(1);
-    expect(passed.outsideOnly).toBe(true);
+    expect(passed.blocking).toBe(true);
+    expect(passed.staleBodyDeclassified).toHaveLength(0);
   });
 
   it('keeps it blocking when the contract verdict is not green', () => {
@@ -69,6 +89,53 @@ describe('the deterministic body contract is the single source of truth', () => 
   });
 });
 
+describe('stale PR-body findings require a current textual citation', () => {
+  it('declassifies a finding whose cited body text is gone and renders an explicit comment', () => {
+    const result = classifyReview(STALE_BODY_FINDING, {
+      ...files,
+      prBody: CURRENT_BODY_WITHOUT_CITATION,
+    });
+
+    expect(result.blocking).toBe(false);
+    expect(result.staleBodyDeclassified).toHaveLength(1);
+    expect(renderStaleBodyFindingComment(result.staleBodyDeclassified[0], 'a'.repeat(40)))
+      .toContain('testo rimosso dal body corrente');
+  });
+
+  it('keeps a finding blocking when its citation is still present', () => {
+    const result = classifyReview(STALE_BODY_FINDING, {
+      ...files,
+      prBody: `${CURRENT_BODY_WITHOUT_CITATION}\n- testo rimosso dal body corrente`,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
+
+  it('keeps a body finding without a citation blocking', () => {
+    const result = classifyReview(STALE_BODY_FINDING.replace(/\nBody citation:.*/u, ''), {
+      ...files,
+      prBody: CURRENT_BODY_WITHOUT_CITATION,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
+
+  it('normalizes spaces and markdown before deciding that a citation is present', () => {
+    const result = classifyReview(
+      STALE_BODY_FINDING.replace('testo rimosso dal body corrente', 'blocked: owner-only'),
+      {
+        ...files,
+        prBody: `${CURRENT_BODY_WITHOUT_CITATION}\n- **blocked:**   owner-only`,
+      },
+    );
+
+    expect(result.blocking).toBe(true);
+    expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
+});
+
 describe('tests.yml hands the verdict to the reviewer and to the gate', () => {
   const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
   const steps = workflow.jobs.vitest.steps as Array<{ id?: string; run?: string; env?: Record<string, string>; with?: Record<string, string> }>;
@@ -80,10 +147,10 @@ describe('tests.yml hands the verdict to the reviewer and to the gate', () => {
     expect(byId('prefetch')?.run).toContain('## Deterministic body contract');
   });
 
-  it('tells the reviewer a green contract cannot produce a body 🔴', () => {
+  it('tells the reviewer that a body 🔴 requires a textual citation', () => {
     const prompt = byId('codex_review')?.with?.prompt || '';
     expect(prompt).toContain('PR body: one source of truth');
-    expect(prompt).toContain('never emit a `🔴 Important` about the body');
+    expect(prompt).toContain('Body citation: "<JSON string>"');
     expect(readFileSync(new URL('../REVIEW.md', import.meta.url), 'utf8')).toContain('Una sola fonte di verità sul body');
   });
 });
