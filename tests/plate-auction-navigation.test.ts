@@ -24,6 +24,7 @@ describe("plate-auction navigation placement", () => {
     const mobileEnd = appSource.indexOf("</nav>", mobileStart);
     const mobileSource = appSource.slice(mobileStart, mobileEnd);
     expect(mobileSource).toContain("grid-cols-6");
+    expect(mobileSource).toContain("min-h-[44px]");
     expect(mobileSource).not.toContain("tab: 'plate-auctions'");
   });
 });

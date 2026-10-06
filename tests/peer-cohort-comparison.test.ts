@@ -212,7 +212,8 @@ describe('renderPeerComparison', () => {
     expect(html).toContain('Confronto');
     expect(html).toContain('<caption class="sr-only">Confronto</caption>');
     expect(html).toContain('role="columnheader"');
-    expect(html).toContain('<th scope="row" role="rowheader"');
+    expect(html).not.toContain('<th scope="row" role="rowheader"');
+    expect(html).toContain('<td class="px-3 py-2 text-left font-normal"><a');
     expect(html).toContain('<td role="cell"');
   });
 
