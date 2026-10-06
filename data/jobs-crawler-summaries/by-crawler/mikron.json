@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-06T09:31:13.403Z",
+  "generatedAt": "2026-10-06T21:42:34.684Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 15361,
-  "avgDurationMs": 15361,
+  "durationMs": 14535,
+  "avgDurationMs": 14535,
   "durationHistory": [
-    15361
+    14535
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -33,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:30:50.331Z",
+      "crawledAt": "2026-10-06T21:42:08.902Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -75,7 +75,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:30:53.757Z",
+      "crawledAt": "2026-10-06T21:42:12.174Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -117,7 +117,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:30:54.846Z",
+      "crawledAt": "2026-10-06T21:42:13.254Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -134,11 +134,11 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -159,7 +159,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:30:58.479Z",
+      "crawledAt": "2026-10-06T21:42:16.394Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -168,7 +168,6 @@
         "canton": "NE",
         "location": "Boudry"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
@@ -176,11 +175,11 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -201,7 +200,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:30:59.629Z",
+      "crawledAt": "2026-10-06T21:42:17.487Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -218,11 +217,11 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -243,7 +242,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T09:31:00.837Z",
+      "crawledAt": "2026-10-06T21:42:18.479Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -260,14 +259,14 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

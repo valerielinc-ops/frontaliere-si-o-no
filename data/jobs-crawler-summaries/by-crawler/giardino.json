@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-06T09:47:24.953Z",
+  "generatedAt": "2026-10-06T21:41:32.486Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3178,
-  "avgDurationMs": 3178,
+  "durationMs": 3435,
+  "avgDurationMs": 3435,
   "durationHistory": [
-    3178
+    3435
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:47:12.873Z",
+      "crawledAt": "2026-10-06T21:41:18.408Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -57,11 +57,11 @@
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 23,
         "completeness": 20
       }
     }
@@ -80,7 +80,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:47:13.280Z",
+      "crawledAt": "2026-10-06T21:41:18.747Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -97,16 +97,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:31:14.234Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -122,7 +121,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:47:13.147Z",
+      "crawledAt": "2026-10-06T21:41:18.598Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -139,16 +138,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:04:35.324Z",
       "salaryMin": 31000,
       "salaryMax": 39000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -164,7 +162,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:47:13.016Z",
+      "crawledAt": "2026-10-06T21:41:18.564Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -195,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

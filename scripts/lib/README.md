@@ -132,6 +132,23 @@ also calls `generateImageFromSpec()` and persists its `article-hero` record;
 future place/corpus generators must use the same contract rather than add a
 second provider path.
 
+The site's editorial-profile and place catalogue uses the same boundary:
+
+```bash
+npm run generate:editorial-images -- --only authors
+npm run generate:editorial-images -- --only places
+npm run validate:generated-images
+```
+
+The generator writes three 400×400 illustrated profile avatars, sixteen
+1200×675 place views and their sixteen 480×270 thumbnails, keeping the
+existing filenames and recording each byte in
+`data/generated-image-registry.json`. The validator checks every file under
+`public/images/authors/` and `public/images/places/` against that registry,
+including the XMP/IPTC-marked WebP byte hash and dimensions. Author images are
+uploaded to the existing CDN during deployment; place images and thumbnails
+remain same-origin by contract.
+
 The historical blog-cover repair lane uses the same contract with
 `scope: 'article-hero'`: its verified bytes live at
 `public/images/blog/<assetId>.webp`, while the matching `generated-provider`
@@ -149,9 +166,11 @@ npm run validate:blog-cover-ledger
 
 The queue has a hard 150-asset budget, prioritizes level-5 historical
 replacements and then level-6 inferred covers by traffic/recency, and publishes
-remaining work only through the scheduled data-PR workflow. The SPA consumes
-the site-owned `data/image-credits-blog.json` bridge when a section index does
-not yet contain a generated article-hero record.
+remaining work only through the scheduled data-PR workflow. Level-6 covers
+remain on their article URL with an explicit `inferred`/`no-credit` entry until
+generation completes. The SPA consumes the site-owned
+`data/image-credits-blog.json` bridge when a section index does not yet contain
+a generated article-hero record.
 
 ## published-image-policy.mjs — no unrecorded image leaves the site
 

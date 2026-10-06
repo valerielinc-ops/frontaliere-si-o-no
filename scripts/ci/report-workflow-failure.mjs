@@ -99,6 +99,7 @@ import {
 } from './report-validate-dist-failure.mjs';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { failureSignature, signatureMarker } from './lib/failure-signature.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -294,6 +295,7 @@ export function buildFailureBody(input) {
     context = '',
     closer = null,
     jobsApiNote = '',
+    failureSignature: signature = null,
   } = input;
 
   const runUrl = repo && runId ? `https://github.com/${repo}/actions/runs/${runId}` : '';
@@ -359,6 +361,8 @@ export function buildFailureBody(input) {
   } else {
     lines.push('- `scripts/ci/report-workflow-failure.mjs` (non è stato possibile ricavare i path del gate dallo step: il fix parte dal log del run)');
   }
+
+  if (signature) lines.push('', signatureMarker(signature).trim());
 
   // Un punto solo di redazione, applicato sempre: un nome di step o una nota
   // futura potrebbero reintrodurre il path che disinnesca il fixer.
@@ -468,12 +472,16 @@ export function reportMode({ dryRun }) {
     .split(/[\n,]/).map((s) => s.trim()).filter(Boolean);
 
   let failedStep = null;
+  let jobsApiData = null;
+  let targetJob = null;
+  let runSignature = null;
   let jobsApiNote = '';
   let excerpt = '';
   let excerptSource = '';
 
   if (repo && runId) {
     const data = fetchRunJobs(repo, runId);
+    jobsApiData = data;
     if (!data) {
       jobsApiNote = 'jobs API non raggiungibile (manca `actions: read` nei permissions del job?)';
     } else {
@@ -483,6 +491,7 @@ export function reportMode({ dryRun }) {
       const target = logFromJob
         ? (data.jobs || []).find((j) => j.name === logFromJob || String(j.name || '').startsWith(logFromJob))
         : findCurrentBuildJob(data.jobs, jobKey, entity);
+      targetJob = target;
       if (!target) {
         jobsApiNote = `job \`${logFromJob || jobKey}\`${entity ? ` (${entity})` : ''} non trovato nella jobs API del run`;
       } else {
@@ -499,6 +508,21 @@ export function reportMode({ dryRun }) {
         }
       }
     }
+  }
+
+  if (jobsApiData) {
+    // In an in-job reporter the failed step is visible before GitHub marks the
+    // enclosing job red. Normalize that one job before computing the marker so
+    // the writer and the post-run scanner produce the same signature.
+    const signatureJobs = targetJob && failedStep && targetJob.conclusion !== 'failure'
+      ? {
+        ...jobsApiData,
+        jobs: (jobsApiData.jobs || []).map((job) => (
+          job === targetJob ? { ...job, conclusion: 'failure' } : job
+        )),
+      }
+      : jobsApiData;
+    runSignature = failureSignature(signatureJobs);
   }
 
   if (!excerpt && diagFile) {
@@ -521,6 +545,7 @@ export function reportMode({ dryRun }) {
     repo, runId, runAttempt, workflowName, jobName: jobKey, entity,
     eventName, refName, failedStep, stepRun: stepSrc ? stepSrc.run : null,
     repro, excerpt, excerptSource, context, closer, jobsApiNote,
+    failureSignature: runSignature,
   });
 
   if (!title) {

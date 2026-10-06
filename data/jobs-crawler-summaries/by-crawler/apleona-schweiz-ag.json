@@ -1,7 +1,7 @@
 {
   "key": "apleona-schweiz-ag",
   "label": "Apleona Schweiz AG",
-  "generatedAt": "2026-10-06T09:36:37.845Z",
+  "generatedAt": "2026-10-06T21:45:48.333Z",
   "total": 11,
   "discovered": null,
   "parsed": 10,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 18734,
-  "avgDurationMs": 18734,
+  "durationMs": 18214,
+  "avgDurationMs": 18214,
   "durationHistory": [
-    18734
+    18214
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "apleona-schweiz-ag-f3e9875b8d22",
-      "slug": "objektleiter-m-w-d-apleona-schweiz-ag-aarau",
+      "slug": "testa-di-oggetto-m-f-d-apleona-schweiz-ag-aarau",
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
       "companyDomain": "recruitingapp-2765.umantis.com",
@@ -34,7 +35,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2576/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:18.876Z",
+      "crawledAt": "2026-10-06T21:45:30.506Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -50,22 +51,20 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2576/Description/1",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-10-06T09:36:18.876Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "firstSeenAt": "2026-10-06T09:36:18.876Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +79,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2571/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:21.619Z",
+      "crawledAt": "2026-10-06T21:45:33.237Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -122,7 +121,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2572/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:21.318Z",
+      "crawledAt": "2026-10-06T21:45:32.935Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +162,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2554/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:21.013Z",
+      "crawledAt": "2026-10-06T21:45:32.631Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -204,7 +203,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2573/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:20.711Z",
+      "crawledAt": "2026-10-06T21:45:32.328Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -246,7 +245,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:20.408Z",
+      "crawledAt": "2026-10-06T21:45:32.026Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -287,7 +286,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2525/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:20.088Z",
+      "crawledAt": "2026-10-06T21:45:31.717Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -329,7 +328,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2574/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:19.785Z",
+      "crawledAt": "2026-10-06T21:45:31.415Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -370,7 +369,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2570/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:19.483Z",
+      "crawledAt": "2026-10-06T21:45:31.113Z",
       "addressLocality": "Region Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -412,7 +411,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:36:19.181Z",
+      "crawledAt": "2026-10-06T21:45:30.811Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -474,7 +473,7 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "postalCode": "6037",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -485,5 +484,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

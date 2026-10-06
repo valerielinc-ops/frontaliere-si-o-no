@@ -2993,7 +2993,7 @@ const App: React.FC = () => {
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
- activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'job-board' || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
+ activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] !w-full px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={<LazyFallback />}>
  {notFoundPath ? (
@@ -3385,10 +3385,11 @@ const App: React.FC = () => {
    return <FuelStationMapPortal target={target} />;
  })()}
 
- {/* Footer — on staticOverlay pages it is portalled into #footer-root which
-   * lives AFTER <main class="seo-static-content"> in the DOM, so the footer
-   * appears below the SEO content rather than above it (Bug A fix).
-   * On normal SPA pages the footer renders inline inside #root as before.
+ {/* Footer — on staticOverlay pages and on the route-driven job-board
+   * static→SPA handoff it is portalled into #footer-root, which lives AFTER
+   * the crawler fallback in the emitted body. This keeps the footer in the
+   * same flow position before and after React takes ownership. On normal SPA
+   * pages the footer renders inline inside #root as before.
    *
    * Portal target: build-plugins/htmlTemplate.ts emits
    *   <div id="root"></div>
@@ -3396,7 +3397,9 @@ const App: React.FC = () => {
    *   <div id="footer-root"></div>   ← portal target
    * so the footer flows naturally after the SEO content in visual order. */}
  {(() => {
-   const footerPortalTarget = staticOverlay ? document.getElementById('footer-root') : null;
+   const footerPortalTarget = (staticOverlay || activeTab === 'job-board')
+     ? document.getElementById('footer-root')
+     : null;
    // CLS fix (Phase 6 — 2026-05-18): removed content-visibility:auto +
    // containIntrinsicSize 'auto 1600px'. Lighthouse desktop attributed score
    // 0.61+0.26=0.87 on /cerca-lavoro-ticino/ to this footer because the real

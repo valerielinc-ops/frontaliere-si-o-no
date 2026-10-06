@@ -1,64 +1,19 @@
 {
   "key": "citta-di-mendrisio",
   "label": "Città di Mendrisio",
-  "generatedAt": "2026-10-06T09:13:08.113Z",
+  "generatedAt": "2026-10-06T21:13:46.814Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8148,
-  "avgDurationMs": 8148,
+  "durationMs": 6203,
+  "avgDurationMs": 6203,
   "durationHistory": [
-    8148
+    6203
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
-      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "title": "Responsabile del Servizio Operativo (Aiutante) al 100%",
-      "company": "Città di Mendrisio",
-      "companyKey": "citta-di-mendrisio",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
-      "sourceLang": "it",
-      "category": "general",
-      "datePosted": "2026-09-18",
-      "validThrough": "2026-10-09",
-      "source": "mendrisio-concorsi-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Amministrazione pubblica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "crawledAt": "2026-10-06T09:12:52.521Z",
-      "id": "citta-di-mendrisio-372a55430eb4",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Municipio 13",
-      "postalCode": "6850",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-17T23:32:16.368Z",
-      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
-      "postedDate": "2026-09-18",
-      "postingDateSource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=01f9e1bd-f874-494b-a49e-1716eefab0ba",
       "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=01f9e1bd-f874-494b-a49e-1716eefab0ba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
@@ -81,7 +36,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "crawledAt": "2026-10-06T09:12:52.453Z",
+      "crawledAt": "2026-10-06T21:13:31.110Z",
       "id": "citta-di-mendrisio-aef82706506d",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -103,9 +58,54 @@
         "translation": 16,
         "completeness": 22
       }
+    },
+    {
+      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
+      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "title": "Responsabile del Servizio Operativo (Aiutante) al 100%",
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "2026-09-18",
+      "validThrough": "2026-10-09",
+      "source": "mendrisio-concorsi-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Amministrazione pubblica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "2026-10-06T21:13:30.992Z",
+      "id": "citta-di-mendrisio-372a55430eb4",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Municipio 13",
+      "postalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-09-17T23:32:16.368Z",
+      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
+      "postedDate": "2026-09-18",
+      "postingDateSource": "reported",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 22
+      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

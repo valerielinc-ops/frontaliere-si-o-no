@@ -5729,6 +5729,17 @@ ${hrefTags}
  innerHtml: rootHtml,
  })
  : null;
+ // The job-board root has no SPA SubTabNav: `activeTab === 'job-board'`
+ // renders the board directly, while the generic hub fallback would borrow
+ // the Confronti tabs. Do not paint a 100px static nav that React removes
+ // during the handoff; the SEO body and its links remain in the fallback.
+ const isJobBoardHub = hubChromeSpec?.hubKey === 'job-board';
+ const staticHubSubnavHtml = isJobBoardHub
+ ? ''
+ : hubChromeSplit?.subnavHtml ?? '';
+ const staticHubMainClass = isJobBoardHub
+ ? 'seo-static-content job-board-static-hub'
+ : 'seo-static-content';
  // `<div id="footer-root"></div>` is the portal target App.tsx reads via
  // `document.getElementById('footer-root')` in lite-shell mode. Without it,
  // React falls back to inline render INSIDE `#root`, painting the footer
@@ -5740,7 +5751,27 @@ ${hrefTags}
  // portals <ArticleRailAdStack> into #rail-left-root / #rail-right-root here
  // too (these editorial / hub landings previously rendered NO rails). Shared
  // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
- const { open: railGridOpen, close: railGridClose } = railGutters(true);
+ const { open: railGridOpen, close: railGridClose } = railGutters(
+   true,
+   isJobBoardHub ? 'job-board' : 'default',
+ );
+ // A non-staticOverlay handoff moves the fallback <main> into #root and hides
+ // its old outer `.ft-rail-grid` wrapper. Keep the job-board rail shell inside
+ // that main so the three-column geometry survives the move and matches the
+ // SPA's `ft-rail-grid-x` wrapper instead of reverting to a full-width body.
+ const staticHubMainHtml = isJobBoardHub
+   ? `<main class="${staticHubMainClass}">
+ <div class="job-board-static-top-stack">
+  <div class="job-board-top-banner-reserve" aria-hidden="true"></div>
+${railGridOpen}
+ <div class="static-job-rail-center">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </div>${railGridClose}
+ </div>
+ </main>`
+   : `<main class="${staticHubMainClass}">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </main>`;
  // The bare article indexes emit their body as a SIBLING of #root, not inside it.
  // Inside #root React destroys the server-rendered content on mount, so a bundle
  // that fails to render leaves a blank page — which is what users got when the
@@ -5756,11 +5787,9 @@ ${hrefTags}
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
  ? `${rootShell(hasSpaBundle)}
-${hubChromeSplit.subnavHtml}
-${railGridOpen}
- <main class="seo-static-content">
-${hubChromeSplit.bodyHtml}
- </main>${railGridClose}
+${staticHubSubnavHtml}
+${isJobBoardHub ? '' : railGridOpen}
+${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <div id="footer-root"></div>`
  : isBareArticleIndex
    ? `${rootShell(hasSpaBundle)}

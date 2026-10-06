@@ -4,17 +4,17 @@
  *
  * Two article catalogs exist and never overlapped before this: the
  * AI-generated catalog (`data/blog-articles-data.ts`, static, bundled
- * client-side, byline driven by the static `data/authors.ts` persona
+ * client-side, byline driven by the static `data/authors.ts` editorial-profile
  * registry) and the real-journalist catalog (`journalist_articles`
  * Firestore collection, gated by `firestore.rules` to each author's own
  * uid). This function gives the admin (Valerie, see `assertAdmin`) a
  * single GET that lists real-journalist articles across ALL authors
  * (Admin SDK bypasses the per-uid rule) plus the current admin overrides
- * for the AI-persona registry, and a POST that writes those overrides.
+ * for the AI editorial-profile registry, and a POST that writes those overrides.
  *
  * There are deliberately TWO different override collections rather than
  * one, because they patch two semantically different things:
- *   - `author_profiles/{slug}`         — persona bio/photo/social patch.
+ *   - `author_profiles/{slug}`         — editorial profile name/role/bio/photo patch.
  *   - `article_author_overrides/{id}`  — per-article author reassignment
  *     for the AI catalog only. Reassigning a `journalist_articles` entry
  *     would mean changing which real Firebase Auth uid owns that draft's
@@ -42,8 +42,7 @@ const JOURNALIST_ARTICLES_COLLECTION = 'journalist_articles';
 
 const ACTIONS = new Set(['updateProfile', 'reassignArticle']);
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const PROFILE_STRING_FIELDS = ['name', 'role', 'bio', 'photoPath', 'email'];
-const SOCIAL_STRING_FIELDS = ['linkedin', 'twitter', 'mastodon', 'wikidataId'];
+const PROFILE_STRING_FIELDS = ['name', 'role', 'bio', 'photoPath'];
 
 /** GET → real-journalist articles (all authors) + both override collections, as-is. */
 async function handleList(db) {
@@ -71,7 +70,7 @@ async function handleList(db) {
   });
 
   const authorProfiles = {};
-  for (const doc of profilesSnap.docs) authorProfiles[doc.id] = doc.data() || {};
+  for (const doc of profilesSnap.docs) authorProfiles[doc.id] = sanitizeProfilePatch(doc.data()) || {};
 
   const articleAuthorOverrides = {};
   for (const doc of overridesSnap.docs) articleAuthorOverrides[doc.id] = doc.data() || {};
@@ -86,16 +85,6 @@ function sanitizeProfilePatch(raw) {
     if (raw[field] === undefined) continue;
     if (typeof raw[field] !== 'string') return null;
     patch[field] = raw[field].trim();
-  }
-  if (raw.social !== undefined) {
-    if (typeof raw.social !== 'object' || raw.social === null) return null;
-    const social = {};
-    for (const field of SOCIAL_STRING_FIELDS) {
-      if (raw.social[field] === undefined) continue;
-      if (typeof raw.social[field] !== 'string') return null;
-      social[field] = raw.social[field].trim();
-    }
-    patch.social = social;
   }
   return Object.keys(patch).length ? patch : null;
 }
@@ -142,7 +131,7 @@ async function handleMutate(db, req, adminEmail) {
 
 /**
  * Entry point. GET lists both catalogs + current overrides; POST mutates
- * a persona profile override or an AI-catalog article reassignment. Both
+ * an editorial profile override or an AI-catalog article reassignment. Both
  * modes require the verified admin (assertAdmin).
  */
 export async function handleRedazioneAdmin(req) {

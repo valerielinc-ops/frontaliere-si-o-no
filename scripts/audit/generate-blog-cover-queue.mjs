@@ -2,8 +2,9 @@
 /**
  * Consume the bounded historical repair queue with the shared article-hero
  * image engine. The script is resumable: generated records and bytes are kept
- * in the cache, while the committed registry and replacement plan are updated
- * after every successful asset.
+ * in the cache, while the committed registry and generation queue are updated
+ * after every successful asset. It never repoints an article to another
+ * article's cover.
  */
 
 import fs from 'node:fs';
@@ -120,12 +121,14 @@ function persistRegistry(assets) {
 function updateCommittedState(queue, inventory, key, record, recordFile) {
   const replacement = queue.items[key];
   if (!replacement) throw new Error(`Generated key ${key} is not in the queue`);
+  if (replacement.mode !== 'generated' || replacement.fromCover !== replacement.toCover) {
+    throw new Error(`${key}: only same-URL article-hero generations are allowed`);
+  }
   replacement.status = 'generated';
   replacement.recordFile = recordFile;
   replacement.generatedAssetId = record.generated.assetId;
   replacement.provider = record.generated.provider;
   replacement.generatedAt = record.generated.generatedAt;
-  queue.temporaryAllowlist = (queue.temporaryAllowlist || []).filter((entry) => entry.key !== key);
   const inventoryItem = inventory.covers[key];
   if (inventoryItem?.replacement) {
     inventoryItem.replacement.status = 'generated';
@@ -159,7 +162,12 @@ async function main() {
   writeJson(QUEUE_PATH, queue);
   writeJson(INVENTORY_PATH, inventory);
   const pending = Object.entries(queue.items)
-    .filter(([key, item]) => item.mode === 'generated' && item.status !== 'generated' && !assets.has(key))
+    .filter(([key, item]) => {
+      if (item.mode !== 'generated' || item.fromCover !== item.toCover) {
+        throw new Error(`${key}: generation queue contains a cross-article replacement`);
+      }
+      return item.status !== 'generated' && !assets.has(key);
+    })
     .sort(([, a], [, b]) => (a.proofLevel - b.proofLevel) || (b.priority - a.priority) || a.fromCover.localeCompare(b.fromCover));
   const remainingBudget = MAX_TOTAL - assets.size;
   const todo = pending.slice(0, Math.min(limit, remainingBudget));
@@ -174,7 +182,8 @@ async function main() {
   const completedKeys = [];
   let generated = 0;
   for (const [key, item] of todo) {
-    const subject = `Swiss border editorial illustration about ${words(key)}`;
+    const articleId = inventory.covers[key]?.references?.[0]?.id || key;
+    const subject = `Swiss border editorial illustration for article ${articleId}: ${words(key)}`;
     try {
       const result = await generateImageFromSpec({
         scope: 'article-hero',
@@ -190,6 +199,9 @@ async function main() {
         maxAttempts: 3,
       });
       const record = articleHeroRecord(result.record);
+      if (record.cover !== item.toCover || record.generated.imageUrl !== item.toCover) {
+        throw new Error(`${key}: generated cover must remain ${item.toCover}`);
+      }
       ensureSparsePath(`public/images/blog/${key}.webp`);
       fs.copyFileSync(result.filePath, path.join(ROOT, 'public/images/blog', `${key}.webp`));
       const recordFile = writeAssetRecord(key, record);

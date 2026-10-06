@@ -1,7 +1,7 @@
 {
   "key": "entero",
   "label": "entero",
-  "generatedAt": "2026-10-06T09:27:24.156Z",
+  "generatedAt": "2026-10-06T21:29:57.439Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5655,
-  "avgDurationMs": 5655,
+  "durationMs": 6424,
+  "avgDurationMs": 6424,
   "durationHistory": [
-    5655
+    6424
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.entero.ch/de/karriere/psychologin-oder-psychologe-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:27:08.927Z",
+      "crawledAt": "2026-10-06T21:29:42.469Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:27:08.346Z",
+      "crawledAt": "2026-10-06T21:29:41.865Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -115,13 +115,13 @@
       "companyKey": "entero",
       "companyDomain": "entero.ch",
       "title": "Verantwortliche/r Qualitätsmanagement (60 - 80%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Egliswil",
       "canton": "AG",
       "url": "https://www.entero.ch/de/karriere/verantwortliche-r-qualitaetsmanagement-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:27:07.770Z",
+      "crawledAt": "2026-10-06T21:29:41.263Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -142,11 +142,11 @@
       "salaryMin": 79600,
       "salaryMax": 135600,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -163,7 +163,7 @@
       "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:27:07.196Z",
+      "crawledAt": "2026-10-06T21:29:40.656Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:27:06.615Z",
+      "crawledAt": "2026-10-06T21:29:40.050Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

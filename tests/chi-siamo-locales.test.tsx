@@ -7,7 +7,7 @@ import { getMergedAuthor } from '@/services/authorProfileService';
 import { AUTHOR_PAGE_COPY } from '@/services/authorPageCopy';
 import type { Locale } from '@/services/i18n';
 import { ChiSiamo } from '@/components/pages/ChiSiamo';
-import { AUTHORS } from '@/data/authors';
+import { AUTHORS, isRealAuthor } from '@/data/authors';
 import { localizeAuthor } from '@/data/authorLocales';
 import { buildPath } from '@/services/router';
 
@@ -59,7 +59,7 @@ describe('ChiSiamo locale rendering', () => {
 
 describe('AutorePage locale changes', () => {
   it('updates visible biography, labels and Person URL across all four locales after the profile resolves', async () => {
-    const author = AUTHORS[0];
+    const author = AUTHORS.find(isRealAuthor)!;
     vi.mocked(getMergedAuthor).mockResolvedValue(author);
     state.locale = 'it';
     const view = render(<AutorePage slug={author.slug} />);

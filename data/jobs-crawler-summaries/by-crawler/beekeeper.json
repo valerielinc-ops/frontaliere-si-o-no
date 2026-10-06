@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-10-06T09:39:13.445Z",
+  "generatedAt": "2026-10-06T21:43:16.179Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2725,
-  "avgDurationMs": 2725,
+  "durationMs": 3649,
+  "avgDurationMs": 3649,
   "durationHistory": [
-    2725
+    3649
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:39:03.348Z",
+      "crawledAt": "2026-10-06T21:43:08.188Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -81,7 +81,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:39:03.345Z",
+      "crawledAt": "2026-10-06T21:43:08.187Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -113,5 +113,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

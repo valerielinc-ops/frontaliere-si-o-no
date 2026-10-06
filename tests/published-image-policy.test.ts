@@ -51,20 +51,20 @@ describe('published image policy', () => {
   });
 
   it('keeps the OG-only site-owned exception explicit and narrow', () => {
+    const policy = loadPublishedImagePolicy({ root: ROOT });
     expect(SITE_OWNED_OG_IMAGE_ALLOWLIST).toContain(`${SITE_ORIGIN}/og-image.png`);
     expect(checkOwnedOgImage(`${SITE_ORIGIN}/og-image.png`)).toMatchObject({
       valid: true,
       source: 'site-owned-og-allowlist',
     });
-    expect(checkOwnedOgImage(`${SITE_ORIGIN}/images/places/lugano-view.webp`)).toMatchObject({
+    expect(policy.checkOg(`${SITE_ORIGIN}/images/places/lugano-view.webp`)).toMatchObject({
       valid: true,
-      source: 'site-owned-og-allowlist',
+      source: 'generated-registry',
     });
     for (const pathName of [
       '/og/jobs/infermiere-eoc.webp',
       '/og/seo/faq-hub/permesso-g-2026-it.webp',
       '/og/border-wait/brogeda.jpg',
-      '/images/authors/redazione.jpg',
     ]) {
       expect(checkOwnedOgImage(`${SITE_ORIGIN}${pathName}`), pathName).toMatchObject({
         valid: true,
@@ -75,9 +75,33 @@ describe('published image policy', () => {
       valid: true,
       source: 'site-owned-og-allowlist',
     });
-    expect(checkOwnedOgImage(`${IMAGE_CDN_ORIGIN}/images/authors/redazione.jpg`)).toMatchObject({
+    expect(policy.checkOg(`${SITE_ORIGIN}/images/authors/redazione.webp`)).toMatchObject({
       valid: true,
-      source: 'site-owned-og-allowlist',
+      source: 'generated-registry',
+    });
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}/images/authors/redazione.webp`, { requireCdn: true })).toMatchObject({
+      valid: true,
+      source: 'generated-registry',
+    });
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}/images/authors/samuele-valente.webp`, { requireCdn: true })).toMatchObject({
+      valid: true,
+      source: 'private-grant-registry',
+    });
+    expect(policy.checkOg(`${SITE_ORIGIN}/images/authors/redazione.jpg`)).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
+    });
+    expect(policy.checkOg(`${SITE_ORIGIN}/images/places/not-registered.webp`)).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
+    });
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}/images/authors/redazione.jpg`, { requireCdn: true })).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
+    });
+    expect(checkOwnedOgImage(`${IMAGE_CDN_ORIGIN}/images/authors/redazione.jpg`)).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
     });
     expect(checkOwnedOgImage(`${SITE_ORIGIN}/images/brands/unknown.png`)).toMatchObject({
       valid: false,
