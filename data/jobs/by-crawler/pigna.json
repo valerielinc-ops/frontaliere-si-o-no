@@ -410,9 +410,9 @@
     },
     {
       "id": "pigna-a10f2011b5db",
-      "slug": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
+      "slug": "assistente-con-opzione-rappresentanza-team-management-60-90-stiftung-pigna-kloten",
       "slugByLocale": {
-        "it": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
+        "it": "assistente-con-opzione-rappresentanza-team-management-60-90-stiftung-pigna-kloten",
         "en": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
         "de": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
         "fr": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten"
@@ -471,7 +471,15 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+      ]
     },
     {
       "id": "pigna-abbcacd23b9a",

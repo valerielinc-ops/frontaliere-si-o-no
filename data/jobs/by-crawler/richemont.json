@@ -8466,9 +8466,9 @@
     },
     {
       "id": "richemont-d45d1c05408f",
-      "slug": "assistant-boutique-manager-richemont-geneva",
+      "slug": "assistente-alla-gestione-boutique-a-lange-und-sohne-geneva",
       "slugByLocale": {
-        "it": "assistant-boutique-manager-richemont-geneva",
+        "it": "assistente-alla-gestione-boutique-a-lange-und-sohne-geneva",
         "en": "assistant-boutique-manager-richemont-geneva",
         "de": "assistent-boutique-manager-a-lange-und-sohne-geneva",
         "fr": "assistant-boutique-manager-a-lange-und-sohne-geneva"
@@ -8528,7 +8528,15 @@
         }
       },
       "crawlerMissStreak": 1,
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-boutique-manager-richemont-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-boutique-manager-richemont-geneva"
+      ]
     },
     {
       "id": "richemont-7c24088114ed",

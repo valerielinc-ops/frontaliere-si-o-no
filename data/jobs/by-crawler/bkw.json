@@ -20316,7 +20316,7 @@
         "it": "progettista-elettrico-a-in-alle-bkw-dubendorf",
         "en": "electrical-planner-in-alle-bkw-dubendorf",
         "de": "elektroplaner-in-alle-bkw-ch",
-        "fr": "planificateur-trice-electrique-in-alle-bkw-dubendorf"
+        "fr": "planificateur-electrique-tous-bkw-dubendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20362,7 +20362,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroplaner-in-alle-bkw-ch",
-        "progettista-elettrico-a-in-alle-bkw-dubendorf-xbf6ur"
+        "progettista-elettrico-a-in-alle-bkw-dubendorf-xbf6ur",
+        "planificateur-trice-electrique-in-alle-bkw-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20373,10 +20374,10 @@
           "elektroplaner-in-alle-bkw-ch"
         ],
         "fr": [
-          "elektroplaner-in-alle-bkw-ch"
+          "elektroplaner-in-alle-bkw-ch",
+          "planificateur-trice-electrique-in-alle-bkw-dubendorf"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-12T11:50:23.901Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -20857,7 +20858,6 @@
           "technicien-en-electronique-pour-l-energie-et-la-technologie-du-batiment-tous-bkw-zweisimmen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T11:46:38.106Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -23745,9 +23745,9 @@
       "slug": "responsabile-di-progetto-sanitar-alle-bkw-koniz",
       "slugByLocale": {
         "it": "responsabile-di-progetto-sanitar-alle-bkw-koniz",
-        "en": "project-manager-sanitar-alle-bkw-koniz",
+        "en": "project-manager-plumbing-all-bkw-koniz",
         "de": "projektleiter-in-sanitar-alle-bkw-ch",
-        "fr": "chef-de-projet-sanitar-alle-bkw-koniz"
+        "fr": "chef-de-projet-plomberie-tous-bkw-koniz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23792,17 +23792,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-sanitar-alle-bkw-ch"
+        "projektleiter-in-sanitar-alle-bkw-ch",
+        "project-manager-sanitar-alle-bkw-koniz",
+        "chef-de-projet-sanitar-alle-bkw-koniz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-sanitar-alle-bkw-ch"
         ],
         "en": [
-          "projektleiter-in-sanitar-alle-bkw-ch"
+          "projektleiter-in-sanitar-alle-bkw-ch",
+          "project-manager-sanitar-alle-bkw-koniz"
         ],
         "fr": [
-          "projektleiter-in-sanitar-alle-bkw-ch"
+          "projektleiter-in-sanitar-alle-bkw-ch",
+          "chef-de-projet-sanitar-alle-bkw-koniz"
         ]
       },
       "needsRetranslation": true,
