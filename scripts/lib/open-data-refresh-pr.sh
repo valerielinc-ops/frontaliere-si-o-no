@@ -13,7 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
-#     [--optional-path public/images/example] \
+#     [--optional-path data/example-dir] \
 #     [--force] [--resolve-symlinks] [--reconcile-main] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
@@ -101,11 +101,16 @@ done
 # An optional path is one the producer may not have created yet — typically a
 # directory that gets its first file only when the upstream starts publishing
 # that artifact. `git add` aborts on a pathspec that matches nothing (run
-# 37515283217: `fatal: pathspec 'public/images/generated' did not match any
-# files`, and the whole article sync was lost with it). Stage it only when it
+# 37515283217 of the article sync: `fatal: pathspec ... did not match any
+# files`, and the whole refresh was lost with it). Stage it only when it
 # exists on disk or is already tracked: a tracked path that disappeared must
 # still be staged, as a deletion. A required `--path` keeps failing loudly —
 # a typo there must not turn into a silent, empty refresh.
+#
+# Do not spell real repository directories in the comments of this helper:
+# scripts/ci/checkout-profile-analyzer.mjs reads this file as part of every
+# job that calls it, comments included, and a literal bucket path here would
+# make each of those sparse checkouts look like a reader of that bucket.
 if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
   for optional_path in "${OPTIONAL_PATHS[@]}"; do
     if [ -e "$optional_path" ] || [ -L "$optional_path" ] \
