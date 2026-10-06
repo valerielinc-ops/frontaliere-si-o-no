@@ -184,11 +184,20 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
       const cfg = ARTICLE_SECTION_CONFIGS[id];
       expect(cfg.hubSlug).toEqual(core.indexSlug);
       expect(cfg.registryFile).toBe(core.registryFile);
+      expect(cfg.registryRawArrayName).toBe(
+        id === 'frontaliere' ? 'RAW_ARTICLES' : 'RAW_SWISS_ARTICLES',
+      );
       expect(cfg.slugDataFile).toBe(core.slugDataFile);
       expect(cfg.slugsConstName).toBe(core.slugConst);
       expect(cfg.metaPrefix).toBe(core.metaPrefix);
       expect(cfg.bodyDir).toBe(core.bodyDir);
     }
+
+    const createArticleSource = readFileSync(
+      path.resolve(rootDir, 'scripts/create-article.mjs'),
+      'utf-8',
+    );
+    expect(createArticleSource).toContain('SECTION.registryRawArrayName');
   });
 
   it('packages/articles/engine/rssFeeds.mjs RSS_SECTIONS carries the core fields unchanged', () => {
