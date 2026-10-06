@@ -2888,12 +2888,12 @@
     },
     {
       "id": "concordia-bfcf2715a57a",
-      "slug": "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch",
+      "slug": "consulente-clienti-90-100-a-hitzkirch-concordia-hitzkirch",
       "slugByLocale": {
-        "it": "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch",
-        "en": "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch",
+        "it": "consulente-clienti-90-100-a-hitzkirch-concordia-hitzkirch",
+        "en": "client-advisor-90-100-in-hitzkirch-concordia-hitzkirch",
         "de": "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch",
-        "fr": "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch"
+        "fr": "conseiller-ere-a-la-clientele-90-100-a-hitzkirch-concordia-hitzkirch"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -2950,7 +2950,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch"
+        ],
+        "en": [
+          "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch"
+        ],
+        "fr": [
+          "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-90-100-in-hitzkirch-concordia-hitzkirch"
+      ]
     },
     {
       "id": "concordia-dc0fb929aefb",

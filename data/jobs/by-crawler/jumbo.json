@@ -10265,9 +10265,7 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "pensum": "20-50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=163838",
       "requirements": [
@@ -10287,6 +10285,10 @@
       },
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-kusnacht",
+        "consulente-commerciale-in-do-it-jumbo-kusnacht"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-kusnacht",
@@ -10299,14 +10301,9 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-kusnacht",
-        "consulente-commerciale-in-do-it-jumbo-kusnacht"
-      ],
       "firstSeenAt": "2026-09-08T23:25:12.114Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -10320,7 +10317,9 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "jumbo-1c5a0143-d25",
@@ -14415,9 +14414,7 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "pensum": "20-50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167346",
       "requirements": [
@@ -14445,7 +14442,6 @@
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
           "verkaufsberater-in-deco-jumbo-chur"
         ]
       },
@@ -14462,7 +14458,9 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "jumbo-7cd53977-7be",
@@ -16565,8 +16563,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-munsingen",
         "it": "verkaufsberater-in-garden-jumbo-munsingen",
-        "en": "verkaufsberater-in-garden-jumbo-munsingen",
-        "fr": "verkaufsberater-in-garden-jumbo-munsingen"
+        "en": "garden-sales-consultant-jumbo-munsingen-a00d26",
+        "fr": "conseiller-de-vente-a-garden-jumbo-munsingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16647,8 +16645,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-aarberg",
         "it": "verkaufsberater-in-garten-jumbo-aarberg",
-        "en": "verkaufsberater-in-garten-jumbo-aarberg",
-        "fr": "verkaufsberater-in-garten-jumbo-aarberg"
+        "en": "garden-sales-consultant-jumbo-aarberg",
+        "fr": "conseiller-de-vente-dans-le-jardin-jumbo-aarberg"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16822,8 +16820,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-dietlikon",
         "it": "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "en": "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "fr": "verkaufsberater-in-do-it-jumbo-dietlikon"
+        "en": "sales-consultant-do-it-jumbo-dietlikon",
+        "fr": "conseiller-de-vente-in-do-it-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17000,8 +16998,8 @@
       "slugByLocale": {
         "de": "verkaufer-in-kassen-servies-jumbo-chur",
         "it": "verkaufer-in-kassen-servies-jumbo-chur",
-        "en": "verkaufer-in-kassen-servies-jumbo-chur",
-        "fr": "verkaufer-in-kassen-servies-jumbo-chur"
+        "en": "vendor-cash-registers-dinnerware-jumbo-chur",
+        "fr": "vendeur-dans-les-caisses-services-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",

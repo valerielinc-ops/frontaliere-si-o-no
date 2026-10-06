@@ -13851,9 +13851,9 @@
       "slug": "prozessmanager-in-digitalisierung-automatisierung-post",
       "slugByLocale": {
         "it": "prozessmanager-in-digitalisierung-automatisierung-post",
-        "en": "prozessmanager-in-digitalisierung-automatisierung-post",
+        "en": "process-manager-digitisation-automation-die-schweizerische-post-bern",
         "de": "prozessmanager-in-digitalisierung-automatisierung-post",
-        "fr": "prozessmanager-in-digitalisierung-automatisierung-post"
+        "fr": "responsable-des-processus-dans-la-numerisation-et-l-automatisation-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -13996,12 +13996,12 @@
         "fr": "Gestionnaire de consentement",
         "it": "Responsabile del Consenso"
       },
-      "slug": "consent-manager-in-post",
+      "slug": "responsabile-del-consenso-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "consent-manager-in-post",
+        "it": "responsabile-del-consenso-die-schweizerische-post-bern",
         "en": "consent-manager-in-post",
         "de": "consent-manager-in-post",
-        "fr": "consent-manager-in-die-schweizerische-post-bern"
+        "fr": "gestionnaire-de-consentement-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -14038,7 +14038,19 @@
       "firstSeenAt": "2026-09-30T21:46:39.487Z",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "previousSlugsByLocale": {
+        "it": [
+          "consent-manager-in-post"
+        ],
+        "fr": [
+          "consent-manager-in-die-schweizerische-post-bern"
+        ]
+      },
+      "previousSlugs": [
+        "consent-manager-in-post",
+        "consent-manager-in-die-schweizerische-post-bern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74503-de_DE",

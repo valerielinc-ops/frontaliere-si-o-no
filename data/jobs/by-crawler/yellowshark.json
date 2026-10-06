@@ -61577,9 +61577,9 @@
     },
     {
       "id": "yellowshark-f356a6ae8550",
-      "slug": "specialista-di-assemblaggio-m-f-100-yellowshark-ag-dietikon-zh",
+      "slug": "montatore-m-f-100-yellowshark-ag-dietikon-zh",
       "slugByLocale": {
-        "it": "specialista-di-assemblaggio-m-f-100-yellowshark-ag-dietikon-zh",
+        "it": "montatore-m-f-100-yellowshark-ag-dietikon-zh",
         "en": "assembly-specialist-m-f-100-yellowshark-ag-dietikon-zh",
         "de": "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch",
         "fr": "specialiste-de-l-assemblage-h-f-100-yellowshark-ag-dietikon-zh"
@@ -61626,11 +61626,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch"
+        "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch",
+        "specialista-di-assemblaggio-m-f-100-yellowshark-ag-dietikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch"
+          "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch",
+          "specialista-di-assemblaggio-m-f-100-yellowshark-ag-dietikon-zh"
         ],
         "en": [
           "montagefachmann-m-w-100-dietikon-zh-yellowshark-ch"
@@ -63258,7 +63260,7 @@
         "it": "ingegnere-di-progettazione-ingegnere-meccanico-hf-80-100-m-f-yellowshark-ag-uster-zh",
         "en": "design-engineer-mechanical-engineer-hf-80-100-m-f-yellowshark-ag-uster-zh",
         "de": "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch",
-        "fr": "ingenieur-de-conception-ingenieur-mecanique-hf-80-100-h-f-yellowshark-ag-uster-zh"
+        "fr": "concepteur-technicien-en-genie-mecanique-hf-80-100-h-f-yellowshark-ag-uster-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -63302,7 +63304,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch"
+        "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch",
+        "ingenieur-de-conception-ingenieur-mecanique-hf-80-100-h-f-yellowshark-ag-uster-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63312,7 +63315,8 @@
           "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch"
         ],
         "fr": [
-          "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch"
+          "konstrukteur-maschinenbautechniker-hf-80-100-m-w-uster-zh-yellowshark-ch",
+          "ingenieur-de-conception-ingenieur-mecanique-hf-80-100-h-f-yellowshark-ag-uster-zh"
         ]
       },
       "needsRetranslation": true,

@@ -3141,12 +3141,12 @@
     },
     {
       "id": "etat-de-fribourg-5110c2ce77ab",
-      "slug": "wirtschaftswissenschaftler-in-etat-de-fribourg-ch",
+      "slug": "economista-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "wirtschaftswissenschaftler-in-etat-de-fribourg-ch",
-        "en": "wirtschaftswissenschaftler-in-etat-de-fribourg-ch",
+        "it": "economista-etat-de-fribourg-fribourg",
+        "en": "economist-etat-de-fribourg-fribourg-612699",
         "de": "wirtschaftswissenschaftler-in-etat-de-fribourg-ch",
-        "fr": "wirtschaftswissenschaftler-in-etat-de-fribourg-ch"
+        "fr": "economiste-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3207,13 +3207,27 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "wirtschaftswissenschaftler-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "wirtschaftswissenschaftler-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "wirtschaftswissenschaftler-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wirtschaftswissenschaftler-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -3265,13 +3279,15 @@
       "previousSlugs": [
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg"
+        "economista-etat-de-fribourg-fribourg",
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg"
+          "economista-etat-de-fribourg-fribourg",
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"

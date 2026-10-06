@@ -833,12 +833,12 @@
     },
     {
       "id": "pfister-db11ffe62156",
-      "slug": "monteurin-schreinerin-pfister-wil",
+      "slug": "montatrice-falegname-mobel-pfister-ag-wil",
       "slugByLocale": {
-        "it": "monteurin-schreinerin-pfister-wil",
-        "en": "monteurin-schreinerin-pfister-wil",
+        "it": "montatrice-falegname-mobel-pfister-ag-wil",
+        "en": "mechanic-carpenter-mobel-pfister-ag-wil",
         "de": "monteurin-schreinerin-pfister-wil",
-        "fr": "monteurin-schreinerin-pfister-wil"
+        "fr": "monteur-menuisiere-mobel-pfister-ag-wil"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -898,7 +898,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "monteurin-schreinerin-pfister-wil"
+        ],
+        "en": [
+          "monteurin-schreinerin-pfister-wil"
+        ],
+        "fr": [
+          "monteurin-schreinerin-pfister-wil"
+        ]
+      },
+      "previousSlugs": [
+        "monteurin-schreinerin-pfister-wil"
+      ]
     },
     {
       "id": "pfister-08e493ce823e",

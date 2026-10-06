@@ -2043,11 +2043,11 @@
     },
     {
       "id": "ehc-vd-a9236183f888",
-      "slug": "stagiaire-mpc-f-h-ehc-vd-morges",
+      "slug": "tirocinante-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "stagiaire-mpc-f-h-ehc-vd-morges",
-        "en": "stagiaire-mpc-f-h-ehc-vd-morges",
-        "de": "stagiaire-mpc-f-h-ehc-vd-morges",
+        "it": "tirocinante-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "mpc-trainee-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "mpc-praktikant-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "stagiaire-mpc-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -2095,17 +2095,21 @@
       "previousSlugs": [
         "interno-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "intern-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "interne-mpc-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "interne-mpc-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "stagiaire-mpc-f-h-ehc-vd-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interno-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "interno-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "stagiaire-mpc-f-h-ehc-vd-morges"
         ],
         "en": [
-          "intern-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "intern-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "stagiaire-mpc-f-h-ehc-vd-morges"
         ],
         "de": [
-          "interne-mpc-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "interne-mpc-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "stagiaire-mpc-f-h-ehc-vd-morges"
         ]
       },
       "firstSeenAt": "2026-10-01T09:15:43.316Z",
@@ -4525,7 +4529,7 @@
       "slugByLocale": {
         "it": "infermiere-di-riferimento-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "reference-nurse-of-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "referenzkrankenschwester-von-cat-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "uberweisende-rkrankenpfleger-in-cat-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4571,7 +4575,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
+        "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges",
+        "referenzkrankenschwester-von-cat-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4581,7 +4586,8 @@
           "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
         ],
         "de": [
-          "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
+          "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges",
+          "referenzkrankenschwester-von-cat-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-30T21:13:04.767Z",

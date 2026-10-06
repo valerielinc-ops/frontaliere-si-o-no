@@ -773,17 +773,14 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/post-doc/e8df5fc9-e88d-4b27-8861-73a643679d3f",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -793,8 +790,7 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -813,7 +809,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-01",
+      "postingDateSource": "reported"
     },
     {
       "id": "unibe-b827ab1f5526",
@@ -4128,7 +4126,7 @@
         "it": "projektmanager-in-kommunikation-e-marketing-80-universitat-bern",
         "en": "projektmanager-in-kommunikation-und-marketing-80-universitat-bern-bern",
         "de": "projektmanager-in-kommunikation-und-marketing-80-unibe-bern",
-        "fr": "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
+        "fr": "chef-fe-de-projet-communication-et-marketing-80-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4178,6 +4176,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
+        ],
+        "fr": [
           "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
         ]
       },

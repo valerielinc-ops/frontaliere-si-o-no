@@ -692,7 +692,7 @@
       "slug": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-altstetten",
       "slugByLocale": {
         "it": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-altstetten",
-        "en": "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-zurich-altstetten",
+        "en": "specialist-in-hr-processes-system-implementation-for-a-limited-time-until-the-end-of-2027-kantonale-verwaltung-zurich",
         "de": "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kanton-zuerich",
         "fr": "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-zurich-altstetten"
       },
@@ -743,11 +743,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kanton-zuerich"
+        "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kanton-zuerich",
+        "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kanton-zuerich"
+        ],
+        "en": [
+          "fachspezialist-in-hr-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:17.115Z",
@@ -6460,12 +6464,12 @@
     },
     {
       "id": "kanton-zuerich-4b6b50783032",
-      "slug": "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
+      "slug": "assistente-sociale-scolastico-a-scuola-elementare-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
       "slugByLocale": {
-        "it": "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
-        "en": "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "it": "assistente-sociale-scolastico-a-scuola-elementare-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "en": "school-social-worker-primary-school-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis",
         "de": "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kanton-zuerich-affoltern-am-albis",
-        "fr": "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
+        "fr": "travailleur-social-scolaire-a-l-ecole-primaire-d-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6513,11 +6517,19 @@
       "pensumMax": 75,
       "pensum": "55 - 75%",
       "previousSlugs": [
-        "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kanton-zuerich-affoltern-am-albis"
+        "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kanton-zuerich-affoltern-am-albis",
+        "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kanton-zuerich-affoltern-am-albis"
+          "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kanton-zuerich-affoltern-am-albis",
+          "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-primarschule-affoltern-am-albis-kantonale-verwaltung-zurich-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-09-30T21:30:47.904Z",

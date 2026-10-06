@@ -2864,8 +2864,8 @@
       "slug": "manor-collaborateur-trice-caisse-home-menage-etudiant-e-20-biel",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-home-menage-etudiant-e-20-biel",
-        "en": "collaborator-caisse-home-menage-student-20-manor-ag-biel",
-        "de": "mitarbeiter-caisse-home-menage-student-20-manor-ag-biel",
+        "en": "employee-cashier-home-household-student-20-manor-ag-biel",
+        "de": "mitarbeiter-in-kasse-home-haushalt-student-in-20-manor-ag-biel",
         "fr": "manor-collaborateur-trice-caisse-home-menage-etudiant-e-20-biel"
       },
       "titleByLocale": {
@@ -2893,7 +2893,19 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Biel-Collaborateurtrice-Caisse-%28HomeM%C3%A9nage%29-Etudiante-20/1370042755/"
+      "applyUrl": "https://positions.manor.ch/job/Biel-Collaborateurtrice-Caisse-%28HomeM%C3%A9nage%29-Etudiante-20/1370042755/",
+      "previousSlugsByLocale": {
+        "en": [
+          "collaborator-caisse-home-menage-student-20-manor-ag-biel"
+        ],
+        "de": [
+          "mitarbeiter-caisse-home-menage-student-20-manor-ag-biel"
+        ]
+      },
+      "previousSlugs": [
+        "collaborator-caisse-home-menage-student-20-manor-ag-biel",
+        "mitarbeiter-caisse-home-menage-student-20-manor-ag-biel"
+      ]
     },
     {
       "title": "Kassierer/in (Home/Hausalt) Student*in 20%",
@@ -2920,12 +2932,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-kassierer-in-home-hausalt-student-in-20-biel",
+      "slug": "cassiere-a-home-domestico-a-studente-a-al-20-manor-ag-biel",
       "slugByLocale": {
-        "it": "manor-kassierer-in-home-hausalt-student-in-20-biel",
-        "en": "manor-kassierer-in-home-hausalt-student-in-20-biel",
+        "it": "cassiere-a-home-domestico-a-studente-a-al-20-manor-ag-biel",
+        "en": "cashier-home-student-20-manor-ag-biel",
         "de": "manor-kassierer-in-home-hausalt-student-in-20-biel",
-        "fr": "manor-kassierer-in-home-hausalt-student-in-20-biel"
+        "fr": "caissier-home-hausalt-etudiant-e-20-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Cassiere/a (Home/Domestico/a) Studente/a al 20%",
@@ -2951,7 +2963,21 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Biel-Kassiererin-%28HomeHausalt%29-Studentin-20/1370042655/"
+      "applyUrl": "https://positions.manor.ch/job/Biel-Kassiererin-%28HomeHausalt%29-Studentin-20/1370042655/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-kassierer-in-home-hausalt-student-in-20-biel"
+        ],
+        "en": [
+          "manor-kassierer-in-home-hausalt-student-in-20-biel"
+        ],
+        "fr": [
+          "manor-kassierer-in-home-hausalt-student-in-20-biel"
+        ]
+      },
+      "previousSlugs": [
+        "manor-kassierer-in-home-hausalt-student-in-20-biel"
+      ]
     },
     {
       "title": "Assistant/e Floor Manager 100%",
@@ -13136,9 +13162,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-jouets-40-manor-ag-biel",
+      "slug": "collaboratore-trice-vendita-giocattoli-40-manor-ag-biel",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-jouets-40-manor-ag-biel",
+        "it": "collaboratore-trice-vendita-giocattoli-40-manor-ag-biel",
         "en": "collaborator-sales-players-40-manor-ag-biel",
         "de": "mitarbeiterverkaufe-spieler-40-manor-ag-biel",
         "fr": "manor-collaborateur-trice-vente-jouets-40-biel"
@@ -13153,12 +13179,14 @@
       "id": "manor-a5b0961b160a",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-40-biel",
-        "vendite-di-collaboratore-players-40-manor-ag-biel"
+        "vendite-di-collaboratore-players-40-manor-ag-biel",
+        "collaborateur-trice-vente-jouets-40-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-40-biel",
-          "vendite-di-collaboratore-players-40-manor-ag-biel"
+          "vendite-di-collaboratore-players-40-manor-ag-biel",
+          "collaborateur-trice-vente-jouets-40-manor-ag-biel"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-40-biel"
@@ -13951,9 +13979,9 @@
       "slug": "collaboratore-trice-in-logistik-30-manor-ag-wattwil",
       "slugByLocale": {
         "it": "collaboratore-trice-in-logistik-30-manor-ag-wattwil",
-        "en": "manor-mitarbeiter-in-logistik-30-wattwil",
+        "en": "logistics-employee-30-manor-ag-wattwil",
         "de": "manor-mitarbeiter-in-logistik-30-wattwil",
-        "fr": "manor-mitarbeiter-in-logistik-30-wattwil"
+        "fr": "employe-e-logistique-30-manor-ag-wattwil"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 30%",
@@ -13968,6 +13996,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-logistik-30-wattwil"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-logistik-30-wattwil"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-logistik-30-wattwil"
         ]
       },
@@ -14326,9 +14360,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-caisse-papeterie-50-manor-ag-geneve",
+      "slug": "collaboratore-trice-cassa-cartoleria-50-manor-ag-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-caisse-papeterie-50-manor-ag-geneve",
+        "it": "collaboratore-trice-cassa-cartoleria-50-manor-ag-geneve",
         "en": "collaborator-caisse-papetery-50-manor-ag-geneve",
         "de": "mitarbeiter-caisse-papeterie-50-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-caisse-papeterie-50-geneve"
@@ -14343,12 +14377,14 @@
       "id": "manor-5a45d3480c25",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-papeterie-50-geneve",
-        "collaboratore-caisse-papetery-50-manor-ag-geneve"
+        "collaboratore-caisse-papetery-50-manor-ag-geneve",
+        "collaborateur-trice-caisse-papeterie-50-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-papeterie-50-geneve",
-          "collaboratore-caisse-papetery-50-manor-ag-geneve"
+          "collaboratore-caisse-papetery-50-manor-ag-geneve",
+          "collaborateur-trice-caisse-papeterie-50-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-papeterie-50-geneve"
@@ -14401,9 +14437,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-jouets-lego-50-manor-ag-geneve",
+      "slug": "collaboratore-trice-vendita-giocattoli-lego-50-manor-ag-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-jouets-lego-50-manor-ag-geneve",
+        "it": "collaboratore-trice-vendita-giocattoli-lego-50-manor-ag-geneve",
         "en": "collaborator-sales-players-lego-50-manor-ag-geneve",
         "de": "mitarbeiterverkaufe-spieler-lego-50-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
@@ -14418,12 +14454,14 @@
       "id": "manor-9d730898306f",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
-        "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
+        "vendite-di-collaboratore-players-lego-50-manor-ag-geneve",
+        "collaborateur-trice-vente-jouets-lego-50-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
-          "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
+          "vendite-di-collaboratore-players-lego-50-manor-ag-geneve",
+          "collaborateur-trice-vente-jouets-lego-50-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
@@ -14549,9 +14587,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-jouets-40-manor-ag-geneve",
+      "slug": "collaboratore-trice-vendita-giocattoli-40-manor-ag-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-jouets-40-manor-ag-geneve",
+        "it": "collaboratore-trice-vendita-giocattoli-40-manor-ag-geneve",
         "en": "collaborator-sales-players-40-manor-ag-geneve",
         "de": "mitarbeiterverkaufe-spieler-40-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-vente-jouets-40-geneve"
@@ -14566,12 +14604,14 @@
       "id": "manor-0fa3e9eb3375",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-40-geneve",
-        "vendite-di-collaboratore-players-40-manor-ag-geneve"
+        "vendite-di-collaboratore-players-40-manor-ag-geneve",
+        "collaborateur-trice-vente-jouets-40-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-40-geneve",
-          "vendite-di-collaboratore-players-40-manor-ag-geneve"
+          "vendite-di-collaboratore-players-40-manor-ag-geneve",
+          "collaborateur-trice-vente-jouets-40-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-40-geneve"
@@ -14623,11 +14663,11 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+      "slug": "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-        "en": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-        "de": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "it": "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey",
+        "en": "sales-associate-gentlemen-s-tailoring-80-manor-ag-monthey",
+        "de": "vertriebsmitarbeiter-in-konfektion-herren-80-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
       },
       "titleByLocale": {
@@ -14641,13 +14681,21 @@
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
         "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
           "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
         ]
       },
       "needsRetranslation": true,
@@ -14694,9 +14742,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey",
+      "slug": "collaboratore-trice-vendita-confezione-signori-50-manor-ag-monthey",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey",
+        "it": "collaboratore-trice-vendita-confezione-signori-50-manor-ag-monthey",
         "en": "sales-collaborator-means-50-manor-ag-monthey",
         "de": "sales-collaborator-mittel-50-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-vente-confection-messieurs-50-monthey"
@@ -14711,12 +14759,14 @@
       "id": "manor-6e302bc6d131",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-50-monthey",
-        "collaboratore-di-vendita-mezzi-50-manor-ag-monthey"
+        "collaboratore-di-vendita-mezzi-50-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-50-monthey",
-          "collaboratore-di-vendita-mezzi-50-manor-ag-monthey"
+          "collaboratore-di-vendita-mezzi-50-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-50-monthey"
@@ -14845,9 +14895,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-caisse-parfumerie-60-manor-ag-monthey",
+      "slug": "collaboratore-trice-cassa-profumeria-60-manor-ag-monthey",
       "slugByLocale": {
-        "it": "collaborateur-trice-caisse-parfumerie-60-manor-ag-monthey",
+        "it": "collaboratore-trice-cassa-profumeria-60-manor-ag-monthey",
         "en": "collaborator-caisse-parfumerie-60-manor-ag-monthey",
         "de": "mitarbeiter-caisse-parfumerie-60-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
@@ -14862,12 +14912,14 @@
       "id": "manor-f9b3e42d1e90",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
-        "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
+        "collaboratore-caisse-parfumerie-60-manor-ag-monthey",
+        "collaborateur-trice-caisse-parfumerie-60-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
-          "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
+          "collaboratore-caisse-parfumerie-60-manor-ag-monthey",
+          "collaborateur-trice-caisse-parfumerie-60-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
@@ -15406,9 +15458,9 @@
       "slug": "collaboratore-trice-in-kasse-home-haushalt-50-manor-ag-biel",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-home-haushalt-50-manor-ag-biel",
-        "en": "manor-mitarbeiter-in-kasse-home-haushalt-50-biel",
+        "en": "employeecash-register-home-household-50-manor-ag-biel",
         "de": "manor-mitarbeiter-in-kasse-home-haushalt-50-biel",
-        "fr": "manor-mitarbeiter-in-kasse-home-haushalt-50-biel"
+        "fr": "employe-e-en-caisse-maison-et-menage-50-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse (Home & Haushalt) 50%",
@@ -15423,6 +15475,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-kasse-home-haushalt-50-biel"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-home-haushalt-50-biel"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-kasse-home-haushalt-50-biel"
         ]
       },
@@ -15545,9 +15603,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-parfumerie-50-manor-ag-biel",
+      "slug": "collaboratore-trice-vendita-profumeria-50-manor-ag-biel",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-parfumerie-50-manor-ag-biel",
+        "it": "collaboratore-trice-vendita-profumeria-50-manor-ag-biel",
         "en": "sales-collaborator-parfumerie-50-manor-ag-biel",
         "de": "vertriebsmitarbeiter-parfumerie-50-manor-ag-biel",
         "fr": "manor-collaborateur-trice-vente-parfumerie-50-biel"
@@ -15562,12 +15620,14 @@
       "id": "manor-85548a3a4dd9",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-parfumerie-50-biel",
-        "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
+        "collaboratore-di-vendita-parfumerie-50-manor-ag-biel",
+        "collaborateur-trice-vente-parfumerie-50-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-parfumerie-50-biel",
-          "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
+          "collaboratore-di-vendita-parfumerie-50-manor-ag-biel",
+          "collaborateur-trice-vente-parfumerie-50-manor-ag-biel"
         ],
         "en": [
           "manor-collaborateur-trice-vente-parfumerie-50-biel"
@@ -15783,9 +15843,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-jouets-playmobil-45-manor-ag-geneve",
+      "slug": "collaboratore-trice-vendita-giocattoli-playmobil-45-manor-ag-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-jouets-playmobil-45-manor-ag-geneve",
+        "it": "collaboratore-trice-vendita-giocattoli-playmobil-45-manor-ag-geneve",
         "en": "collaborator-sales-players-playmobil-45-manor-ag-geneve",
         "de": "mitarbeiterverkaufe-spieler-playmobil-45-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
@@ -15800,12 +15860,14 @@
       "id": "manor-266b6983a541",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
-        "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
+        "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve",
+        "collaborateur-trice-vente-jouets-playmobil-45-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
-          "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
+          "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve",
+          "collaborateur-trice-vente-jouets-playmobil-45-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
@@ -15857,9 +15919,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+      "slug": "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey-58bcb9",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+        "it": "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey-58bcb9",
         "en": "sales-collaborator-confection-gentlemen-80-manor-ag-monthey",
         "de": "vertriebsmitarbeiter-confection-gentlemen-80-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekezd"
@@ -15879,7 +15941,8 @@
         "sales-collaborator-means-80-manor-ag-monthey",
         "sales-collaborator-mittel-80-manor-ag-monthey",
         "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
-        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816"
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15889,7 +15952,8 @@
           "sales-collaborator-means-80-manor-ag-monthey",
           "sales-collaborator-mittel-80-manor-ag-monthey",
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
-          "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816"
+          "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
@@ -15946,9 +16010,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-bijouterie-80-manor-ag-monthey",
+      "slug": "collaboratore-trice-vendita-gioielleria-80-manor-ag-monthey",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-bijouterie-80-manor-ag-monthey",
+        "it": "collaboratore-trice-vendita-gioielleria-80-manor-ag-monthey",
         "en": "sales-collaborator-bijouterie-80-manor-ag-monthey",
         "de": "vertriebsmitarbeiter-bijouterie-80-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-vente-bijouterie-80-monthey"
@@ -15963,12 +16027,14 @@
       "id": "manor-005825701d1d",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-bijouterie-80-monthey",
-        "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
+        "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey",
+        "collaborateur-trice-vente-bijouterie-80-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-bijouterie-80-monthey",
-          "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
+          "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey",
+          "collaborateur-trice-vente-bijouterie-80-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-bijouterie-80-monthey"
@@ -16020,9 +16086,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-caisse-parfumerie-80-manor-ag-monthey",
+      "slug": "collaboratore-trice-cassa-profumeria-80-manor-ag-monthey",
       "slugByLocale": {
-        "it": "collaborateur-trice-caisse-parfumerie-80-manor-ag-monthey",
+        "it": "collaboratore-trice-cassa-profumeria-80-manor-ag-monthey",
         "en": "collaborator-caisse-parfumerie-80-manor-ag-monthey",
         "de": "mitarbeiter-caisse-parfumerie-80-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
@@ -16037,12 +16103,14 @@
       "id": "manor-bb62efc7c940",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-parfumerie-80-monthey",
-        "collaboratore-caisse-parfumerie-80-manor-ag-monthey"
+        "collaboratore-caisse-parfumerie-80-manor-ag-monthey",
+        "collaborateur-trice-caisse-parfumerie-80-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-parfumerie-80-monthey",
-          "collaboratore-caisse-parfumerie-80-manor-ag-monthey"
+          "collaboratore-caisse-parfumerie-80-manor-ag-monthey",
+          "collaborateur-trice-caisse-parfumerie-80-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
@@ -16725,9 +16793,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey",
+      "slug": "collaboratore-trice-vendita-confezione-signori-60-manor-ag-monthey",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey",
+        "it": "collaboratore-trice-vendita-confezione-signori-60-manor-ag-monthey",
         "en": "sales-collaborator-means-60-manor-ag-monthey",
         "de": "sales-collaborator-mittel-60-manor-ag-monthey",
         "fr": "manor-collaborateur-trice-vente-confection-messieurs-60-monthey"
@@ -16742,12 +16810,14 @@
       "id": "manor-1a22d0cd4c7f",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-60-monthey",
-        "collaboratore-di-vendita-means-60-manor-ag-monthey"
+        "collaboratore-di-vendita-means-60-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-60-monthey",
-          "collaboratore-di-vendita-means-60-manor-ag-monthey"
+          "collaboratore-di-vendita-means-60-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-60-monthey"
@@ -17143,9 +17213,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-collaboratore-trice-servizio-manora-70-locarno",
+      "slug": "collaborator-servizio-manora-70-manor-ag-locarno",
       "slugByLocale": {
-        "it": "manor-collaboratore-trice-servizio-manora-70-locarno",
+        "it": "collaborator-servizio-manora-70-manor-ag-locarno",
         "en": "manor-collaboratore-trice-servizio-manora-70-locarno",
         "de": "manor-collaboratore-trice-servizio-manora-70-locarno",
         "fr": "manor-collaboratore-trice-servizio-manora-70-locarno"
@@ -17174,7 +17244,15 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-70/1370049255/"
+      "applyUrl": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-70/1370049255/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaboratore-trice-servizio-manora-70-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaboratore-trice-servizio-manora-70-locarno"
+      ]
     },
     {
       "title": "Collaboratore/trice cassa (Confezione Uomo) 40%",

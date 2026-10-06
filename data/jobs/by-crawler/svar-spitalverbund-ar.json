@@ -316,12 +316,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-ee5d81091caa",
-      "slug": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "responsabile-della-clinica-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "responsabile-della-clinica-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "clinic-manager-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "gestionnaire-de-clinique-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -378,7 +378,21 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-d5ec90065bfe",

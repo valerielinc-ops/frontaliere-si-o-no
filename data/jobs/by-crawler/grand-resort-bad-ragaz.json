@@ -1883,9 +1883,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-bbcb25e8dcc7",
-      "slug": "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "massaggiatore-80-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "massaggiatore-80-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1946,7 +1946,15 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-6a666960b8ea",
