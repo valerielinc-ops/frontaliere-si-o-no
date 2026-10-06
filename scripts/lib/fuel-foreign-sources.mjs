@@ -210,7 +210,10 @@ export async function fetchGermanStations({
       failures.push(`${canton}: fewer than ${MIN_STATIONS_PER_RECORD} stations per fuel (${insufficient.join(', ')})`);
     }
   }
-  if (rejectedReason) return { status: 'skipped', reason: rejectedReason, data: byCanton, coverage };
+  // A rejected key invalidates the whole DE overlay, including groups fetched
+  // before the rejection. Do not publish a partial snapshot while advertising
+  // `skipped` health to downstream consumers.
+  if (rejectedReason) return { status: 'skipped', reason: rejectedReason, data: {}, coverage: {} };
   const total = Object.values(byCanton).reduce((n, list) => n + list.length, 0);
   if (!total) return { status: 'failed', reason: failures.join('; ') || 'empty response', data: byCanton, coverage };
   return {
