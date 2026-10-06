@@ -40,6 +40,136 @@ function stripScriptsAndStyles(html = '') {
     .replace(/<style[\s\S]*?<\/style>/gi, '');
 }
 
+function findTagEnd(html: string, start: number): number {
+  let quote = '';
+  for (let index = start + 1; index < html.length; index += 1) {
+    const char = html[index];
+    if (quote) {
+      if (char === quote) quote = '';
+    } else if (char === '"' || char === "'") {
+      quote = char;
+    } else if (char === '>') {
+      return index;
+    }
+  }
+  return -1;
+}
+
+function readTag(html: string, start: number): { closing: boolean; end: number; name: string; selfClosing: boolean } | null {
+  if (html[start] !== '<') return null;
+  const closing = html[start + 1] === '/';
+  const nameStart = start + (closing ? 2 : 1);
+  const nameMatch = /^[A-Za-z][A-Za-z0-9:_-]*/.exec(html.slice(nameStart));
+  if (!nameMatch) return null;
+  const nameEnd = nameStart + nameMatch[0].length;
+  const boundary = html[nameEnd] ?? '';
+  if (boundary && !/[\s/>]/.test(boundary)) return null;
+  const end = findTagEnd(html, start);
+  if (end < 0) return null;
+  return {
+    closing,
+    end,
+    name: nameMatch[0].toLowerCase(),
+    selfClosing: !closing && /\/\s*$/.test(html.slice(nameStart, end)),
+  };
+}
+
+function skipComment(html: string, start: number): number {
+  const end = html.indexOf('-->', start + 4);
+  return end < 0 ? -1 : end + 3;
+}
+
+function skipRawTextElement(html: string, afterOpening: number, name: string): number {
+  const closing = new RegExp(`</${name}\\s*>`, 'ig');
+  closing.lastIndex = afterOpening;
+  const match = closing.exec(html);
+  return match ? match.index + match[0].length : -1;
+}
+
+function skipTemplateElement(html: string, afterOpening: number): number {
+  let depth = 1;
+  let cursor = afterOpening;
+  while (cursor < html.length) {
+    const start = html.indexOf('<', cursor);
+    if (start < 0) return html.length;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0) return html.length;
+      cursor = afterComment;
+      continue;
+    }
+    const tag = readTag(html, start);
+    if (!tag) {
+      cursor = start + 1;
+      continue;
+    }
+    if (tag.name === 'template') {
+      if (tag.closing) {
+        depth -= 1;
+        if (depth === 0) return tag.end + 1;
+      } else if (!tag.selfClosing) {
+        depth += 1;
+      }
+    } else if (!tag.closing && !tag.selfClosing && (tag.name === 'script' || tag.name === 'style')) {
+      const afterRawText = skipRawTextElement(html, tag.end + 1, tag.name);
+      if (afterRawText < 0) return html.length;
+      cursor = afterRawText;
+      continue;
+    }
+    cursor = tag.end + 1;
+  }
+  return html.length;
+}
+
+/**
+ * Keep only active document markup when extracting metadata. Comments,
+ * scripts, styles, and templates can contain stale OG tags that are not part
+ * of the rendered page but would otherwise be copied into the redirect
+ * bridge. Template depth is tracked so nested templates remain inactive.
+ */
+function maskInactiveMarkup(html = '') {
+  const source = String(html || '');
+  const output = source.split('');
+  const blank = (start: number, end: number) => {
+    for (let index = start; index < end; index += 1) output[index] = ' ';
+  };
+  let cursor = 0;
+  while (cursor < source.length) {
+    const start = source.indexOf('<', cursor);
+    if (start < 0) break;
+    if (source.startsWith('<!--', start)) {
+      const afterComment = skipComment(source, start);
+      if (afterComment < 0) {
+        blank(start, source.length);
+        break;
+      }
+      blank(start, afterComment);
+      cursor = afterComment;
+      continue;
+    }
+    const tag = readTag(source, start);
+    if (!tag) {
+      cursor = start + 1;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && (tag.name === 'script' || tag.name === 'style')) {
+      const afterRawText = skipRawTextElement(source, tag.end + 1, tag.name);
+      const afterInactive = afterRawText < 0 ? source.length : afterRawText;
+      blank(start, afterInactive);
+      cursor = afterInactive;
+      continue;
+    }
+    if (tag.name === 'template' && !tag.closing && !tag.selfClosing) {
+      const afterTemplate = skipTemplateElement(source, tag.end + 1);
+      blank(start, afterTemplate);
+      cursor = afterTemplate;
+      continue;
+    }
+    cursor = tag.end + 1;
+  }
+  return output.join('');
+}
+
 /**
  * Extract og:* / description meta tags from the sibling index.html
  * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
@@ -61,7 +191,7 @@ export function extractOgTags(indexHtml: string): string {
   const metaRx = /<meta\b[^>]*\/?>/gi;
   const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
   let match: RegExpExecArray | null;
-  while ((match = metaRx.exec(indexHtml))) {
+  while ((match = metaRx.exec(maskInactiveMarkup(indexHtml)))) {
     const tag = match[0];
     attrRx.lastIndex = 0;
     const attrs: Record<string, string> = {};
@@ -119,7 +249,7 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
   try {
-    const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
+    const titleMatch = maskInactiveMarkup(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
       const extracted = titleMatch[1].trim();
       if (extracted.length > 0) {
@@ -133,4 +263,4 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   return NOINDEX_BRIDGE(slashUrl, title, ogTags);
 }
 
-export { stripScriptsAndStyles };
+export { maskInactiveMarkup, stripScriptsAndStyles };
