@@ -4,7 +4,6 @@ import os from 'node:os';
 import path from 'node:path';
 import { CODEX_FALLBACK_MODEL } from './codex-fallback-contract.mjs';
 import { GH_MODELS_URL } from './gh-models-endpoint.mjs';
-import { getFirestoreDb } from './firestore-admin.mjs';
 
 /**
  * Centralized AI Model Service — v15 (free-only, 115+ models, 14 providers)
@@ -3147,17 +3146,17 @@ export async function initScoreStore() {
   _storeInitialized = true;
 
   try {
-    // Keep the store in-memory when the workflow did not provide a service
-    // account, but use the shared helper whenever Firestore is enabled so its
-    // read is attributed to this job as well.
-    const hasServiceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS
-      || process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
-    const { FieldValue } = await import('firebase-admin/firestore');
-    if (!hasServiceAccount) {
-      console.warn('⚠️  [ScoreStore] No Firebase service account — using in-memory scores only');
-      return;
+    // Lazy-import Firebase Admin (same pattern as load-rc-env.mjs)
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
+      if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+        console.warn('⚠️  [ScoreStore] No GOOGLE_APPLICATION_CREDENTIALS — using in-memory scores only');
+        return;
+      }
+      initializeApp({ credential: applicationDefault() });
     }
-    _firestoreDb = await getFirestoreDb();
+    _firestoreDb = getFirestore();
     // Atomic counter increments (see _pendingCounterDeltas). Captured here and
     // not re-imported at write time because this is the only place that already
     // holds the Firestore module. There is no REST fallback to worry about: unlike
