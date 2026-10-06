@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
 // A small, dependency-free lease for the two client article registries.
 //
@@ -13,8 +14,6 @@
 
 import fs from 'node:fs';
 import { createHash, createHmac, randomUUID } from 'node:crypto';
-import { pathToFileURL } from 'node:url';
-
 export const ARTICLE_SECTIONS = Object.freeze(['frontaliere', 'svizzera']);
 export const LOCK_KEY_PREFIX = 'internal/ci/article-chunk-locks';
 export const LOCK_LEASE_MS = 30 * 60 * 1000;
@@ -524,7 +523,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
   console.log(`[r2-section-lock] released ${released.join(', ') || 'no lock owned by this run'}`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`[r2-section-lock] ${error?.message ?? error}`);
     process.exitCode = 1;

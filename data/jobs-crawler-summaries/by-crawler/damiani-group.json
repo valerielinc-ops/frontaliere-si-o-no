@@ -1,21 +1,65 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-05T21:29:34.563Z",
+  "generatedAt": "2026-10-06T09:16:17.348Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 7472,
-  "avgDurationMs": 7472,
+  "unchangedCount": 8,
+  "durationMs": 6011,
+  "avgDurationMs": 6011,
   "durationHistory": [
-    7472
+    6011
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "IT Support & Junior System Administrator",
+      "slug": "it-support-junior-system-administrator-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362036255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-5460459c212f",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-07-24T11:12:56.301Z",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "retranslationAttempts": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 23
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -184,49 +228,6 @@
       }
     },
     {
-      "title": "IT Support & Junior System Administrator",
-      "slug": "it-support-junior-system-administrator-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362036255/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-5460459c212f",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-07-24T11:12:56.301Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
-      "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "retranslationAttempts": 1,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Ecommerce Merchandising Specialist",
       "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
@@ -380,14 +381,15 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 89,
+      "postalCode": "6900",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

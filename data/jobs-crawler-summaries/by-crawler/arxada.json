@@ -1,7 +1,7 @@
 {
   "key": "arxada",
   "label": "Arxada",
-  "generatedAt": "2026-10-05T21:48:17.139Z",
+  "generatedAt": "2026-10-06T09:34:38.580Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10506,
-  "avgDurationMs": 10506,
+  "durationMs": 9613,
+  "avgDurationMs": 9613,
   "durationHistory": [
-    10506
+    9613
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -51,20 +51,21 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:07.254Z",
+      "crawledAt": "2026-10-06T09:34:26.182Z",
       "jobReqId": "R50117",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-06T10:21:39.223Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -93,19 +94,20 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Manufacturing-Manager---Production-Engineering_R53702",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:06.503Z",
+      "crawledAt": "2026-10-06T09:34:25.529Z",
       "jobReqId": "R53702",
       "firstSeenAt": "2026-07-01T11:10:50.624Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -134,19 +136,20 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Mitarbeiter-in-Ab--und-Beladecenter--Site-Support_R54003",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:05.826Z",
+      "crawledAt": "2026-10-06T09:34:24.699Z",
       "jobReqId": "R54003",
       "firstSeenAt": "2026-09-19T23:07:58.989Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -175,20 +178,21 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R54033",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:05.134Z",
+      "crawledAt": "2026-10-06T09:34:24.057Z",
       "jobReqId": "R54033",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
       "salaryMin": 55000,
       "salaryMax": 92000,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -217,21 +221,22 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:48:04.270Z",
+      "crawledAt": "2026-10-06T09:34:23.414Z",
       "jobReqId": "R53358",
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

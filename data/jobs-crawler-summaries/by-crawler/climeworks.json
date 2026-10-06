@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-05T21:24:33.716Z",
+  "generatedAt": "2026-10-06T09:15:36.357Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2475,
-  "avgDurationMs": 2475,
+  "durationMs": 2883,
+  "avgDurationMs": 2883,
   "durationHistory": [
-    2475
+    2883
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:24:25.506Z",
+      "crawledAt": "2026-10-06T09:15:24.147Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -57,13 +57,14 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -78,7 +79,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:24:25.504Z",
+      "crawledAt": "2026-10-06T09:15:24.145Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -98,13 +99,14 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -119,7 +121,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:24:25.502Z",
+      "crawledAt": "2026-10-06T09:15:24.143Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,13 +141,14 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -160,7 +163,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:24:25.500Z",
+      "crawledAt": "2026-10-06T09:15:24.141Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,13 +183,14 @@
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -201,7 +205,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:24:25.491Z",
+      "crawledAt": "2026-10-06T09:15:24.135Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,15 +225,16 @@
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

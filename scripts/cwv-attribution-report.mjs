@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 // CWV attribution report — which element moves, and the p75 per job-board template.
 //
 // The weekly CWV monitor (scripts/cwv-monitor-check.mjs) coins a regression per
@@ -20,7 +21,6 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import {
   GA4_READONLY_SCOPE,
   fetchRetry,
@@ -191,7 +191,7 @@ export async function main({
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().then((code) => { process.exitCode = code; }, (error) => {
     console.error(`::error title=${FAILURE_TITLE}::${error?.stack || error}`);
     process.exitCode = 1;

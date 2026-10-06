@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-05T21:38:48.197Z",
+  "assembledAt": "2026-10-06T09:24:43.809Z",
   "jobs": [
     {
       "id": "coopers-ab1752bb6b8f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:41.318Z",
+      "crawledAt": "2026-10-06T09:24:37.056Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -113,7 +113,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-52cb4b048a24",
@@ -146,7 +147,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:40.397Z",
+      "crawledAt": "2026-10-06T09:24:36.108Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -193,7 +194,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-76e7d5c21035",
@@ -210,7 +212,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -226,7 +228,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:39.479Z",
+      "crawledAt": "2026-10-06T09:24:35.165Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -275,7 +277,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-e2bf5b2d46bc",
@@ -292,7 +295,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -308,7 +311,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:38.545Z",
+      "crawledAt": "2026-10-06T09:24:34.235Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -366,7 +369,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "coopers-74d1dcd9cf29",
@@ -399,7 +403,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:37.611Z",
+      "crawledAt": "2026-10-06T09:24:33.310Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -461,7 +465,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-ba5b830ac60d",
@@ -478,7 +483,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -494,7 +499,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:36.686Z",
+      "crawledAt": "2026-10-06T09:24:32.383Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -565,6 +570,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -577,7 +583,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-1f0b26337c57",
@@ -610,7 +617,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:35.739Z",
+      "crawledAt": "2026-10-06T09:24:31.275Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -669,7 +676,8 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8500"
     },
     {
       "id": "coopers-d6f3782d4212",
@@ -702,7 +710,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:34.795Z",
+      "crawledAt": "2026-10-06T09:24:30.243Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -752,7 +760,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8500"
     },
     {
       "id": "coopers-963709e57e85",
@@ -785,7 +794,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:33.845Z",
+      "crawledAt": "2026-10-06T09:24:29.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -857,7 +866,8 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-e422145c5708",
@@ -890,7 +900,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:32.909Z",
+      "crawledAt": "2026-10-06T09:24:28.384Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -944,7 +954,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-bb3eb792f1bd",
@@ -977,7 +988,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:31.990Z",
+      "crawledAt": "2026-10-06T09:24:27.450Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1040,7 +1051,8 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-67b1692b6037",
@@ -1073,7 +1085,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:31.062Z",
+      "crawledAt": "2026-10-06T09:24:26.523Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1130,7 +1142,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4001"
     },
     {
       "id": "coopers-9fad6dc11706",
@@ -1163,7 +1176,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:30.137Z",
+      "crawledAt": "2026-10-06T09:24:25.499Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1222,7 +1235,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-172428ad68bb",
@@ -1255,7 +1269,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:29.216Z",
+      "crawledAt": "2026-10-06T09:24:24.558Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1338,11 +1352,11 @@
         "de": "Senior AEM Entwickler:in (m/w/d)",
         "fr": "Développeur AEM senior (h/f/d)"
       },
-      "description": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service basierenden CSS Website\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
+      "description": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
       "descriptionByLocale": {
         "it": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service basierenden CSS Website\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "en": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service basierenden CSS Website\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
-        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service basierenden CSS Website\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
+        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "fr": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n motivierte:n und aufgeschlossene:n Senior AEM Entwickler:in .\n\nDeine Aufgaben:\n• Weiterentwicklung und Betrieb der auf Adobe Experience Manager (AEM) Cloud Service basierenden CSS Website\n• Eigenständige Umsetzung von Anforderungen innerhalb eines agilen Produktteams\n• Entwicklung und Implementierung neuer AEM-Komponenten, Templates, Dialoge und OSGi-Bundles\n• Erstellung und Verwaltung von Sites und Digital Asset Management (DAM) innerhalb von AEM\n• Umsetzung von End-to-End-Lösungen auf Basis von AEM as a Cloud Service\n• Entwicklung und Integration von Backend-Lösungen mit Java, REST, OSGi, JCR und OpenAPI\n• Umsetzung moderner clientseitiger Webanwendungen mit JavaScript/TypeScript und gängigen Web-Technologien\n• Sicherstellung einer hohen Softwarequalität durch sauberen, nachhaltigen und wartbaren Code\n• Mitarbeit im DevOps-Umfeld sowie Unterstützung beim Betrieb nativer Cloud-Lösungen\n• Konstruktives Einbringen technischer Themen und aktives Teilen des eigenen AEM-Know-hows im Team\n\nDein Profil:\n• Mehrjährige praktische Erfahrung mit Adobe Experience Manager (AEM), idealerweise mit AEM as a Cloud Service im Enterprise-Umfeld\n• Erfahrung in agilen Entwicklungsmethoden und der professionellen Softwareentwicklung\n• Fundierte Erfahrung in der End-to-End-Implementierung von AEM Cloud Service\n• Gute Kenntnisse in Java, JavaScript/TypeScript, REST API, OSGi, JCR und OpenAPI\n• Erfahrung mit der Entwicklung von AEM-Komponenten, Templates, Dialogen und Bundles\n• Gute Kenntnisse im DevOps-Umfeld und Erfahrung mit modernen Cloud- und CI/CD-Lösungen\n• Erfahrung mit GitHub/GitHub Actions, Sonar und Splunk von Vorteil\n• Kenntnisse in gängigen Web-Technologien sowie idealerweise Erfahrung mit Vue.js und Storybook\n• Erfahrung mit Cloud-Technologien, insbesondere Azure, sowie Kubernetes und Terraform von Vorteil\n• Hohe Eigenverantwortung, selbstständige und lösungsorientierte Arbeitsweise\n• Auch in anspruchsvollen Situationen bewahrst du Ruhe und Gelassenheit und vertrittst deine technischen Standpunkte souverän\n• Sehr gute Deutschkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• 01.12.2026 - 12 Monate mit Option auf Verlängerung\n• AEM , DevOps, Jaca, Typescript, API\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance"
       },
       "location": "Luzern",
@@ -1350,7 +1364,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:28.285Z",
+      "crawledAt": "2026-10-06T09:24:23.625Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1413,7 +1427,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-0529dc35c9dd",
@@ -1446,7 +1461,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:27.357Z",
+      "crawledAt": "2026-10-06T09:24:22.690Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1502,7 +1517,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5000"
     },
     {
       "id": "coopers-0732f02c2230",
@@ -1535,7 +1551,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:26.433Z",
+      "crawledAt": "2026-10-06T09:24:21.736Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1596,7 +1612,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-f5ab15f3b14f",
@@ -1629,7 +1646,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:25.509Z",
+      "crawledAt": "2026-10-06T09:24:20.784Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1676,7 +1693,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-732a9da45a10",
@@ -1709,7 +1727,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:24.577Z",
+      "crawledAt": "2026-10-06T09:24:19.835Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1721,7 +1739,9 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-16T00:00:00Z",
       "postedDate": "2026-09-16T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "requirements": [
         "Life Sciences - Quality Management",
@@ -1769,8 +1789,7 @@
           "unitText": "YEAR"
         }
       },
-      "datePosted": "2026-09-16T00:00:00Z",
-      "postingDateSource": "reported"
+      "postalCode": "1950"
     },
     {
       "id": "coopers-d8d4d0e6a1af",
@@ -1861,7 +1880,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "3004"
     },
     {
       "id": "coopers-61fd12977878",
@@ -1894,7 +1915,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0R36QX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:22.714Z",
+      "crawledAt": "2026-10-06T09:24:18.850Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1955,7 +1976,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-70cc68c4eae6",
@@ -2035,7 +2057,9 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "1003"
     },
     {
       "id": "coopers-9de002b7eb74",
@@ -2068,7 +2092,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:20.836Z",
+      "crawledAt": "2026-10-06T09:24:17.904Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2131,7 +2155,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-086a726f943d",
@@ -2164,7 +2189,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:19.907Z",
+      "crawledAt": "2026-10-06T09:24:15.854Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2222,7 +2247,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-c6786e468b15",
@@ -2255,7 +2281,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:18.974Z",
+      "crawledAt": "2026-10-06T09:24:14.855Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2315,7 +2341,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-58406a713920",
@@ -2348,7 +2375,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:18.047Z",
+      "crawledAt": "2026-10-06T09:24:13.925Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2406,7 +2433,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-1476dea71b71",
@@ -2439,7 +2467,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:17.111Z",
+      "crawledAt": "2026-10-06T09:24:12.983Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2487,7 +2515,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-843121049d65",
@@ -2520,7 +2549,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:16.176Z",
+      "crawledAt": "2026-10-06T09:24:12.050Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2579,7 +2608,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-8fbe085e2e3a",
@@ -2612,7 +2642,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:15.258Z",
+      "crawledAt": "2026-10-06T09:24:11.114Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2673,7 +2703,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-6d6365cc3de4",
@@ -2706,7 +2737,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:14.334Z",
+      "crawledAt": "2026-10-06T09:24:10.172Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2753,7 +2784,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-b82eb2a41d38",
@@ -2786,7 +2818,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:13.399Z",
+      "crawledAt": "2026-10-06T09:24:09.223Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2848,7 +2880,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-e0cb5e410471",
@@ -2947,7 +2980,9 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "3004"
     },
     {
       "id": "coopers-7b178dc5917d",
@@ -2980,7 +3015,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OZ1U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:11.546Z",
+      "crawledAt": "2026-10-06T09:24:08.277Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3040,7 +3075,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "coopers-39a11432c01a",
@@ -3073,7 +3109,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=39BZE7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:38:10.615Z",
+      "crawledAt": "2026-10-06T09:24:07.288Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3137,7 +3173,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "coopers-4d94e93ca2f3",
@@ -3170,7 +3207,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:09.691Z",
+      "crawledAt": "2026-10-06T09:24:06.353Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3225,7 +3262,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-78d0174c9363",
@@ -3258,7 +3296,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:08.773Z",
+      "crawledAt": "2026-10-06T09:24:05.416Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3316,7 +3354,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-999df646fd91",
@@ -3349,7 +3388,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:07.840Z",
+      "crawledAt": "2026-10-06T09:24:04.483Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3407,7 +3446,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-bc1bb407811e",
@@ -3440,7 +3480,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:06.915Z",
+      "crawledAt": "2026-10-06T09:24:03.559Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3491,7 +3531,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-ed8c02ee0321",
@@ -3524,7 +3565,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:05.995Z",
+      "crawledAt": "2026-10-06T09:24:02.621Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3584,7 +3625,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-6612aa0c63bf",
@@ -3617,7 +3659,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:05.074Z",
+      "crawledAt": "2026-10-06T09:24:01.680Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3664,7 +3706,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-3d8c7e902f15",
@@ -3697,7 +3740,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:04.146Z",
+      "crawledAt": "2026-10-06T09:24:00.684Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3758,7 +3801,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-3c7f954dbee3",
@@ -3791,7 +3835,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:03.218Z",
+      "crawledAt": "2026-10-06T09:23:59.688Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3850,7 +3894,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4500"
     },
     {
       "id": "coopers-d795315f2b97",
@@ -3883,7 +3928,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:02.271Z",
+      "crawledAt": "2026-10-06T09:23:58.761Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3951,7 +3996,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-a19125428a8b",
@@ -3984,7 +4030,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:01.328Z",
+      "crawledAt": "2026-10-06T09:23:57.846Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4076,7 +4122,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:38:00.414Z",
+      "crawledAt": "2026-10-06T09:23:56.921Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4124,7 +4170,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4500"
     },
     {
       "id": "coopers-190386f7bb5f",
@@ -4157,7 +4204,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:59.495Z",
+      "crawledAt": "2026-10-06T09:23:55.985Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4216,7 +4263,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8200"
     },
     {
       "id": "coopers-d868b4d9a105",
@@ -4249,7 +4297,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:58.568Z",
+      "crawledAt": "2026-10-06T09:23:54.941Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4307,7 +4355,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5000"
     },
     {
       "id": "coopers-270405872da5",
@@ -4340,7 +4389,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:57.646Z",
+      "crawledAt": "2026-10-06T09:23:54.007Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4408,7 +4457,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-c74853487287",
@@ -4441,7 +4491,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:56.718Z",
+      "crawledAt": "2026-10-06T09:23:53.064Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4499,7 +4549,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-e1d6ac079009",
@@ -4532,7 +4583,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:55.783Z",
+      "crawledAt": "2026-10-06T09:23:52.066Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4590,7 +4641,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-4fa265cf366d",
@@ -4623,7 +4675,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:54.846Z",
+      "crawledAt": "2026-10-06T09:23:51.137Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4683,7 +4735,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-8a8ddcb23c7e",
@@ -4775,7 +4828,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "5000"
     },
     {
       "id": "coopers-f88c0f897588",
@@ -4808,7 +4863,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:53.001Z",
+      "crawledAt": "2026-10-06T09:23:50.200Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4855,7 +4910,8 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-4caff471899e",
@@ -4872,7 +4928,7 @@
       "title": "Software Tester:in (m/w/d)",
       "titleByLocale": {
         "it": "Software Tester:in (m/w/d)",
-        "en": "Software Tester (m/f/d)",
+        "en": "Software Tester:in (m/w/d)",
         "de": "Software Tester:in (m/w/d)",
         "fr": "Software Tester:in (m/w/d)"
       },
@@ -4888,7 +4944,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:52.081Z",
+      "crawledAt": "2026-10-06T09:23:49.257Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4937,7 +4993,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3004"
     },
     {
       "id": "coopers-8a234a0adf48",
@@ -5020,7 +5077,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "postalCode": "4001"
     },
     {
       "id": "coopers-6d7d027f089a",
@@ -5053,7 +5112,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:50.229Z",
+      "crawledAt": "2026-10-06T09:23:47.900Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5098,7 +5157,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5000"
     },
     {
       "id": "coopers-10052419e49b",
@@ -5131,7 +5191,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:49.300Z",
+      "crawledAt": "2026-10-06T09:23:46.951Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5191,7 +5251,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1950"
     },
     {
       "id": "coopers-cc0bbdff0aed",
@@ -5208,7 +5269,7 @@
       "title": "BIM-Modellierer:in (m/w/d)",
       "titleByLocale": {
         "it": "BIM-Modellierer:in (m/w/d)",
-        "en": "BIM-Modellierer:in (m/w/d)",
+        "en": "BIM Modeler (m/f/d)",
         "de": "BIM-Modellierer:in (m/w/d)",
         "fr": "BIM-Modellierer:in (m/w/d)"
       },
@@ -5224,7 +5285,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:48.371Z",
+      "crawledAt": "2026-10-06T09:23:46.035Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5269,7 +5330,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5000"
     },
     {
       "id": "coopers-56f511126fd9",
@@ -5302,7 +5364,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:47.438Z",
+      "crawledAt": "2026-10-06T09:23:45.103Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5358,7 +5420,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "coopers-eeafbae82670",
@@ -5391,7 +5454,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:46.506Z",
+      "crawledAt": "2026-10-06T09:23:44.176Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5438,7 +5501,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003"
     },
     {
       "id": "coopers-ba7ed6a137ca",
@@ -5471,7 +5535,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:45.580Z",
+      "crawledAt": "2026-10-06T09:23:43.247Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5528,7 +5592,8 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4500"
     },
     {
       "id": "coopers-0e5dac2613de",
@@ -5561,7 +5626,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:44.631Z",
+      "crawledAt": "2026-10-06T09:23:42.232Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5618,7 +5683,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "coopers-5a6ab26c279e",
@@ -5651,7 +5717,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8Y16NP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:43.710Z",
+      "crawledAt": "2026-10-06T09:23:41.262Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5708,7 +5774,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "5000"
     },
     {
       "id": "coopers-6472274f1a5d",
@@ -5741,7 +5808,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T21:37:42.779Z",
+      "crawledAt": "2026-10-06T09:23:40.285Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5792,7 +5859,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6300"
     },
     {
       "id": "coopers-e4c99ded4d08",
@@ -5825,7 +5893,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:41.840Z",
+      "crawledAt": "2026-10-06T09:23:39.354Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5873,32 +5941,33 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4001"
     },
     {
       "id": "coopers-da4fb5f9dde4",
-      "slug": "junior-it-project-coordinator-m-w-d-coopers-aargau",
+      "slug": "junior-it-project-coordinatore-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
-        "de": "junior-it-project-coordinator-m-w-d-coopers-aargau",
-        "it": "junior-it-project-coordinator-m-w-d-coopers-aargau",
+        "it": "junior-it-project-coordinatore-m-w-d-coopers-group-ag-aargau",
         "en": "junior-it-project-coordinator-m-w-d-coopers-aargau",
-        "fr": "junior-it-project-coordinator-m-w-d-coopers-aargau"
+        "de": "junior-it-project-coordinator-m-w-d-coopers-aargau",
+        "fr": "junior-it-project-coordinateur-m-w-d-coopers-group-ag-aargau"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Junior IT Project Coordinator (m/w/d)",
       "titleByLocale": {
-        "de": "Junior IT Project Koordinator (m/w/d)",
-        "en": "Junior IT Project Coordinator (m/f/d)",
         "it": "Junior IT Project Coordinatore (m/w/d)",
+        "en": "Junior IT Project Coordinator (m/w/d)",
+        "de": "Junior IT Project Koordinator (m/w/d)",
         "fr": "Junior IT Project Coordinateur (m/w/d)"
       },
       "description": "Für unseren Kunden suchen wir einen Junior IT Project Coordinator , der IT-Projekte organisatorisch und koordinativ unterstützt, die Zusammenarbeit zwischen internen Fachbereichen, IT-Teams und externen Partnern sicherstellt und dabei hilft, Projektaktivitäten strukturiert und effizient voranzutreiben. Die Position erfordert ein gutes Verständnis für IT-Prozesse, eine strukturierte und proaktive Arbeitsweise sowie sehr gute Englischkenntnisse. Der Junior IT Project Coordinator übernimmt Verantwortung für die Koordination von Aufgaben, Terminen, Meetings und Projektdokumentationen und trägt damit zu einer transparenten, effizienten und erfolgreichen Umsetzung von IT-Projekten in einem internationalen Umfeld bei.\n\nStandort: Kaiseraugst, Schweiz\nPensum: 100%\nVertragsdauer: 6 Monate, mit sehr guter Option auf Verlängerung\nStart: ASAP / nach Vereinbarung\nReisebereitschaft: Ja\n\nDeine Aufgaben:\n• Unterstützung bei der Planung, Koordination und Umsetzung von IT-Projekten\n• Organisation und Vorbereitung von Meetings, Workshops und Projektterminen\n• Erstellung und Pflege von Projektplänen, Aufgabenlisten, Statusübersichten und Projektdokumentationen\n• Nachverfolgung von offenen Aufgaben, Terminen, Abhängigkeiten und Projektmeilensteinen\n• Koordination zwischen IT, Business, externen Dienstleistern und weiteren Stakeholdern\n• Unterstützung bei der Erstellung von Projektstatusberichten, Präsentationen und Entscheidungsgrundlagen\n• Vorbereitung und Koordination von Tests, Rollouts und der Einführung neuer IT-Lösungen\n• Sicherstellung eines transparenten Informationsflusses innerhalb der Projekte\n• Frühzeitiges Erkennen und Eskalieren von Verzögerungen, Risiken und offenen Punkten\n• Unterstützung bei der Weiterentwicklung von Projektmanagement- und IT-Prozessen\n• Mitarbeit in internationalen Projekten und Zusammenarbeit mit Teams und Stakeholdern an verschiedenen Standorten\n• Bei Bedarf Unterstützung vor Ort bei Projektaktivitäten und Rollouts\n\nDein Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation\n• Erste Erfahrung im IT-Umfeld, Projektmanagement, PMO oder in einer koordinativen Funktion von Vorteil\n• Grundverständnis für IT-Systeme, Software, digitale Prozesse und Projektabläufe\n• Sehr gute organisatorische Fähigkeiten und eine strukturierte, zuverlässige Arbeitsweise\n• Ausgeprägte Kommunikationsfähigkeit und Freude an der Zusammenarbeit mit unterschiedlichen Stakeholdern\n• Eigeninitiative und die Fähigkeit, Aufgaben selbstständig nachzuverfolgen und voranzutreiben\n• Sehr gute Englischkenntnisse in Wort und Schrift\n• Gute Kenntnisse in Microsoft 365 / MS Office\n• Bereitschaft zu gelegentlichen Geschäftsreisen\n• Freude an der Arbeit in einem internationalen und dynamischen Umfeld\n\nDeine Persönlichkeit:\n• Du bist eine organisierte, proaktive und kommunikationsstarke Persönlichkeit , die gerne Dinge voranbringt.\n• Du behältst auch bei mehreren parallellaufenden Themen den Überblick, gehst offenen Punkten konsequent nach und scheust dich nicht, bei Bedarf nachzufragen oder Themen zu eskalieren.\n• Dabei musst du noch kein erfahrener IT-Projektleiter sein. Viel wichtiger sind uns Lernbereitschaft, Eigeninitiative, Zuverlässigkeit und die Motivation, dich langfristig im IT-Projektmanagement weiterzuentwickeln .\n• Du fühlst dich in einem internationalen Umfeld wohl, kommunizierst sicher auf Englisch und kannst unterschiedliche Interessen und Anforderungen zusammenbringen.\n\nJob profile\n• Life Sciences - IT + Digital\n• Aargau\n• Contracting\n• Full Time\n• asap / nach Vereinbarung - 6 Monate (mit super Möglichkeit auf Verlängerung)\n• MS Office, MS 365, Kommunikation, Organisatorische Fähigkeiten\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
       "descriptionByLocale": {
-        "de": "Für unseren Kunden suchen wir einen Junior IT Project Coordinator , der IT-Projekte organisatorisch und koordinativ unterstützt, die Zusammenarbeit zwischen internen Fachbereichen, IT-Teams und externen Partnern sicherstellt und dabei hilft, Projektaktivitäten strukturiert und effizient voranzutreiben. Die Position erfordert ein gutes Verständnis für IT-Prozesse, eine strukturierte und proaktive Arbeitsweise sowie sehr gute Englischkenntnisse. Der Junior IT Project Coordinator übernimmt Verantwortung für die Koordination von Aufgaben, Terminen, Meetings und Projektdokumentationen und trägt damit zu einer transparenten, effizienten und erfolgreichen Umsetzung von IT-Projekten in einem internationalen Umfeld bei.\n\nStandort: Kaiseraugst, Schweiz\nPensum: 100%\nVertragsdauer: 6 Monate, mit sehr guter Option auf Verlängerung\nStart: ASAP / nach Vereinbarung\nReisebereitschaft: Ja\n\nDeine Aufgaben:\n• Unterstützung bei der Planung, Koordination und Umsetzung von IT-Projekten\n• Organisation und Vorbereitung von Meetings, Workshops und Projektterminen\n• Erstellung und Pflege von Projektplänen, Aufgabenlisten, Statusübersichten und Projektdokumentationen\n• Nachverfolgung von offenen Aufgaben, Terminen, Abhängigkeiten und Projektmeilensteinen\n• Koordination zwischen IT, Business, externen Dienstleistern und weiteren Stakeholdern\n• Unterstützung bei der Erstellung von Projektstatusberichten, Präsentationen und Entscheidungsgrundlagen\n• Vorbereitung und Koordination von Tests, Rollouts und der Einführung neuer IT-Lösungen\n• Sicherstellung eines transparenten Informationsflusses innerhalb der Projekte\n• Frühzeitiges Erkennen und Eskalieren von Verzögerungen, Risiken und offenen Punkten\n• Unterstützung bei der Weiterentwicklung von Projektmanagement- und IT-Prozessen\n• Mitarbeit in internationalen Projekten und Zusammenarbeit mit Teams und Stakeholdern an verschiedenen Standorten\n• Bei Bedarf Unterstützung vor Ort bei Projektaktivitäten und Rollouts\n\nDein Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation\n• Erste Erfahrung im IT-Umfeld, Projektmanagement, PMO oder in einer koordinativen Funktion von Vorteil\n• Grundverständnis für IT-Systeme, Software, digitale Prozesse und Projektabläufe\n• Sehr gute organisatorische Fähigkeiten und eine strukturierte, zuverlässige Arbeitsweise\n• Ausgeprägte Kommunikationsfähigkeit und Freude an der Zusammenarbeit mit unterschiedlichen Stakeholdern\n• Eigeninitiative und die Fähigkeit, Aufgaben selbstständig nachzuverfolgen und voranzutreiben\n• Sehr gute Englischkenntnisse in Wort und Schrift\n• Gute Kenntnisse in Microsoft 365 / MS Office\n• Bereitschaft zu gelegentlichen Geschäftsreisen\n• Freude an der Arbeit in einem internationalen und dynamischen Umfeld\n\nDeine Persönlichkeit:\n• Du bist eine organisierte, proaktive und kommunikationsstarke Persönlichkeit , die gerne Dinge voranbringt.\n• Du behältst auch bei mehreren parallellaufenden Themen den Überblick, gehst offenen Punkten konsequent nach und scheust dich nicht, bei Bedarf nachzufragen oder Themen zu eskalieren.\n• Dabei musst du noch kein erfahrener IT-Projektleiter sein. Viel wichtiger sind uns Lernbereitschaft, Eigeninitiative, Zuverlässigkeit und die Motivation, dich langfristig im IT-Projektmanagement weiterzuentwickeln .\n• Du fühlst dich in einem internationalen Umfeld wohl, kommunizierst sicher auf Englisch und kannst unterschiedliche Interessen und Anforderungen zusammenbringen.\n\nJob profile\n• Life Sciences - IT + Digital\n• Aargau\n• Contracting\n• Full Time\n• asap / nach Vereinbarung - 6 Monate (mit super Möglichkeit auf Verlängerung)\n• MS Office, MS 365, Kommunikation, Organisatorische Fähigkeiten\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
         "it": "Per il nostro cliente, stiamo cercando un Coordinatore del Progetto Junior IT che supporta i progetti IT organizzati e coordinati, assicura la cooperazione tra dipartimenti interni, team IT e partner esterni e aiuta a promuovere attività di progetto in modo strutturato ed efficiente. La posizione richiede una buona comprensione dei processi IT, un modo di lavoro strutturato e proattivo e una buona conoscenza dell'inglese. Il Coordinatore del Progetto Junior IT si assume la responsabilità di coordinare i compiti, gli appuntamenti, gli incontri e la documentazione del progetto e contribuisce così ad una realizzazione trasparente, efficiente e di successo dei progetti IT in un ambiente internazionale.\n\nUbicazione: Kaiseraugst, Svizzera\nPensum: 100%\nDurata del contratto: 6 mesi, con ottima opzione per l'estensione\nInizio: ASAP / da accordo\nProntezza di viaggio: Sì\n\nI vostri compiti:\n• Sostegno alla pianificazione, coordinamento e attuazione dei progetti IT\n• Organizzazione e preparazione di incontri, workshop e date di progetto\n• Creazione e manutenzione di piani di progetto, liste delle attività, panoramica dello stato e documentazione del progetto\n• Traccia i compiti aperti, le scadenze, le dipendenze e le pietre miliari del progetto\n• Coordinamento tra IT, business, fornitori di servizi esterni e altri stakeholder\n• Sostegno alla preparazione di rapporti di stato del progetto, presentazioni e basi decisionali\n• Preparazione e coordinamento di test, rollout e introduzione di nuove soluzioni IT\n• Garantire un flusso trasparente di informazioni all'interno dei progetti\n• Rilevamento anticipato ed escalation di ritardi, rischi e punti aperti\n• Supporto per l'ulteriore sviluppo della gestione dei progetti e dei processi IT\n• Partecipazione a progetti internazionali e cooperazione con team e stakeholder in diverse sedi\n• Se necessario, supporto in loco per attività di progetto e rollout\n\nIl tuo profilo:\n• Formazione completa o studi in informatica, informatica aziendale, amministrazione aziendale o qualificazione comparabile\n• Prima esperienza nell'ambiente IT, nella gestione dei progetti, in PMO o in una funzione coordinatrice\n• Comprensione di base dei sistemi IT, software, processi digitali e processi di progetto\n• Molto buone capacità organizzative e un modo di lavoro strutturato e affidabile\n• Forte capacità di comunicazione e piacere nel lavorare con diversi stakeholder\n• Iniziativa e capacità di tracciare e avanzare in modo indipendente\n• Molto buone abilità inglesi in parola e scrittura\n• Buona conoscenza di Microsoft 365 / MS Office\n• Prontezza per viaggi di lavoro occasionali\n• Godetevi il lavoro in un ambiente internazionale e dinamico\n\nLa tua personalità:\n• Sei una personalità organizzata, proattiva e di comunicazione forte che ama portare avanti le cose.\n• Si tiene anche traccia di diversi argomenti paralleli, seguire punti aperti in modo coerente e non avere paura di chiedere o escalare argomenti, se necessario.\n• Non è necessario essere un responsabile di progetto IT esperto. Molto più importante per noi è la volontà di imparare, iniziativa, affidabilità e la motivazione di sviluppare a lungo termine nella gestione dei progetti IT.\n• Ti senti a tuo agio in un ambiente internazionale, comunicare in modo sicuro in inglese e può riunire diversi interessi e requisiti.\n\nProfili di lavoro\n• Scienze della vita - IT + Digital\n• Aargau\n• Contratti\n• Tempo pieno\n• asap / per accordo - 6 mesi (con grande possibilità di estensione)\n• MS Office, MS 365, Comunicazione, Abilità organizzative\n\nPrestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Spazio di lavoro moderno",
         "en": "For our client, we are looking for a Junior IT Project Coordinator who supports IT projects organizationally and coordinatively, ensures cooperation between internal departments, IT teams and external partners and helps to promote project activities in a structured and efficient manner. The position requires a good understanding of IT processes, a structured and proactive way of working, and a very good knowledge of English. The Junior IT Project Coordinator assumes responsibility for the coordination of tasks, appointments, meetings and project documentation and thus contributes to a transparent, efficient and successful implementation of IT projects in an international environment.\n\nLocation: Kaiseraugst, Switzerland\nPensum: 100%\nContract duration: 6 months, with very good option for extension\nStart: ASAP / by agreement\nReadiness to travel: Yes\n\nYour tasks:\n• Support in the planning, coordination and implementation of IT projects\n• Organization and preparation of meetings, workshops and project dates\n• Creation and maintenance of project plans, task lists, status overviews and project documentation\n• Track open tasks, deadlines, dependencies and project milestones\n• Coordination between IT, business, external service providers and other stakeholders\n• Support in the preparation of project status reports, presentations and decision-making basis\n• Preparation and coordination of tests, rollouts and the introduction of new IT solutions\n• Ensuring a transparent flow of information within the projects\n• Early detection and escalation of delays, risks and open points\n• Support for the further development of project management and IT processes\n• Participation in international projects and cooperation with teams and stakeholders at different locations\n• If necessary, on-site support for project activities and rollouts\n\nYour profile:\n• Completed training or studies in computer science, business informatics, business administration or comparable qualification\n• First experience in the IT environment, project management, PMO or in a coordinative function\n• Basic understanding of IT systems, software, digital processes and project processes\n• Very good organizational skills and a structured, reliable way of working\n• Strong communication skills and pleasure in working with different stakeholders\n• Initiative and the ability to independently track and advance tasks\n• Very good English skills in word and writing\n• Good knowledge of Microsoft 365 / MS Office\n• Readiness for occasional business trips\n• Enjoy working in an international and dynamic environment\n\nYour personality:\n• You are an organized, proactive and communication-strong personality who likes to move things forward.\n• You also keep track of several parallel topics, follow open points consistently and do not be afraid to ask or escalate topics if necessary.\n• You do not have to be an experienced IT project manager. Much more important to us are willingness to learn, initiative, reliability and the motivation to develop in the long term in IT project management.\n• You feel comfortable in an international environment, communicate safely in English and can bring together different interests and requirements.\n\nJob profiles\n• Life Sciences - IT + Digital\n• Aargau\n• Contracting\n• Full time\n• asap / by agreement - 6 months (with great possibility of extension)\n• MS Office, MS 365, Communication, Organizational Skills\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
+        "de": "Für unseren Kunden suchen wir einen Junior IT Project Coordinator , der IT-Projekte organisatorisch und koordinativ unterstützt, die Zusammenarbeit zwischen internen Fachbereichen, IT-Teams und externen Partnern sicherstellt und dabei hilft, Projektaktivitäten strukturiert und effizient voranzutreiben. Die Position erfordert ein gutes Verständnis für IT-Prozesse, eine strukturierte und proaktive Arbeitsweise sowie sehr gute Englischkenntnisse. Der Junior IT Project Coordinator übernimmt Verantwortung für die Koordination von Aufgaben, Terminen, Meetings und Projektdokumentationen und trägt damit zu einer transparenten, effizienten und erfolgreichen Umsetzung von IT-Projekten in einem internationalen Umfeld bei.\n\nStandort: Kaiseraugst, Schweiz\nPensum: 100%\nVertragsdauer: 6 Monate, mit sehr guter Option auf Verlängerung\nStart: ASAP / nach Vereinbarung\nReisebereitschaft: Ja\n\nDeine Aufgaben:\n• Unterstützung bei der Planung, Koordination und Umsetzung von IT-Projekten\n• Organisation und Vorbereitung von Meetings, Workshops und Projektterminen\n• Erstellung und Pflege von Projektplänen, Aufgabenlisten, Statusübersichten und Projektdokumentationen\n• Nachverfolgung von offenen Aufgaben, Terminen, Abhängigkeiten und Projektmeilensteinen\n• Koordination zwischen IT, Business, externen Dienstleistern und weiteren Stakeholdern\n• Unterstützung bei der Erstellung von Projektstatusberichten, Präsentationen und Entscheidungsgrundlagen\n• Vorbereitung und Koordination von Tests, Rollouts und der Einführung neuer IT-Lösungen\n• Sicherstellung eines transparenten Informationsflusses innerhalb der Projekte\n• Frühzeitiges Erkennen und Eskalieren von Verzögerungen, Risiken und offenen Punkten\n• Unterstützung bei der Weiterentwicklung von Projektmanagement- und IT-Prozessen\n• Mitarbeit in internationalen Projekten und Zusammenarbeit mit Teams und Stakeholdern an verschiedenen Standorten\n• Bei Bedarf Unterstützung vor Ort bei Projektaktivitäten und Rollouts\n\nDein Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation\n• Erste Erfahrung im IT-Umfeld, Projektmanagement, PMO oder in einer koordinativen Funktion von Vorteil\n• Grundverständnis für IT-Systeme, Software, digitale Prozesse und Projektabläufe\n• Sehr gute organisatorische Fähigkeiten und eine strukturierte, zuverlässige Arbeitsweise\n• Ausgeprägte Kommunikationsfähigkeit und Freude an der Zusammenarbeit mit unterschiedlichen Stakeholdern\n• Eigeninitiative und die Fähigkeit, Aufgaben selbstständig nachzuverfolgen und voranzutreiben\n• Sehr gute Englischkenntnisse in Wort und Schrift\n• Gute Kenntnisse in Microsoft 365 / MS Office\n• Bereitschaft zu gelegentlichen Geschäftsreisen\n• Freude an der Arbeit in einem internationalen und dynamischen Umfeld\n\nDeine Persönlichkeit:\n• Du bist eine organisierte, proaktive und kommunikationsstarke Persönlichkeit , die gerne Dinge voranbringt.\n• Du behältst auch bei mehreren parallellaufenden Themen den Überblick, gehst offenen Punkten konsequent nach und scheust dich nicht, bei Bedarf nachzufragen oder Themen zu eskalieren.\n• Dabei musst du noch kein erfahrener IT-Projektleiter sein. Viel wichtiger sind uns Lernbereitschaft, Eigeninitiative, Zuverlässigkeit und die Motivation, dich langfristig im IT-Projektmanagement weiterzuentwickeln .\n• Du fühlst dich in einem internationalen Umfeld wohl, kommunizierst sicher auf Englisch und kannst unterschiedliche Interessen und Anforderungen zusammenbringen.\n\nJob profile\n• Life Sciences - IT + Digital\n• Aargau\n• Contracting\n• Full Time\n• asap / nach Vereinbarung - 6 Monate (mit super Möglichkeit auf Verlängerung)\n• MS Office, MS 365, Kommunikation, Organisatorische Fähigkeiten\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
         "fr": "Pour notre client, nous sommes à la recherche d'un coordonnateur de projet de TI junior qui appuie les projets de TI de façon organisationnelle et coordonnée, assure la coopération entre les ministères internes, les équipes de TI et les partenaires externes et contribue à promouvoir les activités de projet de manière structurée et efficace. Le poste exige une bonne compréhension des processus informatiques, une façon de travailler structurée et proactive et une très bonne connaissance de l'anglais. Le coordonnateur de projet informatique junior assume la responsabilité de la coordination des tâches, des nominations, des réunions et de la documentation du projet et contribue ainsi à une mise en œuvre transparente, efficace et réussie des projets informatiques dans un environnement international.\n\nLieu: Kaiseraugst, Suisse\nPensum: 100%\nDurée du contrat : 6 mois, avec très bonne option de prolongation\nDébut: SAP / par accord\nPréparation au voyage : Oui\n\nVos tâches:\n• Appui à la planification, à la coordination et à la mise en œuvre des projets informatiques\n• Organisation et préparation des réunions, ateliers et dates des projets\n• Création et mise à jour des plans de projet, des listes de tâches, des aperçus de l'état d'avancement et de la documentation du projet\n• Suivre les tâches ouvertes, les échéances, les dépendances et les jalons du projet\n• Coordination entre les TI, les entreprises, les prestataires de services externes et les autres parties prenantes\n• Appui à l ' élaboration des rapports d ' état des projets, des exposés et de la base de décision\n• Préparation et coordination des essais, déploiements et introduction de nouvelles solutions informatiques\n• Assurer une circulation transparente de l'information au sein des projets\n• Détection précoce et escalade des retards, des risques et des points ouverts\n• Appui au développement de la gestion de projets et des processus informatiques\n• Participation à des projets internationaux et coopération avec des équipes et des parties prenantes à différents endroits\n• Si nécessaire, appui sur place aux activités de projet et aux déploiements\n\nVotre profil:\n• Formation ou études en informatique, informatique des entreprises, administration des entreprises ou qualification comparable\n• Première expérience dans l'environnement informatique, la gestion de projet, PMO ou dans une fonction coordinative\n• Connaissance de base des systèmes informatiques, des logiciels, des processus numériques et des processus de projet\n• Très bonnes compétences organisationnelles et un mode de travail structuré et fiable\n• Forte capacité de communication et plaisir à travailler avec les différentes parties prenantes\n• Initiative et capacité de suivre et d'avancer les tâches de façon indépendante\n• Très bonnes compétences en anglais en paroles et en écriture\n• Bonne connaissance de Microsoft 365 / MS Office\n• Préparation aux voyages d'affaires occasionnels\n• Profitez de travailler dans un environnement international et dynamique\n\nVotre personnalité :\n• Vous êtes une personnalité organisée, proactive et forte en communication qui aime faire avancer les choses.\n• Vous gardez également une trace de plusieurs sujets parallèles, suivez les points ouverts de façon cohérente et n'ayez pas peur de poser ou d'intensifier des sujets si nécessaire.\n• Vous n'avez pas à être un gestionnaire de projet informatique expérimenté. Beaucoup plus important pour nous sont la volonté d'apprendre, l'initiative, la fiabilité et la motivation à développer à long terme dans la gestion de projets de TI.\n• Vous vous sentez à l'aise dans un environnement international, communiquer en toute sécurité en anglais et peut réunir différents intérêts et exigences.\n\nProfils d'emploi\n• Sciences de la vie - IT + numérique\n• Argovie\n• Contrats\n• Temps plein\n• asap / par accord - 6 mois (avec une grande possibilité de prolongation)\n• MS Office, MS 365, Communication, Compétences organisationnelles\n\nPrestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Espace de travail moderne"
       },
       "location": "Aargau",
@@ -5906,7 +5975,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C88S5E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:37:40.912Z",
+      "crawledAt": "2026-10-06T09:23:37.480Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5933,13 +6002,24 @@
       "requirementsByLocale": {
         "de": [
           "Life Sciences - IT + Digital",
-          "Aargau",
           "Contracting",
           "Full Time",
           "asap / nach Vereinbarung - 6 Monate (mit super Möglichkeit auf Verlängerung)",
           "MS Office, MS 365, Kommunikation, Organisatorische Fähigkeiten"
         ]
       },
+      "firstSeenAt": "2026-10-05T21:37:40.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-it-project-coordinator-m-w-d-coopers-aargau"
+        ],
+        "fr": [
+          "junior-it-project-coordinator-m-w-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "junior-it-project-coordinator-m-w-d-coopers-aargau"
+      ],
       "salaryMin": 58000,
       "salaryMax": 99000,
       "salarySource": "estimated",
@@ -5953,7 +6033,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:37:40.912Z"
+      "postalCode": "5000"
     },
     {
       "id": "coopers-83674dc165c5",
@@ -6042,7 +6122,8 @@
       },
       "datePosted": "2026-09-21T00:00:00Z",
       "postingDateSource": "reported",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "postalCode": "5000"
     },
     {
       "id": "coopers-f2aac5ed64c2",
@@ -6135,137 +6216,43 @@
       },
       "datePosted": "2026-09-28T00:00:00Z",
       "postingDateSource": "reported",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "postalCode": "3001"
     },
     {
-      "id": "coopers-ce95eab173e7",
-      "slug": "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern",
+      "id": "coopers-5d7bfee37508",
+      "slug": "digital-workplace-engineer-3rd-level-support-m-f-d-coopers-waadt",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern",
-        "en": "project-manager-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern",
-        "de": "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
-        "fr": "chef-de-projet-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
+        "en": "digital-workplace-engineer-3rd-level-support-m-f-d-coopers-waadt",
+        "it": "digital-workplace-engineer-3rd-level-support-m-f-d-coopers-waadt",
+        "de": "digital-workplace-engineer-3rd-level-support-m-f-d-coopers-waadt",
+        "fr": "digital-workplace-engineer-3rd-level-support-m-f-d-coopers-waadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Projektleiter:in – ISDS Weiterentwicklung (m/w/d)",
+      "title": "Digital Workplace Engineer - 3rd Level Support (m/f/d)",
       "titleByLocale": {
-        "it": "Responsabile di progetto – ISDS Weiterentwicklung (m/w/d)",
-        "en": "Project Manager – ISDS Weiterentwicklung (m/w/d)",
-        "de": "Projektleiter:in – ISDS Weiterentwicklung (m/w/d)",
-        "fr": "Chef de projet – ISDS Weiterentwicklung (m/w/d)"
+        "en": "Digital Workplace Engineer - 3rd Level Support (m/f/d)",
+        "it": "Digital Workplace Ingegnere - 3rd Level Support (m/f/d)",
+        "de": "Digital Workplace Ingenieur - 3rd Level Support (m/f/d)",
+        "fr": "Digital Workplace Ingénieur - 3rd Level Support (m/f/d)"
       },
-      "description": "Für unseren Kunden, ein grosser IT-Dienstleister im Aargau, suchen wir für dessen Kunden im Raum Luzern/Zug eine:n Projektleiter:in für eine ISDS Weiterentwicklung\n\nGesucht wird ein externer Projektleiter, der die initiale Transformationsphase strukturiert aufsetzt, operativ führt und die notwendigen Entscheidungsgrundlagen für die zukünftige Ausgestaltung des ISDS erarbeitet. Der Projektleiter verantwortet die Analyse des bestehenden Systems, die Entwicklung eines zukünftigen Zielbilds sowie die Vorbereitung und Steuerung der Transformation. Dazu gehören insbesondere die Erarbeitung von Entscheidungsgrundlagen für Governance, Rollen, Prozesse, Betriebsmodell und Tool-Landschaft. Der Projektleiter übernimmt die Führung des Transformationsprojekts, koordiniert interne und externe Anspruchsgruppen und stellt eine geordnete Übergabe an eine interne Projektleitung sicher.\n\nDeine Aufgaben:\n• Zentrale Koordination und Steuerung der Initiative\n• Einbindung und Koordination relevanter Anspruchsgruppen\n• Identifikation, Transparenz und Bearbeitung von Zielkonflikten\n• Vorbereitung notwendiger Entscheidungen\n• Erarbeitung von Entscheidungsgrundlagen für die Geschäftsleitung\n• Koordination und Berücksichtigung von Abhängigkeiten zwischen:\n• Governance\n• Organisation\n• Prozessen\n• Werkzeugen\n• Sicherstellung des laufenden ISDS-Betriebs während der Transformation\n• Analyse und Bewertung der bestehenden Organisations- und Governance-Strukturen\n• Entwicklung von Vorschlägen für die zukünftige Ausgestaltung von:\n• Rollen und Verantwortlichkeiten\n• Gremien\n• Prozessen\n• Betriebsmodellen\n• Steuerung komplexer Transformationsvorhaben\n• Fokus auf Projektleitung und Transformation – keine fachliche CISO-, Compliance- oder Umsetzungsrolle\n\nDein Profil:\n• 8–10+ Jahre Erfahrung als Projekt- oder Programmleiter\n• Mehrjährige Erfahrung in komplexen Transformationsvorhaben\n• Erfahrung mit Reorganisationen und Governance-Transformationen\n• Erfahrung im Aufbau und der Transformation von Managementsystemen\n• Fundierte Kenntnisse in ISO 27001 und ISMS\n• Erfahrung in regulierten Branchen\n• Sehr gute Kommunikations- und Moderationsfähigkeiten\n• Hohe Stakeholder-Sensibilität und ausgeprägtes Schnittstellenmanagement\n• Sehr gutes Deutsch\n• Fähigkeit, unterschiedliche Anforderungen innerhalb von Zeit- und Budgetvorgaben zu vereinen\n\nJob profile\n• IT - Project Management\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• Project Management, ISDS",
+      "description": "For our client in Lausanne , we are looking for an experienced Digital Workplace Engineer - 3rd Level Support.\n\nIn this role, youwill provide ongoing support for enterprise information systems and apply strong analytical and problem-solving skills to resolve issues related to the integration, deployment, and operation of End-User Compute services, including the Azure Virtual Desktop platform.\n\nYour Responsibilities:\n• Handling of complex incidents escalated from Level 1 and Level 2 Support, including largescale crashes and operatiing system malfunctions\n• Draft and maintain technical procedures and share knowledge with 1st & 2nd Level support teams (incl. deliver in-person and remote training to employees)\n• Perform root cause analysis by reviewing logs, crash dumps, and related technical data to identify recurring issues and their underlying causes\n• Support continuous improvement by deploying automated patches through endpoint management tools and maintaining device compliance with security and hardening standards\n• Use scripting languages such as PowerShell to automate recurring administrative tasks and corrective actions\n• Understand business needs and support the collection and clarification of functional requirements\n• Create basic training materials, such as tip sheets and short recordings, to support user adoption of new tools and features\n\nYour Profil:\n• Bachelor’s degree in computer science, Computer Engineering, Information Technology, or a related discipline\n• 5+ years of professional experience in IT, with a strong focus on digital workplace or end-user computing service s in a multinational business environment\n• Experience in business systems analysis and operational support\n• Strong understanding of workplace processes, applications, and technologies, including Entra ID, Active Directory, Autopilot, Intune, Unified Endpoint Management, endpoint security solutions such as Microsoft Defender, Virtual Desktop Infrastructure, and Microsoft 365\n• Good knowledge of the ITIL framework and service management principles\n• Self-driven, proactive, and collaborative, with a strong team-oriented mindset\n• Ability to work independently while also contributing effectively within a team environment\n• Ability to work to deadlines and maintain quality in a dynamic environment\n• Excellent communication skills\n• Fluency in English, working knowledge of French or German is an advantage\n\nJob profile\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• Waadt\n• Contracting\n• Part Time, 60%\n• 15.10.2026 - 31.03.2027 with option of extension\n• Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop\n\nJob benefits\n• Coopers Care\n• First-name terms\n• Home Office\n• Modern workspace",
       "descriptionByLocale": {
-        "it": "Für unseren Kunden, ein grosser IT-Dienstleister im Aargau, suchen wir für dessen Kunden im Raum Luzern/Zug eine:n Projektleiter:in für eine ISDS Weiterentwicklung\n\nGesucht wird ein externer Projektleiter, der die initiale Transformationsphase strukturiert aufsetzt, operativ führt und die notwendigen Entscheidungsgrundlagen für die zukünftige Ausgestaltung des ISDS erarbeitet. Der Projektleiter verantwortet die Analyse des bestehenden Systems, die Entwicklung eines zukünftigen Zielbilds sowie die Vorbereitung und Steuerung der Transformation. Dazu gehören insbesondere die Erarbeitung von Entscheidungsgrundlagen für Governance, Rollen, Prozesse, Betriebsmodell und Tool-Landschaft. Der Projektleiter übernimmt die Führung des Transformationsprojekts, koordiniert interne und externe Anspruchsgruppen und stellt eine geordnete Übergabe an eine interne Projektleitung sicher.\n\nDeine Aufgaben:\n• Zentrale Koordination und Steuerung der Initiative\n• Einbindung und Koordination relevanter Anspruchsgruppen\n• Identifikation, Transparenz und Bearbeitung von Zielkonflikten\n• Vorbereitung notwendiger Entscheidungen\n• Erarbeitung von Entscheidungsgrundlagen für die Geschäftsleitung\n• Koordination und Berücksichtigung von Abhängigkeiten zwischen:\n• Governance\n• Organisation\n• Prozessen\n• Werkzeugen\n• Sicherstellung des laufenden ISDS-Betriebs während der Transformation\n• Analyse und Bewertung der bestehenden Organisations- und Governance-Strukturen\n• Entwicklung von Vorschlägen für die zukünftige Ausgestaltung von:\n• Rollen und Verantwortlichkeiten\n• Gremien\n• Prozessen\n• Betriebsmodellen\n• Steuerung komplexer Transformationsvorhaben\n• Fokus auf Projektleitung und Transformation – keine fachliche CISO-, Compliance- oder Umsetzungsrolle\n\nDein Profil:\n• 8–10+ Jahre Erfahrung als Projekt- oder Programmleiter\n• Mehrjährige Erfahrung in komplexen Transformationsvorhaben\n• Erfahrung mit Reorganisationen und Governance-Transformationen\n• Erfahrung im Aufbau und der Transformation von Managementsystemen\n• Fundierte Kenntnisse in ISO 27001 und ISMS\n• Erfahrung in regulierten Branchen\n• Sehr gute Kommunikations- und Moderationsfähigkeiten\n• Hohe Stakeholder-Sensibilität und ausgeprägtes Schnittstellenmanagement\n• Sehr gutes Deutsch\n• Fähigkeit, unterschiedliche Anforderungen innerhalb von Zeit- und Budgetvorgaben zu vereinen\n\nJob profile\n• IT - Project Management\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• Project Management, ISDS",
-        "en": "Für unseren Kunden, ein grosser IT-Dienstleister im Aargau, suchen wir für dessen Kunden im Raum Luzern/Zug eine:n Projektleiter:in für eine ISDS Weiterentwicklung\n\nGesucht wird ein externer Projektleiter, der die initiale Transformationsphase strukturiert aufsetzt, operativ führt und die notwendigen Entscheidungsgrundlagen für die zukünftige Ausgestaltung des ISDS erarbeitet. Der Projektleiter verantwortet die Analyse des bestehenden Systems, die Entwicklung eines zukünftigen Zielbilds sowie die Vorbereitung und Steuerung der Transformation. Dazu gehören insbesondere die Erarbeitung von Entscheidungsgrundlagen für Governance, Rollen, Prozesse, Betriebsmodell und Tool-Landschaft. Der Projektleiter übernimmt die Führung des Transformationsprojekts, koordiniert interne und externe Anspruchsgruppen und stellt eine geordnete Übergabe an eine interne Projektleitung sicher.\n\nDeine Aufgaben:\n• Zentrale Koordination und Steuerung der Initiative\n• Einbindung und Koordination relevanter Anspruchsgruppen\n• Identifikation, Transparenz und Bearbeitung von Zielkonflikten\n• Vorbereitung notwendiger Entscheidungen\n• Erarbeitung von Entscheidungsgrundlagen für die Geschäftsleitung\n• Koordination und Berücksichtigung von Abhängigkeiten zwischen:\n• Governance\n• Organisation\n• Prozessen\n• Werkzeugen\n• Sicherstellung des laufenden ISDS-Betriebs während der Transformation\n• Analyse und Bewertung der bestehenden Organisations- und Governance-Strukturen\n• Entwicklung von Vorschlägen für die zukünftige Ausgestaltung von:\n• Rollen und Verantwortlichkeiten\n• Gremien\n• Prozessen\n• Betriebsmodellen\n• Steuerung komplexer Transformationsvorhaben\n• Fokus auf Projektleitung und Transformation – keine fachliche CISO-, Compliance- oder Umsetzungsrolle\n\nDein Profil:\n• 8–10+ Jahre Erfahrung als Projekt- oder Programmleiter\n• Mehrjährige Erfahrung in komplexen Transformationsvorhaben\n• Erfahrung mit Reorganisationen und Governance-Transformationen\n• Erfahrung im Aufbau und der Transformation von Managementsystemen\n• Fundierte Kenntnisse in ISO 27001 und ISMS\n• Erfahrung in regulierten Branchen\n• Sehr gute Kommunikations- und Moderationsfähigkeiten\n• Hohe Stakeholder-Sensibilität und ausgeprägtes Schnittstellenmanagement\n• Sehr gutes Deutsch\n• Fähigkeit, unterschiedliche Anforderungen innerhalb von Zeit- und Budgetvorgaben zu vereinen\n\nJob profile\n• IT - Project Management\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• Project Management, ISDS",
-        "de": "Für unseren Kunden, ein grosser IT-Dienstleister im Aargau, suchen wir für dessen Kunden im Raum Luzern/Zug eine:n Projektleiter:in für eine ISDS Weiterentwicklung\n\nGesucht wird ein externer Projektleiter, der die initiale Transformationsphase strukturiert aufsetzt, operativ führt und die notwendigen Entscheidungsgrundlagen für die zukünftige Ausgestaltung des ISDS erarbeitet. Der Projektleiter verantwortet die Analyse des bestehenden Systems, die Entwicklung eines zukünftigen Zielbilds sowie die Vorbereitung und Steuerung der Transformation. Dazu gehören insbesondere die Erarbeitung von Entscheidungsgrundlagen für Governance, Rollen, Prozesse, Betriebsmodell und Tool-Landschaft. Der Projektleiter übernimmt die Führung des Transformationsprojekts, koordiniert interne und externe Anspruchsgruppen und stellt eine geordnete Übergabe an eine interne Projektleitung sicher.\n\nDeine Aufgaben:\n• Zentrale Koordination und Steuerung der Initiative\n• Einbindung und Koordination relevanter Anspruchsgruppen\n• Identifikation, Transparenz und Bearbeitung von Zielkonflikten\n• Vorbereitung notwendiger Entscheidungen\n• Erarbeitung von Entscheidungsgrundlagen für die Geschäftsleitung\n• Koordination und Berücksichtigung von Abhängigkeiten zwischen:\n• Governance\n• Organisation\n• Prozessen\n• Werkzeugen\n• Sicherstellung des laufenden ISDS-Betriebs während der Transformation\n• Analyse und Bewertung der bestehenden Organisations- und Governance-Strukturen\n• Entwicklung von Vorschlägen für die zukünftige Ausgestaltung von:\n• Rollen und Verantwortlichkeiten\n• Gremien\n• Prozessen\n• Betriebsmodellen\n• Steuerung komplexer Transformationsvorhaben\n• Fokus auf Projektleitung und Transformation – keine fachliche CISO-, Compliance- oder Umsetzungsrolle\n\nDein Profil:\n• 8–10+ Jahre Erfahrung als Projekt- oder Programmleiter\n• Mehrjährige Erfahrung in komplexen Transformationsvorhaben\n• Erfahrung mit Reorganisationen und Governance-Transformationen\n• Erfahrung im Aufbau und der Transformation von Managementsystemen\n• Fundierte Kenntnisse in ISO 27001 und ISMS\n• Erfahrung in regulierten Branchen\n• Sehr gute Kommunikations- und Moderationsfähigkeiten\n• Hohe Stakeholder-Sensibilität und ausgeprägtes Schnittstellenmanagement\n• Sehr gutes Deutsch\n• Fähigkeit, unterschiedliche Anforderungen innerhalb von Zeit- und Budgetvorgaben zu vereinen\n\nJob profile\n• IT - Project Management\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• Project Management, ISDS",
-        "fr": "Für unseren Kunden, ein grosser IT-Dienstleister im Aargau, suchen wir für dessen Kunden im Raum Luzern/Zug eine:n Projektleiter:in für eine ISDS Weiterentwicklung\n\nGesucht wird ein externer Projektleiter, der die initiale Transformationsphase strukturiert aufsetzt, operativ führt und die notwendigen Entscheidungsgrundlagen für die zukünftige Ausgestaltung des ISDS erarbeitet. Der Projektleiter verantwortet die Analyse des bestehenden Systems, die Entwicklung eines zukünftigen Zielbilds sowie die Vorbereitung und Steuerung der Transformation. Dazu gehören insbesondere die Erarbeitung von Entscheidungsgrundlagen für Governance, Rollen, Prozesse, Betriebsmodell und Tool-Landschaft. Der Projektleiter übernimmt die Führung des Transformationsprojekts, koordiniert interne und externe Anspruchsgruppen und stellt eine geordnete Übergabe an eine interne Projektleitung sicher.\n\nDeine Aufgaben:\n• Zentrale Koordination und Steuerung der Initiative\n• Einbindung und Koordination relevanter Anspruchsgruppen\n• Identifikation, Transparenz und Bearbeitung von Zielkonflikten\n• Vorbereitung notwendiger Entscheidungen\n• Erarbeitung von Entscheidungsgrundlagen für die Geschäftsleitung\n• Koordination und Berücksichtigung von Abhängigkeiten zwischen:\n• Governance\n• Organisation\n• Prozessen\n• Werkzeugen\n• Sicherstellung des laufenden ISDS-Betriebs während der Transformation\n• Analyse und Bewertung der bestehenden Organisations- und Governance-Strukturen\n• Entwicklung von Vorschlägen für die zukünftige Ausgestaltung von:\n• Rollen und Verantwortlichkeiten\n• Gremien\n• Prozessen\n• Betriebsmodellen\n• Steuerung komplexer Transformationsvorhaben\n• Fokus auf Projektleitung und Transformation – keine fachliche CISO-, Compliance- oder Umsetzungsrolle\n\nDein Profil:\n• 8–10+ Jahre Erfahrung als Projekt- oder Programmleiter\n• Mehrjährige Erfahrung in komplexen Transformationsvorhaben\n• Erfahrung mit Reorganisationen und Governance-Transformationen\n• Erfahrung im Aufbau und der Transformation von Managementsystemen\n• Fundierte Kenntnisse in ISO 27001 und ISMS\n• Erfahrung in regulierten Branchen\n• Sehr gute Kommunikations- und Moderationsfähigkeiten\n• Hohe Stakeholder-Sensibilität und ausgeprägtes Schnittstellenmanagement\n• Sehr gutes Deutsch\n• Fähigkeit, unterschiedliche Anforderungen innerhalb von Zeit- und Budgetvorgaben zu vereinen\n\nJob profile\n• IT - Project Management\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• Project Management, ISDS"
+        "en": "For our client in Lausanne , we are looking for an experienced Digital Workplace Engineer - 3rd Level Support.\n\nIn this role, youwill provide ongoing support for enterprise information systems and apply strong analytical and problem-solving skills to resolve issues related to the integration, deployment, and operation of End-User Compute services, including the Azure Virtual Desktop platform.\n\nYour Responsibilities:\n• Handling of complex incidents escalated from Level 1 and Level 2 Support, including largescale crashes and operatiing system malfunctions\n• Draft and maintain technical procedures and share knowledge with 1st & 2nd Level support teams (incl. deliver in-person and remote training to employees)\n• Perform root cause analysis by reviewing logs, crash dumps, and related technical data to identify recurring issues and their underlying causes\n• Support continuous improvement by deploying automated patches through endpoint management tools and maintaining device compliance with security and hardening standards\n• Use scripting languages such as PowerShell to automate recurring administrative tasks and corrective actions\n• Understand business needs and support the collection and clarification of functional requirements\n• Create basic training materials, such as tip sheets and short recordings, to support user adoption of new tools and features\n\nYour Profil:\n• Bachelor’s degree in computer science, Computer Engineering, Information Technology, or a related discipline\n• 5+ years of professional experience in IT, with a strong focus on digital workplace or end-user computing service s in a multinational business environment\n• Experience in business systems analysis and operational support\n• Strong understanding of workplace processes, applications, and technologies, including Entra ID, Active Directory, Autopilot, Intune, Unified Endpoint Management, endpoint security solutions such as Microsoft Defender, Virtual Desktop Infrastructure, and Microsoft 365\n• Good knowledge of the ITIL framework and service management principles\n• Self-driven, proactive, and collaborative, with a strong team-oriented mindset\n• Ability to work independently while also contributing effectively within a team environment\n• Ability to work to deadlines and maintain quality in a dynamic environment\n• Excellent communication skills\n• Fluency in English, working knowledge of French or German is an advantage\n\nJob profile\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• Waadt\n• Contracting\n• Part Time, 60%\n• 15.10.2026 - 31.03.2027 with option of extension\n• Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop\n\nJob benefits\n• Coopers Care\n• First-name terms\n• Home Office\n• Modern workspace",
+        "it": "For our client in Lausanne , we are looking for an experienced Digital Workplace Engineer - 3rd Level Support.\n\nIn this role, youwill provide ongoing support for enterprise information systems and apply strong analytical and problem-solving skills to resolve issues related to the integration, deployment, and operation of End-User Compute services, including the Azure Virtual Desktop platform.\n\nYour Responsibilities:\n• Handling of complex incidents escalated from Level 1 and Level 2 Support, including largescale crashes and operatiing system malfunctions\n• Draft and maintain technical procedures and share knowledge with 1st & 2nd Level support teams (incl. deliver in-person and remote training to employees)\n• Perform root cause analysis by reviewing logs, crash dumps, and related technical data to identify recurring issues and their underlying causes\n• Support continuous improvement by deploying automated patches through endpoint management tools and maintaining device compliance with security and hardening standards\n• Use scripting languages such as PowerShell to automate recurring administrative tasks and corrective actions\n• Understand business needs and support the collection and clarification of functional requirements\n• Create basic training materials, such as tip sheets and short recordings, to support user adoption of new tools and features\n\nYour Profil:\n• Bachelor’s degree in computer science, Computer Engineering, Information Technology, or a related discipline\n• 5+ years of professional experience in IT, with a strong focus on digital workplace or end-user computing service s in a multinational business environment\n• Experience in business systems analysis and operational support\n• Strong understanding of workplace processes, applications, and technologies, including Entra ID, Active Directory, Autopilot, Intune, Unified Endpoint Management, endpoint security solutions such as Microsoft Defender, Virtual Desktop Infrastructure, and Microsoft 365\n• Good knowledge of the ITIL framework and service management principles\n• Self-driven, proactive, and collaborative, with a strong team-oriented mindset\n• Ability to work independently while also contributing effectively within a team environment\n• Ability to work to deadlines and maintain quality in a dynamic environment\n• Excellent communication skills\n• Fluency in English, working knowledge of French or German is an advantage\n\nJob profile\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• Waadt\n• Contracting\n• Part Time, 60%\n• 15.10.2026 - 31.03.2027 with option of extension\n• Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop\n\nJob benefits\n• Coopers Care\n• First-name terms\n• Home Office\n• Modern workspace",
+        "de": "For our client in Lausanne , we are looking for an experienced Digital Workplace Engineer - 3rd Level Support.\n\nIn this role, youwill provide ongoing support for enterprise information systems and apply strong analytical and problem-solving skills to resolve issues related to the integration, deployment, and operation of End-User Compute services, including the Azure Virtual Desktop platform.\n\nYour Responsibilities:\n• Handling of complex incidents escalated from Level 1 and Level 2 Support, including largescale crashes and operatiing system malfunctions\n• Draft and maintain technical procedures and share knowledge with 1st & 2nd Level support teams (incl. deliver in-person and remote training to employees)\n• Perform root cause analysis by reviewing logs, crash dumps, and related technical data to identify recurring issues and their underlying causes\n• Support continuous improvement by deploying automated patches through endpoint management tools and maintaining device compliance with security and hardening standards\n• Use scripting languages such as PowerShell to automate recurring administrative tasks and corrective actions\n• Understand business needs and support the collection and clarification of functional requirements\n• Create basic training materials, such as tip sheets and short recordings, to support user adoption of new tools and features\n\nYour Profil:\n• Bachelor’s degree in computer science, Computer Engineering, Information Technology, or a related discipline\n• 5+ years of professional experience in IT, with a strong focus on digital workplace or end-user computing service s in a multinational business environment\n• Experience in business systems analysis and operational support\n• Strong understanding of workplace processes, applications, and technologies, including Entra ID, Active Directory, Autopilot, Intune, Unified Endpoint Management, endpoint security solutions such as Microsoft Defender, Virtual Desktop Infrastructure, and Microsoft 365\n• Good knowledge of the ITIL framework and service management principles\n• Self-driven, proactive, and collaborative, with a strong team-oriented mindset\n• Ability to work independently while also contributing effectively within a team environment\n• Ability to work to deadlines and maintain quality in a dynamic environment\n• Excellent communication skills\n• Fluency in English, working knowledge of French or German is an advantage\n\nJob profile\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• Waadt\n• Contracting\n• Part Time, 60%\n• 15.10.2026 - 31.03.2027 with option of extension\n• Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop\n\nJob benefits\n• Coopers Care\n• First-name terms\n• Home Office\n• Modern workspace",
+        "fr": "For our client in Lausanne , we are looking for an experienced Digital Workplace Engineer - 3rd Level Support.\n\nIn this role, youwill provide ongoing support for enterprise information systems and apply strong analytical and problem-solving skills to resolve issues related to the integration, deployment, and operation of End-User Compute services, including the Azure Virtual Desktop platform.\n\nYour Responsibilities:\n• Handling of complex incidents escalated from Level 1 and Level 2 Support, including largescale crashes and operatiing system malfunctions\n• Draft and maintain technical procedures and share knowledge with 1st & 2nd Level support teams (incl. deliver in-person and remote training to employees)\n• Perform root cause analysis by reviewing logs, crash dumps, and related technical data to identify recurring issues and their underlying causes\n• Support continuous improvement by deploying automated patches through endpoint management tools and maintaining device compliance with security and hardening standards\n• Use scripting languages such as PowerShell to automate recurring administrative tasks and corrective actions\n• Understand business needs and support the collection and clarification of functional requirements\n• Create basic training materials, such as tip sheets and short recordings, to support user adoption of new tools and features\n\nYour Profil:\n• Bachelor’s degree in computer science, Computer Engineering, Information Technology, or a related discipline\n• 5+ years of professional experience in IT, with a strong focus on digital workplace or end-user computing service s in a multinational business environment\n• Experience in business systems analysis and operational support\n• Strong understanding of workplace processes, applications, and technologies, including Entra ID, Active Directory, Autopilot, Intune, Unified Endpoint Management, endpoint security solutions such as Microsoft Defender, Virtual Desktop Infrastructure, and Microsoft 365\n• Good knowledge of the ITIL framework and service management principles\n• Self-driven, proactive, and collaborative, with a strong team-oriented mindset\n• Ability to work independently while also contributing effectively within a team environment\n• Ability to work to deadlines and maintain quality in a dynamic environment\n• Excellent communication skills\n• Fluency in English, working knowledge of French or German is an advantage\n\nJob profile\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• Waadt\n• Contracting\n• Part Time, 60%\n• 15.10.2026 - 31.03.2027 with option of extension\n• Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop\n\nJob benefits\n• Coopers Care\n• First-name terms\n• Home Office\n• Modern workspace"
       },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
+      "location": "Waadt",
+      "canton": "VD",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=JH10D5",
       "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:47.945Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
-      "requirements": [
-        "IT - Project Management",
-        "Luzern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "per sofort - 31.12.2026 (mit Option auf Verlängerung)",
-        "Project Management, ISDS"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Project Management",
-          "Contracting",
-          "Part Time, 80-100%",
-          "per sofort - 31.12.2026 (mit Option auf Verlängerung)",
-          "Project Management, ISDS"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
-        ],
-        "en": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
-        ],
-        "fr": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:15:02.637Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-7f2900249653",
-      "slug": "pi-ingegnere-m-w-d-coopers-group-ag-aargau",
-      "slugByLocale": {
-        "it": "pi-ingegnere-m-w-d-coopers-group-ag-aargau",
-        "en": "pi-engineer-m-w-d-coopers-group-ag-aargau",
-        "de": "pi-ingenieur-m-w-d-coopers-group-ag-aargau",
-        "fr": "pi-ingenieur-m-w-d-coopers-group-ag-aargau"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "PI Engineer (m/w/d)",
-      "titleByLocale": {
-        "de": "PI Ingenieur (m/w/d)",
-        "en": "PI Engineer (m/w/d)",
-        "it": "PI Ingegnere (m/w/d)",
-        "fr": "PI Ingénieur (m/w/d)"
-      },
-      "description": "Sie haben ein Studium oder eine Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik. Vertiefte Kenntnisse in AVEVA PI (DA, AF, DAS), Erfahrung in Automationssystemen über den gesamten Lifecycle hinweg sowie ein breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld runden Ihr Profil ab? Dann wird diese Stelle hier, ihr Interesse wecken!\n\nAufgaben & Verantwortlichkeiten:\n• System-Architekt: Verantwortung für die Anbindung von Automationssystemen an AVEVA PI sowie die Datenmodellierung im PI AF. Dabei werden die Schnittstellen konfiguriert, angrenzende Komponenten (PI Vision, PI DAS) betreut und die kontinuierliche Pflege über den gesamten Lifecycle sichergestellt.\n• Lösungsdesign: Gemeinsame Analyse der Anforderungen an das PI-System mit internen Business Partnern und Implementierung optimaler, GMP-konformer Lösungen.\n• Projektengineering: Planung und Bearbeitung von Projekten mit Fokus auf PI-Historian – von der Spezifikation bis zur Übergabe an den Betrieb.\n• Betrieb & Support: Gemeinsame Sicherstellung der Administration und des reibungslosen Betriebs im Team (inkl. Fehleranalyse, Root-Cause-Analysen und Deviation Handling).\n• Compliance: Steuerung von Change-Control-Prozessen sowie Qualifizierungs- und Validierungsaktivitäten gemäss Roche-Richtlinien.\n• Wissenstransfer: Schulung von Mitarbeitenden sowie Unterstützung der Kunden bei technischen Fragestellungen und Behördeninspektionen.\n\nMust Haves:\n• Studium oder Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik oder einer vergleichbaren Fachrichtung\n• Expertise: Vertiefte Kenntnisse in AVEVA PI sowie die dazugehörigen Infrastruktur-Komponenten (DA, AF, DAS) sowie Erfahrung in der Anbindung von Automationssystem und der Pflege dieser Anbindungen über den Lifecycle\n• Erfahrung im Umgang mit SQL von Vorteil\n• IT-Architektur: Breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld\n• Mehrjährige Praxis als System Engineer mit Erfahrung in Projektengineering, idealerweise im GMP-regulierten Umfeld\n• Know-how in der automatisierten Herstellung pharmazeutischer Produkte\n• Verhandlungssicheres Deutsch zwingend nötig und Englisch von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Software Architecture",
-      "descriptionByLocale": {
-        "it": "Sie haben ein Studium oder eine Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik. Vertiefte Kenntnisse in AVEVA PI (DA, AF, DAS), Erfahrung in Automationssystemen über den gesamten Lifecycle hinweg sowie ein breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld runden Ihr Profil ab? Dann wird diese Stelle hier, ihr Interesse wecken!\n\nAufgaben & Verantwortlichkeiten:\n• System-Architekt: Verantwortung für die Anbindung von Automationssystemen an AVEVA PI sowie die Datenmodellierung im PI AF. Dabei werden die Schnittstellen konfiguriert, angrenzende Komponenten (PI Vision, PI DAS) betreut und die kontinuierliche Pflege über den gesamten Lifecycle sichergestellt.\n• Lösungsdesign: Gemeinsame Analyse der Anforderungen an das PI-System mit internen Business Partnern und Implementierung optimaler, GMP-konformer Lösungen.\n• Projektengineering: Planung und Bearbeitung von Projekten mit Fokus auf PI-Historian – von der Spezifikation bis zur Übergabe an den Betrieb.\n• Betrieb & Support: Gemeinsame Sicherstellung der Administration und des reibungslosen Betriebs im Team (inkl. Fehleranalyse, Root-Cause-Analysen und Deviation Handling).\n• Compliance: Steuerung von Change-Control-Prozessen sowie Qualifizierungs- und Validierungsaktivitäten gemäss Roche-Richtlinien.\n• Wissenstransfer: Schulung von Mitarbeitenden sowie Unterstützung der Kunden bei technischen Fragestellungen und Behördeninspektionen.\n\nMust Haves:\n• Studium oder Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik oder einer vergleichbaren Fachrichtung\n• Expertise: Vertiefte Kenntnisse in AVEVA PI sowie die dazugehörigen Infrastruktur-Komponenten (DA, AF, DAS) sowie Erfahrung in der Anbindung von Automationssystem und der Pflege dieser Anbindungen über den Lifecycle\n• Erfahrung im Umgang mit SQL von Vorteil\n• IT-Architektur: Breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld\n• Mehrjährige Praxis als System Engineer mit Erfahrung in Projektengineering, idealerweise im GMP-regulierten Umfeld\n• Know-how in der automatisierten Herstellung pharmazeutischer Produkte\n• Verhandlungssicheres Deutsch zwingend nötig und Englisch von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Software Architecture",
-        "en": "Sie haben ein Studium oder eine Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik. Vertiefte Kenntnisse in AVEVA PI (DA, AF, DAS), Erfahrung in Automationssystemen über den gesamten Lifecycle hinweg sowie ein breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld runden Ihr Profil ab? Dann wird diese Stelle hier, ihr Interesse wecken!\n\nAufgaben & Verantwortlichkeiten:\n• System-Architekt: Verantwortung für die Anbindung von Automationssystemen an AVEVA PI sowie die Datenmodellierung im PI AF. Dabei werden die Schnittstellen konfiguriert, angrenzende Komponenten (PI Vision, PI DAS) betreut und die kontinuierliche Pflege über den gesamten Lifecycle sichergestellt.\n• Lösungsdesign: Gemeinsame Analyse der Anforderungen an das PI-System mit internen Business Partnern und Implementierung optimaler, GMP-konformer Lösungen.\n• Projektengineering: Planung und Bearbeitung von Projekten mit Fokus auf PI-Historian – von der Spezifikation bis zur Übergabe an den Betrieb.\n• Betrieb & Support: Gemeinsame Sicherstellung der Administration und des reibungslosen Betriebs im Team (inkl. Fehleranalyse, Root-Cause-Analysen und Deviation Handling).\n• Compliance: Steuerung von Change-Control-Prozessen sowie Qualifizierungs- und Validierungsaktivitäten gemäss Roche-Richtlinien.\n• Wissenstransfer: Schulung von Mitarbeitenden sowie Unterstützung der Kunden bei technischen Fragestellungen und Behördeninspektionen.\n\nMust Haves:\n• Studium oder Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik oder einer vergleichbaren Fachrichtung\n• Expertise: Vertiefte Kenntnisse in AVEVA PI sowie die dazugehörigen Infrastruktur-Komponenten (DA, AF, DAS) sowie Erfahrung in der Anbindung von Automationssystem und der Pflege dieser Anbindungen über den Lifecycle\n• Erfahrung im Umgang mit SQL von Vorteil\n• IT-Architektur: Breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld\n• Mehrjährige Praxis als System Engineer mit Erfahrung in Projektengineering, idealerweise im GMP-regulierten Umfeld\n• Know-how in der automatisierten Herstellung pharmazeutischer Produkte\n• Verhandlungssicheres Deutsch zwingend nötig und Englisch von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Software Architecture",
-        "de": "Sie haben ein Studium oder eine Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik. Vertiefte Kenntnisse in AVEVA PI (DA, AF, DAS), Erfahrung in Automationssystemen über den gesamten Lifecycle hinweg sowie ein breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld runden Ihr Profil ab? Dann wird diese Stelle hier, ihr Interesse wecken!\n\nAufgaben & Verantwortlichkeiten:\n• System-Architekt: Verantwortung für die Anbindung von Automationssystemen an AVEVA PI sowie die Datenmodellierung im PI AF. Dabei werden die Schnittstellen konfiguriert, angrenzende Komponenten (PI Vision, PI DAS) betreut und die kontinuierliche Pflege über den gesamten Lifecycle sichergestellt.\n• Lösungsdesign: Gemeinsame Analyse der Anforderungen an das PI-System mit internen Business Partnern und Implementierung optimaler, GMP-konformer Lösungen.\n• Projektengineering: Planung und Bearbeitung von Projekten mit Fokus auf PI-Historian – von der Spezifikation bis zur Übergabe an den Betrieb.\n• Betrieb & Support: Gemeinsame Sicherstellung der Administration und des reibungslosen Betriebs im Team (inkl. Fehleranalyse, Root-Cause-Analysen und Deviation Handling).\n• Compliance: Steuerung von Change-Control-Prozessen sowie Qualifizierungs- und Validierungsaktivitäten gemäss Roche-Richtlinien.\n• Wissenstransfer: Schulung von Mitarbeitenden sowie Unterstützung der Kunden bei technischen Fragestellungen und Behördeninspektionen.\n\nMust Haves:\n• Studium oder Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik oder einer vergleichbaren Fachrichtung\n• Expertise: Vertiefte Kenntnisse in AVEVA PI sowie die dazugehörigen Infrastruktur-Komponenten (DA, AF, DAS) sowie Erfahrung in der Anbindung von Automationssystem und der Pflege dieser Anbindungen über den Lifecycle\n• Erfahrung im Umgang mit SQL von Vorteil\n• IT-Architektur: Breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld\n• Mehrjährige Praxis als System Engineer mit Erfahrung in Projektengineering, idealerweise im GMP-regulierten Umfeld\n• Know-how in der automatisierten Herstellung pharmazeutischer Produkte\n• Verhandlungssicheres Deutsch zwingend nötig und Englisch von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Software Architecture",
-        "fr": "Sie haben ein Studium oder eine Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik. Vertiefte Kenntnisse in AVEVA PI (DA, AF, DAS), Erfahrung in Automationssystemen über den gesamten Lifecycle hinweg sowie ein breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld runden Ihr Profil ab? Dann wird diese Stelle hier, ihr Interesse wecken!\n\nAufgaben & Verantwortlichkeiten:\n• System-Architekt: Verantwortung für die Anbindung von Automationssystemen an AVEVA PI sowie die Datenmodellierung im PI AF. Dabei werden die Schnittstellen konfiguriert, angrenzende Komponenten (PI Vision, PI DAS) betreut und die kontinuierliche Pflege über den gesamten Lifecycle sichergestellt.\n• Lösungsdesign: Gemeinsame Analyse der Anforderungen an das PI-System mit internen Business Partnern und Implementierung optimaler, GMP-konformer Lösungen.\n• Projektengineering: Planung und Bearbeitung von Projekten mit Fokus auf PI-Historian – von der Spezifikation bis zur Übergabe an den Betrieb.\n• Betrieb & Support: Gemeinsame Sicherstellung der Administration und des reibungslosen Betriebs im Team (inkl. Fehleranalyse, Root-Cause-Analysen und Deviation Handling).\n• Compliance: Steuerung von Change-Control-Prozessen sowie Qualifizierungs- und Validierungsaktivitäten gemäss Roche-Richtlinien.\n• Wissenstransfer: Schulung von Mitarbeitenden sowie Unterstützung der Kunden bei technischen Fragestellungen und Behördeninspektionen.\n\nMust Haves:\n• Studium oder Ausbildung in Informatik, Elektrotechnik, Automatisierungstechnik oder einer vergleichbaren Fachrichtung\n• Expertise: Vertiefte Kenntnisse in AVEVA PI sowie die dazugehörigen Infrastruktur-Komponenten (DA, AF, DAS) sowie Erfahrung in der Anbindung von Automationssystem und der Pflege dieser Anbindungen über den Lifecycle\n• Erfahrung im Umgang mit SQL von Vorteil\n• IT-Architektur: Breites Verständnis von Netzwerktechnik und Systemintegration im industriellen Umfeld\n• Mehrjährige Praxis als System Engineer mit Erfahrung in Projektengineering, idealerweise im GMP-regulierten Umfeld\n• Know-how in der automatisierten Herstellung pharmazeutischer Produkte\n• Verhandlungssicheres Deutsch zwingend nötig und Englisch von Vorteil\n\nJob profile\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Software Architecture"
-      },
-      "location": "Aargau",
-      "canton": "AG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X62Z0K",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:09.961Z",
-      "addressLocality": "Aargau",
-      "addressRegion": "AG",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:23:38.427Z",
+      "addressLocality": "Waadt",
+      "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
@@ -6275,55 +6262,124 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=X62Z0K",
+      "datePosted": "2026-10-05T00:00:00Z",
+      "postedDate": "2026-10-05T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=JH10D5",
       "requirements": [
-        "IT - Software Engineering",
-        "Aargau",
+        "IT - ERP & Applications",
+        "IT - IT Infrastructure & Operations",
+        "Waadt",
         "Contracting",
-        "Part Time, 80-100%",
-        "Software Architecture"
+        "Part Time, 60%",
+        "15.10.2026 - 31.03.2027 with option of extension",
+        "Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop"
       ],
       "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
+        "en": [
+          "IT - ERP & Applications",
+          "IT - IT Infrastructure & Operations",
+          "Waadt",
           "Contracting",
-          "Part Time, 80-100%",
-          "Software Architecture"
+          "Part Time, 60%",
+          "15.10.2026 - 31.03.2027 with option of extension",
+          "Collaboration, Microsoft, Workplace, 3rd Level Support, Active Directory, Entra ID, Intune, Virtual Desktop"
         ]
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "pi-engineer-m-w-d-coopers-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pi-engineer-m-w-d-coopers-aargau"
-        ],
-        "de": [
-          "pi-engineer-m-w-d-coopers-aargau"
-        ],
-        "fr": [
-          "pi-engineer-m-w-d-coopers-aargau"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:21:00.849Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
+          "minValue": 71000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       },
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 2
+      "postalCode": "1003",
+      "firstSeenAt": "2026-10-06T09:23:38.427Z"
+    },
+    {
+      "id": "coopers-8740b513a0ea",
+      "slug": "mechanical-design-engineer-m-w-d-coopers-zug",
+      "slugByLocale": {
+        "de": "mechanical-design-engineer-m-w-d-coopers-zug",
+        "it": "mechanical-design-engineer-m-w-d-coopers-zug",
+        "en": "mechanical-design-engineer-m-w-d-coopers-zug",
+        "fr": "mechanical-design-engineer-m-w-d-coopers-zug"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Mechanical Design Engineer (m/w/d)",
+      "titleByLocale": {
+        "de": "Mechanical Design Ingenieur (m/w/d)",
+        "en": "Mechanical Design Engineer (m/w/d)",
+        "it": "Mechanical Design Ingegnere (m/w/d)",
+        "fr": "Mechanical Design Ingénieur (m/w/d)"
+      },
+      "description": "Du bringst eine erste Erfahrung mit der CFD-Software sowie Simulationstechniken mit (inklusive Grid Generation, Simulation und Post-Processing). Zudem runden starke analytische Fähigkeiten, Begeisterung für experimentelle Fluiddynamik und Kenntnisse in der Entwicklung von Testaufbauten dein Profil ab? Dann solltest du dir diese Stelle anschauen!\n\nAufgaben & Verantwortlichkeiten:\n• Konzept Beurteilung und Parameter Ermittlung: Du analysierst und beurteilst neue Technologien und testest diese aus. Mittels deinem fluidischen und physikalischen Fachwissen definierst du verschiedene Parameter Settings und verifizierst diese, damit die Pipettier-Performance der spezifischen Anwendung erreicht werden kann.\n• Liquid Handling Lösungsentwicklung: Du unterstützt die technische Implementation von Liquid Handling Lösungen im Kontext von IVD Produkt Entwicklungen. Mittels deinem fluidischen und physikalischen Fachwissen und Computational Fluid Dynamics unterstützt du die Design Engineers bei der Entwicklung von Komponenten, damit das Design aus Fluid technischer Sicht optimiert wird. Du verifizierst deine Simulationen mittels Experimenten.\n• Feasibility Studien: Du initiierst, leitest und führst Feasibility Studien im Bereich Liquid Handling durch, um technische Anforderungen zu erfüllen und Risiken zu minimieren.\n• Teststand Entwicklung: Du definierst die benötigten Teststände, welche für die Feasibility Studien und Parameter Ermittlungen benötigt werden. In Zusammenarbeit mit den Mechanik und Elektronik Design Engineers und den Software Engineers nimmst du die Teststände in Betrieb und programmierst die benötigten Softwareabläufe.\n\nMust Haves:\n• Abgeschlossenes Studium, Bachelor oder Master of Science in Maschinenbau im Bereich Fluid Dynamik\n• 1-3 Jahre Erfahrung mit CFD Software und Techniken, um komplexe fluidische Strömungen zu simulieren, inklusive Grid Generation, Simulation und Post-Processing\n• Grosse analytische Fähigkeiten und eine selbstständige und strukturierte Vorgehensweise, um komplexe Probleme zu analysieren und zu lösen\n• Freude an experimenteller Fluid Dynamik und arbeitest gerne Hands-On an Testaufbauten, um Theorien zu bestätigen und die Performance der Aufbauten zu verifizieren\n• Fähigkeit komplexe Testabläufe in Python und C# zu programmieren, und moderne AI-Tools wie Gemini oder Claude Code einsetzen, um effiziente Lösungen zu erarbeiten\n• Du möchtest in internationalen, cross-funktionalen Teams mitarbeiten und dich mit anderen Experten austauschen\n• Sehr gute schriftliche und mündliche Kommunikation in Deutsch und Englisch.\n\nJob profile\n• Engineering - Mechanical Engineering\n• Zug\n• Contracting\n• Full Time\n• Fluidik, Maschinenbau",
+      "descriptionByLocale": {
+        "de": "Du bringst eine erste Erfahrung mit der CFD-Software sowie Simulationstechniken mit (inklusive Grid Generation, Simulation und Post-Processing). Zudem runden starke analytische Fähigkeiten, Begeisterung für experimentelle Fluiddynamik und Kenntnisse in der Entwicklung von Testaufbauten dein Profil ab? Dann solltest du dir diese Stelle anschauen!\n\nAufgaben & Verantwortlichkeiten:\n• Konzept Beurteilung und Parameter Ermittlung: Du analysierst und beurteilst neue Technologien und testest diese aus. Mittels deinem fluidischen und physikalischen Fachwissen definierst du verschiedene Parameter Settings und verifizierst diese, damit die Pipettier-Performance der spezifischen Anwendung erreicht werden kann.\n• Liquid Handling Lösungsentwicklung: Du unterstützt die technische Implementation von Liquid Handling Lösungen im Kontext von IVD Produkt Entwicklungen. Mittels deinem fluidischen und physikalischen Fachwissen und Computational Fluid Dynamics unterstützt du die Design Engineers bei der Entwicklung von Komponenten, damit das Design aus Fluid technischer Sicht optimiert wird. Du verifizierst deine Simulationen mittels Experimenten.\n• Feasibility Studien: Du initiierst, leitest und führst Feasibility Studien im Bereich Liquid Handling durch, um technische Anforderungen zu erfüllen und Risiken zu minimieren.\n• Teststand Entwicklung: Du definierst die benötigten Teststände, welche für die Feasibility Studien und Parameter Ermittlungen benötigt werden. In Zusammenarbeit mit den Mechanik und Elektronik Design Engineers und den Software Engineers nimmst du die Teststände in Betrieb und programmierst die benötigten Softwareabläufe.\n\nMust Haves:\n• Abgeschlossenes Studium, Bachelor oder Master of Science in Maschinenbau im Bereich Fluid Dynamik\n• 1-3 Jahre Erfahrung mit CFD Software und Techniken, um komplexe fluidische Strömungen zu simulieren, inklusive Grid Generation, Simulation und Post-Processing\n• Grosse analytische Fähigkeiten und eine selbstständige und strukturierte Vorgehensweise, um komplexe Probleme zu analysieren und zu lösen\n• Freude an experimenteller Fluid Dynamik und arbeitest gerne Hands-On an Testaufbauten, um Theorien zu bestätigen und die Performance der Aufbauten zu verifizieren\n• Fähigkeit komplexe Testabläufe in Python und C# zu programmieren, und moderne AI-Tools wie Gemini oder Claude Code einsetzen, um effiziente Lösungen zu erarbeiten\n• Du möchtest in internationalen, cross-funktionalen Teams mitarbeiten und dich mit anderen Experten austauschen\n• Sehr gute schriftliche und mündliche Kommunikation in Deutsch und Englisch.\n\nJob profile\n• Engineering - Mechanical Engineering\n• Zug\n• Contracting\n• Full Time\n• Fluidik, Maschinenbau",
+        "it": "Du bringst eine erste Erfahrung mit der CFD-Software sowie Simulationstechniken mit (inklusive Grid Generation, Simulation und Post-Processing). Zudem runden starke analytische Fähigkeiten, Begeisterung für experimentelle Fluiddynamik und Kenntnisse in der Entwicklung von Testaufbauten dein Profil ab? Dann solltest du dir diese Stelle anschauen!\n\nAufgaben & Verantwortlichkeiten:\n• Konzept Beurteilung und Parameter Ermittlung: Du analysierst und beurteilst neue Technologien und testest diese aus. Mittels deinem fluidischen und physikalischen Fachwissen definierst du verschiedene Parameter Settings und verifizierst diese, damit die Pipettier-Performance der spezifischen Anwendung erreicht werden kann.\n• Liquid Handling Lösungsentwicklung: Du unterstützt die technische Implementation von Liquid Handling Lösungen im Kontext von IVD Produkt Entwicklungen. Mittels deinem fluidischen und physikalischen Fachwissen und Computational Fluid Dynamics unterstützt du die Design Engineers bei der Entwicklung von Komponenten, damit das Design aus Fluid technischer Sicht optimiert wird. Du verifizierst deine Simulationen mittels Experimenten.\n• Feasibility Studien: Du initiierst, leitest und führst Feasibility Studien im Bereich Liquid Handling durch, um technische Anforderungen zu erfüllen und Risiken zu minimieren.\n• Teststand Entwicklung: Du definierst die benötigten Teststände, welche für die Feasibility Studien und Parameter Ermittlungen benötigt werden. In Zusammenarbeit mit den Mechanik und Elektronik Design Engineers und den Software Engineers nimmst du die Teststände in Betrieb und programmierst die benötigten Softwareabläufe.\n\nMust Haves:\n• Abgeschlossenes Studium, Bachelor oder Master of Science in Maschinenbau im Bereich Fluid Dynamik\n• 1-3 Jahre Erfahrung mit CFD Software und Techniken, um komplexe fluidische Strömungen zu simulieren, inklusive Grid Generation, Simulation und Post-Processing\n• Grosse analytische Fähigkeiten und eine selbstständige und strukturierte Vorgehensweise, um komplexe Probleme zu analysieren und zu lösen\n• Freude an experimenteller Fluid Dynamik und arbeitest gerne Hands-On an Testaufbauten, um Theorien zu bestätigen und die Performance der Aufbauten zu verifizieren\n• Fähigkeit komplexe Testabläufe in Python und C# zu programmieren, und moderne AI-Tools wie Gemini oder Claude Code einsetzen, um effiziente Lösungen zu erarbeiten\n• Du möchtest in internationalen, cross-funktionalen Teams mitarbeiten und dich mit anderen Experten austauschen\n• Sehr gute schriftliche und mündliche Kommunikation in Deutsch und Englisch.\n\nJob profile\n• Engineering - Mechanical Engineering\n• Zug\n• Contracting\n• Full Time\n• Fluidik, Maschinenbau",
+        "en": "Du bringst eine erste Erfahrung mit der CFD-Software sowie Simulationstechniken mit (inklusive Grid Generation, Simulation und Post-Processing). Zudem runden starke analytische Fähigkeiten, Begeisterung für experimentelle Fluiddynamik und Kenntnisse in der Entwicklung von Testaufbauten dein Profil ab? Dann solltest du dir diese Stelle anschauen!\n\nAufgaben & Verantwortlichkeiten:\n• Konzept Beurteilung und Parameter Ermittlung: Du analysierst und beurteilst neue Technologien und testest diese aus. Mittels deinem fluidischen und physikalischen Fachwissen definierst du verschiedene Parameter Settings und verifizierst diese, damit die Pipettier-Performance der spezifischen Anwendung erreicht werden kann.\n• Liquid Handling Lösungsentwicklung: Du unterstützt die technische Implementation von Liquid Handling Lösungen im Kontext von IVD Produkt Entwicklungen. Mittels deinem fluidischen und physikalischen Fachwissen und Computational Fluid Dynamics unterstützt du die Design Engineers bei der Entwicklung von Komponenten, damit das Design aus Fluid technischer Sicht optimiert wird. Du verifizierst deine Simulationen mittels Experimenten.\n• Feasibility Studien: Du initiierst, leitest und führst Feasibility Studien im Bereich Liquid Handling durch, um technische Anforderungen zu erfüllen und Risiken zu minimieren.\n• Teststand Entwicklung: Du definierst die benötigten Teststände, welche für die Feasibility Studien und Parameter Ermittlungen benötigt werden. In Zusammenarbeit mit den Mechanik und Elektronik Design Engineers und den Software Engineers nimmst du die Teststände in Betrieb und programmierst die benötigten Softwareabläufe.\n\nMust Haves:\n• Abgeschlossenes Studium, Bachelor oder Master of Science in Maschinenbau im Bereich Fluid Dynamik\n• 1-3 Jahre Erfahrung mit CFD Software und Techniken, um komplexe fluidische Strömungen zu simulieren, inklusive Grid Generation, Simulation und Post-Processing\n• Grosse analytische Fähigkeiten und eine selbstständige und strukturierte Vorgehensweise, um komplexe Probleme zu analysieren und zu lösen\n• Freude an experimenteller Fluid Dynamik und arbeitest gerne Hands-On an Testaufbauten, um Theorien zu bestätigen und die Performance der Aufbauten zu verifizieren\n• Fähigkeit komplexe Testabläufe in Python und C# zu programmieren, und moderne AI-Tools wie Gemini oder Claude Code einsetzen, um effiziente Lösungen zu erarbeiten\n• Du möchtest in internationalen, cross-funktionalen Teams mitarbeiten und dich mit anderen Experten austauschen\n• Sehr gute schriftliche und mündliche Kommunikation in Deutsch und Englisch.\n\nJob profile\n• Engineering - Mechanical Engineering\n• Zug\n• Contracting\n• Full Time\n• Fluidik, Maschinenbau",
+        "fr": "Du bringst eine erste Erfahrung mit der CFD-Software sowie Simulationstechniken mit (inklusive Grid Generation, Simulation und Post-Processing). Zudem runden starke analytische Fähigkeiten, Begeisterung für experimentelle Fluiddynamik und Kenntnisse in der Entwicklung von Testaufbauten dein Profil ab? Dann solltest du dir diese Stelle anschauen!\n\nAufgaben & Verantwortlichkeiten:\n• Konzept Beurteilung und Parameter Ermittlung: Du analysierst und beurteilst neue Technologien und testest diese aus. Mittels deinem fluidischen und physikalischen Fachwissen definierst du verschiedene Parameter Settings und verifizierst diese, damit die Pipettier-Performance der spezifischen Anwendung erreicht werden kann.\n• Liquid Handling Lösungsentwicklung: Du unterstützt die technische Implementation von Liquid Handling Lösungen im Kontext von IVD Produkt Entwicklungen. Mittels deinem fluidischen und physikalischen Fachwissen und Computational Fluid Dynamics unterstützt du die Design Engineers bei der Entwicklung von Komponenten, damit das Design aus Fluid technischer Sicht optimiert wird. Du verifizierst deine Simulationen mittels Experimenten.\n• Feasibility Studien: Du initiierst, leitest und führst Feasibility Studien im Bereich Liquid Handling durch, um technische Anforderungen zu erfüllen und Risiken zu minimieren.\n• Teststand Entwicklung: Du definierst die benötigten Teststände, welche für die Feasibility Studien und Parameter Ermittlungen benötigt werden. In Zusammenarbeit mit den Mechanik und Elektronik Design Engineers und den Software Engineers nimmst du die Teststände in Betrieb und programmierst die benötigten Softwareabläufe.\n\nMust Haves:\n• Abgeschlossenes Studium, Bachelor oder Master of Science in Maschinenbau im Bereich Fluid Dynamik\n• 1-3 Jahre Erfahrung mit CFD Software und Techniken, um komplexe fluidische Strömungen zu simulieren, inklusive Grid Generation, Simulation und Post-Processing\n• Grosse analytische Fähigkeiten und eine selbstständige und strukturierte Vorgehensweise, um komplexe Probleme zu analysieren und zu lösen\n• Freude an experimenteller Fluid Dynamik und arbeitest gerne Hands-On an Testaufbauten, um Theorien zu bestätigen und die Performance der Aufbauten zu verifizieren\n• Fähigkeit komplexe Testabläufe in Python und C# zu programmieren, und moderne AI-Tools wie Gemini oder Claude Code einsetzen, um effiziente Lösungen zu erarbeiten\n• Du möchtest in internationalen, cross-funktionalen Teams mitarbeiten und dich mit anderen Experten austauschen\n• Sehr gute schriftliche und mündliche Kommunikation in Deutsch und Englisch.\n\nJob profile\n• Engineering - Mechanical Engineering\n• Zug\n• Contracting\n• Full Time\n• Fluidik, Maschinenbau"
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4U31NG",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T09:23:36.510Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T00:00:00Z",
+      "postedDate": "2026-10-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4U31NG",
+      "requirements": [
+        "Engineering - Mechanical Engineering",
+        "Contracting",
+        "Full Time",
+        "Fluidik, Maschinenbau"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Engineering - Mechanical Engineering",
+          "Contracting",
+          "Full Time",
+          "Fluidik, Maschinenbau"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6300",
+      "firstSeenAt": "2026-10-06T09:23:36.510Z"
     }
   ]
 }

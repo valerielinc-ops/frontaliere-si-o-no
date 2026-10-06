@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-10-05T21:39:08.729Z",
+  "assembledAt": "2026-10-06T09:14:25.045Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4392?c=groupemutuel&lang=fr-FR",
@@ -55,10 +55,10 @@
           "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel",
           "gestionnaire-entreprise-ijm-m-w-d-80-100-groupe-mutuel-sion"
         ],
-        "de": [
+        "en": [
           "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel"
         ],
-        "en": [
+        "de": [
           "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel"
         ]
       },
@@ -78,6 +78,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS"
     },
@@ -155,6 +156,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1023",
       "addressLocality": "Crissier",
       "addressRegion": "VD"
     },
@@ -230,6 +232,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS"
     },
@@ -308,6 +311,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS"
     },
@@ -386,6 +390,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD"
     },
@@ -464,6 +469,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH"
     },
@@ -544,6 +550,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR"
     },
@@ -622,6 +629,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE"
     },
@@ -710,6 +718,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG"
     },
@@ -792,6 +801,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9500",
       "addressLocality": "Wil",
       "addressRegion": "SG"
     },
@@ -869,6 +879,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1630",
       "addressLocality": "Bulle",
       "addressRegion": "FR"
     },
@@ -948,6 +959,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2800",
       "addressLocality": "Delémont",
       "addressRegion": "JU"
     },
@@ -1012,6 +1024,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS"
     },
@@ -1128,6 +1141,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5000",
       "addressLocality": "Aarau",
       "addressRegion": "AG"
     },
@@ -1206,6 +1220,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4600",
       "addressLocality": "Olten",
       "addressRegion": "SO"
     },
@@ -1281,6 +1296,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS"
     },
@@ -1359,6 +1375,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS"
     },
@@ -1437,6 +1454,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR"
     },
@@ -1515,6 +1533,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD"
     },
@@ -1595,6 +1614,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR"
     },
@@ -1675,6 +1695,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS"
     },
@@ -1753,7 +1774,9 @@
         }
       },
       "addressLocality": "Yverdon-les-Bains",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "postalCode": "1400"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4282?c=groupemutuel&lang=fr-FR",
@@ -1829,6 +1852,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1870",
       "addressLocality": "Monthey",
       "addressRegion": "VS"
     },
@@ -1905,6 +1929,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH"
     },
@@ -1983,6 +2008,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE"
     },
@@ -2060,6 +2086,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "7320",
       "addressLocality": "Sargans",
       "addressRegion": "SG"
     },
@@ -2137,6 +2164,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4500",
       "addressLocality": "Solothurn",
       "addressRegion": "SO"
     },
@@ -2218,6 +2246,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "2000",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE"
     },
@@ -2296,6 +2325,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG"
     },
@@ -2373,6 +2403,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1201",
       "addressLocality": "Genève",
       "addressRegion": "GE"
     },
@@ -2452,6 +2483,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH"
     }

@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-10-05T21:29:45.708Z",
+  "generatedAt": "2026-10-06T09:19:08.204Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5079,
-  "avgDurationMs": 5079,
+  "durationMs": 5003,
+  "avgDurationMs": 5003,
   "durationHistory": [
-    5079
+    5003
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:29:36.933Z",
+      "crawledAt": "2026-10-06T09:18:53.728Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:29:36.486Z",
+      "crawledAt": "2026-10-06T09:18:53.273Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:29:36.036Z",
+      "crawledAt": "2026-10-06T09:18:52.819Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:29:35.565Z",
+      "crawledAt": "2026-10-06T09:18:52.345Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -204,5 +204,5 @@
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }

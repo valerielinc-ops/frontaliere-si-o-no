@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-10-05T21:30:11.792Z",
+  "generatedAt": "2026-10-06T09:14:46.126Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 29598,
-  "avgDurationMs": 29598,
+  "durationMs": 38874,
+  "avgDurationMs": 38874,
   "durationHistory": [
-    29598
+    38874
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:03.493Z",
+      "crawledAt": "2026-10-06T09:14:34.165Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -58,12 +58,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "7050",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -78,7 +79,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:03.491Z",
+      "crawledAt": "2026-10-06T09:14:34.163Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -98,12 +99,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7050",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -118,7 +120,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:30:03.488Z",
+      "crawledAt": "2026-10-06T09:14:34.162Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -139,14 +141,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "7050",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
+  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
 }
