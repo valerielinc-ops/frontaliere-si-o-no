@@ -1193,9 +1193,10 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
   return '';
 }
 
-// ── Codex Luna Max (decisione del proprietario, 2026-10-06) ────────────────
+// ── Codex Luna Max (decisione del proprietario, 2026-09-25) ────────────────
 //
-// Codex viene tentato per primo. Se broker/auth, timeout o quota lo rendono
+// Regola aggiornata il 2026-10-06: Codex viene tentato per primo. Se broker/auth,
+// timeout o quota lo rendono
 // inutilizzabile, ai-models.mjs apre un circuito per run e questa cascata
 // prosegue immediatamente con DeepL, Azure e gli altri tier nell'ordine
 // storico. `FREE_TRANSLATE_CODEX_TIER=last` è mantenuto solo per un caller

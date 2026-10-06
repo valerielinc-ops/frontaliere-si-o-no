@@ -1049,7 +1049,7 @@ function _codexSafeDiagnostic(value) {
   let safe = String(value ?? '');
   const secrets = new Set();
   for (const key of ['CODEX_AUTH_JSON', 'CODEX_AUTH_TOKEN', 'CODEX_AUTH_SECRET']) {
-    const raw = String(process.env[key] || '');
+    const raw = String(process.env[key] || ''); // env-scan: fixed local allowlist of secret names; not an endpoint lookup.
     if (raw.length >= 4) secrets.add(raw);
     if (key === 'CODEX_AUTH_JSON' && raw) {
       try {
