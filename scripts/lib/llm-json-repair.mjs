@@ -768,7 +768,20 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
   for (let i = start; i < source.length; i++) {
     const ch = source[i];
     if (ch === '"' && !isEscapedAt(source, i)) {
-      const stringEnd = scanStringEnd(source, i, true);
+      // A malformed value must not make the lenient quote lookahead swallow
+      // the next object key (for example `"bad":[1} [{"q":...`). Keys are
+      // unambiguous here, so close them strictly before scanning values.
+      let stringEnd = -1;
+      const top = structuralStack.at(-1);
+      let previous = i - 1;
+      while (previous >= start && /\s/.test(source[previous])) previous--;
+      if (top?.open === '{' && ['{', ','].includes(source[previous])) {
+        const keyEnd = scanKeyEnd(source, i);
+        let keyNext = keyEnd;
+        while (keyNext !== -1 && keyNext < source.length && /\s/.test(source[keyNext])) keyNext++;
+        if (keyEnd !== -1 && source[keyNext] === ':') stringEnd = keyEnd;
+      }
+      if (stringEnd === -1) stringEnd = scanStringEnd(source, i, true);
       if (stringEnd !== -1) {
         if (i > start) prefixInString = false;
         i = stringEnd - 1;
@@ -810,7 +823,18 @@ function scanStructuralRootCandidates(source, rootOpeners, start) {
     if (ch !== '}' && ch !== ']') continue;
     const opener = ch === '}' ? '{' : '[';
     const frame = structuralStack.at(-1);
-    if (!frame || frame.open !== opener) continue;
+    if (!frame || frame.open !== opener) {
+      if (!firstClosed) {
+        // The closer is corrupt relative to the current nested branch. Keep
+        // it outside the first-root boundary, but discard stale nested
+        // frames so a later root is not mistaken for another nested value.
+        structuralStack.length = firstRoot ? 1 : 0;
+        prefixJsonLike = false;
+        prefixInString = false;
+        prefixTokenEnd = i + 1;
+      }
+      continue;
+    }
     structuralStack.pop();
     frame.end = i;
 

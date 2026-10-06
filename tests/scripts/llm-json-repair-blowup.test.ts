@@ -106,6 +106,29 @@ describe('llm-json-repair: raccolta dei root JSON', () => {
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
   });
 
+  it('risincronizza dopo un closer incompatibile prima di un root FAQ successivo', () => {
+    const cases = [
+      '{"bad":[1} [{"q":"Q","a":"A"}]',
+      '[1} [{"q":"Q","a":"A"}]',
+      '{"bad":1] [{"q":"Q","a":"A"}]',
+      '{"bad":{"deeper":{"deepest":[1} [{"q":"Q","a":"A"}]',
+    ];
+
+    for (const raw of cases) {
+      expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'Q', a: 'A' }]);
+    }
+  });
+
+  it('mantiene un closer incompatibile fuori da un root incompleto a EOF', () => {
+    const cases = ['[1}', '{"bad":1]'];
+
+    for (const raw of cases) {
+      const repaired = repairLlmJsonArray(raw);
+      expect(repaired).toBe(raw);
+      expect(() => JSON.parse(repaired)).toThrow(SyntaxError);
+    }
+  });
+
   it('ignora delimitatori ambigui dentro un valore quotato', () => {
     const raw = 'meta {"note":"prosa "chiave": [1,2] e } ancora"} [{"q":"real","a":"A"}]';
     expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
