@@ -83,24 +83,36 @@ fi
 # on a real failure (the caller decides how to react).
 push_shard() {
   local loc="$1"
-  local key_var key_val stage keyfile src_n prev_n rc
+  local key_var key_val stage keyfile src_n prev_n rc missing_deploy_key
   key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
   key_val="${!key_var:-}"
+  missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    echo "no $key_var secret — skipping $loc shard push"; return 0
+    if [ -z "${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}" ]; then
+      echo "::error::no $key_var secret and no SHARD_PUSH_PAT/GITHUB_PAT — cannot publish $loc shard" >&2
+      return 1
+    fi
+    missing_deploy_key=1
+    echo "::warning::no $key_var secret — publishing $loc shard with the PAT fallback; provision or rotate the deploy key"
   fi
   if [ ! -d "$dist_dir/$loc" ]; then
     echo "$dist_dir/$loc absent — skipping $loc shard push"; return 0
   fi
   stage="$RUNNER_TEMP/shard-$loc"
   keyfile="$RUNNER_TEMP/shard_${loc}_key"
-  printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-  # GIT_SSH_COMMAND is exported for this locale's push. One locale per
-  # invocation (the matrix runs each locale on its OWN runner), so the deploy
-  # keys never clobber one another.
-  # Keep long section pushes alive while GitHub is processing multi-GB packs;
-  # the PAT fallback still handles a remote that closes the transport.
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  if [ "$missing_deploy_key" = 0 ]; then
+    printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+    # GIT_SSH_COMMAND is exported for this locale's push. One locale per
+    # invocation (the matrix runs each locale on its OWN runner), so the deploy
+    # keys never clobber one another.
+    # Keep long section pushes alive while GitHub is processing multi-GB packs;
+    # the PAT fallback still handles a remote that closes the transport.
+    export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  else
+    # There is no SSH credential to use for the clone or push. The full orphan
+    # path below publishes the complete freshly-built locale over HTTPS.
+    unset GIT_SSH_COMMAND
+  fi
   # Source-of-truth file count + the shard's last-published count, read
   # cheaply (no 2.5 GB clone) — a tiny .shard-filecount marker fetched
   # from raw.githubusercontent. Drive the gate off these so a PARTIAL
@@ -206,7 +218,7 @@ push_shard() {
       fi
     fi
 
-    if [ "$SHARD_PUSH_MODE" = delta ]; then
+    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       current_manifest="$manifest_dir/$loc.jsonl"
       if shard_manifest_snapshot "$current_manifest" "$loc" "$dist_dir" "$manifest_tool" "$delta_output"; then
@@ -308,7 +320,10 @@ push_shard() {
     # so bookkeeping counters (.shard-deploys / .shard-filecount) must be
     # read via git-plumbing (shard_read_counter), not `[ -f ... ]` — see
     # shard-git-helpers.sh header for the incident this fixes.
-    if git clone -q --depth 1 --filter=blob:none --no-checkout \
+    if [ "$missing_deploy_key" = 1 ]; then
+      echo "$loc shard: deploy key missing — using a complete orphan tree for the PAT fallback"
+      shard_orphan_init "$stage"
+    elif git clone -q --depth 1 --filter=blob:none --no-checkout \
          "$SHARD_REPO" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
       # A listed-but-unreadable marker is not a zero: flatten the staged
@@ -449,7 +464,11 @@ push_shard() {
       # Full overlay: force-push the fresh commit as before. `-f` is harmless
       # on a cloned tip and required on the orphan path, so use it for both.
       _push_ok=0
-      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$loc shard"; then
+      if [ "$missing_deploy_key" = 1 ]; then
+        if shard_pat_push "$stage" "$SHARD_REPO" "main" "$loc shard" 1 "deploy-key missing"; then
+          _push_ok=1
+        fi
+      elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$loc shard"; then
         _push_ok=1
       fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a

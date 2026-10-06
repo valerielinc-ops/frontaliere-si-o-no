@@ -158,13 +158,19 @@ offload_delta_stage() {
 }
 
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key
   LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
   # Per-section-per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
   key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
   key_val="${!key_var:-}"
+  missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    echo "no $key_var secret — skipping $loc $section shard push (split disabled)"; return 0
+    if [ -z "${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}" ]; then
+      echo "::error::no $key_var secret and no SHARD_PUSH_PAT/GITHUB_PAT — cannot publish $loc $section shard" >&2
+      return 1
+    fi
+    missing_deploy_key=1
+    echo "::warning::no $key_var secret — publishing $loc $section shard with the PAT fallback; provision or rotate the deploy key"
   fi
   if [ ! -d "$dist_dir/$sub" ]; then
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
@@ -198,10 +204,16 @@ push_section_shard() {
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
-  printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-  # Keep long section pushes alive while GitHub is processing multi-GB packs;
-  # the PAT fallback still handles a remote that closes the transport.
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  if [ "$missing_deploy_key" = 0 ]; then
+    printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+    # Keep long section pushes alive while GitHub is processing multi-GB packs;
+    # the PAT fallback still handles a remote that closes the transport.
+    export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  else
+    # There is no SSH credential to use for the clone or push. The full orphan
+    # path below publishes the complete freshly-built subtree over HTTPS.
+    unset GIT_SSH_COMMAND
+  fi
 
   # Guarded build+push in ONE `set -e` subshell (see push-locale-shard.sh for
   # the full rationale: standalone subshell + captured $?; explicit full/delta
@@ -257,7 +269,7 @@ push_section_shard() {
       fi
     fi
 
-    if [ "$SHARD_PUSH_MODE" = delta ]; then
+    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       current_manifest="$manifest_dir/$loc.jsonl"
       if shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
@@ -358,7 +370,10 @@ push_section_shard() {
         cdn_rewrite_deferred=0
         cdn_rewrite_partial=0
       fi
-      if git clone -q --depth 1 --filter=blob:none --no-checkout \
+      if [ "$missing_deploy_key" = 1 ]; then
+        echo "$section-$loc shard: deploy key missing — using a complete orphan tree for the PAT fallback"
+        shard_orphan_init "$stage"
+      elif git clone -q --depth 1 --filter=blob:none --no-checkout \
            "$SHARD_REPO" "$stage" 2>/dev/null \
          && [ -d "$stage/.git" ]; then
         # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
@@ -502,7 +517,11 @@ push_section_shard() {
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
       _push_ok=0
-      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
+      if [ "$missing_deploy_key" = 1 ]; then
+        if shard_pat_push "$stage" "$SHARD_REPO" "main" "$section-$loc shard" 1 "deploy-key missing"; then
+          _push_ok=1
+        fi
+      elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
         _push_ok=1
       fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a
