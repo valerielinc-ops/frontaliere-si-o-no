@@ -60,6 +60,26 @@ describe('unowned vacancy containers fail closed', () => {
       description: structuredDescription,
     });
   });
+
+  it('keeps a full unowned vacancy body when structured data is only a teaser', () => {
+    const title = 'Project Engineer';
+    const body = 'This vacancy coordinates engineering projects with colleagues and clients across departments while maintaining quality safety delivery and documentation standards every day. You will plan improvements, communicate risks, support implementation, and contribute to a reliable team environment.';
+    const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title,
+      description: 'Short teaser',
+    })}</script></head><body>
+      <h1>${title}</h1>
+      <main><p>${body}</p></main>
+    </body></html>`;
+
+    expect(vacancyContainerRegion(html, title)).toBeNull();
+    expect(extractDetailFields(html, 'https://jobs.example.ch/job/project-engineer')).toMatchObject({
+      title,
+      description: body,
+    });
+  });
 });
 
 describe('nested vacancy containers are read once', () => {

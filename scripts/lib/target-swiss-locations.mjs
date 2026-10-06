@@ -661,17 +661,21 @@ const _strictSwissCityTokens = (() => {
 // The generated municipality snapshot also carries a small set of English
 // exonyms used by structured source fields (Geneva, Lucerne, Berne, Basle).
 // They are valid source evidence when the field itself establishes a
-// Swiss/work-mode context, but not as unqualified free-text evidence: in a
-// multi-site value such as "Paris, Geneva, London", selecting the embedded
-// exonym would overwrite the assembler's real description rescue. `Zurich` is
-// intentionally not listed: normalizeToken() folds it to the same token as
-// canonical `Zürich`, so excluding it would also discard the canonical form.
-const STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS = new Set([
-  'geneva',
-  'lucerne',
-  'berne',
-  'basle',
+// Swiss/work-mode context. In free text, a sole exonym is also usable rescue
+// evidence, but a competing foreign/multi-site signal must still block it:
+// selecting Geneva from "Paris, Geneva, London" would overwrite the real
+// description rescue. `Zurich` is intentionally not listed: normalizeToken()
+// folds it to the same token as canonical `Zürich`, so excluding it would also
+// discard the canonical form.
+const STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES = new Map([
+  ['geneva', 'Genève'],
+  ['lucerne', 'Luzern'],
+  ['berne', 'Bern'],
+  ['basle', 'Basel'],
 ]);
+const STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS = new Set(
+  STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.keys(),
+);
 
 // Token set of canton-only labels (names + 2-letter codes). Used to detect
 // when a `location` field is canton-level rather than city-level.
@@ -840,7 +844,9 @@ export function canonicalSwissCityName(value = '') {
  *   Winterthur instead of the village of Alle (JU). Callers scanning free-form
  *   description text should pass TEXT_RESCUE_AMBIGUOUS_TOKENS — or, better,
  *   just call rescueSwissCityFromText(), which does it for them. English
- *   exonyms are excluded unless a structured source-field caller opts in.
+ *   exonyms are excluded here unless a structured source-field caller opts in;
+ *   rescueSwissCityFromText() accepts a sole exonym and rejects it only when
+ *   the text supplies a competing foreign/multi-site signal.
  */
 export function findSwissCityInText(text = '', { skipTokens, includeEnglishExonyms = false } = {}) {
   if (!text || typeof text !== 'string') return '';
@@ -1095,11 +1101,20 @@ export function rescueSwissCityFromText(text = '', { foreignContext = false, isF
     for (let i = 0; i + n <= words.length; i++) {
       const j = i + n - 1;
       const candidate = words.slice(i, j + 1).map((word) => word.folded).join(' ');
+      const englishExonymHasCompetingSignal = STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)
+        && (isInsideForeignCompound(words, i, j)
+          || isInForeignSiteList(
+            text,
+            words[i].start,
+            words[j].end,
+            isForeignPlace,
+          ));
       if (TEXT_RESCUE_AMBIGUOUS_TOKENS.has(candidate)
-        || STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)
+        || englishExonymHasCompetingSignal
         || !_strictSwissCityTokens.has(candidate)) continue;
       if (candidate.length < 4) return '';
-      const canonicalName = canonicalSwissCityName(candidate);
+      const canonicalName = STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.get(candidate)
+        || canonicalSwissCityName(candidate);
       if (foreignContext) {
         const start = words[i].start;
         const end = words[j].end;
@@ -1177,8 +1192,10 @@ function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExony
 }
 
 export function swissCityFromLocationField(value = '', { allowUnqualifiedEnglishExonyms = false } = {}) {
-  const city = findSwissCityInText(value)
+  const raw = String(value || '').trim();
+  const city = findSwissCityInText(raw)
     || englishExonymFromLocationField(value, allowUnqualifiedEnglishExonyms);
+  if (!city || !hasMatchingCantonMarker(raw, city)) return '';
   return canonicalSwissCityName(city);
 }
 

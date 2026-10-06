@@ -1369,7 +1369,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   const main = vacancyContainerRegion(html, title);
   const fallbackRegions = main
     ? [main]
-    : structuredDescriptions.some(Boolean)
+    : structuredDescriptions.some((description) => isSufficientVacancyDescription(description))
       ? []
       : vacancyContainerOutermostRegions(html, title);
   if (!blocks.length && fallbackRegions.length) {

@@ -109,6 +109,8 @@ describe('target swiss locations', () => {
   it('rejects an English exonym paired with a different canton code', () => {
     expect(swissCityFromLocationField('Geneva, NE')).toBe('');
     expect(swissCityFromLocationField('Geneva, GE')).toBe('Geneva');
+    expect(swissCityFromLocationField('Zurich, NE')).toBe('');
+    expect(swissCityFromLocationField('Zurich, ZH')).toBe('Zürich');
   });
 
   it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {

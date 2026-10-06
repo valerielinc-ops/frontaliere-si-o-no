@@ -43,6 +43,7 @@ describe('text-rescue ambiguous token guard (#5136)', () => {
     expect(rescueSwissCityFromText('La sede si trova a Lugano')).toBe('Lugano');
     expect(rescueSwissCityFromText('Arbeitsort: Fribourg')).toBe('Fribourg');
     expect(rescueSwissCityFromText('sede a Bellinzona')).toBe('Bellinzona');
+    expect(rescueSwissCityFromText('The role is based in Geneva')).toBe('Genève');
   });
 
   it('keeps scanning past a blocked token instead of giving up', () => {
