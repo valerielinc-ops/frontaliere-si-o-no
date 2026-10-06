@@ -2,6 +2,8 @@
 
 /**
  * Measure the assembly Swiss-location gate without writing any job artifact.
+ * @manual-tool Diagnostic corpus audit; it is intentionally run on demand
+ * rather than on every crawler or build workflow.
  *
  * Usage:
  *   node scripts/audit-swiss-location-gate.mjs
