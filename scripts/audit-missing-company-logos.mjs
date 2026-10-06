@@ -27,6 +27,7 @@ import {
   loadCanonicalJobs,
   MIN_LOGO_QUALITY_DIMENSION_PX,
 } from './lib/company-logo-audit.mjs';
+import { auditIssueReason } from './lib/company-logo-acquisition.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -57,15 +58,20 @@ function buildIssueBody(report) {
       || company.examples.qualityUnverified
       || company.exampleUrl;
     const link = example ? `[esempio](${example})` : '—';
-    return `| \`${issueSafe(company.companyKey)}\` | ${issueSafe(company.companyName)} | ${company.status} | ${company.affectedJobCount} | ${link} |`;
+    return `| \`${issueSafe(company.companyKey)}\` | ${issueSafe(company.companyName)} | ${company.status} | ${company.affectedJobCount} | ${issueSafe(auditIssueReason(company))} | ${link} |`;
   }).join('\n');
   const restCount = Math.max(0, report.affectedCompanies.length - top.length);
+  const acquisitionNote = report.acquisition
+    ? `La passata deterministica ha acquisito **${report.acquisition.acquired}** loghi verificati; questa issue mostra soltanto il residuo non acquisito (fallimenti: ${report.acquisition.failed}, rifiuti di qualità: ${report.acquisition.qualityRejected}).`
+    : 'La passata deterministica non ha ancora prodotto un risultato verificabile; l’elenco seguente è il residuo misurato dall’audit.';
 
   return `## Cosa è stato misurato
 
 L'audit usa ${formatSource(report)} e invoca \`resolveCompanyLogoUrl()\` da \`services/jobDataNormalization.ts\`, cioè lo stesso resolver usato dai job card SPA e statici. Ogni riferimento non locale viene verificato con una richiesta HTTP; i path locali vengono verificati contro il CDN configurato.
 
 **${report.affectedCompanies.length} aziende** hanno almeno un annuncio non coperto, non verificabile o di qualità insufficiente:
+
+${acquisitionNote}
 
 | stato | aziende | annunci interessati |
 |---|---:|---:|
@@ -80,8 +86,8 @@ Il report completo è \`data/company-logos-missing.json\`; viene rigenerato dal 
 
 ## Aziende con maggiore impatto
 
-| companyKey | azienda | stato | annunci interessati | esempio |
-|---|---|---|---:|---|
+| companyKey | azienda | stato | annunci interessati | motivo | esempio |
+|---|---|---|---:|---|---|
 ${rows}
 ${restCount ? `\n_...e altre ${restCount} aziende nell'elenco completo._\n` : ''}
 
