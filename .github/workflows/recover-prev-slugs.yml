@@ -227,14 +227,14 @@ jobs:
             echo "::error::Unable to fetch the stable previousSlugs recovery branch"
             exit 1
           fi
-          for path in \
+          # Restore only blobs present in the pending branch. A directory
+          # restore would also delete files added to current main after that
+          # branch was created, turning stale branch absence into data loss.
+          bash scripts/lib/restore-stable-refresh-files.sh \
+            "refs/remotes/origin/${branch}" \
             data/jobs/by-crawler/ \
             data/jobs/expired/by-crawler/ \
-            data/jobs-crawler-summaries/by-crawler/; do
-            if git cat-file -e "refs/remotes/origin/${branch}:${path}" 2>/dev/null; then
-              git restore --source="refs/remotes/origin/${branch}" -- "$path"
-            fi
-          done
+            data/jobs-crawler-summaries/by-crawler/
 
       # #5348 residuo genuino: due record con lo STESSO `.id` (dedicated-crawler
       # stable id) possono coesistere in una slice — es. banca-cler.json teneva

@@ -232,7 +232,7 @@ jobs:
           - Il dataset e la copia pubblica sono stati riassemblati e verificati prima dell'apertura della PR; l'input originale resta nell'artifact privato a breve conservazione e non entra nella PR.
 
           ## Non implementato (ancora)
-          - Restano ${remaining} eventi selezionabili senza riscrittura valida in questa PR, by construction: workflow schedulato.
+          - Restano ${remaining} eventi selezionabili senza riscrittura valida in questa PR, by construction: workflow schedulato. **Motivo:** il limite prudente per run protegge la quota Codex condivisa. **Prossimo passo:** la cadenza ogni tre ore riprenderà automaticamente la coda.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \

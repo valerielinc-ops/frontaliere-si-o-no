@@ -194,6 +194,31 @@ async function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch)
   }
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
+/**
+ * The bytes of a stream chunk. A chunk that is not bytes is a read error, not
+ * an empty chunk: `new Uint8Array(value.buffer, …)` over a value with no
+ * `buffer` builds an EMPTY view without throwing, so the chunk would vanish,
+ * `total` would never grow, and a stream that keeps producing such chunks
+ * would never reach the byte cap. The `toString` tag covers a bare
+ * ArrayBuffer from another realm, which fails `instanceof`.
+ *
+ * A typed array comes back as a byte view, which the caller copies with
+ * `slice`. A bare ArrayBuffer comes back as a copy already: a Uint8Array built
+ * directly on it would be a view on the producer's memory, which a reader may
+ * reuse on the next read (#7483).
+ */
+function byteViewOfChunk(value) {
+  if (ArrayBuffer.isView(value)) return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  if (value instanceof ArrayBuffer || Object.prototype.toString.call(value) === '[object ArrayBuffer]') {
+    return new Uint8Array(value.slice(0));
+  }
+  throw new TypeError('limited_body_chunk_not_bytes');
+}
+
 async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
   if (!response?.body?.getReader) {
     const text = await response.text();
@@ -203,31 +228,32 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
   const chunks = [];
   let total = 0;
   let truncated = false;
+  const truncation = new Error('limited_body_truncated');
   try {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
       // A byte view (copied below by `slice`): a typed array other than
       // Uint8Array would otherwise be read element by element.
-      const chunk = value instanceof ArrayBuffer
-        ? new Uint8Array(value)
-        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      const chunk = byteViewOfChunk(value);
       const remaining = maxBytes - total;
       if (remaining <= 0) {
         truncated = true;
-        await reader.cancel();
-        break;
+        throw truncation;
       }
-      chunks.push(chunk.slice(0, remaining));
-      total += Math.min(chunk.byteLength, remaining);
+      const prefix = chunk.slice(0, remaining);
+      chunks.push(prefix);
+      total += prefix.byteLength;
       if (chunk.byteLength > remaining) {
         truncated = true;
-        await reader.cancel();
-        break;
+        throw truncation;
       }
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    if (error !== truncation) throw error;
   } finally {
-    reader.releaseLock?.();
+    try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
   }
   const merged = new Uint8Array(total);
   let offset = 0;

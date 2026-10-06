@@ -115,6 +115,31 @@ describe('jobsSourceRelay', () => {
     expect(res.body).toContain('response_too_large');
   });
 
+  it('cancels an invalid streamed chunk before returning an upstream error', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '<html>' }),
+      cancel,
+      releaseLock,
+    };
+    const fetchImpl = vi.fn().mockResolvedValue({
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/html' }),
+      body: { getReader: vi.fn(() => reader) },
+    });
+    const handler = authenticatedHandler(fetchImpl);
+    const res = responseRecorder();
+
+    await handler(request(CHUR_URL), res);
+
+    expect(res.statusCode).toBe(502);
+    expect(res.body).toContain('upstream_error');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
+  });
+
   it('returns 401 when the token is missing or invalid', async () => {
     const fetchImpl = vi.fn();
     const verifyToken = vi.fn(async () => {
