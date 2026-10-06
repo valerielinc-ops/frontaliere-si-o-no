@@ -425,13 +425,33 @@ describe('mark-mistranslated-jobs — idempotent title marking', () => {
     expect(DEFAULT_MARK_CAP).toBeLessThanOrEqual(cascadeDefault);
   });
 
-  it('applies backpressure: marks nothing while the retranslation queue is at its ceiling', () => {
+  it('keeps title repair flowing while the description queue is at its ceiling', () => {
     const queued = Array.from({ length: 5 }, (_, i) => ({ slug: `q-${i}`, needsRetranslation: true }));
     const fresh = Array.from({ length: 5 }, (_, i) => ({ ...brokenJob, slug: `fresh-${i}` }));
     const sel = selectMistranslatedJobs([...queued, ...fresh], { queueCeiling: 5 });
-    expect(sel.throttled).toBe(true);
+    expect(sel.throttled).toBe(false);
+    expect(sel.descriptionThrottled).toBe(true);
     expect(sel.queueDepth).toBe(5);
-    expect(sel.slugs.size).toBe(0);
+    expect(sel.slugs.size).toBe(5);
+    expect(sel.titleHits).toBe(5);
+    expect(sel.descriptionHits).toBe(0);
+
+    // Description-only work remains held while the quota-bound queue is full.
+    const germanDescription = 'Wir suchen eine engagierte Mitarbeiterin für unser Team in der Pflege. '
+      + 'Die Stelle umfasst die Betreuung von Patienten und die Zusammenarbeit mit den Ärzten der Klinik. '
+      + 'Sie arbeiten selbständig und übernehmen Verantwortung für die tägliche Organisation der Abteilung.';
+    const descriptionOnly = {
+      slug: 'description-only',
+      sourceLang: 'de',
+      descriptionByLocale: { it: germanDescription },
+    };
+    const held = selectMistranslatedJobs([...queued, descriptionOnly], {
+      titles: false,
+      queueCeiling: 5,
+    });
+    expect(held.throttled).toBe(true);
+    expect(held.descriptionThrottled).toBe(true);
+    expect(held.slugs.size).toBe(0);
 
     // Below the ceiling it works normally again.
     const ok = selectMistranslatedJobs([...queued, ...fresh], { queueCeiling: 6 });
