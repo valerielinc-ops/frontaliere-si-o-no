@@ -356,7 +356,12 @@ const ignoredRe = GRAPH_IGNORED_RE;
 // finche' non l'ha ereditato una PR estranea (#7514, #7580).
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
-const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// Asset paths are only dependencies when the path starts a quoted/template
+// literal.  Matching `.github/workflows` in the middle of an explanatory
+// string (for example a live-data guard message) expands that one phrase to
+// every workflow asset and turns a one-file workflow diff into hundreds of
+// unrelated tests.
+const assetLiteralRe = /(?<=['"`])(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 // La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
 // 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
@@ -581,6 +586,12 @@ function importsOf(file, fileSet, assets) {
   }
   const deps = new Set();
   const code = stripComments(source);
+  // A directory literal is a dependency only when the file actually scans a
+  // directory.  `path.join(ROOT, '.github', 'workflows', WORKFLOW_FILE)` has
+  // only the two quoted directory segments available to this static parser;
+  // treating those segments as a wildcard makes every workflow test depend on
+  // every workflow.  Exact quoted filenames remain precise below.
+  const hasDirectoryScan = /\b(?:readdirSync|readdir|globSync|glob)\s*\(/.test(code);
   for (const match of code.matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
@@ -594,15 +605,18 @@ function importsOf(file, fileSet, assets) {
   // gli sha256 ed e' nominato per esteso.
   const literals = [...code.matchAll(assetLiteralRe)].map((m) => m[0]);
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
-    literals.push([...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]).join('/'));
+    const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
+    const literal = segments.join('/');
+    if (segments.length >= 3 || hasDirectoryScan) literals.push(literal);
   }
   for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = rawLiteral.replace(/\/+$/, '');
+    const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
     for (const asset of assets) {
-      if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
+      if (asset === literal || (directoryLiteral && asset.startsWith(`${literal}/`))) deps.add(asset);
     }
   }
   // I contratti di radice si nominano per esteso: niente directory da
@@ -653,7 +667,10 @@ function loadGraph(files, assets) {
   // 'workflows')`: una entry della versione 7 non li ha. La versione 9 lega
   // inoltre la cache alla revisione del checkout: senza questo confine una
   // cache ripristinata da un'altra PR potrebbe riusare archi di sorgenti che
-  // non erano nel suo `changed-paths.txt`.
+  // non erano nel suo `changed-paths.txt`. La versione 10 invalida le entry
+  // costruite dal vecchio scanner di asset, che poteva scambiare testo
+  // descrittivo per una lettura di directory. La versione 11 conserva wildcard
+  // solo per i file che dimostrano una scansione directory reale.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -662,7 +679,7 @@ function loadGraph(files, assets) {
     previousAssets = cached.assets || null;
     previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 9
+  const reusable = previousVersion === 11
     && previousAssets === assetsDigest
     && currentRevision !== ''
     && previousRevision === currentRevision;
@@ -692,7 +709,7 @@ function loadGraph(files, assets) {
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 9,
+    version: 11,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,

@@ -114,6 +114,20 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('does not turn a documented asset path into a directory-wide dependency', () => {
+    const root = fixture({
+      '.github/workflows/full-suite-dispatch.yml': 'name: full-suite\n',
+      'scripts/ci/asset-message.mjs': "export const message = 'See .github/workflows/ for the process.';\n",
+      'tests/asset-message.test.ts': "import { message } from '../scripts/ci/asset-message.mjs'; export const observed = message;\n",
+      'tests/full-suite-dispatch-workflow.test.ts': "import { readFileSync } from 'node:fs'; export const workflow = readFileSync('.github/workflows/full-suite-dispatch.yml', 'utf8');\n",
+    });
+    const result = select(root, ['.github/workflows/full-suite-dispatch.yml']);
+    expect(result.status, result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/full-suite-dispatch-workflow.test.ts');
+    expect(result.stdout).not.toContain('tests/asset-message.test.ts');
+    expect(result.output).toContain('required=false');
+  });
+
   it('fails fast when a source change has no statically related runnable test', () => {
     const root = fixture({
       'services/orphan.mjs': 'export const orphan = true;\n',
