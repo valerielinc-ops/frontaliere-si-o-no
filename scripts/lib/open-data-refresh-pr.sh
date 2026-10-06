@@ -102,20 +102,52 @@ done
 # directory that gets its first file only when the upstream starts publishing
 # that artifact. `git add` aborts on a pathspec that matches nothing (run
 # 37515283217 of the article sync: `fatal: pathspec ... did not match any
-# files`, and the whole refresh was lost with it). Stage it only when it
-# exists on disk or is already tracked: a tracked path that disappeared must
-# still be staged, as a deletion. A required `--path` keeps failing loudly —
-# a typo there must not turn into a silent, empty refresh.
+# files`, and the whole refresh was lost with it). A tracked path that
+# disappeared must still be staged, as a deletion. A required `--path` keeps
+# failing loudly — a typo there must not turn into a silent, empty refresh.
 #
 # Do not spell real repository directories in the comments of this helper:
 # scripts/ci/checkout-profile-analyzer.mjs reads this file as part of every
 # job that calls it, comments included, and a literal bucket path here would
 # make each of those sparse checkouts look like a reader of that bucket.
+#
+# "Exists" is not enough either: a producer may create the directory before it
+# writes the first file. The path enters the staging set only when git has
+# something to do there — an entry already in the index, or an untracked file
+# it would add (ignored files count only under --force). An alias reached
+# through a symlink is judged at its real path, the one staging will use. When
+# the question cannot be answered the path is kept and git speaks for itself
+# at staging time.
+optional_path_is_stageable() {
+  local candidate="$1" untracked
+  if [ "$RESOLVE_SYMLINKS" = true ]; then
+    candidate="$(node scripts/lib/git-add-resolved.mjs --print-only "$candidate")" || return 0
+  fi
+  if git ls-files --error-unmatch -- "$candidate" > /dev/null 2>&1; then return 0; fi
+  if [ "$FORCE_ADD" = true ]; then
+    untracked="$(git ls-files --others -- "$candidate" 2> /dev/null)" || return 0
+  else
+    untracked="$(git ls-files --others --exclude-standard -- "$candidate" 2> /dev/null)" || return 0
+  fi
+  [ -n "$untracked" ]
+}
+
+path_is_listed() {
+  local candidate="$1" listed
+  for listed in "${PATHS[@]}"; do
+    if [ "$listed" = "$candidate" ]; then return 0; fi
+  done
+  return 1
+}
+
 if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
   for optional_path in "${OPTIONAL_PATHS[@]}"; do
-    if [ -e "$optional_path" ] || [ -L "$optional_path" ] \
-      || git ls-files --error-unmatch -- "$optional_path" > /dev/null 2>&1; then
+    if path_is_listed "$optional_path"; then
+      continue
+    elif optional_path_is_stageable "$optional_path"; then
       PATHS+=("$optional_path")
+    elif [ -e "$optional_path" ] || [ -L "$optional_path" ]; then
+      echo "::notice::Optional refresh path has nothing to stage: $optional_path"
     else
       echo "::notice::Optional refresh path absent and untracked, nothing to stage: $optional_path"
     fi
@@ -311,7 +343,21 @@ elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
     MERGE_ARGS+=(--path "$refresh_path")
   done
   node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
-  stage_paths
+  # PATHS here are the files of this run's own commit, listed by this helper
+  # and not typed by a caller. One that the refresh deleted and the stable
+  # branch never carried is neither on disk nor in this index: `git add`
+  # would abort on it although nothing is left to stage.
+  STAGEABLE_PATHS=()
+  for refresh_path in "${PATHS[@]}"; do
+    if [ -e "$refresh_path" ] || [ -L "$refresh_path" ] \
+      || git ls-files --error-unmatch -- "$refresh_path" > /dev/null 2>&1; then
+      STAGEABLE_PATHS+=("$refresh_path")
+    fi
+  done
+  if [ "${#STAGEABLE_PATHS[@]}" -gt 0 ]; then
+    PATHS=("${STAGEABLE_PATHS[@]}")
+    stage_paths
+  fi
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
     if [ "$RECONCILE_MAIN" = false ]; then exit 0; fi
