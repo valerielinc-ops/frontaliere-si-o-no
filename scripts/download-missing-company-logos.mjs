@@ -8,7 +8,11 @@
  * Google. A grey-globe response, an HTML page, and an HTTP error are all
  * rejected.
  *
- * Legacy mode (known-company-slugs.json + latest history) remains available:
+ * `--from-audit` is the only mode used by the weekly workflow and accepts
+ * only explicit DOMAIN_OVERRIDES domains; it never guesses from a company
+ * key or job metadata. Legacy mode (known-company-slugs.json + latest history)
+ * remains available for manual recovery and retains historical guesses, but
+ * the workflow must never invoke it:
  *
  *   node scripts/download-missing-company-logos.mjs --from-audit
  *   node scripts/download-missing-company-logos.mjs --from-audit --dry-run
@@ -24,7 +28,12 @@ import {
   MAX_LOGO_BODY_BYTES,
 } from './lib/company-logo-audit.mjs';
 import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
-import { selectAuditCandidates } from './lib/company-logo-acquisition.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import {
+  domainCandidates,
+  normalizeDomain,
+  selectAuditCandidates,
+} from './lib/company-logo-acquisition.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -40,108 +49,6 @@ const DEFAULT_JOBS_FILES = [
 const FETCH_TIMEOUT_MS = 10_000;
 const CONCURRENCY = 6;
 
-// These are publishing platforms, not the employer's brand domains. A
-// companyDomain on one of them must not be sent to Google as the logo source.
-const ATS_HOST_MARKERS = [
-  'allibo.com',
-  'altamiraweb.com',
-  'apps.be.ch',
-  'arca24.careers',
-  'careers.softgarden.de',
-  'softgarden.de',
-  'csod.com',
-  'concludis.de',
-  'dualoo.com',
-  'greenhouse.io',
-  'icims.com',
-  'intervieweb.it',
-  'jobcloud.ch',
-  'jobs.ch',
-  'jobup.ch',
-  'jobalino.ch',
-  'myworkdayjobs.com',
-  'ncoreplat.com',
-  'oraclecloud.com',
-  'personio.',
-  'prospective.ch',
-  'refline.ch',
-  'reflinejobs.io',
-  'recruitee.com',
-  'recruitingapp-',
-  'salesforce-sites.com',
-  'smartrecruiters.com',
-  'solique.ch',
-  'successfactors.',
-  'talent-soft.com',
-  'talentics.ai',
-  'teamtailor.com',
-  'umantis.com',
-  'workable.com',
-  'zohorecruit.com',
-];
-
-// Names with a crawler/ATS key that does not identify the corporate domain.
-const DOMAIN_OVERRIDES = {
-  'amina-bank': ['amina.ch'],
-  'apleona-schweiz-ag': ['apleona.com'],
-  'badrutts-palace': ['badruttspalace.com'],
-  'cippatrasporti': ['cippatrasporti.ch', 'cippa.ch'],
-  'ferrovia-retica': ['rhb.ch'],
-  'fisiocare-sagl': ['fisiocare.ch', 'fisiocare.com'],
-  'gmo': ['gmo.ch'],
-  'gz-dielsdorf': ['gzdielsdorf.ch'],
-  'elettra-1938': ['elettra1938.ch', 'elettra.ch'],
-  'impresa-pizzarotti': ['pizzarotti.it'],
-  'jsafrasarasin': ['jsafrasarasin.ch', 'jsafrasarasin.com'],
-  'kanton-aargau': ['ag.ch'],
-  'lonza': ['lonza.com'],
-  'michaelpage': ['michaelpage.ch', 'michaelpage.com'],
-  'matterhorn-gotthard-bahn': ['mgb.ch'],
-  'recruitingapp-1154': ['sgkb.ch'],
-  // Issue #6504: these are employer-owned domains, never ATS or directory
-  // hosts. yellowshark is first because it covers most of the affected jobs.
-  yellowshark: ['yellowshark.com'],
-  bucherer: ['bucherer.com', 'bucherer.ch'],
-  'nord-anglia': ['nordangliaeducation.com'],
-  grischapersonal: ['grischapersonal.ch'],
-  brefispersonal: ['brefis.ch'],
-  parmag: ['parmag.ch'],
-  endeso: ['endeso.ch'],
-  'integra-biosciences': ['integra-biosciences.com'],
-  benu: ['benu.ch'],
-  'pantr-ch': ['pantr.ch'],
-  kone: ['kone.com'],
-  fisba: ['fisba.com'],
-  'schweizerhof-flims': ['schweizerhof-flims.ch'],
-  'blatters-hotel': ['blatters-hotel.ch'],
-  'mcm-group': ['mcm-group.ch'],
-  christinavassalli: ['christinavassalli.ch'],
-  clariant: ['clariant.com'],
-  neoproconseils: ['neoproconseils.ch'],
-  '1a-hunkeler': ['1a-hunkeler.ch'],
-  anicura: ['anicura.ch'],
-  apply: ['leitpuls.ch'],
-  artificialy: ['artificialy.com'],
-  'atec-personal': ['atec-personal.ch'],
-  'buersten-technik': ['buersten-technik.ch'],
-  elprom: ['elprom.ch'],
-  'farmacia-internazionale-dr-merloni': ['internationalpharmacy.swiss'],
-  'mueller-steinmaur': ['mueller-steinmaur.ch'],
-  'protectas-sa': ['protectas.com'],
-};
-
-// These 28 keys came from issue #6504. Once a key has an explicit employer
-// domain, guessed `key.ch`/`key.com` hosts are forbidden: a favicon from an
-// unrelated homonym must never become a committed company logo.
-const STRICT_OFFICIAL_DOMAIN_KEYS = new Set([
-  'yellowshark', 'bucherer', 'nord-anglia', 'grischapersonal', 'brefispersonal',
-  'parmag', 'endeso', 'integra-biosciences', 'benu', 'pantr-ch', 'kone', 'fisba',
-  'schweizerhof-flims', 'blatters-hotel', 'mcm-group', 'christinavassalli',
-  'clariant', 'neoproconseils', '1a-hunkeler', 'anicura', 'apply', 'artificialy',
-  'atec-personal', 'buersten-technik', 'elprom',
-  'farmacia-internazionale-dr-merloni', 'mueller-steinmaur', 'protectas-sa',
-]);
-
 function slugify(value = '') {
   return String(value || '')
     .toLowerCase()
@@ -149,86 +56,6 @@ function slugify(value = '') {
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function normalizeDomain(value) {
-  let raw = String(value || '').trim().toLowerCase();
-  if (!raw) return '';
-  try {
-    raw = new URL(/^[a-z][a-z\d+.-]*:\/\//i.test(raw) ? raw : `https://${raw}`).hostname;
-  } catch {
-    return '';
-  }
-  return raw.replace(/^www\./, '').replace(/\.$/, '');
-}
-
-function isAtsDomain(domain) {
-  const value = normalizeDomain(domain);
-  return !value
-    || value === 'frontaliereticino.ch'
-    || ATS_HOST_MARKERS.some((marker) => value === marker || value.endsWith(`.${marker}`) || value.includes(marker));
-}
-
-function addUnique(list, seen, value) {
-  const domain = normalizeDomain(value);
-  if (!domain || seen.has(domain)) return;
-  seen.add(domain);
-  list.push(domain);
-}
-
-const STRIP_SUFFIXES = [
-  '-ag', '-sa', '-spa', '-gmbh', '-ltd', '-inc', '-llc', '-plc', '-nv', '-bv',
-  '-co-kg', '-co', '-srl', '-sarl', '-sas', '-sagl',
-  '-svizzera', '-suisse', '-schweiz', '-switzerland', '-svizzero',
-  '-ticino', '-lugano', '-bellinzona', '-locarno', '-chiasso', '-mendrisio',
-  '-italia', '-italy', '-france', '-germany', '-deutschland',
-  '-group', '-groups', '-holding', '-international', '-global', '-europe', '-world',
-];
-
-function stripSuffixes(slug) {
-  let value = slug;
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const suffix of STRIP_SUFFIXES) {
-      if (value.endsWith(suffix) && value.length > suffix.length) {
-        value = value.slice(0, -suffix.length);
-        changed = true;
-        break;
-      }
-    }
-  }
-  return value || slug;
-}
-
-function domainCandidates(key, metadata = {}) {
-  const candidates = [];
-  const seen = new Set();
-  const add = (value) => addUnique(candidates, seen, value);
-
-  for (const domain of DOMAIN_OVERRIDES[key] || []) add(domain);
-  for (const domain of metadata.companyDomains || []) {
-    if (!isAtsDomain(domain)) add(domain);
-  }
-  for (const domain of metadata.urlHosts || []) {
-    if (!isAtsDomain(domain)) add(domain);
-  }
-
-  if (STRICT_OFFICIAL_DOMAIN_KEYS.has(key)) return candidates;
-
-  const stripped = stripSuffixes(key);
-  const firstWord = key.split('-')[0];
-  add(`${key}.ch`);
-  add(`${key}.com`);
-  if (stripped !== key) {
-    add(`${stripped}.ch`);
-    add(`${stripped}.com`);
-  }
-  if (firstWord.length > 1 && firstWord !== key && firstWord !== stripped) {
-    add(`${firstWord}.ch`);
-    add(`${firstWord}.com`);
-  }
-  return candidates;
 }
 
 function extractJobs(value, sourcePath) {
@@ -545,8 +372,8 @@ async function tryGoogleFavicon(domain) {
   }
 }
 
-async function downloadForKey(key, metadata) {
-  const domains = domainCandidates(key, metadata);
+export async function downloadForKey(key, metadata, options = {}) {
+  const domains = domainCandidates(key, metadata, options);
   let lastFailure = {
     accepted: false,
     reason: domains.length > 0 ? 'no-verified-official-icon' : 'no-official-domain',
@@ -632,7 +459,7 @@ async function main() {
 
   if (options.dryRun) {
     for (const { key, name, metadata, status } of toDownload) {
-      console.log(`  ${key} [${status}] ("${name}") → ${domainCandidates(key, metadata).join(', ')}`);
+      console.log(`  ${key} [${status}] ("${name}") → ${domainCandidates(key, metadata, { fromAudit: options.fromAudit }).join(', ')}`);
     }
     return;
   }
@@ -652,7 +479,7 @@ async function main() {
   let failed = 0;
   let qualityRejected = 0;
   const results = await runConcurrent(toDownload, async ({ key, name, metadata, status }) => {
-    const result = await downloadForKey(key, metadata);
+    const result = await downloadForKey(key, metadata, { fromAudit: options.fromAudit });
     if (!result.accepted) {
       failed += 1;
       if (result.reason === 'quality-insufficient' || result.reason === 'quality-unverified') qualityRejected += 1;
@@ -719,7 +546,9 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error('[download-missing-company-logos] Fatal:', error);
-  process.exit(1);
-});
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => {
+    console.error('[download-missing-company-logos] Fatal:', error);
+    process.exit(1);
+  });
+}
