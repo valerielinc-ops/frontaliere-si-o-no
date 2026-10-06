@@ -194,6 +194,10 @@ async function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch)
   }
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
   if (!response?.body?.getReader) {
     const text = await response.text();
@@ -203,6 +207,7 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
   const chunks = [];
   let total = 0;
   let truncated = false;
+  const truncation = new Error('limited_body_truncated');
   try {
     while (true) {
       const { done, value } = await reader.read();
@@ -215,19 +220,21 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
       const remaining = maxBytes - total;
       if (remaining <= 0) {
         truncated = true;
-        await reader.cancel();
-        break;
+        throw truncation;
       }
-      chunks.push(chunk.slice(0, remaining));
-      total += Math.min(chunk.byteLength, remaining);
+      const prefix = chunk.slice(0, remaining);
+      chunks.push(prefix);
+      total += prefix.byteLength;
       if (chunk.byteLength > remaining) {
         truncated = true;
-        await reader.cancel();
-        break;
+        throw truncation;
       }
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    if (error !== truncation) throw error;
   } finally {
-    reader.releaseLock?.();
+    try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
   }
   const merged = new Uint8Array(total);
   let offset = 0;

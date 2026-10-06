@@ -53,6 +53,10 @@ export function githubWorkflowDispatchHeaders(token, extra = {}) {
   });
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 export async function readBoundedJsonResponse(
   response,
   maxBytes = MAX_GITHUB_WORKFLOW_DISPATCH_RESPONSE_BYTES,
@@ -71,7 +75,6 @@ export async function readBoundedJsonResponse(
       if (done) break;
       size += value.byteLength;
       if (size > maxBytes) {
-        try { await reader.cancel(); } catch { /* keep the size error authoritative */ }
         throw new Error('github_response_too_large');
       }
       // A copy, never a view: a reader may hand back the same buffer on every
@@ -81,6 +84,9 @@ export async function readBoundedJsonResponse(
         ? new Uint8Array(value.slice(0))
         : new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older
     // WHATWG streams and polyfilled bodies throw from releaseLock(), which

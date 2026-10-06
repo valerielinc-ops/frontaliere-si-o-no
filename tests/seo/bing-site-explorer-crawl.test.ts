@@ -1,7 +1,7 @@
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   classifyDocument,
@@ -385,6 +385,32 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(inventory.sitemapCount).toBe(0);
     expect(inventory.errors).toHaveLength(1);
     expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
+  });
+
+  it('cancels an invalid streamed sitemap chunk before recording the read error', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '<urlset>' }),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader) },
+    };
+    const fetchImpl = vi.fn().mockResolvedValue(response);
+    const inventory = await collectSitemapInventory({
+      baseUrl: 'https://example.test',
+      sitemapUrl: 'https://example.test/sitemap.xml',
+      fetchImpl,
+    });
+    expect(inventory.errors).toHaveLength(1);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
   });
 
   it('keeps same-site link evidence while excluding externals and router actions', () => {
