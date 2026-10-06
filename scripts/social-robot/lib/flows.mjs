@@ -191,14 +191,32 @@ async function saveInterstitialDiagnostic(snap, label = 'interstitial-unknown') 
   }
 }
 
-async function observeCookieBanner(root) {
-  return root.evaluate((host) => {
+async function observeCookieBanner(root, blockedLocator = null) {
+  let point = null;
+  try {
+    const box = blockedLocator ? await blockedLocator.boundingBox() : null;
+    if (box && box.width > 0 && box.height > 0) point = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+  } catch {
+    // The blocked control may detach while the banner is being upgraded.
+  }
+  return root.evaluate((host, coordinates) => {
     const defined = Boolean(customElements.get('tiktok-cookie-banner')) && host.matches(':defined');
-    if (!defined) return { cookieBannerState: 'not-defined', shadowRootMode: 'not-defined' };
-    return host.shadowRoot
-      ? { cookieBannerState: 'defined-open', shadowRootMode: 'open' }
-      : { cookieBannerState: 'defined-closed', shadowRootMode: 'closed' };
-  }).catch(() => ({ cookieBannerState: 'unknown', shadowRootMode: 'unknown' }));
+    const shadowRootMode = host.shadowRoot ? 'open' : 'closed-or-not-ready';
+    const visible = (node) => {
+      const style = getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    };
+    const contentVisible = Boolean(host.shadowRoot && [...host.shadowRoot.querySelectorAll('*')].some(visible));
+    const hostVisible = visible(host);
+    const hostBlocksControl = Boolean(coordinates && document.elementFromPoint(coordinates.x, coordinates.y) === host);
+    return {
+      cookieBannerState: defined ? (host.shadowRoot ? 'defined-open' : 'defined-closed') : 'not-defined',
+      shadowRootMode,
+      relevant: hostVisible || contentVisible || hostBlocksControl,
+    };
+  }, point).catch(() => ({ cookieBannerState: 'unknown', shadowRootMode: 'closed-or-not-ready', relevant: false }));
 }
 
 const isClickIntercepted = (err) => /intercepts pointer events|not receiving events|another element.*receives pointer events/i.test(String(err?.message || err));
@@ -245,7 +263,7 @@ async function ensureClickable(page, locator, { step, snap, label, platform, rec
 
   if (allowInterstitialRecovery && platform && !recovery.used) {
     recovery.used = true;
-    await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional });
+    await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional, blockedLocator: locator });
     const retryHit = await checkClickable(locator, { step, label });
     if (retryHit?.ok) return;
     await saveInterstitialDiagnostic(snap);
@@ -273,7 +291,7 @@ async function clickChecked(page, locator, { step, snap, label = 'control', plat
     let retryIntercepted = false;
     if (isClickIntercepted(err) && platform && !recovery.used) {
       recovery.used = true;
-      await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional });
+      await dismissKnownInterstitials({ page, platform, step, snap, timeout: DEFAULT_TIMEOUTS.optional, blockedLocator: locator });
       await ensureClickable(page, locator, { step, snap, label, platform, recovery, allowInterstitialRecovery });
       try {
         await locator.click();
@@ -520,7 +538,7 @@ export const INTERSTITIAL_REGISTRY = Object.freeze({
   ]),
 });
 
-async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.optional) {
+async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.optional, { blockedLocator = null } = {}) {
   if (entry.surface === 'button') {
     const button = await findVisible([page.getByRole('button', { name: entry.name })], { timeout });
     return button ? { root: button, action: button } : null;
@@ -535,23 +553,37 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
     const titleInConfig = page.locator('#tiktok-cookie-banner-config').filter({ hasText: entry.title });
     const configPresent = (await titleInConfig.count().catch(() => 0)) > 0;
     for (const selector of entry.rootSelectors) {
+      const isCookieHost = selector === 'tiktok-cookie-banner';
+      if (isCookieHost) {
+        const hosts = page.locator(selector);
+        const count = await hosts.count().catch(() => 0);
+        for (let i = 0; i < count; i += 1) {
+          const root = hosts.nth(i);
+          const state = await observeCookieBanner(root, blockedLocator);
+          if (!state.relevant) continue;
+          const action = await findVisible([
+            // Page locators pierce TikTok's open shadow root even when the host has no box.
+            page.locator('tiktok-cookie-banner button').filter({ hasText: entry.name }),
+            page.getByRole('button', { name: entry.name }),
+          ], { timeout: Math.min(Math.max(timeout, 0), TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS) });
+          if (!action) return { root, action: null, unreachable: state };
+          return { root, action };
+        }
+        continue;
+      }
+
       const root = await findVisible([page.locator(selector)], { timeout: 0 });
       if (!root) continue;
-      const isCookieHost = selector === 'tiktok-cookie-banner';
       const title = await findVisible([
         root.getByText(entry.title),
         root.locator('h1, h2, h3, [role="heading"]').filter({ hasText: entry.title }),
       ], { timeout: 0 });
-      if (!title && !configPresent && !isCookieHost) continue;
+      if (!title && !configPresent) continue;
       const action = await findVisible([
-        // CSS locators pierce open shadow roots; keep this before role lookup.
         root.locator('button').filter({ hasText: entry.name }),
         root.getByRole('button', { name: entry.name }),
-      ], { timeout: isCookieHost ? Math.min(Math.max(timeout, 0), TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS) : 0 });
+      ], { timeout: 0 });
       if (!action) {
-        if (isCookieHost) {
-          return { root, action: null, unreachable: await observeCookieBanner(root) };
-        }
         continue;
       }
       return { root, action };
@@ -613,7 +645,7 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
 }
 
 /** Dismiss registered interstitials and fail closed on any other visible dialog. */
-export async function dismissKnownInterstitials({ page, platform, step, snap = async () => {}, timeout = DEFAULT_TIMEOUTS.optional }) {
+export async function dismissKnownInterstitials({ page, platform, step, snap = async () => {}, timeout = DEFAULT_TIMEOUTS.optional, blockedLocator = null }) {
   const entries = INTERSTITIAL_REGISTRY[platform] || [];
   const maxPasses = entries.length + MAX_GUIDED_TOUR_STEPS + 2;
   let settled = false;
@@ -622,7 +654,7 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
     let dismissed = false;
     const scanDeadline = Date.now() + (pass === 0 ? timeout : 0);
     for (const entry of entries) {
-      const target = await findKnownInterstitial(page, entry, Math.max(0, scanDeadline - Date.now()));
+      const target = await findKnownInterstitial(page, entry, Math.max(0, scanDeadline - Date.now()), { blockedLocator });
       if (!target) continue;
       if (entry.safeAction === 'advance-guided-tour') {
         if (tourSteps >= MAX_GUIDED_TOUR_STEPS) {
