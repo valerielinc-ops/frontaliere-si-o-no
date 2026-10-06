@@ -732,12 +732,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-2afb1c801bb3",
-      "slug": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr",
+      "slug": "infermiera-specialist-practitioner-ips-in-chirurgia-ortopedica-e-trauma-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr",
-        "it": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr",
-        "en": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr",
-        "de": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr"
+        "it": "infermiera-specialist-practitioner-ips-in-chirurgia-ortopedica-e-trauma-hopital-fribourgeois-hfr-fribourg",
+        "en": "nurse-specialist-practitioner-ips-in-orthopaedic-surgery-and-trauma-hopital-fribourgeois-hfr-fribourg",
+        "de": "nurse-specialist-practitioner-ips-in-orthopadischer-chirurgie-und-trauma-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -796,7 +796,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:45:17.684Z"
+      "firstSeenAt": "2026-10-05T21:45:17.684Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr"
+        ],
+        "en": [
+          "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr"
+        ],
+        "de": [
+          "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-65e52e26e895",
@@ -1167,7 +1181,7 @@
       "slug": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
       "slugByLocale": {
         "it": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "en": "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers",
+        "en": "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers",
         "de": "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers",
         "fr": "ergotherapie-40-hopital-fribourgeois-hfr-hfr-tafers"
       },
@@ -1225,7 +1239,6 @@
         "ergotherapeutin-ergotherapeuten-40-hopital-fribourgeois-hfr-tafers",
         "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hfr-hopital-fribourgeois-hfr-tafers",
         "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers",
         "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers"
       ],
       "previousSlugsByLocale": {
@@ -1244,7 +1257,6 @@
           "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers",
           "ergotherapeutin-ergotherapeuten-40-hopital-fribourgeois-hfr-tafers",
           "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers",
-          "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers",
           "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers"
         ],
         "de": [

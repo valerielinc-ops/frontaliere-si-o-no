@@ -1495,12 +1495,12 @@
     },
     {
       "id": "spitex-ch-e2a032fca34f",
-      "slug": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen",
+      "slug": "dipl-infermieristica-professionale-hf-psichiatria-spitex-region-entlebuch-wolhusen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen",
-        "it": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen",
-        "en": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen",
-        "fr": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen"
+        "it": "dipl-infermieristica-professionale-hf-psichiatria-spitex-region-entlebuch-wolhusen",
+        "en": "dipl-nursing-professional-hf-psychiatry-spitex-region-entlebuch-wolhusen",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-psychiatrie-spitex-region-entlebuch-wolhusen"
       },
       "company": "Spitex Region Entlebuch",
       "companyKey": "spitex-ch",
@@ -1559,7 +1559,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:26:12.753Z"
+      "firstSeenAt": "2026-10-05T21:26:12.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen"
+      ]
     },
     {
       "id": "spitex-ch-86cecf38b511",
@@ -2007,7 +2021,7 @@
       "slug": "dipl-cura-professionale-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-m-w-d-80-spitex-ch-grosshochstetten",
-        "it": "dipl-cura-professionale-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
+        "it": "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
         "en": "dipl-nurse-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
         "fr": "dipl-infirmiere-hf-m-f-j-80-spitex-region-konolfingen-grosshochstetten"
       },
@@ -2056,8 +2070,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-          "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
-          "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten"
+          "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
         ],
         "de": [
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten"
@@ -2065,8 +2078,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-        "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
-        "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten"
+        "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,

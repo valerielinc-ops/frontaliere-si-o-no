@@ -13739,11 +13739,11 @@
     },
     {
       "id": "lonza-78e0e0610a6e",
-      "slug": "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch",
+      "slug": "msat-esperto-di-processo-in-colture-cellulari-di-mammiferi-dsp-squame-lonza-visp",
       "slugByLocale": {
-        "it": "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch",
+        "it": "msat-esperto-di-processo-in-colture-cellulari-di-mammiferi-dsp-squame-lonza-visp",
         "en": "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch",
-        "de": "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch",
+        "de": "msat-prozessexperte-saugetierzellkultur-dsp-steinbock-lonza-visp",
         "fr": "msat-expert-en-processus-mammali-cell-culture-dsp-ibex-lonza-visp"
       },
       "company": "Lonza",
@@ -13800,7 +13800,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch"
+        ],
+        "de": [
+          "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-process-expert-mammalian-cell-culture-dsp-ibex-lonza-ch"
+      ]
     },
     {
       "id": "lonza-9a7c35144070",
@@ -14044,7 +14055,7 @@
       "slug": "lead-technician-coordinator-workshop-80-100-m-f-d-lonza-stein",
       "slugByLocale": {
         "it": "lead-technician-coordinator-workshop-80-100-m-f-d-lonza-stein",
-        "en": "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch",
+        "en": "lead-technician-workshop-coordinator-80-100-m-f-d-lonza-stein",
         "de": "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch",
         "fr": "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
       },
@@ -14093,6 +14104,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
           "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -14194,9 +14208,9 @@
     },
     {
       "id": "lonza-8d2fd917febe",
-      "slug": "operational-excellence-manager-m-f-d-80-100-lonza-ch",
+      "slug": "responsabile-eccellenza-operativa-m-f-d-80-100-lonza-visp",
       "slugByLocale": {
-        "it": "operational-excellence-manager-m-f-d-80-100-lonza-ch",
+        "it": "responsabile-eccellenza-operativa-m-f-d-80-100-lonza-visp",
         "en": "operational-excellence-manager-m-f-d-80-100-lonza-ch",
         "de": "operational-excellence-manager-m-f-d-80-100-lonza-ch",
         "fr": "gestionnaire-d-excellence-operationnelle-h-f-d-80-100-lonza-visp"
@@ -14255,7 +14269,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-excellence-manager-m-f-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operational-excellence-manager-m-f-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b0ec0f3ee613",

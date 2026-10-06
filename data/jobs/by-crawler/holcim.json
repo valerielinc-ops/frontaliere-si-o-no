@@ -9,7 +9,7 @@
         "it": "partner-delle-persone-in-holcim-group-eclepens",
         "en": "people-partner-holcim-group-eclepens",
         "de": "people-partner-in-holcim-ch",
-        "fr": "people-partner-50-holcim-group-eclepens"
+        "fr": "personnes-partenaire-in-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -54,7 +54,6 @@
       "previousSlugs": [
         "people-partner-in-50-holcim-ch",
         "people-partner-in-50-holcim-group-eclepens",
-        "personnes-partenaire-in-holcim-group-eclepens",
         "people-partner-50-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
@@ -66,7 +65,6 @@
         ],
         "fr": [
           "people-partner-in-50-holcim-group-eclepens",
-          "personnes-partenaire-in-holcim-group-eclepens",
           "people-partner-50-holcim-group-eclepens"
         ]
       },
@@ -454,12 +452,12 @@
     },
     {
       "id": "holcim-54e8fbae85ff",
-      "slug": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
+      "slug": "disposizione-dell-economia-circolare-holcim-group-zurich",
       "slugByLocale": {
         "de": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
-        "it": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
-        "en": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
-        "fr": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        "it": "disposizione-dell-economia-circolare-holcim-group-zurich",
+        "en": "circular-economy-disposition-holcim-group-zurich",
+        "fr": "disposition-circulaire-de-l-economie-holcim-group-zurich"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -516,7 +514,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:41:23.377Z"
+      "firstSeenAt": "2026-10-05T21:41:23.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ],
+        "en": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch"
+      ]
     },
     {
       "id": "holcim-960650fcd523",
@@ -524,8 +536,8 @@
       "slugByLocale": {
         "de": "mechaniker-in-holcim-ch",
         "it": "mechaniker-in-holcim-ch",
-        "en": "mechaniker-in-holcim-ch",
-        "fr": "mechaniker-in-holcim-ch"
+        "en": "mechanic-holcim-group-oberdorf",
+        "fr": "mecanicien-ne-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",

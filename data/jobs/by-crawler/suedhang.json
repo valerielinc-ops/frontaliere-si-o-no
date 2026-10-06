@@ -7,9 +7,9 @@
       "slug": "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach",
       "slugByLocale": {
         "it": "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach",
-        "en": "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach",
+        "en": "cleaning-staff-klinik-sudhang-kirchlindach",
         "de": "mitarbeiter-in-reinigung-suedhang-ch",
-        "fr": "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"
+        "fr": "employe-e-de-nettoyage-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -56,11 +56,18 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-suedhang-ch"
+        "mitarbeiter-in-reinigung-suedhang-ch",
+        "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reinigung-suedhang-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"
+        ],
+        "fr": [
+          "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:46.861Z",

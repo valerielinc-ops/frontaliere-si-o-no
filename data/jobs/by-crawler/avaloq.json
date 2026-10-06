@@ -4,7 +4,7 @@
   "jobs": [
     {
       "title": "Cloud Architect",
-      "slug": "cloud-architect-avaloq-bioggio",
+      "slug": "cloud-architetto-avaloq-bioggio",
       "url": "https://jobs.smartrecruiters.com/Avaloq1/744000153477839-cloud-architect",
       "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000153477839-cloud-architect?oga=true",
       "company": "Avaloq",
@@ -42,9 +42,9 @@
       },
       "slugByLocale": {
         "en": "cloud-architect-avaloq-bioggio",
-        "it": "cloud-architect-avaloq-bioggio",
-        "de": "cloud-architect-avaloq-bioggio",
-        "fr": "cloud-architect-avaloq-bioggio"
+        "it": "cloud-architetto-avaloq-bioggio",
+        "de": "cloud-architekt-avaloq-bioggio",
+        "fr": "cloud-architecte-avaloq-bioggio"
       },
       "id": "avaloq-9f9e30f490f8",
       "salaryMin": 51500,
@@ -62,7 +62,21 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-10-05T21:43:42.480Z"
+      "firstSeenAt": "2026-10-05T21:43:42.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cloud-architect-avaloq-bioggio"
+        ],
+        "de": [
+          "cloud-architect-avaloq-bioggio"
+        ],
+        "fr": [
+          "cloud-architect-avaloq-bioggio"
+        ]
+      },
+      "previousSlugs": [
+        "cloud-architect-avaloq-bioggio"
+      ]
     },
     {
       "title": "Software Engineer - Payment",
@@ -244,7 +258,7 @@
       "slugByLocale": {
         "en": "cloud-security-architect-avaloq-bioggio",
         "it": "cloud-security-architect-avaloq-bioggio",
-        "de": "cloud-security-architect-avaloq-bioggio",
+        "de": "cloud-sicherheitsarchitekt-avaloq-bioggio",
         "fr": "cloud-security-architect-avaloq-bioggio"
       },
       "id": "avaloq-766206012258",

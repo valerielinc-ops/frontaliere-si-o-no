@@ -58,13 +58,11 @@
       "pensumMax": 20,
       "pensum": "10 - 20%",
       "previousSlugs": [
-        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
-        "lavorare-nella-piscina-di-cura-dipl-infermiera-salute-professionale-spital-muri-muri-ag"
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
-          "lavorare-nella-piscina-di-cura-dipl-infermiera-salute-professionale-spital-muri-muri-ag"
+          "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
         ],
         "en": [
           "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
@@ -90,9 +88,9 @@
     },
     {
       "id": "spital-muri-cd78c07ee04a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+      "slug": "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+        "it": "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag",
         "en": "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
         "fr": "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag"
@@ -143,11 +141,13 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag"
+        "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag"
+          "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
+          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:48.765Z",
@@ -220,13 +220,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag",
-        "student-student-dipl-specialist-operations-engineering-hf-spital-muri-muri-ag"
+        "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag",
-          "student-student-dipl-specialist-operations-engineering-hf-spital-muri-muri-ag"
+          "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
         ],
         "en": [
           "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
@@ -255,7 +253,7 @@
       "slug": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+        "en": "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
         "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spital-muri-muri-ag"
       },
@@ -305,15 +303,16 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag"
+        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
-          "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag"
+          "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag"
         ],
         "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag"
+        ],
+        "en": [
           "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag"
         ]
       },
@@ -505,7 +504,7 @@
       "slug": "fisioterapista-fh-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "fisioterapista-fh-spital-muri-muri-ag",
-        "en": "physiotherapeutin-physiotherapeut-fh-spital-muri-ag",
+        "en": "physiotherapist-fh-spital-muri-muri-ag",
         "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
         "fr": "physiotherapeute-fh-spital-muri-muri-ag"
       },
@@ -556,17 +555,15 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-        "physiotherapist-fh-spital-muri-muri-ag",
-        "fisioterapista-fh-spital-muri-muri-ag"
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-          "fisioterapista-fh-spital-muri-muri-ag"
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-          "physiotherapist-fh-spital-muri-muri-ag"
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
@@ -713,13 +710,11 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag",
-        "geriatria-professionale-della-salute-spital-muri-muri-ag"
+        "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag",
-          "geriatria-professionale-della-salute-spital-muri-muri-ag"
+          "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
@@ -798,13 +793,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag",
-        "student-student-dipl-infermiera-care-professional-hf-spital-muri-muri-ag"
+        "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag",
-          "student-student-dipl-infermiera-care-professional-hf-spital-muri-muri-ag"
+          "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
         ],
         "en": [
           "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
@@ -884,13 +877,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "praktikantin-praktikant-pflege-spital-muri-muri-ag",
-        "infermiere-di-tirocinio-spital-muri-muri-ag"
+        "praktikantin-praktikant-pflege-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-pflege-spital-muri-muri-ag",
-          "infermiere-di-tirocinio-spital-muri-muri-ag"
+          "praktikantin-praktikant-pflege-spital-muri-muri-ag"
         ],
         "en": [
           "praktikantin-praktikant-pflege-spital-muri-muri-ag"
@@ -969,13 +960,11 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag",
-        "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag",
-          "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
@@ -1055,13 +1044,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag",
-        "lavoro-sociale-bsc-spital-muri-muri-ag"
+        "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag",
-          "lavoro-sociale-bsc-spital-muri-muri-ag"
+          "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
         ],
         "en": [
           "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
@@ -1141,13 +1128,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag",
-        "team-leader-paziente-accoglienza-accoglienza-spital-muri-muri-ag"
+        "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag",
-          "team-leader-paziente-accoglienza-accoglienza-spital-muri-muri-ag"
+          "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
         ],
         "en": [
           "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
@@ -1227,13 +1212,11 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag",
-        "case-handler-ricezione-di-emergenza-spital-muri-muri-ag"
+        "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag",
-          "case-handler-ricezione-di-emergenza-spital-muri-muri-ag"
+          "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
@@ -1313,13 +1296,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag",
-        "medico-specializzato-pratica-di-emergenza-spital-muri-muri-ag"
+        "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag",
-          "medico-specializzato-pratica-di-emergenza-spital-muri-muri-ag"
+          "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
         ],
         "en": [
           "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
@@ -1348,7 +1329,7 @@
       "slug": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+        "en": "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag"
       },
@@ -1399,16 +1380,15 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
-        "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
-        "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag"
+        "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
-          "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
         ],
         "en": [
-          "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag"
+          "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
@@ -1569,13 +1549,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag",
-        "assistenza-agli-studenti-nds-hf-80-100-spital-muri-muri-ag"
+        "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag",
-          "assistenza-agli-studenti-nds-hf-80-100-spital-muri-muri-ag"
+          "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
         ],
         "en": [
           "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
@@ -1654,13 +1632,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag",
-        "modulo-di-stage-c-student-student-care-fh-spital-muri-muri-ag"
+        "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag",
-          "modulo-di-stage-c-student-student-care-fh-spital-muri-muri-ag"
+          "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
         ],
         "en": [
           "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
@@ -1740,13 +1716,11 @@
       "pensumMax": 30,
       "pensum": "30%",
       "previousSlugs": [
-        "mpa-kinderarztpraxis-muri-spital-muri-muri-ag",
-        "mpa-pratica-pediatrica-muri-spital-muri-muri-ag"
+        "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-kinderarztpraxis-muri-spital-muri-muri-ag",
-          "mpa-pratica-pediatrica-muri-spital-muri-muri-ag"
+          "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
         ],
         "en": [
           "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
@@ -1910,13 +1884,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag",
-        "emergenza-della-salute-professionale-spital-muri-muri-ag"
+        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag",
-          "emergenza-della-salute-professionale-spital-muri-muri-ag"
+          "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
@@ -1996,13 +1968,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag",
-        "medico-senior-gastroenterologia-medico-senior-spital-muri-muri-ag"
+        "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag",
-          "medico-senior-gastroenterologia-medico-senior-spital-muri-muri-ag"
+          "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
         ],
         "en": [
           "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
@@ -2082,13 +2052,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
-        "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag"
+        "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
-          "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag"
+          "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:32.589Z",
@@ -2232,13 +2200,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
-        "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag"
+        "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
-          "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag"
+          "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:31.109Z",
@@ -2312,13 +2278,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital",
-        "dipl-responsabile-professionale-infermieristica-professionale-hf-fh-spital-muri-muri-ag"
+        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital",
-          "dipl-responsabile-professionale-infermieristica-professionale-hf-fh-spital-muri-muri-ag"
+          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
         ],
         "en": [
           "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
@@ -2399,13 +2363,11 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-expert-cura-intensiva-nds-hf-spital-muri-muri-ag"
+        "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag",
-          "dipl-expert-expert-cura-intensiva-nds-hf-spital-muri-muri-ag"
+          "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag"
         ],
         "en": [
           "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag"
@@ -2485,13 +2447,11 @@
       "pensumMax": 100,
       "pensum": "10 - 100%",
       "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag",
-        "dipl-expert-emergency-care-nds-hf-salario-orario-spital-muri-muri-ag"
+        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag",
-          "dipl-expert-emergency-care-nds-hf-salario-orario-spital-muri-muri-ag"
+          "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
         ],
         "en": [
           "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"

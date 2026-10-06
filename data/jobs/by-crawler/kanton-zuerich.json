@@ -4799,7 +4799,7 @@
       "slug": "it-system-ingegnere-in-befristet-bis-30-06-2029-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "it": "it-system-ingegnere-in-befristet-bis-30-06-2029-kantonale-verwaltung-zurich",
-        "en": "it-system-engineer-in-befristet-bis-30-06-2029-kantonale-verwaltung-zurich-zurich",
+        "en": "it-system-engineer-limited-until-30-06-2029-kantonale-verwaltung-zurich-zurich",
         "de": "it-system-engineer-in-befristet-bis-30-06-2029-kanton-zuerich-zurich",
         "fr": "it-system-engineer-in-befristet-bis-30-06-2029-kanton-zuerich-zurich"
       },
@@ -4850,11 +4850,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "it-system-engineer-in-befristet-bis-30-06-2029-kanton-zuerich-zurich"
+        "it-system-engineer-in-befristet-bis-30-06-2029-kanton-zuerich-zurich",
+        "it-system-engineer-in-befristet-bis-30-06-2029-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-system-engineer-in-befristet-bis-30-06-2029-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "it-system-engineer-in-befristet-bis-30-06-2029-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:29:44.677Z",
@@ -5309,7 +5313,7 @@
         "it": "risorse-umane-service-partner-in-kantonale-verwaltung-zurich-zurich",
         "en": "hr-service-partner-in-kanton-zuerich-zurich",
         "de": "hr-service-partner-in-kanton-zuerich-zurich",
-        "fr": "hr-service-partner-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "prestataires-de-services-rh-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5358,11 +5362,15 @@
       "pensumMax": 70,
       "pensum": "70%",
       "previousSlugs": [
-        "hr-service-partner-in-kanton-zuerich-zurich"
+        "hr-service-partner-in-kanton-zuerich-zurich",
+        "hr-service-partner-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-service-partner-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "hr-service-partner-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:29:41.042Z",

@@ -1192,9 +1192,9 @@
       "slug": "sozialarbeiter-in-familienprofil-stadt-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
-        "it": "sozialarbeiter-in-familienprofil-stadt-zurich",
-        "en": "sozialarbeiter-in-familienprofil-stadt-zurich",
-        "fr": "sozialarbeiter-in-familienprofil-stadt-zurich"
+        "it": "social-worker-in-profilo-famiglia-stadt-zurich-zurich-1d0851",
+        "en": "social-worker-in-family-profile-stadt-zurich-zurich-1d0851",
+        "fr": "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1246,21 +1246,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
-          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-1d0851"
-        ],
-        "en": [
-          "social-worker-in-family-profile-stadt-zurich-zurich-1d0851"
-        ],
-        "fr": [
-          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851"
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
-        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-1d0851",
-        "social-worker-in-family-profile-stadt-zurich-zurich-1d0851",
-        "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851"
+        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7901,10 +7891,10 @@
       "id": "stadt-zuerich-9fc3bf22fad0",
       "slug": "juristische-r-praktikant-in-stadt-zurich",
       "slugByLocale": {
-        "it": "juristische-r-praktikant-in-stadt-zurich",
-        "en": "juristische-r-praktikant-in-stadt-zurich",
+        "it": "formazione-legale-stadt-zurich-zurich",
+        "en": "legal-trainee-stadt-zurich-zurich",
         "de": "juristische-r-praktikant-in-stadt-zuerich-zurigo-51350",
-        "fr": "juristische-r-praktikant-in-stadt-zurich"
+        "fr": "stagiaire-juridique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -7952,21 +7942,11 @@
       "unit": "Departementssekretariat HBD",
       "referenceNumber": "51350",
       "previousSlugs": [
-        "juristische-r-praktikant-in-stadt-zuerich-zurigo-51350",
-        "formazione-legale-stadt-zurich-zurich",
-        "legal-trainee-stadt-zurich-zurich",
-        "stagiaire-juridique-stadt-zurich-zurich"
+        "juristische-r-praktikant-in-stadt-zuerich-zurigo-51350"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juristische-r-praktikant-in-stadt-zuerich-zurigo-51350",
-          "formazione-legale-stadt-zurich-zurich"
-        ],
-        "en": [
-          "legal-trainee-stadt-zurich-zurich"
-        ],
-        "fr": [
-          "stagiaire-juridique-stadt-zurich-zurich"
+          "juristische-r-praktikant-in-stadt-zuerich-zurigo-51350"
         ]
       },
       "needsRetranslation": true,
@@ -14260,12 +14240,12 @@
     },
     {
       "id": "stadt-zuerich-3d42e7247e0e",
-      "slug": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
+      "slug": "caposquadra-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
-        "en": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
+        "it": "caposquadra-stadt-zurich-zurich",
+        "en": "foreman-stadt-zurich-zurich",
         "de": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
-        "fr": "vorarbeiter-in-stadt-zuerich-zurigo-51721"
+        "fr": "contremaitre-fe-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -14325,7 +14305,21 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-stadt-zuerich-zurigo-51721"
+        ],
+        "en": [
+          "vorarbeiter-in-stadt-zuerich-zurigo-51721"
+        ],
+        "fr": [
+          "vorarbeiter-in-stadt-zuerich-zurigo-51721"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-stadt-zuerich-zurigo-51721"
+      ]
     },
     {
       "id": "stadt-zuerich-357bdf44b407",
@@ -17575,8 +17569,8 @@
       "id": "stadt-zuerich-405b4ac0728d",
       "slug": "pedagogia-infantile-in-sss-stadt-zurich",
       "slugByLocale": {
-        "it": "pedagogia-infantile-in-sss-stadt-zurich",
-        "en": "childhoodeducator-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
+        "en": "childhood-education-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
         "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
@@ -17630,8 +17624,7 @@
           "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
           "childhood-education-hf-stadt-zurich-zurich-e49b8a",
           "kindheitspadagog-in-hf-stadt-zurich",
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
         ],
         "de": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
@@ -17639,7 +17632,6 @@
         ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
-          "childhood-education-hf-stadt-zurich-zurich",
           "childhoodeducator-hf-stadt-zurich"
         ],
         "fr": [
@@ -17652,8 +17644,6 @@
         "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "kindheitspadagog-in-hf-stadt-zurich",
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich",
-        "childhood-education-hf-stadt-zurich-zurich",
         "childhoodeducator-hf-stadt-zurich"
       ],
       "salaryMin": 73500,
@@ -17678,7 +17668,7 @@
       "slug": "principale-medico-geriatrico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "principale-medico-geriatrico-stadt-zurich-zurich",
-        "en": "chefarzt-in-geriatrie-stadt-zurich",
+        "en": "chief-physician-geriatrics-stadt-zurich-zurich",
         "de": "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507",
         "fr": "medecin-en-chef-de-la-geriatrie-stadt-zurich-zurich"
       },
@@ -17729,7 +17719,6 @@
       "referenceNumber": "50507",
       "previousSlugs": [
         "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507",
-        "chief-physician-geriatrics-stadt-zurich-zurich",
         "chefarzt-in-geriatrie-stadt-zurich"
       ],
       "previousSlugsByLocale": {
@@ -17737,7 +17726,6 @@
           "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507"
         ],
         "en": [
-          "chief-physician-geriatrics-stadt-zurich-zurich",
           "chefarzt-in-geriatrie-stadt-zurich"
         ]
       },
@@ -19027,7 +19015,7 @@
       "slug": "istruzione-sociale-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "istruzione-sociale-stadt-zurich-zurich",
-        "en": "socialworker-stadt-zurich",
+        "en": "social-education-stadt-zurich-zurich",
         "de": "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "fr": "education-sociale-stadt-zurich-zurich"
       },
@@ -19079,7 +19067,6 @@
       "previousSlugs": [
         "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "sozialpadagog-in-stadt-zurich",
-        "social-education-stadt-zurich-zurich",
         "socialworker-stadt-zurich"
       ],
       "previousSlugsByLocale": {
@@ -19088,7 +19075,6 @@
         ],
         "en": [
           "sozialpadagog-in-stadt-zurich",
-          "social-education-stadt-zurich-zurich",
           "socialworker-stadt-zurich"
         ]
       },
@@ -19113,9 +19099,9 @@
       "slug": "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
-        "en": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich",
+        "en": "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
         "de": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
-        "fr": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
+        "fr": "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19164,8 +19150,6 @@
       "referenceNumber": "50406",
       "previousSlugs": [
         "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
-        "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
-        "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich",
         "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
       ],
       "previousSlugsByLocale": {
@@ -19173,11 +19157,9 @@
           "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406"
         ],
         "en": [
-          "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
           "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
         ],
         "fr": [
-          "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich",
           "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
         ]
       },
@@ -22443,9 +22425,9 @@
       "slug": "leiter-in-rechtsdienst-schulen-stadt-zurich",
       "slugByLocale": {
         "it": "leiter-in-rechtsdienst-schulen-stadt-zurich",
-        "en": "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805",
+        "en": "head-of-legal-services-schools-stadt-zurich-zurich",
         "de": "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805",
-        "fr": "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805"
+        "fr": "responsable-du-service-juridique-des-ecoles-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -22497,6 +22479,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805"
+        ],
+        "en": [
+          "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805"
+        ],
+        "fr": [
           "leiter-in-rechtsdienst-schulen-stadt-zuerich-zurigo-51805"
         ]
       },
@@ -24156,12 +24144,12 @@
     },
     {
       "id": "stadt-zuerich-29f84c0e008f",
-      "slug": "praktikant-in-administration-stadt-zuerich-zurigo-51780",
+      "slug": "tirocinante-in-amministrazione-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "praktikant-in-administration-stadt-zuerich-zurigo-51780",
-        "en": "praktikant-in-administration-stadt-zuerich-zurigo-51780",
+        "it": "tirocinante-in-amministrazione-stadt-zurich-zurich",
+        "en": "intern-administration-stadt-zurich-zurich",
         "de": "praktikant-in-administration-stadt-zuerich-zurigo-51780",
-        "fr": "praktikant-in-administration-stadt-zuerich-zurigo-51780"
+        "fr": "stagiaire-en-administration-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -24221,7 +24209,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-administration-stadt-zuerich-zurigo-51780"
+        ],
+        "en": [
+          "praktikant-in-administration-stadt-zuerich-zurigo-51780"
+        ],
+        "fr": [
+          "praktikant-in-administration-stadt-zuerich-zurigo-51780"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-administration-stadt-zuerich-zurigo-51780"
+      ]
     },
     {
       "id": "stadt-zuerich-e96c7fc9ed43",
@@ -25601,7 +25603,7 @@
       "slug": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
-        "en": "detachment-and-cleaner-stadt-zurich",
+        "en": "removal-and-cleaning-power-stadt-zurich-zurich",
         "de": "abloser-in-und-reinigungskraft-stadt-zuerich-zurigo-51435",
         "fr": "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
       },
@@ -25655,7 +25657,6 @@
         "abloser-in-und-reinigungskraft-stadt-zurich-zurich",
         "abloser-in-e-reinigungskraft-stadt-zurich",
         "abloser-in-und-reinigungskraft-stadt-zurich",
-        "removal-and-cleaning-power-stadt-zurich-zurich",
         "detachment-and-cleaner-stadt-zurich"
       ],
       "previousSlugsByLocale": {
@@ -25666,7 +25667,6 @@
         ],
         "en": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "removal-and-cleaning-power-stadt-zurich-zurich",
           "detachment-and-cleaner-stadt-zurich"
         ],
         "fr": [
@@ -28096,7 +28096,7 @@
         "it": "vorarbeiter-in-stadt-zuerich-zurigo-51522",
         "en": "vorarbeiter-in-stadt-zuerich-zurigo-51522",
         "de": "vorarbeiter-in-stadt-zuerich-zurigo-51522",
-        "fr": "vorarbeiter-in-stadt-zurich"
+        "fr": "contremaitre-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28144,12 +28144,10 @@
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51522",
       "previousSlugs": [
-        "contremaitre-stadt-zurich-zurich",
         "vorarbeiter-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "contremaitre-stadt-zurich-zurich",
           "vorarbeiter-in-stadt-zurich"
         ]
       },
@@ -34195,7 +34193,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34245,7 +34243,6 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich",
         "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
@@ -34254,7 +34251,6 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich",
           "trampilot-in-stadt-zurich"
         ]
       },

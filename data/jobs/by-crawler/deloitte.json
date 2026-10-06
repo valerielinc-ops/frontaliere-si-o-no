@@ -4723,9 +4723,9 @@
     },
     {
       "id": "deloitte-05dd1734b5e8",
-      "slug": "it-business-relationship-manager-deloitte-zurich",
+      "slug": "responsabile-delle-relazioni-commerciali-it-deloitte-zurich",
       "slugByLocale": {
-        "it": "it-business-relationship-manager-deloitte-zurich",
+        "it": "responsabile-delle-relazioni-commerciali-it-deloitte-zurich",
         "en": "it-business-relationship-manager-deloitte-zurich",
         "de": "it-business-relationship-manager-deloitte-zurich",
         "fr": "gestionnaire-des-relations-d-affaires-ti-deloitte-zurich"
@@ -4787,7 +4787,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-relationship-manager-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-relationship-manager-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-c9a44e9ff9eb",

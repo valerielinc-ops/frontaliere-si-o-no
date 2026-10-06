@@ -1775,9 +1775,9 @@
         "de": "Produktmanager",
         "fr": "Gestionnaire de produits"
       },
-      "slug": "product-manager-swisscom-fribourg-drxcv2",
+      "slug": "responsabile-del-prodotto-swisscom-fribourg",
       "slugByLocale": {
-        "it": "product-manager-swisscom-fribourg-drxcv2",
+        "it": "responsabile-del-prodotto-swisscom-fribourg",
         "en": "product-manager-swisscom-fribourg-drxcv2",
         "de": "produktmanager-swisscom-fribourg",
         "fr": "gestionnaire-de-produits-swisscom-fribourg"
@@ -1813,7 +1813,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-swisscom-fribourg-drxcv2"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-swisscom-fribourg-drxcv2"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Internship-NETAdvance---Datacenter-Network_R-0006691",
