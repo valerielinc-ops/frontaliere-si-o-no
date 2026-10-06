@@ -420,15 +420,31 @@ export function normalizeText(value) {
  * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
 export function cleanEventText(value) {
   if (typeof value !== 'string') return '';
-  const withoutRawTags = value
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?\s*>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ');
-  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let text = value;
+  // Crawler feeds occasionally encode the same field more than once
+  // (`&amp;auml;`). Decode until stable so a visible entity cannot survive
+  // solely because it was wrapped in another entity.
+  for (let pass = 0; pass < 3; pass += 1) {
+    const withoutRawTags = text
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<br\s*\/?\s*>/gi, ' ')
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    const decoded = decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    text = decoded;
+    if (decoded === withoutRawTags) break;
+  }
+
+  // The source fields are plain text in the rendered event cards. Remove the
+  // small Markdown subset that appears in agenda feeds while preserving
+  // ordinary hashtags such as `#batterypower` and names containing `*`.
+  text = text
+    .replace(/(^|\s)#{1,6}(?=\s)/g, '$1')
+    .replace(/(^|[\s([{\"'“‘])(\*{1,3}|_{1,3})(?=\S)([\s\S]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’])/g, '$1$3')
+    .replace(/(^|\s)(?:\*{3,}|_{3,})(?=\s|$)/g, '$1');
+
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 /**
