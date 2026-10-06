@@ -62,6 +62,19 @@ describe('reopenedAfterDecomposition', () => {
     ])).toBe(false);
   });
 
+  it('a parità di secondo decide la posizione nel thread', () => {
+    // GitHub data i commenti al secondo: una ricorrenza scritta nello stesso
+    // secondo della decomposizione è «dopo» solo se viene dopo nell'elenco.
+    expect(reopenedAfterDecomposition([
+      decomposed('2026-10-03T10:00:00Z'),
+      reopened('2026-10-03T10:00:00Z'),
+    ])).toBe(true);
+    expect(reopenedAfterDecomposition([
+      reopened('2026-10-03T10:00:00Z'),
+      decomposed('2026-10-03T10:00:00Z'),
+    ])).toBe(false);
+  });
+
   it('false: nessuna riapertura', () => {
     expect(reopenedAfterDecomposition([
       decomposed('2026-10-03T10:00:00Z'),

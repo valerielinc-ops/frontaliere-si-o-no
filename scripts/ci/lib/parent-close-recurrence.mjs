@@ -105,17 +105,31 @@ function createdAtMs(comment) {
 export function reopenedAfterDecomposition(comments) {
   const list = Array.isArray(comments) ? comments : [];
   let decomposition = null;
-  for (const c of list) {
-    if (decomposedIntoNumbers(c?.body).length) decomposition = c;
-  }
+  let decompositionIndex = -1;
+  list.forEach((c, index) => {
+    if (decomposedIntoNumbers(c?.body).length) {
+      decomposition = c;
+      decompositionIndex = index;
+    }
+  });
   if (!decomposition) return false;
   const decomposedAt = createdAtMs(decomposition);
   if (decomposedAt === null) return false;
-  return list.some((c) => {
+  return list.some((c, index) => {
     if (!isMonitorRecurrence(c?.body)) return false;
     const at = createdAtMs(c);
-    return at !== null && at > decomposedAt;
+    return at !== null && isAfter(at, index, decomposedAt, decompositionIndex);
   });
+}
+
+/**
+ * «Dopo», per due commenti dello stesso thread. GitHub data i commenti al
+ * secondo, quindi due eventi distinti possono avere lo stesso istante: in quel
+ * caso decide la posizione nell'elenco, che arriva in ordine cronologico. È
+ * la stessa autorità di `decomposedChildNumbers` (l'ultimo commento vince).
+ */
+function isAfter(atMs, index, referenceAtMs, referenceIndex) {
+  return atMs > referenceAtMs || (atMs === referenceAtMs && index > referenceIndex);
 }
 
 function skipDecision(reason, extra = {}) {
@@ -129,14 +143,17 @@ function skipDecision(reason, extra = {}) {
  */
 function latestRearmDecomposition(comments) {
   let latest = null;
-  for (const comment of comments) {
+  for (const [index, comment] of comments.entries()) {
     const body = typeof comment?.body === 'string' ? comment.body : '';
     if (!DECOMPOSED_MARKER_RE.test(body)) continue;
     const childNumbers = decomposedIntoNumbers(body);
     const at = createdAtMs(comment);
     if (!childNumbers.length || at === null) return { ok: false, latest: null };
-    if (!latest || at > latest.atMs) {
-      latest = { atMs: at, createdAt: comment.createdAt, childNumbers };
+    // A parità di istante vince il commento successivo, come in
+    // `decomposedChildNumbers`: una seconda decomposizione nello stesso
+    // secondo, che aggiunge una figlia aperta, deve decidere lei.
+    if (!latest || at >= latest.atMs) {
+      latest = { atMs: at, index, createdAt: comment.createdAt, childNumbers };
     }
   }
   return { ok: true, latest };
@@ -149,11 +166,11 @@ function latestRearmDecomposition(comments) {
  */
 function monitorRecurrences(comments) {
   const events = [];
-  for (const comment of comments) {
+  for (const [index, comment] of comments.entries()) {
     if (!isMonitorRecurrence(comment?.body)) continue;
     const at = createdAtMs(comment);
     if (at === null) return { ok: false, events: [] };
-    events.push({ atMs: at, createdAt: comment.createdAt });
+    events.push({ atMs: at, index, createdAt: comment.createdAt });
   }
   return { ok: true, events };
 }
@@ -234,8 +251,8 @@ export function decideParentRearm({
   const recurrences = monitorRecurrences(comments);
   if (!recurrences.ok) return skipDecision('unreadable');
   const reopened = recurrences.events
-    .filter((event) => event.atMs > decomposition.latest.atMs)
-    .sort((a, b) => a.atMs - b.atMs)
+    .filter((event) => isAfter(event.atMs, event.index, decomposition.latest.atMs, decomposition.latest.index))
+    .sort((a, b) => a.atMs - b.atMs || a.index - b.index)
     .at(-1);
   if (!reopened) return skipDecision('not-reopened');
 
